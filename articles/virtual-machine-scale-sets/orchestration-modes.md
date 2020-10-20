@@ -1,20 +1,22 @@
 ---
 title: Learn more about orchestration modes for virtual machine scale sets in Azure
 description: Learn more about orchestration modes for virtual machine scale sets in Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: shandilvarun
-manager: gwallace
- 
+author: mimckitt
+ms.author: mimckitt
+ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.topic: article
+ms.subservice: management
 ms.date: 10/23/2019
-ms.author: vashan
+ms.reviewer: jushiman
+ms.custom: mimckitt
+
 ---
 
 
-# Orchestration mode (preview)
+# Orchestration modes (preview)
+
+> [!CAUTION]
+> Thank you to everyone who participated in this public preview. We were able to gather valuable feedback from our community. This preview is now **closed** for any new participants, in order to integrate feedback. We will update this space with any new information.
 
 Virtual machines scale sets provide a logical grouping of platform-managed virtual machines. With scale sets, you create a virtual machine configuration model, automatically add or remove additional instances based on CPU or memory load, and automatically upgrade to the latest OS version. Traditionally, scale sets allow you to create virtual machines using a VM configuration model provided at time of scale set creation, and the scale set can only manage virtual machines that are implicitly created based on the configuration model.
 
@@ -37,7 +39,7 @@ Virtual machine scale sets will support 2 distinct orchestration modes:
 
 ## Orchestration modes
 
-|                             | “orchestrationMode”: “VM” (VirtualMachine) | “orchestrationMode”: “ScaleSetVM” (VirtualMachineScaleSetVM) |
+| Feature                     | "orchestrationMode”: “VM” (VirtualMachine) | “orchestrationMode”: “ScaleSetVM” (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
 | VM configuration model      | None                                       | Required |
 | Adding new VM to Scale Set  | VMs are explicitly added to the scale set when the VM is created. | VMs are implicitly created and added to the scale set based on the VM configuration model, instance count, and AutoScaling rules | |
@@ -59,4 +61,4 @@ Virtual machine scale sets will support 2 distinct orchestration modes:
 
 ## Next steps
 
-For more information, see the [Overview of availability options](availability.md).
+For more information, see the [Overview of availability options](../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json).

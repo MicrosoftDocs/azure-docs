@@ -1,7 +1,6 @@
 ---
 title: Custom fields in Azure Monitor (Preview) | Microsoft Docs
 description: The Custom Fields feature of Azure Monitor allows you to create your own searchable fields from records in a Log Analytics workspace that add to the properties of a collected record.  This article describes the process to create a custom field and provides a detailed walkthrough with a sample event.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -15,9 +14,12 @@ ms.date: 08/23/2019
 > [!NOTE]
 > This article describes how to parse text data in a Log Analytics workspace as it's collected. We recommend parsing text data in a query filter after it's collected following the guidance described in [Parse text data in Azure Monitor](../log-query/parse-text.md). It provides several advantages over using custom fields.
 
+> [!IMPORTANT]
+> Custom fields increases the amount of data collected in the Log Analytics workspace which can increase your cost. See [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md#pricing-model) for details.
+
 The **Custom Fields** feature of Azure Monitor allows you to extend existing records in your Log Analytics workspace by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
 
-![Overview](media/custom-fields/overview.png)
+![Diagram shows an original record associated with a modified record in a Log Analytics workspace with property value pairs added to the original property in the modified record.](media/custom-fields/overview.png)
 
 For example, the sample record below has useful data buried in the event description. Extracting this data into a separate property makes it available for such actions as sorting and filtering.
 
@@ -75,7 +77,7 @@ The following section walks through a complete example of creating a custom fiel
 
 We enter the following query to return all events from Service Control Manager that have an Event ID of 7036 which is the event that indicates a service starting or stopping.
 
-![Query](media/custom-fields/query.png)
+![Screenshot shows a query for an event source and ID.](media/custom-fields/query.png)
 
 We then select and expand any record with event ID 7036.
 
@@ -95,7 +97,7 @@ We highlight the name of the service in the **RenderedDescription** property and
 
 We see that the service name is identified properly for some records but not for others.   The **Search Results** show that part of the name for the **WMI Performance Adapter** wasn’t selected.  The **Summary** shows that one record identified **Modules Installer** instead of **Windows Modules Installer**.  
 
-![Search results](media/custom-fields/search-results-01.png)
+![Screenshot showing portions of the service name highlighted in the Search Results pane and one incorrect service name highlighted in the Summary.](media/custom-fields/search-results-01.png)
 
 We start with the **WMI Performance Adapter** record.  We click its edit icon and then **Modify this highlight**.  
 
@@ -107,7 +109,7 @@ We increase the highlight to include the word **WMI** and then rerun the extract
 
 We can see that the entries for **WMI Performance Adapter** have been corrected, and Log Analytics also used that information to correct the records for **Windows Module Installer**.
 
-![Search results](media/custom-fields/search-results-02.png)
+![Screenshot showing the full service name highlighted in the Search Results pane and the correct service names highlighted in the Summary.](media/custom-fields/search-results-02.png)
 
 We can now run a query that verifies **Service_CF** is created but is not yet added to any records. That's because the custom field doesn't work against existing records so we need to wait for new records to be collected.
 

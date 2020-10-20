@@ -1,6 +1,6 @@
 ---
 title: Coarse Relocalization
-description: Coarse relocalization quickstart guide.
+description: Learn about using Coarse relocalization to find anchors near you.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -9,6 +9,7 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
+ms.custom: devx-track-csharp
 ---
 # Coarse relocalization
 
@@ -115,13 +116,11 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 
 Next, you'll need to decide which sensors you'd like to use for coarse relocalization. This decision is specific to the application you're developing, but the recommendations in the following table should give you a good starting point:
 
-
-|             | Indoors | Outdoors |
-|-------------|---------|----------|
-| GPS         | Off | On |
-| WiFi        | On | On (optional) |
-| BLE beacons | On (optional with caveats, see below) | Off |
-
+|                 | Indoors | Outdoors |
+|-----------------|---------|----------|
+| **GPS**         | Off | On |
+| **WiFi**        | On | On (optional) |
+| **BLE beacons** | On (optional with caveats, see below) | Off |
 
 ### Enabling GPS
 
@@ -653,12 +652,11 @@ The table below estimates the expected search space for each sensor type:
 
 The following table summarizes the sensor data collected on each of the supported platforms, along with any platform-specific caveats:
 
-
-|             | HoloLens | Android | iOS |
-|-------------|----------|---------|-----|
-| GPS         | N/A | Supported through [LocationManager][3] APIs (both GPS and NETWORK) | Supported through [CLLocationManager][4] APIs |
-| WiFi        | Supported at a rate of approximately one scan every 3 seconds | Supported. Starting with API level 28, WiFi scans are throttled to 4 calls every 2 minutes. From Android 10, the throttling can be disabled from the Developer settings menu. For more information, see the [Android documentation][5]. | N/A - no public API |
-| BLE beacons | Limited to [Eddystone][1] and [iBeacon][2] | Limited to [Eddystone][1] and [iBeacon][2] | Limited to [Eddystone][1] and [iBeacon][2] |
+|                 | HoloLens | Android | iOS |
+|-----------------|----------|---------|-----|
+| **GPS**         | N/A | Supported through [LocationManager][3] APIs (both GPS and NETWORK) | Supported through [CLLocationManager][4] APIs |
+| **WiFi**        | Supported at a rate of approximately one scan every 3 seconds | Supported. Starting with API level 28, WiFi scans are throttled to 4 calls every 2 minutes. From Android 10, the throttling can be disabled from the Developer settings menu. For more information, see the [Android documentation][5]. | N/A - no public API |
+| **BLE beacons** | Limited to [Eddystone][1] and [iBeacon][2] | Limited to [Eddystone][1] and [iBeacon][2] | Limited to [Eddystone][1] and [iBeacon][2] |
 
 ## Next steps
 

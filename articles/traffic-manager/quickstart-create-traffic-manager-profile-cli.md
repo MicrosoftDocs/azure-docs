@@ -1,17 +1,18 @@
 ---
-title: Quickstart:Create a profile for HA of applications - Azure CLI - Azure Traffic Manager
-description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web application.
+title: 'Quickstart: Create a profile for HA of applications - Azure CLI - Azure Traffic Manager'
+description: This quickstart article describes how to create a Traffic Manager profile to build a highly available web application by using Azure CLI.
 services: traffic-manager
-author: asudbring
-mnager: twooley
+author: duongau
+mnager: kumud
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/29/2019
-ms.author: allensu
+ms.date: 10/09/2020
+ms.author: duau
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create a Traffic Manager profile for a highly available web application using Azure CLI
@@ -20,7 +21,10 @@ This quickstart describes how to create a Traffic Manager profile that delivers 
 
 In this quickstart, you'll create two instances of a web application. Each of them is running in a different Azure region. You'll create a Traffic Manager profile based on [endpoint priority](traffic-manager-routing-methods.md#priority-traffic-routing-method). The profile directs user traffic to the primary site running the web application. Traffic Manager continuously monitors the web application. If the primary site is unavailable, it provides automatic failover to the backup site.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure CLI installed locally or Azure Cloud Shell
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -83,6 +87,7 @@ az appservice plan create \
     --sku S1
 
 ```
+
 ### Create a web app in the app service plan
 Create two instances the web application using [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) in the App Service plans in the *East US* and *West Europe* Azure regions.
 
@@ -105,12 +110,12 @@ az webapp create \
 ## Add Traffic Manager endpoints
 Add the two Web Apps as Traffic Manager endpoints using [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) to the Traffic Manager profile as follows:
 
-- Determine the Web App id and add the Web App located in the *East US* Azure region as the primary endpoint to route all the user traffic. 
-- Determinet the Web App id and add the Web App located in the *West Europe* Azure region as the failover endpoint. 
+- Determine the Web App ID and add the Web App located in the *East US* Azure region as the primary endpoint to route all the user traffic. 
+- Determine the Web App ID and add the Web App located in the *West Europe* Azure region as the failover endpoint. 
 
 When the primary endpoint is unavailable, traffic automatically routes to the failover endpoint.
 
-In the following example, replace **<app1name_eastus>** and **<app2name_westeurope>** with the App Names created for each region in the previous section, replace **<appspname_eastus>** and **<appspname_westeurope>** with the name used to create the App Service plans in the previous section, and replace **<profile_name>** with the profile name used in the previous section. 
+In the following example, replace **<app1name_eastus>** and **<app2name_westeurope>** with the App Names created for each region in the previous section. Then replace **<profile_name>** with the profile name used in the previous section. 
 
 **East US endpoint**
 
@@ -122,7 +127,8 @@ az webapp show \
     --query id
 
 ```
-Make note of id displayed in output and use in the following command to add the endpoint:
+
+Make note of ID displayed in output and use in the following command to add the endpoint:
 
 ```azurecli-interactive
 
@@ -146,7 +152,8 @@ az webapp show \
     --query id
 
 ```
-Make note of id displayed in output and use in the following command to add the endpoint:
+
+Make note of ID displayed in output and use in the following command to add the endpoint:
 
 ```azurecli-interactive
 
@@ -165,7 +172,7 @@ az network traffic-manager endpoint create \
 
 In this section, you'll check the domain name of your Traffic Manager profile. You'll also configure the primary endpoint to be unavailable. Finally, you get to see that the web app is still available. It's because Traffic Manager sends the traffic to the failover endpoint.
 
-In the following example, replace **<app1name_eastus>** and **<app2name_westeurope>** with the App Names created for each region in the previous section, replace **<appspname_eastus>** and **<appspname_westeurope>** with the name used to create the App Service plans in the previous section, and replace **<profile_name>** with the profile name used in the previous section.
+In the following example, replace **<app1name_eastus>** and **<app2name_westeurope>** with the App Names created for each region in the previous section. Then replace **<profile_name>** with the profile name used in the previous section.
 
 ### Determine the DNS name
 
@@ -207,7 +214,7 @@ Copy the **RelativeDnsName** value. The DNS name of your Traffic Manager profile
 
 When you're done, delete the resource groups, web applications, and all related resources using [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
-```azurepowershell-interactive
+```azurecli-interactive
 
 az group delete \
     --resource-group myResourceGroup

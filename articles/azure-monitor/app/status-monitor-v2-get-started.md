@@ -1,12 +1,11 @@
 ---
 title: Azure Application Insights Agent - getting started | Microsoft Docs
 description: A quickstart guide for Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
-ms.date: 04/23/2019
+ms.date: 04/23/2019 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -69,18 +68,19 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
  View your telemetry:
 
-- [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage.
-- [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems.
-- [Use Analytics](../../azure-monitor/app/analytics.md) for more advanced queries.
-- [Create dashboards](../../azure-monitor/app/overview-dashboard.md).
+- [Explore metrics](../platform/metrics-charts.md) to monitor performance and usage.
+- [Search events and logs](./diagnostic-search.md) to diagnose problems.
+- [Use Analytics](../log-query/log-query-overview.md) for more advanced queries.
+- [Create dashboards](./overview-dashboard.md).
 
  Add more telemetry:
 
 - [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
-- [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to enable trace calls.
-- [Add the Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so you can insert trace and log calls.
+- [Add web client telemetry](./javascript.md) to see exceptions from web page code and to enable trace calls.
+- [Add the Application Insights SDK to your code](./asp-net.md) so you can insert trace and log calls.
 
 Do more with Application Insights Agent:
 
 - Review the [detailed instructions](status-monitor-v2-detailed-instructions.md) for an explanation of the commands found here.
 - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Application Insights Agent.
+

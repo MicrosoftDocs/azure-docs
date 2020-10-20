@@ -5,17 +5,20 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 09/29/2020
 ms.custom: seodec18
 ---
 
-# How to scale your Time Series Insights environment
+# How to scale your Azure Time Series Insights Gen1 environment
 
-This article describes how to change the capacity of your Time Series Insights environment using the [Azure portal](https://portal.azure.com). Capacity is the multiplier applied to the ingress rate, storage capacity, and cost associated with your selected SKU.
+> [!CAUTION]
+> This is a Gen1 article.
+
+This article describes how to change the capacity of your Azure Time Series Insights environment using the [Azure portal](https://portal.azure.com). Capacity is the multiplier applied to the ingress rate, storage capacity, and cost associated with your selected SKU.
 
 You can use the Azure portal to increase or decrease capacity within a given pricing SKU.
 
@@ -27,11 +30,11 @@ However, changing the pricing tier SKU is not allowed. For example, an environme
 
 ## Change the capacity of your environment
 
-1. In the Azure portal, locate and select your Time Series Insights environment.
+1. In the Azure portal, locate and select your Azure Time Series Insights environment.
 
-1. In the menu for your Time Series Insights environment, select **Storage Configuration**.
+1. In the menu for your Azure Time Series Insights environment, select **Storage Configuration**.
 
-   [![Configure your Time Series Insights capacity](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
+   [![Configure your Azure Time Series Insights capacity](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
 1. Adjust the **Capacity** slider to select the capacity that meets the requirements for your ingress rates and storage capacity. Notice the **Ingress rate**, **Storage capacity**, and **Estimated cost** update dynamically to show the impact of the change.
 
@@ -45,8 +48,8 @@ However, changing the pricing tier SKU is not allowed. For example, an environme
 
 ## Next steps
 
-- For more information, review [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md).
+- For more information, review [Understanding retention in Azure Time Series Insights](time-series-insights-concepts-retention.md).
 
-- Learn about [configuring data retention in Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
+- Learn about [configuring data retention in Azure Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 - Learn about [planning out your environment](time-series-insights-environment-planning.md).

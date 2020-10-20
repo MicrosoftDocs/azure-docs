@@ -1,16 +1,9 @@
 ---
-title: "Quickstart: Recognize speech stored in blob storage, Java - Speech service"
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: trevorbye
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
+ms.date: 01/13/2020
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -18,10 +11,10 @@ zone_pivot_groups: programming-languages-set-two
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Upload a source file to an azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
+> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Upload a source file to an Azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+
 
 ## Open your project in Eclipse
 
@@ -33,7 +26,8 @@ The first step is to make sure that you have your project open in Eclipse.
 ## Add a reference to Gson
 We'll be using an external JSON serializer / deserializer in this quickstart. For Java we've chosen [Gson](https://github.com/google/gson).
 
-Open your pom.xml and add the following reference:
+Open your pom.xml and add the following reference.
+
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
 
 ## Start with some boilerplate code
@@ -41,7 +35,8 @@ Open your pom.xml and add the following reference:
 Let's add some code that works as a skeleton for our project.
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=1-13,95-105,206-207)]
-(You'll need to replace the values of `YourSubscriptionKey`, `YourServiceRegion`, and `YourFileUrl` with your own values.)
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
 ## JSON Wrappers
 

@@ -3,13 +3,13 @@ title: How to configure a container for Anomaly Detector API
 titleSuffix: Azure Cognitive Services
 description: The Anomaly Detector API container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. 
 services: cognitive-services
-author: IEvangelist
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
+ms.date: 05/07/2020
+ms.author: mbullwin
 ---
 
 # Configure Anomaly Detector containers
@@ -116,7 +116,7 @@ The following Docker examples are for the Anomaly Detector container.
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector \
+  mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} 
@@ -126,7 +126,7 @@ The following Docker examples are for the Anomaly Detector container.
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector \
+  mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector \
   Eula=accept \
   Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information

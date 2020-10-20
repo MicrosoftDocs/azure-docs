@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure Dialpad for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Dialpad.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
@@ -23,7 +18,7 @@ ms.author: zhchia
 The objective of this tutorial is to demonstrate the steps to be performed in Dialpad and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Dialpad.
 
 > [!NOTE]
->  This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+>  This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 > This connector is currently in Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -54,13 +49,13 @@ Before configuring Dialpad for automatic user provisioning with Azure AD, you wi
 
 1. Sign in to your [Dialpad Admin Console](https://dialpadbeta.com/login) and select **Admin settings**. Ensure that **My Company** is selected from the dropdown. Navigate to **Authentication > API Keys**.
 
-	![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/dialpad01.png)
+	:::image type="content" source="media/dialpad-provisioning-tutorial/dialpad01.png" alt-text="Screenshot of the Dialpad admin console, with the settings icon, My Company, Authentication, and A P I keys highlighted, and My Company selected." border="false":::
 
 2. Generate a new key by clicking **Add a key** and configuring the properties of your secret token.
 
-	![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/dialpad02.png)
+	:::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Screenshot of the A P I keys page in the Dialpad admin console. Add a key is highlighted." border="false":::
 
-	![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/dialpad03.png)
+	:::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Screenshot of the Edit A P I key page in the Dialpad admin console. The Save button is highlighted." border="false":::
 
 3. Click the **Click to show value** button for your recently created API key and copy the value shown. This value will be entered in the **Secret Token** field in the Provisioning tab of your Dialpad application in the Azure portal. 
 
@@ -89,19 +84,19 @@ To configuring Dialpad for automatic user provisioning with Azure AD, you need t
 
 5. Navigate to the **URL** highlighted below in a separate browser. 
 
- 	![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/dialpad05.png)
+ 	:::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Screenshot of a page displaying information about the Dialpad app. Under U R L, an address is listed and is highlighted." border="false":::
 
 6. In the top right-hand corner, select **Log In > Use Dialpad online**.
 
-	![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/dialpad06.png)
+	:::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Screenshot of the Dialpad website. Log in is highlighted, and the Log in tab is open. Use Dialpad online is also highlighted." border="false":::
 
 7. As Dialpad is an OpenIDConnect app, choose to login to Dialpad using your Microsoft work account.
 
-	![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/loginpage.png)
+	:::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Screenshot of the Start making calls page in the Dialpad website. The Log in with Office 365 button is highlighted." border="false":::
 
 8. After a successful authentication, accept the consent prompt for the consent page. The application will then be automatically added to your tenant and you will be redirected to your Dialpad account.
 
-	![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/redirect.png)
+	:::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Screenshot showing a Microsoft authentication page stating that the Dialpad app has requested access to some data. The Accept button is highlighted." border="false":::
 
  ## Configure automatic user provisioning to Dialpad
 
@@ -119,11 +114,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://dialpad.com/scim` in **Tenant URL**. Input the value that you retrieved and saved earlier from Dialpad in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Dialpad. If the connection fails, ensure your Dialpad account has Admin permissions and try again.
 
@@ -143,7 +138,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Dialpad User Attributes](media/dialpad-provisioning-tutorial/dialpad07.png)
 
-10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. To enable the Azure AD provisioning service for Dialpad, change the **Provisioning Status** to **On** in the **Settings** section.
 
@@ -159,15 +154,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Dialpad.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md)
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md)
 ## 	Connector limitations
 * Dialpad does not support group renames today. This means that any changes to the **displayName** of a group in Azure AD will not be updated and reflected in Dialpad.
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)

@@ -9,8 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 08/05/2020
 ms.author: pafarley
+ms.custom: devx-track-csharp
 ---
 # Tutorial: Recognize Azure service logos in camera pictures
 
@@ -23,7 +24,7 @@ This tutorial will show you how to:
 > - Connect your app to Azure Computer Vision and Custom Vision.
 > - Create an Azure service principal account to deploy Azure services from the app.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
 
 ## Prerequisites
 
@@ -98,11 +99,11 @@ Next, open the *Source\VisualProvision\AppSettings.cs* file and populate the `Co
 
 ## Create a service principal
 
-The app requires an Azure service principal account to deploy services to your Azure subscription. A service principal lets you delegate specific permissions to an app using role-based access control. To learn more, see the [service principals guide](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
+The app requires an Azure service principal account to deploy services to your Azure subscription. A service principal lets you delegate specific permissions to an app using Azure role-based access control. To learn more, see the [service principals guide](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
 
 You can create a service principal by using either Azure Cloud Shell or the Azure CLI, as shown here. To begin, sign in and select the subscription you want to use.
 
-```console
+```azurecli
 az login
 az account list
 az account set --subscription "<subscription name or subscription id>"
@@ -110,7 +111,7 @@ az account set --subscription "<subscription name or subscription id>"
 
 Then create your service principal. (This process might take some time to finish.)
 
-```console
+```azurecli
 az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongPassword>
 ```
 
@@ -170,7 +171,7 @@ Follow these steps to run the app:
 
 If you've followed all of the steps of this scenario and used the app to deploy Azure services to your account, go to the [Azure portal](https://ms.portal.azure.com/). There, cancel the services you don't want to use.
 
-If you plan to create your own object detection project with Custom Vision, you might want to delete the logo detection project you created in this tutorial. A free trial for Custom Vision allows for only two projects. To delete the logo detection project, on the [Custom Vision website](https://customvision.ai), open **Projects** and then select the trash icon under **My New Project**.
+If you plan to create your own object detection project with Custom Vision, you might want to delete the logo detection project you created in this tutorial. A free subscription for Custom Vision allows for only two projects. To delete the logo detection project, on the [Custom Vision website](https://customvision.ai), open **Projects** and then select the trash icon under **My New Project**.
 
 ## Next steps
 

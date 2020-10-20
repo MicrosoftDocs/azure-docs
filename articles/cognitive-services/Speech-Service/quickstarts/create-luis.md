@@ -1,15 +1,15 @@
 ---
 title: "Quickstart: Create a LUIS key"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to create a LUIS application and get a key.
+description: In this quickstart, you learn how to create a LUIS application and get a key.
 services: cognitive-services
-author: wolfma61
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.author: wolfma
+ms.date: 06/25/2020
+ms.author: trbye
 
 # Customer intent: As a C# programmer, I want to learn how to derive speaker intent from their utterances so that I can create a conversational UI for my application.
 ---

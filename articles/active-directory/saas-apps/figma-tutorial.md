@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Figma | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Figma.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 8569cae1-87dd-4c40-9bbb-527ac80d6a96
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Figma
@@ -92,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://www.figma.com/saml/<TENANT ID>/start`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. You will get the `TENANT ID` from step#11 of Figma`s article [Configure Azure Active Directory SAML SSO process](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. You will get the `TENANT ID` from step#11 of Figma`s article [Configure Azure Active Directory SAML SSO process](https://help.figma.com/hc/en-us/articles/360040532413-Configure-and-Provision-SAML-SSO-with-Azure-Active-Directory).
 
 1. Figma application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -146,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Figma SSO
 
-To configure single sign-on on Figma side, you need to follow the Figma`s article [Configure Azure Active Directory SAML SSO process](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
+To configure single sign-on on Figma side, you need to follow the Figma`s article [Configure Azure Active Directory SAML SSO process](https://help.figma.com/hc/en-us/articles/360040532413-Configure-and-Provision-SAML-SSO-with-Azure-Active-Directory).
 
 ### Create Figma test user
 

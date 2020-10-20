@@ -2,17 +2,16 @@
 title: Set up a security key as your verification method - Azure AD
 description: How to set up your Security info (preview) page to verify your identity to use a Fast Identity Online (FIDO2) security key as your verification method.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: librown
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 07/18/2019
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.author: curtand
 ---
 
 # Set up a security key as your verification method
@@ -21,8 +20,21 @@ You can use security keys as a passwordless sign-in method within your organizat
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
->[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
+>[!Note]
+> If you don't see the security key option, it's possible that your organization doesn't allow you to use this option for verification. In this case, you'll need to choose another method or contact your organization's help desk for more assistance.
+
+## Security verification versus password reset authentication
+
+Security info methods are used for both two-factor security verification and for password reset. However, not all methods can be used for both.
+
+| Method | Used for |
+| ------ | -------- |
+| Authenticator app | Two-factor verification and password reset authentication. |
+| Text messages | Two-factor verification and password reset authentication. |
+| Phone calls | Two-factor verification and password reset authentication. |
+| Security key | Two-factor verification and password reset authentication. |
+| Email account | Password reset authentication only. You'll need to choose another method for two-factor verification. |
+| Security questions | Password reset authentication only. You'll need to choose another method for two-factor verification. |
 
 ## What is a security key?
 
@@ -47,7 +59,7 @@ Before you are able to register your security key, the following must be true:
 
 You must create your security key and give it a unique PIN before you can sign in to your work or school account using the key. You may have up to 10 keys registered with your account. 
 
-1. Go to the **My Profile** page at https://myprofile.microsoft.com and sign in if you haven't already done so.
+1. Go to the **My Profile** page at https://myaccount.microsoft.com and sign in if you haven't already done so.
 
 2. Select **Security Info**, select **Add method**, and then select **Security key** from the **Add a method** drop-down list.
 
@@ -142,13 +154,13 @@ You can create a new security key PIN for your security key.
 
 ## Additional security info methods
 
-In order to register a security key, you must have at least one additional security verification method registered. See the [Overview section](security-info-add-update-methods-overview.md) for more information. 
+In order to register a security key, you must have at least one additional security verification method registered. See the [Overview section](./security-info-setup-auth-app.md) for more information. 
 
 ## Next steps
 
 - For more information about passwordless verification methods, read the [Microsoft’s Azure AD begins public preview of FIDO2 security keys, enabling passwordless logins](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) blog, or read the [What is the Microsoft Authenticator app?](user-help-auth-app-overview.md) and [Windows Hello overview](https://www.microsoft.com/windows/windows-hello) articles.
 
-- For more detailed info about [Microsoft-compliant security keys](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
+- For more detailed info about [Microsoft-compliant security keys](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 
 - Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](active-directory-passwords-update-your-own-password.md) article.
 

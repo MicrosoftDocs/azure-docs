@@ -1,7 +1,6 @@
 ---
 title: Import Azure Log Analytics data into Power BI | Microsoft Docs
 description: Power BI is a cloud based business analytics service from Microsoft that provides rich visualizations and reports for analysis of different sets of data.  This article describes how to configure and import Log Analytics data into Power BI and configure it to automatically refresh.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -18,12 +17,12 @@ ms.date: 05/01/2019
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Overview
-To import data from a [Log Analytics workspace](manage-access.md) in Azure Monitor into Power BI, you create a dataset in Power BI based on a [log query](../log-query/log-query-overview.md) in Azure Monitor.  The query is run each time the dataset is refreshed.  You can then build Power BI reports that use data from the dataset.  To create the dataset in Power BI, you export your query from Log Analytics to [Power Query (M) language](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification).  You then use this to create a query in Power BI Desktop and then publish it to Power BI as a dataset.  The details for this process are described below.
+To import data from a [Log Analytics workspace](manage-access.md) in Azure Monitor into Power BI, you create a dataset in Power BI based on a [log query](../log-query/log-query-overview.md) in Azure Monitor.  The query is run each time the dataset is refreshed.  You can then build Power BI reports that use data from the dataset.  To create the dataset in Power BI, you export your query from Log Analytics to [Power Query (M) language](/powerquery-m/power-query-m-language-specification).  You then use this to create a query in Power BI Desktop and then publish it to Power BI as a dataset.  The details for this process are described below.
 
 ![Log Analytics to Power BI](media/powerbi/overview.png)
 
 ## Export query
-Start by creating a [log query](../log-query/log-query-overview.md) that returns the data that you want to populate the Power BI dataset.  You then export that query to [Power Query (M) language](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification) which can be used by Power BI Desktop.
+Start by creating a [log query](../log-query/log-query-overview.md) that returns the data that you want to populate the Power BI dataset.  You then export that query to [Power Query (M) language](/powerquery-m/power-query-m-language-specification) which can be used by Power BI Desktop.
 
 1. [Create the log query in Log Analytics](../log-query/get-started-portal.md) to extract the data for your dataset.
 2. Select **Export** > **Power BI Query (M)**.  This exports the query to a text file called **PowerBIQuery.txt**. 
@@ -50,7 +49,7 @@ Power BI Desktop is a desktop application that allows you to create datasets and
 ## Publish to Power BI
 When you publish to Power BI, a dataset and a report will be created.  If you create a report in Power BI Desktop, then this will be published with your data.  If not, then a blank report will be created.  You can modify the report in Power BI or create a new one based on the dataset.
 
-1. Create a report based on your data.  Use [Power BI Desktop documentation](https://docs.microsoft.com/power-bi/desktop-report-view) if you're not familiar with it.  
+1. Create a report based on your data.  Use [Power BI Desktop documentation](/power-bi/desktop-report-view) if you're not familiar with it.  
 1. When you're ready to send it to Power BI, click **Publish**.  
 1. When prompted, select a destination in your Power BI account.  Unless you have a specific destination in mind, use **My workspace**.
 

@@ -1,18 +1,17 @@
 ### YamlMime:Landing
 
-title: Face documentation # < 60 chars
-summary: The cloud-based Face API provides developers with access to advanced face algorithms. Microsoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with quickstarts, tutorials, and samples. # < 160 chars
-
+title: Face documentation # < 60 characters 
+summary: On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or features included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States.
 metadata:
-  title: Face API Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: The cloud-based Face API provides developers with access to advanced face algorithms. Microsoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with quickstarts, tutorials, and samples. # Required; article description that is displayed in search results. < 160 chars.
+  title: Face documentation - Quickstarts, tutorials, API reference - Azure Cognitive Services | Microsoft Docs
+  description: The cloud-based Face service provides developers with access to advanced face algorithms. Microsoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with quickstarts, tutorials, and samples.
   services: cognitive-services
-  ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: cognitive-services
   ms.subservice: face-api
-  ms.topic: landing-page # Required
-  author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
-  ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/24/2019 #Required; mm/dd/yyyy format.
+  ms.topic: landing-page
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 9/01/2020
 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -21,11 +20,11 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card 
-  - title: About the Face API
+  - title: About the Face service
     linkLists:
       - linkListType: overview
         links:
-          - text: What is the Face API?
+          - text: What is the Face service?
             url: Overview.md
 
   - title: Detect faces
@@ -37,9 +36,11 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: quickstarts/csharp-sdk.md
+            url: quickstarts/client-libraries.md?pivots=programming-language-csharp
           - text: Using the Python SDK
-            url: quickstarts/python-sdk.md
+            url: quickstarts/client-libraries.md?pivots=programming-language-python
+          - text: Using the Go SDK
+            url: quickstarts/client-libraries.md?pivots=programming-language-go
       - linkListType: how-to-guide
         links:
           - text: Specify a face detection model
@@ -57,6 +58,8 @@ landingContent:
             url: quickstarts/csharp-sdk.md
           - text: Using the Python SDK
             url: quickstarts/python-sdk.md
+          - text: Using the Go SDK
+            url: quickstarts/go-sdk.md
       - linkListType: how-to-guide
         links:
           - text: Specify a face recognition model
@@ -68,8 +71,6 @@ landingContent:
         links:
           - text: Display face data in a WPF app
             url: Tutorials/FaceAPIinCSharpTutorial.md
-          - text: Display face data in an Android app
-            url: Tutorials/FaceAPIinJavaForAndroidTutorial.md
       - linkListType: how-to-guide
         links:
           - text: Use the HeadPose attribute

@@ -15,11 +15,13 @@ ms.date: 9/27/2019
 
 # Branching and chaining activities in a Data Factory pipeline
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you create a Data Factory pipeline that showcases some control flow features. This pipeline copies from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, the pipeline sends details of the successful copy operation in an email. That information could include the amount of data written. If the copy activity fails, it sends details of the copy failure, such as the error message, in an email. Throughout the tutorial, you see how to pass parameters.
 
 This graphic provides an overview of the scenario:
 
-![Overview](media/tutorial-control-flow/overview.png)
+![Diagram shows Azure Blob Storage, which is the target of a copy, which, on success, sends an email with details or, on failure, sends an email with error details.](media/tutorial-control-flow/overview.png)
 
 This tutorial shows you how to do the following tasks:
 
@@ -39,15 +41,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* Azure Storage account. You use blob storage as a source data store. If you don't have an Azure storage account, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+* Azure Storage account. You use blob storage as a source data store. If you don't have an Azure storage account, see [Create a storage account](../storage/common/storage-account-create.md).
 * Azure Storage Explorer. To install this tool, see [Azure Storage Explorer](https://storageexplorer.com/).
-* Azure SQL Database. You use the database as a sink data store. If you don't have an Azure SQL Database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md).
+* Azure SQL Database. You use the database as a sink data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * Visual Studio. This article uses Visual Studio 2019.
 * Azure .NET SDK. Download and install the [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 
 For a list of Azure regions in which Data Factory is currently available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores and computes can be in other regions. The stores include Azure Storage and Azure SQL Database. The computes include HDInsight, which Data Factory uses.
 
-Create an application as described in [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Assign the application to the **Contributor** role by following instructions in the same article. You'll need several values for later parts of this tutorial, such as **Application (client) ID** and **Directory (tenant) ID**.
+Create an application as described in [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Assign the application to the **Contributor** role by following instructions in the same article. You'll need several values for later parts of this tutorial, such as **Application (client) ID** and **Directory (tenant) ID**.
 
 ### Create a blob table
 
@@ -112,7 +114,7 @@ Create a C# .NET console application:
    // Specify the source Azure Blob information
    static string storageAccount = "<Azure Storage account name>";
    static string storageKey = "<Azure Storage account key>";
-   // confirm that you have the input.txt file placed in th input folder of the adfv2branch container. 
+   // confirm that you have the input.txt file placed in th input folder of the adfv2branch container.
    static string inputBlobPath = "adfv2branch/input";
    static string inputBlobName = "input.txt";
    static string outputBlobPath = "adfv2branch/output";
@@ -213,7 +215,7 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 {
     Console.WriteLine("Creating dataset " + blobSourceDatasetName + "...");
     AzureBlobDataset blobDataset = new AzureBlobDataset
-    { 
+    {
         FolderPath = new Expression { Value = "@pipeline().parameters.sourceBlobContainer" },
         FileName = inputBlobName,
         LinkedServiceName = new LinkedServiceReference
@@ -505,7 +507,7 @@ Dictionary<string, object> arguments = new Dictionary<string, object>
     { "sinkBlobContainer", outputBlobPath },
     { "receiver", emailReceiver }
 };
- 
+
 CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, arguments).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
@@ -572,8 +574,8 @@ Build and run your program to trigger a pipeline run!
     Console.WriteLine("Checking copy activity run details...");
 
     List<ActivityRun> activityRuns = client.ActivityRuns.ListByPipelineRun(
-    resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList(); 
- 
+    resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList();
+
     if (pipelineRun.Status == "Succeeded")
     {
         Console.WriteLine(activityRuns.First().Output);

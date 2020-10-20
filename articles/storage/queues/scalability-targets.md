@@ -25,3 +25,4 @@ ms.subservice: queues
 - [Performance and scalability checklist for Queue storage](storage-performance-checklist.md)
 - [Scalability targets for standard storage accounts](../common/scalability-targets-standard-account.md)
 - [Scalability targets for the Azure Storage resource provider](../common/scalability-targets-resource-provider.md)
+- [Azure subscription limits and quotas](../../azure-resource-manager/management/azure-subscription-service-limits.md)

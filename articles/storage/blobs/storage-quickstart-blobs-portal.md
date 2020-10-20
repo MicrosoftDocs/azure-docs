@@ -5,10 +5,10 @@ description: In this quickstart, you use the Azure portal in object (Blob) stora
 services: storage
 author: tamram
 
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 12/04/2019
+ms.date: 04/16/2020
 ms.author: tamram
 ---
 
@@ -35,37 +35,45 @@ To create a container in the Azure portal, follow these steps:
 
 ## Upload a block blob
 
-Block blobs consist of blocks of data assembled to make a blob. Most scenarios using Blob storage employ block blobs. Block blobs are ideal for storing text and binary data in the cloud, like files, images, and videos. This quickstart shows how to work with block blobs. 
+Block blobs consist of blocks of data assembled to make a blob. Most scenarios using Blob storage employ block blobs. Block blobs are ideal for storing text and binary data in the cloud, like files, images, and videos. This quickstart shows how to work with block blobs.
 
 To upload a block blob to your new container in the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the container you created in the previous section.
-2. Select the container to show a list of blobs it contains. Since this container is new, it won't yet contain any blobs.
-3. Select the **Upload** button to upload a blob to the container.
-4. Browse your local file system to find a file to upload as a block blob, and select **Upload**.
-     
+1. Select the container to show a list of blobs it contains. This container is new, so it won't yet contain any blobs.
+1. Select the **Upload** button to open the upload blade and browse your local file system to find a file to upload as a block blob. You can optionally expand the **Advanced** section to configure other settings for the upload operation.
+
     ![Screenshot showing how to upload a blob from your local drive](media/storage-quickstart-blobs-portal/upload-blob.png)
 
-5. Select the **Authentication type**. The default is **SAS**.
-6. Upload as many blobs as you like in this way. You'll see that the new blobs are now listed within the container.
+1. Select the **Upload** button to upload the blob.
+1. Upload as many blobs as you like in this way. You'll see that the new blobs are now listed within the container.
 
 ## Download a block blob
 
 You can download a block blob to display in the browser or save to your local file system. To download a block blob, follow these steps:
 
-1. Navigate to the list of blobs that you uploaded in the previous section. 
-2. Right-click the blob you want to download, and select **Download**. 
+1. Navigate to the list of blobs that you uploaded in the previous section.
+1. Right-click the blob you want to download, and select **Download**.
+
+    ![Screenshot showing how to download a blob](media/storage-quickstart-blobs-portal/download-blob.png)
+
+## Delete a block blob
+
+You can download a block blob to display in the browser or save to your local file system. To download a block blob, follow these steps:
+
+1. Navigate to the list of blobs that you uploaded in the previous section.
+1. Select the blobs you want to delete, and select **Delete** in the top action bar.
 
 ## Clean up resources
 
-To remove the resources you created in this quickstart, you can delete the container. All blobs in the container will also be deleted.
+To remove all the resources you created in this quickstart, you can simply delete the container. All blobs in the container will also be deleted.
 
 To delete the container:
 
 1. In the Azure portal, navigate to the list of containers in your storage account.
-2. Select the container to delete.
-3. Select the **More** button (**...**), and select **Delete**.
-4. Confirm that you want to delete the container.
+1. Select the container to delete.
+1. Select the **More** button (**...**), and select **Delete**.
+1. Confirm that you want to delete the container.
 
 ## Next steps
 
@@ -73,4 +81,3 @@ In this quickstart, you learned how to transfer files between a local disk and A
 
 > [!div class="nextstepaction"]
 > [Blob Storage Operations How-To](storage-dotnet-how-to-use-blobs.md)
-

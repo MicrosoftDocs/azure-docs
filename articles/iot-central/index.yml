@@ -11,74 +11,80 @@ metadata:
   ms.topic: hub-page
   author: philmea
   ms.author: philmea
-  ms.date: 10/25/2019
+  ms.date: 06/30/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
   items: 
     - title: What is IoT Central? 
       itemType: overview # controls the icon image and super-title text 
-      url: ./preview/overview-iot-central.md
+      url: ./core/overview-iot-central.md
     - title: What are application templates? 
       itemType: concept 
       url: ./core/concepts-app-templates.md
       
-    - title: Azure IoT Central Architecture
-      itemType: architecture
-      url: ./preview/concepts-architecture.md
+    - title: IoT Central device development overview
+      itemType: overview
+      url: ./core/overview-iot-central-developer.md
     - title: Create a new application 
       itemType: quickstart
-      url: ./preview/quick-deploy-iot-central.md
+      url: ./core/quick-deploy-iot-central.md
     - title: Define a device type and add a device 
       itemType: tutorial
-      url: ./preview/howto-set-up-template.md
+      url: ./core/howto-set-up-template.md
     - title: Monitor your devices
       itemType: tutorial 
-      url: ./preview/tutorial-create-telemetry-rules.md
+      url: ./core/tutorial-create-telemetry-rules.md
 
 conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items: 
-    - title: Get connected (preview features)
+    - title: Connect and develop devices
       links: 
-        - url: ./preview/howto-set-up-template.md
-          itemType: how-to-guide
-          text: Set up a device template 
-        - url: ./preview/tutorial-connect-pnp-device.md
+        - url: ./core/tutorial-connect-device-nodejs.md
           itemType: tutorial
-          text: Connect an IoT Plug and Play device
+          text: Connect device
+        - url: ./core/concepts-get-connected.md
+          itemType: concept
+          text: Device connectivity
+        - url: ./core/concepts-device-templates.md
+          itemType: concept
+          text: Device templates
+        - url: ./core/troubleshoot-connection.md
+          itemType: how-to-guide
+          text: Troubleshoot device connectivity
       footerLink: 
-        url: ./preview/index.yml
+        url: ./core/index.yml
         text: See more
 
-    - title: Stay connected (preview features)
+    - title: Stay connected
       links: 
-        - url: ./preview/tutorial-use-device-groups.md
+        - url: ./core/tutorial-use-device-groups.md
           itemType: how-to-guide
           text: Use device groups
-        - url: ./preview/howto-manage-devices.md
+        - url: ./core/howto-manage-devices.md
           itemType: how-to-guide 
           text: Manage your devices 
         - url: ./core/howto-run-a-job.md
           itemType: concept
           text: How to run a job 
-        - url: ./preview/howto-create-analytics.md
+        - url: ./core/howto-create-analytics.md
           itemType: how-to-guide
           text: Analyze your device data
       footerLink: 
-        url: ./preview/index.yml
+        url: ./core/index.yml
         text: See more
 
-    - title: Transform (preview features)
+    - title: Transform
       links: 
-        - url: ./preview/tutorial-create-telemetry-rules.md
+        - url: ./core/tutorial-create-telemetry-rules.md
           itemType: how-to-guide
           text: Create a telemetry rule 
-        - url: ./preview/howto-export-data.md
+        - url: ./core/howto-export-data.md
           itemType: how-to-guide
-          text: Configure continuous data export
+          text: Export data to cloud destinations
       footerLink: 
-        url: ./preview/index.yml
+        url: ./core/index.yml
         text: See more
 
 # productDirectory section (optional)
@@ -92,15 +98,17 @@ productDirectory:
       imageSrc: ./retail/media/index/iot-central-retail.svg
       links:
           - text: Building retail solutions with Azure IoT Central
-            url: ./retail/overview-iot-central-retail-pnp.md
+            url: ./retail/overview-iot-central-retail.md
           - text: Create an in-store analytics application
-            url: ./retail/tutorial-in-store-analytics-create-app-pnp.md
+            url: ./retail/tutorial-in-store-analytics-create-app.md
           - text: Create a smart inventory management application
-            url: ./retail/tutorial-iot-central-smart-inventory-management-pnp.md
+            url: ./retail/tutorial-iot-central-smart-inventory-management.md
           - text: Create a connected logistics application
-            url: ./retail/tutorial-iot-central-connected-logistics-pnp.md
+            url: ./retail/tutorial-iot-central-connected-logistics.md
           - text: Create a digital distribution center application
-            url: ./retail/tutorial-iot-central-digital-distribution-center-pnp.md 
+            url: ./retail/tutorial-iot-central-digital-distribution-center.md 
+          - text: Create a video analytics application
+            url: ./retail/tutorial-video-analytics-create-app-yolo-v3.md 
 
     # Card
     - title: Build for healthcare
@@ -138,7 +146,10 @@ additionalContent:
     - items:
       - title: IoT Central APIs
         summary: Explore the IoT Central APIs.
-        url: https://docs.microsoft.com/rest/api/iotcentral/
+        url: /rest/api/iotcentral/
       - title: IoT Central on Microsoft Learn
         summary: Explore the IoT Central in the a free sandbox environment.
-        url: https://docs.microsoft.com/learn/browse/?products=azure-iot-central
+        url: /learn/browse/?products=azure-iot-central
+      - title: Recent updates
+        summary: See what's new in IoT Central.
+        url: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central

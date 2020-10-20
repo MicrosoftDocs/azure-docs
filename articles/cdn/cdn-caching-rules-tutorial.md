@@ -3,7 +3,7 @@ title: Tutorial - Set Azure CDN caching rules | Microsoft Docs
 description: In this tutorial, you set an Azure CDN global caching rule and a custom caching rule.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
 # As an Azure CDN administrator, I want to create custom rules on my CDN endpoint so that I can control how content is cached.
 

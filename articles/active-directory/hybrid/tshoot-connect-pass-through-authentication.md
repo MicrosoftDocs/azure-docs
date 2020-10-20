@@ -11,8 +11,8 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 4/15/2019
+ms.topic: troubleshooting
+ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 This article helps you find troubleshooting information about common issues regarding Azure AD Pass-through Authentication.
 
 >[!IMPORTANT]
->If you are facing user sign-in issues with Pass-through Authentication, don't disable the feature or uninstall Pass-through Authentication Agents without having a cloud-only Global Administrator account to fall back on. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md). Doing this step is critical and ensures that you don't get locked out of your tenant.
+>If you are facing user sign-in issues with Pass-through Authentication, don't disable the feature or uninstall Pass-through Authentication Agents without having a cloud-only Global Administrator account to fall back on. Learn about [adding a cloud-only Global Administrator account](../fundamentals/add-users-azure-active-directory.md). Doing this step is critical and ensures that you don't get locked out of your tenant.
 
 ## General issues
 
@@ -47,6 +47,31 @@ If the user is unable to sign into using Pass-through Authentication, they may s
 |AADSTS80005|Validation encountered unpredictable WebException|A transient error. Retry the request. If it continues to fail, contact Microsoft support.
 |AADSTS80007|An error occurred communicating with Active Directory|Check the agent logs for more information and verify that Active Directory is operating as expected.
 
+### Users get invalid username/password error 
+
+This can happen when a user’s on-premises UserPrincipalName (UPN) is different than the user's cloud UPN.
+
+To confirm that this is the issue, first test that the Pass-through Authentication agent is working correctly:
+
+
+1. Create a test account.  
+2. Import the PowerShell module on the agent machine:
+ 
+ ```powershell
+ Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
+ ```
+3. Run the Invoke PowerShell command: 
+
+ ```powershell
+ Invoke-PassthroughAuthOnPremLogonTroubleshooter 
+ ``` 
+4. When you are prompted to enter credentials, enter the same username and password that are used to sign in to (https://login.microsoftonline.com).
+
+If you get the same username/password error, this means that the Pass-through Authentication agent is working correctly and the issue may be that the on-premises UPN is non-routable. To learn more, see [Configuring Alternate Login ID]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+
+> [!IMPORTANT]
+> If the Azure AD Connect server isn't domain joined, a requirement mentioned in [Azure AD Connect: Prerequisites](./how-to-connect-install-prerequisites.md#installation-prerequisites), the invalid username/password issue occurs.
+
 ### Sign-in failure reasons on the Azure Active Directory admin center (needs Premium license)
 
 If your tenant has an Azure AD Premium license associated with it, you can also look at the [sign-in activity report](../reports-monitoring/concept-sign-ins.md) on the [Azure Active Directory admin center](https://aad.portal.azure.com/).
@@ -66,9 +91,10 @@ Navigate to **Azure Active Directory** -> **Sign-ins** on the [Azure Active Dire
 | 80007 | Authentication Agent unable to connect to Active Directory. | Check if your Active Directory is reachable from the Authentication Agent.
 | 80010 | Authentication Agent unable to decrypt password. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one. 
 | 80011 | Authentication Agent unable to retrieve decryption key. | If the problem is consistently reproducible, install and register a new Authentication Agent. And uninstall the current one.
+| 80014 | Validation request responded after maximum elapsed time exceeded. | Authentication agent timed out. Open a support ticket with the error code, correlation ID, and timestamp to get more details on this error
 
 >[!IMPORTANT]
->Pass-through Authentication Agents authenticate Azure AD users by validating their usernames and passwords against Active Directory by calling the [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). As a result, if you have set the "Logon To" setting in Active Directory to limit workstation logon access, you will have to add servers hosting Pass-through Authentication Agents to the list of "Logon To" servers as well. Failing to do this will block your users from signing into Azure AD.
+>Pass-through Authentication Agents authenticate Azure AD users by validating their usernames and passwords against Active Directory by calling the [Win32 LogonUser API](/windows/win32/api/winbase/nf-winbase-logonusera). As a result, if you have set the "Logon To" setting in Active Directory to limit workstation logon access, you will have to add servers hosting Pass-through Authentication Agents to the list of "Logon To" servers as well. Failing to do this will block your users from signing into Azure AD.
 
 ## Authentication Agent installation issues
 

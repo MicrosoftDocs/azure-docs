@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Agiloft | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Agiloft.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: aca13814-cdbd-46b8-93dc-1578099c5ee4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Agiloft
 
@@ -101,23 +94,21 @@ To configure Azure AD single sign-on with Agiloft, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Agiloft Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot that highlights the Identifier and Reply URL text boxes.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-    | |
-	|-|-|
-	| `https://<subdomain>.saas.enterprisewizard.com/project/<KB_NAME>` |
-	| `https://<subdomain>.agiloft.com/project/<KB_NAME>` |
-    | |
+    ```http
+    https://<subdomain>.saas.enterprisewizard.com/project/<KB_NAME>
+    https://<subdomain>.agiloft.com/project/<KB_NAME>
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-    | |
-	|-|-|
-	| `https://<subdomain>.saas.enterprisewizard.com:443/gui2/spsamlsso?project=<KB_NAME>` |
-	| `https://<subdomain>.agiloft.com:443/gui2/spsamlsso?project=<KB_NAME>` |
-    | |
+    ```http
+    https://<subdomain>.saas.enterprisewizard.com:443/gui2/spsamlsso?project=<KB_NAME>
+    https://<subdomain>.agiloft.com:443/gui2/spsamlsso?project=<KB_NAME>
+    ```
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -125,11 +116,10 @@ To configure Azure AD single sign-on with Agiloft, perform the following steps:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
 
-    | |
-	|-|-|
-	| `https://<subdomain>.saas.enterprisewizard.com/gui2/samlssologin.jsp?project=<KB_NAME>` |
-	| `https://<subdomain>.agiloft.com/gui2/samlssologin.jsp?project=<KB_NAME>` |
-    | |
+    ```http
+    https://<subdomain>.saas.enterprisewizard.com/gui2/samlssologin.jsp?project=<KB_NAME>
+    https://<subdomain>.agiloft.com/gui2/samlssologin.jsp?project=<KB_NAME>
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Agiloft Client support team](https://www.agiloft.com/support-login.htm) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -154,11 +144,11 @@ To configure Azure AD single sign-on with Agiloft, perform the following steps:
 
 2. Click on **Setup** (on the Left Pane) and then select **Access**.
 
-	![Agiloft Configuration](./media/agiloft-tutorial/setup1.png)
+	![Screenshot that highlights the Access section.](./media/agiloft-tutorial/setup1.png)
 
 3. Click on the button **Configure SAML 2.0 Single Sign-On**.
 
-	![Agiloft Configuration](./media/agiloft-tutorial/setup2.png)
+	![Screenshot that highlights the Configure SAML 2.0 Single Sign-On button.](./media/agiloft-tutorial/setup2.png)
 
 4. A wizard dialog appears. On the dialog, click on the **Identity Provider Details** and fill in the following fields:  
 

@@ -1,15 +1,15 @@
 ---
 title: Azure Service Fabric CLI- sfctl 
-description: Describes the Service Fabric CLI sfctl commands.
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands and subgroups.
 author: jeffj6123
 
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
 ---
 
 # sfctl
-Commands for managing Service Fabric clusters and entities. This version is compatible with Service Fabric 6.5 runtime.
+Commands for managing Service Fabric clusters and entities. This version is compatible with Service Fabric 7.0 runtime.
 
 Commands follow the noun-verb pattern. See subgroups for more information.
 
@@ -36,4 +36,4 @@ Commands follow the noun-verb pattern. See subgroups for more information.
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

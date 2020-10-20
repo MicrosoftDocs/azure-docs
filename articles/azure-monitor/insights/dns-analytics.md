@@ -1,7 +1,6 @@
 ---
 title: DNS Analytics solution in Azure Monitor | Microsoft Docs
 description: Set up and use the DNS Analytics solution in Azure Monitor to gather insights into DNS infrastructure on security, performance, and operations.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -35,11 +34,11 @@ The following table describes the connected sources that are supported by this s
 | [Windows agents](../platform/agent-windows.md) | Yes | The solution collects DNS information from Windows agents. |
 | [Linux agents](../learn/quick-collect-linux-computer.md) | No | The solution does not collect DNS information from direct Linux agents. |
 | [System Center Operations Manager management group](../platform/om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Azure Monitor is not required. Data is forwarded from the management group to the Log Analytics workspace. |
-| [Azure storage account](../platform/collect-azure-metrics-logs.md) | No | Azure storage isn't used by the solution. |
+| [Azure storage account](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure storage isn't used by the solution. |
 
 ### Data collection details
 
-The solution collects DNS inventory and DNS event-related data from the DNS servers where a Log Analytics agent is installed. This data is then uploaded to Azure Monitor and displayed in the solution dashboard. Inventory-related data, such as the number of DNS servers, zones, and resource records, is collected by running the DNS PowerShell cmdlets. The data is updated once every two days. The event-related data is collected near real time from the [analytic and audit logs](https://technet.microsoft.com/library/dn800669.aspx#enhanc) provided by enhanced DNS logging and diagnostics in Windows Server 2012 R2.
+The solution collects DNS inventory and DNS event-related data from the DNS servers where a Log Analytics agent is installed. This data is then uploaded to Azure Monitor and displayed in the solution dashboard. Inventory-related data, such as the number of DNS servers, zones, and resource records, is collected by running the DNS PowerShell cmdlets. The data is updated once every two days. The event-related data is collected near real time from the [analytic and audit logs](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc) provided by enhanced DNS logging and diagnostics in Windows Server 2012 R2.
 
 ## Configuration
 
@@ -96,7 +95,7 @@ The solution dashboard shows the following blades:
 
 ![DNS Security blade](./media/dns-analytics/dns-security-blade.png)
 
-When you click a client IP in the list, Log Search opens and shows the lookup details of the respective query. In the following example, DNS Analytics detected that the communication was done with an [IRCbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot):
+When you click a client IP in the list, Log Search opens and shows the lookup details of the respective query. In the following example, DNS Analytics detected that the communication was done with an [IRCbot](https://www.microsoft.com/en-us/wdsi/threats/malware-encyclopedia-description?Name=Backdoor:Win32/IRCbot&threatId=2621):
 
 ![Log search results showing ircbot](./media/dns-analytics/ircbot.png)
 
@@ -176,7 +175,7 @@ Common troubleshooting steps:
 
 1. Missing DNS Lookups Data - To troubleshoot this issue, try resetting the config or just loading the configuration page once in portal. For resetting, just change a setting to another value, then change it back to to the original value, and save the config.
 
-## Feedback
+## Suggestions
 
 To provide feedback, visit the [Log Analytics UserVoice page](https://aka.ms/dnsanalyticsuservoice) to post ideas for DNS Analytics features to work on. 
 

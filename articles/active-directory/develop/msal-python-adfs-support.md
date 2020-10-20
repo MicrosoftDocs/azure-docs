@@ -13,9 +13,8 @@ ms.workload: identity
 ms.date: 11/23/2019
 ms.author: abpati
 ms.reviewer: nacanuma
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to learn about AD FS support in MSAL for Python so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
 # Active Directory Federation Services support in MSAL for Python

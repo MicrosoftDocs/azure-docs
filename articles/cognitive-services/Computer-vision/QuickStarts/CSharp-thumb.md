@@ -9,20 +9,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/05/2019
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ---
 # Quickstart: Generate a thumbnail using the Computer Vision REST API and C#
 
 In this quickstart, you generate a thumbnail from an image by using the Computer Vision REST API. With the [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) method, you can generate a thumbnail of an image. You specify the height and width, which can differ from the aspect ratio of the input image. Computer Vision uses smart cropping to intelligently identify the area of interest and generate cropping coordinates based on that region.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
-
 ## Prerequisites
 
-- You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later.
-- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key. Then, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and service endpoint string, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
 ## Create and run the sample application
 
@@ -48,32 +50,20 @@ namespace CSHttpClientSample
 {
     static class Program
     {
-        // Add your Computer Vision subscription key and endpoint to your environment variables.
+        // Add your Computer Vision subscription key and base endpoint to your environment variables.
         static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
-
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
         
-        // the GenerateThumbnail method endpoint
-        static string uriBase = endpoint + "vision/v2.1/generateThumbnail";
+        // The GenerateThumbnail method endpoint
+        static string uriBase = endpoint + "vision/v3.1/generateThumbnail";
+        // Add an image to your bin/debug/netcoreappX.X folder, then add the image name (with extension), here
+        static string imageFilePath = @"my-image-name";
 
-        static void Main()
+        public static void Main()
         {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Thumbnail:");
-            Console.Write(
-                "Enter the path to the image you wish to use to create a thumbnail image: ");
-            string imageFilePath = Console.ReadLine();
 
-            if (File.Exists(imageFilePath))
-            {
-                // Call the REST API method.
-                Console.WriteLine("\nWait a moment for the results to appear.\n");
-                MakeThumbNailRequest(imageFilePath).Wait();
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path");
-            }
+            MakeThumbNailRequest(imageFilePath).Wait();
+
             Console.WriteLine("\nPress Enter to exit...");
             Console.ReadLine();
         }

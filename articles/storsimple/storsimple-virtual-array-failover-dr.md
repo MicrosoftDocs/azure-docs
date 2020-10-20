@@ -1,6 +1,6 @@
 ---
-title: StorSimple Virtual Array disaster recovery and device failover | Microsoft Docs
-description: Learn more about how to failover your StorSimple Virtual Array.
+title: Failover and disaster recovery for StorSimple Virtual Array
+description: Learn about disaster recovery for your Microsoft Azure StorSimple Virtual Array, including the detailed steps to fail over to another virtual array.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 3c1f9c62-af57-4634-a0d8-435522d969aa
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2017
@@ -35,7 +35,7 @@ DR is modeled as a full device restore using the heat map–based tiering and tr
 > 
 > 
 
-Disaster recovery is orchestrated via the device failover feature and is initiated from the **Devices** blade. This blade tabulates all the StorSimple devices connected to your StorSimple Device Manager service. For each device, you can see the friendly name, status, provisioned and maximum capacity, type, and model.
+Disaster recovery is orchestrated through the device failover feature and is initiated from the **Devices** blade. This blade tabulates all the StorSimple devices connected to your StorSimple Device Manager service. For each device, you can see the friendly name, status, provisioned and maximum capacity, type, and model.
 
 ## Prerequisites for device failover
 
@@ -52,15 +52,15 @@ For a device failover, ensure that the following prerequisites are satisfied:
   > 
 * The target device cannot have the same name as the source device.
 * The source and target device have to be the same type. You can only fail over a virtual array configured as a file server to another file server. The same is true for an iSCSI server.
-* For a file server DR, we recommend that you join the target device to the same domain as the source. This configuration ensures that the share permissions are automatically resolved. Only the failover to a target device in the same domain.
+* For a file server DR, we recommend that you join the target device to the same domain as the source. This configuration ensures that the share permissions are automatically resolved. Only the failover to a target device in the same domain is supported.
 * The available target devices for DR are devices that have the same or larger capacity compared to the source device. The devices that are connected to your service but do not meet the criteria of sufficient space are not available as target devices.
 
 ### Other considerations
 
-* For a planned failover 
+* For a planned failover:
   
   * We recommend that you take all the volumes or shares on the source device offline.
-  * We recommend that you take a backup of the device and then proceed with the failover to minimize data loss. 
+  * We recommend that you take a backup of the device and then proceed with the failover to minimize data loss.
 * For an unplanned failover, the device uses the most recent backup to restore the data.
 
 ### Device failover prechecks
@@ -117,12 +117,12 @@ Perform the following steps to restore the device to a target StorSimple virtual
 
 5. In the **Deactivate** blade, you are prompted for confirmation. Device deactivation is a *permanent* process that cannot be undone. You are also reminded to take your shares/volumes offline on the host. Type the device name to confirm and click **Deactivate**.
    
-    ![](./media/storsimple-virtual-array-failover-dr/failover1.png)
+    ![Screenshot of the Deactivate blade. The device name box is filled in, and the Deactivate button is highlighted.](./media/storsimple-virtual-array-failover-dr/failover1.png)
 6. The deactivation starts. You will receive a notification after the deactivation is successfully completed.
    
-    ![](./media/storsimple-virtual-array-failover-dr/failover2.png)
+    ![Screenshot of a progress bar indicating that the device is being deactivated.](./media/storsimple-virtual-array-failover-dr/failover2.png)
 7. On the Devices page, the device state will now change to **Deactivated**.
-    ![](./media/storsimple-virtual-array-failover-dr/failover3.png)
+    ![Screenshot of the Devices page. Properties of the deactivated device are displayed, including the status, which is listed as Deactivated.](./media/storsimple-virtual-array-failover-dr/failover3.png)
 8. In the **Devices** blade, select and click the deactivated source device for failover. 
 9. In the **Device dashboard** blade, click **Fail over**. 
 10. In the **Fail over device** blade, do the following:
@@ -135,22 +135,22 @@ Perform the following steps to restore the device to a target StorSimple virtual
 
     4. Click **Fail over**.
     
-        ![](./media/storsimple-virtual-array-failover-dr/failover4.png)
+        ![Screenshot of the Fail over device blade, with the source and target device filled in, the option checked, and the Fail over button highlighted.](./media/storsimple-virtual-array-failover-dr/failover4.png)
 11. A failover job initiates and you receive a notification. Go to **Devices > Jobs** to monitor the failover.
     
-     ![](./media/storsimple-virtual-array-failover-dr/failover5.png)
+     ![Screenshot of a progress bar indicating that the device is failing over.](./media/storsimple-virtual-array-failover-dr/failover5.png)
 12. In the **Jobs** blade, you see a failover job created for the source device. This job performs the DR prechecks.
     
-    ![](./media/storsimple-virtual-array-failover-dr/failover6.png)
+    ![Screenshot showing that a failover job has successfully started.](./media/storsimple-virtual-array-failover-dr/failover6.png)
     
      After the DR prechecks are successful, the failover job will spawn restore jobs for each share/volume that exists on your source device.
     
-    ![](./media/storsimple-virtual-array-failover-dr/failover7.png)
+    ![Screenshot showing the details of the failover job, such as the status, device, and duration.](./media/storsimple-virtual-array-failover-dr/failover7.png)
 13. After the failover is complete, go to the **Devices** blade.
     
     1. Select and click the StorSimple device that was used as the target device for the failover process.
     2. Go to **Settings > Management > Shares** (or **Volumes** if iSCSI server). In the **Shares** blade, you can view all the shares (volumes) from the old device.
-        ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
+        ![Screenshot of the Devices blade. The target device is listed with a status of Online.](./media/storsimple-virtual-array-failover-dr/failover9.png)
 14. You will need to [create a DNS alias](https://support.microsoft.com/kb/168322) so that all the applications that are trying to connect can get redirected to the new device.
 
 ## Errors during DR

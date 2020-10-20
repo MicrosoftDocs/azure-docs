@@ -1,11 +1,12 @@
 ---
 title: Continuously update function app code using Azure DevOps
 description: Learn how to set up an Azure DevOps pipeline that targets Azure Functions.
-author: ahmedelnably
+author: craigshoemaker
 
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.author: aelnably
+ms.author: cshoe
+ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli"
 ---
 
 # Continuous delivery by using Azure DevOps
@@ -25,7 +26,7 @@ To create a YAML-based pipeline, first build your app, and then deploy the app.
 
 How you build your app in Azure Pipelines depends on your app's programming language. Each language has specific build steps that create a deployment artifact. A deployment artifact is used to deploy your function app in Azure.
 
-#### .NET
+# [C\#](#tab/csharp)
 
 You can use the following sample to create a YAML file to build a .NET app:
 
@@ -42,7 +43,7 @@ steps:
     arguments: '--configuration Release --output publish_output'
     projects: '*.csproj'
     publishWebProjects: false
-    modifyOutputPath: true
+    modifyOutputPath: false
     zipAfterPublish: false
 - task: ArchiveFiles@2
   displayName: "Archive files"
@@ -53,10 +54,10 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 
-#### JavaScript
+# [JavaScript](#tab/javascript)
 
 You can use the following sample to create a YAML file to build a JavaScript app:
 
@@ -81,16 +82,47 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
 
-#### Python
+# [Python](#tab/python)
 
-You can use the following sample to create a YAML file to build a Python app. Python is supported only for Linux Azure Functions. The YAML for Python 3.7 can be built by replacing all the instances of 3.6 with 3.7 in this YAML.
+You can use one of the following samples to create a YAML file to build an app for a specific Python version. Python is supported only for function apps running on Linux.
+
+**Version 3.7**
 
 ```yaml
 pool:
-      vmImage: ubuntu-16.04
+  vmImage: ubuntu-16.04
+steps:
+- task: UsePythonVersion@0
+  displayName: "Setting python version to 3.7 as required by functions"
+  inputs:
+    versionSpec: '3.7'
+    architecture: 'x64'
+- bash: |
+    if [ -f extensions.csproj ]
+    then
+        dotnet build extensions.csproj --output ./bin
+    fi
+    pip install --target="./.python_packages/lib/site-packages" -r ./requirements.txt
+- task: ArchiveFiles@2
+  displayName: "Archive files"
+  inputs:
+    rootFolderOrFile: "$(System.DefaultWorkingDirectory)"
+    includeRootFolder: false
+    archiveFile: "$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip"
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
+    artifactName: 'drop'
+```
+
+**Version 3.6**
+
+```yaml
+pool:
+  vmImage: ubuntu-16.04
 steps:
 - task: UsePythonVersion@0
   displayName: "Setting python version to 3.6 as required by functions"
@@ -102,10 +134,7 @@ steps:
     then
         dotnet build extensions.csproj --output ./bin
     fi
-    python3.6 -m venv worker_venv
-    source worker_venv/bin/activate
-    pip3.6 install setuptools
-    pip3.6 install -r requirements.txt
+    pip install --target="./.python_packages/lib/python3.6/site-packages" -r ./requirements.txt
 - task: ArchiveFiles@2
   displayName: "Archive files"
   inputs:
@@ -115,9 +144,10 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
-#### PowerShell
+
+# [PowerShell](#tab/powershell)
 
 You can use the following sample to create a YAML file to package a PowerShell app. PowerShell is supported only for Windows Azure Functions.
 
@@ -134,8 +164,10 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
-    name: 'drop'
+    artifactName: 'drop'
 ```
+
+---
 
 ### Deploy your app
 
@@ -220,7 +252,7 @@ To create a build pipeline in Azure, use the `az functionapp devops-pipeline cre
 
     - You must be the project administrator in Azure DevOps.
 
-    - You must have permissions to create a GitHub personal access token (PAT) that has sufficient permissions. For more information, see [GitHub PAT permission requirements.](https://aka.ms/azure-devops-source-repos)
+    - You must have permissions to create a GitHub personal access token (PAT) that has sufficient permissions. For more information, see [GitHub PAT permission requirements.](/azure/devops/pipelines/repos/github#repository-permissions-for-personal-access-token-pat-authentication)
 
     - You must have permissions to commit to the master branch in your GitHub repository so you can commit the autogenerated YAML file.
 

@@ -46,8 +46,10 @@ You need the following prerequisites:
 * Run the following command to add the Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS)-specific commands to the Azure CLI.
 
    ```azurecli-interactive
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
+
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
 
@@ -109,11 +111,11 @@ For this quickstart, you use the [Azure IoT device SDK for C](iot-hub-device-sdk
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a device
 
-You must register a device with your IoT hub before it can connect. In this section, you use Azure Cloud Shell with the [IoT Extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to register a simulated device.
+You must register a device with your IoT hub before it can connect. In this section, you use Azure Cloud Shell with the [IoT Extension](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) to register a simulated device.
 
 1. To create the device identity, run the following command in Cloud Shell:
 

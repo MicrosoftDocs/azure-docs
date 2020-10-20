@@ -10,7 +10,7 @@ services: iot-central
 manager: timlt
 ---
 
-# Summary of customer data request features​
+# Azure IoT Central customer data request features​
 
 Azure IoT Central is a fully managed Internet of Things (IoT) software-as-a-service solution that makes it easy to connect, monitor, and manage your IoT assets at scale, create deep insights from your IoT data, and take informed action.
 
@@ -31,8 +31,6 @@ When you use Microsoft enterprise services, Microsoft generates some information
 The ability to delete user data is only provided through the IoT Central administration page. Application administrators can select the user to be deleted and select **Delete** in the upper right corner of the application to delete the record. Application administrators can also remove individual accounts that are no longer associated with the application in question.
 
 After a user is deleted, no further alerts are emailed to them. However, their email address must be individually removed from each configured alert.
-
-For more information, see [Configure rules and actions for your device](tutorial-configure-rules.md).
 
 ## Exporting customer data
 

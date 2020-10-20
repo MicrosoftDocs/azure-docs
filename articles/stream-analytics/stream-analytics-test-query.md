@@ -5,18 +5,18 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 08/23/2019
+ms.topic: how-to
+ms.date: 3/6/2020
 ms.custom: seodec18
 ---
 
-# Test an Azure Stream Analytics job with sample data
+# Test an Azure Stream Analytics job in the portal
 
-In Azure Stream Analytics, you can test your query without starting or stopping your job. You can test queries on incoming data from your input sink or uploaded sample data from a local file on Azure Portal. You can also test queries locally from your local sample data or live data in [Visual Studio](stream-analytics-live-data-local-testing.md) and [Visual Studio Code](visual-studio-code-local-run-live-input.md).
+In Azure Stream Analytics, you can test your query without starting or stopping your job. You can test queries on incoming data from your streaming sources or upload sample data from a local file on Azure Portal. You can also test queries locally from your local sample data or live data in [Visual Studio](stream-analytics-live-data-local-testing.md) and [Visual Studio Code](visual-studio-code-local-run-live-input.md).
 
-## Sample incoming data from input
+## Automatically sample incoming data from input
 
-Azure Stream Analytics automatically fetches events from your streaming input. You can run queries on the default sample or set a specific time frame for the sample.
+Azure Stream Analytics automatically fetches events from your streaming inputs. You can run queries on the default sample or set a specific time frame for the sample.
 
 1. Sign in to the Azure portal.
 
@@ -92,7 +92,23 @@ Instead of using live data, you can use sample data from a local file to test yo
 
 10. After you verify the results shown in the browser, you can **Start** the job.
 
+## Limitations
+
+1.	Time policy is not supported in portal testing:
+
+   * Out-of-order: all incoming events will be ordered.
+   * Late arrival: There will not be late arrival event since Stream Analytics can only use existing data for testing.
+   
+2.	C# UDF is not supported.
+
+3.	All testing will be run with a job that has one Streaming Unit.
+
+4.	The timeout size is one minute. So any query with a window size greater than one minute cannot get any data.
+
+5.	Machine learning is not supported.
+
 ## Next steps
+* [Build an IoT solution by using Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics): this tutorial will guide you to build an end-to-end solution with a data generator that will simulate traffic at a toll booth.
 
 * [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 

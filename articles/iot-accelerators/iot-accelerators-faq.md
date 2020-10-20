@@ -60,7 +60,7 @@ If you're certain you have an Azure subscription, validate the tenant mapping fo
 
 ### Where can I find information about the previous version of the Remote Monitoring solution?
 
-The previous version of the Remote Monitoring solution accelerator was known as the IoT Suite Remote Monitoring preconfigured solution. You can find the archived documentation at [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
+The previous version of the Remote Monitoring solution accelerator was known as the IoT Suite Remote Monitoring preconfigured solution. You can find the archived documentation at [https://docs.microsoft.com/previous-versions/azure/iot-suite/](/previous-versions/azure/iot-suite/).
 
 ### Is the new solution accelerator available in the same geographic region as the existing solution?
 
@@ -77,7 +77,7 @@ Yes. Any solution that exists today continues to work in your Azure subscription
 
 ### How many IoT Hub instances can I provision in a subscription?
 
-By default you can provision [10 IoT hubs per subscription](../azure-subscription-service-limits.md#iot-hub-limits). You can create an [Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to raise this limit. As a result, since every solution accelerator provisions a new IoT Hub, you can only provision up to 10 solution accelerators in a given subscription.
+By default you can provision [10 IoT hubs per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-limits). You can create an [Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to raise this limit. As a result, since every solution accelerator provisions a new IoT Hub, you can only provision up to 10 solution accelerators in a given subscription.
 
 ### How many Azure Cosmos DB instances can I provision in a subscription?
 
@@ -96,13 +96,13 @@ Currently, you cannot create a solution accelerator with a [Microsoft Azure for 
 
 ### How do I delete an Azure AD tenant?
 
-See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
+See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant).
 
 ### Next steps
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
 * [Explore the capabilities of the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md)
-* [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
+* [Predictive Maintenance solution accelerator overview](./iot-accelerators-predictive-walkthrough.md)
 * [Deploy Connected Factory solution accelerator](quickstart-connected-factory-deploy.md)
-* [IoT security from the ground up](/azure/iot-fundamentals/iot-security-ground-up)
+* [IoT security from the ground up](../iot-fundamentals/iot-security-ground-up.md)

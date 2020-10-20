@@ -3,6 +3,7 @@ title: Build image with Cloud Native Buildpack
 description: Use the az acr pack build command to build a container image from an app and push to Azure Container Registry, without using a Dockerfile.
 ms.topic: article
 ms.date: 10/24/2019
+ms.custom: devx-track-js
 ---
 
 # Build and push an image from an app using a Cloud Native Buildpack
@@ -25,7 +26,7 @@ At a minimum, specify the following when you run `az acr pack build`:
 * One of the [supported context locations](container-registry-tasks-overview.md#context-locations) for ACR Tasks, such as a local directory, a GitHub repo, or a remote tarball
 * The name of a Buildpack builder image suitable for your application. Azure Container Registry caches builder images such as `cloudfoundry/cnb:0.0.34-cflinuxfs3` for faster builds.  
 
-`az acr pack build` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-overview.md#view-task-logs) that are streamed and also saved for later retrieval.
+`az acr pack build` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-logs.md) that are streamed and also saved for later retrieval.
 
 ## Example: Build Node.js image with Cloud Foundry builder
 
@@ -90,7 +91,7 @@ Browse to `localhost:8080` in your favorite browser to see the sample web app. P
 
 ## Next steps
 
-After you build and push a container image with `az acr pack build`, you can deploy it like any image to a target of your choice. Azure deployment options include running it in [App Service](../app-service/containers/tutorial-custom-docker-image.md) or [Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md), among others.
+After you build and push a container image with `az acr pack build`, you can deploy it like any image to a target of your choice. Azure deployment options include running it in [App Service](../app-service/tutorial-custom-container.md) or [Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md), among others.
 
 For more information about ACR Tasks features, see [Automate container image builds and maintenance with ACR Tasks](container-registry-tasks-overview.md).
 

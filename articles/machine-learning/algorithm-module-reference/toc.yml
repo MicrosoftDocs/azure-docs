@@ -26,10 +26,14 @@
     href: convert-to-csv.md
   - name: Convert to Dataset
     href: convert-to-dataset.md
+  - name: Convert to Indicator Values
+    href: convert-to-indicator-values.md  
   - name: Clean Missing Data
     href: clean-missing-data.md
   - name: Edit Metadata
     href: edit-metadata.md
+  - name: Group Data into Bins
+    href: group-data-into-bins.md
   - name: Join Data
     href: join-data.md
   - name: Normalize Data
@@ -44,6 +48,8 @@
     href: select-columns-transform.md
   - name: Select Columns in Dataset
     href: select-columns-in-dataset.md
+  - name: Split Data
+    href: split-data.md
 - name: Feature selection
   items:
   - name: Filter Based Feature Selection
@@ -62,10 +68,14 @@
         href: boosted-decision-tree-regression.md
       - name: Decision Forest Regression
         href: decision-forest-regression.md
+      - name: Fast Forest Quantile Regression
+        href: fast-forest-quantile-regression.md
       - name: Linear Regression
         href: linear-regression.md
       - name: Neural Network Regression
         href: neural-network-regression.md
+      - name: Poisson Regression
+        href: poisson-regression.md
   - name: Clustering
     items: 
     - name: K-Means Clustering
@@ -100,6 +110,8 @@
     href: train-clustering-model.md
   - name: Train Model
     href: train-model.md
+  - name: Train Pytorch Model
+    href: train-pytorch-model.md
   - name: Tune Model Hyperparameters
     href: tune-model-hyperparameters.md
 - name: Model scoring & evaluation
@@ -112,6 +124,8 @@
     href: cross-validate-model.md
   - name: Evaluate Model
     href: evaluate-model.md
+  - name: Score Image Model
+    href: score-image-model.md
   - name: Score Model
     href: score-model.md  
 - name: Python language
@@ -126,21 +140,58 @@
     href: execute-r-script.md
 - name: Text analytics
   items: 
+  - name: Convert Word to Vector
+    href: convert-word-to-vector.md
   - name: Extract N-Gram Features from Text
     href: extract-n-gram-features-from-text.md
   - name: Feature Hashing
     href: feature-hashing.md
   - name: Preprocess Text
     href: preprocess-text.md
+  - name: Latent Dirichlet Allocation
+    href: latent-dirichlet-allocation.md
+  - name: Score Vowpal Wabbit Model
+    href: score-vowpal-wabbit-model.md
+  - name: Train Vowpal Wabbit Model
+    href: train-vowpal-wabbit-model.md
+- name: Computer vision
+  items: 
+  - name: Apply Image Transformation
+    href: apply-image-transformation.md
+  - name: Convert to Image Directory
+    href: convert-to-image-directory.md
+  - name: Init Image Transformation
+    href: init-image-transformation.md
+  - name: Split Image Directory
+    href: split-image-directory.md
+  - name: DenseNet
+    href: densenet.md
+  - name: ResNet
+    href: resnet.md    
 - name: Recommendation
   items: 
   - name: Evaluate Recommender
     href: evaluate-recommender.md
   - name: Score SVD Recommender
     href: score-svd-recommender.md
+  - name: Score Wide and Deep Recommender
+    href: score-wide-and-deep-recommender.md
   - name: Train SVD Recommender
     href: train-svd-recommender.md
+  - name: Train Wide and Deep Recommender
+    href: train-wide-and-deep-recommender.md
+- name: Anomaly Detection
+  items: 
+  - name: PCA-Based Anomaly Detection
+    href: pca-based-anomaly-detection.md
+  - name: Train Anomaly Detection Model
+    href: train-anomaly-detection-model.md
+- name: Web Service
+  items: 
+  - name: Web Service Input/Output
+    href: web-service-input-output.md
 - name: Module errors & troubleshooting
   href: designer-error-codes.md
-  
+- name: Graph search query syntax
+  href: graph-search-syntax.md
 

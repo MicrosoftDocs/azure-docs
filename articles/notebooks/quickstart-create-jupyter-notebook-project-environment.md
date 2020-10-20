@@ -1,11 +1,14 @@
 ---
-title: Create an Azure Notebooks project with a custom environment
-description: Create a new project in Azure Notebooks that's configured with a specific set of installed packages and startup scripts.
+title: Create an Azure Notebooks Preview project with a custom environment
+description: Create a new project in Azure Notebooks Preview that's configured with a specific set of installed packages and startup scripts.
 ms.topic: quickstart
 ms.date: 12/04/2018
+ms.custom: devx-track-python
 ---
 
-# Quickstart: Create a project with a custom environment
+# Quickstart: Create a project with a custom environment in Azure Notebooks Preview
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 A project in Azure Notebooks is a collection of files, such as notebooks, data files, documentation, images, and so on, along with an environment that can be configured with specific setup commands. By defining the environment with the project, anyone who clones the project into their own Azure Notebooks account has all the information they need to recreate the necessary environment.
 
@@ -44,11 +47,14 @@ A project in Azure Notebooks is a collection of files, such as notebooks, data f
 
 1. The **+ Add** command creates a step that's defined by an operation and a target file that's selected from the files in your project. The following operations are supported:
 
-    | Operation | Description |
-    | --- | --- |
-    | Requirements.txt | Python projects define their dependencies in a requirements.txt file. With this option, select the appropriate file from the project's file list, and also select the Python version in the additional drop-down that appears. If necessary, select **Cancel** to return to the project, upload or create the file, then return to the **Project Settings** > **Environment** tab and create a new step. With this step in place, running a notebook in the project automatically runs `pip install -r <file>` |
-    | Shell script | Use to indicate a bash shell script (typically a file with the *.sh* extension) that contains any commands you wish to run to initialize the environment. |
-    | Environment.yml | A Python project that uses conda for managing an environment uses an *environments.yml* file to describe dependencies. With this option, select the appropriate file from the project's file list. |
+   | Operation | Description |
+   | --- | --- |
+   | Requirements.txt | Python projects define their dependencies in a requirements.txt file. With this option, select the appropriate file from the project's file list, and also select the Python version in the additional drop-down that appears. If necessary, select **Cancel** to return to the project, upload or create the file, then return to the **Project Settings** > **Environment** tab and create a new step. With this step in place, running a notebook in the project automatically runs `pip install -r <file>` |
+   | Shell script | Use to indicate a bash shell script (typically a file with the *.sh* extension) that contains any commands you wish to run to initialize the environment. |
+   | Environment.yml | A Python project that uses conda for managing an environment uses an *environments.yml* file to describe dependencies. With this option, select the appropriate file from the project's file list. |
+
+   > [!WARNING]
+   > As this is a preview service under development, there is currently a known issue where the `Environment.yml` setting does not get applied to your project as expected. The project and the Jupyter notebooks within do not load the specified environment file at present.
 
 1. To remove any setup step, select the **X** to the right of the step.
 
@@ -62,4 +68,4 @@ A project in Azure Notebooks is a collection of files, such as notebooks, data f
 > [Manage and configure projects in Azure Notebooks](configure-manage-azure-notebooks-projects.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: create and run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)

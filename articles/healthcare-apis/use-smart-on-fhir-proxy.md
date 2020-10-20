@@ -6,8 +6,8 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: dseven
-ms.author: mihansen
-author: hansenms
+ms.author: matjazl
+author: matjazl
 ms.date: 04/02/2019
 ---
 
@@ -26,24 +26,20 @@ This tutorial describes how to use the proxy to enable SMART on FHIR application
 
 ## Configure Azure AD registrations
 
-SMART on FHIR requires that `Audience` has an identifier URI equal to the URI of the FHIR service. The standard configuration of the Azure API for FHIR uses an `Audience` value of `https://azurehealthcareapis.com`. 
+SMART on FHIR requires that `Audience` has an identifier URI equal to the URI of the FHIR service. The standard configuration of the Azure API for FHIR uses an `Audience` value of `https://azurehealthcareapis.com`. However, you can also set a value matching the specific URL of your FHIR service (for example `https://MYFHIRAPI.azurehealthcareapis.com`). This is required when working with the SMART on FHIR proxy.
 
-Suppose that the URI for your Azure API for FHIR is `https://MYFHIRAPI.azurehealthcareapis.com`. You need to configure a [resource application registration](register-resource-azure-ad-client-app.md) with that identifier URI.
-
-After you set up a resource application, you also need a client application registration. Most SMART on FHIR applications are single-page JavaScript applications. So you should follow the instructions for configuring a [public Azure AD client application](register-public-azure-ad-client-app.md).
+You will also need a client application registration. Most SMART on FHIR applications are single-page JavaScript applications. So you should follow the instructions for configuring a [public Azure AD client application](register-public-azure-ad-client-app.md).
 
 After you complete these steps, you should have:
 
-- A resource application with the identifier URI `https://MYFHIRAPI.azurehealthcareapis.com`, where `MYFHIRAPI` is the name of your Azure API for FHIR instance.
+- A FHIR server with rge audience set to `https://MYFHIRAPI.azurehealthcareapis.com`, where `MYFHIRAPI` is the name of your Azure API for FHIR instance.
 - A public client application registration. Make a note of the application ID for this client application.
 
 ## Enable the SMART on FHIR proxy
 
-Enable the SMART on FHIR proxy in the **Authentication** settings for your Azure API for FHIR instance:
+Enable the SMART on FHIR proxy in the **Authentication** settings for your Azure API for FHIR instance by selecting the **SMART on FHIR proxy** check box:
 
 ![Selections for enabling the SMART on FHIR proxy](media/tutorial-smart-on-fhir/enable-smart-on-fhir-proxy.png)
-
-Change the **Audience** information to match the URI of your FHIR API, and select the **SMART on FHIR proxy** check box.
 
 ## Enable CORS
 

@@ -3,7 +3,7 @@ title: Azure Media Services diagnostic logs schemas - Azure
 description: This article demonstrates the Azure Media Services diagnostic logs schemas.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -11,23 +11,25 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/20/2019
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 
 ---
 
 # Diagnostic logs schemas
 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
 [Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. You can monitor Media Services diagnostic logs and create alerts and notifications for the collected metrics and logs. You can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), or use 3rd party services.
 
-For detailed information, see [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md) and [Azure Monitor Diagnostic logs](../../azure-monitor/platform/resource-logs-overview.md).
+For detailed information, see [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md) and [Azure Monitor Diagnostic logs](../../azure-monitor/platform/platform-logs-overview.md).
 
 This article describes Media Services diagnostic logs schemas.
 
 ## Top-level diagnostic logs schema
 
-For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../../azure-monitor/platform/tutorial-dashboards.md).
+For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../../azure-monitor/platform/resource-logs-schema.md).
 
 ## Key delivery log schema
 

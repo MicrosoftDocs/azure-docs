@@ -5,12 +5,11 @@ summary: Azure Batch runs large-scale applications efficiently in the cloud. Sch
 metadata:
   title: Azure Batch documentation
   description: Azure Batch runs large-scale applications efficiently in the cloud. Schedule compute-intensive tasks and dynamically adjust resources for your solution without managing infrastructure.
-  services: batch
   ms.service: batch 
   ms.topic: landing-page 
-  author: laurenhughes 
-  ms.author: lahugh 
-  ms.date: 09/23/2019 
+  author: JnHs 
+  ms.author: jenhayes 
+  ms.date: 10/09/2020
 
 landingContent:
   - title: About Azure Batch
@@ -38,8 +37,12 @@ landingContent:
             url: quick-run-python.md
       - linkListType: concept
         links:
-            - text: Developer features
-              url: batch-api-basics.md
+            - text: Workflow and feature overview
+              url: batch-service-workflow-features.md
+            - text: Jobs and tasks
+              url: jobs-and-tasks.md
+            - text: Nodes and pools
+              url: nodes-and-pools.md
 
   - title: Step-by-step guides
     linkLists:
@@ -49,6 +52,8 @@ landingContent:
             url: tutorial-parallel-dotnet.md
           - text: Parallel file processing - Python
             url: tutorial-parallel-python.md
+          - text: Python scripts with Data Factory
+            url: tutorial-run-python-batch-azure-data-factory.md
           - text: OCR with Batch and Functions
             url: tutorial-batch-functions.md
           - text: Scene rendering with Arnold
@@ -65,11 +70,13 @@ landingContent:
         - text: Create a Batch account
           url: batch-account-create-portal.md
         - text: Create and manage pools
-          url: batch-custom-images.md
+          url: batch-sig-images.md
         - text: Run tasks concurrently 
           url: batch-parallel-node-tasks.md
-        - text: Using application packages
+        - text: Use application packages
           url: batch-application-packages.md
+        - text: Run container applications
+          url: batch-docker-container-workloads.md
       - linkListType: concept
         links:
           - text: Supported VM sizes
@@ -84,16 +91,18 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure CLI
-            url: https://docs.microsoft.com/cli/azure/batch?view=azure-cli-latest
+            url: /cli/azure/batch
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.batch/?view=azps-2.6.0
+            url: /powershell/module/az.batch/
           - text: .NET
-            url: https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet
+            url: /dotnet/api/overview/azure/batch
           - text: Java
-            url: https://docs.microsoft.com/java/api/overview/azure/batch?view=azure-java-stable
+            url: /java/api/overview/azure/batch
           - text: Node.js
-            url: https://docs.microsoft.com/javascript/api/overview/azure/batch?view=azure-node-latest
+            url: /javascript/api/overview/azure/batch
           - text: Python
-            url: https://docs.microsoft.com/python/api/overview/azure/batch?view=azure-python
+            url: /python/api/overview/azure/batch
           - text: REST
-            url: https://docs.microsoft.com/rest/api/batchservice/
+            url: /rest/api/batchservice/
+          - text: Batch API lifecycle
+            url: /rest/api/batchservice/batch-api-status

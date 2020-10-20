@@ -30,18 +30,22 @@ Learn more about [what you can back up](backup-overview.md) and about [supported
 
 ## Where is data backed up?
 
-Azure Backup stores backed-up data in a Recovery Services vault. A vault is an online-storage entity in Azure that's used to hold data, such as backup copies, recovery points, and backup policies.
+Azure Backup stores backed-up data in a vaults - Recovery Services vaults and Backup vaults. A vault is an online-storage entity in Azure that's used to hold data, such as backup copies, recovery points, and backup policies.
 
-Recovery Services vaults have the following features:
+Vaults have the following features:
 
 - Vaults make it easy to organize your backup data, while minimizing management overhead.
-- In each Azure subscription, you can create up to 500 vaults.
 - You can monitor backed-up items in a vault, including Azure VMs and on-premises machines.
-- You can manage vault access with Azure [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+- You can manage vault access with [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
 - You specify how data in the vault is replicated for redundancy:
-  - **Locally redundant storage (LRS)**: To protect against failure in a datacenter, you can use LRS. LRS replicates data to a storage scale unit. [Learn more](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-  - **Geo-redundant storage (GRS)**: To protect against region-wide outages, you can use GRS. GRS replicates your data to a secondary region. [Learn more](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+  - **Locally redundant storage (LRS)**: To protect against failure in a datacenter, you can use LRS. LRS replicates data to a storage scale unit. [Learn more](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **Geo-redundant storage (GRS)**: To protect against region-wide outages, you can use GRS. GRS replicates your data to a secondary region. [Learn more](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **Zone-redundant storage (ZRS)**: replicates your data in [availability zones](../availability-zones/az-overview.md#availability-zones), guaranteeing data residency and resiliency in the same region. [Learn more](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - By default, Recovery Services vaults use GRS.
+
+Recovery Services vaults have the following additional features:
+
+- In each Azure subscription, you can create up to 500 vaults.
 
 ## Backup agents
 
@@ -97,6 +101,34 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 
 ![Table key](./media/backup-architecture/table-key.png)
 
+## Backup policy essentials
+
+- A backup policy is created per vault.
+- A backup policy can be created for the backup of following workloads: Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs and Azure file shares. The policy for files and folder backup using the MARS agent is specified in the MARS console.
+  - Azure File Share
+- A policy can be assigned to many resources. An Azure VM backup policy can be used to protect many Azure VMs.
+- A policy consists of two components
+  - Schedule: When to take the backup
+  - Retention: For how long each backup should be retained.
+- Schedule can be defined as "daily" or "weekly" with a specific point of time.
+- Retention can be defined for "daily", "weekly", "monthly", "yearly" backup points.
+  - "weekly" refers to a backup on a certain day of the week
+  - "monthly" refers a backup on a certain day of the month
+  - "yearly" refers to a backup on a certain day of the year
+- Retention for "monthly", "yearly" backup points is referred to as Long Term Retention (LTR)
+- When a vault is created, a "DefaultPolicy" is also created and can be used to back up resources.
+- Any changes made to the retention period of a backup policy will be applied retroactively to all the older recovery points aside from the new ones.
+
+### Additional reference
+
+- Azure VM machine: How to [create](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) and [modify](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) policy.
+- SQL Server database in Azure VM machine: How to [create](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) and [modify](./manage-monitor-sql-database-backup.md#modify-policy) policy.
+- Azure File share: How to [create](./backup-afs.md) and [modify](./manage-afs-backup.md#modify-policy) policy.
+- SAP HANA: How to [create](./backup-azure-sap-hana-database.md#create-a-backup-policy) and [modify](./sap-hana-db-manage.md#change-policy) policy.
+- MARS: How to [create](./backup-windows-with-mars-agent.md#create-a-backup-policy) and [modify](./backup-azure-manage-mars.md#modify-a-backup-policy) policy.
+- [Are there any limitations on scheduling backup based on the type of workload?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- [What happens to the existing recovery points if I change the retention policy?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
+
 ## Architecture: Built-in Azure VM Backup
 
 1. When you enable backup for an Azure VM, a backup runs according to the schedule you specify.
@@ -111,9 +143,9 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
     - Only blocks of data that changed since the last backup are copied.
     - Data isn't encrypted. Azure Backup can back up Azure VMs that were encrypted by using Azure Disk Encryption.
     - Snapshot data might not be immediately copied to the vault. At peak times, the backup might take some hours. Total backup time for a VM will be less than 24 hours for daily backup policies.
-1. After the data is sent to the vault, a recovery point is created. By default, snapshots are retained for two days before they are deleted. This feature allows restore operation from these snapshots, thereby cutting down the restore times. It reduces the time that's required to transform and copy data back from the vault. See [Azure Backup Instant Restore Capability](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
+1. After the data is sent to the vault, a recovery point is created. By default, snapshots are retained for two days before they are deleted. This feature allows restore operation from these snapshots, thereby cutting down the restore times. It reduces the time that's required to transform and copy data back from the vault. See [Azure Backup Instant Restore Capability](./backup-instant-restore-capability.md).
 
-Azure VMs need internet access for control commands. If you're backing up workloads inside the VM (for example, SQL Server database backups), the back-end data also needs internet access.
+You don't need to explicitly allow internet connectivity to back up your Azure VMs.
 
 ![Backup of Azure VMs](./media/backup-architecture/architecture-azure-vm.png)
 
@@ -160,9 +192,8 @@ Azure VMs use disks to store their operating system, apps, and data. Each Azure 
 
 For more information about disk storage and the available disk types for VMs, see these articles:
 
-- [Azure managed disks for Windows VMs](../virtual-machines/windows/managed-disks-overview.md)
-- [Azure managed disks for Linux VMs](../virtual-machines/linux/managed-disks-overview.md)
-- [Available disk types for VMs](../virtual-machines/windows/disks-types.md)
+- [Azure managed disks for Linux VMs](../virtual-machines/managed-disks-overview.md)
+- [Available disk types for VMs](../virtual-machines/disks-types.md)
 
 ### Back up and restore Azure VMs with premium storage
 
@@ -171,7 +202,7 @@ You can back up Azure VMs by using premium storage with Azure Backup:
 - During the process of backing up VMs with premium storage, the Backup service creates a temporary staging location, named *AzureBackup-*, in the storage account. The size of the staging location equals the size of the recovery point snapshot.
 - Make sure that the premium storage account has adequate free space to accommodate the temporary staging location. For more information, see [Scalability targets for premium page blob storage accounts](../storage/blobs/scalability-targets-premium-page-blobs.md). Don't modify the staging location.
 - After the backup job finishes, the staging location is deleted.
-- The price of storage used for the staging location is consistent with [premium storage pricing](../virtual-machines/windows/disks-types.md#billing).
+- The price of storage used for the staging location is consistent with [premium storage pricing](../virtual-machines/disks-types.md#billing).
 
 When you restore Azure VMs by using premium storage, you can restore them to premium or standard storage. Typically, you would restore them to premium storage. But if you need only a subset of files from the VM, it might be cost effective to restore them to standard storage.
 

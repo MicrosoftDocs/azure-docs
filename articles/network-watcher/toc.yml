@@ -13,6 +13,8 @@
     href: diagnose-vm-network-traffic-filtering-problem-powershell.md
   - name: Diagnose VM traffic filter problem - Azure CLI
     href: diagnose-vm-network-traffic-filtering-problem-cli.md
+  - name: Configure NSG Flow logs using ARM Template
+    href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Tutorials
   items:
   - name: Diagnose a VM routing problem
@@ -25,8 +27,12 @@
     href: network-watcher-nsg-flow-logging-portal.md
 - name: Concepts
   items:
+  - name: Connection Monitor (Preview)
+    href: connection-monitor-preview.md
   - name: Diagnose VM network traffic filter problems
     href: network-watcher-ip-flow-verify-overview.md
+  - name: Diagnose NSG rules and Traffic filtering
+    href: network-watcher-network-configuration-diagnostics-overview.md
   - name: Diagnose VM routing problems
     href: network-watcher-next-hop-overview.md
   - name: Diagnose outbound VM communication problems
@@ -41,10 +47,28 @@
     href: network-watcher-security-group-view-overview.md
   - name: Role-based access control permissions
     href: required-rbac-permissions.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
+  - name: Data residency
+    href: data-residency.md
 - name: How-to guides
   items:
   - name: Configure Network Watcher
     href: network-watcher-create.md
+  - name: Create Connection Monitor (Preview)
+    items:
+    - name: Using Azure portal
+      href: connection-monitor-preview-create-using-portal.md
+    - name: Using ARMClient
+      href: connection-monitor-preview-create-using-arm-client.md 
+  - name: Migrate to Connection Monitor (Preview)
+    items:
+    - name: From Network Performance Monitor
+      href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
+    - name: From Connection Monitor
+      href: migrate-to-connection-monitor-preview-from-connection-monitor.md
   - name: Diagnose VM network problems
     items:
     - name: Install VM extension
@@ -101,6 +125,10 @@
         href: network-watcher-nsg-flow-logging-cli.md
       - name: REST
         href: network-watcher-nsg-flow-logging-rest.md
+      - name: Azure Resource Manager
+        href: network-watcher-nsg-flow-logging-azure-resource-manager.md
+      - name: Built-in Policy
+        href: nsg-flow-logs-policy-portal.md
     - name: Delete NSG flow log storage blobs
       href: network-watcher-delete-nsg-flow-log-blobs.md
     - name: Analyze NSG flow logs
@@ -114,6 +142,8 @@
           href: traffic-analytics-faq.md
         - name: Schema and Data Aggregation
           href: traffic-analytics-schema.md
+        - name: Schema update (August 2019)
+          href: traffic-analytics-schema-update.md
       - name: Use Power BI
         href: network-watcher-visualize-nsg-flow-logs-power-bi.md
       - name: Use Elastic Stack
@@ -152,6 +182,10 @@
     href: view-relative-latencies.md
   - name: Monitor network performance
     href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+  - name: Move resources
+    items:
+    - name: Move Network Watcher Resources
+      href: resource-move.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -167,7 +201,7 @@
   - name: .NET
     href: /dotnet/api/overview/azure/virtual-network
   - name: Node.js
-    href: /javascript/api/azure-arm-network
+    href: /javascript/api/@azure/arm-network
   - name: REST
     href: /rest/api/network-watcher/
 - name: Resources
@@ -176,8 +210,8 @@
     href: frequently-asked-questions.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-virtual-network.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/network-watcher/
   - name: Service updates

@@ -1,26 +1,17 @@
 ---
 title: Copy a Linux VM using Azure CLI  
 description: Learn how to create a copy of your Azure Linux VM using Azure CLI and Managed Disks. 
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-
-ms.assetid: 770569d2-23c1-4a5b-801e-cddcd1375164
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cynthn
-
+ms.custom: legacy
 ---
 
 # Create a copy of a Linux VM by using Azure CLI and Managed Disks
 
-This article shows you how to create a copy of your Azure virtual machine (VM) running Linux by using the Azure CLI and the Azure Resource Manager deployment model. 
+This article shows you how to create a copy of your Azure virtual machine (VM) running Linux by using the Azure CLI. To copy, create, store and share VM images at scale, see [Shared Image Galleries](../shared-images-cli.md).
 
 You can also [upload and create a VM from a VHD](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -51,7 +42,7 @@ process creates a specialized virtual hard disk (VHD) as a Managed Disk that con
 settings as the source VM.
 
 For more information about Azure Managed Disks, see [Azure Managed Disks
-overview](../windows/managed-disks-overview.md). 
+overview](../managed-disks-overview.md). 
 
 1.  List each VM and the name of its OS disk with [az vm
     list](/cli/azure/vm#az-vm-list). The following example lists all VMs in the
@@ -151,5 +142,4 @@ az vm create --resource-group myResourceGroup \
 
 ## Next steps
 
-To learn how to use Azure CLI to manage your new VM, see [Azure CLI commands for
-the Azure Resource Manager](../azure-cli-arm-commands.md).
+To learn how to use a [shared image gallery](../shared-images-cli.md) to manage VM images.

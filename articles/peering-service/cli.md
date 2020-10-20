@@ -2,30 +2,25 @@
 title: Register a Peering Service Preview connection by using the Azure CLI 
 description: Learn how to register a Peering Service connection by using the Azure CLI
 services: peering-service
-author: ypitsch
+author: derekolo
 ms.service: peering-service
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 11/04/2019
-ms.author: v-meravi
+ms.date: 05/2/2020
+ms.author: derekol
 ---
 
-# Register a Peering Service Preview connection by using the Azure CLI
+# Register a Peering Service connection by using the Azure CLI
 
-Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Office 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. In this article, you'll learn how to register a Peering Service connection by using the Azure CLI.
+Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. In this article, you'll learn how to register a Peering Service connection by using the Azure CLI.
 
 If you don't have an Azure subscription, create an [account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this article requires the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-> [!IMPORTANT]
-> Peering Service is currently in public preview.
-> This preview version is provided without a service level agreement. We don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites 
 

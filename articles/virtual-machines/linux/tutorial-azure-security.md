@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -40,7 +40,7 @@ To access the Security Center dashboard, in the Azure portal, on the menu, selec
 
 Security Center goes beyond data discovery to provide recommendations for issues that it detects. For example, if a VM was deployed without an attached network security group, Security Center displays a recommendation, with remediation steps you can take. You get automated remediation without leaving the context of Security Center.  
 
-![Recommendations](./media/tutorial-azure-security/recommendations.png)
+![Screenshot shows Recommendations page, which includes a description, resource, state, and severity of recommendations.](./media/tutorial-azure-security/recommendations.png)
 
 ## Set up data collection
 
@@ -56,7 +56,7 @@ The Security Center data collection agent is then installed on all VMs, and data
 
 ## Set up a security policy
 
-Security policies are used to define the items for which Security Center collects data and makes recommendations. You can apply different security policies to different sets of Azure resources. Although by default Azure resources are evaluated against all policy items, you can turn off individual policy items for all Azure resources or for a resource group. For in-depth information about Security Center security policies, see [Set security policies in Azure Security Center](../../security-center/security-center-policies.md). 
+Security policies are used to define the items for which Security Center collects data and makes recommendations. You can apply different security policies to different sets of Azure resources. Although by default Azure resources are evaluated against all policy items, you can turn off individual policy items for all Azure resources or for a resource group. For in-depth information about Security Center security policies, see [Set security policies in Azure Security Center](../../security-center/tutorial-security-policy.md). 
 
 To set up a security policy for an entire subscription:
 
@@ -69,7 +69,7 @@ To set up a security policy for an entire subscription:
 
 ## View VM configuration health
 
-After you've turned on data collection and set a security policy, Security Center begins to provide alerts and recommendations. As VMs are deployed, the data collection agent is installed. Security Center is then populated with data for the new VMs. For in-depth information about VM configuration health, see [Protect your VMs in Security Center](../../security-center/security-center-virtual-machine-protection.md). 
+After you've turned on data collection and set a security policy, Security Center begins to provide alerts and recommendations. As VMs are deployed, the data collection agent is installed. Security Center is then populated with data for the new VMs. For in-depth information about VM configuration health, see [Protect your VMs in Security Center](../../security-center/asset-inventory.md). 
 
 As data is collected, the resource health for each VM and related Azure resource is aggregated. The information is shown in an easy-to-read chart. 
 
@@ -132,5 +132,4 @@ In this tutorial, you set up Azure Security Center, and then reviewed VMs in Sec
 Advance to the next tutorial to learn more about creating a CI/CD pipeline with Jenkins, GitHub, and Docker.
 
 > [!div class="nextstepaction"]
-> [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](tutorial-jenkins-github-docker-cicd.md)
-
+> [Create CI/CD infrastructure with Jenkins, GitHub, and Docker](/azure/developer/jenkins/pipeline-with-github-and-docker)

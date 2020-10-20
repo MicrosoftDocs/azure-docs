@@ -1,6 +1,6 @@
 ---
 title: Coarse relocalization in Unity
-description: In-depth explanation of how to create and locate anchors using on-device sensors in C#.
+description: In-depth explanation of how to create and locate anchors using coarse relocalization in C#.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -9,8 +9,9 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
+ms.custom: devx-track-csharp
 ---
-# How to create and locate anchors using on-device sensors in C#
+# How to create and locate anchors using coarse relocalization in C#
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)

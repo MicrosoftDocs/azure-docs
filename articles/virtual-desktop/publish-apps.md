@@ -1,15 +1,16 @@
 ---
 title: Publish built-in apps in Windows Virtual Desktop - Azure
-description: How to publish modern apps in Windows Virtual Desktop.
-services: virtual-desktop
+description: How to publish built-in apps in Windows Virtual Desktop.
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 12/03/2019
+ms.topic: how-to
+ms.date: 04/30/2020
 ms.author: helohr
+manager: lizross
 ---
 # Publish built-in apps in Windows Virtual Desktop
+
+>[!IMPORTANT]
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/publish-apps-2019.md).
 
 This article will tell you how to publish apps in your Windows Virtual Desktop environment.
 
@@ -18,15 +19,15 @@ This article will tell you how to publish apps in your Windows Virtual Desktop e
 To publish a built-in app:
 
 1. Connect to one of the virtual machines in your host pool.
-2. Get the **PackageFamilyName** of the app you want to publish by following the instructions in [this article](https://docs.microsoft.com/powershell/module/appx/get-appxpackage?view=win10-ps).
+2. Get the **PackageFamilyName** of the app you want to publish by following the instructions in [this article](/powershell/module/appx/get-appxpackage?view=win10-ps/).
 3. Finally, run the following cmdlet with `<PackageFamilyName>` replaced by the **PackageFamilyName** you found in the previous step:
-   
+
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -FriendlyName <remoteappname> -FilePath "shell:appsFolder\<PackageFamilyName>!App"
+   New-AzWvdApplication -Name <applicationname> -ResourceGroupName <resourcegroupname> -ApplicationGroupName <appgroupname> -FilePath "shell:appsFolder\<PackageFamilyName>!App" -CommandLineSetting <Allow|Require|DoNotAllow> -IconIndex 0 -IconPath <iconpath> -ShowInPortal:$true
    ```
 
 >[!NOTE]
-> Windows Virtual Desktop only supports publishing apps with install locations that begin with `C:\Program Files\Windows Apps`.
+> Windows Virtual Desktop only supports publishing apps with install locations that begin with `C:\Program Files\WindowsApps`.
 
 ## Update app icons
 
@@ -37,7 +38,7 @@ After you publish an app, it will have the default Windows app icon instead of i
 The process you use to publish Microsoft Edge is a little different from the publishing process for other apps. To publish Microsoft Edge with the default homepage, run this cmdlet:
 
 ```powershell
-New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -FriendlyName <remoteappname> -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" 
+New-AzWvdApplication -Name -ResourceGroupName -ApplicationGroupName -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" -CommandLineSetting <Allow|Require|DoNotAllow> -iconPath "C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\microsoftedge.exe" -iconIndex 0 -ShowInPortal:$true
 ```
 
 ## Next steps

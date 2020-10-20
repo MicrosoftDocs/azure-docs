@@ -1,60 +1,61 @@
 ---
-title: REST API version 2019-05-06-Preview
+title: Preview feature list
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search service REST API Version 2019-05-06-Preview includes experimental features such as knowledge store and customer-managed encryption keys.
+description: Preview features are released so that customers can provide feedback on their design and utility. This article is a comprehensive list of all features currently in preview.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/22/2020
 ---
-# Azure Cognitive Search service REST api-version 2019-05-06-Preview
+# Preview features in Azure Cognitive Search
 
-This article describes the `api-version=2019-05-06-Preview` version of Search service REST API, offering experimental features not yet generally available.
+This article is a comprehensive list of all features that are in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-> [!NOTE]
-> Preview features are available for testing and experimentation with the goal of gathering feedback and are subject to change. We strongly advise against using preview APIs in production applications.
+Preview features that transition to general availability are removed from this list. If a feature isn't listed below, you can assume it is generally available. For announcements regarding general availability, see [Service Updates](https://azure.microsoft.com/updates/?product=search) or [What's New](whats-new.md).
 
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|---------|------------------|-------------|---------------|
+| [**Azure Machine Learning (AML) skill**](cognitive-search-aml-skill.md) | AI enrichment| A new skill type to integrate an inferencing endpoint from Azure Machine Learning. Get started with [this tutorial](cognitive-search-tutorial-aml-custom-skill.md). | Use [Search REST API 2020-06-30-Preview](/rest/api/searchservice/) or 2019-05-06-Preview. Also available in the portal, in skillset design, assuming Cognitive Search and Azure ML services are deployed in the same subscription. |
+| [**featuresMode parameter**](/rest/api/searchservice/search-documents#featuresmode) | Relevance (scoring) | Relevance score expansion to include details: per field similarity score, per field term frequency, and per field number of unique tokens matched. You can consume these data points in [custom scoring solutions](https://github.com/Azure-Samples/search-ranking-tutorial). | Add this query parameter using [Search Documents (REST)](/rest/api/searchservice/search-documents) with api-version=2020-06-30-Preview or 2019-05-06-Preview. |
+| [**Debug Sessions**](cognitive-search-debug-session.md) | Portal, AI enrichment (skillset) | An in-session skillset editor used to investigate and resolve issues with a skillset. Fixes applied during a debug session can be saved to a skillset in the service. | Portal only, using mid-page links on the Overview page to open a debug session. |
+| [**Native blob soft delete**](search-howto-index-changed-deleted-blobs.md) | Indexers, Azure blobs| The Azure Blob Storage indexer in Azure Cognitive Search will recognize blobs that are in a soft deleted state, and remove the corresponding search document during indexing. | Add this configuration setting using [Create Indexer (REST)](/rest/api/searchservice/create-indexer) with api-version=2020-06-30-Preview or api-version=2019-05-06-Preview. |
+| [**Custom Entity Lookup skill**](cognitive-search-skill-custom-entity-lookup.md ) | AI enrichment (skillset) | A cognitive skill that looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact. | Reference this preview skill using the Skillset editor in the portal or [Create Skillset (REST)](/rest/api/searchservice/create-skillset) with api-version=2020-06-30-Preview or api-version=2019-05-06-Preview. |
+| [**PII Detection skill**](cognitive-search-skill-pii-detection.md) | AI enrichment (skillset) | A cognitive skill used during indexing that extracts personal information from an input text and gives you the option to mask it from that text in various ways. | Reference this preview skill using the Skillset editor in the portal or [Create Skillset (REST)](/rest/api/searchservice/create-skillset) with api-version=2020-06-30-Preview or api-version=2019-05-06-Preview. |
+| [**Incremental enrichment**](cognitive-search-incremental-indexing-conceptual.md) | Indexer configuration| Adds caching to an enrichment pipeline, allowing you to reuse existing output if a targeted modification, such as an update to a skillset or another object, does not change the content. Caching applies only to enriched documents produced by a skillset.| Add this configuration setting using [Create Indexer (REST)](/rest/api/searchservice/create-indexer) with api-version=2020-06-30-Preview or api-version=2019-05-06-Preview. |
+| [**Cosmos DB indexer: MongoDB API, Gremlin API, Cassandra API**](search-howto-index-cosmosdb.md) | Indexer data source | For Cosmos DB, SQL API is generally available, but MongoDB, Gremlin, and Cassandra APIs are in preview. | For Gremlin and Cassandra only, [sign up first](https://aka.ms/azure-cognitive-search/indexer-preview) so that support can be enabled for your subscription on the backend. MongoDB data sources can be configured in the portal. Otherwise, data source configuration for all three APIs is supported using [Create Data Source (REST)](/rest/api/searchservice/create-data-source) with api-version=2020-06-30-Preview or api-version=2019-05-06-Preview. |
+|  [**Azure Data Lake Storage Gen2 indexer**](search-howto-index-azure-data-lake-storage.md) | Indexer data source | Index content and metadata from Data Lake Storage Gen2.| [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) is required so that support can be enabled for your subscription on the backend. Access this data source using [Create Data Source (REST)](/rest/api/searchservice/create-data-source) with api-version=2020-06-30-Preview or api-version=2019-05-06-Preview. |
+| [**moreLikeThis**](search-more-like-this.md) | Query | Finds documents that are relevant to a specific document. This feature has been in earlier previews. | Add this query parameter in [Search Documents (REST)](/rest/api/searchservice/search-documents) calls with api-version=2020-06-30-Preview, 2019-05-06-Preview, 2016-09-01-Preview, or 2017-11-11-Preview. |
 
-## New in 2019-05-06-Preview
+## How to call a preview REST API
 
-+ [Incremental indexing](cognitive-search-incremental-indexing-conceptual.md) is a new mode for indexing that adds state and caching to a skillset, allowing you to reuse existing output when source data, indexer, and skillset definitions are unchanged. This feature applies only to enrichments defined a cognitive skillset.
+Azure Cognitive Search always pre-releases experimental features through the REST API first, then through prerelease versions of the .NET SDK.
 
-+ [Cosmos DB indexer](search-howto-index-cosmosdb.md) supports MongoDB API, Gremlin API, and Cassandra API.
+Preview features are available for testing and experimentation, with the goal of gathering feedback on feature design and implementation. For this reason, preview features can change over time, possibly in ways that break backwards compatibility. This is in contrast to features in a GA version, which are stable and unlikely to change with the exception of small backward-compatible fixes and enhancements. Also, preview features do not always make it into a GA release.
 
-+ [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md) can index content and metadata from Data Lake Storage Gen2.
+While some preview features might be available in the portal and .NET SDK, the REST API always has preview features.
 
-+ [Document Extraction (preview)](cognitive-search-skill-document-extraction.md) is a cognitive skill used during indexing that allows you to extract the contents of a file from within a skillset. Previously, document cracking only occurred prior to skillset execution. With the addition of this skill, you can also perform this operation within skillset execution.
++ For search operations, [**`2020-06-30-Preview`**](/rest/api/searchservice/index-preview) is the current preview version.
 
-+ [Text Translation (preview)](cognitive-search-skill-text-translation.md) is a cognitive skill used during indexing that evaluates text and, for each record, returns the text translated to the specified target language.
++ For management operations, [**`2019-10-01-Preview`**](/rest/api/searchmanagement/index-2019-10-01-preview) is the current preview version.
 
-+ [Knowledge store](knowledge-store-concept-intro.md) is a new destination of an AI-based enrichment pipeline. The physical data structure exists in Azure Blob storage and Azure Table storage, and it is created and populated when you run an indexer that has an attached cognitive skillset. The definition of a knowledge store itself is specified within a skillset definition. Within the knowledge store definition, you control the physical structures of your data through *projection* elements that determine how data is shaped, whether data is stored in Table storage or Blob storage, and whether there are multiple views.
-
-+ [Customer-managed encryption keys](search-security-manage-encryption-keys.md) for service-side encryption-at-rest is also a new preview feature. In addition to the built-in encryption-at-rest managed by Microsoft, you can apply an additional layer of encryption where you are the sole owner of the keys.
-
-## Earlier preview features
-
-Features announced in earlier previews are still in public preview. If you're calling an API with an earlier preview api-version, you can continue to use that version or switch to `2019-05-06-Preview` with no changes to expected behavior.
-
-+ [moreLikeThis query parameter](search-more-like-this.md) finds documents that are relevant to a specific document. This feature has been in earlier previews. 
-
-+ [CSV blob indexing](search-howto-index-csv-blobs.md) creates one document per line, as opposed to one document per text blob.
-
-## How to call a preview API
-
-Older previews are still operational but become stale over time. If your code calls `api-version=2016-09-01-Preview` or `api-version=2017-11-11-Preview`, those calls are still valid. However, only the newest preview version is refreshed with improvements. 
+Older previews are still operational but become stale over time. If your code calls `api-version=2019-05-06-Preview` or `api-version=2016-09-01-Preview` or `api-version=2017-11-11-Preview`, those calls are still valid. However, only the newest preview version is refreshed with improvements.
 
 The following example syntax illustrates a call to the preview API version.
 
-    GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2019-05-06-Preview
+```HTTP
+POST https://[service name].search.windows.net/indexes/hotels-idx/docs/search?api-version=2020-06-30-Preview  
+  Content-Type: application/json  
+  api-key: [admin key]
+```
 
 Azure Cognitive Search service is available in multiple versions. For more information, see [API versions](search-api-versions.md).
 
 ## Next steps
 
-Review the Search REST API reference documentation. If you encounter problems, ask us for help on [StackOverflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
+Review the Search REST Preview API reference documentation. If you encounter problems, ask us for help on [Stack Overflow](https://stackoverflow.com/) or [contact support](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Search service REST API Reference](https://docs.microsoft.com/rest/api/searchservice/)
+> [Search service REST API Reference (Preview)](/rest/api/searchservice/index-preview)

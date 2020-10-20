@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with ClickTime | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ClickTime.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d437b5ab-4d71-4c13-96d0-79018cebbbd4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with ClickTime
 
@@ -107,10 +100,10 @@ To configure Azure AD single sign-on with ClickTime, perform the following steps
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     
-	| |
-	|--|
-	| `https://app.clicktime.com/Login/` |
-	| `https://app.clicktime.com/App/Login/Consume.aspx` |
+    ```http
+    https://app.clicktime.com/Login/
+    https://app.clicktime.com/App/Login/Consume.aspx
+    ```
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -209,7 +202,7 @@ In the case of ClickTime, provisioning is a manual task.
 
 1. In the toolbar on the top, click **Company**, and then click **People**.
    
-    ![People](./media/clicktime-tutorial/tic777282.png "People")
+    ![Screenshot shows the ClickTime tenant with Company and People selected.](./media/clicktime-tutorial/tic777282.png "People")
 
 1. Click **Add Person**.
    
@@ -217,7 +210,7 @@ In the case of ClickTime, provisioning is a manual task.
 
 1. In the New Person section, perform the following steps:
    
-    ![People](./media/clicktime-tutorial/tic777284.png "People")
+    ![Screenshot shows the Add Person section where you can add the information in this step.](./media/clicktime-tutorial/tic777284.png "People")
    
     a.  In the **full name** textbox, type full name of user like **Britta Simon**. 
   

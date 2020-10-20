@@ -4,6 +4,7 @@ description: Learn to create different Azure Functions binding expressions based
 author: craigshoemaker
 
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
 ---
@@ -33,7 +34,8 @@ App setting binding expressions are identified differently from other binding ex
 
 When a function is running locally, app setting values come from the *local.settings.json* file.
 
-Note that the `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs. 
+> [!NOTE]
+> The `connection` property of triggers and bindings is a special case and automatically resolves values as app settings, without percent signs. 
 
 The following example is an Azure Queue Storage trigger that uses an app setting `%input-queue-name%` to define the queue to trigger on.
 
@@ -127,7 +129,19 @@ public static void Run(
 
 ```
 
-You can also create expressions for parts of the file name such as the extension. For more information on how to use expressions and patterns in the Blob path string, see the [Storage blob binding reference](functions-bindings-storage-blob.md).
+You can also create expressions for parts of the file name. In the following example, function is triggered only on file names that match a pattern: `anyname-anyfile.csv`
+
+```json
+{
+    "name": "myBlob",
+    "type": "blobTrigger",
+    "direction": "in",
+    "path": "testContainerName/{date}-{filetype}.csv",
+    "connection": "OrderStorageConnection"
+}
+```
+
+For more information on how to use expressions and patterns in the Blob path string, see the [Storage blob binding reference](functions-bindings-storage-blob.md).
 
 ## Trigger metadata
 
@@ -163,7 +177,7 @@ These metadata values are accessible in *function.json* file properties. For exa
   ]
 ```
 
-Details of metadata properties for each trigger are described in the corresponding reference article. For an example, see [queue trigger metadata](functions-bindings-storage-queue.md#trigger---message-metadata). Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
+Details of metadata properties for each trigger are described in the corresponding reference article. For an example, see [queue trigger metadata](functions-bindings-storage-queue-trigger.md#message-metadata). Documentation is also available in the **Integrate** tab of the portal, in the **Documentation** section below the binding configuration area.  
 
 ## JSON payloads
 
@@ -281,7 +295,7 @@ The `{rand-guid}` binding expression creates a GUID. The following blob path in 
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{rand-guid}"
+  "path": "my-output-container/{rand-guid}.txt"
 }
 ```
 
@@ -294,7 +308,7 @@ The binding expression `DateTime` resolves to `DateTime.UtcNow`. The following b
   "type": "blob",
   "name": "blobOutput",
   "direction": "out",
-  "path": "my-output-container/{DateTime}"
+  "path": "my-output-container/{DateTime}.txt"
 }
 ```
 ## Binding at runtime

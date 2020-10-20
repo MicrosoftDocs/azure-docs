@@ -1,18 +1,18 @@
 ---
 title: Synchronize Azure Active Directory users to HDInsight cluster 
 description: Synchronize authenticated users from Azure Active Directory to an HDInsight cluster.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh 
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
 ---
 
 # Synchronize Azure Active Directory users to an HDInsight cluster
 
-[HDInsight clusters with Enterprise Security Package (ESP)](hdinsight-domain-joined-introduction.md) can use strong authentication with Azure Active Directory (Azure AD) users, as well as use *role-based access control* (RBAC) policies. As you add users and groups to Azure AD, you can synchronize the users who need access to your cluster.
+[HDInsight clusters with Enterprise Security Package (ESP)](hdinsight-domain-joined-introduction.md) can use strong authentication with Azure Active Directory (Azure AD) users, as well as use *Azure role-based access control (Azure RBAC)* policies. As you add users and groups to Azure AD, you can synchronize the users who need access to your cluster.
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ The following method uses POST with the Ambari REST API. For more information, s
     {
       "resources" : [
         {
-          "href" : "http://hn0-hadoop.<YOUR DOMAIN>.com:8080/api/v1/ldap_sync_events/1",
+          "href" : "http://<ACTIVE-HEADNODE-NAME>.<YOUR DOMAIN>.com:8080/api/v1/ldap_sync_events/1",
           "Event" : {
             "id" : 1
           }
@@ -79,7 +79,7 @@ The following method uses POST with the Ambari REST API. For more information, s
 
     ```json
     {
-      "href" : "http://hn0-hadoop.YOURDOMAIN.com:8080/api/v1/ldap_sync_events/1",
+      "href" : "http://<ACTIVE-HEADNODE-NAME>.YOURDOMAIN.com:8080/api/v1/ldap_sync_events/1",
       "Event" : {
         "id" : 1,
         "specs" : [

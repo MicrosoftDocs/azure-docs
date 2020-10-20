@@ -15,6 +15,8 @@ ms.date: 04/15/2019
 
 # Troubleshoot package execution in the SSIS integration runtime
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article includes the most common errors that you might find when you're executing SQL Server Integration Services (SSIS) packages in the SSIS integration runtime. It describes the potential causes and actions to solve the errors.
 
 ## Where to find logs for troubleshooting
@@ -89,13 +91,13 @@ This error occurs when package execution can't find a file in the local disk in 
 
 ### Error message: "The database 'SSISDB' has reached its size quota"
 
-A potential cause is that the SSISDB database created in the Azure SQL database, or a managed instance when you're creating an SSIS integration runtime, has reached its quota. Try these actions:
-* Consider increasing the DTU of your database. You can find details in [SQL Database resource limits for an Azure SQL Database server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
+A potential cause is that the SSISDB database created in Azure SQL Database or in SQL Managed Instance has reached its quota. Try these actions:
+* Consider increasing the DTU of your database. You can find details in [SQL Database limits for an logical server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
 * Check whether your package would generate many logs. If so, you can configure an elastic job to clean up these logs. For details, see [Clean up SSISDB logs with Azure Elastic Database jobs](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md).
 
 ### Error message: "The request limit for the database is ... and has been reached."
 
-If many packages are running in parallel in the SSIS integration runtime, this error might occur because SSISDB has hit its request limit. Consider increasing the DTC of SSISDB to resolve this issue. You can find details in [SQL Database resource limits for an Azure SQL Database server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
+If many packages are running in parallel in the SSIS integration runtime, this error might occur because SSISDB has hit its request limit. Consider increasing the DTC of SSISDB to resolve this issue. You can find details in [SQL Database limits for an logical server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-logical-server).
 
 ### Error message: "SSIS Operation failed with unexpected operation status: ..."
 
@@ -139,7 +141,7 @@ Make sure your Self-Hosted integration runtime is installed and started. More de
 
 ### Error message: "Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed., Output: {"OperationErrorMessages": "Error: The requested OLE DB provider ... is not registered. If the 64-bit driver is not installed, run the package in 32-bit mode..."
 
-Make sure the corresponding provider used by your OLE DB connectors in your package are installed on Self-Hosted integration runtime machine properly. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
+Make sure the corresponding provider used by your OLE DB connectors in your package are installed on Self-Hosted integration runtime machine properly. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
 ### Error message: "Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed., Output: {"OperationErrorMessages": "Error: System.IO.FileLoadException: Could not load file or assembly 'Microsoft.WindowsAzure.Storage, Version=..., Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference.'..."
 
@@ -154,7 +156,7 @@ One potential cause is your Self-Hosted integration runtime is not installed or 
 
 ### Error message: "Staging task status: Failed. Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed., Output: {"OperationErrorMessages": "SSIS Executor exit code: -1.\n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }}"
 
-Make sure Visual C++ runtime is installed on Self-Hosted integration runtime machine. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir)
+Make sure Visual C++ runtime is installed on Self-Hosted integration runtime machine. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
 
 ### Multiple Package executions are triggered unexpectedly
 

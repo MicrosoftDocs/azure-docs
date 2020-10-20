@@ -1,26 +1,15 @@
 ---
-title: 'Quickstart: How to use azure/service-bus queues in Node.js'
-description: 'Quickstart: Learn how to use Service Bus queues in Azure from a Node.js app using the azure/service-bus package.'
-services: service-bus-messaging
-documentationcenter: nodejs
-author: axisc
-editor: spelluru
-
-ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
-ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
+title: How to use azure/service-bus queues in Node.js
+description: Learn how to write a Nodejs program to send messages to and receive messages from a Service Bus queue using the new @azure/service-bus package.
+author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.custom: devx-track-js
 ---
-# Quickstart: How to use Service Bus queues with Node.js and the azure/service-bus package
-> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
+# Quickstart: How to use Service Bus queues with Node.js and the azure/service-bus package
 In this tutorial, you learn how to write a Nodejs program to send messages to and receive messages from a Service Bus queue using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package. This package uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md) whereas the older [azure-sb](https://www.npmjs.com/package/azure-sb) package used [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). The samples are written in JavaScript.
 
 ## Prerequisites
@@ -28,7 +17,7 @@ In this tutorial, you learn how to write a Nodejs program to send messages to an
 - If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. Note down the connection string for your Service Bus instance and the name of the queue you created. We'll use these values in the samples.
 
 > [!NOTE]
-> - This tutorial works with samples that you can copy and run using [Nodejs](https://nodejs.org/). For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website](../app-service/app-service-web-get-started-nodejs.md), or [Node.js cloud service using Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+> - This tutorial works with samples that you can copy and run using [Nodejs](https://nodejs.org/). For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website](../app-service/quickstart-nodejs.md), or [Node.js cloud service using Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
 > - The new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package does not support creation of queues yet. Please use the [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) package if you want to programmatically create them.
 
 ### Use Node Package Manager (NPM) to install the package
@@ -39,7 +28,7 @@ npm install @azure/service-bus
 ```
 
 ## Send messages to a queue
-Interacting with a Service Bus queue starts with instantiating the [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) class and using it to instantiate the [QueueClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient) class. Once you have the queue client, you can create a sender and use  either [send](https://docs.microsoft.com/javascript/api/%40azure/service-bus/sender#send-sendablemessageinfo-) or [sendBatch](https://docs.microsoft.com/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) method on it to send messages.
+Interacting with a Service Bus queue starts with instantiating the [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) class and using it to instantiate the [QueueClient](/javascript/api/@azure/service-bus/queueclient) class. Once you have the queue client, you can create a sender and use  either [send](/javascript/api/@azure/service-bus/sender#send-sendablemessageinfo-) or [sendBatch](/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) method on it to send messages.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 2. Create a file called `send.js` and paste the below code into it. This code will send 10 messages to your queue.
@@ -89,7 +78,7 @@ Messages have some standard properties like `label` and `messageId` that you can
 Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). There's no limit on the number of messages held in a queue but there's a cap on the total size of the messages held by a queue. This queue size is defined at creation time, with an upper limit of 5 GB. For more information about quotas, see [Service Bus quotas](service-bus-quotas.md).
 
 ## Receive messages from a queue
-Interacting with a Service Bus queue starts with instantiating the [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) class and using it to instantiate the [QueueClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient) class. Once you have the queue client, you can create a receiver and use  either [receiveMessages](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#receivemessages-number--undefined---number-) or [registerMessageHandler](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) method on it to receive messages.
+Interacting with a Service Bus queue starts with instantiating the [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) class and using it to instantiate the [QueueClient](/javascript/api/@azure/service-bus/queueclient) class. Once you have the queue client, you can create a receiver and use  either [receiveMessages](/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) or [registerMessageHandler](/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) method on it to receive messages.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 2. Create a file called `recieve.js` and paste the below code into it. This code will attempt to receive 10 messages from your queue. The actual count you receive depends on the number of messages in the queue and network latency.
@@ -125,7 +114,7 @@ Interacting with a Service Bus queue starts with instantiating the [ServiceBusCl
 
 Congratulations! You just received messages from a Service Bus queue.
 
-The [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient#createreceiver-receivemode-) method takes in a `ReceiveMode` which is an enum with values [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) and [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Remember to [settle your messages](message-transfers-locks-settlement.md#settling-receive-operations) if you use the `PeekLock` mode by using any of `complete()`, `abandon()`, `defer()`, or `deadletter()` methods on the message.
+The [createReceiver](/javascript/api/@azure/service-bus/queueclient#createreceiver-receivemode-) method takes in a `ReceiveMode` which is an enum with values [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) and [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Remember to [settle your messages](message-transfers-locks-settlement.md#settling-receive-operations) if you use the `PeekLock` mode by using any of `complete()`, `abandon()`, `defer()`, or `deadletter()` methods on the message.
 
 > [!NOTE]
 > You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
@@ -135,4 +124,3 @@ To learn more, see the following resources.
 - [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 - Checkout other [Nodejs samples for Service Bus on GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)
 - [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/)
-

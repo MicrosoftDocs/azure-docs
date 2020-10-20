@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/09/2019
+ms.date: 02/13/2020
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using Azure PowerShell
@@ -22,7 +22,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
+The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/) installed.
 
 ## Create clusters
 
@@ -68,47 +68,16 @@ Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <New
 
  For more information about scaling clusters, see [Scale HDInsight clusters](./hdinsight-scaling-best-practices.md).
 
-## Grant/revoke access
-
-HDInsight clusters have the following HTTP web services (all of these services have RESTful endpoints):
-
-* ODBC
-* JDBC
-* Ambari
-* Oozie
-* Templeton
-
-By default, these services are granted for access. You can revoke/grant the access. To revoke:
-
-```powershell
-Revoke-AzHDInsightHttpServicesAccess -ClusterName <Cluster Name>
-```
-
-To grant:
-
-```powershell
-$clusterName = "<HDInsight Cluster Name>"
-
-# Credential option 1
-$hadoopUserName = "admin"
-$hadoopUserPassword = '<Enter the Password>'
-$hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
-
-# Credential option 2
-#$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
-
-Grant-AzHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
-```
-
-> [!NOTE]  
-> By granting/revoking the access, you reset the cluster user name and password.
-
-Granting and revoking access can also be done via the portal. See [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md).
-
 ## Update HTTP user credentials
 
-It's the same procedure as Grant/revoke HTTP access. If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
+[Set-AzHDInsightGatewayCredential](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightgatewaycredential) sets the gateway HTTP credentials of an Azure HDInsight cluster.
+
+```powershell
+$clusterName = "CLUSTERNAME"
+$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
+
+Set-AzHDInsightGatewayCredential -ClusterName $clusterName -HttpCredential $credential
+```
 
 ## Find the default storage account
 

@@ -8,13 +8,12 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
 ---
 
 # Android Microsoft Authentication Library configuration file
@@ -55,14 +54,14 @@ The list of authorities that are known and trusted by you. In addition to the au
     "audience": {
         "type": "AzureADandPersonalMicrosoftAccount"
     },
-    "default": true // Indicates that this is the default to use if not provided as part of the acquireToken or acquireTokenSilent call
+    "default": true // Indicates that this is the default to use if not provided as part of the acquireToken call
 },
 // Example AzureAD My Organization
 {
     "type": "AAD",
     "audience": {
         "type": "AzureADMyOrg",
-        "tenantId": "contoso.com" // Provide your specific tenant ID here
+        "tenant_id": "contoso.com" // Provide your specific tenant ID here
     }
 },
 // Example AzureAD Multiple Organizations
@@ -85,11 +84,11 @@ The list of authorities that are known and trusted by you. In addition to the au
 
 | Type | Audience | Tenant ID | Authority_Url | Resulting Endpoint | Notes |
 |------|------------|------------|----------------|----------------------|---------|
-| AAD | AzureADandPersonalMicrosoftAccount | | | https://login.microsoftonline.com/common | `common` is a tenant alias for where the account is. Such as a specific Azure Active Directory tenant or the Microsoft account system. |
-| AAD | AzureADMyOrg | contoso.com | | https://login.microsoftonline.com/contoso.com | Only accounts present in contoso.com can acquire a token. Any verified domain, or the tenant GUID, may be used as the tenant ID. |
-| AAD | AzureADMultipleOrgs | | | https://login.microsoftonline.com/organizations | Only Azure Active Directory accounts can be used with this endpoint. Microsoft accounts can be members of organizations. To acquire a token using a Microsoft account for a resource in an organization, specify the organizational tenant from which you want the token. |
-| AAD | PersonalMicrosoftAccount | | | https://login.microsoftonline.com/consumers | Only Microsoft accounts can use this endpoint. |
-| B2C | | | See Resulting Endpoint | https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/ | Only accounts present in the contoso.onmicrosoft.com tenant can acquire a token. In this example, the B2C policy is part of the Authority URL path. |
+| AAD | AzureADandPersonalMicrosoftAccount | | | `https://login.microsoftonline.com/common` | `common` is a tenant alias for where the account is. Such as a specific Azure Active Directory tenant or the Microsoft account system. |
+| AAD | AzureADMyOrg | contoso.com | | `https://login.microsoftonline.com/contoso.com` | Only accounts present in contoso.com can acquire a token. Any verified domain, or the tenant GUID, may be used as the tenant ID. |
+| AAD | AzureADMultipleOrgs | | | `https://login.microsoftonline.com/organizations` | Only Azure Active Directory accounts can be used with this endpoint. Microsoft accounts can be members of organizations. To acquire a token using a Microsoft account for a resource in an organization, specify the organizational tenant from which you want the token. |
+| AAD | PersonalMicrosoftAccount | | | `https://login.microsoftonline.com/consumers` | Only Microsoft accounts can use this endpoint. |
+| B2C | | | See Resulting Endpoint | `https://login.microsoftonline.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/` | Only accounts present in the contoso.onmicrosoft.com tenant can acquire a token. In this example, the B2C policy is part of the Authority URL path. |
 
 > [!NOTE]
 > Authority validation cannot be enabled and disabled in MSAL.
@@ -147,7 +146,7 @@ The following global settings are for logging:
 | Property | Data Type  | Required | Notes |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | No | Whether to emit personal data |
-| `log_level`   | boolean | No | Which log messages to output |
+| `log_level`   | string | No | Which log messages to output. Supported log levels include `ERROR`,`WARNING`,`INFO`, and `VERBOSE`. |
 | `logcat_enabled` | boolean | No | Whether to output to log cat in addition to the logging interface |
 
 ### account_mode

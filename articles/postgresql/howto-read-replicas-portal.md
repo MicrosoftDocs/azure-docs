@@ -1,11 +1,11 @@
 ---
 title: Manage read replicas - Azure portal - Azure Database for PostgreSQL - Single Server
 description: Learn how to manage read replicas Azure Database for PostgreSQL - Single Server from the Azure portal.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 09/04/2019
+ms.topic: how-to
+ms.date: 07/10/2020
 ---
 
 # Create and manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure portal
@@ -14,149 +14,156 @@ In this article, you learn how to create and manage read replicas in Azure Datab
 
 
 ## Prerequisites
-An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md) to be the master server.
+An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md) to be the primary server.
 
-## Prepare the master server
-These steps must be used to prepare a master server in the General Purpose or Memory Optimized tiers. The master server is prepared for replication by setting the azure.replication_support parameter. When the replication parameter is changed, a server restart is required for the change to take effect. In the Azure portal, these two steps are encapsulated by a single button, **Enable Replication Support**.
+## Azure replication support
 
-1. In the Azure portal, select the existing Azure Database for PostgreSQL server to use as a master.
+[Read replicas](concepts-read-replicas.md) and [logical decoding](concepts-logical.md) both depend on the Postgres write ahead log (WAL) for information. These two features need different levels of logging from Postgres. Logical decoding needs a higher level of logging than read replicas.
 
-2. On the server sidebar, under **SETTINGS**, select **Replication**.
+To configure the right level of logging, use the Azure replication support parameter. Azure replication support has three setting options:
 
-3. Select **Enable Replication Support**. 
+* **Off** - Puts the least information in the WAL. This setting is not available on most Azure Database for PostgreSQL servers.  
+* **Replica** - More verbose than **Off**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This setting is the default on most servers.
+* **Logical** - More verbose than **Replica**. This is the minimum level of logging for logical decoding to work. Read replicas also work at this setting.
 
-   ![Enable replication support](./media/howto-read-replicas-portal/enable-replication-support.png)
+The server needs to be restarted after a change of this parameter. Internally, this parameter sets the Postgres parameters `wal_level`, `max_replication_slots`, and `max_wal_senders`.
 
-4. Confirm you want to enable replication support. This operation will restart the master server. 
+## Prepare the primary server
 
-   ![Confirm enable replication support](./media/howto-read-replicas-portal/confirm-enable-replication.png)
-   
+1. In the Azure portal, select an existing Azure Database for PostgreSQL server to use as a master.
+
+2. From the server's menu, select **Replication**. If Azure replication support is set to at least **Replica**, you can create read replicas. 
+
+3. If Azure replication support is not set to at least **Replica**, set it. Select **Save**.
+
+   :::image type="content" source="./media/howto-read-replicas-portal/set-replica-save.png" alt-text="Azure Database for PostgreSQL - Replication - Set replica and save":::
+
+4. Restart the server to apply the change by selecting **Yes**.
+
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-restart.png" alt-text="Azure Database for PostgreSQL - Replication - Confirm restart":::
+
 5. You will receive two Azure portal notifications once the operation is complete. There is one notification for updating the server parameter. There is another notification for the server restart that follows immediately.
 
-   ![Success notifications - enable](./media/howto-read-replicas-portal/success-notifications-enable.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/success-notifications.png" alt-text="Success notifications":::
 
 6. Refresh the Azure portal page to update the Replication toolbar. You can now create read replicas for this server.
-
-   ![Updated toolbar](./media/howto-read-replicas-portal/updated-toolbar.png)
    
-Enabling replication support is a one-time operation per master server. A **Disable Replication Support** button is provided for your convenience. We don't recommend disabling replication support, unless you are certain you will never create a replica on this master server. You cannot disable replication support while your master server has existing replicas.
-
 
 ## Create a read replica
 To create a read replica, follow these steps:
 
-1. Select the existing Azure Database for PostgreSQL server to use as the master server. 
+1. Select an existing Azure Database for PostgreSQL server to use as the primary server. 
 
 2. On the server sidebar, under **SETTINGS**, select **Replication**.
 
 3. Select **Add Replica**.
 
-   ![Add a replica](./media/howto-read-replicas-portal/add-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/add-replica.png" alt-text="Add a replica":::
 
 4. Enter a name for the read replica. 
 
-    ![Name the replica](./media/howto-read-replicas-portal/name-replica.png)
+    :::image type="content" source="./media/howto-read-replicas-portal/name-replica.png" alt-text="Name the replica":::
 
-5. Select a location for the replica. The default location is the same as the master server's.
+5. Select a location for the replica. The default location is the same as the primary server's.
 
-    ![Select a location](./media/howto-read-replicas-portal/location-replica.png)
+    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="Select a location":::
 
    > [!NOTE]
    > To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
 
 6. Select **OK** to confirm the creation of the replica.
 
-A replica is created by using the same compute and storage settings as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and back-up retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
-
-> [!IMPORTANT]
-> Before a master server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
-
 After the read replica is created, it can be viewed from the **Replication** window:
 
-![View the new replica in the Replication window](./media/howto-read-replicas-portal/list-replica.png)
+:::image type="content" source="./media/howto-read-replicas-portal/list-replica.png" alt-text="View the new replica in the Replication window":::
  
 
+> [!IMPORTANT]
+> Review the [considerations section of the Read Replica overview](concepts-read-replicas.md#considerations).
+>
+> Before a primary server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
+
 ## Stop replication
-You can stop replication between a master server and a read replica.
+You can stop replication between a primary server and a read replica.
 
 > [!IMPORTANT]
-> After you stop replication to a master server and a read replica, it can't be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
+> After you stop replication to a primary server and a read replica, it can't be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
 
-To stop replication between a master server and a read replica from the Azure portal, follow these steps:
+To stop replication between a primary server and a read replica from the Azure portal, follow these steps:
 
-1. In the Azure portal, select your master Azure Database for PostgreSQL server.
+1. In the Azure portal, select your primary Azure Database for PostgreSQL server.
 
 2. On the server menu, under **SETTINGS**, select **Replication**.
 
 3. Select the replica server for which to stop replication.
 
-   ![Select the replica](./media/howto-read-replicas-portal/select-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Select the replica":::
  
 4. Select **Stop replication**.
 
-   ![Select stop replication](./media/howto-read-replicas-portal/select-stop-replication.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-stop-replication.png" alt-text="Select stop replication":::
  
 5. Select **OK** to stop replication.
 
-   ![Confirm to stop replication](./media/howto-read-replicas-portal/confirm-stop-replication.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-stop-replication.png" alt-text="Confirm to stop replication":::
  
 
-## Delete a master server
-To delete a master server, you use the same steps as to delete a standalone Azure Database for PostgreSQL server. 
+## Delete a primary server
+To delete a primary server, you use the same steps as to delete a standalone Azure Database for PostgreSQL server. 
 
 > [!IMPORTANT]
-> When you delete a master server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both reads and writes.
+> When you delete a primary server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both reads and writes.
 
 To delete a server from the Azure portal, follow these steps:
 
-1. In the Azure portal, select your master Azure Database for PostgreSQL server.
+1. In the Azure portal, select your primary Azure Database for PostgreSQL server.
 
 2. Open the **Overview** page for the server. Select **Delete**.
 
-   ![On the server Overview page, select to delete the master server](./media/howto-read-replicas-portal/delete-server.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-server.png" alt-text="On the server Overview page, select to delete the primary server":::
  
-3. Enter the name of the master server to delete. Select **Delete** to confirm deletion of the master server.
+3. Enter the name of the primary server to delete. Select **Delete** to confirm deletion of the primary server.
 
-   ![Confirm to delete the master server](./media/howto-read-replicas-portal/confirm-delete.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete.png" alt-text="Confirm to delete the primary server":::
  
 
 ## Delete a replica
-You can delete a read replica similar to how you delete a master server.
+You can delete a read replica similar to how you delete a primary server.
 
 - In the Azure portal, open the **Overview** page for the read replica. Select **Delete**.
 
-   ![On the replica Overview page, select to delete the replica](./media/howto-read-replicas-portal/delete-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-replica.png" alt-text="On the replica Overview page, select to delete the replica":::
  
 You can also delete the read replica from the **Replication** window by following these steps:
 
-1. In the Azure portal, select your master Azure Database for PostgreSQL server.
+1. In the Azure portal, select your primary Azure Database for PostgreSQL server.
 
 2. On the server menu, under **SETTINGS**, select **Replication**.
 
 3. Select the read replica to delete.
 
-   ![Select the replica to delete](./media/howto-read-replicas-portal/select-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Select the replica to delete":::
  
 4. Select **Delete replica**.
 
-   ![Select delete replica](./media/howto-read-replicas-portal/select-delete-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-delete-replica.png" alt-text="Select delete replica":::
  
 5. Enter the name of the replica to delete. Select **Delete** to confirm deletion of the replica.
 
-   ![Confirm to delete te replica](./media/howto-read-replicas-portal/confirm-delete-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete-replica.png" alt-text="Confirm to delete te replica":::
  
 
 ## Monitor a replica
 Two metrics are available to monitor read replicas.
 
 ### Max Lag Across Replicas metric
-The **Max Lag Across Replicas** metric shows the lag in bytes between the master server and the most-lagging replica. 
+The **Max Lag Across Replicas** metric shows the lag in bytes between the primary server and the most-lagging replica. 
 
-1.	In the Azure portal, select the master Azure Database for PostgreSQL server.
+1.	In the Azure portal, select the primary Azure Database for PostgreSQL server.
 
 2.	Select **Metrics**. In the **Metrics** window, select **Max Lag Across Replicas**.
 
-    ![Monitor the max lag across replicas](./media/howto-read-replicas-portal/select-max-lag.png)
+    :::image type="content" source="./media/howto-read-replicas-portal/select-max-lag.png" alt-text="Monitor the max lag across replicas":::
  
 3.	For your **Aggregation**, select **Max**.
 
@@ -168,7 +175,7 @@ The **Replica Lag** metric shows the time since the last replayed transaction on
 
 2. Select **Metrics**. In the **Metrics** window, select **Replica Lag**.
 
-   ![Monitor the replica lag](./media/howto-read-replicas-portal/select-replica-lag.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica-lag.png" alt-text="Monitor the replica lag":::
  
 3. For your **Aggregation**, select **Max**. 
  

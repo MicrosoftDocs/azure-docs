@@ -1,23 +1,12 @@
 ---
-title: 'Quickstart: Use Azure Service Bus topics and subscriptions with Java'
-description: 'Quickstart: Use Service Bus topics and subscriptions in Azure.'
-services: service-bus-messaging
-documentationcenter: java
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
-ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
+title: Use Azure Service Bus topics and subscriptions with Java
+description: In this quickstart, you write Java code to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic. 
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: aschhab
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-
+ms.date: 06/23/2020
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
+
 # Quickstart: Use Service Bus topics and subscriptions with Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
@@ -179,7 +168,7 @@ public class MyServiceBusTopicClient {
         receiveClient.registerMessageHandler(
         			messageHandler,
                     // callback invoked when the message handler has an exception to report
-                // 1 concurrent call, messages are auto-completed, auto-renew duration
+                // 1 concurrent call, messages aren't auto-completed, auto-renew duration
                 new MessageHandlerOptions(1, false, Duration.ofMinutes(1)));
 
     }
@@ -458,8 +447,8 @@ Message sending: Id = 9
 ## Next steps
 For more information, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions].
 
-[Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
-[Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse
+[Azure SDK for Java]: /java/api/overview/azure/
+[Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
 [SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression

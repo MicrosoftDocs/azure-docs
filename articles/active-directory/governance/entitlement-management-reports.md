@@ -3,17 +3,17 @@ title: View reports & logs in entitlement management - Azure AD
 description: Learn how to view the user assignments report and audit logs in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: jocastel-MSFT
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/28/2019
-ms.author: ajburnle
+ms.date: 06/18/2020
+ms.author: barclayn
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
 
@@ -108,5 +108,6 @@ When the user's access package assignment expires, is canceled by the user, or r
 
 ## Next steps
 
+- [Archive reports and Logs](entitlement-management-logs-and-reporting.md)
 - [Troubleshoot Azure AD entitlement management](entitlement-management-troubleshoot.md)
 - [Common scenarios](entitlement-management-scenarios.md)

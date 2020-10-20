@@ -4,18 +4,17 @@ titleSuffix: Azure Network Watcher
 description: This article describes how to create an alert triggered packet capture with Azure Network Watcher
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
+author: damendo
+
 
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
+ms.author: damendo
 
 ---
 # Use packet capture for proactive network monitoring with alerts and Azure Functions
@@ -28,7 +27,7 @@ Resources that are deployed in Azure run 24/7. You and your staff cannot activel
 
 By using Network Watcher, alerting, and functions from within the Azure ecosystem, you can proactively respond with the data and tools to solve problems in your network.
 
-![Scenario][scenario]
+![Diagram shows Network Watcher extension on a virtual machine which flows to a T C P Segments sent > 100 error, which flows to Azure Functions, which flows to Network Watcher which flows back to Network Watcher extension.][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

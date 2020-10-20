@@ -3,13 +3,18 @@ title: Frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Registry service 
 author: sajayantony
 ms.topic: article
-ms.date: 07/02/2019
+ms.date: 09/18/2020
 ms.author: sajaya
 ---
 
 # Frequently asked questions about Azure Container Registry
 
 This article addresses frequently asked questions and known issues about Azure Container Registry.
+
+For registry troubleshooting guidance, see:
+* [Troubleshoot registry login](container-registry-troubleshoot-login.md)
+* [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
+* [Troubleshoot registry performance](container-registry-troubleshoot-performance.md)
 
 ## Resource management
 
@@ -27,7 +32,7 @@ Yes. Here is [a template](https://github.com/Azure/azure-quickstart-templates/tr
 
 ### Is there security vulnerability scanning for images in ACR?
 
-Yes. See the documentation from [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Yes. See the documentation from [Azure Security Center](../security-center/defender-for-container-registries-introduction.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### How do I configure Kubernetes with Azure Container Registry?
 
@@ -46,7 +51,7 @@ To get credentials using the Azure CLI:
 az acr credential show -n myRegistry
 ```
 
-Using Azure Powershell:
+Using Azure PowerShell:
 
 ```powershell
 Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.ContainerRegistry/registries -ResourceGroupName myResourceGroup -ResourceName myRegistry
@@ -96,10 +101,11 @@ It takes some time to propagate firewall rule changes. After you change firewall
 - [Why does the registry quota usage not reduce after deleting images?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
 - [How do I validate storage quota changes?](#how-do-i-validate-storage-quota-changes)
 - [How do I authenticate with my registry when running the CLI in a container?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
-- [Does Azure Container Registry offer TLS v1.2 only configuration and how to enable TLS v1.2?](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
+- [How to enable TLS 1.2?](#how-to-enable-tls-12)
 - [Does Azure Container Registry support Content Trust?](#does-azure-container-registry-support-content-trust)
 - [How do I grant access to pull or push images without permission to manage the registry resource?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
-- [How do I enable automatic image quarantine for a registry](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [How do I enable automatic image quarantine for a registry?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
+- [How do I enable anonymous pull access?](#how-do-i-enable-anonymous-pull-access)
 
 ### How do I access Docker Registry HTTP API V2?
 
@@ -110,13 +116,13 @@ ACR supports Docker Registry HTTP API V2. The APIs can be accessed at
 
 If you are on bash:
 
-```bash
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
-For Powershell:
+For PowerShell:
 
-```powershell
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
@@ -147,13 +153,13 @@ docker push myregistry.azurecr.io/1gb:latest
 
 You should be able to see that the storage usage has increased in the Azure portal, or you can query usage using the CLI.
 
-```bash
+```azurecli
 az acr show-usage -n myregistry
 ```
 
 Delete the image using the Azure CLI or portal and check the updated usage in a few minutes.
 
-```bash
+```azurecli
 az acr repository delete -n myregistry --image 1gb
 ```
 
@@ -177,9 +183,9 @@ Then authenticate with your registry:
 az acr login -n MyRegistry
 ```
 
-### Does Azure Container Registry offer TLS v1.2 only configuration and how to enable TLS v1.2?
+### How to enable TLS 1.2?
 
-Yes. Enable TLS by using any recent docker client (version 18.03.0 and above). 
+Enable TLS 1.2 by using any recent docker client (version 18.03.0 and above). 
 
 > [!IMPORTANT]
 > Starting January 13, 2020, Azure Container Registry will require all secure connections from servers and applications to use TLS 1.2. Support for TLS 1.0 and 1.1 will be retired.
@@ -212,12 +218,12 @@ ACR supports [custom roles](container-registry-roles.md) that provide different 
   Then you can assign the `AcrPull` or `AcrPush` role to a user (the following example uses `AcrPull`):
 
   ```azurecli
-    az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
-    ```
-
-  Or, assign the role to a service principle identified by its application ID:
-
+  az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
   ```
+
+  Or, assign the role to a service principal identified by its application ID:
+
+  ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
   ```
 
@@ -235,9 +241,9 @@ The assignee is then able to authenticate and access images in the registry.
   az acr repository list -n myRegistry
   ```
 
- To pull an image:
-    
-  ```azurecli
+* To pull an image:
+
+  ```bash
   docker pull myregistry.azurecr.io/hello-world
   ```
 
@@ -247,18 +253,26 @@ With the use of only the `AcrPull` or `AcrPush` role, the assignee doesn't have 
 
 Image quarantine is currently a preview feature of ACR. You can enable the quarantine mode of a registry so that only those images which have successfully passed security scan are visible to normal users. For details, see the [ACR GitHub repo](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
+### How do I enable anonymous pull access?
+
+Setting up an Azure container registry for anonymous (public) pull access is currently a preview feature. If you have any [scope map (user) or token resources](./container-registry-repository-scoped-permissions.md) in your registry, please delete them before raising a support ticket (system scope maps can be ignored). To enable public access, please open a support ticket at https://aka.ms/acr/support/create-ticket. For details, see the [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+
+> [!NOTE]
+> Only the APIs required to pull a known image can be accessed anonymously. No other APIs for operations like tag list or repository list are accessible anonymously.
+
 ## Diagnostics and health checks
 
 - [Check health with `az acr check-health`](#check-health-with-az-acr-check-health)
 - [docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker push succeeds but docker pull fails with error: unauthorized: authentication required](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [`az acr login` succeeds, but docker commands fails with error: unauthorized: authentication required](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
-- [Enable and get the debug logs of the docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon)	
+- [Enable and get the debug logs of the docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon)    
 - [New user permissions may not be effective immediately after updating](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Authentication information is not given in the correct format on direct REST API calls](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Why does the Azure portal not list all my repositories or tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Why does the Azure portal fail to fetch repositories or tags?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Why does my pull or push request fail with disallowed operation?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
+- [Repository format is invalid or unsupported](#repository-format-is-invalid-or-unsupported)
 - [How do I collect http traces on Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### Check health with `az acr check-health`
@@ -271,9 +285,10 @@ To troubleshoot common environment and registry issues, see [Check the health of
  - If `docker pull` fails continuously, then there could be a problem with the Docker daemon. The problem can generally be mitigated by restarting the Docker daemon. 
  - If you continue to see this issue after restarting Docker daemon, then the problem could be some network connectivity issues with the machine. To check if general network on the machine is healthy, run the following command to test endpoint connectivity. The minimum `az acr` version that contains this connectivity check command is 2.2.9. Upgrade your Azure CLI if you are using an older version.
  
-   ```azurecli
-    az acr check-health -n myRegistry
-    ```
+  ```azurecli
+  az acr check-health -n myRegistry
+  ```
+
  - You should always have a retry mechanism on all Docker client operations.
 
 ### Docker pull is slow
@@ -292,28 +307,25 @@ grep OPTIONS /etc/sysconfig/docker
 
 For instance, Fedora 28 Server has the following docker daemon options:
 
-```
-OPTIONS='--selinux-enabled --log-driver=journald --live-restore'
-```
+`OPTIONS='--selinux-enabled --log-driver=journald --live-restore'`
 
 With `--signature-verification=false` missing, `docker pull` fails with an error similar to:
 
-```bash
+```output
 Trying to pull repository myregistry.azurecr.io/myimage ...
 unauthorized: authentication required
 ```
 
 To resolve the error:
 1. Add the option `--signature-verification=false` to the Docker daemon configuration file `/etc/sysconfig/docker`. For example:
-
-  ```
-  OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
-  ```
+   
+   `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
+   
 2. Restart the Docker daemon service by running the following command:
-
-  ```bash
-  sudo systemctl restart docker.service
-  ```
+   
+   ```bash
+   sudo systemctl restart docker.service
+   ```
 
 Details of `--signature-verification` can be found by running `man dockerd`.
 
@@ -321,13 +333,13 @@ Details of `--signature-verification` can be found by running `man dockerd`.
 
 Make sure you use an all lowercase server URL, for example, `docker push myregistry.azurecr.io/myimage:latest`, even if the registry resource name is uppercase or mixed case, like `myRegistry`.
 
-### Enable and get the debug logs of the Docker daemon	
+### Enable and get the debug logs of the Docker daemon    
 
 Start `dockerd` with the `debug` option. First, create the Docker daemon configuration file (`/etc/docker/daemon.json`) if it doesn't exist, and add the `debug` option:
 
 ```json
-{	
-    "debug": true	
+{    
+    "debug": true    
 }
 ```
 
@@ -337,12 +349,12 @@ Then, restart the daemon. For example, with Ubuntu 14.04:
 sudo service docker restart
 ```
 
-Details can be found in the [Docker documentation](https://docs.docker.com/engine/admin/#enable-debugging).	
+Details can be found in the [Docker documentation](https://docs.docker.com/engine/admin/#enable-debugging).    
 
- * The logs may be generated at different locations, depending on your system. For example, for Ubuntu 14.04, it's `/var/log/upstart/docker.log`.	
-See [Docker documentation](https://docs.docker.com/engine/admin/#read-the-logs) for details.	
+ * The logs may be generated at different locations, depending on your system. For example, for Ubuntu 14.04, it's `/var/log/upstart/docker.log`.    
+See [Docker documentation](https://docs.docker.com/engine/admin/#read-the-logs) for details.    
 
- * For Docker for Windows, the logs are generated under %LOCALAPPDATA%/docker/. However it may not contain all the debug information yet.	
+ * For Docker for Windows, the logs are generated under %LOCALAPPDATA%/docker/. However it may not contain all the debug information yet.    
 
    In order to access the full daemon log, you may need some extra steps:
 
@@ -426,10 +438,17 @@ Please contact your network administrator or check your network configuration an
 
 ### Why does my pull or push request fail with disallowed operation?
 
-Here are some scenarios where operations maybe disallowed:
-* Classic registries are no longer supported. Please upgrade to a supported [SKUs](https://aka.ms/acr/skus) using [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the Azure portal.
-* The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) command to view current attributes.
+Here are some scenarios where operations may be disallowed:
+* Classic registries are no longer supported. Please upgrade to a supported [service tier](./container-registry-skus.md) using [az acr update](/cli/azure/acr#az-acr-update) or the Azure portal.
+* The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](./container-registry-image-lock.md) command to view current attributes.
 * Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
+* Your registry may have reached its [storage limit](container-registry-skus.md#service-tier-features-and-limits).
+
+### Repository format is invalid or unsupported
+
+If you see an error such as "unsupported repository format", "invalid format", or "the requested data does not exist" when specifying a repository name in repository operations, check the spelling and case of the name. Valid repository names can only include lowercase alphanumeric characters, periods, dashes, underscores, and forward slashes. 
+
+For complete repository naming rules, see the [Open Container Initiative Distribution Specification](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ### How do I collect http traces on Windows?
 
@@ -473,9 +492,7 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 If you pass a local source folder to the `az acr build` command, the `.git` folder is excluded from the uploaded package by default. You can create a `.dockerignore` file with the following setting. It tells the command to restore all files under `.git` in the uploaded package. 
 
-```sh
-!.git/**
-```
+`!.git/**`
 
 This setting also applies to the `az acr run` command.
 
@@ -487,10 +504,10 @@ We currently do not support GitLab for Source triggers.
 
 | Git service | Source context | Manual build | Auto build through commit trigger |
 |---|---|---|---|
-| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Yes | Yes |
-| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Yes | Yes |
-| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Yes | No |
-| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Yes | No |
+| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Yes | Yes |
+| Azure Repos | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Yes | Yes |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Yes | No |
+| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Yes | No |
 
 ## Run Error Message Troubleshooting
 

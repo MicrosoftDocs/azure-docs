@@ -1,5 +1,5 @@
-- name: Cloud Foundry Documentation
-  href: index.md
+- name: Cloud Foundry documentation
+  href: index.yml
 - name: Quickstarts
   expanded: true
   items:
@@ -10,9 +10,9 @@
   - name: Create CF on Azure
     href: /azure/cloudfoundry/create-cloud-foundry-on-azure
   - name: Deploy CF App to Azure
-    href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+    href: /azure/cloudfoundry/cloudfoundry-deploy-your-first-app
   - name: CloudFoundry on Azure
-    href: /azure/virtual-machines/linux/cloudfoundry-get-started
+    href: /azure/cloudfoundry/cloudfoundry-get-started
   - name: Deploy CF OMS Nozzle
     href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
   - name: Integrate Cloud Foundry with Azure

@@ -1,15 +1,19 @@
 ---
-title: "GitHub Actions & Azure Kubernetes Service"
+title: "GitHub Actions & Azure Kubernetes Service (preview)"
 services: azure-dev-spaces
-ms.date: 11/04/2019
+ms.date: 04/03/2020
 ms.topic: conceptual
 description: "Review and test changes from a pull request directly in Azure Kubernetes Service using GitHub Actions and Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, GitHub Actions, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
+ms.custom: devx-track-js
 ---
+
 # GitHub Actions & Azure Kubernetes Service (preview)
 
-Azure Dev Spaces provides a workflow using GitHub Actions that allows you to test changes from a pull request directly in AKS before the pull request is merged into your repository’s main branch. Having a running application to review changes of a pull request can increase the confidence of both the developer as well as team members. This running application can also help team members such as, product managers and designers, become part of the review process during early stages of development.
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
+
+Azure Dev Spaces provides a workflow using GitHub Actions that allows you to test changes from a pull request directly in AKS before the pull request is merged into your repository's main branch. Having a running application to review changes of a pull request can increase the confidence of both the developer as well as team members. This running application can also help team members such as, product managers and designers, become part of the review process during early stages of development.
 
 In this guide, you will learn how to:
 
@@ -33,7 +37,7 @@ In this guide, you will learn how to:
 
 Create an Azure Container Registry (ACR):
 
-```cmd
+```azurecli
 az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 ```
 
@@ -46,28 +50,27 @@ Save the *loginServer* value from the output because it is used in a later step.
 
 Use [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] to create a service principal. For example:
 
-```cmd
+```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment
 ```
 
 Save the JSON output because it is used in a later step.
 
+Use [az aks show][az-aks-show] to display the *ID* of your AKS cluster:
 
-Use [az aks show][az-aks-show] to display the *id* of your AKS cluster:
-
-```cmd
+```azurecli
 az aks show -g MyResourceGroup -n MyAKS  --query id
 ```
 
-Use [az acr show][az-acr-show] to display the *id* of the ACR:
+Use [az acr show][az-acr-show] to display the *ID* of the ACR:
 
-```cmd
+```azurecli
 az acr show --name <acrName> --query id
 ```
 
 Use [az role assignment create][az-role-assignment-create] to give *Contributor* access to your AKS cluster and *AcrPush* access to your ACR.
 
-```cmd
+```azurecli
 az role assignment create --assignee <ClientId> --scope <AKSId> --role Contributor
 az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 ```
@@ -87,7 +90,6 @@ Navigate to your forked repository and click *Settings*. Click on *Secrets* in t
 1. *CLUSTER_NAME*: the name of your AKS cluster, which in this example is *MyAKS*.
 1. *CONTAINER_REGISTRY*: the *loginServer* for the ACR.
 1. *HOST*: the host for your Dev Space, which takes the form *<MASTER_SPACE>.<APP_NAME>.<HOST_SUFFIX>*, which in this example is *dev.bikesharingweb.fedcab0987.eus.azds.io*.
-1. *HOST_SUFFIX*: the host suffix for your Dev Space, which in this example is *fedcab0987.eus.azds.io*.
 1. *IMAGE_PULL_SECRET*: the name of the secret you wish to use, for example *demo-secret*.
 1. *MASTER_SPACE*: the name of your parent Dev Space, which in this example is *dev*.
 1. *REGISTRY_USERNAME*: the *clientId* from the JSON output from the service principal creation.
@@ -95,6 +97,13 @@ Navigate to your forked repository and click *Settings*. Click on *Secrets* in t
 
 > [!NOTE]
 > All of these secrets are used by the GitHub action and are configured in [.github/workflows/bikes.yml][github-action-yaml].
+
+Optionally, if you want to update the master space after your PR is merged, add the *GATEWAY_HOST* secret, which takes the form *<MASTER_SPACE>.gateway.<HOST_SUFFIX>*, which in this example is *dev.gateway.fedcab0987.eus.azds.io*. Once you merge your changes into the master branch in your fork, another action will run to rebuild and run your entire application in the master dev space. In this example, the master space is *dev*. This action is configured in [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+
+Additionally, if you would like the changes in your PR to run in a grandchild space, update the *MASTER_SPACE* and *HOST* secrets. For example, if your application is running in *dev* with a child space *dev/azureuser1*, to have the PR run in a child space of *dev/azureuser1*:
+
+* Update *MASTER_SPACE* to the child space you want as the parent space, in this example *azureuser1*.
+* Update *HOST* to *<GRANDPARENT_SPACE>.<APP_NAME>.<HOST_SUFFIX>*, in this example *dev.bikesharingweb.fedcab0987.eus.azds.io*.
 
 ## Create a new branch for code changes
 
@@ -152,16 +161,16 @@ If you merge your changes into the *master* branch in your fork, another action 
 
 ## Clean up your Azure resources
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 
 ## Next steps
 
-Learn how Azure Dev Spaces helps you develop more complex applications across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces.
+Learn more about how Azure Dev Spaces works.
 
 > [!div class="nextstepaction"]
-> [Team development in Azure Dev Spaces][team-quickstart]
+> [How Azure Dev Spaces works](../how-dev-spaces-works.md)
 
 [azure-cli-installed]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
@@ -175,7 +184,6 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 [github-action-yaml]: https://github.com/Azure/dev-spaces/blob/master/.github/workflows/bikes.yml
 [github-action-bikesharing-yaml]: https://github.com/Azure/dev-spaces/blob/master/.github/workflows/bikesharing.yml
 [helm-installed]: https://helm.sh/docs/intro/install/
-[supported-regions]: ../about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [sp-acr]: ../../container-registry/container-registry-auth-service-principal.md
 [sp-aks]: ../../aks/kubernetes-service-principal.md
-[team-quickstart]: ../quickstart-team-development.md

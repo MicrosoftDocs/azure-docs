@@ -9,8 +9,8 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 11/11/2019
+ms.topic: how-to
+ms.date: 02/05/2020
 ms.author: mbaldwin
 
 ---
@@ -28,10 +28,13 @@ The HSMs are distributed across Microsoft’s data centers and can be easily pro
 * East US
 * East US 2
 * West US
-* West US 2
 * South Central US
 * Southeast Asia
 * East Asia
+* India Central
+* India South
+* Japan East
+* Japan West
 * North Europe
 * West Europe
 * UK South

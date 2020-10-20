@@ -1,13 +1,13 @@
 ---
 title: Manage VNet endpoints - Azure CLI - Azure Database for MySQL
 description: This article describes how to create and manage Azure Database for MySQL VNet service endpoints and rules using Azure CLI command line.
-author: bolzmj
-ms.author: mbolz
-manager: jhubbard
+author: kummanish
+ms.author: manishku
 ms.service: mysql
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 12/02/2019
+ms.topic: how-to
+ms.date: 3/18/2020 
+ms.custom: devx-track-azurecli
 ---
 # Create and manage Azure Database for MySQL VNet service endpoints using Azure CLI
 Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for MySQL server. Using convenient Azure Command Line Interface (CLI) commands, you can create, update, delete, list, and show VNet service endpoints and rules to manage your server. For an overview of Azure Database for MySQL VNet service endpoints, including limitations, see [Azure Database for MySQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md). VNet service endpoints are available in all supported regions for Azure Database for MySQL.
@@ -60,5 +60,5 @@ After the script sample has been run, the following command can be used to remov
 [!code-azurecli-interactive[main](../../cli_scripts/mysql/create-mysql-server-vnet/delete-mysql.sh "Delete the resource group.")]
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md
 

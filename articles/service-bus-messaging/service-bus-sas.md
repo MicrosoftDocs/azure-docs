@@ -1,20 +1,9 @@
 ---
 title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-editor: spelluru
-
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/20/2019
-ms.author: aschhab
-
+ms.date: 07/30/2020
+ms.custom: devx-track-csharp
 ---
 
 # Service Bus access control with Shared Access Signatures
@@ -34,7 +23,7 @@ SAS guards access to Service Bus based on authorization rules. Those are configu
 
 Shared Access Signatures are a claims-based authorization mechanism using simple tokens. Using SAS, keys are never passed on the wire. Keys are used to cryptographically sign information that can later be verified by the service. SAS can be used similar to a username and password scheme where the client is in immediate possession of an authorization rule name and a matching key. SAS can also be used similar to a federated security model, where the client receives a time-limited and signed access token from a security token service without ever coming into possession of the signing key.
 
-SAS authentication in Service Bus is configured with named [Shared Access Authorization Rules](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) having associated access rights, and a pair of primary and secondary cryptographic keys. The keys are 256-bit values in Base64 representation. You can configure rules at the namespace level, on Service Bus [relays](../service-bus-relay/relay-what-is-it.md), [queues](service-bus-messaging-overview.md#queues), and [topics](service-bus-messaging-overview.md#topics).
+SAS authentication in Service Bus is configured with named [Shared Access Authorization Rules](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) having associated access rights, and a pair of primary and secondary cryptographic keys. The keys are 256-bit values in Base64 representation. You can configure rules at the namespace level, on Service Bus [relays](../azure-relay/relay-what-is-it.md), [queues](service-bus-messaging-overview.md#queues), and [topics](service-bus-messaging-overview.md#topics).
 
 The [Shared Access Signature](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) token contains the name of the chosen authorization rule, the URI of the resource that shall be accessed, an expiry instant, and an HMAC-SHA256 cryptographic signature computed over these fields using either the primary or the secondary cryptographic key of the chosen authorization rule.
 
@@ -56,7 +45,7 @@ A namespace or entity policy can hold up to 12 Shared Access Authorization rules
 
 An authorization rule is assigned a *Primary Key* and a *Secondary Key*. These are cryptographically strong keys. Don't lose them or leak them - they'll always be available in the [Azure portal][Azure portal]. You can use either of the generated keys, and you can regenerate them at any time. If you regenerate or change a key in the policy, all previously issued tokens based on that key become instantly invalid. However, ongoing connections created based on such tokens will continue to work until the token expires.
 
-When you create a Service Bus namespace, a policy rule named **RootManageSharedAccessKey** is automatically created for the namespace. This policy has Manage permissions for the entire namespace. It's recommended that you treat this rule like an administrative **root** account and don't use it in your application. You can create additional policy rules in the **Configure** tab for the namespace in the portal, via Powershell or Azure CLI.
+When you create a Service Bus namespace, a policy rule named **RootManageSharedAccessKey** is automatically created for the namespace. This policy has Manage permissions for the entire namespace. It's recommended that you treat this rule like an administrative **root** account and don't use it in your application. You can create additional policy rules in the **Configure** tab for the namespace in the portal, via PowerShell or Azure CLI.
 
 ## Configuration for Shared Access Signature authentication
 
@@ -79,7 +68,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 * **`sr`** - URI of the resource being accessed.
 * **`sig`** - Signature.
 
-The `signature-string` is the SHA-256 hash computed over the resource URI (**scope** as described in the previous section) and the string representation of the token expiry instant, separated by CRLF.
+The `signature-string` is the SHA-256 hash computed over the resource URI (**scope** as described in the previous section) and the string representation of the token expiry instant, separated by LF.
 
 The hash computation looks similar to the following pseudo code and returns a 256-bit/32-byte hash value.
 
@@ -91,11 +80,14 @@ The token contains the non-hashed values so that the recipient can recompute the
 
 The resource URI is the full URI of the Service Bus resource to which access is claimed. For example, `http://<namespace>.servicebus.windows.net/<entityPath>` or `sb://<namespace>.servicebus.windows.net/<entityPath>`; that is, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**The URI must be [percent-encoded](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
+**The URI must be [percent-encoded](/dotnet/api/system.web.httputility.urlencode?view=netcore-3.1).**
 
 The shared access authorization rule used for signing must be configured on the entity specified by this URI, or by one of its hierarchical parents. For example, `http://contoso.servicebus.windows.net/contosoTopics/T1` or `http://contoso.servicebus.windows.net` in the previous example.
 
 A SAS token is valid for all resources prefixed with the `<resourceURI>` used in the `signature-string`.
+
+> [!NOTE]
+> For examples of generating a SAS token using different programming languages, see [Generate SAS token](/rest/api/eventhub/generate-sas-token). 
 
 ## Regenerating keys
 
@@ -184,7 +176,7 @@ If you give a sender or client a SAS token, they don't have the key directly, an
 
 ## Use the Shared Access Signature (at AMQP level)
 
-In the previous section, you saw how to use the SAS token with an HTTP POST request for sending data to the Service Bus. As you know, you can access Service Bus using the Advanced Message Queuing Protocol (AMQP) that is the preferred protocol to use for performance reasons, in many scenarios. The SAS token usage with AMQP is described in the document [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) that is in working draft since 2013 but well-supported by Azure today.
+In the previous section, you saw how to use the SAS token with an HTTP POST request for sending data to the Service Bus. As you know, you can access Service Bus using the Advanced Message Queuing Protocol (AMQP) that is the preferred protocol to use for performance reasons, in many scenarios. The SAS token usage with AMQP is described in the document [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) that is in working draft since 2013 but it's supported by Azure today.
 
 Before starting to send data to Service Bus, the publisher must send the SAS token inside an AMQP message to a well-defined AMQP node named **$cbs** (you can see it as a "special" queue used by the service to acquire and validate all the SAS tokens). The publisher must specify the **ReplyTo** field inside the AMQP message; this is the node in which the service replies to the publisher with the result of the token validation (a simple request/reply pattern between publisher and service). This reply node is created "on the fly," speaking about "dynamic creation of remote node" as described by the AMQP 1.0 specification. After checking that the SAS token is valid, the publisher can go forward and start to send data to the service.
 

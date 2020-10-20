@@ -1,11 +1,10 @@
 ---
-title: Support and help options for Azure AD app developers | Microsoft Docs
+title: Support and help options for Azure AD app developers
 description: Know how to obtain help and support for development-related questions and problems when creating application that integrate with Microsoft identities (Azure Active Directory and Microsoft account)
 services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
@@ -14,7 +13,6 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Support and help options for developers
@@ -60,7 +58,7 @@ If you can't find an answer to your question through search, submit a new questi
 | ADAL library | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL library     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
 | OWIN middleware  | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
-| [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
+| [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
 | [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
 | [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
 | Any other area related to authentication or authorization topics | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
@@ -76,8 +74,8 @@ If you find a bug or problem related to our libraries, raise an issue in our Git
 
 For a list of libraries and their GitHub repositories, see the following:
 
-* [ADAL](active-directory-authentication-libraries.md) libraries and GitHub repositories
-* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL.Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), and [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) libraries and GitHub repositories
+* [Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) libraries and GitHub repositories
+* [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) libraries and GitHub repositories
 
 ## Open a support request
 

@@ -1,20 +1,15 @@
 ---
-title: Azure AD Application Proxy frequently asked questions | Microsoft Docs
+title: Azure Active Directory Application Proxy frequently asked questions
 description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
-ms.assetid:
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 10/03/2019
-ms.author: mimart
+ms.topic: reference
+ms.date: 07/23/2020
+ms.author: kenwith
 ms.reviewer: japere
 ---
 
@@ -27,6 +22,9 @@ This page answers frequently asked questions about Azure Active Directory (Azure
 ### What license is required to use Azure AD Application Proxy?
 
 To use Azure AD Application Proxy, you must have an Azure AD Premium P1 or P2 license. For more information about licensing, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
+
+### What happens to Azure AD Application Proxy in my tenant, if my license expires?
+If your license expires, Application Proxy will automatically be disabled. Your application information will be saved for up to one year.
 
 ### Why is the "Enable Application Proxy button grayed out?
 
@@ -41,17 +39,23 @@ No, this scenario isn't supported. The default settings are:
 - Microsoft AAD Application Proxy Connector - WAPCSvc - Network Service
 - Microsoft AAD Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
 
+### Can a guest user with the Global Administrator or the Application Administrator role register the connector for the (guest) tenant?
+
+No, currently, this isn't possible. The registration attempt is always made on the user's home tenant.
+
 ### My back-end application is hosted on multiple web servers and requires user session persistence (stickiness). How can I achieve session persistence? 
 
 For recommendations, see [High availability and load balancing of your Application Proxy connectors and applications](application-proxy-high-availability-load-balancing.md).
 
-### Can I place a forward proxy device between the connector server(s) and the back-end Application server?
+### Is TLS termination (TLS/HTTPS inspection or acceleration) on traffic from the connector servers to Azure supported?
 
-No, this scenario isn't supported. Only the connector and update services can be configured to use a forward proxy for outbound traffic to Azure. See [Work with existing on-premises proxy servers](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)
+The Application Proxy Connector performs certificate-based authentication to Azure. TLS Termination (TLS/HTTPS inspection or acceleration) breaks this authentication method and isn't supported. Traffic from the connector to Azure must bypass any devices that are performing TLS Termination.  
 
-### Is SSL termination (SSL/HTTPS inspection or acceleration) on traffic from the connector servers to Azure supported?
+### Is TLS 1.2 required for all connections?
+Yes. To provide the best-in-class encryption to our customers, the Application Proxy service limits access to only TLS 1.2 protocols. These changes were gradually rolled out and effective since August 31, 2019. Make sure that all your client-server and browser-server combinations are updated to use TLS 1.2 to maintain connection to Application Proxy service. These include clients your users are using to access applications published through Application Proxy. See Preparing for [TLS 1.2 in Office 365](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365) for useful references and resources.
 
-The Application Proxy Connector performs certificate-based authentication to Azure. SSL Termination (SSL/HTTPS inspection or acceleration) breaks this authentication method and isn't supported. Traffic from the connector to Azure must bypass any devices that are performing SSL Termination.  
+### Can I place a forward proxy device between the connector server(s) and the back-end application server?
+Yes, this scenario is supported starting from the connector version 1.5.1526.0. See [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md).
 
 ### Should I create a dedicated account to register the connector with Azure AD Application Proxy?
 
@@ -69,7 +73,22 @@ There are Performance Monitor counters that are installed along with the connect
 
 The connector isn't required to be on the same subnet. However, it needs name resolution (DNS, hosts file) to the resource and the necessary network connectivity (routing to the resource, ports open on the resource, etc.). For recommendations, see [Network topology considerations when using Azure Active Directory Application Proxy](application-proxy-network-topology.md).
 
+### What versions of Windows Server can I install a connector on?
+Application Proxy requires Windows Server 2012 R2 or later. There is currently a limitation on HTTP2 for Windows Server 2019. In order to successfully use the connector on Windows Server 2019, you will need to add the following registry key and restart the server:
+	```
+	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+	```
+
 ## Application configuration
+
+### I am receiving an error about an invalid certificate or possible wrong password
+
+After you uploaded the SSL certificate, you receive the message "Invalid certificate, possible wrong password" on the portal.
+
+Here are some tips for troubleshooting this error:
+- Check for problems with the certificate. Install it on your local computer. If you don't experience any issues then the certificate is good.
+- Ensure that the password does not contain any special characters. For testing, the password should only contain the characters 0-9, A-Z, and a-z.
+- If the certificate was created with Microsoft Software Key Storage Provider, the RSA algorithm must be used.
 
 ### What is the length of the default and "long" back-end timeout? Can the timeout be extended?
 
@@ -83,6 +102,9 @@ From the Application Registrations page, you can change the homepage URL to the 
 
 No, there's no IIS requirement for applications that are published. You can publish web applications running on servers other than Windows Server. However, you might not be able to use pre-authentication with a non-Windows Server, depending on if the web server supports Negotiate (Kerberos authentication). IIS isn't required on the server where the connector is installed.
 
+### Can I configure Application Proxy to add the HSTS header?
+Application Proxy does not automatically add the HTTP Strict-Transport-Security header to HTTPS responses, but it will maintain the header if it is in the original response sent by the published application. Proving a setting to enable this functionality is on the roadmap. If you are interested in a preview that enables adding this to responses, reach out to aadapfeedback@microsoft.com for details.
+
 ## Integrated Windows Authentication
 
 ### When should I use the PrincipalsAllowedToDelegateToAccount method when setting up Kerberos Constrained Delegation (KCD)?
@@ -92,6 +114,16 @@ If the connector servers and the web application service account are in the same
 
 If the connector servers and the web application service account are in different domains, Resource-based delegation is used. The delegation permissions are configured on the target web server and web application service account. This method of Constrained Delegation is relatively new. The method was introduced in Windows Server 2012, which supports cross-domain delegation by allowing the resource (web service) owner to control which machine and service accounts can delegate to it. There's no UI to assist with this configuration, so you'll need to use PowerShell.
 For more information, see the whitepaper [Understanding Kerberos Constrained Delegation with Application Proxy](https://aka.ms/kcdpaper).
+
+### Does NTLM authentication work with Azure AD Application Proxy?
+
+NTLM authentication can’t be used as a pre-authentication or single sign-on method. NTLM authentication can be used only when it can be negotiated directly between the client and the published web application. Using NTLM authentication usually causes a sign-in prompt to appear in the browser.
+
+### Can I use the logon identity “On-premises user principal name” or “On-premises SAM account name” in a B2B IWA single sign-on scenario?
+
+No, this won’t work, because a guest user in Azure AD doesn't have the attribute that is required by any of the logon identities mentioned above.
+
+In this case there will be a fallback to “User principal name”. For more details on the B2B scenario please read [Grant B2B users in Azure AD access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).
 
 ## Pass-through authentication
 
@@ -109,7 +141,7 @@ No, this scenario isn't supported because Application Proxy will terminate TLS t
 
 Refer to [Publish Remote Desktop with Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md).
 
-### Can I use Kerberos Constrained Delegation in the Remote Desktop Gateway publishing scenario?
+### Can I use Kerberos Constrained Delegation (Single Sign-On - Windows Integrated Authentication) in the Remote Desktop Gateway publishing scenario?
 
 No, this scenario isn't supported.  
 
@@ -117,9 +149,9 @@ No, this scenario isn't supported.
 
 Yes, it’s expected. The pre-authentication scenario requires an ActiveX control, which isn't supported in third-party browsers.
 
-### Is the Remote Desktop Web Client supported?
+### Is the Remote Desktop Web Client (HTML5) supported?
 
-No, this scenario isn't currently supported. Follow our [UserVoice](https://aka.ms/aadapuservoice) feedback forum for updates on this feature.
+Yes, this scenario is currently in public preview. Refer to [Publish Remote Desktop with Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md).
 
 ### After I configured the pre-authentication scenario, I realized that the user has to authenticate twice: first on the Azure AD sign-in form, and then on the RDWeb sign-in form. Is this expected? How can I reduce this to one sign-in?
 
@@ -130,6 +162,10 @@ Yes, it's expected. If the user’s computer is Azure AD joined, the user signs 
 ### How can I publish SharePoint over Azure AD Application Proxy?
 
 Refer to [Enable remote access to SharePoint with Azure AD Application Proxy](application-proxy-integrate-with-sharepoint-server.md).
+
+### Can I use the SharePoint mobile app (iOS/ Android) to access a published SharePoint server?
+
+The [SharePoint mobile app](https://docs.microsoft.com/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises) does not support Azure Active Directory pre-authentication currently.
 
 ## Active Directory Federation Services (AD FS) publishing 
 
@@ -142,6 +178,8 @@ No. Azure AD Application Proxy is designed to work with Azure AD and doesn’t f
 ### Does WebSocket support work for applications other than QlikSense?
 
 Currently, WebSocket protocol support is still in public preview and it may not work for other applications. Some customers have had mixed success using WebSocket protocol with other applications. If you test such scenarios, we would love to hear your results. Please send us your feedback at aadapfeedback@microsoft.com.
+
+Features (Eventlogs, PowerShell and Remote Desktop Services) in Windows Admin Center (WAC) or Remote Desktop Web Client (HTML5) do not work through Azure AD Application Proxy presently.
 
 ## Link translation
 
@@ -160,5 +198,5 @@ This scenario isn't supported directly. Your options for this scenario are:
 1. Publish both the HTTP and HTTPS URLs as separate applications with a wildcard, but give each of them a different custom domain. This configuration will work since they have different external URLS.
 
 2. Publish the HTTPS URL through a wildcard application. Publish the HTTP applications separately using these Application Proxy PowerShell cmdlets:
-   - [Application Proxy Application Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
-   - [Application Proxy Connector Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)
+   - [Application Proxy Application Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
+   - [Application Proxy Connector Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)

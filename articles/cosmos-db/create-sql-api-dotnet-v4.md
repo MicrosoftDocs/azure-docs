@@ -1,20 +1,23 @@
 ---
-title: Manage Azure Cosmos DB SQL API resources using .Net V4 SDK
-description: Quickstart to build a console app using .Net V4 SDK  to manage Azure Cosmos DB SQL API account resources.
-author: ealsur
-ms.author: maquaran
+title: Manage Azure Cosmos DB SQL API resources using .NET V4 SDK
+description: Quickstart to build a console app using .NET V4 SDK  to manage Azure Cosmos DB SQL API account resources.
+author: anfeldma-ms
+ms.author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 09/22/2020
+ms.custom: devx-track-dotnet
+
 ---
-# Quickstart: Build a console app using the .Net V4 SDK to manage Azure Cosmos DB SQL API account resources.
+# Quickstart: Build a console app using the .NET V4 SDK to manage Azure Cosmos DB SQL API account resources.
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java](create-sql-api-java.md)
+> * [Java SDK v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -47,7 +50,7 @@ If you have your own Azure subscription or created a subscription for free, you 
 
 You can use Azure Cloud Shell to create the Azure Cosmos account. Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It provides the flexibility of choosing the shell experience that best suits the way you work, either Bash or PowerShell. For this quickstart, choose **Bash** mode. Azure Cloud Shell also requires a storage account, you can create one when prompted.
 
-Select the **Try It** button next to the following code, choose **Bash** mode select **create a storage account** and login to Cloud Shell. Next copy and paste the following code to Azure cloud shell and run it. The Azure Cosmos account name must be globally unique, make sure to update the `mysqlapicosmosdb` value before you run the command.
+Select the **Try It** button next to the following code, choose **Bash** mode select **create a storage account** and login to Cloud Shell. Next copy and paste the following code to Azure Cloud Shell and run it. The Azure Cosmos account name must be globally unique, make sure to update the `mysqlapicosmosdb` value before you run the command.
 
 ```azurecli-interactive
 
@@ -63,7 +66,7 @@ az group create \
     --name $resourceGroupName \
     --location $location
 
-# Create a SQL API Cosmos DB account with session consistency and multi-master enabled
+# Create a SQL API Cosmos DB account with session consistency and multi-region writes enabled
 az cosmosdb create \
     --resource-group $resourceGroupName \
     --name $accountName \
@@ -109,7 +112,7 @@ Time Elapsed 00:00:34.17
 While still in the application directory, install the Azure Cosmos DB client library for .NET Core by using the dotnet add package command.
 
    ```bash
-   dotnet add package Azure.Cosmos --version 4.0.0-preview
+   dotnet add package Azure.Cosmos --version 4.0.0-preview3
    ```
 
 ### Copy your Azure Cosmos account credentials from the Azure portal

@@ -1,13 +1,18 @@
 ---
-title: Configure and manage Azure Notebook projects
-description: How to manage project metadata, project files, the project's environment and setup steps through both the Azure Notebooks UI and direct terminal access.
-ms.topic: article
-ms.date: 05/13/2019
+title: Configure and manage Azure Notebooks Preview
+description: Learn how to manage project metadata, project files, the project's environment and setup steps through both the Azure Notebooks UI and direct terminal access.
+ms.topic: how-to
+ms.date: 02/28/2020
+ms.custom: devx-track-python
 ---
 
-# Manage and configure projects
+# <a id="manage-and-configure-projects" /> Manage and configure projects in Azure Notebooks Preview
 
-A project in Azure Notebooks is essentially a configuration of the underlying Linux virtual machine in which Jupyter notebooks run, along with a file folder and descriptive metadata. The project dashboard in Azure Notebooks allows you to manage files and otherwise configure the project's characteristics:
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+A project in Azure Notebooks Preview is essentially a configuration of the underlying Linux virtual machine in which Jupyter notebooks run, along with a file folder and descriptive metadata. 
+
+The project dashboard in Azure Notebooks allows you to manage files and otherwise configure the project's characteristics:
 
 - The compute tier on which the project runs, which can be the free tier or an Azure virtual machine.
 - Project metadata, which includes a name, description, an identifier that's used when sharing the project, and whether the project is public or private.
@@ -122,6 +127,9 @@ The information you then project depends on the type of operation you chose:
 - **Shell script**: In the second drop-down list, select a bash shell script in the project (typically a file with the *.sh* extension) that contains any commands you wish to run to initialize the environment.
 
 - **Environment.yml**: In the second drop-down list, select an *environments.yml* file for Python projects using a conda environment.
+
+   > [!WARNING]
+   > As this is a preview service under development, there is currently a known issue where the `Environment.yml` setting does not get applied to your project as expected. The project and the Jupyter notebooks within do not load the specified environment file at present.
 
 When you're done adding steps, select **Save**.
 

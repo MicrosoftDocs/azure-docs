@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Netop Portal | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Netop Portal.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 63f7eab5-412a-4a5c-84bc-7473087abb49
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Netop Portal
@@ -81,7 +74,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
+1. On the **Basic SAML Configuration** section, the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
 1. Netop Portal application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -139,11 +132,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Netop Portal SSO
 
-To configure single sign-on on **Netop Portal** side, you need to the downloaded **Federation Metadata XML** and the Login URL from Azure portal. Follow the instructions in Step 3 of the documentation [here](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) to configure NetOp Portal for Azure AD authentication.
+To configure single sign-on on **Netop Portal** side, you need to the downloaded **Federation Metadata XML** and the Login URL from Azure portal. Follow the instructions in Step 3 of the documentation [here](https://kb.netop.com/article/netop-remote-control-portal-adfs-and-azure-ad-integration-456.html) to configure NetOp Portal for Azure AD authentication.
 
 ### Create Netop Portal test user
 
-In this section, you create a user called Britta Simon in Netop Portal. Work with [Netop Portal support team](mailto:casemanager@netop.com) to add the users in the Netop Portal platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Netop Portal. Work with [Netop Portal support team](mailto:casemanager@netop.com) to add the users in the Netop Portal platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

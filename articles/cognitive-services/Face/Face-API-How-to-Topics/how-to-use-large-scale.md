@@ -1,5 +1,5 @@
 ---
-title: "Example: Use the Large-Scale feature - Face API"
+title: "Example: Use the Large-Scale feature - Face"
 titleSuffix: Azure Cognitive Services
 description: This guide is an article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects.
 services: cognitive-services
@@ -11,6 +11,7 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
+ms.custom: devx-track-csharp
 ---
 
 # Example: Use the large-scale feature
@@ -19,14 +20,14 @@ This guide is an advanced article on how to scale up from existing PersonGroup a
 
 LargePersonGroup and LargeFaceList are collectively referred to as large-scale operations. LargePersonGroup can contain up to 1 million persons, each with a maximum of 248 faces. LargeFaceList can contain up to 1 million faces. The large-scale operations are similar to the conventional PersonGroup and FaceList but have some differences because of the new architecture. 
 
-The samples are written in C# by using the Azure Cognitive Services Face API client library.
+The samples are written in C# by using the Azure Cognitive Services Face client library.
 
 > [!NOTE]
 > To enable Face search performance for Identification and FindSimilar in large scale, introduce a Train operation to preprocess the LargeFaceList and LargePersonGroup. The training time varies from seconds to about half an hour based on the actual capacity. During the training period, it's possible to perform Identification and FindSimilar if a successful training operating was done before. The drawback is that the new added persons and faces don't appear in the result until a new post migration to large-scale training is completed.
 
 ## Step 1: Initialize the client object
 
-When you use the Face API client library, the subscription key and subscription endpoint are passed in through the constructor of the FaceClient class. For example:
+When you use the Face client library, the subscription key and subscription endpoint are passed in through the constructor of the FaceClient class. For example:
 
 ```csharp
 string SubscriptionKey = "<Subscription Key>";
@@ -257,7 +258,7 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 }
 ```
 
-For more information about data management and identification-related implementations, see [Add faces](how-to-add-faces.md) and [Identify faces in an image](HowtoIdentifyFacesinImage.md).
+For more information about data management and identification-related implementations, see [Add faces](how-to-add-faces.md).
 
 ## Summary
 
@@ -268,7 +269,7 @@ In this guide, you learned how to migrate the existing PersonGroup or FaceList c
 
 ## Next steps
 
-Follow a how-to guide to learn how to add faces to a PersonGroup or execute the Identify operation on a PersonGroup.
+Follow a how-to guide to learn how to add faces to a PersonGroup or write a script to do the Identify operation on a PersonGroup.
 
 - [Add faces](how-to-add-faces.md)
-- [Identify faces in an image](HowtoIdentifyFacesinImage.md)
+- [Face client library quickstart](../Quickstarts/client-libraries.md)

@@ -1,6 +1,6 @@
 ---
 title: Monitor Linux cluster events in Azure Service Fabric 
-description: Learn how to monitor Linux cluster events from Syslog
+description: Learn how to monitor a Service Fabric Linux cluster events by writing Service Fabric platform events to Syslog.
 author: srrengar
 
 ms.topic: conceptual
@@ -110,6 +110,6 @@ The example above is of a NodeDown event. You can view the full list of events [
 
 ## Next steps
 * [Deploy the Log Analytics agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
-* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs
-* [Use View Designer to create custom views in Azure Monitor logs](../log-analytics/log-analytics-view-designer.md)
-* Reference for how to [Azure Monitor logs integration with Syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Get familiarized with the [log search and querying](../azure-monitor/log-query/log-query-overview.md) features offered as part of Azure Monitor logs
+* [Use View Designer to create custom views in Azure Monitor logs](../azure-monitor/platform/view-designer.md)
+* Reference for how to [Azure Monitor logs integration with Syslog](../azure-monitor/platform/data-sources-syslog.md).

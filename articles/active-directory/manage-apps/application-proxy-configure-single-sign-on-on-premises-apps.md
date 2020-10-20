@@ -3,17 +3,16 @@ title: SAML single sign-on for on-premises apps with Azure AD App Proxy
 description: Learn how to provide single sign-on for on-premises applications that are secured with SAML authentication. Provide remote access to on-premises apps with Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -38,17 +37,15 @@ The protocol diagrams below describe the single sign-on sequence for both a serv
 
 1. In the Azure portal, select **Azure Active Directory > Enterprise applications** and select **New application**.
 
-2. In the **On-premises applications** section, select **Add an on-premises application**.
+2. Enter the display name for your new application, select **Integrate any other application you don't find in the gallery**, then select **Create**.
 
-3. Enter the display name for your new application, and then select **Add**.
+3. On the app's **Overview** page, select **Single sign-on**.
 
-4. On the app's **Overview** page, select **Single sign-on**.
+4. Select **SAML** as the single sign-on method.
 
-5. Select **SAML** as the single sign-on method.
+5. First set up SAML SSO to work while on the corporate network, see the basic SAML configuration section of [Configure SAML-based single sign-on](configure-saml-single-sign-on.md) to configure SAML-based authentication for the application.
 
-6. First set up SAML SSO to work while on the corporate network. In the **Set up Single Sign-On with SAML** page, go to the **Basic SAML Configuration** heading and select its **Edit** icon (a pencil). Follow the steps in [Enter basic SAML configuration](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) to configure SAML-based authentication for the application.
-
-7. Add at least one user to the application and make sure the test account has access to the application. While connected to the corporate network, use the test account to see if you have single sign-on to the application. 
+6. Add at least one user to the application and make sure the test account has access to the application. While connected to the corporate network, use the test account to see if you have single sign-on to the application. 
 
    > [!NOTE]
    > After you set up Application Proxy, you'll come back and update the SAML **Reply URL**.
@@ -57,7 +54,7 @@ The protocol diagrams below describe the single sign-on sequence for both a serv
 
 Before you can provide SSO for on-premises applications, you need to enable Application Proxy and install a connector. See the tutorial [Add an on-premises application for remote access through Application Proxy in Azure AD](application-proxy-add-on-premises-application.md) to learn how to prepare your on-premises environment, install and register a connector, and test the connector. Then follow these steps to publish your new application with Application Proxy. For other settings not mentioned below, refer to the [Add an on-premises app to Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) section in the tutorial.
 
-1. With the application still open in the Azure portal, select **Application Proxy**. Provide the **Internal URL** for the application. If you're using a custom domain, you also need to upload the SSL certificate for your application. 
+1. With the application still open in the Azure portal, select **Application Proxy**. Provide the **Internal URL** for the application. If you're using a custom domain, you also need to upload the TLS/SSL certificate for your application. 
    > [!NOTE]
    > As a best practice, use custom domains whenever possible for an optimized user experience. Learn more about [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
@@ -71,16 +68,16 @@ Before you can provide SSO for on-premises applications, you need to enable Appl
 
 1. With the application still open in the Azure portal, select **Single sign-on**. 
 
-2. In the **Set up Single Sign-On with SAML** page, go to the **Basic SAML Configuration** heading and select its **Edit** icon (a pencil). The **External URL** you configured in Application Proxy automatically populates the **Identifier**, **Reply URL**, and **Logout URL** fields. Don't edit these URLs because they are required for Application Proxy to work correctly.
+2. In the **Set up Single Sign-On with SAML** page, go to the **Basic SAML Configuration** heading and select its **Edit** icon (a pencil). Make sure the **External URL** you configured in Application Proxy is populated in the **Identifier**, **Reply URL**, and **Logout URL** fields. These URLs are required for Application Proxy to work correctly. 
 
-3. Edit the **Reply URL** configured earlier so that its domain is reachable by Application Proxy. For example, if your **External URL** is `https://contosotravel-f128.msappproxy.net` and the original **Reply URL** was `https://contosotravel.com/acs`, you'll need to update the original **Reply URL** to `https://contosotravel-f128.msappproxy.net/acs`. 
+3. Edit the **Reply URL** configured earlier so that its domain reachable on the internet via Application Proxy. For example, if your **External URL** is `https://contosotravel-f128.msappproxy.net` and the original **Reply URL** was `https://contosotravel.com/acs`, you'll need to update the original **Reply URL** to `https://contosotravel-f128.msappproxy.net/acs`.
 
     ![Enter basic SAML configuration data](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
 
 4. Select the checkbox next to the updated **Reply URL** to mark it as the default.
 
-   * If the required **Reply URL** is already listed, mark this **Reply URL** as default and delete the previously configured **Reply URL**.
+   * After marking the required **Reply URL** as default, you can also delete the previously configured **Reply URL** that used the internal URL.
 
    * For an SP-initiated flow, make sure the back-end application specifies the correct **Reply URL** or Assertion Consumer Service URL for receiving the authentication token.
 

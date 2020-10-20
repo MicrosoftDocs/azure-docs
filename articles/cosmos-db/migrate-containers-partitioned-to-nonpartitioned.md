@@ -3,14 +3,15 @@ title: Migrate non-partitioned Azure Cosmos containers to partitioned containers
 description: Learn how to migrate all the existing non-partitioned containers into partitioned containers.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
+ms.custom: devx-track-csharp
 ---
 
 # Migrate non-partitioned containers to partitioned containers
 
-Azure Cosmos DB supports creating containers without a partition key. Currently you can create non-partitioned containers by using Azure CLI and Azure Cosmos DB SDKs (.Net, Java, NodeJs) that have a version less than or equal to 2.x. You cannot create non-partitioned containers using the Azure portal. However, such non-partitioned containers aren’t elastic and have fixed storage capacity of 10 GB and throughput limit of 10K RU/s.
+Azure Cosmos DB supports creating containers without a partition key. Currently you can create non-partitioned containers by using Azure CLI and Azure Cosmos DB SDKs (.Net, Java, NodeJs) that have a version less than or equal to 2.x. You cannot create non-partitioned containers using the Azure portal. However, such non-partitioned containers aren’t elastic and have fixed storage capacity of 20 GB and throughput limit of 10K RU/s.
 
 The non-partitioned containers are legacy and you should migrate your existing non-partitioned containers to partitioned containers to scale storage and throughput. Azure Cosmos DB provides a system defined mechanism to migrate your non-partitioned containers to partitioned containers. This document explains how all the existing non-partitioned containers are auto-migrated into partitioned containers. You can take advantage of the auto-migration feature only if you are using the V3 version of SDKs in all the languages.
 

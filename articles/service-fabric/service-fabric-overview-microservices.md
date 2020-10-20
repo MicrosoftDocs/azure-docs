@@ -1,11 +1,11 @@
 ---
 title: Introduction to microservices on Azure
 description: An overview of why building cloud applications with a microservices approach is important for modern application development and how Azure Service Fabric provides a platform to achieve this.
-
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 01/07/2020
+ms.custom: sfrev
 ---
-# Why use a microservices approach to building applications?
+# Why use a microservices approach to building applications
 
 For software developers, factoring an application into component parts is nothing new. Typically, a tiered approach is used, with a back-end store, middle-tier business logic, and a front-end user interface (UI). What *has* changed over the last few years is that developers are building distributed applications for the cloud.
 
@@ -29,7 +29,7 @@ During the client/server era, we tended to focus on building tiered applications
 
 There are benefits to a monolithic design approach. Monolithic applications are often simpler to design, and calls between components are faster because these calls are often over interprocess communication (IPC). Also, everyone tests a single product, which tends to be a more efficient use of human resources. The downside is that there's a tight coupling between tiered layers, and you can't scale individual components. If you need to do fixes or upgrades, you have to wait for others to finish their testing. It's harder to be agile.
 
-Microservices address these downsides and more closely align with the preceding business requirements. But they also have both benefits and liabilities. The benefits of microservices are that each one typically encapsulates simpler business functionality, which you can scale up or down, test, deploy, and manage independently. One important benefit of a microservices approach is that teams are driven more by business scenarios than by technology. Smaller teams develop a microservice based on a customer scenario and use any technologies that they want to use.
+Microservices address these downsides and more closely align with the preceding business requirements. But they also have both benefits and liabilities. The benefits of microservices are that each one typically encapsulates simpler business functionality, which you can scale out or in, test, deploy, and manage independently. One important benefit of a microservices approach is that teams are driven more by business scenarios than by technology. Smaller teams develop a microservice based on a customer scenario and use any technologies that they want to use.
 
 In other words, the organization doesn’t need to standardize tech to maintain microservice applications. Individual teams that own services can do what makes sense for them based on team expertise or what’s most appropriate to solve the problem. In practice, a set of recommended technologies, like a particular NoSQL store or web application framework, is preferable.
 
@@ -123,14 +123,18 @@ It might seem obvious, and it's often overlooked, but a microservice needs to re
 
 Health is different from diagnostics. Health is about the microservice reporting its current state to take appropriate actions. A good example is working with upgrade and deployment mechanisms to maintain availability. Though a service might be currently unhealthy because of a process crash or machine reboot, the service might still be operational. The last thing you need is to make the situation worse by starting an upgrade. The best approach is to investigate first or allow time for the microservice to recover. Health events from a microservice help us make informed decisions and, in effect, help create self-healing services.
 
-## Guidance for designing microservices on Azure 
-Visit the Azure architecture center for guidance on [designing and building microservices on Azure](https://docs.microsoft.com/azure/architecture/microservices/).
+## Guidance for designing microservices on Azure
+
+Visit the Azure architecture center for guidance on [designing and building microservices on Azure](/azure/architecture/microservices/).
 
 ## Service Fabric as a microservices platform
 
 Azure Service Fabric emerged when Microsoft transitioned from delivering boxed products, which were typically monolithic, to delivering services. The experience of building and operating large services, like Azure SQL Database and Azure Cosmos DB, shaped Service Fabric. The platform evolved over time as more services adopted it. Service Fabric had to run not only in Azure but also in standalone Windows Server deployments.
 
 ***The aim of Service Fabric is to solve the hard problems of building and running a service and to use infrastructure resources efficiently, so teams can solve business problems by using a microservices approach.***
+
+This short video introduces Service Fabric and microservices:
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 Service Fabric helps you build applications that use a microservices approach by providing:
 
@@ -181,11 +185,10 @@ Maybe. At Microsoft, as more teams began to build for the cloud for business rea
 
 The objective of Service Fabric is to reduce the complexities of building microservice applications so that you don't have to go through as many costly redesigns. Start small, scale when needed, deprecate services, add new ones, and evolve with customer usage. We also know that there are many other problems yet to be solved to make microservices more approachable for most developers. Containers and the actor programming model are examples of small steps in that direction. We're sure more innovations will emerge to make a microservices approach easier.
 
-
 ## Next steps
 
 * [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
-* [Azure Architecture Center: Building microservices on Azure](https://docs.microsoft.com/azure/architecture/microservices/)
+* [Azure Architecture Center: Building microservices on Azure](/azure/architecture/microservices/)
 * [Azure Service Fabric application and cluster best practices](service-fabric-best-practices-overview.md)
 * [Service Fabric terminology overview](service-fabric-technical-overview.md)
 

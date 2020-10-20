@@ -1,5 +1,5 @@
 ---
-title: Enroll TPM device to Azure Device Provisioning Service using Java
+title: Quickstart - Enroll TPM device to Azure Device Provisioning Service using Java
 description: Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service (DPS) using Java service SDK. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
@@ -8,17 +8,23 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: java
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ---
 
-# Quickstart: Enroll TPM device to IoT Hub Device Provisioning Service using Java service SDK
+# Quickstart: Enroll TPM device to IoT Hub Device Provisioning Service using Java Service SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
+In this quickstart, you programmatically create an individual enrollment for a simulated TPM device in the Azure IoT Hub Device Provisioning Service using the Java Service SDK with the help of a sample Java application.
 
-These steps show how to programmatically create an individual enrollment for a simulated TPM device in the Azure IoT Hub Device Provisioning Service using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) with the help of a sample Java application. Although the Java Service SDK works on both Windows and Linux machines, this article uses a Windows development machine to walk through the enrollment process.
+## Prerequisites
 
-Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md), as well as [simulate a TPM device](quick-create-simulated-device.md#simulatetpm) before you proceed.
+- Completion of [Set up the IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
+- Completion of [Read cryptographic keys from the TPM device](quick-create-simulated-device.md#simulatetpm).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks). This quickstart installs the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) below. It works on both Windows and Linux. This quickstart uses Windows.
+- [Maven 3](https://maven.apache.org/download.cgi).
+- [Git](https://git-scm.com/download/).
 
 <a id="setupdevbox"></a>
 
@@ -51,7 +57,7 @@ Make sure to [set up IoT Hub Device Provisioning Service with the Azure portal](
 
 This section shows how to add the provisioning details of your TPM device to the sample code. 
 
-1. Open a command prompt. Clone the GitHub repo for device enrollment code sample using the Java Service SDK:
+1. Open a command prompt. Clone the GitHub repo for device enrollment code sample using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/):
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -119,7 +125,7 @@ This section shows how to add the provisioning details of your TPM device to the
     mvn install -DskipTests
     ```
 
-   This command downloads the Maven package [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) to your machine. This package includes the binaries for the Java service SDK, that the sample code needs to build. 
+   This command downloads the Maven package [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) to your machine. This package includes the binaries for the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/), that the sample code needs to build. 
 
 3. Run the sample by using these commands at the command window:
 

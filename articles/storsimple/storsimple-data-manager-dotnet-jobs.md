@@ -1,18 +1,9 @@
 ---
-title: Use .NET SDK for Microsoft Azure StorSimple Data Manager jobs | Microsoft Docs
-description: Learn how to use .NET SDK to launch StorSimple Data Manager jobs
-services: storsimple
-documentationcenter: NA
+title: Use .NET SDK for Microsoft Azure StorSimple Data Manager jobs
+description: Learn how to use the .NET SDK within the StorSimple Data Manager service to transform StorSimple device data.
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ---

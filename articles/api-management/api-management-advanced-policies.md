@@ -1,6 +1,6 @@
 ---
 title: Azure API Management advanced policies | Microsoft Docs
-description: Learn about the advanced policies available for use in Azure API Management.
+description: Learn about the advanced policies available for use in Azure API Management. See examples and view additional available resources.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -11,13 +11,13 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/10/2020
 ms.author: apimpm
 ---
 
 # API Management advanced policies
 
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
 ## <a name="AdvancedPolicies"></a> Advanced policies
 
@@ -34,7 +34,7 @@ This topic provides a reference for the following API Management policies. For i
 -   [Set request method](#SetRequestMethod) - Allows you to change the HTTP method for a request.
 -   [Set status code](#SetStatus) - Changes the HTTP status code to the specified value.
 -   [Set variable](api-management-advanced-policies.md#set-variable) - Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access.
--   [Trace](#Trace) - Adds custom traces into the [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) output, Application Insights telemetries, and Diagnostic Logs.
+-   [Trace](#Trace) - Adds custom traces into the [API Inspector](./api-management-howto-api-inspector.md) output, Application Insights telemetries, and Resource Logs.
 -   [Wait](#Wait) - Waits for enclosed [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey), or [Control flow](api-management-advanced-policies.md#choose) policies to complete before proceeding.
 
 ## <a name="choose"></a> Control flow
@@ -136,7 +136,7 @@ This example shows how to perform content filtering by removing data elements fr
 
 ### <a name="ChooseUsage"></a> Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -144,7 +144,7 @@ This policy can be used in the following policy [sections](https://azure.microso
 
 ## <a name="ForwardRequest"></a> Forward request
 
-The `forward-request` policy forwards the incoming request to the backend service specified in the request [context](api-management-policy-expressions.md#ContextVariables). The backend service URL is specified in the API [settings](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) and can be changed using the [set backend service](api-management-transformation-policies.md) policy.
+The `forward-request` policy forwards the incoming request to the backend service specified in the request [context](api-management-policy-expressions.md#ContextVariables). The backend service URL is specified in the API [settings](./import-and-publish.md) and can be changed using the [set backend service](api-management-transformation-policies.md) policy.
 
 > [!NOTE]
 > Removing this policy results in the request not being forwarded to the backend service and the policies in the outbound section are evaluated immediately upon the successful completion of the policies in the inbound section.
@@ -152,7 +152,7 @@ The `forward-request` policy forwards the incoming request to the backend servic
 ### Policy statement
 
 ```xml
-<forward-request timeout="time in seconds" follow-redirects="true | false" buffer-request-body="true | false" />
+<forward-request timeout="time in seconds" follow-redirects="false | true" buffer-request-body="false | true" fail-on-error-status-code="false | true"/>
 ```
 
 ### Examples
@@ -199,7 +199,7 @@ This operation level policy uses the `base` element to inherit the backend polic
 
 #### Example
 
-This operation level policy explicitly forwards all requests to the backend service with a timeout of 120 and does not inherit the parent API level backend policy.
+This operation level policy explicitly forwards all requests to the backend service with a timeout of 120 and does not inherit the parent API level backend policy. If the backend service responds with a error status code from 400 to 599 inclusive, [on-error](api-management-error-handling-policies.md) section will be triggered.
 
 ```xml
 <!-- operation level -->
@@ -208,7 +208,7 @@ This operation level policy explicitly forwards all requests to the backend serv
         <base/>
     </inbound>
     <backend>
-        <forward-request timeout="120"/>
+        <forward-request timeout="120" fail-on-error-status-code="true" />
         <!-- effective policy. note the absence of <base/> -->
     </backend>
     <outbound>
@@ -246,15 +246,16 @@ This operation level policy does not forward requests to the backend service.
 
 ### Attributes
 
-| Attribute                               | Description                                                                                                      | Required | Default     |
-| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| timeout="integer"                       | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored as the underlying network infrastructure can drop idle connections after this time. | No       | None |
-| follow-redirects="true &#124; false"    | Specifies whether redirects from the backend service are followed by the gateway or returned to the caller.      | No       | false       |
-| buffer-request-body="true &#124; false" | When set to "true" request is buffered and will be reused on [retry](api-management-advanced-policies.md#Retry). | No       | false       |
+| Attribute                                     | Description                                                                                                                                                                                                                                                                                                    | Required | Default |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| timeout="integer"                             | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored as the underlying network infrastructure can drop idle connections after this time. | No       | None    |
+| follow-redirects="false &#124; true"          | Specifies whether redirects from the backend service are followed by the gateway or returned to the caller.                                                                                                                                                                                                    | No       | false   |
+| buffer-request-body="false &#124; true"       | When set to "true" request is buffered and will be reused on [retry](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | No       | false   |
+| fail-on-error-status-code="false &#124; true" | When set to true triggers [on-error](api-management-error-handling-policies.md) section for response codes in the range from 400 to 599 inclusive.                                                                                                                                                                      | No       | false   |
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** backend
 -   **Policy scopes:** all scopes
@@ -283,7 +284,7 @@ The following example demonstrates how to limit number of requests forwarded to 
   <backend>
     <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
-    <limit-concurrency/>
+    </limit-concurrency>
   </backend>
   <outbound>…</outbound>
 </policies>
@@ -304,7 +305,7 @@ The following example demonstrates how to limit number of requests forwarded to 
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -315,7 +316,7 @@ This policy can be used in the following policy [sections](https://azure.microso
 The `log-to-eventhub` policy sends messages in the specified format to an Event Hub defined by a Logger entity. As its name implies, the policy is used for saving selected request or response context information for online or offline analysis.
 
 > [!NOTE]
-> For a step-by-step guide on configuring an event hub and logging events, see [How to log API Management events with Azure Event Hubs](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/).
+> For a step-by-step guide on configuring an event hub and logging events, see [How to log API Management events with Azure Event Hubs](./api-management-howto-log-event-hubs.md).
 
 ### Policy statement
 
@@ -328,7 +329,7 @@ The `log-to-eventhub` policy sends messages in the specified format to an Event 
 
 ### Example
 
-Any string can be used as the value to be logged in Event Hubs. In this example the date and time, deployment service name, request id, ip address, and operation name for all inbound calls are logged to the event hub Logger registered with the `contoso-logger` id.
+Any string can be used as the value to be logged in Event Hubs. In this example the date and time, deployment service name, request ID, IP address, and operation name for all inbound calls are logged to the event hub Logger registered with the `contoso-logger` ID
 
 ```xml
 <policies>
@@ -352,13 +353,13 @@ Any string can be used as the value to be logged in Event Hubs. In this example 
 
 | Attribute     | Description                                                               | Required                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| logger-id     | The id of the Logger registered with your API Management service.         | Yes                                                                  |
+| logger-id     | The ID of the Logger registered with your API Management service.         | Yes                                                                  |
 | partition-id  | Specifies the index of the partition where messages are sent.             | Optional. This attribute may not be used if `partition-key` is used. |
 | partition-key | Specifies the value used for partition assignment when messages are sent. | Optional. This attribute may not be used if `partition-id` is used.  |
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -402,7 +403,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, on-error
 
@@ -470,7 +471,7 @@ In the following example, request forwarding is retried up to ten times using an
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) . Note that child policy usage restrictions will be inherited by this policy.
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes) . Note that child policy usage restrictions will be inherited by this policy.
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -520,7 +521,7 @@ The `return-response` policy aborts pipeline execution and returns either a defa
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -545,7 +546,7 @@ The `send-one-way-request` policy sends the provided request to the specified UR
 
 ### Example
 
-This sample policy shows an example of using the `send-one-way-request` policy to send a message to a Slack chat room if the HTTP response code is greater than or equal to 500. For more information on this sample, see [Using external services from the Azure API Management service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+This sample policy shows an example of using the `send-one-way-request` policy to send a message to a Slack chat room if the HTTP response code is greater than or equal to 500. For more information on this sample, see [Using external services from the Azure API Management service](./api-management-sample-send-request.md).
 
 ```xml
 <choose>
@@ -594,7 +595,7 @@ This sample policy shows an example of using the `send-one-way-request` policy t
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -620,7 +621,7 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 
 ### Example
 
-This example shows one way to verify a reference token with an authorization server. For more information on this sample, see [Using external services from the Azure API Management service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+This example shows one way to verify a reference token with an authorization server. For more information on this sample, see [Using external services from the Azure API Management service](./api-management-sample-send-request.md).
 
 ```xml
 <inbound>
@@ -681,7 +682,7 @@ This example shows one way to verify a reference token with an authorization ser
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -723,7 +724,7 @@ Note the use of [properties](api-management-howto-properties.md) as values of th
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 
@@ -742,7 +743,7 @@ The `set-method` policy allows you to change the HTTP request method for a reque
 
 ### Example
 
-This sample policy that uses the `set-method` policy shows an example of sending a message to a Slack chat room if the HTTP response code is greater than or equal to 500. For more information on this sample, see [Using external services from the Azure API Management service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+This sample policy that uses the `set-method` policy shows an example of sending a message to a Slack chat room if the HTTP response code is greater than or equal to 500. For more information on this sample, see [Using external services from the Azure API Management service](./api-management-sample-send-request.md).
 
 ```xml
 <choose>
@@ -778,7 +779,7 @@ This sample policy that uses the `set-method` policy shows an example of sending
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, on-error
 
@@ -797,7 +798,7 @@ The `set-status` policy sets the HTTP status code to the specified value.
 
 ### Example
 
-This example shows how to return a 401 response if the authorization token is invalid. For more information, see [Using external services from the Azure API Management service](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/)
+This example shows how to return a 401 response if the authorization token is invalid. For more information, see [Using external services from the Azure API Management service](./api-management-sample-send-request.md)
 
 ```xml
 <choose>
@@ -828,7 +829,7 @@ This example shows how to return a 401 response if the authorization token is in
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** outbound, backend, on-error
 -   **Policy scopes:** all scopes
@@ -866,7 +867,7 @@ The following example demonstrates a set variable policy in the inbound section.
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 -   **Policy scopes:** all scopes
@@ -909,12 +910,11 @@ Expressions used in the `set-variable` policy must return one of the following b
 
 ## <a name="Trace"></a> Trace
 
-The `trace` policy adds a custom trace into the API Inspector output, Application Insights telemetries, and/or Diagnostic Logs. 
+The `trace` policy adds a custom trace into the API Inspector output, Application Insights telemetries, and/or Resource Logs.
 
-* The policy adds a custom trace to the [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) output when tracing is triggered, i.e. `Ocp-Apim-Trace` request header is present and set to true and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key that allows tracing. 
-* The policy creates a [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) telemetry in Application Insights, when [Application Insights integration](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) is enabled and the `severity` level specified in the policy is at or higher than the `verbosity` level specified in the diagnostic setting. 
-* The policy adds a property in the log entry when [Diagnostic Logs](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) is enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.  
-
+-   The policy adds a custom trace to the [API Inspector](./api-management-howto-api-inspector.md) output when tracing is triggered, i.e. `Ocp-Apim-Trace` request header is present and set to true and `Ocp-Apim-Subscription-Key` request header is present and holds a valid key that allows tracing.
+-   The policy creates a [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry in Application Insights, when [Application Insights integration](./api-management-howto-app-insights.md) is enabled and the `severity` level specified in the policy is at or higher than the `verbosity` level specified in the diagnostic setting.
+-   The policy adds a property in the log entry when [Resource Logs](./api-management-howto-use-azure-monitor.md#activity-logs) is enabled and the severity level specified in the policy is at or higher than the verbosity level specified in the diagnostic setting.
 
 ### Policy statement
 
@@ -938,24 +938,24 @@ The `trace` policy adds a custom trace into the API Inspector output, Applicatio
 
 ### Elements
 
-| Element | Description   | Required |
-| ------- | ------------- | -------- |
-| trace   | Root element. | Yes      |
-| message | A string or expression to be logged. | Yes |
-| metadata | Adds a custom property to the Application Insights [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) telemetry. | No |
+| Element  | Description                                                                                                                                          | Required |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| trace    | Root element.                                                                                                                                        | Yes      |
+| message  | A string or expression to be logged.                                                                                                                 | Yes      |
+| metadata | Adds a custom property to the Application Insights [Trace](../azure-monitor/app/data-model-trace-telemetry.md) telemetry. | No       |
 
 ### Attributes
 
-| Attribute | Description                                                                             | Required | Default |
-| --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
-| source    | String literal meaningful to the trace viewer and specifying the source of the message. | Yes      | N/A     |
-| severity    | Specifies the severity level of the trace. Allowed values are `verbose`, `information`, `error` (from lowest to highest). | No      | Verbose     |
-| name    | Name of the property. | Yes      | N/A     |
-| value    | Value of the property. | Yes      | N/A     |
+| Attribute | Description                                                                                                               | Required | Default |
+| --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+| source    | String literal meaningful to the trace viewer and specifying the source of the message.                                   | Yes      | N/A     |
+| severity  | Specifies the severity level of the trace. Allowed values are `verbose`, `information`, `error` (from lowest to highest). | No       | Verbose |
+| name      | Name of the property.                                                                                                     | Yes      | N/A     |
+| value     | Value of the property.                                                                                                    | Yes      | N/A     |
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes) .
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -1025,7 +1025,7 @@ In the following example there are two `choose` policies as immediate child poli
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, backend
 -   **Policy scopes:** all scopes
@@ -1036,5 +1036,5 @@ For more information working with policies, see:
 
 -   [Policies in API Management](api-management-howto-policies.md)
 -   [Policy expressions](api-management-policy-expressions.md)
--   [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
--   [Policy samples](policy-samples.md)
+-   [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
+-   [Policy samples](./policy-reference.md)

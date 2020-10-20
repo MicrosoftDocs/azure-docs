@@ -1,21 +1,11 @@
 ---
-title: Threat Modeling Tool Releases - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: Documenting the release notes for the threat modeling tool
-services: security
-documentationcenter: na
+title: Microsoft Threat Modeling Tool release 10/16/2019 - Azure
+description: Documenting the release notes for the threat modeling tool release 7.1.61015.1.
 author: jegeib
-manager: jegeib
-editor: jegeib
-
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: jegeib
-
 ---
 
 # Threat Modeling Tool update release 7.1.61015.1 - 10/16/2019
@@ -46,9 +36,11 @@ New stencils for Azure Logic Apps and Azure Data Explorer were added to the Azur
 
 Some customers have reported receiving the following error message when opening files created in the "Threat Modeling Tool 2016" or custom templates:
 
-    System.InvalidOperationException: Invalid Priority value. Accepted values are [0..4] and 'High', 'Medium', 'Low' at ThreatModeling.Model.Threat.get_Priority()
-    
-    System.ArgumentOutOfRangeException: Accepted values are 'High', 'Medium', and 'Low' Parameter name: value Actual value was 5.6. at ThreatModeling.Model.Threat.set_Priority(String value)
+```output
+System.InvalidOperationException: Invalid Priority value. Accepted values are [0..4] and 'High', 'Medium', 'Low' at ThreatModeling.Model.Threat.get_Priority()
+
+System.ArgumentOutOfRangeException: Accepted values are 'High', 'Medium', and 'Low' Parameter name: value Actual value was 5.6. at ThreatModeling.Model.Threat.set_Priority(String value)
+```
 
 This issue is under investigation
 

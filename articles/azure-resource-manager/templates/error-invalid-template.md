@@ -2,7 +2,7 @@
 title: Invalid template errors
 description: Describes how to resolve invalid template errors when deploying Azure Resource Manager templates.
 ms.topic: troubleshooting
-ms.date: 03/08/2018
+ms.date: 05/22/2020
 ---
 # Resolve errors for invalid template
 
@@ -23,7 +23,7 @@ The error message depends on the type of error.
 
 This error can result from several different types of errors. They usually involve a syntax or structural error in the template.
 
-<a id="syntax-error" />
+<a id="syntax-error"></a>
 
 ## Solution 1 - syntax error
 
@@ -42,9 +42,9 @@ This error is easy to make because template expressions can be intricate. For ex
 
 If you don't provide the matching syntax, the template produces a value that is different than your intention.
 
-When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](create-visual-studio-deployment-project.md) or [Visual Studio Code](use-vs-code-to-create-template.md), which can warn you about syntax errors.
+When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](create-visual-studio-deployment-project.md) or [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md), which can warn you about syntax errors.
 
-<a id="incorrect-segment-lengths" />
+<a id="incorrect-segment-lengths"></a>
 
 ## Solution 2 - incorrect segment lengths
 
@@ -80,18 +80,18 @@ For child resources, the type and name have the same number of segments. This nu
 
 ```json
 "resources": [
-    {
-        "type": "Microsoft.KeyVault/vaults",
-        "name": "contosokeyvault",
+  {
+    "type": "Microsoft.KeyVault/vaults",
+    "name": "contosokeyvault",
+    ...
+    "resources": [
+      {
+        "type": "secrets",
+        "name": "appPassword",
         ...
-        "resources": [
-            {
-                "type": "secrets",
-                "name": "appPassword",
-                ...
-            }
-        ]
-    }
+      }
+    ]
+  }
 ]
 ```
 
@@ -99,17 +99,17 @@ Getting the segments right can be tricky with Resource Manager types that are ap
 
 ```json
 {
-    "type": "Microsoft.Web/sites/providers/locks",
-    "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-    ...
+  "type": "Microsoft.Web/sites/providers/locks",
+  "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+  ...
 }
 ```
 
-<a id="parameter-not-valid" />
+<a id="parameter-not-valid"></a>
 
 ## Solution 3 - parameter is not valid
 
-If you provide a parameter value that is not one of the allowed values, you receive a message similar to the following error:
+If you provide a parameter value that isn't one of the allowed values, you receive a message similar to the following error:
 
 ```
 Code=InvalidTemplate;
@@ -120,13 +120,13 @@ part of the allowed values
 
 Double check the allowed values in the template, and provide one during deployment. For more information about allowed parameter values, see [Parameters section of Azure Resource Manager templates](template-syntax.md#parameters).
 
-<a id="too-many-resource-groups" />
+<a id="too-many-resource-groups"></a>
 
 ## Solution 4 - Too many target resource groups
 
-If you specify more than five target resource groups in a single deployment, you receive this error. Consider either consolidating the number of resource groups in your deployment, or deploying some of the templates as separate deployments. For more information, see [Deploy Azure resources to more than one subscription or resource group](cross-resource-group-deployment.md).
+You may see this error in earlier deployments because you were limited to five target resource groups in a single deployment. In May 2020, that limit was increased to 800 resource groups. For more information, see [Deploy Azure resources to more than one subscription or resource group](cross-scope-deployment.md).
 
-<a id="circular-dependency" />
+<a id="circular-dependency"></a>
 
 ## Solution 5 - circular dependency detected
 
@@ -134,13 +134,13 @@ You receive this error when resources depend on each other in a way that prevent
 
 To solve a circular dependency:
 
-1. In your template, find the resource identified in the circular dependency. 
-2. For that resource, examine the **dependsOn** property and any uses of the **reference** function to see which resources it depends on. 
+1. In your template, find the resource identified in the circular dependency.
+2. For that resource, examine the **dependsOn** property and any uses of the **reference** function to see which resources it depends on.
 3. Examine those resources to see which resources they depend on. Follow the dependencies until you notice a resource that depends on the original resource.
-5. For the resources involved in the circular dependency, carefully examine all uses of the **dependsOn** property to identify any dependencies that are not needed. Remove those dependencies. If you are unsure that a dependency is needed, try removing it. 
+5. For the resources involved in the circular dependency, carefully examine all uses of the **dependsOn** property to identify any dependencies that aren't needed. Remove those dependencies. If you're unsure that a dependency is needed, try removing it.
 6. Redeploy the template.
 
-Removing values from the **dependsOn** property can cause errors when you deploy the template. If you get an error, add the dependency back into the template. 
+Removing values from the **dependsOn** property can cause errors when you deploy the template. If you get an error, add the dependency back into the template.
 
 If that approach doesn't solve the circular dependency, consider moving part of your deployment logic into child resources (such as extensions or configuration settings). Configure those child resources to deploy after the resources involved in the circular dependency. For example, suppose you're deploying two virtual machines but you must set properties on each one that refer to the other. You can deploy them in the following order:
 

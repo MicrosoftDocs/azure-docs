@@ -1,14 +1,17 @@
 ---
 title: "Tutorial: Scale an application in Azure Spring Cloud | Microsoft Docs"
-description: In this tutorial, you learn how to scale an application with Azure Spring Cloud in the Azure portal
+description: Learn how to scale an application with Azure Spring Cloud in the Azure portal
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.author: jeconnoc
-author: jpconnock
+ms.author: brendm
+author: bmitchell287
 ms.date: 10/06/2019
+ms.custom: devx-track-java
 ---
 
-# Scale an application in Azure Spring Cloud
+# Tutorial: Scale an application in Azure Spring Cloud
+
+**This article applies to:** ✔️ Java ✔️ C#
 
 This tutorial demonstrates how to scale any microservice application using the Azure Spring Cloud dashboard in the Azure portal.
 
@@ -18,10 +21,10 @@ After you finish, you'll know how to make quick manual changes to each applicati
 
 ## Prerequisites
 
-To complete this tutorial, you need:
+To follow these procedures, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-* A deployed Azure Spring Cloud service instance.  Follow our [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart-launch-app-cli.md) to get started.
+* A deployed Azure Spring Cloud service instance.  Follow the [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart.md) to get started.
 * At least one application already created in your service instance.
 
 ## Navigate to the Scale page in the Azure portal
@@ -54,9 +57,12 @@ Be sure to select **Save** to apply your scaling settings.
 
 After a few seconds, the changes you made are displayed on the **Overview** page, with more details available in the **Application instances** tab. Scaling doesn't require any code changes or redeployment.
 
+## Upgrade to the Standard tier
+If you are on the Basic tier and constrained by one or more of these [limits](spring-cloud-quotas.md), you can upgrade to the Standard tier. To do this go to the Pricing tier menu by first selecting the Standard tier column and the clicking the **Upgrade** button.
+
 ## Next steps
 
-In this tutorial, you learned how to manually scale your Azure Spring Cloud applications. To learn how to monitor your application, continue to the next tutorial.
+In this tutorial, you learned how to manually scale an Azure Spring Cloud application. To learn how to monitor an application by setting up alerts, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Learn how to monitor an application](spring-cloud-tutorial-distributed-tracing.md)
+> [Learn how to set up alerts](spring-cloud-tutorial-alerts-action-groups.md)

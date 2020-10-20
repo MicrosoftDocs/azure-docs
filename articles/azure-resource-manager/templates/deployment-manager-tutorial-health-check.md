@@ -31,7 +31,7 @@ This tutorial covers the following tasks:
 
 Additional resources:
 
-* The [Azure Deployment Manager REST API reference](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* The [Azure Deployment Manager REST API reference](/rest/api/deploymentmanager/).
 * [An Azure Deployment Manager sample](https://github.com/Azure-Samples/adm-quickstart).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -54,7 +54,7 @@ Open CreateADMRollout.Parameters.json, and update the values of **projectName** 
 
 ## Create a health check service simulator
 
-In production, you typically use one or more monitoring providers. In order to make health integration as easy as possible, Microsoft has been working with some of the top service health monitoring companies to provide you with a simple copy/paste solution to integrate health checks with your deployments. For a list of these companies, see [Health monitoring providers](./deployment-manager-health-check.md#health-monitoring-providers). For the purpose of this tutorial, you create an [Azure Function](/azure/azure-functions/) to simulate a health monitoring service. This function takes a status code, and returns the same code. Your Azure Deployment Manager template uses the status code to determine how to proceed with the deployment.
+In production, you typically use one or more monitoring providers. In order to make health integration as easy as possible, Microsoft has been working with some of the top service health monitoring companies to provide you with a simple copy/paste solution to integrate health checks with your deployments. For a list of these companies, see [Health monitoring providers](./deployment-manager-health-check.md#health-monitoring-providers). For the purpose of this tutorial, you create an [Azure Function](../../azure-functions/index.yml) to simulate a health monitoring service. This function takes a status code, and returns the same code. Your Azure Deployment Manager template uses the status code to determine how to proceed with the deployment.
 
 The following two files are used for deploying the Azure Function. You don't need to download these files to go through the tutorial.
 
@@ -107,16 +107,16 @@ The purpose of this section is to show you how to include a health check step in
 
     ```json
     "healthCheckUrl": {
-        "type": "string",
-        "metadata": {
-            "description": "Specifies the health check URL."
-        }
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the health check URL."
+      }
     },
     "healthCheckAuthAPIKey": {
-        "type": "string",
-        "metadata": {
-            "description": "Specifies the health check Azure Function function authorization key."
-        }
+      "type": "string",
+      "metadata": {
+          "description": "Specifies the health check Azure Function function authorization key."
+      }
     }
     ```
 
@@ -127,7 +127,7 @@ The purpose of this section is to show you how to include a health check step in
       "type": "Microsoft.DeploymentManager/steps",
       "apiVersion": "2018-09-01-preview",
       "name": "healthCheckStep",
-	  "location": "[parameters('azureResourceLocation')]",
+      "location": "[parameters('azureResourceLocation')]",
       "properties": {
         "stepType": "healthCheck",
         "attributes": {
@@ -175,8 +175,8 @@ The purpose of this section is to show you how to include a health check step in
 
     ```json
     "dependsOn": [
-        "[resourceId('Microsoft.DeploymentManager/artifactSources', variables('rolloutArtifactSource').name)]",
-        "[resourceId('Microsoft.DeploymentManager/steps/', 'healthCheckStep')]"
+      "[resourceId('Microsoft.DeploymentManager/artifactSources', variables('rolloutArtifactSource').name)]",
+      "[resourceId('Microsoft.DeploymentManager/steps/', 'healthCheckStep')]"
     ],
     ```
 
@@ -184,36 +184,36 @@ The purpose of this section is to show you how to include a health check step in
 
     ```json
     "stepGroups": [
-        {
-            "name": "stepGroup1",
-            "preDeploymentSteps": [],
-            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceWUS.name,  variables('serviceTopology').serviceWUS.serviceUnit2.name)]",
-            "postDeploymentSteps": []
+      {
+        "name": "stepGroup1",
+          "preDeploymentSteps": [],
+          "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceWUS.name,  variables('serviceTopology').serviceWUS.serviceUnit2.name)]",
+          "postDeploymentSteps": []
         },
         {
-            "name": "stepGroup2",
-            "dependsOnStepGroups": ["stepGroup1"],
-            "preDeploymentSteps": [],
-            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceWUS.name,  variables('serviceTopology').serviceWUS.serviceUnit1.name)]",
-            "postDeploymentSteps": [
-                {
-                    "stepId": "[resourceId('Microsoft.DeploymentManager/steps/', 'healthCheckStep')]"
-                }
-            ]
+          "name": "stepGroup2",
+          "dependsOnStepGroups": ["stepGroup1"],
+          "preDeploymentSteps": [],
+          "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceWUS.name,  variables('serviceTopology').serviceWUS.serviceUnit1.name)]",
+          "postDeploymentSteps": [
+            {
+              "stepId": "[resourceId('Microsoft.DeploymentManager/steps/', 'healthCheckStep')]"
+            }
+          ]
         },
         {
-            "name": "stepGroup3",
-            "dependsOnStepGroups": ["stepGroup2"],
-            "preDeploymentSteps": [],
-            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceEUS.name,  variables('serviceTopology').serviceEUS.serviceUnit2.name)]",
-            "postDeploymentSteps": []
+          "name": "stepGroup3",
+          "dependsOnStepGroups": ["stepGroup2"],
+          "preDeploymentSteps": [],
+          "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceEUS.name,  variables('serviceTopology').serviceEUS.serviceUnit2.name)]",
+           "postDeploymentSteps": []
         },
         {
-            "name": "stepGroup4",
-            "dependsOnStepGroups": ["stepGroup3"],
-            "preDeploymentSteps": [],
-            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceEUS.name,  variables('serviceTopology').serviceEUS.serviceUnit1.name)]",
-            "postDeploymentSteps": []
+          "name": "stepGroup4",
+          "dependsOnStepGroups": ["stepGroup3"],
+          "preDeploymentSteps": [],
+          "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceEUS.name,  variables('serviceTopology').serviceEUS.serviceUnit1.name)]",
+          "postDeploymentSteps": []
         }
     ]
     ```
@@ -365,4 +365,4 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to use the health check feature of Azure Deployment Manager. To learn more, see [Azure Resource Manager documentation](/azure/azure-resource-manager/).
+In this tutorial, you learned how to use the health check feature of Azure Deployment Manager. To learn more, see [Azure Resource Manager documentation](../index.yml).

@@ -1,6 +1,6 @@
 ---
 title: Handle content types
-description: Learn how Logic Apps handles content types at design time and run time
+description: Learn how to handle various content types in workflows during design time and run time in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -78,7 +78,7 @@ reference and use those properties more easily in your logic app's workflow.
   2. Under **Enter or paste a sample JSON payload**, provide a sample payload 
   and then choose **Done**. For example: 
 
-     ![Provide sample JSON payload](./media/logic-apps-content-type/request-trigger.png)
+     ![Screenshot that shows the "When a HTTP request is received" action with a sample JSON payload.](./media/logic-apps-content-type/request-trigger.png)
 
      The generated schema now appears in your trigger.
 

@@ -13,21 +13,27 @@ ms.custom: seodec18
 # Deploy your app to Azure App Service using FTP/S
 
 This article shows you how to use FTP or FTPS to deploy your web app, mobile app backend, 
-or API app to [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
+or API app to [Azure App Service](./overview.md).
 
 The FTP/S endpoint for your app is already active. No configuration is necessary to enable FTP/S deployment.
 
 ## Open FTP dashboard
 
-In the [Azure portal](https://portal.azure.com), open your app's [resource page](../azure-resource-manager/management/manage-resources-portal.md#manage-resources).
+1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**.
 
-To open the FTP dashboard, click **Deployment Center** > **FTP** > **Dashboard**.
+    ![Search for App services.](media/app-service-continuous-deployment/search-for-app-services.png)
 
-![Open FTP dashboard](./media/app-service-deploy-ftp/open-dashboard.png)
+2. Select the web app you want to deploy.
+
+    ![Select your app.](media/app-service-continuous-deployment/select-your-app.png)
+
+3. Select **Deployment Center** > **FTP** > **Dashboard**.
+
+    ![Open FTP dashboard](./media/app-service-deploy-ftp/open-dashboard.png)
 
 ## Get FTP connection information
 
-In the FTP dashboard, click **Copy** to copy the FTPS endpoint and app credentials.
+In the FTP dashboard, select **Copy** to copy the FTPS endpoint and app credentials.
 
 ![Copy FTP information](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
@@ -61,7 +67,7 @@ It's recommended that you use **App Credentials** to deploy to your app because 
 
 ## Enforce FTPS
 
-For enhanced security, you should allow FTP over SSL only. You can also disable both FTP and FTPS if you don't use FTP deployment.
+For enhanced security, you should allow FTP over TLS/SSL only. You can also disable both FTP and FTPS if you don't use FTP deployment.
 
 In your app's resource page in [Azure portal](https://portal.azure.com), select **Configuration** > **General settings** from the left navigation.
 

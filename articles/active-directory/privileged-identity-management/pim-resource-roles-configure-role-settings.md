@@ -7,11 +7,11 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -53,10 +53,17 @@ Follow these steps to open the settings for an Azure resource role.
 
 1. Use the **Notification** tab or the **Next: Activation** button at the bottom of the page to get to the notification setting tab for this role. These settings control all the email notifications related to this role.
 
-    > [!NOTE]
-    > This notifications UI is currently being rolled across Azure regions and subscriptions. If you can't configure these granular notifications, please check back in a day or two.
-
     ![Role Notifications tab in role settings page](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+    In the **Notifications** tab on the role settings page, Privileged Identity Management enables granular control over who receives notifications and which notifications they receive.
+
+    - **Turning off an email**<br>You can turn off specific emails by clearing the default recipient check box and deleting any additional recipients.  
+
+    - **Limit emails to specified email addresses**<br>You can turn off emails sent to default recipients by clearing the default recipient checkbox. You can then add additional email addresses as additional recipients. If you want to add more than one email address, separate them using a semicolon (;).
+
+    - **Send emails to both default recipients and additional recipients**<br>You can send emails to both default recipient and additional recipient by selecting the default recipient checkbox and adding email addresses for additional recipients.
+
+    - **Critical emails only**<br>For each type of email, you can select the checkbox to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the configured recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while an emails requiring admins to approve an extension request will be triggered.
 
 1. Select the **Update** button at any time to update the role settings.
 

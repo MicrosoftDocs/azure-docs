@@ -2,14 +2,15 @@
 title: Tutorial - add variable to template
 description: Add variables to your Azure Resource Manager template to simplify the syntax.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom:
 ---
 
-# Tutorial: Add variables to your Resource Manager template
+# Tutorial: Add variables to your ARM template
 
-In this tutorial, you learn how to add a variable to your template. Variables simplify your templates by enabling you to write an expression once and reuse it throughout the template. This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to add a variable to your Azure Resource Manager (ARM) template. Variables simplify your templates by enabling you to write an expression once and reuse it throughout the template. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
@@ -21,7 +22,7 @@ You must have Visual Studio Code with the Resource Manager Tools extension, and 
 
 At the end of the previous tutorial, your template had the following JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json":::
 
 The parameter for the storage account name is hard-to-use because you have to provide a unique name. If you've completed the earlier tutorials in this series, you're probably tired of guessing a unique name. You solve this problem by adding a variable that constructs a unique name for the storage account.
 
@@ -29,7 +30,7 @@ The parameter for the storage account name is hard-to-use because you have to pr
 
 The following example highlights the changes to add a variable to your template that creates a unique storage account name. Copy the whole file and replace your template with its contents.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json?range=1-47&highlight=5-9,29-31,36)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
 
 Notice that it includes a variable named **uniqueStorageName**. This variable uses four functions to construct a string value.
 
@@ -64,8 +65,10 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addnamevariable \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -73,6 +76,9 @@ az group deployment create \
 ```
 
 ---
+
+> [!NOTE]
+> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
 
 ## Verify deployment
 

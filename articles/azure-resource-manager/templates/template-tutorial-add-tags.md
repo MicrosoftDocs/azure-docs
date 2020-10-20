@@ -2,14 +2,15 @@
 title: Tutorial - add tags to resources in template
 description: Add tags to resources that you deploy in your Azure Resource Manager template. Tags let you logically organize resources.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom:
 ---
 
-# Tutorial: Add tags in your Resource Manager template
+# Tutorial: Add tags in your ARM template
 
-In this tutorial, you learn how to add tags to resources in your template. [Tags](../management/tag-resources.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes **8 minutes** to complete.
+In this tutorial, you learn how to add tags to resources in your Azure Resource Manager (ARM) template. [Tags](../management/tag-resources.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes **8 minutes** to complete.
 
 ## Prerequisites
 
@@ -21,7 +22,7 @@ You must have Visual Studio Code with the Resource Manager Tools extension, and 
 
 Your previous template deployed a storage account, App Service plan, and web app.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
 After deploying these resources, you might need to track costs and find resources that belong to a category. You can add tags to help solve these issues.
 
@@ -31,7 +32,7 @@ You tag resources to add values that help you identify their use. For example, y
 
 The following example highlights the changes to the template. Copy the whole file and replace your template with its contents.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json" range="1-118" highlight="46-52,64,78,102":::
 
 ## Deploy template
 
@@ -53,8 +54,10 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addtags \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -62,6 +65,9 @@ az group deployment create \
 ```
 
 ---
+
+> [!NOTE]
+> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
 
 ## Verify deployment
 

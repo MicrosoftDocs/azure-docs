@@ -6,7 +6,6 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: f0507c28-9464-4d3e-bd53-de9053fd5278
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -15,7 +14,6 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # App registration reference
@@ -24,7 +22,7 @@ This document provides context and descriptions of various features found in the
 
 ## My Applications or Converged applications
 
-This list contains all of your applications registered for use with the Microsoft identity platform (v2.0) endpoint. These applications have the ability to sign in users with both personal Microsoft accounts and work/school accounts from Azure Active Directory. To learn more about the identity platform endpoint, see the [v2.0 overview](active-directory-appmodel-v2-overview.md). These applications can also be used to integrate with the Microsoft account authentication endpoint, `https://login.live.com`.
+This list contains all of your applications registered for use with the Microsoft identity platform (v2.0) endpoint. These applications have the ability to sign in users with both personal Microsoft accounts and work/school accounts from Azure Active Directory. To learn more about the identity platform endpoint, see the [v2.0 overview](./v2-overview.md). These applications can also be used to integrate with the Microsoft account authentication endpoint, `https://login.live.com`.
 
 ## Azure AD only applications
 
@@ -36,11 +34,11 @@ This list contains all of your applications registered for use solely with Micro
 
 ## Application Secrets
 
-Application secrets are credentials that allow your application to perform reliable [client authentication](https://tools.ietf.org/html/rfc6749#section-2.3) with Azure AD. In OAuth & OpenID Connect, an application secret is commonly referred to as a `client_secret`. In the v2.0 protocol, any application that receives a security token at a web addressable location (using an `https` scheme) must use an application secret to identify itself to Azure AD upon redemption of that security token. Furthermore, any native client that receives tokens on a device will be forbidden from using an application secret to perform client authentication. This discourages the storage of secrets in insecure environments.
+Application secrets are credentials that allow your application to perform reliable [client authentication](https://tools.ietf.org/html/rfc6749#section-2.3) with Microsoft identity platform. In OAuth & OpenID Connect, an application secret is commonly referred to as a `client_secret`. In the v2.0 protocol, any application that receives a security token at a web addressable location (using an `https` scheme) must use an application secret to identify itself to Microsoft identity platform upon redemption of that security token. Furthermore, any native client that receives tokens on a device will be forbidden from using an application secret to perform client authentication. This discourages the storage of secrets in insecure environments.
 
 Each app can contain two valid application secrets at any given time. By maintaining two secrets, you have the ability to perform periodic key rollover across your application's entire environment. Once you've migrated the entirety of your application to a new secret, you may delete the old secret and provision a new one.
 
-At this time, only two types of application secrets are allowed in the app registration portal. Choosing **Generate New Password** generates and stores a shared secret in the respective data store, which you can use in your application. Choosing **Generate New Key Pair** creates a new public/private key pair that can be downloaded and used for client authentication to Azure AD. Choosing **Upload Public Key** allows you to use your own public/private key pair.
+At this time, only two types of application secrets are allowed in the app registration portal. Choosing **Generate New Password** generates and stores a shared secret in the respective data store, which you can use in your application. Choosing **Generate New Key Pair** creates a new public/private key pair that can be downloaded and used for client authentication to Microsoft identity platform. Choosing **Upload Public Key** allows you to use your own public/private key pair.
 You are required to upload a certificate that contains a public key.
 
 ## Profile

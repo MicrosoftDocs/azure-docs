@@ -1,15 +1,13 @@
 ---
 title: FSLogix profile containers NetApp Windows Virtual Desktop - Azure
 description: How to create an FSLogix profile container using Azure NetApp Files in Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 11/25/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: helohr
+manager: lizross
 ---
-# Create an FSLogix profile container for a host pool using Azure NetApp Files
+# Create a profile container with Azure NetApp Files and AD DS
 
 We recommend using FSLogix profile containers as a user profile solution for the [Windows Virtual Desktop service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Windows Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
 
@@ -17,7 +15,7 @@ You can create FSLogix profile containers using [Azure NetApp Files](https://azu
 
 This guide will show you how to set up an Azure NetApp Files account and create FSLogix profile containers in Windows Virtual Desktop.
 
-This article assumes you already have [host pools](create-host-pools-azure-marketplace.md) set up and grouped into one or more tenants in your Windows Virtual Desktop environment. To learn how to set up tenants, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md) and [our Tech Community blog post](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
+This article assumes you already have [host pools](create-host-pools-azure-marketplace.md) set up and grouped into one or more tenants in your Windows Virtual Desktop environment. To learn how to set up tenants, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) and [our Tech Community blog post](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
 
 The instructions in this guide are specifically for Windows Virtual Desktop users. If you're looking for more general guidance for how to set up Azure NetApp Files and create FSLogix profile containers outside of Windows Virtual Desktop, see the [Set up Azure NetApp Files and create an NFS volume quickstart](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
 
@@ -33,7 +31,7 @@ Before you can create an FSLogix profile container for a host pool, you must:
 
 - Set up and configure Windows Virtual Desktop
 - Provision a Windows Virtual Desktop host pool
-- [Enable your Azure NetApp Files subscription](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)
+- [Enable your Azure NetApp Files subscription](../azure-netapp-files/azure-netapp-files-register.md)
 
 ## Set up your Azure NetApp Files account
 
@@ -47,27 +45,29 @@ To get started, you need to set up an Azure NetApp Files account.
 
 4. If this is your first time using Azure Cloud Shell, create a storage account in the same subscription you keep your Azure NetApp Files and Windows Virtual Desktop.
 
-   ![The storage account window with the create storage button at the bottom of the window highlighted in red.](media/create-storage-button.png)
+   > [!div class="mx-imgBorder"]
+   > ![The storage account window with the create storage button at the bottom of the window highlighted in red.](media/create-storage-button.png)
 
 5. Once Azure Cloud Shell loads, run the following two cmdlets.
 
-   ```powershell
+   ```azurecli
    az account set --subscription <subscriptionID>
    ```
 
-   ```powershell
+   ```azurecli
    az provider register --namespace Microsoft.NetApp --wait
    ```
 
 6. In the left side of the window, select **All services**. Enter **Azure NetApp Files** into the search box that appears at the top of the menu.
 
-   ![A screenshot of a user entering "Azure NetApp Files" into the All services search box. The search results show the Azure NetApp Files resource.](media/azure-netapp-files-search-box.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of a user entering "Azure NetApp Files" into the All services search box. The search results show the Azure NetApp Files resource.](media/azure-netapp-files-search-box.png)
 
 
 7. Select **Azure NetApp Files** in the search results, then select **Create**.
 
 8. Select the **Add** button.
-9. When the **New NetApp account** blade opens, enter the following values:
+9. When the **New NetApp account** tab opens, enter the following values:
 
     - For **Name**, enter your NetApp account name.
     - For **Subscription**, select the subscription for the storage account you set up in step 4 from the drop-down menu.
@@ -81,12 +81,12 @@ To get started, you need to set up an Azure NetApp Files account.
 
 ## Create a capacity pool
 
-Next, create a new capacity pool: 
+Next, create a new capacity pool:
 
 1. Go to the Azure NetApp Files menu and select your new account.
 2. In your account menu, select **Capacity pools** under Storage service.
 3. Select **Add pool**.
-4. When the **New capacity pool** blade opens, enter the following values:
+4. When the **New capacity pool** tab opens, enter the following values:
 
     - For **Name**, enter a name for the new capacity pool.
     - For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
@@ -102,7 +102,8 @@ After that, you need to join an Active Directory connection.
 
 1. Select **Active Directory connections** in the menu on the left side of the page, then select the **Join** button to open the **Join Active Directory** page.
 
-   ![A screenshot of the Join Active Directory connections menu.](media/active-directory-connections-menu.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the Join Active Directory connections menu.](media/active-directory-connections-menu.png)
 
 2. Enter the following values in the **Join Active Directory** page to join a connection:
 
@@ -112,16 +113,13 @@ After that, you need to join an Active Directory connection.
     - For **Username**, enter the name of the account with permissions to perform domain join.
     - For **Password**, enter the account's password.
 
-  >[!NOTE]
-  >It's best practice to confirm that the computer account you created in [Join an Active Directory connection](create-fslogix-profile-container.md#join-an-active-directory-connection) has appeared in your domain controller under **Computers** or **your enterprise's relevant OU**.
-
 ## Create a new volume
 
 Next, you'll need to create a new volume.
 
 1. Select **Volumes**, then select **Add volume**.
 
-2. When the **Create a volume** blade opens, enter the following values:
+2. When the **Create a volume** tab opens, enter the following values:
 
     - For **Volume name**, enter a name for the new volume.
     - For **Capacity pool**, select the capacity pool you just created from the drop-down menu.
@@ -145,7 +143,8 @@ After you create the volume, configure the volume access parameters.
 
 6.  To see the mount path, select **Go to resource** and look for it in the Overview tab.
 
-    ![A screenshot of the Overview screen with a red arrow pointing at the mount path.](media/overview-mount-path.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Overview screen with a red arrow pointing at the mount path.](media/overview-mount-path.png)
 
 ## Configure FSLogix on session host virtual machines (VMs)
 
@@ -207,7 +206,7 @@ This section is based on [Create a profile container for a host pool using a fil
 
 ## Make sure users can access the Azure NetApp File share
 
-1. Open your internet browser and go to <https://rdweb.wvd.microsoft.com/webclient/index.html>.
+1. Open your internet browser and go to <https://rdweb.wvd.microsoft.com/arm/webclient>.
 
 2. Sign in with the credentials of a user assigned to the Remote Desktop group.
 
@@ -215,7 +214,8 @@ This section is based on [Create a profile container for a host pool using a fil
 
 4. Open **Azure NetApp Files**, select your Azure NetApp Files account, and then select **Volumes**. Once the Volumes menu opens, select the corresponding volume.
 
-   ![A screenshot of the NetApp account you set up earlier in the Azure portal with the Volumes button selected.](media/netapp-account.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the NetApp account you set up earlier in the Azure portal with the Volumes button selected.](media/netapp-account.png)
 
 5. Go to the **Overview** tab and confirm that the FSLogix profile container is using space.
 
@@ -224,8 +224,11 @@ This section is based on [Create a profile container for a host pool using a fil
 
    Within this folder, there should be a profile VHD (or VHDX) like the one in the following example.
 
-   ![A screenshot of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/mount-path-folder.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/mount-path-folder.png)
 
 ## Next steps
 
 You can use FSLogix profile containers to set up a user profile share. To learn how to create user profile shares with your new containers, see [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
+
+You can also create an Azure Files file share to store your FSLogix profile in. To learn more, see [Create an Azure Files file share with a domain controller](create-file-share.md).

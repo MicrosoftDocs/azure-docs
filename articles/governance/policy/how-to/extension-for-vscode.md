@@ -1,7 +1,7 @@
 ---
 title: Azure Policy extension for Visual Studio Code
-description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Resource Manager aliases.
-ms.date: 11/04/2019
+description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Azure Resource Manager aliases.
+ms.date: 10/14/2020
 ms.topic: how-to
 ---
 # Use Azure Policy extension for Visual Studio Code
@@ -53,7 +53,7 @@ For a national cloud user, follow these steps to set the Azure environment first
 
 1. Select the nation cloud from the list:
 
-   ![Set default Azure cloud sign in for Visual Studio Code](../media/extension-for-vscode/set-default-azure-cloud-sign-in.png)
+   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Screenshot of selecting the nation Azure cloud sign in for Visual Studio Code." border="false":::
 
 ## Connect to an Azure account
 
@@ -66,13 +66,13 @@ to connect to Azure from Visual Studio Code:
 
      From the Azure Policy extension, select **Sign in to Azure**.
 
-     ![Azure cloud sign in for Visual Studio Code from Azure Policy extension](../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png)
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Screenshot of Visual Studio Code and the icon for the Azure Policy extension." border="false":::
 
    - Command Palette
 
      From the menu bar, go to **View** > **Command Palette**, and enter **Azure: Sign In**.
 
-     ![Azure cloud sign in for Visual Studio Code from Command Palette](../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png)
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Screenshot of the Azure cloud sign in options for Visual Studio Code from the Command Palette." border="false":::
 
 1. Follow the sign in instructions to sign in to Azure. After you're connected, your Azure account
    name is shown on the status bar at the bottom of the Visual Studio Code window.
@@ -87,11 +87,13 @@ these steps:
 
    - Command Palette: 
 
-     From the menu bar, go to **View** > **Command Palette**, and enter **Azure Policy: Select Subscriptions**.
+     From the menu bar, go to **View** > **Command Palette**, and enter **Azure: Select
+     Subscriptions**.
 
    - Window footer
 
-     In the window footer at the bottom of the screen, select the segment that matches **Azure: \<your account\>**.
+     In the window footer at the bottom of the screen, select the segment that matches **Azure:
+     \<your account\>**.
 
 1. Use the filter box to quickly find subscriptions by name. Then, check or remove the check from
    each subscription to set the subscriptions shown by the Azure Policy extension. When done adding
@@ -141,8 +143,8 @@ resource with the following steps:
 ## Discover aliases for resource properties
 
 When a resource is selected, whether through the search interface or by selecting it in the
-treeview, the Azure Policy extension opens the JSON file representing that resource and all it's
-Resource Manager property values.
+treeview, the Azure Policy extension opens the JSON file representing that resource and all its
+Azure Resource Manager property values.
 
 Once a resource is open, hovering over the Resource Manager property name or value displays the
 Azure Policy alias if one exists. In this example, the resource is a
@@ -150,7 +152,11 @@ Azure Policy alias if one exists. In this example, the resource is a
 **properties.storageProfile.imageReference.offer** property is hovered over. Hovering shows the
 matching aliases.
 
-![Azure Policy extension hover shows Resource Manager property alias](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot of the Azure Policy extension for Visual Studio Code hovering a property to display the alias names." border="false":::
+
+> [!NOTE]
+> The VS Code extension only exposes Resource Manager mode properties and doesn't display any
+> [Resource Provider mode](../concepts/definition-structure.md#mode) properties.
 
 ## Search for and view policies and assignments
 

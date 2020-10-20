@@ -4,7 +4,7 @@ description: This article provides information about how an application gateway 
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
 ---
@@ -41,7 +41,7 @@ When the application gateway selects the backend pool, it sends the request to o
 
 After the application gateway determines the backend server, it opens a new TCP session with the backend server based on HTTP settings. HTTP settings specify the protocol, port, and other routing-related settings that are required to establish a new session with the backend server.
 
-The port and protocol used in HTTP settings determine whether the traffic between the application gateway and backend servers is encrypted (thus accomplishing end-to-end SSL) or is unencrypted.
+The port and protocol used in HTTP settings determine whether the traffic between the application gateway and backend servers is encrypted (thus accomplishing end-to-end TLS) or is unencrypted.
 
 When an application gateway sends the original request to the backend server, it honors any custom configuration made in the HTTP settings related to overriding the hostname, path, and protocol. This action maintains cookie-based session affinity, connection draining, host-name selection from the backend, and so on.
 
@@ -57,7 +57,7 @@ An application gateway inserts four additional headers to all requests before it
 
 The valid values for x-forwarded-proto are HTTP or HTTPS. X-forwarded-port specifies the port where the request reached the application gateway. X-original-host header contains the original host header with which the request arrived. This header is useful in Azure website integration, where the incoming host header is modified before traffic is routed to the backend. If session affinity is enabled as an option, then it adds a gateway-managed affinity cookie.
 
-You can configure application gateway to modify headers by using [Rewrite HTTP headers](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) or to modify the URI path by using a path-override setting. However, unless configured to do so, all incoming requests are proxied to the backend.
+You can configure application gateway to modify request and response headers and URL by using [Rewrite HTTP headers and URL](rewrite-http-headers-url.md) or to modify the URI path by using a path-override setting. However, unless configured to do so, all incoming requests are proxied to the backend.
 
 ## Next steps
 

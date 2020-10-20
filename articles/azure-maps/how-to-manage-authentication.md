@@ -1,10 +1,11 @@
 ---
-title: Manage authentication in Azure Maps | Microsoft Docs 
-description: You can use the Azure portal to manage authentication in Azure Maps.
-author: walsehgal
-ms.author: v-musehg
-ms.date: 10/24/2019
-ms.topic: conceptual
+title: Manage authentication
+titleSuffix: Azure Maps
+description: Become familiar with Azure Maps authentication. See which approach works best in which scenario. Learn how to use the portal to view authentication settings.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 06/12/2020
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
@@ -12,99 +13,76 @@ manager: timlt
 
 # Manage authentication in Azure Maps
 
-After you create an Azure Maps account, a client ID and keys are created to support either Azure Active Directory (Azure AD) or Shared Key authentication.
+After you create an Azure Maps account, a client ID and keys are created to support Azure Active Directory (Azure AD) authentication and Shared Key authentication.
 
 ## View authentication details
 
-After creation of the Azure Maps account, the primary and secondary keys are generated. It is recommended to use primary key as subscription key, when calling Azure Maps using [shared key authentication](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Secondary key can be used in scenarios such as rolling key changes. To learn more, see [Authentication with Azure Maps](https://aka.ms/amauth).
+After you create an Azure Maps account, the primary and secondary keys are generated. We recommend that you use a primary key as a subscription key when you [use Shared Key authentication to call Azure Maps](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). You can use a secondary key in scenarios such as rolling key changes. For more information, see [Authentication in Azure Maps](https://aka.ms/amauth).
 
-You can view your authentication details on the Azure portal. Go to your account and select **Authentication** on the **Settings** menu.
+You can view your authentication details in the Azure portal. There, in your account, on the **Settings** menu, select **Authentication**.
 
-![Authentication details](./media/how-to-manage-authentication/how-to-view-auth.png)
+> [!div class="mx-imgBorder"]
+> ![Authentication details](./media/how-to-manage-authentication/how-to-view-auth.png)
 
+## Discover category and scenario
 
-## Set up Azure AD app registration
+Depending on application needs there are specific pathways to securing the application. Azure AD defines categories to support a wide range of authentication flows. See [application categories](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#application-categories) to understand which category the application fits.
 
-After you create an Azure Maps account, you need to establish a link between your Azure AD tenant and the Azure Maps resource.
+> [!NOTE]
+> Even if you use shared key authentication, understanding categories and scenarios helps you to secure the application.
 
-1. Go to the Azure AD blade and create an app registration. Provide a name for the registration. In the **Sign-on URL** box, provide the home page of the web app / API (for example, https:\//localhost/). If you already have a registered app, go to step 2.
+## Determine authentication and authorization
 
-    ![App registration](./media/how-to-manage-authentication/app-registration.png)
+The following table outlines common authentication and authorization scenarios in Azure Maps. The table provides a comparison of the types of protection each scenario offers.
 
-    ![App registration details](./media/how-to-manage-authentication/app-create.png)
+> [!IMPORTANT]
+> Microsoft recommends implementing Azure Active Directory (Azure AD) with Azure role-based access control (Azure RBAC) for production applications.
 
-2. To assign delegated API permissions to Azure Maps, go to the application under **App registrations**, and then select **Settings**.  Select **Required permissions**, and then select **Add**. Search for and select **Azure Maps** under **Select an API**, and then select the **Select** button.
+| Scenario                                                                                    | Authentication | Authorization | Development effort | Operational effort |
+| ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
+| [Trusted daemon / non-interactive client application](./how-to-secure-daemon-app.md)        | Shared Key     | N/A           | Medium             | High               |
+| [Trusted daemon / non-interactive client application](./how-to-secure-daemon-app.md)        | Azure AD       | High          | Low                | Medium             |
+| [Web single page application with interactive single-sign-on](./how-to-secure-spa-users.md) | Azure AD       | High          | Medium             | Medium             |
+| [Web single page application with non-interactive sign-on](./how-to-secure-spa-app.md)      | Azure AD       | High          | Medium             | Medium             |
+| [Web application with interactive single-sign-on](./how-to-secure-webapp-users.md)          | Azure AD       | High          | High               | Medium             |
+| [IoT device / input constrained device](./how-to-secure-device-code.md)                     | Azure AD       | High          | Medium             | Medium             |
 
-    ![App API permissions](./media/how-to-manage-authentication/app-permissions.png)
+The links in the table take you to detailed configuration information for each scenario.
 
-3. Under **Select permissions**, select **Access Azure Maps**, and then select the **Select** button.
+## View role definitions
 
-    ![Select app API permissions](./media/how-to-manage-authentication/select-app-permissions.png)
+To view Azure roles that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*. These Azure Maps roles are the roles that you can grant access to.
 
-4. Complete step a or b, depending on your authentication method.
+> [!div class="mx-imgBorder"]
+> ![View available roles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
-    1. If your application uses user-token authentication with the Azure Maps Web SDK, enable `oauthEnableImplicitFlow` by setting it to true in the Manifest section of your app registration detail page.
-    
-       ![App manifest](./media/how-to-manage-authentication/app-manifest.png)
+## View role assignments
 
-    2. If your application uses server/application authentication, go to the **Keys** blade in app registration and either create a password or upload a public key certificate to the app registration. If you create a password, after you select **Save**, copy the password for later and store it securely. You'll use this password to acquire tokens from Azure AD.
+To view users and apps that have been granted access for Azure Maps, go to **Access Control (IAM)**. There, select **Role assignments**, and then filter by **Azure Maps**.
 
-       ![App keys](./media/how-to-manage-authentication/app-keys.png)
-
-
-## Grant RBAC to Azure Maps
-
-After you associate an Azure Maps account with your Azure AD tenant, you can grant access control by assigning a user, group or application to one or more Azure Maps access control roles.
-
-1. Go to **Access control (IAM)**, select **Role assignments**, and then select **Add role assignment**.
-
-    ![Grant RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
-
-2. In the **Add role assignment** window, under **Role**, select **Azure Maps Date Reader (Preview)**. Under **Assign access to**, select **Azure AD user, group, or service principal**. Under **Select**, select the user or application. Select **Save**.
-
-    ![Add role assignment](./media/how-to-manage-authentication/add-role-assignment.png)
-
-## View available Azure Maps RBAC roles
-
-To view role-based access control (RBAC) roles that are available for Azure Maps, go to **Access control (IAM)**, select **Roles**, and then search for roles beginning with **Azure Maps**. These are the roles that you can grant access to.
-
-![View available roles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
-
-
-## View Azure Maps RBAC
-
-RBAC provides granular access control.
-
-To view users and apps that have been granted RBAC for Azure Maps, go to **Access Control (IAM)**, select **Role assignments**, and then filter by **Azure Maps**.
-
-![View users and apps granted RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
-
+> [!div class="mx-imgBorder"]
+> ![View users and apps that have been granted access](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 ## Request tokens for Azure Maps
 
-After you register your app and associated it with Azure Maps, you can request access tokens.
+Request a token from the Azure AD token endpoint. In your Azure AD request, use the following details:
 
-* If your application uses user-token authentication with the Azure Maps Web SDK, you need to configure your HTML page with the Azure Maps client ID and the Azure AD app ID.
+| Azure environment      | Azure AD token endpoint             | Azure resource ID              |
+| ---------------------- | ----------------------------------- | ------------------------------ |
+| Azure public cloud     | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
+| Azure Government cloud | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
-* If your application uses server/application authentication, you need to request a token from Azure AD token endpoint `https://login.microsoftonline.com` with the Azure AD resource ID `https://atlas.microsoft.com/`, the Azure Maps client ID, the Azure AD app ID, and the Azure AD app registration password or certificate.
-
-| Azure Environment   | Azure AD token endpoint | Azure Resource ID |
-| --------------------|-------------------------|-------------------|
-| Azure Public        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
-| Azure Government    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
-
-For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
-
+For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios) and view specific scenarios in the table of [Scenarios](./how-to-manage-authentication.md#determine-authentication-and-authorization).
 
 ## Next steps
 
-To learn more about Azure AD authentication and the Azure Maps Web SDK, see [Azure AD and Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+For more information, see [Azure AD and Azure Maps Web SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
 
-Learn how to see the API usage metrics for your Azure Maps account:
-> [!div class="nextstepaction"]	
+Find the API usage metrics for your Azure Maps account:
+> [!div class="nextstepaction"]
 > [View usage metrics](how-to-view-api-usage.md)
 
-For a list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps, see:
+Explore samples that show how to integrate Azure AD with Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

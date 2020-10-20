@@ -9,8 +9,9 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 09/03/2020
 ms.author: juliako
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Use the Video Indexer API
@@ -31,7 +32,6 @@ This article shows how the developers can take advantage of the [Video Indexer A
    > * You must use the same provider you used when you signed up for Video Indexer.
    > * Personal Google and Microsoft (Outlook/Live) accounts can only be used for trial accounts. Accounts connected to Azure require Azure AD.
    > * There can be only one active account per email. If a user tries to sign in with user@gmail.com for LinkedIn and later with user@gmail.com for Google, the latter will display an error page, saying the user already exists.
-
 2. Subscribe.
 
 	Select the [Products](https://api-portal.videoindexer.ai/products) tab. Then, select Authorization and subscribe.
@@ -41,7 +41,7 @@ This article shows how the developers can take advantage of the [Video Indexer A
     > [!NOTE]
     > New users are automatically subscribed to Authorization.
 	
-	Once you subscribe, you can see your subscription and your primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They shouldn't be available on the client side (.js, .html, and so on).
+	After you subscribe, you can find your subscription under **Products** -> **Authorization**. In the subscription page, you will find the primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They shouldn't be available on the client side (.js, .html, and so on).
 
 	![Subscription and keys in Video Indexer Developer Portal](./media/video-indexer-use-apis/video-indexer-api03.png)
 
@@ -82,7 +82,7 @@ The Account ID parameter is required in all operational API calls. Account ID is
 
 * Use **Video Indexer Developer Portal** to programmatically get the Account ID.
 
-    Use the [Get accounts](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) API.
+    Use the [Get account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?) API.
 
     > [!TIP]
     > You can generate access tokens for the accounts by defining `generateAccessTokens=true`.
@@ -112,7 +112,7 @@ The following C# code snippet demonstrates the usage of all the Video Indexer AP
 ```csharp
 var apiUrl = "https://api.videoindexer.ai";
 var accountId = "..."; 
-var location = "westus2";
+var location = "westus2"; // replace with the account's location, or with “trial” if this is a trial account
 var apiKey = "..."; 
 
 System.Net.ServicePointManager.SecurityProtocol = System.Net.ServicePointManager.SecurityProtocol | System.Net.SecurityProtocolType.Tls12;
@@ -138,9 +138,9 @@ var videoUrl = "VIDEO_URL"; // replace with the video URL
 // as an alternative to specifying video URL, you can upload a file.
 // remove the videoUrl parameter from the query string below and add the following lines:
   //FileStream video =File.OpenRead(Globals.VIDEOFILE_PATH);
-  //byte[] buffer =newbyte[video.Length];
+  //byte[] buffer = new byte[video.Length];
   //video.Read(buffer, 0, buffer.Length);
-  //content.Add(newByteArrayContent(buffer));
+  //content.Add(new ByteArrayContent(buffer));
 
 var uploadRequestResult = client.PostAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos?accessToken={accountAccessToken}&name=some_name&description=some_description&privacy=private&partition=some_partition&videoUrl={videoUrl}", content).Result;
 var uploadResult = uploadRequestResult.Content.ReadAsStringAsync().Result;
@@ -210,4 +210,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## Next steps
 
-[Examine details of the output JSON](video-indexer-output-json-v2.md).
+- [Examine details of the output JSON](video-indexer-output-json-v2.md)
+- Check out the [sample code](https://github.com/Azure-Samples/media-services-video-indexer) that demonstrates important aspect of uploading and indexing a video. Following the code wil give you a good idea of how to use our API for basic functionalities. Make sure to read the inline comments and notice our best practices advices.
+

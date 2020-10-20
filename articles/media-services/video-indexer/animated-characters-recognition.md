@@ -51,7 +51,7 @@ Since in  the trial accounts the Custom Vision integration is managed by Video I
 
 ### Connect your Custom Vision account (paid accounts only)
 
-If you own a Video Indexer paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/home.md).
+If you own a Video Indexer paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
 
 > [!NOTE]
 > Both accounts need to be in the same region. The Custom Vision integration is currently not supported in the Japan region.
@@ -77,7 +77,7 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 1. Select **Connect Custom Vision Account (PREVIEW)** and click **Try it**.
 1. Fill in the required fields as well as the access token and click **Send**. 
 
-    For more information about how to get the Video Indexer access token go to the [developer portal](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?), and see the [relevant documentation](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
+    For more information about how to get the Video Indexer access token go to the [developer portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?), and see the [relevant documentation](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
 1. Once the call return 200 OK response, your account is connected.
 1. To verify your connection by browse to the [Video Indexer](https://vi.microsoft.com/)) portal:
 1. Click on the **Content model customization** button in the top-right corner.
@@ -130,7 +130,7 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
         ![Content model customization](./media/animated-characters-recognition/content-model-customization-tab.png)
 
      1. Once trained, any video that will be indexed or reindexed with that model will recognize the trained characters. 
-    Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier).
+    Paid accounts that have access to their Custom Vision account can see the models and tagged images there. Learn more about [improving your classifier in Custom Vision](../../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md).
 
 1. Delete an animated character.
 
@@ -156,7 +156,7 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 1. Connect a Custom Vision account.
 
     If you own a Video Indexer paid account, you need to connect a Custom Vision account first. <br/>
-    If you don’t have a Custom Vision account already, please create one. For more information, see [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/home).
+    If you don’t have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
 
     [Connect your Custom Vision account using API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag).
 1. Create an animated characters model.

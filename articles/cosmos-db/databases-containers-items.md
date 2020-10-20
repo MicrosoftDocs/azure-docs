@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/01/2019
+ms.date: 04/24/2020
 ms.reviewer: sngun
 
 ---
@@ -16,7 +16,7 @@ After you create an [Azure Cosmos DB account](account-overview.md) under your Az
 
 The following image shows the hierarchy of different entities in an Azure Cosmos DB account:
 
-![Azure Cosmos account entities](./media/databases-containers-items/cosmos-entities.png)
+:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos account entities" border="false":::
 
 ## Azure Cosmos databases
 
@@ -43,7 +43,7 @@ You can interact with an Azure Cosmos database with Azure Cosmos APIs as describ
 
 ## Azure Cosmos containers
 
-An Azure Cosmos container is the unit of scalability both for provisioned throughput and storage. A container is horizontally partitioned and then replicated across multiple regions. The items that you add to the container and the throughput that you provision on it are automatically distributed across a set of logical partitions based on the partition key. To learn more about partitioning and partition keys, see [Partition data](partition-data.md). 
+An Azure Cosmos container is the unit of scalability both for provisioned throughput and storage. A container is horizontally partitioned and then replicated across multiple regions. The items that you add to the container are automatically grouped into logical partitions, which are distributed across physical partitions, based on the partition key. The throughput on a container is evenly distributed across the physical partitions. To learn more about partitioning and partition keys, see [Partition data](partition-data.md). 
 
 When you create an Azure Cosmos container, you configure throughput in one of the following modes:
 
@@ -60,9 +60,9 @@ An Azure Cosmos container is a schema-agnostic container of items. Items in a co
 
 You can set [Time to Live (TTL)](time-to-live.md) on selected items in an Azure Cosmos container or for the entire container to gracefully purge those items from the system. Azure Cosmos DB automatically deletes the items when they expire. It also guarantees that a query performed on the container doesn't return the expired items within a fixed bound. To learn more, see [Configure TTL on your container](how-to-time-to-live.md).
 
-You can use [change feed](change-feed.md) to subscribe to the operations log that is managed for each logical partition of your container. Change feed provides the log of all the updates performed on the container, along with the before and after images of the items. For more information, see [Build reactive applications by using change feed](serverless-computing-database.md). You can also configure the retention duration for the change feed by using the change feed policy on the container. 
+You can use [change feed](change-feed.md) to subscribe to the operations log that is managed for each logical partition of your container. Change feed provides the log of all the updates performed on the container, along with the before and after images of the items. For more information, see [Build reactive applications by using change feed](serverless-computing-database.md). You can also configure the retention duration for the change feed by using the change feed policy on the container.
 
-You can register [stored procedures, triggers, user-defined functions (UDFs)](stored-procedures-triggers-udfs.md), and [merge procedures](how-to-manage-conflicts.md) for your Azure Cosmos container. 
+You can register [stored procedures, triggers, user-defined functions (UDFs)](stored-procedures-triggers-udfs.md), and [merge procedures](how-to-manage-conflicts.md) for your Azure Cosmos container.
 
 You can specify a [unique key constraint](unique-keys.md) on your Azure Cosmos container. By creating a unique key policy, you ensure the uniqueness of one or more values per logical partition key. If you create a container by using a unique key policy, no new or updated items with values that duplicate the values specified by the unique key constraint can be created. To learn more, see [Unique key constraints](unique-keys.md).
 
@@ -71,6 +71,9 @@ An Azure Cosmos container is specialized into API-specific entities as shown in 
 | Azure Cosmos entity | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos container | Container | Table | Collection | Graph | Table |
+
+> [!NOTE]
+> When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
 
 ### Properties of an Azure Cosmos container
 
@@ -106,7 +109,7 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 
 | Cosmos entity | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos item | Document | Row | Document | Node or edge | Item |
+|Azure Cosmos item | Item | Row | Document | Node or edge | Item |
 
 ### Properties of an item
 
@@ -114,7 +117,7 @@ Every Azure Cosmos item has the following system-defined properties. Depending o
 
 | System-defined property | System-generated or user-configurable| Purpose | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | System-generated | Unique identifier of the item | Yes | No | No | No | No |
+|\_rid | System-generated | Unique identifier of the item | Yes | No | No | No | No |
 |\_etag | System-generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
 |\_ts | System-generated | Timestamp of the last update of the item | Yes | No | No | No | No |
 |\_self | System-generated | Addressable URI of the item | Yes | No | No | No | No |

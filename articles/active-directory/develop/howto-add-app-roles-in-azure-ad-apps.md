@@ -3,19 +3,17 @@ title: Add app roles and get them from a token | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to add app roles in an application registered in Azure Active Directory, assign users and groups to these roles and receive them in the `roles` claim in the token.
 services: active-directory
-documentationcenter: ''
-author: kkrishna
+author: kalyankrishna1
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 09/24/2018
+ms.topic: how-to
+ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # How to: Add app roles in your application and receive them in the token
@@ -28,23 +26,23 @@ Another approach is to use Azure AD Groups and Group Claims, as shown in [WebApp
 
 ## Declare roles for an application
 
-These application roles are defined in the [Azure portal](https://portal.azure.com) in the application's registration manifest.  When a user signs into the application, Azure AD emits a `roles` claim for each role that the user has been granted individually to the user and from their group membership.  Assignment of users and groups to roles can be done through the portal's UI, or programmatically using [Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview).
+These application roles are defined in the [Azure portal](https://portal.azure.com) in the application's registration manifest.  When a user signs into the application, Azure AD emits a `roles` claim for each role that the user has been granted individually to the user and from their group membership.  Assignment of users and groups to roles can be done through the portal's UI, or programmatically using [Microsoft Graph](/graph/azuread-identity-access-management-concept-overview).
 
 ### Declare app roles using Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the top bar, select your account, and then **Switch Directory**.
-1. Once the **Directory + subscription** pane opens, choose the Active Directory tenant where you wish to register your application, from the **Favorites** or **All Directories** list.
-1. Select **All services** in the left-hand nav, and choose **Azure Active Directory**.
+1. Select the **Directory + Subscription** icon in the portal toolbar.
+1. In the **Favorites** or **All Directories** list, choose the Active Directory tenant where you wish to register your application.
+1. In the Azure portal, search for and select **Azure Active Directory**.
 1. In the  **Azure Active Directory** pane, select **App registrations** to view a list of all your applications.
 1. Select the application you want to define app roles in. Then select **Manifest**.
 1. Edit the app manifest by locating the `appRoles` setting and adding all your Application Roles.
 
      > [!NOTE]
-     > Each app role definition in this manifest must have a different valid GUID for the `id` property. 
-     > 
+     > Each app role definition in this manifest must have a different valid GUID within the context of the manifest for the `id` property.
+     >
      > The `value` property of each app role definition should exactly match the strings that are used in the code in the application. The `value` property can't contain spaces. If it does, you'll receive an error when you save the manifest.
-     
+
 1. Save the manifest.
 
 ### Examples
@@ -72,9 +70,9 @@ The following example shows the `appRoles` that you can assign to `users`.
 ```
 
 > [!NOTE]
->The `displayName` cannot contain spaces.
+>The `displayName` may contain spaces.
 
-You can define app roles to target `users`, `applications`, or both. When available to `applications`, app roles appear as application permissions in the **Required Permissions** blade. The following example shows an app role targeted towards an `Application`.
+You can define app roles to target `users`, `applications`, or both. When available to `applications`, app roles appear as application permissions under **Manage** section > **API permissions > Add a permission > My APIs > Choose an API > Application permissions**. The following example shows an app role targeted towards an `Application`.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -93,7 +91,7 @@ You can define app roles to target `users`, `applications`, or both. When availa
 "availableToOtherTenants": false,
 ```
 
-The number of roles defined affects the limits that the application manifest has. They have been discussed in detail on the [manifest limits](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) page.
+The number of roles defined affects the limits that the application manifest has. They have been discussed in detail on the [manifest limits](./reference-app-manifest.md#manifest-limits) page.
 
 ### Assign users and groups to roles
 
@@ -105,7 +103,7 @@ Once you've added app roles in your application, you can assign users and groups
      If you do not see the application you want show up here, use the various filters at the top of the **All applications** list to restrict the list or scroll down the list to locate your application.
 
 1. Select the application in which you want to assign users or security group to roles.
-1. Select the **Users and groups** pane in the application’s left-hand navigation menu.
+1. Select the **Users and groups** pane in the application's left-hand navigation menu.
 1. At the top of the **Users and groups** list, select the **Add user** button to open the **Add Assignment** pane.
 1. Select the **Users and groups** selector from the **Add Assignment** pane.
 
@@ -117,11 +115,15 @@ Once you've added app roles in your application, you can assign users and groups
 1. Press the **Assign** button on the bottom to finish the assignments of users and groups to the app.
 1. Confirm that the users and groups you added are showing up in the updated **Users and groups** list.
 
-## More information
+### Receive roles in tokens
 
-- [Authorization in a web app using Azure AD application roles &amp; role claims (Sample)](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims)
-- [Using Security Groups and Application Roles in your apps (Video)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+When the users assigned to the various app roles sign in to the application, their tokens will have their assigned roles in the `roles` claim.
+
+## Next steps
+
+- [Add authorization using app roles & roles claims to an ASP.NET Core web app](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
+- [Implement authorization in your applications with Microsoft identity platform (Video)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory, now with Group Claims and Application Roles](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
-- [Azure Active Directory app manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
-- [AAD Access tokens](access-tokens.md)
-- [AAD `id_tokens`](id-tokens.md)
+- [Azure Active Directory app manifest](./reference-app-manifest.md)
+- [Azure AD Access tokens](access-tokens.md)
+- [Azure AD `id_tokens`](id-tokens.md)

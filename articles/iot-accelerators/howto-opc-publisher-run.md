@@ -4,13 +4,17 @@ description: This article describes how to run and debug OPC Publisher. It also 
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
+ms.custom:  [amqp, mqtt]
 ---
 
 # Run OPC Publisher
+
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
 
 This article describes how to run ad debug OPC Publisher. It also addresses performance and memory considerations.
 
@@ -359,7 +363,7 @@ Check [Docker Hub](https://hub.docker.com/_/microsoft-iotedge-opc-publisher) to 
 
 ## Run as an Azure IoT Edge module
 
-OPC Publisher is ready to be used as an [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge) module. When you use OPC Publisher as IoT Edge module, the only supported transport protocols are **Amqp_Tcp_Only** and **Mqtt_Tcp_Only**.
+OPC Publisher is ready to be used as an [Azure IoT Edge](../iot-edge/index.yml) module. When you use OPC Publisher as IoT Edge module, the only supported transport protocols are **Amqp_Tcp_Only** and **Mqtt_Tcp_Only**.
 
 To add OPC Publisher as module to your IoT Edge deployment, go to your IoT Hub settings in the Azure portal and complete the following steps:
 
@@ -528,7 +532,7 @@ Memory and performance are interdependent and both depend on the configuration o
 - IoT Hub message size (default `1`): `--ms`
 - Monitored items queue capacity: `--mq`
 
-The `--mq` parameter controls the upper bound of the capacity of the internal queue, which buffers all OPC node value change notifications. If OPC Publisher can't send messages to IoT Hub fast enough, this queue buffers the notifications. The parameter sets the number of notifications that can be buffered. If you see the number of items in this queue increasing in your test runs, then to avoid loosing messages you should:
+The `--mq` parameter controls the upper bound of the capacity of the internal queue, which buffers all OPC node value change notifications. If OPC Publisher can't send messages to IoT Hub fast enough, this queue buffers the notifications. The parameter sets the number of notifications that can be buffered. If you see the number of items in this queue increasing in your test runs, then to avoid losing messages you should:
 
 - Reduce the IoT Hub send interval
 - Increase the IoT Hub message size
@@ -575,7 +579,7 @@ current working set in MB: 90
 ==========================================================================
 ```
 
-The default configuration sends data to IoT Hub every 10 seconds, or when 256 kB of data is available for IoT Hub to ingest. This configuration adds a moderate latency of about 10 seconds, but has lowest probability of loosing data because of the large message size. The diagnostics output shows there are no lost OPC node updates: `monitored item notifications enqueue failure: 0`.
+The default configuration sends data to IoT Hub every 10 seconds, or when 256 kB of data is available for IoT Hub to ingest. This configuration adds a moderate latency of about 10 seconds, but has lowest probability of losing data because of the large message size. The diagnostics output shows there are no lost OPC node updates: `monitored item notifications enqueue failure: 0`.
 
 #### Constant send interval (--si 1 --ms 0)
 
@@ -679,7 +683,7 @@ current working set in MB: 90
 ==========================================================================
 ```
 
-This configuration batches as many OPC node value updates as possible. The maximum IoT Hub message size is 256 kB, which is configured here. There's no send interval requested, which means the amount of data for IoT Hub to ingest determines the latency. This configuration has the least probability of loosing any OPC node values and is suitable for publishing a high number of nodes. When you use this configuration, ensure your scenario doesn't have conditions where high latency is introduced if the message size of 256 kB isn't reached.
+This configuration batches as many OPC node value updates as possible. The maximum IoT Hub message size is 256 kB, which is configured here. There's no send interval requested, which means the amount of data for IoT Hub to ingest determines the latency. This configuration has the least probability of losing any OPC node values and is suitable for publishing a high number of nodes. When you use this configuration, ensure your scenario doesn't have conditions where high latency is introduced if the message size of 256 kB isn't reached.
 
 ## Debug the application
 

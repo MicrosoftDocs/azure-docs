@@ -4,18 +4,15 @@ titleSuffix: Azure Network Watcher
 description: This article describes how to diagnose on-premises connectivity via VPN gateway with Azure Network Watcher resource troubleshooting.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor:
-
+author: damendo
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
+ms.author: damendo
 ---
 
 # Diagnose on-premises connectivity via VPN gateways

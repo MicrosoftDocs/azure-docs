@@ -10,7 +10,10 @@ ms.date: 06/27/2019
 
 # Azure Stream Analytics feature comparison
 
-With Azure Stream Analytics, you can create streaming solutions in the cloud and at the IoT Edge using [Azure portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-vs-code.md). The tables in this article show which features are supported by each platform for both job types.
+With Azure Stream Analytics, you can create streaming solutions in the cloud and at the IoT Edge using [Azure portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-visual-studio-code.md). The tables in this article show which features are supported by each platform for both job types.
+
+> [!NOTE]
+> Visual Studio and Visual Studio Code tools don't support jobs in the China East, China North, Germany Central, and Germany NorthEast regions.
 
 ## Cloud job features
 
@@ -31,12 +34,12 @@ With Azure Stream Analytics, you can create streaming solutions in the cloud and
 |Submit, start, and stop jobs     |Yes         |Yes         |Yes         |
 |View job metrics and diagram     |Yes         |Yes         |Open in portal         |
 |View job runtime errors     |Yes         |Yes         |No         |
-|Diagnostic logs     |Yes         |No         |No         |
+|Resource logs     |Yes         |No         |No         |
 |Custom message properties     |Yes         |Yes         |No       |
 |C# custom code function and Deserializer|Read-only mode|Yes|No|
 |JavaScript UDF and UDA     |Yes         |Yes         |Windows only         |
-|Machine Learning Service     |Yes, but the query cannot be tested        |Yes         |No         |
-|Machine Learning Studio     |Yes, but the query cannot be tested        |Yes |No         |
+|Machine Learning Service     |Yes        |Yes         |No         |
+|Azure Machine Learning Studio (classic)|Yes, but the query cannot be tested        |Yes |No         |
 |Compatibility level     |1.0</br>1.1</br>1.2  (default)         |1.0</br>1.1</br>1.2 (default)           |1.0</br>1.1</br>1.2 (default)           |
 |Built-in ML-based Anomaly Detection functions     |Yes         |Yes         |Yes         |
 |Built-in GeoSpatial functions     |Yes         |Yes         |Yes         |

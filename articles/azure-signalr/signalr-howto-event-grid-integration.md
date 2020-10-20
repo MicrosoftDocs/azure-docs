@@ -76,7 +76,7 @@ To deploy the sample app, set `SITE_NAME` to a unique name for your web app, and
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
 
-az group deployment create \
+az deployment group create \
     --resource-group $RESOURCE_GROUP_NAME \
     --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
@@ -150,7 +150,7 @@ cd NegotitationServer
 dotnet user-secrets set Azure:SignalR:ConnectionString "<Connection String>"
 dotnet run
 
-# Use a seperate command line
+# Use a separate command line
 # Start a client
 cd SignalRClient
 dotnet run

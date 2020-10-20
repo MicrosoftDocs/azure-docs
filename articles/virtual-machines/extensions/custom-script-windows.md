@@ -4,12 +4,11 @@ description: Automate Windows VM configuration tasks by using the Custom Script 
 services: virtual-machines-windows
 manager: carmonm
 author: bobbytreed
-manager: carmonm
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/02/2019
+ms.date: 08/31/2020
 ms.author: robreed
 
 ---
@@ -26,7 +25,17 @@ This document details how to use the Custom Script Extension using the Azure Pow
 
 ### Operating System
 
-The Custom Script Extension for Windows will run on the extension supported extension OSs, for more information, see this [Azure Extension supported operating systems](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems).
+The Custom Script Extension for Windows will run on the extension supported extension OSs;
+### Windows
+
+* Windows Server 2008 R2
+* Windows Server 2012
+* Windows Server 2012 R2
+* Windows 10
+* Windows Server 2016
+* Windows Server 2016 Core
+* Windows Server 2019
+* Windows Server 2019 Core
 
 ### Script Location
 
@@ -34,7 +43,7 @@ You can configure the extension to use your Azure Blob storage credentials to ac
 
 ### Internet Connectivity
 
-If you need to download a script externally such as from GitHub or Azure Storage, then additional firewall and Network Security Group ports need to be opened. For example, if your script is located in Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](../../virtual-network/security-overview.md#service-tags).
+If you need to download a script externally such as from GitHub or Azure Storage, then additional firewall and Network Security Group ports need to be opened. For example, if your script is located in Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 If your script is on a local server, then you may still need additional firewall and Network Security Group ports need to be opened.
 
@@ -46,12 +55,14 @@ If your script is on a local server, then you may still need additional firewall
 * There's 90 minutes allowed for the script to run, anything longer will result in a failed provision of the extension.
 * Don't put reboots inside the script, this action will cause issues with other extensions that are being installed. Post reboot, the extension won't continue after the restart.
 * If you have a script that will cause a reboot, then install applications and run scripts, you can schedule the reboot using a Windows Scheduled Task, or use tools such as DSC, Chef, or Puppet extensions.
+* It is not recommended to run a script that will cause a stop or update of the VM Agent. This can let the extension in a Transitioning state, leading to a timeout.
 * The extension will only run a script once, if you want to run a script on every boot, then you need to use the extension to create a Windows Scheduled Task.
 * If you want to schedule when a script will run, you should use the extension to create a Windows Scheduled Task.
 * When the script is running, you will only see a 'transitioning' extension status from the Azure portal or CLI. If you want more frequent status updates of a running script, you'll need to create your own solution.
 * Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl*
 * Be aware of non-default directory locations that your scripts or commands may rely on, have logic to handle this situation.
 * Custom Script Extension will run under the LocalSystem Account
+* If you plan to use the *storageAccountName* and *storageAccountKey* properties, these properties must be collocated in *protectedSettings*.
 
 ## Extension schema
 
@@ -77,7 +88,7 @@ These items should be treated as sensitive data and specified in the extensions 
     "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.9",
+        "typeHandlerVersion": "1.10",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
@@ -88,17 +99,21 @@ These items should be treated as sensitive data and specified in the extensions 
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
             "storageAccountName": "myStorageAccountName",
-            "storageAccountKey": "myStorageAccountKey"
+            "storageAccountKey": "myStorageAccountKey",
+            "managedIdentity" : {}
         }
     }
 }
 ```
 
 > [!NOTE]
+> managedIdentity property **must not** be used in conjunction with storageAccountName or storageAccountKey properties
+
+> [!NOTE]
 > Only one version of an extension can be installed on a VM at a point in time, specifying custom script twice in the same Resource Manager template for the same VM will fail.
 
 > [!NOTE]
-> We can use this schema inside the VirtualMachine resource or as a standalone resource. The name of the resource has to be in this format "virtualMachineName/extensionName", if this extension is used as a standalone resource in the ARM template. 
+> We can use this schema inside the VirtualMachine resource or as a standalone resource. The name of the resource has to be in this format "virtualMachineName/extensionName", if this extension is used as a standalone resource in the ARM template.
 
 ### Property values
 
@@ -107,12 +122,13 @@ These items should be treated as sensitive data and specified in the extensions 
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | string |
 | type | CustomScriptExtension | string |
-| typeHandlerVersion | 1.9 | int |
+| typeHandlerVersion | 1.10 | int |
 | fileUris (e.g) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp  (e.g) | 123456789 | 32-bit integer |
 | commandToExecute (e.g) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName (e.g) | examplestorageacct | string |
 | storageAccountKey (e.g) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| managedIdentity (e.g) | { } or { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } or { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | json object |
 
 >[!NOTE]
 >These property names are case-sensitive. To avoid deployment problems, use the names as shown here.
@@ -125,6 +141,9 @@ These items should be treated as sensitive data and specified in the extensions 
 script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
 * `storageAccountName`: (optional, string) the name of storage account. If you specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
 * `storageAccountKey`: (optional, string) the access key of storage account
+* `managedIdentity`: (optional, json object) the [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for downloading file(s)
+  * `clientId`: (optional, string) the client ID of the managed identity
+  * `objectId`: (optional, string) the object ID of the managed identity
 
 The following values can be set in either public or protected settings, the extension will reject any configuration where the values below are set in both public and protected settings.
 
@@ -134,11 +153,53 @@ Using public settings maybe useful for debugging, but it's recommended that you 
 
 Public settings are sent in clear text to the VM where the script will be executed.  Protected settings are encrypted using a key known only to the Azure and the VM. The settings are saved to the VM as they were sent, that is, if the settings were encrypted they're saved encrypted on the VM. The certificate used to decrypt the encrypted values is stored on the VM, and used to decrypt settings (if necessary) at runtime.
 
+####  Property: managedIdentity
+> [!NOTE]
+> This property **must** be specified in protected settings only.
+
+CustomScript (version 1.10 onwards) supports [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for downloading file(s) from URLs provided in the "fileUris" setting. It allows CustomScript to access Azure Storage private blobs or containers without the user having to pass secrets like SAS tokens or storage account keys.
+
+To use this feature, the user must add a [system-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) or [user-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity) identity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access).
+
+To use the system-assigned identity on the target VM/VMSS, set "managedidentity" field to an empty json object. 
+
+> Example:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : {}
+> }
+> ```
+
+To use the user-assigned identity on the target VM/VMSS, configure "managedidentity" field with the client ID or the object ID of the managed identity.
+
+> Examples:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }
+> }
+> ```
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" }
+> }
+> ```
+
+> [!NOTE]
+> managedIdentity property **must not** be used in conjunction with storageAccountName or storageAccountKey properties
+
 ## Template deployment
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema, which is detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during deployment. The following samples show how to use the Custom Script extension:
 
-* [Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
+* [Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](../../azure-resource-manager/templates/template-tutorial-deploy-vm-extensions.md)
 * [Deploy Two Tier Application on Windows and Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## PowerShell deployment
@@ -178,7 +239,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "buildserver1" `
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -Settings $settings    `
     -ProtectedSettings $protectedSettings `
 ```
@@ -196,7 +257,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "serverUpdate"
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -ProtectedSettings $protectedSettings
 
 ```
@@ -217,8 +278,13 @@ If you are using [Invoke-WebRequest](/powershell/module/microsoft.powershell.uti
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
+## Virtual Machine Scale Sets
+
+To deploy the Custom Script Extension on a Scale Set, see [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
 ## Classic VMs
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 To deploy the Custom Script Extension on classic VMs, you can use the Azure portal or the Classic Azure PowerShell cmdlets.
 
@@ -232,7 +298,7 @@ On the **Install extension** page, select the local PowerShell file, and fill ou
 
 ### PowerShell
 
-Use the [Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure/set-azurevmcustomscriptextension) cmdlet can be used to add the Custom Script extension to an existing virtual machine.
+Use the [Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure.service/set-azurevmcustomscriptextension) cmdlet can be used to add the Custom Script extension to an existing virtual machine.
 
 ```powershell
 # define your file URI

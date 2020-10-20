@@ -12,7 +12,9 @@ ms.custom: seo-dt-2019
 ms.date: 01/04/2018
 ---
 
-# Transform data in Azure Virtual Network using Hive activity in Azure Data Factory
+# Transform data in Azure Virtual Network using Hive activity in Azure Data Factory using the Azure portal
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 In this tutorial, you use Azure portal to create a Data Factory pipeline that transforms data using Hive Activity on a HDInsight cluster that is in an Azure Virtual Network (VNet). You perform the following steps in this tutorial:
 
@@ -76,7 +78,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
  
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameMyAzureSsisDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-       `Data factory name “MyAzureSsisDataFactory” is not available`
+    *Data factory name “MyAzureSsisDataFactory” is not available*
 3. Select your Azure **subscription** in which you want to create the data factory. 
 4. For the **Resource Group**, do one of the following steps:
      
@@ -226,7 +228,7 @@ Note the following points:
         ![Script arguments](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. To publish artifacts to Data Factory, click **Publish**.
 
-    ![Publish](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
+    ![Screenshot shows the option to publish to a Data Factory.](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
 
 ## Trigger a pipeline run
 

@@ -1,5 +1,5 @@
 ---
-title: Assign access policies to Azure Service Fabric service endpoints 
+title: Assign access policies to service endpoints 
 description: Learn how to assign security access polices to HTTP or HTTPS endpoints in your Service Fabric service.
 
 ms.topic: conceptual

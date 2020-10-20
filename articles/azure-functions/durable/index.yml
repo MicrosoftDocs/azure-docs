@@ -44,6 +44,8 @@ landingContent:
             url: durable-functions-create-first-csharp.md
           - text: Create your first function (JavaScript)
             url: quickstart-js-vscode.md
+          - text: Create your first function (Python)
+            url: quickstart-python-vscode.md
       - linkListType: learn
         links:
           - text: Create a long-running serverless workflow

@@ -8,7 +8,8 @@ ms.subservice: cosmosdb-mongo
 
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 10/15/2020
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Build a .NET web app using Azure Cosmos DB's API for MongoDB 
@@ -19,7 +20,7 @@ ms.date: 05/21/2019
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Cosmos DB. 
@@ -48,7 +49,7 @@ First, download the sample app from GitHub.
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.

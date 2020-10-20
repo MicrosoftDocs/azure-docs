@@ -3,13 +3,14 @@ title: How to recognize intents from speech using the Speech SDK C#
 titleSuffix: Azure Cognitive Services
 description: In this guide, you learn how to recognize intents from speech using the Speech SDK for C#.
 services: cognitive-services
-author: wolfma61
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2019
-ms.author: wolfma
+ms.date: 02/10/2020
+ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 # How to recognize intents from speech using the Speech SDK for C#
@@ -86,12 +87,15 @@ Next, you add code to the project.
 
    [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-1. Inside the provided `Main()` method, add the following code:
+1. Replace the provided `Main()` method, with the following asynchronous equivalent:
 
    ```csharp
-   RecognizeIntentAsync().Wait();
-   Console.WriteLine("Please press Enter to continue.");
-   Console.ReadLine();
+   public static async Task Main()
+   {
+       await RecognizeIntentAsync();
+       Console.WriteLine("Please press Enter to continue.");
+       Console.ReadLine();
+   }
    ```
 
 1. Create an empty asynchronous method `RecognizeIntentAsync()`, as shown here:
@@ -168,7 +172,7 @@ The application doesn't parse the JSON result. It only displays the JSON text in
 
 ## Specify recognition language
 
-By default, LUIS recognizes intents in US English (`en-us`). By assigning a locale code to the `SpeechRecognitionLanguage` property of the speech configuration, you can recognize intents in other languages. For example, add `config.SpeechRecognitionLanguage = "de-de";` in our application before creating the recognizer to recognize intents in German. For more information, see [Supported Languages](language-support.md#speech-to-text).
+By default, LUIS recognizes intents in US English (`en-us`). By assigning a locale code to the `SpeechRecognitionLanguage` property of the speech configuration, you can recognize intents in other languages. For example, add `config.SpeechRecognitionLanguage = "de-de";` in our application before creating the recognizer to recognize intents in German. For more information, see [LUIS language support](../LUIS/luis-language-support.md#languages-supported).
 
 ## Continuous recognition from a file
 

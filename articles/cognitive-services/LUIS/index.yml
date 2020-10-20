@@ -5,13 +5,12 @@ summary: Learn how Language Understanding enables your applications to understan
 
 metadata:
   ms.topic: landing-page
-  ms.date: 11/22/2019
+  ms.date: 06/15/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
   ms.subservice: language-understanding
   services: cognitive-services
-  ms.topic: landing-page
   title: Language Understanding (LUIS) Documentation
   titleSuffix: Azure Cognitive Services
   description: The Language Understanding (LUIS) service allows your application to understand what a person wants in their own words. LUIS uses machine learning to allow developers to build applications that can receive user input in natural language and extract meaning from it.
@@ -33,17 +32,19 @@ landingContent:
             url: luis-how-plan-your-app.md
           - text: Iterative app design
             url: luis-concept-app-iteration.md
+          - text: DevOps practices
+            url: luis-concept-devops-sourcecontrol.md
       - linkListType: whats-new
         links:
           - text: What's new?
             url: whats-new.md
       - linkListType: video
         links:
-          - text: "AI Roadshow: LUIS"
-            url: https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis
+          - text: "Ignite 2019: Advanced Natural Language Understanding (NLU) models using LUIS"
+            url: https://www.youtube.com/watch?v=JdJEV2jV0_Y
 
   - title: Create intents, entities, and features
-    linkLists: 
+    linkLists:
       - linkListType: concept
         links:
           - text: Intents
@@ -55,16 +56,16 @@ landingContent:
           - text: Phrase list features
             url: luis-concept-feature.md
       - linkListType: quickstart
-        links: 
+        links:
           - text: "Portal: Create a new LUIS app"
             url: get-started-portal-build-app.md
           - text: Using C# SDK
-            url: sdk-csharp-quickstart-authoring-app.md
+            url: azure-sdk-quickstart.md?pivots=programming-language-csharp
           - text: Using Python SDK
-            url: sdk-python-quickstart-authoring-app.md
+            url: azure-sdk-quickstart.md?pivots=programming-language-python
 
       - linkListType: how-to-guide
-        links: 
+        links:
           - text: Create a new LUIS app
             url: luis-how-to-start-new-app.md
           - text: Add intent with example utterances
@@ -75,7 +76,7 @@ landingContent:
             url: luis-how-to-add-features.md
 
   - title: Version, train, test, and publish
-    linkLists: 
+    linkLists:
       - linkListType: concept
         links:
           - text: Versioning
@@ -86,17 +87,14 @@ landingContent:
             url: luis-concept-batch-test.md
 
       - linkListType: quickstart
-        links: 
+        links:
           - text: "Portal: Deploy app to prediction endpoint"
             url: get-started-portal-deploy-app.md
-          - text: Using C# SDK
-            url: sdk-csharp-quickstart-authoring-app.md#train-the-app
-          - text: Using Python SDK
-            url: sdk-python-quickstart-authoring-app.md#train-the-app
-
+          - text: Using SDK
+            url: azure-sdk-quickstart.md
 
       - linkListType: how-to-guide
-        links: 
+        links:
           - text: Version your app
             url: luis-how-to-manage-versions.md
           - text: Perform interactive testing
@@ -107,13 +105,13 @@ landingContent:
             url: luis-how-to-train.md
           - text: Publish prediction endpoint
             url: luis-how-to-publish-app.md
-            
+
   - title: Get prediction from endpoint
     linkLists:
       - linkListType: quickstart
         links:
-          - text: With C# .NET SDK
-            url: sdk-csharp-quickstart-query-prediction-endpoint.md
+          - text: Using SDK
+            url: azure-sdk-quickstart.md
       - linkListType: quickstart
         links:
           - text: With C# using REST
@@ -133,7 +131,7 @@ landingContent:
           - text: Developer resources
             url: developer-reference-resource.md
           - text: App limitations
-            url: luis-boundaries.md
+            url: luis-limits.md
           - text: Prebuilt entities
             url: luis-reference-prebuilt-entities.md
           - text: Custom Entities

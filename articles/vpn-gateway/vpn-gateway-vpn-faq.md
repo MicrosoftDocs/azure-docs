@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 09/02/2020
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -63,14 +63,15 @@ Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and
 
 Route-based gateways implement the route-based VPNs. Route-based VPNs use "routes" in the IP forwarding or routing table to direct packets into their corresponding tunnel interfaces. The tunnel interfaces then encrypt or decrypt the packets in and out of the tunnels. The policy or traffic selector for route-based VPNs are configured as any-to-any (or wild cards).
 
-### Can I update my Policy-based VPN gateway to Route-based?
+### Can I update my policy-based VPN gateway to route-based?
+
 No. An Azure Vnet gateway type cannot be changed from policy-based to route-based or the other way. The gateway must be deleted and recreated, a process taking around 60 minutes. The IP address of the gateway will not be preserved nor will the Pre-Shared Key (PSK).
 1. Delete any connections associated with the gateway to be deleted.
 1. Delete the gateway:
-1. [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-1. [Azure Powershell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Create a new gateway of desired type and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+   - [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   - [Azure PowerShell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [Create a new gateway of the type you want and complete the VPN setup](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
 
 ### Do I need a 'GatewaySubnet'?
 
@@ -84,11 +85,15 @@ No.
 
 ### Can I get my VPN gateway IP address before I create it?
 
-No. You have to create your gateway first to get the IP address. The IP address changes if you delete and recreate your VPN gateway.
+Zone-redundant and zonal gateways (gateway SKUs that have _AZ_ in the name) both rely on a _Standard SKU_ Azure public IP resource. Azure Standard SKU public IP resources must use a static allocation method. Therefore, you will have the public IP address for your VPN gateway as soon as you create the Standard SKU public IP resource you intend to use for it.
+
+For non-zone-redundant and non-zonal gateways (gateway SKUs that do _not_ have _AZ_ in the name), you cannot get the VPN gateway IP address before it is created. The IP address changes only if you delete and re-create your VPN gateway.
 
 ### Can I request a Static Public IP address for my VPN gateway?
 
-No. Only Dynamic IP address assignment is supported. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and re-created. The VPN gateway public IP address doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway. 
+As stated above, zone-redundant and zonal gateways (gateway SKUs that have _AZ_ in the name) both rely on a _Standard SKU_ Azure public IP resource. Azure Standard SKU public IP resources must use a static allocation method.
+
+For non-zone-redundant and non-zonal gateways (gateway SKUs that do _not_ have _AZ_ in the name), only dynamic IP address assignment is supported. However, this doesn't mean that the IP address changes after it has been assigned to your VPN gateway. The only time the VPN gateway IP address changes is when the gateway is deleted and then re-created. The VPN gateway public IP address doesn't change when you resize, reset, or complete other internal maintenance and upgrades of your VPN gateway.
 
 ### How does my VPN tunnel get authenticated?
 
@@ -116,6 +121,10 @@ We are limited to using pre-shared keys (PSK) for authentication.
 ### Can I configure Force Tunneling?
 
 Yes. See [Configure force tunneling](vpn-gateway-about-forced-tunneling.md).
+
+### Can I use NAT-T on my VPN connections?
+
+Yes, NAT traversal (NAT-T) is supported. Azure VPN Gateway will NOT perform any NAT-like functionality on the inner packets to/from the IPsec tunnels.  In this configuration, please ensure the on-premises device initiates the IPSec tunnel.
 
 ### Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 
@@ -158,6 +167,10 @@ This is expected behavior for policy-based (also known as static routing) VPN ga
 We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site-to-Site cross-premises configuration.
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
+
+## How do I change the authentication type for my point-to-site connections?
+
+You can change the authentication method for your point-to-site connections by going to the **Point-to-site configuration** section under the VPN Gateway and checking the desired radio button. Current options are **Azure certificate, RADIUS authentication and Azure Active Directory**. Please note that current clients **may not be able to connect** after the change until the new profile has been downloaded and configured on the client.
 
 ## <a name="P2S"></a>Point-to-Site using native Azure certificate authentication
 

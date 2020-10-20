@@ -1,12 +1,12 @@
 ---
 title: Delete an Azure Site Recovery vault
 description: Learn how to delete a Recovery Services vault configured for Azure Site Recovery
-author: rajani-janaki-ram
+author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/05/2019
-ms.author: rajanaki
+ms.author: sideeksh
 
 ---
 # Delete a Site Recovery Services vault
@@ -39,7 +39,7 @@ Before you can delete a vault you must remove registered servers, and items in t
 
 1. Follow [these steps](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) to delete Hyper-V VMs managed by System Center VMM.
 2. Disassociate and delete all replication policies. Do this in your vault > **Site Recovery Infrastructure** > **For System Center VMM** > **Replication Policies**.
-3. Follow [these steps](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server) to unregister a connected VMM server.
+3. Follow [these steps](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) to unregister a connected VMM server.
 4. Then, delete the vault.
 
 ## Delete a vault-Hyper-V VM to Azure
@@ -59,12 +59,14 @@ Before you can delete a vault you must remove registered servers, and items in t
 
 To delete the Site Recovery vault even if there are protected items, use these commands:
 
-    Connect-AzAccount
+```azurepowershell
+Connect-AzAccount
 
-    Select-AzSubscription -SubscriptionName "XXXXX"
+Select-AzSubscription -SubscriptionName "XXXXX"
 
-    $vault = Get-AzRecoveryServicesVault -Name "vaultname"
+$vault = Get-AzRecoveryServicesVault -Name "vaultname"
 
-    Remove-AzRecoveryServicesVault -Vault $vault
+Remove-AzRecoveryServicesVault -Vault $vault
+```
 
-Learn more about [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault), and [Remove-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).
+Learn more about [Get-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/get-azrecoveryservicesvault), and [Remove-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).

@@ -15,7 +15,6 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about the differences between the ADAL.js and MSAL.js libraries so I can migrate my applications to MSAL.js.
-ms.collection: M365-identity-device-management
 ---
 
 # Differences between MSAL JS and ADAL JS
@@ -28,7 +27,7 @@ This article describes how to choose between the Microsoft Authentication Librar
 
 In most cases you want to use the Microsoft identity platform and MSAL.js, which is the latest generation of Microsoft authentication libraries. Using MSAL.js, you acquire tokens for users signing in to your application with Azure AD (work and school accounts), Microsoft (personal) accounts (MSA), or Azure AD B2C.
 
-If you are already familiar with the v1.0 endpoint (and ADAL.js), you might want to read [What's different about the v2.0 endpoint?](active-directory-v2-compare.md).
+If you are already familiar with the v1.0 endpoint (and ADAL.js), you might want to read [What's different about the v2.0 endpoint?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 However, you still need to use ADAL.js if your application needs to sign in users with earlier versions of [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services).
 
@@ -94,4 +93,4 @@ In v2.0, using the `https://login.microsoftonline.com/common` authority, will al
     ```
 
 ## Next steps
-For more information, refer to [v1.0 and v2.0 comparison](active-directory-v2-compare.md).
+For more information, refer to [v1.0 and v2.0 comparison](../azuread-dev/azure-ad-endpoint-comparison.md).

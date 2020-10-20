@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: beengen
@@ -21,13 +21,14 @@ You can allow users in your organization to access their LinkedIn connections wi
 
 > [!IMPORTANT]
 > The LinkedIn account connections setting is currently being rolled out to Azure AD organizations. When it is rolled out to your organization, it is enabled by default.
-> 
-> Exceptions:
-> * The setting is not available for customers using Microsoft Cloud for US Government, Microsoft Cloud Germany, or Azure and Office 365 operated by 21Vianet in China.
-> * The setting is off by default for tenants provisioned in Germany. Note that the setting is not available for customers using Microsoft Cloud Germany.
-> * The setting is off by default for tenants provisioned in France.
 >
-> Once LinkedIn account connections are enabled for your organization, the account connections work after users consent to apps accessing company data on their behalf. For information about the user consent setting, see [How to remove a user’s access to an application](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
+> Exceptions:
+>
+> * The setting is not available for customers using Microsoft Cloud for US Government, Microsoft Cloud Germany, or Azure and Microsoft 365 operated by 21Vianet in China.
+> * The setting is off by default for Azure AD organizations provisioned in Germany. Note that the setting is not available for customers using Microsoft Cloud Germany.
+> * The setting is off by default for organizations provisioned in France.
+>
+> Once LinkedIn account connections are enabled for your organization, the account connections work after users consent to apps accessing company data on their behalf. For information about the user consent setting, see [How to remove a user's access to an application](../manage-apps/methods-for-removing-user-access.md).
 
 ## Enable LinkedIn account connections in the Azure portal
 
@@ -35,7 +36,7 @@ You can enable LinkedIn account connections for only the users you want to have 
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/) with an account that's a global admin for the Azure AD organization.
 1. Select **Users**.
-1. On the **Users** blade, select **User settings**.
+1. On the **Users** page, select **User settings**.
 1. Under **LinkedIn account connections**, allow users to connect their accounts to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts.
 
     * Select **Yes** to enable the service for all users in your organization
@@ -50,25 +51,22 @@ You can enable LinkedIn account connections for only the users you want to have 
 > LinkedIn integration is not fully enabled for your users until they consent to connect their accounts. No data is shared when you enable account connections for your users.
 
 ### Assign selected users with a group
-We have replaced the ‘Selected’ option that specifies a list of users with the option to select a group of users so that you can enable the ability to connect LinkedIn and Microsoft accounts for a single group instead of many individual users. If you don’t have LinkedIn account connections enabled for selected individual users, you don’t need to do anything. If you have previously enabled LinkedIn account connections for selected individual users, you should:
+
+We have replaced the 'Selected' option that specifies a list of users with the option to select a group of users so that you can enable the ability to connect LinkedIn and Microsoft accounts for a single group instead of many individual users. If you don't have LinkedIn account connections enabled for selected individual users, you don't need to do anything. If you have previously enabled LinkedIn account connections for selected individual users, you should:
 
 1. Get the current list of individual users
 1. Move the currently enabled individual users to a group
 1. Use the group from the previous as the selected group in the LinkedIn account connections setting in the Azure AD admin center.
 
 > [!NOTE]
-> Even if you don’t move your currently selected individual users to a group, they can still see LinkedIn information in Microsoft apps.
+> Even if you don't move your currently selected individual users to a group, they can still see LinkedIn information in Microsoft apps.
 
-### Get the current list of selected users
+### Move currently selected users to a group
 
+1. Create a CSV file of the users who are selected for LinkedIn account connections.
 1. Sign into Microsoft 365 with your administrator account.
-1. Go to https://linkedinselectedusermigration.azurewebsites.net/. You will see list of users who are selected for LinkedIn account connections.
-1. Export the list to a CSV file.
-
-### Move the currently selected individual users to a group
-
-1. Launch PowerShell
-1. Install Azure AD module by running `Install-Module AzureAD`
+1. Launch PowerShell.
+1. Install the Azure AD module by running `Install-Module AzureAD`
 1. Run the following script:
 
   ``` PowerShell
@@ -96,7 +94,7 @@ To use the group from step two as the selected group in the LinkedIn account con
    **Enabled** | The **Show LinkedIn features in Office applications** setting in Office 2016 Options is enabled. Users in your organization can use LinkedIn features in their Office 2016 applications.
    **Disabled** | The **Show LinkedIn features in Office applications** setting in Office 2016 Options is disabled and end users can't change this setting. Users in your organization can't use LinkedIn features in their Office 2016 applications.
 
-This group policy affects only Office 2016 apps for a local computer. If users disable LinkedIn in their Office 2016 apps, they can still see LinkedIn features in Office 365.
+This group policy affects only Office 2016 apps for a local computer. If users disable LinkedIn in their Office 2016 apps, they can still see LinkedIn features in Microsoft 365.
 
 ## Next steps
 

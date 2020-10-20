@@ -5,7 +5,7 @@ description: Learn how to authenticated client certificates on TLS. Azure App Se
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
-ms.custom: seodec18
+ms.custom: "devx-track-csharp, seodec18"
 
 ---
 # Configure TLS mutual authentication for Azure App Service
@@ -16,9 +16,11 @@ You can restrict access to your Azure App Service app by enabling different type
 > If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates, you should not allow requests to your application over HTTP.
 >
 
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
+
 ## Enable client certificates
 
-To set up your app to require client certificates, you need to set the `clientCertEnabled` setting for your app to `true`. To set the setting, run the following command in the [Cloud Shell](https://shell.azure.com).
+To set up your app to require client certificates, you can switch **On** the Require incoming certificate by selecting **Configuration** > **General Settings** from the Azure Portal or you need to set the `clientCertEnabled` setting for your app to `true`. To set the setting, run the following command in the [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
@@ -35,7 +37,7 @@ Exclusion paths can be configured by selecting **Configuration** > **General Set
 
 ## Access client certificate
 
-In App Service, SSL termination of the request happens at the frontend load balancer. When forwarding the request to your app code with [client certificates enabled](#enable-client-certificates), App Service injects an `X-ARR-ClientCert` request header with the client certificate. App Service does not do anything with this client certificate other than forwarding it to your app. Your app code is responsible for validating the client certificate.
+In App Service, TLS termination of the request happens at the frontend load balancer. When forwarding the request to your app code with [client certificates enabled](#enable-client-certificates), App Service injects an `X-ARR-ClientCert` request header with the client certificate. App Service does not do anything with this client certificate other than forwarding it to your app. Your app code is responsible for validating the client certificate.
 
 For ASP.NET, the client certificate is available through the **HttpRequest.ClientCertificate** property.
 
@@ -206,6 +208,102 @@ export class AuthorizationHandler {
                 next(e);
             }
         }
+    }
+}
+```
+
+## Java sample
+
+The following Java class encodes the certificate from `X-ARR-ClientCert` to an `X509Certificate` instance. `certificateIsValid()` validates that the certificate's thumbprint matches the one given in the constructor and that certificate has not expired.
+
+
+```java
+import java.io.ByteArrayInputStream;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.*;
+import java.security.MessageDigest;
+
+import sun.security.provider.X509Factory;
+
+import javax.xml.bind.DatatypeConverter;
+import java.util.Base64;
+import java.util.Date;
+
+public class ClientCertValidator { 
+
+    private String thumbprint;
+    private X509Certificate certificate;
+
+    /**
+     * Constructor.
+     * @param certificate The certificate from the "X-ARR-ClientCert" HTTP header
+     * @param thumbprint The thumbprint to check against
+     * @throws CertificateException If the certificate factory cannot be created.
+     */
+    public ClientCertValidator(String certificate, String thumbprint) throws CertificateException {
+        certificate = certificate
+                .replaceAll(X509Factory.BEGIN_CERT, "")
+                .replaceAll(X509Factory.END_CERT, "");
+        CertificateFactory cf = CertificateFactory.getInstance("X.509");
+        byte [] base64Bytes = Base64.getDecoder().decode(certificate);
+        X509Certificate X509cert =  (X509Certificate) cf.generateCertificate(new ByteArrayInputStream(base64Bytes));
+
+        this.setCertificate(X509cert);
+        this.setThumbprint(thumbprint);
+    }
+
+    /**
+     * Check that the certificate's thumbprint matches the one given in the constructor, and that the
+     * certificate has not expired.
+     * @return True if the certificate's thumbprint matches and has not expired. False otherwise.
+     */
+    public boolean certificateIsValid() throws NoSuchAlgorithmException, CertificateEncodingException {
+        return certificateHasNotExpired() && thumbprintIsValid();
+    }
+
+    /**
+     * Check certificate's timestamp.
+     * @return Returns true if the certificate has not expired. Returns false if it has expired.
+     */
+    private boolean certificateHasNotExpired() {
+        Date currentTime = new java.util.Date();
+        try {
+            this.getCertificate().checkValidity(currentTime);
+        } catch (CertificateExpiredException | CertificateNotYetValidException e) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Check the certificate's thumbprint matches the given one.
+     * @return Returns true if the thumbprints match. False otherwise.
+     */
+    private boolean thumbprintIsValid() throws NoSuchAlgorithmException, CertificateEncodingException {
+        MessageDigest md = MessageDigest.getInstance("SHA-1");
+        byte[] der = this.getCertificate().getEncoded();
+        md.update(der);
+        byte[] digest = md.digest();
+        String digestHex = DatatypeConverter.printHexBinary(digest);
+        return digestHex.toLowerCase().equals(this.getThumbprint().toLowerCase());
+    }
+
+    // Getters and setters
+
+    public void setThumbprint(String thumbprint) {
+        this.thumbprint = thumbprint;
+    }
+
+    public String getThumbprint() {
+        return this.thumbprint;
+    }
+
+    public X509Certificate getCertificate() {
+        return certificate;
+    }
+
+    public void setCertificate(X509Certificate certificate) {
+        this.certificate = certificate;
     }
 }
 ```

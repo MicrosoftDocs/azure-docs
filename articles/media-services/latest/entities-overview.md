@@ -2,23 +2,25 @@
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Filtering, ordering, and paging of Media Services entities
 titleSuffix: Azure Media Services
-description: Learn about filtering, ordering, and paging of Azure Media Services entities. 
+description: Learn about filtering, ordering, and paging of Azure Media Services v3 entities. 
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 10/11/2019
-ms.author: juliako
-ms.custom: seodec18
+ms.topic: overview
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.custom: "seodec18, devx-track-csharp"
 
 ---
 
 # Filtering, ordering, and paging of Media Services entities
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This topic discusses the OData query options and pagination support available when you're listing Azure Media Services v3 entities.
 
@@ -45,7 +47,7 @@ Range operators:
 
 ## Filter
 
-Use `$filter` to supply an OData filter parameter to find only the objects you’re interested in.
+Use `$filter` to supply an OData filter parameter to find only the objects you're interested in.
 
 The following REST example filters on the `alternateId` value of an asset:
 
@@ -79,7 +81,7 @@ In Media Services v3, you can't configure the page size. The page size varies by
 If entities are created or deleted while you're paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that hasn't been downloaded).
 
 > [!TIP]
-> You should always use `nextLink` to enumerate the collection and not depend on a particular page size.
+> Always use `nextLink` to enumerate the collection and don't depend on a particular page size.
 >
 > The `nextLink` value will be present only if there's more than one page of entities.
 
@@ -156,34 +158,34 @@ The following table shows how you can apply the filtering and ordering options t
 
 |Entity name|Property name|Filter|Order|
 |---|---|---|---|
-|[Assets](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` and `desc`|
+|[Assets](/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` and `desc`|
 ||properties.alternateId |`eq`||
 ||properties.assetId |`eq`||
 ||properties.created| `eq`, `gt`, `lt`| `asc` and `desc`|
-|[Content key policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-||properties.created	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-||properties.description	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
+|[Content key policies](/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 ||properties.policyId|`eq`, `ne`||
-|[Jobs](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` and `desc`|
+|[Jobs](/rest/api/media/jobs)| name  | `eq`            | `asc` and `desc`|
 ||properties.state        | `eq`, `ne`        |                         |
 ||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 ||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` and `desc`| 
-|[Streaming locators](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-||properties.created	|`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` and `desc`|
-||properties.endTime	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-|[Streaming policies](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-||properties.created	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-|[Transforms](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` and `desc`|
+|[Streaming locators](/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` and `desc`|
+||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+|[Streaming policies](/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+|[Transforms](/rest/api/media/transforms)| name | `eq`            | `asc` and `desc`|
 || properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 || properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 
 ## Next steps
 
-* [List Assets](https://docs.microsoft.com/rest/api/media/assets/list)
-* [List Content Key Policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
-* [List Jobs](https://docs.microsoft.com/rest/api/media/jobs/list)
-* [List Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
-* [List Streaming Locators](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+* [List Assets](/rest/api/media/assets/list)
+* [List Content Key Policies](/rest/api/media/contentkeypolicies/list)
+* [List Jobs](/rest/api/media/jobs/list)
+* [List Streaming Policies](/rest/api/media/streamingpolicies/list)
+* [List Streaming Locators](/rest/api/media/streaminglocators/list)
 * [Stream a file](stream-files-dotnet-quickstart.md)
-* [Quotas and limitations](limits-quotas-constraints.md)
+* [Quotas and limits](limits-quotas-constraints.md)

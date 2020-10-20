@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 06/20/2018 
+ms.date: 06/10/2020 
 ---
 
 # Quickstart: Use the Copy Data tool to copy data
@@ -19,10 +19,12 @@ ms.date: 06/20/2018
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](quickstart-create-data-factory-copy-data-tool.md)
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this quickstart, you use the Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that copies data from a folder in Azure Blob storage to another folder. 
 
 > [!NOTE]
-> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) before doing this quickstart. 
+> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md) before doing this quickstart. 
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
@@ -30,13 +32,9 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Go to the [Azure portal](https://portal.azure.com). 
-1. From the Azure portal menu, select **Create a resource**.
+1. From the Azure portal menu, select **Create a resource** > **Analytics** > **Data Factory**:
 
-    ![Create a resource from the Azure portal menu](./media/quickstart-create-data-factory-copy-data-tool/create-data-factory-resource.png)
-
-1. Select **Analytics**, and then select **Data Factory**.
-
-   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-copy-data-tool/new-azure-data-factory-menu.png)
+    ![New data factory creation](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 1. On the **New data factory** page, enter **ADFTutorialDataFactory** for **Name**. 
  
@@ -74,11 +72,13 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
     a. Click **+ Create new connection** to add a connection.
 
-    b. Select **Azure Blob Storage** from the gallery, and then select **Continue**.
+    b. Select the linked service type that you want to create for the source connection. In this tutorial, we use **Azure Blob Storage**. Select it from the gallery, and then select **Continue**.
+    
+    ![Select Blob](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-    c. On the **New Linked Service (Azure Blob Storage)** page, specify a name for your linked service. Select your storage account from the **Storage account name** list, test connection, and then select **Finish**. 
+    c. On the **New Linked Service (Azure Blob Storage)** page, specify a name for your linked service. Select your storage account from the **Storage account name** list, test connection, and then select **Create**. 
 
-   ![Configure the Azure Blob storage account](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
+    ![Configure the Azure Blob storage account](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 
     d. Select the newly created linked service as source, and then click **Next**.
 
@@ -106,15 +106,19 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
     !["Deployment complete" page](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
 
-1. The application switches to the **Monitor** tab. You see the status of the pipeline on this tab. Select **Refresh** to refresh the list. 
-    
-1. Select the **View Activity Runs** link in the **Actions** column. The pipeline has only one activity of type **Copy**. 
-    
-1. To view details about the copy operation, select the **Details** (eyeglasses image) link in the **Actions** column. For details about the properties, see [Copy Activity overview](copy-activity-overview.md).
+1. The application switches to the **Monitor** tab. You see the status of the pipeline on this tab. Select **Refresh** to refresh the list. Click the link under **PIPELINE NAME** to view activity run details or rerun the pipeline. 
+   
+    ![Refresh pipeline](./media/quickstart-create-data-factory-copy-data-tool/refresh-pipeline.png)
+
+1. On the Activity runs page, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column for more details about copy operation. For details about the properties, see [Copy Activity overview](copy-activity-overview.md). 
+
+1. To go back to the Pipeline Runs view, select the **ALL pipeline runs** link in the breadcrumb menu. To refresh the view, select **Refresh**. 
 
 1. Verify that the **emp.txt** file is created in the **output** folder of the **adftutorial** container. If the output folder doesn't exist, the Data Factory service automatically creates it. 
 
 1. Switch to the **Author** tab above the **Monitor** tab on the left panel so that you can edit linked services, datasets, and pipelines. To learn about editing them in the Data Factory UI, see [Create a data factory by using the Azure portal](quickstart-create-data-factory-portal.md).
+
+    ![Select Author tab](./media/quickstart-create-data-factory-copy-data-tool/select-author.png)
 
 ## Next steps
 The pipeline in this sample copies data from one location to another location in Azure Blob storage. To learn about using Data Factory in more scenarios, go through the [tutorials](tutorial-copy-data-portal.md). 

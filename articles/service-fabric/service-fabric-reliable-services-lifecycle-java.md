@@ -1,10 +1,11 @@
 ---
 title: Azure Service Fabric Reliable Services lifecycle 
-description: Learn about the lifecycle events in Service Fabric Reliable Services.
+description: Learn about the lifecycle events in an Azure Service Fabric Reliable Services application using Java for stateful and stateless services.
 author: PavanKunapareddyMSFT
 
 ms.topic: conceptual
 ms.date: 06/30/2017
+ms.custom: devx-track-java
 ms.author: pakunapa
 ---
 
@@ -111,7 +112,7 @@ Services that don't handle cancellation cleanly can experience several issues. T
 
 Because the services are stateful, it's also likely that the services use [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). In Service Fabric, when a primary is demoted, one of the first things that happens is that write access to the underlying state is revoked. This leads to a second set of issues that might affect the service lifecycle. The collections return exceptions based on the timing and whether the replica is being moved or shut down. It's important to handle these exceptions correctly. 
 
-Exceptions thrown by Service Fabric are either permanent [(`FabricException`)](https://docs.microsoft.com/java/api/system.fabric.exception) or transient [(`FabricTransientException`)](https://docs.microsoft.com/java/api/system.fabric.exception.fabrictransientexception). Permanent exceptions should be logged and thrown. Transient exceptions can be retried based on retry logic.
+Exceptions thrown by Service Fabric are either permanent [(`FabricException`)](/java/api/system.fabric.exception) or transient [(`FabricTransientException`)](/java/api/system.fabric.exception.fabrictransientexception). Permanent exceptions should be logged and thrown. Transient exceptions can be retried based on retry logic.
 
 An important part of testing and validating Reliable Services is handling the exceptions that come from using the `ReliableCollections` in conjunction with service lifecycle events. We recommend that you always run your service under load. You should also perform upgrades and [chaos testing](service-fabric-controlled-chaos.md) before deploying to production. These basic steps help ensure that your service is implemented correctly, and that it handles lifecycle events correctly.
 
@@ -126,4 +127,3 @@ An important part of testing and validating Reliable Services is handling the ex
 ## Next steps
 * [Introduction to Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Reliable Services quickstart](service-fabric-reliable-services-quick-start-java.md)
-

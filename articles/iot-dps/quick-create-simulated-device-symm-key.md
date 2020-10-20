@@ -3,7 +3,7 @@ title: Quickstart - Use symmetric key to provision simulated device to Azure IoT
 description: In this quickstart you will use the C device SDK to create a simulated device that uses symmetric key with the Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 01/14/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
@@ -16,9 +16,9 @@ ms.custom: mvc
 
 In this quickstart, you will learn how to create and run a device simulator on a Windows development machine. You will configure this simulated device to use a symmetric key to authenticate with a Device Provisioning Service instance and be assigned to an IoT hub. Sample code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be used to simulate a boot sequence for the device that initiates provisioning. The device will be recognized based on an individual enrollment with a provisioning service instance and assigned to an IoT hub.
 
-Although this article demonstrates provisioning with an individual enrollment, you can use the same procedures with enrollment groups. The only difference is, you must use a derived device key with a unique registration ID for the device. With enrollment groups, the symmetric key on the enrollment is not used directly. Although symmetric key enrollment groups are not limited to legacy devices, [How to provision legacy devices using Symmetric key attestation](how-to-legacy-device-symm-key.md) provides an enrollment group example. For more information, see [Group Enrollments for Symmetric Key Attestation](concepts-symmetric-key-attestation.md#group-enrollments).
+Although this article demonstrates provisioning with an individual enrollment, you can use enrollment groups. There are some differences when using enrollment groups. For example, you must use a derived device key with a unique registration ID for the device. Although symmetric key enrollment groups are not limited to legacy devices, [How to provision legacy devices using Symmetric key attestation](how-to-legacy-device-symm-key.md) provides an enrollment group example. For more information, see [Group Enrollments for Symmetric Key Attestation](concepts-symmetric-key-attestation.md#group-enrollments).
 
-If you're unfamiliar with the process of auto-provisioning, review [Auto-provisioning concepts](concepts-auto-provisioning.md). 
+If you're unfamiliar with the process of auto-provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. 
 
 Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing with this quickstart. This quickstart requires you to have already created your Device Provisioning Service instance.
 
@@ -32,7 +32,7 @@ This article is oriented toward a Windows-based workstation. However, you can pe
 
 The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
 
 * Latest version of [Git](https://git-scm.com/download/) installed.
 
@@ -48,7 +48,9 @@ The SDK includes the sample code for a simulated device. This simulated device w
 
     It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
 
-2. Find the tag name for the [latest release](https://github.com/Azure/azure-iot-sdk-c/releases/latest) of the SDK.
+    Older versions of the CMake build system fail to generate the solution file used in this article. Make sure to use a newer version of CMake.
+
+2. Click **Tags** and find the tag name for the latest release on the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
 3. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Use the tag you found in the previous step as the value for the `-b` parameter:
 
@@ -93,7 +95,7 @@ The SDK includes the sample code for a simulated device. This simulated device w
 
 ## Create a device enrollment entry in the portal
 
-1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning service.
+1. Sign in to the [Azure portal](https://portal.azure.com), select the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
 2. Select the **Manage enrollments** tab, and then select the **Add individual enrollment** button at the top. 
 
@@ -132,6 +134,8 @@ In this section, update the sample code to send the device's boot sequence to yo
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
     ```
+
+    If the file was not generated in your cmake directory, make sure you used a recent version of the CMake build system.
 
 3. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 

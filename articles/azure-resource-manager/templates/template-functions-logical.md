@@ -2,17 +2,19 @@
 title: Template functions - logical
 description: Describes the functions to use in an Azure Resource Manager template to determine logical values.
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 10/12/2020
 ---
-# Logical functions for Azure Resource Manager templates
+# Logical functions for ARM templates
 
-Resource Manager provides several functions for making comparisons in your templates.
+Resource Manager provides several functions for making comparisons in your Azure Resource Manager (ARM) templates.
 
 * [and](#and)
 * [bool](#bool)
+* [false](#false)
 * [if](#if)
 * [not](#not)
 * [or](#or)
+* [true](#true)
 
 ## and
 
@@ -38,7 +40,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -79,7 +81,12 @@ Converts the parameter to a boolean.
 | arg1 |Yes |string or int |The value to convert to a boolean. |
 
 ### Return value
+
 A boolean of the converted value.
+
+### Remarks
+
+You can also use [true()](#true) and [false()](#false) to get boolean values.
 
 ### Examples
 
@@ -87,7 +94,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -120,6 +127,44 @@ The output from the preceding example with the default values is:
 | trueInt | Bool | True |
 | falseInt | Bool | False |
 
+## false
+
+`false()`
+
+Returns false.
+
+### Parameters
+
+The false function doesn't accept any parameters.
+
+### Return value
+
+A boolean that is always false.
+
+### Example
+
+The following example returns a false output value.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "falseOutput": {
+            "value": "[false()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| falseOutput | Bool | False |
+
 ## if
 
 `if(condition, trueValue, falseValue)`
@@ -148,7 +193,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -181,7 +226,7 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -247,7 +292,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -279,7 +324,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -289,6 +334,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
             "value": "[not(equals(1, 2))]"
         }
     }
+}
 ```
 
 The output from the preceding example is:
@@ -321,7 +367,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -349,10 +395,45 @@ The output from the preceding example is:
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
+## true
+
+`true()`
+
+Returns true.
+
+### Parameters
+
+The true function doesn't accept any parameters.
+
+### Return value
+
+A boolean that is always true.
+
+### Example
+
+The following example returns a true output value.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "trueOutput": {
+            "value": "[true()]",
+            "type" : "bool"
+        }
+    }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| trueOutput | Bool | True |
+
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
-* To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
+* For a description of the sections in an Azure Resource Manager template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
 

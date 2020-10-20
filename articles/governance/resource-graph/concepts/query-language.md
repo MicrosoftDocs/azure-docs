@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 12/05/2019
+ms.date: 09/30/2020
 ms.topic: conceptual
 ---
 # Understanding the Azure Resource Graph query language
@@ -14,21 +14,30 @@ query language used by Resource Graph, start with the
 This article covers the language components supported by Resource Graph:
 
 - [Resource Graph tables](#resource-graph-tables)
+- [Resource Graph custom language elements](#resource-graph-custom-language-elements)
 - [Supported KQL language elements](#supported-kql-language-elements)
+- [Scope of the query](#query-scope)
 - [Escape characters](#escape-characters)
 
 ## Resource Graph tables
 
-Resource Graph provides several tables for the data it stores about Resource Manager resource types
-and their properties. These tables can be used with `join` or `union` operators to get properties
-from related resource types. Here is the list of tables available in Resource Graph:
+Resource Graph provides several tables for the data it stores about Azure Resource Manager resource
+types and their properties. These tables can be used with `join` or `union` operators to get
+properties from related resource types. Here is the list of tables available in Resource Graph:
 
 |Resource Graph tables |Description |
 |---|---|
 |Resources |The default table if none defined in the query. Most Resource Manager resource types and properties are here. |
 |ResourceContainers |Includes subscription (in preview -- `Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
+|AdvisorResources |Includes resources _related_ to `Microsoft.Advisor`. |
 |AlertsManagementResources |Includes resources _related_ to `Microsoft.AlertsManagement`. |
+|GuestConfigurationResources |Includes resources _related_ to `Microsoft.GuestConfiguration`. |
+|HealthResources |Includes resources _related_ to `Microsoft.ResourceHealth`. |
+|MaintenanceResources |Includes resources _related_ to `Microsoft.Maintenance`. |
 |SecurityResources |Includes resources _related_ to `Microsoft.Security`. |
+
+For a complete list including resource types, see
+[Reference: Supported tables and resource types](../reference/supported-tables-resources.md).
 
 > [!NOTE]
 > _Resources_ is the default table. While querying the _Resources_ table, it isn't required to
@@ -69,9 +78,66 @@ Resources
 > When limiting the `join` results with `project`, the property used by `join` to relate the two
 > tables, _subscriptionId_ in the above example, must be included in `project`.
 
+## <a name="extended-properties"></a>Extended properties (preview)
+
+As a _preview_ feature, some of the resource types in Resource Graph have additional type-related
+properties available to query beyond the properties provided by Azure Resource Manager. This set of
+values, known as _extended properties_, exists on a supported resource type in
+`properties.extended`. To see which resource types have _extended properties_, use the following
+query:
+
+```kusto
+Resources
+| where isnotnull(properties.extended)
+| distinct type
+| order by type asc
+```
+
+Example: Get count of virtual machines by `instanceView.powerState.code`:
+
+```kusto
+Resources
+| where type == 'microsoft.compute/virtualmachines'
+| summarize count() by tostring(properties.extended.instanceView.powerState.code)
+```
+
+## Resource Graph custom language elements
+
+### <a name="shared-query-syntax"></a>Shared query syntax (preview)
+
+As a preview feature, a [shared query](../tutorials/create-share-query.md) can be accessed directly
+in a Resource Graph query. This scenario makes it possible to create standard queries as shared
+queries and reuse them. To call a shared query inside a Resource Graph query, use the
+`{{shared-query-uri}}` syntax. The URI of the shared query is the _Resource ID_ of the shared query
+on the **Settings** page for that query. In this example, our shared query URI is
+`/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS`.
+This URI points to the subscription, resource group, and full name of the shared query we want to
+reference in another query. This query is the same as the one created in
+[Tutorial: Create and share a query](../tutorials/create-share-query.md).
+
+> [!NOTE]
+> You can't save a query that references a shared query as a shared query.
+
+Example 1: Use only the shared query
+
+The results of this Resource Graph query are the same as the query stored in the shared query.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+```
+
+Example 2: Include the shared query as part of a larger query
+
+This query first uses the shared query, and then uses `limit` to further restrict the results.
+
+```kusto
+{{/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SharedQueries/providers/Microsoft.ResourceGraph/queries/Count VMs by OS}}
+| where properties_storageProfile_osDisk_osType =~ 'Windows'
+```
+
 ## Supported KQL language elements
 
-Resource Graph supports all KQL [data types](/azure/kusto/query/scalar-data-types/),
+Resource Graph supports a subset of KQL [data types](/azure/kusto/query/scalar-data-types/),
 [scalar functions](/azure/kusto/query/scalarfunctions),
 [scalar operators](/azure/kusto/query/binoperators), and
 [aggregation functions](/azure/kusto/query/any-aggfunction). Specific
@@ -88,7 +154,7 @@ Here is the list of KQL tabular operators supported by Resource Graph with speci
 |[distinct](/azure/kusto/query/distinctoperator) |[Show distinct values for a specific alias](../samples/starter.md#distinct-alias-values) | |
 |[extend](/azure/kusto/query/extendoperator) |[Count virtual machines by OS type](../samples/starter.md#count-os) | |
 |[join](/azure/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#join) |Join flavors supported: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limit of 3 `join` in a single query. Custom join strategies, such as broadcast join, aren't allowed. May be used within a single table or between the _Resources_ and _ResourceContainers_ tables. |
-|[limit](/azure/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `take` |
+|[limit](/azure/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `take`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Legacy operator, use `mv-expand` instead. _RowLimit_ max of 400. The default is 128. |
 |[mv-expand](/azure/kusto/query/mvexpandoperator) |[List Cosmos DB with specific write locations](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max of 400. The default is 128. |
 |[order](/azure/kusto/query/orderoperator) |[List resources sorted by name](../samples/starter.md#list-resources) |Synonym of `sort` |
@@ -96,10 +162,48 @@ Here is the list of KQL tabular operators supported by Resource Graph with speci
 |[project-away](/azure/kusto/query/projectawayoperator) |[Remove columns from results](../samples/advanced.md#remove-column) | |
 |[sort](/azure/kusto/query/sortoperator) |[List resources sorted by name](../samples/starter.md#list-resources) |Synonym of `order` |
 |[summarize](/azure/kusto/query/summarizeoperator) |[Count Azure resources](../samples/starter.md#count-resources) |Simplified first page only |
-|[take](/azure/kusto/query/takeoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `limit` |
+|[take](/azure/kusto/query/takeoperator) |[List all public IP addresses](../samples/starter.md#list-publicip) |Synonym of `limit`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
 |[top](/azure/kusto/query/topoperator) |[Show first five virtual machines by name and their OS type](../samples/starter.md#show-sorted) | |
 |[union](/azure/kusto/query/unionoperator) |[Combine results from two queries into a single result](../samples/advanced.md#unionresults) |Single table allowed: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _Table_. Limit of 3 `union` legs in a single query. Fuzzy resolution of `union` leg tables isn't allowed. May be used within a single table or between the _Resources_ and _ResourceContainers_ tables. |
 |[where](/azure/kusto/query/whereoperator) |[Show resources that contain storage](../samples/starter.md#show-storage) | |
+
+## Query scope
+
+The scope of the subscriptions from which resources are returned by a query depend on the method of
+accessing Resource Graph. Azure CLI and Azure PowerShell populate the list of subscriptions to
+include in the request based on the context of the authorized user. The list of subscriptions can be
+manually defined for each with the **subscriptions** and **Subscription** parameters, respectively.
+In REST API and all other SDKs, the list of subscriptions to include resources from must be
+explicitly defined as part of the request.
+
+As a **preview**, REST API version `2020-04-01-preview` adds a property to scope the query to a
+[management group](../../management-groups/overview.md). This preview API also makes the
+subscription property optional. If a management group or a subscription list isn't defined, the
+query scope is all resources, which includes
+[Azure Lighthouse](../../../lighthouse/concepts/azure-delegated-resource-management.md) delegated
+resources, that the authenticated user can access. The new `managementGroupId` property takes the
+management group ID, which is different from the name of the management group. When
+`managementGroupId` is specified, resources from the first 5000 subscriptions in or under the
+specified management group hierarchy are included. `managementGroupId` can't be used at the same
+time as `subscriptions`.
+
+Example: Query all resources within the hierarchy of the management group named 'My Management
+Group' with ID 'myMG'.
+
+- REST API URI
+
+  ```http
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview
+  ```
+
+- Request Body
+
+  ```json
+  {
+      "query": "Resources | summarize count()",
+      "managementGroupId": "myMG"
+  }
+  ```
 
 ## Escape characters
 

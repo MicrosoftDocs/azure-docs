@@ -1,15 +1,15 @@
 ---
-title: Connect using MySQL Workbench - Azure Database for MariaDB
+title: 'Quickstart: Connect MySQL Workbench - Azure Database for MariaDB'
 description: This quickstart provides the steps to use MySQL Workbench to connect to and query data from Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2018
+ms.date: 3/18/2020
 ---
 
-# Azure Database for MariaDB: Use MySQL Workbench to connect and query data
+# Quickstart: Azure Database for MariaDB: Use MySQL Workbench to connect and query data
 
 This quickstart demonstrates how to connect to an Azure Database for MariaDB instance by using MySQL Workbench. 
 

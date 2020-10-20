@@ -1,9 +1,10 @@
 ---
-title: Reliable Collection object serialization in Azure Service Fabric 
-description: Azure Service Fabric Reliable Collections object serialization
+title: Reliable Collection object serialization
+description: Learn about Azure Service Fabric Reliable Collections object serialization, including the default strategy and how to define custom serialization.'
 
 ms.topic: conceptual
 ms.date: 5/8/2017
+ms.custom: devx-track-csharp
 ---
 # Reliable Collection object serialization in Azure Service Fabric
 Reliable Collections' replicate and persist their items to make sure they are durable across machine failures and power outages.
@@ -15,7 +16,7 @@ Reliable State Manager contains built-in serializers and allows custom serialize
 ## Built-in Serializers
 
 Reliable State Manager includes built-in serializer for some common types, so that they can be serialized efficiently by default. 
-For other types, Reliable State Manager falls back to use the [DataContractSerializer](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer(v=vs.110).aspx).
+For other types, Reliable State Manager falls back to use the [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1).
 Built-in serializers are more efficient since they know their types cannot change and they do not need to include information about the type like its type name.
 
 Reliable State Manager has built-in serializer for following types: 
@@ -41,7 +42,7 @@ Reliable State Manager has built-in serializer for following types:
 Custom serializers are commonly used to increase performance or to encrypt the data over the wire and on disk. 
 Among other reasons, custom serializers are commonly more efficient than generic serializer since they don't need to serialize information about the type. 
 
-[IReliableStateManager.TryAddStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) is used to register a custom serializer for the given type T.
+[IReliableStateManager.TryAddStateSerializer\<T>](/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer) is used to register a custom serializer for the given type T.
 This registration should happen in the construction of the StatefulServiceBase to ensure that before recovery starts, all Reliable Collections have access to the relevant serializer to read their persisted data.
 
 ```csharp
@@ -61,7 +62,7 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### How to implement a custom serializer
 
-A custom serializer needs to implement the [IStateSerializer\<T>](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.data.istateserializer-1) interface.
+A custom serializer needs to implement the [IStateSerializer\<T>](/dotnet/api/microsoft.servicefabric.data.istateserializer-1) interface.
 
 > [!NOTE]
 > IStateSerializer\<T> includes an overload for Write and Read that takes in an additional T called base value. 
@@ -138,7 +139,7 @@ In other words, each version of serializer needs to be able to serialize and de-
 
 Data Contract users should follow the well-defined versioning rules for adding, removing, and changing fields. 
 Data Contract also has support for dealing with unknown fields, hooking into the serialization and deserialization process, and dealing with class inheritance. 
-For more information, see [Using Data Contract](https://msdn.microsoft.com/library/ms733127.aspx).
+For more information, see [Using Data Contract](/dotnet/framework/wcf/feature-details/using-data-contracts).
 
 Custom serializer users should adhere to the guidelines of the serializer they are using to make sure it is backwards and forwards compatible.
 Common way of supporting all versions is adding size information at the beginning and only adding optional properties.
@@ -146,7 +147,7 @@ This way each version can read as much it can and jump over the remaining part o
 
 ## Next steps
   * [Serialization and upgrade](service-fabric-application-upgrade-data-serialization.md)
-  * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  * [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
   * [Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
   * [Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
   * Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).

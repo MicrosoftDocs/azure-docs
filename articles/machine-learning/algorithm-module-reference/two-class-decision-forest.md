@@ -7,13 +7,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 09/03/2020
 ---
 # Two-Class Decision Forest module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a machine learning model based on the decision forests algorithm.  
 
@@ -27,7 +27,7 @@ There are many ways to create individual models and combine them in an ensemble.
 
 + Many individual classification trees are created, using the entire dataset, but different (usually randomized) starting points. This differs from the random forest approach, in which the individual decision trees might only use some randomized portion of the data or features.
 + Each tree in the decision forest tree outputs a non-normalized frequency histogram of labels. 
-+ The aggregation process sums these histograms and normalizes the result to get the “probabilities” for each label. 
++ The aggregation process sums these histograms and normalizes the result to get the "probabilities" for each label. 
 + The trees that have high prediction confidence will have a greater weight in the final decision of the ensemble.
 
 Decision trees in general have many advantages for classification tasks:
@@ -52,7 +52,7 @@ For more information, see [Decision Forests](https://go.microsoft.com/fwlink/?Li
   
     -   **Bagging**: Bagging is also called *bootstrap aggregating*. In this method, each tree is grown on a new sample, created by randomly sampling the original dataset with replacement until you have a dataset the size of the original.  
   
-         The outputs of the models are combined by *voting*, which is a form of aggregation. Each tree in a classification decision forest outputs an unnormalized frequency histogram of labels. The aggregation is to sum these histograms and normalize to get the “probabilities” for each label. In this manner, the trees that have high prediction confidence will have a greater weight in the final decision of the ensemble.  
+         The outputs of the models are combined by *voting*, which is a form of aggregation. Each tree in a classification decision forest outputs an unnormalized frequency histogram of labels. The aggregation is to sum these histograms and normalize to get the "probabilities" for each label. In this manner, the trees that have high prediction confidence will have a greater weight in the final decision of the ensemble.  
   
          For more information, see the Wikipedia entry for Bootstrap aggregating.  
   
@@ -61,6 +61,8 @@ For more information, see [Decision Forests](https://go.microsoft.com/fwlink/?Li
 3.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
     -   **Single Parameter**: If you know how you want to configure the model, you can provide a specific set of values as arguments.
+
+    -   **Parameter Range**: If you are not sure of the best parameters, you can find the optimal parameters by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module. You provide some range of values, and the trainer iterates over multiple combinations of the settings to determine the combination of values that produces the best result.
   
 4.  For **Number of decision trees**, type the maximum number of decision trees that can be created in the ensemble. By creating more decision trees, you can potentially get better coverage, but training time increases.  
   
@@ -69,7 +71,6 @@ For more information, see [Decision Forests](https://go.microsoft.com/fwlink/?Li
   
 5.  For **Maximum depth of the decision trees**, type a number to limit the maximum depth of any decision tree. Increasing the depth of the tree might increase precision, at the risk of some overfitting and increased training time.
   
-6.  For **Number of random splits per node**, type the number of splits to use when building each node of the tree. A *split* means that features in each level of the tree (node) are randomly divided.
   
 7.  For **Minimum number of samples per leaf node**, indicate the minimum number of cases that are required to create any terminal node (leaf) in a tree.
   
@@ -79,20 +80,25 @@ For more information, see [Decision Forests](https://go.microsoft.com/fwlink/?Li
 
      If you deselect this option, the model can accept only the values that are contained in the training data.
   
-9. Attach a labeled dataset, and one of the [training modules](module-reference.md):  
+9. Attach a labeled dataset, and train the model:
+
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
   
-    -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.  
+    + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
   
+    > [!NOTE]
+    > 
+    > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
+    > 
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > 
+    > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.  
     
 ## Results
 
 After training is complete:
 
-+ To see the tree that was created on each iteration, right-click the output of the [Train Model](./train-model.md) module, and select **Visualize**.
-  
-    Click each tree to drill down into the splits and see the rules for each node.
-
-+ To save a snapshot of the model, right-click the **Trained Model** output, and select **Save Model**. The saved model is not updated on successive runs of the pipeline.
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
 + To use the model for scoring, add the **Score Model** module to a pipeline.
 

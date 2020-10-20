@@ -1,11 +1,12 @@
 ---
 title: Reliable Services notifications 
-description: Conceptual documentation for Service Fabric Reliable Services notifications
+description: Conceptual documentation for Service Fabric Reliable Services notifications for Reliable State Manager and Reliable Dictionary
 author: mcoskun
 
 ms.topic: conceptual
 ms.date: 6/29/2017
 ms.author: mcoskun
+ms.custom: devx-track-csharp
 ---
 # Reliable Services notifications
 Notifications allow clients to track the changes that are being made to an object that they're interested in. 
@@ -216,5 +217,4 @@ Here are some things to keep in mind:
 * [Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
-* [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
+* [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

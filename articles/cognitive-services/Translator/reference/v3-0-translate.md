@@ -1,7 +1,7 @@
 ---
-title: Translator Text API Translate Method
+title: Translator Translate Method
 titleSuffix: Azure Cognitive Services
-description: Understand the parameters, headers and body messages for the Azure Cognitive Services Translator Text API Translate method to translate text.
+description: Understand the parameters, headers, and body messages for the Translate method of Azure Cognitive Services Translator to translate text.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -9,11 +9,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 11/12/2019
+ms.date: 08/06/2020
 ms.author: swmachan
 ---
 
-# Translator Text API 3.0: Translate
+# Translator 3.0: Translate
 
 Translates text.
 
@@ -132,7 +132,7 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 The following limitations apply:
 
 * The array can have at most 100 elements.
-* The entire text included in the request cannot exceed 5,000 characters including spaces.
+* The entire text included in the request cannot exceed 10,000 characters including spaces.
 
 ## Response body
 
@@ -230,7 +230,7 @@ The following are the possible HTTP status codes that a request returns.
   </tr>
 </table> 
 
-If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator Text API reference page](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator reference page](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## Examples
 
@@ -276,7 +276,7 @@ The response body is:
     }
 ]
 ```
-The response is similar to the response from the previous example. Since language auto-detection was requested, the response also includes information about the language detected for the input text. 
+The response is similar to the response from the previous example. Since language auto-detection was requested, the response also includes information about the language detected for the input text. The language auto-detection works better with longer input text.
 
 ### Translate with transliteration
 
@@ -313,6 +313,7 @@ Translating multiple strings at once is simply a matter of specifying an array o
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
+The response contains the translation of all pieces of text in the exact same order as in the request.
 The response body is:
 
 ```
@@ -450,6 +451,14 @@ The response is:
 
 ### Obtain alignment information
 
+Alignment is returned as a string value of the following format for every word of the source. The information for each word is separated by a space, including for non-space-separated languages (scripts) like Chinese:
+
+[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
+
+Example alignment string: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
+
+In other words, the colon separates start and end index, the dash separates the languages, and space separates the words. One word may align with zero, one, or multiple words in the other language, and the aligned words may be non-contiguous. When no alignment information is available, the Alignment element will be empty. The method returns no error in that case.
+
 To receive alignment information, specify `includeAlignment=true` on the query string.
 
 ```curl
@@ -475,14 +484,16 @@ The response is:
 The alignment information starts with `0:2-0:1`, which means that the first three characters in the source text (`The`) map to the first two characters in the translated text (`La`).
 
 #### Limitations
-Note the following restrictions:
+Obtaining alignment information is an experimental feature that we have enabled for prototyping research and experiences with potential phrase mappings. We may choose to stop supporting this in the future. Here are some of the notable restrictions where alignments are not supported:
 
 * Alignment is not available for text in HTML format i.e., textType=html
 * Alignment is only returned for a subset of the language pairs:
-  - from English to any other language;
-  - from any other language to English except for Chinese Simplified, Chinese Traditional, and Latvian to English;
+  - English to/from any other language except Chinese Traditional, Cantonese (Traditional) or Serbian (Cyrillic).
   - from Japanese to Korean or from Korean to Japanese.
+  - from Japanese to Chinese Simplified and Chinese Simplified to Japanese. 
+  - from Chinese Simplified to Chinese Traditional and Chinese Traditional to Chinese Simplified. 
 * You will not receive alignment if the sentence is a canned translation. Example of a canned translation is "This is a test", "I love you" and other high frequency sentences.
+* Alignment is not available when you apply any of the approaches to prevent translation as described [here](../prevent-translation.md)
 
 ### Obtain sentence boundaries
 
@@ -510,7 +521,7 @@ The response is:
 
 ### Translate with dynamic dictionary
 
-If you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is only safe for compound nouns like proper names and product names.
+If you already know the translation you want to apply to a word or a phrase, you can supply it as markup within the request. The dynamic dictionary is only safe for proper nouns such as personal names and product names.
 
 The markup to supply uses the following syntax.
 

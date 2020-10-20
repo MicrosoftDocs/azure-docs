@@ -4,7 +4,7 @@ titleSuffix: Azure Traffic Manager
 description: This article explains the 'Nested Profiles' feature of Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
-ms.author: allensu
+ms.author: duau
 ---
 
 # Nested Traffic Manager profiles
@@ -92,7 +92,7 @@ The monitoring settings in a Traffic Manager profile apply to all endpoints with
 
 ## FAQs
 
-* [How do I configure nested profiles?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
+* [How do I configure nested profiles?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-nested-profiles)
 
 * [How many layers of nesting does Traffic Manger support?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
 

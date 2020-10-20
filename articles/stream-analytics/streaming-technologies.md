@@ -37,10 +37,6 @@ Azure Stream Analytics has a rich out-of-the-box experience. You can immediately
 
 ## When to use other technologies
 
-### You need to input from or output to Kafka
-
-Azure Stream Analytics doesn't have an Apache Kafka input or output adapter. If you have events landing in or need to send to Kafka and you don't have a requirement to run your own Kafka cluster, you can continue to use Stream Analytics by sending events to Event Hubs using the Event Hubs Kafka API without changing the event sender. If you do need to run your own Kafka cluster, you can use Spark Structured Streaming, which is fully supported on [Azure Databricks](../azure-databricks/index.yml), or Storm on [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md).
-
 ### You want to write UDFs, UDAs, and custom deserializers in a language other than JavaScript or C#
 
 Azure Stream Analytics supports user-defined functions (UDF) or user-defined aggregates (UDA) in JavaScript for cloud jobs and C# for IoT Edge jobs. C# user-defined deserializers are also supported. If you want to implement a deserializer, a UDF, or a UDA in other languages, such as Java or Python, you can use Spark Structured Streaming. You can also run the Event Hubs **EventProcessorHost** on your own virtual machines to do arbitrary streaming processing.
@@ -54,4 +50,4 @@ Azure Stream Analytics is Microsoft's proprietary technology and is only availab
 * [Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
 * [Create a Stream Analytics job by using Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Create a Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
-* [Create a Stream Analytics job by using Visual Studio Code](quick-create-vs-code.md)
+* [Create a Stream Analytics job by using Visual Studio Code](quick-create-visual-studio-code.md)

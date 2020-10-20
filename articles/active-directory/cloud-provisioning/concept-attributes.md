@@ -1,6 +1,6 @@
 ---
-title: 'Understanding the Azure AD schema and custom expressions'
-description: This topic describes the Azure AD schema, the attributes that the provisioning agent flows and custom expressions.
+title: 'Understand the Azure AD schema and custom expressions'
+description: This article describes the Azure AD schema, the attributes that the provisioning agent flows, and custom expressions.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -19,41 +19,41 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Understanding the Azure AD schema
-An object in Azure AD, like any directory, is a programmatic high-level data construct that represents such things as users, groups, and contacts.  When you create a new user or contact in Azure AD, you are creating a new instance of that object.  These instances can be differentiated based on their properties.
+# Understand the Azure AD schema
+An object in Azure Active Directory (Azure AD), like any directory, is a programmatic high-level data construct that represents such things as users, groups, and contacts. When you create a new user or contact in Azure AD, you're creating a new instance of that object. These instances can be differentiated based on their properties.
 
-Properties, in Azure AD are the elements responsible for storing information about an instance of an object in Azure AD.  
+Properties in Azure AD are the elements responsible for storing information about an instance of an object in Azure AD.
 
-The Azure AD schema defines the rules for which properties may be used in an entry, the kinds of values that those properties may have, and how users may interact with those values. 
+The Azure AD schema defines the rules for which properties might be used in an entry, the kinds of values that those properties might have, and how users might interact with those values. 
 
-Azure AD has two types of properties.  The properties are:
-- **Built in properties** – Properties that are pre-defined by the Azure AD schema.  These properties provide different uses and may or may not be accessible.
-- **Directory extensions** – Properties that are provided so that you can customize Azure AD for your own use.  For example, if you have extended your on-premises Active Directory with a certain attribute and want to flow that attribute, you can use one of the custom properties that are provided. 
+Azure AD has two types of properties:
+- **Built-in properties**: Properties that are predefined by the Azure AD schema. These properties provide different uses and might or might not be accessible.
+- **Directory extensions**: Properties that are provided so that you can customize Azure AD for your own use. For example, if you've extended your on-premises Active Directory with a certain attribute and want to flow that attribute, you can use one of the custom properties that's provided. 
 
 ## Attributes and expressions
-When an object, such as a user is provisioned to Azure AD, a new instance of the user object is created.  This creation includes the properties of that object, which are also known as attributes.  Initially, the newly created object will have its attributes set to values that are determined by the synchronization rules.  These attributes are then kept up to date via the cloud provisioning agent.
+When an object such as a user is provisioned to Azure AD, a new instance of the user object is created. This creation includes the properties of that object, which are also known as attributes. Initially, the newly created object has its attributes set to values that are determined by the synchronization rules. These attributes are then kept up to date via the cloud provisioning agent.
 
-![](media/concept-attributes/attribute1.png)
+![Object provisioning](media/concept-attributes/attribute1.png)
 
-For example, if a user is part of the Marketing department, their Azure AD department attribute will initially be created when they are provisioned and then the value would be set to Marketing.  But then, six months later, they change to Sales.  Their on-premises AD department attribute is changed to Sales.  This change will then synchronize to Azure AD and be reflected on their Azure AD user object.
+For example, a user might be part of a Marketing department. Their Azure AD department attribute is initially created when they're provisioned, and the value is set to Marketing. Six months later if they change to Sales, their on-premises Active Directory department attribute is changed to Sales. This change synchronizes to Azure AD and is reflected in their Azure AD user object.
 
-Attribute synchronization may be either direct, where the value in Azure AD is directly set to the value of the on-premises attribute.  Or, there may be a programmatic expression that handles this synchronization.  A programmatic expression would be needed in cases where some logic or a determination needed to be made in order to populate the value.
+Attribute synchronization might be direct, where the value in Azure AD is directly set to the value of the on-premises attribute. Or, a programmatic expression might handle the synchronization. A programmatic expression is needed in cases where some logic or a determination must be made to populate the value.
 
-For example, if I had my mail attribute ("john.smith@contoso.com") and I needed to strip out the "@contoso.com" portion and flow just the value "john.smith" I would use something like this:
+For example, if you had the mail attribute "john.smith@contoso.com" and needed to strip out the "@contoso.com" portion and flow only the value "john.smith," you'd use something like this:
 
 `Replace([mail], "@contoso.com", , ,"", ,)`  
 
-**Sample input / output:** <br>
+**Sample input/output:** <br>
 
 * **INPUT** (mail): "john.smith@contoso.com"
-* **OUTPUT**:  "john.smith"
+* **OUTPUT**: "john.smith"
 
-For additional information, on writing custom expressions, and the syntax see [Writing Expressions for Attribute Mappings in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
+For more information on how to write custom expressions and the syntax, see [Writing expressions for attribute mappings in Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
 
-The following list are common attributes and how they are synchronized to Azure AD.
+The following table lists common attributes and how they're synchronized to Azure AD.
 
 
-|On-premises Active Directory|Mapping Type|Azure AD|
+|On-premises Active Directory|Mapping type|Azure AD|
 |-----|-----|-----|
 |cn|Direct|commonName
 |countryCode|Direct|countryCode|
@@ -63,14 +63,17 @@ The following list are common attributes and how they are synchronized to Azure 
 |userprincipalName|Direct|userPrincipalName|
 |ProxyAdress|Direct|ProxyAddress|
 
-## Viewing the schema
-In order to view the schema and verify it, do the following steps:
+## View the schema
+> [!WARNING]
+> The cloud provisioning configuration creates a service principal. The service principal is visible in the Azure portal. You should not modify the attribute mappings using the service principal experience in the Azure portal.  This is not supported.
 
-1.  Navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-2.  Sign in with your global administrator account
-3.  On the left, click **modify permissions** and ensure that **Directory.ReadWrite.All** is Consented.
-4.  Run the following query: https://graph.microsoft.com/beta/serviceprincipals/.  This query will return a list of service principals.
-5.  Locate "appDisplayName": "Active Directory to Azure Active Directory Provisioning" and note the "id:" value.
+To view the schema and verify it, follow these steps.
+
+1.  Go to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+1.  Sign in with your global administrator account.
+1.  On the left, select **modify permissions** and ensure that **Directory.ReadWrite.All** is *Consented*.
+1.  Run the query `https://graph.microsoft.com/beta/serviceprincipals/?$filter=startswith(Displayname,'Active')`. This query returns a filtered list of service principals.
+1.  Locate `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` and note the value for `"id"`.
     ```
     "value": [
             {
@@ -143,8 +146,8 @@ In order to view the schema and verify it, do the following steps:
                 "passwordCredentials": []
             },
     ```
-6. Replace the {Service Principal id} with your value and run the following query: `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/`
-7. Locate the "id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976" section and note the "id:".
+1. Replace `{Service Principal id}` with your value, and run the query `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/`.
+1. Locate `"id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976"` and note the value for `"id"`.
     ```
     {
                 "id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976",
@@ -235,16 +238,17 @@ In order to view the schema and verify it, do the following steps:
                 ]
             }
     ```
-8. Now run the following query: `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`
+1. Now run the query `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`.
  
-    Example:  https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
+    Example: https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
 
- Replace the {Service Principal Id} and {AD2ADD Provisioning Id} with your values.
+   Replace `{Service Principal Id}` and `{AD2ADD Provisioning Id}` with your values.
 
-9. This query will return the schema.
-  ![](media/concept-attributes/schema1.png)
+1. This query returns the schema.
+
+   ![Returned schema](media/concept-attributes/schema1.png)
  
-## Next steps 
+## Next steps
 
 - [What is provisioning?](what-is-provisioning.md)
 - [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)

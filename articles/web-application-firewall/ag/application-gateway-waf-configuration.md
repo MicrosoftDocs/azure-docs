@@ -4,7 +4,7 @@ description: This article provides information on Web Application Firewall reque
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/17/2019
+ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -26,7 +26,6 @@ The following attributes can be added to exclusion lists by name. The values of 
 * Request attribute name (args) can be added as an exclusion element, such as:
 
    * Form field name
-   * XML entity
    * JSON entity
    * URL query string args
 
@@ -86,7 +85,13 @@ So if the URL `http://www.contoso.com/?user%281%29=fdafdasfda` is passed to the 
 Web Application Firewall allows you to configure request size limits within lower and upper bounds. The following two size limits configurations are available:
 
 - The maximum request body size field is specified in kilobytes and controls overall request size limit excluding any file uploads. This field can range from 1-KB minimum to 128-KB maximum value. The default value for request body size is 128 KB.
-- The file upload limit field is specified in MB and it governs the maximum allowed file upload size. This field can have a minimum value of 1 MB and a maximum of 500 MB for Large SKU instances while Medium SKU has a maximum of 100 MB. The default value for file upload limit is 100 MB.
+- The file upload limit field is specified in MB and it governs the maximum allowed file upload size. This field can have a minimum value of 1 MB and the following maximums:
+
+   - 100 MB for v1 Medium WAF gateways
+   - 500 MB for v1 Large WAF gateways
+   - 750 MB for v2 WAF gateways 
+
+ The default value for file upload limit is 100 MB.
 
 WAF also offers a configurable knob to turn the request body inspection on or off. By default, the request body inspection is enabled. If the request body inspection is turned off, WAF doesn't evaluate the contents of HTTP message body. In such cases, WAF continues to enforce WAF rules on headers, cookies, and URI. If the request body inspection is turned off, then maximum request body size field isn't applicable and can't be set. Turning off the request body inspection allows for messages larger than 128 KB to be sent to WAF, but the message body isn't inspected for vulnerabilities.
 

@@ -8,7 +8,8 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
+ms.custom: devx-track-js
+#Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
 ---
 
 # Tutorial: Build a Node.js web app using the JavaScript SDK to manage a SQL API account in Azure Cosmos DB 
@@ -79,9 +80,9 @@ Now let's learn to create a basic Hello World Node.js project using the Express 
    npm start
    ```
 
-1. You can view your new application by navigating your browser to [http://localhost:3000](http://localhost:3000).
+1. You can view your new application by navigating your browser to `http://localhost:3000`.
    
-   ![Learn Node.js - Screenshot of the Hello World application in a browser window](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
+   :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-express.png" alt-text="Learn Node.js - Screenshot of the Hello World application in a browser window":::
 
    Stop the application by using CTRL+C in the terminal window, and select **y** to terminate the batch job.
 
@@ -355,7 +356,7 @@ Now that you have completed the initial setup and configuration, next you will w
 
 ## <a name="_Toc395783181"></a>Build a user interface
 
-Now let’s build the user interface so that a user can interact with the application. The Express application we created in the previous sections uses **Jade** as the view engine.
+Now let's build the user interface so that a user can interact with the application. The Express application we created in the previous sections uses **Jade** as the view engine.
 
 1. The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use Twitter Bootstrap, which is a toolkit used to design a website.  
 
@@ -433,9 +434,9 @@ The second form contains two input fields and a button that allows you to create
 
 Now that you have built the application, you can run it locally by using the following steps:  
 
-1. To test the application on your local machine, run `npm start` in the terminal to start your application, and then refresh the [http://localhost:3000](http://localhost:3000) browser page. The page should now look as shown in the following screenshot:
+1. To test the application on your local machine, run `npm start` in the terminal to start your application, and then refresh the `http://localhost:3000` browser page. The page should now look as shown in the following screenshot:
    
-    ![Screenshot of the MyTodo List application in a browser window](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Screenshot of the MyTodo List application in a browser window":::
 
     > [!TIP]
     > If you receive an error about the indent in the layout.jade file or the index.jade file, ensure that the first two lines in both files are left-justified, with no spaces. If there are spaces before the first two lines, remove them, save both files, and then refresh your browser window. 
@@ -445,7 +446,7 @@ Now that you have built the application, you can run it locally by using the fol
 3. The page should update to display the newly created item in the ToDo
    list.
    
-    ![Screenshot of the application with a new item in the ToDo list](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Screenshot of the application with a new item in the ToDo list":::
 
 4. To complete a task, select the check box in the Complete column,
    and then select **Update tasks**. It updates the document you already created and removes it from the view.

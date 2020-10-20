@@ -1,14 +1,16 @@
 ---
 title: Use Azure Data Science Virtual Machines
-description: Connect to an Azure Data Science Virtual Machine (DSVM) to extend the compute power available to Azure Notebooks.
+description: Learn how to connect to an Azure Data Science Virtual Machine (DSVM) to extend the compute power available to Azure Notebooks Preview.
 author: getroyer
 manager: andneil
 ms.author: getroyer
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2019
 ---
 
 # Use Azure Data Science Virtual Machines
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 By default, projects run on the **Free Compute** tier, which is limited to 4 GB of memory and 1 GB of data to prevent abuse. You can bypass these limitations by using a different virtual machine that you've provisioned in an Azure subscription. For this purpose, the best choice is an Azure Data Science Virtual Machine (DSVM) using the **Data Science Virtual Machine for Linux (Ubuntu)** image. Such a DSVM comes pre-configured with everything you need for Azure Notebooks and appears automatically on the **Run** drop-down list in Azure Notebooks.
 
@@ -31,6 +33,9 @@ Once you're created the DSVM, select the **Run** drop-down list on the Azure Not
 
 When you select a DSVM instance, Azure Notebooks may prompt you for the specific machine credentials used when you created the VM.
 
+> [!Important]
+> The username must be lowercase to use it with JupyterHub.
+
 If any of the conditions aren't met, you can still connect to the DSVM. On the drop-down list, select the **Direct Compute** option,
 which prompts you for a name (to show in the list), the VM's IP address and port (typically 8000, the default port to which JupyterHub listens), and the VM credentials:
 
@@ -52,9 +57,9 @@ When a project is run on a VM, the files are mounted on the root directory of th
 
 If multiple users share a DSVM, you can avoid blocking each other by creating and using a DSVM user for each notebook user:
 
-1. On the [Azure Portal](https://portal.azure.com), navigate to your virtual machine.
+1. On the [Azure portal](https://portal.azure.com), navigate to your virtual machine.
 1. Under **Support + troubleshooting** in the left margin, select **Reset password**.
-1. Enter a new username and password and select **Update**. (Existing usernames are not affected.)
+1. Enter a new **username**. The username must be lowercase to use it with JupyterHub. Enter a password. Then select **Update**. (Existing usernames are not affected.)
 1. Repeat the previous step for any additional users.
 
 ## Next steps

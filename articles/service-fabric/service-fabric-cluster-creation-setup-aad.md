@@ -1,5 +1,5 @@
 ---
-title: Set up Azure Active Directory for Service Fabric client authentication 
+title: Set up Azure Active Directory for client authentication 
 description: Learn how to set up Azure Active Directory (Azure AD) to authenticate clients for Service Fabric clusters.
 
 ms.topic: conceptual
@@ -100,9 +100,19 @@ When you try to sign in to Azure AD in Service Fabric Explorer, the page returns
 The cluster (web) application that represents Service Fabric Explorer attempts to authenticate against Azure AD, and as part of the request it provides the redirect return URL. But the URL is not listed in the Azure AD application **REPLY URL** list.
 
 #### Solution
-Select "App registrations" in AAD page, select your cluster application, and then select the **Reply URLs** button. On "Reply URLs" page, add the URL of Service Fabric Explorer to the list or replace one of the items in the list. When you have finished, save your change.
+On the Azure AD app registration page for your cluster, select **Authentication**, and under the **Redirect URIs** section, add the Service Fabric Explorer URL to the list. Save your change.
 
-![Web application reply url][web-application-reply-url]
+![Web application reply URL][web-application-reply-url]
+
+### Connecting to the cluster using Azure AD authentication via PowerShell gives an error when you sign in: "AADSTS50011"
+#### Problem
+When you try to connect to a Service Fabric cluster using Azure AD via PowerShell, the sign-in page returns a failure: "AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: &lt;guid&gt;."
+
+#### Reason
+Similar to the preceding issue, PowerShell attempts to authenticate against Azure AD, which provides a redirect URL that isn't listed in the Azure AD application **Reply URLs** list.  
+
+#### Solution
+Use the same process as in the preceding issue, but the URL must be set to `urn:ietf:wg:oauth:2.0:oob`, a special redirect for command-line authentication.
 
 ### Connect the cluster by using Azure AD authentication via PowerShell
 To connect the Service Fabric cluster, use the following PowerShell command example:
@@ -111,7 +121,7 @@ To connect the Service Fabric cluster, use the following PowerShell command exam
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 
-To learn more, see [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster).
+To learn more, see [Connect-ServiceFabricCluster cmdlet](/powershell/module/servicefabric/connect-servicefabriccluster).
 
 ### Can I reuse the same Azure AD tenant in multiple clusters?
 Yes. But remember to add the URL of Service Fabric Explorer to your cluster (web) application. Otherwise, Service Fabric Explorer doesn’t work.

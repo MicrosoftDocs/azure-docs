@@ -7,13 +7,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 09/01/2019
 ---
 # Preprocess Text
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use the **Preprocess Text** module to clean and simplify text. It supports these common text processing operations:
 
@@ -78,7 +78,7 @@ The **Preprocess Text** module currently only supports English.
 
     For example, the string `MS---WORD` would be separated into three tokens, `MS`, `-`, and `WORD`.
 
-1. Run the pipeline.
+1. Submit the pipeline.
 
 ## Next steps
 

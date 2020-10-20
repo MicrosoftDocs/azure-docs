@@ -12,6 +12,7 @@ ms.author: menchi
 ---
 
 # Glossary of terms for Azure IoT Edge
+
 This article lists some of the common terms used in the IoT Edge articles.
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]

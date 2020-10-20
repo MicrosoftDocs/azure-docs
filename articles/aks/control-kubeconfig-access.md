@@ -2,17 +2,14 @@
 title: Limit access to kubeconfig in Azure Kubernetes Service (AKS)
 description: Learn how to control access to the Kubernetes configuration file (kubeconfig) for cluster administrators and cluster users
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: mlearned
+ms.date: 05/06/2020
+
 ---
 
-# Use Azure role-based access controls to define access to the Kubernetes configuration file in Azure Kubernetes Service (AKS)
+# Use Azure role-based access control to define access to the Kubernetes configuration file in Azure Kubernetes Service (AKS)
 
-You can interact with Kubernetes clusters using the `kubectl` tool. The Azure CLI provides an easy way to get the access credentials and configuration information to connect to your AKS clusters using `kubectl`. To limit who can get that Kubernetes configuration (*kubeconfig*) information and to limit the permissions they then have, you can use Azure role-based access controls (RBAC).
+You can interact with Kubernetes clusters using the `kubectl` tool. The Azure CLI provides an easy way to get the access credentials and configuration information to connect to your AKS clusters using `kubectl`. To limit who can get that Kubernetes configuration (*kubeconfig*) information and to limit the permissions they then have, you can use Azure role-based access control (Azure RBAC).
 
 This article shows you how to assign RBAC roles that limit who can get the configuration information for an AKS cluster.
 
@@ -26,26 +23,31 @@ This article also requires that you are running the Azure CLI version 2.0.65 or 
 
 When you interact with an AKS cluster using the `kubectl` tool, a configuration file is used that defines cluster connection information. This configuration file is typically stored in *~/.kube/config*. Multiple clusters can be defined in this *kubeconfig* file. You switch between clusters using the [kubectl config use-context][kubectl-config-use-context] command.
 
-The [az aks get-credentials][az-aks-get-credentials] command lets you get the access credentials for an AKS cluster and merges them into the *kubeconfig* file. You can use Azure role-based access controls (RBAC) to control access to these credentials. These Azure RBAC roles let you define who can retrieve the *kubeconfig* file, and what permissions they then have within the cluster.
+The [az aks get-credentials][az-aks-get-credentials] command lets you get the access credentials for an AKS cluster and merges them into the *kubeconfig* file. You can use Azure role-based access control (Azure RBAC) to control access to these credentials. These Azure roles let you define who can retrieve the *kubeconfig* file, and what permissions they then have within the cluster.
 
 The two built-in roles are:
 
 * **Azure Kubernetes Service Cluster Admin Role**  
-    * Allows access to *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action* API call. This API call [lists the cluster admin credentials][api-cluster-admin].
-    * Downloads *kubeconfig* for the *clusterAdmin* role.
+  * Allows access to *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action* API call. This API call [lists the cluster admin credentials][api-cluster-admin].
+  * Downloads *kubeconfig* for the *clusterAdmin* role.
 * **Azure Kubernetes Service Cluster User Role**
-    * Allows access to *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API call. This API call [lists the cluster user credentials][api-cluster-user].
-    * Downloads *kubeconfig* for *clusterUser* role.
+  * Allows access to *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API call. This API call [lists the cluster user credentials][api-cluster-user].
+  * Downloads *kubeconfig* for *clusterUser* role.
 
 These RBAC roles can be applied to an Azure Active Directory (AD) user or group.
+
+> [!NOTE]
+> On clusters that use Azure AD, users with the *clusterUser* role have an empty *kubeconfig* file that prompts a log in. Once logged in, users have access based on their Azure AD user or group settings. Users with the *clusterAdmin* role have admin access.
+>
+> Clusters that do not use Azure AD only use the *clusterAdmin* role.
 
 ## Assign role permissions to a user or group
 
 To assign one of the available roles, you need to get the resource ID of the AKS cluster and the ID of the Azure AD user account or group. The following example commands:
 
 * Get the cluster resource ID using the [az aks show][az-aks-show] command for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. Provide your own cluster and resource group name as needed.
-* Uses the [az account show][az-account-show] and [az ad user show][az-ad-user-show] commands to get your user ID.
-* Finally, assigns a role using the [az role assignment create][az-role-assignment-create] command.
+* Use the [az account show][az-account-show] and [az ad user show][az-ad-user-show] commands to get your user ID.
+* Finally, assign a role using the [az role assignment create][az-role-assignment-create] command.
 
 The following example assigns the *Azure Kubernetes Service Cluster Admin Role* to an individual user account:
 
@@ -55,7 +57,7 @@ AKS_CLUSTER=$(az aks show --resource-group myResourceGroup --name myAKSCluster -
 
 # Get the account credentials for the logged in user
 ACCOUNT_UPN=$(az account show --query user.name -o tsv)
-ACCOUNT_ID=$(az ad user show --upn-or-object-id $ACCOUNT_UPN --query objectId -o tsv)
+ACCOUNT_ID=$(az ad user show --id $ACCOUNT_UPN --query objectId -o tsv)
 
 # Assign the 'Cluster Admin' role to the user
 az role assignment create \
@@ -148,5 +150,5 @@ For enhanced security on access to AKS clusters, [integrate Azure Active Directo
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-role-assignment-delete]: /cli/azure/role/assignment#az-role-assignment-delete
-[aad-integration]: azure-ad-integration.md
+[aad-integration]: ./azure-ad-integration-cli.md
 [az-ad-group-show]: /cli/azure/ad/group#az-ad-group-show

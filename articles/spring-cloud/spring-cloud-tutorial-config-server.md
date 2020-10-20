@@ -1,14 +1,17 @@
 ---
-title: Tutorial - Set up your Config Server instance in Azure Spring Cloud
-description: In this tutorial, you learn how to set up a Spring Cloud Config Server instance for your Azure Spring Cloud on the Azure portal
+title: Set up your Config Server instance in Azure Spring Cloud
+description: Learn how to set up a Spring Cloud Config Server instance for your Azure Spring Cloud on the Azure portal
 ms.service: spring-cloud
-ms.topic: tutorial
-ms.author: jeconnoc
-author: jpconnock
+ms.topic: how-to
+ms.author: brendm
+author: bmitchell287
 ms.date: 10/18/2019
+ms.custom: devx-track-java
 ---
 
-# Tutorial: Set up a Spring Cloud Config Server instance for your service
+# Set up a Spring Cloud Config Server instance for your service
+
+**This article applies to:** ✔️ Java ✔️ C#
 
 This article shows you how to connect a Spring Cloud Config Server instance to your Azure Spring Cloud service.
 
@@ -16,7 +19,7 @@ Spring Cloud Config provides server and client-side support for an externalized 
 
 ## Prerequisites
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-* An already provisioned and running Azure Spring Cloud service. To set up and launch an Azure Spring Cloud service, see [Quickstart: Launch a Java Spring application by using the Azure CLI](spring-cloud-quickstart-launch-app-cli.md).
+* An already provisioned and running Azure Spring Cloud service. To set up and launch an Azure Spring Cloud service, see [Quickstart: Launch a Java Spring application by using the Azure CLI](spring-cloud-quickstart.md).
 
 ## Restriction
 
@@ -28,6 +31,7 @@ eureka.client.tls.keystore
 server.port
 spring.cloud.config.tls.keystore
 spring.application.name
+spring.jmx.enabled
 ```
 
 > [!CAUTION]
@@ -139,14 +143,14 @@ Now that your configuration files are saved in a repository, you need to connect
 
     * **Basic Authentication**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the **Authentication** ("pencil" icon) button. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **HTTP Basic**, and then enter your username and password/token to grant access to Azure Spring Cloud. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
-    ![The Edit Authentication pane](media/spring-cloud-tutorial-config-server/basic-auth.png)
+    ![The Edit Authentication pane basic auth](media/spring-cloud-tutorial-config-server/basic-auth.png)
     
     > [!CAUTION]
     > Some Git repository servers, such as GitHub, use a *personal-token* or an *access-token*, such as a password, for **Basic Authentication**. You can use that kind of token as a password in Azure Spring Cloud, because it will never expire. But for other Git repository servers, such as Bitbucket and Azure DevOps, the *access-token* expires in one or two hours. This means that the option isn't viable when you use those repository servers with Azure Spring Cloud.
 
     * **SSH**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the **Authentication** ("pencil" icon) button. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **SSH**, and then enter your **Private key**. Optionally, specify your **Host key** and **Host key algorithm**. Be sure to include your public key in your Config Server repository. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
-    ![The Edit Authentication pane](media/spring-cloud-tutorial-config-server/ssh-auth.png)
+    ![The Edit Authentication pane ssh auth](media/spring-cloud-tutorial-config-server/ssh-auth.png)
 
 #### Pattern repository
 
@@ -156,7 +160,7 @@ If you want to use an optional **Pattern repository** to configure your service,
 
 If you have written a YAML file with your repository settings, you can import the file directly from your local machine to Azure Spring Cloud. A simple YAML file for a private repository with basic authentication would look like this:
 
-```yml
+```yaml
 spring:
     cloud:
         config:
@@ -175,6 +179,48 @@ Select the **Import settings** button, and then select the YAML file from your p
 
 The information from your YAML file should be displayed in the Azure portal. Select **Apply** to finish. 
 
+## Using Azure Repos for Azure Spring Cloud Configuration
+
+Azure Spring Cloud can access Git repositories that are public, secured by SSH, or secured using HTTP basic authentication. We will use that last option, as it is easier to create and manage with Azure Repos.
+
+### Get repo url and credentials
+1. In the Azure Repos portal for your project, click the "Clone" button:
+
+    ![Clone Button](media/spring-cloud-tutorial-config-server/clone-button.png)
+
+1. Copy the clone URL from the textbox. This URL will typically be in the form:
+
+    ```Text
+    https://<organization name>@dev.azure.com/<organization name>/<project name>/_git/<repository name>
+    ```
+
+    Remove everything after `https://` and before `dev.azure.com`, including the `@`. The resulting URL should be in the form:
+
+    ```Text
+    https://dev.azure.com/<organization name>/<project name>/_git/<repository name>
+    ```
+
+    Save this URL for use in the next section.
+
+1. Click "Generate Git Credentials". A username and password will appear. Save these for use in the next section.
+
+
+### Configure Azure Spring Cloud to access the Git repository
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Go to your Azure Spring Cloud **Overview** page.
+
+1. Select the service to configure.
+
+1. In the left pane of the service page, under **Settings**, select the **Config Server** tab. Configure the repository we previously created:
+   - Add the repository URL that you have saved from the previous section
+   - Click on `Authentication` and select `HTTP Basic`
+   - The __username__ is the username saved from the previous section
+   - The __password__ is the password saved from the previous section
+   - Click on "Apply" and wait for the operation to succeed
+
+   ![Spring Cloud config server](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
 ## Delete your app configuration
 
@@ -184,7 +230,4 @@ After you've saved a configuration file, the **Delete app configuration** button
 
 ## Next steps
 
-In this tutorial, you learned how to enable and configure your Spring Cloud Config Server instance. To learn more about managing your application, continue to the tutorial about manually scaling your app.
-
-> [!div class="nextstepaction"]
-> [Tutorial: Scale an application in Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md)
+In this article, you learned how to enable and configure your Spring Cloud Config Server instance. To learn more about managing your application, see [Scale an application in Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md).

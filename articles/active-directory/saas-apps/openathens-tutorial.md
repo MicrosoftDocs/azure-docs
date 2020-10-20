@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with OpenAthens | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and OpenAthens.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: dd4adfc7-e238-41d5-8b25-1811f08078b6
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with OpenAthens
@@ -136,15 +129,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Connections** from the list under the **Management** tab.
 
-	![Configure single sign-on](./media/openathens-tutorial/tutorial_openathens_application1.png)
+	![Screenshot that shows the "OpenAthens" company site page with "Connections" selected from the "Management" tab.](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
 1. Select **SAML 1.1/2.0**, and then select the **Configure** button.
 
-	![Configure single sign-on](./media/openathens-tutorial/tutorial_openathens_application2.png)
+	![Screenshot that shows the "Select local authentication system type." dialog with "S A M L 1.1/2.0" and the "Configure" button selected.](./media/openathens-tutorial/tutorial_openathens_application2.png)
 
 1. To add the configuration, select the **Browse** button to upload the metadata .xml file that you downloaded from the Azure portal, and then select **Add**.
 
-	![Configure single sign-on](./media/openathens-tutorial/tutorial_openathens_application3.png)
+	![Screenshot that shows the "Add S A M L authentication system." dialog with the "Browse" action and "Add button selected.](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
 1. Perform the following steps under the **Details** tab.
 
@@ -166,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     h. From the **</> Relying Party** tab, copy the **Metadata URL** and open this in the browser to download the **SP metadata XML** file. Upload this SP metadata file on the **Basic SAML Configuration** section in Azure AD.
 
-    ![Configure single sign-on](./media/openathens-tutorial/tutorial_openathens_application5.png)
+    ![Screenshot that shows the "Relying party" tab selected and the "Metadata U R L" highlighted.](./media/openathens-tutorial/tutorial_openathens_application5.png)
 
 ### Create OpenAthens test user
 

@@ -3,20 +3,20 @@ title: Troubleshooting degraded status on Azure Traffic Manager
 description: How to troubleshoot Traffic Manager profiles when it shows as degraded status.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: allensu
+ms.author: duau
 ---
 
 # Troubleshooting degraded state on Azure Traffic Manager
 
-This article describes how to troubleshoot an Azure Traffic Manager profile that is showing a degraded status. As a first step in troubleshooting a Azure Traffic Manager degraded state is to enable diagnostic logging.  Refer to [Enable diagnostic logs](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) for more information. For this scenario, consider that you have configured a Traffic Manager profile pointing to some of your cloudapp.net hosted services. If the health of your Traffic Manager displays a **Degraded** status, then the status of one or more endpoints may be **Degraded**:
+This article describes how to troubleshoot an Azure Traffic Manager profile that is showing a degraded status. As a first step in troubleshooting a Azure Traffic Manager degraded state is to enable logging.  Refer to [Enable resource logs](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) for more information. For this scenario, consider that you have configured a Traffic Manager profile pointing to some of your cloudapp.net hosted services. If the health of your Traffic Manager displays a **Degraded** status, then the status of one or more endpoints may be **Degraded**:
 
 ![degraded endpoint status](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
@@ -51,9 +51,11 @@ Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirectio
 
 Example output:
 
-    StatusCode StatusDescription
-    ---------- -----------------
-           301 Moved Permanently
+```output
+StatusCode StatusDescription
+---------- -----------------
+        301 Moved Permanently
+```
 
 Notice that we received a redirect response. As stated previously, any StatusCode other than 200 is considered a failure. Traffic Manager changes the endpoint status to Offline. To resolve the problem, check the website configuration to ensure that the proper StatusCode can be returned from the probe path. Reconfigure the Traffic Manager probe to point to a path that returns a 200.
 

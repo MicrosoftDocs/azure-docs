@@ -1,11 +1,9 @@
-- name: Application Gateway Documentation
+- name: Application Gateway documentation
   href: index.yml
 - name: Overview
   items:
   - name: About application gateways
     href: overview.md
-  - name: What's new?
-    href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -15,6 +13,9 @@
     href: quick-create-powershell.md
   - name: Create Application Gateway - Azure CLI
     href: quick-create-cli.md
+  - name: Create Application Gateway - ARM template
+    displayName: Resource Manager
+    href: quick-create-template.md
 - name: Tutorials
   items:
   - name: Secure with SSL
@@ -27,6 +28,10 @@
     href: tutorial-url-redirect-cli.md
   - name: Autoscaling and zone redundant
     href: tutorial-autoscale-ps.md
+  - name: Ingress Controller Add-on for AKS (Greenfield)
+    href: tutorial-ingress-controller-add-on-new.md
+  - name: Ingress Controller Add-on for AKS (Brownfield)
+    href: tutorial-ingress-controller-add-on-existing.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -37,14 +42,32 @@
     href: resource-manager-template-samples.md
 - name: Concepts
   items:
+  - name: Support for working remotely
+    href: ../networking/working-remotely-support.md?toc=%2fazure%2fapplication-gateway%2ftoc.json
   - name: Basics
     items:
+    - name: Application Gateway features
+      href: features.md
     - name: How Application Gateway works
       href: how-application-gateway-works.md
     - name: Application Gateway components
       href: application-gateway-components.md
-    - name: Configuration overview
-      href: configuration-overview.md
+    - name: Configuration
+      items:
+      - name: Overview
+        href: configuration-overview.md
+      - name: Infrastructure
+        href: configuration-infrastructure.md
+      - name: Front-end IP address
+        href: configuration-front-end-ip.md
+      - name: Listeners
+        href: configuration-listeners.md
+      - name: Request routing rules
+        href: configuration-request-routing-rules.md
+      - name: HTTP settings
+        href: configuration-http-settings.md
+  - name: High traffic support
+    href: high-traffic-support.md
   - name: Autoscaling v2 SKU
     href: application-gateway-autoscaling-zone-redundant.md
   - name: Routing
@@ -55,10 +78,12 @@
       href: url-route-overview.md
     - name: Redirection
       href: redirect-overview.md
-    - name: Rewrite HTTP headers
-      href: rewrite-http-headers.md
-    - name: Custom error pages
-      href: custom-error.md
+    - name: Rewrite HTTP headers and URL
+      href: rewrite-http-headers-url.md
+    - name: Security
+      items:
+      - name: Security baseline
+        href: security-baseline.md
   - name: SSL
     items:
     - name: SSL termination and end to end SSL
@@ -81,6 +106,8 @@
     href: application-gateway-web-app-overview.md
   - name: WebSocket support
     href: application-gateway-websocket.md
+  - name: Understanding pricing
+    href: understanding-pricing.md
   - name: FAQ
     href: application-gateway-faq.md
 - name: How-to guides
@@ -127,10 +154,12 @@
         href: application-gateway-configure-ssl-policy-powershell.md
   - name: Ingress for AKS 
     items:
-    - name: Set up with existing Application Gateway 
+    - name: Ingress for AKS via Helm (Brownfield)
       href: ingress-controller-install-existing.md
-    - name: Set up with new Application Gateway 
+    - name: Ingress for AKS via Helm (Greenfield)
       href: ingress-controller-install-new.md
+    - name: Disable and re-enable AKS Ingress Controller add-on
+      href: ingress-controller-disable-addon.md
     - name: Enable cookie affinity 
       href: ingress-controller-cookie-affinity.md
     - name: Enable multiple namespace support 
@@ -185,14 +214,20 @@
         href: redirect-internal-site-cli.md
     - name: Redirect web traffic using Azure PowerShell
       href: tutorial-url-redirect-powershell.md
-  - name: Rewrite HTTP headers
+  - name: Rewrite HTTP headers and URL
     items:
-    - name: Azure portal
-      href: rewrite-http-headers-portal.md
-    - name: Azure PowerShell
-      href: add-http-header-rewrite-rule-powershell.md
-    - name: Create and rewrite HTTP headers
-      href: tutorial-http-header-rewrite-powershell.md
+    - name: Header rewrite
+      items:
+        - name: Azure portal
+          href: rewrite-http-headers-portal.md
+        - name: Azure PowerShell
+          href: add-http-header-rewrite-rule-powershell.md
+        - name: Create and rewrite HTTP headers
+          href: tutorial-http-header-rewrite-powershell.md
+    - name: URL rewrite
+      items:
+        - name: Azure portal
+          href: rewrite-url-portal.md
   - name: Configure App service webapp and multi-tenant service
     items:
     - name: Portal
@@ -225,6 +260,8 @@
         href: log-analytics.md
       - name: Backend health issues
         href: application-gateway-backend-health-troubleshooting.md
+  - name: Custom error pages
+    href: custom-error.md
   - name: Migrate from v1 to v2
     href: migrate-v1-v2.md
 - name: Reference
@@ -234,7 +271,7 @@
   - name: Azure CLI
     href: /cli/azure/network/application-gateway
   - name: Azure PowerShell
-    href: /powershell/azure/overview
+    href: /powershell/azure/
   - name: .NET
     href: /dotnet/api
   - name: Java

@@ -1,13 +1,12 @@
 ---
-title: Create your first Azure Service Fabric reliable service in Java 
-description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services.
-author: suhuruli
+title: Create your first reliable service in Java 
+description: Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services in Java.
 
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: suhuruli
+ms.custom: devx-track-javai
 ---
-# Get started with Reliable Services
+# Get started with Reliable Services in Java
 > [!div class="op_single_selector"]
 > * [C# on Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
@@ -185,7 +184,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections.reliablehashmap) is a dictionary implementation that you can use to reliably store state in the service. With Service Fabric and Reliable HashMaps, you can store data directly in your service without the need for an external persistent store. Reliable HashMaps make your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
+[ReliableHashMap](/java/api/microsoft.servicefabric.data.collections.reliablehashmap) is a dictionary implementation that you can use to reliably store state in the service. With Service Fabric and Reliable HashMaps, you can store data directly in your service without the need for an external persistent store. Reliable HashMaps make your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
 
 Reliable Collections can store any Java type, including your custom types, with a couple of caveats:
 
@@ -255,7 +254,7 @@ Parameters to these commands can be found in the generated manifests inside the 
 
 Once the application has been deployed, open a browser and navigate to
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at
-[http://localhost:19080/Explorer](http://localhost:19080/Explorer). Then, expand the **Applications** node and note
+`http://localhost:19080/Explorer`. Then, expand the **Applications** node and note
 that there is now an entry for your application type and another for the first instance of that type.
 
 > [!IMPORTANT]

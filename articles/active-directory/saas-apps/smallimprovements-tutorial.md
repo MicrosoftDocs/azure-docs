@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Small Improvements | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Small Improvements.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 59c8a112-41e1-4337-9ef3-3d7029780d61
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Small Improvements
 
@@ -130,15 +124,15 @@ To configure Azure AD single sign-on with Small Improvements, perform the follow
 
 1. From the main dashboard page, click **Administration** button on the left.
 
-    ![Configure Single Sign-On](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
+    ![Screenshot shows the Administration button selected.](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
 
 1. Click the **SAML SSO** button from **Integrations** section.
 
-    ![Configure Single Sign-On](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
+    ![Screenshot shows the SAML S S O icon selected in Integrations.](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
 
 1. On the SSO Setup page, perform the following steps:
 
-    ![Configure Single Sign-On](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
+    ![Screenshot shows the S S O Setup page where you can enter the values described.](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
     a. In the **HTTP Endpoint** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
@@ -213,15 +207,15 @@ To enable Azure AD users to log in to Small Improvements, they must be provision
 
 1. Click the **User Directory** button from User Management section.
 
-    ![Creating an Azure AD test user](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
+    ![Screenshot shows the User Directory selected from Administration Overview.](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
 
 1. Click **Add users**.
 
-    ![Creating an Azure AD test user](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
+    ![Screenshot shows the Add users button.](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
 
 1. On the **Add Users** dialog, perform the following steps: 
 
-    ![Creating an Azure AD test user](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
+    ![Screenshot shows the Add users dialog box where you can enter the values described.](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
 
 	a. Enter the **first name** of user like **Britta**.
 

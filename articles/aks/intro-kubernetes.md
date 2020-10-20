@@ -2,12 +2,9 @@
 title: Introduction to Azure Kubernetes Service
 description: Learn the features and benefits of Azure Kubernetes Service to deploy and manage container-based applications in Azure.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: overview
 ms.date: 05/06/2019
-ms.author: mlearned
+
 ms.custom: mvc
 ---
 
@@ -15,15 +12,17 @@ ms.custom: mvc
 
 Azure Kubernetes Service (AKS) makes it simple to deploy a managed Kubernetes cluster in Azure. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. As a hosted Kubernetes service, Azure handles critical tasks like health monitoring and maintenance for you. The Kubernetes masters are managed by Azure. You only manage and maintain the agent nodes. As a managed Kubernetes service, AKS is free - you only pay for the agent nodes within your clusters, not for the masters.
 
-You can create an AKS cluster in the Azure portal, with the Azure CLI, or template driven deployment options such as Resource Manager templates and Terraform. When you deploy an AKS cluster, the Kubernetes master and all nodes are deployed and configured for you. Additional features such as advanced networking, Azure Active Directory integration, and monitoring can also be configured during the deployment process. Windows Server containers support is currently in preview in AKS.
+You can create an AKS cluster in the Azure portal, with the Azure CLI, or template driven deployment options such as Resource Manager templates and Terraform. When you deploy an AKS cluster, the Kubernetes master and all nodes are deployed and configured for you. Additional features such as advanced networking, Azure Active Directory integration, and monitoring can also be configured during the deployment process. Windows Server containers are supported in AKS.
 
 For more information on Kubernetes basics, see [Kubernetes core concepts for AKS][concepts-clusters-workloads].
 
 To get started, complete the AKS quickstart [in the Azure portal][aks-portal] or [with the Azure CLI][aks-cli].
 
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+
 ## Access, security, and monitoring
 
-For improved security and management, AKS lets you integrate with Azure Active Directory and use Kubernetes role-based access controls. You can also monitor the health of your cluster and resources.
+For improved security and management, AKS lets you integrate with Azure Active Directory and use Kubernetes role-based access control (RBAC). You can also monitor the health of your cluster and resources.
 
 ### Identity and security management
 
@@ -41,7 +40,7 @@ For more information, see [Monitor Azure Kubernetes Service container health][co
 
 ## Clusters and nodes
 
-AKS nodes run on Azure virtual machines. You can connect storage to nodes and pods, upgrade cluster components, and use GPUs. AKS supports Kubernetes clusters that run multiple node pools to support mixed operating systems and Windows Server containers (currently in preview). Linux nodes run a customized Ubuntu OS image, and Windows Server nodes run a customized Windows Server 2019 OS image.
+AKS nodes run on Azure virtual machines. You can connect storage to nodes and pods, upgrade cluster components, and use GPUs. AKS supports Kubernetes clusters that run multiple node pools to support mixed operating systems and Windows Server containers. Linux nodes run a customized Ubuntu OS image, and Windows Server nodes run a customized Windows Server 2019 OS image.
 
 ### Cluster node and pod scaling
 
@@ -60,6 +59,12 @@ To learn more about lifecycle versions, see [Supported Kubernetes versions in AK
 AKS supports the creation of GPU enabled node pools. Azure currently provides single or multiple GPU enabled VMs. GPU enabled VMs are designed for compute-intensive, graphics-intensive, and visualization workloads.
 
 For more information, see [Using GPUs on AKS][aks-gpu].
+
+### Confidential computing nodes (public preview)
+
+AKS supports the creation of Intel SGX based confidential computing node pools (DCSv2 VMs). Confidential computing nodes allow containers to run in a hardware based trusted and isolated execution environment (enclaves). Isolation between containers combined with code integrity through attestation can help with your defense-in-depth container security strategy. Confidential computing nodes supports both confidential containers (existing docker apps) and enclave aware containers.
+
+For more information, see [Confidential computing nodes on AKS][conf-com-node]
 
 ### Storage volume support
 
@@ -85,7 +90,7 @@ To get started with ingress traffic, see [HTTP application routing][aks-http-rou
 
 ## Development tooling integration
 
-Kubernetes has a rich ecosystem of development and management tools such as Helm, Draft, and the Kubernetes extension for Visual Studio Code. These tools work seamlessly with AKS.
+Kubernetes has a rich ecosystem of development and management tools such as Helm and the Kubernetes extension for Visual Studio Code. These tools work seamlessly with AKS.
 
 Additionally, Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams. With minimal configuration, you can run and debug containers directly in AKS. To get started, see [Azure Dev Spaces][azure-dev-spaces].
 
@@ -121,7 +126,7 @@ Learn more about deploying and managing AKS with the Azure CLI quickstart.
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
-[aks-aad]: ./azure-ad-integration.md
+[aks-aad]: ./azure-ad-integration-cli.md
 [aks-cli]: ./kubernetes-walkthrough.md
 [aks-gpu]: ./gpu-cluster.md
 [aks-http-routing]: ./http-application-routing.md
@@ -129,14 +134,15 @@ Learn more about deploying and managing AKS with the Azure CLI quickstart.
 [aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces
-[azure-devops]: https://docs.microsoft.com/azure/devops-project/overview
+[azure-dev-spaces]: ../dev-spaces/index.yml
+[azure-devops]: ../devops-project/overview.md
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
-[container-health]: ../monitoring/monitoring-container-health.md
+[container-health]: ../azure-monitor/insights/container-insights-overview.md
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
-[kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
+[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
+[conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

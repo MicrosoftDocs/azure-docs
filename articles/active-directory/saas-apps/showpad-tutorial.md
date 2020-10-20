@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Showpad | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Showpad.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 48b6bee0-dbc5-4863-964d-75b25e517741
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Showpad
 
@@ -131,15 +125,15 @@ To configure Azure AD single sign-on with Showpad, perform the following steps:
 
 1. In the menu on the top, click the **Settings**.
 
-    ![Configure Single Sign-On On App Side](./media/showpad-tutorial/tutorial_showpad_001.png)
+    ![Screenshot shows Settings selected from the Settings menu.](./media/showpad-tutorial/tutorial_showpad_001.png)
 
 1. Navigate to **Single Sign-On** and click **Enable**.
 
-    ![Configure Single Sign-On On App Side](./media/showpad-tutorial/tutorial_showpad_002.png)
+    ![Screenshot shows Single Sign-On selected with an Enable option.](./media/showpad-tutorial/tutorial_showpad_002.png)
 
 1. On the **Add a SAML 2.0 Service** dialog, perform the following steps:
 
-    ![Configure Single Sign-On On App Side](./media/showpad-tutorial/tutorial_showpad_003.png) 
+    ![Screenshot shows the Add a SAML 2.0 Service dialog box where you can enter the values described.](./media/showpad-tutorial/tutorial_showpad_003.png) 
 
     a. In the **Name** textbox, type the name of Identifier Provider (for example: your company name).
 

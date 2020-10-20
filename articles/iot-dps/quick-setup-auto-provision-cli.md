@@ -1,5 +1,5 @@
 ---
-title: Set up Azure IoT Hub Device Provisioning Service using Azure CLI
+title: Quickstart - Set up Azure IoT Hub Device Provisioning Service using Azure CLI
 description: Quickstart - Set up the Azure IoT Hub Device Provisioning Service (DPS) using Azure CLI
 author: wesmc7777
 ms.author: wesmc
@@ -7,7 +7,7 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service with Azure CLI
@@ -59,7 +59,7 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 ```
 
 > [!TIP]
-> The example creates the provisioning service in the West US location. You can view a list of available locations by running the command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or by going to the [Azure Status](https://azure.microsoft.com/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value is not case sensitive. If you use multi-word format to specify location, enclose the value in quotes; for example, `-- location "West US"`.
+> The example creates the provisioning service in the West US location. You can view a list of available locations by running the command `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` or by going to the [Azure Status](https://azure.microsoft.com/status/) page and searching for "Device Provisioning Service". In commands, locations can be specified either in one word or multi-word format; for example: westus, West US, WEST US, etc. The value is not case sensitive. If you use multi-word format to specify location, enclose the value in quotes; for example, `--location "West US"`.
 >
 
 ## Get the connection string for the IoT hub
@@ -79,7 +79,11 @@ echo $hubConnectionString
 ```
 
 > [!NOTE]
-> These two commands are valid for a host running under Bash. If you are using a local Windows/CMD shell or a PowerShell host, you need to modify the commands to use  the correct syntax for that environment.
+> These two commands are valid for a host running under Bash.
+> 
+> If you're using a local Windows/CMD shell or a PowerShell host, modify the commands to use the correct syntax for that environment.
+>
+> If you're using Azure Cloud Shell, check that the environment drop-down on the left side of the shell window says **Bash**.
 >
 
 ## Link the IoT hub and the provisioning service

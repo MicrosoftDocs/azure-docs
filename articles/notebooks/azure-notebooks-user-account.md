@@ -1,17 +1,19 @@
 ---
-title: Sign into Azure Notebooks
+title: Sign into Azure Notebooks Preview
 description: Configure your user account for Azure Notebooks using a Microsoft account or a work/school account.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2019
 ---
 
-# Your user account for Azure Notebooks
+# Your user account for Azure Notebooks Preview
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 You can use Azure Notebooks with or without signing in with a user account:
 
 - Without signing in, you can create and run notebooks but cannot retain notebooks or data files as part of projects. Users who receive a link to an Azure Notebook, for example, can enjoy the notebook without needing to sign in.
 - When signed in, Azure Notebooks retains all your projects with your account. Signed-in users also have a user ID that allows them to share their projects and notebooks with others.
-  - When the account used for Azure Notebooks is also associated with an Azure Subscription, you gain additional benefits such as running notebooks on more powerful servers, creating private notebooks, and granting permissions to notebooks to individual users.
+- When the account used for Azure Notebooks is also associated with an Azure Subscription, you gain additional benefits such as running notebooks on more powerful servers, creating private notebooks, and granting permissions to notebooks to individual users.
 
 Signing into Azure Notebooks requires either a Microsoft Account or a "Work or School" account. You're prompted for your account when selecting the **Sign In** command on the upper right side of the Notebooks page:
 
@@ -46,7 +48,7 @@ To enable access, a parent must do the following steps:
 
 ## Work or school accounts
 
-A work or school account is created by an organization’s administrator to enable a member of the organization to access Microsoft cloud services such as Office 365, and also as an account to sign into Windows on a domain-joined computer. A work or school account typically uses an organizational email address, such as any-user@contoso.com.
+A work or school account is created by an organization’s administrator to enable a member of the organization to access Microsoft cloud services such as Microsoft 365, and also as an account to sign into Windows on a domain-joined computer. A work or school account typically uses an organizational email address, such as any-user@contoso.com.
 
 Signing into Azure Notebooks with a work or school account may require administrator consent because Azure Notebooks collects or uses (but does not disclose) information such as the account's email address and the user's browser information. (Browser data is used to optimize features according to popular usage.)
 

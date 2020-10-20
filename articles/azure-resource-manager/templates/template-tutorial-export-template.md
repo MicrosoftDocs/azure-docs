@@ -2,9 +2,10 @@
 title: Tutorial - Export template from the Azure portal
 description: Learn how to use an exported template to complete your template development.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 09/09/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom:
 ---
 
 # Tutorial: Use exported template from the Azure portal
@@ -21,7 +22,7 @@ You must have Visual Studio Code with the Resource Manager Tools extension, and 
 
 At the end of the previous tutorial, your template had the following JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 
 This template works well for deploying storage accounts, but you might want to add more resources to it. You can export a template from an existing resource to quickly get the JSON for that resource.
 
@@ -29,7 +30,7 @@ This template works well for deploying storage accounts, but you might want to a
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource**.
-1. In **Search the Marketplace**, enter **App Service plan**, and then select **App Service plan**.  Don’t select **App Service plan (classic)**
+1. In **Search the Marketplace**, enter **App Service plan**, and then select **App Service plan**.  Don't select **App Service plan (classic)**
 1. Select **Create**.
 1. Enter:
 
@@ -56,7 +57,7 @@ This template works well for deploying storage accounts, but you might want to a
 
    The export template feature takes the current state of a resource and generates a template to deploy it. Exporting a template can be a helpful way of quickly getting the JSON you need to deploy a resource.
 
-1. Copy the **Microsoft.Web/serverfarms** definition and the parameter definition to your template.
+1. Look at the **Microsoft.Web/serverfarms** definition and the parameter definition in the exported template. You don't need to copy these sections. You can just use this exported template as an example of how you want to add this resource to your template.
 
     ![Resource Manager template export template exported template](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
@@ -67,11 +68,11 @@ This template works well for deploying storage accounts, but you might want to a
 
 The exported template gives you most of the JSON you need, but you need to customize it for your template. Pay particular attention to differences in parameters and variables between your template and the exported template. Obviously, the export process doesn't know the parameters and variables that you've already defined in your template.
 
-The following example highlights the additions to your template. It contains the exported code plus some changes. First, it changes the name of the parameter to match your naming convention. Second, it uses your location parameter for the location of the app service plan. Third, it removes the **name** inside the **properties** object because this value is redundant with the **name** property at the resource level.
+The following example highlights the additions to your template. It contains the exported code plus some changes. First, it changes the name of the parameter to match your naming convention. Second, it uses your location parameter for the location of the app service plan. Third, it removes some of the properties where the default value is fine.
 
 Copy the whole file and replace your template with its contents.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json" range="1-77" highlight="28-31,50-69":::
 
 ## Deploy template
 
@@ -92,8 +93,10 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addappserviceplan \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -101,6 +104,9 @@ az group deployment create \
 ```
 
 ---
+
+> [!NOTE]
+> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
 
 ## Verify deployment
 

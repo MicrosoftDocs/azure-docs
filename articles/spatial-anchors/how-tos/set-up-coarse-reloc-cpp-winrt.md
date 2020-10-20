@@ -1,6 +1,6 @@
 ---
 title: Coarse relocalization in C++/WinRT
-description: In-depth explanation of how to create and locate anchors using on-device sensors in C++/WinRT.
+description: In-depth explanation of how to create and locate anchors using coarse relocalization in C++/WinRT.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -10,7 +10,7 @@ ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
-# How to create and locate anchors using on-device sensors in C++/WinRT
+# How to create and locate anchors using coarse relocalization in C++/WinRT
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
@@ -26,7 +26,7 @@ Azure Spatial Anchors can associate on-device, positioning sensor data with the 
 
 To complete this guide, make sure you have:
 
-- Basic knowledge on C++ and the <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">Windows Runtime APIs</a>.
+- Basic knowledge on C++ and the <a href="/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">Windows Runtime APIs</a>.
 - Read through the [Azure Spatial Anchors overview](../overview.md).
 - Completed one of the [5-minute Quickstarts](../index.yml).
 - Read through the [Create and locate anchors how-to](../create-locate-anchors-overview.md).

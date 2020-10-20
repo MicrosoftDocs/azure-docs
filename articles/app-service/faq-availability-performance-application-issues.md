@@ -28,22 +28,22 @@ Multiple factors might contribute to slow app performance. For detailed troubles
 
 ## How do I troubleshoot a high CPU-consumption scenario?
 
-In some high CPU-consumption scenarios, your app might truly require more computing resources. In that case, consider scaling to a higher service tier so the application gets all the resources it needs. Other times, high CPU consumption might be caused by a bad loop or by a coding practice. Getting insight into what's triggering increased CPU consumption is a two-part process. First, create a process dump, and then analyze the process dump. For more information, see [Capture and analyze a dump file for high CPU consumption for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+In some high CPU-consumption scenarios, your app might truly require more computing resources. In that case, consider scaling to a higher service tier so the application gets all the resources it needs. Other times, high CPU consumption might be caused by a bad loop or by a coding practice. Getting insight into what's triggering increased CPU consumption is a two-part process. First, create a process dump, and then analyze the process dump. For more information, see [Capture and analyze a dump file for high CPU consumption for Web Apps](/archive/blogs/asiatech/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app).
 
 ## How do I troubleshoot a high memory-consumption scenario?
 
-In some high memory-consumption scenarios, your app might truly require more computing resources. In that case, consider scaling to a higher service tier so the application gets all the resources it needs. Other times, a bug in the code might cause a memory leak. A coding practice also might increase memory consumption. Getting insight into what's triggering high memory consumption is a two-part process. First, create a process dump, and then analyze the process dump. Crash Diagnoser from the Azure Site Extension Gallery can efficiently perform both these steps. For more information, see [Capture and analyze a dump file for intermittent high memory for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+In some high memory-consumption scenarios, your app might truly require more computing resources. In that case, consider scaling to a higher service tier so the application gets all the resources it needs. Other times, a bug in the code might cause a memory leak. A coding practice also might increase memory consumption. Getting insight into what's triggering high memory consumption is a two-part process. First, create a process dump, and then analyze the process dump. Crash Diagnoser from the Azure Site Extension Gallery can efficiently perform both these steps. For more information, see [Capture and analyze a dump file for intermittent high memory for Web Apps](/archive/blogs/asiatech/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app).
 
 ## How do I automate App Service web apps by using PowerShell?
 
-You can use PowerShell cmdlets to manage and maintain App Service web apps. In our blog post [Automate web apps hosted in Azure App Service by using PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), we describe how to use Azure Resource Manager-based PowerShell cmdlets to automate common tasks. The blog post also has sample code for various web apps management tasks. 
+You can use PowerShell cmdlets to manage and maintain App Service web apps. In our blog post [Automate web apps hosted in Azure App Service by using PowerShell](/archive/blogs/puneetgupta/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way), we describe how to use Azure Resource Manager-based PowerShell cmdlets to automate common tasks. The blog post also has sample code for various web apps management tasks. 
 For descriptions and syntax for all App Service web apps cmdlets, see [Az.Websites](/powershell/module/az.websites).
 
 ## How do I view my web app's event logs?
 
 To view your web app's event logs:
 
-1. Sign in to your [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Sign in to your **Kudu website** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. In the menu, select **Debug Console** > **CMD**.
 3. Select the **LogFiles** folder.
 4. To view event logs, select the pencil icon next to **eventlog.xml**.
@@ -53,7 +53,7 @@ To view your web app's event logs:
 
 To capture a user-mode memory dump of your web app:
 
-1. Sign in to your [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Sign in to your **Kudu website** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. Select the **Process Explorer** menu.
 3. Right-click the **w3wp.exe** process or your WebJob process.
 4. Select **Download Memory Dump** > **Full Dump**.
@@ -66,7 +66,7 @@ You have two options for viewing process-level information for your web app:
     1. Open the **Process Explorer** for the web app.
     2. To see the details, select the **w3wp.exe** process.
 *   In the Kudu console:
-    1. Sign in to your [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
+    1. Sign in to your **Kudu website** (`https://*yourwebsitename*.scm.azurewebsites.net`).
     2. Select the **Process Explorer** menu.
     3. For the **w3wp.exe** process, select **Properties**.
 
@@ -78,19 +78,20 @@ Three conditions can cause this error:
 * The web app has been stopped in the portal.
 * The web app has reached a resource quota limit that might apply to a Free or Shared scale service plan.
 
-To see what is causing the error and to resolve the issue, follow the steps in [Web Apps: "Error 403 – This web app is stopped"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
+To see what is causing the error and to resolve the issue, follow the steps in [Web Apps: "Error 403 – This web app is stopped"](/archive/blogs/waws/azure-web-apps-error-403-this-web-app-is-stopped).
 
 ## Where can I learn more about quotas and limits for various App Service plans?
 
-For information about quotas and limits, see [App Service limits](../azure-subscription-service-limits.md#app-service-limits). 
+For information about quotas and limits, see [App Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
 
 ## How do I decrease the response time for the first request after idle time?
 
 By default, web apps are unloaded if they are idle for a set period of time. This way, the system can conserve resources. The downside is that the response to the first request after the web app is unloaded is longer, to allow the web app to load and start serving responses. In Basic and Standard service plans, you can turn on the **Always On** setting to keep the app always loaded. This eliminates longer load times after the app is idle. To change the **Always On** setting:
 
 1. In the Azure portal, go to your web app.
-2. Select **Application settings**.
-3. For **Always On**, select **On**.
+2. Select **Configuration**
+3. Select **General settings**.
+4. For **Always On**, select **On**.
 
 ## How do I turn on failed request tracing?
 
@@ -163,7 +164,7 @@ WebJobs is designed for background processing. You can do as much background pro
 
 A known issue with an earlier [Kestrel version](https://github.com/aspnet/KestrelHttpServer/issues/1182) might cause an ASP.NET Core 1.0 app that's hosted in App Service to intermittently stop responding. You also might see this message: "The specified CGI Application encountered an error and the server terminated the process."
 
-This issue is fixed in Kestrel version 1.0.2. This version is included in the ASP.NET Core 1.0.3 update. To resolve this issue, make sure you update your app dependencies to use Kestrel 1.0.2. Alternatively, you can use one of two workarounds that are described in the blog post [ASP.NET Core 1.0 slow perf issues in App Service web apps](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
+This issue is fixed in Kestrel version 1.0.2. This version is included in the ASP.NET Core 1.0.3 update. To resolve this issue, make sure you update your app dependencies to use Kestrel 1.0.2. Alternatively, you can use one of two workarounds that are described in the blog post [ASP.NET Core 1.0 slow perf issues in App Service web apps](/archive/blogs/waws/asp-net-core-slow-perf-issues-on-azure-websites).
 
 
 ## I can't find my log files in the file structure of my web app. How can I find them?
@@ -184,4 +185,4 @@ For more information about outbound connections in your web app, see the blog po
 
 ## How do I use Visual Studio to remote debug my App Service web app?
 
-For a detailed walkthrough that shows you how to debug your web app by using Visual Studio, see [Remote debug your App Service web app](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).
+For a detailed walkthrough that shows you how to debug your web app by using Visual Studio, see [Remote debug your App Service web app](/archive/blogs/benjaminperkins/remote-debug-your-azure-app-service-web-app).

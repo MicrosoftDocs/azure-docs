@@ -8,25 +8,30 @@
     href: overview.md
   - name: Compare messaging services
     href: compare-messaging-services.md
+  - name: Release notes
+    href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Storage events
     items:
-    - name: Azure CLI
-      href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: PowerShell
-      href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Portal
       href: blob-event-quickstart-portal.md
+    - name: Azure CLI
+      href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Azure PowerShell
+      href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: ARM template
+      displayName: Resource Manager
+      href: blob-event-quickstart-template.md
   - name: Custom events
     items:
+    - name: Portal
+      href: custom-event-quickstart-portal.md
     - name: Azure CLI
       href: custom-event-quickstart.md
     - name: PowerShell
       href: custom-event-quickstart-powershell.md
-    - name: Portal
-      href: custom-event-quickstart-portal.md
   - name: Azure Functions as event handler
     href: custom-event-to-function.md
   - name: Queue storage as event handler
@@ -35,6 +40,8 @@
     href: custom-event-to-eventhub.md
   - name: Container Registry events
     href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  - name: Handle Azure Communication Services events
+    href: ../communication-services/quickstarts/telephony-sms/handle-sms-events.md?toc=%2fazure%2fevent-grid%2ftoc.json  
 - name: Tutorials
   items:
   - name: Email when VM changes
@@ -43,7 +50,7 @@
     href: resize-images-on-storage-blob-upload-event.md
   - name: Trigger Automation runbook
     href: ensure-tags-exists-on-new-virtual-machines.md
-  - name: Email when IoT Hub device added
+  - name: Email when IoT Hub device disconnects
     href: publish-iot-hub-events-to-logic-apps.md
   - name: Respond to Service Bus events
     href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
@@ -88,39 +95,133 @@
   - name: Resource Manager templates
     href: template-samples.md
   - name: Code samples
-    href: https://docs.microsoft.com/samples/browse/?term=Event%20Grid
+    href: /samples/browse/?term=Event+Grid
 - name: Concepts
-  items:
-  - name: Event Grid concepts
+  items:    
+  - name: Event Grid terminology
     href: concepts.md
-  - name: Security and authentication
-    href: security-authentication.md
-  - name: Delivery and retry
-    href: delivery-and-retry.md
-  - name: Event filtering
-    href: event-filtering.md
+  - name: Custom topics
+    href: custom-topics.md
+  - name: System topics
+    items: 
+    - name: Overview of system topics
+      href: system-topics.md
+    - name: Event sources
+      items:
+      - name: Azure App Configuration
+        href: event-schema-app-configuration.md
+      - name: Azure App Service
+        href: event-schema-app-service.md
+      - name: Azure Blob Storage
+        href: event-schema-blob-storage.md
+      - name: Azure Communication Services
+        href: event-schema-communication-services.md
+      - name: Azure Container Registry
+        href: event-schema-container-registry.md
+      - name: Azure Event Hubs
+        href: event-schema-event-hubs.md
+      - name: Azure IoT Hub
+        href: event-schema-iot-hub.md
+      - name: Azure Key Vault
+        href: event-schema-key-vault.md
+      - name: Azure Machine Learning
+        href: event-schema-machine-learning.md
+      - name: Azure Maps
+        href: event-schema-azure-maps.md
+      - name: Azure Media Services
+        href: event-schema-media-services.md
+      - name: Azure resource groups
+        href: event-schema-resource-groups.md        
+      - name: Azure Service Bus
+        href: event-schema-service-bus.md        
+      - name: Azure SignalR
+        href: event-schema-azure-signalr.md
+      - name: Azure subscriptions
+        href: event-schema-subscriptions.md
+  - name: Partner topics
+    items:
+    - name: Overview of partner topics
+      href: partner-topics-overview.md
+    - name: Auth0
+      href: auth0-overview.md
+    - name: Become an Event Grid Partner
+      href: partner-onboarding-overview.md
   - name: Event Domains
     href: event-domains.md
-  - name: Event sources
-    href: event-sources.md
+  - name: Event schema formats
+    items:    
+    - name: Event Grid event schema
+      href: event-schema.md
+    - name: Cloud event schema
+      href: cloud-event-schema.md
   - name: Event handlers
-    href: event-handlers.md
-  - name: Geo disaster recovery
-    href: geo-disaster-recovery.md
+    href: event-handlers.md  
+    items:
+    - name: Webhooks
+      displayName: Azure Automation, Webhooks, Logic Apps
+      href: handler-webhooks.md
+    - name: Azure Functions
+      href: handler-functions.md
+    - name: Event Hubs 
+      href: handler-event-hubs.md
+    - name: Service Bus
+      href: handler-service-bus.md
+    - name: Relay hybrid connections
+      href: handler-relay-hybrid-connections.md
+    - name: Storage queues
+      href: handler-storage-queues.md
+  - name: Event delivery
+    items: 
+    - name: Event filtering
+      href: event-filtering.md
+    - name: Delivery and retry
+      href: delivery-and-retry.md
+    - name: Webhook event delivery
+      href: webhook-event-delivery.md
+  - name: Disaster recovery
+    items:
+    - name: Geo disaster recovery
+      href: geo-disaster-recovery.md      
+  - name: Security 
+    items: 
+    - name: Security baseline
+      href: security-baseline.md
+    - name: Authenticate event delivery to event handlers
+      href: security-authentication.md
+    - name: Authenticate publishing clients
+      href: security-authenticate-publishing-clients.md
+    - name: Authorize access to Event Grid resources 
+      href: security-authorization.md
+    - name: Network security
+      href: network-security.md
+  - name: Monitor and troubleshoot
+    items:
+    - name: Diagnostic logs
+      href: diagnostic-logs.md
+    - name: Metrics
+      href: metrics.md
 - name: How-to guides
   items:
+  - name: Create, view, and manage system topics
+    items:
+    - name: Azure portal
+      href: create-view-manage-system-topics.md
+    - name: Azure CLI
+      href: create-view-manage-system-topics-cli.md
+    - name: Azure Resource Manager template
+      href: create-view-manage-system-topics-arm.md      
+  - name: Get access keys for topics or domains
+    href: get-access-keys.md
   - name: Post to custom topic
     href: post-to-custom-topic.md
+  - name: Subscribe to Auth0 events
+    href: auth0-how-to.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
-  - name: Secure WebHook with AAD
-    href: secure-webhook-delivery.md
-  - name: Dead letter and retry
+  - name: Set dead-letter location and retry policy
     href: manage-event-delivery.md
   - name: Filter events
     href: how-to-filter-events.md
-  - name: Monitor event delivery
-    href: monitor-event-delivery.md
   - name: Query event subscriptions
     href: query-event-subscriptions.md
   - name: Subscribe through portal
@@ -133,8 +234,42 @@
     href: how-to-event-domains.md
   - name: Implement client-side failover
     href: custom-disaster-recovery.md
-  - name: Troubleshoot errors  
-    href: troubleshoot-errors.md    
+  - name: Track asynchronous REST operations
+    href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  - name: Move
+    items:
+    - name: Move system topics across regions
+      href: move-system-topics-across-regions.md
+    - name: Move custom topics across regions
+      href: move-custom-topics-across-regions.md
+    - name: Move domains across regions
+      href: move-domains-across-regions.md
+    - name: Move partner namespaces across regions
+      href: move-partner-namespaces-across-regions.md
+  - name: Secure
+    items:
+    - name: Configure private endpoints
+      href: configure-private-endpoints.md
+    - name: Configure IP firewall
+      href: configure-firewall.md
+    - name: Secure Webhook with Azure Active Directory
+      href: secure-webhook-delivery.md
+    - name: Event delivery with managed identity
+      href: managed-service-identity.md
+  - name: Troubleshoot
+    items: 
+    - name: Enable diagnostic logs
+      href: enable-diagnostic-logs-topic.md
+    - name: Troubleshoot errors
+      href: troubleshoot-errors.md
+    - name: Troubleshoot network connectivity issues
+      href: troubleshoot-network-connectivity.md
+    - name: Troubleshoot subscription validation
+      href: troubleshoot-subscription-validation.md
+    - name: View metrics
+      href: monitor-event-delivery.md
+    - name: Create alerts
+      href: set-alerts.md      
 - name: Reference
   items:
   - name: Azure CLI
@@ -150,38 +285,11 @@
   - name: Python
     href: /python/api/overview/azure/event-grid
   - name: Node.js
-    href: /javascript/api/overview/azure/eventgrid
+    href: /javascript/api/overview/azure/eventgrid  
+  - name: Quotas and limits
+    href: quotas-limits.md
   - name: Subscription schema
     href: subscription-creation-schema.md
-  - name: Event schema
-    href: event-schema.md
-    items:
-    - name: Azure subscriptions
-      href: event-schema-subscriptions.md
-    - name: Blob storage
-      href: event-schema-blob-storage.md
-    - name: Container Registry
-      href: event-schema-container-registry.md
-    - name: Event Hubs
-      href: event-schema-event-hubs.md
-    - name: IoT Hub
-      href: event-schema-iot-hub.md
-    - name: Key Vault
-      href: event-schema-key-vault.md
-    - name: Media Services
-      href: ../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json
-    - name: Resource groups
-      href: event-schema-resource-groups.md
-    - name: Service Bus
-      href: event-schema-service-bus.md
-    - name: Azure Maps
-      href: event-schema-azure-maps.md
-    - name: App Configuration
-      href: event-schema-app-configuration.md
-    - name: Azure SignalR
-      href: event-schema-azure-signalr.md
-    - name: Azure Machine Learning
-      href: event-schema-machine-learning.md
   - name: Template resources
     items:
     - name: Event subscriptions
@@ -190,6 +298,9 @@
       href: /azure/templates/microsoft.eventgrid/topics
   - name: SDKs
     href: sdk-overview.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

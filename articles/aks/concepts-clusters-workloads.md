@@ -2,12 +2,9 @@
 title: Concepts - Kubernetes basics for Azure Kubernetes Services (AKS)
 description: Learn the basic cluster and workload components of Kubernetes and how they relate to features in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: mlearned
+
 ---
 
 # Kubernetes core concepts for Azure Kubernetes Service (AKS)
@@ -37,7 +34,7 @@ A Kubernetes cluster is divided into two components:
 
 ## Control plane
 
-When you create an AKS cluster, a control plane is automatically created and configured. This control plane is provided as a managed Azure resource abstracted from the user. There's no cost for the control plane, only the nodes that are part of the AKS cluster.
+When you create an AKS cluster, a control plane is automatically created and configured. This control plane is provided as a managed Azure resource abstracted from the user. There's no cost for the control plane, only the nodes that are part of the AKS cluster. The control plane and its resources reside only on the region where you created the cluster.
 
 The control plane includes the following core Kubernetes components:
 
@@ -48,7 +45,7 @@ The control plane includes the following core Kubernetes components:
 
 AKS provides a single-tenant control plane, with a dedicated API server, Scheduler, etc. You define the number and size of the nodes, and the Azure platform configures the secure communication between the control plane and nodes. Interaction with the control plane occurs through Kubernetes APIs, such as `kubectl` or the Kubernetes dashboard.
 
-This managed control plane means that you don't need to configure components like a highly available *etcd* store, but it also means that you can't access the control plane directly. Upgrades to Kubernetes are orchestrated through the Azure CLI or Azure portal, which upgrades the control plane and then the nodes. To troubleshoot possible issues, you can review the control plane logs through Azure Monitor logs.
+This managed control plane means you don't need to configure components like a highly available *etcd* store, but it also means you can't access the control plane directly. Upgrades to Kubernetes are orchestrated through the Azure CLI or Azure portal, which upgrades the control plane and then the nodes. To troubleshoot possible issues, you can review the control plane logs through Azure Monitor logs.
 
 If you need to configure the control plane in a particular way or need direct access to it, you can deploy your own Kubernetes cluster using [aks-engine][aks-engine].
 
@@ -64,17 +61,17 @@ To run your applications and supporting services, you need a Kubernetes *node*. 
 
 ![Azure virtual machine and supporting resources for a Kubernetes node](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
-The Azure VM size for your nodes defines how many CPUs, how much memory, and the size and type of storage available (such as high-performance SSD or regular HDD). If you anticipate a need for applications that require large amounts of CPU and memory or high-performance storage, plan the node size accordingly. You can also scale up the number of nodes in your AKS cluster to meet demand.
+The Azure VM size for your nodes defines how many CPUs, how much memory, and the size and type of storage available (such as high-performance SSD or regular HDD). If you anticipate a need for applications that require large amounts of CPU and memory or high-performance storage, plan the node size accordingly. You can also scale out the number of nodes in your AKS cluster to meet demand.
 
-In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu Linux or Windows Server 2019. When you create an AKS cluster or scale up the number of nodes, the Azure platform creates the requested number of VMs and configures them. There's no manual configuration for you to perform. Agent nodes are billed as standard virtual machines, so any discounts you have on the VM size you're using (including [Azure reservations][reservation-discounts]) are automatically applied.
+In AKS, the VM image for the nodes in your cluster is currently based on Ubuntu Linux or Windows Server 2019. When you create an AKS cluster or scale out the number of nodes, the Azure platform creates the requested number of VMs and configures them. There's no manual configuration for you to perform. Agent nodes are billed as standard virtual machines, so any discounts you have on the VM size you're using (including [Azure reservations][reservation-discounts]) are automatically applied.
 
 If you need to use a different host OS, container runtime, or include custom packages, you can deploy your own Kubernetes cluster using [aks-engine][aks-engine]. The upstream `aks-engine` releases features and provides configuration options before they are officially supported in AKS clusters. For example, if you wish to use a container runtime other than Moby, you can use `aks-engine` to configure and deploy a Kubernetes cluster that meets your current needs.
 
 ### Resource reservations
 
-Node resources are utilized by AKS to make the node function as part of your cluster. This can create a discrepancy between your node's total resources and the resources allocatable when used in AKS. This is important to note when setting requests and limits for user deployed pods.
+Node resources are utilized by AKS to make the node function as part of your cluster. This usage can create a discrepancy between your node's total resources and the resources allocatable when used in AKS. This information is important to note when setting requests and limits for user deployed pods.
 
-To find a node's allocatable resources run:
+To find a node's allocatable resources, run:
 ```kubectl
 kubectl describe node [NODE_NAME]
 
@@ -85,30 +82,30 @@ To maintain node performance and functionality, resources are reserved on each n
 >[!NOTE]
 > Using AKS add-ons such as Container Insights (OMS) will consume additional node resources.
 
-- **CPU** - reserved CPU is dependent on node type and cluster configuration which may cause less allocatable CPU due to running additional features
+- **CPU** - reserved CPU is dependent on node type and cluster configuration, which may cause less allocatable CPU due to running additional features
 
-| CPU cores on host | 1	| 2	| 4	| 8	| 16 | 32|64|
+| CPU cores on host | 1    | 2    | 4    | 8    | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
 |Kube-reserved (millicores)|60|100|140|180|260|420|740|
 
-- **Memory** - reserved memory includes the sum of two values
+- **Memory** - memory utilized by AKS includes the sum of two values.
 
-1. The kubelet daemon is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, this daemon has the following eviction rule: memory.available<750Mi, which means a node must always have at least 750 Mi allocatable at all times.  When a host is below that threshold of available memory, the kubelet will terminate one of the running pods to free memory on the host machine and protect it.
+1. The kubelet daemon is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, this daemon has the following eviction rule: *memory.available<750Mi*, which means a node must always have at least 750 Mi allocatable at all times.  When a host is below that threshold of available memory, the kubelet will terminate one of the running pods to free memory on the host machine and protect it. This action is triggered once available memory decreases beyond the 750Mi threshold.
 
-2. The second value is a progressive rate of memory reserved for the kubelet daemon to properly function (kube-reserved).
+2. The second value is a regressive rate of memory reservations for the kubelet daemon to properly function (kube-reserved).
     - 25% of the first 4 GB of memory
     - 20% of the next 4 GB of memory (up to 8 GB)
     - 10% of the next 8 GB of memory (up to 16 GB)
     - 6% of the next 112 GB of memory (up to 128 GB)
     - 2% of any memory above 128 GB
 
-As a result of these two defined rules imposed to keep Kubernetes and agent nodes healthy, the amount of allocatable CPU and memory will appear less than the node itself could offer. The resource reservations defined above cannot be changed.
+The above rules for memory and CPU allocation are used to keep agent nodes healthy, including some hosting system pods that are critical to cluster health. These allocation rules also cause the node to report less allocatable memory and CPU than it normally would if it were not part of a Kubernetes cluster. The above resource reservations can't be changed.
 
-For example, if a node offers 7 GB, it will report 34% of memory not allocatable:
+For example, if a node offers 7 GB, it will report 34% of memory not allocatable including the 750Mi hard eviction threshold.
 
-`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+`0.75 + (0.25*4) + (0.20*3) = 0.75GB + 1GB + 0.6GB = 2.35GB / 7GB = 33.57% reserved`
 
-In addition to reservations for Kubernetes, the underlying node OS also reserves an amount of CPU and memory resources to maintain OS functions.
+In addition to reservations for Kubernetes itself, the underlying node OS also reserves an amount of CPU and memory resources to maintain OS functions.
 
 For associated best practices, see [Best practices for basic scheduler features in AKS][operator-best-practices-scheduler].
 
@@ -117,7 +114,7 @@ For associated best practices, see [Best practices for basic scheduler features 
 Nodes of the same configuration are grouped together into *node pools*. A Kubernetes cluster contains one or more node pools. The initial number of nodes and size are defined when you create an AKS cluster, which creates a *default node pool*. This default node pool in AKS contains the underlying VMs that run your agent nodes.
 
 > [!NOTE]
-> To ensure your cluster to operate reliably, you should run at least 2 (two) nodes in the default node pool.
+> To ensure your cluster operates reliably, you should run at least 2 (two) nodes in the default node pool.
 
 When you scale or upgrade an AKS cluster, the action is performed against the default node pool. You can also choose to scale or upgrade a specific node pool. For upgrade operations, running containers are scheduled on other nodes in the node pool until all the nodes are successfully upgraded.
 
@@ -125,7 +122,7 @@ For more information about how to use multiple node pools in AKS, see [Create an
 
 ### Node selectors
 
-In an AKS cluster that contains multiple node pools, you may need to tell the Kubernetes Scheduler which node pool to use for a given resource. For example, ingress controllers shouldn't run on Windows Server nodes (currently in preview in AKS). Node selectors let you define various parameters, such as the node OS, to control where a pod should be scheduled.
+In an AKS cluster that contains multiple node pools, you may need to tell the Kubernetes Scheduler which node pool to use for a given resource. For example, ingress controllers shouldn't run on Windows Server nodes. Node selectors let you define various parameters, such as the node OS, to control where a pod should be scheduled.
 
 The following basic example schedules an NGINX instance on a Linux node using the node selector *"beta.kubernetes.io/os": linux*:
 
@@ -152,7 +149,7 @@ When you create a pod, you can define *resource requests* to request a certain a
 
 For more information, see [Kubernetes pods][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
 
-A pod is a logical resource, but the container(s) are where the application workloads run. Pods are typically ephemeral, disposable resources, and individually scheduled pods miss some of the high availability and redundancy features Kubernetes provides. Instead, pods are usually deployed and managed by Kubernetes *Controllers*, such as the Deployment Controller.
+A pod is a logical resource, but the container(s) are where the application workloads run. Pods are typically ephemeral, disposable resources, and individually scheduled pods miss some of the high availability and redundancy features Kubernetes provides. Instead, pods are deployed and managed by Kubernetes *Controllers*, such as the Deployment Controller.
 
 ## Deployments and YAML manifests
 
@@ -162,9 +159,9 @@ You can update deployments to change the configuration of pods, container image 
 
 Most stateless applications in AKS should use the deployment model rather than scheduling individual pods. Kubernetes can monitor the health and status of deployments to ensure that the required number of replicas run within the cluster. When you only schedule individual pods, the pods aren't restarted if they encounter a problem, and aren't rescheduled on healthy nodes if their current node encounters a problem.
 
-If an application requires a quorum of instances to always be available for management decisions to be made, you don't want an update process to disrupt that ability. *Pod Disruption Budgets* can be used to define how many replicas in a deployment can be taken down during an update or node upgrade. For example, if you have *5* replicas in your deployment, you can define a pod disruption of *4* to only permit one replica from being deleted/rescheduled at a time. As with pod resource limits, a best practice is to define pod disruption budgets on applications that require a minimum number of replicas to always be present.
+If an application requires a quorum of instances to always be available for management decisions to be made, you don't want an update process to disrupt that ability. *Pod Disruption Budgets* can be used to define how many replicas in a deployment can be taken down during an update or node upgrade. For example, if you have *five (5)* replicas in your deployment, you can define a pod disruption of *4* to only permit one replica from being deleted/rescheduled at a time. As with pod resource limits, a best practice is to define pod disruption budgets on applications that require a minimum number of replicas to always be present.
 
-Deployments are typically created and managed with `kubectl create` or `kubectl apply`. To create a deployment, you define a manifest file in the YAML (YAML Ain't Markup Language) format. The following example creates a basic deployment of the NGINX web server. The deployment specifies *3* replicas to be created, and that port *80* be open on the container. Resource requests and limits are also defined for CPU and memory.
+Deployments are typically created and managed with `kubectl create` or `kubectl apply`. To create a deployment, you define a manifest file in the YAML (YAML Ain't Markup Language) format. The following example creates a basic deployment of the NGINX web server. The deployment specifies *three (3)* replicas to be created, and requires port *80* to be open on the container. Resource requests and limits are also defined for CPU and memory.
 
 ```yaml
 apiVersion: apps/v1
@@ -203,11 +200,7 @@ For more information, see [Kubernetes deployments][kubernetes-deployments].
 
 A common approach to managing applications in Kubernetes is with [Helm][helm]. You can build and use existing public Helm *charts* that contain a packaged version of application code and Kubernetes YAML manifests to deploy resources. These Helm charts can be stored locally, or often in a remote repository, such as an [Azure Container Registry Helm chart repo][acr-helm].
 
-To use Helm, a server component called *Tiller* is installed in your Kubernetes cluster. The Tiller manages the installation of charts within the cluster. The Helm client itself is installed locally on your computer, or can be used within the [Azure Cloud Shell][azure-cloud-shell]. You can search for or create Helm charts with the client, and then install them to your Kubernetes cluster.
-
-![Helm includes a client component and a server-side Tiller component that creates resources inside the Kubernetes cluster](media/concepts-clusters-workloads/use-helm.png)
-
-For more information, see [Install applications with Helm in Azure Kubernetes Service (AKS)][aks-helm].
+To use Helm, install the Helm client on your computer, or use the Helm client in the [Azure Cloud Shell][azure-cloud-shell]. You can search for or create Helm charts with the client, and then install them to your Kubernetes cluster. For more information, see [Install existing applications with Helm in AKS][aks-helm].
 
 ## StatefulSets and DaemonSets
 
@@ -220,7 +213,7 @@ There are two Kubernetes resources that let you manage these types of applicatio
 
 ### StatefulSets
 
-Modern application development often aims for stateless applications, but *StatefulSets* can be used for stateful applications, such as applications that include database components. A StatefulSet is similar to a deployment in that one or more identical pods are created and managed. Replicas in a StatefulSet follow a graceful, sequential approach to deployment, scale, upgrades, and terminations. With a StatefulSet, the naming convention, network names, and storage persist as replicas are rescheduled.
+Modern application development often aims for stateless applications, but *StatefulSets* can be used for stateful applications, such as applications that include database components. A StatefulSet is similar to a deployment in that one or more identical pods are created and managed. Replicas in a StatefulSet follow a graceful, sequential approach to deployment, scale, upgrades, and terminations. With a StatefulSet (as replicas are rescheduled) the naming convention, network names, and storage persist.
 
 You define the application in YAML format using `kind: StatefulSet`, and the StatefulSet Controller then handles the deployment and management of the required replicas. Data is written to persistent storage, provided by Azure Managed Disks or Azure Files. With StatefulSets, the underlying persistent storage remains even when the StatefulSet is deleted.
 
@@ -257,7 +250,7 @@ For more information, see [Kubernetes namespaces][kubernetes-namespaces].
 
 ## Next steps
 
-This article covers some of the core Kubernetes components and how they apply to AKS clusters. For additional information on core Kubernetes and AKS concepts, see the following articles:
+This article covers some of the core Kubernetes components and how they apply to AKS clusters. For more information on core Kubernetes and AKS concepts, see the following articles:
 
 - [Kubernetes / AKS access and identity][aks-concepts-identity]
 - [Kubernetes / AKS security][aks-concepts-security]
@@ -288,4 +281,4 @@ This article covers some of the core Kubernetes components and how they apply to
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
-[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
+[reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md

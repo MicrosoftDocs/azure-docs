@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
@@ -101,17 +101,17 @@ Sync error reports within Azure AD Connect Health for sync are updated every 30 
 >
 
 #### Related Articles
-* [Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/kb/2647098)
+* [Duplicate or invalid attributes prevent directory synchronization in Microsoft 365](https://support.microsoft.com/kb/2647098)
 
 ### ObjectTypeMismatch
 #### Description
 When Azure AD attempts to soft match two objects, it is possible that two objects of different "object type" (such as User, Group, Contact etc.) have the same values for the attributes used to perform the soft match. As duplication of these attributes is not permitted in Azure AD, the operation can result in "ObjectTypeMismatch" synchronization error.
 
 #### Example Scenarios for ObjectTypeMismatch error
-* A mail enabled security group is created in Office 365. Admin adds a new user or contact in on premises AD (that's not synchronized to Azure AD yet) with the same value for the ProxyAddresses attribute as that of the Office 365 group.
+* A mail enabled security group is created in Microsoft 365. Admin adds a new user or contact in on premises AD (that's not synchronized to Azure AD yet) with the same value for the ProxyAddresses attribute as that of the Microsoft 365 group.
 
 #### Example case
-1. Admin creates a new mail enabled security group in Office 365 for the Tax department and provides an email address as tax@contoso.com. This group  is assigned the ProxyAddresses attribute value of **smtp: tax\@contoso.com**
+1. Admin creates a new mail enabled security group in Microsoft 365 for the Tax department and provides an email address as tax@contoso.com. This group  is assigned the ProxyAddresses attribute value of **smtp: tax\@contoso.com**
 2. A new user joins Contoso.com and an account is created for the user on premises with the proxyAddress as **smtp: tax\@contoso.com**
 3. When Azure AD Connect will sync the new user account, it will get the "ObjectTypeMismatch" error.
 
@@ -162,7 +162,7 @@ The most common reason for the AttributeValueMustBeUnique error is two objects w
 4. If you made the change in the on premises AD, let Azure AD Connect sync the change for the error to get fixed.
 
 #### Related Articles
--[Duplicate or invalid attributes prevent directory synchronization in Office 365](https://support.microsoft.com/kb/2647098)
+-[Duplicate or invalid attributes prevent directory synchronization in Microsoft 365](https://support.microsoft.com/kb/2647098)
 
 ## Data Validation Failures
 ### IdentityDataValidationFailed
@@ -177,7 +177,7 @@ b. The UserPrincipalName attribute does not follow the required format.
 a. Ensure that the userPrincipalName attribute has supported characters and required format.
 
 #### Related Articles
-* [Prepare to provision users through directory synchronization to Office 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+* [Prepare to provision users through directory synchronization to Microsoft 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### FederatedDomainChangeError
 #### Description
@@ -234,16 +234,16 @@ Azure AD Connect is not allowed to soft match a user object from on-premises AD 
 
 
 ### How to fix
-To resolve this issue do one of the following:
+To resolve this issue do the following:
 
- - Remove the Azure AD account (owner) from all admin roles. 
- - **Hard Delete** the Quarantined object in the cloud. 
- - The next sync cycle will take care of soft-matching the on-premises user to the cloud account (since the cloud user is now no longer a global GA). 
- - Restore the role memberships for the owner. 
+1. Remove the Azure AD account (owner) from all admin roles. 
+2. **Hard Delete** the Quarantined object in the cloud. 
+3. The next sync cycle will take care of soft-matching the on-premises user to the cloud account (since the cloud user is now no longer a global GA). 
+4. Restore the role memberships for the owner. 
 
 >[!NOTE]
 >You can assign the administrative role to the existing user object again after the soft match between the on-premises user object and the Azure AD user object has completed.
 
 ## Related links
-* [Locate Active Directory Objects in Active Directory Administrative Center](https://technet.microsoft.com/library/dd560661.aspx)
-* [How to query Azure Active Directory for an object using Azure Active Directory PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
+* [Locate Active Directory Objects in Active Directory Administrative Center](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560661(v=ws.10))
+* [How to query Azure Active Directory for an object using Azure Active Directory PowerShell](/previous-versions/azure/jj151815(v=azure.100))

@@ -36,7 +36,7 @@ Azure Machine Learning provides tools to model predictive analytics, and a fully
 
 ![Microsoft Azure machine learning overview](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
-Create features for data in an HDInsight Hadoop cluster using [Hive queries](../machine-learning/team-data-science-process/create-features-hive.md). *Feature engineering* attempts to increase the predictive power of learning algorithms by creating features from raw data that facilitate the learning process. You can run HiveQL queries from Azure Machine Learning Studio (classic), and access data processed in Hive and stored in blob storage, by using the [Import Data module](../machine-learning/studio/import-data.md).
+Create features for data in an HDInsight Hadoop cluster using [Hive queries](../machine-learning/team-data-science-process/create-features-hive.md). *Feature engineering* attempts to increase the predictive power of learning algorithms by creating features from raw data that facilitate the learning process. You can run HiveQL queries from Azure Machine Learning Studio (classic), and access data processed in Hive and stored in blob storage, by using the [Import Data module](../machine-learning/classic/import-data.md).
 
 ## Microsoft Cognitive Toolkit
 
@@ -58,5 +58,4 @@ To help advance its own work in deep learning, Microsoft  developed the free, ea
 ### Deep learning resources
 
 * [Use Microsoft Cognitive Toolkit deep learning model with Azure HDInsight Spark cluster](spark/apache-spark-microsoft-cognitive-toolkit.md)
-* [Use Caffe on Azure HDInsight Spark for distributed deep learning](spark/apache-spark-deep-learning-caffe.md)
-* [Deep Learning and AI frameworks on the Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)
+* [Deep Learning and AI frameworks on the Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-tools-deep-learning-frameworks.md)

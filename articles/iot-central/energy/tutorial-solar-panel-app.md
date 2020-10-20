@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create a solar penal monitoring app with IoT Central'
+title: 'Tutorial: Create a solar panel monitoring app with IoT Central'
 description: 'Tutorial: Learn how to create a solar panel application using Azure IoT Central application templates.'
 author: op-ravi
 ms.author: omravi
@@ -12,7 +12,7 @@ manager: abjork
 
 # Tutorial: Create and walk-through the solar panel monitoring app template 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 This tutorial guides you through the process of creating the solar panel monitoring application, which includes a sample device model with simulated data. In this tutorial, you'll learn:
 
@@ -23,7 +23,7 @@ This tutorial guides you through the process of creating the solar panel monitor
 > * Clean up resources
 
 
-If you don’t have a subscription, [create a free trial account](https://azure.microsoft.com/free)
+If you don't have a subscription, [create a free trial account](https://azure.microsoft.com/free)
 
 ## Prerequisites
 - None
@@ -44,16 +44,17 @@ You can create this application in three simple steps:
 3. **Create app** will open **New application** form. Fill in the requested details as shown in the figure below:
     * **Application name**: Pick a name for your IoT Central application. 
     * **URL**: Pick an IoT Central URL, the platform will verify its uniqueness.
-    * **7-day free trial**: If you already have an Azure subscription, default setting is recommended. If you don’t have an Azure subscription, start with free trial.
+    * **7-day free trial**: If you already have an Azure subscription, default setting is recommended. If you don't have an Azure subscription, start with free trial.
     * **Billing Info**: The application itself is free. The Directory, Azure subscription, and Region details are required to provision the resources for your app.
     * Click **Create** button at the bottom of the page and your app will be created in a minute or so.
-        > [!div class="mx-imgBorder"]
-        > ![New application form](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+        ![New application form](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+        
+        ![New application form billing info](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
 
 
 ### Verify the application and simulated data
 
-The newly created solar panel app is your app and you can modify it anytime. Let’s ensure the app is deployed and working as expected before you modify it.
+The newly created solar panel app is your app and you can modify it anytime. Let's ensure the app is deployed and working as expected before you modify it.
 
 To verify the app creation and data simulation, go to the **Dashboard**. If you can see the tiles with some data, then your app deployment was successful. The data simulation may take a few minutes to generate the data, so give it 1-2 minutes. 
 
@@ -99,9 +100,11 @@ If you decide to not continue using this application, delete your application wi
     > [!div class="mx-imgBorder"]
     > ![Delete application](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
-
 ## Next steps
-* Learn about solar panel app architecture refer to [the concept article](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
-* Create solar panel application templates for free: [solar panel app](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/)
-
+* Learn about solar panel app architecture refer to 
+> [!div class="nextstepaction"]
+> [the concept article](./concept-iot-central-solar-panel-app.md)
+* Create solar panel application templates for free: 
+[solar panel app](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
+* Learn more about IoT Central, see 
+[IoT Central overview](../index.yml)

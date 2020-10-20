@@ -1,21 +1,13 @@
 ---
 title: Azure Service Bus messaging - queues, topics, and subscriptions
-description: Overview of Service Bus messaging entities.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
+description: This article provides an overview of Azure Service Bus messaging entities (queue, topics, and subscriptions).
 ms.topic: article
-ms.date: 09/18/2018
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # Service Bus queues, topics, and subscriptions
 
-Microsoft Azure Service Bus supports a set of cloud-based, message-oriented middleware technologies including reliable message queuing and durable publish/subscribe messaging. These "brokered" messaging capabilities can be thought of as decoupled messaging features that support publish-subscribe, temporal decoupling, and load balancing scenarios using the Service Bus messaging workload. Decoupled communication has many advantages; for example, clients and servers can connect as needed and perform their operations in an asynchronous fashion.
+Microsoft Azure Service Bus supports a set of cloud-based, message-oriented middleware technologies including reliable message queuing and durable publish/subscribe messaging. These "brokered" messaging capabilities can be thought of as decoupled messaging features that support publish-subscribe, temporal decoupling, and load-balancing scenarios using the Service Bus messaging workload. Decoupled communication has many advantages; for example, clients and servers can connect as needed and perform their operations in an asynchronous fashion.
 
 The messaging entities that form the core of the messaging capabilities in Service Bus are queues, topics and subscriptions, and rules/actions.
 
@@ -37,7 +29,7 @@ For a working sample, see the [BasicSendReceiveUsingQueueClient sample](https://
 
 ### Receive modes
 
-You can specify two different modes in which Service Bus receives messages: *ReceiveAndDelete* or *PeekLock*. In the [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) mode, the receive operation is single-shot; that is, when Service Bus receives the request, it marks the message as being consumed and returns it to the application. **ReceiveAndDelete** mode is the simplest model and works best for scenarios in which the application can tolerate not processing a message if a failure occurs. To understand this scenario, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus marks the message as being consumed, when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
+You can specify two different modes in which Service Bus receives messages: *ReceiveAndDelete* or *PeekLock*. In the [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) mode, the receive operation is single-shot; that is, when Service Bus receives the request from the consumer, it marks the message as being consumed and returns it to the consumer application. **ReceiveAndDelete** mode is the simplest model and works best for scenarios in which the application can tolerate not processing a message if a failure occurs. To understand this scenario, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus marks the message as being consumed, when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
 
 In [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) mode, the receive operation becomes two-stage, which makes it possible to support applications that cannot tolerate missing messages. When Service Bus receives the request, it finds the next message to be consumed, locks it to prevent other consumers from receiving it, and then returns it to the application. After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by calling [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) on the received message. When Service Bus sees the **CompleteAsync** call, it marks the message as being consumed.
 
@@ -64,6 +56,19 @@ In many scenarios, messages that have specific characteristics must be processed
 For a full working example, see the [TopicSubscriptionWithRuleOperationsSample sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) on GitHub.
 
 For more information about possible filter values, see the documentation for the [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) and [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) classes.
+
+## Java message service (JMS) 2.0 entities (Preview)
+
+The below entities are accessible through the Java message service (JMS) 2.0 API.
+
+  * Temporary queues
+  * Temporary topics
+  * Shared durable subscriptions
+  * Unshared durable subscriptions
+  * Shared non-durable subscriptions
+  * Unshared non-durable subscriptions
+
+Learn more about the [JMS 2.0 entities](java-message-service-20-entities.md) and about how to [utilize them](how-to-use-java-message-service-20.md).
 
 ## Next steps
 

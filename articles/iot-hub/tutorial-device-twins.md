@@ -8,7 +8,7 @@ ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.custom: mvc
+ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js]
 #Customer intent: As a developer, I want to be able to configure my devices from the cloud and receive status and compliance data from my devices.
 ---
 
@@ -31,7 +31,7 @@ In this tutorial, you perform the following tasks:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -47,6 +47,8 @@ node --version
 
 Download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
 
+Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
 ## Set up Azure resources
 
 To complete this tutorial, your Azure subscription must contain an IoT hub with a device added to the device identity registry. The entry in the device identity registry enables the simulated device you run in this tutorial to connect to your hub.
@@ -58,7 +60,7 @@ hubname=tutorial-iot-hub
 location=centralus
 
 # Install the IoT extension if it's not already installed:
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Create a resource group:
 az group create --name tutorial-iot-hub-rg --location $location
@@ -180,11 +182,11 @@ node ServiceClient.js "{your service connection string}"
 
 The following screenshot shows the output from the simulated device application and highlights how it handles an update to the **maxTemperature** desired property. You can see how both the top-level handler and the climate component handlers run:
 
-![Simulated device](./media/tutorial-device-twins/SimulatedDevice1.png)
+![Screenshot that shows how both the top-level handler and the climate component handlers run.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
 The following screenshot shows the output from the back-end application and highlights how it sends an update to the **maxTemperature** desired property:
 
-![Back-end application](./media/tutorial-device-twins/BackEnd1.png)
+![Screenshot that shows the output from the back-end application and highlights how it sends an update.](./media/tutorial-device-twins/BackEnd1.png)
 
 ## Receive state information
 

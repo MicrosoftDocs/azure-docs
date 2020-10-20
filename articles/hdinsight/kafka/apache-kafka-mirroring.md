@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ---
@@ -81,36 +81,41 @@ This architecture features two clusters in different resource groups and virtual
 
         ![HDInsight Kafka add vnet peering](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
-1. Configure IP advertising:
-    1. Go to the Ambari dashboard for the primary cluster: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
-    1. Select **Services** > **Kafka**. CliSelectck the **Configs** tab.
-    1. Add the following config lines to the bottom **kafka-env template** section. Select **Save**.
+### Configure IP advertising
 
-        ```
-        # Configure Kafka to advertise IP addresses instead of FQDN
-        IP_ADDRESS=$(hostname -i)
-        echo advertised.listeners=$IP_ADDRESS
-        sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
-        echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
-        ```
+Configure IP advertising to enable a client to connect using broker IP addresses instead of domain names.
 
-    1. Enter a note on the **Save Configuration** screen and click **Save**.
-    1. If you're prompted with configuration warning, click **Proceed Anyway**.
-    1. Select **Ok** on the **Save Configuration Changes**.
-    1. Select **Restart** > **Restart All Affected** in the **Restart Required** notification. Select **Confirm Restart All**.
+1. Go to the Ambari dashboard for the primary cluster: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
+1. Select **Services** > **Kafka**. CliSelectck the **Configs** tab.
+1. Add the following config lines to the bottom **kafka-env template** section. Select **Save**.
 
-        ![Apache Ambari restart all affected](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+    ```
+    # Configure Kafka to advertise IP addresses instead of FQDN
+    IP_ADDRESS=$(hostname -i)
+    echo advertised.listeners=$IP_ADDRESS
+    sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
+    echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
+    ```
 
-1. Configure Kafka to listen on all network interfaces.
-    1. Stay on the **Configs** tab under **Services** > **Kafka**. In the **Kafka Broker** section set the **listeners** property to `PLAINTEXT://0.0.0.0:9092`.
-    1. Select **Save**.
-    1. Select **Restart**, and **Confirm Restart All**.
+1. Enter a note on the **Save Configuration** screen and click **Save**.
+1. If you're prompted with configuration warning, click **Proceed Anyway**.
+1. Select **Ok** on the **Save Configuration Changes**.
+1. Select **Restart** > **Restart All Affected** in the **Restart Required** notification. Select **Confirm Restart All**.
 
-1. Record Broker IP addresses and Zookeeper addresses for primary cluster.
-    1. Select **Hosts** on the Ambari dashboard.
-    1. Make a note of the IP Addresses for the Brokers and Zookeepers. The broker nodes have **wn** as the first two letters of the host name, and the zookeeper nodes have **zk** as the first two letters of the host name.
+    ![Apache Ambari restart all affected](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
-        ![Apache Ambari view node ip addresses](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+### Configure Kafka to listen on all network interfaces.
+    
+1. Stay on the **Configs** tab under **Services** > **Kafka**. In the **Kafka Broker** section set the **listeners** property to `PLAINTEXT://0.0.0.0:9092`.
+1. Select **Save**.
+1. Select **Restart**, and **Confirm Restart All**.
+
+### Record Broker IP addresses and Zookeeper addresses for primary cluster.
+
+1. Select **Hosts** on the Ambari dashboard.
+1. Make a note of the IP Addresses for the Brokers and Zookeepers. The broker nodes have **wn** as the first two letters of the host name, and the zookeeper nodes have **zk** as the first two letters of the host name.
+
+    ![Apache Ambari view node ip addresses](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
 1. Repeat the previous three steps for the second cluster **kafka-secondary-cluster**: configure IP advertising, set listeners and make a note of the Broker and Zookeeper IP addresses.
 
@@ -295,7 +300,7 @@ The steps in this document created clusters in different Azure resource groups. 
 In this document, you learned how to use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to create a replica of an [Apache Kafka](https://kafka.apache.org/) cluster. Use the following links to discover other ways to work with Kafka:
 
 * [Apache Kafka MirrorMaker documentation](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) at cwiki.apache.org.
+* [Kafka Mirror Maker Best Practices](https://community.cloudera.com/t5/Community-Articles/Kafka-Mirror-Maker-Best-Practices/ta-p/249269)
 * [Get started with Apache Kafka on HDInsight](apache-kafka-get-started.md)
 * [Use Apache Spark with Apache Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Use Apache Storm with Apache Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Connect to Apache Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)

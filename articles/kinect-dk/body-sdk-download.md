@@ -23,6 +23,8 @@ This document provides links to install each version of the Azure Kinect Body Tr
 
 Version       | Download
 --------------|----------
+1.0.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100942) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.1)
+1.0.0 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100848) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.0)
 0.9.5 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100636) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.5)
 0.9.4 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100415) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.4)
 0.9.3 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100307) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.3)
@@ -41,14 +43,24 @@ The `libk4abt<major>.<minor>` package contains the shared objects needed to run 
 
 The basic tutorials require the `libk4abt<major>.<minor>-dev` package. To install it, run
 
-`sudo apt install libk4abt0.9-dev`
+`sudo apt install libk4abt1.0-dev`
 
 If the command succeeds, the SDK is ready for use.
 
 > [!NOTE]
-> When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect Body Tracking SDK 0.9.5". You will find the samples referenced in articles in this path.
+> When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect Body Tracking SDK 1.0.0". You will find the samples referenced in articles in this path.
+> Body tracking samples are located in the [body-tracking-samples](https://github.com/microsoft/Azure-Kinect-Samples/tree/master/body-tracking-samples) folder in the Azure-Kinect-Samples repository. You will find the samples referenced in articles here.
 
 ## Change log
+
+### v1.0.1
+* [Bug Fix] Fix issue that the SDK crashes if loading onnxruntime.dll from path on Windows build 19025 or later: [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/932)
+
+### v1.0.0
+* [Feature] Add C# wrapper to the msi installer.
+* [Bug Fix] Fix issue that the head rotation cannot be detected correctly: [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/997)
+* [Bug Fix] Fix issue that the CPU usage goes up to 100% on Linux machine: [Link](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1007)
+* [Samples] Add two samples to the sample repo. Sample 1 demonstrates how to transform body tracking results from the depth space to color space [Link](https://github.com/microsoft/Azure-Kinect-Samples/tree/master/body-tracking-samples/camera_space_transform_sample); sample 2 demonstrates how to detect floor plane [Link](https://github.com/microsoft/Azure-Kinect-Samples/tree/master/body-tracking-samples/floor_detector_sample)
 
 ### v0.9.5
 * [Feature] C# support. C# wrapper is packed in the nuget package.
@@ -96,12 +108,6 @@ If the command succeeds, the SDK is ready for use.
 * [API Change] Broke `k4abt_frame_get_body()` into two separate functions: `k4abt_frame_get_body_skeleton()` and `k4abt_frame_get_body_id()`. Now you can query the body ID without always copying the whole skeleton structure.
 * [API Change] Added  `k4abt_frame_get_timestamp_usec()` function to simplify the steps for the users to query body frame timestamp.
 * Further improved the body tracking algorithm accuracy and tracking reliability
-
-### v0.3.0
-
-* [Breaking Change] Added support for NVIDIA RTX GPUs by moving to CUDA 10.1 dependency
-* [API Change] Provide the joint output in millimeters to be consistent with the Kinect for Windows v2 SDK
-* Further improved the body tracking algorithm accuracy and reliability.
 
 ## Next steps
 

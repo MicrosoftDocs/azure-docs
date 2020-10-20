@@ -1,11 +1,8 @@
 ---
-title: Upgrade the configuration of a standalone Azure Service Fabric cluster 
+title: Upgrade the configuration of a standalone cluster 
 description: Learn how to upgrade the configuration that runs a standalone Service Fabric cluster.
-author: dkkapur
-
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: dekapur
 ---
 # Upgrade the configuration of a standalone cluster 
 
@@ -48,7 +45,7 @@ TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File
 Some configurations can't be upgraded, such as endpoints, cluster name, node IP, etc. The new cluster configuration JSON is tested against the old one and throws errors in the PowerShell window if there's an issue.
 
 ## Upgrade the cluster configuration
-To upgrade the cluster configuration upgrade, run [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). The configuration upgrade is processed upgrade domain by upgrade domain.
+To upgrade the cluster configuration upgrade, run [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). The configuration upgrade is processed upgrade domain by upgrade domain.
 
 ```powershell
 Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
@@ -70,7 +67,7 @@ Four options are supported:
 
 ## Next steps
 * Learn how to customize some [Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md).
-* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md).
+* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-in-out.md).
 * Learn about [application upgrades](service-fabric-application-upgrade.md).
 
 <!--Image references-->

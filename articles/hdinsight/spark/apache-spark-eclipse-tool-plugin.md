@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
 ---
@@ -30,7 +30,7 @@ Use HDInsight Tools in Azure Toolkit for [Eclipse](https://www.eclipse.org/) to 
 
 ### Install Azure Toolkit for Eclipse
 
-For installation instructions, see [Installing Azure Toolkit for Eclipse](https://docs.microsoft.com/azure/java/eclipse/azure-toolkit-for-eclipse-installation).
+For installation instructions, see [Installing Azure Toolkit for Eclipse](https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation).
 
 ### Install the Scala plug-in
 
@@ -237,7 +237,7 @@ You can use HDInsight Tools in Azure Toolkit for Eclipse to run Spark Scala appl
 
 While you're running the local Spark Scala application on a Windows computer, you might get an exception as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). This exception occurs because **WinUtils.exe** is missing in Windows.
 
-To resolve this error, you need [download the executable](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location like **C:\WinUtils\bin**, and then add the environment variable **HADOOP_HOME** and set the value of the variable to **C\WinUtils**.
+To resolve this error, you need [Winutils.exe](https://github.com/steveloughran/winutils) to a location like **C:\WinUtils\bin**, and then add the environment variable **HADOOP_HOME** and set the value of the variable to **C\WinUtils**.
 
 ### Run a local Spark Scala application
 

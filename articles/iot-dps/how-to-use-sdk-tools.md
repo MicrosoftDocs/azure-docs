@@ -1,8 +1,8 @@
 ---
 title: Use Azure IoT Hub Device Provisioning Service SDKs tools
 description: This document reviews the tools provided in Azure IoT Hub Device Provisioning Service (DPS) SDKs for development
-author: robinsh
-ms.author: robinsh
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-dps
@@ -10,7 +10,7 @@ services: iot-dps
 ---
 
 # How to use tools provided in the SDKs to simplify development for provisioning
-The IoT Hub Device Provisioning Service simplifies the provisioning process with zero-touch, just-in-time [auto-provisioning](concepts-auto-provisioning.md) in a secure and scalable manner.  Security attestation in the form of X.509 certificate or Trusted Platform Module (TPM) is required.  Microsoft is also partnering with [other security hardware partners](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) to improve confidence in securing IoT deployment. Understanding the hardware security requirement can be quite challenging for developers. A set of Azure IoT Provisioning Service SDKs are provided so that developers can use a convenience layer for writing clients that talk to the provisioning service. The SDKs also provide samples for common scenarios as well as a set of tools to simplify security attestation in development.
+The IoT Hub Device Provisioning Service simplifies the provisioning process with zero-touch, just-in-time [provisioning](about-iot-dps.md#provisioning-process) in a secure and scalable manner.  Security attestation in the form of X.509 certificate or Trusted Platform Module (TPM) is required.  Microsoft is also partnering with [other security hardware partners](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) to improve confidence in securing IoT deployment. Understanding the hardware security requirement can be quite challenging for developers. A set of Azure IoT Provisioning Service SDKs are provided so that developers can use a convenience layer for writing clients that talk to the provisioning service. The SDKs also provide samples for common scenarios as well as a set of tools to simplify security attestation in development.
 
 ## Trusted Platform Module (TPM) simulator
 [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security) can refer to a standard for securely storing keys to authenticate the platform, or it can refer to the I/O interface used to interact with the modules implementing the standard. TPMs can exist as discrete hardware, integrated hardware, firmware-based, or software-based.  In production, TPM is located on the device, either as discrete hardware, integrated hardware, or firmware-based. In the testing phase, a software-based TPM simulator is provided to developers.  This simulator is only available for developing on Windows platform for now.

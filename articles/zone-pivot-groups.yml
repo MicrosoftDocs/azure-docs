@@ -1,29 +1,7 @@
 ### YamlMime:ZonePivotGroups
 groups:
-- id: programming-languages-set-one
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-nodejs
-    title: Node.js
-  - id: programming-language-go
-    title: Go
-- id: cogsvcs-text-analytics-features
-  title: Text Analytics features
-  prompt: Choose a Text Analytics feature offering
-  pivots:
-  - id: text-analytics-key-phrase-extraction
-    title: Key Phrase Extraction
-  - id: text-analytics-language-detection
-    title: Language Detection
-  - id: text-analytics-sentiment-analysis
-    title: Sentiment Analysis
+# Owner: erhopf
+# One-off groups
 - id: client-operating-system
   title: Programming languages
   prompt: Choose a client operating system
@@ -31,10 +9,43 @@ groups:
   - id: client-operating-system-linux
     title: Linux
   - id: client-operating-system-macos
-    title: MacOS
+    title: macOS
   - id: client-operating-system-windows
     title: Windows
+- id: URL-test-interface
+  title: URL Test tool
+  prompt: Choose one of the following
+  pivots:
+  - id: url-test-tool-curl
+    title: cURL
+  - id: url-test-tool-postman
+    title: Postman
+#Owner: kraigb
+- id: python-frameworks-01
+  title: Web framework
+  prompt: Choose a framework
+  pivots:
+  - id: python-framework-flask
+    title: Flask
+  - id: python-framework-django
+    title: Django
+# Programming language groups
+- id: programming-languages-set-one
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-two
+# Owner: erhopf
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -49,6 +60,7 @@ groups:
   - id: programming-language-more
     title: More languages...
 - id: programming-languages-set-three
+# Owner: erhopf
   title: Programming languages
   prompt: Choose a programming language
   pivots:
@@ -56,10 +68,14 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
+  - id: programming-language-go
+    title: Go
   - id: programming-language-java
     title: Java
   - id: programming-language-python
     title: Python
+  - id: programming-language-javascript
+    title: JavaScript
 - id: programming-languages-set-four
   title: Programming languages
   prompt: Choose a programming language
@@ -78,19 +94,789 @@ groups:
   pivots:
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
-  - id: programming-language-nodejs
-    title: Node.js
+  - id: programming-language-ruby
+    title: Ruby
+- id: programming-languages-set-six
+# Owner: diberry
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-seven
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+- id: programming-languages-set-eight
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-nine
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+- id: programming-languages-text-analytics
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-other
+    title: Other languages...
+- id: programming-languages-set-ten
+# Owner: aahill
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-eleven
+# Owner: aahill
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-fifteen
+# Owner: aahill
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+- id: programming-languages-set-sixteen
+# Owner: chrhoder
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
   - id: programming-language-go
     title: Go
   - id: programming-language-ruby
     title: Ruby
-- id: URL-test-interface
-  title: URL Test tool
-  prompt: Choose one of the following
+- id: programming-languages-set-twenty-five
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language or CLI
   pivots:
-  - id: url-test-tool-curl
-    title: cURL
-  - id: url-test-tool-postman
-    title: Postman
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-curl
+    title: REST
+# To be enabled later.
+#  - id: programmer-tool-spx
+#    title: CLI
+- id: programming-languages-set-twenty-three
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language or CLI
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-curl
+    title: REST
+  - id: programmer-tool-spx
+    title: CLI
+- id: programming-languages-set-twenty-four
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language or CLI
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-curl
+    title: REST
+  - id: programmer-tool-spx
+    title: CLI
+# Service-specific groups
+- id: cogsvcs-text-analytics-features
+  title: Text Analytics features
+  prompt: Choose a Text Analytics feature offering
+  pivots:
+  - id: text-analytics-key-phrase-extraction
+    title: Key Phrase Extraction
+  - id: text-analytics-language-detection
+    title: Language Detection
+  - id: text-analytics-sentiment-analysis
+    title: Sentiment Analysis
+- id: programming-languages-set-functions
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
+- id: programming-languages-text-analytics
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-other
+    title: Other languages...
+- id: programming-languages-metrics-monitor
+  title: Programming languages
+  prompt: Choose a programming language.
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-rest-api
+    title: REST API
+- id: programming-languages-set-diberry-3core
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+- id: java-build-tools-set
+  title: Build tools
+  prompt: Choose a build tool
+  pivots:
+  - id: java-build-tools-maven
+    title: Maven
+  - id: java-build-tools-gradle
+    title: Gradle
+- id: platforms-set-of-three
+  title: Platforms
+  prompt: Choose a platform
+  pivots:
+  - id: platform-windows
+    title: Windows
+  - id: platform-linux
+    title: Linux
+  - id: platform-android
+    title: Android
+- id: programming-languages-set-twelve
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C+
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-objectivec
+    title: Objective-C
+- id: programming-languages-set-thirteen
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C+
+  - id: programming-language-java
+    title: Java
+- id: code-editors-set-one
+  title: Code Editors
+  prompt: Choose a code editor
+  pivots:
+  - id: code-editor-vscode
+    title: Visual Studio Code
+  - id: code-editor-visualstudio
+    title: Visual Studio
+- id: programming-languages-set-fourteen
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-more
+    title: More languages...
+- id: programming-languages-set-fifteen
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-more
+    title: More languages...
+- id: programming-languages-set-sixteen
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-more
+    title: More languages...
+- id: programming-languages-set-seventeen
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-eighteen
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-two-with-js
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-more
+    title: More languages...
+- id: programming-languages-set-two-with-js-spx
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language or CLI
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programmer-tool-spx
+    title: CLI
+- id: programming-languages-set-two-with-js-go
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-more
+    title: More languages...
+- id: programming-languages-set-two-with-js-go-spx
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language or CLI
+  pivots:
+  - id: programmer-tool-spx
+    title: CLI
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-more
+    title: More languages...
+- id: programming-languages-speech-services-one-nomore
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+- id: programming-languages-speech-services-one-nomore-no-go
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+- id: programming-languages-speech-services-nomore-variant
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-objectivec
+    title: Objective-C
+- id: programming-languages-set-nineteen
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-objectivec
+    title: Objective-C
+- id: programming-languages-set-twenty
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-kotlin
+    title: Kotlin (Android)
+  - id: programming-language-swift
+    title: Swift (iOS)
+- id: programming-languages-set-twenty-one
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+- id: programming-languages-set-twenty-two
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-spark-all-minus-sql
+# Owner: euang
+  title: Programming languages
+  prompt: Choose a language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-scala
+    title: Scala
+  - id: programming-language-python
+    title: Python
+- id: aml-control-methods
+  # Owner: gopalv
+  title: Azure Machine Learning control plane
+  prompt: Choose an Azure Machine Learning control plane interface
+  pivots:
+  - id: py-sdk
+    title: Python SDK
+  - id: cli
+    title: Azure CLI
+- id: speech-full-stack
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-spx
+    title: CLI
+- id: speech-full-stack-objectivec-swift
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-spx
+    title: CLI
+- id: programming-languages-voice-assistants
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-more
+    title: More languages...
+- id: ams-lva-edge-programming-languages
+  title: Live Video Analytics on IoT Edge programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+# Owner: msangapu
+- id: app-service-platform-windows-linux
+  title: App Service platform
+  prompt: Choose a hosting platform
+  pivots:
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
+- id: app-service-containers-windows-linux
+  title: App Service with custom containers
+  prompt: Choose a custom container platform
+  pivots:
+  - id: container-linux
+    title: Linux container
+  - id: container-windows
+    title: Windows container
+- id: programming-languages-spring-cloud
+# Owner: bmitchell287
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-csharp
+    title: C#
+- id: speech-full-stack-go
+  # Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-spx
+    title: CLI
+- id: speech-full-stack-go-objectivec-swift
+  # Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-spx
+    title: CLI
+- id: acs-js-csharp
+  # Owner: mikben (Azure Communication Services)
+  title: JS and C# pivots
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-csharp
+    title: C#
+- id: acs-js-csharp-java-python
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: acs-js-csharp-java-python-swift
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-swift
+    title: Swift
+- id: acs-js-csharp-ios-android-python
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-ios
+    title: iOS
+  - id: programming-language-python
+    title: Python
+- id: acs-js-csharp-ios-android
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-ios
+    title: iOS
+- id: acs-plat-web-net-ios-android
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-net
+    title: .NET
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
+- id: acs-plat-web-ios-android
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-web
+    title: Web
+  - id: platform-android
+    title: Android
+  - id: platform-ios
+    title: iOS
+- id: acs-plat-azp-js
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: platform-javascript
+    title: JavaScript
+- id: acs-plat-azp-net
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: platform-net
+    title: .NET
+- id: acs-plat-azp-arm-net-python-go-powershell
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: platform-azp
+    title: Azure portal
+  - id: platform-arm
+    title: Azure Resource Manager
+  - id: platform-net
+    title: .NET
+  - id: platform-python
+    title: Python
+  - id: platform-go
+    title: Go
+  - id: platform-powershell
+    title: PowerShell
+# Owner: memildin
+- id: non-azure-machines
+  title: Non-Azure machines
+  prompt: How will you connect the non-Azure machine?
+  pivots:
+  - id: azure-arc
+    title: Azure Arc
+  - id: azure-portal
+    title: Security Center's portal pages
+# Owner: erhopf
+- id: ad-quickstart-one
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-python
+    title: Python

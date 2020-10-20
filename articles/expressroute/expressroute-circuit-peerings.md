@@ -2,19 +2,19 @@
 title: 'Azure ExpressRoute: circuits and peering'
 description: This page provides an overview of ExpressRoute circuits and routing domains/peering.
 services: expressroute
-author: mialdrid
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: mialdrid 
+ms.author: duau 
 
 ---
 # ExpressRoute circuits and peering
 
 ExpressRoute circuits connect your on-premises infrastructure to Microsoft through a connectivity provider. This article helps you understand ExpressRoute circuits and routing domains/peering. The following figure shows a logical representation of connectivity between your WAN and Microsoft.
 
-![](./media/expressroute-circuit-peerings/expressroute-basic.png)
+![Diagram showing how ExpressRoute circuits connect your on-premises infrastructure to Microsoft through a connectivity provider.](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
 > Azure public peering has been deprecated and is not available for new ExpressRoute circuits. New circuits support Microsoft peering and private peering.  
@@ -32,25 +32,25 @@ Each circuit has a fixed bandwidth (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbp
 
 ### <a name="quotas"></a>Quotas, limits, and limitations
 
-Default quotas and limits apply for every ExpressRoute circuit. Refer to the [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md) page for up-to-date information on quotas.
+Default quotas and limits apply for every ExpressRoute circuit. Refer to the [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) page for up-to-date information on quotas.
 
 ## <a name="routingdomains"></a>ExpressRoute peering
 
 An ExpressRoute circuit has multiple routing domains/peerings associated with it: Azure public, Azure private, and Microsoft. Each peering is configured identically on a pair of routers (in active-active or load sharing configuration) for high availability. Azure services are categorized as *Azure public* and *Azure private* to represent the IP addressing schemes.
 
-![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
+![Diagram showing how Azure public, Azure private, and Microsoft peerings are configured in an ExpressRoute circuit.](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
 ### <a name="privatepeering"></a>Azure private peering
 
 Azure compute services, namely virtual machines (IaaS) and cloud services (PaaS), that are deployed within a virtual network can be connected through the private peering domain. The private peering domain is considered to be a trusted extension of your core network into Microsoft Azure. You can set up bi-directional connectivity between your core network and Azure virtual networks (VNets). This peering lets you connect to virtual machines and cloud services directly on their private IP addresses.  
 
-You can connect more than one virtual network to the private peering domain. Review the [FAQ page](expressroute-faqs.md) for information on limits and limitations. You can visit the [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md) page for up-to-date information on limits.  Refer to the [Routing](expressroute-routing.md) page for detailed information on routing configuration.
+You can connect more than one virtual network to the private peering domain. Review the [FAQ page](expressroute-faqs.md) for information on limits and limitations. You can visit the [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) page for up-to-date information on limits.  Refer to the [Routing](expressroute-routing.md) page for detailed information on routing configuration.
 
 ### <a name="microsoftpeering"></a>Microsoft peering
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-Connectivity to Microsoft online services (Office 365 and Azure PaaS services) occurs through Microsoft peering. We enable bi-directional connectivity between your WAN and Microsoft cloud services through the Microsoft peering routing domain. You must connect to Microsoft cloud services only over public IP addresses that are owned by you or your connectivity provider and you must adhere to all the defined rules. For more information, see the [ExpressRoute prerequisites](expressroute-prerequisites.md) page.
+Connectivity to Microsoft online services (Microsoft 365 and Azure PaaS services) occurs through Microsoft peering. We enable bi-directional connectivity between your WAN and Microsoft cloud services through the Microsoft peering routing domain. You must connect to Microsoft cloud services only over public IP addresses that are owned by you or your connectivity provider and you must adhere to all the defined rules. For more information, see the [ExpressRoute prerequisites](expressroute-prerequisites.md) page.
 
 See the [FAQ page](expressroute-faqs.md) for more information on services supported, costs, and configuration details. See the [ExpressRoute Locations](expressroute-locations.md) page for information on the list of connectivity providers offering Microsoft peering support.
 
@@ -66,7 +66,7 @@ Each peering requires separate BGP sessions (one pair for each peering type). Th
 
 ## <a name="health"></a>ExpressRoute health
 
-ExpressRoute circuits may be monitored for availability, connectivity to VNets and bandwidth utilization using [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
+ExpressRoute circuits may be monitored for availability, connectivity to VNets and bandwidth utilization using [Network Performance Monitor](../networking/network-monitoring-overview.md) (NPM).
 
 NPM monitors the health of Azure private peering and Microsoft peering. Check out our [post](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/) for more information.
 

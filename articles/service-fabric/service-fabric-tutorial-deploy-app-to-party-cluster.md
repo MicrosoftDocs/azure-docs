@@ -1,6 +1,6 @@
 ---
 title: Deploy a Service Fabric app to a cluster in Azure 
-description: Learn how to deploy an application to a cluster from Visual Studio.
+description: Learn how to deploy an existing application to a newly created Azure Service Fabric cluster from Visual Studio.
 author: athinanthny 
 
 ms.topic: tutorial
@@ -48,7 +48,7 @@ Open the application in Visual Studio, running as administrator, and build the a
 
 ## Create a cluster
 
-Now that the application is ready, you create a Service Fabric cluster and then deploy the application to the cluster. A [Service Fabric cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed.
+Now that the application is ready, you create a Service Fabric cluster and then deploy the application to the cluster. A [Service Fabric cluster](./service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed.
 
 In this tutorial, you create a new three node test cluster in the Visual Studio IDE and then publish the application to that cluster. See the [Create and manage a cluster tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md) for information on creating a production cluster. You can also deploy the application to an existing cluster that you previously created through the [Azure portal](https://portal.azure.com), by using [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md) or [Azure CLI](./scripts/cli-create-cluster.md) scripts, or from an [Azure Resource Manager template](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
@@ -73,19 +73,19 @@ In **Connection Endpoint**, select **Create New Cluster**.  If you're deploying 
 
 In the **Cluster** tab, enter the **Cluster name** (for example, "mytestcluster"), select your subscription, select a region for the cluster (such as South Central US), enter the number of cluster nodes (we recommend three nodes for a test cluster), and enter a resource group (such as "mytestclustergroup"). Click **Next**.
 
-![Create a cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
+![Screenshot shows the Cluster tab of the Create Service Fabric Cluster dialog box.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
 In the **Certificate** tab, enter the password and output path for the cluster certificate. A self-signed certificate is created as a PFX file and saved to the specified output path.  The certificate is used for both node-to-node and client-to-node security.  Don't use a self-signed certificate for production clusters.  This certificate is used by Visual Studio to authenticate with the cluster and deploy applications. Select **Import certificate** to install the PFX in the CurrentUser\My certificate store of your computer.  Click **Next**.
 
-![Create a cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
+![Screenshot shows the Certificate tab of the Create Service Fabric Cluster dialog box.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 
 In the **VM Detail** tab, enter the **User name** and **Password** for the cluster admin account.  Select the **Virtual machine image** for the cluster nodes and the **Virtual machine size** for each cluster node.  Click the **Advanced** tab.
 
-![Create a cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
+![Screenshot shows the V M Detail tab of the Create Service Fabric Cluster dialog box.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
 
 In **Ports**, enter the VotingWeb service endpoint from the previous step (for example, 8080).  When the cluster is created, these application ports are opened in the Azure load balancer to forward traffic to the cluster.  Click **Create** to create the cluster, which takes several minutes.
 
-![Create a cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
+![Screenshot shows the Advanced tab of the Create Service Fabric Cluster dialog box.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
 
 ## Publish the application to the cluster
 

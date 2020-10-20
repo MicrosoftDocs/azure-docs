@@ -3,7 +3,7 @@ title: Configure and read logs with Azure Functions trigger for Cosmos DB
 description: Learn how to expose the logs to the Azure Functions logging pipeline when using Azure Functions trigger for Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ---
@@ -20,7 +20,7 @@ The health logs describe how the Azure Functions trigger for Cosmos DB behaves w
 
 ## Enabling logging
 
-To enable logging when using Azure Functions trigger for Cosmos DB, locate the `host.json` file in your Azure Functions project or Azure Functions App and [configure the level of required logging](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson). You have to enable the traces for  `Host.Triggers.CosmosDB` as shown in the following sample:
+To enable logging when using Azure Functions trigger for Cosmos DB, locate the `host.json` file in your Azure Functions project or Azure Functions App and [configure the level of required logging](../azure-functions/configure-monitoring.md#configure-log-levels). You have to enable the traces for  `Host.Triggers.CosmosDB` as shown in the following sample:
 
 ```js
 {

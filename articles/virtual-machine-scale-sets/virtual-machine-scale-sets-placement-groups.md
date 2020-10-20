@@ -1,25 +1,18 @@
 ---
 title: Working with large Azure Virtual Machine Scale Sets
 description: What you need to know about large Azure virtual machine scale sets in order to use them in your application.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: rajsqr
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
-ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
-ms.date: 11/9/2017
-ms.author: jeconnoc
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 06/25/2020
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
 # Working with large virtual machine scale sets
-You can now create Azure [virtual machine scale sets](/azure/virtual-machine-scale-sets/) with a capacity of up to 1,000 VMs. In this document, a _large virtual machine scale set_ is defined as a scale set capable of scaling to greater than 100 VMs. This capability is set by a scale set property (_singlePlacementGroup=False_). 
+You can now create Azure [virtual machine scale sets](./index.yml) with a capacity of up to 1,000 VMs. In this document, a _large virtual machine scale set_ is defined as a scale set capable of scaling to greater than 100 VMs. This capability is set by a scale set property (_singlePlacementGroup=False_). 
 
 Certain aspects of large scale sets, such as load balancing and fault domains behave differently to a standard scale set. This document explains the characteristics of large scale sets, and describes what you need to know to successfully use them in your applications. 
 
@@ -35,29 +28,33 @@ To decide whether your application can make effective use of large scale sets, c
 - Scale sets created from Azure Marketplace images can scale up to 1,000 VMs.
 - Scale sets created from custom images (VM images you create and upload yourself) can currently scale up to 600 VMs.
 - Large scale sets require Azure Managed Disks. Scale sets that are not created with Managed Disks require multiple storage accounts (one for every 20 VMs). Large scale sets are designed to work exclusively with Managed Disks to reduce your storage management overhead, and to avoid the risk of running into subscription limits for storage accounts. 
-- Layer-4 load balancing with scale sets composed of multiple placement groups requires [Azure Load Balancer Standard SKU](../load-balancer/load-balancer-standard-overview.md). The Load Balancer Standard SKU provides additional benefits, such as the ability to load balance between multiple scale sets. Standard SKU also requires that the scale set has a Network Security Group associated with it, otherwise NAT pools don't work correctly. If you need to use the Azure Load Balancer Basic SKU, make sure the scale set is configured to use a single placement group, which is the default setting.
+- Large scale (SPG=false) does not support InfiniBand networking
+- Layer-4 load balancing with scale sets composed of multiple placement groups requires [Azure Load Balancer Standard SKU](../load-balancer/load-balancer-overview.md). The Load Balancer Standard SKU provides additional benefits, such as the ability to load balance between multiple scale sets. Standard SKU also requires that the scale set has a Network Security Group associated with it, otherwise NAT pools don't work correctly. If you need to use the Azure Load Balancer Basic SKU, make sure the scale set is configured to use a single placement group, which is the default setting.
 - Layer-7 load balancing with the Azure Application Gateway is supported for all scale sets.
 - A scale set is defined with a single subnet - make sure your subnet has an address space large enough for all the VMs you need. By default a scale set overprovisions (creates extra VMs at deployment time or when scaling out, which you are not charged for) to improve deployment reliability and performance. Allow for an address space 20% greater than the number of VMs you plan to scale to.
-- Fault domains and upgrade domains are only consistent within a placement group. This architecture does not change the overall availability of a scale set, as VMs are evenly distributed across distinct physical hardware, but it does means that if you need to guarantee two VMs are on different hardware, make sure they are in different fault domains in the same placement group. Please refer to this link [Availability options](/azure/virtual-machines/windows/availability). 
+- Fault domains and upgrade domains are only consistent within a placement group. This architecture does not change the overall availability of a scale set, as VMs are evenly distributed across distinct physical hardware, but it does means that if you need to guarantee two VMs are on different hardware, make sure they are in different fault domains in the same placement group. Please refer to this link [Availability options](../virtual-machines/availability.md). 
 - Fault domain and placement group ID are shown in the _instance view_ of a scale set VM. You can view the instance view of a scale set VM in the [Azure Resource Explorer](https://resources.azure.com/).
 
 ## Creating a large scale set
 When you create a scale set in the Azure portal, just specify the *Instance count* value of up to 1,000. If it is more than 100 instances, *Enable scaling beyond 100 instances* will be set to *Yes*, which will allow it to scale to multiple placement groups. 
 
-![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
+![This image shows the instances blade of the Azure Portal. Options to select the Instance Count and Instance size are available.](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
 You can create a large virtual machine scale set using the [Azure CLI](https://github.com/Azure/azure-cli) _az vmss create_ command. This command sets intelligent defaults such as subnet size based on the _instance-count_ argument:
 
-```bash
+```azurecli
 az group create -l southcentralus -n biginfra
 az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000
 ```
+
 The _vmss create_ command defaults certain configuration values if you do not specify them. To see the available options that you can override, try:
-```bash
+
+```azurecli
 az vmss create --help
 ```
 
 If you are creating a large scale set by composing an Azure Resource Manager template, make sure the template creates a scale set based on Azure Managed Disks. You can set the _singlePlacementGroup_ property to _false_ in the _properties_ section of the _Microsoft.Compute/virtualMachineScaleSets_ resource. The following JSON fragment shows the beginning of a scale set template, including the 1,000 VM capacity and the _"singlePlacementGroup" : false_ setting:
+
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -74,12 +71,11 @@ If you are creating a large scale set by composing an Azure Resource Manager tem
       "mode": "Automatic"
     }
 ```
-For a complete example of a large scale set template, refer to [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
+
+For a complete example of a large scale set template, refer to [https://github.com/gbowerman/azure-myriad/blob/main/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/main/bigtest/bigbottle.json).
 
 ## Converting an existing scale set to span multiple placement groups
 To make an existing virtual machine scale set capable of scaling to more than 100 VMs, you need to change the _singlePlacementGroup_ property to _false_ in the scale set model. You can test changing this property with the [Azure Resource Explorer](https://resources.azure.com/). Find an existing scale set, select _Edit_ and change the _singlePlacementGroup_ property. If you do not see this property, you may be viewing the scale set with an older version of the Microsoft.Compute API.
 
 > [!NOTE]
 > You can change a scale set from supporting a single placement group only (the default behavior) to a supporting multiple placement groups, but you cannot convert the other way around. Therefore make sure you understand the properties of large scale sets before converting.
-
-

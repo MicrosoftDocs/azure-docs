@@ -5,8 +5,9 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 12/02/2019
+ms.topic: how-to
+ms.date: 3/18/2020 
+ms.custom: devx-track-azurecli
 ---
 # Create and manage Azure Database for MariaDB VNet service endpoints using Azure CLI
 
@@ -127,4 +128,4 @@ az group delete --name myresourcegroup
 -->
 
 <!-- Link references, to text, Within this same GitHub repo. --> 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

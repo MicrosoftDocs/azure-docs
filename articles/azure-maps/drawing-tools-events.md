@@ -1,6 +1,6 @@
 ---
-title: Add a drawing toolbar to Azure Maps| Microsoft Docs
-description: How to add a drawing toolbar to a map using Azure Maps Web SDK
+title: Drawing tool events | Microsoft Azure Maps
+description: In this article you'll learn, how to add a drawing toolbar to a map using Microsoft Azure Maps Web SDK
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/05/2019
@@ -12,12 +12,12 @@ manager: cpendle
 
 # Drawing tool events
 
-When using drawing tools on a map, it is often useful to react to certain events as the user draws on the map. The following table lists all of the events supported by the `DrawingManager` class.
+When using drawing tools on a map, it's useful to react to certain events as the user draws on the map. This table lists all of the events supported by the `DrawingManager` class.
 
 | Event | Description |
 |-------|-------------|
 | `drawingchanged` | Fired when any coordinate in a shape has been added or changed. | 
-| `drawingchanging` | Fired when any preview coordinate for a shape is being displayed. For example, will fire multiple times as a coordinate is dragged. | 
+| `drawingchanging` | Fired when any preview coordinate for a shape is being displayed. For example, this event will fire multiple times as a coordinate is dragged. | 
 | `drawingcomplete` | Fired when a shape has finished being drawn or taken out of edit mode. |
 | `drawingmodechanged` | Fired when the drawing mode has changed. The new drawing mode is passed into the event handler. |
 | `drawingstarted` | Fired when the user starts drawing a shape or puts a shape into edit mode.  |
@@ -26,7 +26,7 @@ The following code shows how the events in the Drawing Tools module work. Draw s
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Drawing tools events" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Drawing tools events" src="https://codepen.io/azuremaps/embed/dyPMRWo?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/dyPMRWo'>Drawing tools events</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -35,15 +35,15 @@ The following code shows how the events in the Drawing Tools module work. Draw s
 
 ## Examples
 
-The following are examples of some common scenarios that use the drawing tools events.
+Let's see some common scenarios that use the drawing tools events.
 
 ### Select points in polygon area
 
-The following code shows how to monitor the drawing of shapes that represent polygon areas (polygons, rectangles, and circles), and determine which data points on the map are within the drawn area. The `drawingcomplete` event is used to trigger the select logic. In the select logic, all data points on the map are looped through and tested for intersection with the polygon area of the drawn shape. This example makes use of the open-source [Turf.js](http://turfjs.org/) library to perform a spatial intersection calculation.
+This code demonstrates how to monitor an event of a user drawing shapes. For this example, the code monitors shapes of polygons, rectangles, and circles. Then, it determines which data points on the map are within the drawn area. The `drawingcomplete` event is used to trigger the select logic. In the select logic, the code loops through all the data points on the map. It checks if there's an intersection of the point and the area of the drawn shape. This example makes use of the open-source [Turf.js](https://turfjs.org/) library to perform a spatial intersection calculation.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Select data in drawn polygon area" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Select data in drawn polygon area" src="https://codepen.io/azuremaps/embed/XWJdeja?height=500&theme-id=default&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/XWJdeja'>Select data in drawn polygon area</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -52,11 +52,11 @@ The following code shows how to monitor the drawing of shapes that represent pol
 
 ### Draw and search in polygon area
 
-The following code shows how to perform a search for points of interests inside a shape area after the user has finished drawing the shape. The `drawingcomplete` event is used to trigger the search logic. If the user draws a rectangle or polygon, a search inside geometry is performed. If a circle is drawn, the radius and center position is used to perform a point of interest search. The `drawingmodechanged` event is used to determine when the user is switching into a drawing mode, and clears the drawing canvas.
+This code searches for points of interests inside the area of a shape after the user finished drawing the shape. You can modify and execute the code by clicking 'Edit on Code pen' on the top-right corner of the frame. The `drawingcomplete` event is used to trigger the search logic. If the user draws a rectangle or polygon, a search inside geometry is performed. If a circle is drawn, the radius and center position is used to perform a point of interest search. The `drawingmodechanged` event is used to determine when the user switches to the drawing mode, and this event clears the drawing canvas.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Draw and search in polygon area" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Draw and search in polygon area" src="https://codepen.io/azuremaps/embed/eYmZGNv?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/eYmZGNv'>Draw and search in polygon area</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -65,11 +65,11 @@ The following code shows how to perform a search for points of interests inside 
 
 ### Create a measuring tool
 
-The following code shows how the drawing events can be used to create a measuring tool. The `drawingchanging` is used to monitor the shape as it is being drawn. As the user moves the mouse, the dimensions of the shape are calculated. The `drawingcomplete` event is used to do a final calculation on the shape after it has been drawn. The `drawingmodechanged` event is used to determine when the user is switching into a drawing mode, and clears the drawing canvas and old measurement information.
+The code below shows how the drawing events can be used to create a measuring tool. The `drawingchanging` is used to monitor the shape, as it's being drawn. As the user moves the mouse, the dimensions of the shape are calculated. The `drawingcomplete` event is used to do a final calculation on the shape after it has been drawn. The `drawingmodechanged` event is used to determine when the user is switching into a drawing mode. Also, the  `drawingmodechanged` event clears the drawing canvas and clears old measurement information.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Measuring tool" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Measuring tool" src="https://codepen.io/azuremaps/embed/RwNaZXe?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/RwNaZXe'>Measuring tool</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>

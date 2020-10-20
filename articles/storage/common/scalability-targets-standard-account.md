@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/08/2020
 ms.author: tamram
 ms.subservice: common
 ---
@@ -22,5 +22,5 @@ ms.subservice: common
 
 ## See also
 
-- [Scalability targets for premium block blob storage accounts](../blobs/scalability-targets-premium-block-blobs.md)
 - [Scalability targets for the Azure Storage resource provider](../common/scalability-targets-resource-provider.md)
+- [Azure subscription limits and quotas](../../azure-resource-manager/management/azure-subscription-service-limits.md)

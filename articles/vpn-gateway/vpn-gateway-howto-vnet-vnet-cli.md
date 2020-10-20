@@ -1,21 +1,15 @@
 ---
-title: 'Connect virtual network to another VNet using a VNet-to-VNet connection: Azure CLI | Microsoft Docs'
+title: 'Connect a VNet to a VNet using a VNet-to-VNet connection: Azure CLI'
 description: Connect virtual networks together by using a VNet-to-VNet connection and Azure CLI.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/14/2018
-ms.author: cherylmc
+ms.topic: how-to
+ms.date: 09/02/2020
+ms.author: cherylmc 
+ms.custom: devx-track-azurecli
 
 ---
 # Configure a VNet-to-VNet VPN gateway connection using Azure CLI
@@ -72,7 +66,7 @@ For this exercise, you can combine configurations, or just choose the one that y
 
 * [VNets that reside in the same subscription:](#samesub) The steps for this configuration use TestVNet1 and TestVNet4.
 
-  ![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+  ![Diagram that shows V Net-to-V Net steps for V Nets that reside in the same subscription.](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
 * [VNets that reside in different subscriptions:](#difsub) The steps for this configuration use TestVNet1 and TestVNet5.
 

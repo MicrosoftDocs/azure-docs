@@ -19,7 +19,11 @@ ms.date: 12/11/2019
 > * [Version 1](v1/data-factory-azure-documentdb-connector.md)
 > * [Current version](connector-azure-cosmos-db.md)
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Cosmos DB (SQL API), and use Data Flow to transform data in Azure Cosmos DB (SQL API). To learn about Azure Data Factory, read the [introductory article](introduction.md).
+
+
 
 >[!NOTE]
 >This connector only support Cosmos DB SQL API. For MongoDB API, refer to [connector for Azure Cosmos DB's API for MongoDB](connector-azure-cosmos-db-mongodb-api.md). Other API types are not supported now.
@@ -195,7 +199,7 @@ When copy data from Cosmos DB, unless you want to [export JSON documents as-is](
 
 To copy data to Azure Cosmos DB (SQL API), set the **sink** type in Copy Activity to **DocumentDbCollectionSink**. 
 
-The following properties are supported in the Copy Activity **source** section:
+The following properties are supported in the Copy Activity **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -264,6 +268,18 @@ Settings specific to Azure Cosmos DB are available in the **Source Options** tab
 
 **Preferred regions:** Choose the preferred read regions for this process.
 
+#### JSON Settings
+
+**Single document:** Select this option if ADF is to treat the entire file as a single JSON doc.
+
+**Unquoted column names:** Select this option if column names in the JSON as not quoted.
+
+**Has comments:** Use this selection if your JSON documents have comments in the data.
+
+**Single quoted:** This should be selected if the columns and values in your document are quoted with single quotes.
+
+**Backslash escaped:** If using backslashes to escape characters in your JSON, choose this option.
+
 ### Sink transformation
 
 Settings specific to Azure Cosmos DB are available in the **Settings** tab of the sink transformation.
@@ -301,8 +317,8 @@ To achieve schema-agnostic copy:
 
 ## Migrate from relational database to Cosmos DB
 
-When migrating from a relational database e.g. SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from source to flatten JSON documents in Cosmos DB. In some cases, you may want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modeling in Azure Cosmos DB](../cosmos-db/modeling-data.md), for example, to denormalize the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this blog post](https://medium.com/@ArsenVlad/denormalizing-via-embedding-when-copying-data-from-sql-to-cosmos-db-649a649ae0fb) with a walkthrough on how to achieve it using Azure Data Factory copy activity.
+When migrating from a relational database e.g. SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from source to flatten JSON documents in Cosmos DB. In some cases, you may want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modeling in Azure Cosmos DB](../cosmos-db/modeling-data.md), for example, to denormalize the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this article](../cosmos-db/migrate-relational-to-cosmos-db-sql-api.md) with a walkthrough on how to achieve it using Azure Data Factory copy activity.
 
 ## Next steps
 
-For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

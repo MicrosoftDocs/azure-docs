@@ -1,25 +1,18 @@
 ---
-title: Use Application Health extension with Azure virtual machine scale sets | Microsoft Docs
+title: Use Application Health extension with Azure virtual machine scale sets
 description: Learn how to use the Application Health extension to monitor the health of your applications deployed on virtual machine scale sets.
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: mayanknayar
-manager: drewm
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/30/2019
-ms.author: manayar
+ms.subservice: extensions
+ms.date: 05/06/2020
+ms.reviewer: mimckitt
+ms.custom: mimckitt
 
 ---
 # Using Application Health extension with virtual machine scale sets
-Monitoring your application health is an important signal for managing and upgrading your deployment. Azure virtual machine scale sets provide support for [rolling upgrades](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) including [automatic OS-image upgrades](virtual-machine-scale-sets-automatic-upgrade.md), which rely on health monitoring of the individual instances to upgrade your deployment.
+Monitoring your application health is an important signal for managing and upgrading your deployment. Azure virtual machine scale sets provide support for [rolling upgrades](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) including [automatic OS-image upgrades](virtual-machine-scale-sets-automatic-upgrade.md), which rely on health monitoring of the individual instances to upgrade your deployment. You can also use health extension to monitor the application health of each instance in your scale set and perform instance repairs using [automatic instance repairs](virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 This article describes how you can use the Application Health extension to monitor the health of your applications deployed on virtual machine scale sets.
 
@@ -35,7 +28,7 @@ As the extension reports health from within a VM, the extension can be used in s
 
 ## Extension schema
 
-The following JSON shows the schema for the Application Health extension. The extension requires at a minimum either a "tcp" or "http" request with an associated port or request path respectively.
+The following JSON shows the schema for the Application Health extension. The extension requires at a minimum either a "tcp", "http" or "https" request with an associated port or request path respectively.
 
 ```json
 {
@@ -70,9 +63,9 @@ The following JSON shows the schema for the Application Health extension. The ex
 
 | Name | Value / Example | Data Type
 | ---- | ---- | ----
-| protocol | `http` or `tcp` | string |
-| port | Optional when protocol is `http`, mandatory when protocol is `tcp` | int |
-| requestPath | Mandatory when protocol is `http`, not allowed when protocol is `tcp` | string |
+| protocol | `http` or `https` or `tcp` | string |
+| port | Optional when protocol is `http` or `https`, mandatory when protocol is `tcp` | int |
+| requestPath | Mandatory when protocol is `http` or `https`, not allowed when protocol is `tcp` | string |
 
 ## Deploy the Application Health extension
 There are multiple ways of deploying the Application Health extension to your scale sets as detailed in the examples below.
@@ -175,7 +168,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.ManagedServices.ApplicationHealthWindows\
 ```
 
 ```Linux
-/var/lib/waagent/apphealth
+/var/lib/waagent/Microsoft.ManagedServices.ApplicationHealthLinux-<extension_version>/status
+/var/log/azure/applicationhealth-extension
 ```
 
 The logs also periodically capture the application health status.

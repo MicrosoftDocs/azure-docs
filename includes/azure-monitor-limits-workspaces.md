@@ -31,50 +31,66 @@ ms.custom: "include file"
 
 **Azure portal**
 
-| Category | Limits | Comments |
+| Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum records returned by a log query | 10,000 | Reduce results using query scope, time range, and filters in the query. |
 
 
 **Data Collector API**
 
-| Category | Limits | Comments |
+| Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum size for a single post | 30 MB | Split larger volumes into multiple posts. |
 | Maximum size for field values  | 32 KB | Fields longer than 32 KB are truncated. |
 
 **Search API**
 
-| Category | Limits | Comments |
+| Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum records returned in a single query | 500,000 | |
 | Maximum size of data returned | 64,000,000 bytes (~61 MiB)| |
 | Maximum query running time | 10 minutes | See [Timeouts](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) for details.  |
-| Maximum request rate | 200 requests per 30 seconds per AAD user or client IP address | See [Rate limits](https://dev.loganalytics.io/documentation/Using-the-API/Limits) for details. |
+| Maximum request rate | 200 requests per 30 seconds per Azure AD user or client IP address | See [Rate limits](https://dev.loganalytics.io/documentation/Using-the-API/Limits) for details. |
 
 **General workspace limits**
 
-| Category | Limits | Comments |
+| Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum columns in a table         | 500 | |
 | Maximum characters for column name | 500 | |
 | Data export | Not currently available | Use Azure Function or Logic App to aggregate and export data. | 
 
-**Data ingestion volume rate**
+**<a name="data-ingestion-volume-rate">Data ingestion volume rate</a>**
 
+Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. The volume rate limit intends to isolate Azure Monitor customers from sudden ingestion spikes in multitenancy environment. A default ingestion volume rate threshold of 500 MB (compressed) is defined in workspaces, this is translated to approximately **6 GB/min** uncompressed -- the actual size can vary between data types depending on the log length and its compression ratio. The volume rate limit applies to all ingested data whether sent from Azure resources using [Diagnostic settings](../articles/azure-monitor/platform/diagnostic-settings.md), [Data Collector API](../articles/azure-monitor/platform/data-collector-api.md) or agents.
 
-Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. The default ingestion volume rate limit for data sent from Azure resources using [diagnostic settings](../articles/azure-monitor/platform/diagnostic-settings.md) is approximately **6 GB/min** per workspace. This is an approximate value since the actual size can vary between data types depending on the log length and its compression ratio. This limit does not apply to data that is sent from agents or [Data Collector API](../articles/azure-monitor/platform/data-collector-api.md).
+When you send data to a workspace at a volume rate higher than 80% of the threshold configured in your workspace, an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. When ingested volume rate is higher than threshold, some data is dropped and an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume rate continues to exceed the threshold or you are expecting to reach it sometime soon, you can request to increase it in by opening a support request. 
 
-If you send data at a higher rate to a single workspace, some data is dropped, and an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume continues to exceed the rate limit or you are expecting to reach it sometime soon, you can request an increase to your workspace by opening a support request.
- 
-To be notified on such an event in your workspace, create a [log alert rule](../articles/azure-monitor/platform/alerts-log.md) using the following query with alert logic base on number of results grater than zero.
+To be notified on approaching or reaching ingestion volume rate limit in your workspace, create a [log alert rule](../articles/azure-monitor/platform/alerts-log.md) using the following query with alert logic base on number of results greater than zero, evaluation period of 5 minutes and frequency of 5 minutes.
 
-``` Kusto
+Ingestion volume rate crossed the threshold
+```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The rate of data crossed the threshold"
-``` 
+| where OperationCategory == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where OperationStatus == "Error"
+```
 
+Ingestion volume rate crossed 80% of the threshold
+```Kusto
+Operation
+| where OperationCategory == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where OperationStatus == "Warning"
+```
+
+Ingestion volume rate crossed 70% of the threshold
+```Kusto
+Operation
+| where OperationCategory == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where OperationStatus == "Info"
+```
 
 >[!NOTE]
 >Depending on how long you've been using Log Analytics, you might have access to legacy pricing tiers. Learn more about [Log Analytics legacy pricing tiers](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 

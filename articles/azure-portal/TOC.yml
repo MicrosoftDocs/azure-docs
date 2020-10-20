@@ -7,31 +7,71 @@
   - name: Get started with Azure Quickstart Center
     href: azure-portal-quickstart-center.md
   - name: Supported browsers and devices
-    href: azure-portal-supported-browsers-devices.md 
+    href: azure-portal-supported-browsers-devices.md
+- name: Quickstarts
+  items:
+  - name: Create a VM in the portal
+    href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+  - name: Create a dashboard
+    items:
+    - name: Azure PowerShell
+      href: quickstart-portal-dashboard-powershell.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: quick-create-template.md
 - name: Concepts
-  items:  
-  - name: Share dashboards with role-based access control
+  items:
+  - name: Share dashboards with Azure role-based access control
     href: azure-portal-dashboard-share-access.md
   - name: Programmatically create Azure dashboards
     href: azure-portal-dashboards-create-programmatically.md
 - name: How-to guides
   items:
-  - name: Set your Azure portal preferences
+  - name: Manage Azure portal settings and preferences
     href: set-preferences.md
-  - name: Set inactive timeout settings for all users
-    href: admin-timeout.md
-  - name: Turn on high contrast or change theme
-    href: azure-portal-change-theme-high-contrast.md
   - name: Add, remove, and sort favorites
     href: azure-portal-add-remove-sort-favorites.md
-  - name: Create and share Azure dashboards
-    href: azure-portal-dashboards.md
-  - name: Use a custom markdown tile
-    href: azure-portal-markdown-tile.md
-  - name: Export or delete user settings
-    href: azure-portal-export-delete-settings.md
+  - name: View and filter resource information
+    href: manage-filter-resource-views.md
+  - name: Create Azure dashboards
+    items:
+    - name: Create and share Azure dashboards
+      href: azure-portal-dashboards.md
+    - name: Use a custom markdown tile
+      href: azure-portal-markdown-tile.md
   - name: Azure portal how-to video series
     href: azure-portal-video-series.md
+  - name: Create and manage support requests
+    items:
+    - name: Create an Azure support request
+      href: supportability/how-to-create-azure-support-request.md
+    - name: Manage an Azure support request
+      href: supportability/how-to-manage-azure-support-request.md
+    - name: Request quota increases
+      items:
+      - name: Increase compute vCPU limits
+        items:
+        - name: Resource Manager deployment model
+          items:
+          - name: Increase VM series vCPU limit
+            href: supportability/per-vm-quota-requests.md
+          - name: Increase total regional vCPU limit
+            href: supportability/regional-quota-requests.md
+          - name: Increase spot quota limit
+            href: supportability/low-priority-quota.md
+        - name: Classic deployment model
+          href: supportability/classic-deployment-model-quota-increase-requests.md
+      - name: Increase networking limits
+        href: supportability/networking-quota-requests.md
+  - name: Troubleshoot Azure portal issues
+    items:
+    - name: Recover a deleted dashboard
+      href: recover-shared-deleted-dashboard.md
+    - name: Troubleshoot region or SKU subscription issues
+      href: supportability/sku-series-unavailable.md
+    - name: Capture a browser trace for troubleshooting
+      href: capture-browser-trace.md
+
 - name: Reference
   items:
   - name: Keyboard shortcuts
@@ -40,6 +80,8 @@
     href: azure-portal-safelist-urls.md
   - name: Structure of Azure dashboards
     href: azure-portal-dashboards-structure.md
+  - name: Azure CLI
+    href: /cli/azure/ext/portal/portal
 - name: Resources
   items:
   - name: Azure roadmap

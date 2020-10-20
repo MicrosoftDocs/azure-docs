@@ -1,18 +1,50 @@
 ---
 title: Azure Activity Log event schema
 description: Describes the event schema for each category in the Azure Activity log.
-author: johnkemnetz
+author: bwren
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: reference
-ms.date: 1/16/2019
-ms.author: dukek
+ms.date: 09/30/2020
+ms.author: bwren
 ms.subservice: logs
 ---
 # Azure Activity Log event schema
-The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema per category of data. The schema of the data differs depending on if you are reading the data in the portal, PowerShell, CLI, or directly via the REST API versus [streaming the data to storage or Event Hubs using a Log Profile](activity-log-export.md). The examples below show the schema as made available via the portal, PowerShell, CLI, and REST API. A mapping of those properties to the [Azure logs schema](diagnostic-logs-schema.md) is provided at the end of the article.
+The [Azure Activity log](platform-logs-overview.md) provides insight into any subscription-level events that have occurred in Azure. This article describes Activity log categories and the schema for each. 
 
-## Administrative
+The schema will vary depending on how you access the log:
+ 
+- The schemas described in this article are when you access the Activity log from the [REST API](/rest/api/monitor/activitylogs). This is also the schema used when you select the **JSON** option when viewing an event in the Azure portal.
+- See the final section [Schema from storage account and event hubs](#schema-from-storage-account-and-event-hubs) for the schema when you use a [diagnostic setting](diagnostic-settings.md) to send the Activity log to Azure Storage or Azure Event Hubs.
+- See [Azure Monitor data reference](/azure/azure-monitor/reference/) for the schema when you use a [diagnostic setting](diagnostic-settings.md) to send the Activity log to a Log Analytics workspace.
+
+## Severity Level
+Each entry in the activity log has a severity level. Severity level can have one of the following values:  
+
+| Severity | Description |
+|:---|:---|
+| Critical | Events that demand the immediate attention of a system administrator. May indicate that an application or system has failed or stopped responding.
+| Error | Events that indicate a problem, but do not require immediate attention.
+| Warning | Events that provide forewarning of potential problems, although not an actual error. Indicate that a resource is not in an ideal state and may degrade later into showing errors or critical events.  
+| Informational | Events that pass noncritical information to the administrator. Similar to a note that says: "For your information". 
+
+The devlopers of each resource provider choose the severity levels of their resource entries. As a result, the actual severity to you can vary depending on how your application is built. For example, items that are "critical" to a particular resource taken in isloation may not be as important as "errors" in a resource type that is central to your Azure application. Be sure to consider this fact when deciding what events to alert on.  
+
+## Categories
+Each event in the Activity Log has a particular category that are described in the following table. See the sections below for more detail on each category and its schema when you access the Activity log from the portal, PowerShell, CLI, and REST API. The schema is different when you [stream the Activity log to storage or Event Hubs](./resource-logs.md#send-to-azure-event-hubs). A mapping of the properties to the [resource logs schema](./resource-logs-schema.md) is provided in the last section of the article.
+
+| Category | Description |
+|:---|:---|
+| [Administrative](#administrative-category) | Contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of Administrative events include _create virtual machine_ and _delete network security group_.<br><br>Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is _Write_, _Delete_, or _Action_, the records of both the start and success or fail of that operation are recorded in the Administrative category. Administrative events also include any changes to role-based access control in a subscription. |
+| [Service Health](#service-health-category) | Contains the record of any service health incidents that have occurred in Azure. An example of a Service Health event _SQL Azure in East US is experiencing downtime_. <br><br>Service Health events come in Six varieties: _Action Required_, _Assisted Recovery_, _Incident_, _Maintenance_, _Information_, or _Security_. These events are only created if you have a resource in the subscription that would be impacted by the event.
+| [Resource Health](#resource-health-category) | Contains the record of any resource health events that have occurred to your Azure resources. An example of a Resource Health event is _Virtual Machine health status changed to unavailable_.<br><br>Resource Health events can represent one of four health statuses: _Available_, _Unavailable_, _Degraded_, and _Unknown_. Additionally, Resource Health events can be categorized as being _Platform Initiated_ or _User Initiated_. |
+| [Alert](#alert-category) | Contains the record of activations for Azure alerts. An example of an Alert event is _CPU % on myVM has been over 80 for the past 5 minutes_.|
+| [Autoscale](#autoscale-category) | Contains the record of any events related to the operation of the autoscale engine based on any autoscale settings you have defined in your subscription. An example of an Autoscale event is _Autoscale scale up action failed_. |
+| [Recommendation](#recommendation-category) | Contains recommendation events from Azure Advisor. |
+| [Security](#security-category) | Contains the record of any alerts generated by Azure Security Center. An example of a Security event is _Suspicious double extension file executed_. |
+| [Policy](#policy-category) | Contains records of all effect action operations performed by Azure Policy. Examples of Policy events include _Audit_ and _Deny_. Every action taken by Policy is modeled as an operation on a resource. |
+
+## Administrative category
 This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role-based access control in a subscription.
 
 ### Sample event
@@ -31,7 +63,7 @@ This category contains the record of all create, update, delete, and action oper
         "nbf": "1234567890",
         "exp": "1234567890",
         "_claim_names": "{\"groups\":\"src1\"}",
-        "_claim_sources": "{\"src1\":{\"endpoint\":\"https://graph.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/users/f409edeb-4d29-44b5-9763-ee9348ad91bb/getMemberObjects\"}}",
+        "_claim_sources": "{\"src1\":{\"endpoint\":\"https://graph.microsoft.com/1114444b-7467-4144-a616-e3a5d63e147b/users/f409edeb-4d29-44b5-9763-ee9348ad91bb/getMemberObjects\"}}",
         "http://schemas.microsoft.com/claims/authnclassreference": "1",
         "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
         "http://schemas.microsoft.com/claims/authnmethodsreferences": "rsa,mfa",
@@ -130,7 +162,7 @@ This category contains the record of all create, update, delete, and action oper
 | submissionTimestamp |Timestamp when the event became available for querying. |
 | subscriptionId |Azure Subscription ID. |
 
-## Service health
+## Service health category
 This category contains the record of any service health incidents that have occurred in Azure. An example of the type of event you would see in this category is "SQL Azure in East US is experiencing downtime." Service health events come in five varieties: Action Required, Assisted Recovery, Incident, Maintenance, Information, or Security, and only appear if you have a resource in the subscription that would be impacted by the event.
 
 ### Sample event
@@ -188,9 +220,9 @@ This category contains the record of any service health incidents that have occu
   }
 }
 ```
-Refer to the [service health notifications](./../../azure-monitor/platform/service-notifications.md) article for documentation about the values in the properties.
+Refer to the [service health notifications](../../service-health/service-notifications.md) article for documentation about the values in the properties.
 
-## Resource health
+## Resource health category
 This category contains the record of any resource health events that have occurred to your Azure resources. An example of the type of event you would see in this category is "Virtual Machine health status changed to unavailable." Resource health events can represent one of four health statuses: Available, Unavailable, Degraded, and Unknown. Additionally, resource health events can be categorized as being Platform Initiated or User Initiated.
 
 ### Sample event
@@ -279,8 +311,8 @@ This category contains the record of any resource health events that have occurr
 | properties.cause | A description of the cause of the resource health event. Either "UserInitiated" and "PlatformInitiated". |
 
 
-## Alert
-This category contains the record of all activations of Azure alerts. An example of the type of event you would see in this category is "CPU % on myVM has been over 80 for the past 5 minutes." A variety of Azure systems have an alerting concept -- you can define a rule of some sort and receive a notification when conditions match that rule. Each time a supported Azure alert type 'activates,' or the conditions are met to generate a notification, a record of the activation is also pushed to this category of the Activity Log.
+## Alert category
+This category contains the record of all activations of classic Azure alerts. An example of the type of event you would see in this category is "CPU % on myVM has been over 80 for the past 5 minutes." A variety of Azure systems have an alerting concept -- you can define a rule of some sort and receive a notification when conditions match that rule. Each time a supported Azure alert type 'activates,' or the conditions are met to generate a notification, a record of the activation is also pushed to this category of the Activity Log.
 
 ### Sample event
 
@@ -393,7 +425,7 @@ The properties field will contain different values depending on the source of th
 | properties.MetricName | The metric name of the metric used in the evaluation of the metric alert rule. |
 | properties.MetricUnit | The metric unit for the metric used in the evaluation of the metric alert rule. |
 
-## Autoscale
+## Autoscale category
 This category contains the record of any events related to the operation of the autoscale engine based on any autoscale settings you have defined in your subscription. An example of the type of event you would see in this category is "Autoscale scale up action failed." Using autoscale, you can automatically scale out or scale in the number of instances in a supported resource type based on time of day and/or load (metric) data using an autoscale setting. When the conditions are met to scale up or down, the start and succeeded or failed events will be recorded in this category.
 
 ### Sample event
@@ -480,7 +512,7 @@ This category contains the record of any events related to the operation of the 
 | submissionTimestamp |Timestamp when the event became available for querying. |
 | subscriptionId |Azure Subscription ID. |
 
-## Security
+## Security category
 This category contains the record any alerts generated by Azure Security Center. An example of the type of event you would see in this category is "Suspicious double extension file executed."
 
 ### Sample event
@@ -552,7 +584,7 @@ This category contains the record any alerts generated by Azure Security Center.
 | eventDataId |Unique identifier of the security event. |
 | eventName |Friendly name of the security event. |
 | category | Always "Security" |
-| id |Unique resource identifier of the security event. |
+| ID |Unique resource identifier of the security event. |
 | level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, or “Informational” |
 | resourceGroupName |Name of the resource group for the resource. |
 | resourceProviderName |Name of the resource provider for Azure Security Center. Always "Microsoft.Security". |
@@ -568,7 +600,7 @@ This category contains the record any alerts generated by Azure Security Center.
 | submissionTimestamp |Timestamp when the event became available for querying. |
 | subscriptionId |Azure Subscription ID. |
 
-## Recommendation
+## Recommendation category
 This category contains the record of any new recommendations that are generated for your services. An example of a recommendation would be "Use availability sets for improved fault tolerance." There are four types of Recommendation events that can be generated: High Availability, Performance, Security, and Cost Optimization. 
 
 ### Sample event
@@ -632,7 +664,7 @@ This category contains the record of any new recommendations that are generated 
 | description |Static text description of the recommendation event |
 | eventDataId | Unique identifier of the recommendation event. |
 | category | Always "Recommendation" |
-| id |Unique resource identifier of the recommendation event. |
+| ID |Unique resource identifier of the recommendation event. |
 | level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, or “Informational” |
 | operationName |Name of the operation.  Always "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |Name of the resource group for the resource. |
@@ -648,7 +680,7 @@ This category contains the record of any new recommendations that are generated 
 | properties.recommendationImpact| Impact of the recommendation. Possible values are "High", "Medium", "Low" |
 | properties.recommendationRisk| Risk of the recommendation. Possible values are "Error", "Warning", "None" |
 
-## Policy
+## Policy category
 
 This category contains records of all effect action operations performed by [Azure
 Policy](../../governance/policy/overview.md). Examples of the types of events you would see in this
@@ -750,7 +782,7 @@ resource.
 | eventName | Either "BeginRequest" or "EndRequest". "BeginRequest" is used for delayed auditIfNotExists and deployIfNotExists evaluations and when a deployIfNotExists effect starts a template deployment. All other operations return "EndRequest". |
 | category | Declares the activity log event as belonging to "Policy". |
 | eventTimestamp | Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
-| id | Unique identifier of the event on the specific resource. |
+| ID | Unique identifier of the event on the specific resource. |
 | level | Level of the event. Audit uses "Warning" and Deny uses "Error". An auditIfNotExists or deployIfNotExists error can generate "Warning" or "Error" depending on severity. All other Policy events use "Informational". |
 | operationId | A GUID shared among the events that correspond to a single operation. |
 | operationName | Name of the operation and directly correlates to the Policy effect. |
@@ -768,9 +800,13 @@ resource.
 | properties.policies | Includes details about the policy definition, assignment, effect, and parameters that this Policy evaluation is a result of. |
 | relatedEvents | This field is blank for Policy events. |
 
-## Mapping to resource logs schema
 
-When streaming the Azure Activity Log to a storage account or Event Hubs namespace, the data follows the [Azure resource logs schema](./diagnostic-logs-schema.md). Here is the mapping of properties from the schema above to the resource logs schema:
+## Schema from storage account and event hubs
+When streaming the Azure Activity log to a storage account or event hub, the data follows the [resource log schema](./resource-logs-schema.md). The table below provides a mapping of properties from the above schemas to the resource logs schema.
+
+> [!IMPORTANT]
+> The format of Activity log data written to a storage account changed to JSON Lines on Nov. 1st, 2018. See [Prepare for format change to Azure Monitor resource logs archived to a storage account](./resource-logs-blob-format.md) for details on this format change.
+
 
 | Resource logs schema property | Activity Log REST API schema property | Notes |
 | --- | --- | --- |
@@ -793,8 +829,68 @@ When streaming the Azure Activity Log to a storage account or Event Hubs namespa
 | properties.operationId | operationId |  |
 | properties.eventProperties | properties |  |
 
+Following is an example of an event using this schema..
+
+``` JSON
+{
+    "records": [
+        {
+            "time": "2019-01-21T22:14:26.9792776Z",
+            "resourceId": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
+            "operationName": "microsoft.support/supporttickets/write",
+            "category": "Write",
+            "resultType": "Success",
+            "resultSignature": "Succeeded.Created",
+            "durationMs": 2826,
+            "callerIpAddress": "111.111.111.11",
+            "correlationId": "c776f9f4-36e5-4e0e-809b-c9b3c3fb62a8",
+            "identity": {
+                "authorization": {
+                    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
+                    "action": "microsoft.support/supporttickets/write",
+                    "evidence": {
+                        "role": "Subscription Admin"
+                    }
+                },
+                "claims": {
+                    "aud": "https://management.core.windows.net/",
+                    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+                    "iat": "1421876371",
+                    "nbf": "1421876371",
+                    "exp": "1421880271",
+                    "ver": "1.0",
+                    "http://schemas.microsoft.com/identity/claims/tenantid": "00000000-0000-0000-0000-000000000000",
+                    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
+                    "puid": "20030000801A118C",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
+                    "name": "John Smith",
+                    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
+                    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
+                    "appidacr": "2",
+                    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+                    "http://schemas.microsoft.com/claims/authnclassreference": "1"
+                }
+            },
+            "level": "Information",
+            "location": "global",
+            "properties": {
+                "statusCode": "Created",
+                "serviceRequestId": "50d5cddb-8ca0-47ad-9b80-6cde2207f97c"
+            }
+        }
+    ]
+}
+```
+
+
+
+
 
 ## Next steps
-* [Learn more about the Activity Log](activity-logs-overview.md)
-* [Export the Activity Log to Azure Storage or Event Hubs](activity-log-export.md)
-
+* [Learn more about the Activity Log](platform-logs-overview.md)
+* [Create a diagnostic setting to send Activity Log to Log Analytics workspace, Azure storage, or event hubs](diagnostic-settings.md)

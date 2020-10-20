@@ -11,9 +11,9 @@ metadata:
   ms.subservice: 
   ms.topic: landing-page
   ms.collection: collection
-  author: kfollis
-  ms.author: kfollis
-  ms.date: 12/19/2019
+  author: mblythe
+  ms.author: mblythe
+  ms.date: 08/05/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -49,13 +49,13 @@ landingContent:
         links:
           - text: Safelist the Azure portal URLs
             url: azure-portal-safelist-urls.md
-          - text: Role-based access control for dashboards
+          - text: Azure role-based access control for dashboards
             url: azure-portal-dashboard-share-access.md
       - linkListType: learn
         links:
           - text: Manage resources in Azure
             url: /learn/paths/manage-resources-in-azure/
-          - text: Secure your Azure resources with role-based access control (RBAC)   
+          - text: Secure your Azure resources with Azure role-based access control (Azure RBAC)   
             url: /learn//modules/secure-azure-resources-with-rbac/ 
   
   # Card 
@@ -87,5 +87,15 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Turn on high contrast
-            url: azure-portal-change-theme-high-contrast.md
+            url: set-preferences.md#choose-a-theme-or-enable-high-contrast
  
+
+   # Card
+  - title: Create and manage support requests
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Azure support request
+            url: ../azure-portal/supportability/how-to-create-azure-support-request.md
+          - text: Troubleshoot region or SKU subscription issues
+            url: ../azure-portal/supportability/sku-series-unavailable.md

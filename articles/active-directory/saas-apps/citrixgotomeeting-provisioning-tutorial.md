@@ -2,21 +2,14 @@
 title: 'Tutorial: Configure GoToMeeting for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and GoToMeeting.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-
-ms.assetid: 0f59fedb-2cf8-48d2-a5fb-222ed943ff78
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure GoToMeeting for automatic user provisioning
 
@@ -61,7 +54,7 @@ This section guides you through connecting your Azure AD to GoToMeeting's user a
 
 1. Set the **Provisioning** Mode to **Automatic**. 
 
-    ![provisioning](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Screenshot of the Provisioning tab for GoToMeeting in Azure portal. Provisioning Mode is set to Automatic and Admin Username, Password and Test Connection are highlighted.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 1. Under the Admin Credentials section, perform the following steps:
    
@@ -85,7 +78,7 @@ This section guides you through connecting your Azure AD to GoToMeeting's user a
 
 It starts the initial synchronization of any users and/or groups assigned to GoToMeeting in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your GoToMeeting app.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 

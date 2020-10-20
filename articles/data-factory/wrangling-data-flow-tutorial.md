@@ -11,17 +11,22 @@ ms.date: 11/01/2019
 
 # Prepare data with wrangling data flow
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+> [!NOTE]
+> Wrangling data flow is currently avilable in public preview
+
 ## Create a wrangling data flow
 
 There are two ways to create a wrangling data flow in Azure Data Factory. One way is to click the plus icon and select **Data Flow** in the factory resources pane.
 
-![Wrangling](media/wrangling-data-flow/tutorial7.png)
+![Screenshot that shows Data Flow in the factory resources pane.](media/wrangling-data-flow/tutorial7.png)
 
 The other method is in the activities pane of the pipeline canvas. Open the **Move and Transform** accordion and drag the **Data flow** activity onto the canvas.
 
 In both methods, in the side pane that opens, select **Create new data flow** and choose **Wrangling data flow**. Click OK.
 
-![Wrangling](media/wrangling-data-flow/tutorial1.png)
+![Screenshot that highlights the Wrangling data flow option.](media/wrangling-data-flow/tutorial1.png)
 
 ## Author a wrangling data flow
 
@@ -34,21 +39,21 @@ Add a **Source dataset** for your wrangling data flow. You can either choose an 
 
 Click **Create** to open the Power Query Online mashup editor.
 
-![Wrangling](media/wrangling-data-flow/tutorial5.png)
+![Screenshot that shows the Create button that opens the Power Query Online mashup editor.](media/wrangling-data-flow/tutorial5.png)
 
-Author your wrangling data flow using code-free data preparation. For the list of available functions, see [transformation functions](wrangling-data-flow-functions.md)/
+Author your wrangling data flow using code-free data preparation. For the list of available functions, see [transformation functions](wrangling-data-flow-functions.md).
 
-![Wrangling](media/wrangling-data-flow/tutorial6.png)
+![Screenshot that shows the process for authoring your wrangling data flow.](media/wrangling-data-flow/tutorial6.png)
 
 ## Running and monitoring a wrangling data flow
 
 To execute a pipeline debug run of a wrangling data flow, click **Debug** in the pipeline canvas. Once you publish your data flow, **Trigger now** executes an on-demand run of the last published pipeline. Wrangling data flows can be schedule with all existing Azure Data Factory triggers.
 
-![Wrangling](media/wrangling-data-flow/tutorial3.png)
+![Screenshot that shows how to add a wrangling data flow.](media/wrangling-data-flow/tutorial3.png)
 
 Go to the **Monitor** tab to visualize the output of a triggered wrangling data flow activity run.
 
-![Wrangling](media/wrangling-data-flow/tutorial2.png)
+![Screenshot that shows the output of a triggered wrangling data flow activity run.](media/wrangling-data-flow/tutorial2.png)
 
 ## Next steps
 

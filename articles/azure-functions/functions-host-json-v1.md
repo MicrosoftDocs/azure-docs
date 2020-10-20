@@ -143,9 +143,7 @@ Configuration settings for the [Azure Cosmos DB trigger and bindings](functions-
 
 ## eventHub
 
-Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs.md).
-
-[!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
+Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs-trigger.md#functions-1x).
 
 ## functions
 
@@ -209,7 +207,7 @@ Configuration settings for [http triggers and bindings](functions-bindings-http-
 |Property  |Default | Description |
 |---------|---------|---------| 
 |dynamicThrottlesEnabled|false|When enabled, this setting causes the request processing pipeline to periodically check system performance counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in high threshold (80%), requests will be rejected with a 429 "Too Busy" response until the counter(s) return to normal levels.|
-|maxConcurrentRequests|unbounded (`-1`)|The maximum number of http functions that will be executed in parallel. This allows you to control concurrency, which can help manage resource utilization. For example, you might have an http function that uses a lot of system resources (memory/cpu/sockets) such that it causes issues when concurrency is too high. Or you might have a function that makes outbound requests to a third party service, and those calls need to be rate limited. In these cases, applying a throttle here can help.|
+|maxConcurrentRequests|unbounded (`-1`)|The maximum number of HTTP functions that will be executed in parallel. This allows you to control concurrency, which can help manage resource utilization. For example, you might have an HTTP function that uses a lot of system resources (memory/cpu/sockets) such that it causes issues when concurrency is too high. Or you might have a function that makes outbound requests to a third party service, and those calls need to be rate limited. In these cases, applying a throttle here can help.|
 |maxOutstandingRequests|unbounded (`-1`)|The maximum number of outstanding requests that are held at any given time. This limit includes requests that are queued but have not started executing, as well as any in progress executions. Any incoming requests over this limit are rejected with a 429 "Too Busy" response. That allows callers to employ time-based retry strategies, and also helps you to control maximum request latencies. This only controls queuing that occurs within the script host execution path. Other queues such as the ASP.NET request queue will still be in effect and unaffected by this setting.|
 |routePrefix|api|The route prefix that applies to all routes. Use an empty string to remove the default prefix. |
 
@@ -227,7 +225,7 @@ If you share a Storage account across multiple function apps, make sure that eac
 
 ## logger
 
-Controls filtering for logs written by an [ILogger object](functions-monitoring.md#write-logs-in-c-functions) or by [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
+Controls filtering for logs written by an [ILogger](functions-dotnet-class-library.md#ilogger) object or by [context.log](functions-reference-node.md#contextlog-method).
 
 ```json
 {
@@ -337,7 +335,7 @@ Configuration settings for Singleton lock behavior. For more information, see [G
 
 *Version 1.x*
 
-Configuration settings for logs that you create by using a `TraceWriter` object. See [C# Logging](functions-reference-csharp.md#logging) and [Node.js Logging](functions-reference-node.md#writing-trace-output-to-the-console).
+Configuration settings for logs that you create by using a `TraceWriter` object. To learn more, see [C# Logging].
 
 ```json
 {

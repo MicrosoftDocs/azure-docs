@@ -43,7 +43,7 @@ We have a simple autoscale setting for a virtual machine scale set that:
 
 Let’s review the metrics from the autoscale service.
  
-![Virtual machine scale set percentage CPU example](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
+![Screenshot shows a virtual machine scale set percentage CPU example.](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
 
 ![Virtual machine scale set percentage CPU example](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
@@ -68,7 +68,7 @@ If the value of **Outbound Flow per instance** is greater than 10, then autoscal
 
 In this case, the autoscale engine’s observed metric value is calculated as the actual metric value divided by the number of instances. If the observed metric value is less than the threshold, no scale-out action is initiated. 
  
-![Virtual machine scale set autoscale metrics charts example](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
+![Screenshot shows the Average Outbound Flows page with an example of a virtual machine scale set autoscale metrics charts.](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
 
 ![Virtual machine scale set autoscale metrics charts example](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 
@@ -93,7 +93,7 @@ In the autoscale setting screen, go to the **Run history** tab to see the most r
 
 ## Autoscale Resource Logs
 
-Same as any other Azure resource, the autoscale service provides [resource logs](resource-logs-overview.md). There are two categories of logs.
+Same as any other Azure resource, the autoscale service provides [resource logs](platform-logs-overview.md). There are two categories of logs.
 
 - **Autoscale Evaluations** - The autoscale engine records log entries for every single condition evaluation every time it does a check.  The entry includes details on the observed values of the metrics, the rules evaluated, and if the evaluation resulted in a scale action or not.
 

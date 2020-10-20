@@ -3,9 +3,10 @@ title: Model and partition data on Azure Cosmos DB with a real-world example
 description: Learn how to model and partition a real-world example using the Azure Cosmos DB Core API
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
+ms.custom: devx-track-js
 ---
 
 # How to model and partition data on Azure Cosmos DB using a real-world example
@@ -48,7 +49,7 @@ Here is the list of requests that our platform will have to expose:
 - **[Q5]** List a post's likes
 - **[Q6]** List the *x* most recent posts created in short form (feed)
 
-As this stage, we haven't thought about the details of what each entity (user, post etc.) will contain. This step is usually among the first ones to be tackled when designing against a relational store, because we have to figure out how those entities will translate in terms of tables, columns, foreign keys etc. It is much less of a concern with a document database that doesn't enforce any schema at write.
+At this stage, we haven't thought about the details of what each entity (user, post etc.) will contain. This step is usually among the first ones to be tackled when designing against a relational store, because we have to figure out how those entities will translate in terms of tables, columns, foreign keys etc. It is much less of a concern with a document database that doesn't enforce any schema at write.
 
 The main reason why it is important to identify our access patterns from the beginning, is because this list of requests is going to be our test suite. Every time we iterate over our data model, we will go through each of the requests and check its performance and scalability.
 
@@ -60,10 +61,12 @@ We start with two containers: `users` and `posts`.
 
 This container only stores user items:
 
-    {
-      "id": "<user-id>",
-      "username": "<username>"
-    }
+```json
+{
+    "id": "<user-id>",
+    "username": "<username>"
+}
+```
 
 We partition this container by `id`, which means that each logical partition within that container will only contain one item.
 
@@ -71,32 +74,34 @@ We partition this container by `id`, which means that each logical partition wit
 
 This container hosts posts, comments, and likes:
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "creationDate": "<post-creation-date>"
-    }
+```json
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "creationDate": "<post-creation-date>"
+}
 
-    {
-      "id": "<comment-id>",
-      "type": "comment",
-      "postId": "<post-id>",
-      "userId": "<comment-author-id>",
-      "content": "<comment-content>",
-      "creationDate": "<comment-creation-date>"
-    }
+{
+    "id": "<comment-id>",
+    "type": "comment",
+    "postId": "<post-id>",
+    "userId": "<comment-author-id>",
+    "content": "<comment-content>",
+    "creationDate": "<comment-creation-date>"
+}
 
-    {
-      "id": "<like-id>",
-      "type": "like",
-      "postId": "<post-id>",
-      "userId": "<liker-id>",
-      "creationDate": "<like-creation-date>"
-    }
+{
+    "id": "<like-id>",
+    "type": "like",
+    "postId": "<post-id>",
+    "userId": "<liker-id>",
+    "creationDate": "<like-creation-date>"
+}
+```
 
 We partition this container by `postId`, which means that each logical partition within that container will contain one post, all the comments for that post and all the likes for that post.
 
@@ -117,7 +122,7 @@ It's now time to assess the performance and scalability of our first version. Fo
 
 This request is straightforward to implement as we just create or update an item in the `users` container. The requests will nicely spread across all partitions thanks to the `id` partition key.
 
-![Writing a single item to the users container](./media/how-to-model-partition-example/V1-C1.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C1.png" alt-text="Writing a single item to the users container" border="false":::
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
@@ -127,7 +132,7 @@ This request is straightforward to implement as we just create or update an item
 
 Retrieving a user is done by reading the corresponding item from the `users` container.
 
-![Retrieving a single item from the users container](./media/how-to-model-partition-example/V1-Q1.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q1.png" alt-text="Retrieving a single item from the users container" border="false":::
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
@@ -137,7 +142,7 @@ Retrieving a user is done by reading the corresponding item from the `users` con
 
 Similarly to **[C1]**, we just have to write to the `posts` container.
 
-![Writing a single item to the posts container](./media/how-to-model-partition-example/V1-C2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Writing a single item to the posts container" border="false":::
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
@@ -147,7 +152,7 @@ Similarly to **[C1]**, we just have to write to the `posts` container.
 
 We start by retrieving the corresponding document from the `posts` container. But that's not enough, as per our specification we also have to aggregate the username of the post's author and the counts of how many comments and how many likes this post has, which requires 3 additional SQL queries to be issued.
 
-![Retrieving a post and aggregating additional data](./media/how-to-model-partition-example/V1-Q2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q2.png" alt-text="Retrieving a post and aggregating additional data" border="false":::
 
 Each of the additional queries filters on the partition key of its respective container, which is exactly what we want to maximize performance and scalability. But we eventually have to perform four operations to return a single post, so we'll improve that in a next iteration.
 
@@ -159,7 +164,7 @@ Each of the additional queries filters on the partition key of its respective co
 
 First, we have to retrieve the desired posts with a SQL query that fetches the posts corresponding to that particular user. But we also have to issue additional queries to aggregate the author's username and the counts of comments and likes.
 
-![Retrieving all posts for a user and aggregating their additional data](./media/how-to-model-partition-example/V1-Q3.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q3.png" alt-text="Retrieving all posts for a user and aggregating their additional data" border="false":::
 
 This implementation presents many drawbacks:
 
@@ -174,7 +179,7 @@ This implementation presents many drawbacks:
 
 A comment is created by writing the corresponding item in the `posts` container.
 
-![Writing a single item to the posts container](./media/how-to-model-partition-example/V1-C2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Writing a single item to the posts container" border="false":::
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
@@ -184,7 +189,7 @@ A comment is created by writing the corresponding item in the `posts` container.
 
 We start with a query that fetches all the comments for that post and once again, we also need to aggregate usernames separately for each comment.
 
-![Retrieving all comments for a post and aggregating their additional data](./media/how-to-model-partition-example/V1-Q4.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q4.png" alt-text="Retrieving all comments for a post and aggregating their additional data" border="false":::
 
 Although the main query does filter on the container's partition key, aggregating the usernames separately penalizes the overall performance. We'll improve that later on.
 
@@ -196,7 +201,7 @@ Although the main query does filter on the container's partition key, aggregatin
 
 Just like **[C3]**, we create the corresponding item in the `posts` container.
 
-![Writing a single item to the posts container](./media/how-to-model-partition-example/V1-C2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Writing a single item to the posts container" border="false":::
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
@@ -206,7 +211,7 @@ Just like **[C3]**, we create the corresponding item in the `posts` container.
 
 Just like **[Q4]**, we query the likes for that post, then aggregate their usernames.
 
-![Retrieving all likes for a post and aggregating their additional data](./media/how-to-model-partition-example/V1-Q5.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Retrieving all likes for a post and aggregating their additional data" border="false":::
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
@@ -216,7 +221,7 @@ Just like **[Q4]**, we query the likes for that post, then aggregate their usern
 
 We fetch the most recent posts by querying the `posts` container sorted by descending creation date, then aggregate usernames and counts of comments and likes for each of the posts.
 
-![Retrieving most recent posts and aggregating their additional data](./media/how-to-model-partition-example/V1-Q6.png)
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q6.png" alt-text="Retrieving most recent posts and aggregating their additional data" border="false":::
 
 Once again, our initial query doesn't filter on the partition key of the `posts` container, which triggers a costly fan-out. This one is even worse as we target a much larger result set and sort the results with an `ORDER BY` clause, which makes it more expensive in terms of request units.
 
@@ -239,39 +244,43 @@ The reason why we have to issue additional requests in some cases is because the
 
 In our example, we modify post items to add the username of the post's author, the count of comments and the count of likes:
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "userUsername": "<post-author-username>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "commentCount": <count-of-comments>,
-      "likeCount": <count-of-likes>,
-      "creationDate": "<post-creation-date>"
-    }
+```json
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "userUsername": "<post-author-username>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "commentCount": <count-of-comments>,
+    "likeCount": <count-of-likes>,
+    "creationDate": "<post-creation-date>"
+}
+```
 
 We also modify comment and like items to add the username of the user who has created them:
 
-    {
-      "id": "<comment-id>",
-      "type": "comment",
-      "postId": "<post-id>",
-      "userId": "<comment-author-id>",
-      "userUsername": "<comment-author-username>",
-      "content": "<comment-content>",
-      "creationDate": "<comment-creation-date>"
-    }
+```json
+{
+    "id": "<comment-id>",
+    "type": "comment",
+    "postId": "<post-id>",
+    "userId": "<comment-author-id>",
+    "userUsername": "<comment-author-username>",
+    "content": "<comment-content>",
+    "creationDate": "<comment-creation-date>"
+}
 
-    {
-      "id": "<like-id>",
-      "type": "like",
-      "postId": "<post-id>",
-      "userId": "<liker-id>",
-      "userUsername": "<liker-username>",
-      "creationDate": "<like-creation-date>"
-    }
+{
+    "id": "<like-id>",
+    "type": "like",
+    "postId": "<post-id>",
+    "userId": "<liker-id>",
+    "userUsername": "<liker-username>",
+    "creationDate": "<like-creation-date>"
+}
+```
 
 ### Denormalizing comment and like counts
 
@@ -323,7 +332,7 @@ Usernames require a different approach as users not only sit in different partit
 
 In our example, we use the change feed of the `users` container to react whenever users update their usernames. When that happens, we propagate the change by calling another stored procedure on the `posts` container:
 
-![Denormalizing usernames into the posts container](./media/how-to-model-partition-example/denormalization-1.png)
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-1.png" alt-text="Denormalizing usernames into the posts container" border="false":::
 
 ```javascript
 function updateUsernames(userId, username) {
@@ -363,7 +372,7 @@ This stored procedure takes the ID of the user and the user's new username as pa
 
 Now that our denormalization is in place, we only have to fetch a single item to handle that request.
 
-![Retrieving a single item from the posts container](./media/how-to-model-partition-example/V2-Q2.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q2.png" alt-text="Retrieving a single item from the posts container" border="false":::
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
@@ -373,7 +382,7 @@ Now that our denormalization is in place, we only have to fetch a single item to
 
 Here again, we can spare the extra requests that fetched the usernames and end up with a single query that filters on the partition key.
 
-![Retrieving all comments for a post](./media/how-to-model-partition-example/V2-Q4.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q4.png" alt-text="Retrieving all comments for a post" border="false":::
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
@@ -383,7 +392,7 @@ Here again, we can spare the extra requests that fetched the usernames and end u
 
 Exact same situation when listing the likes.
 
-![Retrieving all likes for a post](./media/how-to-model-partition-example/V2-Q5.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="Retrieving all likes for a post" border="false":::
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
@@ -397,7 +406,7 @@ Looking at our overall performance improvements, there are still two requests th
 
 This request already benefits from the improvements introduced in V2, which spares additional queries.
 
-![Retrieving all posts for a user](./media/how-to-model-partition-example/V2-Q3.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="Diagram that shows the query to list a user's posts in short form." border="false":::
 
 But the remaining query is still not filtering on the partition key of the `posts` container.
 
@@ -412,25 +421,27 @@ So we introduce a second level of denormalization by duplicating entire posts to
 
 The `users` container now contains 2 kinds of items:
 
-    {
-      "id": "<user-id>",
-      "type": "user",
-      "userId": "<user-id>",
-      "username": "<username>"
-    }
+```json
+{
+    "id": "<user-id>",
+    "type": "user",
+    "userId": "<user-id>",
+    "username": "<username>"
+}
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "userUsername": "<post-author-username>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "commentCount": <count-of-comments>,
-      "likeCount": <count-of-likes>,
-      "creationDate": "<post-creation-date>"
-    }
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "userUsername": "<post-author-username>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "commentCount": <count-of-comments>,
+    "likeCount": <count-of-likes>,
+    "creationDate": "<post-creation-date>"
+}
+```
 
 Note that:
 
@@ -439,11 +450,11 @@ Note that:
 
 To achieve that denormalization, we once again use the change feed. This time, we react on the change feed of the `posts` container to dispatch any new or updated post to the `users` container. And because listing posts does not require to return their full content, we can truncate them in the process.
 
-![Denormalizing posts into the users container](./media/how-to-model-partition-example/denormalization-2.png)
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-2.png" alt-text="Denormalizing posts into the users container" border="false":::
 
 We can now route our query to the `users` container, filtering on the container's partition key.
 
-![Retrieving all posts for a user](./media/how-to-model-partition-example/V3-Q3.png)
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q3.png" alt-text="Retrieving all posts for a user" border="false":::
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |
@@ -453,30 +464,32 @@ We can now route our query to the `users` container, filtering on the container'
 
 We have to deal with a similar situation here: even after sparing the additional queries left unnecessary by the denormalization introduced in V2, the remaining query does not filter on the container's partition key:
 
-![Retrieving most recent posts](./media/how-to-model-partition-example/V2-Q6.png)
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Diagram that shows the query to list the x most recent posts created in short form." border="false":::
 
 Following the same approach, maximizing this request's performance and scalability requires that it only hits one partition. This is conceivable because we only have to return a limited number of items; in order to populate our blogging platform's home page, we just need to get the 100 most recent posts, without the need to paginate through the entire data set.
 
 So to optimize this last request, we introduce a third container to our design, entirely dedicated to serving this request. We denormalize our posts to that new `feed` container:
 
-    {
-      "id": "<post-id>",
-      "type": "post",
-      "postId": "<post-id>",
-      "userId": "<post-author-id>",
-      "userUsername": "<post-author-username>",
-      "title": "<post-title>",
-      "content": "<post-content>",
-      "commentCount": <count-of-comments>,
-      "likeCount": <count-of-likes>,
-      "creationDate": "<post-creation-date>"
-    }
+```json
+{
+    "id": "<post-id>",
+    "type": "post",
+    "postId": "<post-id>",
+    "userId": "<post-author-id>",
+    "userUsername": "<post-author-username>",
+    "title": "<post-title>",
+    "content": "<post-content>",
+    "commentCount": <count-of-comments>,
+    "likeCount": <count-of-likes>,
+    "creationDate": "<post-creation-date>"
+}
+```
 
 This container is partitioned by `type`, which will always be `post` in our items. Doing that ensures that all the items in this container will sit in the same partition.
 
 To achieve the denormalization, we just have to hook on the change feed pipeline we have previously introduced to dispatch the posts to that new container. One important thing to bear in mind is that we need to make sure that we only store the 100 most recent posts; otherwise, the content of the container may grow beyond the maximum size of a partition. This is done by calling a [post-trigger](stored-procedures-triggers-udfs.md#triggers) every time a document is added in the container:
 
-![Denormalizing posts into the feed container](./media/how-to-model-partition-example/denormalization-3.png)
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-3.png" alt-text="Denormalizing posts into the feed container" border="false":::
 
 Here's the body of the post-trigger that truncates the collection:
 
@@ -527,7 +540,7 @@ function truncateFeed() {
 
 The final step is to reroute our query to our new `feed` container:
 
-![Retrieving most recent posts](./media/how-to-model-partition-example/V3-Q6.png)
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q6.png" alt-text="Retrieving most recent posts" border="false":::
 
 | **Latency** | **RU charge** | **Performance** |
 | --- | --- | --- |

@@ -28,14 +28,11 @@ The best way to protect an application that's running on Azure against VM reboot
 
 To provide this level of redundancy to your application, we recommend that you group two or more VMs in an availability set. This configuration ensures that during either a planned or unplanned maintenance event, at least one VM is available and meets the 99.95 percent [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/).
 
-For more information about availability sets, see the following articles:
-
-- [Manage the availability of VMs](../windows/manage-availability.md)
-- [Configure availability of VMs](../windows/classic/configure-availability.md)
+For more information about availability sets, see [Manage the availability of VMs](../manage-availability.md)
 
 ## Resource Health information
 
-Azure Resource Health is a service that exposes the health of individual Azure resources and provides actionable guidance for troubleshooting problems. In a cloud environment where it isn’t possible to directly access servers or infrastructure elements, the goal of Resource Health is to reduce the time that you spend on troubleshooting. In particular, the aim is to reduce the time that you spend determining whether the root of the problem lies in the application or in an event inside the Azure platform. For more information, see [Understand and use Resource Health](../../resource-health/resource-health-overview.md).
+Azure Resource Health is a service that exposes the health of individual Azure resources and provides actionable guidance for troubleshooting problems. In a cloud environment where it isn’t possible to directly access servers or infrastructure elements, the goal of Resource Health is to reduce the time that you spend on troubleshooting. In particular, the aim is to reduce the time that you spend determining whether the root of the problem lies in the application or in an event inside the Azure platform. For more information, see [Understand and use Resource Health](../../service-health/resource-health-overview.md).
 
 ## Actions and events that can cause the VM to reboot
 
@@ -47,8 +44,8 @@ However, some updates do require a reboot. In such cases, the VMs are shut down 
 
 To understand what Azure planned maintenance is and how it can affect the availability of your Linux VMs, see the articles listed here. The articles provide background about the Azure planned maintenance process and how to schedule planned maintenance to further reduce the impact.
 
-- [Planned maintenance for VMs in Azure](../windows/planned-maintenance.md)
-- [How to schedule planned maintenance on Azure VMs](../windows/classic/planned-maintenance-schedule.md)
+- [Planned maintenance for VMs in Azure](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
+- [How to schedule planned maintenance on Azure VMs](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)
 
 ### Memory-preserving updates
 
@@ -65,7 +62,7 @@ Multi-instance updates (for VMs in an availability set) are applied one update d
 
 ### User-initiated reboot or shutdown actions
 
-If you perform a reboot from the Azure portal, Azure PowerShell, command-line interface, or REST API, you can find the event in the [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md).
+If you perform a reboot from the Azure portal, Azure PowerShell, command-line interface, or REST API, you can find the event in the [Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md).
 
 If you perform the action from the VM's operating system, you can find the event in the system logs.
 
@@ -73,7 +70,7 @@ Other scenarios that usually cause the VM to reboot include multiple configurati
 
 ### Azure Security Center and Windows Update
 
-Azure Security Center monitors daily Windows and Linux VMs for missing operating-system updates. Security Center retrieves a list of available security and critical updates from Windows Update or Windows Server Update Services (WSUS), depending on which service is configured on a Windows VM. Security Center also checks for the latest updates for Linux systems. If your VM is missing a system update, Security Center recommends that you apply system updates. The application of these system updates is controlled through the Security Center in the Azure portal. After you apply some updates, VM reboots might be required. For more information, see [Apply system updates in Azure Security Center](../../security-center/security-center-apply-system-updates.md).
+Azure Security Center monitors daily Windows and Linux VMs for missing operating-system updates. Security Center retrieves a list of available security and critical updates from Windows Update or Windows Server Update Services (WSUS), depending on which service is configured on a Windows VM. Security Center also checks for the latest updates for Linux systems. If your VM is missing a system update, Security Center recommends that you apply system updates. The application of these system updates is controlled through the Security Center in the Azure portal. After you apply some updates, VM reboots might be required. For more information, see [Apply system updates in Azure Security Center](../../security-center/asset-inventory.md).
 
 Like on-premises servers, Azure does not push updates from Windows Update to Windows VMs, because these machines are intended to be managed by their users. You are, however, encouraged to leave the automatic Windows Update setting enabled. Automatic installation of updates from Windows Update can also cause reboots to occur after the updates are applied. For more information, see [Windows Update FAQ](https://support.microsoft.com/help/12373/windows-update-faq).
 
@@ -116,7 +113,7 @@ The duration of the shutdown can be as short as five minutes but can be signific
 
 **Exceeding IO limits**
 
-VMs might be temporarily shut down when I/O requests are consistently throttled because the volume of I/O operations per second (IOPS) exceeds the I/O limits for the disk. (Standard disk storage is limited to 500 IOPS.) To mitigate this issue, use disk striping or configure the storage space inside the guest VM, depending on the workload. For details, see [Configuring Azure VMs for Optimal Storage Performance](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+VMs might be temporarily shut down when I/O requests are consistently throttled because the volume of I/O operations per second (IOPS) exceeds the I/O limits for the disk. (Standard disk storage is limited to 500 IOPS.) To mitigate this issue, use disk striping or configure the storage space inside the guest VM, depending on the workload. 
 
 ### Other incidents
 

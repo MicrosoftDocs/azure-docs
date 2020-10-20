@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with &frankly | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and &frankly.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 1d702060-1b89-4e9d-9f01-ede4f1171c73
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with &frankly
 
@@ -100,7 +93,7 @@ To configure Azure AD single sign-on with &frankly, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![&frankly Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
@@ -110,7 +103,7 @@ To configure Azure AD single sign-on with &frankly, perform the following steps:
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![&frankly Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
@@ -122,19 +115,15 @@ To configure Azure AD single sign-on with &frankly, perform the following steps:
 
 	![The Certificate download link](common/metadataxml.png)
 
-7. On the **Set up &frankly** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+### Configure &frankly single sign-on
 
-	a. Login URL
+To enable single sign-on in &frankly:
 
-	b. Azure Ad Identifier
-
-	c. Logout URL
-
-### Configure &frankly Single Sign-On
-
-To configure single sign-on on **&frankly** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [&frankly support team](mailto:help@andfrankly.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Log in to &frankly. Go to **Account** > **User Management**.
+1. Change the authentication mechanism from the default to **Enterprise Sign-on (SAML)**.
+1. Upload the **Federation Metadata XML** that you downloaded in step 6 in the preceding section.
+1. Select **Save**.
 
 ### Create an Azure AD test user
 

@@ -2,14 +2,15 @@
 title: Tutorial - add template functions
 description: Add template functions to your Azure Resource Manager template to construct values.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom:
 ---
 
-# Tutorial: Add template functions to your Resource Manager template
+# Tutorial: Add template functions to your ARM template
 
-In this tutorial, you learn how to add [template functions](template-functions.md) to your template. You use functions to dynamically construct values. In addition to these system-provided template functions, you can also create [user-defined functions](./template-user-defined-functions.md). This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to add [template functions](template-functions.md) to your Azure Resource Manager (ARM) template. You use functions to dynamically construct values. In addition to these system-provided template functions, you can also create [user-defined functions](./template-user-defined-functions.md). This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
@@ -21,7 +22,7 @@ You must have Visual Studio Code with the Resource Manager Tools extension, and 
 
 At the end of the previous tutorial, your template had the following JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json":::
 
 The location of the storage account is hard-coded to **East US**. However, you may need to deploy the storage account to other regions. You're again facing an issue of your template lacking flexibility. You could add a parameter for location, but it would be great if its default value made more sense than just a hard-coded value.
 
@@ -35,7 +36,7 @@ The following example highlights the changes to add a parameter called **locatio
 
 Copy the whole file and replace your template with its contents.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json?range=1-44&highlight=24-27,34)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json" range="1-44" highlight="24-27,34":::
 
 ## Deploy template
 
@@ -55,8 +56,10 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addlocationparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -64,6 +67,9 @@ az group deployment create \
 ```
 
 ---
+
+> [!NOTE]
+> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
 
 ## Verify deployment
 

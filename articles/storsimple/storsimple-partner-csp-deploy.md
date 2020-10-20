@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure StorSimple and Cloud Solutions Provider Program Overview | Microsoft Docs
-description: An overview about the StorSimple and CSP for StorSimple partners.
+title: Deploy StorSimple Virtual Array for Cloud Solution Provider Program
+description: Learn how a CSP partner can add a customer or a new subscription to an existing customer and then create a service to deploy a StorSimple Virtual Array in CSP.
 services: storsimple
 documentationcenter: NA
 author: alkohli

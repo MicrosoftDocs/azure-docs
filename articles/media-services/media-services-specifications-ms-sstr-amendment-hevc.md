@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services - Smooth Streaming Protocol (MS-SSTR) Amendment for HEVC | Microsoft Docs
+title: Smooth Streaming Protocol (MS-SSTR) Amendment for HEVC - Azure
 description: This specification describes the protocol and format for fragmented MP4-based live streaming with HEVC in Azure Media Services. Only the changes required to deliver HEVC are specified in this article, except were “(No Change)” indicates text is copied for clarification only.
 services: media-services
 documentationcenter: ''
@@ -92,7 +92,7 @@ or more **samples**.
 ### 1.2.1 Normative References 
 
 >  [MS-SSTR] Smooth Streaming Protocol *v20140502*
->   [https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
+>   [https://msdn.microsoft.com/library/ff469518.aspx](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)
 > 
 >   [ISO/IEC 14496-12] International Organization for Standardization,
 >   "Information technology -- Coding of audio-visual objects -- Part 12: ISO
@@ -362,10 +362,12 @@ Units SHALL be encrypted.
 >   The syntax of the fields defined in this section, specified in ABNF
 >   [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) is as follows:
 
-    FileType = MajorBrand MinorVersion CompatibleBrands
-    MajorBrand = STRING_UINT32
-    MinorVersion = STRING_UINT32
-    CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```properties
+FileType = MajorBrand MinorVersion CompatibleBrands
+MajorBrand = STRING_UINT32
+MinorVersion = STRING_UINT32
+CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```
 
 **Note**: The compatibility brands ‘ccff’ and ‘iso8’ indicate that fragments conform
 to “Common Container File Format” and Common Encryption [ISO/IEC 23001-7] and
@@ -413,14 +415,18 @@ ISO Base Media File Format Edition 4 [ISO/IEC 14496-12].
 > 
 >   Presentations containing HEVC Streams SHALL set:
 
-    MajorVersion = 2
-    MinorVersion = 2
+```properties
+MajorVersion = 2
+MinorVersion = 2
+```
 
 >   LookaheadCount = 0 (Note: Boxes deprecated)
 > 
 >   Presentations SHOULD also set:
 
-    TimeScale = 90000
+```properties
+TimeScale = 90000
+```
 
 >   Stream Collection: A collection of Stream Description data elements, as
 >   specified in section *3.1.1.1.2*.

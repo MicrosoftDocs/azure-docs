@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
-
+ms.custom: devx-track-js
 ---
 # Create a MongoDB app with React and Azure Cosmos DB  
 

@@ -13,7 +13,7 @@ For deployment options, see the [Deployment](#deployment) section. If you'd like
 
 ## Sample templates
 
-| | |
+| Template | Description |
 |-|-|
 | **Applications** ||
 | [WordPress][app-wp] | Creates a WordPress website and its MySQL database in a container group. The WordPress site content and MySQL database are persisted to an Azure Files share. Also creates an application gateway to expose public network access to WordPress. |
@@ -25,7 +25,7 @@ For deployment options, see the [Deployment](#deployment) section. If you'd like
 | **Networking** ||
 | [UDP-exposed container][net-udp] | Deploys a Windows or Linux container that exposes a UDP port. |
 | [Linux container with public IP][net-publicip] | Deploys a single Linux container accessible via a public IP. |
-| [Deploy a container group with a virtual network (preview)][net-vnet] | Deploys a new virtual network, subnet, network profile, and container group. |
+| [Deploy a container group with a virtual network][net-vnet] | Deploys a new virtual network, subnet, network profile, and container group. |
 | **Azure resources** ||
 | [Create Azure Storage account and Files share][az-files] | Uses the Azure CLI in a container instance to create a storage account and an Azure Files share.
 
@@ -54,8 +54,8 @@ You have several options for deploying resources with Resource Manager templates
 [vol-secret]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-secret
 
 <!-- LINKS - Internal -->
-[deploy-cli]: ../azure-resource-manager/resource-group-template-deploy-cli.md
-[deploy-portal]: ../azure-resource-manager/resource-group-template-deploy-portal.md
-[deploy-powershell]: ../azure-resource-manager/resource-group-template-deploy.md
-[deploy-rest]: ../azure-resource-manager/resource-group-template-deploy-rest.md
+[deploy-cli]: ../azure-resource-manager/templates/deploy-cli.md
+[deploy-portal]: ../azure-resource-manager/templates/deploy-portal.md
+[deploy-powershell]: ../azure-resource-manager/templates/deploy-powershell.md
+[deploy-rest]: ../azure-resource-manager/templates/deploy-rest.md
 [ref]: /azure/templates/microsoft.containerinstance/containergroups

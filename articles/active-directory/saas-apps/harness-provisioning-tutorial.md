@@ -1,18 +1,13 @@
 ---
 title: 'Tutorial: Configure Harness for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Harness.
+description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Harness.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: 0cdb970b-440b-4e7c-9118-2f03baab6a20
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
@@ -20,153 +15,161 @@ ms.author: Zhchia
 
 # Tutorial: Configure Harness for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Harness and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Harness.
+In this article, you learn how to configure Azure Active Directory (Azure AD) to automatically provision and deprovision users or groups to Harness.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> This article describes a connector that's built on top of the Azure AD user provisioning service. For important information about this service and answers to frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This connector is currently in preview. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
-The scenario outlined in this tutorial assumes that you already have the following prerequisites:
+The scenario outlined in this article assumes that you already have the following prerequisites:
 
 * An Azure AD tenant
 * [A Harness tenant](https://harness.io/pricing/)
-* A user account in Harness with Admin permissions.
+* A user account in Harness with *Admin* permissions
 
-## Assigning users to Harness
+## Assign users to Harness
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
+Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users or groups that have been assigned to an application in Azure AD are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Harness. Once decided, you can assign these users and/or groups to Harness by following the instructions here:
-* [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
+Before you configure and enable automatic user provisioning, decide which users or groups in Azure AD need access to Harness. You can then assign these users or groups to Harness by following the instructions in [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md).
 
 ## Important tips for assigning users to Harness
 
-* It is recommended that a single Azure AD user is assigned to Harness to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* We recommended that you assign a single Azure AD user to Harness to test the automatic user provisioning configuration. Additional users or groups can be assigned later.
 
-* When assigning a user to Harness, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+* When you assign a user to Harness, you must select any valid application-specific role (if available) in the **Assignment** dialog box. Users with the *Default Access* role are excluded from provisioning.
 
 ## Set up Harness for provisioning
 
-1. Sign in to your [Harness Admin Console](https://app.harness.io/#/login). Navigate to **Continuous Security > Access Management**.
+1. Sign in to your [Harness Admin Console](https://app.harness.io/#/login), and then go to **Continuous Security** > **Access Management**.
 
 	![Harness Admin Console](media/harness-provisioning-tutorial/admin.png)
 
-2.	Click on **API Keys**.
+1. Select **API Keys**.
 
-	![Harness Add SCIM](media/harness-provisioning-tutorial/apikeys.png)
+	![Harness API Keys link](media/harness-provisioning-tutorial/apikeys.png)
 
-3. Click on **Add New Key**. In the **Add Api Key** dialog box, provide a **Name** and select an option from **Permissions Inherited from** dropdown menu. Click on **Submit** button.
+1. Select **Add API Key**. 
 
-	![Harness Add New Key](media/harness-provisioning-tutorial/addkey.png)
+	![Harness Add API Key link](media/harness-provisioning-tutorial/addkey.png)
 
-	![Harness Add New Key dialog](media/harness-provisioning-tutorial/title.png)
+1. In the **Add Api Key** pane, do the following:
 
-3.	Copy the **Key**. This value will be entered in the Secret Token field in the Provisioning tab of your Harness application in the Azure portal.
+	![Harness Add Api Key pane](media/harness-provisioning-tutorial/title.png)
+   
+   a. In the **Name** box, provide a name for the key.  
+   b. In the **Permissions Inherited from** drop-down list, select an option. 
+   
+1. Select **Submit**.
+
+1. Copy the **Key** for later use in this tutorial.
 
 	![Harness Create Token](media/harness-provisioning-tutorial/token.png)
 
 ## Add Harness from the gallery
 
-Before configuring Harness for automatic user provisioning with Azure AD, you need to add Harness from the Azure AD application gallery to your list of managed SaaS applications.
+Before you configure Harness for automatic user provisioning with Azure AD, you need to add Harness from the Azure AD application gallery to your list of managed SaaS applications.
 
-**To add Harness from the Azure AD application gallery, perform the following steps:**
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**.
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
+	![The "Azure Active Directory" button](common/select-azuread.png)
 
-	![The Azure Active Directory button](common/select-azuread.png)
+1. Select **Enterprise applications** > **All applications**.
 
-2. Go to **Enterprise applications**, and then select **All applications**.
+	![The "All applications" link](common/enterprise-applications.png)
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+1. To add a new application, select the **New application** button at the top of the pane.
 
-3. To add a new application, select the **New application** button at the top of the pane.
+	![The "New application" button](common/add-new-app.png)
 
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **Harness**, select **Harness** in the results panel, and then click the **Add** button to add the application.
+1. In the search box, enter **Harness**, select **Harness** in the results list, and then select the **Add** button to add the application.
 
 	![Harness in the results list](common/search-new-app.png)
 
-## Configuring automatic user provisioning to Harness 
+## Configure automatic user provisioning to Harness 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Harness based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users or groups in Harness based on user or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Harness by following the instructions provided in the [Harness Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial). Single sign-on can be configured independently of automatic user provisioning, although these two features complement each other
+> You may also choose to enable SAML-based single sign-on for Harness by following the instructions in the [Harness single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial). You can configure single sign-on independent of automatic user provisioning, although these two features complement each other.
 
 > [!NOTE]
-> To learn more about Harness' SCIM endpoint, refer [this](https://docs.harness.io/article/smloyragsm-api-keys)
+> To learn more about the Harness SCIM endpoint, see the Harness [API Keys](https://docs.harness.io/article/smloyragsm-api-keys) article.
 
-### To configure automatic user provisioning for Harness in Azure AD:
+To configure automatic user provisioning for Harness in Azure AD, do the following:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
+1. In the [Azure portal](https://portal.azure.com), select **Enterprise Applications** > **All applications**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Harness**.
+1. In the applications list, select **Harness**.
 
-	![The Harness link in the Applications list](common/all-applications.png)
+	![The Harness link in the applications list](common/all-applications.png)
 
-3. Select the **Provisioning** tab.
+1. Select **Provisioning**.
 
-	![Provisioning tab](common/provisioning.png)
+	![The Provisioning button](common/provisioning.png)
 
-4. Set the **Provisioning Mode** to **Automatic**.
+1. In the **Provisioning Mode** drop-down list, select **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![The "Provisioning Mode" drop-down list](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Harness. If the connection fails, ensure your Harness account has Admin permissions and try again.
+1. Under **Admin Credentials**, do the following:
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
+ 
+   a. In the **Tenant URL** box, enter **`https://app.harness.io/gateway/api/scim/account/<your_harness_account_ID>`**. You can obtain your Harness account ID from the URL in your browser when you are logged into Harness.
+   b. In the **Secret Token** box, enter the SCIM Authentication Token value that you saved in step 6 of the "Set up Harness for provisioning" section.  
+   c. Select **Test Connection** to ensure that Azure AD can connect to Harness. If the connection fails, ensure that your Harness account has *Admin* permissions, and then try again.
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
+1. In the **Notification Email** box, enter the email address of a person or group that should receive the provisioning error notifications, and then select the **Send an email notification when a failure occurs** check box.
 
-	![Notification Email](common/provisioning-notification-email.png)
+	![The "Notification Email" box](common/provisioning-notification-email.png)
 
-7. Click **Save**.
+1. Select **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Harness**.
+1. Under **Mappings**, select **Synchronize Azure Active Directory Users to Harness**.
 
-	![Harness User Mappings](media/harness-provisioning-tutorial/usermappings.png)
+	![Harness "Synchronize Azure Active Directory Users to Harness" link](media/harness-provisioning-tutorial/usermappings.png)
 
-9. Review the user attributes that are synchronized from Azure AD to Harness in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Harness for update operations. Select the **Save** button to commit any changes.
+1. Under **Attribute Mappings**, review the user attributes that are synchronized from Azure AD to Harness. The attributes selected as *Matching* are used to match the user accounts in Harness for update operations. Select **Save** to commit any changes.
 
-	![Harness User Attributes](media/harness-provisioning-tutorial/userattributes.png)
+	![Harness user "Attribute Mappings" pane](media/harness-provisioning-tutorial/userattributes.png)
 
-10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Harness**.
+1. Under **Mappings**, select **Synchronize Azure Active Directory Groups to Harness**.
 
-	![Harness Group Mappings](media/harness-provisioning-tutorial/groupmappings.png)
+	![Harness "Synchronize Azure Active Directory Groups to Harness" link](media/harness-provisioning-tutorial/groupmappings.png)
 
-11. Review the group attributes that are synchronized from Azure AD to Harness in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Harness for update operations. Select the **Save** button to commit any changes.
+1. Under **Attribute Mappings**, review the group attributes that are synchronized from Azure AD to Harness. The attributes selected as *Matching* properties are used to match the groups in Harness for update operations. Select **Save** to commit any changes.
 
-	![Harness Group Attributes](media/harness-provisioning-tutorial/groupattributes.png)
+	![Harness group "Attribute Mappings" pane](media/harness-provisioning-tutorial/groupattributes.png)
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. To configure scoping filters, see [Attribute-based application provisioning with scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for Harness, change the **Provisioning Status** to **On** in the **Settings** section.
+1. Under **Settings**, to enable the Azure AD provisioning service for Harness, toggle the **Provisioning Status** switch to **On**.
 
-	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
+	![Provisioning Status switch toggled to "On"](common/provisioning-toggle-on.png)
 
-14. Define the users and/or groups that you would like to provision to Harness by choosing the desired values in **Scope** in the **Settings** section.
+1. Under **Settings**, in the **Scope** drop-down list, select how you want to sync the users or groups that you're provisioning to Harness.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-15. When you are ready to provision, click **Save**.
+1. When you're ready to provision, select **Save**.
 
-	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
+	![The provisioning Save button](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Harness.
+This operation starts the initial sync of the users or groups you're provisioning. The initial sync takes longer to perform than later ones. Syncs occur approximately every 40 minutes, as long as the Azure AD provisioning service is running. To monitor progress, go to the **Synchronization Details** section. You can also follow links to a provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Harness.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For more information about how to read the Azure AD provisioning logs, see [Report on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Manage user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)

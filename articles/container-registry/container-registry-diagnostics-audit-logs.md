@@ -2,11 +2,11 @@
 title: Collect & analyze resource logs
 description: Record and analyze resource log events for Azure Container Registry such as authentication, image push, and image pull.
 ms.topic: article
-ms.date: 10/30/2019
+ms.date: 06/01/2020
 ---
 # Azure Container Registry logs for diagnostic evaluation and auditing
 
-This article explains how to collect log data for an Azure container registry using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [resource logs](../azure-monitor/platform/resource-logs-overview.md) (formerly called *diagnostic logs*) for user-driven events in your registry. Collect and consume this data to meet needs such as:
+This article explains how to collect log data for an Azure container registry using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [resource logs](../azure-monitor/platform/platform-logs-overview.md) (formerly called *diagnostic logs*) for user-driven events in your registry. Collect and consume this data to meet needs such as:
 
 * Audit registry authentication events to ensure security and compliance 
 
@@ -14,15 +14,18 @@ This article explains how to collect log data for an Azure container registry us
 
 Collecting resource log data using Azure Monitor may incur additional costs. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). 
 
+## Repository events
 
-> [!IMPORTANT]
-> This feature is currently in preview, and some [limitations](#preview-limitations) apply. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+The following repository-level events for images and other artifacts are currently logged:
 
-## Preview limitations
+* **Push**
+* **Pull**
+* **Untag**
+* **Delete** (including repository delete events)
+* **Purge tag** and **Purge manifest**
 
-Logging of repository-level events doesn't currently include delete or untag events. Only the following repository events are logged:
-* **Push events** for images and other artifacts
-* **Pull events** for images and other artifacts
+> [!NOTE]
+> Purge events are logged only if a registry [retention policy](container-registry-retention-policy.md) is configured.
 
 ## Registry resource logs
 
@@ -36,7 +39,7 @@ For operations, log data includes:
   * Success or failure status
   * Start and end time stamps
 
-In addition to resource logs, Azure provides an [activity log](../azure-monitor/platform/activity-logs-overview.md), a single subscription-level record of Azure management events such as the creation or deletion of a container registry.
+In addition to resource logs, Azure provides an [activity log](../azure-monitor/platform/platform-logs-overview.md), a single subscription-level record of Azure management events such as the creation or deletion of a container registry.
 
 ## Enable collection of resource logs
 
@@ -76,27 +79,66 @@ For a tutorial on using Log Analytics in the Azure portal, see [Get started with
 
 For more information on log queries, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-### Additional query examples
+## Query examples
 
-#### 100 most recent registry events
+### Error events from the last hour
+
+```Kusto
+union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
+| where TimeGenerated > ago(1h)
+| where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
+	or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
+```
+
+### 100 most recent registry events
 
 ```Kusto
 ContainerRegistryRepositoryEvents
 | union ContainerRegistryLoginEvents
 | top 100 by TimeGenerated
-| project TimeGenerated, LoginServer , OperationName , Identity , Repository , DurationMs , Region , ResultType
+| project TimeGenerated, LoginServer, OperationName, Identity, Repository, DurationMs, Region , ResultType
 ```
+
+### Identity of user or object that deleted repository
+
+```Kusto
+ContainerRegistryRepositoryEvents
+| where OperationName contains "Delete"
+| project LoginServer, OperationName, Repository, Identity, CallerIpAddress
+```
+
+### Identity of user or object that deleted tag
+
+```Kusto
+ContainerRegistryRepositoryEvents
+| where OperationName contains "Untag"
+| project LoginServer, OperationName, Repository, Tag, Identity, CallerIpAddress
+```
+
+### Repository-level operation failures
+
+```kusto
+ContainerRegistryRepositoryEvents 
+| where ResultDescription contains "40"
+| project TimeGenerated, OperationName, Repository, Tag, ResultDescription
+```
+
+### Registry authentication failures
+
+```kusto
+ContainerRegistryLoginEvents 
+| where ResultDescription != "200"
+| project TimeGenerated, Identity, CallerIpAddress, ResultDescription
+```
+
 
 ## Additional log destinations
 
 In addition to sending the logs to Log Analytics, or as an alternative, a common scenario is to select an Azure Storage account as a log destination. To archive logs in Azure Storage, create a storage account before enabling archiving through the diagnostic settings.
 
-You can also stream diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
+You can also stream diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-about.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
 
 ## Next steps
 
 * Learn more about using [Log Analytics](../azure-monitor/log-query/get-started-portal.md) and creating [log queries](../azure-monitor/log-query/get-started-queries.md).
 * See [Overview of Azure platform logs](../azure-monitor/platform/platform-logs-overview.md) to learn about platform logs that are available at different layers of Azure.
-
-<!-- LINKS - External -->
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

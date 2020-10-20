@@ -1,17 +1,9 @@
 ---
 title: Azure PowerShell - subscribe to Blob storage account
-description: Azure Event Grid & Azure PowerShell script sample - subscribe to Blob storage account
-services: event-grid
-documentationcenter: na
-author: spelluru
-
-ms.service: event-grid
+description: This article provides a sample Azure PowerShell script that shows how to subscribe to Event Grid events for a Blob Storage account. 
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/22/2019
-ms.author: spelluru
+ms.date: 07/08/2020
 ---
 
 # Subscribe to events for a Blob storage account with PowerShell
@@ -32,9 +24,9 @@ This script uses the following command to create the event subscription. Each co
 
 | Command | Notes |
 |---|---|
-| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Create an Event Grid subscription. |
+| [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) | Create an Event Grid subscription. |
 
 ## Next steps
 
 * For an introduction to managed applications, see [Azure Managed Application overview](../overview.md).
-* For more information on PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* For more information on PowerShell, see [Azure PowerShell documentation](/powershell/azure/get-started-azureps).

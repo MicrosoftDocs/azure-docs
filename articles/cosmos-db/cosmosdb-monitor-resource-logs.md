@@ -4,8 +4,8 @@ description: Learn how to use Azure Diagnostic settings to monitor the performan
 author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 12/09/2019
+ms.topic: how-to
+ms.date: 05/05/2020
 ms.author: sngun
 ---
 
@@ -29,25 +29,31 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 
  * **DataPlaneRequests**: Select this option to log back-end requests to all APIs, which include SQL, Graph, MongoDB, Cassandra, and Table API accounts in Azure Cosmos DB. Key properties to note are: `Requestcharge`, `statusCode`, `clientIPaddress`, and `partitionID`.
 
-    ```
+    ```json
     { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
     ```
 
-* **MongoRequests**: Select this option to log user-initiated requests from the front end to serve requests to Azure Cosmos DB's API for MongoDB, this log type is not available for other API accounts. MongoDB requests will appear in MongoRequests as well as DataPlaneRequests. Key properties to note are: `Requestcharge`, `opCode`.
+* **MongoRequests**: Select this option to log user-initiated requests from the front end to serve requests to Azure Cosmos DB's API for MongoDB. This log type is not available for other API accounts. Key properties to note are: `Requestcharge`, `opCode`. When you enable MongoRequests in diagnostics logs, make sure to turn off the DataPlaneRequests. You would see one log for every request made on the API.
 
-    ```
+    ```json
     { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
     ```
 
+* **CassandraRequests**: Select this option to log user-initiated requests from the front end to serve requests to Azure Cosmos DB's API for Cassandra. This log type is not available for other API accounts. The key properties to note are `operationName`, `requestCharge`, `piiCommandText`. When you enable CassandraRequests in diagnostics logs, make sure to turn off the DataPlaneRequests. You would see one log for every request made on the API.
+
+   ```json
+   { "time": "2020-03-30T23:55:10.9579593Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "CassandraRequests", "operationName": "QuerySelect", "properties": {"activityId": "6b33771c-baec-408a-b305-3127c17465b6","opCode": "<empty>","errorCode": "-1","duration": "0.311900","requestCharge": "1.589237","databaseName": "system","collectionName": "local","retryCount": "<empty>","authorizationTokenType": "PrimaryMasterKey","address": "104.42.195.92","piiCommandText": "{"request":"SELECT key from system.local"}","userAgent": """"}}
+   ```
+
 * **QueryRuntimeStatistics**: Select this option to log the query text that was executed. This log type is available for SQL API accounts only.
 
-    ```
+    ```json
     { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
     ```
 
 * **PartitionKeyStatistics**: Select this option to log the statistics of the partition keys. This is currently represented with the storage size (KB) of the partition keys. See the [Troubleshooting issues by using Azure Diagnostic queries](#diagnostic-queries) section of this article. For example queries that use "PartitionKeyStatistics". The log is emitted against the first three partition keys that occupy most data storage. This log contains data such as subscription ID, region name, database name, collection name, partition key, and storage size in KB.
 
-    ```
+    ```json
     { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
     ```
 
@@ -61,6 +67,40 @@ For detailed information about how to create a diagnostic setting by using the A
 
 
 ## <a id="diagnostic-queries"></a> Troubleshoot issues with diagnostics queries
+
+1. How to query for the operations that are taking longer than 3 milliseconds to run:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+   | summarize count() by clientIpAddress_s, TimeGenerated
+   ```
+
+1. How to query for the user agent that is running the operations:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+   | summarize count() by OperationName, userAgent_s
+   ```
+
+1. How to query for the long running operations:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+   | project TimeGenerated , duration_s 
+   | summarize count() by bin(TimeGenerated, 5s)
+   | render timechart
+   ```
+    
+1. How to get partition key statistics to evaluate skew across top 3 partitions for a database account:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId 
+   ```
 
 1. How to get the request charges for expensive queries?
 
@@ -85,6 +125,37 @@ For detailed information about how to create a diagnostic setting by using the A
    | where TimeGenerated >= ago(2h) 
    | summarize max(responseLength_s), max(requestLength_s), max(requestCharge_s), count = count() by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
+
+1. How to get all queries that are consuming more then 100 RU/s joined with data from **DataPlaneRequests** and **QueryRunTimeStatistics**.
+
+   ```Kusto
+   AzureDiagnostics
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
+   | project activityId_g, requestCharge_s
+   | join kind= inner (
+           AzureDiagnostics
+           | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
+           | project activityId_g, querytext_s
+   ) on $left.activityId_g == $right.activityId_g
+   | order by requestCharge_s desc
+   | limit 100
+   ```
+
+1. How to get the request charges and the execution duration of a query?
+
+   ```kusto
+   AzureDiagnostics
+   | where TimeGenerated >= ago(24hr)
+   | where Category == "QueryRuntimeStatistics"
+   | join (
+   AzureDiagnostics
+   | where TimeGenerated >= ago(24hr)
+   | where Category == "DataPlaneRequests"
+   ) on $left.activityId_g == $right.activityId_g
+   | project databasename_s, collectionname_s, OperationName1 , querytext_s,requestCharge_s1, duration_s1, bin(TimeGenerated, 1min)
+   ```
+
+
 1. How to get the distribution for different operations?
 
    ```Kusto
@@ -94,7 +165,7 @@ For detailed information about how to create a diagnostic setting by using the A
    | summarize count = count()  by OperationName, requestResourceType_s, bin(TimeGenerated, 1h) 
    ```
 
-1. What is the maximum throughput that a partition provides?
+1. What is the maximum throughput that a partition has consumed?
 
    ```Kusto
    AzureDiagnostics
@@ -138,13 +209,30 @@ For detailed information about how to create a diagnostic setting by using the A
    | where todouble(sizeKb_d) > 800000
    ```
 
-1. How to get partition Key statistics to evaluate skew across top three partitions for database account?
+1. How to get P99 or P50 replication latencies for operations, request charge or the length of the response?
 
-    ```Kusto
-    AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-    | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
-    ```
+   ```Kusto
+   AzureDiagnostics
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+   | where TimeGenerated >= ago(2d)
+   | summarize
+   percentile(todouble(responseLength_s), 50), percentile(todouble(responseLength_s), 99), max(responseLength_s),
+   percentile(todouble(requestCharge_s), 50), percentile(todouble(requestCharge_s), 99), max(requestCharge_s),
+   percentile(todouble(duration_s), 50), percentile(todouble(duration_s), 99), max(duration_s),
+   count()
+   by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
+   ```
+ 
+1. How to get Controlplane logs?
+ 
+   Remember to switch on the flag as described in the [Disable key-based metadata write access](audit-control-plane-logs.md#disable-key-based-metadata-write-access) article, and execute the operations by using Azure PowerShell, the Azure CLI, or Azure Resource Manager.
+ 
+   ```Kusto  
+   AzureDiagnostics 
+   | where Category =="ControlPlaneRequests"
+   | summarize by OperationName 
+   ```
+
 
 ## Next steps
 

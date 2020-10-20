@@ -9,6 +9,7 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.custom: devx-track-csharp
 ---
 # How to process and extract information from images in AI enrichment scenarios
 
@@ -37,7 +38,7 @@ Set the **parsingMode** parameter to `json` (to index each blob as a single docu
 
 The default of 2000 pixels for the normalized images maximum width and height is based on the maximum sizes supported by the [OCR skill](cognitive-search-skill-ocr.md) and the [image analysis skill](cognitive-search-skill-image-analysis.md). The [OCR skill](cognitive-search-skill-ocr.md) supports a maximum width and height of 4200 for non-English languages, and 10000 for English.  If you increase the maximum limits, processing could fail on larger images depending on your skillset definition and the language of the documents. 
 
-You specify the imageAction in your [indexer definition](https://docs.microsoft.com/rest/api/searchservice/create-indexer) as follows:
+You specify the imageAction in your [indexer definition](/rest/api/searchservice/create-indexer) as follows:
 
 ```json
 {
@@ -209,8 +210,8 @@ As a helper, if you need to transform normalized coordinates to the original coo
 ```
 
 ## See also
-+ [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [Analyze image skill](cognitive-search-skill-image-analysis.md)
++ [Create indexer (REST)](/rest/api/searchservice/create-indexer)
++ [Image Analysis skill](cognitive-search-skill-image-analysis.md)
 + [OCR skill](cognitive-search-skill-ocr.md)
 + [Text merge skill](cognitive-search-skill-textmerger.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)

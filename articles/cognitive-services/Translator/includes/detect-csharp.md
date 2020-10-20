@@ -1,6 +1,7 @@
 ---
 author: erhopf
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
@@ -54,11 +55,11 @@ using Newtonsoft.Json;
 
 ## Create classes for the JSON response
 
-Next, we're going to create a class that's used when deserializing the JSON response returned by the Translator Text API.
+Next, we're going to create a class that's used when deserializing the JSON response returned by the Translator.
 
 ```csharp
 /// <summary>
-/// The C# classes that represents the JSON returned by the Translator Text API.
+/// The C# classes that represents the JSON returned by the Translator.
 /// </summary>
 public class DetectResult
 {
@@ -265,7 +266,7 @@ Make sure to remove any confidential information from your sample app's source c
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

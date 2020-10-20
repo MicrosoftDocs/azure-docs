@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Add a custom domain to your Azure CDN endpoint | Microsoft Docs
-description: In this tutorial, you map Azure CDN endpoint content to a custom domain.
+description: Use this tutorial to add a custom domain to an Azure Content Delivery Network endpoint so that your domain name is visible in your URL.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/11/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
 # As a website owner, I want to add a custom domain to my CDN endpoint so that my users can use my custom domain to access my content.
 
@@ -47,7 +47,7 @@ Before you can use a custom domain with an Azure CDN endpoint, you must first cr
 A custom domain and its subdomain can be associated with only a single endpoint at a time. However, you can use different subdomains from the same custom domain for different Azure service endpoints by using multiple CNAME records. You can also map a custom domain with different subdomains to the same CDN endpoint.
 
 > [!NOTE]
-> Any alias record type can be used for Custom domains if you're using Azure DNS as your domain provider. This walkthrough uses the CNAME record type. If you're using A or AAAA record types, follow the same steps below and replace CNAME with the record type of your choice. If you're using an alias record to add a root domain as a custom domain and you want to enable SSL, you must use manual validation as described in [this article](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint). For more information, see [Point zone apex to Azure CDN endpoints](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints).
+> Any alias record type can be used for Custom domains if you're using Azure DNS as your domain provider. This walkthrough uses the CNAME record type. If you're using A or AAAA record types, follow the same steps below and replace CNAME with the record type of your choice. If you're using an alias record to add a root domain as a custom domain and you want to enable TLS, you must use manual validation as described in [this article](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint). For more information, see [Point zone apex to Azure CDN endpoints](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints).
 
 ## Map the temporary cdnverify subdomain
 
@@ -87,7 +87,7 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
 
 5. Complete the following fields of the CNAME entry:
 
-    ![CNAME entry](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
+    ![Screenshot shows C NAME entry with Type, Host, Points to, and T T L values for a temporary cdnverify subdomain.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
 
     - Type: Leave *CNAME* selected.
 
@@ -101,7 +101,7 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
  
     The CNAME entry is added to the DNS records table.
 
-    ![DNS records table](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
+    ![Screenshot shows that the C NAME entry has been added to the D N S records table for a temporary cdnverify subdomain.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
 
 
 ## Associate the custom domain with your CDN endpoint
@@ -185,7 +185,7 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
 
 5. Complete the fields of the CNAME entry:
 
-    ![CNAME entry](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
+    ![Screenshot shows C NAME entry with Type, Host, Points to, and T T L values for a permanent custom domain.](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
     - Type: Leave *CNAME* selected.
 
@@ -199,7 +199,7 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
  
     The CNAME entry is added to the DNS records table.
 
-    ![DNS records table](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
+    ![Screenshot shows that the C NAME entry has been added to the D N S records table for a permanent custom domain.](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
 
 7. If you have a cdnverify CNAME record, select the pencil icon next to it, then select the trash can icon.
 

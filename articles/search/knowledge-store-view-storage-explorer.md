@@ -1,27 +1,23 @@
 ---
-title: View a knowledge store (preview) with Storage Explorer
+title: View a knowledge store with Storage Explorer
 titleSuffix: Azure Cognitive Search
-description: View and analyze an Azure Cognitive Search knowledge store with the Azure portal's Storage Explorer. knowledge store is currently in public preview.  
+description: View and analyze an Azure Cognitive Search knowledge store with the Azure portal's Storage Explorer.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 06/30/2020
 ---
 
 # View a knowledge store with Storage Explorer
-
-> [!IMPORTANT] 
-> Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
 
 In this article, you'll learn by example how to connect to and explore a knowledge store using Storage Explorer in the Azure portal.
 
 ## Prerequisites
 
-+ Follow the steps in [Create a knowledge store in Azure portal](knowledge-store-create-portal.md) or [Create an Azure Cognitive Search knowledge store by using REST](knowledge-store-create-rest.md) to create the sample knowledge store used in this walkthrough.
++ Follow the steps in [Create a knowledge store in Azure portal](knowledge-store-create-portal.md) to create the sample knowledge store used in this walkthrough.
 
 + You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
 
@@ -33,7 +29,7 @@ In this article, you'll learn by example how to connect to and explore a knowled
 
 1. Expand the **TABLES** list to show a list of Azure table projections that were created when you ran the **Import Data** wizard on your hotel reviews sample data.
 
-Select any table to view the enriched data, including key phrases sentiment scores, latitude and longitude location data and more.
+Select any table to view the enriched data, including key phrases and sentiment scores.
 
    ![View tables in Storage Explorer](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "View tables in Storage Explorer")
 
@@ -59,4 +55,4 @@ Connect this knowledge store to Power BI for deeper analysis, or move forward wi
 
 > [!div class="nextstepaction"]
 > [Connect with Power BI](knowledge-store-connect-power-bi.md)
-> [Create a knowledge store in REST](knowledge-store-howto.md)
+> [Create a knowledge store in REST](knowledge-store-create-rest.md)

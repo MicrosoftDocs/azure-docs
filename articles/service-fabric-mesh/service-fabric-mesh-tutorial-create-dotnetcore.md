@@ -1,11 +1,11 @@
 ---
-title: Tutorial-Create, debug, deploy, and monitor a multi-service application to Service Fabric Mesh 
+title: Create, deploy a multi-service app to Service Fabric Mesh 
 description: In this tutorial, you create a multi-service Azure Service Fabric Mesh application consisting of an ASP.NET Core website that communicates with a back-end web service, debug it locally, and publish it to Azure.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
-ms.author: dekapur
-ms.custom: mvc, devcenter
+ms.author: gwallace
+ms.custom: "mvc, devcenter, devx-track-csharp"
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, debug it on my local development cluster, publish it to Azure, monitor it, upgrade it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
@@ -55,7 +55,7 @@ In the **Name** box, type `todolistapp` and in the **Location** box, set the fol
 
 Make sure that **Create directory for solution** is checked, and click **OK** to create the Service Fabric Mesh project.
 
-![Visual studio new Service Fabric Mesh project dialog](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
+![Screenshot that shows how to create a Service Fabric Mesh project.](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
 
 Next you'll see the **New Service Fabric Service** dialog.
 
@@ -69,7 +69,7 @@ Set the **Service Name** to **WebFrontEnd**. Press **OK** to create the ASP.NET 
 
 Next you'll see the ASP.NET Core Web Application dialog. Select **Web Application** and then click **OK**.
 
-![Visual studio new ASP.NET core application](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
+![Screenshot that highlights the Web Appliccation template.](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
 Now you have a Service Fabric Mesh application. Next, create the model for to-do information.
 

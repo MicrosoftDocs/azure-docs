@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2019
 ---
 
@@ -15,8 +15,8 @@ Azure Machine Learning simplifies and accelerates the building, training, and de
 
 ## Install Azure Machine Learning on an HDInsight cluster
 
-For general tutorials of automated machine learning, see [Tutorial: Use automated machine learning to build your regression model](../../machine-learning/service/tutorial-auto-train-models.md).
-All new HDInsight-Spark clusters come pre-installed with AzureML-AutoML SDK. You can get started with AutoML on HDInsight with this [sample Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi). This Jupyter Notebook demonstrates how to use an automated machine learning classifier for a simple classification problem.
+For general tutorials of automated machine learning, see [Tutorial: Use automated machine learning to build your regression model](../../machine-learning/tutorial-auto-train-models.md).
+All new HDInsight-Spark clusters come pre-installed with AzureML-AutoML SDK.
 
 > [!Note]
 > Azure Machine Learning packages are installed into Python3 conda environment. The installed Jupyter notebook should be run using the PySpark3 kernel.

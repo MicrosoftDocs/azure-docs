@@ -1,10 +1,10 @@
 ---
-title: Utilize Azure infrastructure VM restart to achieve “higher availability” of an SAP system | Microsoft Docs
+title: Utilize Azure VMs restart for “higher availability” of an SAP system | Microsoft Docs
 description: Utilize Azure infrastructure VM restart to achieve “higher availability” of SAP applications
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -32,8 +32,8 @@ ms.custom: H1Hack27Feb2017
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -208,7 +208,7 @@ ms.custom: H1Hack27Feb2017
 
 > This section applies to:
 >
-> ![Windows][Logo_Windows] Windows and ![Linux][Logo_Linux] Linux
+> ![Windows logo.][Logo_Windows] Windows and ![Linux logo.][Logo_Linux] Linux
 >
 
 If you decide not to use functionalities such as Windows Server Failover Clustering (WSFC) or Pacemaker on Linux (currently supported only for SUSE Linux Enterprise Server [SLES] 12 and later), Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.
@@ -265,7 +265,7 @@ SAP offers a setting that lets you start SAP instances immediately after the sta
 
 Assuming a typical Azure scenario of one SAP application server instance in a VM and a single VM eventually getting restarted, Autostart is not critical. But you can enable it by adding the following parameter into the start profile of the SAP Advanced Business Application Programming (ABAP) or Java instance:
 
-      Autostart = 1
+`Autostart = 1`
 
 
   > [!NOTE]

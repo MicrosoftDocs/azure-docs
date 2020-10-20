@@ -9,8 +9,8 @@ metadata:
   services: dns
   ms.service: dns
   ms.topic: landing-page
-  author: asudbring
-  ms.author: allensu
+  author: rohinkoul
+  ms.author: rohink
   ms.date: 09/20/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -37,6 +37,8 @@ landingContent:
         links:
           - text: Host your domain in Azure DNS
             url: dns-delegate-domain-azure-dns.md
+          - text: Creating a Child DNS zone
+            url: tutorial-public-dns-zones-child.md
 
   # Card
   - title: Deploy a private DNS zone

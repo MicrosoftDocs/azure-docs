@@ -2,12 +2,12 @@
 title: Create and manage Azure ExpressRoute public peering
 description: Learn about and manage Azure public peering
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # Create and manage ExpressRoute public peering
@@ -26,7 +26,7 @@ This article helps you create and manage public peering routing configuration fo
 
 ## Connectivity
 
-Connectivity is always initiated from your WAN to Microsoft Azure services. Microsoft Azure services will not be able to initiate connections into your network through this routing domain. If your ExpressRoute circuit is enabled for Azure public peering, you can access the [public IP ranges used in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) over the circuit.
+Connectivity is always initiated from your WAN to Microsoft Azure services. Microsoft Azure services will not be able to initiate connections into your network through this routing domain. If your ExpressRoute circuit is enabled for Azure public peering, you can access the [public IP ranges used in Azure](../virtual-network/public-ip-addresses.md#public-ip-addresses) over the circuit.
 
 Once public peering is enabled, you can connect to most Azure services. We do not allow you to selectively pick services for which we advertise routes to.
 
@@ -56,7 +56,7 @@ To validate availability for a specific service, you can check the documentation
 [!INCLUDE [peering comparison](../../includes/expressroute-peering-comparison.md)]
 
 > [!NOTE]
-> Azure public peering has 1 NAT IP address associated to each BGP session. For greater than 2 NAT IP addresses, move to Microsoft peering. Microsoft peering allows you to configure your own NAT allocations, as well as use route filters for selective prefix advertisements. For more information, see [Move to Microsoft peering](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
+> Azure public peering has 1 NAT IP address associated to each BGP session. For greater than 2 NAT IP addresses, move to Microsoft peering. Microsoft peering allows you to configure your own NAT allocations, as well as use route filters for selective prefix advertisements. For more information, see [Move to Microsoft peering](./how-to-move-peering.md).
 >
 
 ## Custom route filters
@@ -173,7 +173,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
    The response is similar to the following example:
 
-   ```azurecli
+   ```output
    "allowClassicOperations": false,
    "authorizations": [],
    "circuitProvisioningState": "Enabled",
@@ -235,7 +235,7 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 
 The output is similar to the following example:
 
-```azurecli
+```output
 {
   "azureAsn": 12076,
   "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",

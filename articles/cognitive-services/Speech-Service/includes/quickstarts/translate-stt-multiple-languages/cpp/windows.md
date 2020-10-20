@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 12/09/2019
+ms.date: 04/04/2020
 ms.author: erhopf
 ---
 
@@ -17,9 +17,8 @@ ms.author: erhopf
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 
 ## Add sample code
 
@@ -39,7 +38,7 @@ Before you get started, make sure to:
    void TranslateSpeechToText()
    {
        // Creates an instance of a speech translation config with specified subscription key and service region.
-       // Replace with your own subscription key and service region (e.g., "westus").
+       // Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
        auto config = SpeechTranslationConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
        // Sets source and target languages.
@@ -101,7 +100,7 @@ Before you get started, make sure to:
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription.
 
 1. From the menu bar, choose **File** > **Save All**.
 

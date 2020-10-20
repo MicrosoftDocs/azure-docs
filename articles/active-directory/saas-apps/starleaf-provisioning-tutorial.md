@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure StarLeaf for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to StarLeaf.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
@@ -23,7 +18,7 @@ ms.author: zhchia
 The objective of this tutorial is to demonstrate the steps to be performed in StarLeaf and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to StarLeaf.
 
 > [!NOTE]
->  This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+>  This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > This connector is currently in Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -32,7 +27,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in St
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant.
-* [A StarLeaf tenant](https://www.starleaf.com/solutions/).
+* [A StarLeaf tenant](https://starleaf.com/).
 * A user account in StarLeaf with Admin permissions.
 
 ## Assign users to StarLeaf
@@ -52,15 +47,15 @@ Before you configure StarLeaf for automatic user provisioning with Azure AD, you
 
 1. Sign in to your [StarLeaf Admin Console](https://portal.starleaf.com/#page=login). Navigate to **Integrations** > **Add integration**.
 
-	![StarLeaf Add SCIM](media/starleaf-provisioning-tutorial/image00.png)
+	![Screenshot of the StarLeaf Admin Console with the Integrations and Add integration options called out.](media/starleaf-provisioning-tutorial/image00.png)
 
 2. Select the **Type** to be Microsoft Azure Active Directory. Enter a suitable name in **Name**. Click **Apply**.
 
-	![StarLeaf Add SCIM](media/starleaf-provisioning-tutorial/image01.png)
+	![Screenshot of the Add integration dialog box with the Type and Name text boxes called out.](media/starleaf-provisioning-tutorial/image01.png)
 
 3.  The **SCIM base URL** and **Access token** values will be then displayed. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your StarLeaf application in the Azure portal. 
 
-	![StarLeaf Create Token](media/starleaf-provisioning-tutorial/image02.png)
+	![Screenshot of the Edit integration dialog box with the Type, Name, and SCIM base URL text boxes called out.](media/starleaf-provisioning-tutorial/image02.png)
 
 ## Add StarLeaf from the gallery
 
@@ -97,11 +92,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the Admin Credentials section, input the **SCIM Base URL** and **Access Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to StarLeaf. If the connection fails, ensure your StarLeaf account has Admin permissions and try again.
 
@@ -115,14 +110,14 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to StarLeaf**.
 
-	![StarLeaf Create Token](media/starleaf-provisioning-tutorial/usermapping.png)
+	![Screenshot of the Mappings section showing the Synchronize Azure Active Directory Users to StarLeaf option.](media/starleaf-provisioning-tutorial/usermapping.png)
 
 9. Review the user attributes that are synchronized from Azure AD to StarLeaf in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in StarLeaf for update operations. Select the **Save** button to commit any changes.
 
-	![StarLeaf Create Token](media/starleaf-provisioning-tutorial/userattribute.png)
+	![Screenshot of the Attribute Mappings section showing nine mappings displayed.](media/starleaf-provisioning-tutorial/userattribute.png)
 
 
-10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 
 11. To enable the Azure AD provisioning service for StarLeaf, change the **Provisioning Status** to **On** in the **Settings** section.
@@ -139,7 +134,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on StarLeaf.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md)
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md)
 
 ## Connector limitations
 
@@ -148,9 +143,9 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Additional resources
 
-* [Manage user account provisioning for enterprise apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Manage user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* Learn how to [review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md).
+* Learn how to [review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md).

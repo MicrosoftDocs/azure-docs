@@ -5,8 +5,8 @@ description: Get started using Azure Active Directory terms of use to present in
 services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
-ms.topic: conceptual
-ms.date: 05/29/2019
+ms.topic: how-to
+ms.date: 10/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -47,7 +47,7 @@ Azure AD terms of use has the following capabilities:
 - List who has or hasn't accepted to your terms of use.
 - Assist in meeting privacy regulations.
 - Display a log of terms of use activity for compliance and audit.
-- Create and manage terms of use using [Microsoft Graph APIs](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (currently in preview).
+- Create and manage terms of use using [Microsoft Graph APIs](/graph/api/resources/agreement?view=graph-rest-beta) (currently in preview).
 
 ## Prerequisites
 
@@ -82,7 +82,7 @@ Once you have finalized your terms of use document, use the following procedure 
 1. For **Terms of use document**, browse to your finalized terms of use PDF and select it.
 1. Select the language for your terms of use document. The language option allows you to upload multiple terms of use, each with a different language. The version of the terms of use that an end user will see will be based on their browser preferences.
 1. To require end users to view the terms of use prior to accepting them, set **Require users to expand the terms of use** to **On**.
-1. To require end users to accept your terms of use on every device they are accessing from, set **Require users to consent on every device** to **On**. For more information, see [Per-device terms of use](#per-device-terms-of-use).
+1. To require end users to accept your terms of use on every device they are accessing from, set **Require users to consent on every device** to **On**. Users may be required to install additional applications if this option is enabled. For more information, see [Per-device terms of use](#per-device-terms-of-use).
 1. If you want to expire terms of use consents on a schedule, set **Expire consents** to **On**. When set to On, two additional schedule settings are displayed.
 
    ![Expire consents settings to set start date, frequency, and duration](./media/terms-of-use/expire-consents.png)
@@ -245,7 +245,7 @@ The following procedure describes how to add a terms of use language.
 
 ## Per-device terms of use
 
-The **Require users to consent on every device** setting enables you to require end users to accept your terms of use on every device they are accessing from. The end user will be required to join their device in Azure AD. When the device is joined, the device ID is used to enforce the terms of use on each device.
+The **Require users to consent on every device** setting enables you to require end users to accept your terms of use on every device they are accessing from. The end user will be required to register their device in Azure AD. When the device is registered, the device ID is used to enforce the terms of use on each device.
 
 Here is a list of the supported platforms and software.
 
@@ -261,7 +261,7 @@ Per-device terms of use has the following constraints:
 
 - A device can only be joined to one tenant.
 - A user must have permissions to join their device.
-- The Intune Enrollment app is not supported.
+- The Intune Enrollment app is not supported. Ensure that it is excluded from any Conditional Access policy requiring Terms of Use.
 - Azure AD B2B users are not supported.
 
 If the user's device is not joined, they will receive a message that they need to join their device. Their experience will be dependent on the platform and software.
@@ -273,6 +273,14 @@ If a user is using Windows 10 and Microsoft Edge, they will receive a message si
 ![Windows 10 and Microsoft Edge - Message indicating your device must be registered](./media/terms-of-use/per-device-win10-edge.png)
 
 If they are using Chrome, they will be prompted to install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+### Register an iOS device
+
+If a user is using an iOS device, they will be prompted to install the [Microsoft Authenticator app](https://apps.apple.com/us/app/microsoft-authenticator/id983156458).
+
+### Register an Android device
+
+If a user is using an Android device, they will be prompted to install the [Microsoft Authenticator app](https://play.google.com/store/apps/details?id=com.azure.authenticator).
 
 ### Browsers
 
@@ -352,7 +360,7 @@ A: No, if an administrator edits the details for a terms of use (name, display n
 A: Currently, you can't update an existing terms of use document. To change a terms of use document, you will have to create a new terms of use instance.
 
 **Q: If hyperlinks are in the terms of use PDF document, will end users be able to click them?**<br />
-A: Yes, end users are able to select hyperlinks to additional pages but links to sections within the document are not supported.
+A: Yes, end users are able to select hyperlinks to additional pages but links to sections within the document are not supported. Also, hyperlinks in terms of use PDFs do not work when accessed from the Azure AD MyApps/MyAccount portal.
 
 **Q: Can a terms of use support multiple languages?**<br />
 A: Yes. Currently there are 108 different languages an administrator can configure for a single terms of use. An administrator can upload multiple PDF documents and tag those documents with a corresponding language (up to 108). When end users sign in, we look at their browser language preference and display the matching document. If there is no match, we will display the default document, which is the first document that is uploaded.
@@ -381,4 +389,3 @@ A: Terms of use utilizes the following endpoints for authentication: https://tok
 ## Next steps
 
 - [Quickstart: Require terms of use to be accepted before accessing cloud apps](require-tou.md)
-- [Best practices for Conditional Access in Azure Active Directory](best-practices.md)

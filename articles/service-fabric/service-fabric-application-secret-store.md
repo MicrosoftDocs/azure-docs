@@ -1,16 +1,19 @@
 ---
-title: Service Fabric Secrets Store 
-description: This article describes how to use Service Fabric Secrets Store.
+title: Azure Service Fabric Central Secrets Store 
+description: This article describes how to use Central Secrets Store in Azure Service Fabric.
 
 ms.topic: conceptual 
 ms.date: 07/25/2019
 ---
 
-#  Service Fabric Secrets Store
-This article describes how to create and use secrets in Service Fabric applications using Service Fabric Secrets Store(CSS). CSS is a local secret store cache, used to keep sensitive data such as a password, tokens, and keys encrypted in memory.
+# Central Secrets Store in Azure Service Fabric 
+This article describes how to use Central Secrets Store (CSS) in Azure Service Fabric to create secrets in Service Fabric applications. CSS is a local secret store cache that keeps sensitive data, such as a password, tokens, and keys, encrypted in memory.
 
-## Enabling Secrets Store
- Add the below to your cluster configuration under `fabricSettings` to enable CSS. It's recommended to use a certificate different from cluster certificate for CSS. Make sure the encryption certificate is installed on all nodes and `NetworkService` has read permission to certificate's private key.
+  > [!NOTE] 
+  > When activating CSS for the first time before SF version 7.1. CU3, activation can fail and leave CSS in a permanently unhealthy state if: CSS is activated on a Windows authenticated cluster; CSS is activated on any cluster but `EncryptionCertificateThumbprint` is declared incorrectly or the corresponding certificate is not installed / ACL-ed on nodes. For Windows Auth cluster, please come onto 7.1. CU3 before proceeding. For other clusters, please double check these invariants or come onto 7.1. CU3.
+  
+## Enable Central Secrets Store
+Add the following script to your cluster configuration under `fabricSettings` to enable CSS. We recommend that you use a certificate other than a cluster certificate for CSS. Make sure the encryption certificate is installed on all nodes and that `NetworkService` has read permission to the certificate's private key.
   ```json
     "fabricSettings": 
     [
@@ -24,7 +27,7 @@ This article describes how to create and use secrets in Service Fabric applicati
                 },
                 {
                     "name":  "MinReplicaSetSize",
-                    "value":  "3"
+                    "value":  "1"
                 },
                 {
                     "name":  "TargetReplicaSetSize",
@@ -42,138 +45,84 @@ This article describes how to create and use secrets in Service Fabric applicati
         ...
      ]
 ```
-## Declare secret resource
-You can create a secret resource either using the Resource Manager template or using the REST API.
+## Declare a secret resource
+You can create a secret resource by using the REST API.
+  > [!NOTE] 
+  > If the cluster is using windows authentication, the REST request is sent over unsecured HTTP channel. The recommendation is to use a X509 based cluster with secure endpoints.
 
-* Using Resource Manager template
-```json
-   "resources": [
-      {
-        "apiVersion": "2018-07-01-preview",
-        "name": "supersecret",
-        "type": "Microsoft.ServiceFabricMesh/secrets",
-        "location": "[parameters('location')]", 
-        "dependsOn": [],
-        "properties": {
-          "kind": "inlinedValue",
-            "description": "Application Secret",
-            "contentType": "text/plain",
-          }
-        }
-      ]
-```
-The above template creates `supersecret` secret resource, but no value is set for the secret resource yet.
-
-* Using the REST API
-
-To create secret resource, `supersecret` make a PUT request to `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`. You need the cluster certificate or admin client certificate to create a secret.
+To create a `supersecret` secret resource by using the REST API, make a PUT request to `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`. You need the cluster certificate or admin client certificate to create a secret resource.
 
 ```powershell
-Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview -Method PUT -CertificateThumbprint <CertThumbprint>
+$json = '{"properties": {"kind": "inlinedValue", "contentType": "text/plain", "description": "supersecret"}}'
+Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview -Method PUT -CertificateThumbprint <CertThumbprint> -Body $json
 ```
 
-## Set secret value
-* Using Resource Manager template
+## Set the secret value
 
-The below Resource Manager template creates and set value for secret `supersecret` with version `ver1`.
-```json
-  {
-  "parameters": {
-  "supersecret": {
-      "type": "string",
-      "metadata": {
-        "description": "supersecret value"
-      }
-   }
-  },
-  "resources": [
-    {
-      "apiVersion": "2018-07-01-preview",
-        "name": "supersecret",
-        "type": "Microsoft.ServiceFabricMesh/secrets",
-        "location": "[parameters('location')]", 
-        "dependsOn": [],
-        "properties": {
-          "kind": "inlinedValue",
-            "description": "Application Secret",
-            "contentType": "text/plain",
-        }
-    },
-    {
-      "apiVersion": "2018-07-01-preview",
-      "name": "supersecret/ver1",
-      "type": "Microsoft.ServiceFabricMesh/secrets/values",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "Microsoft.ServiceFabricMesh/secrets/supersecret"
-      ],
-      "properties": {
-        "value": "[parameters('supersecret')]"
-      }
-    }
-  ],
-  ```
-* Using the REST API
-
+Use the following script to use the REST API to set the secret value.
 ```powershell
-$Params = @{"properties": {"value": "mysecretpassword"}}
+$Params = '{"properties": {"value": "mysecretpassword"}}'
 Invoke-WebRequest -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret/values/ver1?api-version=6.4-preview -Method PUT -Body $Params -CertificateThumbprint <ClusterCertThumbprint>
 ```
-## Using the secret in your application
-
-1.  Add a section in settings.xml file with the below content. Note here the Value is of the format {`secretname:version`}
-
-```xml
-  <Section Name="testsecrets">
-   <Parameter Name="TopSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/
-  </Section>
+### Examine the secret value
+```powershell
+Invoke-WebRequest -CertificateThumbprint <ClusterCertThumbprint> -Method POST -Uri "https:<clusterfqdn>/Resources/Secrets/supersecret/values/ver1/list_value?api-version=6.4-preview"
 ```
-2. Now import the section in ApplicationManifest.xml
-```xml
-  <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
-    <Policies>
-      <ConfigPackagePolicies CodePackageRef="Code">
-        <ConfigPackage Name="Config" SectionName="testsecrets" EnvironmentVariableName="SecretPath" />
-        </ConfigPackagePolicies>
-    </Policies>
-  </ServiceManifestImport>
-```
+## Use the secret in your application
 
-Environment Variable 'SecretPath' will point to the directory where all secrets are stored. Each parameter listed under section `testsecrets` will be stored in a separate file. Application can now use the secret as shown below
-```C#
-secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
-```
-3. Mounting secrets to a container
+Follow these steps to use the secret in your Service Fabric application.
 
-Only change required to make the secrets available inside the container is to specify a MountPoint in `<ConfigPackage>`.
-Here is the modified ApplicationManifest.xml  
+1. Add a section in the **settings.xml** file with the following snippet. Note here that the value is in the format {`secretname:version`}.
 
-```xml
-<ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
-    <Policies>
-      <ConfigPackagePolicies CodePackageRef="Code">
-        <ConfigPackage Name="Config" SectionName="testsecrets" MountPoint="C:\secrets" EnvironmentVariableName="SecretPath" />
-        <!-- Linux Container
-         <ConfigPackage Name="Config" SectionName="testsecrets" MountPoint="/mnt/secrets" EnvironmentVariableName="SecretPath" />
-        -->
-      </ConfigPackagePolicies>
-    </Policies>
-  </ServiceManifestImport>
-```
-Secrets will be available under the mount point inside your container.
+   ```xml
+     <Section Name="testsecrets">
+      <Parameter Name="TopSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/
+     </Section>
+   ```
 
-4. Binding secret to an environment variable 
+1. Import the section in **ApplicationManifest.xml**.
+   ```xml
+     <ServiceManifestImport>
+       <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
+       <ConfigOverrides />
+       <Policies>
+         <ConfigPackagePolicies CodePackageRef="Code">
+           <ConfigPackage Name="Config" SectionName="testsecrets" EnvironmentVariableName="SecretPath" />
+           </ConfigPackagePolicies>
+       </Policies>
+     </ServiceManifestImport>
+   ```
 
-You can bind secret to a process environment variable by specifying Type='SecretsStoreRef'. Here is an example of how to bind `supersecret` version `ver1` to environment variable `MySuperSecret` in ServiceManifest.xml.
+   The environment variable `SecretPath` will point to the directory where all secrets are stored. Each parameter listed under the `testsecrets` section is stored in a separate file. The application can now use the secret as follows:
+   ```C#
+   secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
+   ```
+1. Mount the secrets to a container. The only change required to make the secrets available inside the container is to `specify` a mount point in `<ConfigPackage>`.
+The following snippet is the modified **ApplicationManifest.xml**.  
 
-```xml
-<EnvironmentVariables>
-  <EnvironmentVariable Name="MySuperSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/>
-</EnvironmentVariables>
-```
+   ```xml
+   <ServiceManifestImport>
+       <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
+       <ConfigOverrides />
+       <Policies>
+         <ConfigPackagePolicies CodePackageRef="Code">
+           <ConfigPackage Name="Config" SectionName="testsecrets" MountPoint="C:\secrets" EnvironmentVariableName="SecretPath" />
+           <!-- Linux Container
+            <ConfigPackage Name="Config" SectionName="testsecrets" MountPoint="/mnt/secrets" EnvironmentVariableName="SecretPath" />
+           -->
+         </ConfigPackagePolicies>
+       </Policies>
+     </ServiceManifestImport>
+   ```
+   Secrets are available under the mount point inside your container.
+
+1. You can bind a secret to a process environment variable by specifying `Type='SecretsStoreRef`. The following snippet is an example of how to bind the `supersecret` version `ver1` to the environment variable `MySuperSecret` in **ServiceManifest.xml**.
+
+   ```xml
+   <EnvironmentVariables>
+     <EnvironmentVariable Name="MySuperSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/>
+   </EnvironmentVariables>
+   ```
+
 ## Next steps
-Learn more about [application and service security](service-fabric-application-and-service-security.md)
+Learn more about [application and service security](service-fabric-application-and-service-security.md).

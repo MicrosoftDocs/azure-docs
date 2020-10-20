@@ -3,7 +3,7 @@ title: Metrics and alerts - Azure DNS
 description: With this learning path, get started with Azure DNS metrics and alerts.
 services: dns
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 manager: kumudD
 
 ms.service: dns
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
-ms.author: allensu
+ms.author: rohink
 ---
 
 # Azure DNS metrics and alerts

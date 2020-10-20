@@ -7,7 +7,8 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 06/01/2020
+ms.custom: [amqp, 'Role: Cloud Development']
 ---
 
 # Read device-to-cloud messages from the built-in endpoint
@@ -19,7 +20,7 @@ By default, messages are routed to the built-in service-facing endpoint (**messa
 | **Partition count** | Set this property at creation to define the number of [partitions](../event-hubs/event-hubs-features.md#partitions) for device-to-cloud event ingestion. |
 | **Retention time**  | This property specifies how long in days messages are retained by IoT Hub. The default is one day, but it can be increased to seven days. |
 
-IoT Hub allows data retention in the built-in Event Hubs for a maximum of 7 days. You can set the retention time during creation of your IoT Hub. Data retention time in IoT Hub depends on your IoT hub tier and unit type. In terms of size, the built-in Event Hubs can retain messages of the maximum message size up to at least 24 hours of quota. For example, for 1 S1 unit IoT Hub provides enough storage to retain at least 400K messages of 4k size each. If your devices are sending smaller messages, they may be retained for longer (up to 7 days) depending on how much storage is consumed. We guarantee retaining the data for the specified retention time as a minimum.
+IoT Hub allows data retention in the built-in Event Hubs for a maximum of 7 days. You can set the retention time during creation of your IoT Hub. Data retention time in IoT Hub depends on your IoT hub tier and unit type. In terms of size, the built-in Event Hubs can retain messages of the maximum message size up to at least 24 hours of quota. For example, for 1 S1 unit IoT Hub provides enough storage to retain at least 400K messages of 4k size each. If your devices are sending smaller messages, they may be retained for longer (up to 7 days) depending on how much storage is consumed. We guarantee retaining the data for the specified retention time as a minimum. Messages will expire and will not be accessible after the retention time has passed. 
 
 IoT Hub also enables you to manage consumer groups on the built-in device-to-cloud receive endpoint. You can have up to 20 consumer groups for each IoT Hub.
 
@@ -51,25 +52,25 @@ In the portal, the Event Hub-compatible endpoint field contains a complete Event
 | Hostname | abcd1234namespace.servicebus.windows.net |
 | Namespace | abcd1234namespace |
 
-You can then use any shared access policy that has the **ServiceConnect** permissions to connect to the specified Event Hub.
+You can then choose any shared access policy from the drop-down as shown in the screenshot above. It only shows policies that have the **ServiceConnect** permissions to connect to the specified Event Hub.
 
 The SDKs you can use to connect to the built-in Event Hub-compatible endpoint that IoT Hub exposes include:
 
-| Language | SDK | Example | Notes |
-| -------- | --- | ------ | ----- |
-| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Quickstart](quickstart-send-telemetry-dotnet.md) | Uses Event Hubs-compatible information |
- Java | https://github.com/Azure/azure-event-hubs-java | [Quickstart](quickstart-send-telemetry-java.md) | Uses Event Hubs-compatible information |
-| Node.js | https://github.com/Azure/azure-event-hubs-node | [Quickstart](quickstart-send-telemetry-node.md) | Uses IoT Hub connection string |
-| Python | https://github.com/Azure/azure-event-hubs-python | https://github.com/Azure/azure-event-hubs-python/blob/master/examples/iothub_recv.py | Uses IoT Hub connection string |
+| Language | SDK | Example |
+| -------- | --- | ------ |
+| .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [Quickstart](quickstart-send-telemetry-dotnet.md) |
+| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Quickstart](quickstart-send-telemetry-java.md) |
+| Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Quickstart](quickstart-send-telemetry-node.md) |
+| Python | https://pypi.org/project/azure-eventhub/ | [Quickstart](quickstart-send-telemetry-python.md) |
 
 The product integrations you can use with the built-in Event Hub-compatible endpoint that IoT Hub exposes include:
 
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). See [Processing data from IoT Hub with Azure Functions](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
-* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). See [Stream data as input into Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
-* [Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/). See [Add an IoT hub event source to your Time Series Insights environment](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md).
+* [Azure Functions](../azure-functions/index.yml). See [Processing data from IoT Hub with Azure Functions](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
+* [Azure Stream Analytics](../stream-analytics/index.yml). See [Stream data as input into Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+* [Time Series Insights](../time-series-insights/index.yml). See [Add an IoT hub event source to your Time Series Insights environment](../time-series-insights/how-to-ingest-data-iot-hub.md).
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
-* [Apache Spark integration](../hdinsight/spark/apache-spark-eventhub-streaming.md).
-* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
+* [Apache Spark integration](../hdinsight/spark/apache-spark-ipython-notebook-machine-learning.md).
+* [Azure Databricks](/azure/azure-databricks/).
 
 ## Next steps
 

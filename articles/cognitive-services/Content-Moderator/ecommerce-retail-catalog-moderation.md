@@ -9,8 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 06/29/2020
 ms.author: pafarley
+ms.custom: devx-track-csharp
 
 #As a developer at an e-commerce company, I want to use machine learning to both categorize product images and tag objectionable images for further review by my team.
 ---
@@ -30,7 +31,7 @@ This tutorial shows you how to:
 
 The complete sample code is available in the [Samples eCommerce Catalog Moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) repository on GitHub.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 

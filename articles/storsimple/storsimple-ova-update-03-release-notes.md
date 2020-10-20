@@ -1,5 +1,5 @@
 ---
-title: StorSimple Virtual Array Updates release notes| Microsoft Docs
+title: StorSimple Virtual Array Update 0.3 release notes
 description: Describes critical open issues and resolutions for the StorSimple Virtual Array running Update 0.3.
 services: storsimple
 documentationcenter: ''

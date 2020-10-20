@@ -60,7 +60,7 @@ You now see the SendGrid sign-up form.
 
 Complete the sign-up form:
 
-   * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](../azure-resource-manager/manage-resource-groups-portal.md).
+   * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    * **Name**: The name for your SendGrid service. Choose a unique name, differing from other services you may have.
 
@@ -100,7 +100,7 @@ The sign-up form appears.
 
 Fill in the fields on the sign-up form.
 
-   * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](../azure-resource-manager/manage-resource-groups-portal.md).
+   * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    * **Iot Hub Name**: The name for your IoT hub. Choose a unique name, differing from other services you may have.
 
@@ -166,7 +166,7 @@ The connection string that is retrieved from the [Provision Azure services](#pro
 
 VS Code then starts verifying and uploading the Arduino sketch to the DevKit.
 
-![device-upload](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
+![Screenshot shows Visual Studio Code verifying and uploading the Arduino sketch.](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
 
 The DevKit reboots and starts running the code.
 
@@ -192,7 +192,4 @@ If you encounter problems, refer to the [IoT DevKit FAQ](https://microsoft.githu
 
 ## Next steps
 
-You have learned how to connect a DevKit device to your Azure IoT Remote Monitoring solution accelerator and used the SendGrid service to send an email. Here are the suggested next steps:
-
-* [Azure IoT Remote Monitoring solution accelerator overview](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](/azure/iot-central/core/howto-connect-devkit)
+You have learned how to connect a DevKit device to your Azure IoT Remote Monitoring solution accelerator and used the SendGrid service to send an email. Here is the suggested next step:[Azure IoT Remote Monitoring solution accelerator overview](/azure/iot-suite/)

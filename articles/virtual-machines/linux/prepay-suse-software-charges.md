@@ -3,12 +3,10 @@ title: Prepay for software plans - Azure Reservations
 description: Learn how you can prepay for software plans to save money over your pay-as-you-go costs.
 author: bandersmsft
 manager: yashesvi
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/01/2019
+ms.date: 04/06/2020
 ms.author: banders
 ---
 # Prepay for Azure software plans
@@ -33,6 +31,7 @@ The subscription payment method is charged the upfront costs for the reservation
 4. Select a scope. The scope can cover one subscription or multiple subscriptions (shared scope).
     - Single subscription - The plan discount is applied to matching usage in the subscription.
     - Shared - The plan discount is applied to matching instances in any subscription in your billing context. For enterprise customers, the billing context is the enrollment and includes all subscriptions in the enrollment. For individual plan with pay-as-you-go pricing customers, the billing context is all individual plans with pay-as-you-go pricing subscriptions created by the account administrator.
+    - Single resource group - Applies the reservation discount to the matching resources in the selected resource group only.
 5. Select a product to choose the VM size and the image type. The discount applies to the selected VM size only.
 6. Select a one-year or three-year term.
 7. Choose a quantity, which is the number of prepaid VM instances that can get the billing discount.
@@ -42,7 +41,7 @@ The reservation discount is automatically applied to the software meter that you
 
 ## Discount applies to different SUSE VM sizes
 
-Like reserved VM instances, SUSE Linux plans offer instance size flexibility. Your discount applies even when you deploy a VM that's a different size from the SUSE plan you bought. For more information, see [Understand how the software plan discount is applied](../../billing/billing-understand-suse-reservation-charges.md).
+Like reserved VM instances, SUSE Linux plans offer instance size flexibility. Your discount applies even when you deploy a VM that's a different size from the SUSE plan you bought. For more information, see [Understand how the software plan discount is applied](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
 
 ## RedHat plan discount
 
@@ -53,7 +52,7 @@ RedHat plan discounts apply only to the VM size that you select at the time of p
 
 ## Cancellation and exchanges not allowed
 
-You can't cancel or exchange a SUSE or RedHat plan that you bought. Check your usage to make sure you buy the right plan. For help to identify what to buy, see [Understand how the software plan discount is applied](../../billing/billing-understand-suse-reservation-charges.md).
+You can't cancel or exchange a SUSE or RedHat plan that you bought. Check your usage to make sure you buy the right plan. For help to identify what to buy, see [Understand how the software plan discount is applied](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
 
 ## Need help? Contact us.
 
@@ -61,12 +60,12 @@ If you have questions or need help, [create a support request](https://portal.az
 
 ## Next steps
 
-To learn how to manage a reservation, see [Manage Azure reservations](../../billing/billing-manage-reserved-vm-instance.md).
+To learn how to manage a reservation, see [Manage Azure reservations](../../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
 To learn more, see the following articles:
 
-- [What are Azure Reservations?](../../billing/billing-save-compute-costs-reservations.md)
-- [Manage Reservations in Azure](../../billing/billing-manage-reserved-vm-instance.md)
-- [Understand how the SUSE reservation discount is applied](../../billing/billing-understand-suse-reservation-charges.md)
-- [Understand reservation usage for your Pay-As-You-Go subscription](../../billing/billing-understand-reserved-instance-usage.md)
-- [Understand reservation usage for your Enterprise enrollment](../../billing/billing-understand-reserved-instance-usage-ea.md)
+- [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Manage Reservations in Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+- [Understand how the SUSE reservation discount is applied](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
+- [Understand reservation usage for your Pay-As-You-Go subscription](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)
+- [Understand reservation usage for your Enterprise enrollment](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)

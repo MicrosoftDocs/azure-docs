@@ -1,7 +1,6 @@
 ---
 title: Overview of log queries in Azure Monitor | Microsoft Docs
 description: Answers common questions related to log queries and gets you started in using them.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -13,7 +12,7 @@ ms.date: 06/19/2019
 # Overview of log queries in Azure Monitor
 Log queries help you to fully leverage the value of the data collected in [Azure Monitor Logs](../platform/data-platform-logs.md). A powerful query language allows you to join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code. Virtually any question can be answered and analysis performed as long as the supporting data has been collected, and you understand how to construct the right query.
 
-Some features in Azure Monitor such as [insights](../insights/insights-overview.md) and [solutions](../insights/solutions-inventory.md) process log data without exposing you to the underlying queries. To fully leverage other features of Azure Monitor, you should understand how queries are constructed and how you can use them to interactively analyze data in Azure Monitor Logs.
+Some features in Azure Monitor such as [insights](../insights/insights-overview.md) and [solutions](../monitor-reference.md) process log data without exposing you to the underlying queries. To fully leverage other features of Azure Monitor, you should understand how queries are constructed and how you can use them to interactively analyze data in Azure Monitor Logs.
 
 Use this article as a starting point to learning about log queries in Azure Monitor. It answers common questions and provides links to other documentation that provides further details and lessons.
 
@@ -35,10 +34,7 @@ See [Get started with log queries in Azure Monitor](get-started-queries.md) for 
  See [Azure Monitor log query language differences](data-explorer-difference.md) for minor differences in the version of KQL used by Azure Monitor.
 
 ## What data is available to log queries?
-All data collected in Azure Monitor Logs is available to retrieve and analyze in log queries. Different data sources will write their data to different tables, but you can include multiple tables in a single query to analyze data across multiple sources. When you build a query, you start by determining which tables have the data that you're looking for, so you should have at least a basic understanding of how data in Azure Monitor Logs is structured.
-
-See [Sources of Azure Monitor Logs](../platform/data-platform-logs.md#sources-of-azure-monitor-logs), for a list of different data sources that populate Azure Monitor Logs.<br>
-See [Structure of Azure Monitor Logs](logs-structure.md) for an explanation of how the data is structured.
+All data collected in Azure Monitor Logs is available to retrieve and analyze in log queries. Different data sources will write their data to different tables, but you can include multiple tables in a single query to analyze data across multiple sources. When you build a query, you start by determining which tables have the data that you're looking for. See [Structure of Azure Monitor Logs](../platform/data-platform-logs.md) for an explanation of how the data is structured.
 
 ## What does a log query look like?
 A query could be as simple as a single table name for retrieving all records from that table:
@@ -78,7 +74,7 @@ Log Analytics is the primary tool in the Azure portal for writing log queries an
 You can start Log Analytics from several places in the Azure portal. The scope of the data available to Log Analytics is determined by how you start it. See [Query Scope](scope.md) for more details.
 
 - Select **Logs** from the **Azure Monitor** menu or **Log Analytics workspaces** menu.
-- Select **Analytics** from the **Overview** page of an Application Insights application.
+- Select **Logs** from the **Overview** page of an Application Insights application.
 - Select **Logs** from the menu of an Azure resource.
 
 ![Log Analytics](media/log-query-overview/log-analytics.png)

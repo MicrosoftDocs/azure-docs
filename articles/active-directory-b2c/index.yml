@@ -11,9 +11,9 @@ metadata:
   ms.subservice: B2C
   ms.topic: landing-page
   ms.collection: collection
-  author: mmacy
-  ms.author: marsma
-  ms.date: 08/29/2019
+  author: msmimart
+  ms.author: mimart
+  ms.date: 01/28/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -22,128 +22,147 @@ landingContent:
 # Start card title with a verb
 
   # Card
-  - title: Learn the basics
+  - title: Azure AD B2C
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure AD B2C?
-            url: active-directory-b2c-overview.md
-          - text: Technical & feature overview
-            url: technical-overview.md
-      - linkListType: get-started
-        links:
-          - text: Create an Azure AD B2C tenant
+            url: overview.md
+          - text: Compare solutions for External Identities
+            url: https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+          - text: Get started with Azure AD B2C
             url: tutorial-create-tenant.md
-          - text: Register an application
-            url: tutorial-register-applications.md
-          - text: Set up user flows
-            url: tutorial-create-user-flows.md
-      - linkListType: video
-        links:
-          - text: What is Azure AD B2C? (9:35)
-            url: https://www.youtube.com/watch?v=GmBKlXED9Ug
+          - text: Technical and feature overview
+            url: technical-overview.md
+          - text: Pricing
+            url: https://azure.microsoft.com/pricing/details/active-directory-b2c/
 
   # Card
-  - title: Add identity to ASP.NET apps
+  - title: Basics
     linkLists:
-      - linkListType: quickstart
+      - linkListType: learn
         links:
-          - text: Set up sign-in
-            url: active-directory-b2c-quickstarts-web-app.md
-      - linkListType: tutorial
+          - text: Authentication and authorization
+            url: https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+          - text: Tokens
+            url: https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+          - text: Protocols
+            url: https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+          - text: Authentication library
+            url: https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+          - text: 'Build a web site: HTML, CSS, JavaScript'
+            url: https://docs.microsoft.com/learn/modules/build-simple-website/
+
+  # Card
+  - title: Common use cases
+    linkLists:
+      - linkListType: how-to-guide
         links:
-          - text: Authenticate users a .NET web application
-            url: active-directory-b2c-tutorials-web-app.md
-          - text: Grant API access to a .NET web application
-            url: active-directory-b2c-tutorials-web-api.md
-          - text: Enable enterprise and social login
+          - text: Enable self-service sign-in
+            url: user-flow-overview.md
+          - text: 'Add social and work identities: OIDC/OAuth2/SAML'
             url: tutorial-add-identity-providers.md
-      - linkListType: download
+          - text: Enable single sign-on (SSO)
+            url: session-overview.md
+          - text: Customize your UI/UX
+            url: customize-ui-overview.md
+          - text: User and app migration
+            url: user-migration.md
+
+  # Card
+  - title: Add sign-in to your applications
+    linkLists:
+      - linkListType: sample
         links:
-          - text: Code samples for web apps and APIs
+          - text: 'Quickstart: Web app'
+            url: quickstart-web-app-dotnet.md
+          - text: Native/mobile app
+            url: code-samples.md#mobile-and-desktop-apps
+          - text: Single-page app
+            url: code-samples.md#single-page-apps
+          - text: Web app
             url: code-samples.md#web-apps-and-apis
 
   # Card
-  - title: Add identity to single-page apps
-    linkLists:
-      - linkListType: quickstart
+  - title: 'Authorization: Call and secure your APIs'
+    linkLists: 
+      - linkListType: how-to-guide
         links:
-          - text: Set up sign-in
-            url: active-directory-b2c-quickstarts-desktop-app.md
-      - linkListType: tutorial
-        links:
-          - text: Authenticate users in a single-page app
-            url: active-directory-b2c-tutorials-spa.md
-          - text: Grant API access to a single-page app
-            url: active-directory-b2c-tutorials-spa-webapi.md
-          - text: Enable enterprise and social login
-            url: tutorial-add-identity-providers.md
-      - linkListType: download
-        links:
-          - text: Code samples for single-page apps
-            url: code-samples.md#single-page-apps
+          - text: Request an access token
+            url: access-tokens.md
+          - text: Register and secure your API 
+            url: tutorial-web-api-dotnet.md
+          - text: 'Samples: Web apps and APIs'
+            url: code-samples.md#web-apps-and-apis
+          - text: Integrate with API gateway
+            url: secure-api-management.md?tabs=app-reg-ga
 
   # Card
-  - title: Add identity to desktop apps
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Set up sign-in
-            url: active-directory-b2c-quickstarts-desktop-app.md
-      - linkListType: tutorial
-        links:
-          - text: Authenticate users in native clients
-            url: active-directory-b2c-tutorials-desktop-app.md
-          - text: Grant API access to native clients
-            url: active-directory-b2c-tutorials-desktop-app-webapi.md
-          - text: Enable enterprise and social login
-            url: tutorial-add-identity-providers.md
-      - linkListType: download
-        links:
-          - text: Code samples for mobile and desktop apps
-            url: code-samples.md
-
-  # Card
-  - title: Configure common identity scenarios
+  - title: Security, privacy, and compliance
     linkLists:
       - linkListType: concept
         links:
-          - text: Introduction to user flows
-            url: active-directory-b2c-reference-policies.md
-      - linkListType: how-to-guide
-        links:
-          - text: Sign up and sign in users
-            url: tutorial-create-user-flows.md
-          - text: Customize the user interface
-            url: customize-ui-overview.md
-          - text: Enable sign-in with Facebook
-            url: active-directory-b2c-setup-fb-app.md
-      - linkListType: video
-        links:
-          - text: How to configure basic policies (9:41)
-            url: https://www.youtube.com/watch?v=nWJ3m82536A
+          - text: Manage threats
+            url: threat-management.md
+          - text: Learn where user data is stored
+            url: data-residency.md
+          - text: Regulations
+            url: https://docs.microsoft.com/azure/compliance/
+          - text: User access and terms of use
+            url: manage-user-access.md
 
   # Card
-  - title: Build advanced identity scenarios
+  - title: Operations
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Introduction to custom policies
-            url: active-directory-b2c-overview-custom.md
       - linkListType: how-to-guide
         links:
-          - text: Sign up and sign in users
-            url: active-directory-b2c-get-started-custom.md
-          - text: Customize the user interface
-            url: active-directory-b2c-ui-customization-custom.md
-          - text: Enable sign-in with Azure AD multi-tenant
-            url: active-directory-b2c-setup-commonaad-custom.md
-          - text: Add your own business logic with REST APIs
-            url: active-directory-b2c-rest-api-validation-custom.md
-      - linkListType: video
+          - text: CI/CD pipeline
+            url: deploy-custom-policies-devops.md
+          - text: Monitoring
+            url: azure-monitor.md
+          - text: Role-based access control for admins
+            url: https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles
+          - text: User management
+            url: manage-user-accounts-graph-api.md
+          - text: Troubleshooting
+            url: troubleshoot-custom-policies.md?tabs-app-reg-ga
+          - text: Best practices
+            url: best-practices.md
+
+  # Card
+  - title: Resources
+    linkLists:
+      - linkListType: overview
         links:
-          - text: Advanced use cases with Azure AD B2C (4:54)
-            url: https://www.youtube.com/watch?v=-ZmPBuMZY-Y
+          - text: Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
+          - text: GitHub
+            url: https://github.com/azure-ad-b2c/samples
+          - text: YouTube
+            url: https://www.youtube.com/results?search_query=azure+ad+b2c
+          - text: Training
+            url: solution-articles.md
+          - text: Service updates
+            url: https://azure.microsoft.com/updates/?product=active-directory-b2c
+          - text: Frequently asked questions
+            url: faq.md
+          - text: Microsoft support
+            url: support-options.md
+
+  # Card
+  - title: Common integrations
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: 'Azure Monitor: Retain and analyze your logs'
+            url: azure-monitor.md
+          - text: 'Azure DevOps Services: Build your CI/CD pipeline'
+            url: deploy-custom-policies-devops.md
+          - text: 'Application Insights: Troubleshoot and get your user insights'
+            url: troubleshoot-with-application-insights.md
+          - text: Integrate with our technology partners
+            url: partner-gallery.md
+
 
 #  # Card
 #  - title: cardtitle2

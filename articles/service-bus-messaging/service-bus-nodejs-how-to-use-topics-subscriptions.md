@@ -1,30 +1,21 @@
 ---
-title: 'Use Azure Service Bus topics and subscriptions with azure/service-bus Node.js package'
-description: 'Quickstart: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.'
-services: service-bus-messaging
-documentationcenter: nodejs
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
+title: 'Use Azure Service Bus topics with azure/service-bus Node.js package'
+description: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app using the azure/service-bus package.'
+author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: aschhab
-
+ms.date: 08/09/2020
+ms.author: spelluru
+ms.custom: devx-track-js
 ---
-# Quickstart: How to Use Service Bus topics and subscriptions with Node.js and the azure-sb package
-> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
+# Quickstart: How to Use Service Bus topics and subscriptions with Node.js and the azure-sb package
 In this tutorial, you learn how to create Node.js applications to send messages to a Service Bus topic and receive messages from a Service Bus subscription using the [azure-sb](https://www.npmjs.com/package/azure-sb) package. The samples are written in JavaScript and use the Node.js [Azure module](https://www.npmjs.com/package/azure) which internally uses the `azure-sb` package.
 
-The [azure-sb](https://www.npmjs.com/package/azure-sb) package uses [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). You can get a faster experience using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package which uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md). To learn more about the new package, see [How to use Service Bus topics and subscriptions with Node.js and @azure/service-bus package](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), otherwise continue reading to see how to use the [azure](https://www.npmjs.com/package/azure) package.
+> [!IMPORTANT]
+> The [azure-sb](https://www.npmjs.com/package/azure-sb) package uses [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). You can get a faster experience using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package which uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md). 
+> 
+> To learn more about the new package, see [How to use Service Bus topics and subscriptions with Node.js and @azure/service-bus package](./service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md), otherwise continue reading to see how to use the [azure](https://www.npmjs.com/package/azure) package.
 
 The scenarios covered here include:
 
@@ -82,7 +73,7 @@ var azure = require('azure');
 ```
 
 ### Set up a Service Bus connection
-The Azure module reads the environment variable `AZURE_SERVICEBUS_CONNECTION_STRING` for the connection string that you obtained from the earlier step, "Obtain the credentials." If this environment variable is not set, you must specify the account information when calling `createServiceBusService`.
+The Azure module reads the environment variable `AZURE_SERVICEBUS_CONNECTION_STRING` for the connection string that you obtained as part of the [prerequisites](#prerequisites). If you need instructions for getting the connection string again, see [Get the connection string](service-bus-quickstart-topics-subscriptions-portal.md#get-the-connection-string). If this environment variable is not set, you must specify the account information when calling `createServiceBusService`.
 
 For an example of setting the environment variables for an Azure Cloud Service, see [Set environment variables](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 
@@ -167,7 +158,7 @@ queue.
 > check if the subscription exists by using the
 > `getSubscription` method.
 >
-> You can have the subscriptions automatically deleted by setting the [AutoDeleteOnIdle property](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
+> You can have the subscriptions automatically deleted by setting the [AutoDeleteOnIdle property](/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### Create a subscription with the default (MatchAll) filter
 The **MatchAll** filter is the default filter used when a subscription is created. When you use the **MatchAll**
@@ -308,7 +299,7 @@ var message = {
     }
 }
 
-for (i = 0;i < 5;i++) {
+for (var i = 0; i < 5; i++) {
     message.customProperties.messagenumber=i;
     message.body='This is Message #'+i;
     serviceBusService.sendTopicMessage(topic, message, function(error) {
@@ -406,7 +397,7 @@ to handle duplicate message delivery. You can use the
 delivery attempts.
 
 ## Delete topics and subscriptions
-Topics and subscriptions are persistent unless the [autoDeleteOnIdle property](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) is set, and must be explicitly deleted
+Topics and subscriptions are persistent unless the [AutoDeleteOnIdle property](/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) is set, and must be explicitly deleted
 either through the [Azure portal][Azure portal] or programmatically.
 The following example demonstrates how to delete the topic named `MyTopic`:
 
@@ -447,6 +438,6 @@ Now that you've learned the basics of Service Bus topics, follow these links to 
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /javascript/api/@azure/arm-servicebus/sqlfilter?view=azure-node-latest
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Create and deploy a Node.js application to an Azure Web Site]: ../app-service/app-service-web-get-started-nodejs.md
+[Create and deploy a Node.js application to Azure App Service]: ../app-service/quickstart-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 

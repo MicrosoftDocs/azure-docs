@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid:
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Sample script to upload a VHD to Azure and create a new VM
@@ -128,29 +128,29 @@ This script uses the following commands to create the deployment. Each item in t
 
 | Command                                                                                                             | Notes                                                                                                                                                                                |
 |---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)                           | Creates a resource group in which all resources are stored.                                                                                                                          |
-| [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)                         | Creates a storage account.                                                                                                                                                           |
-| [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd)                                               | Uploads a virtual hard disk from an on-premises virtual machine to a blob in a cloud storage account in Azure.                                                                       |
-| [New-AzImageConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azimageconfig)                               | Creates a configurable image object.                                                                                                                                                 |
-| [Set-AzImageOsDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azimageosdisk)                               | Sets the operating system disk properties on an image object.                                                                                                                        |
-| [New-AzImage](https://docs.microsoft.com/powershell/module/az.compute/new-azimage)                                           | Creates a new image.                                                                                                                                                                 |
-| [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Creates a subnet configuration. This configuration is used with the virtual network creation process.                                                                                |
-| [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork)                         | Creates a virtual network.                                                                                                                                                           |
-| [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress)                       | Creates a public IP address.                                                                                                                                                         |
-| [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface)                     | Creates a network interface.                                                                                                                                                         |
-| [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig)   | Creates a network security group rule configuration. This configuration is used to create an NSG rule when the NSG is created.                                                       |
-| [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup)             | Creates a network security group.                                                                                                                                                    |
-| [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork)                         | Gets a virtual network in a resource group.                                                                                                                                          |
-| [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig)                                     | Creates a VM configuration. This configuration includes information such as VM name, operating system, and administrative credentials. The configuration is used during VM creation. |
-| [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage)                           | Specifies an image for a virtual machine.                                                                                                                                            |
-| [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk)                                     | Sets the operating system disk properties on a virtual machine.                                                                                                                      |
-| [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem)                   | Sets the operating system disk properties on a virtual machine.                                                                                                                      |
-| [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface)                 | Adds a network interface to a virtual machine.                                                                                                                                       |
-| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)                                                 | Create a virtual machine.                                                                                                                                                            |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup)                     | Removes a resource group and all resources contained within.                                                                                                                         |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)                           | Creates a resource group in which all resources are stored.                                                                                                                          |
+| [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)                         | Creates a storage account.                                                                                                                                                           |
+| [Add-AzVhd](/powershell/module/az.compute/add-azvhd)                                               | Uploads a virtual hard disk from an on-premises virtual machine to a blob in a cloud storage account in Azure.                                                                       |
+| [New-AzImageConfig](/powershell/module/az.compute/new-azimageconfig)                               | Creates a configurable image object.                                                                                                                                                 |
+| [Set-AzImageOsDisk](/powershell/module/az.compute/set-azimageosdisk)                               | Sets the operating system disk properties on an image object.                                                                                                                        |
+| [New-AzImage](/powershell/module/az.compute/new-azimage)                                           | Creates a new image.                                                                                                                                                                 |
+| [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Creates a subnet configuration. This configuration is used with the virtual network creation process.                                                                                |
+| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)                         | Creates a virtual network.                                                                                                                                                           |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)                       | Creates a public IP address.                                                                                                                                                         |
+| [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)                     | Creates a network interface.                                                                                                                                                         |
+| [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)   | Creates a network security group rule configuration. This configuration is used to create an NSG rule when the NSG is created.                                                       |
+| [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)             | Creates a network security group.                                                                                                                                                    |
+| [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)                         | Gets a virtual network in a resource group.                                                                                                                                          |
+| [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig)                                     | Creates a VM configuration. This configuration includes information such as VM name, operating system, and administrative credentials. The configuration is used during VM creation. |
+| [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage)                           | Specifies an image for a virtual machine.                                                                                                                                            |
+| [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk)                                     | Sets the operating system disk properties on a virtual machine.                                                                                                                      |
+| [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem)                   | Sets the operating system disk properties on a virtual machine.                                                                                                                      |
+| [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)                 | Adds a network interface to a virtual machine.                                                                                                                                       |
+| [New-AzVM](/powershell/module/az.compute/new-azvm)                                                 | Create a virtual machine.                                                                                                                                                            |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)                     | Removes a resource group and all resources contained within.                                                                                                                         |
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

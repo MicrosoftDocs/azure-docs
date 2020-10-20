@@ -1,29 +1,28 @@
 ---
-title: Create a metric alert with a Resource Manager template
+title: Create a newer metric alert with Azure Resource Manager template
 description: Learn how to use a Resource Manager template to create a metric alert.
 author: harelbr
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 12/5/2019
 ms.author: harelbr
+services: azure-monitor
+ms.topic: conceptual
+ms.date: 10/7/2020
 ms.subservice: alerts
 ---
 # Create a metric alert with a Resource Manager template
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure [newer metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Newer metric alerts are currently available on [this set of resource types](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure [newer metric alerts](./alerts-metric-near-real-time.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Newer metric alerts are currently available on [this set of resource types](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Resource template for creating metric alerts for resource type: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces`, requires additional steps. For details, see the article on [Metric Alert for Logs - Resource Template](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Resource template for creating metric alerts for resource type: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces`, requires additional steps. For details, see the article on [Metric Alert for Logs - Resource Template](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 The basic steps are as follows:
 
 1. Use one of the templates below as a JSON file that describes how to create the alert.
 2. Edit and use the corresponding parameters file as a JSON to customize the alert.
-3. For the `metricName` parameter, see the available metrics in [Azure Monitor supported metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
-4. Deploy the template using [any deployment method](../../azure-resource-manager/resource-group-template-deploy.md).
+3. For the `metricName` parameter, see the available metrics in [Azure Monitor supported metrics](./metrics-supported.md).
+4. Deploy the template using [any deployment method](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Template for a simple static threshold metric alert
 
@@ -199,7 +198,7 @@ Save the json below as simplestaticmetricalert.json for the purpose of this walk
 }
 ```
 
-An explanation of the schema and properties for an alert rule [is available here](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+An explanation of the schema and properties for an alert rule [is available here](/rest/api/monitor/metricalerts/createorupdate).
 
 You can set the values for the parameters either on the command line or through a parameter file. A sample parameter file is provided below.
 
@@ -263,7 +262,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file simplestaticmetricalert.json \
@@ -372,6 +371,13 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
+	"ignoreDataBefore": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format, e.g. '2019-12-31T22:00:00Z')."
+            }
+        },
         "timeAggregation": {
             "type": "string",
             "defaultValue": "Average",
@@ -449,6 +455,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
                                 "numberOfEvaluationPeriods": "[parameters('numberOfEvaluationPeriods')]",
                                 "minFailingPeriodsToAlert": "[parameters('minFailingPeriodsToAlert')]"
                             },
+			    "ignoreDataBefore": "[parameters('ignoreDataBefore')]",
                             "timeAggregation": "[parameters('timeAggregation')]"
                         }
                     ]
@@ -464,7 +471,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
 }
 ```
 
-An explanation of the schema and properties for an alert rule [is available here](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+An explanation of the schema and properties for an alert rule [is available here](/rest/api/monitor/metricalerts/createorupdate).
 
 You can set the values for the parameters either on the command line or through a parameter file. A sample parameter file is provided below. 
 
@@ -505,6 +512,9 @@ Save the json below as simpledynamicmetricalert.parameters.json and modify it as
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
+	"ignoreDataBefore": {
+            "value": ""
+        },
         "timeAggregation": {
             "value": "Average"
         },
@@ -534,7 +544,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file simpledynamicmetricalert.json \
@@ -547,9 +557,14 @@ az group deployment create \
 
 ## Template for a static threshold metric alert that monitors multiple criteria
 
-Newer metric alerts support alerting on multi-dimensional metrics as well as supporting multiple criteria. You can use the following template to create a more advanced metric alert rule on dimensional metrics and specify multiple criteria.
+Newer metric alerts support alerting on multi-dimensional metrics as well as support defining multiple criteria (up to 5 criterions per alert rule). You can use the following template to create a more advanced metric alert rule on dimensional metrics and specify multiple criteria.
 
-Please note that when the alert rule contains multiple criteria, the use of dimensions is limited to one value per dimension within each criterion.
+Please note the following constraints when using dimensions in an alert rule that contains multiple criteria:
+- You can only select one value per dimension within each criterion.
+- You cannot use "\*" as a dimension value.
+- When metrics that are configured in different criterions support the same dimension, then a configured dimension value must be explicitly set in the same way for all of those metrics (in the relevant criterions).
+	- In the example below, because both the **Transactions** and **SuccessE2ELatency** metrics have an **ApiName** dimension, and *criterion1* specifies the *"GetBlob"* value for the **ApiName** dimension, then *criterion2* must also set a *"GetBlob"* value for the **ApiName** dimension.
+
 
 Save the json below as advancedstaticmetricalert.json for the purpose of this walkthrough.
 
@@ -771,16 +786,13 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file advancedstaticmetricalert.json \
     --parameters @advancedstaticmetricalert.parameters.json
 ```
 
->[!NOTE]
->
-> When an alert rule contains multiple criteria, the use of dimensions is limited to one value per dimension within each criterion.
 
 ## Template for a static metric alert that monitors multiple dimensions
 
@@ -994,7 +1006,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file multidimensionalstaticmetricalert.json \
@@ -1214,7 +1226,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file advanceddynamicmetricalert.json \
@@ -1230,9 +1242,9 @@ az group deployment create \
 
 You can use the following template to create a more advanced static threshold metric alert rule on a custom metric.
 
-To learn more about custom metrics in Azure Monitor, see [Custom metrics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+To learn more about custom metrics in Azure Monitor, see [Custom metrics in Azure Monitor](./metrics-custom-overview.md).
 
-When creating an alert rule on a custom metric, you need to specify both the metric name and the metric namespace.
+When creating an alert rule on a custom metric, you need to specify both the metric name and the metric namespace. You should also make sure that the custom metric is already being reported, as you cannot create an alert rule on a custom metric that doesn't yet exist.
 
 Save the json below as customstaticmetricalert.json for the purpose of this walkthrough.
 
@@ -1477,7 +1489,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupOfTargetResource \
     --template-file customstaticmetricalert.json \
@@ -1486,20 +1498,26 @@ az group deployment create \
 
 >[!NOTE]
 >
-> You can find the metric namespace of a specific custom metric by [browsing your custom metrics via the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+> You can find the metric namespace of a specific custom metric by [browsing your custom metrics via the Azure portal](./metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## Template for a metric alert that monitors multiple resources
 
-The previous sections described sample Azure Resource Manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources with a single metric alert rule. This feature is currently only supported in Azure public cloud and only for virtual Machines, SQL Databases, SQL Elastic Pools and Databox Edge Devices.
+The previous sections described sample Azure Resource Manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources (of the same type) with a single metric alert rule, for resources that exist in the same Azure region. This feature is currently only supported in Azure public cloud and only for Virtual machines, SQL server databases, SQL server elastic pools and Databox edge devices. Also, this feature is only available for platform metrics, and isn't supported for custom metrics.
 
 Dynamic Thresholds alerts rule can also help create tailored thresholds for hundreds of metric series (even different types) at a time, which results in fewer alert rules to manage.
 
 This section will describe Azure Resource Manager templates for three scenarios to monitor multiple resources with a single rule.
 
 - Monitoring all virtual machines (in one Azure region) in one or more resource groups.
-- Monitoring all virtual machines (in one Azure region) in a subscription
-- Monitoring a list of virtual machines (in one Azure region) in  a subscription.
+- Monitoring all virtual machines (in one Azure region) in a subscription.
+- Monitoring a list of virtual machines (in one Azure region) in a subscription.
+
+> [!NOTE]
+>
+> In a metric alert rule that monitors multiple resources, the following limitations apply:
+> - The scope of the alert rule must contain at least one resource of the selected resource type.
+> - The alert rule can only contain one condition.
 
 ### Static threshold alert on all virtual machines in one or more resource groups
 
@@ -1612,7 +1630,7 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -1806,7 +1824,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name MultiResourceAlertDeployment \
     --resource-group ResourceGroupWhereRuleShouldbeSaved \
     --template-file all-vms-in-resource-group-static.json \
@@ -1924,7 +1942,7 @@ Save the json below as all-vms-in-resource-group-dynamic.json for the purpose of
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2141,7 +2159,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name MultiResourceAlertDeployment \
     --resource-group ResourceGroupWhereRuleShouldbeSaved \
     --template-file all-vms-in-resource-group-dynamic.json \
@@ -2259,7 +2277,7 @@ Save the json below as all-vms-in-subscription-static.json for the purpose of th
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2451,7 +2469,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name MultiResourceAlertDeployment \
     --resource-group ResourceGroupWhereRuleShouldbeSaved \
     --template-file all-vms-in-subscription-static.json \
@@ -2569,7 +2587,7 @@ Save the json below as all-vms-in-subscription-dynamic.json for the purpose of t
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -2783,7 +2801,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name MultiResourceAlertDeployment \
     --resource-group ResourceGroupWhereRuleShouldbeSaved \
     --template-file all-vms-in-subscription-dynamic.json \
@@ -2901,7 +2919,7 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -3096,7 +3114,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name MultiResourceAlertDeployment \
     --resource-group ResourceGroupWhereRuleShouldbeSaved \
     --template-file list-of-vms-static.json \
@@ -3214,7 +3232,7 @@ Save the json below as list-of-vms-dynamic.json for the purpose of this walk-thr
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Resource type of target resources to be monitored. Currently only supported resource type is Microsoft.Compute/virtualMachines"
+                "description": "Resource type of target resources to be monitored."
             }
         },
         "metricName": {
@@ -3431,7 +3449,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name MultiResourceAlertDeployment \
     --resource-group ResourceGroupWhereRuleShouldbeSaved \
     --template-file list-of-vms-dynamic.json \
@@ -3440,7 +3458,7 @@ az group deployment create \
 
 ## Template for an availability test along with a metric alert
 
-[Application Insights availability tests](../../azure-monitor/app/monitor-web-app-availability.md) help you monitor the availability of your web site/application from various locations around the globe. Availability test alerts notify you when availability tests fail from a certain number of locations.
+[Application Insights availability tests](../app/monitor-web-app-availability.md) help you monitor the availability of your web site/application from various locations around the globe. Availability test alerts notify you when availability tests fail from a certain number of locations.
 Availability test alerts of the same resource type as metric alerts (Microsoft.Insights/metricAlerts). The following sample Azure Resource Manager Template can be used to set up a simple availability test and associated alert.
 
 Save the json below as availabilityalert.json for the purpose of this walkthrough.
@@ -3527,7 +3545,6 @@ Save the json below as availabilityalert.json for the purpose of this walkthroug
         ],
         "evaluationFrequency": "PT1M",
         "windowSize": "PT5M",
-        "templateType": 0,
         "criteria": {
           "odata.type": "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
           "webTestId": "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]",
@@ -3593,7 +3610,7 @@ Using Azure CLI
 ```azurecli
 az login
 
-az group deployment create \
+az deployment group create \
     --name AvailabilityAlertDeployment \
     --resource-group ResourceGroupofApplicationInsightsComponent \
     --template-file availabilityalert.json \
@@ -3605,3 +3622,4 @@ az group deployment create \
 - Read more about [alerts in Azure](alerts-overview.md)
 - Learn how to [create an action group with Resource Manager templates](action-groups-create-resource-manager-template.md)
 - For the JSON syntax and properties, see [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) template reference.
+

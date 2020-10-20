@@ -5,8 +5,8 @@ ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
-ms.topic: conceptual
-ms.date: 07/01/2019
+ms.topic: how-to
+ms.date: 03/16/2020
 ms.custom: seodec18
 ---
 
@@ -39,12 +39,12 @@ ASA uses IoT Hub to deploy edge jobs to device(s). More information about [IoT E
 ### Installation instructions
 The high-level steps are described in the following table. More details are given in the following sections.
 
-|      |Step   | Notes   |
-| ---   | ---   |  ---      |
-| 1   | **Create a storage container**   | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container.     |
-| 2   | **Create an ASA edge job**   |  Create a new job, select **Edge** as **hosting environment**. <br> These jobs are created/managed from the cloud, and run on your own IoT Edge devices.     |
-| 3   | **Setup your IoT Edge environment on your device(s)**   | Instructions for [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
-| 4   | **Deploy ASA on your IoT Edge device(s)**   |  ASA job definition is exported to the storage container created earlier.       |
+| Step | Notes |
+| --- | --- |
+| **Create a storage container** | Storage containers are used to save your job definition where they can be accessed by your IoT devices. <br>  You can reuse any existing storage container. |
+| **Create an ASA edge job** | Create a new job, select **Edge** as **hosting environment**. <br> These jobs are created/managed from the cloud, and run on your own IoT Edge devices. |
+| **Setup your IoT Edge environment on your device(s)** | Instructions for [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) or [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).|
+| **Deploy ASA on your IoT Edge device(s)** | ASA job definition is exported to the storage container created earlier. |
 
 You can follow [this step-by-step tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) to deploy your first ASA job on IoT Edge. The following video should help you understand the process to run a Stream Analytics job on an IoT edge device:  
 
@@ -150,7 +150,7 @@ However the following features are not yet supported for edge jobs:
 * The following  SQL operators:
     * PARTITION BY
     * GetMetadataPropertyValue
-
+* Late arrival policy
 
 ### Runtime and hardware requirements
 To run ASA on IoT Edge, you need devices that can run [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). 
@@ -203,19 +203,19 @@ There are two ways to update the reference data:
 
 This version information was last updated on 2019-06-27:
 
-- Image: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-amd64`
    - base image: microsoft/dotnet:2.1.6-runtime-alpine3.7
    - platform:
       - architecture: amd64
       - os: linux
   
-- Image: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-arm32v7`
    - base image: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
    - platform:
       - architecture: arm
       - os: linux
   
-- Image: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-windows-amd64`
    - base image: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
    - platform:
       - architecture: amd64
@@ -223,7 +223,7 @@ This version information was last updated on 2019-06-27:
       
       
 ## Get help
-For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For further assistance, try the [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 

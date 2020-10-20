@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
+ms.custom: devx-track-csharp
 ---
 
 **Choose your target environment**
@@ -18,5 +19,7 @@ ms.author: erhopf
 [!INCLUDE [dotnet](./dotnet.md)]
 #### [.NET Core](#tab/dotnetcore)
 [!INCLUDE [dotnetcore](./dotnetcore.md)]
+#### [UWP](#tab/uwp)
+[!INCLUDE [uwp](./uwp.md)]
 
 * * *

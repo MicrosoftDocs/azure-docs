@@ -1,10 +1,8 @@
 ---
-title: Configure Azure Service Health notifications for existing problem management systems by using a webhook
+title: Send Azure Service Health notifications via webhooks
 description: Send personalized notifications about service health events to your existing problem management system.
 ms.topic: conceptual
 ms.service: service-health
-
-
 ms.date: 3/27/2018
 
 ---
@@ -113,5 +111,5 @@ Follow these steps:
 
 ## Next steps
 - Review the [activity log alert webhook schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Learn about [service health notifications](../azure-monitor/platform/service-notifications.md).
+- Learn about [service health notifications](./service-notifications.md).
 - Learn more about [action groups](../azure-monitor/platform/action-groups.md).

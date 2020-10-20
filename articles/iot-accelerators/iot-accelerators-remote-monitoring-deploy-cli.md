@@ -68,12 +68,12 @@ A basic deployment creates the following services in your Azure subscription:
 | 1     | [Linux Virtual Machine](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hosting microservices |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Standard tier | Device management and communication |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Storing configuration data, rules, alerts, and other cold storage |  
-| 1     | [Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Storage for VM and streaming checkpoints |
+| 1     | [Azure Storage Account](../storage/common/storage-introduction.md#types-of-storage-accounts)  | Standard        | Storage for VM and streaming checkpoints |
 | 1     | [Web Application](https://azure.microsoft.com/services/app-service/web/)        |                 | Hosting front-end web application |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Managing user identities and security |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Viewing asset locations |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 units              | Enabling real-time analytics |
-| 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Provisioning devices at scale |
+| 1     | [Azure Device Provisioning Service](../iot-dps/index.yml)        |       S1          | Provisioning devices at scale |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 unit              | Storage for messages data and enables deep-dive telemetry analysis |
 
 ### Standard
@@ -89,12 +89,12 @@ A standard deployment creates the following services in your Azure subscription:
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Use a fully managed Kubernetes container orchestration service, defaults to 3 agents|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Standard tier | Device management, command and control |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Storing configuration data, and device telemetry like rules, alerts, and messages |
-| 5     | [Azure Storage Accounts](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 for VM storage, and 1 for the streaming checkpoints |
-| 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Application gateway over SSL |
+| 5     | [Azure Storage Accounts](../storage/common/storage-introduction.md#types-of-storage-accounts)    | Standard        | 4 for VM storage, and 1 for the streaming checkpoints |
+| 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Application gateway over TLS |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Managing user identities and security |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Viewing asset locations |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 units              | Enabling real-time analytics |
-| 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Provisioning devices at scale |
+| 1     | [Azure Device Provisioning Service](../iot-dps/index.yml)        |       S1          | Provisioning devices at scale |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 unit              | Storage for messages data and enables deep-dive telemetry analysis |
 
 > [!NOTE]

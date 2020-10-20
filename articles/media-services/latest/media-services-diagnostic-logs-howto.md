@@ -3,37 +3,38 @@ title: Monitor Media Services diagnostic logs via Azure Monitor | Microsoft Docs
 description: This article demonstrates how to route and view diagnostic logs via Azure Monitor.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/08/2019
-ms.author: juliako
-
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel 
+ms.custom: devx-track-azurecli
 ---
 
 # Monitor Media Services diagnostic logs
 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
 [Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. For detailed description of this feature and to see why you would want to use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
 
-This article shows you how to route data to the storage account and then view the data. 
+This article shows you how to route data to the storage account and then view the data.
 
 ## Prerequisites
 
-- [Create a Media Services account](create-account-cli-how-to.md).
+- [Create a Media Services account](./create-account-howto.md).
 - Review  [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
 
 ## Route data to the storage account using the portal
 
 1. Log in to the Azure portal at https://portal.azure.com.
-1. Navigate to your Media Services account in and click **Diagnostic Settings** under **Monitor**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor. 
+1. Navigate to your Media Services account in and click **Diagnostic Settings** under **Monitor**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor.
 
-    ![Diagnostic settings section](media/media-services-diagnostic-logs/logs01.png)
+    ![Screenshot that highlights Diagnostic settings under the Monitoring section.](media/media-services-diagnostic-logs/logs01.png)
 
 1. Click **Add diagnostic setting**.
 
@@ -50,11 +51,11 @@ This article shows you how to route data to the storage account and then view th
 
 Monitoring data from your resource is now flowing into the storage account.
 
-## Route data to the storage account using the CLI
+## Route data to the storage account using the Azure CLI
 
-To enable storage of diagnostic logs in a Storage Account, you would run the following `az monitor diagnostic-settings` CLI command: 
+To enable storage of diagnostic logs in a Storage Account, you would run the following `az monitor diagnostic-settings` Azure CLI command:
 
-```cli
+```azurecli-interactive
 az monitor diagnostic-settings create --name <diagnostic name> \
     --storage-account <name or ID of storage account> \
     --resource <target resource object ID> \
@@ -72,7 +73,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 For example:
 
-```cli
+```azurecli-interactive
 az monitor diagnostic-settings create --name amsv3diagnostic \
     --storage-account storageaccountforams  \
     --resource "/subscriptions/00000000-0000-0000-0000-0000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount" \
@@ -178,8 +179,8 @@ You may need to wait up to five minutes before the event appears in the storage 
 ## See also
 
 * [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md)
-* [Azure Monitor Diagnostic logs](../../azure-monitor/platform/resource-logs-overview.md)
-* [How to collect and consume log data from your Azure resources](../../azure-monitor/platform/resource-logs-overview.md)
+* [Azure Monitor Diagnostic logs](../../azure-monitor/platform/platform-logs-overview.md)
+* [How to collect and consume log data from your Azure resources](../../azure-monitor/platform/platform-logs-overview.md)
 
 ## Next steps
 

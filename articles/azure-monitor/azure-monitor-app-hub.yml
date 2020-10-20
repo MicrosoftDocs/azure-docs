@@ -9,8 +9,8 @@ metadata:
   description: Application Insights is part of the Azure Monitor service
   ms.service: application-insights
   ms.topic: hub-page
-  author: mrbullwinkle
-  ms.author: mbullwin
+  
+  
   manager: carmonm
   ms.date: 09/30/2019
 
@@ -55,7 +55,7 @@ conceptualContent:
           text: Java
         - url: ./app/opencensus-python.md
           itemType: how-to-guide
-          text: Python (preview)
+          text: Python
         - url: ./app/javascript.md
           itemType: how-to-guide
           text: JavaScript
@@ -158,9 +158,6 @@ conceptualContent:
         - url: ./app/availability-alerts.md
           itemType: how-to-guide
           text:  Availability alerts
-        - url: ./app/performance-testing.md
-          itemType: how-to-guide
-          text:  Performance testing
 
     - title: Metrics, logs, & traces 
       links: 
@@ -230,7 +227,7 @@ conceptualContent:
           text:  Smart Detection overview
         - url: ./app/proactive-failure-diagnostics.md
           itemType: how-to-guide
-          text:  Failure anomolies
+          text:  Failure anomalies
         - url: ./app/proactive-performance-diagnostics.md
           itemType: how-to-guide
           text:  Performance anomalies
@@ -375,7 +372,7 @@ conceptualContent:
         - url: ./app/code-sample-export-sql-stream-analytics.md
           itemType: how-to-guide
           text:  Export data model
-        - url: ./app/automate-with-flow.md
+        - url: ./platform/logicapp-flow-connector.md
           itemType: how-to-guide
           text:  Flow integration
         - url: ./app/automate-with-logic-apps.md
@@ -393,7 +390,7 @@ conceptualContent:
         - url: ./platform/metrics-charts.md
           itemType: how-to-guide
           text:  Metric charts
-        - url: ./app/usage-workbooks.md
+        - url: ./platform/workbooks-overview.md
           itemType: how-to-guide
           text:  Workbooks (interactive reporting)
         - url: ./app/change-analysis.md
@@ -429,31 +426,28 @@ conceptualContent:
         - url: ./app/asp-net-troubleshoot-no-data.md
           itemType: how-to-guide
           text:  Troubleshoot no data
-        - url: ./app/troubleshoot-faq.md
+        - url: ./faq.md
           itemType: how-to-guide
           text:  Troubleshooting FAQ
 
     - title:  Reference
       links: 
-        - url: ./app/nuget.md
-          itemType: reference
-          text:  NuGet packages
         - url: ./app/platforms.md
           itemType: reference
           text:  Platforms
         - url: ./app/azure-functions-supported-features.md
           itemType: reference
           text:  Azure Functions integration
-        - url: https://docs.microsoft.com/dotnet/api/overview/azure/insights?view=azure-dotnet
+        - url: /dotnet/api/overview/azure/insights?view=azure-dotnet
           itemType: reference
           text: .NET SDK 
-        - url: https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable
+        - url: /java/api/overview/azure/appinsights?view=azure-java-stable
           itemType: reference
           text: .Java
-        - url: https://docs.microsoft.com/javascript/api/overview/azure/applicationinsights?view=azure-node-latest
+        - url: /javascript/api/overview/azure/applicationinsights?view=azure-node-latest
           itemType: reference
           text: Node.js
-        - url: https://docs.microsoft.com/rest/api/application-insights/
+        - url: /rest/api/application-insights/
           itemType: reference
           text: REST API 
         - url: https://dev.applicationinsights.io/
@@ -466,10 +460,10 @@ additionalContent:
     - items:
       - title: Application Insights API summary
         summary: Code samples for all the Application Insights API calls
-        url: https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics
+        url: ./app/api-custom-events-metrics.md
       - title: Application Insights PowerShell
-        summary: Learn how to install and use the Application Insights powershell cmdlets.
-        url: https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.7.0&viewFallbackFrom=azps-2.5.0
+        summary: Learn how to install and use the Application Insights PowerShell cmdlets.
+        url: /powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.7.0&viewFallbackFrom=azps-2.5.0
       - title: Azure CLI commands for Application Insights
         summary: Application Insights CLI extension commands (az extension add -n application-insights).
-        url: https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest
+        url: /cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest

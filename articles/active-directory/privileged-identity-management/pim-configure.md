@@ -10,18 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 09/29/2020
 ms.author: curtand
-ms.custom: pim 
+ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
 ---
+
 # What is Azure AD Privileged Identity Management?
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) is a service that enables you to manage, control, and monitor access to important resources in your organization. These resources include resources in Azure AD, Azure, and other Microsoft Online Services like Office 365 or Microsoft Intune.
+ Privileged Identity Management (PIM) is a service in Azure Active Directory (Azure AD) that enables you to manage, control, and monitor access to important resources in your organization. These resources include resources in Azure AD, Azure, and other Microsoft Online Services such as Microsoft 365 or Microsoft Intune. The following video introduces you to important PIM concepts and features.
+<br><br>
+
+> [!VIDEO https://www.youtube.com/embed/f-0K7mRUPpQ]
 
 ## Reasons to use
 
-Organizations want to minimize the number of people who have access to secure information or resources, because that reduces the chance of a malicious actor getting that access, or an authorized user inadvertently impacting a sensitive resource. However, users still need to carry out privileged operations in Azure AD, Azure, Office 365, or SaaS apps. Organizations can give users just-in-time (JIT) privileged access to Azure resources and Azure AD. There is a need for oversight for what those users are doing with their administrator privileges.
+Organizations want to minimize the number of people who have access to secure information or resources, because that reduces the chance of a malicious actor getting that access, or an authorized user inadvertently impacting a sensitive resource. However, users still need to carry out privileged operations in Azure AD, Azure, Microsoft 365, or SaaS apps. Organizations can give users just-in-time privileged access to Azure resources and Azure AD. There is a need for oversight for what those users are doing with their administrator privileges.
 
 ## What does it do?
 
@@ -38,15 +42,13 @@ Privileged Identity Management provides time-based and approval-based role activ
 
 ## What can I do with it?
 
-Once you set up Privileged Identity Management, you'll see **Tasks**, **Manage**, and **Activity** options in the left navigation menu. As an administrator, you'll choose between managing **Azure AD roles** and **Azure resource** roles. When you choose the type of roles to manage, you see a similar set of options for that role type.
+Once you set up Privileged Identity Management, you'll see **Tasks**, **Manage**, and **Activity** options in the left navigation menu. As an administrator, you'll choose between options such as managing **Azure AD roles**, managing **Azure resource** roles, or privileged access groups. When you choose what you want to manage, you see the appropriate set of options for that option.
 
 ![Screenshot of Privileged Identity Management in the Azure portal](./media/pim-configure/pim-quickstart.png)
 
 ## Who can do what?
 
-If you're the first person to use Privileged Identity Management, you are automatically assigned the [Security Administrator](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) and [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) roles in the directory.
-
-For Azure AD roles in Privileged Identity Management, only a user who is in the Privileged Role Administrator role can manage assignments for other administrators. You can [grant access to other administrators to manage Privileged Identity Management](pim-how-to-give-access-to-pim.md). Global Administrators, Security Administrators, Global readers, and Security Readers can also view assignments to Azure AD roles in Privileged Identity Management.
+For Azure AD roles in Privileged Identity Management, only a user who is in the Privileged role administrator or Global administrator role can manage assignments for other administrators. You can [grant access to other administrators to manage Privileged Identity Management](pim-how-to-give-access-to-pim.md). Global Administrators, Security Administrators, Global readers, and Security Readers can also view assignments to Azure AD roles in Privileged Identity Management.
 
 For Azure resource roles in Privileged Identity Management, only a subscription administrator, a resource Owner, or a resource User Access administrator can manage assignments for other administrators. Users who are Privileged Role Administrators, Security Administrators, or Security Readers do not by default have access to view assignments to Azure resource roles in Privileged Identity Management.
 

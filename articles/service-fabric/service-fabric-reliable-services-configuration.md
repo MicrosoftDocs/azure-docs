@@ -1,11 +1,12 @@
-﻿---
+---
 title: Configure Azure Service Fabric Reliable Services 
-description: Learn about configuring stateful Reliable Services in Azure Service Fabric.
+description: Learn about configuring stateful Reliable Services in an Azure Service Fabric application globally and for a single service.
 author: sumukhs
 
 ms.topic: conceptual
 ms.date: 10/02/2017
 ms.author: sumukhs
+ms.custom: devx-track-csharp
 ---
 # Configure stateful reliable services
 There are two sets of configuration settings for reliable services. One set is global for all reliable services in the cluster while the other set is specific to a particular reliable service.
@@ -24,13 +25,15 @@ The global reliable service configuration is specified in the cluster manifest f
 
 In Azure ARM or on-premises JSON template, the example below shows how to change the shared transaction log that gets created to back any reliable collections for stateful services.
 
-    "fabricSettings": [{
-        "name": "KtlLogger",
-        "parameters": [{
-            "name": "SharedLogSizeInMB",
-            "value": "4096"
-        }]
+```json
+"fabricSettings": [{
+    "name": "KtlLogger",
+    "parameters": [{
+        "name": "SharedLogSizeInMB",
+        "value": "4096"
     }]
+}]
+```
 
 ### Sample local developer cluster manifest section
 If you want to change this on your local development environment, you need to edit the local clustermanifest.xml file.
@@ -180,5 +183,4 @@ possible should specify the same shared log. Shared log files should be placed o
 
 ## Next steps
 * [Debug your Service Fabric application in Visual Studio](service-fabric-debugging-your-application.md)
-* [Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
+* [Developer reference for Reliable Services](/previous-versions/azure/dn706529(v=azure.100))

@@ -2,18 +2,12 @@
 title: Install MySQL on an OpenSUSE VM in Azure 
 description: Learn to install MySQL on an OpenSUSE Linux Virtual machine in Azure.
 services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 1594e10e-c314-455a-9efb-a89441de364b
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: cynthn
 
@@ -33,7 +27,7 @@ First, create a resource group. In this example, the resource group is named *my
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Create the VM. In this example, the VM is named *myVM* and the VM size is *Standard_D2s_v3*, but you should choose the [VM size](sizes.md) you think is most appropriate for your workload.
+Create the VM. In this example, the VM is named *myVM* and the VM size is *Standard_D2s_v3*, but you should choose the [VM size](../sizes.md) you think is most appropriate for your workload.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -158,7 +152,3 @@ quit
 
 ## Next steps
 For details about MySQL, see the [MySQL Documentation](https://dev.mysql.com/doc).
-
-
-
-

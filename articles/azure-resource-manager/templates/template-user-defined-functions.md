@@ -1,8 +1,8 @@
 ---
 title: User-defined functions in templates
-description: Describes how to define and use user-defined functions in an Azure Resource Manager template. 
+description: Describes how to define and use user-defined functions in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 03/09/2020
 ---
 # User-defined functions in Azure Resource Manager template
 
@@ -12,7 +12,7 @@ This article describes how to add user-defined functions in your Azure Resource 
 
 ## Define the function
 
-Your functions require a namespace value to avoid naming conflicts with template functions. The following example shows a function that returns a storage account name:
+Your functions require a namespace value to avoid naming conflicts with template functions. The following example shows a function that returns a unique name:
 
 ```json
 "functions": [
@@ -38,23 +38,53 @@ Your functions require a namespace value to avoid naming conflicts with template
 
 ## Use the function
 
-The following example shows how to call your function.
+The following example shows a template that includes a user-defined function. It uses that function to get a unique name for a storage account. The template has a parameter named **storageNamePrefix** that it passes as a parameter to the function.
 
 ```json
-"resources": [
+{
+ "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+ "contentVersion": "1.0.0.0",
+ "parameters": {
+   "storageNamePrefix": {
+     "type": "string",
+     "maxLength": 11
+   }
+ },
+ "functions": [
   {
-    "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "apiVersion": "2016-01-01",
-    "sku": {
-      "name": "Standard_LRS"
-    },
-    "kind": "Storage",
-    "location": "South Central US",
-    "tags": {},
-    "properties": {}
+    "namespace": "contoso",
+    "members": {
+      "uniqueName": {
+        "parameters": [
+          {
+            "name": "namePrefix",
+            "type": "string"
+          }
+        ],
+        "output": {
+          "type": "string",
+          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
+        }
+      }
+    }
   }
-]
+],
+ "resources": [
+   {
+     "type": "Microsoft.Storage/storageAccounts",
+     "apiVersion": "2019-04-01",
+     "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
+     "location": "South Central US",
+     "sku": {
+       "name": "Standard_LRS"
+     },
+     "kind": "StorageV2",
+     "properties": {
+       "supportsHttpsTrafficOnly": true
+     }
+   }
+ ]
+}
 ```
 
 ## Limitations

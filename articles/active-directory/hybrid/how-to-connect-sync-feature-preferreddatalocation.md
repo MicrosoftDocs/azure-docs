@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Configure preferred data location for Office 365 resources'
-description: Describes how to put your Office 365 user resources close to the user with Azure Active Directory Connect sync.
+title: 'Azure AD Connect: Configure preferred data location for Microsoft 365 resources'
+description: Describes how to put your Microsoft 365 user resources close to the user with Azure Active Directory Connect sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -11,29 +11,29 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory Connect sync: Configure preferred data location for Office 365 resources
-The purpose of this topic is to walk you through how to configure the attribute for preferred data location in Azure Active Directory (Azure AD) Connect sync. When someone uses Multi-Geo capabilities in Office 365, you use this attribute to designate the geo-location of the user’s Office 365 data. (The terms *region* and *geo* are used interchangeably.)
+# Azure Active Directory Connect sync: Configure preferred data location for Microsoft 365 resources
+The purpose of this topic is to walk you through how to configure the attribute for preferred data location in Azure Active Directory (Azure AD) Connect sync. When someone uses Multi-Geo capabilities in Microsoft 365, you use this attribute to designate the geo-location of the user’s Microsoft 365 data. (The terms *region* and *geo* are used interchangeably.)
 
 ## Enable synchronization of preferred data location
-By default, Office 365 resources for your users are located in the same geo as your Azure AD tenant. For example, if your tenant is located in North America, then the users' Exchange mailboxes are also located in North America. For a multinational organization, this might not be optimal.
+By default, Microsoft 365 resources for your users are located in the same geo as your Azure AD tenant. For example, if your tenant is located in North America, then the users' Exchange mailboxes are also located in North America. For a multinational organization, this might not be optimal.
 
-By setting the attribute **preferredDataLocation**, you can define a user's geo. You can have the user's Office 365 resources, such as the mailbox and OneDrive, in the same geo as the user, and still have one tenant for your entire organization.
+By setting the attribute **preferredDataLocation**, you can define a user's geo. You can have the user's Microsoft 365 resources, such as the mailbox and OneDrive, in the same geo as the user, and still have one tenant for your entire organization.
 
 > [!IMPORTANT]
-> Multi-Geo is currently available to customers with an active Enterprise Agreement and a minimum of 500 Office 365 Services subscriptions. Please talk to your Microsoft representative for details.
+> Multi-Geo is currently available to customers with an active Enterprise Agreement and a minimum of 250 Microsoft 365 Services subscriptions. Please talk to your Microsoft representative for details.
 >
 >
 
-A list of all geos for Office 365 can be found in [Where is your data located?](https://aka.ms/datamaps).
+A list of all geos for Microsoft 365 can be found in [Where is your data located?](https://aka.ms/datamaps).
 
-The geos in Office 365 available for Multi-Geo are:
+The geos in Microsoft 365 available for Multi-Geo are:
 
 | Geo | preferredDataLocation value |
 | --- | --- |
@@ -46,13 +46,14 @@ The geos in Office 365 available for Multi-Geo are:
 | Japan | JPN |
 | Korea | KOR |
 | South Africa | ZAF |
+| Switzerland | CHE |
 | United Arab Emirates | ARE |
 | United Kingdom | GBR |
 | United States | NAM |
 
 * If a geo is not listed in this table (for example, South America), then it cannot be used for Multi-Geo.
 
-* Not all Office 365 workloads support the use of setting a user's geo.
+* Not all Microsoft 365 workloads support the use of setting a user's geo.
 
 ### Azure AD Connect support for synchronization
 
@@ -61,10 +62,10 @@ Azure AD Connect supports synchronization of the **preferredDataLocation** attri
 * The schema of the object type **User** in the Azure AD Connector is extended to include the **preferredDataLocation** attribute. The attribute is of the type, single-valued string.
 * The schema of the object type **Person** in the metaverse is extended to include the **preferredDataLocation** attribute. The attribute is of the type, single-valued string.
 
-By default, **preferredDataLocation** is not enabled for synchronization. This feature is intended for larger organizations. The Active Directory schema in Windows Server 2019 has an attribute **msDS-preferredDataLocation** you should use for this purpose. If you have not updated the Active Directory schema and cannot do so, then you must identify an attribute to hold the Office 365 geo for your users. This is going to be different for each organization.
+By default, **preferredDataLocation** is not enabled for synchronization. This feature is intended for larger organizations. The Active Directory schema in Windows Server 2019 has an attribute **msDS-preferredDataLocation** you should use for this purpose. If you have not updated the Active Directory schema and cannot do so, then you must identify an attribute to hold the Microsoft 365 geo for your users. This is going to be different for each organization.
 
 > [!IMPORTANT]
-> Azure AD allows the **preferredDataLocation** attribute on **cloud User objects** to be directly configured by using Azure AD PowerShell. Azure AD no longer allows the **preferredDataLocation** attribute on **synchronized User objects** to be directly configured by using Azure AD PowerShell. To configure this attribute on **synchronized User objects**, you must use Azure AD Connect.
+> Azure AD allows the **preferredDataLocation** attribute on **cloud User objects** to be directly configured by using Azure AD PowerShell. To configure this attribute on **synchronized User objects**, you must use Azure AD Connect.
 
 Before enabling synchronization:
 
@@ -112,7 +113,7 @@ Not all Azure AD attributes are imported into the on-premises Active Directory c
 4. Make sure the source attribute you selected to use is checked in the attribute list. If you do not see your attribute, select the **Show All** check box.
 5. To save, select **OK**.
 
-![Screenshot of Synchronization Service Manager and Properties dialog box](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
+![Screenshot that shows the Synchronization Service Manager and Properties dialog box with the "Attributes" list highlighted.](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
 ## Step 4: Add **preferredDataLocation** to the Azure AD Connector schema
 **This step is only needed if you run Connect version 1.3.21 or older. If you are on 1.4.18 or newer, then skip to step 5.**  
@@ -180,7 +181,7 @@ The outbound synchronization rule permits the attribute value to flow from the m
     | sourceObjectType | EQUAL | User |
     | cloudMastered | NOTEQUAL | True |
 
-    Scoping filter determines which Azure AD objects this outbound synchronization rule is applied to. In this example, we use the same scoping filter from “Out to Azure AD – User Identity” OOB (out-of-box) synchronization rule. It prevents the synchronization rule from being applied to **User** objects that are not synchronized from on-premises Active Directory. You might need to tweak the scoping filter according to your Azure AD Connect deployment.
+    Scoping filter determines which Azure AD objects this outbound synchronization rule is applied to. In this example, we use the same scoping filter from “Out to Azure AD – User Identity” OOB (out-of-box) synchronization rule. It prevents the synchronization rule from being applied to **User** objects that are not synchronized from an on-premises Active Directory. You might need to tweak the scoping filter according to your Azure AD Connect deployment.
 
 6. Go to the **Transformation** tab, and implement the following transformation rule:
 
@@ -255,11 +256,10 @@ It is now time to verify the configuration and enable it for your users.
 3. Using Exchange Online PowerShell, verify that the mailbox region has been set correctly.  
 ![Screenshot of Exchange Online PowerShell](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
 Assuming your tenant has been marked to be able to use this feature, the mailbox is moved to the correct geo. This can be verified by looking at the server name where the mailbox is located.
-4. To verify that this setting has been effective over many mailboxes, use the script in the [TechNet gallery](https://gallery.technet.microsoft.com/office/PowerShell-Script-to-a6bbfc2e). This script also has a list of the server prefixes of all Office 365 datacenters, and which geo it is located in. It can be used as a reference in the previous step to verify the location of the mailbox.
 
 ## Next steps
 
-Learn more about Multi-Geo in Office 365:
+Learn more about Multi-Geo in Microsoft 365:
 
 * [Multi-Geo sessions at Ignite](https://aka.ms/MultiGeoIgnite)
 * [Multi-Geo in OneDrive](https://aka.ms/OneDriveMultiGeo)

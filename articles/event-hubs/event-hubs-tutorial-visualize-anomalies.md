@@ -1,23 +1,15 @@
 ---
 title: Azure Event Hubs - Visualize data anomalies in real-time events
-# event-hubs-tutorial-visualize-anomalies.md
 description: 'Tutorial: Visualize data anomalies in real-time events sent to Microsoft Azure Event Hubs'
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
-ms.author: shvija
 ms.topic: tutorial
-ms.service: event-hubs
-ms.custom: seodec18
-ms.date: 12/20/2019
-#Customer intent: As a developer, I want to learn how to visualize anomalies in my real-time data flowing into an event hub. 
+ms.date: 06/23/2020
 ---
 
 # Tutorial: Visualize data anomalies in real-time events sent to Azure Event Hubs
 
 With Azure Event Hubs, you can use Azure Stream Analytics to check the incoming data and pull out the anomalies, which you can then visualize in Power BI. Let's say you have thousands of devices constantly sending real-time data to an event hub, adding up to millions of events per second. How do you check that much data for anomalies, or errors, in the data? For example, what if the devices are sending credit card transactions, and you need to capture anywhere you have multiple transactions in multiple countries/regions within a 5-second time interval? This could happen if someone steals credit cards and then uses them to purchase items around the globe at the same time. 
 
-In this tutorial, you simulate this example. You run an application that creates and sends credit card transactions to an event hub. Then you read the stream of data in real-time with Azure Stream Analytics, which separates the valid transactions from the invalid transactions, and then use Power BI to visually identify the transactions that are tagged as invalid.
+In this tutorial, you simulate this example. You run an application that creates and sends credit card transactions to an event hub. Then you read the stream of data in real time with Azure Stream Analytics, which separates the valid transactions from the invalid transactions, and then use Power BI to visually identify the transactions that are tagged as invalid.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -153,14 +145,14 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## Run app to produce test event data
 
-The Event Hubs [samples on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) include an [anomaly detector app](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/AnomalyDetector) that produces test data for you. It simulates the use of credit cards by writing credit card transactions to the event hub, including occasionally writing several transactions for the same credit card in multiple locations so that they are tagged as anomalies. To run this app, follow these steps: 
+The Event Hubs [samples on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) include an Anomaly Detector app that produces test data for you. It simulates the use of credit cards by writing credit card transactions to the event hub, including occasionally writing several transactions for the same credit card in multiple locations so that they are tagged as anomalies. To run this app, follow these steps: 
 
 1. Download the [Azure Event Hubs samples](https://github.com/Azure/azure-event-hubs/archive/master.zip) from GitHub and unzip it locally.
+2. Navigate to the folder **\azure-event-hubs-master\samples\DotNet\\** folder. 
+3. Switch to the **Azure.Messaging.EventHubs\AnomalyDetector\\** folder and double-click on **AnomalyDetector.sln** to open the solution in Visual Studio. 
 
-2. Go to the folder \azure-event-hubs-master\samples\DotNet\AnomalyDetector\ and double-click on AnomalyDetector.sln to open the solution in Visual Studio. 
-
+    To use the old version of the sample that uses the old Microsoft.Azure.EventHubs package, open the solution from the **Microsoft.Azure.EventHubs\AnomalyDetector** folder. 
 3. Open Program.cs and replace **Event Hubs connection string** with the connection string you saved when running the script. 
-
 4. Replace **Event Hub name** with your event hub name. Click F5 to run the application. It starts sending events to your event hub, and continues until it has sent 1000 events. There are a few instances where the app needs to be running for you to retrieve data. These cases are pointed out in the following instructions, where needed.
 
 ## Set up Azure Stream Analytics
@@ -303,7 +295,7 @@ In the Stream Analytics job, click **Start**, then **Now**, then **Start**. Once
 
    ![Screenshot of specifying dashboard name.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-name.png)
 
-7. On the Dashboard page, click **Add tile**, select **Custom Streaming Data** in the **REAL - TIME DATA** section, then click **Next**.
+7. On the Dashboard page, click **Add tile**, select **Custom Streaming Data** in the **REAL-TIME DATA** section, then click **Next**.
 
    ![Screenshot specifying source for tile.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-real-time-data.png)
 
@@ -311,7 +303,7 @@ In the Stream Analytics job, click **Start**, then **Now**, then **Start**. Once
 
    ![Screenshot specifying dataset.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. Select **Card** for visualization type. Under **Fields**, click **Add value**, then select **fraudulentuses**.
+9. Select **Card** for visualization type. Under **Fields**, click **Add value**, then select `fraudulentuses`.
 
    ![Screenshot specifying visualization type and fields.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
@@ -332,9 +324,9 @@ In the Stream Analytics job, click **Start**, then **Now**, then **Start**. Once
 
 12. Under **Visualization Type**, select **Line chart**.
 
-13. Under **Axis**, click **Add Value**, and select **windowend**. 
+13. Under **Axis**, click **Add Value**, and select `windowend`. 
 
-14. Under **Values**, click **Add value** and select **fraudulentuses**.
+14. Under **Values**, click **Add value** and select `fraudulentuses`.
 
 15. Under **Time window to display**, select the last five minutes. Click **Next**.
 

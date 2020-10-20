@@ -4,18 +4,16 @@ description: In this quickstart, you learn how to use the Azure Blob storage cli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 11/05/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Azure Blob storage client library v12 for .NET
 
 Get started with the Azure Blob storage client library v12 for .NET. Azure Blob storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
-
-> [!NOTE]
-> To get started with the previous SDK version, see [Quickstart: Azure Blob storage client library for .NET](storage-quickstart-blobs-dotnet-legacy.md).
 
 Use the Azure Blob storage client library v12 for .NET to:
 
@@ -25,7 +23,12 @@ Use the Azure Blob storage client library v12 for .NET to:
 * Download the blob to your local computer
 * Delete a container
 
-[API reference documentation](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+Additional resources:
+
+* [API reference documentation](/dotnet/api/azure.storage.blobs)
+* [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
+* [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
+* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -81,7 +84,6 @@ From the project directory:
 Here's the code:
 
 ```csharp
-using Azure.Storage;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using System;
@@ -111,7 +113,7 @@ Azure Blob storage is optimized for storing massive amounts of unstructured data
 
 The following diagram shows the relationship between these resources.
 
-![Diagram of Blob storage architecture](./media/storage-blob-introduction/blob1.png)
+![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
 
 Use the following .NET classes to interact with these resources:
 
@@ -177,7 +179,7 @@ The following code snippet:
 
 1. Creates a text file in the local *data* directory.
 1. Gets a reference to a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
-1. Uploads the local text file to the blob by calling the [​Upload​Async](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
+1. Uploads the local text file to the blob by calling the [​Upload​Async](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#Azure_Storage_Blobs_BlobClient_UploadAsync_System_IO_Stream_System_Boolean_System_Threading_CancellationToken_) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
 Add this code to the end of the `Main` method:
 
@@ -197,7 +199,7 @@ Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blobClient.Uri
 
 // Open the file and upload its data
 using FileStream uploadFileStream = File.OpenRead(localFilePath);
-await blobClient.UploadAsync(uploadFileStream);
+await blobClient.UploadAsync(uploadFileStream, true);
 uploadFileStream.Close();
 ```
 
@@ -225,17 +227,20 @@ Add this code to the end of the `Main` method:
 
 ```csharp
 // Download the blob to a local file
-// Append the string "DOWNLOAD" before the .txt extension so you can see both files in MyDocuments
-string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOAD.txt");
+// Append the string "DOWNLOADED" before the .txt extension 
+// so you can compare the files in the data directory
+string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOADED.txt");
 
 Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
 
 // Download the blob's contents and save it to a file
 BlobDownloadInfo download = await blobClient.DownloadAsync();
 
-using FileStream downloadFileStream = File.OpenWrite(downloadFilePath);
-await download.Content.CopyToAsync(downloadFileStream);
-downloadFileStream.Close();
+using (FileStream downloadFileStream = File.OpenWrite(downloadFilePath))
+{
+    await download.Content.CopyToAsync(downloadFileStream);
+    downloadFileStream.Close();
+}
 ```
 
 ### Delete a container
@@ -263,7 +268,7 @@ Console.WriteLine("Done");
 
 ## Run the code
 
-This app creates a test file in your local *MyDocuments* folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
+This app creates a test file in your local *data* folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
 
 Navigate to your application directory, then build and run the application.
 
@@ -295,7 +300,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Before you begin the clean up process, check your *MyDocuments* folder for the two files. You can open them and observe that they are identical.
+Before you begin the clean up process, check your *data* folder for the two files. You can open them and observe that they are identical.
 
 After you've verified the files, press the **Enter** key to delete the test files and finish the demo.
 

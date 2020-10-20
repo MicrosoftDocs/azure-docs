@@ -1,20 +1,8 @@
 ---
 title: Azure Service Bus duplicate message detection | Microsoft Docs
-description: Detect duplicate Service Bus messages
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+description: This article explains how you can detect duplicates in Azure Service Bus messages. The duplicate message can be ignored and dropped.
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Duplicate detection
@@ -40,7 +28,7 @@ The *MessageId* can always be some GUID, but anchoring the identifier to the bus
 
 In the portal, the feature is turned on during entity creation with the **Enable duplicate detection** check box, which is off by default. The setting for creating new topics is equivalent.
 
-![][1]
+![Screenshot of the Create queue dialog box with the Enable duplicate detection option selected and outlined in red.][1]
 
 > [!IMPORTANT]
 > You can't enable/disable duplicate detection after the queue is created. You can only do so at the time of creating the queue. 
@@ -49,7 +37,7 @@ Programmatically, you set the flag with the [QueueDescription.requiresDuplicateD
 
 The duplicate detection time history defaults to 30 seconds for queues and topics, with a maximum value of seven days. You can change this setting in the queue and topic properties window in the Azure portal.
 
-![][2]
+![Screenshot of the Service Bus feature with the Properties setting highlighted adn the Duplicate detection history option outlined in red.][2]
 
 Programmatically, you can configure the size of the duplicate detection window during which message-ids are retained, using the [QueueDescription.DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) property with the full .NET Framework API. With the Azure Resource Manager API, the value is set with the [queueProperties.duplicateDetectionHistoryTimeWindow](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) property.
 

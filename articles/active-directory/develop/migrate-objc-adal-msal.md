@@ -3,7 +3,7 @@ title: ADAL to MSAL migration guide (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn the differences between MSAL for iOS/macOS and the Azure AD Authentication Library for ObjectiveC (ADAL.ObjC) and how to migrate to MSAL for iOS/macOS.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,11 +11,10 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about the differences between the Objective-C ADAL and MSAL for iOS and macOS libraries so I can migrate my applications to MSAL for iOS and macOS.
-ms.collection: M365-identity-device-management
 ---
 
 # Migrate applications to MSAL for iOS and macOS
@@ -43,7 +42,7 @@ The Microsoft identity platform has a few key differences with Azure Active Dire
 * The Azure Active Directory v1.0 endpoint requires that all permissions be declared in advance during application registration. This means those permissions are static.
 * The Microsoft identity platform allows you to request permissions dynamically. Apps can ask for permissions only as needed and request more as the app needs them.
 
-For more about differences between Azure Active Directory v1.0 and the Microsoft identity platform, see [Why update to Microsoft identity platform (v2.0)?](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison).
+For more about differences between Azure Active Directory v1.0 and the Microsoft identity platform, see [Why update to Microsoft identity platform (v2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## ADAL and MSAL library differences
 
@@ -75,7 +74,7 @@ This is the built-in scope for every application. It refers to the static list o
 
 To use the `/.default` scope, append `/.default` to the resource identifier. For example: `https://graph.microsoft.com/.default`. If your resource ends with a slash (`/`), you should still append `/.default`, including the leading forward slash, resulting in a scope that has a double forward slash (`//`) in it.
 
-You can read more information about using the "/.default" scope [here](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope)
+You can read more information about using the "/.default" scope [here](./v2-permissions-and-consent.md#the-default-scope)
 
 ### Supporting different WebView types & browsers
 
@@ -206,7 +205,7 @@ MSAL on iOS also supports two other types of SSO:
 
 ## Intune MAM SDK
 
-The [Intune MAM SDK](https://docs.microsoft.com/intune/app-sdk-get-started) supports MSAL for iOS starting with version [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2)
+The [Intune MAM SDK](/intune/app-sdk-get-started) supports MSAL for iOS starting with version [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2)
 
 ## MSAL and ADAL in the same app
 

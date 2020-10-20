@@ -2,16 +2,16 @@
 title: Use the activity report to move AD FS apps to Azure Active Directory | Microsoft Docs'
 description: The Active Directory Federation Services (AD FS) application activity report lets you quickly migrate applications from AD FS to Azure Active Directory (Azure AD). This migration tool for AD FS identifies compatibility with Azure AD and gives migration guidance.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/22/2019
-ms.author: mimart
+ms.date: 01/14/2019
+ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 
@@ -31,8 +31,9 @@ The AD FS application activity data is available to users who are assigned any o
 
 * Your organization must be currently using AD FS to access applications.
 * Azure AD Connect Health must be enabled in your Azure AD tenant.
+* The Azure AD Connect Health for AD FS agent must be installed.
    * [Learn more about Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)
-   * [Get started setting up Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
+   * [Get started with setting up Azure AD Connect Health and install the AD FS agent](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
 
 ## Discover AD FS applications that can be migrated 
 
@@ -119,6 +120,7 @@ The following table lists all claim rule tests that are performed on AD FS appli
 
 ## Next steps
 
+- [Video: How to use the AD FS activity report to migrate an application](https://www.youtube.com/watch?v=OThlTA239lU)
 - [Managing applications with Azure Active Directory](what-is-application-management.md)
 - [Manage access to apps](what-is-access-management.md)
 - [Azure AD Connect federation](../hybrid/how-to-connect-fed-whatis.md)

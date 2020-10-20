@@ -1,29 +1,22 @@
 ---
-title: Planning for migration from classic to Azure Resource Manager 
+title: Planning for migration from classic to Azure Resource Manager
 description: Planning for migration of IaaS resources from classic to Azure Resource Manager
-services: virtual-machines-windows
-documentationcenter: ''
-author: singhkays
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
+author: tanmaygore
+manager: vashan
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
-ms.date: 04/01/2017
-ms.author: kasing
+ms.topic: conceptual
+ms.date: 02/06/2020
+ms.author: tagore
 
 ---
 
-# Planning for migration of IaaS resources from classic to Azure Resource Manager
-While Azure Resource Manager offers many amazing features, it is critical to plan out your migration journey to make sure things go smoothly. Spending time on planning will ensure that you do not encounter issues while executing migration activities.
+# Planning for migration of IaaS resources from classic to Azure Resource Manager in Windows
 
-> [!NOTE]
-> The following guidance was heavily contributed to by the Azure Customer Advisory team and Cloud Solution architects working with customers on migrating large environments. As such this document will continue to get updated as new patterns of success emerge, so check back from time to time to see if there are any new recommendations.
+> [!IMPORTANT]
+> Today, about 90% of IaaS VMs are using [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). As of February 28, 2020, classic VMs have been deprecated and will be fully retired on March 1, 2023. [Learn more]( https://aka.ms/classicvmretirement) about this deprecation and [how it affects you](../classic-vm-deprecation.md#how-does-this-affect-me).
+
+While Azure Resource Manager offers many amazing features, it is critical to plan out your migration journey to make sure things go smoothly. Spending time on planning will ensure that you do not encounter issues while executing migration activities.
 
 There are four general phases of the migration journey:<br>
 
@@ -52,13 +45,13 @@ Depending on your technical requirements size, geographies and operational pract
 Successful customers have detailed plans where the preceding questions are discussed, documented and governed.  Ensure the migration plans are broadly communicated to sponsors and stakeholders.  Equip yourself with knowledge about your migration options; reading through this migration document set below is highly recommended.
 
 * [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Review most common migration errors](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](../migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### Pitfalls to avoid
 
@@ -128,8 +121,8 @@ The following were issues discovered in many of the larger migrations. This is n
   - Route Tables
 
     You can check your current Azure Resource Manager quotas using the following commands with the latest version of Azure PowerShell.
-	
-	 
+
+
 
     **Compute** *(Cores, Availability Sets)*
 
@@ -200,10 +193,10 @@ Things to consider:
 
 Be purposeful on what services you now want to enable in Azure Resource Manager.  Many customers find the below compelling for their Azure environments:
 
-- [Role Based Access Control](../../role-based-access-control/overview.md).
-- [Azure Resource Manager templates for easier and more controlled deployment](../../azure-resource-manager/template-deployment-overview.md).
-- [Tags](../../azure-resource-manager/resource-group-using-tags.md).
-- [Activity Control](../../azure-resource-manager/resource-group-audit.md)
+- [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
+- [Azure Resource Manager templates for easier and more controlled deployment](../../azure-resource-manager/templates/overview.md).
+- [Tags](../../azure-resource-manager/management/tag-resources.md).
+- [Activity Control](../../azure-resource-manager/management/view-activity-logs.md)
 - [Azure Policies](../../governance/policy/overview.md)
 
 ### Pitfalls to avoid
@@ -214,11 +207,11 @@ Remember why you started this Classic to Azure Resource Manager migration journe
 ## Next steps
 
 * [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](../migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [VPN Gateway classic to Resource Manager migration](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-classic-resource-manager-migration)
-* [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](https://docs.microsoft.com/azure/expressroute/expressroute-migration-classic-resource-manager)
+* [VPN Gateway classic to Resource Manager migration](../../vpn-gateway/vpn-gateway-classic-resource-manager-migration.md)
+* [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../../expressroute/expressroute-migration-classic-resource-manager.md)
 * [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Review most common migration errors](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](../migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

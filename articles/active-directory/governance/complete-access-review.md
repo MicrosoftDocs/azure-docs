@@ -3,16 +3,16 @@ title: Complete an access review of groups & applications - Azure AD
 description: Learn how to complete an access review of group members or application access in Azure Active Directory access reviews.
 services: active-directory
 documentationcenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -29,7 +29,7 @@ As an administrator, you [create an access review of groups or applications](cre
 - Azure AD Premium P2
 - Global administrator, User administrator, Security administrator, or Security reader
 
-For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
+For more information, see [License requirements](access-reviews-overview.md#license-requirements).
 
 ## View an access review
 

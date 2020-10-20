@@ -2,14 +2,15 @@
 title: Azure Functions warmup trigger
 description: Understand how to use the warmup trigger in Azure Functions.
 documentationcenter: na
-author: alexkarcher-msft
+author: craigshoemaker
 manager: gwallace
 keywords: azure functions, functions, event processing, warmup, cold start, premium, dynamic compute, serverless architecture
 
 ms.service: azure-functions
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/08/2019
-ms.author: alkarche
+ms.author: cshoe
 ---
 
 # Azure Functions warm-up trigger
@@ -26,11 +27,11 @@ The [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsof
 
 ## Trigger
 
-The warmup trigger lets you define a function that will be run on an instance when it is added to your running app. You can use a warmup function to open connections, load dependencies, or run any other custom logic before your app will begin receiving traffic. 
+The warmup trigger lets you define a function that will be run on a new instance when it is added to your running app. You can use a warmup function to open connections, load dependencies, or run any other custom logic before your app will begin receiving traffic. 
 
 The warmup trigger is intended to create shared dependencies that will be used by the other functions in your app. [See examples of shared dependencies here](./manage-connections.md#client-code-examples).
 
-Note that the warmup trigger is only called during scale-up operations, not during restarts or other non-scale startups. You must ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this.
+Note that the warmup trigger is only called during scale-out operations, not during restarts or other non-scale startups. You must ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this.
 
 ## Trigger - example
 
@@ -128,7 +129,6 @@ Here's the JavaScript code:
 ```javascript
 module.exports = async function (context, warmupContext) {
     context.log('Function App instance is warm 🌞🌞🌞');
-    context.done();
 };
 ```
 
@@ -167,25 +167,9 @@ def main(warmupContext: func.Context) -> None:
 
 # [Java](#tab/java)
 
-The following example shows a warmup trigger in a *function.json* file and a [Java functions](functions-reference-java.md)  that will run on each new instance when it is added to your app.
+The following example shows a warmup trigger that runs when each new instance is added to your app.
 
-Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
-
-Here's the *function.json* file:
-
-```json
-{
-    "bindings": [
-        {
-            "type": "warmupTrigger",
-            "direction": "in",
-            "name": "warmupContext"
-        }
-    ]
-}
-```
-
-Here's the Java code:
+Your function must be named `warmup` (case-insensitive) and there may only be one warmup function per app.
 
 ```java
 @FunctionName("Warmup")
@@ -252,7 +236,7 @@ No additional information is provided to a warmup triggered function when it is 
 ## Trigger - limits
 
 * The warmup trigger is only available to apps running on the [Premium plan](./functions-premium-plan.md).
-* The warmup trigger is only called during scale up operations, not during restarts or other non-scale startups. You must ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this.
+* The warmup trigger is only called during scale-out operations, not during restarts or other non-scale startups. You must ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this.
 * The warmup trigger cannot be invoked once an instance is already running.
 * There can only be one warmup trigger function per function app.
 

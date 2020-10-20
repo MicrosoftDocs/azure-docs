@@ -3,7 +3,7 @@ title: Azure identity & access security best practices | Microsoft Docs
 description: This article provides a set of best practices for identity management and access control using built in Azure capabilities.
 services: security
 documentationcenter: na
-author: barclayn
+author: terrylanfear
 manager: RKarlin
 editor: TomSh
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
-ms.author: barclayn
+ms.author: terrylan
 
 ---
 # Azure Identity Management and access control security best practices
@@ -122,10 +122,10 @@ Users can access your organization's resources by using a variety of devices and
 To balance security and productivity, you need to think about how a resource is accessed before you can make a decision about access control. With Azure AD Conditional Access, you can address this requirement. With Conditional Access, you can make automated access control decisions based on conditions for accessing your cloud apps.
 
 **Best practice**: Manage and control access to corporate resources.  
-**Detail**: Configure Azure AD [Conditional Access](/azure/active-directory/active-directory-conditional-access-azure-portal) based on a group, location, and application sensitivity for SaaS apps and Azure AD–connected apps.
+**Detail**: Configure common Azure AD [Conditional Access policies](../../active-directory/conditional-access/concept-conditional-access-policy-common.md) based on a group, location, and application sensitivity for SaaS apps and Azure AD–connected apps.
 
 **Best practice**: Block legacy authentication protocols.
-**Detail**: Attackers exploit weaknesses in older protocols every day, particularly for password spray attacks. Configure Conditional Access to block legacy protocols. See the video [Azure AD: Do’s and Don’ts](https://www.youtube.com/watch?v=wGk0J4z90GI) for more information.
+**Detail**: Attackers exploit weaknesses in older protocols every day, particularly for password spray attacks. Configure Conditional Access to [block legacy protocols](../../active-directory/conditional-access/howto-conditional-access-policy-block-legacy.md).
 
 ## Plan for routine security improvements
 
@@ -164,7 +164,7 @@ Following are options and benefits for enabling two-step verification:
 * Require MFA challenge via Microsoft Authenticator for all users
 * Restrict legacy authentication protocols.
 
-This method is available to all licensing tiers but is not able to be mixed with existing Conditional Access policies. You can find more information In Azure AD Security Defaults
+This method is available to all licensing tiers but is not able to be mixed with existing Conditional Access policies. You can find more information in [Azure AD Security Defaults](/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)
 
 **Option 2**: [Enable Multi-Factor Authentication by changing user state](../../active-directory/authentication/howto-mfa-userstates.md).   
 **Benefit**: This is the traditional method for requiring two-step verification. It works with both [Azure Multi-Factor Authentication in the cloud and Azure Multi-Factor Authentication Server](/azure/active-directory/authentication/concept-mfa-whichversion). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
@@ -172,11 +172,11 @@ This method is available to all licensing tiers but is not able to be mixed with
 To determine where Multi-Factor Authentication needs to be enabled, see [Which version of Azure MFA is right for my organization?](/azure/active-directory/authentication/concept-mfa-whichversion).
 
 **Option 3**: [Enable Multi-Factor Authentication with Conditional Access policy](/azure/active-directory/authentication/howto-mfa-getstarted).
-**Benefit**: This option allows you to prompt for two-step verification under specific conditions by using [Conditional Access](/azure/active-directory/active-directory-conditional-access-azure-portal). Specific conditions can be user sign-in from different locations, untrusted devices, or applications that you consider risky. Defining specific conditions where you require two-step verification enables you to avoid constant prompting for your users, which can be an unpleasant user experience.
+**Benefit**: This option allows you to prompt for two-step verification under specific conditions by using [Conditional Access](../../active-directory/conditional-access/concept-conditional-access-policy-common.md). Specific conditions can be user sign-in from different locations, untrusted devices, or applications that you consider risky. Defining specific conditions where you require two-step verification enables you to avoid constant prompting for your users, which can be an unpleasant user experience.
 
 This is the most flexible way to enable two-step verification for your users. Enabling a Conditional Access policy works only for Azure Multi-Factor Authentication in the cloud and is a premium feature of Azure AD. You can find more information on this method in [Deploy cloud-based Azure Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-getstarted).
 
-**Option 4**: Enable Multi-Factor Authentication with Conditional Access policies by evaluating user and sign-in risk of [Azure AD Identity Protection](/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa).   
+**Option 4**: Enable Multi-Factor Authentication with Conditional Access policies by evaluating [Risk-based Conditional Access policies](../../active-directory/conditional-access/howto-conditional-access-policy-risk.md).   
 **Benefit**: This option enables you to:
 
 * Detect potential vulnerabilities that affect your organization’s identities.
@@ -186,13 +186,13 @@ This is the most flexible way to enable two-step verification for your users. En
 This method uses the Azure AD Identity Protection risk evaluation to determine if two-step verification is required based on user and sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. You can find more information on this method in [Azure Active Directory Identity Protection](/azure/active-directory/identity-protection/overview).
 
 > [!Note]
-> Option 1, enabling Multi-Factor Authentication by changing the user state, overrides Conditional Access policies. Because options 2 and 3 use Conditional Access policies, you cannot use option 1 with them.
+> Option 2, enabling Multi-Factor Authentication by changing the user state, overrides Conditional Access policies. Because options 3 and 4 use Conditional Access policies, you cannot use option 2 with them.
 
 Organizations that don’t add extra layers of identity protection, such as two-step verification, are more susceptible for credential theft attack. A credential theft attack can lead to data compromise.
 
 ## Use role-based access control
 
-Access management for cloud resources is critical for any organization that uses the cloud. [Role-based access control (RBAC)](/azure/role-based-access-control/overview)helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
+Access management for cloud resources is critical for any organization that uses the cloud. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
 Designating groups or individual roles responsible for specific functions in Azure helps avoid confusion that can lead to human and automation errors that create security risks. Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access.
 
@@ -201,7 +201,7 @@ Your security team needs visibility into your Azure resources in order to assess
 You can use [RBAC](/azure/role-based-access-control/overview) to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
 
 **Best practice**: Segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Instead of giving everybody unrestricted permissions in your Azure subscription or resources, allow only certain actions at a particular scope.
-**Detail**: Use [built-in RBAC roles](/azure/role-based-access-control/built-in-roles) in Azure to assign privileges to users.
+**Detail**: Use [Azure built-in roles](/azure/role-based-access-control/built-in-roles) in Azure to assign privileges to users.
 
 > [!Note]
 > Specific permissions create unneeded complexity and confusion, accumulating into a “legacy” configuration that’s difficult to fix without fear of breaking something. Avoid resource-specific permissions. Instead, use management groups for enterprise-wide permissions and resource groups for permissions within subscriptions. Avoid user-specific permissions. Instead, assign access to groups in Azure AD.
@@ -213,7 +213,7 @@ You can use [RBAC](/azure/role-based-access-control/overview) to assign permissi
 * **Segment management group** for teams with limited scope (commonly because of regulatory or other organizational boundaries)
 
 **Best practice**: Grant the appropriate permissions to security teams that have direct operational responsibilities.
-**Detail**: Review the RBAC built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [custom roles for Azure resources](/azure/role-based-access-control/custom-roles). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
+**Detail**: Review the RBAC built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [Azure custom roles](/azure/role-based-access-control/custom-roles). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
 
 **Best practices**: Grant Azure Security Center access to security roles that need it. Security Center allows security teams to quickly identify and remediate risks.
 **Detail**: Add security teams with these needs to the RBAC [Security Admin](/azure/role-based-access-control/built-in-roles#security-admin) role so they can view security policies, view security states, edit security policies, view alerts and recommendations, and dismiss alerts and recommendations. You can do this by using the root management group or the segment management group, depending on the scope of responsibilities.
@@ -226,7 +226,7 @@ Securing privileged access is a critical first step to protecting business asset
 
 Privileged accounts are accounts that administer and manage IT systems. Cyber attackers target these accounts to gain access to an organization’s data and systems. To secure privileged access, you should isolate the accounts and systems from the risk of being exposed to a malicious user.
 
-We recommend that you develop and follow a roadmap to secure privileged access against cyber attackers. For information about creating a detailed roadmap to secure identities and access that are managed or reported in Azure AD, Microsoft Azure, Office 365, and other cloud services, review [Securing privileged access for hybrid and cloud deployments in Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure).
+We recommend that you develop and follow a roadmap to secure privileged access against cyber attackers. For information about creating a detailed roadmap to secure identities and access that are managed or reported in Azure AD, Microsoft Azure, Microsoft 365, and other cloud services, review [Securing privileged access for hybrid and cloud deployments in Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure).
 
 The following summarizes the best practices found in [Securing privileged access for hybrid and cloud deployments in Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure):
 
@@ -237,7 +237,7 @@ The following summarizes the best practices found in [Securing privileged access
 **Detail**: Remove any consumer accounts from critical admin roles (for example, Microsoft accounts like hotmail.com, live.com, and outlook.com).
 
 **Best practice**: Ensure all critical admin roles have a separate account for administrative tasks in order to avoid phishing and other attacks to compromise administrative privileges.
-**Detail**: Create a separate admin account that’s assigned the privileges needed to perform the administrative tasks. Block the use of these administrative accounts for daily productivity tools like Microsoft Office 365 email or arbitrary web browsing.
+**Detail**: Create a separate admin account that’s assigned the privileges needed to perform the administrative tasks. Block the use of these administrative accounts for daily productivity tools like Microsoft 365 email or arbitrary web browsing.
 
 **Best practice**: Identify and categorize accounts that are in highly privileged roles.   
 **Detail**: After turning on Azure AD Privileged Identity Management, view the users who are in the global administrator, privileged role administrator, and other highly privileged roles. Remove any accounts that are no longer needed in those roles, and categorize the remaining accounts that are assigned to admin roles:
@@ -278,7 +278,7 @@ Require Azure Multi-Factor Authentication at sign-in for all individual users wh
 **Detail**: Have a process in place that disables or deletes admin accounts when employees leave your organization.
 
 **Best practice**: Regularly test admin accounts by using current attack techniques.
-**Detail**: Use Office 365 Attack Simulator or a third-party offering to run realistic attack scenarios in your organization. This can help you find vulnerable users before a real attack occurs.
+**Detail**: Use Microsoft 365 Attack Simulator or a third-party offering to run realistic attack scenarios in your organization. This can help you find vulnerable users before a real attack occurs.
 
 **Best practice**: Take steps to mitigate the most frequently used attacked techniques.  
 **Detail**:
@@ -292,11 +292,11 @@ Require Azure Multi-Factor Authentication at sign-in for all individual users wh
 
 [Require Multi-Factor Authentication for users in all privileged roles as well as exposed users](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
 
-[Obtain your Office 365 Secure Score (if using Office 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#obtain-your-office-365-secure-score-if-using-office-365)  
+[Obtain your Microsoft 365 Secure Score (if using Microsoft 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#obtain-your-office-365-secure-score-if-using-office-365)  
 
-[Review the Office 365 security and compliance guidance (if using Office 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
+[Review the Microsoft 365 security guidance (if using Microsoft 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
 
-[Configure Office 365 Activity Monitoring (if using Office 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#configure-office-365-activity-monitoring-if-using-office-365)  
+[Configure Microsoft 365 Activity Monitoring (if using Microsoft 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#configure-office-365-activity-monitoring-if-using-office-365)  
 
 [Establish incident/emergency response plan owners](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#establish-incidentemergency-response-plan-owners)  
 

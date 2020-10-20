@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure ServiceNow for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to ServiceNow.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
-
-ms.assetid: 4d6f06dd-a798-4c22-b84f-8a11f1b8592a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
@@ -20,7 +15,7 @@ ms.author: jeedes
 
 # Tutorial: Configure ServiceNow for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both ServiceNow and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [ServiceNow](https://www.servicenow.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both ServiceNow and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [ServiceNow](https://www.servicenow.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities Supported
@@ -50,12 +45,19 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Identify your ServiceNow instance name. You can find the instance name in the URL that you use to access ServiceNow. In the example below, the instance name is dev35214.
 
-![ServiceNow Instance](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![ServiceNow Instance](media/servicenow-provisioning-tutorial/servicenow_instance.png)
 
-	
 2. Obtain credentials for an admin in ServiceNow. Navigate to the user profile in ServiceNow and verify that the user has the admin role. 
 
-![ServiceNow admin role](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+   ![ServiceNow admin role](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+
+3. Check to make sure that the following settings are **disabled** in ServiceNow:
+
+   1. Select **System Security** > **High security settings** > **Require basic authentication for incoming SCHEMA requests**.
+   2. Select **System Properties** > **Web Services** > **Require basic authorization for incoming SOAP requests**.
+     
+   > [!IMPORTANT]
+   > If these setting are *enabled*, the provisioning engine will fail to communicate with ServiceNow.
 
 ## Step 3. Add ServiceNow from the Azure AD application gallery
 
@@ -86,15 +88,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input your ServiceNow admin credentials and username. Click **Test Connection** to ensure Azure AD can connect to ServiceNow. If the connection fails, ensure your ServiceNow account has Admin permissions and try again.
 
- 	![provisioning](./media/servicenow-provisioning-tutorial/provisioning.png)
+ 	![Screenshot shows the Service Provisioning page, where you can enter Admin Credentials.](./media/servicenow-provisioning-tutorial/provisioning.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
@@ -110,7 +112,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 11. Review the group attributes that are synchronized from Azure AD to ServiceNow in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in ServiceNow for update operations. Select the **Save** button to commit any changes.
 
-12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. To enable the Azure AD provisioning service for ServiceNow, change the **Provisioning Status** to **On** in the **Settings** section.
 
@@ -130,20 +132,28 @@ This operation starts the initial synchronization cycle of all users and groups 
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
+2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## Troubleshooting Tips
 * **InvalidLookupReference:** When provisioning certain attributes such as Department and Location in ServiceNow, the values must already exist in a reference table in ServiceNow. For example, you may have two locations (Seattle, Los Angeles) and three departments (Sales, Finance, Marketing) in the **insert table name** table in ServiceNow. If you attempt to provision a user where his department is "Sales" and location is "Seattle" he will be provisioned successfully. If you attempt to provision a user with department "Sales" and location "LA" the user won't be provisioned. The location LA must either be added to the reference table in ServiceNow or the user attribute in Azure AD must be updated to match the format in ServiceNow. 
 * **EntryJoiningPropertyValueIsMissing:** Review your [attribute mappings](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) to identify the matching attribute. This value must be present on the user or group you're attempting to provision. 
 * Review the [ServiceNow SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) to understand any requirements or limitations (for example, format to specify country code for a user)
-* Some ServiceNow deployments require permitting IP ranges for the Azure AD provisioning service. The reserved IP ranges for the Azure AD provisioning service can be found [here](https://www.microsoft.com/download/details.aspx?id=56519) under "AzureActiveDirectoryDomainServices".
+* Provisioning requests are sent by default to https://{your-instance-name}.service-now.com/{table-name} . If you require a custom tenant URL, you can provide the entire URL in the instance name field.
+* **ServiceNowInstanceInvalid** 
+  
+  `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
+
+   This error indicates an issue communicating with the ServiceNow instance. Double-check to make sure that the following settings are *disabled* in ServiceNow:
+   
+   1. Select **System Security** > **High security settings** > **Require basic authentication for incoming SCHEMA requests**.
+   2. Select **System Properties** > **Web Services** > **Require basic authorization for incoming SOAP requests**.
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)

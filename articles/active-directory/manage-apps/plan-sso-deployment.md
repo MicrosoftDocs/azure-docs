@@ -2,16 +2,17 @@
 title: Plan an Azure Active Directory single sign-on deployment
 description: Guide to help you plan, deploy, and manage SSO in your organization.
 services: active-directory
-author: jeevansd
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 06/10/2020
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 #customer intent: As an IT admin, I need to learn about single-sign on (SSO) so I can understand the feature and help others in my organization to understand its value.
 ---
 
@@ -23,7 +24,7 @@ Single sign-on (SSO) means accessing all applications and resources a user needs
 
 Single sign-on (SSO) adds security and convenience when users sign on to applications in Azure Active Directory (Azure AD). 
 
-Many organizations rely on software as a service (SaaS) applications, such as Office 365, Box, and Salesforce, for end user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users needed to remember a password for each.
+Many organizations rely on software as a service (SaaS) applications, such as Microsoft 365, Box, and Salesforce, for end user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users needed to remember a password for each.
 
 The Azure Marketplace has over 3000 applications with pre-integrated SSO connections, making it easy to integrate them in your tenant.
 
@@ -50,7 +51,7 @@ There are two primary ways in which you can enable your users to single sign-on 
 ### Considerations for federation-based SSO
 
 - **Using OpenID Connect and OAuth** - If the application you're connecting to supports it, use the OIDC/OAuth 2.0 method to enable your SSO to that application. This method requires less configuration and enables a richer user experience. For more information, see [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md), [OpenID Connect 1.0](../develop/v2-protocols-oidc.md), and [Azure Active Directory developer’s guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-- **Endpoint Configurations for SAML-based SSO** - If you use SAML, your developers will need specific information prior to configuring the application. For more info, see [Edit the Basic SAML Configuration](configure-single-sign-on-non-gallery-applications.md).
+- **Endpoint Configurations for SAML-based SSO** - If you use SAML, your developers will need specific information prior to configuring the application. For more info, see [Configure SAML-based single sign-on](configure-saml-single-sign-on.md).
 - **Certificate management for SAML-based SSO** - When you enable Federated SSO for your application, Azure AD creates a certificate that is by default valid for three years. You can customize the expiration date for that certificate if needed. Ensure that you have processes in place to renew certificates prior to their expiration. To learn more, see [Azure AD Managing Certificates](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
 
 ### Considerations for password-based SSO
@@ -58,7 +59,7 @@ There are two primary ways in which you can enable your users to single sign-on 
 Using Azure AD for password-based SSO requires deploying a browser extension that will securely retrieve the credentials and fill out the login forms. Define a mechanism to deploy the extension at scale with [supported browsers](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options include:
 
 - [Group Policy for Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [System Center Configuration Manager (SCCM) for Internet Explorer](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [Configuration Manager for Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 - [User driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 To learn more, see [How to configure password single sign on](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
@@ -190,8 +191,6 @@ Use the following phases to plan for and deploy your solution in your organizati
 
    Optionally, you can use claims issued in the SAML token for the enterprise application using [Microsoft’s guidance documentation](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping). Ensure this maps to what you expect to receive in the SAML response for your application. If you encounter issues during configuration, use our guidance on [how to Debug SSO integration](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging).
 
-Custom application onboarding is an Azure AD Premium P1 or P2 licenses feature.
-
 ### Provide SSO change communications to end users
 
 Implement your communication plan. Make sure you're letting your end users know that a change is coming, when it has arrived, what to do now, and how to seek assistance.
@@ -282,7 +281,7 @@ The following links present troubleshooting scenarios. You may want to create a 
 
 - [Problems signing in from a custom portal](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
 
-- [Problems signing in from access panel](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
+- [Problems signing in from My Apps](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
 
 - [Error on application sign-in page](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error)
 
@@ -321,3 +320,5 @@ The following links present troubleshooting scenarios. You may want to create a 
 [SSO access](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 [Application SSO Tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+
+[Whitepaper Download - Single sign-on deployment plan](https://aka.ms/SSODeploymentPlan)

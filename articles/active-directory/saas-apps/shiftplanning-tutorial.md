@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Humanity | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Humanity.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Humanity
 
@@ -134,11 +127,11 @@ To configure Azure AD single sign-on with Humanity, perform the following steps:
     ![Admin](./media/shiftplanning-tutorial/iC786619.png "Admin")
 3. Under **Integration**, click **Single Sign-On**.
 
-    ![Single Sign-On](./media/shiftplanning-tutorial/iC786620.png "Single Sign-On")
+    ![Screenshot shows Single Sign-On selected from the Integration menu.](./media/shiftplanning-tutorial/iC786620.png "Single Sign-On")
 
 4. In the **Single Sign-On** section, perform the following steps:
 
-    ![Single Sign-On](./media/shiftplanning-tutorial/iC786905.png "Single Sign-On")
+    ![Screenshot shows the Single Sign-On section where you can enter the values described.](./media/shiftplanning-tutorial/iC786905.png "Single Sign-On")
 
     a. Select **SAML Enabled**.
 

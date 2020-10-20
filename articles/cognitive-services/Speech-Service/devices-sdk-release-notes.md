@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 02/12/2020
 ms.author: wellsi
 ---
 
@@ -17,14 +17,28 @@ ms.author: wellsi
 
 The following sections list changes in the most recent releases.
 
+## Speech Devices SDK 1.11.0:
+
+- Support for [arbitrary microphone array geometries](how-to-devices-microphone-array-configuration.md) and setting the working angle through a [configuration file](https://aka.ms/sdsdk-micarray-json).
+- Support for [Urbetter DDK](http://www.urbetter.com/products_56/278.html).
+- Released binaries for the [GGEC Speaker](https://aka.ms/sdsdk-download-speaker) used in our [Voice Assistant sample](https://aka.ms/sdsdk-speaker).
+- Released binaries for [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32) and [Linux ARM 64](https://aka.ms/sdsdk-download-linux-arm64) for Raspberry Pi and similar devices.
+- Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.11.0. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew).
+
+## Speech Devices SDK 1.9.0:
+
+- Initial binaries for [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter) (Linux ARM64) are provided.
+- Roobo v1 now uses Maven for the Speech SDK
+- Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.9.0. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew).
+
 ## Speech Devices SDK 1.7.0:
 
 - Linux ARM is now supported.
-- Initial binaries for Roobo v2 are provided (Linux ARM64).
+- Initial binaries for [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2) are provided (Linux ARM64).
 - Windows users can use `AudioConfig.fromDefaultMicrophoneInput()` or `AudioConfig.fromMicrophoneInput(deviceName)` to specify the microphone to be used.
 - The library size has been optimized.
 - Support for multi-turn recognition using the same speech/intent recognizer object.
-- Fix occasional hang that would occur while stopping recognition.
+- Fix occasional issue where the process would stop responding while stopping recognition.
 - Sample apps now contain a sample participants.properties file to demonstrate the format of the file.
 - Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.7.0. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew).
 
@@ -48,7 +62,7 @@ The following sections list changes in the most recent releases.
 **Breaking changes**
 
 - Due to the new keyword technology all keywords must be re-created at our improved keyword portal. To fully remove old keywords from the device uninstall the old app.
-  - adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
+  - adb uninstall com.microsoft.cognitiveservices.speech.samples.sdsdkstarterapp
 
 ## Speech Devices SDK 1.4.0: 2019-Apr release
 

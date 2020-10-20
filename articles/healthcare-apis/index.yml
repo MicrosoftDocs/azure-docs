@@ -11,9 +11,9 @@ metadata:
   ms.subservice: fhir
   ms.topic: landing-page 
   ms.collection: collection
-  author: hansenms
-  ms.author: mihansen
-  ms.date: 11/06/2019
+  author: matjazl
+  ms.author: matjazl
+  ms.date: 08/13/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,31 +25,27 @@ landingContent:
         links:
           - text: What is Azure API for FHIR?
             url: overview.md
-          - text: What is FHIR Server for Azure?
-            url: overview-open-source-server.md
+          - text: What is Azure IoT Connector for FHIR (preview)?
+            url: overview.md#azure-iot-connector-for-fhir-preview
       - linkListType: quickstart
         links:
           - text: Deploy API Server for FHIR
-            url: fhir-paas-portal-quickstart.md 
-          - text: Deploy open source FHIR Server
-            url: fhir-oss-portal-quickstart.md
+            url: fhir-paas-portal-quickstart.md
+          - text: Deploy Azure IoT Connector for FHIR (preview)
+            url: iot-fhir-portal-quickstart.md 
 
   - title: Set-up tutorials
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Active Directory configuration
-            url: tutorial-1-decision-flow.md
-          - text: Set up a dev environment & create a sample app
-            url: tutorial-2-setup-environment.md
-          - text: Connect to an Azure API for FHIR endpoint
-            url: tutorial-2-setup-environment.md
-      - linkListType: tutorial
-        links:
+          - text: Deploy javascript app to read data from FHIR service
+            url: tutorial-web-app-fhir-server.md
           - text: Access FHIR API with Postman
             url: access-fhir-postman-tutorial.md
           - text: SMART integration for third-party apps & medical records
             url: use-smart-on-fhir-proxy.md
+          - text: Receive device data through Azure IoT Hub
+            url: device-data-through-iot-hub.md
 
   - title: Register apps for AD authentication
     linkLists:

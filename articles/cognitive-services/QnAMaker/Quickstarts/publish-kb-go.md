@@ -1,16 +1,12 @@
 ---
 title: "Quickstart: Publish knowledge base, REST, Go - QnA Maker"
-titleSuffix: Azure Cognitive Services
 description: This Go REST-based quickstart publishes your knowledge base and creates an endpoint that can be called in your application or chat bot.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: quickstart
-ms.date: 12/16/2019
-ms.author: diberry
+ms.date: 02/08/2020
+ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: RESTCURL2020FEB27
+ms.topic: how-to
 ---
 
 # Quickstart: Publish a knowledge base in QnA Maker using Go
@@ -42,7 +38,7 @@ Open VSCode and create a new file named `publish-kb.go`.
 
 At the top of `publish-kb.go`, add the following lines to add necessary dependencies to the project:
 
-[!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.go?range=3-7 "Add the required dependencies")]
+:::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/publish-kb.go" id="dependencies":::
 
 ## Create the main function
 
@@ -56,20 +52,11 @@ func main() {
 }
 ```
 
-## Add required constants
-
-Inside the **main**
-
-
- function, add the required constants to access QnA Maker. Replace the values with your own.
-
-[!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.go?range=16-20 "Add the required constants")]
-
 ## Add POST request to publish KB
 
-After the required constants, add the following code, which makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
+Add the following code, which makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
 
-[!code-go[Add a POST request to publish KB](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=35-48 "Add a POST request to publish KB")]
+:::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/publish-kb.go" id="main":::
 
 The API call returns a 204 status for a successful publish without any content in the body of the response. The code adds content for 204 responses.
 
@@ -93,7 +80,7 @@ Enter the following command at a command-line to run the program. It will send t
 
 ## Next steps
 
-After the knowledge base is published, you need the [endpoint URL to generate an answer](../Tutorials/create-publish-answer.md#generating-an-answer).
+After the knowledge base is published, you need the [endpoint URL to generate an answer](./get-answer-from-knowledge-base-go.md).
 
 > [!div class="nextstepaction"]
 > [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)

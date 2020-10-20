@@ -4,6 +4,7 @@ description: Create a serverless Python function app using the Azure CLI
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Create a serverless Python function app using Azure CLI
@@ -21,9 +22,9 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Sample script
 
-This script creates an Azure Function app using the [consumption plan](../functions-scale.md#consumption-plan).
+This script creates an Azure Function app using the [Consumption plan](../functions-scale.md#consumption-plan).
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a consumption plan")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a Consumption plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

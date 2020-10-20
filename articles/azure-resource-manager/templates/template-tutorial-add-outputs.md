@@ -2,14 +2,15 @@
 title: Tutorial - add outputs to template
 description: Add outputs to your Azure Resource Manager template to simplify the syntax.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom:
 ---
 
-# Tutorial: Add outputs to your Resource Manager template
+# Tutorial: Add outputs to your ARM template
 
-In this tutorial, you learn how to return a value from your template. You use outputs when you need a value from a deployed resource. This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to return a value from your Azure Resource Manager (ARM) template. You use outputs when you need a value from a deployed resource. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
@@ -21,7 +22,7 @@ You must have Visual Studio Code with the Resource Manager Tools extension, and 
 
 At the end of the previous tutorial, your template had the following JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json":::
 
 It deploys a storage account, but it doesn't return any information about the storage account. You might need to capture properties from a new resource so they're available later for reference.
 
@@ -31,7 +32,7 @@ You can use outputs to return values from the template. For example, it might be
 
 The following example highlights the change to your template to add an output value. Copy the whole file and replace your template with its contents.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json?range=1-53&highlight=47-52)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json" range="1-53" highlight="47-52":::
 
 There are some important items to note about the output value you added.
 
@@ -60,8 +61,10 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addoutputs \
   --resource-group myResourceGroup \
   --template-file $templateFile \
@@ -70,7 +73,7 @@ az group deployment create \
 
 ---
 
-In the output for the deployment command, you'll see an object similar to:
+In the output for the deployment command, you'll see an object similar to the following example only if the output is in JSON format:
 
 ```json
 {
@@ -82,6 +85,9 @@ In the output for the deployment command, you'll see an object similar to:
     "file": "https://storeluktbfkpjjrkm.file.core.windows.net/"
 }
 ```
+
+> [!NOTE]
+> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
 
 ## Review your work
 

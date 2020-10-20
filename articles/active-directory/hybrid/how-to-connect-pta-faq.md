@@ -11,8 +11,8 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/15/2019
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -24,22 +24,18 @@ This article addresses frequently asked questions about Azure Active Directory (
 
 ## Which of the methods to sign in to Azure AD, Pass-through Authentication, password hash synchronization, and Active Directory Federation Services (AD FS), should I choose?
 
-Review [this guide](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) for a comparison of the various Azure AD sign-in methods and how to choose the right sign-in method for your organization.
+Review [this guide](./choose-ad-authn.md) for a comparison of the various Azure AD sign-in methods and how to choose the right sign-in method for your organization.
 
 ## Is Pass-through Authentication a free feature?
 
 Pass-through Authentication is a free feature. You don't need any paid editions of Azure AD to use it.
 
-## Is Pass-through Authentication available in the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
-
-No. Pass-through Authentication is only available in the worldwide instance of Azure AD.
-
-## Does [Conditional Access](../active-directory-conditional-access-azure-portal.md) work with Pass-through Authentication?
+## Does [Conditional Access](../conditional-access/overview.md) work with Pass-through Authentication?
 
 Yes. All Conditional Access capabilities, including Azure Multi-Factor Authentication, work with Pass-through Authentication.
 
 ## Does Pass-through Authentication support "Alternate ID" as the username, instead of "userPrincipalName"?
-To a limited extent, Pass-through Authentication supports Alternate ID as the username when configured in Azure AD Connect. As a pre-requisite, Azure AD Connect needs to synchronize the on-premises Active Directory `UserPrincipalName` attribute to Azure AD. This makes the  `UserPrincipalName` on the on-premises AD and Azure AD become identical. If you would like to use another attribute to synchronize from on-premises AD as the UPN to Azure AD, you will have to use either Password Hash sync or AD FS. For more information, see [Custom installation of Azure AD Connect](how-to-connect-install-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation support statement.
+Yes, sign-in using a non-UPN value, such as an alternate email, is supported for both pass-through authentication (PTA) and password hash sync (PHS). For more information about [Alternate Login ID](../authentication/howto-authentication-use-email-signin.md).
 
 ## Does password hash synchronization act as a fallback to Pass-through Authentication?
 
@@ -70,7 +66,7 @@ If you have not configured password writeback for a specific user or if the user
 ## What do Pass-through Authentication Agents communicate over ports 80 and 443?
 
 - The Authentication Agents make HTTPS requests over port 443 for all feature operations.
-- The Authentication Agents make HTTP requests over port 80 to download the SSL certificate revocation lists (CRLs).
+- The Authentication Agents make HTTP requests over port 80 to download the TLS/SSL certificate revocation lists (CRLs).
 
      >[!NOTE]
      >Recent updates reduced the number of ports that the feature requires. If you have older versions of Azure AD Connect or the Authentication Agent, keep these ports open as well: 5671, 8080, 9090, 9091, 9350, 9352, and 10100-10120.
@@ -102,13 +98,13 @@ No, you can only install one Pass-through Authentication Agent on a single serve
 
 ## Do I have to manually renew certificates used by Pass-through Authentication Agents?
 
-The communication between each Pass-through Authentication Agent and Azure AD is secured using certificate-based authentication. These [certificates are automatically renewed every few months by Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents). There is no need to manually renew these certificates. You can clean up older expired certificates as required.
+The communication between each Pass-through Authentication Agent and Azure AD is secured using certificate-based authentication. These [certificates are automatically renewed every few months by Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of-the-authentication-agents). There is no need to manually renew these certificates. You can clean up older expired certificates as required.
 
 ## How do I remove a Pass-through Authentication Agent?
 
 As long as a Pass-through Authentication Agent is running, it remains active and continually handles user sign-in requests. If you want to uninstall an Authentication Agent, go to **Control Panel -> Programs -> Programs and Features** and uninstall both the **Microsoft Azure AD Connect Authentication Agent** and the **Microsoft Azure AD Connect Agent Updater** programs.
 
-If you check the Pass-through Authentication blade on the [Azure Active Directory admin center](https://aad.portal.azure.com) after completing the preceding step, you'll see the Authentication Agent showing as **Inactive**. This is _expected_. The Authentication Agent is automatically dropped from the list after a few days.
+If you check the Pass-through Authentication blade on the [Azure Active Directory admin center](https://aad.portal.azure.com) after completing the preceding step, you'll see the Authentication Agent showing as **Inactive**. This is _expected_. The Authentication Agent is automatically dropped from the list after 10 days.
 
 ## I already use AD FS to sign in to Azure AD. How do I switch it to Pass-through Authentication?
 
@@ -116,7 +112,7 @@ If you are migrating from AD FS (or other federation technologies) to Pass-throu
 
 ## Can I use Pass-through Authentication in a multi-forest Active Directory environment?
 
-Yes. Multi-forest environments are supported if there are forest trusts between your Active Directory forests and if name suffix routing is correctly configured.
+Yes. Multi-forest environments are supported if there are forest trusts (two-way) between your Active Directory forests and if name suffix routing is correctly configured.
 
 ## Does Pass-through Authentication provide load balancing across multiple Authentication Agents?
 
@@ -143,7 +139,7 @@ No, this scenario is _not_ supported.
 
 ## Why do I need a cloud-only Global Administrator account to enable Pass-through Authentication?
 
-It is recommended that you enable or disable Pass-through Authentication using a cloud-only Global Administrator account. Learn about [adding a cloud-only Global Administrator account](../active-directory-users-create-azure-portal.md). Doing it this way ensures that you don't get locked out of your tenant.
+It is recommended that you enable or disable Pass-through Authentication using a cloud-only Global Administrator account. Learn about [adding a cloud-only Global Administrator account](../fundamentals/add-users-azure-active-directory.md). Doing it this way ensures that you don't get locked out of your tenant.
 
 ## How can I disable Pass-through Authentication?
 
@@ -163,7 +159,7 @@ A: Under the following circumstances your on-premises UPN changes may not synchr
 
 This is because the default behavior of tenants created prior to June 15th 2015 was to block UPN changes.  If you need to un-block UPN changes you need to run the following PowerShell cmdlt:  
 
-`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $True`
 
 Tenants created after June 15th 2015 have the default behavior of synchronizing UPN changes.   
 
@@ -179,4 +175,3 @@ Tenants created after June 15th 2015 have the default behavior of synchronizing 
 - [Security deep dive](how-to-connect-pta-security-deep-dive.md): Get deep technical information on the Pass-through Authentication feature.
 - [Azure AD Seamless SSO](how-to-connect-sso.md): Learn more about this complementary feature.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Use the Azure Active Directory Forum to file new feature requests.
-

@@ -1,20 +1,8 @@
 ---
-title: Azure Service Bus message expiration | Microsoft Docs
-description: Expiration and time to live of Azure Service Bus messages
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Service Bus - message expiration
+description: This article explains about expiration and time to live of Azure Service Bus messages. After such a deadline, the message is no longer delivered.
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-
+ms.date: 09/29/2020
 ---
 
 # Message expiration (Time to Live)
@@ -34,9 +22,9 @@ While the message is under lock, the application might be in possession of a mes
 All messages sent into a queue or topic are subject to a default expiration that is set at the entity level with the [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues) property and which can also be set in the portal during creation and adjusted later. The default expiration is used for all messages sent to the entity where [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) is not explicitly set. The default expiration also functions as a ceiling for the **TimeToLive** value. Messages that have a longer **TimeToLive** expiration than the default value are silently adjusted to the **defaultMessageTimeToLive** value before being enqueued.
 
 > [!NOTE]
-> The default [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) value for a brokered message is [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) if not otherwise specified.
+> The default [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) value for a brokered message is [TimeSpan.Max](/dotnet/api/system.timespan.maxvalue) if not otherwise specified.
 >
-> For messaging entities (queues and topics), the default expiration time is also [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) for Service Bus standard and premium tiers.  For the basic tier, the default expiration time is 14 days.
+> For messaging entities (queues and topics), the default expiration time is also [TimeSpan.Max](/dotnet/api/system.timespan.maxvalue) for Service Bus standard and premium tiers. For the **basic** tier, the default (also maximum) expiration time is **14 days**.
 
 Expired messages can optionally be moved to a [dead-letter queue](service-bus-dead-letter-queues.md) by setting the [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) property, or checking the respective box in the portal. If the option is left disabled, expired messages are dropped. Expired messages moved to the dead-letter queue can be distinguished from other dead-lettered messages by evaluating the [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) property that the broker stores in the user properties section; the value is [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) in this case.
 

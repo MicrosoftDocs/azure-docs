@@ -1,23 +1,19 @@
 ---
 title: Pattern syntax reference - LUIS
-titleSuffix: Azure Cognitive Services
 description: Create entities to extract key data from user utterances in Language Understanding (LUIS) apps. Extracted data is used by the client application.
-services: cognitive-services
-author: diberry
-manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/09/2019
-ms.author: diberry
+ms.date: 04/14/2020
+
 ---
 
 # Pattern syntax
 
-Pattern syntax is a template for an utterance. The template should contain words and entities you want to match as well as words and punctuation you want to ignore. It is **not** a regular expression.
+Pattern syntax is a template for an utterance. The template should contain words and entities you want to match as well as words and [punctuation](luis-reference-application-settings.md#punctuation-normalization) you want to ignore. It is **not** a regular expression.
 
 > [!CAUTION]
-> Patterns only include machine-learned entity parents, not subcomponents.
+> Patterns only include machine-learning entity parents, not subentities.
 
 Entities in patterns are surrounded by curly brackets, `{}`. Patterns can include entities, and entities with roles. [Pattern.any](luis-concept-entity-types.md#patternany-entity) is an entity only used in patterns.
 
@@ -137,7 +133,7 @@ Punctuation marks (`?`, `!`, `.`) should be ignored and you need to ignore them 
 Learn more about patterns:
 
 * [How to add patterns](luis-how-to-model-intent-pattern.md)
-* [How to add pattern.any entity](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [How to add pattern.any entity](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [Patterns Concepts](luis-concept-patterns.md)
 
 Understand how [sentiment](luis-reference-prebuilt-sentiment.md) is returned in the .json response.

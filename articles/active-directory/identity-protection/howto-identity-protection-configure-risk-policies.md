@@ -5,8 +5,8 @@ description: Enable and configure risk policies in Azure Active Directory Identi
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -44,13 +44,15 @@ Choosing a **High** threshold reduces the number of times a policy is triggered 
 
 All of the policies allow for excluding users such as your [emergency access or break-glass administrator accounts](../users-groups-roles/directory-emergency-access.md). Organizations may determine they need to exclude other accounts from specific policies based on the way the accounts are used. All exclusions should be reviewed regularly to see if they are still applicable.
 
+Configured trusted [network locations](../conditional-access/location-condition.md) are used by Identity Protection in some risk detections to reduce false positives.
+
 ## Enable policies
 
 To enable the user risk and sign-in risk policies complete the following steps.
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
-1. Select **Configure user risk policy**.
+1. Select **User risk policy**.
    1. Under **Assignments**
       1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
          1. Optionally you can choose to exclude users from the policy.
@@ -59,7 +61,7 @@ To enable the user risk and sign-in risk policies complete the following steps.
       1. **Access** - Microsoft's recommendation is to **Allow access** and **Require password change**.
    1. **Enforce Policy** - **On**
    1. **Save** - This action will return you to the **Overview** page.
-1. Select **Configure sign-in risk policy**.
+1. Select **Sign-in risk policy**.
    1. Under **Assignments**
       1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
          1. Optionally you can choose to exclude users from the policy.

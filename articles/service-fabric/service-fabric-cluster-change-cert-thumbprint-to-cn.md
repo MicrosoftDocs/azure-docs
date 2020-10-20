@@ -1,5 +1,5 @@
 ---
-title: Update an Azure Service Fabric cluster to use certificate common name 
+title: Update a cluster to use certificate common name 
 description: Learn how to switch a Service Fabric cluster from using certificate thumbprints to using certificate common name.
 
 ms.topic: conceptual
@@ -15,12 +15,12 @@ No two certificates can have the same thumbprint, which makes cluster certificat
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Get a certificate
-First, get a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority).  The common name of the certificate should be the host name of the cluster.  For example, "myclustername.southcentralus.cloudapp.azure.com".  
+First, get a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority).  The common name of the certificate should be for the custom domain you own, and bought from a domain registrar. For example, "azureservicefabricbestpractices.com"; those whom are not Microsoft employees can not provision certs for MS domains, so you can not use the DNS names of your LB or Traffic Manager as common names for your certificate, and you will need to provision a [Azure DNS Zone](../dns/dns-delegate-domain-azure-dns.md) if your custom domain to be resolvable in Azure. You will also want to declare your custom domain you own as your cluster's "managementEndpoint" if you want portal to reflect the custom domain alias for your cluster.
 
 For testing purposes, you could get a CA signed certificate from a free or open certificate authority.
 
 > [!NOTE]
-> Self-signed certificates, including those generated when deploying a Service Fabric cluster in the Azure portal, are not supported.
+> Self-signed certificates, including those generated when deploying a Service Fabric cluster in the Azure portal, are not supported. 
 
 ## Upload the certificate and install it in the scale set
 In Azure, a Service Fabric cluster is deployed on a virtual machine scale set.  Upload the certificate to a key vault and then install it on the virtual machine scale set that the cluster is running on.
@@ -174,7 +174,7 @@ Next, open the template file in a text editor and make three updates to support 
         ...
     ```
 
-For additional information see [Deploy a Service Fabric cluster that uses certificate common name instead of thumbprint.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
+For additional information see [Deploy a Service Fabric cluster that uses certificate common name instead of thumbprint.](./service-fabric-create-cluster-using-cert-cn.md)
 
 ## Deploy the updated template
 Redeploy the updated template after making the changes.

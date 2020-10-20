@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Sprinklr | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Sprinklr.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: b33938a1-25a5-484c-8e75-7dc6de2d534d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Sprinklr
 
@@ -138,11 +132,11 @@ To configure Azure AD single sign-on with Sprinklr, perform the following steps:
 
 1. Click **+Add Single Sign Ons**.
 
-    ![Single Sign-Ons](./media/sprinklr-tutorial/ic782909.png "Single Sign-Ons")
+    ![Screenshot shows the Add Single Sign Ons button.](./media/sprinklr-tutorial/ic782909.png "Single Sign-Ons")
 
 1. On the **Single Sign on** page, perform the following steps:
 
-    ![Single Sign-Ons](./media/sprinklr-tutorial/ic782910.png "Single Sign-Ons")
+    ![Screenshot shows the Single Sign on page where you can enter the values described.](./media/sprinklr-tutorial/ic782910.png "Single Sign-Ons")
 
     a. In the **Name** textbox, type a name for your configuration (for example: *WAADSSOTest*).
 
@@ -227,11 +221,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. Go to **Manage Client \> Users** from the left pane.
 
-    ![Settings](./media/sprinklr-tutorial/ic782914.png "Settings")
+    ![Screenshot shows the Add User button in Settings/Users.](./media/sprinklr-tutorial/ic782914.png "Settings")
 
 1. Click **Add User**.
 
-    ![Settings](./media/sprinklr-tutorial/ic782915.png "Settings")
+    ![Screenshot shows the Edit user dialog box where you can enter the values described.](./media/sprinklr-tutorial/ic782915.png "Settings")
 
 1. On the **Edit user** dialog, perform the following steps:
 

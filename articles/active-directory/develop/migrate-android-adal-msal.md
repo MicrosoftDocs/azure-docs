@@ -1,8 +1,9 @@
 ---
 title: ADAL to MSAL migration guide for Android | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to migrate your Azure Active Directory Authentication Library (ADAL) Android app to the Microsoft Authentication Library (MSAL).
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,12 +11,11 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
-ms.date: 09/6/2019
-ms.author: twhitney
+ms.date: 10/14/2020
+ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-#Customer intent: As an Android application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
-ms.collection: M365-identity-device-management
+# Customer intent: As an Android application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
 ---
 
 # ADAL to MSAL migration guide for Android
@@ -29,7 +29,7 @@ ADAL works with the Azure Active Directory v1.0 endpoint. The Microsoft Authenti
 Supports:
   - Organizational Identity (Azure Active Directory)
   - Non-organizational identities such as Outlook.com, Xbox Live, and so on
-  - (B2C Only) Federated login with Google, Facebook, Twitter, and Amazon
+  - (Azure AD B2C only) Federated login with Google, Facebook, Twitter, and Amazon
 
 - Is standards compatible with:
   - OAuth v2.0
@@ -65,7 +65,7 @@ In your app registration in the portal, you will see an **API permissions** tab.
 
 ### User consent
 
-With ADAL and the AAD v1 endpoint, user consent to resources they own was granted on first use. With MSAL and the Microsoft identity platform, consent can be requested incrementally. Incremental consent is useful for permissions that a user may consider high privilege, or may otherwise question if not provided with a clear explanation of why the permission is required. In ADAL, those permissions may have resulted in the user abandoning signing in to your app.
+With ADAL and the Azure AD v1 endpoint, user consent to resources they own was granted on first use. With MSAL and the Microsoft identity platform, consent can be requested incrementally. Incremental consent is useful for permissions that a user may consider high privilege, or may otherwise question if not provided with a clear explanation of why the permission is required. In ADAL, those permissions may have resulted in the user abandoning signing in to your app.
 
 > [!TIP]
 > We recommend the use of incremental consent in scenarios where you need to provide additional context to your user about why your app needs a permission.
@@ -227,8 +227,6 @@ public interface SilentAuthenticationCallback {
      */
     void onError(final MsalException exception);
 }
-
-
 ```
 
 ## Migrate to the new exceptions
@@ -236,21 +234,29 @@ public interface SilentAuthenticationCallback {
 In ADAL, there's one type of exception, `AuthenticationException`, which includes a method for retrieving the `ADALError` enum value.
 In MSAL, there's a hierarchy of exceptions, and each has its own set of associated specific error codes.
 
-List of MSAL Exceptions
+| Exception                                        | Description                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| `MsalArgumentException`                          | Thrown if one or more inputs arguments are invalid.                 |
+| `MsalClientException`                            | Thrown if the error is client side.                                 |
+| `MsalDeclinedScopeException`                     | Thrown if one or more requested scopes were declined by the server. |
+| `MsalException`                                  | Default checked exception thrown by MSAL.                           |
+| `MsalIntuneAppProtectionPolicyRequiredException` | Thrown if the resource has MAMCA protection policy enabled.         |
+| `MsalServiceException`                           | Thrown if the error is server side.                                 |
+| `MsalUiRequiredException`                        | Thrown if the token can't be refreshed silently.                    |
+| `MsalUserCancelException`                        | Thrown if the user canceled the authentication flow.                |
 
-|Exception  | Description  |
-|---------|---------|
-| `MsalException`     | Default checked exception thrown by MSAL.  |
-| `MsalClientException`     | Thrown if the error is client side. |
-| `MsalArgumentException`     | Thrown if one or more inputs arguments are invalid. |
-| `MsalClientException`     | Thrown if the error is client side. |
-| `MsalServiceException`     | Thrown if the error is server side. |
-| `MsalUserCancelException`     | Thrown if the user canceled the authentication flow.  |
-| `MsalUiRequiredException`     | Thrown if the token can't be refreshed silently.  |
-| `MsalDeclinedScopeException`     | Thrown if one or more requested scopes were declined by the server.  |
-| `MsalIntuneAppProtectionPolicyRequiredException` | Thrown if the resource has MAMCA protection policy enabled. |
+### ADALError to MsalException translation
 
-### ADALError to MsalException ErrorCode
+| If you're catching these errors in ADAL...  | ...catch these MSAL exceptions:                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| *No equivalent ADALError* | `MsalArgumentException`                          |
+| <ul><li>`ADALError.ANDROIDKEYSTORE_FAILED`<li>`ADALError.AUTH_FAILED_USER_MISMATCH`<li>`ADALError.DECRYPTION_FAILED`<li>`ADALError.DEVELOPER_AUTHORITY_CAN_NOT_BE_VALIDED`<li>`ADALError.EVELOPER_AUTHORITY_IS_NOT_VALID_INSTANCE`<li>`ADALError.DEVELOPER_AUTHORITY_IS_NOT_VALID_URL`<li>`ADALError.DEVICE_CONNECTION_IS_NOT_AVAILABLE`<li>`ADALError.DEVICE_NO_SUCH_ALGORITHM`<li>`ADALError.ENCODING_IS_NOT_SUPPORTED`<li>`ADALError.ENCRYPTION_ERROR`<li>`ADALError.IO_EXCEPTION`<li>`ADALError.JSON_PARSE_ERROR`<li>`ADALError.NO_NETWORK_CONNECTION_POWER_OPTIMIZATION`<li>`ADALError.SOCKET_TIMEOUT_EXCEPTION`</ul> | `MsalClientException`                            |
+| *No equivalent ADALError* | `MsalDeclinedScopeException`                     |
+| <ul><li>`ADALError.APP_PACKAGE_NAME_NOT_FOUND`<li>`ADALError.BROKER_APP_VERIFICATION_FAILED`<li>`ADALError.PACKAGE_NAME_NOT_FOUND`</ul> | `MsalException`                                  |
+| *No equivalent ADALError* | `MsalIntuneAppProtectionPolicyRequiredException` |
+| <ul><li>`ADALError.SERVER_ERROR`<li>`ADALError.SERVER_INVALID_REQUEST`</ul> | `MsalServiceException`                           |
+| <ul><li>`ADALError.AUTH_REFRESH_FAILED_PROMPT_NOT_ALLOWED` | `MsalUiRequiredException`</ul>                        |
+| *No equivalent ADALError* | `MsalUserCancelException`                        |
 
 ### ADAL Logging to MSAL Logging
 

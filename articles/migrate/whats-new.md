@@ -1,19 +1,59 @@
 ---
 title: What's new in Azure Migrate 
 description: Learn about what's new and recent updates in the Azure Migrate service.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/30/2019
-ms.author: raynew
+ms.date: 04/19/2020
 ms.custom: mvc
 ---
 
 # What's new in Azure Migrate
 
-[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new features in Azure Migrate.
+[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
+
+## Update (September 2020)
+- Migration of servers to Availability Zones is now supported.
+- Migration of UEFI-based VMs and physical servers to Azure generation 2 VMs is now supported. With this release, Azure Migrate: Server Migration tool will not perform the conversion from Gen 2 VM to Gen 1 VM during migration.
+- A new Azure Migrate Power BI assessment dashboard is available to help you compare costs across different assessment settings. The dashboard comes with a PowerShell utility that automatically creates the assessments that plug into the Power BI dashboard. [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
+- Dependency analysis (agentless) can now be run concurrently on a 1000 VMs.
+- Dependency analysis (agentless) can now be enabled or disabled at scale using PowerShell scripts. [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+- Visualize network connections in Power BI using the data collected using dependency analysis (agentless) [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+
+## Update (August 2020)
+
+- Improved onboarding experience where an Azure Migrate project key is generated from the portal and is used to complete the appliance registration.
+- Option to download either OVA/VHD files or the installer scripts from the portal to set up the VMware and Hyper-V appliances respectively.
+- Refreshed appliance configuration manager with enhanced user experience.
+- Multiple credentials support for Hyper-V VMs discovery.
+
+## Update (July 2020)
+
+- Agentless VMware migration now supports concurrent replication of 300 VMs per vCenter
+
+## Update (June 2020)
+
+- Assessments for migrating on-premises VMware VMs to [Azure VMware Solution (AVS)](https://go.microsoft.com/fwlink/?linkid=2132637) is now supported. [Learn more](how-to-create-azure-vmware-solution-assessment.md)
+- Support for multiple credentials on appliance for physical server discovery.
+- Support to allow Azure login from appliance for tenant where tenant restriction has been configured.
 
 
+## Update (April 2020)
+
+Azure Migrate supports deployments in Azure Government. 
+
+- You can discover and assess VMware VMs, Hyper-V VMs, and physical servers.
+- You can migrate VMware VMs, Hyper-V VMs, and physical servers to Azure.
+- For VMware migration, you can use agentless or agent-based migration. [Learn more](server-migrate-overview.md).
+- [Review](migrate-support-matrix.md#supported-geographies-azure-government) supported geographies and regions for Azure Government.
+- [Agent-based dependency analysis](concepts-dependency-visualization.md#agent-based-analysis) isn't supported in Azure Government.
+- Features in preview are supported in Azure Government, specifically [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), and [application discovery](how-to-discover-applications.md).
+
+
+## Update (March 2020)
+
+A script-based installation is now available to set up the [Azure Migrate appliance](migrate-appliance.md):
+
+- The script-based installation is an alternative to the .OVA (VMware)/VHD (Hyper-V) installation of the appliance.
+- It provides a PowerShell installer script that can be used to set up the appliance for VMware/Hyper-V on an existing machine running Windows Server 2016.
 
 ## Update (November 2019)
 
@@ -33,18 +73,9 @@ New assessment and migration tools were added to Azure Migrate:
 
 [Learn more](migrate-services-overview.md) about using tools and ISV offerings for assessment and migration in Azure Migrate.
 
-## Release version (July 2019)
+## Azure Migrate current version
 
-The current version of Azure Migrate was released in July 2019.
-
-- **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations.
-- **Previous version**: For customer using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can no longer create new Azure Migrate projects, or perform new discoveries. You can still access existing projects. To do this in the Azure portal > **All services**, search for **Azure Migrate**. In the Azure Migrate notifications, there's a link to access old Azure Migrate projects.
-
-
-### Azure Migrate features
-
-The current version of Azure Migrate provides a number of new features:
-
+The current version of Azure Migrate (released in July 2019) provides a number of new features:
 
 - **Unified migration platform**: Azure Migrate now provides a single portal to centralize, manage, and track your migration journey to Azure, with an improved deployment flow and portal experience.
 - **Assessment and migration tools**: Azure Migrate provides native tools, and integrates with other Azure services, as well as with independent software vendor (ISV) tools. [Learn more](migrate-services-overview.md#isv-integration) about ISV integration.
@@ -57,6 +88,11 @@ The current version of Azure Migrate provides a number of new features:
  - **Database assessment and migration**: From Azure Migrate, you can assess on-premises databases for migration to Azure using the Azure Database Migration Assistant. You can migrate databases using the Azure Database Migration Service.
 - **Web app migration**: You can assess web apps using a public endpoint URL with the Azure App Service. For migration of internal .NET apps, you can download and run the App Service Migration Assistant.
 - **Data Box**: Import large amounts offline data into Azure using Azure Data Box in Azure Migrate.
+
+## Azure Migrate previous version
+
+If you're using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can no longer create new Azure Migrate projects, or perform new discoveries. You can still access existing projects. To do this in the Azure portal > **All services**, search for **Azure Migrate**. In the Azure Migrate notifications, there's a link to access old Azure Migrate projects.
+
 
 
 ## Next steps

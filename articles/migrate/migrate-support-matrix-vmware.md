@@ -1,386 +1,115 @@
 ---
-title: Support for VMware assessment and migration in Azure Migrate
-description: Learn about support for VMware VM assessment/migration in Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: VMware assessment support in Azure Migrate
+description: Learn about support for VMware VM assessment with Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.author: raynew
+ms.date: 06/08/2020
 ---
 
-# Support matrix for VMware assessment and migration
+# Support matrix for VMware assessment 
 
-You can use [Azure Migrate](migrate-overview.md) to assess and migrate machines to the Microsoft Azure cloud. This article summarizes support settings and limitations for assessing and migrating on-premises VMware VMs.
+This article summarizes prerequisites and support requirements when you discover and assess VMware VMs for migration to Azure, using the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. To assess VMware VMs, you create an Azure Migrate project, and add the Server Assessment tool to the project. After the tool is added, you deploy the Azure Migrate appliance. The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. After discovery is complete, you gather discovered machines into groups, and run an assessment for a group. 
 
-
-## VMware scenarios
-
-The table summarizes supported scenarios for VMware VMs.
-
-**Deployment** | **Details**
---- | ---
-**Assess on-premises VMware VMs** | [Set up](tutorial-prepare-vmware.md) your first assessment.<br/><br/> [Run](scale-vmware-assessment.md) a large-scale assessment.
-**Migrate VMware VMs** | You can migrate using agentless migration, or use an agent-based migration. [Learn more](server-migrate-overview.md)
+If you want to migrate VMware VMs to Azure, review the [migration support matrix](migrate-support-matrix-vmware-migration.md).
 
 
-## Azure Migrate projects
+
+## Limitations
 
 **Support** | **Details**
 --- | ---
-**Azure permissions** | You need Contributor or Owner permissions in the subscription to create an Azure Migrate project.
-**VMware limitations**  | Assess up to 35,000 VMware VMs in a single project. You can create multiple projects in an Azure subscription. A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
-**Geography** | [Review](migrate-support-matrix.md#supported-geographies) supported geographies.
+**Project limits** | You can create multiple projects in an Azure subscription.<br/><br/> You can discover and assess up to 35,000 VMware VMs in a single [project](migrate-support-matrix.md#azure-migrate-projects). A project can also include physical servers, and Hyper-V VMs, up to the assessment limits for each.
+**Discovery** | The Azure Migrate appliance can discover up to 10,000 VMware VMs on a vCenter Server.
+**Assessment** | You can add up to 35,000 machines in a single group.<br/><br/> You can assess up to 35,000 VMs in a single assessment.
 
-**Geography** | **Metadata storage location**
+[Learn more](concepts-assessment-calculation.md) about assessments.
+
+
+## VMware requirements
+
+**VMware** | **Details**
 --- | ---
-Azure Government | US Gov Virginia
-Asia Pacific | East Asia or Southeast Asia
-Australia | Australia East or Australia Southeast
-Brazil | Brazil South
-Canada | Canada Central or Canada East
-Europe | North Europe or West Europe
-France | France Central
-India | Central India or South India
-Japan |  Japan East or Japan West
-Korea | Korea Central or Korea South
-United Kingdom | UK South or UK West
-United States | Central US or West US 2
+**vCenter Server** | Machines you want to discover and assess must be managed by vCenter Server version 5.5, 6.0, 6.5, 6.7 or 7.0.<br/><br/> The discovery of VMware VMs by providing ESXi host details in the appliance is currently not supported.
+**Permissions** | Server Assessment needs a vCenter Server read-only account for discovery and assessment.<br/><br/> If you want to do application discovery or dependency visualization, the account need privileges enable for **Virtual Machines** > **Guest Operations**.
 
-
- > [!NOTE]
- > Support for Azure Government is currently only available for the [older version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate.
-
-
-## Application discovery
-
-Azure Migrate: Server Assessment can discover apps, role, and features. Discovering your app inventory allows you to identify and plan a migration path tailored for your on-premises workloads. Azure Migrate: Server Assessment provides agentless discovery, using machine guest credentials, remotely accessing machines using WMI and SSH calls.
-
-**Support** | **Details**
+## VM requirements
+**VMware** | **Details**
 --- | ---
-Supported machines | On-premises VMware VMs
-Machine operating system | All Windows and Linux versions
-Credentials | Currently supports the use of one credential for all Windows servers, and one credential for all Linux servers. You create a guest user account for Windows VMs, and a regular/normal user account (non-sudo access) for all Linux VMs.
-Machine limits for app-discovery | 10000 per appliance. 35000 per project
-
-## Assessment-vCenter Server requirements
-
-This table summarizes assessment support and limitations for VMware virtualization servers.
-
-**Support** | **Details**
---- | ---
-**vCenter server** | VMware VMs you want to assess must be managed by one or more vCenter Servers running 5.5, 6.0, 6.5, or 6.7.
-
-## Assessment-vCenter Server permissions
-
-Azure Migrate needs to access the vCenter Server to discover VMs for assessment and agentless migration.
-
-- If you plan to discover applications or visualize dependency in an agentless manner, create a vCenter Server account with read-only access along with privileges enabled for **Virtual machines** > **Guest Operations**.
-
-  ![vCenter Server account privileges](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
-
-- If you are not planning to do application discovery and agentless dependency visualization, set up a read-only account for the vCenter Server.
-
-## Assessment-appliance requirements
-
-Azure Migrate runs a lightweight appliance to discover VMware VMs, and send VM metadata and performance data to Azure Migrate. Appliance for VMware is deployed using an OVA template imported into vCenter Server. The following table summarizes the appliance requirements.
-
-**Support** | **Details**
---- | ---
-**Appliance deployment** | You deploy the appliance as a VMware VM. You need enough resources on the vCenter Server to allocate a VM with 32 GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> The appliance requires internet access, either directly or through a proxy.<br/> The appliance VM must be deployed on an ESXi host running version 5.5 or later.
-**Azure Migrate project** | An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> You can assess up to 35,000 VMs in a project.
-**Discovery** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to a single vCenter Server.
-**Assessment group** | You can add up to 35,000 machines in a single group.
-**Assessment** | You can assess up to 35,000 VMs in a single assessment.
+**VMware VMs** | All operating systems can be assessed for migration. 
+**Storage** | Disks attached to SCSI, IDE and SATA based controllers are supported.
 
 
-## Assessment-URL access requirements
+## Azure Migrate appliance requirements
 
-The Azure Migrate appliance needs connectivity to the internet.
+Azure Migrate uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. You can deploy the appliance as a VMware VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
 
-- When you deploy the appliance, Azure Migrate does a connectivity check to the URLs summarized in the table below.
-- If you're using a URL-based proxy to connect to the internet, allow access to these URLs, making sure that the proxy resolves any CNAME records received while looking up the URLs.
+- Learn about [appliance requirements](migrate-appliance.md#appliance---vmware) for VMware.
+- In Azure Government, you must deploy the appliance [using the script](deploy-appliance-script-government.md).
+- Review the URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
-**URL** | **Details**  
---- | --- |
-*.portal.azure.com  | Navigate to the Azure Migrate in the Azure portal.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Log into your Azure subscription.
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
-management.azure.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
-dc.services.visualstudio.com | Upload app logs used for internal monitoring.
-*.vault.azure.net | Manage secrets in the Azure Key Vault.
-*.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
-*.blob.core.windows.net | Upload data to storage accounts.
-https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Used for Azure Migrate appliance updates.
 
-## Assessment-port requirements
+## Port access requirements
 
 **Device** | **Connection**
 --- | ---
-Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443, 5671 and 5672 to send discovery and performance metadata to Azure Migrate.
-vCenter server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br/><br/> The appliance connects to vCenter on port 443 by default. If the vCenter server listens on a different port, you can modify the port when you set up discovery.
+**Appliance** | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443 (HTTPS), to send discovery and performance metadata to Azure Migrate.
+**vCenter server** | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br/><br/> The appliance connects to vCenter on port 443 by default. If the vCenter server listens on a different port, you can modify the port when you set up discovery.
+**ESXi hosts** | If you want to do [app discovery](how-to-discover-applications.md), or [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), then the appliance connects to ESXi hosts on TCP port 443, to discover applications, to and run agentless dependency visualization on VMs.
 
-## Assessment-dependency visualization
+## Application discovery requirements
 
-Dependency visualization helps you to visualize dependencies across machines that you want to assess and migrate. You typically use dependency mapping when you want to assess machines with higher levels of confidence. For VMware VMs, dependency visualization is supported as follows:
-
-- **Agentless dependency visualization**: This option is currently in preview. It doesn't require you to install any agents on machines.
-    - It works by capturing the TCP connection data from machines for which it's enabled. After dependency discovery is started, the appliance gathers data from machines at a polling interval of five minutes.
-    - The following data is collected:
-        - TCP connections
-        - Names of processes that have active connections
-        - Names of installed applications that run the above processes
-        - No. of connections detected at every polling interval
-- **Agent-based dependency visualization**: To use agent-based dependency visualization, you need to download and install the following agents on each on-premises machine that you want to analyze.
-    - Microsoft Monitoring agent (MMA) needs to be installed on each machine. [Learn more](how-to-create-group-machine-dependencies.md#install-the-mma) about how to install the MMA agent.
-    - The Dependency agent needs to be installed on each machine. [Learn more](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) about how to install the dependency agent.
-    - In addition, if you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
-
-## Migration - limitations
-You can select up to 10 VMs at once for replication. If you want to migrate more machines, then replicate in groups of 10. For VMware agentless migration, you can run up to 100 replications simultaneously.
-
-## Agentless migration-VMware server requirements
-
-This table summarizes assessment support and limitations for VMware virtualization servers.
+In addition to discovering machines, Server Assessment can discover apps, roles, and features running on machines. Discovering your app inventory allows you to identify and plan a migration path tailored for your on-premises workloads. 
 
 **Support** | **Details**
 --- | ---
-vCenter Server | Version 5.5, 6.0, 6.5, or 6.7.
-VMware vSphere | Version 5.5, 6.0, 6.5, or 6.7,
-
-## Agentless migration-vCenter Server permissions
-
-**Permissions** | **Details**
---- | ---
-Datastore.Browse | Allow browsing of VM log files to troubleshoot snapshot creation and deletion.
-Datastore.LowLevelFileOperations | Allow read/write/delete/rename operations in the datastore browser, to troubleshoot snapshot creation and deletion.
-VirtualMachine.Configuration.DiskChangeTracking | Allow enable or disable change tracking of VM disks, to pull changed blocks of data between snapshots
-VirtualMachine.Configuration.DiskLease | Allow disk lease operations for a VM, to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK).
-VirtualMachine.Provisioning.AllowReadOnlyDiskAccess | Allow opening a disk on a VM, to read the disk using the VDDK.
-VirtualMachine.Provisioning.AllowVirtualMachineDownload  | Allows read operations on files associated with a VM, to download the logs and troubleshoot if failure occurs.
-VirtualMachine.SnapshotManagement.* | Allow creation and management of VM snapshots for replication.
-Virtual Machine.Interaction.Power Off | Allow the VM to be powered off during migration to Azure.
+**Supported machines** | App discovery is currently supported for VMware VMs only.
+**Discovery** | App discovery is agentless. It uses machine guest credentials, and remotely accesses machines using WMI and SSH calls.
+**VM support** | App-discovery is supported for VMs running all  Windows and Linux versions.
+**vCenter** | The vCenter Server read-only account used for assessment, needs privileges enabled for **Virtual Machines** > **Guest Operations**, in order to interact with the VM for application discovery.
+**VM access** | App discovery needs a local user account on the VM for application discovery.<br/><br/> Azure Migrate currently supports the use of one credential for all Windows servers, and one credential for all Linux servers.<br/><br/> You create a guest user account for Windows VMs, and a regular/normal user account (non-sudo access) for all Linux VMs.
+**VMware tools** | VMware tools must be installed and running on VMs you want to discover. <br/><br/> The VMware tools version must be later than 10.2.0.
+**PowerShell** | VMs must have PowerShell version 2.0 or later installed.
+**Port access** | On ESXi hosts running VMs you want to discover, the Azure Migrate appliance must be able to connect to TCP port 443.
+**Limits** | For app-discovery, you can discover up to 10000 VMs on each Azure Migrate appliance.
 
 
-## Agentless migration-VMware VM requirements
+## Dependency analysis requirements (agentless)
 
-**Support** | **Details**
---- | ---
-**Supported operating systems** | [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems that are supported by Azure can be migrated using agentless migration.
-**Required changes for Azure** | Some VMs might require changes so that they can run in Azure. Azure Migrate makes these changes automatically for the following operating systems:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8<br/><br/> For other operating systems, you need to make adjustments manually before migration. The relevant articles contain instructions about how to do this.
-**Linux boot** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the ‘/’ partition should be on the OS disk, and not span other disks.
-**UEFI boot** | VMs with UEFI boot aren't supported for migration.
-**Disk size** | 2 TB OS disk; 4 TB for data disks.
-**Disk limits** |  Up to 60 disks per VM.
-**Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
-**Shared disk cluster** | Not supported.
-**Independent disks** | Not supported.
-**RDM/passthrough disks** | If VMs have RDM or passthrough disks, these disks won't be replicated to Azure.
-**NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
-**iSCSI targets** | VMs with iSCSI targets aren't supported for agentless migration.
-**Multipath IO** | Not supported.
-**Storage vMotion** | Not supported. Replication won't work if a VM uses storage vMotion.
-**Teamed NICs** | Not supported.
-**IPv6** | Not supported.
-**Target disk** | VMs can only be migrated to managed disks (standard HDD, premium SSD) in Azure.
-**Simultaneous replication** | 100 VMs per vCenter Server. If you have more, migrate them in batches of 100.
+[Dependency analysis](concepts-dependency-visualization.md) helps you to identify dependencies between on-premises machines that you want to assess and migrate to Azure. The table summarizes the requirements for setting up agentless dependency analysis.
+
+**Requirement** | **Details**
+--- | --- 
+**Before deployment** | You should have an Azure Migrate project in place, with the Server Assessment tool added to the project.<br/><br/>  You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises VMware machines.<br/><br/> [Learn how](create-manage-projects.md) to create a project for the first time.<br/> [Learn how](how-to-assess.md) to add an assessment tool to an existing project.<br/> [Learn how](how-to-set-up-appliance-vmware.md) to set up the Azure Migrate appliance for assessment of VMware VMs.
+**Supported machines** | Currently supported for VMware VMs only.
+**Windows VMs** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bit).<br/>Microsoft Windows Server 2008 (32-bit). Ensure PowerShell is installed.
+**vCenter Server credentials** | Dependency visualization needs a vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations.
+**Windows VM permissions** |  For dependency analysis, the Azure Migrate appliance needs a domain administrator account, or a local admin account, to access Windows VMs.
+**Linux VMs** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.<br/> SUSE Linux Enterprise Server 11 and newer
+**Linux account** | For dependency analysis, on Linux machines the Azure Migrate appliance needs a root user account<br/><br/> Alternately, the user account needs these permissions on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE. Set these capabilities using the following commands: <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat
+**Required agents** | No agent required on machines you want to analyze.
+**VMware Tools** | VMware Tools (later than 10.2) must be installed and running on each VM you want to analyze.
+**PowerShell** | Windows VMs must have PowerShell version 2.0 or above installed.
+**Port access** | On ESXi hosts running VMs you want to analyze, the Azure Migrate appliance must be able to connect to TCP port 443.
 
 
-## Agentless migration-appliance requirements
+## Dependency analysis requirements (agent-based)
 
+[Dependency analysis](concepts-dependency-visualization.md) helps you to identify dependencies between on-premises machines that you want to assess and migrate to Azure. The table summarizes the requirements for setting up agent-based dependency analysis. 
 
-**Support** | **Details**
---- | ---
-**ESXi** | The appliance VM must be deployed on an ESXi host running version 5.5 or later.
-**Azure Migrate project** | An appliance can be associated with a single project.
-**vCenter Server** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to one vCenter Server.
-**VDDK** | If you're running an agentless migration with Azure Migrate Server Migration, the VMware vSphere VDDK must be installed on the appliance VM.
-
-## Agentless migration-URL access requirements
-
-The Azure Migrate appliance needs internet connectivity to the internet.
-
-- When you deploy the appliance, Azure Migrate does a connectivity check to the URLs summarized in the table below.
-- If you're using a URL-based proxy, allow access to these URLs, making sure that the proxy resolves any CNAME records received while looking up the URLs.
-
-**URL** | **Details**  
---- | ---
-*.portal.azure.com | Navigate to the Azure Migrate in the Azure portal.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com  | Log into your Azure subscription.
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
-management.azure.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
-dc.services.visualstudio.com | Upload app logs used for internal monitoring.
-*.vault.azure.net | Manage secrets in the Azure Key Vault.
-*.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
-*.blob.core.windows.net | Upload data to storage accounts.
-https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Used for Azure Migrate appliance updates.
-
-
-## Agentless migration-port requirements
-
-**Device** | **Connection**
---- | ---
-Appliance | Outbound connections on port 443 to upload replicated data to Azure, and to communicate with Azure Migrate services orchestrating replication and migration.
-vCenter server | Inbound connections on port 443 to allow the appliance to orchestrate replication - create snapshots, copy data, release snapshots
-vSphere/EXSI host | Inbound on TCP port 902 for the appliance to replicate data from snapshots.
-
-
-## Agent-based migration-VMware server requirements
-
-This table summarizes assessment support and limitations for VMware virtualization servers.
-
-**Support** | **Details**
---- | ---
-vCenter Server | Version 5.5, 6.0, 6.5, or 6.7.
-VMware vSphere | Version 5.5, 6.0, 6.5 or 6.7.
-
-### Agent-based migration-vCenter Server permissions
-
-A read-only account for vCenter Server.
-
-## Agent-based migration-Replication appliance requirements
-
-The requirements for the [replication appliance](migrate-replication-appliance.md) used for agent-based migration of VMware VMs and physical servers with Azure Migrate Server Migration are summarized in the table.
-
-> [!NOTE]
-> When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2016 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
-
-
-
-**Component** | **Requirement**
---- | ---
- | **VMware settings** (VMware VM appliance)
-PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) should be installed if the replication appliance is running on a VMware VM.
-NIC type | VMXNET3 (if the appliance is a VMware VM)
- | **Hardware settings**
-CPU cores | 8
-RAM | 16 GB
-Number of disks | Three: The OS disk, process server cache disk, and retention drive.
-Free disk space (cache) | 600 GB
-Free disk space (retention disk) | 600 GB
-**Software settings** |
-Operating system | Windows Server 2016 or Windows Server 2012 R2
-Operating system locale | English (en-us)
-TLS | TLS 1.2 should be enabled.
-.NET Framework | .NET Framework 4.6 or later should be installed on the machine (with strong cryptography enabled.
-MySQL | MySQL should be installed on the appliance.<br/> MySQL should be installed. You can install manually, or Site Recovery can install it during appliance deployment.
-Other apps | Don't run other apps on the replication appliance.
-Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
-Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - No pre-existing default website <br> - No pre-existing website/application listening on port 443 <br>- Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting
-**Network settings** |
-IP address type | Static
-Ports | 443 (Control channel orchestration)<br>9443 (Data transport)
-NIC type | VMXNET3
-
-### Replication appliance URL access
-
-The replication appliance needs access to these URLs.
-
-**URL** | **Details**
---- | ---
-\*.backup.windowsazure.com | Used for replicated data transfer and coordination
-\*.store.core.windows.net | Used for replicated data transfer and coordination
-\*.blob.core.windows.net | Used to access storage account that stores replicated data
-\*.hypervrecoverymanager.windowsazure.com | Used for replication management operations and coordination
-https:\//management.azure.com | Used for replication management operations and coordination
-*.services.visualstudio.com | Used for telemetry purposes (It is optional)
-time.nist.gov | Used to check time synchronization between system and global time.
-time.windows.com | Used to check time synchronization between system and global time.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | OVF setup needs access to these URLs. They are used for access control and identity management by Azure Active Directory
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download
-
-
-#### MySQL installation options
-
-MySQL can be installed on the replication appliance using one of these methods.
-
-**Method** | **Details**
---- | ---
-Download and install manually | Download MySQL application & place it in the folder C:\Temp\ASRSetup, then install manually.<br/> When you set up the appliance MySQL will show as already installed.
-Without online download | Place the MySQL installer application in the folder C:\Temp\ASRSetup. When you install the appliance and click to download and install MySQL, setup will use the installer you added.
-Download and install in Azure Migrate | When you install the appliance and are prompted for MySQL, select **Download and install**.
-
-
-
-## Agent-based migration-VMware VM requirements
-
-**Support** | **Details**
---- | ---
-**Machine workload** | Azure Migrate supports migration of any workload (say Active Directory, SQL server, etc.) running on a supported machine.
-**Operating systems** | For the latest information, review the [operating system support](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for Site Recovery. Azure Migrate provides identical VM operating system support.
-**Linux file system/guest storage** | For the latest information, review the [Linux file system support](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) for Site Recovery. Azure Migrate has identical Linux file system support.
-**Network/Storage** | For the latest information, review the [network](../site-recovery/vmware-physical-azure-support-matrix.md#network) and [storage](../site-recovery/vmware-physical-azure-support-matrix.md#storage) prerequisites for Site Recovery. Azure Migrate provides identical network/storage requirements.
-**Azure requirements** | For the latest information, review the [Azure network](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage), and [compute](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) requirements for Site Recovery. Azure Migrate has identical requirements for VMware migration.
-**Mobility service** | The Mobility service agent must be installed on each VM you want to migrate.
-**UEFI boot** | The migrated VM in Azure will be automatically converted to a BIOS boot VM.<br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
-**Target disk** | VMs can only be migrated to managed disks (standard HDD, premium SSD) in Azure.
-**Disk size** | 2 TB OS disk; 8 TB for data disks.
-**Disk limits** |  Up to 63 disks per VM.
-**Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
-**Shared disk cluster** | Not supported.
-**Independent disks** | Supported.
-**Passthrough disks** | Supported.
-**NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
-**iSCSI targets** | VMs with iSCSI targets aren't supported for agentless migration.
-**Multipath IO** | Not supported.
-**Storage vMotion** | Supported
-**Teamed NICs** | Not supported.
-**IPv6** | Not supported.
-
-
-
-
-## Agent-based migration-URL access requirements
-
-The Mobility service running on VMware VMs needs internet connectivity.
-
-When you deploy the Mobility service, it does a connectivity check to the URLs summarized in the table below.
-
-
-**URL** | **Details**  
---- | ---
-*.portal.azure.com | Navigate to the Azure Migrate in the Azure portal.
-*.windows.net | Log into your Azure subscription.
-*.microsoftonline.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
-management.azure.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
-dc.services.visualstudio.com | Upload app logs used for internal monitoring.
-*.vault.azure.net | Manage secrets in the Azure Key Vault.
-*.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
-*.blob.core.windows.net | Upload data to storage accounts.
-
-## Agent-based migration-port requirements
-
-**Device** | **Connection**
---- | ---
-VMs | The Mobility service running on VMs communicates with the on-premises replication appliance (configuration server) on port HTTPS 443 inbound, for replication management.<br/><br/> VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
-Replication appliance | The replication appliance orchestrates replication with Azure over port HTTPS 443 outbound.
-Process server | The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.<br/> By default the process server runs on the replication appliance.
-
-## Azure VM requirements
-
-All on-premises VMs replicated to Azure must meet the Azure VM requirements summarized in this table. When Site Recovery runs a prerequisites check for replication, the check will fail if some of the requirements aren't met.
-
-**Component** | **Requirements** | **Details**
---- | --- | ---
-Guest operating system | Verify supported operating systems for [VMware VMs using agentless replication](#agentless-migration-vmware-vm-requirements), and for [VMware VMs using agent-based replication](#agent-based-migration-vmware-vm-requirements).<br/> You can migrate any workload running on a supported operating system. | Check fails if unsupported.
-Guest operating system architecture | 64-bit. | Check fails if unsupported.
-Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
-Operating system disk count | 1 | Check fails if unsupported.
-Data disk count | 64 or less. | Check fails if unsupported.
-Data disk size | Up to 4,095 GB | Check fails if unsupported.
-Network adapters | Multiple adapters are supported. |
-Shared VHD | Not supported. | Check fails if unsupported.
-FC disk | Not supported. | Check fails if unsupported.
-BitLocker | Not supported. | BitLocker must be disabled before you enable replication for a machine.
-VM name | From 1 to 63 characters.<br/> Restricted to letters, numbers, and hyphens.<br/><br/> The machine name must start and end with a letter or number. |  Update the value in the machine properties in Site Recovery.
-Connect after migration-Windows | To connect to Azure VMs running Windows after migration:<br/> - Before migration enables RDP on the on-premises VM. Make sure that TCP, and UDP rules are added for the **Public** profile, and that RDP is allowed in **Windows Firewall** > **Allowed Apps**, for all profiles.<br/> For site-to-site VPN access, enable RDP and allow RDP in **Windows Firewall** -> **Allowed apps and features** for **Domain and Private** networks. In addition, check that the operating system's SAN policy is set to **OnlineAll**. [Learn more](prepare-for-migration.md). |
-Connect after migration-Linux | To connect to Azure VMs after migration using SSH:<br/> Before migration, on the on-premises machine, check that the Secure Shell service is set to Start, and that firewall rules allow an SSH connection.<br/> After failover, on the Azure VM, allow incoming connections to the SSH port for the network security group rules on the failed over VM, and for the Azure subnet to which it's connected. In addition, add a public IP address for the VM. |  
+**Requirement** | **Details** 
+--- | --- 
+**Before deployment** | You should have an Azure Migrate project in place, with the Azure Migrate: Server Assessment tool added to the project.<br/><br/>  You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises machines<br/><br/> [Learn how](create-manage-projects.md) to create a project for the first time.<br/> [Learn how](how-to-assess.md) to add an assessment tool to an existing project.<br/> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
+**Supported machines** | Supported for all machines.
+**Azure Government** | Dependency visualization isn't available in Azure Government.
+**Log Analytics** | Azure Migrate uses the [Service Map](../azure-monitor/insights/service-map.md) solution in [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md) for dependency visualization.<br/><br/> You associate a new or existing Log Analytics workspace with an Azure Migrate project. The workspace for an Azure Migrate project can't be modified after it's added. <br/><br/> The workspace must be in the same subscription as the Azure Migrate project.<br/><br/> The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br/><br/> The workspace must be in a region in which [Service Map is supported](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).<br/><br/> In Log Analytics, the workspace associated with Azure Migrate is tagged with the Migration Project key, and the project name.
+**Required agents** | On each machine you want to analyze, install the following agents:<br/><br/> The [Microsoft Monitoring agent (MMA)](../azure-monitor/platform/agent-windows.md).<br/> The [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent).<br/><br/> If on-premises machines aren't connected to the internet, you need to download and install Log Analytics gateway on them.<br/><br/> Learn more about installing the [Dependency agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
+**Log Analytics workspace** | The workspace must be in the same subscription as the Azure Migrate project.<br/><br/> Azure Migrate supports workspaces residing in the East US, Southeast Asia, and West Europe regions.<br/><br/>  The workspace must be in a region in which [Service Map is supported](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions).<br/><br/> The workspace for an Azure Migrate project can't be modified after it's added.
+**Costs** | The Service Map solution doesn't incur any charges for the first 180 days (from the day that you associate the Log Analytics workspace with the Azure Migrate project)/<br/><br/> After 180 days, standard Log Analytics charges will apply.<br/><br/> Using any solution other than Service Map in the associated Log Analytics workspace will incur [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br/><br/> When the Azure Migrate project is deleted, the workspace is not deleted along with it. After deleting the project, Service Map usage isn't free, and each node will be charged as per the paid tier of Log Analytics workspace/<br/><br/>If you have projects that you created before Azure Migrate general availability (GA- 28 February 2018), you might have incurred additional Service Map charges. To ensure payment after 180 days only, we recommend that you create a new project, since existing workspaces before GA are still chargeable.
+**Management** | When you register agents to the workspace, you use the ID and key provided by the Azure Migrate project.<br/><br/> You can use the Log Analytics workspace outside Azure Migrate.<br/><br/> If you delete the associated Azure Migrate project, the workspace isn't deleted automatically. [Delete it manually](../azure-monitor/platform/manage-access.md).<br/><br/> Don't delete the workspace created by Azure Migrate, unless you delete the Azure Migrate project. If you do, the dependency visualization functionality will not work as expected.
+**Internet connectivity** | If machines aren't connected to the internet, you need to install the Log Analytics gateway on them.
+**Azure Government** | Agent-based dependency analysis isn't supported.
 
 
 ## Next steps
 
-[Prepare for VMware](tutorial-prepare-vmware.md) assessment and migration.
+- [Review](best-practices-assessment.md) best practices for creating assessments.
+- [Prepare for VMware](tutorial-prepare-vmware.md) assessment.

@@ -4,7 +4,7 @@ description: Learn about SQL system function SQRT in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -39,6 +39,10 @@ SELECT SQRT(1) AS s1, SQRT(2.0) AS s2, SQRT(3) AS s3
 ```json
 [{s1: 1, s2: 1.4142135623730952, s3: 1.7320508075688772}]  
 ```  
+
+## Remarks
+
+This system function will not utilize the index.
 
 ## Next steps
 

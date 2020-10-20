@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with PowerShell"
 description: In this quickstart, you use Azure PowerShell to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 11/25/2019
+ms.date: 08/17/2020
 ms.topic: quickstart
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources using Azure PowerShell
@@ -33,7 +33,7 @@ This guide explains how to use Az module to create a policy assignment.
   ```
 
   For more information about registering and viewing resource providers, see
-  [Resource Providers and Types](../../azure-resource-manager/resource-manager-supported-services.md).
+  [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -45,10 +45,10 @@ definition. This policy definition identifies virtual machines not using managed
 Run the following commands to create a new policy assignment:
 
 ```azurepowershell-interactive
-# Get a reference to the resource group that will be the scope of the assignment
+# Get a reference to the resource group that is the scope of the assignment
 $rg = Get-AzResourceGroup -Name '<resourceGroupName>'
 
-# Get a reference to the built-in policy definition that will be assigned
+# Get a reference to the built-in policy definition to assign
 $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
 
 # Create the policy assignment with the built-in definition against your resource group

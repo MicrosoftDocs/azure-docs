@@ -5,7 +5,7 @@ description: This article provides information on how to troubleshoot the redire
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
 ---
@@ -18,9 +18,8 @@ Learn how to diagnose and resolve issues you might encounter when Azure App Serv
 
 In this article, you'll learn how to troubleshoot the following issues:
 
-> [!div class="checklist"]
-> * The app service URL is exposed in the browser when there's a redirection.
-> * The app service ARRAffinity cookie domain is set to the app service host name, example.azurewebsites.net, instead of the original host.
+* The app service URL is exposed in the browser when there's a redirection.
+* The app service ARRAffinity cookie domain is set to the app service host name, example.azurewebsites.net, instead of the original host.
 
 When a back-end application sends a redirection response, you might want to redirect the client to a different URL than the one specified by the back-end application. You might want to do this when an app service is hosted behind an application gateway and requires the client to do a redirection to its relative path. An example is a redirect from contoso.azurewebsites.net/path1 to contoso.azurewebsites.net/path2. 
 
@@ -72,7 +71,7 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-In the previous example, notice that the response header has a status code of 301 for redirection. The location header has the app service’s host name instead of the original host name `www.contoso.com`.
+In the previous example, notice that the response header has a status code of 301 for redirection. The location header has the app service's host name instead of the original host name `www.contoso.com`.
 
 ## Solution: Rewrite the location header
 
@@ -102,7 +101,7 @@ You must own a custom domain and follow this process:
   > [!NOTE]
   > For the next step, make sure that your custom probe isn't associated to your back-end HTTP settings. Your HTTP settings still have the **Pick Hostname from Backend Address** switch enabled at this point.
 
-- Set your application gateway’s HTTP settings to disable **Pick Hostname from Backend Address**. In the Azure portal, clear the check box. In PowerShell, don't use the **-PickHostNameFromBackendAddress** switch in the **Set-AzApplicationGatewayBackendHttpSettings** command.
+- Set your application gateway's HTTP settings to disable **Pick Hostname from Backend Address**. In the Azure portal, clear the check box. In PowerShell, don't use the **-PickHostNameFromBackendAddress** switch in the **Set-AzApplicationGatewayBackendHttpSettings** command.
 
 - Associate the custom probe back to the back-end HTTP settings, and verify that the back end is healthy.
 

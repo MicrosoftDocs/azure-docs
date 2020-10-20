@@ -1,16 +1,16 @@
 ---
 title: Deploy and manage Apache Storm topologies on Azure HDInsight 
 description: Learn how to deploy, monitor, and manage Apache Storm topologies using the Storm Dashboard on Linux-based HDInsight. Use Hadoop tools for Visual Studio.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 12/18/2019
 ---
 
-# Deploy and manage Apache Storm topologies on Azure HDInsight 
+# Deploy and manage Apache Storm topologies on Azure HDInsight
 
 In this document, learn the basics of managing and monitoring [Apache Storm](https://storm.apache.org/) topologies running on Storm on HDInsight clusters.
 
@@ -29,42 +29,40 @@ You can use the Data Lake Tools for Visual Studio to submit C# or hybrid topolog
 1. If you haven't already installed the latest version of the Data Lake tools for Visual Studio, see [Use Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
     > [!NOTE]  
-    > The Data Lake Tools for Visual Studio were formerly called the HDInsight Tools for Visual Studio.
+    > The Azure Data Lake and Stream Analytics Tools were formerly called the HDInsight Tools for Visual Studio.
     >
-    > Data Lake Tools for Visual Studio are included in the **Azure Workload** for Visual Studio 2019.
+    > Azure Data Lake and Stream Analytics Tools for Visual Studio are included in the **Azure development** workload for Visual Studio 2019.
 
-2. Open Visual Studio.
+1. Start Visual Studio.
 
-3. In the **Start** window, select **Create a new project**.
+1. In the **Start** window, select **Create a new project**.
 
-4. In the **Create a new project** window, select the search box, and enter *Storm*. Then choose **Storm Sample** from the result list and select **Next**.
+1. In the **Create a new project** window, select the search box, and enter `Storm`. Then choose **Storm Sample** from the result list and select **Next**.
 
-5. In the **Configure your new project** window, enter a **Project name**, and go to or create a **Location** to save the new project in. Then select **Create**.
+1. In the **Configure your new project** window, enter a **Project name**, and go to or create a **Location** to save the new project in. Then select **Create**.
 
     ![Configure your new project window, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
-6. In **Solution Explorer**, right-click the project, and choose **Submit to Storm on HDInsight**.
+1. From **Server Explorer**, right-click **Azure** and select **Connect to Microsoft Azure Subscription...** and complete the sign-in process.
+
+1. From **Solution Explorer**, right-click the project, and choose **Submit to Storm on HDInsight**.
 
     > [!NOTE]  
     > If prompted, enter the login credentials for your Azure subscription. If you have more than one subscription, sign in to the one that contains your Storm on HDInsight cluster.
 
-7. In the **Submit Topology** dialog box, under the **Storm Cluster** drop-down list, choose your Storm on HDInsight cluster, and then select **Submit**. You can monitor whether the submission is successful by viewing the **Output** pane.
+1. In the **Submit Topology** dialog box, under the **Storm Cluster** drop-down list, choose your Storm on HDInsight cluster, and then select **Submit**. You can monitor whether the submission is successful by viewing the **Output** pane.
 
 ## Submit a topology using SSH and the Storm command
 
-To submit a topology to Storm using SSH:
+1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
 
-1. Use SSH to connect to the HDInsight cluster. Replace `USERNAME` with the name of your SSH user name (such as *sshuser*). Replace `CLUSTERNAME` with your HDInsight cluster name.
-
-    ```shell
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    For more information on using SSH to connect to your HDInsight cluster, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. From your ssh session, use the following command to start the **WordCount** example topology:
 
-2. Use the following command to start the *WordCount* example topology:
-
-    ```ssh
+    ```bash
     storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
     ```
 
@@ -171,15 +169,15 @@ The main page of the Storm UI provides the following information:
 
 | Section | Description |
 | --- | --- |
-| **Cluster summary** | Basic information about the Storm cluster. |
-| **Nimbus summary** | A list of basic Nimbus information. |
-| **Topology summary** | A list of running topologies. To view more information about a specific topology, select its link in the **Name** column. |
-| **Supervisor summary** | Information about the Storm supervisor. To see the worker resources associated with a specific supervisor, select its link in the **Host** or **Id** column. |
-| **Nimbus configuration** | Nimbus configuration for the cluster. |
+| Cluster summary| Basic information about the Storm cluster. |
+| Nimbus summary | A list of basic Nimbus information. |
+| Topology summary | A list of running topologies. To view more information about a specific topology, select its link in the **Name** column. |
+| Supervisor summary | Information about the Storm supervisor. To see the worker resources associated with a specific supervisor, select its link in the **Host** or **Id** column. |
+| Nimbus configuration | Nimbus configuration for the cluster. |
 
 The Storm UI main page looks similar to this web page:
 
-![Main page, Storm UI, Apache Storm topologies, Azure Insight](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png)
+![Main page, Storm UI, Apache Storm topologies, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-main-page.png)
 
 #### Topology summary
 
@@ -187,30 +185,30 @@ Selecting a link from the **Topology summary** section displays the following in
 
 | Section | Description |
 | --- | --- |
-| **Topology summary** | Basic information about the topology. |
-| **Topology actions** | Management actions that you can do for the topology. The available actions are described later in this section. |
-| **Topology stats** | Statistics about the topology. To set the time frame for an entry in this section, select its link in the **Window** column. |
-| **Spouts** *(time frame)* | The spouts used by the topology. To view more information about a specific spout, select its link in the **Id** column. |
-| **Bolts** *(time frame)* | The bolts used by the topology. To view more information about a specific bolt, select its link in the **Id** column. |
-| **Worker resources** | A list of worker resources. To view more information about a specific worker resource, select its link in the **Host** column. |
-| **Topology visualization** | A **Show Visualization** button that displays a visualization of the topology. |
-| **Topology configuration** | The configuration of the selected topology. |
+| Topology summary | Basic information about the topology. |
+| Topology actions| Management actions that you can do for the topology. The available actions are described later in this section. |
+| Topology stats | Statistics about the topology. To set the time frame for an entry in this section, select its link in the **Window** column. |
+| Spouts *(time frame)* | The spouts used by the topology. To view more information about a specific spout, select its link in the **Id** column. |
+| Bolts *(time frame)* | The bolts used by the topology. To view more information about a specific bolt, select its link in the **Id** column. |
+| Worker resources | A list of worker resources. To view more information about a specific worker resource, select its link in the **Host** column. |
+| Topology visualization | A **Show Visualization** button that displays a visualization of the topology. |
+| Topology configuration | The configuration of the selected topology. |
 
 The Storm topology summary page looks similar to this web page:
 
-![Topology summary page, Storm UI, Apache Storm, Azure Insight](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png)
+![Topology summary page, Storm UI, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-topology-summary.png)
 
 In the **Topology actions** section, you can select the following buttons to do an action:
 
 | Button | Description |
 | --- | --- |
-| **Activate** | Resumes processing of a deactivated topology. |
-| **Deactivate** | Pauses a running topology. |
-| **Rebalance** | Adjusts the parallelism of the topology. You should rebalance running topologies after you've changed the number of nodes in the cluster. This operation allows the topology to adjust parallelism to compensate for the additional or reduced number of nodes in the cluster.<br/><br/>For more information, see <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of an Apache Storm topology</a>.
-| **Kill** | Terminates a Storm topology after the specified timeout. |
-| **Debug** | Begins a debugging session for the running topology. |
-| **Stop Debug** | Ends the debugging session for the running topology. |
-| **Change Log Level** | Modifies the debugging log level. |
+| Activate | Resumes processing of a deactivated topology. |
+| Deactivate | Pauses a running topology. |
+| Rebalance | Adjusts the parallelism of the topology. You should rebalance running topologies after you've changed the number of nodes in the cluster. This operation allows the topology to adjust parallelism to compensate for the additional or reduced number of nodes in the cluster.<br/><br/>For more information, see <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of an Apache Storm topology</a>.
+| Kill | Terminates a Storm topology after the specified timeout. |
+| Debug | Begins a debugging session for the running topology. |
+| Stop Debug | Ends the debugging session for the running topology. |
+| Change Log Level | Modifies the debugging log level. |
 
 ##### Spout and bolt summary
 
@@ -218,18 +216,18 @@ Selecting a spout from the **Spouts** or **Bolts** sections displays the followi
 
 | Section | Description |
 | --- | --- |
-| **Component summary** | Basic information about the spout or bolt. |
-| **Component actions** | **Debug** and **Stop Debug** buttons. |
-| **Spout stats** or **Bolt stats** | Statistics about the spout or bolt. To set the time frame for an entry in this section, select its link in the **Window** column. |
-| (Bolt-only)<br/>**Input stats** *(time frame)* | Information about the input streams consumed by the bolt. |
-| **Output stats** *(time frame)* | Information about the streams emitted by the spout or bolt. |
-| **Profiling and debugging** | Controls for profiling and debugging the components on this page. You can set the **Status / Timeout (Minutes)** value, and you can select buttons for **JStack**, **Restart Worker**, and **Heap**. |
-| **Executors** *(time frame)* | Information about the instances of the spout or bolt. To view a log of diagnostic information produced for this instance, select the **Port** entry for a specific executor. You can also see the worker resources associated with a specific executor by selecting its link in the **Host** column. |
-| **Errors** | Any error information for the spout or bolt. |
+| Component summary | Basic information about the spout or bolt. |
+| Component actions | **Debug** and **Stop Debug** buttons. |
+| Spout stats or bolt stats | Statistics about the spout or bolt. To set the time frame for an entry in this section, select its link in the **Window** column. |
+| (Bolt-only)<br/>Input stats*(time frame)* | Information about the input streams consumed by the bolt. |
+| Output stats *(time frame)* | Information about the streams emitted by the spout or bolt. |
+| Profiling and debugging | Controls for profiling and debugging the components on this page. You can set the **Status / Timeout (Minutes)** value, and you can select buttons for **JStack**, **Restart Worker**, and **Heap**. |
+| Executors *(time frame)* | Information about the instances of the spout or bolt. To view a log of diagnostic information produced for this instance, select the **Port** entry for a specific executor. You can also see the worker resources associated with a specific executor by selecting its link in the **Host** column. |
+| Errors | Any error information for the spout or bolt. |
 
 The Storm bolt summary page looks similar to this web page:
 
-![Bolt summary page, Storm UI, Apache Storm, Azure Insight](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png)
+![Bolt summary page, Storm UI, Apache Storm, Azure](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-web-ui-bolt-summary.png)
 
 ## Monitor and manage the topology using the REST API
 

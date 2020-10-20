@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with JIRA SAML SSO by Microsoft | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and JIRA SAML SSO by Microsoft.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 4b663047-7f88-443b-97bd-54224b232815
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with JIRA SAML SSO by Microsoft
@@ -39,7 +32,7 @@ Use your Microsoft Azure Active Directory account with Atlassian JIRA server to 
 To configure Azure AD integration with JIRA SAML SSO by Microsoft, you need the following items:
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-- JIRA Core and Software 6.4 to 8.0 or JIRA Service Desk 3.0 to 3.5 should installed and configured on Windows 64-bit version
+- JIRA Core and Software 6.4 to 8.11.0 or JIRA Service Desk 3.0 to 4.11.1 should installed and configured on Windows 64-bit version
 - JIRA server is HTTPS enabled
 - Note the supported versions for JIRA Plugin are mentioned in below section.
 - JIRA server is reachable on internet particularly to Azure AD Login page for authentication and should able to receive the token from Azure AD
@@ -55,10 +48,13 @@ To get started, you need the following items:
 * Do not use your production environment, unless it is necessary.
 * JIRA SAML SSO by Microsoft single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Supported versions of JIRA
 
-* JIRA Core and Software: 6.4 to 8.5.1
-* JIRA Service Desk 3.0.0 to 4.5.1
+* JIRA Core and Software: 6.4 to 8.11.0
+* JIRA Service Desk 3.0.0 to 4.11.1
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]
@@ -158,11 +154,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Hover on cog and click the **Add-ons**.
 
-	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon1.png)
+	![Screenshot shows Add-ons selected from the Settings menu.](./media/jiramicrosoft-tutorial/addon1.png)
 
 3. Download the plugin from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56506). Manually upload the plugin provided by Microsoft using **Upload add-on** menu. The download of plugin is covered under [Microsoft Service Agreement](https://www.microsoft.com/servicesagreement/).
 
-	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon12.png)
+	![Screenshot shows Manage add-ons with the Upload add-on link called out.](./media/jiramicrosoft-tutorial/addon12.png)
 
 4. For running the JIRA reverse proxy scenario or load balancer scenario perform the following steps:
 
@@ -173,19 +169,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	`scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+	![Screenshot shows the server dot x m l file in an editor with the new line added.](./media/jiramicrosoft-tutorial/reverseproxy1.png)
 
 	b. Change **Base URL** in **System Settings** according to proxy/load balancer.
 
-	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+	![Screenshot shows the Administration Settings where you can change the Base U R L.](./media/jiramicrosoft-tutorial/reverseproxy2.png)
 
 5. Once the plugin is installed, it appears in **User Installed** add-ons section of **Manage Add-on** section. Click **Configure** to configure the new plugin.
 
-	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon14.png)
+	![Screenshot shows the Azure A D SAML Single Sign-on for Jira section with Configure selected.](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. Perform following steps on configuration page:
 
-	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon54.png)
+	![Screenshot shows the Microsoft Azure Active Directory single sign-on for Jira configuration page.](./media/jiramicrosoft-tutorial/addon54.png)
 
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, upon resolving the metadata, admin gets an error.
@@ -232,19 +228,19 @@ To enable Azure AD users to sign in to JIRA on-premises server, they must be pro
 
 2. Hover on cog and click the **User management**.
 
-    ![Add Employee](./media/jiramicrosoft-tutorial/user1.png)
+    ![Screenshot shows User management selected from the Settings menu.](./media/jiramicrosoft-tutorial/user1.png)
 
 3. You are redirected to Administrator Access page to enter **Password** and click **Confirm** button.
 
-	![Add Employee](./media/jiramicrosoft-tutorial/user2.png)
+	![Screenshot shows Administrator Access page where you enter your credentials.](./media/jiramicrosoft-tutorial/user2.png)
 
 4. Under **User management** tab section, click **create user**.
 
-	![Add Employee](./media/jiramicrosoft-tutorial/user3.png) 
+	![Screenshot shows the User management tab where you can Create user.](./media/jiramicrosoft-tutorial/user3.png) 
 
 5. On the **“Create new user”** dialog page, perform the following steps:
 
-	![Add Employee](./media/jiramicrosoft-tutorial/user4.png) 
+	![Screenshot shows the Create new user dialog box where you can enter the information in this step.](./media/jiramicrosoft-tutorial/user4.png) 
 
 	a. In the **Email address** textbox, type the email address of user like B.simon@contoso.com.
 

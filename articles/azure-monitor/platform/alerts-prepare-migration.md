@@ -1,19 +1,17 @@
 ---
-title: "Prepare for Azure Monitor classic alerts migration by updating your logic apps and runbooks"
+title: Update logic apps & runbooks for alerts migration
 description: Learn how to modify your webhooks, logic apps, and runbooks to prepare for voluntary migration.
-author: snehithm
-ms.service: azure-monitor
+author: yanivlavi
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: snmuvva
 ms.subservice: alerts
 ---
 # Prepare your logic apps and runbooks for migration of classic alert rules
 
-As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in September 2019 (was originally July 2019). A migration tool is available in the Azure portal to customers who use classic alert rules and who want to trigger migration themselves.
-
 > [!NOTE]
-> Due to delay in roll-out of migration tool, the retirement date for classic alerts migration has been extended to August 31st, 2019 from the originally announced date of June 30th, 2019.
+> As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are retired, though still in limited use for resources that do not yet support the new alerts. The retirement date for those alerts has been further extended. A new date will be announced soon.
+>
 
 If you choose to voluntarily migrate your classic alert rules to new alert rules, be aware that there are some differences between the two systems. This article explains those differences and how you can prepare for the change.
 
@@ -23,12 +21,12 @@ The APIs that create and manage classic alert rules (`microsoft.insights/alertru
 
 The following table is a reference to the programmatic interfaces for both classic and new alerts:
 
-|         |Classic alerts  |New metric alerts |
-|---------|---------|---------|
-|REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [Reference](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Reference](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
-| Azure Resource Manager template | [For classic alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[For new metric alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
+| Deployment script type | Classic alerts | New metric alerts |
+| ---------------------- | -------------- | ----------------- |
+|REST API     | [microsoft.insights/alertrules](/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](/rest/api/monitor/metricalerts)       |
+|Azure CLI     | [az monitor alert](/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|PowerShell      | [Reference](/powershell/module/az.monitor/add-azmetricalertrule)       |  [Reference](/powershell/module/az.monitor/add-azmetricalertrulev2)    |
+| Azure Resource Manager template | [For classic alerts](./alerts-enable-template.md)|[For new metric alerts](./alerts-metric-create-templates.md)|
 
 ## Notification payload changes
 
@@ -36,8 +34,8 @@ The notification payload format is slightly different between [classic alert rul
 
 Use the following table to map the webhook payload fields from the classic format to the new format:
 
-|  |Classic alerts  |New metric alerts |
-|---------|---------|---------|
+| Notification endpoint type | Classic alerts | New metric alerts |
+| -------------------------- | -------------- | ----------------- |
 |Was the alert activated or resolved?    | **status**       | **data.status** |
 |Contextual information about the alert     | **context**        | **data.context**        |
 |Time stamp at which the alert was activated or resolved     | **context.timestamp**       | **data.context.timestamp**        |
@@ -72,7 +70,7 @@ If you're using logic apps with classic alerts, you must modify your logic-app c
 
 1. Use the template "Azure Monitor - Metrics Alert Handler". This template has an **HTTP request** trigger with the appropriate schema defined.
 
-    ![logic-app-template](media/alerts-migration/logic-app-template.png "Metric alert template")
+    ![Screenshot shows two buttons, Blank Logic App and Azure Monitor – Metrics Alert Handler.](media/alerts-migration/logic-app-template.png "Metric alert template")
 
 1. Add an action to host your processing logic.
 
@@ -145,11 +143,11 @@ else {
 
 ```
 
-For a full example of a runbook that stops a virtual machine when an alert is triggered, see the [Azure Automation documentation](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
+For a full example of a runbook that stops a virtual machine when an alert is triggered, see the [Azure Automation documentation](../../automation/automation-create-alert-triggered-runbook.md).
 
 ## Partner integration via webhooks
 
-Most of [our partners that integrate with classic alerts](https://docs.microsoft.com/azure/azure-monitor/platform/partners) already support newer metric alerts through their integrations. Known integrations that already work with new metric alerts are:
+Most of [our partners that integrate with classic alerts](./partners.md) already support newer metric alerts through their integrations. Known integrations that already work with new metric alerts are:
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)

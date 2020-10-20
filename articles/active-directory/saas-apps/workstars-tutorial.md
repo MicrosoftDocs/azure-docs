@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Workstars | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Workstars.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 51a4a4e4-ff60-4971-b3f8-a0367b70d220
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Workstars
 
@@ -108,7 +102,7 @@ To configure Azure AD single sign-on with Workstars, perform the following steps
     `https://<subdomain>.workstars.com/saml/login_check`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Reply URL. Contact [Workstars Client support team](https://support.workstars.com/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Reply URL. Contact [Workstars Client support team](http://support.workstars.com/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -208,7 +202,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Workstars test user
 
-In this section, you create a user called Britta Simon in Workstars. Work with [Workstars support team](https://support.workstars.com) to add the users in the Workstars platform.
+In this section, you create a user called Britta Simon in Workstars. Work with [Workstars support team](http://support.workstars.com) to add the users in the Workstars platform.
 
 ### Test single sign-on 
 

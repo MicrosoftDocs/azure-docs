@@ -2,19 +2,16 @@
 title: Service principals for Azure Kubernetes Services (AKS)
 description: Create and manage an Azure Active Directory service principal for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.author: mlearned
+ms.date: 06/16/2020
+
 
 #Customer intent: As a cluster operator, I want to understand how to create a service principal and delegate permissions for AKS to access required resources. In large enterprise environments, the user that deploys the cluster (or CI/CD system), may not have permissions to create this service principal automatically when the cluster is created.
 ---
 
 # Service principals with Azure Kubernetes Service (AKS)
 
-To interact with Azure APIs, an AKS cluster requires an [Azure Active Directory (AD) service principal][aad-service-principal]. The service principal is needed to dynamically create and manage other Azure resources such as an Azure load balancer or container registry (ACR).
+To interact with Azure APIs, an AKS cluster requires either an [Azure Active Directory (AD) service principal][aad-service-principal] or a [managed identity](use-managed-identity.md). A service principal or managed identity is needed to dynamically create and manage other Azure resources such as an Azure load balancer or container registry (ACR).
 
 This article shows how to create and use a service principal for your AKS clusters.
 
@@ -68,6 +65,9 @@ az aks create \
     --client-secret <password>
 ```
 
+> [!NOTE]
+> If you're using an existing service principal with customized secret, ensure the secret is no longer than 190 bytes.
+
 If you deploy an AKS cluster using the Azure portal, on the *Authentication* page of the **Create Kubernetes cluster** dialog, choose to **Configure service principal**. Select **Use existing**, and specify the following values:
 
 - **Service principal client ID** is your *appId*
@@ -87,6 +87,9 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 The `--scope` for a resource needs to be a full resource ID, such as */subscriptions/\<guid\>/resourceGroups/myResourceGroup* or */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
 
+> [!NOTE]
+> If you have removed the Contributor role assignment from the node resource group, the operations below may fail.  
+
 The following sections detail common delegations that you may need to make.
 
 ### Azure Container Registry
@@ -104,6 +107,9 @@ You may use advanced networking where the virtual network and subnet or public I
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
+  - If using [custom route tables on Kubenet clusters](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) add these additional permissions:
+    - *Microsoft.Network/routeTables/write*
+    - *Microsoft.Network/routeTables/read*
 - Or, assign the [Network Contributor][rbac-network-contributor] built-in role on the subnet within the virtual network
 
 ### Storage
@@ -129,6 +135,8 @@ When using AKS and Azure AD service principals, keep the following consideration
 - When you specify the service principal **Client ID**, use the value of the `appId`.
 - On the agent node VMs in the Kubernetes cluster, the service principal credentials are stored in the file `/etc/kubernetes/azure.json`
 - When you use the [az aks create][az-aks-create] command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/aksServicePrincipal.json` on the machine used to run the command.
+- If you do not specifically pass a service principal in additional AKS CLI commands, the default service principal located at `~/.azure/aksServicePrincipal.json` is used.  
+- You can also optionally remove the aksServicePrincipal.json file, and AKS will create a new service principal.
 - When you delete an AKS cluster that was created by [az aks create][az-aks-create], the service principal that was created automatically is not deleted.
     - To delete the service principal, query for your cluster *servicePrincipalProfile.clientId* and then delete with [az ad app delete][az-ad-app-delete]. Replace the following resource group and cluster names with your own values:
 

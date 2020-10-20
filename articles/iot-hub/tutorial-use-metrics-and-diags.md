@@ -7,7 +7,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
-ms.custom: mvc
+ms.custom: [mvc, mqtt, devx-track-azurecli, devx-track-csharp]
 #Customer intent: As a developer, I want to know how to set up and check metrics and diagnostic logs, to help me troubleshoot when there is a problem with an Azure IoT hub. 
 ---
 
@@ -38,6 +38,9 @@ In this tutorial, you perform the following tasks:
 
 - An email account capable of receiving mail.
 
+- Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Set up resources
@@ -65,7 +68,7 @@ The variables that must be globally unique have `$RANDOM` concatenated to them. 
 # This is the IOT Extension for Azure CLI.
 # You only need to install this the first time.
 # You need it to create the device identity. 
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Set the values for the resource names that don't have to be globally unique.
 # The resources that have to have unique names are named in the script below
@@ -96,7 +99,7 @@ echo "Storage account name = " $storageAccountName
 # Create the storage account.
 az storage account create --name $storageAccountName \
     --resource-group $resourceGroup \
-	--location $location \
+    --location $location \
     --sku Standard_LRS
 
 # Create the IoT device identity to be used for testing.
@@ -116,12 +119,12 @@ az iot hub device-identity show --device-id $iotDeviceName \
 >Here is the command to update the extension. Run this in your Cloud Shell instance.
 >
 >```cli
->az extension update --name azure-cli-iot-ext
+>az extension update --name azure-iot
 >```
 
 ## Enable the diagnostic logs 
 
-[Diagnostic logs](../azure-monitor/platform/resource-logs-overview.md) are disabled by default when you create a new IoT hub. In this section, enable the diagnostic logs for your hub.
+[Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md) are disabled by default when you create a new IoT hub. In this section, enable the diagnostic logs for your hub.
 
 1. First, if you're not already on your hub in the portal, click **Resource groups** and click on the resource group Contoso-Resources. Select the hub from the list of resources displayed. 
 
@@ -179,7 +182,7 @@ Now set up some metrics to watch for when messages are sent to the hub.
 
 Go to the hub in the portal. Click **Resource Groups**, select *ContosoResources*, then select IoT Hub *ContosoTestHub*. 
 
-IoT Hub has not been migrated to the [metrics in Azure Monitor](/azure/azure-monitor/platform/data-collection#metrics) yet; you have to use [classic alerts](/azure/azure-monitor/platform/alerts-classic.overview).
+IoT Hub has not been migrated to the [metrics in Azure Monitor](../azure-monitor/platform/data-platform.md#metrics) yet; you have to use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md).
 
 1. Under **Monitoring**, click **Alerts** This shows the main alert screen. 
 
@@ -358,7 +361,7 @@ Click **Download** to download it and open it. You see the logs of the device co
 
 To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the storage account, and the resource group itself. If you have pinned metrics to the dashboard, you will have to remove those manually by clicking on the three dots in the upper right-hand corner of each and selecting **Remove**.
 
-To remove the resource group, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
+To remove the resource group, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

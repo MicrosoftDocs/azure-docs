@@ -1,7 +1,7 @@
 ---
 title: Create & deploy Visual Studio resource group projects
 description: Use Visual Studio to create an Azure resource group project and deploy the resources to Azure.
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/16/2019
 ---
 # Creating and deploying Azure resource groups through Visual Studio
@@ -17,7 +17,7 @@ In this section, you create an Azure Resource Group project with a **Web app** t
 1. In Visual Studio, choose **File**>**New**>**Project**.
 1. Select the **Azure Resource Group** project template and **Next**.
 
-    ![Create project](./media/create-visual-studio-deployment-project/create-project.png)
+    ![Screenshot shows the Create a new project window with Azure Resource Group and the Next button highlighted.](./media/create-visual-studio-deployment-project/create-project.png)
 
 1. Give your project a name. The other default settings are probably fine, but review them to make they work for your environment. When done, select **Create**.
 
@@ -59,7 +59,7 @@ You can customize a deployment project by modifying the Resource Manager templat
 
 1. You can add a resource by either selecting the **Add Resource** button at the top of the JSON Outline window, or by right-clicking **resources** and selecting **Add New Resource**.
 
-   ![Add resource](./media/create-visual-studio-deployment-project/add-resource.png)
+   ![Screenshot shows the JSON Outline window with the Add New Resource option highlighted.](./media/create-visual-studio-deployment-project/add-resource.png)
 
 1. Select **Storage Account** and give it a name. Provide a name that is no more than 11 characters, and only contains numbers and lower-case letters.
 
@@ -183,7 +183,7 @@ At this point, you've deployed the infrastructure for your app, but there's no a
 
 1. Now, you need to make sure your resource group project is aware of the new project. Go back to your resource group project (ExampleAppDeploy). Right-click **References** and select **Add Reference**.
 
-    ![Add reference](./media/create-visual-studio-deployment-project/add-new-reference.png)
+    ![Screenshot shows the ExampleAppDeploy menu with the Add Reference option highlighted.](./media/create-visual-studio-deployment-project/add-new-reference.png)
 
 1. Select the web app project that you created.
 
@@ -344,9 +344,9 @@ You aren't limited to only the resources that are available through the Visual S
           }
         }
       },
+      "type": "Microsoft.Portal/dashboards",
       "apiVersion": "2015-08-01-preview",
       "name": "[concat('ARM-',resourceGroup().name)]",
-      "type": "Microsoft.Portal/dashboards",
       "location": "[resourceGroup().location]",
       "tags": {
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
@@ -358,13 +358,13 @@ You aren't limited to only the resources that are available through the Visual S
 
 1. After deployment has finished, view your dashboard in the portal. Select **Dashboard** and pick the one you deployed.
 
-   ![Custom Dashboard](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
+   ![Screenshot shows the Dashboard page with an example custom dashboard highlighted.](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
 
 1. You see the customized dashboard.
 
    ![Custom Dashboard](./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png)
 
-You can manage access to the dashboard by using RBAC groups. You can also customize the dashboard's appearance after it's deployed. However, if you redeploy the resource group, the dashboard is reset to its default state in your template. For more information about creating dashboards, see [Programmatically create Azure Dashboards](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
+You can manage access to the dashboard by using Azure role-based access control (Azure RBAC). You can also customize the dashboard's appearance after it's deployed. However, if you redeploy the resource group, the dashboard is reset to its default state in your template. For more information about creating dashboards, see [Programmatically create Azure Dashboards](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
 ## Clean up resources
 
@@ -378,7 +378,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this quickstart, you learned how to create and deploy templates using Visual Studio. To learn more about template development, see our new beginner tutorial series:
+In this article, you learned how to create and deploy templates using Visual Studio. To learn more about template development, see our new beginner tutorial series:
 
 > [!div class="nextstepaction"]
 > [Beginner tutorials](./template-tutorial-create-first-template.md)

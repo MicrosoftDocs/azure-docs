@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ---
@@ -57,8 +57,10 @@ For applications running in the Jupyter notebook, you can use the `%%configure` 
 
 The following snippet shows how to change the configuration for an application running in Jupyter.
 
-    %%configure
-    {"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+```scala
+%%configure
+{"executorMemory": "3072M", "executorCores": 4, "numExecutors":10}
+```
 
 Configuration parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column.
 
@@ -66,13 +68,17 @@ Configuration parameters must be passed in as a JSON string and must be on the n
 
 Following command is an example of how to change the configuration parameters for a batch application that is submitted using `spark-submit`.
 
-    spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
+```scala
+spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
+```
 
 ### Change the parameters for an application submitted using cURL
 
 The following command is an example of how to change the configuration parameters for a batch application that is submitted using cURL.
 
-    curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
+```bash
+curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
+```
 
 ### Change these parameters on a Spark Thrift Server
 
@@ -145,7 +151,6 @@ Launch the Yarn UI as shown in the beginning of the article. In Cluster Metrics 
 * [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
 * [Website log analysis using Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Application Insight telemetry data analysis using Apache Spark in HDInsight](apache-spark-analyze-application-insight-logs.md)
-* [Use Caffe on Azure HDInsight Spark for distributed deep learning](apache-spark-deep-learning-caffe.md)
 
 ### For Apache Spark developers
 

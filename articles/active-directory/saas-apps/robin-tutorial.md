@@ -1,26 +1,19 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Robin | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Robin | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Robin.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 1d626d14-8755-437a-87ce-1516debd8ac8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 01/02/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Integrate Robin with Azure Active Directory
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Robin
 
 In this tutorial, you'll learn how to integrate Robin with Azure Active Directory (Azure AD). When you integrate Robin with Azure AD, you can:
 
@@ -44,6 +37,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Robin supports **SP and IDP** initiated SSO
 * Robin supports **Just In Time** user provisioning
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Adding Robin from the gallery
 
 To configure the integration of Robin into Azure AD, you need to add Robin from the gallery to your list of managed SaaS apps.
@@ -55,32 +51,30 @@ To configure the integration of Robin into Azure AD, you need to add Robin from 
 1. In the **Add from the gallery** section, type **Robin** in the search box.
 1. Select **Robin** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD single sign-on for Robin
 
 Configure and test Azure AD SSO with Robin using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Robin.
 
 To configure and test Azure AD SSO with Robin, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Robin SSO](#configure-robin-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Robin test user](#create-robin-test-user)** - to have a counterpart of B.Simon in Robin that is linked to the Azure AD representation of user.
+    1. **[Create Robin test user](#create-robin-test-user)** - to have a counterpart of B.Simon in Robin that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Robin** application integration page, find the **Manage** section and select **Single sign-on**.
-1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. In the [Azure portal](https://portal.azure.com/), on the **Robin** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
-
-    ![Robin Domain and URLs single sign-on information](common/preintegrated.png)
+1. On the **Basic SAML Configuration** section the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -91,16 +85,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, Robin application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, Robin application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
 	| Name | Source Attribute|
-	| ---------------|  --------- |
-	| Email | user.userprincipalname |
-	| FirstName |  user.givenname |
-	| LastName |  user.surname |
+	| ---------------| --------- |
+	| FirstName | user.givenname |
+	| LastName | user.surname |
+	| Email | user.mail |
 
-
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificateraw.png)
 
@@ -144,15 +137,15 @@ To configure single sign-on on **Robin** side, you need to send the downloaded *
 
 ### Create Robin test user
 
-In this section, a user called B.Simon is created in Robin. Robin supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Robin, a new one is created after authentication.
+In this section, a user called Britta Simon is created in Robin. Robin supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Robin, a new one is created after authentication.
 
-### Test SSO 
+## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Robin tile in the Access Panel, you should be automatically signed in to the Robin for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
@@ -161,3 +154,4 @@ When you click the Robin tile in the Access Panel, you should be automatically s
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Robin with Azure AD](https://aad.portal.azure.com/)
+

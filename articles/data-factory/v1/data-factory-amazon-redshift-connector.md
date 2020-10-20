@@ -100,13 +100,13 @@ Alternatively, you can use the **RelationalSource** type, which includes Amazon 
 
 The Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) command unloads the results of a query to one or more files on Amazon S3. This command is recommended by Amazon for copying large datasets from Redshift.
 
-**Example: Copy data from Amazon Redshift to Azure SQL Data Warehouse**
+**Example: Copy data from Amazon Redshift to Azure Synapse Analytics (formerly SQL Data Warehouse)**
 
-This example copies data from Amazon Redshift to Azure SQL Data Warehouse. The example uses the Redshift **UNLOAD** command, staged copy data, and Microsoft PolyBase.
+This example copies data from Amazon Redshift to Azure Synapse Analytics. The example uses the Redshift **UNLOAD** command, staged copy data, and Microsoft PolyBase.
 
-For this sample use case, Copy Activity first unloads the data from Amazon Redshift to Amazon S3 as configured in the  **redshiftUnloadSettings** option. Next, the data is copied from Amazon S3 to Azure Blob storage as specified in the **stagingSettings** option. Finally, PolyBase loads the data into SQL Data Warehouse. All of the interim formats are handled by Copy Activity.
+For this sample use case, Copy Activity first unloads the data from Amazon Redshift to Amazon S3 as configured in the  **redshiftUnloadSettings** option. Next, the data is copied from Amazon S3 to Azure Blob storage as specified in the **stagingSettings** option. Finally, PolyBase loads the data into Azure Synapse Analytics. All of the interim formats are handled by Copy Activity.
 
-![Copy workflow from Amazon Redshift to SQL Data Warehouse](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
+![Copy workflow from Amazon Redshift to Azure Synapse Analytics](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 {
@@ -145,7 +145,7 @@ The sample has the following data factory entities:
 * A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 * An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](#dataset-properties)
 * An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
-* A [pipeline](data-factory-create-pipelines.md) with a copy activity that uses the [RelationalSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md##copy-activity-properties) properties
+* A [pipeline](data-factory-create-pipelines.md) with a copy activity that uses the [RelationalSource](#copy-activity-properties) and [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) properties
 
 The sample copies data from a query result in Amazon Redshift to an Azure blob hourly. The JSON properties that are used in the sample are described in the sections that follow the entity definitions.
 

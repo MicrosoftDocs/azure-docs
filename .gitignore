@@ -3,7 +3,6 @@
 Thumbs.db
 
 # Visual Studio and VS Code files
-.settings.json
 .vscode/*
 .vs/*
 log/
@@ -22,5 +21,6 @@ articles/directories.txt
 AzureMigration.ps1
 
 !/.vscode/extensions.json
-articles/data-lake-analytics/.vscode/settings.json
 .gitignore
+**/.vscode/settings.json
+!/.vscode/settings.json

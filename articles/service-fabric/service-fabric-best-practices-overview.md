@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric application and cluster best practices 
-description: Best practices for managing Service Fabric clusters and applications.
+title: Azure Service Fabric application and cluster best practices
+description: Best practices and design considerations for managing clusters, apps, and services using Azure Service Fabric.
 author: peterpogorski
 
 ms.topic: conceptual
@@ -23,7 +23,7 @@ This article provides links to best practices for managing Azure Service Fabric 
 ## Compute planning and scaling
 
 * [Best practices for compute scaling](service-fabric-best-practices-capacity-scaling.md)
-* [Compute capacity planning](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)
+* [Compute capacity planning](./service-fabric-cluster-capacity.md)
 
 ## Infrastructure as code
 
@@ -40,7 +40,7 @@ This article provides links to best practices for managing Azure Service Fabric 
 ## Checklist
 
 After you implement the practices suggested in the previous sections, ensure that you've integrated all the best practices in the production readiness checklist:
-* [Azure Service Fabric production readiness checklist](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist)
+* [Azure Service Fabric production readiness checklist](./service-fabric-production-readiness-checklist.md)
 
 ## Next steps
 

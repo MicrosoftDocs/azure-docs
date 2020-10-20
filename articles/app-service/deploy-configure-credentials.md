@@ -8,14 +8,12 @@ ms.reviewer: byvinyal
 ms.custom: seodec18
 
 ---
+
 # Configure deployment credentials for Azure App Service
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) supports two types of credentials for [local Git deployment](deploy-local-git.md) 
+[Azure App Service](./overview.md) supports two types of credentials for [local Git deployment](deploy-local-git.md) 
 and [FTP/S deployment](deploy-ftp.md). These credentials are not the same as your Azure subscription credentials.
 
-* **User-level credentials**: one set of credentials for the entire Azure account. It can be used to deploy to App Service for any app, in any subscription, that the Azure account has permission to access. It's the default set that's surfaced in the portal GUI (such as the **Overview** and **Properties**
-of the app's [resource page](../azure-resource-manager/management/manage-resources-portal.md#manage-resources)). When a user is granted app access via Role-Based Access Control (RBAC) or coadmin permissions, that user can use their own user-level credentials until the access is revoked. Do not share these credentials with other Azure users.
-
-* **App-level credentials**: one set of credentials for each app. It can be used to deploy to that app only. The credentials for each app are generated automatically at app creation. They can't be configured manually, but can be reset anytime. For a user to be granted access to app-level credentials via (RBAC), that user must be contributor or higher on the app. Readers are not allowed to publish, and can't access those credentials.
+[!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
 ## <a name="userscope"></a>Configure user-level credentials
 
@@ -40,17 +38,17 @@ In the Azure portal, you must have at least one app before you can access the de
 
 1. In the [Azure portal](https://portal.azure.com), from the left menu, select **App Services** > **\<any_app>** > **Deployment center** > **FTP** > **Dashboard**.
 
-    ![](./media/app-service-deployment-credentials/access-no-git.png)
+    ![Shows how you can select the FTP dashboard from the Deployment center in Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
     Or, if you've already configured Git deployment, select **App Services** > **&lt;any_app>** > **Deployment center** > **FTP/Credentials**.
 
-    ![](./media/app-service-deployment-credentials/access-with-git.png)
+    ![Shows how you can select the FTP dashboard from the Deployment center in Azure App Services for your configured Git deployment.](./media/app-service-deployment-credentials/access-with-git.png)
 
 2. Select **User Credentials**, configure the user name and password, and then select **Save Credentials**.
 
 Once you have set your deployment credentials, you can find the *Git* deployment username in your app's **Overview** page,
 
-![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+![Shows how to find the Git deployment user name on your app's Overview page.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
 If Git deployment is configured, the page shows a **Git/deployment username**; otherwise, an **FTP/deployment username**.
 
@@ -74,6 +72,36 @@ To get the app-level credentials:
 2. Select **App Credentials**, and select the **Copy** link to copy the username or password.
 
 To reset the app-level credentials, select **Reset Credentials** in the same dialog.
+
+## Disable basic authentication
+
+Some organizations need to meet security requirements and would rather disable access via FTP or WebDeploy. This way, the organization's members can only access its App Services through APIs that are controlled by Azure Active Directory (Azure AD).
+
+### FTP
+
+To disable FTP access to the site, run the following CLI command. Replace the placeholders with your resource group and site name. 
+
+```bash
+az resource update --resource-group <resource-group> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
+```
+
+To confirm that FTP access is blocked, you can try to authenticate using an FTP client such as FileZilla. To retrieve the publishing credentials, go to the overview blade of your site and click Download Publish Profile. Use the file’s FTP hostname, username, and password to authenticate, and you will get a 401 error response, indicating that you are not authorized.
+
+### WebDeploy and SCM
+
+To disable basic auth access to the WebDeploy port and SCM site, run the following CLI command. Replace the placeholders with your resource group and site name. 
+
+```bash
+az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
+```
+
+To confirm that the publish profile credentials are blocked on WebDeploy, try [publishing a web app using Visual Studio 2019](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+
+### Disable access to the API
+
+The API in the previous section is backed Azure role-based access control (Azure RBAC), which means you can [create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role) and assign lower-priveldged users to the role so they cannot enable basic auth on any sites. To configure the custom role, [follow these instructions](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
+
+You can also use [Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) to audit any successful authentication requests and use [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) to enforce this configuration for all sites in your subscription.
 
 ## Next steps
 

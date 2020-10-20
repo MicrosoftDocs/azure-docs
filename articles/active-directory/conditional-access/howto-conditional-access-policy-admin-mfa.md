@@ -5,8 +5,8 @@ description: Create a custom Conditional Access policy to require administrators
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 12/12/2019
+ms.topic: how-to
+ms.date: 08/03/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,14 +21,15 @@ Accounts that are assigned administrative rights are targeted by attackers. Requ
 
 Microsoft recommends you require MFA on the following roles at a minimum:
 
-* Global administrator
-* SharePoint administrator
-* Exchange administrator
-* Conditional Access administrator
-* Security administrator
-* Helpdesk (Password) administrator
-* Password administrator
+* Authentication Administrator
 * Billing administrator
+* Conditional Access administrator
+* Exchange administrator
+* Global administrator
+* Helpdesk administrator
+* Password administrator
+* Security administrator
+* SharePoint administrator
 * User administrator
 
 Organizations can choose to include or exclude roles as they see fit.
@@ -39,7 +40,7 @@ Conditional Access policies are powerful tools, we recommend excluding the follo
 
 * **Emergency access** or **break-glass** accounts to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant take steps to recover access.
    * More information can be found in the article, [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Service accounts** and **service principles**, such as the Azure AD Connect Sync Account. Service accounts are non-interactive accounts that are not tied to any particular user. They are normally used by back-end services and allow programmatic access to applications. Service accounts should be excluded since MFA can’t be completed programmatically.
+* **Service accounts** and **service principals**, such as the Azure AD Connect Sync Account. Service accounts are non-interactive accounts that are not tied to any particular user. They are normally used by back-end services allowing programmatic access to applications, but are also used to sign in to systems for administrative purposes. Service accounts like these should be excluded since MFA can't be completed programmatically. Calls made by service principals are not blocked by Conditional Access.
    * If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md). As a temporary workaround, you can exclude these specific accounts from the baseline policy.
 
 ## Create a Conditional Access policy
@@ -52,18 +53,24 @@ The following steps will help create a Conditional Access policy to require thos
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users and groups**
    1. Under **Include**, select **Directory roles (preview)** and choose the following roles at a minimum:
-      * Global administrator
-      * SharePoint administrator
-      * Exchange administrator
+      * Authentication Administrator
+      * Billing administrator
       * Conditional Access administrator
-      * Security administrator
+      * Exchange administrator
+      * Global administrator
       * Helpdesk administrator
       * Password administrator
-      * Billing administrator
+      * Security administrator
+      * SharePoint administrator
       * User administrator
+   
+      > [!WARNING]
+      > Conditional Access policies do not support users assigned a directory role [scoped to an administrative unit](../users-groups-roles/roles-admin-units-assign-roles.md) or directory roles scoped directly to an object, like through [custom roles](../users-groups-roles/roles-create-custom.md).
+
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**, and select **Done**.
+1. Under **Conditions** > **Client apps**, switch **Configure** to **Yes** and under **Select the client apps this policy will apply to** leave all defaults selected and select **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
@@ -72,6 +79,6 @@ The following steps will help create a Conditional Access policy to require thos
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
 
-[Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
+[Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)

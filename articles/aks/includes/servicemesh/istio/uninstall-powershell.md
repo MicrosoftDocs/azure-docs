@@ -1,6 +1,6 @@
 ---
 author: paulbouwer
-ms.service: container-service
+
 ms.topic: include
 ms.date: 11/15/2019
 ms.author: pabouwer

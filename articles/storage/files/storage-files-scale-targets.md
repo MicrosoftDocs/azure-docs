@@ -46,8 +46,8 @@ See the [Azure storage account scale targets](#azure-storage-account-scale-targe
 ### File share and file scale targets
 
 > [!NOTE]
-> Standard file shares larger than 5 TiB have certain limitations and regional restrictions.
-> For a list of limitations, regional information, and instructions to enable these larger file share sizes, see the [Onboard to larger file shares](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the planning guide.
+> Standard file shares larger than 5 TiB have certain limitations. 
+> For a list of limitations and instructions to enable larger file share sizes, see the [enable larger file shares on standard file shares](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) section of the planning guide.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -70,7 +70,7 @@ For Azure File Sync, performance is critical in two stages:
 
 To help you plan your deployment for each of the stages, below are the results observed during the internal testing on a system with a config
 
-| System configuration |  |
+| System configuration | Details |
 |-|-|
 | CPU | 64 Virtual Cores with 64 MiB L3 cache |
 | Memory | 128 GiB |
@@ -78,22 +78,31 @@ To help you plan your deployment for each of the stages, below are the results o
 | Network | 1 Gbps Network |
 | Workload | General Purpose File Server|
 
-| Initial one-time provisioning  |  |
+| Initial one-time provisioning  | Details |
 |-|-|
 | Number of objects | 25 million objects |
 | Dataset Size| ~4.7 TiB |
 | Average File Size | ~200 KiB (Largest File: 100 GiB) |
-| Upload Throughput | 20 objects per second |
-| Namespace Download Throughput* | 400 objects per second |
+| Initial cloud change enumeration | 7 objects per second  |
+| Upload Throughput | 20 objects per second per sync group |
+| Namespace Download Throughput | 400 objects per second |
 
-*When a new server endpoint is created, the Azure File Sync agent does not download any of the file content. It first syncs the full namespace and then triggers background recall to download the files, either in their entirety or, if cloud tiering is enabled, to the cloud tiering policy set on the server endpoint.
+### Initial one-time provisioning
 
-| Ongoing sync  |   |
+**Initial cloud change enumeration**: When a new sync group is created, initial cloud change enumeration is the first step that will execute. In this process, the system will enumerate all the items in the Azure File Share. During this process, there will be no sync activity i.e. no items will be downloaded from cloud endpoint to server endpoint and no items will be uploaded from server endpoint to cloud endpoint. Sync activity will resume once initial cloud change enumeration completes.
+The rate of performance is 7 objects per second. Customers can estimate the time it will take to complete initial cloud change enumeration by determining the number of items in the cloud share and using the following formulae to get the time in days. 
+
+   **Time (in days) for initial cloud enumeration = (Number of objects in cloud endpoint)/(7 * 60 * 60 * 24)**
+
+**Namespace download throughput** When a new server endpoint is added to an existing sync group, the Azure File Sync agent does not download any of the file content from the cloud endpoint. It first syncs the full namespace and then triggers background recall to download the files, either in their entirety or, if cloud tiering is enabled, to the cloud tiering policy set on the server endpoint.
+
+
+| Ongoing sync  | Details  |
 |-|--|
 | Number of objects synced| 125,000 objects (~1% churn) |
 | Dataset Size| 50 GiB |
 | Average File Size | ~500 KiB |
-| Upload Throughput | 20 objects per second |
+| Upload Throughput | 20 objects per second per sync group |
 | Full Download Throughput* | 60 objects per second |
 
 *If cloud tiering is enabled, you are likely to observe better performance as only some of the file data is downloaded. Azure File Sync only downloads the data of cached files when they are changed on any of the endpoints. For any tiered or newly created files, the agent does not download the file data, and instead only syncs the namespace to all the server endpoints. The agent also supports partial downloads of tiered files as they are accessed by the user. 
@@ -110,4 +119,3 @@ As a general guide for your deployment, you should keep a few things in mind:
 
 - [Planning for an Azure Files deployment](storage-files-planning.md)
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
-- [Scalability and performance targets for other storage services](../common/storage-scalability-targets.md)

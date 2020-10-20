@@ -1,6 +1,6 @@
 ---
-title: Display feature information in the Azure Maps Android SDK | Microsoft Docs
-description: Learn how to display feature information in the Azure Maps Android SDK.
+title: Display feature information in the Azure Maps Android SDK | Microsoft Azure Maps
+description: Learn how to display information when users interact with map features. Use the Azure Maps Android SDK to display toast messages and other types of messages.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019

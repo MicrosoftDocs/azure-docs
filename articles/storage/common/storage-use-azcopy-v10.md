@@ -3,8 +3,8 @@ title: Copy or move data to Azure Storage by using AzCopy v10 | Microsoft Docs
 description: AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer files.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
-ms.date: 10/23/2019
+ms.topic: how-to
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ---
@@ -16,9 +16,9 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 > [!NOTE]
 > AzCopy **V10** is the currently supported version of AzCopy.
 >
-> If you need to use AzCopy **v8.1**, see the [Use the previous version of AzCopy](#previous-version) section of this article.
+> If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
-<a id="download-and-install-azcopy" />
+<a id="download-and-install-azcopy"></a>
 
 ## Download AzCopy
 
@@ -26,8 +26,8 @@ First, download the AzCopy V10 executable file to any directory on your computer
 
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
+- [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
 
@@ -45,7 +45,9 @@ To see a list of commands, type `azcopy -h` and then press the ENTER key.
 
 To learn about a specific command, just include the name of the command (For example: `azcopy list -h`).
 
-![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+> [!div class="mx-imgBorder"]
+> ![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
 
 To find detailed reference documentation for each command and command parameter, see [azcopy](storage-ref-azcopy.md)
 
@@ -69,7 +71,7 @@ Use this table as a guide:
 By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.  
 
 > [!NOTE]
-> In the current release, if you plan to copy blobs between storage accounts, you’ll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](storage-use-azcopy-blobs.md).
+> In the current release, if you plan to copy blobs between storage accounts, you'll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](storage-use-azcopy-blobs.md).
 
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
@@ -79,7 +81,7 @@ If you just want to download files, then verify that the [Storage Blob Data Read
 
 If you want to upload files, then verify that one of these roles has been assigned to your security principal:
 
-- [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
 - [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 These roles can be assigned to your security principal in any of these scopes:
@@ -89,10 +91,10 @@ These roles can be assigned to your security principal in any of these scopes:
 - Resource group
 - Subscription
 
-To learn how to verify and assign roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To learn how to verify and assign roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
-> Keep in mind that RBAC role assignments can take up to five minutes to propagate.
+> Keep in mind that Azure role assignments can take up to five minutes to propagate.
 
 You don't need to have one of these roles assigned to your security principal if your security principal is added to the access control list (ACL) of the target container or directory. In the ACL, your security principal needs write permission on the target directory, and execute permission on container and each parent directory.
 
@@ -106,7 +108,7 @@ After you've verified that your user identity has been given the necessary autho
 azcopy login
 ```
 
-If you belong to more than one organization, include the tenant ID of the organization to which the storage account belongs.
+If you receive an error, try including the tenant ID of the organization to which the storage account belongs.
 
 ```azcopy
 azcopy login --tenant-id=<tenant-id>
@@ -120,7 +122,7 @@ This command returns an authentication code and the URL of a website. Open the w
 
 A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
 
-<a id="service-principal" />
+<a id="service-principal"></a>
 
 #### Authenticate a service principal
 
@@ -153,7 +155,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 Next, type the following command, and then press the ENTER key.
 
 ```azcopy
-azcopy login --service-principal --application-id <application-id> --tenant-id=<tenant-id>
+azcopy login --service-principal  --application-id application-id --tenant-id=tenant-id
 ```
 
 Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal. 
@@ -186,7 +188,7 @@ Replace the `<path-to-certificate-file>` placeholder with the relative or fully-
 > [!NOTE]
 > Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history. 
 
-<a id="managed-identity" />
+<a id="managed-identity"></a>
 
 #### Authenticate a managed identity
 
@@ -268,8 +270,8 @@ To obtain the link, run this command:
 
 | Operating system  | Command |
 |--------|-----------|
-| **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
-| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
+| **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux | grep ^Location` |
+| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).headers.location` |
 
 > [!NOTE]
 > For Linux, `--strip-components=1` on the `tar` command removes the top-level folder that contains the version name, and instead extracts the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
@@ -283,7 +285,7 @@ The URL appears in the output of this command. Your script can then download AzC
 
 ### Escape special characters in SAS tokens
 
-In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an addition `%` character next to existing `%` characters in the SAS token string.
+In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an additional `%` character next to existing `%` characters in the SAS token string.
 
 ### Run scripts by using Jenkins
 
@@ -295,19 +297,19 @@ If you plan to use [Jenkins](https://jenkins.io/) to run scripts, make sure to p
 
 ## Use AzCopy in Azure Storage Explorer
 
-[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) uses AzCopy to perform all of it's data transfer operations. You can use [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) if you want to leverage the performance advantages of AzCopy, but you prefer to use a graphical user interface rather than the command line to interact with your files.
+[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) uses AzCopy to perform all of its data transfer operations. You can use [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) if you want to leverage the performance advantages of AzCopy, but you prefer to use a graphical user interface rather than the command line to interact with your files.
 
 Storage Explorer uses your account key to perform operations, so after you sign into Storage Explorer, you won't need to provide additional authorization credentials.
 
-<a id="previous-version" />
+<a id="previous-version"></a>
 
 ## Use the previous version of AzCopy
 
-If you need to use the previous version of AzCopy (AzCopy v8.1), see either of the following links:
+If you need to use the previous version of AzCopy, see either of the following links:
 
 - [AzCopy on Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
 
-- [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+- [AzCopy on Linux (v7)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
 
 ## Configure, optimize, and troubleshoot AzCopy
 

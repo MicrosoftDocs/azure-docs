@@ -3,15 +3,15 @@ title: "Known issues: Online migrations to SQL Database"
 titleSuffix: Azure Database Migration Service
 description: Learn about known issues/migration limitations with online migrations to Azure SQL Database using the Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
-ms.topic: article
-ms.date: 07/27/2019
+ms.topic: troubleshooting
+ms.date: 02/20/2020
 ---
 
 # Known issues/migration limitations with online migrations to Azure SQL Database
@@ -137,7 +137,9 @@ To get to specific failure details, use the following steps.
 
 Migration fails with an error message containing the following text:
 
-     “** encountered a fatal error”, "errorEvents":<Table>.<Column> is of type 'GEOGRAPHY', which is not supported by 'Full Load' under 'Full LOB' support mode."
+```output
+"** encountered a fatal error", "errorEvents":<Table>.<Column> is of type 'GEOGRAPHY', which is not supported by 'Full Load' under 'Full LOB' support mode.
+```
 
 **Workaround**
 
@@ -149,7 +151,9 @@ While Azure Database Migration Service supports the Geography data type for offl
 
 Migration fails with an error message containing the following text:
 
-    Migration settings validation error: The edition of the server [Business Intelligence Edition (64-bit)] does not match the supported edition(s) [Enterprise,Standard,Developer].
+```output
+Migration settings validation error: The edition of the server [Business Intelligence Edition (64-bit)] does not match the supported edition(s) [Enterprise,Standard,Developer].
+```
 
 **Workaround**
 

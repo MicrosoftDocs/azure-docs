@@ -1,15 +1,16 @@
 ---
-title: Resource logs for container groups
+title: Collect & analyze resource logs
 description: Learn how to send resource logs and event data from container groups in Azure Container Instances to Azure Monitor logs
 ms.topic: article
-ms.date: 09/02/2019
-ms.author: danlep
+ms.date: 07/13/2020
 ---
 # Container group and instance logging with Azure Monitor logs
 
-Log Analytics workspaces provide a centralized location for storing and querying log data from not only Azure resources, but also on-premises resources and resources in other clouds. Azure Container Instances includes built-in support for sending logs and event data to Azure Monitor logs.
+Log Analytics workspaces provide a centralized location for storing and querying log data not only from Azure resources, but also on-premises resources and resources in other clouds. Azure Container Instances includes built-in support for sending logs and event data to Azure Monitor logs.
 
-To send container group log and event data to Azure Monitor logs, you must specify a Log Analytics workspace ID and workspace key when creating a container group. The following sections describe creating a logging-enabled container group and querying logs.
+To send container group log and event data to Azure Monitor logs, specify an existing Log Analytics workspace ID and workspace key when configuring a container group. 
+
+The following sections describe how to create a logging-enabled container group and how to query logs. You can also [update a container group](container-instances-update.md) with a workspace ID and workspace key to enable logging.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -21,7 +22,7 @@ To send container group log and event data to Azure Monitor logs, you must speci
 To enable logging in your container instances, you need the following:
 
 * [Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md)
-* [Azure CLI](/cli/azure/install-azure-cli) (or [Cloud Shell](/azure/cloud-shell/overview))
+* [Azure CLI](/cli/azure/install-azure-cli) (or [Cloud Shell](../cloud-shell/overview.md))
 
 ## Get Log Analytics credentials
 
@@ -30,17 +31,16 @@ Azure Container Instances needs permission to send data to your Log Analytics wo
 To obtain the log analytics workspace ID and primary key:
 
 1. Navigate to your Log Analytics workspace in the Azure portal
-1. Under **Settings**, select **Advanced settings**
-1. Select **Connected Sources** > **Windows Servers** (or **Linux Servers**--the ID and keys are the same for both)
+1. Under **Settings**, select **Agents management**
 1. Take note of:
-   * **WORKSPACE ID**
-   * **PRIMARY KEY**
+   * **Workspace ID**
+   * **Primary key**
 
 ## Create container group
 
 Now that you have the log analytics workspace ID and primary key, you're ready to create a logging-enabled container group.
 
-The following examples demonstrate two ways to create a container group with a single [fluentd][fluentd] container: Azure CLI, and Azure CLI with a YAML template. The Fluentd container produces several lines of output in its default configuration. Because this output is sent to your Log Analytics workspace, it works well for demonstrating the viewing and querying of logs.
+The following examples demonstrate two ways to create a container group that consists of a single [fluentd][fluentd] container: Azure CLI, and Azure CLI with a YAML template. The fluentd container produces several lines of output in its default configuration. Because this output is sent to your Log Analytics workspace, it works well for demonstrating the viewing and querying of logs.
 
 ### Deploy with Azure CLI
 
@@ -60,7 +60,7 @@ az container create \
 Use this method if you prefer to deploy container groups with YAML. The following YAML defines a container group with a single container. Copy the YAML into a new file, then replace `LOG_ANALYTICS_WORKSPACE_ID` and `LOG_ANALYTICS_WORKSPACE_KEY` with the values you obtained in the previous step. Save the file as **deploy-aci.yaml**.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: mycontainergroup001
 properties:
@@ -94,7 +94,9 @@ You should receive a response from Azure containing deployment details shortly a
 
 ## View logs
 
-After you've deployed the container group, it can take several minutes (up to 10) for the first log entries to appear in the Azure portal. To view the container group's logs in the `ContainerInstanceLog_CL` table:
+After you've deployed the container group, it can take several minutes (up to 10) for the first log entries to appear in the Azure portal. 
+
+To view the container group's logs in the `ContainerInstanceLog_CL` table:
 
 1. Navigate to your Log Analytics workspace in the Azure portal
 1. Under **General**, select **Logs**  
@@ -124,7 +126,7 @@ Azure Monitor logs includes an extensive [query language][query_lang] for pullin
 
 The basic structure of a query is the source table (in this article, `ContainerInstanceLog_CL` or `ContainerEvent_CL`) followed by a series of operators separated by the pipe character (`|`). You can chain several operators to refine the results and perform advanced functions.
 
-To see example query results, paste the following query into the query text box , and select the **Run** button to execute the query. This query displays all log entries whose "Message" field contains the word "warn":
+To see example query results, paste the following query into the query text box, and select the **Run** button to execute the query. This query displays all log entries whose "Message" field contains the word "warn":
 
 ```query
 ContainerInstanceLog_CL
@@ -145,7 +147,7 @@ ContainerInstanceLog_CL
 
 For more information about querying logs and configuring alerts in Azure Monitor logs, see:
 
-* [Understanding log searches in Azure Monitor logs](../log-analytics/log-analytics-log-search.md)
+* [Understanding log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md)
 * [Unified alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 
@@ -161,7 +163,7 @@ For information about monitoring container instance CPU and memory resources, se
 
 <!-- LINKS - External -->
 [fluentd]: https://hub.docker.com/r/fluent/fluentd/
-[query_lang]: https://aka.ms/LogAnalyticsLanguage
+[query_lang]: /azure/data-explorer/
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

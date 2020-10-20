@@ -25,7 +25,7 @@ Your backup options depend on where the agent is installed. For more information
 **Installation** | **Details**
 --- | ---
 Download the latest MARS agent | You can download the latest version of the agent from the vault, or [download it directly](https://aka.ms/azurebackup_agent).
-Install directly on a machine | You can install the MARS agent directly on an on-premises Windows server or on a Windows VM that's running any of the [supported operating systems](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Install directly on a machine | You can install the MARS agent directly on an on-premises Windows server or on a Windows VM that's running any of the [supported operating systems](./backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 Install on a backup server | When you set up DPM or MABS to back up to Azure, you download and install the MARS agent on the server. You can install the agent on [supported operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) in the backup server support matrix.
 
 > [!NOTE]
@@ -40,7 +40,7 @@ When you use the MARS agent to back up data, the agent takes a snapshot of the d
 --- | ---
 Size |  Free space in the cache folder should be at least 5 to 10 percent of the overall size of your backup data.
 Location | The cache folder must be locally stored on the machine that's being backed up, and it must be online. The cache folder shouldn't be on a network share, on removable media, or on an offline volume.
-Folder | The cache folder should not be encrypted on a deduplicated volume or in a folder that's compressed, that's sparse, or that has a reparse point.
+Folder | The cache folder shouldn't be encrypted on a deduplicated volume or in a folder that's compressed, that's sparse, or that has a reparse point.
 Location changes | You can change the cache location by stopping the backup engine (`net stop bengine`) and copying the cache folder to a new drive. (Ensure the new drive has sufficient space.) Then update two registry entries under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** and **Config/CloudBackupProvider/ScratchLocation**) to the new location and restart the engine.
 
 ## Networking and access support
@@ -49,7 +49,7 @@ Location changes | You can change the cache location by stopping the backup engi
 
 The MARS agent needs access to these URLs:
 
-- <http://www.msftncsi.com/ncsi.txt>
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.MicrosoftOnline.com
@@ -62,6 +62,48 @@ And to these IP addresses:
 
 Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
 
+When backing up files and folders from Azure VMs using the MARS Agent, the Azure virtual network also needs to be configured to allow access. If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*). The following steps describe the process to create a rule for the Azure Backup tag:
+
+1. In **All Services**, go to **Network security groups** and select the network security group.
+2. Select **Outbound security rules** under **Settings**.
+3. Select **Add**. Enter all the required details for creating a new rule as described in [security rule settings](../virtual-network/manage-network-security-group.md#security-rule-settings). Ensure the option **Destination** is set to *Service Tag* and **Destination service tag** is set to *AzureBackup*.
+4. Select **Add** to save the newly created outbound security rule.
+
+You can similarly create NSG outbound security rules for Azure Storage and Azure AD. For more information on service tags, see [this article](../virtual-network/service-tags-overview.md).
+
+### Azure ExpressRoute support
+
+You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering isn't supported.
+
+With public peering: Ensure access to the following domains/addresses:
+
+- `http://www.msftncsi.com/ncsi.txt`
+- `microsoft.com`
+- `.WindowsAzure.com`
+- `.microsoftonline.com`
+- `.windows.net`
+
+With Microsoft peering, select the following services/regions and relevant community values:
+
+- Azure Backup (according to the location of your Recovery Services vault)
+- Azure Active Directory (12076:5060)
+- Azure Storage (according to the location of your Recovery Services vault)
+
+For more information, see the [ExpressRoute routing requirements](../expressroute/expressroute-routing.md#bgp).
+
+>[!NOTE]
+>Public Peering is deprecated for new circuits.
+
+### Private Endpoint support
+
+You can now use Private Endpoints to back up your data securely from servers to your Recovery Services vault. Since Azure Active Directory doesn't currently support private endpoints, IPs and FQDNs required for Azure Active Directory will need to be allowed outbound access separately.
+
+When you use the MARS Agent to back up your on-premises resources, make sure your on-premises network (containing your resources to be backed up) is peered with the Azure VNet that contains a private endpoint for the vault. You can then continue to install the MARS agent and configure backup. However, you must ensure all communication for backup happens through the peered network only.
+
+If you remove private endpoints for the vault after a MARS agent has been registered to it, you'll need to re-register the container with the vault. You don't need to stop protection for them.
+
+Read more about [private endpoints for Azure Backup](private-endpoints.md).
+
 ### Throttling support
 
 **Feature** | **Details**
@@ -69,7 +111,7 @@ Access to all of the URLs and IP addresses listed above uses the HTTPS protocol 
 Bandwidth control | Supported. In the MARS agent, use **Change Properties** to adjust bandwidth.
 Network throttling | Not available for backed-up machines that run Windows Server 2008 R2, Windows Server 2008 SP2, or Windows 7.
 
-## Support for direct backups
+## Supported operating systems
 
 >[!NOTE]
 > The MARS agent does not support Windows Server Core SKUs.
@@ -86,18 +128,31 @@ The operating systems must be 64 bit and should be running the latest services p
 Windows 10 (Enterprise, Pro, Home) | Yes | No |  Check the corresponding server version for software/module requirements
 Windows 8.1 (Enterprise, Pro)| Yes |No | Check the corresponding server version for software/module requirements
 Windows 8 (Enterprise, Pro) | Yes | No | Check the corresponding server version for software/module requirements
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes | No | Check the corresponding server version for software/module requirements
 Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Yes | Yes |- .NET 4.5 <br> -Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
-Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Yes | Yes | - .NET 3.5 , .Net 4.5 <br> -Windows PowerShell <br> - Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Yes | No | - .NET 3.5 , .Net 4.5 <br> - Windows PowerShell <br> - Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe) <br> - Virtual Server 2005 base +  KB KB948515
 Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Yes | No | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2019 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 
 For more information, see [Supported MABS and DPM operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 
+### Operating Systems at end of support
+
+The following operating systems are at the end of support and it's strongly recommended to upgrade the operating system to continue to stay protected.
+
+If existing commitments prevent upgrading the operating system, consider migrating the Windows servers to Azure VMs and leverage Azure VM backups to continue staying protected. Visit the [migration page here](https://azure.microsoft.com/migration/windows-server/) for more information about migrating your Windows server.
+
+For on-premises or hosted environments, where you can't upgrade the operating system or migrate to Azure, activate Extended Security Updates for the machines to continue staying protected and supported. Notice that only specific editions are eligible for Extended Security Updates. Visit the [FAQ page](https://www.microsoft.com/windows-server/extended-security-updates) to learn more.
+
+| **Operating   system**                                       | **Files/folders** | **System   state** | **Software/Module   requirements**                           |
+| ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
+| Windows 7 (Ultimate,  Enterprise, Pro, Home Premium/Basic, Starter) | Yes               | No                 | Check the corresponding  server version for software/module requirements |
+| Windows Server 2008 R2  (Standard, Enterprise, Datacenter, Foundation) | Yes               | Yes                | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Compatible Microsoft VC++ Redistributable <br>  - Microsoft Management Console (MMC) 3.0 <br>  - Deployment Image Servicing and Management (DISM.exe) |
+| Windows Server 2008 SP2  (Standard, Datacenter, Foundation)  | Yes               | No                 | - .NET 3.5, .NET 4.5 <br>  - Windows PowerShell <br>  - Compatible Microsoft VC++ Redistributable <br>  - Microsoft Management Console (MMC) 3.0 <br>  - Deployment Image Servicing and Management (DISM.exe) <br>  - Virtual Server 2005 base + KB KB948515 |
+
 ## Backup limits
+
+### Size limits
 
 Azure Backup limits the size of a file or folder data source that can be backed up. The items that you back up from a single volume can't exceed the sizes summarized in this table:
 
@@ -109,11 +164,15 @@ Windows Server 2008 SP2| 1,700 GB
 Windows 8 or later| 54,400 GB
 Windows 7| 1,700 GB
 
+### Other limitations
+
+- MARS doesn't support protection of multiple machines with the same name to a single vault.
+
 ## Supported file types for backup
 
 **Type** | **Support**
 --- | ---
-Encrypted| Supported.
+Encrypted<sup>*</sup>| Supported.
 Compressed | Supported.
 Sparse | Supported.
 Compressed and sparse |Supported.
@@ -123,6 +182,9 @@ Encrypted and sparse |Not supported. Skipped.
 Compressed stream| Not supported. Skipped.
 Sparse stream| Not supported. Skipped.
 OneDrive (synced files are sparse streams)| Not supported.
+Folders with DFS Replication enabled | Not supported.
+
+\* Ensure that the MARS agent has access to the required certificates to access the encrypted files. Inaccessible files will be skipped.
 
 ## Supported drives or volumes for backup
 

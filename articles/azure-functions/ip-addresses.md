@@ -45,12 +45,13 @@ An alternative way to find the available outbound IP addresses is by using the [
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
+
 > [!NOTE]
-> When a function app that runs on the [Consumption plan](functions-scale.md#consumption-plan) is scaled, a new range of outbound IP addresses may be assigned. When running on the Consumption plan, you may need to whitelist the entire data center.
+> When a function app that runs on the [Consumption plan](functions-scale.md#consumption-plan) or the [Premium plan](functions-scale.md#premium-plan) is scaled, a new range of outbound IP addresses may be assigned. When running on either of these plans, you may need to add the entire data center to an allow list.
 
 ## Data center outbound IP addresses
 
-If you need to whitelist the outbound IP addresses used by your function apps, another option is to whitelist the function apps' data center (Azure region). You can [download a JSON file that lists IP addresses for all Azure data centers](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Then find the JSON fragment that applies to the region that your function app runs in.
+If you need to add the outbound IP addresses used by your function apps to an allow list, another option is to add the function apps' data center (Azure region) to an allow list. You can [download a JSON file that lists IP addresses for all Azure data centers](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Then find the JSON fragment that applies to the region that your function app runs in.
 
 For example, this is what the Western Europe JSON fragment might look like:
 
@@ -76,15 +77,15 @@ For example, this is what the Western Europe JSON fragment might look like:
 
  For information about when this file is updated and when the IP addresses change, expand the **Details** section of the [Download Center page](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
-## Inbound IP address changes
+## <a name="inbound-ip-address-changes"></a>Inbound IP address changes
 
 The inbound IP address **might** change when you:
 
 - Delete a function app and recreate it in a different resource group.
 - Delete the last function app in a resource group and region combination, and re-create it.
-- Delete an SSL binding, such as during [certificate renewal](../app-service/configure-ssl-certificate.md#renew-certificate)).
+- Delete a TLS binding, such as during [certificate renewal](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the inbound IP address might also change when you haven't taken any actions such as the ones listed.
+When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan) or in a [Premium plan](functions-scale.md#premium-plan), the inbound IP address might also change even when you haven't taken any actions such as the ones [listed above](#inbound-ip-address-changes).
 
 ## Outbound IP address changes
 
@@ -93,7 +94,7 @@ The set of available outbound IP addresses for a function app might change when 
 * Take any action that can change the inbound IP address.
 * Change your App Service plan pricing tier. The list of all possible outbound IP addresses your app can use, for all pricing tiers, is in the `possibleOutboundIPAddresses` property. See [Find outbound IPs](#find-outbound-ip-addresses).
 
-When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan), the outbound IP address might also change when you haven't taken any actions such as the ones listed.
+When your function app runs in a [Consumption plan](functions-scale.md#consumption-plan) or in a [Premium plan](functions-scale.md#premium-plan), the outbound IP address might also change even when you haven't taken any actions such as the ones [listed above](#inbound-ip-address-changes).
 
 To deliberately force an outbound IP address change:
 

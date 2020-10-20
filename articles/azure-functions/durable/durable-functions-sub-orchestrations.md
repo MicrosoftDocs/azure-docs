@@ -13,11 +13,15 @@ In addition to calling activity functions, orchestrator functions can call other
 An orchestrator function can call another orchestrator function using the `CallSubOrchestratorAsync` or the `CallSubOrchestratorWithRetryAsync` methods in .NET, or the `callSubOrchestrator` or `callSubOrchestratorWithRetry` methods in JavaScript. The [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) article has more information on automatic retry.
 
 Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value, throw an exception, and can be awaited by the parent orchestrator function. 
+
+> [!NOTE]
+> Sub-orchestrations are currently supported in .NET and JavaScript.
+
 ## Example
 
 The following example illustrates an IoT ("Internet of Things") scenario where there are multiple devices that need to be provisioned. The following function represents the provisioning workflow that needs to be executed for each device:
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
@@ -38,7 +42,7 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -59,11 +63,13 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 This orchestrator function can be used as-is for one-off device provisioning or it can be part of a larger orchestration. In the latter case, the parent orchestrator function can schedule instances of `DeviceProvisioningOrchestration` using the `CallSubOrchestratorAsync` (.NET) or `callSubOrchestrator` (JavaScript) API.
 
 Here is an example that shows how to run multiple orchestrator functions in parallel.
 
-### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ProvisionNewDevices")]
@@ -89,7 +95,7 @@ public static async Task ProvisionNewDevices(
 > [!NOTE]
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -112,6 +118,8 @@ module.exports = df.orchestrator(function*(context) {
     // ...
 });
 ```
+
+---
 
 > [!NOTE]
 > Sub-orchestrations must be defined in the same function app as the parent orchestration. If you need to call and wait for orchestrations in another function app, consider using the built-in support for HTTP APIs and the HTTP 202 polling consumer pattern. For more information, see the [HTTP Features](durable-functions-http-features.md) topic.

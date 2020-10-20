@@ -3,20 +3,18 @@ title: How to configure single sign-on to an Application Proxy app
 description: How you can configure single sign-on to your application proxy application quickly
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/12/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere, asteen
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -34,7 +32,7 @@ For more information on the Pre-Authentication methods, see step 4 of the [app p
 ## Configuring single sign-on modes for Application Proxy Applications
 Configure the specific type of single sign-on. The sign-on methods are classified based on what type of authentication the backend application uses. App Proxy applications support three types of sign-on:
 
--   **Password-based Sign-On**: Password-based sign-on can be used for any application that uses username and password fields to sign on. Configuration steps are in [Configure password Single sign-on for an Azure AD gallery application](configure-password-single-sign-on-gallery-applications.md).
+-   **Password-based Sign-On**: Password-based sign-on can be used for any application that uses username and password fields to sign on. Configuration steps are in [Configure password Single sign-on for an Azure AD gallery application](configure-password-single-sign-on-non-gallery-applications.md).
 
 -   **Integrated Windows Authentication**: For applications using Integrated Windows Authentication (IWA), single sign-on is enabled through Kerberos Constrained Delegation (KCD). This method gives Application Proxy Connectors permission in Active Directory to impersonate users, and to send and receive tokens on their behalf. Details on configuring KCD can be found in the [Single Sign-On with KCD documentation](application-proxy-configure-single-sign-on-with-kcd.md).
 
@@ -46,7 +44,7 @@ Each of these options can be found by going to your application in “Enterprise
 
 On this page, you also see one additional Sign-On option: Linked Sign-On. This option is also supported by Application Proxy. However, this option does not add single sign-on to the application. That said the application may already have single sign-on implemented using another service such as Active Directory Federation Services. 
 
-This option allows an admin to create a link to an application that users first land on when accessing the application. For example, if there is an application that is configured to authenticate users using Active Directory Federation Services 2.0, an administrator can use the “Linked Sign-On” option to create a link to it on the access panel.
+This option allows an admin to create a link to an application that users first land on when accessing the application. For example, if there is an application that is configured to authenticate users using Active Directory Federation Services 2.0, an administrator can use the “Linked Sign-On” option to create a link to it on My Apps.
 
 ## Next steps
 - [Password vaulting for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-password-vaulting.md)

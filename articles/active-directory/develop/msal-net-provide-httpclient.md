@@ -8,14 +8,13 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/23/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: "devx-track-csharp, aaddev"
 #Customer intent: As an application developer, I want to learn about providing my own HttpClient so I can have fine-grained control of the proxy.
-ms.collection: M365-identity-device-management
 ---
 
 # Providing your own HttpClient and proxy using MSAL.NET

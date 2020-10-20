@@ -3,7 +3,7 @@ title: Collect custom metrics for Linux VM with the InfluxData Telegraf agent
 description: Instructions on how to deploy the InfluxData Telegraf agent on a Linux VM in Azure and configure the agent to publish metrics to Azure Monitor. 
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
@@ -15,15 +15,21 @@ By using Azure Monitor, you can collect custom metrics via your application tele
 
 ## InfluxData Telegraf agent 
 
-[Telegraf](https://docs.influxdata.com/telegraf/v1.7/) is a plug-in-driven agent that enables the collection of metrics from over 150 different sources. Depending on what workloads run on your VM, you can configure the agent to leverage specialized input plug-ins to collect metrics. Examples are MySQL, NGINX, and Apache. By using output plug-ins, the agent can then write to destinations that you choose. The Telegraf agent has integrated directly with the Azure Monitor custom metrics REST API. It supports an Azure Monitor output plug-in. By using this plug-in, the agent can collect workload-specific metrics on your Linux VM and submit them as custom metrics to Azure Monitor. 
+[Telegraf](https://docs.influxdata.com/telegraf/) is a plug-in-driven agent that enables the collection of metrics from over 150 different sources. Depending on what workloads run on your VM, you can configure the agent to leverage specialized input plug-ins to collect metrics. Examples are MySQL, NGINX, and Apache. By using output plug-ins, the agent can then write to destinations that you choose. The Telegraf agent has integrated directly with the Azure Monitor custom metrics REST API. It supports an Azure Monitor output plug-in. By using this plug-in, the agent can collect workload-specific metrics on your Linux VM and submit them as custom metrics to Azure Monitor. 
 
  ![Telegraph agent overview](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
+
+> [!NOTE]  
+> Custom Metrics are not supported in all regions. Supported regions are listed [here](./metrics-custom-overview.md#supported-regions)
 
 ## Send custom metrics 
 
 For this tutorial, we deploy a Linux VM that runs the Ubuntu 16.04 LTS operating system. The Telegraf agent is supported for most Linux operating systems. Both Debian and RPM packages are available along with unpackaged Linux binaries on the [InfluxData download portal](https://portal.influxdata.com/downloads). See this [Telegraf installation guide](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) for additional installation instructions and options. 
 
 Sign in to the [Azure portal](https://portal.azure.com).
+
+> [!NOTE]  
+> If you want to migrate classic alert rules and use an existing Linux virtual machine, make sure the virutal machine has a system-assigned identity set to **On**.
 
 Create a new Linux VM: 
 
@@ -116,7 +122,7 @@ Now the agent will collect metrics from each of the input plug-ins specified and
 
 ## Additional configuration 
 
-The preceding walkthrough provides information on how to configure the Telegraf agent to collect metrics from a few basic input plug-ins. The Telegraf agent has support for over 150 input plug-ins, with some supporting additional configuration options. InfluxData has published a [list of supported plugins](https://docs.influxdata.com/telegraf/v1.7/plugins/inputs/) and instructions on [how to configure them](https://docs.influxdata.com/telegraf/v1.7/administration/configuration/).  
+The preceding walkthrough provides information on how to configure the Telegraf agent to collect metrics from a few basic input plug-ins. The Telegraf agent has support for over 150 input plug-ins, with some supporting additional configuration options. InfluxData has published a [list of supported plugins](https://docs.influxdata.com/telegraf/v1.15/plugins/inputs/) and instructions on [how to configure them](https://docs.influxdata.com/telegraf/v1.15/administration/configuration/).  
 
 Additionally, in this walkthrough, you used the Telegraf agent to emit metrics about the VM the agent is deployed on. The Telegraf agent can also be used as a collector and forwarder of metrics for other resources. To learn how to configure the agent to emit metrics for other Azure resources, see [Azure Monitor Custom Metric Output for Telegraf](https://github.com/influxdata/telegraf/blob/fb704500386214655e2adb53b6eb6b15f7a6c694/plugins/outputs/azure_monitor/README.md).  
 
@@ -126,6 +132,3 @@ When they're no longer needed, you can delete the resource group, virtual machin
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).
-
-
-

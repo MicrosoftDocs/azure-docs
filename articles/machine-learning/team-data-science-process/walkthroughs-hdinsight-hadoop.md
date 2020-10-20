@@ -3,12 +3,12 @@ title: Analytics on Azure HDInsight Hadoop using Hive - Team Data Science Proces
 description: Examples of the Team Data Science Process that walk through the use of Hive on Azure HDInsight Hadoop to do predictive analytics.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -31,7 +31,7 @@ The scenario is implemented using Hive with an [Azure HDInsight Hadoop cluster](
 
 ## Predict advertisement clicks using Hive with HDInsight Hadoop
 
-The [Use Azure HDInsight Hadoop Clusters on a 1-TB dataset](hive-criteo-walkthrough.md) walkthrough uses a publicly available [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) click dataset to predict whether a tip is paid and the range of amounts expected. The scenario is implemented using Hive with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data. It uses Azure Machine Learning to build, train, and score a binary classification model predicting whether a user clicks on an advertisement. The walkthrough concludes showing how to publish one of these models as a Web service.
+The [Use Azure HDInsight Hadoop Clusters on a 1-TB dataset](hive-criteo-walkthrough.md) walkthrough uses a publicly available [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) click dataset to predict whether a tip is paid and the expected amounts. The scenario is implemented using Hive with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data. It uses Azure Machine Learning to build, train, and score a binary classification model predicting whether a user clicks on an advertisement. The walkthrough concludes showing how to publish one of these models as a Web service.
 
 
 ## Next steps

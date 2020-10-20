@@ -8,11 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
+ms.custom: [amqp, 'Role: Cloud Development','Role: IoT Device', devx-track-csharp]
 ---
 
 # Set up X.509 security in your Azure IoT hub
 
 This tutorial shows the steps you need to secure your Azure IoT hub using the *X.509 Certificate Authentication*. For the purpose of illustration, we use the open-source tool OpenSSL to create certificates locally on your Windows machine. We recommend that you use this tutorial for test purposes only. For production environment, you should purchase the certificates from a *root certificate authority (CA)*.
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## Prerequisites
 
@@ -34,9 +37,15 @@ You may choose any of the following ways to get your certificates:
 
 * Generate an [X.509 intermediate CA certificate](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) signed by an existing root CA certificate and upload it to the hub. Once the intermediate certificate is uploaded and verified, as instructed below, it can be used in the place of a root CA certificate mentioned below. Tools like OpenSSL ([openssl req](https://www.openssl.org/docs/man1.1.0/man1/req.html) and [openssl ca](https://www.openssl.org/docs/man1.1.0/man1/ca.html)) can be used to generate and sign an intermediate CA certificate.
 
+> [!NOTE]
+> Do not upload the 3rd party root if it is not unique to you because that would enable other customers of the 3rd party to connect their devices to your IoT Hub.
+
 ## Register X.509 CA certificates to your IoT hub
 
 These steps show you how to add a new Certificate Authority to your IoT hub through the portal.
+
+> [!NOTE]
+> The maximum number of X.509 CA certificates that can be registered to an IoT hub is 25. For more information, see [Azure IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 1. In the Azure portal, navigate to your IoT hub and select **Settings** > **Certificates** for the hub.
 
@@ -74,7 +83,7 @@ These steps show you how to add a new Certificate Authority to your IoT hub thro
 
 ## Authenticate your X.509 device with the X.509 certificates
 
-To authenticate your X.509 device, you need to first sign the device with the CA certificate. Signing of leaf devices is normally done at the manufacturing plant, where manufacturing tools have been enabled accordingly. As the device goes from one manufacturer to another, each manufacturer’s signing action is captured as an intermediate certificate within the chain. The result is a certificate chain from the CA certificate to the device’s leaf certificate. Step 4 in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) generates a device certificate.
+To authenticate your X.509 device, you need to first sign the device with the CA certificate. Signing of leaf devices is normally done at the manufacturing plant, where manufacturing tools have been enabled accordingly. As the device goes from one manufacturer to another, each manufacturer's signing action is captured as an intermediate certificate within the chain. The result is a certificate chain from the CA certificate to the device's leaf certificate. Step 4 in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) generates a device certificate.
 
 Next, we will show you how to create a C# application to simulate the X.509 device registered for your IoT hub. We will send temperature and humidity values from the simulated device to your hub. In this tutorial, we will create only the device application. It is left as an exercise to the readers to create the IoT Hub service application that will send response to the events sent by this simulated device. The C# application assumes that you have followed the steps in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
@@ -190,4 +199,4 @@ To learn more about securing your IoT solution, see:
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)

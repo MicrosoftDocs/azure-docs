@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric - Performance Monitoring with Azure Monitor logs 
+title: Performance Monitoring with Azure Monitor logs 
 description: Learn how to set up the Log Analytics Agent for monitoring containers and performance counters for your Azure Service Fabric clusters.
 author: srrengar
 
@@ -19,7 +19,7 @@ This article covers the steps to add the Log Analytics agent as a virtual machin
 
 ## Add the agent extension via Azure CLI
 
-The best way to add the Log Analytics agent to your cluster is via the virtual machine scale set APIs available with the Azure CLI. If you do not have Azure CLI set up yet, head over to Azure portal and open up a [Cloud Shell](../cloud-shell/overview.md) instance, or [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+The best way to add the Log Analytics agent to your cluster is via the virtual machine scale set APIs available with the Azure CLI. If you do not have Azure CLI set up yet, head over to Azure portal and open up a [Cloud Shell](../cloud-shell/overview.md) instance, or [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 1. Once your Cloud Shell is requested, make sure you are working in the same subscription as your resource. Check this with `az account show` and make sure the "name" value matches that of your cluster's subscription.
 
@@ -29,17 +29,17 @@ The best way to add the Log Analytics agent to your cluster is via the virtual m
 
 3. Click on **Windows Servers** if you are standing up a Windows cluster, and **Linux Servers** if you are creating a Linux cluster. This page will show you your `workspace ID` and `workspace key` (listed as Primary Key in the portal). You will need both for the next step.
 
-4. Run the command to install the Log Analytics agent onto your cluster, using the `vmss extension set` API in your Cloud Shell:
+4. Run the command to install the Log Analytics agent onto your cluster, using the `vmss extension set` API:
 
     For a Windows cluster:
 
-    ```sh
+    ```azurecli
     az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
 
     For a Linux cluster:
 
-    ```sh
+    ```azurecli
     az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
 
@@ -49,7 +49,7 @@ The best way to add the Log Analytics agent to your cluster is via the virtual m
 
 5. This should take less than 15 min to successfully add the agent to your nodes. You can verify that the agents have been added by using the `az vmss extension list` API:
 
-    ```sh
+    ```azurecli
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>
     ```
 
@@ -69,7 +69,7 @@ Now that you have added the Log Analytics agent, head on over to the Log Analyti
 
 3. Click **Advanced Settings**.
 
-4. Click **Data**, then click **Windows or Linux Performance Counters**. There is a list of default counters you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](service-fabric-diagnostics-event-generation-perf.md) to collect. The proper format is referenced in this [article](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
+4. Click **Data**, then click **Windows or Linux Performance Counters**. There is a list of default counters you can choose to enable and you can set the interval for collection too. You can also add [additional performance counters](service-fabric-diagnostics-event-generation-perf.md) to collect. The proper format is referenced in this [article](/windows/win32/perfctrs/specifying-a-counter-path).
 
 5. Click **Save**, then click **OK**.
 
@@ -88,5 +88,5 @@ Now that you have added the Log Analytics agent, head on over to the Log Analyti
 ## Next steps
 
 * Collect relevant [performance counters](service-fabric-diagnostics-event-generation-perf.md). To configure the Log Analytics agent to collect specific performance counters, review [configuring data sources](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Configure Azure Monitor logs to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics
+* Configure Azure Monitor logs to set up [automated alerting](../azure-monitor/platform/alerts-overview.md) to aid in detecting and diagnostics
 * As an alternative you can collect performance counters through [Azure Diagnostics extension and send them to Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

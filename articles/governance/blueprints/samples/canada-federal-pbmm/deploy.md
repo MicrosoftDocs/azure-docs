@@ -1,7 +1,7 @@
 ---
 title: Deploy Canada Federal PBMM blueprint sample
 description: Deploy steps for the Canada Federal PBMM blueprint sample including blueprint artifact parameter details.
-ms.date: 09/05/2019
+ms.date: 07/31/2020
 ms.topic: sample
 ---
 # Deploy the Canada Federal PBMM blueprint samples
@@ -125,7 +125,7 @@ Artifact name|Artifact type|Parameter name|Description|
 |\[Preview\]: Deploy Log Analytics Agent for Windows VMs |Policy assignment |Optional: List of VM images that have supported Windows OS to add to scope |An empty array may be used to indicate no optional parameters: `[]` |
 |\[Preview\]: Deploy Log Analytics Agent for Windows VMs |Policy assignment |Log Analytics workspace for Windows VMs |For more information, see [Create a Log Analytics workspace in the Azure portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |\[Preview\]: Audit Canada Federal PBMM controls and deploy specific VM Extensions to support audit requirements |Policy assignment |Log Analytics workspace ID that VMs should be configured for |This is the ID (GUID) of the Log Analytics workspace that the VMs should be configured for. |
-|\[Preview\]: Audit Canada Federal PBMM controls and deploy specific VM Extensions to support audit requirements |Policy assignment |List of resource types that should have diagnostic logs enabled |List of resource types to audit if diagnostic log setting isn't enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type). |
+|\[Preview\]: Audit Canada Federal PBMM controls and deploy specific VM Extensions to support audit requirements |Policy assignment |List of resource types that should have diagnostic logs enabled |List of resource types to audit if diagnostic log setting isn't enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
 |\[Preview\]: Audit Canada Federal PBMM controls and deploy specific VM Extensions to support audit requirements |Policy assignment |Administrators group |Group. Example: `Administrator; myUser1; myUser2` |
 |\[Preview\]: Audit Canada Federal PBMM controls and deploy specific VM Extensions to support audit requirements |Policy assignment |List of users that should be included in Windows VM Administrators group |A semicolon-separated list of members that should be included in the Administrators local group. Example: `Administrator; myUser1; myUser2` |
 |Deploy Advanced Threat Protection on Storage Accounts |Policy assignment |Effect |Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects.md). |

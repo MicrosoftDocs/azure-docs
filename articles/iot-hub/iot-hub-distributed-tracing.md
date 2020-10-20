@@ -8,6 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
+ms.custom: [amqp, mqtt, fasttrack-edit, iot]
 ---
 
 # Trace Azure IoT device-to-cloud messages with distributed tracing (preview)
@@ -83,7 +84,7 @@ These instructions are for building the sample on Windows. For other environment
 
 ### Clone the source code and initialize
 
-1. Install ["Desktop development with C++" workload](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) for Visual Studio 2019. Visual Studio 2017 and 2015 are also supported.
+1. Install ["Desktop development with C++" workload](/cpp/build/vscpp-step-0-installation?view=vs-2019) for Visual Studio 2019. Visual Studio 2017 and 2015 are also supported.
 
 1. Install [CMake](https://cmake.org/). Make sure it is in your `PATH` by typing `cmake -version` from a command prompt.
 
@@ -105,7 +106,7 @@ These instructions are for building the sample on Windows. For other environment
     cmake ..
     ```
 
-    If `cmake` can't find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    If `cmake` can't find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     Once the build succeeds, the last few output lines will look similar to the following output:
 
@@ -124,6 +125,9 @@ These instructions are for building the sample on Windows. For other environment
     ```
 
 ### Edit the send telemetry sample to enable distributed tracing
+
+> [!div class="button"]
+> <a href="https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample/blob/master/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" target="_blank">Get the sample on GitHub</a>
 
 1. Use an editor to open the `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c` source file.
 
@@ -203,15 +207,15 @@ To change the percentage of messages to be traced from the cloud, you must updat
 
 1. (Optional) Change the sampling rate to a different value, and observe the change in frequency that messages include `tracestate` in the application properties.
 
-### Update using Azure IoT Hub Toolkit for VS Code
+### Update using Azure IoT Hub for VS Code
 
-1. Install VS Code, then install the latest version of Azure IoT Hub Toolkit for VS Code from [here](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+1. Install VS Code, then install the latest version of Azure IoT Hub for VS Code from [here](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 1. Open VS Code and [set up IoT Hub connection string](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
 1. Expand the device and look for **Distributed Tracing Setting (Preview)**. Under it, click **Update Distributed Tracing Setting (Preview)** of sub node.
 
-    ![Enable distributed tracing in Azure IoT Hub Toolkit](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
+    ![Enable distributed tracing in Azure IoT Hub extension](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
 1. In the popup window, select **Enable**, then press Enter to confirm 100 as sampling rate.
 
@@ -221,7 +225,7 @@ To change the percentage of messages to be traced from the cloud, you must updat
 
 ### Bulk update for multiple devices
 
-To update the distributed tracing sampling configuration for multiple devices, use [automatic device configuration](iot-hub-auto-device-config.md). Make sure you follow this twin schema:
+To update the distributed tracing sampling configuration for multiple devices, use [automatic device configuration](./iot-hub-automatic-device-management.md). Make sure you follow this twin schema:
 
 ```json
 {
@@ -247,7 +251,7 @@ To see all the traces logged by an IoT Hub, query the log store that you selecte
 
 ### Query using Log Analytics
 
-If you've set up [Log Analytics with diagnostic logs](../azure-monitor/platform/resource-logs-collect-storage.md), query by looking for logs in the `DistributedTracing` category. For example, this query shows all the traces logged:
+If you've set up [Log Analytics with diagnostic logs](../azure-monitor/platform/resource-logs.md#send-to-azure-storage), query by looking for logs in the `DistributedTracing` category. For example, this query shows all the traces logged:
 
 ```Kusto
 // All distributed traces 
@@ -269,10 +273,10 @@ To understand the different types of logs, see [Azure IoT Hub diagnostic logs](i
 
 ### Application Map
 
-To visualize the flow of IoT messages, set up the Application Map sample app. The sample app sends the distributed tracing logs to [Application Map](../application-insights/app-insights-app-map.md) using an Azure Function and an Event Hub.
+To visualize the flow of IoT messages, set up the Application Map sample app. The sample app sends the distributed tracing logs to [Application Map](../azure-monitor/app/app-map.md) using an Azure Function and an Event Hub.
 
 > [!div class="button"]
-> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Get the sample on Github</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Get the sample on GitHub</a>
 
 This image below shows distributed tracing in App Map with three routing endpoints:
 
@@ -282,11 +286,11 @@ This image below shows distributed tracing in App Map with three routing endpoin
 
 ### Context
 
-Many IoT solutions, including our own [reference architecture](https://aka.ms/iotrefarchitecture) (English only), generally follow a variant of the [microservice architecture](https://docs.microsoft.com/azure/architecture/microservices/). As an IoT solution grows more complex, you end up using a dozen or more microservices. These microservices may or may not be from Azure. Pinpointing where IoT messages are dropping or slowing down can become challenging. For example, you have an IoT solution that uses 5 different Azure services and 1500 active devices. Each device sends 10 device-to-cloud messages/second (for a total of 15,000 messages/second), but you notice that your web app sees only 10,000 messages/second. Where is the issue? How do you find the culprit?
+Many IoT solutions, including our own [reference architecture](https://aka.ms/iotrefarchitecture) (English only), generally follow a variant of the [microservice architecture](/azure/architecture/microservices/). As an IoT solution grows more complex, you end up using a dozen or more microservices. These microservices may or may not be from Azure. Pinpointing where IoT messages are dropping or slowing down can become challenging. For example, you have an IoT solution that uses 5 different Azure services and 1500 active devices. Each device sends 10 device-to-cloud messages/second (for a total of 15,000 messages/second), but you notice that your web app sees only 10,000 messages/second. Where is the issue? How do you find the culprit?
 
 ### Distributed tracing pattern in microservice architecture
 
-To reconstruct the flow of an IoT message across different services, each service should propagate a *correlation ID* that uniquely identifies the message. Once collected in a centralized system, correlation IDs enable you to see message flow. This method is called the [distributed tracing pattern](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing).
+To reconstruct the flow of an IoT message across different services, each service should propagate a *correlation ID* that uniquely identifies the message. Once collected in a centralized system, correlation IDs enable you to see message flow. This method is called the [distributed tracing pattern](/azure/architecture/microservices/logging-monitoring#distributed-tracing).
 
 To support wider adoption for distributed tracing, Microsoft is contributing to [W3C standard proposal for distributed tracing](https://w3c.github.io/trace-context/).
 
@@ -296,12 +300,12 @@ Once enabled, distributed tracing support for IoT Hub will follow this flow:
 
 1. A message is generated on the IoT device.
 1. The IoT device decides (with help from cloud) that this message should be assigned with a trace context.
-1. The SDK adds a `tracestate` to the message application property, containing the message creation timestamp.
+1. The SDK adds a `tracestate` to the message property, containing the message creation timestamp.
 1. The IoT device sends the message to IoT Hub.
 1. The message arrives at IoT hub gateway.
-1. IoT Hub looks for the `tracestate` in the message application properties, and checks to see if it's in the correct format.
-1. If so, IoT Hub generates and logs the `trace-id` and `span-id` to Azure Monitor diagnostic logs under the category `DiagnosticIoTHubD2C`.
-1. Once the message processing is finished, IoT Hub generates another `span-id` and logs it along with the existing `trace-id` under the category `DiagnosticIoTHubIngress`.
+1. IoT Hub looks for the `tracestate` in the message properties, and checks to see if it's in the correct format.
+1. If so, IoT Hub generates a globally unique `trace-id` for the message, a `span-id` for the "hop", and logs them to Azure Monitor diagnostic logs under the operation `DiagnosticIoTHubD2C`.
+1. Once the message processing is finished, IoT Hub generates another `span-id` and logs it along with the existing `trace-id` under the operation `DiagnosticIoTHubIngress`.
 1. If routing is enabled for the message, IoT Hub writes it to the custom endpoint, and logs another `span-id` with the same `trace-id` under the category `DiagnosticIoTHubEgress`.
 1. The steps above are repeated for each message generated.
 
@@ -315,5 +319,5 @@ Once enabled, distributed tracing support for IoT Hub will follow this flow:
 ## Next steps
 
 - To learn more about the general distributed tracing pattern in microservices, see [Microservice architecture pattern: distributed tracing](https://microservices.io/patterns/observability/distributed-tracing.html).
-- To set up configuration to apply distributed tracing settings to a large number of devices, see [Configure and monitor IoT devices at scale](iot-hub-auto-device-config.md).
+- To set up configuration to apply distributed tracing settings to a large number of devices, see [Configure and monitor IoT devices at scale](./iot-hub-automatic-device-management.md).
 - To learn more about Azure Monitor, see [What is Azure Monitor?](../azure-monitor/overview.md).

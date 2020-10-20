@@ -1,6 +1,7 @@
 ---
 
-title: Security best practices for protecting your assets - Microsoft Azure
+title: Security best practices for your Azure assets
+titleSuffix: Azure security
 description: This article provides a set of operational best practices for protecting your data, applications, and other assets in Azure.
 services: security
 documentationcenter: na
@@ -52,7 +53,7 @@ In the Azure enrollment portal, you can ensure admin contact information include
 ## Organize Azure subscriptions into management groups
 If your organization has many subscriptions, you might need a way to efficiently manage access, policies, and compliance for those subscriptions. [Azure management groups](/azure/governance/management-groups/create) provide a level of scope that’s above subscriptions. You organize subscriptions into containers called management groups and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group.
 
-You can build a flexible structure of management groups and subscriptions into a directory. Each directory is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. The root management group allows global policies and RBAC assignments to be applied at the directory level.
+You can build a flexible structure of management groups and subscriptions into a directory. Each directory is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. The root management group allows global policies and Azure role assignments to be applied at the directory level.
 
 Here are some best practices for using management groups:
 
@@ -105,7 +106,7 @@ Here are some best practices for preventing, detecting, and responding to threat
 **Detail**: Investigate the features and capabilities of [Azure Sentinel](/azure/sentinel/overview) and compare them with the capabilities of what you’re currently using on-premises. Consider adopting Azure Sentinel if it meets your organization’s SIEM requirements.
 
 **Best practice**: Find the most serious security vulnerabilities so you can prioritize investigation.   
-**Detail**: Review your [Azure secure score](../../security-center/security-center-secure-score.md) to see the recommendations resulting from the Azure policies and initiatives built into Azure Security Center. These recommendations help address top risks like security updates, endpoint protection, encryption, security configurations, missing WAF, internet-connected VMs, and many more.
+**Detail**: Review your [Azure secure score](../../security-center/secure-score-security-controls.md) to see the recommendations resulting from the Azure policies and initiatives built into Azure Security Center. These recommendations help address top risks like security updates, endpoint protection, encryption, security configurations, missing WAF, internet-connected VMs, and many more.
 
 The secure score, which is based on Center for Internet Security (CIS) controls, lets you benchmark your organization’s Azure security against external sources. External validation helps validate and enrich your team’s security strategy.
 
@@ -113,7 +114,7 @@ The secure score, which is based on Center for Internet Security (CIS) controls,
 **Detail**: Follow the [security recommendations](../../security-center/security-center-recommendations.md) in Security Center starting, with the highest priority items.
 
 **Best practice**: Integrate Security Center alerts into your security information and event management (SIEM) solution.   
-**Detail**: Most organizations with a SIEM use it as a central clearinghouse for security alerts that require an analyst response. Processed events produced by Security Center are published to the Azure Activity Log, one of the logs available through Azure Monitor. Azure Monitor offers a consolidated pipeline for routing any of your monitoring data into a SIEM tool. See [Integrate security solutions in Security Center](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) for instructions. If you’re using Azure Sentinel, see [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Detail**: Most organizations with a SIEM use it as a central clearinghouse for security alerts that require an analyst response. Processed events produced by Security Center are published to the Azure Activity Log, one of the logs available through Azure Monitor. Azure Monitor offers a consolidated pipeline for routing any of your monitoring data into a SIEM tool. See [Stream alerts to a SIEM, SOAR, or IT Service Management solution](../../security-center/export-to-siem.md) for instructions. If you’re using Azure Sentinel, see [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Best practice**: Integrate Azure logs with your SIEM.   
 **Detail**: Use [Azure Monitor to gather and export data](/azure/azure-monitor/overview#integrate-and-export-data). This practice is critical for enabling security incident investigation, and online log retention is limited. If you’re using Azure Sentinel, see [Connect data sources](../../sentinel/connect-data-sources.md).
@@ -179,10 +180,10 @@ Ensuring that an application is resilient enough to handle a denial of service t
 
 For Azure Cloud Services, configure each of your roles to use [multiple instances](../../cloud-services/cloud-services-choose-me.md).
 
-For [Azure Virtual Machines](/azure/virtual-machines/windows/overview), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set](/azure/virtual-machines/virtual-machines-windows-manage-availability). We recommend using virtual machine scale sets for autoscaling capabilities.
+For [Azure Virtual Machines](../../virtual-machines/windows/overview.md), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set](../../virtual-machines/windows/tutorial-availability-sets.md). We recommend using virtual machine scale sets for autoscaling capabilities.
 
 **Best practice**: Layering security defenses in an application reduces the chance of a successful attack. Implement secure designs for your applications by using the built-in capabilities of the Azure platform.  
-**Detail**: The risk of attack increases with the size (surface area) of the application. You can reduce the surface area by using whitelisting to close down the exposed IP address space and listening ports that are not needed on the load balancers ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) and [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).
+**Detail**: The risk of attack increases with the size (surface area) of the application. You can reduce the surface area by using an approval list to close down the exposed IP address space and listening ports that are not needed on the load balancers ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) and [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).
 
 [Network security groups](../../virtual-network/security-overview.md) are another way to reduce the attack surface. You can use [service tags](../../virtual-network/security-overview.md#service-tags) and [application security groups](../../virtual-network/security-overview.md#application-security-groups) to minimize complexity for creating security rules and configuring network security, as a natural extension of an application’s structure.
 
@@ -212,8 +213,8 @@ For more information, see [Create and manage policies to enforce compliance](../
 **Best practice**: Identify the roles responsible for monitoring for policy violations and ensuring the right remediation action is taken quickly.   
 **Detail**: Have the assigned role monitor compliance through the [Azure portal](../../governance/policy/how-to/get-compliance-data.md#portal) or via the [command line](../../governance/policy/how-to/get-compliance-data.md#command-line).
 
-**Best practice**: Azure Policy is a technical representation of an organization’s written policies. Map all Azure policies to organizational policies to reduce confusion and increase consistency.   
-**Detail**: Document mapping in your organization’s documentation or in the Azure policy itself by adding a reference to the organizational policy in the Azure [policy description](../../governance/policy/concepts/definition-structure.md#display-name-and-description) or the Azure policy [initiative](../../governance/policy/concepts/definition-structure.md#initiatives) description.
+**Best practice**: Azure Policy is a technical representation of an organization's written policies. Map all Azure Policy definitions to organizational policies to reduce confusion and increase consistency.   
+**Detail**: Document mapping in your organization's documentation or in the Azure Policy definition itself by adding a reference to the organizational policy in the [policy definition](../../governance/policy/concepts/definition-structure.md#display-name-and-description) or the [initiative definition](../../governance/policy/concepts/initiative-definition-structure.md#metadata) description.
 
 ## Monitor Azure AD risk reports
 The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Discovering compromised identities is no easy task. Azure AD uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user accounts. Each detected suspicious action is stored in a record called a [risk detection](../../active-directory/reports-monitoring/concept-risk-events.md). Risk detections are recorded in Azure AD security reports. For more information, read about the [users at risk security report](../../active-directory/reports-monitoring/concept-user-at-risk.md) and the [risky sign-ins security report](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).

@@ -72,6 +72,8 @@
     href: service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md  
   - name: Manage secrets
     href: service-fabric-mesh-howto-manage-secrets.md
+  - name: Move an application to another Azure region
+    href: move-across-regions.md
   - name: Find samples
     href: service-fabric-mesh-howto-find-samples.md
 
@@ -85,8 +87,6 @@
     href: /rest/api/servicefabric/sfclient-index#service-fabric-resource-model
   - name: Service Fabric Maven CLI Reference
     href: service-fabric-mesh-reference-maven.md
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.servicefabricmesh/allversions
 - name: Resources
   items:
   - name: Common questions

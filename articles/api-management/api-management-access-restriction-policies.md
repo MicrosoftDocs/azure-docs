@@ -12,13 +12,13 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 01/10/2020
 ms.author: apimpm
 ---
 
 # API Management access restriction policies
 
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
 ## <a name="AccessRestrictionPolicies"></a> Access restriction policies
 
@@ -72,7 +72,7 @@ Use the `check-header` policy to enforce that a request has a specified HTTP hea
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound
 
@@ -89,6 +89,9 @@ The `rate-limit` policy prevents API usage spikes on a per subscription basis by
 
 > [!CAUTION]
 > Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests vary based on request volume and rate, backend latency, and other factors.
+
+> [!NOTE]
+> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
 ### Policy statement
 
@@ -116,11 +119,11 @@ The `rate-limit` policy prevents API usage spikes on a per subscription basis by
 
 ### Elements
 
-| Name      | Description                                                                                                                                                                                                                                                                                              | Required |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| Name       | Description                                                                                                                                                                                                                                                                                              | Required |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | rate-limit | Root element.                                                                                                                                                                                                                                                                                            | Yes      |
-| api       | Add one or more of these elements to impose a call rate limit on APIs within the product. Product and API call rate limits are applied independently. API can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored.                    | No       |
-| operation | Add one or more of these elements to impose a call rate limit on operations within an API. Product, API, and operation call rate limits are applied independently. Operation can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored. | No       |
+| api        | Add one or more of these elements to impose a call rate limit on APIs within the product. Product and API call rate limits are applied independently. API can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored.                    | No       |
+| operation  | Add one or more of these elements to impose a call rate limit on operations within an API. Product, API, and operation call rate limits are applied independently. Operation can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored. | No       |
 
 ### Attributes
 
@@ -132,7 +135,7 @@ The `rate-limit` policy prevents API usage spikes on a per subscription basis by
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 
@@ -145,10 +148,13 @@ This policy can be used in the following policy [sections](https://azure.microso
 
 The `rate-limit-by-key` policy prevents API usage spikes on a per key basis by limiting the call rate to a specified number per a specified time period. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the limit. When this policy is triggered the caller receives a `429 Too Many Requests` response status code.
 
-For more information and examples of this policy, see [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
 
 > [!CAUTION]
 > Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests vary based on request volume and rate, backend latency, and other factors.
+
+> [!NOTE]
+> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
 ### Policy statement
 
@@ -196,7 +202,7 @@ In the following example, the rate limit is keyed by the caller IP address.
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 
@@ -243,7 +249,7 @@ In the following example, the policy only allows requests coming either from the
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 -   **Policy scopes:** all scopes
@@ -256,6 +262,9 @@ The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth
 > This policy can be used only once per policy document.
 >
 > [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
+
+> [!NOTE]
+> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
 ### Policy statement
 
@@ -300,7 +309,7 @@ The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 -   **Policy scopes:** product
@@ -312,7 +321,10 @@ This policy can be used in the following policy [sections](https://azure.microso
 
 The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota. If multiple policies would increment the same key value, it is incremented only once per request. When the call limit is reached, the caller receives a `403 Forbidden` response status code.
 
-For more information and examples of this policy, see [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+For more information and examples of this policy, see [Advanced request throttling with Azure API Management](./api-management-sample-flexible-throttling.md).
+
+> [!NOTE]
+> To understand the difference between rate limits and quotas, [see Rate limits and quotas.](./api-management-sample-flexible-throttling.md#rate-limits-and-quotas)
 
 ### Policy statement
 
@@ -361,7 +373,7 @@ In the following example, the quota is keyed by the caller IP address.
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 -   **Policy scopes:** all scopes
@@ -388,6 +400,7 @@ The `validate-jwt` policy enforces existence and validity of a JWT extracted fro
     require-signed-tokens="true|false"
     clock-skew="allowed clock skew in seconds"
     output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
+  <openid-config url="full URL of the configuration endpoint, e.g. https://login.constoso.com/openid-configuration" />
   <issuer-signing-keys>
     <key>base64 encoded signing key</key>
     <!-- if there are multiple keys, then add additional key elements -->
@@ -411,8 +424,6 @@ The `validate-jwt` policy enforces existence and validity of a JWT extracted fro
     </claim>
     <!-- if there are multiple possible allowed values, then add additional value elements -->
   </required-claims>
-  <openid-config url="full URL of the configuration endpoint, e.g. https://login.constoso.com/openid-configuration" />
-  <zumo-master-key id="key identifier">key value</zumo-master-key>
 </validate-jwt>
 
 ```
@@ -498,22 +509,6 @@ This example shows how to use the [Validate JWT](api-management-access-restricti
 </choose>
 ```
 
-#### Azure Mobile Services token validation
-
-```xml
-<validate-jwt header-name="x-zumo-auth" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Supplied access token is invalid.">
-    <issuers>
-        <issuer>urn:microsoft:windows-azure:zumo</issuer>
-    </issuers>
-    <audiences>
-        <audience>Facebook</audience>
-    </audiences>
-    <issuer-signing-keys>
-        <zumo-master-key id="0">insert key here</zumo-master-key>
-    </issuer-signing-keys>
-</validate-jwt>
-```
-
 ### Elements
 
 | Element             | Description                                                                                                                                                                                                                                                                                                                                           | Required |
@@ -525,7 +520,6 @@ This example shows how to use the [Validate JWT](api-management-access-restricti
 | issuers             | A list of acceptable principals that issued the token. If multiple issuer values are present, then each value is tried until either all are exhausted (in which case validation fails) or until one succeeds.                                                                                                                                         | No       |
 | openid-config       | The element used for specifying a compliant Open ID configuration endpoint from which signing keys and issuer can be obtained.                                                                                                                                                                                                                        | No       |
 | required-claims     | Contains a list of claims expected to be present on the token for it to be considered valid. When the `match` attribute is set to `all` every claim value in the policy must be present in the token for validation to succeed. When the `match` attribute is set to `any` at least one claim must be present in the token for validation to succeed. | No       |
-| zumo-master-key     | Master key for tokens issued by Azure Mobile Services                                                                                                                                                                                                                                                                                                 | No       |
 
 ### Attributes
 
@@ -544,11 +538,11 @@ This example shows how to use the [Validate JWT](api-management-access-restricti
 | require-signed-tokens           | Boolean. Specifies whether a token is required to be signed.                                                                                                                                                                                                                                                                                                                                                                                           | No                                                                               | true                                                                              |
 | separator                       | String. Specifies a separator (e.g. ",") to be used for extracting a set of values from a multi-valued claim.                                                                                                                                                                                                                                                                                                                                          | No                                                                               | N/A                                                                               |
 | url                             | Open ID configuration endpoint URL from where Open ID configuration metadata can be obtained. The response should be according to specs as defined at URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. For Azure Active Directory use the following URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituting your directory tenant name, e.g. `contoso.onmicrosoft.com`. | Yes                                                                              | N/A                                                                               |
-output-token-variable-name|String. Name of context variable that will receive token value as an object of type [`Jwt`](api-management-policy-expressions.md) upon successful token validation|No|N/A
+| output-token-variable-name      | String. Name of context variable that will receive token value as an object of type [`Jwt`](api-management-policy-expressions.md) upon successful token validation                                                                                                                                                                                                                                                                                     | No                                                                               | N/A                                                                               |
 
 ### Usage
 
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 -   **Policy scopes:** all scopes
@@ -559,5 +553,5 @@ For more information working with policies, see:
 
 -   [Policies in API Management](api-management-howto-policies.md)
 -   [Transform APIs](transform-api.md)
--   [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
--   [Policy samples](policy-samples.md)
+-   [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
+-   [Policy samples](./policy-reference.md)

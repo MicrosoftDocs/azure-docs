@@ -1,21 +1,16 @@
 ---
 title: Azure CLI Script Sample - Export from an Azure App Configuration Store
 titleSuffix: Azure App Configuration
-description: Provides information and sample scripts for exporting from an Azure App Configuration store
+description: Use Azure CLI script to export configuration from Azure App Configuration
 services: azure-app-configuration
-documentationcenter: ''
-author: yegu-ms
-manager: balans
-editor: ''
+author: lisaguthrie
 
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: azure-app-configuration
-ms.date: 02/24/2019
-ms.author: yegu
-ms.custom: mvc
+ms.date: 02/19/2020
+ms.author: lcozzens 
+ms.custom: devx-track-azurecli
 ---
 
 # Export from an Azure App Configuration store
@@ -27,10 +22,6 @@ This sample script exports key-values from an Azure App Configuration store.
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
-
-You need to install the Azure App Configuration CLI extension first by executing the following command:
-
-        az extension add -n appconfig
 
 ## Sample script
 
@@ -49,7 +40,7 @@ This script uses the following commands to export from an App Configuration stor
 
 | Command | Notes |
 |---|---|
-| [az appconfig kv export](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-export) | Exports from an App Configuration store resource. |
+| [az appconfig kv export](/cli/azure/appconfig/kv#az-appconfig-kv-export) | Exports from an App Configuration store resource. |
 
 ## Next steps
 

@@ -3,8 +3,8 @@ title: Transfer data to or from Azure Blob storage by using AzCopy v10 | Microso
 description: This article contains a collection of AzCopy example commands that help you create containers, copy files, and synchronize directories between local file systems and containers.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
-ms.date: 10/22/2019
+ms.topic: how-to
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
@@ -13,6 +13,9 @@ ms.reviewer: dineshm
 # Transfer data with AzCopy and Blob storage
 
 AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article contains example commands that work with Blob storage.
+
+> [!TIP]
+> The examples in this article enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 ## Get started
 
@@ -23,12 +26,9 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command.
 >
-> For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>'`.
+> For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## Create a container
-
-> [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a container. The examples in this section create a container named `mycontainer`.
 
@@ -52,10 +52,15 @@ This section contains the following examples:
 > * Upload the contents of a directory 
 > * Upload specific files
 
-For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
-
 > [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+> You can tweak your upload operation by using optional flags. Here's a few examples.
+>
+> |Scenario|Flag|
+> |---|---|
+> |Upload files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
+> |Upload to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
+> 
+> For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ### Upload a file
 
@@ -66,9 +71,6 @@ For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
 | **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
 
 You can also upload a file by using a wildcard symbol (*) anywhere in the file path or file name. For example: `'C:\myDirectory\*.txt'`, or `C:\my*\*.txt`.
-
-> [!NOTE]
-> AzCopy by default uploads data into block blobs. To upload files as Append Blobs, or Page Blobs use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
 
 ### Upload a directory
 
@@ -104,7 +106,7 @@ You can upload the contents of a directory without copying the containing direct
 
 ### Upload specific files
 
-You can specify complete file names, or use partial names with wildcard characters (*).
+You can upload specific files by using complete file names, partial names with wildcard characters (*), or by using dates and times.
 
 #### Specify multiple complete file names
 
@@ -134,6 +136,18 @@ You can also exclude files by using the `--exclude-pattern` option. To learn mor
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
 
+#### Upload files that were modified after a date and time 
+
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`). 
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Example** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'` |
+
+For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+
 ## Download files
 
 You can use the [azcopy copy](storage-ref-azcopy-copy.md) command to download blobs, directories, and containers to your local computer.
@@ -146,13 +160,19 @@ This section contains the following examples:
 > * Download the contents of a directory
 > * Download specific files
 
+> [!TIP]
+> You can tweak your download operation by using optional flags. Here's a few examples.
+>
+> |Scenario|Flag|
+> |---|---|
+> |Automatically decompress files.|**--decompress**|
+> |Specify how detailed you want your copy-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
+> |Specify if and how to overwrite the conflicting files and blobs at the destination.|**--overwrite**=\[true\|false\|ifSourceNewer\|prompt\]|
+> 
+> For a complete list, see [options](storage-ref-azcopy-copy.md#options).
+
 > [!NOTE]
 > If the `Content-md5` property value of a blob contains a hash, AzCopy calculates an MD5 hash for downloaded data and verifies that the MD5 hash stored in the blob's `Content-md5` property matches the calculated hash. If these values don't match, the download fails unless you override this behavior by appending `--check-md5=NoCheck` or `--check-md5=LogOnly` to the copy command.
-
-For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
-
-> [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
 ### Download a file
 
@@ -189,7 +209,7 @@ You can download the contents of a directory without copying the containing dire
 
 ### Download specific files
 
-You can specify complete file names, or use partial names with wildcard characters (*).
+You can download specific files by using complete file names, partial names with wildcard characters (*), or by using dates and times. 
 
 #### Specify multiple complete file names
 
@@ -219,6 +239,40 @@ You can also exclude files by using the `--exclude-pattern` option. To learn mor
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
 
+#### Download files that were modified after a date and time 
+
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`). 
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>/*' '<local-directory-path>' --include-after <Date-Time-in-ISO-8601-format>` |
+| **Example** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **Example** (hierarchical namespace) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+
+For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+
+#### Download previous versions of a blob
+
+If you've enabled [blob versioning](../blobs/versioning-enable.md), you can download one or more previous versions of a blob. 
+
+First, create a text file that contains a list of [version IDs](../blobs/versioning-overview.md). Each version ID must appear on a separate line. For example: 
+
+```
+2020-08-17T05:50:34.2199403Z
+2020-08-17T05:50:34.5041365Z
+2020-08-17T05:50:36.7607103Z
+```
+
+Then, use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--list-of-versions` option. Specify the location of the text file that contains the list of versions (For example: `D:\\list-of-versions.txt`).  
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-directory-path>' --list-of-versions '<list-of-versions-file>'`|
+| **Example** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt' --list-of-versions 'D:\\list-of-versions.txt'` |
+| **Example** (hierarchical namespace) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt' --list-of-versions 'D:\\list-of-versions.txt'` |
+
+The name of each downloaded file begins with the version ID followed by the name of the blob. 
+
 ## Copy blobs between storage accounts
 
 You can use AzCopy to copy blobs to other storage accounts. The copy operation is synchronous so when the command returns, that indicates that all files have been copied. 
@@ -228,7 +282,7 @@ AzCopy uses [server-to-server](https://docs.microsoft.com/rest/api/storageservic
 > [!NOTE]
 > This scenario has the following limitations in the current release.
 >
-> - You have to append a SAS token to each source URL. If you provide authorization credentials by using Azure Active Directory (AD), you can omit the SAS token only from the destination URL.
+> - You have to append a SAS token to each source URL. If you provide authorization credentials by using Azure Active Directory (AD), you can omit the SAS token only from the destination URL. Make sure that you've set up the proper roles in your destination account. See [Option 1: Use Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 >-  Premium block blob storage accounts don't support access tiers. Omit the access tier of a blob from the copy operation by setting the `s2s-preserve-access-tier` to `false` (For example: `--s2s-preserve-access-tier=false`).
 
 This section contains the following examples:
@@ -239,40 +293,58 @@ This section contains the following examples:
 > * Copy a container to another storage account
 > * Copy all containers, directories, and files to another storage account
 
-These examples also work with accounts that have a hierarchical namespace.
-
-For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
+These examples also work with accounts that have a hierarchical namespace. [Multi-protocol access on Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) enables you to use the same URL syntax (`blob.core.windows.net`) on those accounts.
 
 > [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+> You can tweak your copy operation by using optional flags. Here's a few examples.
+>
+> |Scenario|Flag|
+> |---|---|
+> |Copy blobs as Block, Page, or Append Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
+> |Copy to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
+> |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
+> 
+> For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
 ### Copy a blob to another storage account
 
+Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
+
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>?<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>'` |
+| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>'` |
 | **Example** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
+| **Example** (hierarchical namespace) | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 
 ### Copy a directory to another storage account
 
+Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
+
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>?<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
+| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
 | **Example** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
+| **Example** (hierarchical namespace)| `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 
 ### Copy a container to another storage account
 
+Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
+
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
+| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
 | **Example** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
+| **Example** (hierarchical namespace)| `azcopy copy 'https://mysourceaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
 
 ### Copy all containers, directories, and blobs to another storage account
 
+Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
+
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/?<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/' --recursive` |
-| **Example** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
+| **Syntax** | `azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/' --recursive` |
+| **Example** | `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
+| **Example** (hierarchical namespace)| `azcopy copy 'https://mysourceaccount.blob.core.windows.net/?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'https://mydestinationaccount.blob.core.windows.net' --recursive` |
 
 ## Synchronize files
 
@@ -288,10 +360,16 @@ If you set the `--delete-destination` flag to `true` AzCopy deletes files withou
 > [!NOTE]
 > To prevent accidental deletions, make sure to enable the [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) feature before you use the `--delete-destination=prompt|true` flag.
 
-For detailed reference docs, see [azcopy sync](storage-ref-azcopy-sync.md).
-
 > [!TIP]
-> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+> You can tweak your sync operation by using optional flags. Here's a few examples.
+>
+> |Scenario|Flag|
+> |---|---|
+> |Specify how strictly MD5 hashes should be validated when downloading.|**--check-md5**=\[NoCheck\|LogOnly\|FailIfDifferent\|FailIfDifferentOrMissing\]|
+> |Exclude files based on a pattern.|**--exclude-path**|
+> |Specify how detailed you want your sync-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
+> 
+> For a complete list, see [options](storage-ref-azcopy-sync.md#options).
 
 ### Update a container with changes to a local file system
 

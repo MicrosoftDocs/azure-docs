@@ -3,13 +3,13 @@ title: Develop and debug modules for Azure IoT Edge | Microsoft Docs
 description: Use Visual Studio Code to develop, build, and debug a module for Azure IoT Edge using C#, Python, Node.js, Java, or C
 services: iot-edge
 keywords: 
-author: shizn
+author: kgremban
 
-ms.author: xshi
+ms.author: kgremban
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
-
+ms.custom: devx-track-js
 ---
 
 # Use Visual Studio Code to develop and debug modules for Azure IoT Edge
@@ -27,14 +27,14 @@ This article provides instructions for developing and debugging modules in multi
 
 ## Prerequisites
 
-You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. On Windows computers you can develop either Windows or Linux modules. To develop Windows modules, use a Windows computer running version 1809/build 17763 or newer. To develop Linux modules, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
+You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. On Windows computers you can develop either Windows or Linux modules. To develop Windows modules, use a Windows computer running version 1809/build 17763 or newer. To develop Linux modules, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
 Install [Visual Studio Code](https://code.visualstudio.com/) first and then add the following extensions:
 
 - [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 - [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 - Visual Studio extension(s) specific to the language you're developing in:
-  - C#, including Azure Functions: [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+  - C#, including Azure Functions: [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
   - Python: [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   - Java: [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
   - C: [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
@@ -47,13 +47,13 @@ You'll also need to install some additional, language-specific tools to develop 
 
 - Node.js: [Node.js](https://nodejs.org). You'll also want to install [Yeoman](https://www.npmjs.com/package/yo) and the [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
-- Java: [Java SE Development Kit 10](https://aka.ms/azure-jdks) and [Maven](https://maven.apache.org/). You'll need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
+- Java: [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) and [Maven](https://maven.apache.org/). You'll need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
 
 To build and deploy your module image, you need Docker to build the module image and a container registry to hold the module image:
 
 - [Docker Community Edition](https://docs.docker.com/install/) on your development machine.
 
-- [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
+- [Azure Container Registry](../container-registry/index.yml) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
     > [!TIP]
     > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
@@ -63,6 +63,7 @@ Unless you're developing your module in C, you also need the Python-based [Azure
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
+   
 > [!NOTE]
 > Currently, iotedgehubdev uses a docker-py library that is not compatible with Python 3.8.
 >

@@ -1,14 +1,14 @@
 ---
 title: Perform Azure Table storage operations with PowerShell | Microsoft Docs
 description: Learn how to run common tasks such as creating, querying, deleting data from Azure Table storage account by using PowerShell.
-services: cosmos-db
 author: roygara
 
-ms.service: cosmos-db
+ms.service: storage
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
-ms.subservice: cosmosdb-table
+ms.subservice: tables 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Perform Azure Table storage operations with Azure PowerShell 
@@ -114,7 +114,7 @@ $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ## Reference CloudTable property of a specific table
 
 > [!IMPORTANT]
-> Usage of CloudTable is mandatory when working with **AzTable** PowerShell module. Call the **Get-AzTableTable** command to get the reference to this object. This command also creates the table if it does not already exist.
+> Usage of CloudTable is mandatory when working with **AzTable** PowerShell module. Call the **Get-AzStorageTable** command to get the reference to this object. This command also creates the table if it does not already exist.
 
 To perform operations on a table using **AzTable**, you need a reference to CloudTable property of a specific table.
 

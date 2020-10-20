@@ -2,14 +2,14 @@
 title: Create & delete Azure AD B2C consumer user accounts in the Azure portal
 description: Learn how to use the Azure portal to create and delete consumer users in your Azure AD B2C directory.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/09/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -57,4 +57,4 @@ For details about restoring a user within the first 30 days after deletion, or f
 
 ## Next steps
 
-For automated user management scenarios, for example migrating users from another identity provider to your Azure AD B2C directory, see [Azure AD B2C: User migration](active-directory-b2c-user-migration.md).
+For automated user management scenarios, for example migrating users from another identity provider to your Azure AD B2C directory, see [Azure AD B2C: User migration](user-migration.md).

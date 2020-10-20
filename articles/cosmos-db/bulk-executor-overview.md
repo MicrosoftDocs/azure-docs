@@ -3,7 +3,7 @@ title: Azure Cosmos DB bulk executor library overview
 description: Perform bulk operations in Azure Cosmos DB through bulk import and bulk update APIs offered by the bulk executor library.
 author: tknandu
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
@@ -20,6 +20,9 @@ The bulk executor library helps you leverage this massive throughput and storage
 
 > [!NOTE] 
 > Currently, bulk executor library supports import and update operations and this library is supported by Azure Cosmos DB SQL API and Gremlin API accounts only.
+
+> [!IMPORTANT]
+> The bulk executor library is not currently supported on [serverless](serverless.md) accounts. On .NET, it is recommended to use the [bulk support](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk/) available in the V3 version of the SDK.
  
 ## Key features of the bulk executor library  
  
@@ -37,7 +40,7 @@ The bulk executor library helps you leverage this massive throughput and storage
 
 When a bulk operation to import or update documents is triggered with a batch of entities, they are initially shuffled into buckets corresponding to their Azure Cosmos DB partition key range. Within each bucket that corresponds to a partition key range, they are broken down into mini-batches and each mini-batch act as a payload that is committed on the server-side. The bulk executor library has built in optimizations for concurrent execution of these mini-batches both within and across partition key ranges. Following image illustrates how bulk executor batches data into different partition keys:  
 
-![Bulk executor architecture](./media/bulk-executor-overview/bulk-executor-architecture.png)
+:::image type="content" source="./media/bulk-executor-overview/bulk-executor-architecture.png" alt-text="Bulk executor architecture" :::
 
 The bulk executor library makes sure to maximally utilize the throughput allocated to a collection. It uses an [AIMD-style congestion control mechanism](https://tools.ietf.org/html/rfc5681) for each Azure Cosmos DB partition key range to efficiently handle rate limiting and timeouts. 
 
@@ -46,4 +49,4 @@ The bulk executor library makes sure to maximally utilize the throughput allocat
 * Learn more by trying out the sample applications consuming the bulk executor library in [.NET](bulk-executor-dot-net.md) and [Java](bulk-executor-java.md).  
 * Check out the bulk executor SDK information and release notes in [.NET](sql-api-sdk-bulk-executor-dot-net.md) and [Java](sql-api-sdk-bulk-executor-java.md).
 * The bulk executor library is integrated into the Cosmos DB Spark connector, to learn more, see [Azure Cosmos DB Spark connector](spark-connector.md) article.  
-* The bulk executor library is also integrated into a new version of [Azure Cosmos DB connector](https://aka.ms/bulkexecutor-adf-v2) for Azure Data Factory to copy data.
+* The bulk executor library is also integrated into a new version of [Azure Cosmos DB connector](../data-factory/connector-azure-cosmos-db.md) for Azure Data Factory to copy data.

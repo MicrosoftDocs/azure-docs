@@ -1,6 +1,6 @@
 ---
-title: Copy data from ODBC sources using Azure Data Factory 
-description: Learn how to copy data from OData sources to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
+title: Copy data from and to ODBC data stores using Azure Data Factory 
+description: Learn how to copy data from and to ODBC data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 04/22/2020
 ms.author: jingwang
 
 ---
@@ -20,6 +20,7 @@ ms.author: jingwang
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-odbc-connector.md)
 > * [Current version](connector-odbc.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from and to an ODBC data store. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -32,14 +33,14 @@ This ODBC connector is supported for the following activities:
 
 You can copy data from ODBC source to any supported sink data store, or copy from any supported source data store to ODBC sink. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this ODBC connector supports copying data from/to **any ODBC-compatible data stores** using **Basic** or **Anonymous** authentication.
+Specifically, this ODBC connector supports copying data from/to **any ODBC-compatible data stores** using **Basic** or **Anonymous** authentication. A **64-bit ODBC driver** is required. For ODBC sink, ADF support ODBC version 2.0 standard.
 
 ## Prerequisites
 
 To use this ODBC connector, you need to:
 
 - Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
-- Install the ODBC driver for the data store on the Integration Runtime machine.
+- Install the 64-bit ODBC driver for the data store on the Integration Runtime machine.
 
 ## Getting started
 
@@ -233,48 +234,9 @@ To copy data to ODBC-compatible data store, set the sink type in the copy activi
 ]
 ```
 
-## SAP HANA sink
-
->[!NOTE]
->To copy data from SAP HANA data store, refer to native [SAP HANA connector](connector-sap-hana.md). To copy data to SAP HANA, please follow this instruction to use ODBC connector. Note the linked services for SAP HANA connector and ODBC connector are with different type thus cannot be reused.
->
-
-You can copy data to SAP HANA database using the generic ODBC connector.
-
-Set up a Self-hosted Integration Runtime on a machine with access to your data store. The Integration Runtime uses the ODBC driver for SAP HANA to connect to the data store. Therefore, install the driver if it is not already installed on the same machine. See [Prerequisites](#prerequisites) section for details.
-
-Before you use the SAP HANA sink in a Data Factory solution, verify whether the Integration Runtime can connect to the data store using instructions in [Troubleshoot connectivity issues](#troubleshoot-connectivity-issues) section.
-
-Create an ODBC linked service to link a SAP HANA data store to an Azure data factory as shown in the following example:
-
-```json
-{
-    "name": "SAPHANAViaODBCLinkedService",
-    "properties": {
-        "type": "Odbc",
-        "typeProperties": {
-            "connectionString": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015",
-            "authenticationType": "Basic",
-            "userName": "<username>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-Read the article from the beginning for a detailed overview of using ODBC data stores as source/sink data stores in a copy operation.
-
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
-
 
 ## Troubleshoot connectivity issues
 
@@ -287,4 +249,4 @@ To troubleshoot connection issues, use the **Diagnostics** tab of **Integration 
 5. Click **Test connection** to test the connection to the data store.
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,30 +1,23 @@
 ---
 title: Migrate from Azure Germany to global Azure
 description: An introduction to migrating your Azure resources from Azure Germany to global Azure.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 11/12/2019
-ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Overview of migration guidance for Azure Germany
 
-> [!IMPORTANT]
-> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
->
-> Based on the evolution in customers’ needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft’s global cloud network, as well as market competitive pricing. 
->
-> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 The articles in this section were created to help you migrate your workloads from Azure Germany to global Azure. Although the [Azure migration center](https://azure.microsoft.com/migration/) provides tools that help you migrate resources, some of the tools in the Azure migration center are useful only for migrations that occur in the same tenant or in the same region.
 
 The two regions in Germany are entirely separate from global Azure. The clouds in global Azure and in Germany have their own, separate Azure Active Directory (Azure AD) instances. Because of this, Azure Germany tenants are separate from global Azure tenants. This article describes the migration tools that are available when you migrate between *different* tenants.
 
-The guidance on identity / tenants is intended for Azure-only customers. If you use common Azure Active Directory (Azure AD) tenants for Azure and O365 (or other Microsoft products), there are complexities in identity migration and you should first contact your Account Manager prior to using this migration guidance.
+The guidance on identity / tenants is intended for Azure-only customers. If you use common Azure Active Directory (Azure AD) tenants for Azure and Microsoft 365 (or other Microsoft products), there are complexities in identity migration and you should first contact your Account Manager prior to using this migration guidance.
 
 ## Migration process
 
@@ -53,7 +46,7 @@ At the end of this stage, you have:
 In the planning stage, complete the following tasks:
 
 - Use the output of the dependency analysis completed in the assessment stage to define related components. Consider migrating related components together in a *migration package*.
-- (Optional) Use the migration as an opportunity to apply [Gartner 5-R criteria](https://www.gartner.com/newsroom/id/1684114) and to optimize your workload.
+- (Optional) Use the migration as an opportunity to apply [Gartner 5-R criteria](https://www.gartner.com/en/documents/3873016/evaluation-criteria-for-cloud-management-platforms-and-t) and to optimize your workload.
 - Determine the target environment in global Azure:
   1. Identify the target global Azure tenant (create one, if necessary).
   1. Create subscriptions.
@@ -95,7 +88,7 @@ These terms are used in the Azure Germany migration articles:
 - **Target region**: You can use almost any region in global Azure. It's likely that you'll want to migrate your resources to West Europe (**westeurope**) or North Europe (**northeurope**).
 
 > [!NOTE]
-> Verify that the Azure service you're migrating is offered in the target region. All Azure services that are available in Azure Germany are available in West Europe. All Azure services that are available in Azure Germany are available in North Europe, except for Azure Machine Learning Studio and the G/GS VM series in Azure Virtual Machines.
+> Verify that the Azure service you're migrating is offered in the target region. All Azure services that are available in Azure Germany are available in West Europe. All Azure services that are available in Azure Germany are available in North Europe, except for Azure Machine Learning Studio (classic) and the G/GS VM series in Azure Virtual Machines.
 
 It's a good idea to bookmark the source and target portals in your browser:
 

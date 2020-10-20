@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 09/21/2020
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -18,6 +18,8 @@ For some resource types, you need to contact support to have the 800 instance li
 
 ## Microsoft.AzureStack
 
+* edgeSubscriptions
+* linkedSubscriptions
 * registrations
 * registrations/customerSubscriptions
 * registrations/products
@@ -29,8 +31,12 @@ For some resource types, you need to contact support to have the 800 instance li
 ## Microsoft.Compute
 
 * disks
+* galleries
+* galleries/images
+* galleries/images/versions
 * images
 * snapshots
+* virtualMachineScaleSets - By default, limited to 800 instances. That limit can be increased by contacting support.
 * virtualMachines
 
 ## Microsoft.ContainerInstance
@@ -48,19 +54,29 @@ For some resource types, you need to contact support to have the 800 instance li
 * registries/tasks
 * registries/webhooks
 
+## Microsoft.D365CustomerInsights
+
+* instances
+
 ## Microsoft.DBforMariaDB
 
 * servers
 
 ## Microsoft.DBforMySQL
 
+* flexibleServers
 * servers
 
 ## Microsoft.DBforPostgreSQL
 
+* flexibleServers
 * serverGroups
 * servers
 * serversv2
+
+## Microsoft.DevTestLab
+
+* schedules
 
 ## Microsoft.EnterpriseKnowledgeGraph
 
@@ -77,16 +93,25 @@ For some resource types, you need to contact support to have the 800 instance li
 
 ## Microsoft.GuestConfiguration
 
+* autoManagedVmConfigurationProfiles
 * configurationProfileAssignments
 * guestConfigurationAssignments
 * software
 * softwareUpdateProfile
 * softwareUpdates
 
+## microsoft.insights
+
+* metricalerts
+
 ## Microsoft.Logic
 
 * integrationAccounts
 * workflows
+
+## Microsoft.Media
+
+* mediaservices/liveEvents
 
 ## Microsoft.NetApp
 
@@ -175,4 +200,4 @@ For some resource types, you need to contact support to have the 800 instance li
 
 ## Next steps
 
-For a complete list of quotas and limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-subscription-service-limits.md).
+For a complete list of quotas and limits, see [Azure subscription and service limits, quotas, and constraints](azure-subscription-service-limits.md).

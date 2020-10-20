@@ -4,8 +4,6 @@
   items:
   - name: About Web Apps
     href: overview.md
-  - name: About App Service on Linux
-    href: containers/app-service-linux-intro.md
   - name: About App Service Environments
     href: environment/intro.md
   - name: Compare hosting options
@@ -13,34 +11,53 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create .NET Core app
-    href: app-service-web-get-started-dotnet.md
-  - name: Create .NET Framework app
-    href: app-service-web-get-started-dotnet-framework.md
-  - name: Create Node.js app
-    href: app-service-web-get-started-nodejs.md
-  - name: Create PHP app
-    href: app-service-web-get-started-php.md
-  - name: Create Java app
-    href: app-service-web-get-started-java.md
-  - name: Create static HTML site
-    href: app-service-web-get-started-html.md
-  - name: Run Windows container
-    href: app-service-web-get-started-windows-container.md
+  - name: .NET Core
+    href: quickstart-dotnetcore.md
+  - name: .NET Framework
+    href: quickstart-dotnet-framework.md
+  - name: Node.js
+    href: quickstart-nodejs.md
+  - name: PHP
+    href: quickstart-php.md
+  - name: Java
+    href: quickstart-java.md
+  - name: Python
+    href: quickstart-python.md
+  - name: Ruby
+    href: quickstart-ruby.md
+  - name: Static HTML site
+    href: quickstart-html.md
+  - name: ARM template
+    displayName: Resource Manager
+    href: quickstart-arm-template.md
+  - name: Custom container
+    href: quickstart-custom-container.md
+  - name: Multi-container app
+    href: quickstart-multi-container.md
 - name: Tutorials
   items:
   - name: App with DB
     items:
     - name: .NET Core with SQL DB
-      href: app-service-web-tutorial-dotnetcore-sqldb.md
-    - name: .NET with SQL DB
+      href: tutorial-dotnetcore-sqldb-app.md
+    - name: .NET Framework with SQL DB
       href: app-service-web-tutorial-dotnet-sqldatabase.md
     - name: PHP with MySQL
-      href: app-service-web-tutorial-php-mysql.md 
+      href: tutorial-php-mysql-app.md
     - name: Node.js with MongoDB
-      href: app-service-web-tutorial-nodejs-mongodb-app.md
-  - name: Customize Windows (container)
-    href: app-service-web-tutorial-windows-containers-custom-fonts.md
+      href: tutorial-nodejs-mongodb-app.md
+    - name: Ruby with Postgres
+      href: tutorial-ruby-postgres-app.md
+    - name: Python with Postgres
+      href: tutorial-python-postgresql-app.md
+    - name: Java with Spring Data
+      href: tutorial-java-spring-cosmosdb.md
+  - name: Custom containers
+    items:
+    - name: Deploy from ACR
+      href: tutorial-custom-container.md
+    - name: Multi-container app
+      href: tutorial-multi-container-app.md
   - name: Access SQL DB securely
     href: app-service-web-tutorial-connect-msi.md
   - name: Host RESTful API
@@ -52,7 +69,11 @@
   - name: Add CDN
     href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
   - name: Authenticate users
-    href: app-service-web-tutorial-auth-aad.md
+    href: tutorial-auth-aad.md
+  - name: Send email/tweet
+    href: tutorial-send-email.md
+  - name: Troubleshoot errors
+    href: tutorial-troubleshoot-monitor.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -61,6 +82,8 @@
     href: samples-powershell.md
   - name: Resource Manager templates
     href: samples-resource-manager-templates.md
+  - name: Terraform
+    href: samples-terraform.md
 - name: Concepts
   items:
   - name: App Service plans
@@ -79,6 +102,9 @@
       href: overview-patch-os-runtime.md
     - name: Built-in security controls
       href: app-service-security-controls.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Security overview
       href: overview-security.md
   - name: Networking features
@@ -87,6 +113,8 @@
       href: networking-features.md
     - name: Application Gateway with service endpoints
       href: networking/app-gateway-with-service-endpoints.md
+    - name: Private Endpoint
+      href: networking/private-endpoint.md
   - name: Inbound and outbound IPs
     href: overview-inbound-outbound-ips.md
   - name: Virtual Network Integration
@@ -105,10 +133,22 @@
     items:
     - name: Configure common settings
       href: configure-common.md
+    - name: Configure ASP.NET
+      href: configure-language-dotnet-framework.md
+    - name: Configure ASP.NET Core
+      href: configure-language-dotnetcore.md
+    - name: Configure Node.js
+      href: configure-language-nodejs.md
     - name: Configure PHP
-      href: web-sites-php-configure.md
+      href: configure-language-php.md
+    - name: Configure Python
+      href: configure-language-python.md
     - name: Configure Java
       href: configure-language-java.md
+    - name: Configure Ruby
+      href: configure-language-ruby.md
+    - name: Configure custom container
+      href: configure-custom-container.md
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md
     - name: Configure Azure Storage (container)
@@ -117,6 +157,8 @@
     items:
     - name: Deploy the app
       items:
+      - name: Run from package
+        href: deploy-run-package.md
       - name: Deploy ZIP or WAR
         href: deploy-zip.md
       - name: Deploy via FTP
@@ -125,10 +167,14 @@
         href: deploy-content-sync.md
       - name: Deploy continuously
         href: deploy-continuous-deployment.md
+      - name: Custom containers CI/CD
+        href: deploy-ci-cd-custom-container.md
       - name: Deploy from local Git
         href: deploy-local-git.md
-      - name: Deploy with GitHub Actions
+      - name: GitHub Action
         href: deploy-github-actions.md
+      - name: GitHub Action for Containers
+        href: deploy-container-github-action.md
       - name: Deploy with template
         href: deploy-complex-application-predictably.md
     - name: Set deployment credentials
@@ -142,7 +188,7 @@
     - name: Buy domain
       href: manage-custom-dns-buy-domain.md
     - name: Map domains with Traffic Manager
-      href: web-sites-traffic-manager-custom-domain-name.md
+      href: configure-domain-traffic-manager.md
     - name: Migrate an active domain
       href: manage-custom-dns-migrate-domain.md
   - name: Secure app
@@ -161,6 +207,8 @@
         href: configure-authentication-provider-microsoft.md
       - name: Authenticate with Twitter
         href: configure-authentication-provider-twitter.md
+      - name: Authenticate with an OpenID Connect provider (Preview)
+        href: configure-authentication-provider-openid-connect.md
     - name: Advanced auth
       href: app-service-authentication-how-to.md
     - name: Restrict access
@@ -173,11 +221,13 @@
       href: configure-ssl-certificate-in-code.md
     - name: Configure TLS mutual authentication
       href: app-service-web-configure-tls-mutual-auth.md
+    - name: Encrypt site data
+      href: configure-encrypt-at-rest-using-cmk.md
   - name: Scale app
     items:
     - name: Scale up server capacity
       href: manage-scale-up.md
-    - name: Configure PremiumV2 tier
+    - name: Configure PremiumV3 tier
       href: app-service-configure-premium-tier.md
     - name: Scale out to multiple instances
       href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
@@ -189,6 +239,10 @@
       href: web-sites-monitor.md
     - name: Enable logs
       href: troubleshoot-diagnostic-logs.md
+    - name: Get resource events
+      href: get-resource-events.md
+    - name: Open SSH session to Linux container
+      href: configure-linux-open-ssh-session.md
   - name: Manage app
     items:
     - name: Manage the hosting plan
@@ -201,8 +255,16 @@
       href: app-service-web-restore-snapshots.md
     - name: Clone an app
       href: app-service-web-app-cloning.md
-    - name: Move resources
-      href: ../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations
+    - name: Restore deleted App Service
+      href: app-service-undelete.md
+    - name: Restore from downed region
+      href: manage-disaster-recovery.md
+  - name: Move app
+    items:
+    - name: Move between regions
+      href: manage-move-across-regions.md
+    - name: Move subscriptions
+      href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#checklist-before-moving-resources
   - name: Run background tasks
     items:
     - name: Create WebJobs
@@ -218,11 +280,14 @@
   - name: Azure CLI
     href: /cli/azure/appservice
   - name: Azure PowerShell
-    href: /powershell
+    href: /powershell/module/az.websites/#app_service
   - name: REST API
     href: /rest/api/appservice/
   - name: Resource Manager template
     href: /azure/templates/microsoft.web/allversions
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: App Service Blog
@@ -234,7 +299,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information
-    href: ../azure-subscription-service-limits.md#app-service-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=app-service
   - name: Migration Assistant guides
@@ -248,11 +313,13 @@
   - name: Cookbooks
     items:
     - name: Reference Architectures
-      href: https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app
+      href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
     - name: Deployment Scripts
       href: https://azure.microsoft.com/documentation/scripts/
   - name: Troubleshooting
     items:
+    - name: Troubleshoot intermittent outbound connection errors
+      href: troubleshoot-intermittent-outbound-connection-errors.md
     - name: Troubleshoot with Visual Studio
       href: troubleshoot-dotnet-visual-studio.md
     - name: Troubleshoot Node.js app

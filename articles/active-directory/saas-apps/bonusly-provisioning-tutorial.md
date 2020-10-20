@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure Bonusly for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Bonusly.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd-msft
-ms.assetid: 879b0ee9-042a-441b-90a7-8c364d62426a
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: "jeedes"
-ms.collection: M365-identity-device-management
+ms.author: jeedes
 ---
 
 # Tutorial: Configure Bonusly for automatic user provisioning
@@ -23,7 +18,7 @@ ms.collection: M365-identity-device-management
 The objective of this tutorial is to demonstrate the steps to be performed in Bonusly and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Bonusly.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## Prerequisites
 
@@ -91,74 +86,74 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/ProvisioningTab.png)
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningTab.png" alt-text="Screenshot of the Bonusly - Provisioning tab. Under Manage, Provisioning is highlighted." border="false":::
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png)
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png" alt-text="Screenshot showing a Provisioning Mode list box, with Automatic selected and highlighted." border="false":::
 
 5. Under the **Admin Credentials** section, input the **Secret Token** of your Bonusly account as described in Step 6.
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/secrettoken.png)
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/secrettoken.png" alt-text="Screenshot of the Admin credentials section. The Secret token box is empty, but the box is highlighted." border="false":::
 
 6. The **Secret Token** for your Bonusly account is located in **Admin > Company > Integrations**. In the **If you want to code** section, click on **API > Create New API Access Token** to create a new Secret Token.
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png)
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/BonuslyIntegrations.png" alt-text="Screenshot of the Bonusly menu. Under Admin, Company is highlighted. Under Company, Integrations is highlighted." border="false":::
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/BonsulyRestApi.png)
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/BonsulyRestApi.png" alt-text="Screenshot of the If you want to code section of the Bonusly site, with A P I highlighted." border="false":::
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/CreateToken.png)
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/CreateToken.png" alt-text="Screenshot of the Bonusly site. The Services tab is open. Under Your A P I access tokens, Create new A P I access token is highlighted." border="false":::
 
 7. On the following screen, type a name for the access token in the provided text box, then press **Create Api Key**. The new access token will appear for a few seconds in a pop-up.
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/Token01.png)
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/Token01.png" alt-text="Screenshot of the New access token page of the Bonusly site. An unlabeled box contains My Token, and the Create A P I key button is highlighted." border="false":::
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/Token02.png)
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/Token02.png" alt-text="Screenshot of the Bonusly site. A notification is visible that displays New access token created, followed by an indecipherable token." border="false":::
 
 8. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Bonusly. If the connection fails, ensure your Bonusly account has Admin permissions and try again.
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/TestConnection.png)
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/TestConnection.png" alt-text="Screenshot of the Admin Credentials section of the Azure portal. The Text connection button is highlighted." border="false":::
 
 9. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/EmailNotification.png)
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/EmailNotification.png" alt-text="Screenshot showing an empty Notification email box. An option is visible that is labeled Send an email notification when a failure occurs." border="false":::
 
 10. Click **Save**.
 
 11. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Bonusly**.
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/UserMappings.png)
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/UserMappings.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Azure Active Directory Users to Bonusly is highlighted." border="false":::
 
 12. Review the user attributes that are synchronized from Azure AD to Bonusly in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Bonusly for update operations. Select the **Save** button to commit any changes.
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/UserAttributeMapping.png)
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/UserAttributeMapping.png" alt-text="Screenshot of the Attribute Mappings page. A table lists Azure Active Directory attributes, corresponding Bonusly attributes, and the matching status." border="false":::
 
-13. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+13. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 14. To enable the Azure AD provisioning service for Bonusly, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/ProvisioningStatus.png)
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/ProvisioningStatus.png" alt-text="Screenshot of the Settings section. The Provisioning status toggle is set to Off." border="false":::
 
 15. Define the users and/or groups that you would like to provision to Bonusly by choosing the desired values in **Scope** in the **Settings** section.
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/ScopeSync.png)
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/ScopeSync.png" alt-text="Screenshot showing the Scope list box. Sync only assigned users and groups is selected in the box." border="false":::
 
 16. When you are ready to provision, click **Save**.
 
-	![Bonusly Provisioning](./media/bonusly-provisioning-tutorial/SaveProvisioning.png)
+	:::image type="content" source="./media/bonusly-provisioning-tutorial/SaveProvisioning.png" alt-text="Screenshot of the Bonusly - Provisioning page, with the Save button highlighted." border="false":::
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Bonusly.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/bonusly-provisioning-tutorial/tutorial_general_01.png

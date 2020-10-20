@@ -5,8 +5,9 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 04/03/2019
+ms.topic: how-to
+ms.date: 04/03/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to start an Azure Stream Analytics job

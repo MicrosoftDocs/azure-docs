@@ -1,10 +1,10 @@
 ---
 title: Azure Service Fabric CLI- sfctl partition
-description: Describes the Service Fabric CLI sfctl partition commands.
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing partitions for a service.
 author: jeffj6123
 
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
 ---
 
@@ -34,10 +34,13 @@ Query and manage partitions for any service.
 ## sfctl partition data-loss
 This API will induce data loss for the specified partition.
 
-It will trigger a call to the OnDataLossAsync API of the partition.  This API will induce data loss for the specified partition. It will trigger a call to the OnDataLoss API of the partition. Actual data loss will depend on the specified DataLossMode.  <br> - PartialDataLoss - Only a quorum of replicas are removed and OnDataLoss is triggered for the partition but actual data loss depends on the presence of in-flight replication.  <br> - FullDataLoss - All replicas are removed hence all data is lost and OnDataLoss is triggered. This API should only be called with a stateful service as the target. Calling this API with a system service as the target is not advised.
+It will trigger a call to the OnDataLossAsync API of the partition.  This API will induce data loss for the specified partition. It will trigger a call to the OnDataLoss API of the partition. Actual data loss will depend on the specified DataLossMode.
+- PartialDataLoss: Only a quorum of replicas are removed and OnDataLoss is triggered for the partition but actual data loss depends on the presence of in-flight replication.  
+- FullDataLoss: All replicas are removed hence all data is lost and OnDataLoss is triggered. This API should only be called with a stateful service as the target. Calling this API with a system service as the target is not advised.
 
 > [!NOTE] 	
 > Once this API has been called, it cannot be reversed. Calling CancelOperation will only stop execution and clean up internal system state. It will not restore data if the command has progressed far enough to cause data loss. Call the GetDataLossProgress API with the same OperationId to return information on the operation started with this API.
+
 ### Arguments
 
 |Argument|Description|
@@ -393,4 +396,4 @@ Gets name of the service for the specified partition. A 404 error is returned if
 
 ## Next steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

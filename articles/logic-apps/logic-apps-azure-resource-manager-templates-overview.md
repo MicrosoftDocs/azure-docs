@@ -3,16 +3,16 @@ title: Overview - Automate deployment for Azure Logic Apps
 description: Learn about Azure Resource Manager templates to automate deployment for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/17/2020
 ---
 
 # Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates
 
 When you're ready to automate creating and deploying your logic app, you can expand your logic app's underlying workflow definition into an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). This template defines the infrastructure, resources, parameters, and other information for provisioning and deploying your logic app. By defining parameters for values that vary at deployment, also known as *parameterizing*, you can repeatedly and consistently deploy logic apps based on different deployment needs.
 
-For example, if you deploy to environments for development, test, and production, you likely use different connection strings for each environment. You can declare template parameters that accept different connection strings and then store those strings in a separate [parameters file](../azure-resource-manager/templates/parameter-files.md). That way, you can change those values without having to update and redeploy the template. For scenarios where you have parameter values that are sensitive or must be secured, such as passwords and secrets, you can store those values in [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) and have your parameters file retrieve those values. However, in these scenarios, you'd redeploy to retrieve the current values.
+For example, if you deploy to environments for development, test, and production, you likely use different connection strings for each environment. You can declare template parameters that accept different connection strings and then store those strings in a separate [parameters file](../azure-resource-manager/templates/parameter-files.md). That way, you can change those values without having to update and redeploy the template. For scenarios where you have parameter values that are sensitive or must be secured, such as passwords and secrets, you can store those values in [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) and have your parameters file retrieve those values. However, in these scenarios, you'd redeploy to retrieve the current values.
 
 This overview describes the attributes in a Resource Manager template that includes a logic app workflow definition. Both the template and your workflow definition use JSON syntax, but some differences exist because the workflow definition also follows the [Workflow Definition Language schema](../logic-apps/logic-apps-workflow-definition-language.md). For example, template expressions and workflow definition expressions differ in how they [reference parameters](#parameter-references) and the values that they can accept.
 
@@ -26,15 +26,17 @@ The example logic app in this topic uses an [Office 365 Outlook trigger](/connec
 For more information about Resource Manager templates, see these topics:
 
 * [Azure Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md)
-* [Azure Resource Manager template best practices](../azure-resource-manager/template-best-practices.md)
-* [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates-cloud-consistency.md)
+* [Azure Resource Manager template best practices](../azure-resource-manager/templates/template-best-practices.md)
+* [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates/templates-cloud-consistency.md)
+
+For template resource information specific to logic apps, integration accounts, integration account artifacts, and integration service environments, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
 
 For sample logic app templates, see these examples:
 
 * [Full template](#full-example-template) that's used for this topic's examples
 * [Sample quickstart logic app template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) in GitHub
 
-For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+For the Logic Apps REST API, start with the [Azure Logic Apps REST API overview](/rest/api/logic).
 
 <a name="template-structure"></a>
 
@@ -116,7 +118,7 @@ This example shows just the template parameters for the values used to create an
       },
       "LogicAppLocation": {
          "type": "string",
-         "min length": 1,
+         "minLength": 1,
          "defaultValue": "[resourceGroup().location]",
          "metadata": {
             "description": "The resource location for the logic app"
@@ -140,11 +142,11 @@ This example shows just the template parameters for the values used to create an
 
 Except for parameters that handle values that are sensitive or must be secured, such as usernames, passwords, and secrets, all these parameters include `defaultValue` attributes, although in some cases, the default values are empty values. The deployment values to use for these template parameters are provided by the sample [parameters file](#template-parameter-files) described later in this topic.
 
-To secure template parameters, see these topics:
+For more information about securing template parameters, see these topics:
 
 * [Security recommendations for template parameters](../azure-resource-manager/templates/template-best-practices.md#parameters)
-* [Secure template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
-* [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+* [Improve security for template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+* [Pass secured parameter values with Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 Other template objects often reference template parameters so that they can use the values that pass through template parameters, for example:
 
@@ -166,9 +168,9 @@ Here are some best practices for defining parameters:
 
   * [Security recommendations for template parameters](../azure-resource-manager/templates/template-best-practices.md#parameters)
 
-  * [Secure template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+  * [Improve security for template parameters](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
-  * [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+  * [Pass secured parameter values with Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 * To differentiate template parameter names from workflow definition parameter names, you can use descriptive template parameter names, for example: `TemplateFabrikamPassword`
 
@@ -183,7 +185,7 @@ To provide the values for template parameters, store those values in a [paramete
 * Logic app template file name: **<*logic-app-name*>.json**
 * Parameters file name: **<*logic-app-name*>.parameters.json**
 
-Here is the structure inside the parameters file, which includes a key vault reference for [passing a secure parameter value with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md):
+Here is the structure inside the parameters file, which includes a key vault reference for [passing a secured parameter value with Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
 
 ```json
 {
@@ -232,7 +234,7 @@ This example parameters file specifies the values for the template parameters de
 
 ## Template resources
 
-Your template has a `resources` object, which is an array that contains definitions for each resource to create and deploy in Azure, such as your [logic app's resource definition](#logic-app-resource-definition), any [connection resource definitions](#connection-resource-definitions), and any other resources that your logic app needs for deployment.
+Your template has a `resources` object, which is an array that contains definitions for each resource to create and deploy in Azure, such as your [logic app's resource definition](#logic-app-resource-definition), [connection resource definitions](#connection-resource-definitions), and any other resources that your logic app needs for deployment.
 
 ```json
 {
@@ -260,6 +262,12 @@ Your template has a `resources` object, which is an array that contains definiti
 > [!NOTE]
 > Templates can include resource definitions for multiple logic apps, so make sure that all your logic app resources specify the same Azure resource group. When you deploy the template to an Azure resource group by using Visual Studio, you're prompted for which logic app that you want to open. Also, your Azure resource group project can contain more than one template, so make sure that you select the correct parameters file when prompted.
 
+<a name="view-resource-definitions"></a>
+
+### View resource definitions
+
+To review the resource definitions for all the resources in an Azure resource group, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment.
+
 For general information about template resources and their attributes, see these topics:
 
 * [Resources - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#resources)
@@ -269,7 +277,7 @@ For general information about template resources and their attributes, see these
 
 ### Logic app resource definition
 
-Your logic app's resource definition starts with the `properties` object, which includes this information:
+Your logic app's [workflow resource definition in a template](/azure/templates/microsoft.logic/workflows) starts with the `properties` object, which includes this information:
 
 * Your logic app's state at deployment
 * The ID for any integration account used by your logic app
@@ -323,7 +331,31 @@ Here are the attributes that are specific to your logic app resource definition:
 | `accessControl` | No | Object | For specifying security attributes for your logic app, such as restricting IP access to request triggers or run history inputs and outputs. For more information, see [Secure access to logic apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
-For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](https://docs.microsoft.com/azure/templates/microsoft.logic/allversions).
+For more information about resource definitions for these Logic Apps objects, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions):
+
+* [Workflow resource definition](/azure/templates/microsoft.logic/workflows)
+* [Integration service environment resource definition](/azure/templates/microsoft.logic/integrationserviceenvironments)
+* [Integration service environment managed API resource definition](/azure/templates/microsoft.logic/integrationserviceenvironments/managedapis)
+
+* [Integration account resource definition](/azure/templates/microsoft.logic/integrationaccounts)
+
+* Integration account artifacts:
+
+  * [Agreement resource definition](/azure/templates/microsoft.logic/integrationaccounts/agreements)
+
+  * [Assembly resource definition](/azure/templates/microsoft.logic/integrationaccounts/assemblies)
+
+  * [Batch configuration resource definition](/azure/templates/microsoft.logic/integrationaccounts/batchconfigurations)
+
+  * [Certificate resource definition](/azure/templates/microsoft.logic/integrationaccounts/certificates)
+
+  * [Map resource definition](/azure/templates/microsoft.logic/integrationaccounts/maps)
+
+  * [Partner resource definition](/azure/templates/microsoft.logic/integrationaccounts/partners)
+
+  * [Schema resource definition](/azure/templates/microsoft.logic/integrationaccounts/schemas)
+
+  * [Session resource definition](/azure/templates/microsoft.logic/integrationaccounts/sessions)
 
 <a name="workflow-definition-parameters"></a>
 
@@ -389,7 +421,9 @@ This syntax shows where you can declare parameters at both the template and work
             },
             // Workflow definition parameter value
             "parameters": {
-               "<workflow-definition-parameter-name>": "[parameters('<template-parameter-name>')]"
+               "<workflow-definition-parameter-name>": { 
+                  "value": "[parameters('<template-parameter-name>')]"
+               }
             },
             "accessControl": {}
          },
@@ -407,11 +441,11 @@ This syntax shows where you can declare parameters at both the template and work
 
 For a workflow definition parameter that handles sensitive information, passwords, access keys, or secrets at runtime, declare or edit the parameter to use the `securestring` or `secureobject` parameter type. You can reference this parameter throughout and within your workflow definition. At the template's top level, declare a parameter that has the same type to handle this information at deployment.
 
-To set the value for the workflow definition parameter, use the `parameters` object that's *outside* your workflow definition but still *inside* your logic app resource definition to reference the template parameter. Finally, to pass the value to your template parameter at deployment, store that value in [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) and reference that key vault in the [parameters file](#template-parameter-files) that's used by your template at deployment.
+To set the value for the workflow definition parameter, use the `parameters` object that's *outside* your workflow definition but still *inside* your logic app resource definition to reference the template parameter. Finally, to pass the value to your template parameter at deployment, store that value in [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) and reference that key vault in the [parameters file](#template-parameter-files) that's used by your template at deployment.
 
 This example template shows how you can complete these tasks by defining secured parameters when necessary so that you can store their values in Azure Key Vault:
 
-* Declare secure parameters for the values used to authenticate access.
+* Declare secured parameters for the values used to authenticate access.
 * Use these values at both the template and workflow definition levels.
 * Provide these values by using a parameters file.
 
@@ -556,7 +590,7 @@ To make sure that the Logic App Designer can correctly show workflow definition 
 
   * [Security recommendations for parameters in workflow definitions](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow)
 
-  * [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+  * [Pass secure parameter values with Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 For more information about workflow definition parameters, see [Parameters - Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#parameters).
 
@@ -564,7 +598,7 @@ For more information about workflow definition parameters, see [Parameters - Wor
 
 ## Connection resource definitions
 
-When your logic app creates and uses connections to other services and system by using [managed connectors](../connectors/apis-list.md), your template's `resources` object contains the resource definitions for those connections.
+When your logic app creates and uses connections to other services and system by using [managed connectors](../connectors/apis-list.md), your template's `resources` object contains the resource definitions for those connections. Although you create connections from within a logic app, connections are separate Azure resources with their own resource definitions. To review these connection resource definitions, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment.
 
 ```json
 {
@@ -650,7 +684,7 @@ Your logic app's resource definition also works with connection resource definit
 
 * *Outside* your workflow definition but still *inside* your logic app's resource definition, another `parameters` object sets the values to use at runtime for the `$connections` parameter by referencing the corresponding template parameters. These values use template expressions to reference resources that securely store the metadata for the connections in your logic app.
 
-  For example, metadata can include connection strings and access tokens, which you can store in [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md). To pass those values to your template parameters, you reference that key vault in the [parameters file](#template-parameter-files) that's used by your template at deployment. For more information about differences in referencing parameters, see [References to parameters](#parameter-references) later in this topic.
+  For example, metadata can include connection strings and access tokens, which you can store in [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). To pass those values to your template parameters, you reference that key vault in the [parameters file](#template-parameter-files) that's used by your template at deployment. For more information about differences in referencing parameters, see [References to parameters](#parameter-references) later in this topic.
 
   When you open your logic app's workflow definition in code view through the Azure portal or Visual Studio, the `$connections` object appears outside your workflow definition but at the same level. This ordering in code view makes these parameters easier to reference when you manually update the workflow definition:
 
@@ -742,7 +776,7 @@ This example shows the interactions between your logic app's resource definition
 
 ### Secure connection parameters
 
-For a connection parameter that handles sensitive information, passwords, access keys, or secrets, the connection's resource definition includes a `parameterValues` object that specifies these values in name-value pair format. To hide this information, you can declare or edit the template parameters for these values by using the `securestring` or `secureobject` parameter types. You can then store that information in [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md). To pass those values to your template parameters, you reference that key vault in the [parameters file](#template-parameter-files) that's used by your template at deployment.
+For a connection parameter that handles sensitive information, passwords, access keys, or secrets, the connection's resource definition includes a `parameterValues` object that specifies these values in name-value pair format. To hide this information, you can declare or edit the template parameters for these values by using the `securestring` or `secureobject` parameter types. You can then store that information in [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). To pass those values to your template parameters, you reference that key vault in the [parameters file](#template-parameter-files) that's used by your template at deployment.
 
 Here is an example that provides the account name and access key for an Azure Blob Storage connection:
 
@@ -906,7 +940,7 @@ Here is an example that provides the account name and access key for an Azure Bl
 
 ### Authenticate connections
 
-After deployment, your logic app works end-to-end with valid parameters. However, you must still authorize any OAuth connections to generate valid access tokens for [authenticating your credentials](../active-directory/develop/authentication-scenarios.md). For more information, see [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
+After deployment, your logic app works end-to-end with valid parameters. However, you must still authorize any OAuth connections to generate valid access tokens for [authenticating your credentials](../active-directory/develop/authentication-vs-authorization.md). For more information, see [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
 
 Some connections support using an Azure Active Directory (Azure AD) [service principal](../active-directory/develop/app-objects-and-service-principals.md) to authorize connections for a logic app that's [registered in Azure AD](../active-directory/develop/quickstart-register-app.md). For example, this Azure Data Lake connection resource definition shows how to reference the template parameters that handle the service principal's information and how the template declares these parameters:
 
@@ -1002,14 +1036,14 @@ The template's top-level `parameters` object declares these parameters for the e
 For more information about working with service principals, see these topics:
 
 * [Create a service principal by using the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Create an Azure service principal by using Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+* [Create an Azure service principal by using Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)
 * [Create a service principal with a certificate by using Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 <a name="parameter-references"></a>
 
 ## References to parameters
 
-To reference template parameters, you can use template expressions with [template functions](../azure-resource-manager/resource-group-template-functions.md), which are evaluated at deployment. Template expressions use square brackets (**[]**):
+To reference template parameters, you can use template expressions with [template functions](../azure-resource-manager/templates/template-functions.md), which are evaluated at deployment. Template expressions use square brackets (**[]**):
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 
@@ -1051,7 +1085,7 @@ Here is the parameterized sample template that's used by this topic's examples:
       },
       "LogicAppLocation": {
          "type": "string",
-         "min length": 1,
+         "minLength": 1,
          "defaultValue": "[resourceGroup().location]",
          "metadata": {
             "description": "The resource location to use for the logic app"

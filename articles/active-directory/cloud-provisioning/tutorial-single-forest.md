@@ -6,7 +6,7 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -24,19 +24,19 @@ You can use the environment you create in this tutorial for testing or for getti
 ## Prerequisites
 ### In the Azure Active Directory admin center
 
-1. Create a cloud-only global administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only global administrator account](../active-directory-users-create-azure-portal.md). Completing this step is critical to ensure that you don't get locked out of your tenant.
-2. Add one or more [custom domain names](../active-directory-domains-add-azure-portal.md) to your Azure AD tenant. Your users can sign in with one of these domain names.
+1. Create a cloud-only global administrator account on your Azure AD tenant. This way, you can manage the configuration of your tenant should your on-premises services fail or become unavailable. Learn about [adding a cloud-only global administrator account](../fundamentals/add-users-azure-active-directory.md). Completing this step is critical to ensure that you don't get locked out of your tenant.
+2. Add one or more [custom domain names](../fundamentals/add-custom-domain.md) to your Azure AD tenant. Your users can sign in with one of these domain names.
 
 ### In your on-premises environment
 
-1. Identity a domain-joined host server running Windows Server 2012 R2 or greater with minimum of 4 GB RAM and .NET 4.7.1+ runtime 
+1. Identify a domain-joined host server running Windows Server 2012 R2 or greater with minimum of 4 GB RAM and .NET 4.7.1+ runtime 
 
 2. If there is a firewall between your servers and Azure AD, configure the following items:
    - Ensure that agents can make *outbound* requests to Azure AD over the following ports:
 
      | Port number | How it's used |
      | --- | --- |
-     | **80** | Downloads the certificate revocation lists (CRLs) while validating the SSL certificate |
+     | **80** | Downloads the certificate revocation lists (CRLs) while validating the TLS/SSL certificate |
      | **443** | Handles all outbound communication with the service |
      | **8080** (optional) | Agents report their status every 10 minutes over port 8080, if port 443 is unavailable. This status is displayed on the Azure AD portal. |
      
@@ -56,16 +56,16 @@ You can use the environment you create in this tutorial for testing or for getti
 5. Run the Azure AD Connect provisioning agent.
 6. On the splash screen, **Accept** the licensing terms and click **Install**.
 
-   ![Welcome screen](media/how-to-install/install1.png)
+   ![Screenshot that shows the "Microsoft Azure A D Connect Provisioning Agent Package" splash screen.](media/how-to-install/install1.png)
 
 7. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.  Note that if you have IE enhanced security enabled this will block the sign-in.  If this is the case, close the installation, disable IE enhanced security in Server Manager, and click the **AAD Connect Provisioning Agent Wizard** to restart the installation.
 8. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory domain administrator account.  NOTE: The domain administrator account should not have password change requirements. In case the password expires or changes, you will need to re-configure the agent with the new credentials. This operation will add your on-premises directory.  Click **Next**.
 
-   ![Welcome screen](media/how-to-install/install3.png)
+   ![Screenshot of the "Connect Active Directory" screen.](media/how-to-install/install3.png)
 
 9. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.
 
-   ![Welcome screen](media/how-to-install/install4.png)
+   ![Screenshot that shows the "Configuration complete" screen.](media/how-to-install/install4.png)
 
 10. Once this operation completes you should see a notice: **Your agent configuration was successfully verified.**  You can click **Exit**.</br>
 ![Welcome screen](media/how-to-install/install5.png)</br>
@@ -103,13 +103,13 @@ To verify that the agent is running follow these steps:
 2.  Click **Azure Active Directory**
 3.  Click **Azure AD Connect**
 4.  Select **Manage provisioning (Preview)**
-![](media/how-to-configure/manage1.png)
+![Screenshot showing "Manage provisioning (Preview)" link.](media/how-to-configure/manage1.png)
 5.  Click **New Configuration**
-![](media/tutorial-single-forest/configure1.png)
+![Screenshot of Azure AD Provisioning (Preview) screen with "New configuration" link highlighted.](media/tutorial-single-forest/configure1.png)
 7.  On the configuration screen, enter a **Notification email**, move the selector to **Enable** and click **Save**.
-![](media/tutorial-single-forest/configure2.png)
+![Screenshot of Configure screen with Notification email filled in and Enable selected.](media/how-to-configure/configure2.png)
 1.  The configuration status should now be **Healthy**.
-![](media/how-to-configure/manage4.png)
+![Screenshot of Azure AD Provisioning (Preview) screen showing Healthy status.](media/how-to-configure/manage4.png)
 
 ## Verify users are created and synchronization is occurring
 You will now verify that the users that you had in our on-premises directory have been synchronized and now exist in our Azure AD tenant.  Be aware that this may take a few hours to complete.  To verify users are synchronized do the following.

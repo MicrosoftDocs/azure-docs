@@ -1,11 +1,7 @@
 ---
 title: Azure Application Insights Overview Dashboard | Microsoft Docs
 description: Monitor applications with Azure Application Insights and Overview Dashboard functionality.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 06/03/2019
 
 ---
@@ -36,7 +32,7 @@ Application dashboard leverages the existing dashboard technology within Azure t
 
 To access the default dashboard select _Application Dashboard_ in the upper left corner.
 
-![Dashboard view](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
+![Screenshot shows the Application Dashboard button highlighted.](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
 If this is your first time accessing the dashboard, it will launch a default view:
 
@@ -57,6 +53,7 @@ If you select **Configure tile settings** and set a custom time range in excess 
 
 ## Next steps
 
-- [Funnels](../../azure-monitor/app/usage-funnels.md)
-- [Retention](../../azure-monitor/app/usage-retention.md)
-- [User Flows](../../azure-monitor/app/usage-flows.md)
+- [Funnels](./usage-funnels.md)
+- [Retention](./usage-retention.md)
+- [User Flows](./usage-flows.md)
+

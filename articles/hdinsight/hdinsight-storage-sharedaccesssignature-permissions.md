@@ -1,18 +1,18 @@
 ---
 title: Restrict access using Shared Access Signatures - Azure HDInsight
-description: Learn how to use Shared Access Signatures to restrict HDInsight access to data stored in Azure storage blobs.
+description: Learn how to use Shared Access Signatures to restrict HDInsight access to data stored in Azure Blob storage.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 11/13/2019
+ms.topic: how-to
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
 ---
 
-# Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight
+# Use Azure Blob storage Shared Access Signatures to restrict access to data in HDInsight
 
-HDInsight has full access to data in the Azure Storage accounts associated with the cluster. You can use Shared Access Signatures on the blob container to restrict access to the data. Shared Access Signatures (SAS) are a feature of Azure storage accounts that allows you to limit access to data. For example, providing read-only access to data.
+HDInsight has full access to data in the Azure Blob storage accounts associated with the cluster. You can use Shared Access Signatures on the blob container to restrict access to the data. Shared Access Signatures (SAS) are a feature of Azure Blob storage accounts that allows you to limit access to data. For example, providing read-only access to data.
 
 > [!IMPORTANT]  
 > For a solution using Apache Ranger, consider using domain-joined HDInsight. For more information, see the [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md) document.
@@ -22,13 +22,11 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 
 ## Prerequisites
 
-* An Azure subscription.
-
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * An existing [storage container](../storage/blobs/storage-quickstart-blobs-portal.md).  
 
-* If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/overview).
+* If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/).
 
 * If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -36,7 +34,7 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 
 * If using C#, Visual Studio must be version 2013 or higher.
 
-* The [URI scheme](./hdinsight-hadoop-linux-information.md#URI-and-scheme) for your storage account. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`. See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
+* The URI scheme for your storage account. This scheme would be `wasb://` for Azure Blob storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Blob storage, the URI would be `wasbs://`.
 
 * An existing HDInsight cluster to add a Shared Access Signature to. If not, you can use Azure PowerShell to create a cluster and add a Shared Access Signature during cluster creation.
 
@@ -51,11 +49,11 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 
 There are two forms of Shared Access Signatures:
 
-* Ad hoc: The start time, expiry time, and permissions for the SAS are all specified on the SAS URI.
+* `Ad hoc`: The start time, expiry time, and permissions for the SAS are all specified on the SAS URI.
 
-* Stored access policy: A stored access policy is defined on a resource container, such as a blob container. A policy can be used to manage constraints for one or more shared access signatures. When you associate a SAS with a stored access policy, the SAS inherits the constraints - the start time, expiry time, and permissions - defined for the stored access policy.
+* `Stored access policy`: A stored access policy is defined on a resource container, such as a blob container. A policy can be used to manage constraints for one or more shared access signatures. When you associate a SAS with a stored access policy, the SAS inherits the constraints - the start time, expiry time, and permissions - defined for the stored access policy.
 
-The difference between the two forms is important for one key scenario: revocation. A SAS is a URL, so anyone who obtains the SAS can use it, regardless of who requested it to begin with. If a SAS is published publicly, it can be used by anyone in the world. A SAS that is distributed is valid until one of four things happens:
+The difference between the two forms is important for one key scenario: revocation. A SAS is a URL, so anyone who obtains the SAS can use it. It doesn't matter who requested it to begin with. If a SAS is published publicly, it can be used by anyone in the world. A SAS that is distributed is valid until one of four things happens:
 
 1. The expiry time specified on the SAS is reached.
 
@@ -77,7 +75,7 @@ For more information on Shared Access Signatures, see [Understanding the SAS mod
 
 ## Create a stored policy and SAS
 
-Save the SAS token that is produced at the end of each method. The token will look similar to the following:
+Save the SAS token that is produced at the end of each method. The token will look similar to the following output:
 
 ```output
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
@@ -87,7 +85,7 @@ Save the SAS token that is produced at the end of each method. The token will lo
 
 Replace `RESOURCEGROUP`, `STORAGEACCOUNT`, and `STORAGECONTAINER` with the appropriate values for your existing storage container. Change directory to `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` or revise the `-File` parameter to contain the absolute path for `Set-AzStorageblobcontent`. Enter the following PowerShell command:
 
-```PowerShell
+```powershell
 $resourceGroupName = "RESOURCEGROUP"
 $storageAccountName = "STORAGEACCOUNT"
 $containerName = "STORAGECONTAINER"
@@ -170,7 +168,7 @@ The use of variables in this section is based on a Windows environment. Slight v
 
 2. Set the retrieved primary key to a variable for later use. Replace `PRIMARYKEY` with the retrieved value in the prior step, and then enter the command below:
 
-    ```azurecli
+    ```console
     #set variable for primary key
     set AZURE_STORAGE_KEY=PRIMARYKEY
     ```
@@ -200,7 +198,7 @@ Open the `SASToken.py` file and replace `storage_account_name`, `storage_account
 
 You may need to execute `pip install --upgrade azure-storage` if you receive the error message `ImportError: No module named azure.storage`.
 
-### Using C#
+### Using C\#
 
 1. Open the solution in Visual Studio.
 
@@ -208,21 +206,20 @@ You may need to execute `pip install --upgrade azure-storage` if you receive the
 
 3. Select **Settings** and add values for the following entries:
 
-   * StorageConnectionString: The connection string for the storage account that you want to create a stored policy and SAS for. The format should be `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` where `myaccount` is the name of your storage account and `mykey` is the key for the storage account.
-
-   * ContainerName: The container in the storage account that you want to restrict access to.
-
-   * SASPolicyName: The name to use for the stored policy to create.
-
-   * FileToUpload: The path to a file that is uploaded to the container.
+    |Item |Description |
+    |---|---|
+    |StorageConnectionString|The connection string for the storage account that you want to create a stored policy and SAS for. The format should be `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` where `myaccount` is the name of your storage account and `mykey` is the key for the storage account.|
+    |ContainerName|The container in the storage account that you want to restrict access to.|
+    |SASPolicyName|The name to use for the stored policy to create.|
+    |FileToUpload|The path to a file that is uploaded to the container.|
 
 4. Run the project. Save the SAS policy token, storage account name, and container name. These values are used when associating the storage account with your HDInsight cluster.
 
 ## Use the SAS with HDInsight
 
-When creating an HDInsight cluster, you must specify a primary storage account and you can optionally specify additional storage accounts. Both of these methods of adding storage require full access to the storage accounts and containers that are used.
+When creating an HDInsight cluster, you must specify a primary storage account. You can also specify additional storage accounts. Both of these methods of adding storage require full access to the storage accounts and containers that are used.
 
-To use a Shared Access Signature to limit access to a container, add a custom entry to the **core-site** configuration for the cluster. You can add the entry during cluster creation using PowerShell or after cluster creation using Ambari.
+Use a Shared Access Signature to limit container access. Add a custom entry to the **core-site** configuration for the cluster. You can add the entry during cluster creation using PowerShell or after cluster creation using Ambari.
 
 ### Create a cluster that uses the SAS
 
@@ -419,7 +416,9 @@ Use the following steps to verify that you can only read and list items on the S
 
     You receive a message similar to the following text:
 
-        put: java.io.IOException
+    ```output
+    put: java.io.IOException
+    ```
 
     This error occurs because the storage location is read+list only. Use the following command to put the data on the default storage for the cluster, which is writable:
 
@@ -433,5 +432,5 @@ Use the following steps to verify that you can only read and list items on the S
 
 Now that you've learned how to add limited-access storage to your HDInsight cluster, learn other ways to work with data on your cluster:
 
-* [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Authorize users for Apache Ambari Views](hdinsight-authorize-users-to-ambari.md)

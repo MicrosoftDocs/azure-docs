@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/12/2019
+ms.date: 02/10/2020
 ---
 
 # Run Apache Spark from the Spark Shell
@@ -22,29 +22,74 @@ An interactive [Apache Spark](https://spark.apache.org/) Shell provides a REPL (
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Spark provides shells for Scala (spark-shell), and Python (pyspark). In your SSH session, enter one of the following commands:
+1. Spark provides shells for Scala (spark-shell), and Python (pyspark). In your SSH session, enter *one* of the following commands:
 
     ```bash
     spark-shell
-    pyspark
+
+    # Optional configurations
+    # spark-shell --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4
     ```
 
-    Now you can enter Spark commands in the appropriate language.
+    ```bash
+    pyspark
 
-1. A few basic example commands:
+    # Optional configurations
+    # pyspark --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4
+    ```
+
+    If you intend to use any optional configuration, ensure you first review [OutOfMemoryError exception for Apache Spark](./apache-spark-troubleshoot-outofmemory.md).
+
+1. A few basic example commands. Choose the relevant language:
+
+    ```spark-shell
+    val textFile = spark.read.textFile("/example/data/fruits.txt")
+    textFile.first()
+    textFile.filter(line => line.contains("apple")).show()
+    ```
+
+    ```pyspark
+    textFile = spark.read.text("/example/data/fruits.txt")
+    textFile.first()
+    textFile.filter(textFile.value.contains("apple")).show()
+    ```
+
+1. Query a CSV file. Note the language below works for `spark-shell` and `pyspark`.
 
     ```scala
-    // Load data
+    spark.read.csv("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv").show()
+    ```
+
+1. Query a CSV file and store results in variable:
+
+    ```spark-shell
     var data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
+    ```
 
-    // Show data
+    ```pyspark
+    data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
+    ```
+
+1. Display results:
+
+    ```spark-shell
     data.show()
-
-    // Select certain columns
     data.select($"BuildingID", $"Country").show(10)
+    ```
 
-    // exit shell
+    ```pyspark
+    data.show()
+    data.select("BuildingID", "Country").show(10)
+    ```
+
+1. Exit
+
+    ```spark-shell
     :q
+    ```
+
+    ```pyspark
+    exit()
     ```
 
 ## SparkSession and SparkContext instances

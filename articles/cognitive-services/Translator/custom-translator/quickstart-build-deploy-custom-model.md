@@ -24,10 +24,24 @@ This article provides step-by-step instructions to build a translation system wi
 2. A subscription to the Translator Text API via the Azure portal. You will need the Translator Text API subscription key to associate with your workspace in Custom Translator. See [how to sign up for the Translator Text API](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
 3. When you have both of the above, sign in to the
-    [Custom Translator](https://portal.customtranslator.azure.ai) portal. Once
-    on the Custom Translator portal,
-    navigate to the Settings page where you can associate your Microsoft
-    Translator Text API subscription key with your workspace.
+    [Custom Translator](https://portal.customtranslator.azure.ai) portal to create workspaces, projects, upload files and create/deploy models.
+
+>[!Note]
+>Custom Translator does not support creating workspace for Translator Text API resource that was created inside [Enabled VNET](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
+
+## Create a workspace
+
+If you are first time user, you will be asked to agree to the Terms of Service, to create a workspace and to associate your workspace with Microsoft Translator Text API subscription.
+
+![Create workspace](media/quickstart/terms-of-service.png)
+![Create workspace image 1](media/quickstart/create-workspace-1.png)
+![Create workspace image 2](media/quickstart/create-workspace-2.png)
+![Create workspace image 3](media/quickstart/create-workspace-3.png)
+![Create workspace image 4](media/quickstart/create-workspace-4.png)
+![Create workspace image 5](media/quickstart/create-workspace-5.png)
+![Create workspace image 6](media/quickstart/create-workspace-6.png)
+
+On subsequent visits to the Custom Translator portal, navigate to the Settings page where you can manage your workspace, create more workspaces, associate your Microsoft Translator Text API subscription key with your workspaces, add co-owners, and change a subscription key.
 
 ## Create a project
 
@@ -89,6 +103,12 @@ deployment in the Status column. For more details, visit [Model
 Deployment](how-to-view-system-test-results.md#deploy-a-model)
 
 ![Deploy a trained model](media/quickstart/ct-how-to-deploy.png)
+
+## Swap deployed model
+
+To swap a deployed model with another within a project click the "Swap" button displayed next to the desired model. During the swap process, the deployed model will continue to be available to serve translation requests. 
+
+![Swap deployed model](media/quickstart/ct-how-to-swap-model.png)
 
 ## Use a deployed model
 

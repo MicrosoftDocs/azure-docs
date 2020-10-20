@@ -10,7 +10,7 @@ ms.author: robinsh
 ---
 # Develop for Android Things platform using Azure IoT SDKs
 
-[Azure IoT Hub SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) provide first tier support for popular platforms such as Windows, Linux, OSX, MBED, and mobile platforms like Android and iOS.  As part of our commitment to enable greater choice and flexibility in IoT deployments, the Java SDK also supports [Android Things](https://developer.android.com/things/) platform.  Developers can leverage the benefits of Android Things operating system on the device side, while using [Azure IoT Hub](about-iot-hub.md) as the central message hub that scales to millions of simultaneously connected devices.
+[Azure IoT Hub SDKs](./iot-hub-devguide-sdks.md) provide first tier support for popular platforms such as Windows, Linux, OSX, MBED, and mobile platforms like Android and iOS.  As part of our commitment to enable greater choice and flexibility in IoT deployments, the Java SDK also supports [Android Things](https://developer.android.com/things/) platform.  Developers can leverage the benefits of Android Things operating system on the device side, while using [Azure IoT Hub](about-iot-hub.md) as the central message hub that scales to millions of simultaneously connected devices.
 
 This tutorial outlines the steps to build a device side application on Android Things using the Azure IoT Java SDK.
 
@@ -39,7 +39,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
    **MyAndroidThingsDevice** : This is the name given for the registered device. Use MyAndroidThingsDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
+    az extension add --name azure-iot
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 

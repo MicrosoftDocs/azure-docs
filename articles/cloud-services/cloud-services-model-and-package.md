@@ -2,7 +2,7 @@
 title: What is a Cloud Service model and package | Microsoft Docs
 description: Describes the cloud service model (.csdef, .cscfg) and package (.cspkg) in Azure
 services: cloud-services
-author: tgore03
+author: tanmaygore
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
@@ -211,6 +211,9 @@ The [Azure Runtime Library](/previous-versions/azure/reference/mt419365(v=azure.
 <a name="cspkg"></a>
 
 ## ServicePackage.cspkg
+> [!NOTE]
+> The maximum package size that can be deployed is 600MB
+
 To deploy an application as a cloud service in Azure, you must first package the application in the appropriate format. You can use the **CSPack** command-line tool (installed with the [Azure SDK](https://azure.microsoft.com/downloads/)) to create the package file as an alternative to Visual Studio.
 
 **CSPack** uses the contents of the service definition file and service configuration file to define the contents of the package. **CSPack** generates an application package file (.cspkg) that you can upload to Azure by using the [Azure portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). By default, the package is named `[ServiceDefinitionFileName].cspkg`, but you can specify a different name by using the `/out` option of **CSPack**.
@@ -281,9 +284,6 @@ I am using Visual Studio and I want to...
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md
 [vs_remote]: cloud-services-role-enable-remote-desktop-visual-studio.md
-[vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
-[vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
-[vs_create]: ../vs-azure-tools-azure-project-create.md
-
-
-
+[vs_deploy]: /visualstudio/azure/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio
+[vs_reconfigure]: /visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service
+[vs_create]: /visualstudio/azure/vs-azure-tools-azure-project-create

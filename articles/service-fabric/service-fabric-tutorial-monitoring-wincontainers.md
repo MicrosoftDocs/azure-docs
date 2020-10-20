@@ -1,15 +1,14 @@
 ---
-title: Monitor and diagnose Windows containers on Service Fabric in Azure 
+title: Monitor and diagnose Windows containers
 description: In this tutorial, you configure Azure Monitor logs for monitoring and diagnostics of Windows containers on Azure Service Fabric.
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
 ---
 # Tutorial: Monitor Windows containers on Service Fabric using Azure Monitor logs
 
-This is part three of a tutorial, and walks you through setting up Azure Monitor logs to monitor your Windows containers orchestrated on Service Fabric.
+This is part three of a tutorial, and walks you through configuring Azure Monitor logs to monitor your Windows containers orchestrated on Service Fabric.
 
 In this tutorial, you learn how to:
 
@@ -32,7 +31,7 @@ Before you begin this tutorial, you should:
 In the case that you used the [template provided](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) in the first part of this tutorial, it should include the following additions to a generic Service Fabric Azure Resource Manager template. In case the case that you have a cluster of your own that you are looking to set up for monitoring containers with Azure Monitor logs:
 
 * Make the following changes to your Resource Manager template.
-* Deploy it using PowerShell to upgrade your cluster by [deploying the template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager realizes that the resource exists, so will roll it out as an upgrade.
+* Deploy it using PowerShell to upgrade your cluster by [deploying the template](./service-fabric-cluster-creation-via-arm.md). Azure Resource Manager realizes that the resource exists, so will roll it out as an upgrade.
 
 ### Adding Azure Monitor logs to your cluster template
 
@@ -181,19 +180,17 @@ To set up the Container solution in your workspace, search for *Container Monito
 
 ![Adding Containers solution](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-When prompted for the *Log Analytics workspace*, select the workspace that was created in your resource group, and click **Create**. This adds a *Container Monitoring Solution* to your workspace, will automatically cause the Log Analytics agent deployed by the template to start collecting docker logs and stats. 
+When prompted for the *Log Analytics workspace*, select the workspace that was created in your resource group, and select **Create**. This adds a *Container Monitoring Solution* to your workspace,  initiating the Log Analytics agent deployed by the template to start collecting docker logs and stats.
 
-Navigate back to your *resource group*, where you should now see the newly added monitoring solution. If you click into it, the landing page should show you the number of container images you have running.
+Navigate back to your *resource group*, where you should now see the newly added monitoring solution. If you select it, the landing page should show you the number of container images you have running.
 
-*Note that I ran 5 instances of my fabrikam container from [part two](service-fabric-host-app-in-a-container.md) of the tutorial*
+*Note that we ran five instances of the fabrikam container from [part two](service-fabric-host-app-in-a-container.md) of the tutorial*
 
 ![Container solution landing page](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
 
-Clicking into the **Container Monitor Solution** will take you to a more detailed dashboard, which allows you to scroll through multiple panels as well as run queries in Azure Monitor logs.
+Selecting the **Container Monitor Solution** will take you to a more detailed dashboard, which allows you to scroll through multiple panels as well as run queries in Azure Monitor logs.
 
-*Note that as of September, 2017, the solution is going through some updates - ignore any errors you may get about Kubernetes events as we work on integrating multiple orchestrators into the same solution.*
-
-Since the agent is picking up docker logs, it defaults to showing *stdout* and *stderr*. If you scroll to the right, you will see container image inventory, status, metrics, and sample queries that you could run to get more helpful data.
+Since the agent is picking up docker logs, it defaults to showing *stdout* and *stderr*. If you scroll horizontally, you will see container image inventory, status, metrics, and sample queries that you could run to get more helpful data.
 
 ![Container solution dashboard](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
 
@@ -203,12 +200,12 @@ Clicking into any of these panels will take you to the Kusto query that is gener
 
 ## Configure Log Analytics agent to pick up performance counters
 
-Another benefit of using the Log Analytics agent is the ability to change the performance counters you want to pick up through the log analytics UI experience, rather than having to configure the Azure diagnostics agent and do a Resource Manager template based upgrade each time. To do this, click on **OMS Workspace** on the landing page of your Container Monitoring (or Service Fabric) solution.
+Another benefit of using the Log Analytics agent is the ability to change the performance counters you want to pick up through the log analytics UI experience, rather than having to configure the Azure diagnostics agent and do a Resource Manager template based upgrade each time. To do this, select on **OMS Workspace** on the landing page of your Container Monitoring (or Service Fabric) solution.
 
 This will take you to your Log Analytics workspace, where you can view your solutions, create custom dashboards, as well as configure the Log Analytics agent. 
-* Click on **Advanced Settings** to open the Advanced Settings menu.
-* Click on **Connected Sources** > **Windows Servers** to verify that you have *5 Windows Computers Connected*.
-* Click on **Data** > **Windows Performance Counters** to search for and add new performance counters. Here you will see a list of recommendations from Azure Monitor logs for performance counters you can collect as well as the option to search for other counters. Verify that **Processor(_Total)\% Processor Time** and **Memory(*)\Available MBytes** counters are being collected.
+* Select **Advanced Settings** to open the Advanced Settings menu.
+* Select **Connected Sources** > **Windows Servers** to verify that you have *5 Windows Computers Connected*.
+* Select **Data** > **Windows Performance Counters** to search for and add new performance counters. Here you will see a list of recommendations from Azure Monitor logs for performance counters you can collect as well as the option to search for other counters. Verify that **Processor(_Total)\% Processor Time** and **Memory(*)\Available MBytes** counters are being collected.
 
 **refresh** your Container Monitoring Solution in a few minutes, and you should start to see *Computer Performance* data coming in. This will help you understand how your resources are being used. You can also use these metrics to make appropriate decisions about scaling your cluster, or to confirm if a cluster is balancing your load as expected.
 
@@ -225,9 +222,9 @@ In this tutorial, you learned how to:
 > * Use a Log Analytics workspace to view and query logs from your containers and nodes
 > * Configure the Log Analytics agent to pick up container and node metrics
 
-Now that you have set up monitoring for your containerized application, try the following:
+Now that you have configured monitoring for your containerized application, try:
 
-* Set up Azure Monitor logs for a Linux cluster, following similar steps as above. Reference [this template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) to make changes in your Resource Manager template.
-* Configure Azure Monitor logs to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics.
+* Configuring Azure Monitor logs for a Linux cluster, following similar steps as this tutorial. Reference [this template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) to make changes in your Resource Manager template.
+* Configure Azure Monitor logs to set up [automated alerting](../azure-monitor/platform/alerts-overview.md) to aid in detecting and diagnostics.
 * Explore Service Fabric's list of [recommended performance counters](service-fabric-diagnostics-event-generation-perf.md) to configure for your clusters.
-* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs.
+* Get familiarized with the [log search and querying](../azure-monitor/log-query/log-query-overview.md) features offered as part of Azure Monitor logs.

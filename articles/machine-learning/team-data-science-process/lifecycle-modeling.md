@@ -3,12 +3,12 @@ title: Modeling stage of the Team Data Science Process lifecycle
 description: The goals, tasks, and deliverables for the modeling stage of your data-science projects
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -47,7 +47,7 @@ This step requires a creative combination of domain expertise and the insights o
 For technical guidance on feature engineering when make use of various Azure data technologies, see [Feature engineering in the data science process](create-features.md). 
 
 ### Model training
-Depending on the type of question that you're trying to answer, there are many modeling algorithms available. For guidance on choosing the algorithms, see [How to choose algorithms for Microsoft Azure Machine Learning](../studio/algorithm-choice.md). Although this article uses Azure Machine Learning, the guidance it provides is useful for any machine-learning projects. 
+Depending on the type of question that you're trying to answer, there are many modeling algorithms available. For guidance on choosing the algorithms, see [How to choose algorithms for Microsoft Azure Machine Learning](../how-to-select-algorithms.md). Although this article uses Azure Machine Learning, the guidance it provides is useful for any machine-learning projects. 
 
 The process for model training includes the following steps: 
 
@@ -68,7 +68,7 @@ The artifacts produced in this stage include:
 
    * [Feature sets](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): The features developed for the modeling are described in the **Feature sets** section of the **Data definition** report. It contains pointers to the code to generate the features and a description of how the feature was generated.
    * [Model report](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): For each model that's tried, a standard, template-based report that provides details on each experiment is produced.
-   * **Checkpoint decision**: Evaluate whether the model performs well enough to deploy it to a production system. Some key questions to ask are:
+   * **Checkpoint decision**: Evaluate whether the model performs sufficiently for production. Some key questions to ask are:
      * Does the model answer the question with sufficient confidence given the test data? 
      * Should you try any alternative approaches? Should you collect additional data, do more feature engineering, or experiment with other algorithms?
 

@@ -100,7 +100,7 @@ Here is an example response payload for an orchestration instance with `abc123` 
 }
 ```
 
-The http response is intended to be compatible with the *Polling Consumer Pattern*. It also includes the following notable response headers:
+The HTTP response is intended to be compatible with the *Polling Consumer Pattern*. It also includes the following notable response headers:
 
 * **Location**: The URL of the status endpoint. This URL contains the same value as the `statusQueryGetUri` field.
 * **Retry-After**: The number of seconds to wait between polling operations. The default value is `10`.

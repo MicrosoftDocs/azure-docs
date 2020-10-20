@@ -1,9 +1,9 @@
 ---
 title: Azure App Configuration best practices | Microsoft Docs
-description: Learn how to best use Azure App Configuration
+description: Learn best practices while using Azure App Configuration. Topics covered include key groupings, key-value compositions, App Configuration bootstrap, and more.
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: maiye
 editor: ''
 
@@ -11,8 +11,8 @@ ms.assetid:
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: yegu
-ms.custom: mvc
+ms.author: lcozzens
+ms.custom: "devx-track-csharp, mvc"
 ---
 
 # Azure App Configuration best practices
@@ -47,10 +47,12 @@ In your code, you first retrieve the key values without any labels, and then you
 // Pull the connection string from an environment variable
 configBuilder.AddAzureAppConfiguration(options => {
     options.Connect(configuration["connection_string"])
-           .Use(KeyFilter.Any, LabelFilter.Null)
-           .Use(KeyFilter.Any, "Development");
+           .Select(KeyFilter.Any, LabelFilter.Null)
+           .Select(KeyFilter.Any, "Development");
 });
 ```
+
+[Use labels to enable different configurations for different environments](./howto-labels-aspnet-core.md) provides a complete example.
 
 ## App Configuration bootstrap
 
@@ -63,9 +65,27 @@ A better option is to use the managed identities feature in Azure Active Directo
 You can provide access to App Configuration for web apps or functions by using any of the following methods:
 
 * Through the Azure portal, enter the connection string to your App Configuration store in the Application settings of App Service.
-* Store the connection string to your App Configuration store in Key Vault and [reference it from App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
+* Store the connection string to your App Configuration store in Key Vault and [reference it from App Service](../app-service/app-service-key-vault-references.md).
 * Use Azure managed identities to access the App Configuration store. For more information, see [Integrate with Azure managed identities](howto-integrate-azure-managed-service-identity.md).
 * Push configuration from App Configuration to App Service. App Configuration provides an export function (in Azure portal and the Azure CLI) that sends data directly into App Service. With this method, you don't need to change the application code at all.
+
+## Reduce requests made to App Configuration
+
+Excessive requests to App Configuration can result in throttling or overage charges. To reduce the number of requests made:
+
+* Increase the refresh timeout, especially if your configuration values do not change frequently. Specify a new refresh timeout using the [`SetCacheExpiration` method](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
+
+* Watch a single *sentinel key*, rather than watching individual keys. Refresh all configuration only if the sentinel key changes. See [Use dynamic configuration in an ASP.NET Core app](enable-dynamic-configuration-aspnet-core.md) for an example.
+
+* Use Azure Event Grid to receive notifications when configuration changes, rather than constantly polling for any changes. For more information, see [Route Azure App Configuration events to a web endpoint](./howto-app-configuration-event.md)
+
+## Importing configuration data into App Configuration
+
+App Configuration offers the option to bulk [import](./howto-import-export-data.md) your configuration settings from your current configuration files using either the Azure portal or CLI. You can also use the same options to export values from App Configuration, for example between related stores. If you’d like to set up an ongoing sync with your GitHub repo, you can use our [GitHub Action](./concept-github-action.md) so that you can continue using your existing source control practices while getting the benefits of App Configuration.
+
+## Multi-region deployment in App Configuration
+
+App Configuration is regional service. For applications with different configurations per region, storing these configurations in one instance can create a single point of failure. Deploying one App Configuration instances per region across multiple regions may be a better option. It can help with regional disaster recovery, performance, and security siloing. Configuring by region also improves latency and uses separated throttling quotas, since throttling is per instance. To apply disaster recovery mitigation, you can use [multiple configuration stores](./concept-disaster-recovery.md). 
 
 ## Next steps
 

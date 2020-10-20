@@ -1,13 +1,13 @@
 ---
 title: Customer Lockbox for Microsoft Azure
 description: Technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft may need to access customer data.
-author: cabailey
+author: TerryLanfear
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: cabailey
-manager: barbkess
-ms.date: 11/04/2019
+ms.author: terrylan
+manager: rkarlin
+ms.date: 09/15/2020
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -21,70 +21,31 @@ This article covers how Customer Lockbox requests are initiated, tracked, and st
 
 Customer Lockbox is now generally available and currently enabled for remote desktop access to virtual machines.
 
-## Workflow
+## Supported services and scenarios in preview
 
-The following steps outline a typical workflow for a Customer Lockbox request.
+The following services are now currently in preview for Customer Lockbox:
 
-1. Someone at an organization has an issue with their Azure workload.
+- API Management
+​- Azure App Service​​
+- Cognitive Services
+- Container Registry
+- Azure Database for MySQL​
+- Azure Databricks
+- Azure Data Box
+- Azure Data Explorer
+- Azure Data Factory
+- Azure Database for PostgreSQL
+- Azure Functions
+- HDInsight
+- Azure Kubernetes Service
+- Azure Monitor
+- Azure Storage
+- Azure SQL DB
+- Azure subscription transfers
+- Azure Synapse Analytics
+- Virtual machines (now also covering access to memory dumps and managed disks)
 
-2. After this person troubleshoots the issue, but can't fix it, they open a support ticket from the [Azure portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac). The ticket is assigned to an Azure Customer Support Engineer.
-
-3. An Azure Support Engineer reviews the service request and determines the next steps to resolve the issue.
-
-4. If the support engineer can't troubleshoot the issue by using standard tools and telemetry, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer. Or, it can be from a different engineer because the problem is escalated to the Azure DevOps team.
-
-5. After the access request is submitted by the Azure Engineer, Just-In-Time service evaluates the request taking into account factors such as:
-    - The scope of the resource
-    - Whether the requester is an isolated identity or using multi-factor authentication
-    - Permissions levels
-    
-    Based on the JIT rule, this request may also include an approval from Internal Microsoft Approvers. For example, the approver might be the Customer support lead or the DevOps Manager.
-
-6. When the request requires direct access to customer data, a Customer Lockbox request is initiated. For example, remote desktop access to a customer's virtual machine.
-    
-    The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.
-
-7. At the customer organization, the user who has the [Owner role](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
-    
-    Example email:
-    
-    ![Azure Customer Lockbox - email notification](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
-
-8. The email notification provides a link to the **Customer Lockbox** blade in the Azure portal. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox:
-    
-    ![Azure Customer Lockbox - landing page](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
-    
-   The request remains in the customer queue for four days. After this time, the access request automatically expires and no access is granted to Microsoft engineers.
-
-9. To get the details of the pending request, the designated approver can select the lockbox request from **Pending Requests**:
-    
-    ![Azure Customer Lockbox - view the pending request](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
-
-10. The designated approver can also select the **SERVICE REQUEST ID** to view the support ticket request that was created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem. For example:
-    
-    ![Azure Customer Lockbox - view the support ticket request](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
-
-11. After reviewing the request, the designated approver selects **Approve** or **Deny**:
-    
-    ![Azure Customer Lockbox - select Approve or Deny](./media/customer-lockbox-overview/customer-lockbox-approval.png)
-    
-    As a result of the selection:
-    - **Approve**:  Access is granted to the Microsoft engineer. The access is granted for a default period of eight hours.
-    - **Deny**: The elevated access request by the Microsoft engineer is rejected and no further action is taken.
-
-For auditing purposes, the actions taken in this workflow are logged in [Customer Lockbox request logs](#auditing-logs).
-
-## Auditing logs
-
-Customer Lockbox logs are stored in activity logs. In the Azure portal, select **Activity Logs** to view auditing information related to Customer Lockbox requests. You can filter for specific actions, such as:
-- **Deny Lockbox Request**
-- **Create Lockbox Request**
-- **Approve Lockbox Request**
-- **Lockbox Request Expiry**
-
-As an example:
-
-![Azure Customer Lockbox - activity logs](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
+To enable Customer Lockbox for these preview offerings for your organization, sign up for [Customer Lockbox for Azure Public Preview](https://aka.ms/customerlockbox/insiderprogram).
 
 ## Supported services and scenarios in general availability
 
@@ -104,22 +65,74 @@ Customer Lockbox is currently enabled for remote desktop access requests to virt
 
 For scenarios that involve remote desktop access, you can use Windows event logs to review the actions taken by the Microsoft engineer. Consider using Azure Security Center to collect your event logs and copy the data to your workspace for analysis. For more information, see [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md).
 
-## Supported services and scenarios in preview
+## Workflow
 
-The following services are now currently in preview for Customer Lockbox:
+The following steps outline a typical workflow for a Customer Lockbox request.
 
-- Azure Storage 
+1. Someone at an organization has an issue with their Azure workload.
 
-- Azure SQL DB 
+2. After this person troubleshoots the issue, but can't fix it, they open a support ticket from the [Azure portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac). The ticket is assigned to an Azure Customer Support Engineer.
 
-- Azure Data Explorer 
+3. An Azure Support Engineer reviews the service request and determines the next steps to resolve the issue.
 
-- Virtual machines (now also covering access to memory dumps and managed disks) 
+4. If the support engineer can't troubleshoot the issue by using standard tools and telemetry, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer. Or, it can be from a different engineer because the problem is escalated to the Azure DevOps team.
 
-- Azure subscription transfers
+5. After the access request is submitted by the Azure Engineer, Just-In-Time service evaluates the request taking into account factors such as:
+    - The scope of the resource
+    - Whether the requester is an isolated identity or using multi-factor authentication
+    - Permissions levels
 
-To enable Customer Lockbox for these preview offerings for your organization, sign up for [Customer Lockbox for Azure Public Preview](https://aka.ms/customerlockbox/insiderprogram).
+    Based on the JIT rule, this request may also include an approval from Internal Microsoft Approvers. For example, the approver might be the Customer support lead or the DevOps Manager.
 
+6. When the request requires direct access to customer data, a Customer Lockbox request is initiated. For example, remote desktop access to a customer's virtual machine.
+
+    The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.
+
+7. At the customer organization, the user who has the [Owner role](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
+
+    Example email:
+
+    ![Azure Customer Lockbox - email notification](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
+
+8. The email notification provides a link to the **Customer Lockbox** blade in the Azure portal. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox:
+
+    ![Azure Customer Lockbox - landing page](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
+
+   The request remains in the customer queue for four days. After this time, the access request automatically expires and no access is granted to Microsoft engineers.
+
+9. To get the details of the pending request, the designated approver can select the lockbox request from **Pending Requests**:
+
+    ![Azure Customer Lockbox - view the pending request](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
+
+10. The designated approver can also select the **SERVICE REQUEST ID** to view the support ticket request that was created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem. For example:
+
+    ![Azure Customer Lockbox - view the support ticket request](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
+
+11. After reviewing the request, the designated approver selects **Approve** or **Deny**:
+
+    ![Azure Customer Lockbox - select Approve or Deny](./media/customer-lockbox-overview/customer-lockbox-approval.png)
+
+    As a result of the selection:
+    - **Approve**:  Access is granted to the Microsoft engineer. The access is granted for a default period of eight hours.
+    - **Deny**: The elevated access request by the Microsoft engineer is rejected and no further action is taken.
+
+For auditing purposes, the actions taken in this workflow are logged in [Customer Lockbox request logs](#auditing-logs).
+
+## Auditing logs
+
+Customer Lockbox logs are stored in activity logs. In the Azure portal, select **Activity Logs** to view auditing information related to Customer Lockbox requests. You can filter for specific actions, such as:
+- **Deny Lockbox Request**
+- **Create Lockbox Request**
+- **Approve Lockbox Request**
+- **Lockbox Request Expiry**
+
+As an example:
+
+![Azure Customer Lockbox - activity logs](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
+
+## Customer Lockbox integration with Azure Security Benchmark
+
+We've introduced a new baseline control ([3.13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) in Azure Security Benchmark that covers Customer Lockbox applicability. Customers can now leverage benchmark to review Customer Lockbox applicability for a service.
 
 ## Exclusions
 

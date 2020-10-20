@@ -1,14 +1,12 @@
 ---
-title: 'Azure Notification Hubs: Frequently Asked Questions (FAQs) | Microsoft Docs'
-description: FAQs on designing/implementing solutions on Notification Hubs
+title: Azure Notification Hubs Frequently Asked Questions (FAQs) | Microsoft Docs
+description: FAQs about designing and implementing solutions on Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
 manager: femila
-editor: jwargo
 keywords: push notification, push notifications, iOS push notifications, android push notifications, ios push, android push
 
-ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -65,7 +63,7 @@ Server SDKs are available for .NET, Java, Node.js, PHP, and Python. Notification
 
 ### Which client platforms do you support?
 
-Push notifications are supported for [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) and Android, and [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). For more information, go to the [Notification Hubs Getting Started tutorials] page.
+Push notifications are supported for [iOS](ios-sdk-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin [iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) and [Android](xamarin-notification-hubs-push-notifications-android-gcm.md), and [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). For more information, see the [Notification Hubs Getting Started tutorials](ios-sdk-get-started.md) page.
 
 ### Do you support text message, email, or web notifications?
 
@@ -75,7 +73,7 @@ Notification Hubs sends notifications to devices running mobile apps. It does no
 
 Refer to the [Notification Hubs Pricing] page for details on the number of supported devices.
 
-If you need support for more than 10 million registered devices, you must partition your devices across multiple hubs.
+If you need support for more than 10 million registered devices, you must partition your devices across multiple namespaces.
 
 ### How many push notifications can I send out?
 
@@ -136,7 +134,7 @@ Registrations from the app backend are useful when you have to authenticate clie
 
 ### What is the push notification delivery security model?
 
-Azure Notification Hubs uses a [shared access signature](../storage/common/storage-dotnet-shared-access-signature-part-1.md)-based security model. You can use the shared access signature tokens at the root namespace level or at the granular notification hub level. Shared access signature tokens can be set to follow different authorization rules, for example, to send message permissions or to listen for notification permissions. For more information, see the [Notification Hubs security model] document.
+Azure Notification Hubs uses a [shared access signature](../storage/common/storage-sas-overview.md)-based security model. You can use the shared access signature tokens at the root namespace level or at the granular notification hub level. Shared access signature tokens can be set to follow different authorization rules, for example, to send message permissions or to listen for notification permissions. For more information, see the [Notification Hubs security model] document.
 
 ### How should I handle sensitive payload in push notifications?
 
@@ -201,16 +199,15 @@ You can also programmatically access metrics. For more information, see the foll
 [Azure portal]: https://portal.azure.com
 [Notification Hubs Pricing]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[Notification Hubs REST APIs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Notification Hubs Getting Started tutorials]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Notification Hubs REST APIs]: /previous-versions/azure/reference/dn530746(v=azure.100)
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
-[Backend Registration guidance]: https://msdn.microsoft.com/library/azure/dn743807.aspx
-[Backend Registration guidance 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[Notification Hubs security model]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Notification Hubs Secure Push tutorial]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Notification Hubs troubleshooting]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Backend Registration guidance]: /previous-versions/azure/azure-services/dn743807(v=azure.100)
+[Backend Registration guidance 2]: /previous-versions/azure/azure-services/dn530747(v=azure.100)
+[Notification Hubs security model]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
+[Notification Hubs Secure Push tutorial]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
+[Notification Hubs troubleshooting]: ./notification-hubs-push-notification-fixer.md
 [Notification Hubs Metrics]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Registrations Export/Import]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
+[Registrations Export/Import]: ./export-modify-registrations-bulk.md
 [Azure portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

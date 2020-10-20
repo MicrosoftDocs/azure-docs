@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect cloud provisioning agent: Automatic upgrade | Microsoft Docs'
-description: This topic describes the built-in automatic upgrade feature in the Azure AD Connect cloud provisioning agent.
+description: This article describes the built-in automatic upgrade feature in the Azure AD Connect cloud provisioning agent.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -8,7 +8,7 @@ manager: daveba
 editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/02/2019
@@ -19,26 +19,26 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect cloud provisioning agent: Automatic upgrade
 
-Making sure your Azure AD Connect cloud provisioning agent installation is always up to date has never been easier with the **automatic upgrade** feature. This feature is enabled by default and cannot be disabled.
+Making sure your Azure Active Directory (Azure AD) Connect cloud provisioning agent installation is always up to date is easy with the automatic upgrade feature.
 
-The agent is installed here:  **"Program files\Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe"**
+The agent is installed here: "Program files\Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe"
 
-You can verify your version by right-clicking on the executable and selecting properties and then details.
+To verify your version, right-click the executable and select properties and then details.
 
 ![Agent file version](media/how-to-automatic-upgrade/agent1.png)
 
-The agent updater is installed here:  **"Program files\Azure AD Connect Provisioning Agent Updater\AzureADConnectAgentUpdater.exe"**
+The agent updater is installed here: "Program files\Azure AD Connect Provisioning Agent Updater\AzureADConnectAgentUpdater.exe"
 
-You can verify your version by right-clicking on the executable and selecting properties and then details.
+To verify your version, right-click the executable and select properties and then details.
 
 ![Agent updater version](media/how-to-automatic-upgrade/agent2.png)
 
-## Uninstalling the agent
-To remove the agent, navigate to **Uninstall or change a program** and uninstall the following:
+## Uninstall the agent
+To remove the agent, go to **Uninstall or change a program** and uninstall the following:
 
-- Microsoft Azure AD Connect Agent Updater
-- Microsoft Azure AD Connect Provisioning Agent
-- Microsoft Azure AD Connect Provisioning Agent Package
+- **Microsoft Azure AD Connect Agent Updater**
+- **Microsoft Azure AD Connect Provisioning Agent**
+- **Microsoft Azure AD Connect Provisioning Agent Package**
 
 ![Agent removal](media/how-to-automatic-upgrade/agent3.png)
 

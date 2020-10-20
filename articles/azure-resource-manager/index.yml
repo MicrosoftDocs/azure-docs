@@ -13,32 +13,32 @@ metadata:
   ms.collection: collection
   author: tfitzmac
   ms.author: tomfitz
-  ms.date: 12/19/2019
+  ms.date: 03/04/2020
 
 # highlightedContent section (optional)
 # Maximum of 8 items
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
-     # Card
-    - title: What are templates?
+    # Card
+    - title: What is Resource Manager?
+      itemType: overview
+      url: management/overview.md
+    # Card
+    - title: What are ARM templates?
       itemType: overview
       url: templates/overview.md
     # Card
     - title: Create your first template
       itemType: tutorial
       url: templates/template-tutorial-create-first-template.md
-    # Card
-    - title: What is Resource Manager?
-      itemType: overview
-      url: management/overview.md
     
 # conceptualContent section (optional)
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
     # Card
-    - title: Deploy Resource Manager templates
+    - title: Deploy ARM templates
       links:
         - url: templates/overview.md
           itemType: overview
@@ -48,10 +48,13 @@ conceptualContent:
           text: Beginner tutorial series
         - url: templates/template-syntax.md
           itemType: reference
-          text: Template file structure
+          text: Template syntax
         - url: templates/template-functions.md
           itemType: reference
           text: Template functions
+        - url: /azure/templates/
+          itemType: reference
+          text: Template reference
         - url: templates/deploy-powershell.md
           itemType: how-to-guide
           text: Deploy
@@ -80,7 +83,48 @@ conceptualContent:
         - url: management/resource-providers-and-types.md
           itemType: concept
           text: Resource providers and types
+        - url: management/azure-subscription-service-limits.md
+          itemType: concept
+          text: Subscription and service limits
       # footerLink (optional)
       footerLink:
         url: management/index.yml
+        text: See more
+    # Card
+    - title: Managed Applications
+      links:
+        - url: managed-applications/overview.md
+          itemType: overview
+          text: Overview
+        - url: managed-applications/publish-service-catalog-app.md
+          itemType: tutorial
+          text: Publish app to service catalog
+        - url: managed-applications/create-uidefinition-overview.md
+          itemType: how-to-guide
+          text: Define portal pane for creating app
+        - url: ../marketplace/partner-center-portal/create-new-azure-apps-offer.md
+          itemType: tutorial
+          text: Add app to Marketplace
+      # footerLink (optional)
+      footerLink:
+        url: managed-applications/index.yml
+        text: See more
+    # Card
+    - title: Azure Custom Providers
+      links:
+        - url: custom-providers/overview.md
+          itemType: overview
+          text: Overview
+        - url: custom-providers/create-custom-provider.md
+          itemType: quickstart
+          text: Create custom provider
+        - url: custom-providers/tutorial-get-started-with-custom-providers.md
+          itemType: tutorial
+          text: Create custom actions and resources
+        - url: custom-providers/custom-providers-action-endpoint-how-to.md
+          itemType: how-to-guide
+          text: Add custom actions to Azure REST API
+      # footerLink (optional)
+      footerLink:
+        url: custom-providers/index.yml
         text: See more
