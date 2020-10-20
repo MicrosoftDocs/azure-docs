@@ -58,6 +58,8 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Order
 
+### [Portal](#tab/azure-portal)
+
 This step takes roughly 5 minutes.
 
 1. Create a new Azure Data Box resource in Azure portal.
@@ -66,6 +68,79 @@ This step takes roughly 5 minutes.
 4. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
 
 Once the order is created, the device is prepared for shipment.
+
+### [Azure CLI](#tab/azure-cli)
+
+Use these Azure CLI commands to create a Data Box Heavy job.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../includes/azure-cli-prepare-your-environment-h3.md)]
+
+Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the Data Box extension:
+
+```azurecli
+az extension add --name databox
+```
+
+Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group or use an existing resource group:
+
+```azurecli
+az group create --name databox-rg --location westus 
+```
+
+Use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command to create a storage account or use an existing storage account:
+
+```azurecli
+az storage account create --resource-group databox-rg --name databoxtestsa
+```
+
+Run the [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) command to create a Data Box job with the SKU DataBoxHeavy:
+
+```azurecli
+az databox job create --resource-group databox-rg --name databoxheavy-job --location westus --sku DataBoxHeavy --contact-name "Jim Gan" --phone 4085555555 --city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" --postal-code 94089 --country US --state-or-province CA --storage-account databoxtestsa --staging-storage-account databoxtestsa --resource-group-for-managed-disk rg-for-md
+```
+
+> !NOTE
+> Make sure your subscription supports Data Box Heavy.
+
+Run the [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update) to update a job, as in this example, where you change the contact name and email:
+
+```azurecli
+az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
+```
+
+Run the [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) command to get information about the job:
+
+```azurecli
+az databox job show --resource-group databox-rg --name databox-job
+```
+
+Use the [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list) command to see all the Data Box jobs for a resource group:
+
+```azurecli
+az databox job list --resource-group databox-rg
+```
+
+Run the [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) command to cancel a job:
+
+```azurecli
+az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
+```
+
+Run the [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) command to delete a job:
+
+```azurecli
+az databox job delete –resource-group databox-rg --name databox-job
+```
+
+Use the [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) command to list credentials for a databox job:
+
+```azurecli
+az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
+```
+
+Once the order is created, the device is prepared for shipment.
+
+---
 
 ::: zone-end
 
