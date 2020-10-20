@@ -24,7 +24,7 @@ This article provides an overview about volume quota for Azure NetApp Files. It 
 
 * The storage capacity of an Azure NetApp Files volume is limited to the set size (quota) of the volume. 
 
-* When volume consumption maxes out, neither the volume nor the underlying capacity pool grows automatically. Instead, the volume will receive an “out of space” condition. However, you can [resize the capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) as needed. You should actively monitor the capacity of a volume and the underlying capacity pool.
+* When volume consumption maxes out, neither the volume nor the underlying capacity pool grows automatically. Instead, the volume will receive an “out of space” condition. However, you can [resize the capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) as needed. You should actively [monitor the capacity of a volume](monitor-volume-capacity.md) and the underlying capacity pool.
 
 * Depending on the capacity pool type, the size (quota) of an Azure NetApp Files volume has an impact on its bandwidth performance and the provisioned capacity.  See the [auto QoS pool type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) for details. 
 

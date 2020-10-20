@@ -208,7 +208,9 @@ Yes, the [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-
 
 ### Does Azure NetApp Files support auto-grow for volumes or capacity pools?
 
-No, Azure NetApp Files volumes and capacity pool do not auto-grow upon filling up. See [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md) and the community supported [Logic Apps ANFCapacityManager tool](https://github.com/ANFTechTeam/ANFCapacityManager) (available on GitHub) for details.
+No, Azure NetApp Files volumes and capacity pool do not auto-grow upon filling up. See [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md).   
+
+You can use the community supported tool [Logic Apps ANFCapacityManager tool](https://github.com/ANFTechTeam/ANFCapacityManager) to manage capacity-based alert rules. The tool can automatically increase volume sizes to prevent your volumes from running out of space.
 
 ### Does the destination volume of a replication count towards hard volume quota?  
 
