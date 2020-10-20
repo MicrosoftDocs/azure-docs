@@ -29,7 +29,7 @@ In this quickstart, you create and manage an Azure Cosmos DB for Mongo DB API ac
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 - [Node.js](https://nodejs.org/), and a working knowledge of Node.js.
 - [Git](https://git-scm.com/downloads).
-- This quickstart requires version 2.0 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
+- This article requires version 2.0 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
 
 
 ## Clone the sample application
