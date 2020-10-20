@@ -14,6 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2019 
 ms.author: alkohli
+ROBOTS: NOINDEX
 
 ---
 # Migrate data from StorSimple 5000-7000 series to Azure File Sync
