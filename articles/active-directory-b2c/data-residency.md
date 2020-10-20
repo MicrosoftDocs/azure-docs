@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/19/2020
+ms.date: 10/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
@@ -61,7 +61,7 @@ With Azure AD B2C [custom policies](custom-policy-overview.md), you can integrat
 - During the sign-up and profile editing flows, Azure AD B2C calls a custom REST API to persist the user profile to the remote data source. The user's credentials are stored in Azure AD B2C directory. 
 - Upon sign-in, after credentials validation with a local or social account, Azure AD B2C invokes the REST API, which sends the user's unique identifier as a user primary key (email address or user objectId). The REST API reads the data from the remote database and returns the user profile.  
 
-After sign-up, profile editing, or sign-in is complete, Azure AD B2C includes the user profile in the access token that is returned to the application. For more information, see the [Azure AD B2C Remote profile sample solution] (https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) in GitHub.
+After sign-up, profile editing, or sign-in is complete, Azure AD B2C includes the user profile in the access token that is returned to the application. For more information, see the [Azure AD B2C Remote profile sample solution](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) in GitHub.
 
 ## Preview tenant
 
