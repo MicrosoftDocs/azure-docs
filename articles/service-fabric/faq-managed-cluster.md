@@ -36,7 +36,7 @@ The SLA doesn't change from the current Service Fabric resource model.
 
 ### What is the difference between a Basic, and Standard SKU cluster?
 
-A Basic SKU cluster means, most of the configurations are provided by the Service Fabric resource provider. Basic SKU clusters are intended to be used for testing and pre production environments. A Standard SKU cluster allows users to configure the cluster to specifically meet their needs. For more information, see [Service Fabric managed cluster SKUs](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster#service-fabric-managed-cluster-skus) for more details.
+A Basic SKU cluster means, most of the configurations are provided by the Service Fabric resource provider. Basic SKU clusters are intended to be used for testing and pre production environments. A Standard SKU cluster allows users to configure the cluster to specifically meet their needs. For more information, see [Service Fabric managed cluster SKUs](./overview-managed-cluster.md#service-fabric-managed-cluster-skus) for more details.
 
 ## Cluster Deployment and Management
 
@@ -61,7 +61,7 @@ In the preview, all runtime upgrades will be completed automatically.
 
 ### Is there a local development experience for Service Fabric managed clusters?
 
-The local development experience remains unchanged from existing Service Fabric clusters. For more information, see [Create a .NET Application](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-dotnet) for more details on the local development experience.
+The local development experience remains unchanged from existing Service Fabric clusters. For more information, see [Create a .NET Application](./service-fabric-quickstart-dotnet.md) for more details on the local development experience.
 
 ### Can I deploy my applications as an Azure Resource Manager resource?
 
