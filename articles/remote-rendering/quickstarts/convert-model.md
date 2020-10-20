@@ -117,7 +117,7 @@ To make it easier to call the asset conversion service, we provide a utility scr
 In particular, this script
 
 1. uploads all files in a given directory from local disk to the input storage container
-1. calls the [the asset conversion REST API, which will retrieve the data from the input storage container and start a conversion, which will return a conversion ID
+1. calls the [the asset conversion REST API](../how-tos/conversion/conversion-rest-api.md), which will retrieve the data from the input storage container and start a conversion, which will return a conversion ID
 1. poll the conversion status API with the retrieved conversion ID until the conversion process terminates with success or failure
 1. retrieves a link to the converted asset in the output storage
 
@@ -157,7 +157,7 @@ Change **localAssetDirectoryPath** to point to the directory on your disk, which
 
 All data from the path given in **localAssetDirectoryPath** will be uploaded to the **blobInputContainerName** blob container under a subpath given by **inputFolderPath**. So in the example configuration above the content of the "D:\\tmp\\robot" directory will be uploaded to the blob container "arrinput" of the storage account "arrtutorialstorage" under the path "robotConversion". Already existing files will be overwritten.
 
-Change **inputAssetPath** to the path of the model to be converted - the path is relative to localAssetDirectoryPath. Use "/" instead of "\\" as the path separator. So for a "robot.fbx" file, which is located directly in "D:\\tmp\\robot" use "robot.fbx".
+Change **inputAssetPath** to the path of the model to be converted - the path is relative to localAssetDirectoryPath. Use "/" instead of "\\" as the path separator. So for a "robot.fbx" file, which is located directly in "D:\\tmp\\robot", use "robot.fbx".
 
 Once the model was converted, it will be written back to the storage container given by **blobOutputContainerName**. A subpath can be specified by providing the optional **outputFolderPath**. In the example above, the resulting "robot.arrAsset" will be copied to the output blob container under "converted/robot".
 
@@ -183,7 +183,7 @@ You should see something like this:
 
 ### 3. Conversion via API calls
 
-Both the C# and the C++ API provides an entry point to interact with the service:
+Both the C# and the C++ API provide an entry point to interact with the service:
 * [C# AzureFrontend.StartAssetConversionAsync()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.startassetconversionasync)
 * [C++ AzureFrontend::StartAssetConversionAsync()](/cpp/api/remote-rendering/azurefrontend#startassetconversionasync)
 
