@@ -68,7 +68,7 @@ The following requirements apply to NFSv4.1 client encryption:
 
 Configuration of NFSv4.1 Kerberos creates two computer accounts in Active Directory:
 * A computer account for SMB shares
-* A computer account for NFSv4.1 -- You can identify this account by way of the prefix `NFS-`. 
+* A computer account for NFSv4.1--You can identify this account by way of the prefix `NFS-`. 
 
 After creating the first NFSv4.1 Kerberos volume, set the encryption type for the computer account by using the following PowerShell command:
 

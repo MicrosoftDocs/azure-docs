@@ -27,7 +27,6 @@ Regardless of the Linux flavor you use, the following configurations are require
 * For domain join, create a computer account for the Linux client in the target Active Directory (which is created during the realm join command). 
     > [!NOTE] 
     > The `$SERVICEACCOUNT` variable used in the commands below should be a user account with permissions or delegation to create a computer account in the targeted Organizational Unit.
-* Enable the client to mount NFS volumes and other relevant monitoring tools.
 
 ## RHEL 8 configuration 
 
@@ -38,7 +37,7 @@ The examples in this section use the following domain name and IP address:
 * Domain name: `contoso.com`
 * Private IP: `10.6.1.4`
 
-### RHEL 8 configurations if you are using NFSv4.1 Kerberos encryption
+### <a name="rhel8_nfsv41_kerberos"></a>RHEL 8 configuration if you are using NFSv4.1 Kerberos encryption
 
 1. Configure `/etc/resolv.conf` with the proper DNS server.  
 
@@ -46,7 +45,7 @@ The examples in this section use the following domain name and IP address:
 
     `[root@reddoc cbs]# cat /etc/resolv.conf`   
     `search contoso.com`   
-    `nameserver 10.6.1.4 (private IP)`   
+    `nameserver 10.6.1.4(private IP)`   
 
 2. Add the NFS client record in the DNS server for the DNS forward and reverse lookup zone.
 
@@ -62,7 +61,7 @@ The examples in this section use the following domain name and IP address:
 
 5.	Configure the NTP client.  
 
-    RHEL 8 uses chrony by default. Following the configuration guidelines in [Using the Chrony suite to configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-chrony-to-configure-ntp).
+    RHEL 8 uses chrony by default. Following the configuration guidelines in [Using the `Chrony` suite to configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-chrony-to-configure-ntp).
 
 6.	Join the Active Directory domain:  
 
@@ -89,11 +88,11 @@ The examples in this section use the following domain name and IP address:
     `sudo kinit ad_admin@CONTOSO.COM`
 
 
-### RHEL 8 configurations if you are using dual protocol
+### RHEL 8 configuration if you are using dual protocol
 
 The following steps are optional. You need to perform the steps only if you use user mapping at the NFS client: 
 
-1. Complete all steps described above in the RHEL 8 configuration for NFSv4.1 Kerberos encryption section.   
+1. Complete all steps described in the [RHEL 8 configuration if you are using NFSv4.1 Kerberos encryption](#rhel8_nfsv41_kerberos) section.   
 
 2. Add a static DNS record in your /etc/hosts file to use fully qualified domain name (FQDN) for your AD, instead of using the IP address in SSSD configuration file:  
 
@@ -142,14 +141,14 @@ The following steps are optional. You need to perform the steps only if you use 
     `fallback_homedir = /home/%u@%d`   
     `access_provider = ad`   
 
-4. Ensure your /etc/nsswitch.conf has the “sss” entry:   
+4. Ensure your `/etc/nsswitch.conf` has the `sss` entry:   
 
     `cat /etc/nsswitch.conf`   
     `passwd: sss files systemd`   
     `group: sss files systemd`   
     `netgroup: sss files`   
 
-5. Restart the sssd service and clear cache:   
+5. Restart the `sssd` service and clear cache:   
 
     `service sssd stop`   
     `rm -f /var/lib/sss/db/*`   
@@ -163,6 +162,7 @@ The following steps are optional. You need to perform the steps only if you use 
 ## Ubuntu configuration   
 
 This section describes Ubuntu configurations required for NFSv4.1 Kerberos encryption and dual protocol. 
+
 The examples in this section use the following domain name and IP address:  
 
 * Domain name: `contoso.com`
@@ -208,7 +208,7 @@ The examples in this section use the following domain name and IP address:
     For example:    
     `sudo kinit ad_admin`  
 
-### Ubuntu configurations if you are using dual protocol  
+### Ubuntu configuration if you are using dual protocol  
 
 The following steps are optional.  You need to perform the steps only if you want to use user mapping at the NFS client:  
 
