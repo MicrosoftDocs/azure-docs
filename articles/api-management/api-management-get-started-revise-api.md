@@ -40,11 +40,12 @@ In this tutorial, you learn how to:
 1. Select **APIs**.
 2. Select **Demo Conference API** from the API list (or other API to which you want to add revisions).
 3. Select the **Revisions** tab.
-4. Select **+ Add Revision**,
+4. Select **+ Add revision**.
+
    :::image type="content" source="media/api-management-getstarted-revise-api/07-add-revisions-01-add-new-revision.png" alt-text="Add API revision":::
 
     > [!TIP]
-    > You can also select **Add Revision** in the context menu (**...**) of the API.
+    > You can also select **Add revision** in the context menu (**...**) of the API.
 
 5. Provide a description for your new revision, to help remember what it will be used for.
 6. Select **Create**,
@@ -64,19 +65,20 @@ In this tutorial, you learn how to:
 1. Select **+ Add Operation**.
 1. Set your new operation to be **POST**, and the Name, Display Name and URL of the operation as **test**.
 1. **Save** your new operation.
+
    :::image type="content" source="media/api-management-getstarted-revise-api/07-add-revisions-02-make-changes.png" alt-text="Modify revision":::
-1. You've now made a change to **Revision 2**. Use the **Revision Selector** near the top of the page to switch back to **Revision 1**.
+1. You've now made a change to **Revision 2**. Use the **revision selector** near the top of the page to switch back to **Revision 1**.
 1. Notice that your new operation does not appear in **Revision 1**. 
 
 ## Make your revision current and add a change log entry
 
 1. Select the **Revisions** tab from the menu near the top of the page.
 1. Open the context menu (**...**) for **Revision 2**.
-1. Select **Make Current**.
-1. Select **Post to Public Change log for this API**, if you want to post notes about this change. Provide a description for your change that developers see, for example: **Testing revisions. Added new "test" operation.**
+1. Select **Make current**.
+1. Select the **Post to Public Change log for this API** checkbox, if you want to post notes about this change. Provide a description for your change that developers see, for example: **Testing revisions. Added new "test" operation.**
 1. **Revision 2** is now current.
 
-:::image type="content" source="media/api-management-getstarted-revise-api/revisions-menu.png" alt-text="Revision menu in Revisions window":::
+    :::image type="content" source="media/api-management-getstarted-revise-api/revisions-menu.png" alt-text="Revision menu in Revisions window":::
 
 
 ## Browse the developer portal to see changes and change log
