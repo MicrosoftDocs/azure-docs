@@ -12,6 +12,6 @@ When you continue to the [next step](#next-steps) and add an Azure Storage queue
 
 Otherwise, you can use the following steps to delete the function app and its related resources to avoid incurring any further costs.
 
-[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]
+[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](functions-cleanup-resources-vs-code-inner.md)]
 
 To learn more about Functions costs, see [Estimating Consumption plan costs](../articles/azure-functions/functions-consumption-costs.md).
