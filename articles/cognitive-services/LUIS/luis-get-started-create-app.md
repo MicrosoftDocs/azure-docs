@@ -50,7 +50,7 @@ Select **Done**.
 
 ## Intents and entities
 
-1. Select **Intents** in the left navigation menue to see the HomeAutomation domain intents. It has example utterances, such as `HomeAutomation.QueryState` and     `HomeAutomation.SetDevice`.
+1. Select **Intents** in the left navigation menu to see the HomeAutomation domain intents. It has example utterances, such as `HomeAutomation.QueryState` and     `HomeAutomation.SetDevice`.
 
     > [!NOTE]
     > **None** is an intent provided by all LUIS apps. You use it to handle utterances that don't correspond to functionality your app provides.
