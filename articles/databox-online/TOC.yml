@@ -285,6 +285,18 @@
     items:
     - name: What is Azure Stack Edge Pro R?
       href: azure-stack-edge-j-series-overview.md
+  - name: Concepts
+    items:
+    - name: Ready safety
+      href: azure-stack-edge-pro-r-safety.md
+    - name: Review requirements
+      href: azure-stack-edge-pro-r-system-requirements.md 
+    - name: Understand limits
+      href: azure-stack-edge-pro-r-limits.md 
+    - name: Security overview
+      href: azure-stack-edge-pro-r-security.md 
+    - name: Review specifications
+      href: azure-stack-edge-pro-r-technical-specifications-compliance.md
   - name: Tutorials
     items:
     - name: 0 - Get checklist
@@ -312,6 +324,18 @@
     items:
     - name: What is Azure Stack Edge Mini R?
       href: azure-stack-edge-k-series-overview.md
+  - name: Concepts
+    items:
+    - name: Ready safety
+      href: azure-stack-edge-mini-r-safety.md
+    - name: Review requirements
+      href: azure-stack-edge-mini-r-system-requirements.md 
+    - name: Understand limits
+      href: azure-stack-edge-mini-r-limits.md 
+    - name: Security overview
+      href: azure-stack-edge-pro-r-security.md 
+    - name: Review specifications
+      href: azure-stack-edge-mini-r-technical-specifications-compliance.md
 
 - name: Data Box Gateway
   items:
