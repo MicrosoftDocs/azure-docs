@@ -39,8 +39,8 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
         - [Windows 10, version 2004 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
      
      - If you're using Windows 10, version 2004 or 20H2, you can use Local Experience Pack (LXP) ISOs to download new languages. Use the information in [Adding languages in Windows 10: known issues](/windows-hardware/manufacture/desktop/language-packs-known-issue) to figure out whether you should download version 9B or 9C:
-        - [Windows 10, version 2004 9B Local Experience Packs (LXPs)](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
-        - [Windows 10, version 2004 9C Local Experience Packs (LXPs)](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY) 
+        - [Windows 10, version 2004 9B LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
+        - [Windows 10, version 2004 9C LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY) 
 
 - An Azure Files Share or a file share on a Windows File Server Virtual Machine
 
