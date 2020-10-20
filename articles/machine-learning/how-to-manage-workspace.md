@@ -233,6 +233,8 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 
 ## <a name="view"></a>Find a workspace
 
+See a list of all the workspaces you can use.
+
 # [Portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -249,6 +251,8 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 
 # [Python](#tab/python)
 
+Find your subscriptions in the [Subscriptions page in the Azure portal(https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).  Copy the ID and use it in the code below to see all workspaces available for that subscription.
+
 ```python
 from azureml.core import Workspace
 
@@ -260,6 +264,8 @@ Workspace.list('<subscription-id>')
 
 ## Delete a workspace
 
+When you no longer need a workspace, delete it.  
+
 # [Portal](#tab/azure-portal)
 
 In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top of the workspace you wish to delete.
@@ -268,6 +274,8 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 
 
 # [Python](#tab/python)
+
+Delete the workspace `ws`:
 
 ```python
 ws.delete(delete_dependent_resources=False, no_wait=False)
