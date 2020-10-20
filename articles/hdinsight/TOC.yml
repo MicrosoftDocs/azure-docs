@@ -502,7 +502,7 @@
       items:
       - name: Use MapReduce with Apache Hadoop
         items:
-        - name: MapReduce overview
+        - name: Use MapReduce
           href: ./hadoop/hdinsight-use-mapreduce.md
         - name: Use SSH
           href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md

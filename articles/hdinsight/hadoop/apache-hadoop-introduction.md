@@ -15,7 +15,7 @@ ms.date: 02/27/2020
 
 [Apache Hadoop](https://hadoop.apache.org/) was the original open-source framework for distributed processing and analysis of big data sets on clusters. The Hadoop ecosystem includes related software and utilities, including Apache Hive, Apache HBase, Spark, Kafka, and many others.
 
-Azure HDInsight is a fully managed, full-spectrum, open-source analytics service in the cloud for enterprises. The Apache Hadoop cluster type in Azure HDInsight allows you to use HDFS, YARN resource management, and a simple MapReduce programming model to process and analyze batch data in parallel.  Hadoop clusters in HDInsight are compatible with 
+Azure HDInsight is a fully managed, full-spectrum, open-source analytics service in the cloud for enterprises. The Apache Hadoop cluster type in Azure HDInsight allows you to use HDFS, YARN resource management, and a simple MapReduce programming model to process and analyze batch data in parallel.  Hadoop clusters in HDInsight are compatible with [Azure Blob storage](../../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md), or [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
 To see available Hadoop technology stack components on HDInsight, see [Components and versions available with HDInsight](../hdinsight-component-versioning.md). To read more about Hadoop in HDInsight, see the [Azure features page for HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
@@ -51,6 +51,14 @@ For more information, see [Hadoop Streaming](https://hadoop.apache.org/docs/curr
 For examples of using Hadoop streaming with HDInsight, see the following document:
 
 * [Develop C# MapReduce jobs](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+
+## Where do I start
+
+* [Quickstart: Create Apache Hadoop cluster in Azure HDInsight using Azure portal](../hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)
+* [Tutorial: Submit Apache Hadoop jobs in HDInsight](../hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Use Apache Hive as an Extract, Transform, and Load (ETL) tool](../hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md)
+* [Extract, transform, and load (ETL) at scale](../hadoop/apache-hadoop-etl-at-scale.md)
+* [Operationalize a data analytics pipeline](../hdinsight-operationalize-data-pipeline.md)
 
 ## Next steps
 
