@@ -21,7 +21,6 @@ Use the Content Moderator client library for Java to:
 
 * Moderate images
 * Moderate text
-* Create a review
 
 [Reference documentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-contentmoderator) |[Artifact (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [Samples](https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator)
 
@@ -30,8 +29,8 @@ Use the Content Moderator client library for Java to:
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The current version of the [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="Create a Content Moderator resource"  target="_blank">create a Content Moderator resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
+    * You will need the key and endpoint from the resource you create to connect your application to Content Moderator. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
@@ -125,7 +124,6 @@ These code snippets show you how to do the following tasks with the Content Mode
 * [Authenticate the client](#authenticate-the-client)
 * [Moderate images](#moderate-images)
 * [Moderate text](#moderate-text)
-* [Create a review](#create-a-review)
 
 ## Authenticate the client
 
@@ -135,26 +133,19 @@ In the application's `main` method, create a [ContentModeratorClient](https://do
 
 ## Moderate images
 
-### Get sample images
+### Set up sample image
 
-First, In the **src/main/** folder of your project, create a **resources** folder and navigate to it. Then create a new text file, *ImageFiles.txt*. In this file, you add the URLs of images to analyze&mdash;one URL on each line. You can use the following sample images:
+In a new method, construct a **[BodyModelModel](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.models.bodymodelmodel?view=azure-java-stable)** object with a given URL string that points to an image.
 
-```
-https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
-https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod)]
+
 
 ### Define helper class
 
-Then, in your *ContentModeratorQuickstart.java* file, add the following class definition inside the **ContentModeratorQuickstart** class. This inner class will be used later in the image moderation process.
+Then, in your *ContentModeratorQuickstart.java* file, add the following class definition inside the **ContentModeratorQuickstart** class. This inner class is used in the image moderation process.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_evaluationdata)]
 
-### Iterate through images
-
-Next, add the following code to the bottom of the `main` method. Or, you can add it to a separate method that's called from `main`. This code steps through each line of the _ImageFiles.txt_ file.
-
-[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_iterate)]
 
 ### Analyze content
 This line of code checks the image at the given URL for adult or racy content. See the Image moderation conceptual guide for information on these terms.
@@ -184,6 +175,31 @@ After the `while` loop, add the following code, which prints the results to the 
 Close out the `try` statement and add a `catch` statement to complete the method.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod_catch)]
+
+## Moderate text
+
+### Set up sample text
+
+At the top of your **ContentModeratorQuickstart** class, define a reference to a local text file. Add a .txt file to your project directory and enter the text you'd like to analyze.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_var)]
+
+### Analyze text
+
+Create a new method that reads the .txt file and calls the **screenText** method on each line.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod)]
+
+### Print text moderation results
+
+Add the following code to print the moderation results to a .json file in your project directory.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_texmod_print)]
+
+Close out the `try` and `catch` statement to complete the method.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_catch)]
+
 
 ## Run the application
 
