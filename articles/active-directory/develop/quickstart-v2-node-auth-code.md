@@ -22,6 +22,11 @@ In this quickstart, you run a code sample that demonstrates how a Node.js web ap
 
 This quickstart uses MSAL Node with the authorization code flow.
 
+> [!NOTE]
+> This feature is in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 
 * Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -163,3 +168,6 @@ The MSAL Node library signs in users and requests the tokens that are used to ac
 ```console
 npm install @azure/msal-browser
 ```
+
+> [!div class="nextstepaction"]
+> [Extend a web app to call MS Graph >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/on-behalf-of/web-app/readme.md)
