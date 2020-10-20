@@ -52,15 +52,15 @@ The Azure Maps account resource is defined in this template:
     * **Pricing Tier**: select the appropriate pricing tier, the default value for the template is S0.
 
 3. Select **Review + create**. 
-1. Confirm your settings ont eh review page and click **Create**. After the key vault has been deployed successfully, you get a notification:
+1. Confirm your settings on the review page and click **Create**. After the key vault has been deployed successfully, you get a notification:
 
     ![ARM template, Key Vault integration, deploy portal notification](./media/how-to-create-template/resource-manager-template-portal-deployment-notification.png)
 
-The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
+The Azure portal is used to deploy your template. You can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Review deployed resources
 
-You can use either the Azure portal to check your Azure Maps account and view your keys, or use the following Azure CLI script to list your account keys.
+You can use either the Azure portal to check your Azure Maps account and view your keys. You can also use the following Azure CLI script to list your account keys.
 
 # [CLI]
 
