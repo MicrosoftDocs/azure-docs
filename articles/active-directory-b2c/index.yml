@@ -107,7 +107,7 @@ landingContent:
           - text: Learn where user data is stored
             url: data-residency.md
           - text: Regulations
-            url: overview.md
+            url: https://docs.microsoft.com/azure/compliance/
           - text: User access and terms of use
             url: manage-user-access.md
 
@@ -121,7 +121,7 @@ landingContent:
           - text: Monitoring
             url: azure-monitor.md
           - text: Role-based access control for admins
-            url: overview.md
+            url: https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles
           - text: User management
             url: manage-user-accounts-graph-api.md
           - text: Troubleshooting

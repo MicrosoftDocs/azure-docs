@@ -36,7 +36,7 @@ Depending on application needs there are specific pathways to securing the appli
 The following table outlines common authentication and authorization scenarios in Azure Maps. The table provides a comparison of the types of protection each scenario offers.
 
 > [!IMPORTANT]
-> Microsoft recommends implementing Azure Active Directory (Azure AD) with role-based access control (RBAC) for production applications.
+> Microsoft recommends implementing Azure Active Directory (Azure AD) with Azure role-based access control (Azure RBAC) for production applications.
 
 | Scenario                                                                                    | Authentication | Authorization | Development effort | Operational effort |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
@@ -58,10 +58,10 @@ To view Azure roles that are available for Azure Maps, go to **Access control (I
 
 ## View role assignments
 
-To view users and apps that have been granted RBAC for Azure Maps, go to **Access Control (IAM)**. There, select **Role assignments**, and then filter by **Azure Maps**.
+To view users and apps that have been granted access for Azure Maps, go to **Access Control (IAM)**. There, select **Role assignments**, and then filter by **Azure Maps**.
 
 > [!div class="mx-imgBorder"]
-> ![View users and apps that have been granted RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
+> ![View users and apps that have been granted access](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 ## Request tokens for Azure Maps
 

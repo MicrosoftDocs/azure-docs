@@ -110,48 +110,10 @@ For more information on compute targets, see the [what is a compute target](conc
 
 ### Define your environment
 
-To define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use and Azure ML curated environment.
-
-#### Create a custom environment
-
-Define the Azure ML environment that encapsulates your training script's dependencies.
-
-First, define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
-
-```yaml
-channels:
-- conda-forge
-dependencies:
-- python=3.6.2
-- pip:
-  - azureml-defaults
-  - torch==1.6.0
-  - torchvision==0.7.0
-  - future==0.17.1
-  - pillow
-```
-
-Create an Azure ML environment from this conda environment specification. The environment will be packaged into a Docker container at runtime.
-
-By default if no base image is specified, Azure ML will use a CPU image `azureml.core.runconfig.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you will need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure ML maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo for more information.
-
-```python
-from azureml.core import Environment
-
-pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
-
-# Specify a GPU base image
-pytorch_env.docker.enabled = True
-pytorch_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04'
-```
-
-> [!TIP]
-> Optionally, you can just capture all your dependencies directly in a custom Docker image or Dockerfile, and create your environment from that. For more information, see [Train with custom image](how-to-train-with-custom-image.md).
-
-For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
+To define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use an Azure ML curated environment.
 
 #### Use a curated environment
-Optionally, Azure ML provides prebuilt, curated environments if you don't want to build your own image. Azure ML has several CPU and GPU curated environments for PyTorch corresponding to different versions of PyTorch. For more info, see [here](resource-curated-environments.md).
+Azure ML provides prebuilt, curated environments if you don't want to define your own environment. Azure ML has several CPU and GPU curated environments for PyTorch corresponding to different versions of PyTorch. For more info, see [here](resource-curated-environments.md).
 
 If you want to use a curated environment, you can run the following command instead:
 
@@ -174,6 +136,44 @@ If you had instead modified the curated environment object directly, you can clo
 ```python
 pytorch_env = pytorch_env.clone(new_name='pytorch-1.6-gpu')
 ```
+
+#### Create a custom environment
+
+You can also create your own Azure ML environment that encapsulates your training script's dependencies.
+
+First, define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
+
+```yaml
+channels:
+- conda-forge
+dependencies:
+- python=3.6.2
+- pip:
+  - azureml-defaults
+  - torch==1.6.0
+  - torchvision==0.7.0
+  - future==0.17.1
+  - pillow
+```
+
+Create an Azure ML environment from this conda environment specification. The environment will be packaged into a Docker container at runtime.
+
+By default if no base image is specified, Azure ML will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you will need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure ML maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo for more information.
+
+```python
+from azureml.core import Environment
+
+pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
+
+# Specify a GPU base image
+pytorch_env.docker.enabled = True
+pytorch_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1-cudnn7-ubuntu18.04'
+```
+
+> [!TIP]
+> Optionally, you can just capture all your dependencies directly in a custom Docker image or Dockerfile, and create your environment from that. For more information, see [Train with custom image](how-to-train-with-custom-image.md).
+
+For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
 
 ## Configure and submit your training run
 

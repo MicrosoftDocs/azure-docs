@@ -207,7 +207,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### Configuring adaptive sampling for Azure Functions
 
-Follow instructions from [this page](../../azure-functions/functions-monitoring.md#configure-sampling) to configure adaptive sampling for apps running in Azure Functions.
+Follow instructions from [this page](../../azure-functions/configure-monitoring.md#configure-sampling) to configure adaptive sampling for apps running in Azure Functions.
 
 ## Fixed-rate sampling
 
@@ -290,9 +290,9 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
         var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
         // For older versions of the Application Insights SDK, use the following line instead:
-        // var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
+        // var builder = configuration.TelemetryProcessorChainBuilder;
 
-        // Using fixed rate sampling   
+        // Using fixed rate sampling
         double fixedSamplingPercentage = 10;
         builder.UseSampling(fixedSamplingPercentage);
 

@@ -2424,8 +2424,6 @@ Here are some considerations for when you want to enable concurrency on a trigge
 
 * You can't disable concurrency after you enable the concurrency control.
 
-* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
-
 * When concurrency is enabled, a long-running logic app instance might cause new logic app instances to enter a waiting state. This state prevents Azure Logic Apps from creating new instances and happens even when the number of concurrent runs is less than the specified maximum number of concurrent runs.
 
   * To interrupt this state, cancel the earliest instances that are *still running*.

@@ -38,7 +38,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 * You are familiar with [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-* You are familiar with using Azure PowerShell. Azure PowerShell is required to collect the network prefixes in ExpressRoute gateway. For more information about Azure PowerShell in general, see the [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/?view=azps-4.1.0).
+* You are familiar with using Azure PowerShell. Azure PowerShell is required to collect the network prefixes in ExpressRoute gateway. For more information about Azure PowerShell in general, see the [Azure PowerShell documentation](/powershell/azure/?view=azps-4.1.0).
 
 ### <a name="limitations"></a>Notes and limitations
 
@@ -48,7 +48,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 ## <a name="accounts"></a>Create and configure accounts
 
-When you create an Automation account in the Azure portal, a [Run As](../automation/manage-runas-account.md#types-of-run-as-accounts) account is automatically created. This account takes following actions:
+When you create an Automation account in the Azure portal, a [Run As](../automation/automation-security-overview.md#run-as-accounts) account is automatically created. This account takes following actions:
 
 * Creates an Azure Active Directory (Azure AD) application with a self-signed certificate. The Run As account itself has a certificate that needs to be renewed by default every year.
 
@@ -253,7 +253,7 @@ When you run the PowerShell script, a list of values is collected:
 
 * Alert message, for a verbose description of the status (OK, ALERT, WARNING)
 
-The PowerShell script converts the collected information to a JSON output. The runbook uses the PowerShell cmdlet [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?)  as Output stream to communicate information to the client.
+The PowerShell script converts the collected information to a JSON output. The runbook uses the PowerShell cmdlet [Write-Output](/powershell/module/Microsoft.PowerShell.Utility/Write-Output)  as Output stream to communicate information to the client.
 
 ### <a name="validate"></a>4. Validate the runbook
 

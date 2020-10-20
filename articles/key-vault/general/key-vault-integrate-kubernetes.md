@@ -210,8 +210,6 @@ If you're using managed identities, assign specific roles to the AKS cluster you
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
-
-    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
     
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
@@ -307,8 +305,8 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
-          nodePublishSecretRef:
-              name: secrets-store-creds 
+        nodePublishSecretRef:
+          name: secrets-store-creds 
 ```
 
 Run the following command to deploy your pod:

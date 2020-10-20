@@ -65,9 +65,9 @@ Before you begin, make sure that:
 - You have owner or contributor access at resource group level for the Azure Stack Edge Pro/Data Box Gateway, IoT Hub, and Azure Storage resources.
 
     - To create any Azure Stack Edge / Data Box Gateway resource, you should have permissions as a contributor (or higher) scoped at resource group level. 
-    - You also need to make sure that the `Microsoft.DataBoxEdge` provider is registered. To create any IoT Hub resource, `Microsoft.Devices` provider should be registered. 
+    - You also need to make sure that the `Microsoft.DataBoxEdge` and `MicrosoftKeyVault` resource providers are registered. To create any IoT Hub resource, `Microsoft.Devices` provider should be registered. 
         - To register a resource provider, in the Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**. 
-        - Search for `Microsoft.DataBoxEdge` and register the resource provider. 
+        - Search for the specific resource provider, for example, `Microsoft.DataBoxEdge`, and register the resource provider. 
     - To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.
 - You have admin or user access to Azure Active Directory Graph API for generating activation key or credential operations such as share creation that uses a storage account. For more information, see [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
@@ -147,11 +147,15 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
 10. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
 
-    ![Create a resource 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
+    ![Create a resource 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
+
+    You are also notified that during the resource creation, a Managed Service Identity (MSI) is enabled that lets you authenticate to cloud services. This identity exists for as long as the resource exists.
 
 11. Select **Create**.
 
-The resource creation takes a few minutes. After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
+The resource creation takes a few minutes. An MSI is also created that lets the the Azure Stack Edge device communicate with the resource provider in Azure.
+
+After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
 
 ![Go to the Azure Stack Edge Pro resource](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-1.png)
 
@@ -169,9 +173,16 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
     ![Select Device setup](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)
 
-2. On the **Activate** tile, select **Generate key** to create an activation key. Select the copy icon to copy the key and save it for later use.
+2. On the **Activate** tile, provide a name for the Azure Key Vault or accept the default name. The key vault name can be between 3 and 24 characters. 
+
+    A key vault is created for each Azure Stack Edge resource that is activated with your device. The key vault lets you store and access secrets, for example, the Channel Integrity Key (CIK) for the service is stored in the key vault. 
+
+    Once you have specified a key vault name, select **Generate key** to create an activation key. 
 
     ![Get activation key](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
+
+    Wait a few minutes as the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.
+
 
 > [!IMPORTANT]
 > - The activation key expires three days after it is generated.

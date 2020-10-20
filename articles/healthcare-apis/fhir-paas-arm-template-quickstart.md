@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
-ms.date: 09/14/2020
+ms.date: 10/06/2020
 ---
 
 # Quickstart: Use an ARM template to deploy Azure API for FHIR
@@ -57,8 +57,6 @@ Replace the line above with the following line once https://docs.microsoft.com/a
 * [**Microsoft.HealthcareApis/services**](/azure/templates/microsoft.healthcareapis/services)
 
 -->
-
-More Azure API for FHIR template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Healthcareapis&pageNumber=1&sort=Popular).
 
 ## Deploy the template
 
