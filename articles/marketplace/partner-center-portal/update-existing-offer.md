@@ -62,7 +62,7 @@ Now that you have hidden the plan with the old price, create a copy of that plan
 
 1. In Partner Center, go back to **Plan overview**.
 2. Select **Create new plan**. Enter a **Plan ID** and a **Plan name**, then select **Create**.
-1. To reuse the technical configuration from the plan you’ve hidden, select the **Reuse technical configuration** checkbox. Read [Plan overview](azure-vm-create-offer.md#plan-overview) to learn more.
+1. To reuse the technical configuration from the plan you’ve hidden, select the **Reuse technical configuration** checkbox. Read [Create plans for a VM offer](../azure-vm-create-plans.md) to learn more.
     > [!IMPORTANT]
     > If you select **This plan reuses technical configuration from another plan**, you won’t be able to stop selling the parent plan later. Don’t use this option if you want to stop selling the parent plan.
 3. Complete all the required sections for the new plan, including the new price.
