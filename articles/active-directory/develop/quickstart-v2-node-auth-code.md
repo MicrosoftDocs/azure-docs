@@ -18,7 +18,7 @@ ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
 
 # Quickstart: Sign in users and get an access token in a Node Web App using the auth code flow
 
-In this quickstart, you run a code sample that demonstrates how a Node Web App can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow. The code sample also demonstrates obtaining an access token to call a web API, in this case the Microsoft Graph API. See [How the sample works](#how-the-sample-works) for an illustration.
+In this quickstart, you run a code sample that demonstrates how a Node.js web app can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow. The code sample also demonstrates obtaining an access token to call a web API, in this case the Microsoft Graph API. See [How the sample works](#how-the-sample-works) for an illustration.
 
 This quickstart uses MSAL Node with the authorization code flow.
 
