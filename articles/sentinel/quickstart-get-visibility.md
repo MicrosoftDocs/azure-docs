@@ -22,7 +22,7 @@ In this quickstart, you will learn how to quickly be able to view and monitor wh
 
 ## Get visualization
 
-To visualize and get analysis of what's happening on your environment, first, take a look at the overview dashboard to get an idea of the security posture of your organization. You can click on each element of these tiles to drill down to the raw data from which they are created. To help you reduce noise and minimize the number of alerts you have to review and investigate, Azure Sentinel uses a fusion technique to correlate alerts into incidents. **incidents** are groups of related alerts that together create an actionable incident that you can investigate and resolve.
+To visualize and get analysis of what's happening on your environment, first, take a look at the overview dashboard to get an idea of the security posture of your organization. You can click on each element of these tiles to drill down to the raw data from which they are created. To help you reduce noise and minimize the number of alerts you have to review and investigate, Azure Sentinel uses a fusion technique to correlate alerts into incidents. **Incidents** are groups of related alerts that together create an actionable incident that you can investigate and resolve.
 
 - In the Azure portal, select Azure Sentinel and then select the workspace you want to monitor.
 
@@ -40,7 +40,7 @@ The main body of the overview page gives insight at a glance into the security s
 
    ![Malicious traffic map](./media/qs-get-visibility/map.png)
 
-- **Recent incidents**: To view your recent incidents, their severity and the number of alerts associated with the incident. If you see as sudden peak in a specific type of alert, it could mean that there is an active attack currently running. For example, if you have a sudden peak of 20 Pass-the-hash events from Microsoft Defender for Identity (formerly Azure ATP), it's possible that someone is currently trying to attack you.
+- **Recent incidents**: To view your recent incidents, their severity and the number of alerts associated with the incident. If you see a sudden peak in a specific type of alert, it could mean that there is an active attack currently running. For example, if you have a sudden peak of 20 Pass-the-hash events from Microsoft Defender for Identity (formerly Azure ATP), it's possible that someone is currently trying to attack you.
 
 - **Data source anomalies**: Microsoft's data analysts created models that constantly search the data from your data sources for anomalies. If there aren't any anomalies, nothing is displayed. If anomalies are detected, you should deep dive into them to see what happened. For example, click on the spike in Azure Activity. You can click on **Chart** to see when the spike happened, and then filter for activities that occurred during that time period to see what caused the spike.
 
