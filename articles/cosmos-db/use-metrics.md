@@ -53,7 +53,7 @@ Having a good cardinality of your partition keys is essential for any scalable a
 
 :::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Single partition seeing heavy usage":::
 
-An uneven throughput distribution may cause *hot* partitions, which can result in throttled requests and may require repartitioning. For more information about partitioning in Azure Cosmos DB, see [Partition and scale in Azure Cosmos DB](./partition-data.md).
+An uneven throughput distribution may cause *hot* partitions, which can result in throttled requests and may require repartitioning. For more information about partitioning in Azure Cosmos DB, see [Partition and scale in Azure Cosmos DB](./partitioning-overview.md).
 
 ## Determine the storage distribution across partitions
 
@@ -65,7 +65,7 @@ You can root cause which partition key is skewing the distribution by clicking o
 
 :::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Partition key is skewing the distribution":::
 
-After identifying which partition key is causing the skew in distribution, you may have to repartition your container with a more distributed partition key. For more information about partitioning in Azure Cosmos DB, see [Partition and scale in Azure Cosmos DB](./partition-data.md).
+After identifying which partition key is causing the skew in distribution, you may have to repartition your container with a more distributed partition key. For more information about partitioning in Azure Cosmos DB, see [Partition and scale in Azure Cosmos DB](./partitioning-overview.md).
 
 ## Compare data size against index size
 
