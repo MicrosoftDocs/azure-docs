@@ -6,37 +6,30 @@ ms.author: lufittl
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 06/27/2020
+ms.date: 10/18/2020
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal
 
-Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This quickstart shows you how to create a single Azure Database for PostgreSQL server in about five minutes by using the Azure portal.
+Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This quickstart shows you how to create a single Azure Database for PostgreSQL server and connect to it.
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-
-## Sign in to the Azure portal
-Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+## Prerequisites
+An Azure subscription is required. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create an Azure Database for PostgreSQL server
+Go to the [Azure portal](https://portal.azure.com/) to create an Azure Database for PostgreSQL Single Server database. Search for and select *Azure Database for PostgreSQL servers*.
 
-An Azure Database for PostgreSQL server is created with a configured set of [compute and storage resources](./concepts-pricing-tiers.md). The server is created within an [Azure resource group](../azure-resource-manager/management/overview.md).
+>[!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstart-create-database-portal/search-postgres.png" alt-text="Find Azure Database for PostgreSQL.":::
 
-To create an Azure Database for PostgreSQL server:
+1. Select **Add**.
 
-1. Select **Create a resource** in the upper-left corner of the portal.
+2. On the Create a Azure Database for PostgreSQL page , select  **Single server**.
 
-2. Select **Databases** > **Azure Database for PostgreSQL**.
+>[!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstart-create-database-portal/select-single-server.png" alt-text="Select single server":::
 
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="Screenshot that shows Azure Database for PostgreSQL on the menu.":::
-
-3. Select the **Single server** deployment option.
-
-   > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/quickstart-create-database-portal/select-deployment-option.png" alt-text="Screenshot of selecting the single-server deployment option for Azure Database for PostgreSQL.":::
-
-4. Fill out the **Basics** form with the following information.
+3. Now enter the **Basics** form with the following information.
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-database-portal/create-basics.png" alt-text="Screenshot that shows the Basics tab for creating a single server.":::
@@ -51,7 +44,7 @@ To create an Azure Database for PostgreSQL server:
    Password |Your password| A new password for the server admin account. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (for example, !, $, #, %).
    Location|The region closest to your users| The location that's closest to your users.
    Version|The latest major version| The latest PostgreSQL major version, unless you have specific requirements otherwise.
-   Compute + storage | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Configure server**. Next, select the appropriate pricing tier. For more information, see [pricing details](https://azure.microsoft.com/pricing/details/postgresql/server/). To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. Select **OK**.
+   Compute + storage | **General Purpose** , **Gen 5** <br/> **2 vCores** <br/>**5 GB** <br/> **7 days** <br/> **Geographically Redundant** | <ul><li>The compute, storage, and backup configurations for your new server. Select **Configure server**. Next, select the appropriate pricing tier. For more information, see [pricing details](https://azure.microsoft.com/pricing/details/postgresql/server/).</li> <li>To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. Select **OK**.</li></ul>
 
    > [!NOTE]
    > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier can't later be scaled to General Purpose or Memory Optimized. 
