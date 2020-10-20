@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* A supported [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) with version 8.
+* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 8.
 * [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
 ## Create a vault

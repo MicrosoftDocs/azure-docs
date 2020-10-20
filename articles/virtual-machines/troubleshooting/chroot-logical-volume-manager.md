@@ -69,7 +69,7 @@ Run the command **lsblk** to see the LVMs of the affected VM
 
 `lsblk`
 
-![Run lsblk](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
+![Screenshot that shows the output from the lsblk command.](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
 
 
 Verify if LVMs from the affected VM are displayed.
@@ -201,11 +201,11 @@ Now access the **chroot** environment again by running
 
 All LVs should be visible as mounted partitions
 
-![Advanced](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![Screenshot that shows the LVs visible as mounted partitions.](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 Query the installed **kernel**
 
-![Advanced](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![Screenshot thats shows how to query the installed kernel.](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 If needed remove or upgrade the **kernel**
 ![Advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)

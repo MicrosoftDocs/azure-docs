@@ -87,7 +87,11 @@ Applications that call Blob APIs will likely work.
 
 If [anonymous read access](storage-manage-access-to-resources.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
 
-## Premium-performance BlockBlobStorage storage accounts
+### Diagnostic logs
+
+The setting for retention days is not yet supported, but you can delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK.
+
+## Issues specific to premium-performance BlockBlobStorage storage accounts
 
 ### Diagnostic logs
 
@@ -103,8 +107,6 @@ Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumG
 #Enable logging
 Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
 ```
-
-The setting for retention days is not yet supported, but you can delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK.
 
 ### Lifecycle management policies
 

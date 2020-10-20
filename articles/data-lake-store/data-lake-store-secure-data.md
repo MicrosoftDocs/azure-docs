@@ -16,7 +16,7 @@ ms.author: twooley
 
 ---
 # Securing data stored in Azure Data Lake Storage Gen1
-Securing data in Azure Data Lake Storage Gen1 is a three-step approach.  Both role-based access control (RBAC) and access control lists (ACLs) must be set to fully enable access to data for users and security groups.
+Securing data in Azure Data Lake Storage Gen1 is a three-step approach.  Both Azure role-based access control (Azure RBAC) and access control lists (ACLs) must be set to fully enable access to data for users and security groups.
 
 1. Start by creating security groups in Azure Active Directory (Azure AD). These security groups are used to implement Azure role-based access control (Azure RBAC) in the Azure portal. For more information, see [Azure RBAC](../role-based-access-control/role-assignments-portal.md).
 2. Assign the Azure AD security groups to the Data Lake Storage Gen1 account. This controls access to the Data Lake Storage Gen1 account from the portal and management operations from the portal or APIs.
@@ -64,7 +64,7 @@ When you assign users or security groups to Data Lake Storage Gen1 accounts, you
 	For data operations, individual file system permissions define what the users can do. Therefore, a user having a Reader role can only view administrative settings associated with the account but can potentially read and write data based on file system permissions assigned to them. Data Lake Storage Gen1 file system permissions are described at [Assign security group as ACLs to the Azure Data Lake Storage Gen1 file system](#filepermissions).
 
     > [!IMPORTANT]
-    > Only the **Owner** role automatically enables file system access. The **Contributor**, **Reader**, and all other roles require ACLs to enable any level of access to folders and files.  The **Owner** role provides super-user file and folder permissions that cannot be overridden via ACLs. For more information on how RBAC policies map to data access, see [RBAC for account management](data-lake-store-security-overview.md#rbac-for-account-management).
+    > Only the **Owner** role automatically enables file system access. The **Contributor**, **Reader**, and all other roles require ACLs to enable any level of access to folders and files.  The **Owner** role provides super-user file and folder permissions that cannot be overridden via ACLs. For more information on how Azure RBAC policies map to data access, see [Azure RBAC for account management](data-lake-store-security-overview.md#azure-rbac-for-account-management).
 
 4. If you want to add a group/user that is not listed in the **Add permissions** blade, you can invite them by typing their email address in the **Select** text box and then selecting them from the list.
    

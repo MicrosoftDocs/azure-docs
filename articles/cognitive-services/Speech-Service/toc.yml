@@ -26,10 +26,6 @@
       href: get-started-speech-to-text.md
     - name: How-to guides
       items:
-        - name: Recognize speech stored in blob storage
-          href: quickstarts/from-blob.md
-        - name: Choose speech recognition mode
-          href: how-to-choose-recognition-mode.md
         - name: Change speech recognition source language
           href: how-to-specify-source-language.md
         - name: Improve accuracy with Custom Speech
@@ -37,8 +33,6 @@
         - name: Use compressed audio input formats
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
-        - name: Improve accuracy with Phrase Lists
-          href: how-to-phrase-lists.md
         - name: Select a specific microphone input device
           href: how-to-select-audio-input-devices.md
         - name: Use automatic source language detection
@@ -47,6 +41,8 @@
           href: batch-transcription.md
     - name: Tutorials
       items:
+        - name: Recognize speech stored in blob storage
+          href: quickstarts/from-blob.md
         - name: Improve accuracy with tenant models
           href: tutorial-tenant-model.md
     - name: Customization
@@ -233,6 +229,8 @@
   items:
     - name: Intent recognition documentation
       href: index-intent-recognition.yml
+    - name: Intent recognition overview
+      href: intent-recognition.md
     - name: Intent recognition quickstart
       href: quickstarts/intent-recognition.md
     - name: How-to guides
@@ -582,21 +580,20 @@
     href: how-to-migrate-from-translator-speech-api.md
 - name: Resources
   items:
-    - name: Support
-      displayName: support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice
-      href: support.md
-    - name: Swagger documentation
-      href: swagger-documentation.md
-    - name: Sovereign Clouds
-      displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
-      href: sovereign-clouds.md
-    - name: Pricing calculator
-      href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
-    - name: Compliance
-      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-    - name: Encryption
-      href: speech-encryption-of-data-at-rest.md
-    - name: Azure roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
-    - name: Privacy and cookies
-      href: 'https://privacy.microsoft.com/privacystatement'
+  - name: Support & help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
+  - name: Swagger documentation
+    href: swagger-documentation.md
+  - name: Sovereign Clouds
+    displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
+    href: sovereign-clouds.md
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Encryption
+    href: speech-encryption-of-data-at-rest.md
+  - name: Azure roadmap
+    href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+  - name: Privacy and cookies
+    href: 'https://privacy.microsoft.com/privacystatement'

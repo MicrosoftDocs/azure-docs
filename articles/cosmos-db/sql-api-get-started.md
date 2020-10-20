@@ -112,7 +112,7 @@ Great! Now that we finished the setup, let's start writing some code. For the co
     ```
 
    > [!NOTE]
-   > If you're familiar with the previous version of the .NET SDK, you may be familiar with the terms *collection* and *document*. Because Azure Cosmos DB supports multiple API models, version 3.0 of the .NET SDK uses the generic terms *container* and *item*. A *container* can be a collection, graph, or table. An *item* can be a document, edge/vertex, or row, and is the content inside a container. For more information, see [Work with databases, containers, and items in Azure Cosmos DB](databases-containers-items.md).
+   > If you're familiar with the previous version of the .NET SDK, you may be familiar with the terms *collection* and *document*. Because Azure Cosmos DB supports multiple API models, version 3.0 of the .NET SDK uses the generic terms *container* and *item*. A *container* can be a collection, graph, or table. An *item* can be a document, edge/vertex, or row, and is the content inside a container. For more information, see [Work with databases, containers, and items in Azure Cosmos DB](account-databases-containers-items.md).
 
 1. Open the [Azure portal](https://portal.azure.com). Find your Azure Cosmos DB account, and then select **Keys**.
 
@@ -255,7 +255,7 @@ A database is the logical container of items partitioned across containers. Eith
 1. Select F5 to run your application.
 
    > [!NOTE]
-   > If you get a "503 service unavailable exception" error, it's possible that the required [ports](performance-tips.md#networking) for direct connectivity mode are blocked by a firewall. To fix this issue, either open the required ports or use the gateway mode connectivity as shown in the following code:
+   > If you get a "503 service unavailable exception" error, it's possible that the required [ports](sql-sdk-connection-modes.md#service-port-ranges) for direct connectivity mode are blocked by a firewall. To fix this issue, either open the required ports or use the gateway mode connectivity as shown in the following code:
    ```csharp
      // Create a new instance of the Cosmos Client in Gateway mode
      this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()

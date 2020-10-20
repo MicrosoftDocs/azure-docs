@@ -75,6 +75,8 @@
     items:
     - name: Angular
       href: tutorial-v2-angular.md
+    - name: Blazor WebAssembly
+      href: tutorial-blazor-webassembly.md
     - name: JavaScript - Auth code flow
       href: tutorial-v2-javascript-auth-code.md
     - name: JavaScript - Implicit flow
@@ -123,6 +125,9 @@
     href: authentication-flows-app-scenarios.md
   - name: Identity platform best practices
     href: identity-platform-integration-checklist.md
+  - name: Mobile single sign-on (SSO)
+    href: mobile-sso-support-overview.md
+    displayName: android, ios
   - name: Application scenarios
     displayName: App scenarios
     items:
@@ -291,10 +296,8 @@
       items:
         - name: Accounts and tenant profiles
           href: accounts-overview.md
-        - name: Authorization agents
-          href: authorization-agents.md
-        - name: Brokered auth
-          href: brokered-auth.md
+        - name: SSO with MSAL Android
+          href: msal-android-single-sign-on.md
         - name: Integrate with Azure AD B2C
           href: msal-android-b2c.md
         - name: Migrate to MSAL.Android
