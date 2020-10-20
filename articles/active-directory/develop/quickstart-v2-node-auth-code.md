@@ -81,7 +81,7 @@ This quickstart uses MSAL Node with the authorization code flow.
 > Run the project with a web server by using Node.js
 
 > [!div renderon="portal" class="sxs-lookup" id="autoupdate" class="nextstepaction"]
-> [Download the code sample](https://github.com/Azure-Samples/ms-identity-node/archive/master.zip)
+> [Download the code sample](https://github.com/Azure-Samples/ms-identity-node/archive/main.zip)
 
 > [!div renderon="docs"]
 > #### Step 3: Configure your Node app
