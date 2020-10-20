@@ -162,7 +162,7 @@ To grant access to a user to a **single** SQL database, follow these steps:
 
 > [!IMPORTANT]
 > *db_datareader* and *db_datawriter* can work for read/write permissions if granting *db_owner* permission is undesired.
-> For a Spark user to read and write directly from Spark into/from a edicated SQL pool, *db_owner* permission is required.
+> For a Spark user to read and write directly from Spark into/from a dedicated SQL pool, *db_owner* permission is required.
 
 After creating the users, validate that you can query the storage account using serverless SQL pool.
 

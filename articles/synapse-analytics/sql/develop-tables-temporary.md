@@ -192,7 +192,7 @@ At this stage, the only action that has occurred is the creation of a stored pro
 
 Since there isn't a `DROP TABLE` at the end of the stored procedure, when the stored procedure completes, the created table remains and can be read outside of the stored procedure.  
 
-In contrast to other SQL Server databases, Synapse SQL allows you to use the temporary table outside of the procedure that created it.  The temporary tables created via dedicated DedicatedSQL pool can be used **anywhere** inside the session. As a result, you'll have more modular and manageable code, as demonstrated in the sample below:
+In contrast to other SQL Server databases, Synapse SQL allows you to use the temporary table outside of the procedure that created it.  The temporary tables created via dedicated SQL pool can be used **anywhere** inside the session. As a result, you'll have more modular and manageable code, as demonstrated in the sample below:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
