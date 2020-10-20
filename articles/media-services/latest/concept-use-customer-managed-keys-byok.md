@@ -1,6 +1,6 @@
 ---
 title: Bring your own key (customer managed keys) with Media Services
-description: You can use a customer managed key (aka Bring Your Own Key) with Media Services.
+description: You can use a customer managed key (that is Bring Your Own Key) with Media Services.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ---
 
-# Bring your own key (customer managed keys) with Media Services
+# Bring your own key (customer-managed keys) with Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -18,7 +18,7 @@ Bring Your Own Key (BYOK) is an Azure wide initiative to help customers move the
 
 You can use your own key with Media Services when you use the Media Services 2020-05-01 API. A default account key is created for all accounts which is encrypted by a system key owned by Media Services. When you use your own key, the account key is encrypted with your key. Content keys are encrypted by the account key. JobInputHttp urls and symmetric token validation keys are also encrypted.
 
-![A customer managed key replaces a system managed key](./media/customer-managed-key/customer-managed-key.svg)
+:::image type="content" source="./media/customer-managed-key/customer-managed-key.svg" border="true"" alt-text="A customer managed key replaces a system managed key":::
 
 Media Services uses the Managed Identity of the Media Services account to read your key from a Key Vault owned by you. Media Services requires that the Key Vault is in the same region as the account, and that it has soft-delete and purge protection enabled.
 

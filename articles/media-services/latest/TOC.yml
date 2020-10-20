@@ -67,7 +67,7 @@
     items:
     - name: Encode and stream a remote file REST
       href: stream-files-tutorial-with-rest.md
-    - name: Customer Managed Keys with Media Services
+    - name: Customer-managed keys with Media Services
       href: tutorial-byok.md
   - name: CLI
     items:

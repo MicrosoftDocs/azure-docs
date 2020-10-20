@@ -1,5 +1,5 @@
 ---
-title: Customer Managed Keys or Bring Your Own Key (BYOK) with Media Services
+title: Customer-managed keys or bring your own Key (BYOK) with Media Services
 description: This is a tutorial for using customer managed keys with a Media Services storage account
 author: IngridAtMicrosoft
 ms.author: inhenkel
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 10/18/2020
 ---
 
-# Tutorial: Use customer managed keys or bring your own key (BYOK) with Media Services
+# Tutorial: Use customer-managed keys or bring your own key (BYOK) with Media Services
 
 With the 2020-05-01 API, you can use a customer managed RSA key with a Media Services account that has a system managed identity.  This tutorial includes a Postman collection and environment to send REST requests to Azure services.  Services used:
 
@@ -37,9 +37,6 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 - Download the Postman collection for this tutorial at [Azure Samples: media-services-customer-managed-keys-byok](https://github.com/Azure-Samples/media-services-customer-managed-keys-byok)
 
 ### Register a service principal with the needed permissions
-
-> [!WARNING]
-> **REVIEWERS: Are these the correct least privilege permissions? What are they if not?**
 
 [Create a service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).  See [Option Two](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#authentication-two-options) for getting the service principal secret.  Note the secret somewhere, as once you leave the secret page in the portal, it will be inaccessible.
 
