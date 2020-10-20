@@ -90,6 +90,8 @@
     href: samples/calling-hero-sample.md
   - name: Group chat hero sample
     href: samples/chat-hero-sample.md
+  - name: Web calling sample
+    href: samples/web-calling-sample.md
 - name: References
   items:
   - name: REST API documentation
