@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/14/2020
+ms.date: 10/19/2020
 ---
 
 # VM certification troubleshooting
@@ -30,7 +30,7 @@ To fix this issue, retrieve the image from Azure Marketplace and make changes to
 - [Windows images](azure-vm-create-using-approved-base.md)
 
 > [!Note]
-> If you are using a Linux base image not taken from Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and allows Azure to go ahead with publishing your VM to Marketplace.  
+> If you are using a Linux base image not taken from Azure Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and allows Azure to go ahead with publishing your VM to Azure Marketplace.  
 
 ## VM extension failure
 
@@ -335,7 +335,7 @@ Below are the steps to delete the “Bash History”.
 Step 1.	Deploy the VM and click on “Run Command” option on Azure portal.
 ![Run command on Azure portal](./media/create-vm/vm-certification-issues-solutions-3.png)
 
-Step 2.	Select first option “RunShellScript” and run the below command.
+Step 2. Select first option “RunShellScript” and run the below command.
 
 Command: “cat /dev/null > ~/.bash_history && history -c”
 ![Bash History command on Azure portal](./media/create-vm/vm-certification-issues-solutions-4.png)
