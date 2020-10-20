@@ -1,6 +1,6 @@
 ---
-title: Create data controller using Azure Data CLI
-description: Create an Azure Arc data controller on a typical multi-node Kubernetes cluster which you already have created using the Azure Data CLI.
+title: Create data controller using [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
+description: Create an Azure Arc data controller on a typical multi-node Kubernetes cluster which you already have created using the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)].
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,7 +10,7 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ---
-# Create Azure Arc data controller using the Azure Data CLI
+# Create Azure Arc data controller using the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -18,9 +18,9 @@ ms.topic: how-to
 
 Review the topic [Create the Azure Arc data controller](create-data-controller.md) for overview information.
 
-To create the Azure Arc data Controller using the Azure Data CLI you will need to have the Azure Data CLI installed.
+To create the Azure Arc data Controller using the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] you will need to have the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] installed.
 
-   [Install the Azure Data CLI](install-client-tools.md)
+   [Install the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](install-client-tools.md)
 
 Regardless of which target platform you choose, you will need to set the following environment variables prior to the creation for the data controller administrator user. You can provide these credentials to other people that need to have administrator access to the data controller as needed.
 

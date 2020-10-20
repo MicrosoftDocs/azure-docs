@@ -20,7 +20,7 @@ Periodically you can export out usage information for billing purposes, monitori
 
 ## Prerequisites
 
-You will need the Azure CLI (az) and the Azure Data CLI installed.  [Install tools](./install-client-tools.md).
+You will need the Azure CLI (az) and the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] installed.  [Install tools](./install-client-tools.md).
 
 Prior to uploading data to Azure, you need to ensure that your Azure subscription has the Microsoft.AzureData resource provider registered.
 

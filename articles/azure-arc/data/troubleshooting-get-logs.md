@@ -17,13 +17,13 @@ ms.topic: how-to
 
 ## Prerequisites
 
-To retrieve the Azure Arc enabled data services logs you will need the Azure Data CLI tool. [Installation instructions](./install-client-tools.md)
+To retrieve the Azure Arc enabled data services logs you will need the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] tool. [Installation instructions](./install-client-tools.md)
 
 You will need to be able to log in to the Azure Arc enabled data services controller service as an administrator.
 
 ## Get Azure Arc enabled data services logs
 
-You can get the Azure Arc enabled data services logs across all pods or specific pods for troubleshooting purposes.  You can do this using standard Kubernetes tools such as the `kubectl logs` command or in this article you will be using the Azure Data CLI tool which makes it easier to get all of the logs at once.
+You can get the Azure Arc enabled data services logs across all pods or specific pods for troubleshooting purposes.  You can do this using standard Kubernetes tools such as the `kubectl logs` command or in this article you will be using the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] tool which makes it easier to get all of the logs at once.
 
 First, make sure you are logged into the data controller.
 

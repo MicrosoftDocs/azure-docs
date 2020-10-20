@@ -42,7 +42,7 @@ azdata arc postgres server edit -n <server group name>, [{--engine-settings, -e}
 
 ## Show the current custom values of the parameters settings
 
-## With Azure Data CLI command
+## With [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] command
 
 ```console
 azdata arc postgres server show -n <server group name>

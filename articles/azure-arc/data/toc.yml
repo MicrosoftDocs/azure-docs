@@ -24,7 +24,7 @@
       items:
       - name: Install client tools
         href: install-client-tools.md
-      - name: Azure Data CLI
+      - name: Azure Data CLI (azdata)
         items:
           - name: Install
             href: /sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
