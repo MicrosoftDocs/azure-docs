@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 04/07/2020
+ms.date: 10/20/2020
 ms.custom: devx-track-python
 ---
 
@@ -196,7 +196,7 @@ Using the PySpark interactive command to submit the queries, follow these steps:
 
    ![Screenshot shows an option to skip the PySpark installation.](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
-5. If you need to install it later, you can navigate to **File** > **Preference** > **Settings**, then uncheck **Hdinsight: Enable Skip Pyspark Installation** in the settings. 
+5. If you need to install it later, you can navigate to **File** > **Preference** > **Settings**, then uncheck **HDInsight: Enable Skip Pyspark Installation** in the settings. 
     
     ![Screenshot shows the option to Enable Skip Pyspark Installation.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
@@ -222,7 +222,7 @@ Using the PySpark interactive command to submit the queries, follow these steps:
 
      ![pyspark interactive context menu](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-12. Select the cluster, if you haven't specified a default cluster. After a few moments, the **Python Interactive** results appear in a new tab. Click on PySpark to switch the kernel to **PySpark / Synapse Pyspark**, and the code will run successfully. If you want to switch to Synapse Pyspark kernel, disabling auto-settings in Azure Portal is encouraged. Otherwise it may take a long while to wake up the cluster and set synapse kernel for the first time use. If The tools also let you submit a block of code instead of the whole script file by using the context menu:
+12. Select the cluster, if you haven't specified a default cluster. After a few moments, the **Python Interactive** results appear in a new tab. Click on PySpark to switch the kernel to **PySpark / Synapse Pyspark**, and the code will run successfully. If you want to switch to Synapse Pyspark kernel, disabling auto-settings in Azure portal is encouraged. Otherwise it may take a long while to wake up the cluster and set synapse kernel for the first time use. If The tools also let you submit a block of code instead of the whole script file by using the context menu:
 
      ![pyspark interactive python interactive window](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
@@ -299,7 +299,7 @@ The tool also supports the **Spark SQL** query:
 
    ![Submit Python job result output](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-After you submit a Python job, submission logs appear in the **OUTPUT** window in Visual Studio Code. The Spark UI URL and Yarn UI URL are also shown. If you submit the batch job to an Apache Spark pool, the Saprk history UI URL and the Spark Job Application UI URL are also shown. You can open the URL in a web browser to track the job status.
+After you submit a Python job, submission logs appear in the **OUTPUT** window in Visual Studio Code. The Spark UI URL and Yarn UI URL are also shown. If you submit the batch job to an Apache Spark pool, the Spark history UI URL and the Spark Job Application UI URL are also shown. You can open the URL in a web browser to track the job status.
 
 ## Integrate with HDInsight Identity Broker (HIB)
 
@@ -425,7 +425,7 @@ Spark & Hive for Visual Studio Code also supports the following features:
 
 ## Reader-only role
 
-Users who are assigned the reader-only role for the cluster can't submit jobs to the HDInsight cluster, nor view the Hive database. Contact the cluster administrator to upgrade your role to [**HDInsight Cluster Operator**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) in the [Azure portal](https://ms.portal.azure.com/). If you have valid Ambari credentials, you can manually link the cluster by using the following guidance.
+Users who are assigned the reader-only role for the cluster can't submit jobs to the HDInsight cluster, nor view the Hive database. Contact the cluster administrator to upgrade your role to [**HDInsight Cluster Operator**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) in the [Azure portal](https://portal.azure.com/). If you have valid Ambari credentials, you can manually link the cluster by using the following guidance.
 
 ### Browse the HDInsight cluster  
 
