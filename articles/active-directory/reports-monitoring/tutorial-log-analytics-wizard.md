@@ -95,11 +95,11 @@ Configuring a log analytics workspace consists of two main steps:
 
 7. Search for **Azure Active Directory**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 8. In **Monitoring** section, click **Diagnostic setting**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/diagnostic-settings.png)
 
 9. On the **Diagnostic settings** page, click **Add diagnostic setting**.
 
@@ -127,7 +127,7 @@ This procedure shows how to run queries using the **Kusto Query Language (KQL)**
 
 2. Search for **Azure Active Directory**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Logs**.
 
@@ -209,7 +209,7 @@ This procedure shows how to send alerts when the breakglass account is used.
 
 2. Search for **Azure Active Directory**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Logs**.
 
@@ -300,7 +300,7 @@ This procedure shows how to create a new workbook using the quickstart template.
 
 2. Search for **Azure Active Directory**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Workbooks**.
 
@@ -352,7 +352,7 @@ This procedure shows how to add a query to an existing workbook template. The ex
 
 2. Search for **Azure Active Directory**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
+    ![Azure Active Directory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Workbooks**.
 
