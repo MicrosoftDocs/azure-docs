@@ -115,9 +115,13 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
 
 ## Tracking FastAPI applications
 
-1. As there is no Opencensus FastAPI extension, we need to add FastAPI middleware, then we can set the span attributes. You need the the following dependencies (fastapi, uvicorn).
+1. The following dependencies are required: 
+    - fastapi
+    - uvicorn
 
-2. After that we need to set span kind server `span.span_kind = SpanKind.SERVER`.
+2. Add FastAPI middleware.
+
+3. Set span kind server, `span.span_kind = SpanKind.SERVER`.
 
 ```python 
 app = FastAPI()
