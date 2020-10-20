@@ -2,12 +2,9 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 01/30/2019
+ms.date: 10/19/2020
 ms.author: tomfitz
 ---
-## Deploy template from Cloud Shell
-
-You can use [Cloud Shell](../articles/cloud-shell/overview.md) to deploy your template. To deploy an external template, provide the URI of the template exactly as you would for any external deployment. To deploy a local template, you must first load your template into the storage account for your Cloud Shell. This section describes how to load the template to your cloud shell account, and deploy it as a local file. If you haven't used Cloud Shell, see [Overview of Azure Cloud Shell](../articles/cloud-shell/overview.md) for information about setting it up.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -17,19 +14,19 @@ You can use [Cloud Shell](../articles/cloud-shell/overview.md) to deploy your te
 
 1. Select the storage account for your Cloud Shell.
 
-   ![Select storage account](./media/resource-manager-cloud-shell-deploy/select-storage.png)
+   :::image type="content" source="./media/resource-manager-cloud-shell-deploy/cloud-shell-storage.png" alt-text="Select storage account":::
 
-1. Select **Blobs**.
+1. Select **File Shares**.
 
-   ![Select blobs](./media/resource-manager-cloud-shell-deploy/select-blobs.png)
+   :::image type="content" source="./media/resource-manager-cloud-shell-deploy/files-shares.png" alt-text="Select file shares":::
 
-1. Select **+ Container**.
+1. Select the default file share for your cloud shell. The file share has the name format of `cs-<user>-<domain>-com-<uniqueGuid>`.
 
-   ![Add container](./media/resource-manager-cloud-shell-deploy/add-container.png)
+   :::image type="content" source="./media/resource-manager-cloud-shell-deploy/select-file-share.png" alt-text="Default file share":::
 
-1. Give your container a name and an access level. The sample template in this article contains no sensitive information, so allow anonymous read access. Select **OK**.
+1. Add a new directory to hold your templates. Select that directory.
 
-   ![Provide container values](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
+   :::image type="content" source="./media/resource-manager-cloud-shell-deploy/add-directory.png" alt-text="Add directory":::
 
 1. Select the container you created.
 

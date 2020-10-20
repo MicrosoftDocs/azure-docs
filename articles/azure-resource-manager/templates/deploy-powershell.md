@@ -8,44 +8,6 @@ ms.date: 09/08/2020
 
 This article explains how to use Azure PowerShell with Azure Resource Manager templates (ARM templates) to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md).
 
-## Deployment scope
-
-You can target your deployment to a resource group, subscription, management group, or tenant. In most cases, you'll target deployment to a resource group. To apply policies and role assignments across a larger scope, use subscription, management group, or tenant deployments. When deploying to a subscription, you can create a resource group and deploy resources to it.
-
-Depending on the scope of the deployment, you use different commands.
-
-* To deploy to a **resource group**, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
-
-  ```azurepowershell
-  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
-  ```
-
-* To deploy to a **subscription**, use New-AzSubscriptionDeployment:
-
-  ```azurepowershell
-  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
-  ```
-
-  For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
-
-* To deploy to a **management group**, use [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
-
-  ```azurepowershell
-  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
-  ```
-
-  For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
-
-* To deploy to a **tenant**, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
-
-  ```azurepowershell
-  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
-  ```
-
-  For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
-
-The examples in this article use resource group deployments.
-
 ## Prerequisites
 
 You need a template to deploy. If you don't already have one, download and save an [example template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) from the Azure Quickstart templates repo. The local file name used in this article is **c:\MyTemplates\azuredeploy.json**.

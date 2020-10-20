@@ -329,36 +329,36 @@
       - name: Outputs
         displayName: iteration,copy
         href: copy-outputs.md
-  - name: Discover template properties
-    items:
-    - name: Export template
-      href: export-template-portal.md
-    - name: Discover resources
-      href: view-resources.md
-  - name: Validate templates
-    items:
-    - name: What-if deployment
-      href: template-deploy-what-if.md
-    - name: Test toolkit
-      href: test-toolkit.md
-    - name: Test cases
-      href: test-cases.md
   - name: Deploy templates
     items:
-    - name: Deploy - portal
-      displayName: deployment
-      href: deploy-portal.md
-    - name: Deploy - CLI
-      displayName: deployment
-      href: deploy-cli.md
-    - name: Deploy - PowerShell
-      displayName: deployment
-      href: deploy-powershell.md
-    - name: Deploy - REST API
-      displayName: deployment
-      href: deploy-rest.md
-    - name: Deploy from GitHub
-      href: deploy-to-azure-button.md
+    - name: Deployment operations
+      items:
+      - name: Deploy - portal
+        displayName: deployment
+        href: deploy-portal.md
+      - name: Deploy - CLI
+        displayName: deployment
+        href: deploy-cli.md
+      - name: Deploy - PowerShell
+        displayName: deployment
+        href: deploy-powershell.md
+      - name: Deploy - REST API
+        displayName: deployment
+        href: deploy-rest.md
+      - name: Deploy - GitHub
+        href: deploy-to-azure-button.md
+      - name: Deploy - Cloud Shell
+        href: deploy-from-cloud-shell.md
+    - name: Resource groups
+      href: deploy-to-resource-group.md
+    - name: Subscription
+      href: deploy-to-subscription.md
+    - name: Management group
+      href: deploy-to-management-group.md
+    - name: Tenant
+      href: deploy-to-tenant.md
+    - name: What-if deployment
+      href: template-deploy-what-if.md
     - name: Redeploy on error
       displayName: rollback
       href: rollback-on-error.md
@@ -366,16 +366,6 @@
       href: secure-template-with-sas-token.md
     - name: View deployment history
       href: deployment-history.md
-  - name: Scoped deployments
-    items:
-    - name: Subscription
-      href: deploy-to-subscription.md
-    - name: Management group
-      href: deploy-to-management-group.md
-    - name: Tenant
-      href: deploy-to-tenant.md
-    - name: Cross scope deployments
-      href: cross-scope-deployment.md
   - name: Provide parameters
     items:
     - name: Create parameter file
@@ -383,12 +373,24 @@
     - name: Pass sensitive values
       displayname: key vault
       href: key-vault-parameter.md
+  - name: Test templates
+    items:
+    - name: Test toolkit
+      href: test-toolkit.md
+    - name: Test cases
+      href: test-cases.md
   - name: CI/CD
     items:
     - name: ARM templates with pipelines
       href: add-template-to-azure-pipelines.md
     - name: Deploy - GitHub Actions
       href: deploy-github-actions.md
+  - name: Discover template properties
+    items:
+    - name: Export template
+      href: export-template-portal.md
+    - name: Discover resources
+      href: view-resources.md
   - name: Use authoring tools
     items:
     - name: Visual Studio
