@@ -127,7 +127,7 @@ In order to create an endpoint with dead-lettering enabled, you must use the [AR
 
 For instructions on how to do this with the APIs, see the [*APIs and CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) version of this article.
 
-## Event routes
+## Create an event route
 
 To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. These routes let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [*Concepts: Routing Azure Digital Twins events*](concepts-route-events.md).
 
@@ -136,7 +136,7 @@ To actually send data from Azure Digital Twins to an endpoint, you'll need to de
 >[!NOTE]
 >If you have recently deployed your endpoints, validate that they're finished deploying **before** attempting to use them for a new event route. If you're unable to set up the route because the endpoints aren't ready, wait a few minutes and try again.
 
-### Create an event route 
+### Creation steps with the Azure portal
 
 An event route definition contains these elements:
 * The route name you want to use
@@ -162,7 +162,7 @@ For the route to be enabled, you must also **Add an event route filter** of at l
 
 When finished, hit the _Save_ button to create your event route.
 
-### Filter events
+## Filter events
 
 As described above, routes have a **filter** field. If the filter value on your route is `false`, no events will be sent to your endpoint. 
 
