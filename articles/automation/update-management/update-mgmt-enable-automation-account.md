@@ -2,7 +2,7 @@
 title: Enable Azure Automation Update Management from Automation account
 description: This article tells how to enable Update Management from an Automation account.
 services: automation
-ms.date: 09/09/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.custom: mvc
 ---
@@ -59,14 +59,14 @@ Manually installed machines or machines already reporting to your workspace must
 
     ![Saved searches](media/update-mgmt-enable-automation-account/managemachines.png)
 
-3. To enable Update Management for all available machines reporting to the workspace, select **Enable on all available machines** on the Manage Machines page. This action disables the control to add machines individually. This task adds all the names of the machines reporting to the workspace to the computer group saved search query `MicrosoftDefaultComputerGroup`. When selected, this action disables the **Manage Machines** button.
+3. To enable Update Management for all available machines reporting to the workspace, select **Enable on all available machines** on the Manage Machines page. This action disables the control to add machines individually and adds all of the machines reporting to the workspace to the computer group saved search query `MicrosoftDefaultComputerGroup`. When selected, this action disables the **Manage Machines** option.
 
-4. To enable the feature for all available machines and future machines, select **Enable on all available and future machines**. This option deletes the saved search and scope configuration from the workspace, and permits the feature to include all Azure and non-Azure machines that currently or in the future, report to the workspace. When selected, this action disables the **Manage Machines** button permanently, as there's no scope configuration available.
+4. To enable the feature for all available machines and future machines, select **Enable on all available and future machines**. This option deletes the saved search and scope configuration from the workspace, and permits the feature to include all Azure and non-Azure machines that currently or in the future, report to the workspace. When selected, this action disables the **Manage Machines** option permanently, as there's no scope configuration available.
 
     > [!NOTE]
-    > Because this option deletes the saved searches and scope configurations within Log Analytics, it's important to remove any deletion locks on the Log Analytics Workspace before you select this option. If you don't, the option will fail to remove the configurations and you must remove them manually.
+    > Because this option deletes the saved search and scope configuration within Log Analytics, it's important to remove any deletion locks on the Log Analytics Workspace before you select this option. If you don't, the option will fail to remove the configurations and you must remove them manually.
 
-5. If necessary, you can add the scope configurations back by re-adding the initial saved search query. For more information, see [Limit Update Management deployment scope](update-mgmt-scope-configuration.md).
+5. If necessary, you can add the scope configuration back by re-adding the initial saved search query. For more information, see [Limit Update Management deployment scope](update-mgmt-scope-configuration.md).
 
 6. To enable the feature for one or more machines, select **Enable on selected machines** and select **Add** next to each machine. This task adds the selected machine names to the computer group saved search query for the feature.
 
