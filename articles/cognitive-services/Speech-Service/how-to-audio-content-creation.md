@@ -44,7 +44,7 @@ It takes a few moments to deploy your new Speech resource. Once the deployment i
 ### Step 3 - Log into the Audio Content Creation with your Azure account and Speech resource
 
 1. After getting the Azure account and the Speech resource, you can log into [Audio Content Creation](https://aka.ms/audiocontentcreation) by clicking **Get started**.
-2. The **Speech resource** page will be shown to you. Select the Speech resource you want to work on. Click **Go to Studio** to start your audio creation. You can also create a new Speech resource here by clicking **Creat new**. When you log into the Audio Content Creation tool for the Next time, we will link you directly to the audio work files under the current speech resource. 
+2. The **Speech resource** page will be shown to you. Select the Speech resource you want to work on. Click **Go to Studio** to start your audio creation. You can also create a new Speech resource here by clicking **Create new**. When you log into the Audio Content Creation tool for the Next time, we will link you directly to the audio work files under the current speech resource. 
 3. You can modify your Speech resource at any time with the **Settings** option, located in the top nav.
 
 ## How to use the tool?
