@@ -62,7 +62,7 @@ The output is a JSON object with the role assignment credentials that provide ac
 
 ## Copy the MySQL connection string 
 
-In the Azure Portal, go to your Azure Database for MySQL server and open **Settings** > **Connection strings**. Copy the **ADO.NET** connection string. Replace the placeholder values for `your_database` and `your_password`. The connection string will look similar to this. 
+In the Azure portal, go to your Azure Database for MySQL server and open **Settings** > **Connection strings**. Copy the **ADO.NET** connection string. Replace the placeholder values for `your_database` and `your_password`. The connection string will look similar to this. 
 
 ```output
    Server=my-mysql-server.mysql.database.azure.com; Port=3306; Database={your_database}; Uid=adminname@my-mysql-server; Pwd={your_password}; SslMode=Preferred;
