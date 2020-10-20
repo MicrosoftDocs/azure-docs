@@ -24,7 +24,7 @@ ExpressRoute is composed of a pair of circuits for high availability that are at
 Microsoft Azure provides a growing number of services that you can offer to your customers. ExpressRoute helps you and your customers take advantage of these services by providing high-speed low latency access to the Microsoft Azure environment.
 
 ## Microsoft Azure management
-Microsoft provides CSPs with APIs to manage the Azure customer subscriptions by allowing programmatic integration with your own Service Management systems. Supported management capabilities can be found [here](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
+Microsoft provides CSPs with APIs to manage the Azure customer subscriptions by allowing programmatic integration with your own Service Management systems. Supported management capabilities can be found [here](/previous-versions/windows/mt844538(v=win.10)).
 
 ## Microsoft Azure resource management
 The contract you have with your customer will determine how the subscription will be managed. The CSP can directly manage the creation and maintenance of resources or the customer can maintain control of the Microsoft Azure subscription and create the Azure resources as they need. If your customer manages the creation of resources in their Microsoft Azure subscription, they will use one of two models: “*Connect-Through*” model, or “*Direct-To*” model. These models are described in detail in the following sections.  
@@ -126,6 +126,6 @@ The Cloud Solution Provider service provides you a way to increase your value to
 
 Additional Information can be found at the following links:
 
-[Azure in Cloud Solution Provider program](https://docs.microsoft.com/azure/cloud-solution-provider).  
+[Azure in Cloud Solution Provider program](/azure/cloud-solution-provider).  
 [Get ready to transact as a Cloud Solution Provider](https://partner.microsoft.com/solutions/cloud-reseller-pre-launch).  
 [Microsoft Cloud Solution Provider resources](https://partner.microsoft.com/solutions/cloud-reseller-resources).

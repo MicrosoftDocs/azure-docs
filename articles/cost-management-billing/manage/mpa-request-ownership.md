@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 10/19/2020
 ms.author: banders
 ---
 
@@ -113,7 +113,7 @@ Disabled subscriptions can't be transferred. Subscriptions must be in active sta
 
 ### Azure resources transfer
 
-All resources from the subscriptions like VMs, disks, and websites transfer.
+All resources from the subscriptions like VMs, disks, and websites transfer. When transferred, subscription IDs and resource IDs are preserved. 
 
 ### Azure Marketplace products transfer
 
@@ -143,7 +143,7 @@ You can cancel the transfer request until the request is approved or declined. T
 
 ### Software as a Service (SaaS) transfer
 
-SaaS products don't transfer with the subscriptions. Ask the user to [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer billing ownership of SaaS products. Along with the billing ownership, the user can also transfer resource ownership. Resource ownership lets you perform management operations like deleting and viewing the details of the product. User must be a resource owner on the SaaS product to transfer resource ownership.
+SaaS products don't transfer with the subscriptions. Ask the user to [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer billing ownership of SaaS products. Along with the billing ownership, the user can also transfer resource ownership. Resource ownership lets you do management operations like deleting and viewing the details of the product. User must be a resource owner on the SaaS product to transfer resource ownership.
 
 ### Additional approval for certain customers
 
@@ -155,11 +155,11 @@ The directory of the Azure subscriptions that are transferred must match the dir
 
 If these two directories don’t match, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory).
 
-### EA subscription in the non-orgnization directory
+### EA subscription in the non-organization directory
 
 The EA subscriptions from non-organization directories can be transferred as long as the directory has a reseller relationship with the CSP. If the directory doesn’t have a reseller relationship, you need to make sure to have the organization user in the directory as a *Global Administrator* who can accept the partner relationship. The domain name portion of the username must either be the initial default domain name "[domain name]. onmicrosoft.com" or a verified, non-federated custom domain name such as "contoso.com."  
 
-To add new user to the directory, see [Quickstart: Add new users to Azure Active Directory to add the new user to the AAD directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
+To add new user to the directory, see [Quickstart: Add new users to Azure Active Directory to add the new user to the directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 ## Check access to a Microsoft Partner Agreement
 

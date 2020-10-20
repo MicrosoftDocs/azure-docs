@@ -43,7 +43,8 @@ The following tables provide links to samples for applications including iOS, An
 
 | Sample | Description |
 |--------| ----------- |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | A single page application (SPA) calling a Web API. Authentication is done with Azure AD B2C by using MSAL.js. |
+| [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | A single page application (SPA) calling a Web API. Authentication is done with Azure AD B2C by using MSAL.js. This sample uses the authorization code flow with PKCE. |
+| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | A single page application (SPA) calling a Web API. Authentication is done with Azure AD B2C by using MSAL.js. This samples uses the implicit flow.|
 
 ## SAML test application
 
