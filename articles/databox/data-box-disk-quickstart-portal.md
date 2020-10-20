@@ -78,7 +78,7 @@ Once the order is created, the disks are prepared for shipment.
 
 Use these Azure CLI commands to create a Data Box Disk job.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the Data Box extension:
 
