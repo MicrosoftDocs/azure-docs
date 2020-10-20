@@ -72,7 +72,7 @@ The following alert-based metrics have unique behavior characteristics compared 
 
 * *cpuExceededPercentage*, *memoryRssExceededPercentage*, and *memoryWorkingSetExceededPercentage* metrics are sent when the CPU, memory Rss, and Memory Working set values exceed the configured threshold (the default threshold is 95%). These thresholds are exclusive of the alert condition threshold specified for the corresponding alert rule. Meaning, if you want to collect these metrics and analyze them from [Metrics explorer](../platform/metrics-getting-started.md), we recommend you configure the threshold to a value lower than your alerting threshold. The configuration related to the collection settings for their container resource utilization thresholds can be overridden in the ConfigMaps file under the section `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]`. See the section [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps) for details related to configuring your ConfigMap configuration file.
 
-* *pvUsageExceededPercentage* metric is sent when the persistent volume usage percentage exceeds the configured threshold (the default threshold is 60%). This threshold is exclusive of the alert condition threshold specified for the corresponding alert rule. Meaning, if you want to collect these metrics and analyze them from [Metrics explorer](../platform/metrics-getting-started.md), we recommend you configure the threshold to a value lower than your alerting threshold. The configuration related to the collection settings for persistent volume utilization thresholds can be overridden in the ConfigMaps file under the section `[alertable_metrics_configuration_settings.pv_utilization_thresholds]`. See the section [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps) for details related to configuring your ConfigMap configuration file. Collection of persistent volume metrics with claims in the *kube-system* namespace are excluded by default. To enable collection in this namespace, use the section `[metric_collection_settings.collect_kube_system_pv_metrics]` in the ConfigMap file. See [Metric collection settings](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings) for details.
+* *pvUsageExceededPercentage* metric is sent when the persistent volume usage percentage exceeds the configured threshold (the default threshold is 60%). This threshold is exclusive of the alert condition threshold specified for the corresponding alert rule. Meaning, if you want to collect these metrics and analyze them from [Metrics explorer](../platform/metrics-getting-started.md), we recommend you configure the threshold to a value lower than your alerting threshold. The configuration related to the collection settings for persistent volume utilization thresholds can be overridden in the ConfigMaps file under the section `[alertable_metrics_configuration_settings.pv_utilization_thresholds]`. See the section [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps) for details related to configuring your ConfigMap configuration file. Collection of persistent volume metrics with claims in the *kube-system* namespace are excluded by default. To enable collection in this namespace, use the section `[metric_collection_settings.collect_kube_system_pv_metrics]` in the ConfigMap file. See [Metric collection settings](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings) for details.
 
 ## Metrics collected
 
@@ -207,40 +207,40 @@ To view alerts created for the enabled rules, in the **Recommended alerts** pane
 
 ## Configure alertable metrics in ConfigMaps
 
-Perform the following steps to configure your ConfigMap configuration file to override the default utilization thresholds. These steps are only applicable for the following alertable metrics.
+Perform the following steps to configure your ConfigMap configuration file to override the default utilization thresholds. These steps are applicable only for the following alertable metrics:
 
 * *cpuExceededPercentage*
 * *memoryRssExceededPercentage*
 * *memoryWorkingSetExceededPercentage*
 * *pvUsageExceededPercentage*
 
-1. Edit the ConfigMap yaml file under the section `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` or `[alertable_metrics_configuration_settings.pv_utilization_thresholds]`.
+1. Edit the ConfigMap YAML file under the section `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` or `[alertable_metrics_configuration_settings.pv_utilization_thresholds]`.
 
-    - To to modify the *cpuExceededPercentage* threshold to 90% and begin collection of this metric when that threshold is met and exceeded, configure the ConfigMap file using the following example.
+   - To modify the *cpuExceededPercentage* threshold to 90% and begin collection of this metric when that threshold is met and exceeded, configure the ConfigMap file using the following example:
 
-    ```
-    [alertable_metrics_configuration_settings.container_resource_utilization_thresholds]
-        # Threshold for container cpu, metric will be sent only when cpu utilization exceeds or becomes equal to the following percentage
-        container_cpu_threshold_percentage = 90.0
-        # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
-        container_memory_rss_threshold_percentage = 95.0
-        # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
-        container_memory_working_set_threshold_percentage = 95.0
-    ```
+     ```
+     [alertable_metrics_configuration_settings.container_resource_utilization_thresholds]
+         # Threshold for container cpu, metric will be sent only when cpu utilization exceeds or becomes equal to the following percentage
+         container_cpu_threshold_percentage = 90.0
+         # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
+         container_memory_rss_threshold_percentage = 95.0
+         # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
+         container_memory_working_set_threshold_percentage = 95.0
+     ```
 
-    - To to modify the *pvUsageExceededPercentage* threshold to 80% and begin collection of this metric when that threshold is met and exceeded, configure the ConfigMap file using the following example.
+   - To modify the *pvUsageExceededPercentage* threshold to 80% and begin collection of this metric when that threshold is met and exceeded, configure the ConfigMap file using the following example:
 
-    ```
-    [alertable_metrics_configuration_settings.pv_utilization_thresholds]
-        # Threshold for persistent volume usage bytes, metric will be sent only when persistent volume utilization exceeds or becomes equal to the following percentage
-        pv_usage_threshold_percentage = 80.0
-    ```
+     ```
+     [alertable_metrics_configuration_settings.pv_utilization_thresholds]
+         # Threshold for persistent volume usage bytes, metric will be sent only when persistent volume utilization exceeds or becomes equal to the following percentage
+         pv_usage_threshold_percentage = 80.0
+     ```
 
 2. Run the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
 
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`.
 
-The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods; they don't all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following example and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
 ## Next steps
 
