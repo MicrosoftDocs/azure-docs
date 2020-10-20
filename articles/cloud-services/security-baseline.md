@@ -38,9 +38,9 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32173.).
 
-**Guidance**: Create a classic Azure Virtual Network with separate public and private subnets to enforce isolation based on trusted ports and IP ranges. These virtual Network and subnets must be classic virtual network (deployment) resources, not the current Azure Resource Manager resources.  
+**Guidance**: Create a classic Azure Virtual Network with separate public and private subnets to enforce isolation based on trusted ports and IP ranges. These virtual network and subnets must be the classic Virtual Network (classic deployment) based resources, and not the current Azure Resource Manager resources.  
 
-Allow or deny traffic using a network security group contains access control rules that  based on traffic direction, protocol, source address and port, and destination address and port. The rules of an network security group can be changed at any time, and changes are applied to all associated instances.
+Allow or deny traffic using a network security group, which contains access control rules based on traffic direction, protocol, source address and port, and destination address and port. The rules of an network security group can be changed at any time, and changes are applied to all associated instances.
 
 Cloud service (Classic) cannot be placed in Azure Resource Manager virtual networks. However, Resource Manager virtual networks and classic deployment virtual networks can be connected through peering. 
 
@@ -59,13 +59,25 @@ Cloud service (Classic) cannot be placed in Azure Resource Manager virtual netwo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32174.).
 
-**Guidance**: A Cloud service's (Classic) configuration values are set in the service configuration file (.cscfg) and the definition in an service definition (.csdef) file.  The service definition file is used to define the service model for an application and contains the definitions for the roles that are available to a Cloud service (Classic) and also specifies the service endpoints. 
+**Guidance**: Document your Cloud service configuration and monitor it for changes. Use the service's configuration file to specify the number of role instances to deploy for each role in the service, the values of any configuration settings, and the thumbprints for any certificates associated with a role. 
 
-The service definition and config are XML-based files and essentially are the core artifacts for a Cloud service (Classic)'s configuration. The Cloud service (Classic) can be  reconfigured through the ServiceConfig.cscfg file, although the definition cannot be altered. The service definition also contains the optional NetworkTrafficRules element which restricts which roles can communicate to specified internal endpoints. The NetworkTrafficRules node, an optional element in the service definition file, specifies how roles should communicate with each other. It also limits which roles can access the internal endpoints of the specific role. 
+If the service is part of an Virtual Network, configuration information for the network must be provided in the service configuration file, as well as in the virtual networking configuration file. The default extension for the service configuration file is .cscfg.
 
-For monitoring purposes, It is also recommended to enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
+Note that Azure Policy is not supported for Cloud service (Classic) for configuration enforcement.
+
+Set a Cloud service's (Classic) configuration values in the service configuration file (.cscfg) and the definition in an service definition (.csdef) file. Use the service definition file to define the service model for an application. Define the roles, which are available to a Cloud service (Classic) and also specify the service endpoints. 
+
+Log the configuration for Cloud service (Classic) with service configuration file. Any reconfiguration can be done through the ServiceConfig.cscfg file. 
+
+Monitor the optional NetworkTrafficRules element service definition which restricts which roles can communicate to specified internal endpoints. Configure the NetworkTrafficRules node, an optional element in the service definition file, to specify how roles should communicate with each other. Place limits on which roles can access the internal endpoints of the specific role.  Note that the service definition cannot be altered. 
+
+Enable network security group flow logs and send the logs to an Azure Storage account for auditing. Send the flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic patterns in your Azure tenant. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
 - [Azure Resource Manager vs. classic deployment - Understand deployment models and the state of your resources](../azure-resource-manager/management/deployment-models.md)
+
+- [Cloud Services Config file](/azure/cloudservices/schema-cscfg-file)
+
+- [List of services supported by Azure Policy](https://docs.microsoft.com/cli/azure/azure-services-the-azure-cli-can-manage?view=azure-cli-latest)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -95,12 +107,12 @@ Microsoft uses the Transport Layer Security (TLS) protocol v1.2 to protect data 
 
 **Guidance**: Azure Cloud implements a multilayer network security to protect its platform services against distributed denial-of-service (DDoS) attacks. The Azure DDoS defense system is part of Azure's continuous monitoring process, which is continually improved through penetration testing. This DDoS defense system is designed to withstand not only attacks from the outside but also from other Azure tenants. 
 
-Besides platform level protection within Cloud service (Classic), there are a few different ways to block or deny communication:  
+There are a few different ways to block or deny communication besides platform level protection within Cloud service (Classic):. They are: 
 
 -  Create a startup task to selectively block some specific IP addresses
 -  Restrict an Azure web role access to a set of specified IP addresses by modifying your IIS web.config file
 
-Prevent incoming traffic to the default URL or name of your Cloud service (Classic) (for example, *.cloudapp.net). Set the host header to a custom DNS name (for example, www.MyCloudService.com) under site binding configuration in the Cloud service (Classic) definition (*.csdef) file.
+Prevent incoming traffic to the default URL or name of your Cloud service (Classic), for example, *.cloudapp.net. Set the host header to a custom DNS name (for example, www.MyCloudService.com), under site binding configuration in the Cloud service (Classic) definition (*.csdef) file.
 
 Configure a DENY Apply to classic subscription administrator assignments. By default, after an internal endpoint is defined, communication can flow from any role to the internal endpoint of a role without any restrictions. To restrict communication, you must add a NetworkTrafficRules element to the ServiceDefinition element in the service definition file.
 
@@ -119,10 +131,9 @@ Configure a DENY Apply to classic subscription administrator assignments. By def
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32177.).
 
-**Guidance**: Use Azure Network Watcher,  network performance monitoring, diagnostic, and analytics service, that allows monitoring of Azure networks. The Network Watcher Agent virtual machine 
-extension is a requirement for capturing network traffic on demand, and other advanced functionality on Azure virtual machines. Install the Network Watcher Agent virtual machine extension, and turn on NSG flow logs.
+**Guidance**: Use Azure Network Watcher, network performance monitoring, diagnostic, and analytics service, that allows monitoring of Azure networks. The Network Watcher Agent virtual machine extension is a requirement for capturing network traffic on demand, and other advanced functionality on Azure virtual machines. Install the Network Watcher Agent virtual machine extension, and turn on NSG flow logs.
 
-Configure flow logging on a network security group on Linux Virtual Machines. Review details on how to deploy the Network Watcher VM extension to an existing VM deployed through the classic deployment model:
+Configure flow logging on a network security group. Review details on how to deploy the Network Watcher Virtual Machine extension to an existing VM deployed through the classic deployment model.
 
 - [Configure flow logging on a network security group](../virtual-machines/extensions/network-watcher-linux.md)
 
@@ -139,9 +150,9 @@ https://docs.microsoft.com/cli/azure/network/watcher/flow-log?view=azure-cli-lat
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32178.).
 
-**Guidance**: Azure has IPS/IDS in datacenter physical servers to defend against threats. Customers can deploy third-party security solutions, such as web application firewalls, network firewalls, antimalware, intrusion detection, prevention systems (IDS/IPS), and more based on requirements. 
+**Guidance**: Azure has IPS/IDS in datacenters with physical servers to defend against threats. Customers can deploy third-party security solutions, such as web application firewalls, network firewalls, antimalware, intrusion detection, prevention systems (IDS/IPS), and more based on their requirements. 
 
-Microsoft Antimalware for Azure protects Azure Cloud service (Classic) and virtual machines. Azure's multipronged threat-management approach uses intrusion detection, distributed denial-of-service (DDoS) attack prevention, penetration testing, behavioral analytics, anomaly detection, and machine learning to constantly strengthen its defense and reduce risks. 
+Microsoft Antimalware for Azure protects Cloud service (Classic) and virtual machines. Azure's multipronged threat-management approach uses intrusion detection, distributed denial-of-service (DDoS) attack prevention, penetration testing, behavioral analytics, anomaly detection, and machine learning to constantly strengthen its defense and reduce risks. 
 
 - [What are the features and capabilities that Azure basic IPS/IDS and DDOS provides](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq?view=vs-2019)
 
@@ -189,9 +200,9 @@ Generally, to protect web applications and to secure them against attacks such a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32181.).
 
-**Guidance**: Harden your Cloud service configuration, and monitor any changes to it. The service configuration file specifies the number of role instances to deploy for each role in the service, the values of any configuration settings, and the thumbprints for any certificates associated with a role. 
+**Guidance**: Harden your Cloud service configuration and monitor it for changes. The service configuration file specifies the number of role instances to deploy for each role in the service, the values of any configuration settings, and the thumbprints for any certificates associated with a role. 
 
-If the service is part of a Virtual Network, configuration information for the network must be provided in the service configuration file, as well as in the virtual networking configuration file. The default extension for the service configuration file is .cscfg.
+If the service is part of an Virtual Network, configuration information for the network must be provided in the service configuration file, as well as in the virtual networking configuration file. The default extension for the service configuration file is .cscfg.
 
 Note that Azure Policy is not supported for Cloud service (Classic) for configuration enforcement.
 
@@ -246,7 +257,7 @@ Create a diagnostic setting to send the Activity log to Azure Monitor Logs, to A
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32184.).
 
-**Guidance**: Microsoft maintains time sources for Azure resources for Cloud service (Classic). Customers may need to create a network rule to allow this access, or for a time server that you use in their environment.
+**Guidance**: Microsoft maintains time sources for Azure resources for Cloud service (Classic). Customers might need to create a network rule to allow access to a time server used in their environment, over port 123 and using UDP protocol for it.
 
 - [NTP server access](../firewall/protect-windows-virtual-desktop.md#additional-considerations)
 
@@ -656,11 +667,11 @@ Provide a certificate that can authenticate an exposed HTTPS endpoint. Define Se
 
 Authenticate with the management API with management certificates). Management certificates allow you to authenticate with the classic deployment model. Many programs and tools (such as Visual Studio or the Azure SDK) use these certificates to automate configuration and deployment of various Azure services. 
 
-For additional reference, the Azure Service Management API provides programmatic access to the service management functionality available through the Azure portal. Azure SDK for Python can be used to manage Cloud service (Classic) and storage accounts. The Azure SDK for Python wraps the Service Management API, which is a REST API. All API operations are performed over TLS and mutually authenticated by using X.509 v3 certificates. The management service can be accessed from within a service running in Azure. It also can be accessed directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
+For additional reference, the Azure Service Management API provides programmatic access to the Service Management functionality available through the Azure portal. Azure SDK for Python can be used to manage Cloud service (Classic) and storage accounts. The Azure SDK for Python wraps the Service Management API, which is a REST API. All API operations are performed over TLS and mutually authenticated by using X.509 v3 certificates. The management service can be accessed from within a service running in Azure. It also can be accessed directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
 
 - [Configure TLS for an application in Azure](cloud-services-configure-ssl-certificate-portal.md)
 
-- [Use service management from Python](cloud-services-python-how-to-use-service-management.md)
+- [Use Service Management from Python](cloud-services-python-how-to-use-service-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
