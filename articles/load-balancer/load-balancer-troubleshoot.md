@@ -29,6 +29,7 @@ When the external clients to the backend VMs go through the load balancer, the I
 ## Symptom: No outbound connectivity from Standard internal Load Balancers (ILB)
 
 **Validation and resolution**
+
 Standard ILBs are **secure by default**. Basic ILBs allowed connecting to the internet via a *hidden* Public IP address. This is not recommened for production workloads as the IP address is neither static nor locked down via NSGs that you own. If you recently moved from a Basic ILB to a Standard ILB, you should create a Public IP explicitly via [Outbound only](egress-only.md) configuration which locks down the IP via NSGs. 
 
 ## Symptom: VMs behind the Load Balancer are not responding to health probes
