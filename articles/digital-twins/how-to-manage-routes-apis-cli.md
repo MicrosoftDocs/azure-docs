@@ -65,7 +65,7 @@ Once you have created the topic, you can link it to Azure Digital Twins with the
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Now, the event grid topic is available as an endpoint inside of Azure Digital Twins, under the name specified with the `--endpoint-name` argument. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#event-routes-with-apis-and-the-c-sdk) using the Azure Digital Twins service API.
+Now, the event grid topic is available as an endpoint inside of Azure Digital Twins, under the name specified with the `--endpoint-name` argument. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route) using the Azure Digital Twins service API.
 
 ### Create an Event Hubs or Service Bus endpoint
 
