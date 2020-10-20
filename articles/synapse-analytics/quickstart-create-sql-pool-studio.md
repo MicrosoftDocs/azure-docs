@@ -47,10 +47,10 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 ![Synapse Studio home page with Management Hub section highlighted.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-21.png)
 
 1. Once in the Management Hub, navigate to the **SQL pools** section to see the current list of dedicated SQL pools that are available in the workspace.
-![Synapse Studio management hub with SQL pools navigation selected](media/quickstart-create-sql-pool/create-sql-pool-studio-22.png)
+![Synapse Studio management hub with dedicated SQL pools navigation selected](media/quickstart-create-sql-pool/create-sql-pool-studio-22.png)
 
 1. Select **+ New** command and the new dedicated SQL pool create wizard will appear. 
-![Synapse Studio Management Hub listing of SQL pools.](media/quickstart-create-sql-pool/create-sql-pool-studio-23.png)
+![Synapse Studio Management Hub listing of dedicated SQL pools.](media/quickstart-create-sql-pool/create-sql-pool-studio-23.png)
 
 1. Enter the following details in the **Basics** tab:
 
@@ -59,7 +59,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     | **dedicated SQL pool name** | contosoedw | This is the name that the dedicated SQL pool will have. |
     | **Performance level** | DW100c | Set this to the smallest size to reduce costs for this quickstart |
 
-    ![SQL pools create flow - basics tab.](media/quickstart-create-sql-pool/create-sql-pool-studio-24.png)
+    ![Dedicated SQL pools create flow - basics tab.](media/quickstart-create-sql-pool/create-sql-pool-studio-24.png)
     > [!IMPORTANT]
     > Note that there are specific limitations for the names that dedicated SQL pools can use. Names can't contain special characters, must be 15 or less characters, not contain reserved words, and be unique in the workspace.
 
@@ -69,12 +69,12 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 1. We won't add any tags for now, so select **Next: Review + create**.
 
 1. In the **Review + create** tab, make sure that the details look correct based on what was previously entered, and press **create**. 
-![dedicated SQL pool create flow - review settings tab.](media/quickstart-create-sql-pool/create-sql-pool-studio-26.png)
+![Dedicated SQL pool create flow - review settings tab.](media/quickstart-create-sql-pool/create-sql-pool-studio-26.png)
 
 1. At this point, the resource provisioning flow will start.
 
 1. After the provisioning completes, navigating back to the workspace will show a new entry for the newly created dedicated SQL pool.
- ![dedicated SQL pool create flow - resource provisioning.](media/quickstart-create-sql-pool/create-sql-pool-studio-27.png)
+ ![Dedicated SQL pool create flow - resource provisioning.](media/quickstart-create-sql-pool/create-sql-pool-studio-27.png)
 
 1. Once the dedicated SQL pool is created, it will be available in the workspace for loading data, processing streams, reading from the lake, etc.
 
@@ -88,7 +88,7 @@ If you want to delete the dedicated SQL pool, do the following:
 
 1. Navigate to the SQL pools in the Management Hub in Synapse Studio.
 1. Select the ellipsis in the dedicated SQL pool to be deleted (in this case, **contosoedw**) to show the commands for the dedicated SQL pool:
-![Listing of SQL pools, with the recently created pool selected.](media/quickstart-create-sql-pool/create-sql-pool-studio-28.png)
+![Listing of dedicated SQL pools, with the recently created pool selected.](media/quickstart-create-sql-pool/create-sql-pool-studio-28.png)
 1. Press **delete**.
 1. Confirm the deletion, and press **Delete** button.
  ![Confirmation dialog to delete the selected dedicated SQL pool.](media/quickstart-create-sql-pool/create-sql-pool-studio-29.png)

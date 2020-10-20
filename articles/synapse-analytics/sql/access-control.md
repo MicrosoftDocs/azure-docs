@@ -142,9 +142,9 @@ CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
 ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
-### Synapse SQL
+### dedicated SQL pool
 
-To grant access to a user to a **single** SQL Database, follow these steps:
+To grant access to a user to a **single** SQL database, follow these steps:
 
 1. Create the user in the database by running the following command targeting the desired database in the context selector (dropdown to select databases):
 
@@ -162,7 +162,7 @@ To grant access to a user to a **single** SQL Database, follow these steps:
 
 > [!IMPORTANT]
 > *db_datareader* and *db_datawriter* can work for read/write permissions if granting *db_owner* permission is undesired.
-> For a Spark user to read and write directly from Spark into/from a SQL pool, *db_owner* permission is required.
+> For a Spark user to read and write directly from Spark into/from a edicated SQL pool, *db_owner* permission is required.
 
 After creating the users, validate that you can query the storage account using serverless SQL pool.
 
@@ -171,9 +171,9 @@ After creating the users, validate that you can query the storage account using 
 ### Workspace-managed identity
 
 > [!IMPORTANT]
-> To successfully run pipelines that include datasets or activities that reference a SQL pool, the workspace identity needs to be granted access to the SQL pool directly.
+> To successfully run pipelines that include datasets or activities that reference a dedicated SQL pool, the workspace identity needs to be granted access to the SQL pool directly.
 
-Run the following commands on each SQL pool to allow the workspace-managed identity to run pipelines on the SQL pool database:
+Run the following commands on each dedicated SQL pool to allow the workspace-managed identity to run pipelines on the SQL pool database:
 
 ```sql
 --Create user in DB
