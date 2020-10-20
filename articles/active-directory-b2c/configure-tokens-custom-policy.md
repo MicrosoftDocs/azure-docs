@@ -92,7 +92,7 @@ The [Relying party policy technical profile](relyingparty.md#technicalprofile) o
 1. Find the OutputClaims element. Add the OutputClaim you want to be included in the token. 
 1. Set the output claim attributes. 
 
-The following example add the `accountBalance` claim. The accountBalance claim is sent to the application as balance. 
+The following example adds the `accountBalance` claim. The accountBalance claim is sent to the application as a balance. 
 
 ```xml
 <RelyingParty>
