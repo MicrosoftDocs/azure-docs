@@ -1,5 +1,5 @@
 ---
-title: Customer-managed keys or bring your own Key (BYOK) with Media Services
+title: Customer-managed keys or bring your own key (BYOK) with Media Services
 description: This is a tutorial for using customer managed keys with a Media Services storage account
 author: IngridAtMicrosoft
 ms.author: inhenkel
