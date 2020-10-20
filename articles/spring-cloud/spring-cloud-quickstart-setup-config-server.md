@@ -71,13 +71,20 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 The following procedure tells us how to troubleshoot config server settings.
 
 1. Go to the service **Overview** page and select **Logs**. Select **Queries** and **Show the application logs which contain the "error" or "exception" terms"**. Click **Run**. If you find the error **java.lang.illegalStateException** in logs, this indicates that spring cloud service cannot locate properties from config server.
-![Screenshot of ASC portal](media/spring-cloud-quickstart-setup-config-server/setup-config-server-1.png)
+
+    ![Screenshot of ASC portal](media/spring-cloud-quickstart-setup-config-server/setup-config-server-1.png)
+
 2. Go to the service **Overview** page and select **Diagnose and solve problems**. Select **Config Server** detector.
-![Screenshot of ASC portal](media/spring-cloud-quickstart-setup-config-server/setup-config-server-2.png)
+
+    ![Screenshot of ASC portal](media/spring-cloud-quickstart-setup-config-server/setup-config-server-2.png)
+
 3. Click **Config Server Health Check**.
-![Screenshot of ASC portal](media/spring-cloud-quickstart-setup-config-server/setup-config-server-3.png)
+
+    ![Screenshot of ASC portal](media/spring-cloud-quickstart-setup-config-server/setup-config-server-3.png)
+
 4. Click **Config Server Status** to see more details from the detector.
-![Screenshot of ASC portal](media/spring-cloud-quickstart-setup-config-server/setup-config-server-4.png)
+
+    ![Screenshot of ASC portal](media/spring-cloud-quickstart-setup-config-server/setup-config-server-4.png)
 
 ---
 ::: zone-end
