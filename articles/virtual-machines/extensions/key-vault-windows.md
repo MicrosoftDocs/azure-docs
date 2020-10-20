@@ -219,6 +219,11 @@ Please be aware of the following restrictions/requirements:
 
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell.
 
+### Frequently Asked Questions
+
+* Is there is a limit on the number of observedCertificates you can setup?
+  No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
+
 ## Azure PowerShell
 ```powershell
 Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>

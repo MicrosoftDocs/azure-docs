@@ -146,7 +146,7 @@ You can also use a third-party solution to discover and identify unapproved soft
 
 - [How to use Azure Security Center adaptive application controls](../../security-center/security-center-adaptive-application.md)
 
-- [Understand Azure Automation Change Tracking and Inventory](../../automation/change-tracking.md)
+- [Understand Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md)
 
 - [How to control PowerShell script execution in Windows environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 

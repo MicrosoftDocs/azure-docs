@@ -59,7 +59,7 @@ To identify the administrator accounts for a database, open the Azure portal, an
 
 ![SQL Server Admins](./media/logins-create-manage/sql-admins.png)
 
-![SQL Server Admins](./media/logins-create-manage/sql-admins2.png)
+![Screenshot that highlights the Properties menu option.](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
 > The admin login name can't be changed after it has been created. To reset the password for the server admin, go to the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**. To reset the password for the SQL Managed Instance, go to the Azure portal, click the instance, and click **Reset password**. You can also use PowerShell or the Azure CLI.
