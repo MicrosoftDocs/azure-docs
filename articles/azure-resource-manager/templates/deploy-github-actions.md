@@ -35,13 +35,19 @@ The file has two sections:
 
 You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
+Create a resource group if you do not already have one. 
+
+```azurecli-interactive
+    az group -n {MyResourceGroup}
+```
+
 Replace the placeholder `myApp` with the name of your application. 
 
 ```azurecli-interactive
-   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
+   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
 ```
 
-In the example above, replace the placeholders with your subscription ID and resource group name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later.
+In the example above, replace the placeholders with your subscription ID and resource group name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later. You will only need the sections with the `clientId`, `clientSecret`, `subscriptionId`, and `tenantId` values. 
 
 ```output 
   {
@@ -68,9 +74,9 @@ You need to create secrets for your Azure credentials, resource group, and subsc
 
 1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
 
-1. Create another secret named `AZURE_RG`. Add the name of your resource group to the secret's value field. 
+1. Create another secret named `AZURE_RG`. Add the name of your resource group to the secret's value field (example: `myResourceGroup`). 
 
-1. Create an additional secret named `AZURE_SUBSCRIPTION`. Add your subscription ID to the secret's value field. 
+1. Create an additional secret named `AZURE_SUBSCRIPTION`. Add your subscription ID to the secret's value field (example: `90fd3f9d-4c61-432d-99ba-1273f236afa2`). 
 
 ## Add Resource Manager template
 
@@ -109,17 +115,19 @@ The workflow file must be stored in the **.github/workflows** folder at the root
             creds: ${{ secrets.AZURE_CREDENTIALS }}
      
           # Deploy ARM template
-        - uses: azure/arm-deploy@v1
         - name: Run ARM deploy
+          uses: azure/arm-deploy@v1
           with:
             subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
             resourceGroupName: ${{ secrets.AZURE_RG }}
             template: ./azuredeploy.json
-            parameters: storageAccountType=Standard_LRS
+            parameters: storageAccountType=Standard_LRS 
         
           # output containerName variable from template
         - run: echo ${{ steps.deploy.outputs.containerName }}
     ```
+    > [!NOTE]
+    > You can specify a JSON format parameters file instead in the ARM Deploy (example: `.azuredeploy.parameters.json`).  
 
     The first section of the workflow file includes:
 
