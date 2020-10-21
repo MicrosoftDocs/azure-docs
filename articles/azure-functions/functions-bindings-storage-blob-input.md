@@ -170,6 +170,9 @@ In the *function.json* file, the `queueTrigger` metadata property is used to spe
 
 The [configuration](#configuration) section explains these properties.
 
+> [!NOTE]
+> If you want to read binary data from the blob, make sure to specify `dataType` as `binary`. The default value for `dataType` is `string`, which means that data will be interpreted as unicode.
+
 Here's the Python code:
 
 ```python
@@ -304,6 +307,7 @@ The following table explains the binding configuration properties that you set i
 |**name** | n/a | The name of the variable that represents the blob in function code.|
 |**path** |**BlobPath** | The path to the blob. |
 |**connection** |**Connection**| The name of an app setting that contains the [Storage connection string](../storage/common/storage-configure-connection-string.md) to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**dataType**| n/a | For dynamically typed languages, specifies the underlying data type. Possible values are `string`, `binary`, or `stream`. More details [here](functions-triggers-bindings?tabs=python#trigger-and-binding-definitions) |
 |n/a | **Access** | Indicates whether you will be reading or writing. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
