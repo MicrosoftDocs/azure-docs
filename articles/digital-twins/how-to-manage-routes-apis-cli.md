@@ -65,7 +65,7 @@ Once you have created the topic, you can link it to Azure Digital Twins with the
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Now, the event grid topic is available as an endpoint inside of Azure Digital Twins, under the name specified with the `--endpoint-name` argument. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#event-routes-with-apis-and-the-c-sdk) using the Azure Digital Twins service API.
+Now, the event grid topic is available as an endpoint inside of Azure Digital Twins, under the name specified with the `--endpoint-name` argument. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route) using the Azure Digital Twins service API.
 
 ### Create an Event Hubs or Service Bus endpoint
 
@@ -91,14 +91,14 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
 
-In order to create an endpoint with dead-lettering enabled, you must use the [ARM APIs](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint. 
+In order to create an endpoint with dead-lettering enabled, you must use the [ARM APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint. 
 
 Before setting the dead-letter location, you must have a storage account with a container. You provide the URL for this container when creating the endpoint. The dead-letter is provided as a container URL with a SAS token. That token needs only `write` permission for the destination container within the storage account. The fully formed URL will be in the format of:
 `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](/azure/storage/common/storage-sas-overview)
 
-To learn more about dead-lettering, see [Concepts: Event Routes](./concepts-route-events.md#dead-letter-events)
+To learn more about dead-lettering, see [*Concepts: Event routes*](concepts-route-events.md#dead-letter-events).
 
 #### Configuring the endpoint
 
@@ -116,7 +116,7 @@ When creating an endpoint, add a `deadLetterSecret` to the `properties` object i
 }
 ```
 
-For more information, see the Azure Digital Twins REST API documentation: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+For more information, see the Azure Digital Twins REST API documentation: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### Message storage schema
 
@@ -126,7 +126,7 @@ Dead-lettered messages will be stored in the following format in your storage ac
 
 Dead-lettered messages will match the schema of the original event that was intended to be delivered to your original endpoint.
 
-Here is an example of a dead-letter message for a [twin create notification](./how-to-interpret-event-data.md#digital-twin-life-cycle-notifications):
+Here is an example of a dead-letter message for a [twin create notification](how-to-interpret-event-data.md#digital-twin-life-cycle-notifications):
 
 ```json
 {
@@ -152,7 +152,7 @@ Here is an example of a dead-letter message for a [twin create notification](./h
 }
 ```
 
-## Event routes (with APIs and the C# SDK)
+## Create an event route
 
 To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [*Concepts: Routing Azure Digital Twins events*](concepts-route-events.md).
 
@@ -165,7 +165,7 @@ The samples in this section use the [.NET (C#) SDK](https://www.nuget.org/packag
 >
 > If you are scripting this flow, you may want to account for this by building in 2-3 minutes of wait time for the endpoint service to finish deploying before moving on to route setup.
 
-### Create an event route
+### Creation code with APIs and the C# SDK
 
 Event routes are defined using [data plane APIs](how-to-use-apis-sdks.md#overview-data-plane-apis). 
 
@@ -184,7 +184,7 @@ One route should allow multiple notifications and event types to be selected.
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");
-er.Filter("true"); //Filter allows all messages
+er.Filter = "true"; //Filter allows all messages
 await client.CreateEventRoute("routeName", er);
 ```
 
@@ -206,7 +206,7 @@ try
     Pageable <EventRoute> result = client.GetEventRoutes();
     foreach (EventRoute r in result)
     {
-        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointId} with filter {r.Filter} ");
+        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
     }
     Console.WriteLine("Deleting routes:");
     foreach (EventRoute r in result)
@@ -221,7 +221,7 @@ catch (RequestFailedException e)
 }
 ```
 
-### Filter events
+## Filter events
 
 Without filtering, endpoints receive a variety of events from Azure Digital Twins:
 * Telemetry fired by [digital twins](concepts-twins-graph.md) using the Azure Digital Twins service API
@@ -231,7 +231,7 @@ Without filtering, endpoints receive a variety of events from Azure Digital Twin
 
 You can restrict the events being sent by adding a **filter** for an endpoint to your event route.
 
-To add a filter, you can use a PUT request to *https://{YourHost}/EventRoutes/myNewRoute?api-version=2020-05-31-preview* with the following body:
+To add a filter, you can use a PUT request to *https://{YourHost}/EventRoutes/myNewRoute?api-version=2020-10-31* with the following body:
 
 ```json  
 {
