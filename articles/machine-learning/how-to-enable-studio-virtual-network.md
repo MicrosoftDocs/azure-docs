@@ -124,7 +124,7 @@ The designer uses the storage account attached to your workspace to store output
 To set a new default storage for a pipeline:
 
 1. In a pipeline draft, select the **Settings gear icon** near the title of your pipeline.
-1. Select **Select default datastore**.
+1. Select the **Select default datastore**.
 1. Specify a new datastore.
 
 You can also override the default datastore on a per-module basis. This gives you control over the storage location for each individual module.
