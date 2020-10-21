@@ -513,4 +513,4 @@ Learn about the following Azure Cosmos DB concepts:
 - [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 - [How to configuremulti-region writes in your applications](how-to-multi-master.md).
 - [Partitioning and data distribution](partitioning-overview.md)
-- [Indexing in Azure Cosmos DB](indexing-policies.md)
+- [Indexing in Azure Cosmos DB](/azure/cosmos-db/index-policy)
