@@ -549,15 +549,57 @@ To test your logic app, follow these steps to start a debugging session and find
    > [!TIP]
    > If the run status doesn't appear, try refreshing the overview page by selecting **Refresh**.
 
+   | Run status | Description |
+   |------------|-------------|
+   | Aborted | The workflow run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
+   | Cancelled | The workflow was running but received a cancel request. |
+   | Failed | At least one action in the workflow run failed. No subsequent actions in the workflow were set up to handle the failure. |
+   | Running | The workflow is currently running, but this status can also appear for workflows that are throttled due to limits or the current pricing plan. For more information, see the [action limits on the pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). If you set up [diagnostics logging](monitor-logic-apps.md), you can get information about any throttle events that happen. |
+   | Skipped | |
+   | Succeeded | All actions in the workflow run succeeded. If any failures happened in an action, a subsequent action in the workflow handled that failure. |
+   | Succeeded with retries | |
+   | Timed out | The workflow run stopped due to an action that timed out. |
+   | Waiting | The workflow run hasn't started or is paused, for example, due to an earlier workflow that's still running. |
+   ||||
+
 1. To review the statuses for each step in a specific run and the step's inputs and outputs, select the ellipses (**...**) button for that run, and select **Show Run**.
 
    ![Screenshot that shows your workflow's run history row with ellipses button and "Show Run" selected](./media/create-stateful-stateless-workflows-visual-studio-code/show-run-history.png)
 
-   Visual Studio Code shows the run statuses for each action.
+   Visual Studio Code opens the monitoring view and shows the status for each step in the run.
 
-1. To review the inputs and outputs for each step, expand the step that you want to inspect. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
+   ![Screenshot that shows each step in the workflow run and their status](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
+
+   Here are the possible statuses that each step in the workflow can have:
+
+   | Action status | Icon | Description |
+   |---------------|------|-------------|
+   | Aborted | ![Icon for "Aborted" action status][aborted-icon] | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
+   | Cancelled | ![Icon for "Cancelled" action status][cancelled-icon] | The action was running but received a cancel request. |
+   | Failed | ![Icon for "Failed" action status][failed-icon] | The action failed. |
+   | Running | ![Icon for "Running" action status][running-icon] | The action is currently running. |
+   | Skipped | ![Icon for "Skipped" action status][skipped-icon] | |
+   | Succeeded | ![Icon for "Succeeded" action status][succeeded-icon] | The action succeeded. |
+   | Succeeded with retries | ![Icon for "Succeeded with retries" action status][succeeded-with-retries-icon] | 
+   | Timed out | ![Icon for "Timed out" action status][timed-out-icon] | The workflow run stopped due to an action that timed out. |
+   | Waiting | ![Icon for "Waiting" action status][waiting-icon] | The workflow run hasn't started or is paused, for example, due to an earlier workflow that's still running. |
+   ||||
+
+   [aborted-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/aborted.png
+   [cancelled-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/cancelled.png
+   [failed-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/failed.png
+   [running-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/running.png
+   [skipped-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/skipped.png
+   [succeeded-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/succeeded.png
+   [succeeded-with-retries-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/succeeded-with-retries.png
+   [timed-out-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/timed-out.png
+   [waiting-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/waiting.png
+
+1. To review the inputs and outputs for each step, select the step that you want to inspect.
 
    ![Screenshot that shows the status for each step in the workflow plus the inputs and outputs in the expanded "Send an email" action](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details.png)
+
+1. To further review the raw inputs and outputs for that step, select **Show raw inputs** or **Show raw outputs**.
 
 1. To stop the debugging session, on the **Run** menu, select **Stop Debugging** (Shift + F5).
 
