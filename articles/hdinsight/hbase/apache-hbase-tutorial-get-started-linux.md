@@ -206,7 +206,8 @@ You can query data in HBase tables by using [Apache Hive](https://hive.apache.or
 
 The REST API is secured via [basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You shall always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
 
-> In order to enable HBase REST APIs in the HDInsight cluster, you will need to add below custom startup script under Script Action. You can do that while creating the cluster and also after creating the cluster in the Script Action section. Make sure to select Node Type as Region Servers to ensure the script executes only in HBase Region Servers.
+1. To enable HBase REST APIs in the HDInsight cluster, add the following custom startup script to the Script Action section. You can add the Script Action while creating the cluster or after the cluster has been created. For the Node Type, select Region Servers to ensure the script executes only in HBase Region Servers.
+
 
 ```bash
 #! /bin/bash
