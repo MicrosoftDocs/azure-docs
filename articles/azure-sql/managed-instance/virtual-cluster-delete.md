@@ -24,7 +24,7 @@ If you don't want to wait 12 hours and prefer to delete the virtual cluster and 
 
 > [!IMPORTANT]
 > - The virtual cluster should contain no managed instances for the deletion to be successful. 
-> - Deletion of a virtual cluster is a long-running operation lasting for about 1.5 hours (see [Managed instance management operations](./sql-managed-instance-paas-overview.md#managed-instance-management-operations) for up-to-date virtual cluster delete time). The virtual cluster will still be visible in the portal until this process is completed.
+> - Deletion of a virtual cluster is a long-running operation lasting for about 1.5 hours (see [Managed instance management operations](./sql-managed-instance-paas-overview.md#management-operations) for up-to-date virtual cluster delete time). The virtual cluster will still be visible in the portal until this process is completed.
 
 ## Delete a virtual cluster from the Azure portal
 
