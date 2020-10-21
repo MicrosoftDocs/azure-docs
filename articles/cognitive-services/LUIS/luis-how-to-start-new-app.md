@@ -20,7 +20,7 @@ There are a couple of ways to create a LUIS app. You can create a LUIS app in th
 
 You can create a new app in the portal in several ways:
 
-* Start with an empty app and create intents, utterances, and entities.
+* Start with an empty app and [create intents](luis-how-to-add-intents.md), utterances, and [entities](luis-how-to-add-entities.md).
 * Start with an empty app and add a [prebuilt domain](luis-how-to-use-prebuilt-domains.md).
 * Import a LUIS app from a `.lu` or `.json` file that already contains intents, utterances, and entities.
 
@@ -35,26 +35,25 @@ You can create a new app with the authoring APIs in a couple of ways:
 <a name="import-new-app"></a>
 <a name="delete-app"></a>
 
-
-[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
-
 ## Create new app in LUIS
 
-1. On **My Apps** page, select your **Subscription**, and  **Authoring resource** then **+ Create**. 
+After [signing in to LUIS](sign-in-luis-portal.md), you will land on My Apps Page where it will host all the apps you built and where you can create new apps at.
+
+1. On **My Apps** page, select your **Subscription**, and  **Authoring resource** then **+ New App**. 
 
 > [!div class="mx-imgBorder"]
-> ![LUIS apps list](./media/create-app-in-portal.png)
+> ![LUIS my apps page](./media/select-sub-and-resource.png)
 
-1. In the dialog box, enter the name of your application, such as `Pizza Tutorial`.
+1. In the dialog box, enter the name of your application, such as 'my app`.
 
-    ![Create new app dialog](./media/create-pizza-tutorial-app-in-portal.png)
+    ![Create new app dialog](./media/create-new-app-luis.png)
 
-1. Choose your application culture, and then select **Done**. The description and prediction resource are optional at this point. You can set then at any time in the **Manage** section of the portal.
+It is required to enter a name of an app and choose an application culture. It is optional to write a description for the app and associate it with a prediction resource.  If at any point you wish to associate your application to a prediction resource, you can go to the **Manage** section of you app in the **Azure Resources** tab.  and then select **Done**. 
 
     > [!NOTE]
     > The culture cannot be changed once the application is created.
 
-    After the app is created, the LUIS portal shows the **Intents** list with the `None` intent already created for you. You now have an empty app.
+After the app is created, the LUIS portal shows the **Intents** list with the `None` intent already created for you. You now have an empty app. Add more [intents](luis-how-to-add-intents.md) to your app.
 
     > [!div class="mx-imgBorder"]
     > ![Intents list with None intent created with no example utterances.](media/pizza-tutorial-new-app-empty-intent-list.png)
