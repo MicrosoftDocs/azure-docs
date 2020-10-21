@@ -33,6 +33,10 @@
     href: tutorial-private-endpoint-cosmosdb-portal.md
   - name: Connect to a web app
     href: tutorial-private-endpoint-webapp-portal.md
+    - name: SQL
+      items:
+      - name: Connect to a SQL server - Portal
+        href: tutorial-private-endpoint-sql-portal.md
 - name: Concepts
   items:
   - name: Private Endpoint
@@ -89,7 +93,7 @@
     - name: Database for PostgreSQL
       href: ../postgresql/concepts-data-access-and-security-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
     - name: SQL
-      href: ../azure-sql/database/private-endpoint-overview.md?toc=%2fazure%2fprivate-link%2ftoc.json
+      href: tutorial-private-endpoint-sql-portal.md
   - name: Developer Tools
     items: 
     - name: App Configuration
