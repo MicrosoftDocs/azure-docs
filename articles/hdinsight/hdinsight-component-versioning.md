@@ -129,6 +129,6 @@ For more information on which virtual machine SKUs to select for your cluster, s
 ## Next steps
 
 - [Cluster setup for Apache Hadoop, Spark, and more on HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-- [Work in Apache Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)
-- [Hortonworks release notes associated with Azure HDInsight versions](./hortonworks-release-notes.md)
 - [Enterprise Security Package](./enterprise-security-package.md)
+- [Hortonworks release notes associated with Azure HDInsight versions](./hortonworks-release-notes.md)
+- [Work in Apache Hadoop on HDInsight from a Windows PC](hdinsight-hadoop-windows-tools.md)
