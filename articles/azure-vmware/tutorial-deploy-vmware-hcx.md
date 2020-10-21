@@ -60,7 +60,9 @@ Infrastructure components must be running the required minimum version.
 
 * Configure [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) between on-premises and Azure VMware Solution SDDC ExpressRoute circuits.
 
-* All required ports should be open for communication between on-premises components and Azure VMware Solution SDDC. For more information, see [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
+* [All required ports](https://ports.vmware.com/home/VMware-HCX) should be open for communication between on-premises components and Azure VMware Solution SDDC.
+
+* For more information: [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
 
 
 ### IP addresses
@@ -167,7 +169,7 @@ You can connect (pair) the VMware HCX Cloud Manager in Azure VMware Solution wit
 1. Enter the Remote HCX URL or IP address that you noted earlier, the Azure VMware Solution cloudadmin@vsphere.local username, and the password. Then select **Connect**.
 
    > [!NOTE]
-   > The remote HCX URL is your Azure VMware Solution private cloud's HCX Cloud Manager IP address, which is the ".9" address of the management network. For example, if your vCenter is 192.168.4.2, then your HCX URL will be 192.168.4.9.
+   > To establish a site pair successfully, your HCX connector must be able to route to your HCX Cloud Manager IP over port 443.
    >
    > The password is the same password that you used to sign in to vCenter. You defined this password on the initial deployment screen.
 
@@ -267,6 +269,12 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 ### Create a service mesh
 
 Now it's time to configure a service mesh between on-premises and Azure VMware Solution SDDC.
+   >[!NOTE]
+   >To successfully establish a service mesh with AVS:
+   >
+   >Ports UDP 500/4500 are open between your on-prem HCX connector defined 'uplink' network profile addresses and AVS HCX Cloud'uplink' network profile addresses.
+   >
+   > Be sure to review [HCX required ports](https://ports.vmware.com/home/VMware-HCX)
 
 1. Under **Infrastructure**, select **Interconnect** > **Service Mesh** > **Create Service Mesh**.    
 
@@ -347,3 +355,4 @@ For more information on using HCX, go to the VMware technical documentation:
 
 * [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html)
 * [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
+* [HCX required ports](https://ports.vmware.com/home/VMware-HCX)
