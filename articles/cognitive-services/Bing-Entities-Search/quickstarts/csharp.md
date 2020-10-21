@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 05/08/2020
+ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
 ---
@@ -24,21 +24,20 @@ Although this application is written in C#, the API is a RESTful Web service com
 ## Prerequisites
 
 - Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
-
-- The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package. To install the NuGet package in Visual Studio:
-
-   1. Right-click your project in **Solution Explorer**.
-   2. Select **Manage NuGet Packages**.
-   3. Search for and select *Newtonsoft.Json*, and then install the package.
-
-- If you're using Linux/MacOS, this application can be run by using [Mono](https://www.mono-project.com/).
+- Or if you're using Linux or MacOS, you can follow this quickstart using [Visual Studio Code](https://code.visualstudio.com/) and [.NET Core](/dotnet/core/install/macos)
+- [Free Azure account](https://azure.microsoft.com/free/dotnet)
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## Create and initialize a project
 
-1. Create a new C# console solution in Visual Studio. Then, add the following namespaces into the main code file:
+1. Create a new C# console solution in Visual Studio. 
+1. Add the [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) NuGet package.
+    1. Right-click your project in **Solution Explorer**.
+    2. Select **Manage NuGet Packages**.
+    3. Search for and select *Newtonsoft.Json*, and then install the package.
+1. Then, add the following namespaces into the main code file:
     
     ```csharp
     using Newtonsoft.Json;

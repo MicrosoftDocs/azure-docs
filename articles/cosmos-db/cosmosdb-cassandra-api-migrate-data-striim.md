@@ -164,7 +164,7 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
 
    * **Tables** - Target tables must have primary keys and primary keys can not be updated.
 
-   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters1.png" alt-text="Configure target properties":::
+   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters1.png" alt-text="Screenshot that shows the configurable target properties.":::
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters2.png" alt-text="Configure target properties":::
 

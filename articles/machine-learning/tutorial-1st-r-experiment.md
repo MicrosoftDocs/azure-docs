@@ -68,7 +68,7 @@ Clone the https://github.com/Azure/azureml-sdk-for-r GitHub repository for a cop
 
 1. In RStudio, navigate to the "Terminal" tab and cd into the directory where you would like to clone the repository.
 
-1. Run "git clone https://github.com/Azure/azureml-sdk-for-r" in the terminal to clone the repository.
+1. Run `git clone https://github.com/Azure/azureml-sdk-for-r` in the terminal to clone the repository.
 
 1. In RStudio, navigate to the *vignettes* folder of the cloned *azureml-sdk-for-r* folder.  Under *vignettes*, select the *train-and-deploy-first-model.Rmd* file to find vignette used in this tutorial. The additional files used for the vignette are located in the *train-and-deploy-first-model* subfolder. Once you've opened the vignette, set the working directory to the file's location via **Session > Set Working Directory > To Source File Location**. 
 

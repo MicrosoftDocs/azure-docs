@@ -372,6 +372,10 @@ For more information on Azure Policy, see the [Azure Policy documentation](/azur
 
 For more information on the policies specific to Azure Machine Learning, see [Audit and manage compliance with Azure Policy](how-to-integrate-azure-policy.md).
 
+## Resource locks
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
+
 ## Next steps
 
 * [Secure Azure Machine Learning web services with TLS](how-to-secure-web-service.md)

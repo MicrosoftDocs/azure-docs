@@ -493,6 +493,8 @@
           items:
           - name: Generalized
             href: ../vm-generalized-image-version-cli.md
+          - name: Specialized
+            href: ../vm-specialized-image-version-cli.md
         - name: Update image resources
           href: ../update-image-resources-cli.md
         - name: App registration for sharing
@@ -577,6 +579,8 @@
       href: build-image-with-packer.md
     - name: Download existing disk
       href: download-vhd.md
+    - name: Managed disk from image version
+      href: ../managed-disk-from-image-version.md
   - name: Secure VMs
     items:
     - name: Recommendations

@@ -14,7 +14,7 @@ ms.author: mbaldwin
 Key Vault allows you to securely access sensitive information from within your applications:
 
 - Keys, secrets, and certificates are protected without having to write the code yourself and you're easily able to use them from your applications.
-- You are able to have customers to own and manage their own keys, secrets, and certificates so you can concentrate on providing the core software features. In this way, your applications will not own the responsibility or potential liability for your customers' tenant keys, secrets, and certificates.
+- You allow customers to own and manage their own keys, secrets, and certificates so you can concentrate on providing the core software features. In this way, your applications will not own the responsibility or potential liability for your customers' tenant keys, secrets, and certificates.
 - Your application can use keys for signing and encryption yet keeps the key management external from your application. For more information about keys, see [About Keys](../keys/about-keys.md)
 - You can manage credentials like passwords, access keys,sas tokens storing them in Key Vault as secrets, see [About Secrets](../secrets/about-secrets.md)
 - Manage certificates. For more information, see [About Certificates](../certificates/about-certificates.md)

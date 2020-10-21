@@ -9,7 +9,7 @@ ms.tgt_pltfrm:
 ms.devlang:
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 08/11/2020
+ms.date: 10/13/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -171,6 +171,9 @@ On the **Add package store** pane, complete the following steps.
    1. For **Package store name**, enter the name of your package store. 
 
    1. For **Package store linked service**, select your existing linked service that stores the access information for file system/Azure Files/Azure SQL Managed Instance where your packages are deployed or create a new one by selecting **New**. On the **New linked service** pane, complete the following steps. 
+
+      > [!NOTE]
+      > You can use either **Azure File Storage** or **File System** linked services to access Azure Files. If you use **Azure File Storage** linked service, Azure-SSIS IR package store supports only **Basic** (not **Account key** nor **SAS URI**) authentication method for now. To use **Basic** authentication on **Azure File Storage** linked service, you can append `?feature.upgradeAzureFileStorage=false` to the ADF portal URL in your browser. Alternatively, you can use **File System** linked service to access Azure Files instead. 
 
       ![Deployment settings for linked services](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
 

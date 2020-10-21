@@ -28,7 +28,7 @@ If you are unable to complete the process or are experiencing unexpected behavio
 ## Common Issues
 Below are some common issues that may occur during the process. 
 
-- **I don’t know my Microsoft Partner Network ID (MPN ID) or I don’t who the primary contact for the account is** 
+- **I don’t know my Microsoft Partner Network ID (MPN ID) or I don’t know who the primary contact for the account is** 
     1. Navigate to the [MPN enrollment page](https://partner.microsoft.com/dashboard/account/v3/enrollment/joinnow/basicpartnernetwork/new)
     1. Sign in with a user account in the org's primary Azure AD tenant 
     1. If an MPN account already exists, this will be recognized and you will be added to the account 
