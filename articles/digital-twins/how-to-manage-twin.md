@@ -87,7 +87,7 @@ Console.WriteLine("The twin is created successfully");
 
 ## Get data for a digital twin
 
-You can access the details of any digital twin by calling the GetDigitalTwin() method like this:
+You can access the details of any digital twin by calling the `GetDigitalTwin()` method like this:
 
 ```csharp
 object result = await client.GetDigitalTwin(id);
@@ -189,7 +189,7 @@ You can read more about the serialization helper classes in [*How-to: Use the Az
 
 ## Update a digital twin
 
-To update properties of a digital twin, you write the information you want to replace in [JSON Patch](http://jsonpatch.com/) format. In this way, you can replace multiple properties at once. You then pass the JSON Patch document into an `Update` method:
+To update properties of a digital twin, you write the information you want to replace in [JSON Patch](http://jsonpatch.com/) format. In this way, you can replace multiple properties at once. You then pass the JSON Patch document into an `UpdateDigitalTwin` method:
 
 ```csharp
 await client.UpdateDigitalTwin(id, patch);
@@ -260,7 +260,7 @@ To patch properties in a digital twin's components, you can use path syntax in J
 
 ### Update a digital twin's model
 
-The `Update` function can also be used to migrate a digital twin to a different model. 
+The `UpdateDigitalTwin()` function can also be used to migrate a digital twin to a different model. 
 
 For example, consider the following JSON Patch document that replaces the digital twin's metadata `$model` field:
 
@@ -403,24 +403,21 @@ namespace minimal
         static async Task Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-
-            string clientId = "<your-client-id>";
-            string tenantId = "<your-tenant-id>";
             string adtInstanceUrl = "https://<your-instance-hostname>";
-            var credentials = new InteractiveBrowserCredential(tenantId, clientId);
+            var credentials = new DefaultAzureCredential();
             Console.WriteLine();
             Console.WriteLine($"Upload a model");
             BasicDigitalTwin twin = new BasicDigitalTwin();
             var typeList = new List<string>();
             string twin_Id = "myRoomId";
-            string dtdl = File.ReadAllText("room.json");
+            string dtdl = File.ReadAllText("Room.json");
             typeList.Add(dtdl);
             // Upload the model to the service
             DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
             Console.WriteLine($"Service client created – ready to go");
             await client.CreateModelsAsync(typeList);
             twin.Metadata = new DigitalTwinMetadata();
-            twin.Metadata.ModelId = "dtmi:com:contoso:room;1";
+            twin.Metadata.ModelId = "dtmi:com:contoso:Room;1";
             // Initialize properties
             Dictionary<string, object> props = new Dictionary<string, object>();
             props.Add("Temperature", 35.0);

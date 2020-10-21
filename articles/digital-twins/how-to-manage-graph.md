@@ -71,7 +71,7 @@ await CreateRelationship(client, srcId, targetId, "contains");
 ```
 If you wish to create multiple relationships, you can repeat calls to the same method, passing different relationship types into the argument. 
 
-For more information on the helper class `BasicRelationship`, see [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
+For more information on the helper class `BasicRelationship`, see [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md#serialization-helpers).
 
 ### Create multiple relationships between twins
 
@@ -306,10 +306,8 @@ namespace minimal
 
         private static DigitalTwinsClient createDTClient()
         {
-            string clientId = "<your-client-id>";
-            string tenantId = "<your-tenant-id>";
             string adtInstanceUrl = "https://<your-instance-hostname>";
-            var credentials = new InteractiveBrowserCredential(tenantId, clientId);
+            var credentials = new DefaultAzureCredential();
             DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
             return client;
         }
@@ -405,7 +403,7 @@ Here is the console output of the above program:
 :::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Console output showing the twin details, incoming and outgoing relationships of the twins." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
 
 > [!TIP]
-> The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the [*Visualization*](how-to-manage-graph#Visualization) section of this article. 
+> The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the [*Visualization*](how-to-manage-graph.md#visualization) section of this article. 
 
 ### Create a twin graph from a spreadsheet
 
