@@ -27,9 +27,9 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 3. Choose options from the drop-down lists. 
 
-   As you modify the value of these drop-down lists, the cost estimate changes. That estimate appears in the upper corner as well as the bottom of the estimate. 
-    
-   ![Monitor costs with Cost Analysis pane](media/storage-plan-manage-costs/price-calculator-storage-type.png)
+   As you modify the value of these drop-down lists, the cost estimate changes. That estimate appears in the upper corner as well as the bottom of the estimate.
+
+   ![Screenshot showing your estimate](media/storage-plan-manage-costs/price-calculator-storage-type.png)
 
    As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations. 
 
@@ -84,13 +84,13 @@ To view Azure Storage costs in cost analysis:
 
 2. Open the **Cost Management + Billing** window, select **Cost management** from the menu and then select **Cost analysis**. You can then change the scope for a specific subscription from the **Scope** dropdown.
 
-   ![Monitor costs with Cost Analysis pane](./media/storage-plan-manage-costs/cost-analysis-pane.png)
+   ![Screenshot showing scope](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
 4. To view only costs for Azure Storage, select **Add filter** and then select **Service name**. Then, choose **storage** from the list. 
 
    Here's an example showing costs for just Azure Storage:
 
-   ![Monitor storage costs with Cost Analysis pane](./media/storage-plan-manage-costs/cost-analysis-pane-storage.png)
+   ![Screenshot showing filter by storage](./media/storage-plan-manage-costs/cost-analysis-pane-storage.png)
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and by resource group also appear. 
 You can add other filters as well (For example: a filter to see costs for specific storage accounts).

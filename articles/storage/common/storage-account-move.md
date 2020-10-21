@@ -62,7 +62,7 @@ To export a template by using Azure portal:
 
 To export a template by using PowerShell:
 
-1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
+1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -162,7 +162,7 @@ To deploy the template by using PowerShell:
          }]          
     ```
 
-    You can obtain region codes by running the [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) command.
+    You can obtain region codes by running the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command.
 
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
@@ -191,7 +191,7 @@ Deploy the template to create a new storage account in the target region.
 
 # [PowerShell](#tab/azure-powershell)
 
-1. Obtain the subscription ID where you want to deploy the target public IP with [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
+1. Obtain the subscription ID where you want to deploy the target public IP with [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
 
    ```azurepowershell-interactive
    Get-AzSubscription

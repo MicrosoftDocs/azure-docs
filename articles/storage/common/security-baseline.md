@@ -279,9 +279,9 @@ Also, Enable Advanced Threat Protection for your Azure Storage account. Advanced
 
 **Guidance**: Azure AD has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups. 
 
-- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -637,7 +637,7 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 - [How to create queries with Azure Graph](/azure/governance/resource-graph/first-query-portal)
 
-- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 - [Understand Azure RBAC](/azure/role-based-access-control/overview)
 
@@ -789,7 +789,7 @@ Secure transfer to storage accounts should be enabled
 
 Use recommendations from Azure Security Center as a secure configuration baseline for your Storage accounts. 
 
-- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 - [How to configure and manage Azure Policy](/azure/governance/policy/tutorials/create-and-manage)
 
@@ -829,7 +829,7 @@ Use recommendations from Azure Security Center as a secure configuration baselin
 
 **Guidance**: Use Azure Repos to securely store and manage your code like custom Azure policies, Azure Resource Manager templates, Desired State Configuration scripts etc. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -977,7 +977,7 @@ You can also enable Azure automation to take regular snapshots of the blobs.
 
 Customer managed / provided keys can be backed within Azure Key Vault using Azure CLI or PowerShell. 
 
-- [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Azure Security Center monitoring**: Yes
 
@@ -992,13 +992,13 @@ Restore-AzKeyVaultKey
 Restore-AzKeyVaultManagedStorageAccount
 Restore-AzKeyVaultSecret 
 
-- [How to restore Key Vault Certificates](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
+- [How to restore Key Vault Certificates](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate)
 
-- [How to restore Key Vault Keys](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to restore Key Vault Keys](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 - [How to restore Key Vault Managed Storage Accounts](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [How to restore Key Vault Secrets](/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0)
+- [How to restore Key Vault Secrets](/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret)
 
 - [AzCopy is a command-line utility that you can use to copy blobs, files and table data to or from a storage account](/azure/storage/common/storage-use-azcopy-v10)
 
