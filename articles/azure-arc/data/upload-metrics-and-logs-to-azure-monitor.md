@@ -41,13 +41,13 @@ Prior to uploading metrics or user data to Azure, you need to ensure that your A
 
 To verify the resource provider, run the following command:
 
-```console
+```azurecli
 az provider show -n Microsoft.AzureData -o table
 ```
 
 If the resource provider is not currently registered in your subscription, you can register it. To register it, run the following command.  This command may take a minute or two to complete.
 
-```console
+```azurecli
 az provider register -n Microsoft.AzureData --wait
 ```
 
@@ -62,13 +62,13 @@ Follow these commands to create your metrics upload service principal:
 
 To create a service principal, update the following example. Replace `<ServicePrincipalName>` with the name of your service principal and run the command:
 
-```console
+```azurecli
 az ad sp create-for-rbac --name <ServicePrincipalName>
 ``` 
 
 If you created the service principal earlier, and just need to get the current credentials, run the following command to reset the credential.
 
-```console
+```azurecli
 az ad sp credential reset --name <ServicePrincipalName>
 ```
 
@@ -131,7 +131,7 @@ Run this command to assign the service principal to the `Monitoring Metrics Publ
 > [!NOTE]
 > You need to use double quotes for role names when running from a Windows environment.
 
-```console
+```azurecli
 az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/<Subscription ID>
 az role assignment create --assignee <appId> --role "Contributor" --scope subscriptions/<Subscription ID>
 ```
@@ -139,7 +139,7 @@ az role assignment create --assignee <appId> --role "Contributor" --scope subscr
 
 ::: zone pivot="client-operating-system-macos-and-linux"
 
-```console
+```azurecli
 az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
 az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
 ```

@@ -35,7 +35,7 @@ To create a log analytics workspace, execute these commands to create a Log Anal
 > [!NOTE]
 > Skip this step if you already have a workspace.
 
-```console
+```azurecli
 az monitor log-analytics workspace create --resource-group <resource group name> --workspace-name <some name you choose>
 ```
 
