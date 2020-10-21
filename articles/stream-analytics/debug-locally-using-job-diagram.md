@@ -82,7 +82,7 @@ In this section, you explore the metrics available for each part of the diagram.
   
 #### Output sinks (Live output)
 
-![Job diagram local output sinks](./media/debug-locally-using-job-diagram/live-output.png)
+![Job diagram that shows the local output sinks.](./media/debug-locally-using-job-diagram/live-output.png)
 
 |Metric|Description|
 |-|-|

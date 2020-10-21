@@ -43,6 +43,12 @@
   - name: Manage tag governance
     displayName: modify, append, effects
     href: ./tutorials/govern-tags.md
+  - name: Implement Azure Policy as Code with GitHub
+    displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
+    href: ./tutorials/policy-as-code-github.md
+  - name: "Learn: Control and audit your resources by using Azure Policy"
+    displayName: governance, module
+    href: /learn/modules/build-cloud-governance-strategy-azure/8-control-audit-resources-azure-policy
 - name: Samples
   items:
   - name: Index
@@ -113,7 +119,7 @@
   - name: Regulatory Compliance
     displayName: standards, domains, controls
     href: ./concepts/regulatory-compliance.md
-  - name: Design Policy as Code workflows
+  - name: Design Azure Policy as Code workflows
     displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
     href: ./concepts/policy-as-code.md
   - name: Kubernetes integration
@@ -240,6 +246,8 @@
       href: /rest/api/resources/policyassignments
     - name: Policy Definitions
       href: /rest/api/resources/policydefinitions
+    - name: Policy Exemptions
+      href: /rest/api/resources/policyexemptions
     - name: Initiatives Definitions
       href: /rest/api/resources/policysetdefinitions
     - name: Policy Tracked Resources

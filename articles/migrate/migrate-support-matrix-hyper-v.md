@@ -78,4 +78,4 @@ The following table summarizes port requirements for assessment.
 
 ## Next steps
 
-[Prepare for Hyper-V VM assessment](tutorial-prepare-hyper-v.md)
+[Prepare for Hyper-V VM assessment](./tutorial-discover-hyper-v.md)

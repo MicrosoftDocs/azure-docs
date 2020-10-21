@@ -14,7 +14,7 @@ This article provides information about known issues associated with Azure Digit
 
 ## "400 Client Error: Bad Request" in Cloud Shell
 
-Commands in Cloud Shell may intermittently fail with the error "400 Client Error: Bad Request for url: http://localhost:50342/oauth2/token" followed by full stack trace.
+Commands in Cloud Shell running at *https://shell.azure.com* may intermittently fail with the error "400 Client Error: Bad Request for url: http://localhost:50342/oauth2/token", followed by full stack trace.
 
 For Azure Digital Twins specifically, this affects the following command groups:
 * `az dt route`
@@ -25,7 +25,11 @@ For Azure Digital Twins specifically, this affects the following command groups:
 
 This can be resolved by rerunning the `az login` command in Cloud Shell and completing subsequent login steps. After this, you should be able to rerun the command.
 
-An alternative solution is to [install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) on your machine so you can run Azure CLI commands locally. The local CLI does not experience this issue.
+Alternatively, you can open the Cloud Shell pane in the Azure portal and complete your Cloud Shell work from there:
+
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="View of the Azure portal with the 'Cloud Shell' icon highlighted, and the Cloud Shell appearing at the bottom of the portal window":::
+
+Finally, another solution is to [install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) on your machine so you can run Azure CLI commands locally. The local CLI does not experience this issue.
 
 ### Possible causes
 
@@ -55,7 +59,7 @@ For users logged in with a personal [Microsoft account (MSA)](https://account.mi
 
 ## Issue with interactive browser authentication
 
-When writing authentication code in your Azure Digital Twins applications using version **1.2.0** of the **[Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) library**, you may experience issues with the [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) method.
+When writing authentication code in your Azure Digital Twins applications using version **1.2.0** of the **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet) library**, you may experience issues with the [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) method.
 
 This is not the latest version of the library. The latest version is **1.2.2**.
 

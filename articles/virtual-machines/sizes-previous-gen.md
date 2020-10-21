@@ -202,7 +202,7 @@ The DC-series uses the latest generation of 3.7GHz Intel XEON E-2176G Processor 
 
 > [!IMPORTANT]
 >
-> DC-series VMs are [generation 2 VMs](./linux/generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
+> DC-series VMs are [generation 2 VMs](./generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
 
 
 ### DS-series  
