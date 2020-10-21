@@ -54,7 +54,7 @@ Next, gather the following information:
 
 **Directory ID** of your Azure AD B2C directory (also known as the tenant ID).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a user with the *User administrator* Azure AD role (or higher) and the **Owner** RBAC role on the targeted subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as a user with the *User administrator* Azure AD role (or higher) and the **Owner** Azure role-based-access control (Azure RBAC) role for the targeted subscription.
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 1. Select **Azure Active Directory**, select **Properties**.
 1. Record the **Directory ID**.
@@ -86,7 +86,7 @@ Download the Azure Resource Manager template and parameter files:
 Next, update the parameters file with the values you recorded earlier. The following JSON snippet shows an example of an Azure Resource Manager template parameters file. For `authorizations.value.roleDefinitionId`, use the [built-in role](../role-based-access-control/built-in-roles.md) value for the *Contributor role*, `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
 >[!NOTE]
-> To onboard multiple B2C tenants logs to the same Log Analytics Workspace (or Storage Account or Event Hub) separate deployments with different values in **mspOfferName** are required.
+> To onboard multiple Azure AD B2C tenant logs to the same Log Analytics Workspace (or Azure storage account, or event hub), you'll need separate deployments with different **mspOfferName** values.
 
 ```json
 {
@@ -125,7 +125,7 @@ Once you've updated your parameters file, deploy the Azure Resource Manager temp
 Sign in to the directory containing your subscription by using [Connect-AzAccount](/powershell/azure/authenticate-azureps). Use the `-tenant` flag to force authentication to the correct directory.
 
 >[!NOTE]
-> The account used to run the ARM deployment needs to have the **Owner** RBAC role to the targeted subscription
+> The account used to run the Azure Resource Manager (ARM) deployment must be assigned the **Owner** Azure RBAC role for the targeted subscription.
 
 ```PowerShell
 Connect-AzAccount -tenant contoso.onmicrosoft.com
@@ -200,7 +200,7 @@ After you deploy the template, it can take a few minutes for the resource projec
 Once you've deployed the template and have waited a few minutes for the resource projection to complete, associate your subscription to your Azure AD B2C directory with the following steps.
 
 1. **Sign out** of the Azure portal if you're currently signed in. This and the following step are done to refresh your credentials in the portal session.
-1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure AD B2C administrative account whose Id you used in the **PrincipalId** field in the ARM template (or who is a member of the group you used).
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Azure AD B2C administrative account whose Object ID you specified in the **PrincipalId** field in the Azure Resource Manager (ARM) template (or an account who is a member of the group you specified).
 1. Select the **Directory + Subscription** icon in the portal toolbar.
 1. Select the directory that contains your subscription.
 
