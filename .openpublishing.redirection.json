@@ -57959,6 +57959,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/support.md",
+      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/cognitive-services-support-options?context=/azure/cognitive-services/speech-service/context/context",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/authentication/active-directory-passwords-troubleshoot.md",
       "redirect_url": "/azure/active-directory/authentication/troubleshoot-sspr",
       "redirect_document_id": true
@@ -58863,6 +58868,7 @@
         "redirect_url": "/azure/active-directory/enterprise-users/users-search-enhanced",
         "redirect_document_id": true
     },
+
     {
         "source_path": "articles/active-directory/users-groups-roles/users-sharing-accounts.md",
         "redirect_url": "/azure/active-directory/enterprise-users/users-sharing-accounts",
