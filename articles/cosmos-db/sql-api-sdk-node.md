@@ -348,7 +348,7 @@ Not always the most visible changes, but they help our team ship better code, fa
 * Added the support for Time To Live(TTL) feature for documents.
 
 ### <a name="1.6.0"></a>1.6.0
-* Implemented [partitioned collections](partition-data.md) and [user-defined performance levels](performance-levels.md).
+* Implemented [partitioned collections](partitioning-overview.md) and [user-defined performance levels](performance-levels.md).
 
 ### <a name="1.5.6"></a>1.5.6
 * Fixed RangePartitionResolver.resolveForRead bug where it was not returning links due to a bad concat of results.
