@@ -75,7 +75,7 @@ DevOps Starter creates a CI/CD workflow using GitHub actions. DevOps Starter als
 
 DevOps Starter automatically configured a GitHub workflow with build and deploy jobs using GitHub actions. You're now ready to collaborate with a team on a Node.js app with a CI/CD process that automatically deploys your latest work to your web site.
 
-   ![dashooard_view](_img/azure-devops-project-nodejs/full-dashboard.PNG)
+   ![dashooard_view](_img/azure-devops-project-nodejs/full-dashboard.png)
 
 ## Commit code changes and execute CI/CD
 
