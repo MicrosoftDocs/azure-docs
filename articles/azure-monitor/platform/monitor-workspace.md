@@ -90,10 +90,7 @@ The following example creates a warning alert when the ingestion volume rate has
 - Target: Select your Log Analytics workspace
 - Criteria:
   - Signal name: Custom log search
-  - Search query: `_LogOperation 
-  | where Category == "Ingestion"
-  | where Operation == "Ingestion rate"
-  | where Level == "Warning"
+  - Search query: `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
   - Based on: Number of results
   - Condition: Greater than
   - Threshold: 0
@@ -108,10 +105,7 @@ The following example creates a warning alert when the data collection has reach
 - Target: Select your Log Analytics workspace
 - Criteria:
   - Signal name: Custom log search
-  - Search query: `_LogOperation 
-  | where Category == "Ingestion"
-  | where Operation == "Data Collection"
-  | where Level == "Warning"
+  - Search query: `_LogOperation | where Category == "Ingestion" | where Operation == "Data Collection" | where Level == "Warning"`
   - Based on: Number of results
   - Condition: Greater than
   - Threshold: 0
