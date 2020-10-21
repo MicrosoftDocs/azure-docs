@@ -17,12 +17,8 @@ Azure Data Share leverages the underlying security that Azure offers to protect 
 
 Access controls can be set on the Azure Data Share resource level to ensure it is accessed by those that are authorized. 
 
-Azure Data Share leverages managed identity (previously known as MSI) to access data stores that are being used for data sharing. There is no exchange of credentials between a data provider and a data consumer. For more information on managed identity, refer to [Managed Identities for Azure Resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). For more information on roles and permissions required to share data, refer to [Roles and requirements](concepts-roles-permissions.md).
+Azure Data Share leverages managed identity (previously known as MSI) to access data stores that are being used for data sharing. There is no exchange of credentials between a data provider and a data consumer. For more information on managed identity, refer to [Managed Identities for Azure Resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). For more information on roles and permissions required to share data, refer to [Roles and requirements](concepts-roles-permissions.md).
 
 ## Next steps
 
 To learn how to start sharing data, continue to the [share your data](share-your-data.md) tutorial.
-
-
-
-

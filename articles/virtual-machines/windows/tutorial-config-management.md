@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Monitor changes and update a Windows virtual machine in Azure
 
-With Azure [Change Tracking](../../automation/change-tracking/overview.md) and [Update Management](../../automation/update-management/update-mgmt-overview.md), you can easily identify changes in your Windows virtual machines in Azure and manage operating system updates for those VMs.
+With Azure [Change Tracking](../../automation/change-tracking/overview.md) and [Update Management](../../automation/update-management/overview.md), you can easily identify changes in your Windows virtual machines in Azure and manage operating system updates for those VMs.
 
 In this tutorial, you learn how to:
 
@@ -109,10 +109,10 @@ To schedule a new update deployment for the VM, select **Schedule update deploym
 | --- | --- |
 | **Name** |Enter a unique name to identify the update deployment. |
 |**Operating system**| Select either **Linux** or **Windows**.|
-| **Groups to update** |For VMs hosted on Azure, define a query based on a combination of subscription, resource groups, locations, and tags. This query builds a dynamic group of Azure-hosted VMs to include in your deployment. </br></br>For VMs not hosted on Azure, select an existing saved search. With this search, you can select a group of these VMs to include in the deployment. </br></br> To learn more, see [Dynamic Groups](../../automation/update-management/update-mgmt-groups.md).|
+| **Groups to update** |For VMs hosted on Azure, define a query based on a combination of subscription, resource groups, locations, and tags. This query builds a dynamic group of Azure-hosted VMs to include in your deployment. </br></br>For VMs not hosted on Azure, select an existing saved search. With this search, you can select a group of these VMs to include in the deployment. </br></br> To learn more, see [Dynamic Groups](../../automation/update-management/configure-groups.md).|
 | **Machines to update** |Select **Saved search**, **Imported group**, or **Machines**.<br/><br/>If you select **Machines**, you can choose individual machines from the drop-down list. The readiness of each machine is shown in the **UPDATE AGENT READINESS** column of the table.</br></br> To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/platform/computer-groups.md) |
 |**Update classifications**|Choose all necessary update classifications.|
-|**Include/exclude updates**|Select this option to open the **Include/Exclude** pane. Updates to be included and those to be excluded are on separate tabs. For more information on how inclusion is handled, see [Schedule an Update Deployment](../../automation/update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment). |
+|**Include/exclude updates**|Select this option to open the **Include/Exclude** pane. Updates to be included and those to be excluded are on separate tabs. For more information on how inclusion is handled, see [Schedule an Update Deployment](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment). |
 |**Schedule settings**|Choose the time to start, and select either **Once** or **Recurring**.|
 | **Pre-scripts + Post-scripts**|Choose the scripts to run before and after your deployment.|
 | **Maintenance window** | Enter the number of minutes set for updates. Valid values range from 30 to 360 minutes. |
