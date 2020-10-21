@@ -883,8 +883,6 @@ The output from the preceding example with the default values is:
 
 You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
 
-# [JSON](#tab/json)
-
 ```json
 "copy": {
   "name": "websitescopy",
