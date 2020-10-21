@@ -45,8 +45,6 @@
     - name: Azure Defender for SQL
       displayName: database
       href: defender-for-sql-introduction.md
-    - name: Azure Defender for IoT
-      href: defender-for-iot-introduction.md
     - name: Azure Defender for Key Vault
       displayName: KV, akv
       href: defender-for-key-vault-introduction.md

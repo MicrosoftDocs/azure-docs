@@ -220,6 +220,8 @@
         href: troubleshoot-password-based-sso.md
       - name: Troubleshoot SAML-based single sign-on
         href: troubleshoot-saml-based-sso.md
+      - name: Debug SAML-based single sign-on
+        href: debug-saml-sso-issues.md
       - name: Troubleshoot user sign-in
         items:
         - name: Unexpected consent prompt

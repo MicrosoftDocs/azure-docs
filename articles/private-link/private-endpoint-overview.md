@@ -73,7 +73,7 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure Relay** | Microsoft.Relay/namespaces | namespace |
 |**Azure Event Grid** | Microsoft.EventGrid/topics    | topic |
 |**Azure Event Grid** | Microsoft.EventGrid/domains    | domain |
-|**Azure WebApps** | Microsoft.Web/sites    | sites |
+|**Azure App Service** | Microsoft.Web/sites    | sites |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | workspace |
 |**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
 |**Azure Monitor** | Microsoft.Insights/privateLinkScopes    | azuremonitor |

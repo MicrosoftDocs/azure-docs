@@ -86,7 +86,7 @@ Consider your organizational needs to determine the strategy for deploying Acces
 
 ### Engage the right stakeholders
 
-When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](https://aka.ms/deploymentplans) and that project roles are clear.
+When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that project roles are clear.
 
 For Access Reviews, you'll likely include representatives from the following teams within your organization:
 
@@ -181,7 +181,7 @@ Typical targets for review include:
 
 * Group [membership](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (synchronized to Azure AD, or created in Azure AD or Microsoft 365, including Microsoft Teams).
 
-* [Access Package](/azure/active-directory/governance/entitlement-management-overview) that group resources (groups, apps, and sites) into a single package to manage access.
+* [Access Package](./entitlement-management-overview.md) that group resources (groups, apps, and sites) into a single package to manage access.
 
 * [Azure AD roles​ and Azure Resource roles](../privileged-identity-management/pim-resource-roles-assign-roles.md) as defined in Privileged Identity Management.
 
@@ -517,4 +517,3 @@ Learn about the below related technologies.
 * [What is Azure AD Entitlement Management?](entitlement-management-overview.md)
 
 * [What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
-

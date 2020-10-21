@@ -124,10 +124,6 @@ ranges or IP addresses, and for a limited amount of time.
 Security Center includes capabilities that help you perform automatic classification of your data in Azure SQL. You can also get assessments for potential vulnerabilities across Azure SQL and Storage services, and
 recommendations for how to mitigate them.
 
-### Protect IoT and hybrid cloud workloads
-
-Defender for IoT (Internet of Things) simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat protection and response across workloads running on edge, on-premises, in Azure, and in other clouds. For more information, see [Defender for IoT](../defender-for-iot/index.yml).
-
 ## Get secure faster
 
 Native Azure integration (including Azure Policy and Azure Monitor logs) combined with seamless integration with other Microsoft security solutions, such as Microsoft Cloud App Security and Windows Defender Advanced Threat Protection help make sure your security solution is comprehensive as well as simple to
