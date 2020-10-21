@@ -34,7 +34,7 @@ Previous versions also currently supported include: `3.0.2`
 | delete (conditional)           | No        | No        | No        |                                                     |
 | history                        | Yes       | Yes       | Yes       |                                                     |
 | create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
-| create (conditional)           | Yes       | Yes       | Yes       |                                                     |
+| create (conditional)           | Yes       | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | search                         | Partial   | Partial   | Partial   | See below                                           |
 | chained search                 | No        | Yes       | No        |                                           |
 | reverse chained search         | No        | No        | No        |                                            |
