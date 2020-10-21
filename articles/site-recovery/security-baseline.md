@@ -39,7 +39,7 @@ Recovery security baseline mapping file](https://github.com/MicrosoftDocs/Securi
 
 - [Azure Site Recovery Private Link Support](azure-to-azure-how-to-enable-replication-private-endpoints.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -52,7 +52,7 @@ Recovery security baseline mapping file](https://github.com/MicrosoftDocs/Securi
 
 Recovery Service Vault is a Platform as a Service (PaaS) resource and replication of data is performed over a secured encrypted channel.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -63,7 +63,7 @@ Recovery Service Vault is a Platform as a Service (PaaS) resource and replicatio
 
 **Guidance**: Not applicable to Site Recovery. It is a PaaS resource and does not support customer facing web applications.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -74,7 +74,7 @@ Recovery Service Vault is a Platform as a Service (PaaS) resource and replicatio
 
 **Guidance**: Microsoft manages the management endpoints for Site Recovery endpoints which are used by Infrastructure as a Service (IaaS) Virtual Machine extensions and on-premise components. Customers are responsible for any securing additional endpoints which are deployed by them.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Microsoft
 
@@ -85,7 +85,7 @@ Recovery Service Vault is a Platform as a Service (PaaS) resource and replicatio
 
 **Guidance**: Not applicable to Site Recovery. This guideline is intended for resources deployed within Azure Virtual Networks. Site Recovery service resources can not be deployed or associated with Azure Virtual Networks. All data from customer workloads is transferred to desired locations over encrypted channels.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -96,7 +96,7 @@ Recovery Service Vault is a Platform as a Service (PaaS) resource and replicatio
 
 **Guidance**: Microsoft manages the endpoints for Site Recovery endpoints which are used by IaaS Virtual Machine extension and on-premise components. Customers are responsible for any securing additional endpoints which are deployed by them.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Microsoft
 
@@ -107,7 +107,7 @@ Recovery Service Vault is a Platform as a Service (PaaS) resource and replicatio
 
 **Guidance**: Not applicable to Site Recovery. It does not host any Web Apps to serve Disaster Recovery functionality for customer workloads.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -120,7 +120,7 @@ Recovery Service Vault is a Platform as a Service (PaaS) resource and replicatio
 
 - [Outbound connectivity using Service Tags](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -131,7 +131,7 @@ Recovery Service Vault is a Platform as a Service (PaaS) resource and replicatio
 
 **Guidance**: Not applicable to Site Recovery. All the endpoints used by Site Recovery are managed by Microsoft.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -154,7 +154,7 @@ You can use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 - [How to filter network traffic with network security group rules](../virtual-network/tutorial-filter-network-traffic.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -169,7 +169,7 @@ You can use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 - [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -184,7 +184,7 @@ You can use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Microsoft
 
@@ -205,7 +205,7 @@ Ingest Site Recovery logs in Azure Monitor to aggregate generated security data.
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -226,7 +226,7 @@ Ingest Site Recovery logs with Azure Monitor to aggregate generated security dat
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -237,9 +237,9 @@ Ingest Site Recovery logs with Azure Monitor to aggregate generated security dat
 
 **Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources. Site Recovery does not expose any operating system configurations or security logs to customers. Microsoft is responsible for monitoring the underlying service's compute infrastructure.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Microsoft
+**Responsibility**: Not applicable
 
 ### 2.5: Configure security log storage retention
 
@@ -250,7 +250,7 @@ Ingest Site Recovery logs with Azure Monitor to aggregate generated security dat
 
 - [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -269,7 +269,7 @@ Perform queries in Log Analytics to search terms, identify trends, analyze patte
 
 - [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](../azure-monitor/platform/activity-log.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -288,7 +288,7 @@ Visualize and query log results, and configure alerts to take actions based on m
 
 - [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/platform/alerts-log.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -301,7 +301,7 @@ Visualize and query log results, and configure alerts to take actions based on m
 
 Microsoft handles the anti-malware logging for all Microsoft managed resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Microsoft
 
@@ -312,7 +312,7 @@ Microsoft handles the anti-malware logging for all Microsoft managed resources.
 
 **Guidance**: Not applicable to Site Recovery. Site Recovery does not produce or process DNS query logs.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -323,7 +323,7 @@ Microsoft handles the anti-malware logging for all Microsoft managed resources.
 
 **Guidance**: Not applicable to Site Recovery. Site Recovery does not expose a command line to users.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -340,9 +340,9 @@ Microsoft handles the anti-malware logging for all Microsoft managed resources.
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -353,7 +353,7 @@ Microsoft handles the anti-malware logging for all Microsoft managed resources.
 
 **Guidance**: Not applicable to Site Recovery. Site Recovery does not have a concept of default passwords.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -377,7 +377,7 @@ Create a process to track identity and access control for administrative account
 
 - [How to use Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -394,7 +394,7 @@ Create a process to track identity and access control for administrative account
 
 - [Azure Recovery Services API information](/rest/api/recoveryservices)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -409,7 +409,7 @@ Directory (Azure AD), Multi-Factor Authentication (MFA) and follow Security Cent
 
 - [Monitor identity and access](../security-center/security-center-identity-access.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -424,7 +424,7 @@ Directory (Azure AD), Multi-Factor Authentication (MFA) and follow Security Cent
 
 - [Planning a cloud-based Azure Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -440,7 +440,7 @@ View alerts and reports on risky user behavior with Azure AD risk detection feat
 
 - [Understand Azure AD risk detections](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -452,7 +452,7 @@ View alerts and reports on risky user behavior with Azure AD risk detection feat
 **Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges, regions, or countries.
 - [How to configure Named Locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -465,7 +465,7 @@ View alerts and reports on risky user behavior with Azure AD risk detection feat
 
 - [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -484,7 +484,7 @@ Create a process to review user access on a regular basis to ensure only users w
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -503,7 +503,7 @@ Further streamline this process by creating diagnostic settings for Azure AD use
 
 - [How to on-board Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -522,7 +522,7 @@ Employ Azure AD's Identity Protection features for account login behavior detect
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -535,7 +535,7 @@ Employ Azure AD's Identity Protection features for account login behavior detect
 
 All of Site Recovery's Disaster Recovery data is transferred or stored in customer owned resources. Site Recovery service stores only metadata of customer resources, such as primary location resource and Disaster Recovery location details. Any metadata and customer data is securely transferred from primary to Disaster Recovery location through an end-to-end encrypted channel.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -552,7 +552,7 @@ All of Site Recovery's Disaster Recovery data is transferred or stored in custom
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -573,7 +573,7 @@ Turn off virtual machines which store or process sensitive data, when not in use
 
 - [Overview of Site Recovery](site-recovery-overview.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -592,7 +592,7 @@ Microsoft manages the underlying platform used by Site Recovery and treats all c
 
 - [Replicate virtual machines with Azure Site Recovery Service Tags](azure-to-azure-about-networking.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Shared
 
@@ -607,7 +607,7 @@ Current TLS versions supported for Site Recovery are TLS 1.0, TLS 1.1, TLS 1.2 i
 
 - [Understanding encryption in transit for Azure Site Recovery](physical-azure-set-up-source.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Shared
 
@@ -624,7 +624,7 @@ Microsoft manages the underlying platform used by Site Recovery and treats all c
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -641,7 +641,7 @@ Separate work duties with Azure RBAC and grant appropriate access required for t
 
 - [Use Role-Based Access Control to manage Azure Site Recovery](site-recovery-role-based-linked-access-control.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -656,7 +656,7 @@ Microsoft manages the underlying infrastructure for Azure Site Recovery and has 
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Microsoft
 
@@ -673,7 +673,7 @@ Only the customer has access to the encryption key while using a Recovery Servic
 
 - [Customer Managed Keys Support for Azure Site Recovery](azure-to-azure-how-to-enable-replication-cmk-disks.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Shared
 
@@ -685,7 +685,7 @@ Only the customer has access to the encryption key while using a Recovery Servic
 **Guidance**: Use Azure Monitor with Azure Activity Logs to create alerts when changes take place to critical resources,. These resources could include production instances of Recovery Services Vaults, resources of Site Recovery service and related resources.
 - [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -702,7 +702,7 @@ Only the customer has access to the encryption key while using a Recovery Servic
 
 All compute and other resources used by Site Recovery are scanned and patched by Microsoft.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Microsoft
 
@@ -715,7 +715,7 @@ All compute and other resources used by Site Recovery are scanned and patched by
 
 Microsoft performs patch management on the underlying operating systems that support Recovery Services Vaults.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -726,7 +726,7 @@ Microsoft performs patch management on the underlying operating systems that sup
 
 **Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -737,7 +737,7 @@ Microsoft performs patch management on the underlying operating systems that sup
 
 **Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -748,7 +748,7 @@ Microsoft performs patch management on the underlying operating systems that sup
 
 **Guidance**: Microsoft performs vulnerability management for the underlying systems and Site Recovery service resources, which support Recovery Services Vaults.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Microsoft
 
@@ -771,7 +771,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -783,7 +783,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 **Guidance**: Apply tags to Recovery Services Vaults and other related resources used by Site Recovery with tag-metadata to logically organize them into a taxonomy.
 - [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -807,7 +807,7 @@ Reconcile inventory on a regular basis and ensure unauthorized resources are del
 
 - [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -818,7 +818,7 @@ Reconcile inventory on a regular basis and ensure unauthorized resources are del
 
 **Guidance**: Create an inventory of approved Azure resources and approved software for compute resources based on customer's organizational requirements.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -838,7 +838,7 @@ Use Azure Resource Graph to query for and discover resources within the subscrip
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -849,7 +849,7 @@ Use Azure Resource Graph to query for and discover resources within the subscrip
 
 **Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -860,7 +860,7 @@ Use Azure Resource Graph to query for and discover resources within the subscrip
 
 **Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -871,7 +871,7 @@ Use Azure Resource Graph to query for and discover resources within the subscrip
 
 **Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -891,7 +891,7 @@ Understanding how to create and manage policies in Azure is important for stayin
 
 - [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -902,7 +902,7 @@ Understanding how to create and manage policies in Azure is important for stayin
 
 **Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -915,7 +915,7 @@ Understanding how to create and manage policies in Azure is important for stayin
 
 - [How to configure Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -926,7 +926,7 @@ Understanding how to create and manage policies in Azure is important for stayin
 
 **Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -937,7 +937,7 @@ Understanding how to create and manage policies in Azure is important for stayin
 
 **Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -957,7 +957,7 @@ Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -968,7 +968,7 @@ Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create
 
 **Guidance**: Not applicable to Site Recovery. This recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -982,7 +982,7 @@ Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -993,7 +993,7 @@ Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create
 
 **Guidance**: Not applicable to Site Recovery. This recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -1003,11 +1003,12 @@ Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33745.).
 
 **Guidance**: Use Azure Repos to securely store and manage your code if you're using custom Azure Policy definitions for your Recovery Services Vaults and related resources.
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+
+- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
 
 - [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1018,7 +1019,7 @@ Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create
 
 **Guidance**: Not applicable to Site Recovery. This recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -1033,7 +1034,7 @@ Additionally, develop a process and pipeline for managing policy exceptions.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1044,7 +1045,7 @@ Additionally, develop a process and pipeline for managing policy exceptions.
 
 **Guidance**: Not applicable to Site Recovery. This recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -1058,7 +1059,7 @@ Additionally, develop a process and pipeline for managing policy exceptions.
 Use Azure Policy [audit], [deny], and [deploy if not exist] effects to automatically enforce configurations for your Azure resources.
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1069,7 +1070,7 @@ Use Azure Policy [audit], [deny], and [deploy if not exist] effects to automatic
 
 **Guidance**: Not applicable to Site Recovery. This recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -1088,7 +1089,7 @@ Use Azure Policy [audit], [deny], and [deploy if not exist] effects to automatic
 
 - [How to enable DR for Azure Disk Encryption-enabled virtual machines using Site Recovery](azure-to-azure-how-to-enable-replication-ade-vms.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1108,7 +1109,7 @@ Managed Identities allow you to authenticate to any service that supports Azure 
 
 - [How to enable System Managed Identity on Recovery Services Vault](azure-to-azure-how-to-enable-replication-private-endpoints.md#enable-the-managed-identity-for-the-vault)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1123,7 +1124,7 @@ Credential Scanner will also encourage moving discovered credentials to more sec
 
 - [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1140,7 +1141,7 @@ Credential Scanner will also encourage moving discovered credentials to more sec
 
 Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Site Recovery for Recovery Services Vault resources), however it does not run on customer content.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -1157,7 +1158,7 @@ Use Security Center's Threat detection for data services to detect malware uploa
 
 - [Understand Azure Security Center's Threat detection for data services](/azure/security-center/threat-protection)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1170,7 +1171,7 @@ Use Security Center's Threat detection for data services to detect malware uploa
 
 Microsoft handles updating any anti-malware software and signatures for the underlying platform supporting Site Recovery service. 
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -1187,7 +1188,7 @@ Microsoft handles updating any anti-malware software and signatures for the unde
 
 Site Recovery offers Disaster Recovery solutions to perform failover during outages. It is alternative solution to backup to enable Disaster Recovery for IaaS workload to meet an organization's Recovery Point Objectives (RPO) &amp; Recovery Time Objective (RTO) requirements.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -1196,15 +1197,15 @@ Site Recovery offers Disaster Recovery solutions to perform failover during outa
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33758.).
 
-**Guidance**: Site Recovery internally uses an Azure Storage account to maintain the state of the Disaster Recovery solution, as configured by customers on their workloads. 
+**Guidance**: Site Recovery internally uses an Azure Storage account to maintain the state of the Disaster Recovery solution, as configured by customers on their workloads.
 
-All the storage resources used by Site Recovery services metadata with configuration of type: Read Access Geo-redundant storage (RA-GRS). Storage accounts of type above GRS  (Like RAGRS, RAG-ZRS) replicate your data to a secondary region (hundreds of miles away from the primary location of the source data) to continue to serve Disaster Recovery for customers during outages. 
+All the storage resources used by Site Recovery services metadata with configuration of type: Read Access Geo-redundant storage (RA-GRS). Storage accounts of type above GRS (Like RAGRS, RAG-ZRS) replicate your data to a secondary region (hundreds of miles away from the primary location of the source data) to continue to serve Disaster Recovery for customers during outages.
 
 This is out of customer scope and Site Recovery team takes care of it internally. Customer can backup Key Vault keys in Azure.
 
-- [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1215,9 +1216,9 @@ This is out of customer scope and Site Recovery team takes care of it internally
 
 **Guidance**: Periodically test restores of backed-up customer-managed keys.
 
-- [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1230,7 +1231,7 @@ This is out of customer scope and Site Recovery team takes care of it internally
 
 - [How to enable soft-delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview?tabs=azure-portal)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1255,7 +1256,7 @@ Ensure that there are written incident response plans that define all roles of p
 
 - [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1272,7 +1273,7 @@ Mark subscriptions clearly (for example, production, non-production) and create 
 
 - [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1285,7 +1286,7 @@ Mark subscriptions clearly (for example, production, non-production) and create 
 
 - [Refer to NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1300,7 +1301,7 @@ Create a process to review incidents, post occurrence, to ensure that issues are
 
 - [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1316,7 +1317,7 @@ Use the Security Center data connector to stream the alerts to Azure Sentinel, a
 
 - [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1328,7 +1329,7 @@ Use the Security Center data connector to stream the alerts to Azure Sentinel, a
 **Guidance**: Use the Workflow Automation feature in Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 - [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1345,7 +1346,7 @@ Use the Security Center data connector to stream the alerts to Azure Sentinel, a
 
 - [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Shared
 
