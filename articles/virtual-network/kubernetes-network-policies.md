@@ -109,16 +109,17 @@ Users previously were only able to learn about their Network Configuration with 
 ### Supported Metrics
 Following is the list of supported metrics:
 
-| Metric Name                       | Description                                    | Prometheus Metric Type | Labels         |
-| --                                | --                                             | --       |  -                           |
-| `npm_num_policies`                | number of network policies                     | Gauge    |  -                           |
-| `npm_num_iptables_rules`          | number of IPTables rules                       | Gauge    |  -                           |
-| `npm_num_ipsets`                  | number of IPSets                               | Gauge    |  -                           |
-| `npm_num_ipset_entries`           | number of IP address entries in all IPSets     | Gauge    |  -                           |
-| `npm_add_policy_exec_time`        | runtime for adding a network policy            | Summary  | quantile (0.5, 0.9, or 0.99) |
-| `npm_add_iptables_rule_exec_time` | runtime for adding an IPTables rule            | Summary  | quantile (0.5, 0.9, or 0.99) |
-| `npm_add_ipset_exec_time`         | runtime for adding an IPSet                    | Summary  | quantile (0.5, 0.9, or 0.99) |
-| `npm_ipset_counts` (advanced)     | number of entries within each individual IPSet | GaugeVec | set name & hash              |
+|Metric Name |Description  |Prometheus Metric Type  |Labels  |
+|---------|---------|---------|---------|
+|`npm_num_policies`     |number of network policies          |Gauge         |-         |
+|`npm_num_iptables_rules`     | number of IPTables rules     | Gauge        |-         |         
+|`npm_num_ipsets`     |number of IPSets         |Gauge            |-         |
+|`npm_num_ipset_entries`     |number of IP address entries in all IPSets         |Gauge         |-         |
+|`npm_add_policy_exec_time`     |runtime for adding a network policy         |Summary         |quantile (0.5, 0.9, or 0.99)         |
+|`npm_add_iptables_rule_exec_time`     |runtime for adding an IPTables rule         |Summary         |quantile (0.5, 0.9, or 0.99)         |
+|`npm_add_ipset_exec_time`     |runtime for adding an IPSet         |Summary         |quantile (0.5, 0.9, or 0.99)         |
+|`npm_ipset_counts` (advanced)     |number of entries within each individual IPSet         |GaugeVec         |set name & hash         |
+
 The different quantile levels in "exec_time" metrics help you differentiate between the general and worst case scenarios.
 
 There's also an "exec_time_count" and "exec_time_sum" metric for each "exec_time" Summary metric.
@@ -240,7 +241,7 @@ Following are some sample dashboard for NPM metrics in Container Insights (CI) a
 [![Azure Workbook counts over time](media/kubernetes-network-policies/workbook-counts-over-time.png)](media/kubernetes-network-policies/workbook-counts-over-time.png#lightbox)
 
 #### CI IPSet Entries
-![Azure Workbook IPSet entries](media/kubernetes-network-policies/workbook-ipset-entries.png)
+[![Azure Workbook IPSet entries](media/kubernetes-network-policies/workbook-ipset-entries.png)](media/kubernetes-network-policies/workbook-ipset-entries.png#lightbox)
 
 #### CI Runtime Quantiles
 ![Azure Workbook runtime quantiles](media/kubernetes-network-policies/workbook-runtime-quantiles.png)
@@ -249,13 +250,14 @@ Following are some sample dashboard for NPM metrics in Container Insights (CI) a
 ![Grafana Dashboard summary counts](media/kubernetes-network-policies/grafana-summary-counts.png)
 
 #### Grafana Dashboard Counts over Time
-![Grafana Dashboard counts over time](media/kubernetes-network-policies/grafana-counts-over-time.png)
+[![Grafana Dashboard counts over time](media/kubernetes-network-policies/grafana-counts-over-time.png)](media/kubernetes-network-policies/grafana-counts-over-time.png#lightbox)
 
 #### Grafana Dashboard IPSet Entries
-![Grafana Dashboard IPSet entries](media/kubernetes-network-policies/grafana-ipset-entries.png)
+[![Grafana Dashboard IPSet entries](media/kubernetes-network-policies/grafana-ipset-entries.png)](media/kubernetes-network-policies/grafana-ipset-entries.png#lightbox)
 
 #### Grafana Dashboard Runtime Quantiles
-![Grafana Dashboard runtime quantiles](media/kubernetes-network-policies/grafana-runtime-quantiles.png)
+[![Grafana Dashboard runtime quantiles](media/kubernetes-network-policies/grafana-runtime-quantiles.png)](media/kubernetes-network-policies/grafana-runtime-quantiles.png#lightbox)
+
 
 
 ## Next steps
