@@ -5,14 +5,17 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
+ms.date: 10/21/2020
 
 ---
 
-# Agent data sources in Azure Monitor
-The data that Azure Monitor collects from agents is defined by the data sources that you configure.  The data from agents is stored as [log data](data-platform-logs.md) with a set of records.  Each data source creates records of a particular type with each type having its own set of properties.
+# Log Analytics agent data sources in Azure Monitor
+The data that Azure Monitor collects from virtual machines running the [Log Analytics agent](log-analytics-agent.md) is defined by the data sources that you configure in the Log Analytics workspace.  The data from agents is stored as [log data](data-platform-logs.md) with a set of records.  Each data source creates records of a particular type with each type having its own set of properties.
 
 ![Log data collection](media/agent-data-sources/overview.png)
+
+> [!IMPORTANT]
+> The data sources described in this article apply only to virtual machines running the Log Analytics agent. 
 
 ## Summary of data sources
 The following table lists the agent data sources that are currently available in Azure Monitor.  Each has a link to a separate article providing detail for that data source.   It also provides information on their method and frequency of collection. 

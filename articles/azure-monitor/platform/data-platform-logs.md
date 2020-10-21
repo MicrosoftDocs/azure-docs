@@ -17,13 +17,19 @@ Azure Monitor Logs is a feature of Azure Monitor that collects and organizes log
 ![Azure Monitor overview](media/data-platform/overview.png)
 
 
-
-
 ## Log Analytics workspace
-Data collected by Azure Monitor Logs is stored in a [Log Analytics workspace](./design-logs-deployment.md) that contains multiple tables that each store data from a particular source. The workspace defines the geographic location of the data, access rights defining which users can access data, and configuration settings such as the pricing tier and data retention. You may use a single workspace for all of your monitoring data or create multiple workspaces depending on your requirements. 
+Data collected by Azure Monitor Logs is stored in a [Log Analytics workspace](./design-logs-deployment.md). The workspace defines the geographic location of the data, access rights defining which users can access data, and configuration settings such as the pricing tier and data retention.  
 
-- See [Designing your Azure Monitor Logs deployment](design-logs-deployment.md) on considerations for creating multiple workspaces.
+You must create at least one workspace to use Azure Monitor Logs. A single workspace may be sufficient for all of your monitoring data, or may choose to create multiple workspaces depending on your requirements. 
+
 - See [Create a Log Analytics workspace in the Azure portal](../learn/quick-create-workspace.md) to create a new workspace.
+- See [Designing your Azure Monitor Logs deployment](design-logs-deployment.md) on considerations for creating multiple workspaces.
+
+
+## Log collection
+Once you create a Log Analytics workspace, you must configure different sources to send their data. No data is collected automatically. This configuration will be different depending on the data source. For example, create diagnostic settings to send resource logs from Azure resources to the workspace. Configure data sources on the workspace to collect data from Log Analytics agents on virtual machines.
+
+- See 
 
 
 ## Log queries
@@ -50,3 +56,9 @@ Azure Monitor Logs is based on Azure Data Explorer. A Log Analytics workspace is
 - Learn about [metrics in Azure Monitor](data-platform-metrics.md).
 - Learn about the [monitoring data available](data-sources.md) for different resources in Azure.
 
+
+
+
+## Parking lot
+
+- that contains multiple tables that each store data from a particular source.
