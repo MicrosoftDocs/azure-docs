@@ -136,38 +136,59 @@ A string or array of concatenated values.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) shows how to combine two arrays.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstArray": {
-            "type": "array",
-            "defaultValue": [
-                "1-1",
-                "1-2",
-                "1-3"
-            ]
-        },
-        "secondArray": {
-            "type": "array",
-            "defaultValue": [
-                "2-1",
-                "2-2",
-                "2-3"
-            ]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [
+        "1-1",
+        "1-2",
+        "1-3"
+      ]
     },
-    "resources": [
-    ],
-    "outputs": {
-        "return": {
-            "type": "array",
-            "value": "[concat(parameters('firstArray'), parameters('secondArray'))]"
-        }
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [
+        "2-1",
+        "2-2",
+        "2-3"
+      ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "return": {
+      "type": "array",
+      "value": "[concat(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param firstArray array = [
+  '1-1'
+  '1-2'
+  '1-3'
+]
+param secondArray array = [
+  '2-1'
+  '2-2'
+  '2-3'
+]
+
+output return array = concat(firstArray, secondArray)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
