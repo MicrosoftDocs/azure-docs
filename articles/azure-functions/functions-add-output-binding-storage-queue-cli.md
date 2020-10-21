@@ -9,11 +9,25 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Connect Azure Functions to Azure Storage using command line tools
 
-In this article, you integrate an Azure Storage queue with the function and storage account you created in [the previous quickstart][previous-quickstart]. You achieve this integration by using an *output binding* that writes data from an HTTP request to a message in the queue. Completing this article incurs no additional costs beyond the few USD cents of the previous quickstart. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+In this article, you integrate an Azure Storage queue with the function and storage account you created in the previous quickstart article. You achieve this integration by using an *output binding* that writes data from an HTTP request to a message in the queue. Completing this article incurs no additional costs beyond the few USD cents of the previous quickstart. To learn more about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 ## Configure your local environment
 
 Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line][previous-quickstart]. If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.
+
+::: zone pivot="programming-language-csharp"  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-csharp.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-javascript.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.::: zone-end   
+::: zone pivot="programming-language-java"  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-java.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.::: zone-end   
+::: zone pivot="programming-language-typescript"  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-typescript.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.::: zone-end   
+::: zone pivot="programming-language-python"  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-python.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.::: zone-end   
+::: zone pivot="programming-language-powershell"  
+Before you begin, you must complete the article, [Quickstart: Create an Azure Functions project from the command line](create-first-function-cli-powershell.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.::: zone-end   
 
 [!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
 
