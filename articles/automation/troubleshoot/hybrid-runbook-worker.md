@@ -287,7 +287,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="already-registered"></a>Scenario: You can't add a Hybrid Runbook Worker
+### <a name="already-registered"></a>Scenario: You can't add a Windows Hybrid Runbook Worker
 
 #### Issue
 
@@ -306,6 +306,42 @@ This issue can be caused if the machine is already registered with a different A
 To resolve this issue, remove the following registry key, restart `HealthService`, and try the `Add-HybridRunbookWorker` cmdlet again.
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
+
+### <a name="already-registered"></a>Scenario: You can't add a Linux Hybrid Runbook Worker
+
+#### Issue
+
+You receive the following message when you try to add a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` python script:
+
+```error
+Unable to register, an existing worker was found. Please deregister any existing worker and try again.
+```
+
+Additionally, attempting to deregister a Hybrid Runbook Worker by using the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` python script:
+
+```error
+Failed to deregister worker. [response_status=404]
+```
+
+#### Cause
+
+This issue can be caused if the machine is already registered with a different Automation account, or if the Azure Hybrid Worker Group was deleted or if you try to re-add the Hybrid Runbook Worker after removing it from a machine.
+
+#### Resolution
+
+To resolve this issue, remove the agent `sudo sh onboard_agent.sh --purge`, then
+
+```
+sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
+sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
+sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
+```
+
+Re-onboard the agent `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com`
+
+Wait for the folder `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` to populate with 
+
+and try the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` python script again.
 
 ## Next steps
 
