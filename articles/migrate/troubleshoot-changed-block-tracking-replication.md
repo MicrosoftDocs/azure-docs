@@ -85,7 +85,7 @@ The component trying to replicate data to Azure is either down or not responding
     
     **Steps to run the performance benchmark test:**
     
-      1. [Download](https://go.microsoft.com/fwlink/?linkid=2138966) azcopy
+      1. [Download](../storage/common/storage-use-azcopy-v10.md) azcopy
         
       2. Look for the appliance Storage Account in the Resource Group. The Storage Account has a name that resembles migrategwsa\*\*\*\*\*\*\*\*\*\*. This is the value of parameter [account] in the above command.
         
@@ -165,7 +165,7 @@ The possible causes include:
     
     **Steps to run the performance benchmark test:**
     
-      1. [Download](https://go.microsoft.com/fwlink/?linkid=2138966) azcopy
+      1. [Download](../storage/common/storage-use-azcopy-v10.md) azcopy
         
       2. Look for the Appliance Storage Account in the Resource Group. The Storage Account has a name that resembles migratelsa\*\*\*\*\*\*\*\*\*\*. This is the value of parameter [account] in the above command.
         
@@ -290,4 +290,4 @@ This happens when the NFC host buffer is out of memory. To resolve this issue, y
 
 ## Next Steps
 
-Continue VM replication, and perform [test migration](https://go.microsoft.com/fwlink/?linkid=2139333).
+Continue VM replication, and perform [test migration](./tutorial-migrate-vmware.md#run-a-test-migration).

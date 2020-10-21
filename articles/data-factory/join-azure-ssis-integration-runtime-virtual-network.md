@@ -98,7 +98,7 @@ Set up your virtual network to meet these requirements:
 
 This diagram shows the required connections for your Azure-SSIS IR:
 
-![Azure-SSIS IR](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
+![Diagram that shows the required connections for your Azure-SSIS IR.](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
 
 ### <a name="perms"></a> Set up permissions
 

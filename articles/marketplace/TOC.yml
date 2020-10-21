@@ -107,28 +107,36 @@
         href: partner-center-portal/create-azure-container-offer.md
   - name: Azure virtual machine offers
     items:
-    - name: Plan a virtual machine offer
+    - name: Plan a VM offer
       href: marketplace-virtual-machines.md
-    - name: Create and publish a virtual machine offer
-      items: 
-      - name: Create an Azure virtual machine offer
-        href: partner-center-portal/azure-vm-create-offer.md
-      - name: Create Azure VM technical asset
+    - name: Create and publish a VM offer
+      items:
+      - name: Create a VM offer
+        href: azure-vm-create.md
+      - name: Configure VM offer properties
+        href: azure-vm-create-properties.md
+      - name: Configure VM offer listing
+        href: azure-vm-create-listing.md
+      - name: Create VM plans
+        href: azure-vm-create-plans.md
+      - name: Add a preview audience
+        href: azure-vm-create-preview.md
+      - name: Create VM technical assets
         items:
-          - name: Virtual machine certification issues
-            href: partner-center-portal/vm-certification-issues-solutions.md
-          - name: Create an Azure VM technical asset
-            href: partner-center-portal/create-azure-vm-technical-asset.md
-          - name: Azure VM technical asset FAQ
-            href: partner-center-portal/common-issues-during-vhd-creation.md
-          - name: Test virtual machine deployed from VHD 
-            href: partner-center-portal/azure-vm-image-certification.md
-          - name: SAS URI
-            items:
-              - name: Get SAS URI
-                href: partner-center-portal/get-sas-uri.md
-              - name: SAS URI FAQ
-                href: partner-center-portal/common-sas-uri-issues.md
+        - name: Create VM from an approved base
+          href: azure-vm-create-using-approved-base.md
+        - name: Create VM using your own image
+          href: azure-vm-create-using-own-image.md
+        - name: Test a VM image
+          href: azure-vm-image-test.md
+        - name: Get SAS URI
+          href: azure-vm-get-sas-uri.md
+        - name: SAS failure messages
+          href: azure-vm-sas-failure-messages.md
+        - name: VM creation FAQ
+          href: azure-vm-create-faq.md
+        - name: VM certification troubleshooting
+          href: azure-vm-create-certification-faq.md
   - name: Consulting services
     items: 
     - name: Plan a consulting services offer
@@ -329,7 +337,7 @@
   - name: Technical and publishing office hours
     href: https://aka.ms/marketplacepublishingofficehours   
   - name: Partner Center support options
-    href: partner-center-portal/support.md
+    href: support.md
   - name: Partner Center announcements
     href: /partner-center/announcements
   - name: Microsoft Partner Community

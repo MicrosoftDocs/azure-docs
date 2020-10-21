@@ -62,7 +62,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Feature | Development | Preview | GA | Notes |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OAuth2 authorization code](authorization-code-flow.md) |  |  | X |  |
-| OAuth2 authorization code with PKCE |  |  | X | Mobile applications only  |
+| OAuth2 authorization code with PKCE |  |  | X | [Public clients and single-page applications](authorization-code-flow.md)  |
 | [OAuth2 implicit flow](implicit-flow-single-page-application.md) |  |  | X |  |
 | [OAuth2 resource owner password credentials](ropc-custom.md) |  | X |  |  |
 | [OIDC Connect](openid-connect.md) |  |  | X |  |

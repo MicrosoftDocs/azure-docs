@@ -79,7 +79,7 @@
       href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
     - name: FAQ
       href: dns-faq-private.md
-- name: How to
+- name: How-to guides
   items:
   - name: Public DNS
     items:

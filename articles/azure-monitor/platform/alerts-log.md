@@ -195,7 +195,7 @@ Here the steps to get started writing queries for alerts:
     > [!NOTE]
     > Log alert rules are currently [stateless and do not resolve](alerts-unified-log.md#state-and-resolving-alerts).
 
-1. Select **Manage rules** button on the top bar to edit rules:
+1. Select **Manage alert rules** button on the top bar to edit rules:
 
     ![ manage alert rules](media/alerts-log/manage-alert-rules.png)
 
