@@ -168,7 +168,6 @@ Updates in September include:
 - [Exempt a resource from a recommendation](#exempt-a-resource-from-a-recommendation)
 - [AWS and GCP connectors in Security Center bring a multi-cloud experience](#aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience)
 - [Kubernetes workload protection recommendation bundle](#kubernetes-workload-protection-recommendation-bundle)
-- [IoT threat protection enhancements in Azure Defender for IoT](#iot-threat-protection-enhancements-in-azure-defender-for-iot)
 - [Vulnerability assessment findings are now available in continuous export](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [Prevent security misconfigurations by enforcing recommendations when creating new resources](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
 - [Network security group recommendations improved](#network-security-group-recommendations-improved)
@@ -197,7 +196,6 @@ When you enable Azure Defender from the **Pricing and settings** area of Azure S
 - [Azure Defender for App Service](defender-for-app-service-introduction.md)
 - [Azure Defender for Storage](defender-for-storage-introduction.md)
 - [Azure Defender for SQL](defender-for-sql-introduction.md)
-- [Azure Defender for IoT](defender-for-iot-introduction.md)
 - [Azure Defender for Key Vault](defender-for-key-vault-introduction.md)
 - [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender for container registries](defender-for-container-registries-introduction.md)
@@ -289,13 +287,6 @@ When you've installed the Azure Policy add-on for Kubernetes on your AKS cluster
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
 Learn more in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
-
-
-### IoT threat protection enhancements in Azure Defender for IoT
-
-Azure Defender for IoT brings more threat protection capabilities thanks to the inclusion of CyberX Agentless Technology. This brings security protections for unmanaged brownfield devices used in Operational Technology (OT) environments such as manufacturing, building management systems (BMS), life sciences, energy and water utilities, oil & gas, and logistics.
-
-Learn more in [Introduction to Azure Defender for IoT](defender-for-iot-introduction.md).
 
 
 ### Vulnerability assessment findings are now available in continuous export
