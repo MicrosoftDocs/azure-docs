@@ -1,22 +1,12 @@
 ---
-title: Configure software RAID on a virtual machine running Linux | Microsoft Docs
+title: Configure software RAID on a Linux VM
 description: Learn how to use mdadm to configure RAID on Linux in Azure.
-services: virtual-machines-linux
-documentationcenter: na
 author: rickstercdn
-manager: timlt
-editor: tysonn
-tag: azure-service-management,azure-resource-manager
-
-ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/02/2017
 ms.author: rclaus
-
+ms.subservice: disks
 ---
 # Configure Software RAID on Linux
 It's a common scenario to use software RAID on Linux virtual machines in Azure to present multiple attached data disks as a single RAID device. Typically this can be used to improve performance and allow for improved throughput compared to using just a single disk.
@@ -24,22 +14,25 @@ It's a common scenario to use software RAID on Linux virtual machines in Azure t
 ## Attaching data disks
 Two or more empty data disks are needed to configure a RAID device.  The primary reason for creating a RAID device is to improve performance of your disk IO.  Based on your IO needs, you can choose to attach disks that are stored in our Standard Storage, with up to 500 IO/ps per disk or our Premium storage with up to 5000 IO/ps per disk. This article does not go into detail on how to provision and attach data disks to a Linux virtual machine.  See the Microsoft Azure article [attach a disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for detailed instructions on how to attach an empty data disk to a Linux virtual machine on Azure.
 
+> [!IMPORTANT]
+>Do not mix disks of different sizes, doing so would result in performance of the raidset to be limited to that of the slowest disk. 
+
 ## Install the mdadm utility
 * **Ubuntu**
-```bash
-sudo apt-get update
-sudo apt-get install mdadm
-```
+  ```bash
+  sudo apt-get update
+  sudo apt-get install mdadm
+  ```
 
 * **CentOS & Oracle Linux**
-```bash
-sudo yum install mdadm
-```
+  ```bash
+  sudo yum install mdadm
+  ```
 
 * **SLES and openSUSE**
-```bash  
-zypper install mdadm
-```
+  ```bash  
+  zypper install mdadm
+  ```
 
 ## Create the disk partitions
 In this example, we create a single disk partition on /dev/sdc. The new disk partition will be called /dev/sdc1.
@@ -58,13 +51,13 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
                     sectors (command 'u').
     ```
 
-2. Press 'n' at the prompt to create a **n**ew partition:
+1. Press 'n' at the prompt to create a **n**ew partition:
 
     ```bash
     Command (m for help): n
     ```
 
-3. Next, press 'p' to create a **p**rimary partition:
+1. Next, press 'p' to create a **p**rimary partition:
 
     ```bash 
     Command action
@@ -72,27 +65,27 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
             p   primary partition (1-4)
     ```
 
-4. Press '1' to select partition number 1:
+1. Press '1' to select partition number 1:
 
     ```bash
     Partition number (1-4): 1
     ```
 
-5. Select the starting point of the new partition, or press `<enter>` to accept the default to place the partition at the beginning of the free space on the drive:
+1. Select the starting point of the new partition, or press `<enter>` to accept the default to place the partition at the beginning of the free space on the drive:
 
     ```bash   
     First cylinder (1-1305, default 1):
     Using default value 1
     ```
 
-6. Select the size of the partition, for example type '+10G' to create a 10 gigabyte partition. Or, press `<enter>` create a single partition that spans the entire drive:
+1. Select the size of the partition, for example type '+10G' to create a 10 gigabyte partition. Or, press `<enter>` create a single partition that spans the entire drive:
 
     ```bash   
     Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
     Using default value 1305
     ```
 
-7. Next, change the ID and **t**ype of the partition from the default ID '83' (Linux) to ID 'fd' (Linux raid auto):
+1. Next, change the ID and **t**ype of the partition from the default ID '83' (Linux) to ID 'fd' (Linux raid auto):
 
     ```bash  
     Command (m for help): t
@@ -100,7 +93,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
     Hex code (type L to list codes): fd
     ```
 
-8. Finally, write the partition table to the drive and exit fdisk:
+1. Finally, write the partition table to the drive and exit fdisk:
 
     ```bash   
     Command (m for help): w
@@ -115,21 +108,21 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
         /dev/sdc1 /dev/sdd1 /dev/sde1
     ```
 
-2. Create the file system on the new RAID device
+1. Create the file system on the new RAID device
    
-    a. **CentOS, Oracle Linux, SLES 12, openSUSE, and Ubuntu**
+    **CentOS, Oracle Linux, SLES 12, openSUSE, and Ubuntu**
 
     ```bash   
     sudo mkfs -t ext4 /dev/md127
     ```
    
-    b. **SLES 11**
+    **SLES 11**
 
     ```bash
     sudo mkfs -t ext3 /dev/md127
     ```
    
-    c. **SLES 11** - enable boot.md and create mdadm.conf
+    **SLES 11** - enable boot.md and create mdadm.conf
 
     ```bash
     sudo -i chkconfig --add boot.md
@@ -139,7 +132,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
    > [!NOTE]
    > A reboot may be required after making these changes on SUSE systems. This step is *not* required on SLES 12.
    > 
-   > 
+   
 
 ## Add the new file system to /etc/fstab
 > [!IMPORTANT]
@@ -150,7 +143,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
     ```bash
     sudo mkdir /data
     ```
-2. When editing /etc/fstab, the **UUID** should be used to reference the file system rather than the device name.  Use the `blkid` utility to determine the UUID for the new file system:
+1. When editing /etc/fstab, the **UUID** should be used to reference the file system rather than the device name.  Use the `blkid` utility to determine the UUID for the new file system:
 
     ```bash   
     sudo /sbin/blkid
@@ -158,7 +151,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
     /dev/md127: UUID="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" TYPE="ext4"
     ```
 
-3. Open /etc/fstab in a text editor and add an entry for the new file system, for example:
+1. Open /etc/fstab in a text editor and add an entry for the new file system, for example:
 
     ```bash   
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
@@ -172,7 +165,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
    
     Then, save and close /etc/fstab.
 
-4. Test that the /etc/fstab entry is correct:
+1. Test that the /etc/fstab entry is correct:
 
     ```bash  
     sudo mount -a
@@ -188,7 +181,7 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
     /dev/md127 on /data type ext4 (rw)
     ```
 
-5. (Optional) Failsafe Boot Parameters
+1. (Optional) Failsafe Boot Parameters
    
     **fstab configuration**
    

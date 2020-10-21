@@ -1,0 +1,80 @@
+### YamlMime:Landing
+
+title: Azure Time Series Insights Documentation
+summary: Learn how to run Azure IoT analytics in the cloud with fully managed event processing using quickstarts, tutorials, JavaScript samples, and REST API documentation. Analyze data from applications, sensors, devices, and more in real time.
+
+metadata:
+  title: Azure Time Series Insights Documentation - Quickstarts, Tutorials, API Reference | Microsoft Docs
+  description: Learn how to run Azure IoT analytics in the cloud with fully managed event processing using quickstarts, tutorials, JavaScript samples, and REST API documentation.
+  services: time-series-insights
+  ms.service: time-series-insights
+  ms.subservice: time-series-insights
+  ms.topic: landing-page
+  ms.collection: collection
+  author: shreyasharmamsft
+  ms.author: shresha
+  ms.date: 07/09/2020
+
+landingContent:
+
+  - title: About Azure Time Series Insights
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Time Series Insights Gen2?
+            url: overview-what-is-tsi.md
+          - text: Use Cases
+            url: overview-use-cases.md
+          - text: Client SDK sample visualization
+            url: https://tsiclientsample.azurewebsites.net/
+      - linkListType: concept
+        links:
+          - text: Visualize data in Time Series Insights Explorer
+            url: concepts-ux-panels.md
+          - text: Time Series Model
+            url: concepts-model-overview.md
+      - linkListType: video
+        links:
+          - text: Analyzing Data using Time Series Insights Gen2
+            url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Deep-Dive-Analyzing-IoT-data-using-Time-Series-Insights
+
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Explore Azure Time Series Insights Gen2
+            url: quickstart-explore-tsi.md
+      - linkListType: tutorial
+        links:
+          - text: Azure Time Series Insights Gen2 tutorial
+            url: tutorials-set-up-tsi-environment.md
+      - linkListType: deploy
+        links:
+          - text: Connect to Event Hubs
+            url: how-to-ingest-data-event-hub.md
+          - text: Connect to IoT Hub
+            url: how-to-ingest-data-iot-hub.md
+          - text: Plan your environment
+            url: how-to-plan-your-environment.md
+          - text: Data ingestion overview
+            url: concepts-ingestion-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Provision and manage
+            url: time-series-insights-update-how-to-manage.md
+          - text: Grant data access
+            url: time-series-insights-data-access.md
+          - text: Create Time Series Model
+            url: how-to-edit-your-model.md
+          - text: Query data
+            url: concepts-query-overview.md
+  - title: API Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Rest APIs Overview
+            url: https://docs.microsoft.com/rest/api/time-series-insights/
+          - text: Data Access Concepts Gen2
+            url: https://docs.microsoft.com/rest/api/time-series-insights/reference-data-access-overview
+          - text: JavaScript Client SDK
+            url: https://github.com/microsoft/tsiclient/blob/master/docs/API.md

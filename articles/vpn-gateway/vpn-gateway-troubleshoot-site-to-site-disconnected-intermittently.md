@@ -1,25 +1,20 @@
 ---
-title: Troubleshoot Azure Site-to-Site VPN disconnects intermittently| Microsoft Docs
+title: 'Troubleshoot Azure Site-to-Site VPN disconnects intermittently'
 description: Learn how to troubleshoot the problem in which the Site-to-Site VPN connection disconnected regularly. 
 services: vpn-gateway
-documentationcenter: na
-author: genlin
-manager: willchen
-editor: ''
-tags: ''
+titleSuffix: Azure VPN Gateway
+author: chadmath
+
 
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/21/2017
+ms.topic: troubleshooting
+ms.date: 10/30/2018
 ms.author: genli
 ---
 
 # Troubleshooting: Azure Site-to-Site VPN disconnects intermittently
 
-You might experience the problem that a new or existing Microsoft Azure Point-to-Site VPN connection is not stable or disconnects regularly. This article provides troubleshoot steps to help you identify and resolve the cause of the problem. 
+You might experience the problem that a new or existing Microsoft Azure Site-to-Site VPN connection is not stable or disconnects regularly. This article provides troubleshoot steps to help you identify and resolve the cause of the problem. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -32,11 +27,11 @@ Check the type of Azure  virtual network gateway:
 1. Go to [Azure portal](https://portal.azure.com).
 2. Check the **Overview** page of the virtual network gateway for the type information.
     
-    ![The overview of the gateway](media\vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently\gatewayoverview.png)
+    ![The overview of the gateway](media/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently/gatewayoverview.png)
 
 ### Step 1 Check whether the on-premises VPN device is validated
 
-1. Check whether you are using a [validated VPN device and operating system version](vpn-gateway-about-vpn-devices.md#a-namedevicetableavalidated-vpn-devices-and-device-configuration-guides). If the VPN device is not validated, you may have to contact the device manufacturer to see if there is any compatibility issue.
+1. Check whether you are using a [validated VPN device and operating system version](vpn-gateway-about-vpn-devices.md#devicetable). If the VPN device is not validated, you may have to contact the device manufacturer to see if there is any compatibility issue.
 2. Make sure that the VPN device is correctly configured. For more information, see [Editing device configuration samples](vpn-gateway-about-vpn-devices.md#editing).
 
 ### Step 2 Check the Security Association settings(for policy-based Azure virtual network gateways)

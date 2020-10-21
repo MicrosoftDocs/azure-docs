@@ -1,9 +1,15 @@
+---
+author: spelluru
+ms.service: service-bus
+ms.topic: include
+ms.date: 01/04/2019
+ms.author: spelluru
+---
 
-| TIER: | FREE | BASIC | STANDARD |
-| --- | --- | --- | --- |
-| Included Pushes |1 Million |10 Million |10 Million |
-| Active Devices |500 |200,000 | 10 million |
-| Tag quota per installation/registration |60 |60 |60 |
+| Tier              | Free         | Basic    | Standard   |
+| ------------------ | ------------ | ---------- | ---------- |
+| Included pushes    | 1 million    | 10 million | 10 million |
+| Active devices     | 500          | 200,000    | 10 million |
+| Tag quota per installation or registration | 60  | 60 |  60 |
 
-For additional details on these limits and for information on pricing, see [Notification Hubs Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/). 
-
+For more information on limits and pricing, see [Notification Hubs pricing](https://azure.microsoft.com/pricing/details/notification-hubs/).

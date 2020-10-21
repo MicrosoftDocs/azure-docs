@@ -1,40 +1,32 @@
 ---
-title: Build an Azure Cosmos DB Node.js application by using Graph API | Microsoft Docs
+title: Build an Azure Cosmos DB Node.js application by using Gremlin API
 description: Presents a Node.js code sample you can use to connect to and query Azure Cosmos DB
-services: cosmos-db
-documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
-
-ms.assetid: daacbabf-1bb5-497f-92db-079910703046
+author: jasonwhowell
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
-ms.workload: 
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 05/21/2017
-ms.author: arramac
-
+ms.subservice: cosmosdb-graph
+ms.devlang: nodejs
+ms.topic: quickstart
+ms.date: 06/05/2019
+ms.author: jasonh
+ms.custom: devx-track-js
 ---
-# Azure Cosmos DB: Build a Node.js application by using Graph API
+# Quickstart: Build a Node.js application by using Azure Cosmos DB Gremlin API account
 
-Azure Cosmos DB is the globally distributed multi-model database service from Microsoft. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+> [!div class="op_single_selector"]
+> * [Gremlin console](create-graph-gremlin-console.md)
+> * [.NET](create-graph-dotnet.md)
+> * [Java](create-graph-java.md)
+> * [Node.js](create-graph-nodejs.md)
+> * [Python](create-graph-python.md)
+> * [PHP](create-graph-php.md)
+>  
 
-This quick-start article demonstrates how to create an Azure Cosmos DB account for Graph API (preview), database, and graph by using the Azure portal. You then build and run a console app by using the open-source [Gremlin Node.js](https://www.npmjs.com/package/gremlin-secure) driver.  
-
-> [!NOTE]
-> The npm module `gremlin-secure` is a modified version of `gremlin` module, with support for SSL and SASL required for connecting with Azure Cosmos DB. Source code is available on [GitHub](https://github.com/CosmosDB/gremlin-javascript).
->
+In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API account from the Azure portal, and add data by using a Node.js app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 ## Prerequisites
-
-Before you can run this sample, you must have the following prerequisites:
-* [Node.js](https://nodejs.org/en/) version v0.10.29 or later
-* [Git](http://git-scm.com/)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- [Node.js 0.10.29+](https://nodejs.org/).
+- [Git](https://git-scm.com/downloads).
 
 ## Create a database account
 
@@ -46,11 +38,21 @@ Before you can run this sample, you must have the following prerequisites:
 
 ## Clone the sample application
 
-Now let's clone a Graph API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Gremlin API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-1. Open a Git terminal window, such as Git Bash, and change (via `cd` command) to a working directory.  
+1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
-2. Run the following command to clone the sample repository. 
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started.git
@@ -60,61 +62,111 @@ Now let's clone a Graph API app from GitHub, set the connection string, and run 
 
 ## Review the code
 
-Let's make a quick review of what's happening in the app. Open the `app.js` file, and you'll find the following lines of code. 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+
+The following snippets are all taken from the *app.js* file.
+
+This console app uses the open-source [Gremlin Node.js](https://www.npmjs.com/package/gremlin) driver.
 
 * The Gremlin client is created.
 
-    ```nodejs
-    const client = Gremlin.createClient(
-        443, 
+    ```javascript
+    const authenticator = new Gremlin.driver.auth.PlainTextSaslAuthenticator(
+        `/dbs/${config.database}/colls/${config.collection}`, 
+        config.primaryKey
+    )
+
+
+    const client = new Gremlin.driver.Client(
         config.endpoint, 
         { 
-            "session": false, 
-            "ssl": true, 
-            "user": `/dbs/${config.database}/colls/${config.collection}`,
-            "password": config.primaryKey
+            authenticator,
+            traversalsource : "g",
+            rejectUnauthorized : true,
+            mimeType : "application/vnd.gremlin-v2.0+json"
+        }
+    );
+
+    ```
+
+  The configurations are all in *config.js*, which we edit in the [following section](#update-your-connection-string).
+
+* A series of functions are defined to execute different Gremlin operations. This is one of them:
+
+    ```javascript
+    function addVertex1()
+    {
+        console.log('Running Add Vertex1'); 
+        return client.submit("g.addV(label).property('id', id).property('firstName', firstName).property('age', age).property('userid', userid).property('pk', 'pk')", {
+                label:"person",
+                id:"thomas",
+                firstName:"Thomas",
+                age:44, userid: 1
+            }).then(function (result) {
+                    console.log("Result: %s\n", JSON.stringify(result));
+            });
+    }
+    ```
+
+* Each function executes a `client.execute` method with a Gremlin query string parameter. Here is an example of how `g.V().count()` is executed:
+
+    ```javascript
+    function countVertices()
+    {
+        console.log('Running Count');
+        return client.submit("g.V().count()", { }).then(function (result) {
+            console.log("Result: %s\n", JSON.stringify(result));
         });
+    }
     ```
 
-  The configurations are all in `config.js`, which we edit in the following section.
+* At the end of the file, all methods are then invoked. This will execute them one after the other:
 
-* A series of Gremlin steps are executed with the `client.execute` method.
-
-    ```nodejs
-    console.log('Running Count'); 
-    client.execute("g.V().count()", { }, (err, results) => {
-        if (err) return console.error(err);
-        console.log(JSON.stringify(results));
-        console.log();
-    });
+    ```javascript
+    client.open()
+    .then(dropGraph)
+    .then(addVertex1)
+    .then(addVertex2)
+    .then(addEdge)
+    .then(countVertices)
+    .catch((err) => {
+        console.error("Error running query...");
+        console.error(err)
+    }).then((res) => {
+        client.close();
+        finish();
+    }).catch((err) => 
+        console.error("Fatal error:", err)
+    );
     ```
+
 
 ## Update your connection string
 
-Now go back to the Azure portal to get your connection string information, and copy it into the app.
+1. Open the *config.js* file. 
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, on the left navigation menu, click **Keys**, and then click **Read-write Keys**. You use the copy buttons at the right to copy the URI and primary key into the `app.js` file in the next step.
+2. In *config.js*, fill in the `config.endpoint` key with the **Gremlin Endpoint** value from the **Overview** page of your Cosmos DB account in the Azure portal. 
 
-    ![The Azure portal Keys blade](./media/create-graph-nodejs/keys.png)
+    `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
-2. Copy your Gremlin URI value from the portal (using the copy button) and make it the value of `config.endpoint` key in config.js. The Gremlin endpoint must be only the host name without the protocol/port number, like `mygraphdb.graphs.azure.com` (not `https://mygraphdb.graphs.azure.com` or `mygraphdb.graphs.azure.com:433`).
+    :::image type="content" source="./media/create-graph-nodejs/gremlin-uri.png" alt-text="View and copy an access key in the Azure portal, Overview page":::
 
-    `config.endpoint = "GRAPHENDPOINT";`
-
-3. Copy your primary key value from the portal and make it the value of config.primaryKey in config.js. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+3. In *config.js*, fill in the config.primaryKey value with the **Primary Key** value from the **Keys** page of your Cosmos DB account in the Azure portal. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
+   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Azure portal keys blade":::
+
 4. Enter the database name, and graph (container) name for the value of config.database and config.collection. 
 
-Here is an example of what your completed config.js file should look like:
+Here's an example of what your completed *config.js* file should look like:
 
-```nodejs
+```javascript
 var config = {}
 
-// Note that this must not have HTTPS or the port number
-config.endpoint = "mygraphdb.graphs.azure.com";
-config.primaryKey = "OjlhK6tjxfSXyKtrmCiM9O6gQQgu5DmgAoauzD1PdPIq1LZJmILTarHvrolyUYOB0whGQ4j21rdAFwoYep7Kkw==";
+// Note that this must include the protocol (HTTPS:// for .NET SDK URI or wss:// for Gremlin Endpoint) and the port number
+config.endpoint = "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"; 
+config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
 config.collection = "Persons"
 
@@ -123,9 +175,9 @@ module.exports = config;
 
 ## Run the console app
 
-1. Open a terminal window and change (via `cd` command) to the installation directory for the package.json file that's included in the project.  
+1. Open a terminal window and change (via `cd` command) to the installation directory for the *package.json* file that's included in the project.
 
-2. Run `npm install` to install the required npm modules, including `gremlin-secure`.
+2. Run `npm install` to install the required npm modules, including `gremlin`.
 
 3. Run `node app.js` in a terminal to start your node application.
 
@@ -133,9 +185,11 @@ module.exports = config;
 
 You can now go back to Data Explorer in the Azure portal to view, query, modify, and work with your new graph data.
 
-In Data Explorer, the new database appears in the **Collections** pane. Expand **graphdb**, **graphcoll**, and then click **Graph**.
+In Data Explorer, the new database appears in the **Graphs** pane. Expand the database, followed by the container, and then select **Graph**.
 
-The data generated by the sample app is displayed in the **Graphs** pane.
+The data generated by the sample app is displayed in the next pane within the **Graph** tab when you select **Apply Filter**.
+
+Try completing `g.V()` with `.has('firstName', 'Thomas')` to test the filter. Note that the value is case sensitive.
 
 ## Review SLAs in the Azure portal
 
@@ -143,14 +197,11 @@ The data generated by the sample app is displayed in the **Graphs** pane.
 
 ## Clean up your resources
 
-If you do not plan to continue using this app, delete all resources that you created in this article by doing the following: 
-
-1. In the Azure portal, on the left navigation menu, click **Resource groups**, and then click the name of the resource that you created. 
-2. On your resource group page, click **Delete**, type the name of the resource to be deleted, and then click **Delete**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 
-In this article, you've learned how to create an Azure Cosmos DB account, create a graph by using Data Explorer, and run an app. You can now build more complex queries and implement powerful graph traversal logic by using Gremlin. 
+In this article, you learned how to create an Azure Cosmos DB account, create a graph by using Data Explorer, and run a Node.js app to add data to the graph. You can now build more complex queries and implement powerful graph traversal logic by using Gremlin. 
 
 > [!div class="nextstepaction"]
-> [Query using Gremlin](tutorial-query-graph.md)
+> [Query by using Gremlin](tutorial-query-graph.md)

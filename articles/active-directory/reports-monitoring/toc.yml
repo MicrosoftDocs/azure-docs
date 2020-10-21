@@ -1,0 +1,123 @@
+- name: Reports and monitoring documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What are Azure AD reports?
+    href: overview-reports.md
+  - name: What is Azure AD monitoring?
+    href: overview-monitoring.md
+
+    
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Download a sign-in report
+    href: quickstart-download-sign-in-report.md
+  - name: Download an audit report
+    href: quickstart-download-audit-report.md
+  - name: Configure named locations
+    href: quickstart-configure-named-locations.md
+  - name: Route logs to storage account
+    href: quickstart-azure-monitor-route-logs-to-storage-account.md
+
+- name: Tutorials
+  items:
+  - name: Access Reporting API with certificates
+    href: tutorial-access-api-with-certificates.md
+  - name: Stream logs to event hub
+    href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+  - name: Log analytics wizard
+    href: tutorial-log-analytics-wizard.md
+
+- name: Concepts
+  items:
+  - name: Plan a reporting and monitoring deployment
+    href: plan-monitoring-and-reporting.md
+  - name: Audit logs
+    href: concept-audit-logs.md
+  - name: New sign-in logs - preview
+    href: concept-all-sign-ins.md
+  - name: Sign-in logs
+    href: concept-sign-ins.md
+  - name: Usage and Insights report
+    href: concept-usage-insights-report.md
+  - name: Risky sign-ins
+    href: ../identity-protection/overview-identity-protection.md
+  - name: Risk detections
+    href: ../identity-protection/overview-identity-protection.md
+  - name: Users at risk
+    href: ../identity-protection/overview-identity-protection.md
+  - name: Provisioning logs
+    href: concept-provisioning-logs.md
+  - name: Reporting APIs
+    href: concept-reporting-api.md
+  - name: Azure AD logs in Azure Monitor
+    href: concept-activity-logs-azure-monitor.md
+
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Reports
+    items:
+    - name: Manage inactive user accounts in Azure AD
+      href: howto-manage-inactive-user-accounts.md
+    - name: Find activity reports
+      href: howto-find-activity-reports.md
+    - name: Troubleshoot sign-in errors for a user
+      href: howto-troubleshoot-sign-in-errors.md
+    - name: Remediate users flagged for risk
+      href: howto-remediate-users-flagged-for-risk.md
+    - name: Configure prerequisites for Reporting API
+      href: howto-configure-prerequisites-for-reporting-api.md
+    - name: How to use Azure AD workbooks
+      href: howto-use-azure-monitor-workbooks.md
+
+  - name: Monitoring
+    items:
+    - name: Analyze activity logs in Azure Monitor logs
+      href: howto-analyze-activity-logs-log-analytics.md
+    - name: Install and use the log analytics views for Azure AD
+      href: howto-install-use-log-analytics-views.md
+    - name: Integrate activity logs with Azure Monitor logs
+      href: howto-integrate-activity-logs-with-log-analytics.md    
+    - name: Integrate activity logs with ArcSight
+      href: howto-integrate-activity-logs-with-arcsight.md
+    - name: Integrate activity logs with Splunk
+      href: howto-integrate-activity-logs-with-splunk.md
+    - name: Integrate activity logs with SumoLogic
+      href: howto-integrate-activity-logs-with-sumologic.md
+
+  - name: Troubleshoot
+    items:
+    - name: Missing audit data
+      href: troubleshoot-missing-audit-data.md
+    - name: Missing data in download
+      href: troubleshoot-missing-data-download.md
+    - name: Cannot access Graph APIs for reporting
+      href: troubleshoot-graph-api.md
+    - name: Audit data on verified domain change
+      href: troubleshoot-audit-data-verified-domain.md
+
+- name: Reference
+  expanded: true
+  items:
+  - name: Azure AD PowerShell cmdlets for reporting
+    href: reference-powershell-reporting.md
+  - name: Audit logs API reference
+    href: /graph/api/resources/directoryaudit?view=graph-rest-beta
+  - name: Sign-in logs API reference
+    href: /graph/api/resources/signin?view=graph-rest-beta
+  - name: Audit activities
+    href: reference-audit-activities.md
+  - name: Data retention policies
+    href: reference-reports-data-retention.md
+  - name: Reporting latencies
+    href: reference-reports-latencies.md
+  - name: Sign-in error codes
+    href: reference-sign-ins-error-codes.md
+  - name: Frequently asked questions
+    href: reports-faq.md
+  - name: Audit log schema
+    href: reference-azure-monitor-audit-log-schema.md
+  - name: Sign-in log schema
+    href: reference-azure-monitor-sign-ins-log-schema.md

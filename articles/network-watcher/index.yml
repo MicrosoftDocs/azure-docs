@@ -1,0 +1,102 @@
+### YamlMime:Landing
+
+title: Azure Network Watcher documentation
+summary: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
+metadata:
+  title: Azure Network Watcher Documentation
+  description: Learn how to use Azure Network Watcher. Quickstarts, tutorials, and more, show you how to gain insight into your Azure Virtual Network with tools like packet capture and NSG flows logs, to diagnose problems with traffic filtering and routing, and to monitor connections.
+  services: network-watcher
+  ms.service: network-watcher
+  ms.topic: landing-page
+  ms.collection: collection
+  author: KumudD
+  ms.author: kumud
+  ms.date: 08/29/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Network Watcher
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Network Watcher?
+            url: network-watcher-monitoring-overview.md
+
+  # Card (optional)
+  - title: Diagnose VM traffic filter problem
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: IP Flow verify
+            url: network-watcher-ip-flow-verify-overview.md
+      - linkListType: quickstart  
+        links:
+          - text: Diagnose VM traffic filter problem
+            url: diagnose-vm-network-traffic-filtering-problem.md
+                 
+  # Card (optional)
+  - title: Diagnose VM routing problem
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Diagnose VM routing problem with next hop
+            url: network-watcher-next-hop-overview.md
+      - linkListType: tutorial  
+        links:
+          - text: Diagnose VM routing problem
+            url: diagnose-vm-network-routing-problem.md
+
+  # Card (optional)
+  - title: Diagnose VM communication issues
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Diagnose outbound VM communication issues
+            url: network-watcher-connectivity-overview.md
+      - linkListType: tutorial  
+        links:
+          - text: Diagnose VM routing problem
+            url: network-watcher-connectivity-portal.md
+          - text: Monitor communication between VMs
+            url: connection-monitor.md          
+  
+  # Card (optional)
+  - title: Log VM network traffic
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Log VM network traffic
+            url: network-watcher-nsg-flow-logging-overview.md
+      - linkListType: tutorial  
+        links:
+          - text: Log VM network traffic
+            url: network-watcher-nsg-flow-logging-portal.md
+      - linkListType: tutorial 
+        links:
+          - text: Configure NSG flow logs
+            url: network-watcher-nsg-flow-logging-portal.md
+          - text: Analyze NSG flow logs using Traffic Analytics
+            url: traffic-analytics.md
+          - text: Log VM network traffic
+            url: network-watcher-nsg-flow-logging-portal.md              
+
+  # Card (optional)
+  - title: Reference
+    linkLists:
+      - linkListType: reference  
+        links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.network/#network_watcher
+          - text: Azure CLI
+            url: /cli/azure/network/watcher
+          - text: REST
+            url: /rest/api/network-watcher/                                      
+
+            
+            
+
+  

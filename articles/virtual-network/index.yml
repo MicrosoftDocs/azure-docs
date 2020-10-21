@@ -1,0 +1,202 @@
+### YamlMime:Landing
+
+title: Virtual Network documentation
+summary: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.
+
+metadata:
+  title: Azure Virtual Network Documentation - Tutorials, quickstarts, API references
+  description: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.
+  services: virtual-network
+  ms.service: virtual-network
+  ms.topic: landing-page
+  ms.collection: collection
+  author: KumudD
+  ms.author: kumud
+  ms.date: 08/28/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Virtual Network
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Virtual Network?
+            url: virtual-networks-overview.md
+      - linkListType: concept
+        links:
+          - text: Virtual network FAQ
+            url: virtual-networks-overview.md
+ 
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create virtual network
+            url: quick-create-portal.md    
+      - linkListType: how-to-guide
+        links:
+          - text: Create, change, or delete a virtual network
+            url: manage-virtual-network.md
+          - text: Add, change, or delete a subnet
+            url: virtual-network-manage-subnet.md
+
+  # Card
+  - title: Secure network traffic
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Network security groups
+            url: security-overview.md
+          - text: Application security groups
+            url: security-overview.md#application-security-groups 
+          - text: Virtual network service endpoints
+            url: virtual-network-service-endpoints-overview.md
+          - text: Virtual network security FAQ
+            url: virtual-networks-faq.md#security            
+      - linkListType: tutorial
+        links:
+          - text: Filter network traffic using network security groups
+            url: tutorial-filter-network-traffic.md
+          - text: Restrict network access using service endpoints
+            url: tutorial-restrict-network-access-to-resources.md
+          - text: Work with application security groups
+            url: manage-network-security-group.md#work-with-application-security-groups
+      - linkListType: learn
+        links:
+          - text: Secure and isolate access to Azure resources
+            url: https://docs.microsoft.com/learn/modules/secure-and-isolate-with-nsg-and-service-endpoints    
+      - linkListType: video
+        links:
+          - text: Securely access your Azure PaaS resources with Azure Private Link
+            url: https://www.youtube.com/watch?v=PWKM5KXjWno        
+       
+  # Card
+  - title: Connect virtual networks
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Virtual network peering
+            url: virtual-network-peering-overview.md
+          - text: Virtual network peering FAQ
+            url: virtual-networks-faq.md#vnet-peering            
+      - linkListType: tutorial
+        links:
+          - text: Connect VNets with virtual network peering
+            url: tutorial-connect-virtual-networks-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: Same deployment model - same subscription
+            url: tutorial-connect-virtual-networks-powershell.md
+          - text: Same deployment model - different subscriptions
+            url: create-peering-different-subscriptions.md
+          - text: Different deployment models - same subscription
+            url: create-peering-different-deployment-models.md
+          - text: Different deployment models - different subscriptions
+            url: create-peering-different-deployment-models-subscriptions.md
+      - linkListType: learn
+        links:
+          - text: Communicate across virtual network with peering
+            url: https://docs.microsoft.com/learn/modules/integrate-vnets-with-vnet-peering      
+
+  # Card
+  - title: Route network traffic
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Route network traffic with route tables
+            url: virtual-networks-udr-overview.md
+      - linkListType: tutorial
+        links:
+          - text: Route network traffic - Portal
+            url: tutorial-create-route-table-portal.md
+
+  # Card
+  - title: Create IP addresses 
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: IP address types and allocation methods
+            url: virtual-network-ip-addresses-overview-arm.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create, change, or delete a public IP address
+            url: virtual-network-public-ip-address.md          
+          - text: Add a public IP address to a VM
+            url: associate-public-ip-address-vm.md     
+          - text: Create a VM with static IP address
+            url: virtual-network-deploy-static-pip-arm-portal.md
+          - text: Configure a static private IP address for a VM
+            url: virtual-networks-static-private-ip-arm-pportal.md
+          - text: Assign multiple IP addresses to a VM
+            url: virtual-network-multiple-ip-addresses-powershell.md
+  # Card
+  - title: Create IPv6 for virtual networks
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: What is IPv6 for Azure virtual network?
+            url: ipv6-overview.md
+      - linkListType: deploy
+        links:
+          - text: Deploy an IPV6 dual stack application - Standard Load Balancer
+            url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md          
+          - text: Deploy an IPV6 dual stack application - Basic Load Balancer
+            url: virtual-network-ipv4-ipv6-dual-stack-powershell.md     
+
+  # Card
+  - title: Monitor virtual networks
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Virtual network Terminal Access Point (TAP)
+            url: virtual-network-tap-overview.md
+          - text: Virtual network TAP FAQ
+            url: virtual-networks-faq.md#virtual-network-tap    
+      - linkListType: how-to-guide
+        links:
+          - text: Create a virtual network TAP
+            url: tutorial-tap-virtual-network-cli.md
+
+  # Card
+  - title: Manage IP services
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: IP address types and allocation methods
+            url: virtual-network-ip-addresses-overview-arm.md
+          - text: What is IPv6 for Azure virtual network?
+            url: ipv6-overview.md
+          - text: Public IP address prefix
+            url: public-ip-address-prefix.md        
+      - linkListType: how-to-guide
+        links:
+          - text: Create, change, or delete a public IP address
+            url: virtual-network-public-ip-address.md      
+          - text: Deploy an IPV6 dual stack application
+            url: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+          - text: Create, change, or delete a public IP address prefix
+            url: manage-public-ip-address-prefix.md
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/network
+          - text: Azure PowerShell
+            url: /powershell/module/az.network
+          - text: REST
+            url: /rest/api/virtual-network      
+
+
+
+
+            
+                
+
+

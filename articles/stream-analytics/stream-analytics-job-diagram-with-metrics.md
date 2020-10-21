@@ -1,22 +1,12 @@
 ---
-title:  Azure Stream Analytics data-driven debugging by using the job diagram | Microsoft Docs
-description: Troubleshoot your Stream Analytics job by using the job diagram and metrics.
-keywords: 
-documentationcenter: ''
-services: stream-analytics
-author: jeffstokes72
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
+title: Data-driven debugging in Azure Stream Analytics
+description: This article describes how to troubleshoot your Azure Stream Analytics job by using the job diagram and metrics in the Azure portal.
+author: jseb225
+ms.author: jeanb
+ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: how-to
 ms.date: 05/01/2017
-ms.author: jeffstok
-
 ---
 
 # Data-driven debugging by using the job diagram
@@ -80,15 +70,15 @@ If the preceding query step is an input processor, use the input metrics to help
  
 ### Are we falling behind in reading data?
 
-*   **InputEventsSourcesBackloggedTotal** tells you how many more messages need to be read for Event Hubs and Azure IoT Hub inputs.
+*   **Input Events Backlogged (Total)** tells you how many more messages need to be read for Event Hubs and Azure IoT Hub inputs. When this number is greater than 0, it means your job can't process the data as fast as it is coming in. In this case you may need to increase the number of Streaming Units and/or make sure your job can be parallelized. You can see more info on this on the  [query parallelization page](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
 ## Get help
-For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+For additional assistance, try our [Microsoft Q&A question page for  Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
 * [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -1,7 +1,0 @@
-| Mobile & Native Apps | Web Apps & Web APIs | Integrate Directly with Protocols |
-| --- | --- | --- |
-| [Add Sign-In to an iOS App](https://github.com/Azure-Samples/active-directory-msal-ios-swift) | [Add Sign-In to an JS SPA](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |[Register an Application](../articles/active-directory/develop/active-directory-v2-app-registration.md) |
-| [Add Sign-In to an Android App](../articles/active-directory/develop/guidedsetups/active-directory-mobileanddesktopapp-android-intro.md) | [Add Sign-In to a .NET MVC App](../articles/active-directory/develop/guidedsetups/active-directory-serversidewebapp-aspnetwebappowin-intro.md) |[Mobile Apps with OAuth 2.0](../articles/active-directory/develop/active-directory-v2-protocols-oauth-code.md) |
-| [Add Sign-In to a Windows Desktop App](../articles/active-directory/develop/guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) |[Add Sign-In to a Node JS Web App](../articles/active-directory/develop/active-directory-v2-devquickstarts-node-web.md) |[Web Apps with OpenID Connect](../articles/active-directory/develop/active-directory-v2-protocols-oidc.md) |
-|  |  |[Single Page Apps with OpenID Connect](../articles/active-directory/develop/active-directory-v2-protocols-implicit.md) |
-|  |  | [Daemon apps with the Client Credentials Flow](../articles/active-directory/develop/active-directory-v2-protocols-oauth-client-creds.md) |

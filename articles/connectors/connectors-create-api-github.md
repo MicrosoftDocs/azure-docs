@@ -1,43 +1,41 @@
 ---
-title: GitHub connector in Azure Logic Apps | Microsoft Docs
-description: Create Logic apps with Azure App service. GitHub is a web-based Git repository hosting service. It offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features.
+title: Access, monitor, and manage your GitHub repo
+description: Monitor GitHub events and manage your GitHub repo by creating automated workflows with Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: MandiOhlinger
-manager: anneta
-editor: ''
+ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
+ms.date: 03/02/2018
 tags: connectors
-
-ms.assetid: 8f873e6c-f4c0-4c2e-a5bd-2e953efe5e2b
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 08/18/2016
-ms.author: mandia; ladocs
-
 ---
-# Get started with the GitHub connector
-GitHub is a web-based Git repository hosting service. It offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features.
 
-You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+# Monitor and manage your GitHub repo by using Azure Logic Apps
+
+GitHub is a web-based Git repository hosting service that offers all of the distributed 
+revision control and source code management (SCM) functionality in Git plus other features.
+
+To get started with the GitHub connector, 
+[create a logic app first](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to GitHub
-To create Logic apps with GitHub, you must first create a **connection** then provide the details for the following properties: 
 
-| Property | Required | Description |
-| --- | --- | --- |
-| Token |Yes |Provide GitHub Credentials |
+To use the GitHub connector in a logic app, 
+you must first create a *connection* and then provide details for these properties: 
 
-After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
+| Property | Required | Description | 
+| -------- | -------- | ----------- | 
+| Token | Yes | Provide your GitHub credentials. |
+
+After you create the connection, you can execute the actions 
+and listen for the triggers described in this article.
 
 > [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 
-## Connector-specific details
+## Connector reference
 
-View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/github/).
+For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the [connector's reference page](/connectors/github/).
 
-## More connectors
-Go back to the [APIs list](apis-list.md).
+## Next steps
+
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)

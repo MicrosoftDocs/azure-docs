@@ -1,368 +1,457 @@
 ---
-title: How to use Azure Service Bus topics with Java | Microsoft Docs
-description: Use Service Bus topics and subscriptions in Azure.
-services: service-bus-messaging
-documentationcenter: java
-author: sethmanheim
-manager: timlt
-editor: ''
-
-ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
-ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
+title: Use Azure Service Bus topics and subscriptions with Java
+description: In this quickstart, you write Java code to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic. 
 ms.devlang: Java
-ms.topic: article
-ms.date: 06/28/2017
-ms.author: sethm
-
+ms.topic: quickstart
+ms.date: 06/23/2020
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
-# How to use Service Bus topics and subscriptions
+
+# Quickstart: Use Service Bus topics and subscriptions with Java
+
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-This guide describes how to use Service Bus topics and subscriptions. The samples are written in Java and use the [Azure SDK for Java][Azure SDK for Java]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and
-**deleting topics and subscriptions**.
+In this quickstart, you write Java code to send messages to an Azure Service Bus topic and then receive messages from subscriptions to that topic. 
 
-## What are Service Bus topics and subscriptions?
-Service Bus topics and subscriptions support a *publish/subscribe*
-messaging communication model. When using topics and subscriptions,
-components of a distributed application do not communicate directly with
-each other; instead they exchange messages via a topic, which acts as an
-intermediary.
+## Prerequisites
 
-![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
-
-In contrast with Service Bus queues, in which each message is processed by a
-single consumer, topics and subscriptions provide a "one-to-many" form
-of communication, using a publish/subscribe pattern. It is possible to
-register multiple subscriptions to a topic. When a message is sent to a
-topic, it is then made available to each subscription to handle/process
-independently.
-
-A subscription to a topic resembles a virtual queue that receives copies of
-the messages that were sent to the topic. You can optionally register
-filter rules for a topic on a per-subscription basis, which allows you
-to filter/restrict which messages to a topic are received by which topic
-subscriptions.
-
-Service Bus topics and subscriptions enable you to scale to process a
-very large number of messages across a very large number of users and
-applications.
-
-## Create a service namespace
-To begin using Service Bus topics and subscriptions in Azure,
-you must first create a namespace, which provides
-a scoping container for addressing Service Bus resources within your
-application.
-
-To create a namespace:
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to do the following tasks:
+    1. Create a Service Bus **namespace**.
+    2. Get the **connection string**.
+    3. Create a **topic** in the namespace.
+    4. Create **three subscriptions** to the topic in the namespace.
+3. [Azure SDK for Java][Azure SDK for Java].
 
 ## Configure your application to use Service Bus
 Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:
 
-![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
+![Add Microsoft Azure Libraries for Java to your Eclipse project](media/service-bus-java-how-to-use-topics-subscriptions/eclipse-azure-libraries-java.png)
 
-Add the following `import` statements to the top of the Java file:
+You also need to add the following JARs to the Java Build Path:
 
-```java
-import com.microsoft.windowsazure.services.servicebus.*;
-import com.microsoft.windowsazure.services.servicebus.models.*;
-import com.microsoft.windowsazure.core.*;
-import javax.xml.datatype.*;
-```
+- gson-2.6.2.jar
+- commons-cli-1.4.jar
+- proton-j-0.21.0.jar
 
-Add the Azure Libraries for Java to your build path and include it in your project deployment assembly.
-
-## Create a topic
-Management operations for Service Bus topics can be performed via the
-**ServiceBusContract** class. A **ServiceBusContract** object is
-constructed with an appropriate configuration that encapsulates the
-SAS token with permissions to manage it, and the **ServiceBusContract** class is
-the sole point of communication with Azure.
-
-The **ServiceBusService** class provides methods to create, enumerate,
-and delete topics. The following example shows how a **ServiceBusService** object
-can be used to create a topic named `TestTopic`, with a namespace called `HowToSample`:
+Add a class with a **Main** method, and then add the following `import` statements at the top of the Java file:
 
 ```java
-Configuration config =
-    ServiceBusConfiguration.configureWithSASAuthentication(
-      "HowToSample",
-      "RootManageSharedAccessKey",
-      "SAS_key_value",
-      ".servicebus.windows.net"
-      );
-
-ServiceBusContract service = ServiceBusService.create(config);
-TopicInfo topicInfo = new TopicInfo("TestTopic");
-try  
-{
-    CreateTopicResult result = service.createTopic(topicInfo);
-}
-catch (ServiceException e) {
-    System.out.print("ServiceException encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
+import com.google.gson.reflect.TypeToken;
+import com.microsoft.azure.servicebus.*;
+import com.microsoft.azure.servicebus.primitives.ConnectionStringBuilder;
+import com.google.gson.Gson;
+import static java.nio.charset.StandardCharsets.*;
+import java.time.Duration;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.Function;
+import org.apache.commons.cli.*;
+import org.apache.commons.cli.DefaultParser;
 ```
-
-There are methods on **TopicInfo** that enable properties of the topic to
-be set (for example: to set the default time-to-live (TTL) value to be
-applied to messages sent to the topic). The following example shows how
-to create a topic named `TestTopic` with a maximum size of 5 GB:
-
-```java
-long maxSizeInMegabytes = 5120;  
-TopicInfo topicInfo = new TopicInfo("TestTopic");  
-topicInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
-CreateTopicResult result = service.createTopic(topicInfo);
-```
-
-Note that you can use the **listTopics** method on
-**ServiceBusContract** objects to check if a topic with a specified name
-already exists within a service namespace.
-
-## Create subscriptions
-Subscriptions to topics are also created with the **ServiceBusService**
-class. Subscriptions are named and can have an optional filter that
-restricts the set of messages passed to the subscription's virtual
-queue.
-
-### Create a subscription with the default (MatchAll) filter
-The **MatchAll** filter is the default filter that is used if no filter
-is specified when a new subscription is created. When the **MatchAll**
-filter is used, all messages published to the topic are placed in the
-subscription's virtual queue. The following example creates a
-subscription named "AllMessages" and uses the default **MatchAll**
-filter.
-
-```java
-SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
-CreateSubscriptionResult result =
-    service.createSubscription("TestTopic", subInfo);
-```
-
-### Create subscriptions with filters
-You can also create filters that enable you to scope which messages sent
-to a topic should show up within a specific topic subscription.
-
-The most flexible type of filter supported by subscriptions is the
-[SqlFilter][SqlFilter], which implements a subset of SQL92. SQL filters operate
-on the properties of the messages that are published to the topic. For
-more details about the expressions that can be used with a SQL filter,
-review the [SqlFilter.SqlExpression][SqlFilter.SqlExpression] syntax.
-
-The following example creates a subscription named `HighMessages` with a
-[SqlFilter][SqlFilter] object that only selects messages that have a custom
-**MessageNumber** property greater than 3:
-
-```java
-// Create a "HighMessages" filtered subscription  
-SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
-CreateSubscriptionResult result = service.createSubscription("TestTopic", subInfo);
-RuleInfo ruleInfo = new RuleInfo("myRuleGT3");
-ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber > 3");
-CreateRuleResult ruleResult = service.createRule("TestTopic", "HighMessages", ruleInfo);
-// Delete the default rule, otherwise the new rule won't be invoked.
-service.deleteRule("TestTopic", "HighMessages", "$Default");
-```
-
-Similarly, the following example creates a subscription named `LowMessages` with a [SqlFilter][SqlFilter] object that only selects messages that have a **MessageNumber** property less than or equal to 3:
-
-```java
-// Create a "LowMessages" filtered subscription
-SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
-CreateSubscriptionResult result = service.createSubscription("TestTopic", subInfo);
-RuleInfo ruleInfo = new RuleInfo("myRuleLE3");
-ruleInfo = ruleInfo.withSqlExpressionFilter("MessageNumber <= 3");
-CreateRuleResult ruleResult = service.createRule("TestTopic", "LowMessages", ruleInfo);
-// Delete the default rule, otherwise the new rule won't be invoked.
-service.deleteRule("TestTopic", "LowMessages", "$Default");
-```
-
-When a message is now sent to `TestTopic`, it will always be
-delivered to receivers subscribed to the `AllMessages` subscription, and selectively delivered to receivers subscribed to the `HighMessages` and `LowMessages` subscriptions (depending upon the
-message content).
 
 ## Send messages to a topic
-To send a message to a Service Bus topic, your application obtains a
-**ServiceBusContract** object. The following code demonstrates how to send a
-message for the `TestTopic` topic created previously within the `HowToSample` namespace:
+Update the **main** method to create a **TopicClient** object, and invoke a helper method that asynchronously sends sample messages to the Service Bus topic.
+
+> [!NOTE] 
+> - Replace `<NameOfServiceBusNamespace>` with the name of your Service Bus namespace. 
+> - Replace `<AccessKey>` with the access key for your namespace.
 
 ```java
-BrokeredMessage message = new BrokeredMessage("MyMessage");
-service.sendTopicMessage("TestTopic", message);
-```
+public class MyServiceBusTopicClient {
 
-Messages sent to Service Bus Topics are instances of the
-[BrokeredMessage][BrokeredMessage] class. [BrokeredMessage][BrokeredMessage]* objects have a set of
-standard methods (such as **setLabel** and **TimeToLive**), a dictionary
-that is used to hold custom application-specific properties, and a body
-of arbitrary application data. An application can set the body of the
-message by passing any serializable object into the constructor of the
-[BrokeredMessage][BrokeredMessage], and the appropriate **DataContractSerializer** will
-then be used to serialize the object. Alternatively, a
-**java.io.InputStream** can be provided.
+    static final Gson GSON = new Gson();
+    
+	public static void main(String[] args) throws Exception, ServiceBusException {
+		// TODO Auto-generated method stub
 
-The following example demonstrates how to send five test messages to the
-`TestTopic` **MessageSender** we obtained in the code snippet above.
-Note how the **MessageNumber** property value of each message varies on
-the iteration of the loop (this will determine which subscriptions
-receive it):
+		TopicClient sendClient;
+		String connectionString = "Endpoint=sb://<NameOfServiceBusNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<AccessKey>";
+        sendClient = new TopicClient(new ConnectionStringBuilder(connectionString, "BasicTopic"));       
+        sendMessagesAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
+	}
 
-```java
-for (int i=0; i<5; i++)  {
-// Create message, passing a string message for the body
-BrokeredMessage message = new BrokeredMessage("Test message " + i);
-// Set some additional custom app-specific property
-message.setProperty("MessageNumber", i);
-// Send message to the topic
-service.sendTopicMessage("TestTopic", message);
-}
-```
+    static CompletableFuture<Void> sendMessagesAsync(TopicClient sendClient) {
+        List<HashMap<String, String>> data =
+                GSON.fromJson(
+                        "[" +
+                                "{'name' = 'Einstein', 'firstName' = 'Albert'}," +
+                                "{'name' = 'Heisenberg', 'firstName' = 'Werner'}," +
+                                "{'name' = 'Curie', 'firstName' = 'Marie'}," +
+                                "{'name' = 'Hawking', 'firstName' = 'Steven'}," +
+                                "{'name' = 'Newton', 'firstName' = 'Isaac'}," +
+                                "{'name' = 'Bohr', 'firstName' = 'Niels'}," +
+                                "{'name' = 'Faraday', 'firstName' = 'Michael'}," +
+                                "{'name' = 'Galilei', 'firstName' = 'Galileo'}," +
+                                "{'name' = 'Kepler', 'firstName' = 'Johannes'}," +
+                                "{'name' = 'Kopernikus', 'firstName' = 'Nikolaus'}" +
+                                "]",
+                        new TypeToken<List<HashMap<String, String>>>() {
+                        }.getType());
 
-Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
-a maximum size of 64 KB. There is no limit on the number of messages
-held in a topic but there is a limit on the total size of the messages
-held by a topic. This topic size is defined at creation time, with an
-upper limit of 5 GB.
-
-## How to receive messages from a subscription
-To receive messages from a subscription, use a
-**ServiceBusContract** object. Received messages can work in two
-different modes: **ReceiveAndDelete** and **PeekLock**.
-
-When using the **ReceiveAndDelete** mode, receive is a single-shot
-operation - that is, when Service Bus receives a read request for a
-message, it marks the message as being consumed and returns it to the
-application. **ReceiveAndDelete** mode is the simplest model and works
-best for scenarios in which an application can tolerate not processing a
-message in the event of a failure. To understand this, consider a
-scenario in which the consumer issues the receive request and then
-crashes before processing it. Because Service Bus will have marked the
-message as being consumed, then when the application restarts and begins
-consuming messages again, it will have missed the message that was
-consumed prior to the crash.
-
-In **PeekLock** mode, receive becomes a two stage operation, which makes
-it possible to support applications that cannot tolerate missing
-messages. When Service Bus receives a request, it finds the next message
-to be consumed, locks it to prevent other consumers receiving it, and
-then returns it to the application. After the application finishes
-processing the message (or stores it reliably for future processing), it
-completes the second stage of the receive process by calling **Delete**
-on the received message. When Service Bus sees the **Delete** call, it
-will mark the message as being consumed and remove it from the topic.
-
-The example below demonstrates how messages can be received and
-processed using **PeekLock** mode (not the default mode). The example
-below performs a loop and processes messages in the "HighMessages" subscription and then exits when there are no more messages (alternatively, it could be set to wait for new messages).
-
-```java
-try
-{
-    ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
-    opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
-
-    while(true)  {
-        ReceiveSubscriptionMessageResult  resultSubMsg =
-            service.receiveSubscriptionMessage("TestTopic", "HighMessages", opts);
-        BrokeredMessage message = resultSubMsg.getValue();
-        if (message != null && message.getMessageId() != null)
-        {
-            System.out.println("MessageID: " + message.getMessageId());
-            // Display the topic message.
-            System.out.print("From topic: ");
-            byte[] b = new byte[200];
-            String s = null;
-            int numRead = message.getBody().read(b);
-            while (-1 != numRead)
-            {
-                s = new String(b);
-                s = s.trim();
-                System.out.print(s);
-                numRead = message.getBody().read(b);
-            }
-            System.out.println();
-            System.out.println("Custom Property: " +
-                message.getProperty("MessageNumber"));
-            // Delete message.
-            System.out.println("Deleting this message.");
-            service.deleteMessage(message);
-        }  
-        else  
-        {
-            System.out.println("Finishing up - no more messages.");
-            break;
-            // Added to handle no more messages.
-            // Could instead wait for more messages to be added.
+        List<CompletableFuture> tasks = new ArrayList<>();
+        for (int i = 0; i < data.size(); i++) {
+            final String messageId = Integer.toString(i);
+            Message message = new Message(GSON.toJson(data.get(i), Map.class).getBytes(UTF_8));
+            message.setContentType("application/json");
+            message.setLabel("Scientist");
+            message.setMessageId(messageId);
+            message.setTimeToLive(Duration.ofMinutes(2));
+            System.out.printf("Message sending: Id = %s\n", message.getMessageId());
+            tasks.add(
+                    sendClient.sendAsync(message).thenRunAsync(() -> {
+                        System.out.printf("\tMessage acknowledged: Id = %s\n", message.getMessageId());
+                    }));
         }
+        return CompletableFuture.allOf(tasks.toArray(new CompletableFuture<?>[tasks.size()]));
     }
 }
-catch (ServiceException e) {
-    System.out.print("ServiceException encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
-catch (Exception e) {
-    System.out.print("Generic exception encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
 ```
 
-## How to handle application crashes and unreadable messages
-Service Bus provides functionality to help you gracefully recover from
-errors in your application or difficulties processing a message. If a
-receiver application is unable to process the message for some reason,
-then it can call the **unlockMessage** method on the received message
-(instead of the **deleteMessage** method). This will cause Service Bus
-to unlock the message within the topic and make it available to be
-received again, either by the same consuming application or by another
-consuming application.
+Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have a maximum size of 64 KB. There is no limit on the number of messages held in a topic but there is a limit on the total size of the messages
+held by a topic. This topic size is defined at creation time, with an upper limit of 5 GB.
 
-There is also a timeout associated with a message locked within the
-topic, and if the application fails to process the message before the
-lock timeout expires (for example, if the application crashes), then Service
-Bus will unlock the message automatically and make it available to be
-received again.
-
-In the event that the application crashes after processing the message
-but before the **deleteMessage** request is issued, then the message
-will be redelivered to the application when it restarts. This is often
-called **At Least Once Processing**, that is, each message will be
-processed at least once but in certain situations the same message may
-be redelivered. If the scenario cannot tolerate duplicate processing,
-then application developers should add additional logic to their
-application to handle duplicate message delivery. This is often achieved
-using the **getMessageId** method of the message, which will remain
-constant across delivery attempts.
-
-## Delete topics and subscriptions
-The primary way to delete topics and subscriptions is to use a
-**ServiceBusContract** object. Deleting a topic will also delete any subscriptions that are registered
-with the topic. Subscriptions can also be deleted independently.
+## How to receive messages from a subscription
+Update the **main** method to create three **SubscriptionClient** objects for three subscriptions, and invoke a helper method that asynchronously receives messages from the Service Bus topic. The sample code assumes that you created a topic named **BasicTopic** and three subscriptions named **Subscription1**, **Subscription2**, and **Subscription3**. If you used different names for them, update the code before testing it. 
 
 ```java
-// Delete subscriptions
-service.deleteSubscription("TestTopic", "AllMessages");
-service.deleteSubscription("TestTopic", "HighMessages");
-service.deleteSubscription("TestTopic", "LowMessages");
+public class MyServiceBusTopicClient {
 
-// Delete a topic
-service.deleteTopic("TestTopic");
+    static final Gson GSON = new Gson();
+    
+	public static void main(String[] args) throws Exception, ServiceBusException {
+        SubscriptionClient subscription1Client = new SubscriptionClient(new ConnectionStringBuilder(connectionString, "BasicTopic/subscriptions/Subscription1"), ReceiveMode.PEEKLOCK);
+        SubscriptionClient subscription2Client = new SubscriptionClient(new ConnectionStringBuilder(connectionString, "BasicTopic/subscriptions/Subscription2"), ReceiveMode.PEEKLOCK);
+        SubscriptionClient subscription3Client = new SubscriptionClient(new ConnectionStringBuilder(connectionString, "BasicTopic/subscriptions/Subscription3"), ReceiveMode.PEEKLOCK);        
+
+        registerMessageHandlerOnClient(subscription1Client);
+        registerMessageHandlerOnClient(subscription2Client);
+        registerMessageHandlerOnClient(subscription3Client);
+	}
+	
+    static void registerMessageHandlerOnClient(SubscriptionClient receiveClient) throws Exception {
+
+        // register the RegisterMessageHandler callback
+    	IMessageHandler messageHandler = new IMessageHandler() {
+            // callback invoked when the message handler loop has obtained a message
+            public CompletableFuture<Void> onMessageAsync(IMessage message) {
+                // receives message is passed to callback
+                if (message.getLabel() != null &&
+                        message.getContentType() != null &&
+                        message.getLabel().contentEquals("Scientist") &&
+                        message.getContentType().contentEquals("application/json")) {
+
+                    byte[] body = message.getBody();
+                    Map scientist = GSON.fromJson(new String(body, UTF_8), Map.class);
+
+                    System.out.printf(
+                            "\n\t\t\t\t%s Message received: \n\t\t\t\t\t\tMessageId = %s, \n\t\t\t\t\t\tSequenceNumber = %s, \n\t\t\t\t\t\tEnqueuedTimeUtc = %s," +
+                                    "\n\t\t\t\t\t\tExpiresAtUtc = %s, \n\t\t\t\t\t\tContentType = \"%s\",  \n\t\t\t\t\t\tContent: [ firstName = %s, name = %s ]\n",
+                            receiveClient.getEntityPath(),
+                            message.getMessageId(),
+                            message.getSequenceNumber(),
+                            message.getEnqueuedTimeUtc(),
+                            message.getExpiresAtUtc(),
+                            message.getContentType(),
+                            scientist != null ? scientist.get("firstName") : "",
+                            scientist != null ? scientist.get("name") : "");
+                }
+                return receiveClient.completeAsync(message.getLockToken());
+            }
+            
+            public void notifyException(Throwable throwable, ExceptionPhase exceptionPhase) {
+                System.out.printf(exceptionPhase + "-" + throwable.getMessage());
+            }
+        };
+
+ 
+        receiveClient.registerMessageHandler(
+        			messageHandler,
+                    // callback invoked when the message handler has an exception to report
+                // 1 concurrent call, messages aren't auto-completed, auto-renew duration
+                new MessageHandlerOptions(1, false, Duration.ofMinutes(1)));
+
+    }
+}
 ```
 
-## Next Steps
-Now that you've learned the basics of Service Bus queues, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions] for more information.
+## Run the program
+Run the program to see the output similar to the following output:
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
-[Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
+```java
+Message sending: Id = 0
+Message sending: Id = 1
+Message sending: Id = 2
+Message sending: Id = 3
+Message sending: Id = 4
+Message sending: Id = 5
+Message sending: Id = 6
+Message sending: Id = 7
+Message sending: Id = 8
+Message sending: Id = 9
+	Message acknowledged: Id = 0
+	Message acknowledged: Id = 9
+	Message acknowledged: Id = 7
+	Message acknowledged: Id = 8
+	Message acknowledged: Id = 5
+	Message acknowledged: Id = 6
+	Message acknowledged: Id = 3
+	Message acknowledged: Id = 2
+	Message acknowledged: Id = 4
+	Message acknowledged: Id = 1
+
+				BasicTopic/subscriptions/Subscription1 Message received: 
+						MessageId = 0, 
+						SequenceNumber = 11, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.442Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.442Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Albert, name = Einstein ]
+
+				BasicTopic/subscriptions/Subscription2 Message received: 
+						MessageId = 0, 
+						SequenceNumber = 11, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.442Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.442Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Albert, name = Einstein ]
+
+				BasicTopic/subscriptions/Subscription1 Message received: 
+						MessageId = 9, 
+						SequenceNumber = 12, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Nikolaus, name = Kopernikus ]
+
+				BasicTopic/subscriptions/Subscription1 Message received: 
+						MessageId = 8, 
+						SequenceNumber = 13, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Johannes, name = Kepler ]
+
+				BasicTopic/subscriptions/Subscription3 Message received: 
+						MessageId = 0, 
+						SequenceNumber = 11, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.442Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.442Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Albert, name = Einstein ]
+
+				BasicTopic/subscriptions/Subscription2 Message received: 
+						MessageId = 9, 
+						SequenceNumber = 12, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Nikolaus, name = Kopernikus ]
+
+				BasicTopic/subscriptions/Subscription1 Message received: 
+						MessageId = 7, 
+						SequenceNumber = 14, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Galileo, name = Galilei ]
+
+				BasicTopic/subscriptions/Subscription3 Message received: 
+						MessageId = 9, 
+						SequenceNumber = 12, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Nikolaus, name = Kopernikus ]
+
+				BasicTopic/subscriptions/Subscription2 Message received: 
+						MessageId = 8, 
+						SequenceNumber = 13, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Johannes, name = Kepler ]
+
+				BasicTopic/subscriptions/Subscription1 Message received: 
+						MessageId = 6, 
+						SequenceNumber = 15, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Michael, name = Faraday ]
+
+				BasicTopic/subscriptions/Subscription3 Message received: 
+						MessageId = 8, 
+						SequenceNumber = 13, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Johannes, name = Kepler ]
+
+				BasicTopic/subscriptions/Subscription2 Message received: 
+						MessageId = 7, 
+						SequenceNumber = 14, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Galileo, name = Galilei ]
+
+				BasicTopic/subscriptions/Subscription1 Message received: 
+						MessageId = 5, 
+						SequenceNumber = 16, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Niels, name = Bohr ]
+
+				BasicTopic/subscriptions/Subscription3 Message received: 
+						MessageId = 7, 
+						SequenceNumber = 14, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Galileo, name = Galilei ]
+
+				BasicTopic/subscriptions/Subscription2 Message received: 
+						MessageId = 6, 
+						SequenceNumber = 15, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Michael, name = Faraday ]
+
+				BasicTopic/subscriptions/Subscription1 Message received: 
+						MessageId = 4, 
+						SequenceNumber = 17, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Isaac, name = Newton ]
+
+				BasicTopic/subscriptions/Subscription3 Message received: 
+						MessageId = 6, 
+						SequenceNumber = 15, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Michael, name = Faraday ]
+
+				BasicTopic/subscriptions/Subscription2 Message received: 
+						MessageId = 5, 
+						SequenceNumber = 16, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Niels, name = Bohr ]
+
+				BasicTopic/subscriptions/Subscription1 Message received: 
+						MessageId = 3, 
+						SequenceNumber = 18, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Steven, name = Hawking ]
+
+				BasicTopic/subscriptions/Subscription3 Message received: 
+						MessageId = 5, 
+						SequenceNumber = 16, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Niels, name = Bohr ]
+
+				BasicTopic/subscriptions/Subscription2 Message received: 
+						MessageId = 4, 
+						SequenceNumber = 17, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Isaac, name = Newton ]
+
+				BasicTopic/subscriptions/Subscription1 Message received: 
+						MessageId = 2, 
+						SequenceNumber = 19, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Marie, name = Curie ]
+
+				BasicTopic/subscriptions/Subscription3 Message received: 
+						MessageId = 4, 
+						SequenceNumber = 17, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Isaac, name = Newton ]
+
+				BasicTopic/subscriptions/Subscription2 Message received: 
+						MessageId = 3, 
+						SequenceNumber = 18, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Steven, name = Hawking ]
+
+				BasicTopic/subscriptions/Subscription1 Message received: 
+						MessageId = 1, 
+						SequenceNumber = 20, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Werner, name = Heisenberg ]
+
+				BasicTopic/subscriptions/Subscription2 Message received: 
+						MessageId = 2, 
+						SequenceNumber = 19, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Marie, name = Curie ]
+
+				BasicTopic/subscriptions/Subscription3 Message received: 
+						MessageId = 3, 
+						SequenceNumber = 18, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Steven, name = Hawking ]
+
+				BasicTopic/subscriptions/Subscription3 Message received: 
+						MessageId = 2, 
+						SequenceNumber = 19, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Marie, name = Curie ]
+
+				BasicTopic/subscriptions/Subscription2 Message received: 
+						MessageId = 1, 
+						SequenceNumber = 20, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Werner, name = Heisenberg ]
+
+				BasicTopic/subscriptions/Subscription3 Message received: 
+						MessageId = 1, 
+						SequenceNumber = 20, 
+						EnqueuedTimeUtc = 2018-10-29T18:58:12.520Z,
+						ExpiresAtUtc = 2018-10-29T19:00:12.520Z, 
+						ContentType = "application/json",  
+						Content: [ firstName = Werner, name = Heisenberg ]
+```
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
+
+## Next steps
+For more information, see [Service Bus queues, topics, and subscriptions][Service Bus queues, topics, and subscriptions].
+
+[Azure SDK for Java]: /java/api/overview/azure/
+[Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter 
-[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#Microsoft_ServiceBus_Messaging_SqlFilter_SqlExpression
+[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 
 [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png

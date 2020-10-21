@@ -1,23 +1,19 @@
 ---
-title: Microsoft Azure StorSimple Virtual Array system requirements| Microsoft Docs
+title: Microsoft Azure StorSimple Virtual Array system requirements
 description: Learn about the software and networking requirements for your StorSimple Virtual Array
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
-
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 04/17/2017
+ms.topic: conceptual
+ms.date: 07/25/2019
 ms.author: alkohli
 ---
 # StorSimple Virtual Array system requirements
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 ## Overview
+
 This article describes the important system requirements for your Microsoft Azure StorSimple Virtual Array and for the storage clients accessing the array. We recommend that you review the information carefully before you deploy your StorSimple system, and then refer back to it as necessary during deployment and subsequent operation.
 
 The system requirements include:
@@ -37,7 +33,10 @@ The software requirements include the information on the supported web browsers,
 | **Hypervisor** | **Version** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 and later |
-| VMware ESXi |5.5 and later |
+| VMware ESXi |5.0, 5.5, 6.0, and 6.5. |
+
+> [!IMPORTANT]
+> Do not install VMware tools on your StorSimple Virtual Array; this will result in an unsupported configuration.
 
 ### Virtual device requirements
 | **Component** | **Requirement** |
@@ -46,7 +45,7 @@ The software requirements include the information on the supported web browsers,
 | Minimum memory (RAM) |8 GB <br> For a file server, 8 GB for less than 2 million files and 16 GB for 2 - 4 million files|
 | Disk space<sup>1</sup> |OS disk - 80 GB <br></br>Data disk - 500 GB to 8 TB |
 | Minimum number of network interface(s) |1 |
-| Minimum Internet bandwidth<sup>2</sup> |5 Mbps |
+| Internet bandwidth<sup>2</sup> |Minimum bandwidth required: 5 Mbps <br> Recommended bandwidth: 100 Mbps <br> The speed of data transfer scales with the Internet bandwidth. For example, 100 GB of data takes 2 days to transfer at 5 Mbps which could lead to backup failures because daily backups would not complete in a day. With a bandwidth of 100 Mbps, 100 GB of data can be transferred in 2.5 hours.   |
 
 <sup>1</sup> - Thin provisioned
 
@@ -75,8 +74,8 @@ The following software requirements are for the SMB clients that access your Sto
 | SMB 3.02 |
 
 > [!IMPORTANT]
-> Do not copy or store files protected by Windows Encrypting File System (EFS) to the StorSimple Virtual Array file server; this will result in an unsupported configuration. 
-> 
+> Do not copy or store files protected by Windows Encrypting File System (EFS) to the StorSimple Virtual Array file server; this will result in an unsupported configuration.
+
 
 ### Supported storage format
 Only the Azure block blob storage is supported. Page blobs are not supported. More information [about block blobs and page blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
@@ -97,7 +96,7 @@ The following table lists the ports that need to be opened in your firewall to a
 <sup>1</sup> No inbound ports need to be opened on the public Internet.
 
 > [!IMPORTANT]
-> Ensure that the firewall does not modify or decrypt any SSL traffic between the StorSimple device and Azure.
+> Ensure that the firewall does not modify or decrypt any TLS traffic between the StorSimple device and Azure.
 > 
 > 
 
@@ -109,21 +108,20 @@ We recommend that you set your firewall rules for outbound traffic, based on Sto
 > [!NOTE]
 > 
 > * The device (source) IPs should always be set to all the cloud-enabled network interfaces. 
-> * The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+> * The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 > 
 > 
 
 | URL pattern | Component/Functionality |
 | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` |StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple Device Manager service<br>Access Control Service<br>Azure Service Bus<br>Authentication Service|
 | `http://*.backup.windowsazure.com` |Device registration |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Certificate revocation |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Certificate revocation |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure storage accounts and monitoring |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update servers<br> |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update servers<br> |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
 | `https://*.partners.extranet.microsoft.com/*` |Support package |
-| `http://*.data.microsoft.com ` |Telemetry service in Windows, see the [update for customer experience and diagnostic telemetry](https://support.microsoft.com/en-us/kb/3068708) |
+| `https://*.data.microsoft.com` |Telemetry service in Windows, see the [update for customer experience and diagnostic telemetry](https://support.microsoft.com/en-us/kb/3068708) |
 
-## Next step
+## Next steps
 * [Prepare the portal to deploy your StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
-

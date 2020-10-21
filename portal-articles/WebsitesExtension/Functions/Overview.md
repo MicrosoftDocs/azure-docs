@@ -5,7 +5,7 @@ services: functions
 author: sewatson
 manager: lwelicki
 
-ms.service: functions
+ms.service: azure-functions
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson

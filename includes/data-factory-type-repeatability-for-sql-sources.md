@@ -1,3 +1,10 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+---
 ## Repeatability during Copy
 When copying data to Azure SQL/SQL Server from other data stores one needs to keep repeatability in mind to avoid unintended outcomes. 
 
@@ -61,7 +68,7 @@ Nothing new had to be done. The copy activity ran the cleanup script to delete t
 
 ### Mechanism 2
 > [!IMPORTANT]
-> sliceIdentifierColumnName is not supported for Azure SQL Data Warehouse at this time. 
+> sliceIdentifierColumnName is not supported for Azure Synapse Analytics at this time. 
 
 Another mechanism to achieve repeatability is by having a dedicated column (**sliceIdentifierColumnName**) in the target Table. This column would be used by Azure Data Factory to ensure the source and destination stay synchronized. This approach works when there is flexibility in changing or defining the destination SQL Table schema. 
 

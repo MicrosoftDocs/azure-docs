@@ -1,4 +1,10 @@
-  Now navigate to the DocumentDB account blade, and click **Keys**, as we will use these values in the web application we create next.
+---
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sngun
+---
+  Go to the Azure Cosmos DB account page, and select **Keys**. Copy the values to use in the web application you create next.
 
-![Screen shot of the Azure portal, showing a DocumentDB account, with the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/cosmos-db-keys/keys.png)
-
+![Screenshot of the Azure portal with the Keys button highlighted on the Azure Cosmos DB account page](./media/cosmos-db-keys/copy-keys.png)

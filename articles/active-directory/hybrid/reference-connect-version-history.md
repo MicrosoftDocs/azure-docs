@@ -1,0 +1,260 @@
+---
+title: 'Azure AD Connect: Version release history | Microsoft Docs'
+description: This article lists all releases of Azure AD Connect and Azure AD Sync.
+services: active-directory
+author: billmath
+manager: daveba
+ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
+ms.service: active-directory
+ms.topic: reference
+ms.workload: identity
+ms.date: 08/07/2020
+ms.subservice: hybrid
+ms.author: billmath
+
+ms.collection: M365-identity-device-management
+---
+# Azure AD Connect: Version release history
+The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
+
+This article is designed to help you keep track of the versions that have been released, and to understand what the changes are in the latest version.
+
+
+
+This table is a list of related topics:
+
+Topic |  Details
+--------- | --------- |
+Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](how-to-upgrade-previous-version.md) Azure AD Connect release.
+Required permissions | For permissions required to apply an update, see [accounts and permissions](reference-connect-accounts-permissions.md#upgrade).
+Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+>[!NOTE]
+>Releasing a new version of Azure AD Connect is a process that requires several quality control step to ensure the operation functionality of the service, and while we go through this process the version number of a new release as well as the release status will be updated to reflect the most recent state.
+While we go through this process, the version number of the release will be shown with an "X" in the minor release number position, as in "1.3.X.0" - this indicates that the release notes in this document are valid for all versions beginning with "1.3.". As soon as we have finalized the release process the release version number will be updated to the most recently released version and the release status will be updated to "Released for download and auto upgrade".
+Not all releases of Azure AD Connect will be made available for auto upgrade. The release status will indicate whether a release is made available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect that is released for auto upgrade. Note that not all Azure AD Connect configurations are eligible for auto upgrade. Please follow this link to read more about [auto upgrade](how-to-connect-install-automatic-upgrade.md)
+
+>[!IMPORTANT]
+> Starting on November 1st, 2020, we will begin implementing a deprecation process whereby versions of Azure AD Connect that were released more than 18 months ago will be deprecated. At that time we will begin this process by deprecating all releases of Azure AD Connect with version 1.3.20.0 (which was released on 4/24/2019) and older, and we will proceed to evaluate the deprecation of older versions of Azure AD Connect every time a new version releases.
+>
+> You need to make sure you are running a recent version of Azure AD Connect to receive an optimal support experience. 
+>
+>If you run a deprecated version of Azure AD Connect you may not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools and service enhancements, and if you require support we may not be able to provide you with the level of service your organization needs.
+>
+>If you have enabled Azure AD Connect for sync you will soon automatically begin receiving Health notifications that warn you about upcoming deprecations when you are running one of the older versions.
+>
+>Please refer to [this article](./how-to-upgrade-previous-version.md) to learn more about how to upgrade Azure AD Connect to the latest version.
+>
+>For version history information on deprecated versions, see [Azure AD Connect version release history archive](reference-connect-version-history-archive.md)
+
+## 1.5.45.0
+
+### Release status
+07/29/2020: Released for download
+
+### Functional changes
+This is a bug fix release. There are no functional changes in this release.
+
+### Fixed issues
+
+- Fixed an issue where admin can’t enable “Seamless Single Sign On” if AZUREADSSOACC computer account is already present in the “Active Directory”.
+- Fixed an issue that caused a staging error during V2 API delta import for a conflicting object that was repaired via the health portal.
+- Fixed an issue in the import/export configuration where disabled custom rule was imported as enabled.
+
+## 1.5.42.0
+
+### Release status
+07/10/2020: Released for download
+
+### Functional changes
+This release includes a public preview of the functionality to export the configuration of an existing Azure AD Connect server into a .JSON file which can then be used when installing a new Azure AD Connect server to create a copy of the original server.
+
+A detailed description of this new feature can be found in [this article](./how-to-connect-import-export-config.md)
+
+### Fixed issues
+- Fixed a bug where there would be a false warning about the local DB size on the localized builds during upgrade.
+- Fixed a bug where there would be a false error in the app events for the account name/domain name swap.
+- Fixed an error where Azure AD Connect would fail to install on a DC, giving error "member not found".
+
+
+## 1.5.30.0
+
+### Release status
+05/07/2020: Released for download
+
+### Fixed issues
+This hotfix build fixes an issue where unselected domains were getting incorrectly selected from the wizard UI if only grandchild containers were selected.
+
+
+>[!NOTE]
+>This version includes the new Azure AD Connect sync V2 endpoint API.  This new V2 endpoint is currently in public preview.  This version or later is required to use the new V2 endpoint API.  However, simply installing this version does not enable the V2 endpoint. You will continue to use the V1 endpoint unless you enable the V2 endpoint.  You need to follow the steps under [Azure AD Connect sync V2 endpoint API (public preview)](how-to-connect-sync-endpoint-api-v2.md) in order to enable it and opt-in to the public preview.  
+
+## 1.5.29.0
+
+### Release status
+04/23/2020: Released for download
+
+### Fixed issues
+This hotfix build fixes an issue introduced in build 1.5.20.0 where a tenant administrator with MFA was not able to enable DSSO.
+
+## 1.5.22.0
+
+### Release status
+04/20/2020: Released for download
+
+### Fixed issues
+This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In from AD - Group Join** rule and have not cloned the **In from AD - Group Common** rule.
+
+## 1.5.20.0
+
+### Release status
+04/09/2020: Released for download
+
+### Fixed issues
+- This hotfix build fixes an issue with build 1.5.18.0 if you have the Group Filtering feature enabled and use mS-DS-ConsistencyGuid as the source anchor.
+- Fixed an issue in the ADSyncConfig PowerShell module, where invoking DSACLS command used in all the Set-ADSync* Permissions cmdlets would cause one of the following errors:
+     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
+     - `GrantAcls : No GUID Found for computer …`
+
+> [!IMPORTANT]
+> If you have cloned the **In from AD - Group Join** sync rule and have not cloned the **In from AD - Group Common** sync rule and plan to upgrade, complete the following steps as part of the upgrade:
+> 1. During Upgrade, uncheck the option **Start the synchronization process when configuration completes**.
+> 2. Edit the cloned join sync rule and add the following two transformations:
+>     - Set direct flow `objectGUID` to `sourceAnchorBinary`.
+>     - Set expression flow `ConvertToBase64([objectGUID])` to `sourceAnchor`.     
+> 3. Enable the scheduler using `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+
+
+
+## 1.5.18.0
+
+### Release status
+04/02/2020: Released for download
+
+### Functional changes ADSyncAutoUpgrade 
+
+- Added support for the mS-DS-ConsistencyGuid feature for group objects. This allows you to move groups between forests or reconnect groups in AD to Azure AD where the AD group objectID has changed, e.g. when an AD server is rebuilt after a calamity. For more information see [Moving groups between forests](how-to-connect-migrate-groups.md).
+- The mS-DS-ConsistencyGuid attribute is automatically set on all synced groups and you do not have to do anything to enable this feature. 
+- Removed the Get-ADSyncRunProfile because it is no longer in use. 
+- Changed the warning you see when attempting to use an Enterprise Admin or Domain Admin account for the AD DS connector account to provide more context. 
+- Added a new cmdlet to remove objects from the connector space the old CSDelete.exe tool is removed, and it is replaced with the new Remove-ADSyncCSObject cmdlet. The Remove-ADSyncCSObject cmdlet takes a CsObject as input. This object can be retrieved by using the Get-ADSyncCSObject cmdlet.
+
+>[!NOTE]
+>The old CSDelete.exe tool has been removed and replaced with the new Remove-ADSyncCSObject cmdlet 
+
+### Fixed issues
+
+- Fixed a bug in the group writeback forest/OU selector on rerunning the Azure AD Connect wizard after disabling the feature. 
+- Introduced a new error page that will be displayed if the required DCOM registry values are missing with a new help link. Information is also written to log files. 
+- Fixed an issue with the creation of the Azure Active Directory synchronization account where enabling Directory Extensions or PHS may fail because the account has not propagated across all service replicas before attempted use. 
+- Fixed a bug in the sync errors compression utility that was not handling surrogate characters correctly. 
+- Fixed a bug in the auto upgrade which left the server in the scheduler suspended state. 
+
+## 1.4.38.0
+### Release status
+12/9/2019: Release for download. Not available through auto-upgrade.
+### New features and improvements
+- We updated Password Hash Sync for Azure AD Domain Services to properly account for padding in Kerberos hashes.  This will provide a performance improvement during password synchronization from Azure AD to Azure AD Domain Services.
+- We added support for reliable sessions between the authentication agent and service bus.
+- This release enforces TLS 1.2 for communication between authentication agent and cloud services.
+- We added a DNS cache for websocket connections between authentication agent and cloud services.
+- We added the ability to target specific agent from cloud to test for agent connectivity.
+
+### Fixed issues
+- Release 1.4.18.0 had a bug where the PowerShell cmdlet for DSSO was using the login windows credentials instead of the admin credentials provided while running ps. As a result of which it was not possible to enable DSSO in multiple forest through the Azure AD Connect user interface. 
+- A fix was made to enable DSSO simultaneously in all forest through the Azure AD Connect user interface
+
+## 1.4.32.0
+### Release status
+11/08/2019: Released for download. Not available through auto-upgrade.
+
+>[!IMPORTANT]
+>Due to an internal schema change in this release of Azure AD Connect, if you manage AD FS trust relationship configuration settings using MSOnline PowerShell then you must update your MSOnline PowerShell module to version 1.1.183.57 or higher
+
+### Fixed issues
+
+This version fixes an issue with existing Hybrid Azure AD joined devices. This release contains a new device sync rule that corrects this issue.
+Note that this rule change may cause deletion of obsolete devices from Azure AD. This is not a cause for concern, as these device objects are not used by Azure AD during Conditional Access authorization. For some customers, the number of devices that will be deleted through this rule change can exceed the deletion threshold. If you see the deletion of device objects in Azure AD exceeding the Export Deletion Threshold, it is advised to allow the deletions to go through. [How to allow deletes to flow when they exceed the deletion threshold](how-to-connect-sync-feature-prevent-accidental-deletes.md)
+
+## 1.4.25.0
+
+### Release status
+9/28/2019: Released for auto-upgrade to select tenants. Not available for download.
+
+This version fixes a bug where some servers that were auto-upgraded from a previous version to 1.4.18.0 and experienced issues with Self-service password reset (SSPR) and Password Writeback.
+
+### Fixed issues
+
+Under certain circumstances, servers that were auto upgraded to version 1.4.18.0 did not re-enable Self-service password reset and Password Writeback after the upgrade was completed. This auto upgrade release fixes that issue and re-enables Self-service password reset and Password Writeback.
+
+We fixed a bug in the sync errors compression utility that was not handling surrogate characters correctly.
+
+## 1.4.18.0
+
+>[!WARNING]
+>We are investigating an incident where some customers are experiencing an issue with existing Hybrid Azure AD joined devices after upgrading to this version of Azure AD Connect. We advise customers who have deployed Hybrid Azure AD join to postpone upgrading to this version until the root cause of these issues are fully understood and mitigated. More information will be provided as soon as possible.
+
+>[!IMPORTANT]
+>With this version of Azure AD Connect some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during Conditional Access authorization. For more information see [Understanding Azure AD Connect 1.4.xx.x device disappearnce](reference-connect-device-disappearance.md)
+
+
+### Release status
+9/25/2019: Released for auto-upgrade only.
+
+### New features and improvements
+- New troubleshooting tooling helps troubleshoot "user not syncing", "group not syncing" or "group member not syncing" scenarios.
+- Add support for national clouds in Azure AD Connect troubleshooting script.
+- Customers should be informed that the deprecated WMI endpoints for MIIS_Service have now been removed. Any WMI operations should now be done via PS cmdlets.
+- Security improvement by resetting constrained delegation on AZUREADSSOACC object.
+- When adding/editing a sync rule, if there are any attributes used in the rule that are in the connector schema but not added to the connector, the attributes automatically added to the connector. The same is true for the object type the rule affects. If anything is added to the connector, the connector will be marked for full import on the next sync cycle.
+- Using an Enterprise or Domain admin as the connector account is no longer supported in new Azure AD Connect Deployments. Current Azure AD Connect deployments using an Enterprise or Domain admin as the connector account will not be affected by this release.
+- In the Synchronization Manager a full sync is run on rule creation/edit/deletion. A popup will appear on any rule change notifying the user if full import or full sync is going to be run.
+- Added mitigation steps for password errors to 'connectors > properties > connectivity' page.
+- Added a deprecation warning for the sync service manager on the connector properties page. This warning notifies the user that changes should be made through the Azure AD Connect wizard.
+- Added new error for issues with a user's password policy.
+- Prevent misconfiguration of  group filtering by domain and OU filters. Group filtering will show an error when the domain/OU of the entered group is already filtered out and keep the user from moving forward until the issue is resolved.
+- Users can no longer create a connector for Active Directory Domain Services or Windows Azure Active Directory in the Synchronization Service Manager UI.
+- Fixed accessibility of custom UI controls in the Synchronization Service Manager.
+- Enabled six federation management tasks for all sign-in methods in Azure AD Connect.  (Previously, only the “Update AD FS TLS/SSL certificate” task was available for all sign-ins.)
+- Added a warning when changing the sign-in method from federation to PHS or PTA that all Azure AD domains and users will be converted to managed authentication.
+- Removed token-signing certificates from the “Reset Azure AD and AD FS trust” task and added a separate sub-task to update these certificates.
+- Added a new federation management task called “Manage certificates” which has sub-tasks to update the TLS or token-signing certificates for the AD FS farm.
+- Added a new federation management sub-task called “Specify primary server” which allows administrators to specify a new primary server for the AD FS farm.
+- Added a new federation management task called “Manage servers” which has sub-tasks to deploy an AD FS server, deploy a Web Application Proxy server, and specify primary server.
+- Added a new federation management task called “View federation configuration” that displays the current AD FS settings.  (Because of this addition, AD FS settings have been removed from the “Review your solution” page.)
+
+### Fixed issues
+- Resolved sync error issue for the scenario where a user object taking over its corresponding contact object has a self-reference (e.g. user is their own manager).
+- Help popups now show on keyboard focus.
+- For Auto upgrade, if any conflicting app is running from 6 hours, kill it and continue with upgrade.
+- Limit the number of attributes a customer can select to 100 per object when selecting directory extensions. This will prevent the error from occurring during export as Azure has a maximum of 100 extension attributes per object.
+- Fixed a bug to make the AD Connectivity script more robust.
+- Fixed a bug to make Azure AD Connect install on a machine using an existing Named Pipes WCF service more robust.
+- Improved diagnostics and troubleshooting around group policies that do not allow the ADSync service to start when initially installed.
+- Fixed a bug where display name for a Windows computer was written incorrectly.
+- Fix a bug where OS type for a Windows computer was written incorrectly.
+- Fixed a bug where non-Windows 10 computers were syncing unexpectedly. Note that the effect of this change is that non-Windows-10 computers that were previously synced will now be deleted. This does not affect any features as the sync of Windows computers is only used for Hybrid Azure AD domain join, which only works for Windows-10 devices.
+- Added several new (internal) cmdlets to the ADSync PowerShell module.
+
+
+## 1.3.21.0
+>[!IMPORTANT]
+>There is a known issue with upgrading Azure AD Connect from an earlier version to 1.3.21.0 where the Microsoft 365 portal does not reflect the updated version even though Azure AD Connect upgraded successfully.
+>
+> To resolve this, you need to import the **AdSync** module and then run the `Set-ADSyncDirSyncConfiguration` PowerShell cmdlet on the Azure AD Connect server.  You can use the following steps:
+>
+>1.	Open PowerShell in administrator mode.
+>2.	Run `Import-Module "ADSync"`.
+>3.	Run `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`.
+ 
+### Release status 
+
+05/14/2019: Released for download
+
+### Fixed issues 
+
+- Fixed an elevation of privilege vulnerability that exists in Microsoft Azure Active Directory Connect build 1.3.20.0.  This vulnerability, under certain conditions, may allow an attacker to execute two PowerShell cmdlets in the context of a privileged account, and perform privileged actions.  This security update addresses the issue by disabling these cmdlets. For more information see [security update](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000).
+
+
+## Next steps
+Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

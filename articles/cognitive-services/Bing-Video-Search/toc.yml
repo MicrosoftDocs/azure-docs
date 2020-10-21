@@ -1,40 +1,103 @@
-- name: Bing Video Search Documentation
-  href: ../index.md
-- name: Overview        
+- name: Bing Video Search API Documentation
+  href: ../Bing-Web-Search/index.yml
+- name: Overview
+  expanded: true
   items:
-    - name: Search the web for videos
-      href: search-the-web.md
-    - name: Upgrade from v5 to v7 Preview
-      href: bing-video-upgrade-guide-v5-to-v7.md
-    - name: Use and display requirements
-      href: UseAndDisplayRequirements.md
+    - name: What is the Bing Video Search API?
+      href: overview.md
+    - name: Compare the Bing Search APIs
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Quickstarts
   expanded: true
   items:
-  - name: Get started
-    href: quick-start.md
-- name: How to
+    - name: REST API
+      items:
+      - name: Using C#
+        href: quickstarts/csharp.md
+      - name: Using Java
+        href: quickstarts/java.md
+      - name: Using Node.js
+        href: quickstarts/nodejs.md
+      - name: Using PHP
+        href: quickstarts/php.md
+      - name: Using Python
+        href: quickstarts/python.md
+      - name: Using Ruby
+        href: quickstarts/ruby.md
+    - name: SDK
+      items:
+      - name: Bing Video Search client libraries
+        href: ./quickstarts/client-libraries.md
+- name: Tutorials
+  items:
+  - name: Build a single-page web app
+    href: tutorial-bing-video-search-single-page-app.md
+- name: Samples
+  items:
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Video+Search
+- name: How-to guides
   items:
   - name: Get video insights
     href: video-insights.md
   - name: Get trending videos
     href: trending-videos.md
   - name: Page videos
-    href: paging-videos.md
+    maintainContext: true
+    href: ../Bing-Web-Search/paging-search-results.md
   - name: Resize and crop thumbnails
-    href: resize-and-crop-thumbnails.md
+    maintainContext: true
+    href: ../bing-web-search/resize-and-crop-thumbnails.md
+  - name: Upgrade from v5 to v7
+    href: bing-video-upgrade-guide-v5-to-v7.md
+- name: Concepts
+  items:
+    - name: Getting videos from the web
+      href: concepts/get-videos.md
+    - name: Sending search requests
+      href: concepts/sending-requests.md
 - name: Reference
   items:
-  - name: REST v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference
-  - name: REST v7 Preview
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference
+  - name: Bing Video Search API v7
+    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference
+  - name: Bing Video Search API v5
+    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v5-reference
+  - name: SDKs
+    items:
+    - name: .NET
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideosearch?view=azure-dotnet
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvideosearch?view=azure-java-stable
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python
+    - name: Node.js
+      href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-videosearch/?view=azure-node-latest
+    - name: Go
+      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch
+  - name: Use and display requirements
+    href: ../Bing-Web-Search/use-display-requirements.md
+    maintainContext: true
 - name: Resources
   items:
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/video/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/911452-bing-video-search-api
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=bing+video+search
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Subscription key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Get API key
+    href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8
-
+  - name: Analytics for Bing Video Search API
+    maintainContext: true
+    href: ../bing-web-search/bing-web-stats.md
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

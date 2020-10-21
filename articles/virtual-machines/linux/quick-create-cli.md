@@ -1,60 +1,61 @@
 ---
-title: Azure Quick Start - Create VM CLI | Microsoft Docs
-description: Quickly learn to create virtual machines with the Azure CLI.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
+title: 'Quickstart: Use the Azure CLI to create a Linux VM'
+description: In this quickstart, you learn how to use the Azure CLI to create a Linux virtual machine
+author: cynthn
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/14/2017
-ms.author: nepeters
-ms.custom: mvc
+ms.date: 10/09/2018
+ms.author: cynthn
+ms.custom: [mvc, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli]
 ---
 
-# Create a Linux virtual machine with the Azure CLI
+# Quickstart: Create a Linux virtual machine with the Azure CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details using the Azure CLI to deploy a virtual machine running Ubuntu server. Once the server is deployed, an SSH connection is created, and an NGINX webserver is installed.
+This quickstart shows you how to use the Azure command-line interface (CLI) to deploy a Linux virtual machine (VM) in Azure. The Azure CLI is used to create and manage Azure resources from the command line or in scripts.
+
+In this tutorial, we will be installing Ubuntu 16.04 LTS. To show the VM in action, you'll connect to it using SSH and install the NGINX web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+## Launch Azure Cloud Shell
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
+
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also open Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and select **Enter** to run it.
+
+If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
-The following example creates a resource group named *myResourceGroup* in the *eastus* location.
-
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
 ## Create virtual machine
 
-Create a VM with the [az vm create](/cli/azure/vm#create) command. 
+Create a VM with the [az vm create](/cli/azure/vm) command.
 
-The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
+The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter is used to automatically generate an SSH key, and put it in the default key location (*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-value` option.
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --generate-ssh-keys
+```azurecli-interactive
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --generate-ssh-keys
 ```
 
-When the VM has been created, the Azure CLI shows information similar to the following example. Take note of the `publicIpAddress`. This address is used to access the VM.
+It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
 
-```azurecli-interactive 
+```output
 {
   "fqdns": "",
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
   "location": "eastus",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
@@ -64,54 +65,52 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 }
 ```
 
-## Open port 80 for web traffic 
+Note your own `publicIpAddress` in the output from your VM. This address is used to access the VM in the next steps.
 
-By default only SSH connections are allowed into Linux virtual machines deployed in Azure. If this VM is going to be a webserver, you need to open port 80 from the Internet. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.  
- 
- ```azurecli-interactive 
+## Open port 80 for web traffic
+
+By default, only SSH connections are opened when you create a Linux VM in Azure. Use [az vm open-port](/cli/azure/vm) to open TCP port 80 for use with the NGINX web server:
+
+```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## SSH into your VM
+## Connect to virtual machine
 
-Use the following command to create an SSH session with the virtual machine. Make sure to replace *<publicIpAddress>* with the correct public IP address of your virtual machine.  In our example above our IP address was *40.68.254.142*.
+SSH to your VM as normal. Replace **publicIpAddress** with the public IP address of your VM as noted in the previous output from your VM:
 
-```bash 
-ssh <publicIpAddress>
+```bash
+ssh azureuser@publicIpAddress
 ```
 
-## Install NGINX
+## Install web server
 
-Use the following bash script to update package sources and install the latest NGINX package. 
+To see your VM in action, install the NGINX web server. Update your package sources and then install the latest NGINX package.
 
-```bash 
-#!/bin/bash
-
-# update package source
-apt-get -y update
-
-# install NGINX
-apt-get -y install nginx
+```bash
+sudo apt-get -y update
+sudo apt-get -y install nginx
 ```
 
-## View the NGINX welcome page
+When done, type `exit` to leave the SSH session.
 
-With NGINX installed and port 80 now open on your VM from the Internet - you can use a web browser of your choice to view the default NGINX welcome page. Be sure to use the *publicIpAddress* you documented above to visit the default page. 
+## View the web server in action
 
-![NGINX default site](./media/quick-create-cli/nginx.png) 
+Use a web browser of your choice to view the default NGINX welcome page. Use the public IP address of your VM as the web address. The following example shows the default NGINX web site:
 
+![View the NGINX welcome page](./media/quick-create-cli/view-the-nginx-welcome-page.png)
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, VM, and all related resources.
+When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, VM, and all related resources. 
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
 ## Next steps
 
-In this quick start, you’ve deployed a simple virtual machine, a network security group rule, and installed a web server. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
+In this quickstart, you deployed a simple virtual machine, open a network port for web traffic, and installed a basic web server. To learn more about Azure virtual machines, continue to the tutorial for Linux VMs.
 
 
 > [!div class="nextstepaction"]

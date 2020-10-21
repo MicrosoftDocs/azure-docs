@@ -1,21 +1,12 @@
 ---
-title: Start and stop cluster nodes to test Azure microservices | Microsoft Docs
+title: Start and stop cluster nodes
 description: Learn how to use fault injection to test a Service Fabric application by starting and stopping cluster nodes.
-services: service-fabric
-documentationcenter: .net
 author: LMWF
-manager: rsinha
-editor: ''
 
-ms.assetid: f4e70f6f-cad9-4a3e-9655-009b4db09c6d
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 6/12/2017
 ms.author: lemai
-
+ms.custom: devx-track-csharp
 ---
 
 # Replacing the Start Node and Stop node APIs with the Node Transition API
@@ -26,7 +17,7 @@ The Stop Node API (managed: [StopNodeAsync()][stopnode], PowerShell: [Stop-Servi
 
 ## Why are we replacing these?
 
-As described earlier, a *stopped* Service Fabric node is a node intentionally targeted using the Stop Node API.  A *down* node is a node that is down for any other reason (e.g. the VM or machine is off).  With the Stop Node API, the system does not expose information to differentiate between *stopped* nodes and *down* nodes.
+As described earlier, a *stopped* Service Fabric node is a node intentionally targeted using the Stop Node API.  A *down* node is a node that is down for any other reason (for example, the VM or machine is off).  With the Stop Node API, the system does not expose information to differentiate between *stopped* nodes and *down* nodes.
 
 In addition, some errors returned by these APIs are not as descriptive as they could be.  For example, invoking the Stop Node API on an already *stopped* node will return the error *InvalidAddress*.  This experience could be improved.
 
@@ -39,13 +30,13 @@ We’ve addressed these issues above in a new set of APIs.  The new Node Transit
 
 **Usage**
 
-If the Node Transition API does not throw an exception when invoked, then the system has accepted the asynchronous operation, and will execute it.  A successful call does not imply the operation is finished yet.  To get information about the current state of the operation, call the Node Transition Progress API (managed: [GetNodeTransitionProgressAsync()][gntp]) with the guid used when invoking Node Transition API for this operation.  The Node Transition Progress API returns an NodeTransitionProgress object.  This object’s State property specifies the current state of the operation.  If the state is “Running” then the operation is executing.  If it is Completed, the operation finished without error.  If it is Faulted, there was a problem executing the operation.  The Result property’s Exception property will indicate what the issue was.  See https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate for more information about the State property, and the “Sample Usage” section below for code examples.
+If the Node Transition API does not throw an exception when invoked, then the system has accepted the asynchronous operation, and will execute it.  A successful call does not imply the operation is finished yet.  To get information about the current state of the operation, call the Node Transition Progress API (managed: [GetNodeTransitionProgressAsync()][gntp]) with the guid used when invoking Node Transition API for this operation.  The Node Transition Progress API returns an NodeTransitionProgress object.  This object’s State property specifies the current state of the operation.  If the state is “Running”, then the operation is executing.  If it is Completed, the operation finished without error.  If it is Faulted, there was a problem executing the operation.  The Result property’s Exception property will indicate what the issue was.  See https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate for more information about the State property, and the “Sample Usage” section below for code examples.
 
 
 **Differentiating between a stopped node and a down node**
-If a node is *stopped* using the Node Transition API, the output of a node query (managed: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) will show that this node has an *IsStopped* property value of true.  Note this is different from the value of the *NodeStatus* property, which will say *Down*.  If the *NodeStatus* property has a value of *Down*, but *IsStopped* is false, then the node was not stopped using the Node Transition API, and is *Down* due some other reason.  If the *IsStopped* property is true, and the *NodeStatus* property is *Down*, then it was stopped using the Node Transition API.
+If a node is *stopped* using the Node Transition API, the output of a node query (managed: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) will show that this node has an *IsStopped* property value of true.  Note this is different from the value of the *NodeStatus* property, which will say *Down*.  If the *NodeStatus* property has a value of *Down*, but *IsStopped* is false, then the node was not stopped using the Node Transition API, and is *Down* due to some other reason.  If the *IsStopped* property is true, and the *NodeStatus* property is *Down*, then it was stopped using the Node Transition API.
 
-Starting a *stopped* node using the Node Transition API will return it to function as a normal member of the cluster again.  The output of the node query API will show *IsStopped* as false, and *NodeStatus* as something that is not Down (e.g. Up).
+Starting a *stopped* node using the Node Transition API will return it to function as a normal member of the cluster again.  The output of the node query API will show *IsStopped* as false, and *NodeStatus* as something that is not Down (for example, Up).
 
 
 **Limited Duration**
@@ -158,7 +149,7 @@ When using the Node Transition API to stop a node, one of the required parameter
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```
@@ -201,7 +192,7 @@ When using the Node Transition API to stop a node, one of the required parameter
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```
@@ -279,11 +270,11 @@ When using the Node Transition API to stop a node, one of the required parameter
         }
 ```
 
-[stopnode]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.faultmanagementclient?redirectedfrom=MSDN#System_Fabric_FabricClient_FaultManagementClient_StopNodeAsync_System_String_System_Numerics_BigInteger_System_Fabric_CompletionMode_
-[stopnodeps]: https://msdn.microsoft.com/library/mt125982.aspx
-[startnode]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.faultmanagementclient?redirectedfrom=MSDN#System_Fabric_FabricClient_FaultManagementClient_StartNodeAsync_System_String_System_Numerics_BigInteger_System_String_System_Int32_System_Fabric_CompletionMode_System_Threading_CancellationToken_
-[startnodeps]: https://msdn.microsoft.com/library/mt163520.aspx
-[nodequery]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient#System_Fabric_FabricClient_QueryClient_GetNodeListAsync_System_String_
-[nodequeryps]: https://docs.microsoft.com/powershell/servicefabric/vlatest/Get-ServiceFabricNode?redirectedfrom=msdn
-[snt]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_StartNodeTransitionAsync_System_Fabric_Description_NodeTransitionDescription_System_TimeSpan_System_Threading_CancellationToken_
-[gntp]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_GetNodeTransitionProgressAsync_System_Guid_System_TimeSpan_System_Threading_CancellationToken_
+[stopnode]: /dotnet/api/system.fabric.fabricclient.faultmanagementclient
+[stopnodeps]: /previous-versions/azure/mt125982(v=azure.100)
+[startnode]: /dotnet/api/system.fabric.fabricclient.faultmanagementclient
+[startnodeps]: /previous-versions/azure/mt163520(v=azure.100)
+[nodequery]: /dotnet/api/system.fabric.fabricclient.queryclient
+[nodequeryps]: /powershell/module/servicefabric/get-servicefabricnode
+[snt]: /dotnet/api/system.fabric.fabricclient.testmanagementclient
+[gntp]: /dotnet/api/system.fabric.fabricclient.testmanagementclient

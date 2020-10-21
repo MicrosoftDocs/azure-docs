@@ -1,243 +1,234 @@
 ---
-title: Start/Stop VMs during off-hours [Preview] Solution | Microsoft Docs
-description: The VM Management solutions starts and stops your Azure Resource Manager Virtual Machines on a schedule and proactively monitor from Log Analytics.
+title: Azure Automation Start/Stop VMs during off-hours overview
+description: This article describes the Start/Stop VMs during off-hours feature, which starts or stops VMs on a schedule and proactively monitors them from Azure Monitor logs.
 services: automation
-documentationCenter: ''
-authors: mgoedtel
-manager: carmonm
-editor: ''
-
-ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883 
-ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 06/01/2017
-ms.author: magoedte
+ms.subservice: process-automation
+ms.date: 09/22/2020
+ms.topic: conceptual
 ---
+# Start/Stop VMs during off-hours overview
 
-# Start/Stop VMs during off-hours [Preview] solution in Automation
+The Start/Stop VMs during off-hours feature start or stops enabled Azure VMs. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/platform/action-groups.md). The feature can be enabled on both Azure Resource Manager and classic VMs for most scenarios. 
 
-The Start/Stop VMs during off-hours [Preview] solution starts and stops your Azure Resource Manager virtual machines on a user-defined schedule and provides insight into the success of the Automation jobs that start and stop your virtual machines with OMS Log Analytics.  
+This feature uses [Start-AzVm](/powershell/module/az.compute/start-azvm) cmdlet to start VMs. It uses [Stop-AzVM](/powershell/module/az.compute/stop-azvm) for stopping VMs.
+
+> [!NOTE]
+> While the runbooks have been updated to use the new Azure Az module cmdlets, they use the AzureRM prefix alias.
+
+> [!NOTE]
+> Start/Stop VMs during off-hours has been updated to support the newest versions of the Azure modules that are available. The updated version of this feature, available in the Marketplace, doesn’t support AzureRM modules because we have migrated from AzureRM to Az modules.
+
+The feature provides a decentralized low-cost automation option for users who want to optimize their VM costs. You can use the feature to:
+
+- [Schedule VMs to start and stop](automation-solution-vm-management-config.md#schedule).
+- Schedule VMs to start and stop in ascending order by [using Azure Tags](automation-solution-vm-management-config.md#tags). This activity is not supported for classic VMs.
+- Autostop VMs based on [low CPU usage](automation-solution-vm-management-config.md#cpuutil).
+
+The following are limitations with the current feature:
+
+- It manages VMs in any region, but can only be used in the same subscription as your Azure Automation account.
+- It is available in Azure and Azure Government for any region that supports a Log Analytics workspace, an Azure Automation account, and alerts. Azure Government regions currently don't support email functionality.
 
 ## Prerequisites
 
-- The runbooks work with an [Azure Run As account](automation-offering-get-started.md#authentication-methods).  The Run As account is the preferred authentication method since it uses certificate authentication instead of a password that may expire or change frequently.  
+- The runbooks for the Start/Stop VMs during off hours feature work with an [Azure Run As account](./manage-runas-account.md). The Run As account is the preferred authentication method because it uses certificate authentication instead of a password that might expire or change frequently.
 
-- This solution can only manage VMs that are in the same subscription as where the Automation account resides.  
+- The linked Automation account and Log Analytics workspace need to be in the same resource group.
 
-- This solution only deploys to the following Azure regions - Australia Southeast, East US, Southeast Asia, and West Europe.  The runbooks that manage the VM schedule can target VMs in any region.  
+- We recommend that you use a separate Automation account for working with VMs enabled for the Start/Stop VMs during off-hours feature. Azure module versions are frequently upgraded, and their parameters might change. The feature isn't upgraded on the same cadence and it might not work with newer versions of the cmdlets that it uses. You're recommended to test module updates in a test Automation account before importing them into your production Automation account(s).
 
-- To send email notifications when the start and stop VM runbooks complete, an Office 365  business-class subscription is required.  
+## Permissions
 
-## Solution components
+You must have certain permissions to enable VMs for the Start/Stop VMs during off-hours feature. The permissions are different depending on whether the feature uses a pre-created Automation account and Log Analytics workspace or creates a new account and workspace.
 
-This solution consists of the following resources that will be imported and added to your Automation account.
+You don't need to configure permissions if you're a Contributor on the subscription and a Global Administrator in your Azure Active Directory (AD) tenant. If you don't have these rights or need to configure a custom role, make sure that you have the permissions described below.
+
+### Permissions for pre-existing Automation account and Log Analytics workspace
+
+To enable VMs for the Start/Stop VMs during off-hours feature using an existing Automation account and Log Analytics workspace, you need the following permissions on the Resource Group scope. To learn more about roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
+
+| Permission | Scope|
+| --- | --- |
+| Microsoft.Automation/automationAccounts/read | Resource Group |
+| Microsoft.Automation/automationAccounts/variables/write | Resource Group |
+| Microsoft.Automation/automationAccounts/schedules/write | Resource Group |
+| Microsoft.Automation/automationAccounts/runbooks/write | Resource Group |
+| Microsoft.Automation/automationAccounts/connections/write | Resource Group |
+| Microsoft.Automation/automationAccounts/certificates/write | Resource Group |
+| Microsoft.Automation/automationAccounts/modules/write | Resource Group |
+| Microsoft.Automation/automationAccounts/modules/read | Resource Group |
+| Microsoft.automation/automationAccounts/jobSchedules/write | Resource Group |
+| Microsoft.Automation/automationAccounts/jobs/write | Resource Group |
+| Microsoft.Automation/automationAccounts/jobs/read | Resource Group |
+| Microsoft.OperationsManagement/solutions/write | Resource Group |
+| Microsoft.OperationalInsights/workspaces/* | Resource Group |
+| Microsoft.Insights/diagnosticSettings/write | Resource Group |
+| Microsoft.Insights/ActionGroups/Write | Resource Group |
+| Microsoft.Insights/ActionGroups/read | Resource Group |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Resource Group |
+| Microsoft.Resources/deployments/* | Resource Group |
+
+### Permissions for new Automation account and new Log Analytics workspace
+
+You can enable VMs for the Start/Stop VMs during off-hours feature using a new Automation account and Log Analytics workspace. In this case, you need the permissions defined in the preceding section as well as the permissions defined in this section. You also require the following roles:
+
+- Co-Administrator on subscription. This role is required to create the Classic Run As account if you are going to manage classic VMs. [Classic Run As accounts](automation-create-standalone-account.md#create-a-classic-run-as-account) are no longer created by default.
+- Membership in the [Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md) Application Developer role. For more information on configuring Run As Accounts, see [Permissions to configure Run As accounts](manage-runas-account.md#permissions).
+- Contributor on the subscription or the following permissions.
+
+| Permission |Scope|
+| --- | --- |
+| Microsoft.Authorization/Operations/read | Subscription|
+| Microsoft.Authorization/permissions/read |Subscription|
+| Microsoft.Authorization/roleAssignments/read | Subscription |
+| Microsoft.Authorization/roleAssignments/write | Subscription |
+| Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | Resource Group |
+| Microsoft.Automation/automationAccounts/certificates/read | Resource Group |
+| Microsoft.Automation/automationAccounts/write | Resource Group |
+| Microsoft.OperationalInsights/workspaces/write | Resource Group |
+
+## Components
+
+The Start/Stop VMs during off-hours feature include preconfigured runbooks, schedules, and integration with Azure Monitor logs. You can use these elements to tailor the startup and shutdown of your VMs to suit your business needs.
 
 ### Runbooks
 
-Runbook | Description|
---------|------------|
-CleanSolution-MS-Mgmt-VM | This runbook will remove all contained resources, and schedules when you go to delete the solution from your subscription.|  
-SendMailO365-MS-Mgmt | This runbook sends an email through Office 365 Exchange.|
-StartByResourceGroup-MS-Mgmt-VM | This runbook is intended to start VMs (both classic and ARM based VMs) that resides in a given list of Azure resource group(s).
-StopByResourceGroup-MS-Mgmt-VM | This runbook is intended to stop VMs (both classic and ARM based VMs) that resides in a given list of Azure resource group(s).|
-<br>
+The following table lists the runbooks that the feature deploys to your Automation account. Do NOT make changes to the runbook code. Instead, write your own runbook for new functionality.
+
+> [!IMPORTANT]
+> Don't directly run any runbook with **child** appended to its name.
+
+All parent runbooks include the `WhatIf` parameter. When set to True, the parameter supports detailing the exact behavior the runbook takes when run without the parameter and validates that the correct VMs are targeted. A runbook only performs its defined actions when the `WhatIf` parameter is set to False.
+
+|Runbook | Parameters | Description|
+| --- | --- | ---|
+|AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Called from the parent runbook. This runbook creates alerts on a per-resource basis for the Auto-Stop scenario.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True or False  | Creates or updates Azure alert rules on VMs in the targeted subscription or resource groups. <br> `VMList` is a comma-separated list of VMs (with no whitespaces), for example, `vm1,vm2,vm3`.<br> `WhatIf` enables validation of runbook logic without executing.|
+|AutoStop_Disable | None | Disables Auto-Stop alerts and default schedule.|
+|AutoStop_VM_Child | WebHookData | Called from the parent runbook. Alert rules call this runbook to stop a classic VM.|
+|AutoStop_VM_Child_ARM | WebHookData |Called from the parent runbook. Alert rules call this runbook to stop a VM.  |
+|ScheduledStartStop_Base_Classic | CloudServiceName<br> Action: Start or Stop<br> VMList  | Performs action start or stop in classic VM group by Cloud Services. |
+|ScheduledStartStop_Child | VMName <br> Action: Start or Stop <br> ResourceGroupName | Called from the parent runbook. Executes a start or stop action for the scheduled stop.|
+|ScheduledStartStop_Child_Classic | VMName<br> Action: Start or Stop<br> ResourceGroupName | Called from the parent runbook. Executes a start or stop action for the scheduled stop for classic VMs. |
+|ScheduledStartStop_Parent | Action: Start or Stop <br>VMList <br> WhatIf: True or False | Starts or stops all VMs in the subscription. Edit the variables `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupNames` to only execute on these targeted resource groups. You can also exclude specific VMs by updating the `External_ExcludeVMNames` variable.|
+|SequencedStartStop_Parent | Action: Start or Stop <br> WhatIf: True or False<br>VMList| Creates tags named **sequencestart** and **sequencestop** on each VM for which you want to sequence start/stop activity. These tag names are case-sensitive. The value of the tag should be a list of positive integers, for example, `1,2,3`, that corresponds to the order in which you want to start or stop. <br>**Note**: VMs must be within resource groups defined in `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames`, and `External_ExcludeVMNames` variables. They must have the appropriate tags for actions to take effect.|
 
 ### Variables
 
-Variable | Description|
----------|------------|
-**SendMailO365-MS-Mgmt** Runbook ||
-SendMailO365-IsSendEmail-MS-Mgmt | Specifies if StartByResourceGroup-MS-Mgmt-VM and StopByResourceGroup-MS-Mgmt-VM runbooks can send email notification upon completion.  Select **True** to enable and **False** to disable email alerting. Default value is **False**.| 
-**StartByResourceGroup-MS-Mgmt-VM** Runbook ||
-StartByResourceGroup-ExcludeList-MS-Mgmt-VM | Enter VM names to be excluded from management operation; separate names by using semi-colon(;) with no spaces. Values are case-sensitive and wildcard (asterisk) is supported.|
-StartByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Text that can be appended to the beginning of the email message body.|
-StartByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Specifies the name of the Automation Account that contains the Email runbook.  **Do not modify this variable.**|
-StartByResourceGroup-SendMailO365-EmailRunbookName-MS-Mgmt | Specifies the name of the email runbook.  This is used by the StartByResourceGroup-MS-Mgmt-VM and StopByResourceGroup-MS-Mgmt-VM runbooks to send email.  **Do not modify this variable.**|
-StartByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Specifies the name of the Resource group that contains the Email runbook.  **Do not modify this variable.**|
-StartByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Specifies the text for the subject line of the email.|  
-StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Specifies the recipient(s) of the email.  Enter separate names by using semi-colon(;) with no spaces.|
-StartByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Enter VM names to be excluded from management operation; separate names by using semi-colon(;) with no spaces. Values are case-sensitive and wildcard (asterisk) is supported.  Default value (asterisk) will include all resource groups in the subscription.|
-StartByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Specifies the subscription that contains VMs to be managed by this solution.  This must be the same subscription where the Automation account of this solution resides.|
-**StopByResourceGroup-MS-Mgmt-VM** Runbook ||
-StopByResourceGroup-ExcludeList-MS-Mgmt-VM | Enter VM names to be excluded from management operation; separate names by using semi-colon(;) with no spaces. Values are case-sensitive and wildcard (asterisk) is supported.|
-StopByResourceGroup-SendMailO365-EmailBodyPreFix-MS-Mgmt | Text that can be appended to the beginning of the email message body.|
-StopByResourceGroup-SendMailO365-EmailRunBookAccount-MS-Mgmt | Specifies the name of the Automation Account that contains the Email runbook.  **Do not modify this variable.**|
-StopByResourceGroup-SendMailO365-EmailRunbookResourceGroup-MS-Mgmt | Specifies the name of the Resource group that contains the Email runbook.  **Do not modify this variable.**|
-StopByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Specifies the text for the subject line of the email.|  
-StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Specifies the recipient(s) of the email.  Enter separate names by using semi-colon(;) with no spaces.|
-StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Enter VM names to be excluded from management operation; separate names by using semi-colon(;) with no spaces. Values are case-sensitive and wildcard (asterisk) is supported.  Default value (asterisk) will include all resource groups in the subscription.|
-StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Specifies the subscription that contains VMs to be managed by this solution.  This must be the same subscription where the Automation account of this solution resides.|  
-<br>
+The following table lists the variables created in your Automation account. Only modify variables prefixed with `External`. Modifying variables prefixed with `Internal` causes undesirable effects.
+
+> [!NOTE]
+> Limitations on VM name and resource group are largely a result of variable size. See [Variable assets in Azure Automation](./shared-resources/variables.md).
+
+|Variable | Description|
+|---------|------------|
+|External_AutoStop_Condition | The conditional operator required for configuring the condition before triggering an alert. Acceptable values are `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, and `LessThanOrEqual`.|
+|External_AutoStop_Description | The alert to stop the VM if the CPU percentage exceeds the threshold.|
+|External_AutoStop_Frequency | The evaluation frequency for rule. This parameter accepts input in timespan format. Possible values are from 5 minutes to 6 hours. |
+|External_AutoStop_MetricName | The name of the performance metric for which the Azure Alert rule is to be configured.|
+|External_AutoStop_Severity | Severity of the metric alert, which can range from 0 to 4. |
+|External_AutoStop_Threshold | The threshold for the Azure Alert rule specified in the variable `External_AutoStop_MetricName`. Percentage values range from 1 to 100.|
+|External_AutoStop_TimeAggregationOperator | The time aggregation operator applied to the selected window size to evaluate the condition. Acceptable values are `Average`, `Minimum`, `Maximum`, `Total`, and `Last`.|
+|External_AutoStop_TimeWindow | The size of the window during which Azure analyzes selected metrics for triggering an alert. This parameter accepts input in timespan format. Possible values are from 5 minutes to 6 hours.|
+|External_EnableClassicVMs| Value specifying if classic VMs are targeted by the feature. The default value is True. Set this variable to False for Azure Cloud Solution Provider (CSP) subscriptions. Classic VMs require a [Classic Run As account](automation-create-standalone-account.md#create-a-classic-run-as-account).|
+|External_ExcludeVMNames | Comma-separated list of VM names to exclude, limited to 140 VMs. If you add more than 140 VMs to the list, VMs specified for exclusion might be inadvertently started or stopped.|
+|External_Start_ResourceGroupNames | Comma-separated list of one or more resource groups that are targeted for start actions.|
+|External_Stop_ResourceGroupNames | Comma-separated list of one or more resource groups that are targeted for stop actions.|
+|External_WaitTimeForVMRetrySeconds |The wait time in seconds for the actions to be performed on the VMs for the **SequencedStartStop_Parent** runbook. This variable allows the runbook to wait for child operations for a specified number of seconds before proceeding with the next action. The maximum wait time is 10800, or three hours. The default value is 2100 seconds.|
+|Internal_AutomationAccountName | Specifies the name of the Automation account.|
+|Internal_AutoSnooze_ARM_WebhookURI | The webhook URI called for the AutoStop scenario for VMs.|
+|Internal_AutoSnooze_WebhookUri | The webhook URI called for the AutoStop scenario for classic VMs.|
+|Internal_AzureSubscriptionId | The Azure subscription ID.|
+|Internal_ResourceGroupName | The Automation account resource group name.|
+
+>[!NOTE]
+>For the variable `External_WaitTimeForVMRetryInSeconds`, the default value has been updated from 600 to 2100. 
+
+Across all scenarios, the variables `External_Start_ResourceGroupNames`,  `External_Stop_ResourceGroupNames`, and `External_ExcludeVMNames` are necessary for targeting VMs, except for the comma-separated VM lists for the **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**, and **ScheduledStartStop_Parent** runbooks. That is, your VMs must belong to target resource groups for start and stop actions to occur. The logic works similar to Azure Policy, in that you can target the subscription or resource group and have actions inherited by newly created VMs. This approach avoids having to maintain a separate schedule for every VM and manage starts and stops in scale.
 
 ### Schedules
 
-Schedule | Description|
----------|------------|
-StartByResourceGroup-Schedule-MS-Mgmt | Schedule for StartByResourceGroup runbook, which performs the startup of VMs managed by this solution. When created, it defaults to UTC time zone.|
-StopByResourceGroup-Schedule-MS-Mgmt | Schedule for StopByResourceGroup runbook, which performs the shutdown of VMs managed by this solution. When created, it defaults to UTC time zone.|
+The following table lists each of the default schedules created in your Automation account. You can modify them or create your own custom schedules. By default, all schedules are disabled except for the **Scheduled_StartVM** and **Scheduled_StopVM** schedules.
 
-### Credentials
+Don't enable all schedules, because doing so might create overlapping schedule actions. It's best to determine which optimizations you want to do and modify them accordingly. See the example scenarios in the overview section for further explanation.
 
-Credential | Description|
------------|------------|
-O365Credential | Specifies a valid Office 365 user account to send email.  Only required if variable SendMailO365-IsSendEmail-MS-Mgmt is set to **True**.
+|Schedule name | Frequency | Description|
+|--- | --- | ---|
+|Schedule_AutoStop_CreateAlert_Parent | Every 8 hours | Runs the **AutoStop_CreateAlert_Parent** runbook every 8 hours, which in turn stops the VM-based values in `External_Start_ResourceGroupNames`, `External_Stop_ResourceGroupNames`, and `External_ExcludeVMNames` variables. Alternatively, you can specify a comma-separated list of VMs by using the `VMList` parameter.|
+|Scheduled_StopVM | User-defined, daily | Runs the **ScheduledStopStart_Parent** runbook with a parameter of `Stop` every day at the specified time. Automatically stops all VMs that meet the rules defined by variable assets. Enable the related schedule **Scheduled-StartVM**.|
+|Scheduled_StartVM | User-defined, daily | Runs the **ScheduledStopStart_Parent** runbook with a parameter value of `Start` every day at the specified time. Automatically starts all VMs that meet the rules defined by variable assets. Enable the related schedule **Scheduled-StopVM**.|
+|Sequenced-StopVM | 1:00 AM (UTC), every Friday | Runs the **Sequenced_StopStop_Parent** runbook with a parameter value of `Stop` every Friday at the specified time. Sequentially (ascending) stops all VMs with a tag of **SequenceStop** defined by the appropriate variables. For more information on tag values and asset variables, see [Runbooks](#runbooks). Enable the related schedule, **Sequenced-StartVM**.|
+|Sequenced-StartVM | 1:00 PM (UTC), every Monday | Runs the **SequencedStopStart_Parent** runbook with a parameter value of `Start` every Monday at the specified time. Sequentially (descending) starts all VMs with a tag of **SequenceStart** defined by the appropriate variables. For more information on tag values and variable assets, see [Runbooks](#runbooks). Enable the related schedule, **Sequenced-StopVM**.
 
-## Configuration
+## Use the feature with classic VMs
 
-Perform the following steps to add the Start/Stop VMs during off-hours [Preview] solution to your Automation account and then configure the variables to customize the solution.
+If you are using the Start/Stop VMs during off-hours feature for classic VMs, Automation processes all your VMs sequentially per cloud service. VMs are still processed in parallel across different cloud services. 
 
-1. From the home-screen in the Azure portal, select the **Marketplace** tile.  If the tile is no longer pinned to your home-screen, from the left navigation pane, select **New**.  
-2. In the Marketplace blade, type **Start VM** in the search box, and then select the solution **Start/Stop VMs during off-hours [Preview]** from the search results.  
-3. In the **Start/Stop VMs during off-hours [Preview]** blade for the selected solution, review the summary information and then click **Create**.  
-4. The **Add Solution** blade appears where you are prompted to configure the solution before you can import it into your Automation subscription.<br><br> ![VM Management Add Solution blade](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
-5.  On the **Add Solution** blade, select **Workspace** and here you select an OMS workspace that is linked to the same Azure subscription that the Automation account is in or create a new OMS workspace.  If you do not have an OMS workspace, you can select **Create New Workspace** and on the **OMS Workspace** blade perform the following: 
-   - Specify a name for the new **OMS Workspace**.
-   - Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
-   - For **Resource Group**, you can create a new resource group or select an existing resource group.  
-   - Select a **Location**.  Currently the only locations provided for selection are **Australia Southeast**, **East US**, **Southeast Asia**, and **West Europe**.
-   - Select a **Pricing tier**.  The solution is offered in two tiers: free and OMS paid tier.  The free tier has a limit on the amount of data collected daily, retention period, and runbook job runtime minutes.  The OMS paid tier does not have a limit on the amount of data collected daily.  
+For use of the feature with classic VMs, you need a Classic Run As account, which is not created by default. For instructions on creating a Classic Run As account, see [Create a Classic Run As account](automation-create-standalone-account.md#create-a-classic-run-as-account).
 
-        > [!NOTE]
-        > While the Standalone paid tier is displayed as an option, it is not applicable.  If you select it and proceed with the creation of this solution in your subscription, it will fail.  This will be addressed when this solution is officially released.<br>If you use this solution, it will only use automation job minutes and log ingestion.  The solution does not add additional OMS nodes to your environment.  
+If you have more than 20 VMs per cloud service, here are some recommendations:
 
-6. After providing the required information on the **OMS workspace** blade, click **Create**.  While the information is verified and the workspace is created, you can track its progress under **Notifications** from the menu.  You will be returned to the **Add Solution** blade.  
-7. On the **Add Solution** blade, select **Automation Account**.  If you are creating a new OMS workspace, you will be required to also create a new Automation account that will be associated with the new OMS workspace specified earlier, including your Azure subscription, resource group and region.  You can select **Create an Automation account** and on the **Add Automation account** blade, provide the following: 
-  - In the **Name** field, enter the name of the Automation account.
+* Create multiple schedules with the parent runbook **ScheduledStartStop_Parent** and specifying 20 VMs per schedule. 
+* In the schedule properties, use the `VMList` parameter to specify VM names as a comma-separated list (no whitespaces). 
 
-    All other options are automatically populated based on the OMS workspace selected and these options cannot be modified.  An Azure Run As account is the default authentication method for the runbooks included in this solution.  Once you click **OK**, the configuration options are validated and the Automation account is created.  You can track its progress under **Notifications** from the menu. 
+Otherwise, if the Automation job for this feature runs more than three hours, it's temporarily unloaded or stopped per the [fair share](automation-runbook-execution.md#fair-share) limit.
 
-    Otherwise, you can select an existing Automation Run As account.  Note that the account you select cannot already be linked to another OMS workspace, otherwise a message will be presented in the blade to inform you.  If it is already linked, you will need to select a different Automation Run As account or create a new one.<br><br> ![Automation Account Already Linked to OMS Workspace](media/automation-solution-vm-management/vm-management-solution-add-solution-blade-autoacct-warning.png)<br>
+Azure CSP subscriptions support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. When the Start/Stop VMs during off-hours feature runs, you might receive errors since it has cmdlets to manage classic resources. To learn more about CSP, see [Available services in CSP subscriptions](/azure/cloud-solution-provider/overview/azure-csp-available-services). If you use a CSP subscription, you should set the [External_EnableClassicVMs](#variables) variable to False after deployment.
 
-8. Finally on the **Add Solution** blade, select **Configuration** and the **Parameters** blade appears.  On the **Parameters** blade, you are prompted to:  
-   - Specify the **Target ResourceGroup Names**, which is a resource group name that contains VMs to be managed by this solution.  You can enter more than one name and separate each using a semi-colon (values are case-sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription.
-   - Select a **Schedule** which is a recurring date and time for starting and stopping the VM's in the target resource group(s).  By default, the schedule is configured to the UTC time zone and selecting a different region is not available.  If you wish to configure the schedule to your specific time zone after configuring the solution, see [Modifying the startup and shutdown schedule](#modifying-the-startup-and-shutdown-schedule) below.    
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-10. Once you have completed configuring the initial settings required for the solution, select **Create**.  All settings will be validated and then it will attempt to deploy the solution in your subscription.  This process can take several seconds to complete and you can track its progress under **Notifications** from the menu. 
+## Enable the feature
 
-## Collection frequency
+To begin using the feature, follow the steps in [Enable Start/Stop VMs during off-hours](automation-solution-vm-management-enable.md).
 
-Automation job log and job stream data is ingested into the OMS repository every five minutes.  
+## View the feature
 
-## Using the solution
+Use one of the following mechanisms to access the enabled feature:
 
-When you add the VM Management solution, in your OMS workspace the **StartStopVM View** tile will be added to your OMS dashboard.  This tile displays a count and graphical representation of the runbooks jobs for the solution that have started and have completed successfully.<br><br> ![VM Management StartStopVM View Tile](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
+* From your Automation account, select **Start/Stop VM** under **Related Resources**. On the Start/Stop VM page, select **Manage the solution** under **Manage Start/Stop VM Solutions**.
 
-In your Automation account, you can access and manage the solution by selecting the **Solutions** tile and then from the **Solutions** blade, selecting the solution **Start-Stop-VM[Workspace]** from the list.<br><br> ![Automation Solutions List](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
+* Navigate to the Log Analytics workspace linked to your Automation account. After after selecting the workspace, choose **Solutions** from the left pane. On the Solutions page, select **Start-Stop-VM[workspace]** from the list.  
 
-Selecting the solution will display the **Start-Stop-VM[Workspace]** solution blade, where you can review important details such as the **StartStopVM** tile, like in your OMS workspace, which displays a count and graphical representation of the runbooks jobs for the solution that have started and have completed successfully.<br><br> ![Automation VM Solution Blade](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
+Selecting the feature displays the Start-Stop-VM[workspace] page. Here you can review important details, such as the information in the **StartStopVM** tile. As in your Log Analytics workspace, this tile displays a count and a graphical representation of the runbook jobs for the feature that have started and have finished successfully.
 
-From here you can also open your OMS workspace and perform further analysis of the job records.  Just click **All settings**, and in the **Settings** blade, select **Quick Start** and then in the **Quick Start** blade select **OMS Portal**.   This will open a new tab or new browser session and present your OMS workspace associated with your Automation account and subscription.  
+![Automation Update Management page](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
+You can perform further analysis of the job records by clicking the donut tile. The dashboard shows job history and predefined log search queries. Switch to the log analytics advanced portal to search based on your search queries.
 
-### Configuring e-mail notifications
+## Update the feature
 
-To enable email notifications when the start and stop VM runbooks complete, you will need to modify the **O365Credential** credential and at a minimum, the following variables:
+If you've deployed a previous version of Start/Stop VMs during off-hours, delete it from your account before deploying an updated release. Follow the steps to [remove the feature](#remove-the-feature) and then follow the steps to [enable it](automation-solution-vm-management-enable.md).
 
- - SendMailO365-IsSendEmail-MS-Mgmt
- - StartByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
- - StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt
+## Remove the feature
 
-To configure the **O365Credential** credential, perform the following steps:
+If you no longer need to use the feature, you can delete it from the Automation account. Deleting the feature only removes the associated runbooks. It doesn't delete the schedules or variables that were created when the feature was added. 
 
-1. From your automation account, click **All Settings** at the top of the window. 
-2. On the **Settings** blade under the section **Automation Resources**, select **Assets**. 
-3. On the **Assets** blade, select the **Credential** tile and from the **Credential** blade, select the **O365Credential**.  
-4. Enter a valid Office 365 username and password and then click **Save** to save your changes.  
+To delete Start/Stop VMs during off-hours:
 
-To configure the variables highlighted earlier, perform the following steps:
+1. From your Automation account, select **Linked workspace** under **Related resources**.
 
-1. From your automation account, click **All Settings** at the top of the window. 
-2. On the **Settings** blade under the section **Automation Resources**, select **Assets**. 
-3. On the **Assets** blade, select the **Variables** tile and from the **Variables** blade, select the variable listed above and then modify its value following the description for it specified in the [variable](##variables) section earlier.  
-4. Click **Save** to save the changes to the variable.   
+2. Select **Go to workspace**.
 
-### Modifying the startup and shutdown schedule
+3. Click **Solutions** under **General**. 
 
-Managing the startup and shutdown schedule in this solution follows the same steps as outlined in [Scheduling a runbook in Azure Automation](automation-schedules.md).  Remember, you cannot modify the schedule configuration.  You will need to disable the existing schedule and then create a new one and then link to the **StartByResourceGroup-MS-Mgmt-VM** or **StopByResourceGroup-MS-Mgmt-VM** runbook that you want the schedule to apply to.   
+4. On the Solutions page, select **Start-Stop-VM[Workspace]**. 
 
-## Log Analytics records
+5. On the VMManagementSolution[Workspace] page, select **Delete** from the menu.<br><br> ![Delete VM management feature](media/automation-solution-vm-management/vm-management-solution-delete.png)
 
-Automation creates two types of records in the OMS repository.
+6. In the Delete Solution window, confirm that you want to delete the feature.
 
-### Job logs
+7. While the information is verified and the feature is deleted, you can track the progress under **Notifications**, chosen from the menu. You're returned to the Solutions page after the removal process.
 
-Property | Description|
-----------|----------|
-Caller |  Who initiated the operation.  Possible values are either an email address or system for scheduled jobs.|
-Category | Classification of the type of data.  For Automation, the value is JobLogs.|
-CorrelationId | GUID that is the Correlation Id of the runbook job.|
-JobId | GUID that is the Id of the runbook job.|
-operationName | Specifies the type of operation performed in Azure.  For Automation, the value will be Job.|
-resourceId | Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook.|
-ResourceGroup | Specifies the resource group  name of the runbook job.|
-ResourceProvider | Specifies the Azure service that supplies the resources you can deploy and manage.  For Automation, the value is Azure Automation.|
-ResourceType | Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook.|
-resultType | The status of the runbook job.  Possible values are:<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Succeeded|
-resultDescription | Describes the runbook job result state.  Possible values are:<br>- Job is started<br>- Job Failed<br>- Job Completed|
-RunbookName | Specifies the name of the runbook.|
-SourceSystem | Specifies the source system for the data submitted.  For Automation, the value will be :OpsManager|
-StreamType | Specifies the type of event. Possible values are:<br>- Verbose<br>- Output<br>- Error<br>- Warning|
-SubscriptionId | Specifies the subscription ID of the job.
-Time | Date and time when the runbook job executed.|
+8. The Automation account and Log Analytics workspace aren't deleted as part of this process. If you don't want to keep the Log Analytics workspace, you must manually delete it from the Azure portal:
 
+    1. Search for and select **Log Analytics workspaces**.
 
-### Job streams
+    2. On the Log Analytics workspace page, select the workspace.
 
-Property | Description|
-----------|----------|
-Caller |  Who initiated the operation.  Possible values are either an email address or system for scheduled jobs.|
-Category | Classification of the type of data.  For Automation, the value is JobStreams.|
-JobId | GUID that is the Id of the runbook job.|
-operationName | Specifies the type of operation performed in Azure.  For Automation, the value will be Job.|
-ResourceGroup | Specifies the resource group  name of the runbook job.|
-resourceId | Specifies the resource Id in Azure.  For Automation, the value is the Automation account associated with the runbook.|
-ResourceProvider | Specifies the Azure service that supplies the resources you can deploy and manage.  For Automation, the value is Azure Automation.|
-ResourceType | Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook.|
-resultType | The result of the runbook job at the time the event was generated.  Possible values are:<br>- InProgress|
-resultDescription | Includes the output stream from the runbook.|
-RunbookName | The name of the runbook.|
-SourceSystem | Specifies the source system for the data submitted.  For Automation, the value will be OpsManager|
-StreamType | The type of job stream. Possible values are:<br>-Progress<br>- Output<br>- Warning<br>- Error<br>- Debug<br>- Verbose|
-Time | Date and time when the runbook job executed.|
+    3. Select **Delete** from the menu.
 
-When you perform any log search that returns records of category of **JobLogs** or **JobStreams**, you can select the **JobLogs** or **JobStreams** view which displays a set of tiles summarizing the updates returned by the search.
+    4. If you don't want to keep the Azure Automation account [feature components](#components), you can manually delete each.
 
-## Sample log searches
-
-The following table provides sample log searches for job records collected by this solution. 
-
-Query | Description|
-----------|----------|
-Find jobs for runbook StartVM that have completed successfully | Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" ResultType=Succeeded &#124; measure count() by JobId_g|
-Find jobs for runbook StopVM that have completed successfully | Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" ResultType=Failed &#124; measure count() by JobId_g
-Show job status over time for StartVM and StopVM runbooks | Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" OR "StopByResourceGroup-MS-Mgmt-VM" NOT(ResultType="started") | measure Count() by ResultType interval 1day|
-
-## Removing the solution
-
-If you decide you no longer need to use the solution any further, you can delete it from the Automation account.  Deleting the solution will only remove the runbooks, it will not delete the schedules or variables that were created when the solution was added.  Those assets you will need to delete manually if you are not using them with other runbooks.  
-
-To delete the solution, perform the following steps:
-
-1.  From your automation account, select the **Solutions** tile.  
-2.  On the **Solutions** blade, select the solution **Start-Stop-VM[Workspace]**.  On the **VMManagementSolution[Workspace]** blade, from the menu click **Delete**.<br><br> ![Delete VM Mgmt Solution](media/automation-solution-vm-management/vm-management-solution-delete.png)
-3.  In the **Delete Solution** window, confirm you want to delete the solution.
-4.  While the information is verified and the solution is deleted, you can track its progress under **Notifications** from the menu.  You will be returned to the **VMManagementSolution[Workspace]** blade after the process to remove solution starts.  
-
-The Automation account and OMS workspace are not deleted as part of this process.  If you do not want to retain the OMS workspace, you will need to manually delete it.  This can be accomplished also from the Azure portal.   From the home-screen in the Azure portal, select **Log Analytics** and then on the **Log Analytics** blade, select the workspace and click **Delete** from the menu on the workspace settings blade.  
-      
 ## Next steps
 
-- To learn more about how to construct different search queries and review the Automation job logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md)
-- To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)
-- To learn more about OMS Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md)
-
-
-
-
-
-
-   
-
+To enable the feature on VMs in your environment, see [Enable Start/Stop VMs during off-hours](automation-solution-vm-management-enable.md).

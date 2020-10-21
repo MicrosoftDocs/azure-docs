@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 958244a5-f9f5-455e-b7ef-71a65558872e
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
@@ -48,7 +48,7 @@ For more information about each workflow, click the appropriate procedure in the
 
 #### StorSimple Device Manager workflows
 | If you want to do this ... | Use this procedure |
-| --- | --- | --- |
+| --- | --- |
 | Create a service</br>Delete a service</br>Get the service registration key</br>Regenerate the service registration key |[Deploy the StorSimple Device Manager service](storsimple-virtual-array-manage-service.md) |
 | View the activity logs |[Use the StorSimple service summary](storsimple-virtual-array-service-summary.md) |
 | Deactivate a Virtual Array</br>Delete a Virtual Array |[Deactivate or delete a virtual array](storsimple-virtual-array-deactivate-and-delete-device.md) |

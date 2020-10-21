@@ -1,26 +1,19 @@
 ---
-title: Create a Virtual Machine Scale Sets for Windows in Azure | Microsoft Docs
-description: Create and deploy a highly available application on Windows VMs using a virtual machine scale set
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: iainfoulds
-manager: timlt
-editor: ''
-tags: ''
-
-ms.assetid: ''
+title: "Tutorial: Create a Windows virtual machine scale set"
+description: Learn how to use Azure PowerShell to create and deploy a highly available application on Windows VMs using a virtual machine scale set
+author: ju-shim
+ms.author: jushiman
+ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang:
-ms.topic: article
-ms.date: 05/02/2017
-ms.author: iainfou
-ms.custom: mvc
+ms.subservice: windows
+ms.date: 11/30/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
+
 ---
 
-# Create a Virtual Machine Scale Set and deploy a highly available app on Windows
-A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on CPU usage, memory demand, or network traffic. In this tutorial, you deploy a virtual machine scale set in Azure. You learn how to:
+# Tutorial: Create a virtual machine scale set and deploy a highly available app on Windows with Azure PowerShell
+A virtual machine scale set allows you to deploy and manage a set of identical, autoscaling virtual machines. You can scale the number of VMs in the scale set manually. You can also define rules to autoscale based on resource usage such as CPU, memory demand, or network traffic. In this tutorial, you deploy a virtual machine scale set in Azure and learn how to:
 
 > [!div class="checklist"]
 > * Use the Custom Script Extension to define an IIS site to scale
@@ -29,155 +22,130 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 > * Increase or decrease the number of instances in a scale set
 > * Create autoscale rules
 
-This tutorial requires the Azure PowerShell module version 3.6 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+## Launch Azure Cloud Shell
 
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
+
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
 ## Scale Set overview
-Scale sets use similar concepts as you learned about in the previous tutorial to [Create highly available VMs](tutorial-availability-sets.md). VMs in a scale set are distributed across fault and update domains just like VMs in an availability set.
+A virtual machine scale set allows you to deploy and manage a set of identical, autoscaling virtual machines. VMs in a scale set are distributed across logic fault and update domains in one or more *placement groups*. Placement groups are groups of similarly configured VMs, similar to [availability sets](tutorial-availability-sets.md).
 
 VMs are created as needed in a scale set. You define autoscale rules to control how and when VMs are added or removed from the scale set. These rules can trigger based on metrics such as CPU load, memory usage, or network traffic.
 
-Scale sets support up to 1,000 VMs when you use an Azure platform image. For workloads with significant installation or VM customization requirements, you may wish to [Create a custom VM image](tutorial-custom-images.md). You can create up to 100 VMs in a scale set when using a custom image.
+Scale sets support up to 1,000 VMs when you use an Azure platform image. For workloads with significant installation or VM customization requirements, you may wish to [Create a custom VM image](tutorial-custom-images.md). You can create up to 600 VMs in a scale set when using a custom image.
 
-
-## Create an app to scale
-Before you can create a scale set, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myResourceGroupAutomate* in the *EastUS* location:
-
-```powershell
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupScaleSet -Location EastUS
-```
-
-In an earlier tutorial, you learned how to [Automate VM configuration](tutorial-automate-vm-deployment.md) using the Custom Script Extension. Create a scale set configuration then apply a Custom Script Extension to install and configure IIS:
-
-```powershell
-# Create a config object
-$vmssConfig = New-AzureRmVmssConfig `
-    -Location EastUS `
-    -SkuCapacity 2 `
-    -SkuName Standard_DS2 `
-    -UpgradePolicyMode Automatic
-
-# Define the script for your Custom Script Extension to run
-$publicSettings = @{
-    "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1");
-    "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
-}
-
-# Use Custom Script Extension to install IIS and configure basic website
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig `
-    -Name "customScript" `
-    -Publisher "Microsoft.Compute" `
-    -Type "CustomScriptExtension" `
-    -TypeHandlerVersion 1.8 `
-    -Setting $publicSettings
-```
-
-## Create scale load balancer
-An Azure load balancer is a Layer-4 (TCP, UDP) load balancer that provides high availability by distributing incoming traffic among healthy VMs. A load balancer health probe monitors a given port on each VM and only distributes traffic to an operational VM. For more information, see the next tutorial on [How to load balance Windows virtual machines](tutorial-load-balancer.md).
-
-Create a load balancer that has a public IP address and distributes web traffic on port 80:
-
-```powershell
-# Create a public IP address
-$publicIP = New-AzureRmPublicIpAddress `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -Location EastUS `
-  -AllocationMethod Static `
-  -Name myPublicIP
-
-# Create a frontend and backend IP pool
-$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
-  -Name myFrontEndPool `
-  -PublicIpAddress $publicIP
-$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
-
-# Create the load balancer
-$lb = New-AzureRmLoadBalancer `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -Name myLoadBalancer `
-  -Location EastUS `
-  -FrontendIpConfiguration $frontendIP `
-  -BackendAddressPool $backendPool
-
-# Create a load balancer health probe on port 80
-Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
-  -LoadBalancer $lb `
-  -Protocol tcp `
-  -Port 80 `
-  -IntervalInSeconds 15 `
-  -ProbeCount 2
-
-# Create a load balancer rule to distribute traffic on port 80
-Add-AzureRmLoadBalancerRuleConfig `
-  -Name myLoadBalancerRule `
-  -LoadBalancer $lb `
-  -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
-  -BackendAddressPool $lb.BackendAddressPools[0] `
-  -Protocol Tcp `
-  -FrontendPort 80 `
-  -BackendPort 80
-
-# Update the load balancer configuration
-Set-AzureRmLoadBalancer -LoadBalancer $lb
-```
 
 ## Create a scale set
-Now create a virtual machine scale set with [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). The following example creates a scale set named *myScaleSet*:
+Create a virtual machine scale set with [New-AzVmss](/powershell/module/az.compute/new-azvmss). The following example creates a scale set named *myScaleSet* that uses the *Windows Server 2016 Datacenter* platform image. The Azure network resources for virtual network, public IP address, and load balancer are automatically created. When prompted, you can set your own administrative credentials for the VM instances in the scale set:
 
-```powershell
-# Reference a virtual machine image from the gallery
-Set-AzureRmVmssStorageProfile $vmssConfig `
-  -ImageReferencePublisher MicrosoftWindowsServer `
-  -ImageReferenceOffer WindowsServer `
-  -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
-
-# Set up information for authenticating with the virtual machine
-Set-AzureRmVmssOsProfile $vmssConfig `
-  -AdminUsername azureuser `
-  -AdminPassword P@ssword! `
-  -ComputerNamePrefix myVM
-
-# Create the virtual network resources
-$subnet = New-AzureRmVirtualNetworkSubnetConfig `
-  -Name "mySubnet" `
-  -AddressPrefix 10.0.0.0/24
-$vnet = New-AzureRmVirtualNetwork `
+```azurepowershell-interactive
+New-AzVmss `
   -ResourceGroupName "myResourceGroupScaleSet" `
-  -Name "myVnet" `
   -Location "EastUS" `
-  -AddressPrefix 10.0.0.0/16 `
-  -Subnet $subnet
-$ipConfig = New-AzureRmVmssIpConfig `
-  -Name "myIPConfig" `
-  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id `
-  -SubnetId $vnet.Subnets[0].Id
-
-# Attach the virtual network to the config object
-Add-AzureRmVmssNetworkInterfaceConfiguration `
-  -VirtualMachineScaleSet $vmssConfig `
-  -Name "network-config" `
-  -Primary $true `
-  -IPConfiguration $ipConfig
-
-# Create the scale set with the config object (this step might take a few minutes)
-New-AzureRmVmss `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -Name myScaleSet `
-  -VirtualMachineScaleSet $vmssConfig     
+  -VMScaleSetName "myScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicyMode "Automatic"
 ```
 
 It takes a few minutes to create and configure all the scale set resources and VMs.
 
 
-## Test your app
-To see your IIS website in action, obtain the public IP address of your load balancer with [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for *myPublicIP* created as part of the scale set:
+## Deploy sample application
+To test your scale set, install a basic web application. The Azure Custom Script Extension is used to download and run a script that installs IIS on the VM instances. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. For more information, see the [Custom Script Extension overview](../extensions/custom-script-windows.md).
 
-```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupScaleSet -Name myPublicIP | select IpAddress
+Use the Custom Script Extension to install a basic IIS web server. Apply the Custom Script Extension that installs IIS as follows:
+
+```azurepowershell-interactive
+# Define the script for your Custom Script Extension to run
+$publicSettings = @{
+    "fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis.ps1");
+    "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
+}
+
+# Get information about the scale set
+$vmss = Get-AzVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet"
+
+# Use Custom Script Extension to install IIS and configure basic website
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
+  -Name "customScript" `
+  -Publisher "Microsoft.Compute" `
+  -Type "CustomScriptExtension" `
+  -TypeHandlerVersion 1.8 `
+  -Setting $publicSettings
+
+# Update the scale set and apply the Custom Script Extension to the VM instances
+Update-AzVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -Name "myScaleSet" `
+  -VirtualMachineScaleSet $vmss
 ```
 
-Enter the public IP address in to a web browser. The app is displayed, including the hostname of the VM that the load balancer distributed traffic to:
+## Allow traffic to application
+
+To allow access to the basic web application, create a network security group with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) and [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). For more information, see [Networking for Azure virtual machine scale sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
+
+```azurepowershell-interactive
+# Get information about the scale set
+$vmss = Get-AzVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet"
+
+#Create a rule to allow traffic over port 80
+$nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
+  -Name myFrontendNSGRule `
+  -Protocol Tcp `
+  -Direction Inbound `
+  -Priority 200 `
+  -SourceAddressPrefix * `
+  -SourcePortRange * `
+  -DestinationAddressPrefix * `
+  -DestinationPortRange 80 `
+  -Access Allow
+
+#Create a network security group and associate it with the rule
+$nsgFrontend = New-AzNetworkSecurityGroup `
+  -ResourceGroupName  "myResourceGroupScaleSet" `
+  -Location EastUS `
+  -Name myFrontendNSG `
+  -SecurityRules $nsgFrontendRule
+
+$vnet = Get-AzVirtualNetwork `
+  -ResourceGroupName  "myResourceGroupScaleSet" `
+  -Name myVnet
+
+$frontendSubnet = $vnet.Subnets[0]
+
+$frontendSubnetConfig = Set-AzVirtualNetworkSubnetConfig `
+  -VirtualNetwork $vnet `
+  -Name mySubnet `
+  -AddressPrefix $frontendSubnet.AddressPrefix `
+  -NetworkSecurityGroup $nsgFrontend
+
+Set-AzVirtualNetwork -VirtualNetwork $vnet
+
+# Update the scale set and apply the Custom Script Extension to the VM instances
+Update-AzVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -Name "myScaleSet" `
+  -VirtualMachineScaleSet $vmss
+```
+
+## Test your scale set
+To see your scale set in action, get the public IP address of your load balancer with [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). The following example displays the IP address for *myPublicIP* created as part of the scale set:
+
+```azurepowershell-interactive
+Get-AzPublicIPAddress `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -Name "myPublicIPAddress" | select IpAddress
+```
+
+Enter the public IP address in to a web browser. The web app is displayed, including the hostname of the VM that the load balancer distributed traffic to:
 
 ![Running IIS site](./media/tutorial-create-vmss/running-iis-site.png)
 
@@ -188,44 +156,54 @@ To see the scale set in action, you can force-refresh your web browser to see th
 Throughout the lifecycle of the scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. Azure PowerShell provides a quick way to do those tasks. Here are a few common tasks.
 
 ### View VMs in a scale set
-To view a list of VMs running in your scale set, use [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) as follows:
+To view a list of VM instances in a scale set, use [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) as follows:
+
+```azurepowershell-interactive
+Get-AzVmssVM `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet"
+```
+
+The following example output shows two VM instances in the scale set:
 
 ```powershell
-# Get current scale set
-$scaleset = Get-AzureRmVmss `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -VMScaleSetName myScaleSet
+ResourceGroupName                 Name Location             Sku InstanceID ProvisioningState
+-----------------                 ---- --------             --- ---------- -----------------
+MYRESOURCEGROUPSCALESET   myScaleSet_0   eastus Standard_DS1_v2          0         Succeeded
+MYRESOURCEGROUPSCALESET   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
+```
 
-# Loop through the instanaces in your scale set
-for ($i=0; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
-    Get-AzureRmVmssVM -ResourceGroupName myResourceGroupScaleSet `
-      -VMScaleSetName myScaleSet `
-      -InstanceId $i
-}
+To view additional information about a specific VM instance, add the `-InstanceId` parameter to [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm). The following example views information about VM instance *1*:
+
+```azurepowershell-interactive
+Get-AzVmssVM `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet" `
+  -InstanceId "1"
 ```
 
 
 ### Increase or decrease VM instances
-To see the number of instances you currently have in a scale set, use [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) and query on *sku.capacity*:
+To see the number of instances you currently have in a scale set, use [Get-AzVmss](/powershell/module/az.compute/get-azvmss) and query on *sku.capacity*:
 
-```powershell
-Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
-    -VMScaleSetName myScaleSet | `
-    Select -ExpandProperty Sku
+```azurepowershell-interactive
+Get-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet" | `
+  Select -ExpandProperty Sku
 ```
 
-You can then manually increase or decrease the number of virtual machines in the scale set with [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). The following example sets the number of VMs in your scale set to *5*:
+You can then manually increase or decrease the number of virtual machines in the scale set with [Update-AzVmss](/powershell/module/az.compute/update-azvmss). The following example sets the number of VMs in your scale set to *3*:
 
-```powershell
+```azurepowershell-interactive
 # Get current scale set
-$scaleset = Get-AzureRmVmss `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -VMScaleSetName myScaleSet
+$scaleset = Get-AzVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet"
 
 # Set and update the capacity of your scale set
-$scaleset.sku.capacity = 5
-Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
-    -Name myScaleSet `
+$scaleset.sku.capacity = 3
+Update-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `
+    -Name "myScaleSet" `
     -VirtualMachineScaleSet $scaleset
 ```
 
@@ -233,19 +211,20 @@ If takes a few minutes to update the specified number of instances in your scale
 
 
 ### Configure autoscale rules
-Rather than manually scaling the number of instances in your scale set, you define autoscale rules. These rules monitor the instances in your scale set and respond accordingly based on metrics and thresholds you define. The following example scales out the number of instances by one when the average CPU load is greater than 60% over a 5 minute period. If the average CPU load then drops below 30% over a 5 minute period, the instances are scaled in by one instance:
+Rather than manually scaling the number of instances in your scale set, you define autoscale rules. These rules monitor the instances in your scale set and respond accordingly based on metrics and thresholds you define. The following example scales out the number of instances by one when the average CPU load is greater than 60% over a 5-minute period. If the average CPU load then drops below 30% over a 5-minute period, the instances are scaled in by one instance:
 
-```powershell
+```azurepowershell-interactive
 # Define your scale set information
-$mySubscriptionId = (Get-AzureRmSubscription).SubscriptionId
+$mySubscriptionId = (Get-AzSubscription)[0].Id
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
-$myLocation = "West US"
+$myLocation = "East US"
+$myScaleSetId = (Get-AzVmss -ResourceGroupName $myResourceGroup -VMScaleSetName $myScaleSet).Id 
 
-# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5 minute period
-$myRuleScaleUp = New-AzureRmAutoscaleRule `
+# Create a scale up rule to increase the number instances after 60% average CPU usage exceeded for a 5-minute period
+$myRuleScaleUp = New-AzAutoscaleRule `
   -MetricName "Percentage CPU" `
-  -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
+  -MetricResourceId $myScaleSetId `
   -Operator GreaterThan `
   -MetricStatistic Average `
   -Threshold 60 `
@@ -255,10 +234,10 @@ $myRuleScaleUp = New-AzureRmAutoscaleRule `
   -ScaleActionDirection Increase `
   -ScaleActionValue 1
 
-# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5 minute period
-$myRuleScaleDown = New-AzureRmAutoscaleRule `
+# Create a scale down rule to decrease the number of instances after 30% average CPU usage over a 5-minute period
+$myRuleScaleDown = New-AzAutoscaleRule `
   -MetricName "Percentage CPU" `
-  -MetricResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
+  -MetricResourceId $myScaleSetId `
   -Operator LessThan `
   -MetricStatistic Average `
   -Threshold 30 `
@@ -269,21 +248,23 @@ $myRuleScaleDown = New-AzureRmAutoscaleRule `
   -ScaleActionValue 1
 
 # Create a scale profile with your scale up and scale down rules
-$myScaleProfile = New-AzureRmAutoscaleProfile `
+$myScaleProfile = New-AzAutoscaleProfile `
   -DefaultCapacity 2  `
   -MaximumCapacity 10 `
   -MinimumCapacity 2 `
-  -Rules $myRuleScaleUp,$myRuleScaleDown `
+  -Rule $myRuleScaleUp,$myRuleScaleDown `
   -Name "autoprofile"
 
 # Apply the autoscale rules
-Add-AzureRmAutoscaleSetting `
+Add-AzAutoscaleSetting `
   -Location $myLocation `
   -Name "autosetting" `
   -ResourceGroup $myResourceGroup `
-  -TargetResourceId /subscriptions/$mySubscriptionId/resourceGroups/$myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/$myScaleSet `
-  -AutoscaleProfiles $myScaleProfile
+  -TargetResourceId $myScaleSetId `
+  -AutoscaleProfile $myScaleProfile
 ```
+
+For more design information on the use of autoscale, see [autoscale best practices](/azure/architecture/best-practices/auto-scaling).
 
 
 ## Next steps
