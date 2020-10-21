@@ -371,6 +371,8 @@ An array. When no parameters are provided, it returns an empty array.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) shows how to use createArray with different types:
 
+# [JSON](#tab/json)
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -415,6 +417,8 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
   }
 }
 ```
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 param objectToTest object = {
@@ -466,6 +470,8 @@ Returns **True** if the value is empty; otherwise, **False**.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) checks whether an array, object, and string are empty.
 
+# [JSON](#tab/json)
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -502,6 +508,8 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
   }
 }
 ```
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 param testArray array = []
@@ -543,6 +551,8 @@ The type (string, int, array, or object) of the first element in an array, or th
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) shows how to use the first function with an array and string.
 
+# [JSON](#tab/json)
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -567,6 +577,8 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
   }
 }
 ```
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 param arrayToTest array = [
@@ -609,6 +621,8 @@ An array or object with the common elements.
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) shows how to use intersection with arrays and objects:
+
+# [JSON](#tab/json)
 
 ```json
 {
@@ -654,6 +668,8 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
   }
 }
 ```
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 param firstObject object = {
@@ -712,6 +728,8 @@ The type (string, int, array, or object) of the last element in an array, or the
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) shows how to use the last function with an array and string.
 
+# [JSON](#tab/json)
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -736,6 +754,8 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
   }
 }
 ```
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 param arrayToTest array = [
@@ -776,6 +796,8 @@ An int.
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) shows how to use length with an array and string:
+
+# [JSON](#tab/json)
 
 ```json
 {
@@ -825,6 +847,8 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
+# [Bicep](#tab/bicep)
+
 ```bicep
 param arrayToTest array = [
   'one'
@@ -859,6 +883,8 @@ The output from the preceding example with the default values is:
 
 You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
 
+# [JSON](#tab/json)
+
 ```json
 "copy": {
   "name": "websitescopy",
@@ -891,6 +917,8 @@ An int representing the maximum value.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) shows how to use max with an array and a list of integers:
 
+# [JSON](#tab/json)
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -914,6 +942,8 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
   }
 }
 ```
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 param arrayToTest array = [
@@ -957,6 +987,8 @@ An int representing the minimum value.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) shows how to use min with an array and a list of integers:
 
+# [JSON](#tab/json)
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -980,6 +1012,8 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
   }
 }
 ```
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 param arrayToTest array = [
@@ -1024,6 +1058,8 @@ An array of integers.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json) shows how to use the range function:
 
+# [JSON](#tab/json)
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1047,6 +1083,8 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
   }
 }
 ```
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 param startingInt int = 5
@@ -1083,6 +1121,8 @@ An array or string.
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) skips the specified number of elements in the array, and the specified number of characters in a string.
+
+# [JSON](#tab/json)
 
 ```json
 {
@@ -1123,6 +1163,8 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
   }
 }
 ```
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 param testArray array = [
@@ -1168,6 +1210,8 @@ An array or string.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) takes the specified number of elements from the array, and characters from a string.
 
+# [JSON](#tab/json)
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1207,6 +1251,8 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
   }
 }
 ```
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 param testArray array = [
@@ -1253,6 +1299,8 @@ An array or object.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) shows how to use union with arrays and objects:
 
+# [JSON](#tab/json)
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -1297,6 +1345,8 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
   }
 }
 ```
+
+# [Bicep](#tab/bicep)
 
 ```bicep
 param firstObject object = {
