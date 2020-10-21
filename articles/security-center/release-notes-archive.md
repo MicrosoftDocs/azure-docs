@@ -26,6 +26,50 @@ This page provides you with information about:
 - Deprecated functionality
 
 
+## April 2020
+
+Updates in April include:
+- [Dynamic compliance packages are now generally available](#dynamic-compliance-packages-are-now-generally-available)
+- [Identity recommendations now included in Azure Security Center free tier](#identity-recommendations-now-included-in-azure-security-center-free-tier)
+
+
+### Dynamic compliance packages are now generally available
+
+The Azure Security Center regulatory compliance dashboard now includes **dynamic compliance packages** (now generally available) to track additional industry and regulatory standards.
+
+Dynamic compliance packages can be added to your subscription or management group from the Security Center security policy page. When you've onboarded a standard or benchmark, the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. A summary report for any of the standards that have been onboarded will be available to download.
+
+Now, you can add standards such as:
+
+- **NIST SP 800-53 R4**
+- **SWIFT CSP CSCF-v2020**
+- **UK Official and UK NHS**
+- **Canada Federal PBMM**
+- **Azure CIS 1.1.0 (new)** (which is a more complete representation of Azure CIS 1.1.0)
+
+In addition, we've recently added the **Azure Security Benchmark**, the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.  
+ 
+Learn more about [customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+
+
+### Identity recommendations now included in Azure Security Center free tier
+
+Security recommendations for identity and access on the Azure Security Center free tier are now generally available. This is part of the effort to make the cloud security posture management (CSPM) features free. Until now, these recommendations were only available on the standard pricing tier.
+
+Examples of identity and access recommendations include:
+
+- "Multifactor authentication should be enabled on accounts with owner permissions on your subscription."
+- "A maximum of three owners should be designated for your subscription."
+- "Deprecated accounts should be removed from your subscription."
+
+If you have subscriptions on the free pricing tier, their secure scores will be impacted by this change because they were never assessed for their identity and access security.
+
+Learn more about [identity and access recommendations](recommendations-reference.md#recs-identity).
+
+Learn more about [monitoring identity and access](security-center-identity-access.md).
+
+
+
 ## March 2020
 
 Updates in March include:
