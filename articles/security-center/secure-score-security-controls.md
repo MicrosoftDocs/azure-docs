@@ -64,7 +64,7 @@ To recap, your secure score is shown in the following locations in Security Cent
 
 - At the top of the **Recommendations** page
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="The secure score on Security Center's dashboard":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="The secure score on Security Center's recommendations page":::
 
 
 
