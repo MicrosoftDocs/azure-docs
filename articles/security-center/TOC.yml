@@ -259,7 +259,7 @@
 - name: Reference
   items:
   - name: REST APIs
-    href: https://docs.microsoft.com/rest/api/securitycenter/
+    href: /rest/api/securitycenter/
   - name: FAQ for Azure Security Center
     items:
     - name: General questions
@@ -288,9 +288,9 @@
   - name: Manage user data
     href: security-center-privacy.md
   - name: Azure Defender for IoT documentation
-    href: https://docs.microsoft.com/azure/asc-for-iot/
+    href: /azure/asc-for-iot/
   - name: Azure security documentation
-    href: /azure/security/
+    href: ../security/index.yml
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?category=security-identity
   - name: Readiness Roadmap
