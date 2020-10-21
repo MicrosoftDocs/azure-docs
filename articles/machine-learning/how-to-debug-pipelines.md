@@ -7,14 +7,14 @@ ms.service: machine-learning
 ms.subservice: core
 author: lobrien
 ms.author: laobri
-ms.date: 08/28/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
 ---
 
 # Debug and troubleshoot machine learning pipelines
 
-In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) and [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer). Information is provided on how to:
+In this article, you learn how to debug and troubleshoot [machine learning pipelines](concept-ml-pipelines.md) in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) and [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
 
 ## Troubleshooting tips
 

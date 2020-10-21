@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 8/14/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
 
@@ -249,13 +249,15 @@ pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 
 ### How Python environments work with pipeline parameters
 
-{>> BUG 866280 <<}
-As discussed previously in [Configure the training run's environment](#configure-the-training-runs-environment), environment state and Python library dependencies are specified using an `Environment` object. 
+As discussed previously in [Configure the training run's environment](#configure-the-training-runs-environment), environment state and Python library dependencies are specified using an `Environment` object. Generally, you can specify an existing `Environment` by referring to its name and, optionally, a version:
 
-You may choose to use `PipelineParameter` objects to dynamically set variables at runtime for your pipeline steps. For instance, you might use a pipeline parameter to pass the path to your training data, so that you can retrain without touching your code. However, `PipelineParameter` objects change the environment's definition. 
+```python
+aml_run_config = RunConfiguration()
+aml_run_config.environment.name = 'MyEnvironment'
+aml_run_config.environment.version = '1.0'
+```
 
-If you choose to use a named `Environment` and a `PipelineParameter`, you must specify 
-
+However, if you choose to use `PipelineParameter` objects to dynamically set variables at runtime for your pipeline steps, you cannot use this technique of referring to an existing `Environment`. Instead, if you want to use `PipelineParameter` objects, you must set the `environment` field of the `RunConfiguration` to an `Environment` object. It is your responsibility to ensure that such an `Environment` has its dependencies on external Python packages properly set.
 
 ### Use a dataset 
 
