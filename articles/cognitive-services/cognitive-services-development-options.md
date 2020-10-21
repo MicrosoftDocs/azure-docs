@@ -39,31 +39,31 @@ Azure offers a wide range of tools that are designed for different types of user
 | Scenarios | You need to integrate one of the Cognitive Services into an existing code base.<br><br>You're comfortable building and deploying applications and want full flexibility for how Cognitive Services are integrated into your applications and products. | You need to build an image classification model that uses deep neural networks at scale on Apache Spark.<br><br>See an example of how this was done with the Snow Leopard Trust. have a large quantity of data in a blob or a database that needs to be processed with the cognitive services. | You need to build an application that classifies different types of flowers. You have an initial dataset, but photographers in the fields will continue to add new content to your database.<br><br>You can use CI/CD to update your model with new images and improve its classification performance. | You need to transcribe audio files and then translate them at a regular cadence. The trigger or event is when new audio is added to a storage account. | | | | 
 
 
-## Client libraries and REST APIs
+### Client libraries and REST APIs
 
 Cognitive Services client libraries and REST APIs provide you direct access to your service. These tools provide programmatic access to the Cognitive Services, their baseline models, and in many cases allow you to programmatically customize your models and solutions. 
 
-## Cognitive Services for Big Data
+### Cognitive Services for Big Data
 
 With Cognitive Services for Big Data you can embed continuously improving, intelligent models directly into Apache Spark&trade; and SQL computations. These tools liberate developers from low-level networking details, so that they can focus on creating smart, distributed applications. Cognitive Services for Big Data supports the following platforms and connectors: Azure Databricks, Azure Synapse, Azure Kubernetes Service, and Data Connectors.
 
-## Azure Functions and Azure Service Web Jobs
+### Azure Functions and Azure Service Web Jobs
 
 [Azure Functions](https://azure.microsoft.com/services/functions/) and [Azure App Service Web Jobs](https://docs.microsoft.com/azure/app-service/webjobs-create) both provide code-first integration services designed for developers and are built on [Azure App Services](https://docs.microsoft.com/azure/app-service/webjobs-create). These products provide serverless infrastructure for writing code. Within that code you can make calls to our services using our client libraries and REST APIs. 
 
-## Logic Apps 
+### Logic Apps 
 
 Logic apps shares the same workflow designer and connectors as Power Automate but provides more advanced and control including integrations with Visual Studio and DevOps. Power Automate makes it easy to integrate with your cognitive services resources through service-specific connectors that provide a proxy or wrapper around the APIs. These are the same connectors as those available in Power Automate. 
 
-## Power Automate 
+### Power Automate 
 
 Power automate is a service in [the Power Platform](https://docs.microsoft.com/learn/powerplatform/) that helps you create automated workflows between apps and services without writing code. We offer several connectors to make it easy to interact with your Cognitive Services resource in a Power Automate solution. Power Automate is built on top of Logic Apps. 
 
-## AI Builder 
+### AI Builder 
 
 [AI Builder](https://docs.microsoft.com/ai-builder/overview) is a Microsoft Power Platform capability you can use to improve business performance by automating processes and predicting outcomes. AI builder brings the power of AI to your solutions through a point-and-click experience. Many cognitive services such as Form Recognizer, Text Analytics and Computer Vision have been directly integrated here and you don't need to create your own Cognitive Services. 
 
-## Continuous integration and deployment
+### Continuous integration and deployment
 
 You can use Azure DevOps and GitHub actions to manage your deployments. In the [section below](#) that discusses, we have two examples of CI/CD integrations to train and deploy custom models for Speech and the Language Understanding (LUIS) service. 
 
@@ -188,7 +188,7 @@ The tools that you will use to train and configure models are different than tho
 </tbody>
 </table>
 
-## Continuous integration and delivery with DevOps and GitHub Actions
+### Continuous integration and delivery with DevOps and GitHub Actions
 
 Language Understanding and the Speech service offer continuous integration and continuous deployment solutions that are powered by Azure DevOps and GitHub actions. These tools are used for automated training, testing, and release management of custom models. 
 
