@@ -57,7 +57,7 @@ While you estimate the number of RUs consumed by your workload, consider the fol
 
   The same query on the same data will always costs the same number of RUs on repeated executions.
 
-- **Script usage**: As with queries, stored procedures and triggers consume RUs based on the complexity of the operations that are performed. As you develop your application, inspect the [request charge header](./optimize-cost-reads-writes.md#evaluate-request-unit-charge-for-a-query) to better understand how much RU capacity each operation consumes.
+- **Script usage**: As with queries, stored procedures and triggers consume RUs based on the complexity of the operations that are performed. As you develop your application, inspect the [request charge header](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request) to better understand how much RU capacity each operation consumes.
 
 ## Request units and multiple regions
 
