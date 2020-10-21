@@ -90,7 +90,7 @@ If you choose not to install the agent on your hosts, you'll only receive a subs
 
 For Azure Defender to monitor your AKS nodes, they must be running the Log Analytics agent. 
 
-AKS is a managed service, and although you're generally not allowed to manipulate the IaaS resources, the Log analytics agent is a Microsoft managed extension and is thus supported by AKS too.
+AKS is a managed service and since the Log analytics agent is a Microsoft-managed extension, it is also supported on AKS clusters.
 
 
 
