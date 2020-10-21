@@ -387,7 +387,7 @@ Yes, Transparent Data Encryption is supported for SQL Managed Instance. For deta
 
 **Can I leverage the “bring your own key” model for TDE?**
 
-Yes, Azure Key Vault for BYOK scenario is available for Azure SQL Managed Instance. For details, see [Transparent Data Encryption with customer-managed key](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal&view=sql-server-ver15#customer-managed-transparent-data-encryption---bring-your-own-key&preserve-view=true).
+Yes, Azure Key Vault for BYOK scenario is available for Azure SQL Managed Instance. For details, see [Transparent Data Encryption with customer-managed key](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
 
 **Can I migrate an encrypted SQL Server database?**
 
