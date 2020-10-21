@@ -1023,7 +1023,7 @@
     - name: Monitor GPU performance
       href: insights/container-insights-gpu-monitoring.md
     - name: Monitor network configuration
-      href: ../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm?toc=/azure/azure-monitor/toc.json
+      href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
     - name: Monitor Deployments & HPAs
       href: insights/container-insights-deployment-hpa-metrics.md
     - name: View live data
