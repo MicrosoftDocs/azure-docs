@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Meta Networks Connector | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Meta Networks Connector.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 4ae5f30d-113b-4261-b474-47ffbac08bf7
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Meta Networks Connector
 
@@ -101,7 +95,7 @@ To configure Azure AD single sign-on with Meta Networks Connector, perform the f
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Meta Networks Connector Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
@@ -111,7 +105,7 @@ To configure Azure AD single sign-on with Meta Networks Connector, perform the f
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Meta Networks Connector Domain and URLs single sign-on information](common/both-advanced-urls.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/both-advanced-urls.png)
 
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
@@ -123,7 +117,7 @@ To configure Azure AD single sign-on with Meta Networks Connector, perform the f
 
 6. Meta Networks Connector application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with the Edit icon selected.](common/edit-attribute.png)
 	
 7. In addition to above, Meta Networks Connector application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 	
@@ -137,9 +131,9 @@ To configure Azure AD single sign-on with Meta Networks Connector, perform the f
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![image](common/new-save-attribute.png)
+	![Screenshot shows User claims with the option to Add new claim.](common/new-save-attribute.png)
 
-	![image](common/new-attribute-details.png)
+	![Screenshot shows the Manage user claims dialog box where you can enter the values described.](common/new-attribute-details.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
@@ -176,19 +170,19 @@ To configure Azure AD single sign-on with Meta Networks Connector, perform the f
 	
 2. Go to **Administrator** and select **Settings**.
 	
-	![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure3.png)
+	![Screenshot shows Settings selected from the Administration menu.](./media/metanetworksconnector-tutorial/configure3.png)
 	
 3. Make sure **Log Internet Traffic** and **Force VPN MFA** are set to off.
 	
-	![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure1.png)
+	![Screenshot shows turning off these settings.](./media/metanetworksconnector-tutorial/configure1.png)
 	
 4. Go to **Administrator** and select **SAML**.
 	
-	![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure4.png)
+	![Screenshot shows SAML selected from the Administration menu.](./media/metanetworksconnector-tutorial/configure4.png)
 	
 5. Perform the following steps on the **DETAILS** page:
 	
-	![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure2.png)
+	![Screenshot shows the DETAILS page where you can enter the values described.](./media/metanetworksconnector-tutorial/configure2.png)
 	
 	a. Copy **SSO URL** value and paste it into the **Sign-In URL** textbox in the **Meta Networks Connector Domain and URLs** section.
 	
@@ -200,7 +194,7 @@ To configure Azure AD single sign-on with Meta Networks Connector, perform the f
 	
 6. On the **GENERAL** tab. perform the following steps:
 
-	![Configure Single Sign-On](./media/metanetworksconnector-tutorial/configure5.png)
+	![Screenshot shows the GENERAL page where you can enter the values described.](./media/metanetworksconnector-tutorial/configure5.png)
 
 	a. In the **Identity Provider Single Sign-On URL**, paste the **Login URL** value which you have copied from the Azure portal.
 

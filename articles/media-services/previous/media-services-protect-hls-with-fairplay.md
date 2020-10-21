@@ -14,12 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Protect your HLS content with Apple FairPlay or Microsoft PlayReady
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
-> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 	> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 	> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 >
 
 Azure Media Services enables you to dynamically encrypt your HTTP Live Streaming (HLS) content by using the following formats:  
@@ -123,7 +126,7 @@ The following are general steps for protecting your assets with FairPlay by usin
 ## Use FairPlay key delivery by player apps
 You can develop player apps by using the iOS SDK. To be able to play FairPlay content, you have to implement the license exchange protocol. This protocol is not specified by Apple. It is up to each app how to send key delivery requests. The Media Services FairPlay key delivery service expects the SPC to come as a www-form-url encoded post message, in the following form:
 
-    spc=<Base64 encoded SPC>
+`spc=<Base64 encoded SPC>`
 
 > [!NOTE]
 > Azure Media Player supports FairPlay playback. See [Azure Media Player documentation](https://amp.azure.net/libs/amp/latest/docs/index.html) for further information.

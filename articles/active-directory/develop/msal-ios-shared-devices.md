@@ -56,14 +56,23 @@ Your device needs to be configured to support shared device mode. It must have i
 
     - **Type**: Redirect
     - **Extension ID**: com.microsoft.azureauthenticator.ssoextension
-    - **Team ID**: SGGM6D27TK
-    - **URLs**: https://login.microsoftonline.com
-    - Additional Data to configure:
+    - **Team ID**: (this field is not needed for iOS)
+    - **URLs**:   
+        - `https://login.microsoftonline.com`
+        - `https://login.microsoft.com`
+        - `https://sts.windows.net`
+        - `https://login.partner.microsoftonline.cn`
+        - `https://login.chinacloudapi.cn`
+        - `https://login.microsoftonline.de`
+        - `https://login.microsoftonline.us`
+        - `https://login.usgovcloudapi.net`
+        - `https://login-us.microsoftonline.com`
+    - **Additional Data to configure**:
       - Key: sharedDeviceMode
       - Type: Boolean
-      - Value: True
+      - Value: true
 
-    For more information about configuring with Intune, see the [Intune configuration documentation](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
+    For more information about configuring with Intune, see the [Intune configuration documentation](/intune/configuration/ios-device-features-settings).
 
 1. Next, configure your MDM to push the Microsoft Authenticator app to your device through an MDM profile.
 
@@ -72,7 +81,7 @@ Your device needs to be configured to support shared device mode. It must have i
     - Configuration 1:
       - Key: sharedDeviceMode
       - Type: Boolean
-      - Value: True
+      - Value: true
 
 ## Modify your iOS application to support shared device mode
 

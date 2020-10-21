@@ -1,11 +1,10 @@
 ---
 title: Simulate faults in Azure Service Fabric apps 
 description: Learn about how to harden your Azure Service Fabric services against graceful and ungraceful failures.
-author: anmolah
 
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.author: anmola
+ms.custom: devx-track-csharp
 ---
 # Simulate failures during service workloads
 The testability scenarios in Azure Service Fabric enable developers to not worry about dealing with individual faults. There are scenarios, however, where an explicit interleaving of client workload and failures might be needed. The interleaving of client workload and faults ensures that the service is actually performing some action when failure happens. Given the level of control that testability provides, these could be at precise points of the workload execution. This induction of faults at different states in the application can find bugs and improve quality.

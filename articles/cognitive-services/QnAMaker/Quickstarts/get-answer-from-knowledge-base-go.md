@@ -1,10 +1,12 @@
 ---
 title: "Quickstart: Get answer from knowledge base - REST, Go - QnA Maker"
 description: This Go REST-based quickstart walks you through getting an answer from a knowledge base, programmatically.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
-ms.topic: conceptual
+ms.topic: how-to
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically get an answer a knowledge base using Go.
 ---
 
@@ -41,19 +43,13 @@ func main() {
 
 Above the `main` function, at the top of the `get-answer.go` file, add necessary dependencies to the project:
 
-[!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=3-9 "Add the required dependencies")]
-
-## Add the required constants
-
-At the top of the `main` function, add the required constants to access QnA Maker. These values are on the **Publish** page after you publish the knowledge base.
-
-[!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=17-33 "Add the required constants")]
+:::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/query-kb.go" id="dependencies":::
 
 ## Add a POST request to send question and get answer
 
 The following code makes an HTTPS request to the QnA Maker API to send the question to the knowledge base and receives the response:
 
-[!code-go[Add a POST request to send question to knowledge base](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=35-48 "Add a POST request to send question to knowledge base")]
+:::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/query-kb.go" id="main":::
 
 The `Authorization` header's value includes the string `EndpointKey`.
 

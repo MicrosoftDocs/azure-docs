@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Control | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Continuity Control.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 1cb7f505-0d06-44b0-95b1-65b470e97092
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Integrate Continuity Control with Azure Active Directory
 

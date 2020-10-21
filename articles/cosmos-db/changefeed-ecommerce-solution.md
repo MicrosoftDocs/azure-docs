@@ -4,10 +4,10 @@ description: This article describes how change feed can be used by a retail comp
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
-
+ms.custom: devx-track-java
 ---
 
 # Use Azure Cosmos DB change feed to visualize real-time data analytics
@@ -24,7 +24,7 @@ Interested in watching a video about the solution before getting started, see th
 ## Solution components
 The following diagram represents the data flow and components involved in the solution:
 
-![Project visual](./media/changefeed-ecommerce-solution/project-visual.png)
+:::image type="content" source="./media/changefeed-ecommerce-solution/project-visual.png" alt-text="Project visual" border="false":::
  
 1. **Data Generation:** Data simulator is used to generate retail data that represents events such as a user viewing an item, adding an item to their cart, and purchasing an item. You can generate large set of sample data by using the data generator. The generated sample data contains documents in the following format:
    
@@ -165,7 +165,7 @@ To see how change feed processes new actions on an e-commerce site, have to simu
 
 3. Add in the **collection** and **database** names. (These names should be **changefeedlabcollection** and **changefeedlabdatabase** unless you choose to name yours differently.)
 
-   ![Update connection strings](./media/changefeed-ecommerce-solution/update-connection-string.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/update-connection-string.png" alt-text="Update connection strings":::
  
 4. Save the changes on all the files edited.  
 
@@ -175,7 +175,7 @@ To see how change feed processes new actions on an e-commerce site, have to simu
 
 7. If you navigate to [Azure portal](https://portal.azure.com/) , then to the Cosmos DB account within your resource group, then to **Data Explorer**, you will see the randomized data imported in your **changefeedlabcollection** .
  
-   ![Data generated in portal](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/data-generated-in-portal.png" alt-text="Data generated in portal":::
 
 ## Set up a stream analytics job
 
@@ -185,7 +185,7 @@ Azure Stream Analytics is a fully managed cloud service for real-time processing
 
 2. Select **Inputs** as demonstrated below.  
 
-   ![Create input](./media/changefeed-ecommerce-solution/create-input.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/create-input.png" alt-text="Create input":::
 
 3. Select **+ Add stream input**. Then select **Event Hub** from the drop-down menu.  
 
@@ -217,7 +217,7 @@ Azure Stream Analytics is a fully managed cloud service for real-time processing
 
 8. Then go back to **streamjob1** and select **Edit query**.
 
-   ![Edit query](./media/changefeed-ecommerce-solution/edit-query.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/edit-query.png" alt-text="Edit query":::
  
 9. Paste the following query into the query window. The **AVERAGE PRICE** query calculates the average price of all items that are viewed by users, the average price of all items that are added to users' carts, and the average price of all items that are purchased by users. This metric can help e-commerce companies decide what prices to sell items at and what inventory to invest in. For example, if the average price of items viewed is much higher than the average price of items purchased, then a company might choose to add less expensive items to its inventory.
 
@@ -310,7 +310,7 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
 
    This is how a sample dashboard looks with these charts:
 
-   ![visualizations](./media/changefeed-ecommerce-solution/visualizations.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="Screenshot shows a sample dashboard with charts named Average Price of Items by Action, Unique Visitors, Revenue, and Top 5 Items Purchased.":::
 
 ## Optional: Visualize with an E-commerce site
 
@@ -324,13 +324,13 @@ You will now observe how you can use your new data analysis tool to connect with
 
 2. Select the **topItems** collection, and under **Scale and Settings** set the **Time to Live** to be **30 seconds** so that topItems updates every 30 seconds.
 
-   ![Time to live](./media/changefeed-ecommerce-solution/time-to-live.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/time-to-live.png" alt-text="Time to live":::
 
 3. In order to populate the **topItems** collection with the most frequently purchased items, navigate back to **streamjob1** and add a new **Output**. Select **Cosmos DB**.
 
 4. Fill in the required fields as pictured below.
 
-   ![Cosmos output](./media/changefeed-ecommerce-solution/cosmos-output.png)
+   :::image type="content" source="./media/changefeed-ecommerce-solution/cosmos-output.png" alt-text="Cosmos output":::
  
 5. If you added the optional TOP 5 query in the previous part of the lab, proceed to part 5a. If not, proceed to part 5b.
 

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Help Scout | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Help Scout.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 0aad9910-0bc1-4394-9f73-267cf39973ab
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Help Scout
 
@@ -90,7 +83,7 @@ To configure Azure AD single sign-on with Help Scout, perform the following step
 
 1. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Help Scout Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. **Identifier** is the **Audience URI (Service Provider Entity ID)** from Help Scout, starts with `urn:`
 
@@ -101,7 +94,7 @@ To configure Azure AD single sign-on with Help Scout, perform the following step
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Help Scout Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** textbox, type a URL as: `https://secure.helpscout.net/members/login/`
 
@@ -184,15 +177,15 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
 1. Click on **Manage** from the top menu and then select **Company** from the dropdown menu.
 
-	![Configure Single Sign-On](./media/helpscout-tutorial/settings1.png)
+	![Screenshot shows the Manage menu with Company selected.](./media/helpscout-tutorial/settings1.png)
 
 1. Select **Authentication** from the left navigation pane.
 
-	![Configure Single Sign-On](./media/helpscout-tutorial/settings2.png)
+	![Screenshot shows Authentication selected.](./media/helpscout-tutorial/settings2.png)
 
 1. This takes you to the SAML settings section and perform the following steps:
 
-	![Configure Single Sign-On](./media/helpscout-tutorial/settings3.png)
+	![Screenshot shows the Single Sign-On tab where you enter the specified information.](./media/helpscout-tutorial/settings3.png)
 
 	a. Copy the **Post-back URL (Assertion Consumer Service URL)** value and paste the value in the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -200,7 +193,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
 1. Toggle **Enable SAML** on and perform the following steps:
 
-	![Configure Single Sign-On](./media/helpscout-tutorial/settings4.png)
+	![Screenshot shows the Single Sign-On tab where you enable SAML and add other information.](./media/helpscout-tutorial/settings4.png)
 
 	a. In **Single Sign-On URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 

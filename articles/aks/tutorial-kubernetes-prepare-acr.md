@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial - Create a container registry
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an Azure Container Registry instance and upload a sample application container image.
 services: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 09/30/2020
 
 ms.custom: mvc
 
@@ -58,13 +58,16 @@ The command returns a *Login Succeeded* message once completed.
 
 To see a list of your current local images, use the [docker images][docker-images] command:
 
-```
+```azurecli
 $ docker images
+```
+The above command output shows list of your current local images:
 
-REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-front             latest              4675398c9172        13 minutes ago      694MB
-redis                        latest              a1b99da73d05        7 days ago          106MB
-tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
+```
+REPOSITORY                                     TAG                 IMAGE ID            CREATED             SIZE
+mcr.microsoft.com/azuredocs/azure-vote-front   v1                  84b41c268ad9        7 minutes ago       944MB
+mcr.microsoft.com/oss/bitnami/redis            6.0.8               3a54a920bb6c        2 days ago          103MB
+tiangolo/uwsgi-nginx-flask                     python3.6           a16ce562e863        6 weeks ago         944MB
 ```
 
 To use the *azure-vote-front* container image with ACR, the image needs to be tagged with the login server address of your registry. This tag is used for routing when pushing container images to an image registry.
@@ -78,19 +81,23 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 Now, tag your local *azure-vote-front* image with the *acrLoginServer* address of the container registry. To indicate the image version, add *:v1* to the end of the image name:
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
+docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v1
 ```
 
-To verify the tags are applied, run [docker images][docker-images] again. An image is tagged with the ACR instance address and a version number.
+To verify the tags are applied, run [docker images][docker-images] again.
 
-```
+```azurecli
 $ docker images
+```
 
-REPOSITORY                                           TAG           IMAGE ID            CREATED             SIZE
-azure-vote-front                                     latest        eaf2b9c57e5e        8 minutes ago       716 MB
-mycontainerregistry.azurecr.io/azure-vote-front      v1            eaf2b9c57e5e        8 minutes ago       716 MB
-redis                                                latest        a1b99da73d05        7 days ago          106MB
-tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313        8 months ago        694 MB
+An image is tagged with the ACR instance address and a version number.
+
+```
+REPOSITORY                                      TAG                 IMAGE ID            CREATED             SIZE
+mcr.microsoft.com/azuredocs/azure-vote-front    v1                  84b41c268ad9        16 minutes ago      944MB
+mycontainerregistry.azurecr.io/azure-vote-front v1                  84b41c268ad9        16 minutes ago      944MB
+mcr.microsoft.com/oss/bitnami/redis             6.0.8               3a54a920bb6c        2 days ago          103MB
+tiangolo/uwsgi-nginx-flask                      python3.6           a16ce562e863        6 weeks ago         944MB
 ```
 
 ## Push images to registry
@@ -157,8 +164,8 @@ Advance to the next tutorial to learn how to deploy a Kubernetes cluster in Azur
 <!-- LINKS - internal -->
 [az-acr-create]: /cli/azure/acr
 [az-acr-list]: /cli/azure/acr
-[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az-acr-login
-[az-acr-list]: https://docs.microsoft.com/cli/azure/acr#az-acr-list
+[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-list]: /cli/azure/acr#az-acr-list
 [az-acr-repository-list]: /cli/azure/acr/repository
 [az-acr-repository-show-tags]: /cli/azure/acr/repository
 [az-group-create]: /cli/azure/group#az-group-create

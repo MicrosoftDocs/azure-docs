@@ -1,12 +1,13 @@
 ---
 title: 'Quickstart: Create server - az postgres up - Azure Database for PostgreSQL - Single Server'
 description: Quickstart guide to create Azure Database for PostgreSQL - Single Server using Azure CLI (command-line interface) up command.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 05/06/2019
+ms.date: 05/06/2019 
+ms.custom: devx-track-azurecli
 ---
 # Quickstart: Use an Azure CLI command, az postgres up (preview), to create an Azure Database for PostgreSQL - Single Server
 
@@ -57,7 +58,7 @@ sku-name | GP_Gen5_2 | The name of the sku. Follows the convention {pricing tier
 backup-retention | 7 | How long a backup is retained. Unit is days.
 geo-redundant-backup | Disabled | Whether geo-redundant backups should be enabled for this server or not.
 location | westus2 | The Azure location for the server.
-ssl-enforcement | Disabled | Whether ssl should be enabled or not for this server.
+ssl-enforcement | Disabled | Whether TLS/SSL should be enabled or not for this server.
 storage-size | 5120 | The storage capacity of the server (unit is megabytes).
 version | 10 | The PostgreSQL major version.
 admin-user | System generated | The username for the administrator.
@@ -68,7 +69,7 @@ admin-password | System generated | The password of the administrator user.
 
 Once your server is created, it comes with the following settings:
 
-- A firewall rule called "devbox" is created. The Azure CLI attempts to detect the IP address of the machine the `az postgres up` command is run from and whitelists that IP address.
+- A firewall rule called "devbox" is created. The Azure CLI attempts to detect the IP address of the machine the `az postgres up` command is run from and allows that IP address.
 - "Allow access to Azure services" is set to ON. This setting configures the server's firewall to accept connections from all Azure resources, including resources not in your subscription.
 - An empty database named "sampledb" is created
 - A new user named "root" with privileges to "sampledb" is created

@@ -6,7 +6,7 @@ keywords: portal
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/20/2019
-ms.topic: conceptual
+ms.topic: overview
 
 ms.service: azure-portal
 manager:  mtillman
@@ -49,7 +49,7 @@ Dashboards provide a focused view of the resources in your subscription that mat
 
 ## Getting around the portal
 
-It’s helpful to understand the basic portal layout and how to interact with it. Here, we’ll introduce the components of the user interface and some of the terminology we use to give instructions. For a more detailed tour of the portal, see the course lesson [Navigate the portal](https://docs.microsoft.com/learn/modules/tour-azure-portal/3-navigate-the-portal).
+It’s helpful to understand the basic portal layout and how to interact with it. Here, we’ll introduce the components of the user interface and some of the terminology we use to give instructions. For a more detailed tour of the portal, see the course lesson [Navigate the portal](/learn/modules/tour-azure-portal/3-navigate-the-portal).
 
 The Azure portal menu and page header are global elements that are always present. These persistent features are the “shell” for the user interface associated with each individual service or feature and the header provides access to global controls. The configuration page (sometimes referred to as a “blade”) for a resource may also have a resource menu to help you move between features.
 

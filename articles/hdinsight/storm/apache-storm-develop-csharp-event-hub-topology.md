@@ -5,8 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/14/2020
+ms.custom: devx-track-csharp
 ---
 
 # Process events from Azure Event Hubs with Apache Storm on HDInsight (C#)

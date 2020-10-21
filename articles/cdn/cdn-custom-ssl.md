@@ -3,7 +3,7 @@ title: Tutorial - Configure HTTPS on an Azure CDN custom domain | Microsoft Docs
 description: In this tutorial, you learn how to enable and disable HTTPS on your Azure CDN endpoint custom domain.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/1/2019
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
 # As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
 
@@ -77,7 +77,7 @@ To enable HTTPS on a custom domain, follow these steps:
 
 4. In the list of custom domains, select the custom domain for which you want to enable HTTPS.
 
-    ![Custom domains list](./media/cdn-custom-ssl/cdn-custom-domain.png)
+    ![Screenshot shows the Custom domain page with the option to Use my own certificate.](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
     The **Custom domain** page appears.
 

@@ -11,8 +11,12 @@ ms.date: 01/16/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
+ms.custom: devx-track-python
 ---
 # Programmatically monitor an Azure data factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article describes how to monitor a pipeline in a data factory by using different software development kits (SDKs). 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

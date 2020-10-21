@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Qumu Cloud | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Qumu Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d8c4a97b-4de6-49d4-b64e-42222c2ec6c9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Qumu Cloud
 
@@ -102,7 +95,7 @@ To configure Azure AD single sign-on with Qumu Cloud, perform the following step
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Qumu Cloud Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<subdomain>.qumucloud.com/saml/SSO`
@@ -112,7 +105,7 @@ To configure Azure AD single sign-on with Qumu Cloud, perform the following step
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Qumu Cloud Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<subdomain>.qumucloud.com`
@@ -122,7 +115,7 @@ To configure Azure AD single sign-on with Qumu Cloud, perform the following step
 
 6. Qumu Cloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with the Edit icon selected.](common/edit-attribute.png)
 
 7. In addition to above, Qumu Cloud application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
@@ -135,9 +128,9 @@ To configure Azure AD single sign-on with Qumu Cloud, perform the following step
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![image](common/new-save-attribute.png)
+	![Screenshot shows User claims with the option to Add new claim.](common/new-save-attribute.png)
 
-	![image](common/new-attribute-details.png)
+	![Screenshot shows the Manage user claims dialog box where you can enter the values described.](common/new-attribute-details.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 

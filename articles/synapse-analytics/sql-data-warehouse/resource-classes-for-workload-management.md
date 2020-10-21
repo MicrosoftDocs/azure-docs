@@ -6,7 +6,7 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
@@ -128,7 +128,7 @@ The following statements are exempt from resource classes and always run in smal
 - DBCC
 
 <!--
-Removed as these two are not confirmed / supported under SQL DW
+Removed as these two are not confirmed / supported under Azure Synapse Analytics
 - CREATE REMOTE TABLE AS SELECT
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
@@ -268,7 +268,7 @@ GO
 -- Creating prc_workload_management_by_DWU.
 -------------------------------------------------------------------------------
 CREATE PROCEDURE dbo.prc_workload_management_by_DWU
-(@DWU VARCHAR(7),
+(@DWU VARCHAR(8),
  @SCHEMA_NAME VARCHAR(128),
  @TABLE_NAME VARCHAR(128)
 )
@@ -587,4 +587,4 @@ GO
 
 ## Next steps
 
-For more information about managing database users and security, see [Secure a database in SQL Analytics](sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+For more information about managing database users and security, see [Secure a database in Synapse SQL](sql-data-warehouse-overview-manage-security.md). For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).

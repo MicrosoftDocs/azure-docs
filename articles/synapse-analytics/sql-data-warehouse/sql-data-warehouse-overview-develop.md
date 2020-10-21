@@ -1,12 +1,12 @@
 ---
 title: Resources for developing a Synapse SQL pool in Azure Synapse Analytics
-description: Development concepts, design decisions, recommendations, and coding techniques for SQL Data Warehouse.
+description: Development concepts, design decisions, recommendations, and coding techniques for Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
@@ -18,7 +18,7 @@ ms.reviewer: igorstan
 ## Key design decisions
 The following articles highlight concepts and design decisions for developing a distributed data warehouse using the SQL pool capability in Azure Synapse:
 
-* [connections](sql-data-warehouse-connect-overview.md)
+* [connections](../sql/connect-overview.md)
 * [concurrency](resource-classes-for-workload-management.md)
 * [transactions](sql-data-warehouse-develop-transactions.md)
 * [user-defined schemas](sql-data-warehouse-develop-user-defined-schemas.md)
@@ -33,7 +33,7 @@ The following articles feature specific coding techniques, tips, and recommendat
 
 * [stored procedures](sql-data-warehouse-develop-stored-procedures.md)
 * [labels](sql-data-warehouse-develop-label.md)
-* [views](sql-data-warehouse-develop-views.md)
+* [views](performance-tuning-materialized-views.md)
 * [temporary tables](sql-data-warehouse-tables-temporary.md)
 * [dynamic SQL](sql-data-warehouse-develop-dynamic-sql.md)
 * [looping](sql-data-warehouse-develop-loops.md)

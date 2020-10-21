@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Blink | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Blink.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 6a7c17d6-addc-4df0-bb52-283f7790bca0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/16/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Blink
@@ -82,11 +75,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. In the **Sign on URL** text box, type a URL using one of the following pattern:
 	
-	| | |
-	|-|-|
-	| `https://app.joinblink.com`|
-	| `https://<SUBDOMAIN>.joinblink.com`|
-	| | |
+    ```http
+    https://app.joinblink.com
+    https://<SUBDOMAIN>.joinblink.com
+    ```
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://api.joinblink.com/saml/o-<TENANTID>`

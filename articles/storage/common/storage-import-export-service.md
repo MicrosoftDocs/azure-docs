@@ -4,8 +4,8 @@ description: Learn how to create import and export jobs in the Azure portal for 
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
-ms.date: 03/15/2020
+ms.topic: conceptual
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -35,7 +35,7 @@ Import/Export service uses the following components:
 * **WAImportExport tool**: This is a command-line tool that does the following:
   * Prepares your disk drives that are shipped for import.
   * Facilitates copying your data to the drive.
-  * Encrypts the data on the drive with AES 128-bit BitLocker. You can use an external key protector to protect your BitLocker key.
+  * Encrypts the data on the drive with AES 256-bit BitLocker. You can use an external key protector to protect your BitLocker key.
   * Generates the drive journal files used during import creation.
   * Helps identify numbers of drives needed for export jobs.
 
@@ -122,10 +122,11 @@ The Azure Import/Export service supports copying data to and from all Azure stor
 |North Central US     |  Australia Southeast       | Brazil South        | UK South        |
 |South Central US     | Japan West        |Korea Central         | Germany Central        |
 |West Central US     |  Japan East       | US Gov Virginia        | Germany Northeast        |
+|South Africa West   |  South Africa North |
 
 ## Security considerations
 
-The data on the drive is encrypted using AES 128-bit BitLocker Drive Encryption. This encryption protects your data while it is in transit.
+The data on the drive is encrypted using AES 256-bit BitLocker Drive Encryption. This encryption protects your data while it is in transit.
 
 For import jobs, drives are encrypted in two ways.  
 

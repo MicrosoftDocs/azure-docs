@@ -1,50 +1,35 @@
 ---
-title: Create shared Azure VM images for Linux using the portal 
-description: Learn how to use Azure portal to create and share virtual machine images.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
+title: Create shared Azure Linux VM images using the portal 
+description: Learn how to use Azure portal to create and share Linux virtual machine images.
 author: cynthn
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
-
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.subservice: imaging
+ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/06/2019
+ms.date: 05/04/2020
 ms.author: cynthn
-ms.custom: 
-
+ms.reviewer: akjosh
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 
-# Create an Azure Shared Image Gallery using the portal
+# Create a Shared Image Gallery using the portal
 
 A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
 
-The Shared Image Gallery lets you share your custom VM images with others in your organization, within or across regions, within an AAD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group shared images. 
+The Shared Image Gallery lets you share your custom VM images with others in your organization, within or across regions, within an Azure AD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group shared images. 
 
 The gallery is a top-level resource that provides full role-based access control (RBAC). Images can be versioned, and you can choose to replicate each image version to a different set of Azure regions. The gallery only works with Managed Images.
 
 The Shared Image Gallery feature has multiple resource types. We will be using or building these in this article:
 
-| Resource | Description|
-|----------|------------|
-| **Managed image** | A basic image that can be used alone or used to create an **image version** in an image gallery. Managed images are created from [generalized](shared-image-galleries.md#generalized-and-specialized-images) VMs. A managed image is a special type of VHD that can be used to make multiple VMs and can now be used to create shared image versions. |
-| **Snapshot** | A copy of a VHD that can be used to make an **image version**. Snapshots can be taken from a [specialized](shared-image-galleries.md#generalized-and-specialized-images) VM (one that hasn't been generalized) then used alone or with snapshots of data disks, to create a specialized image version.
-| **Image gallery** | Like the Azure Marketplace, an **image gallery** is a repository for managing and sharing images, but you control who has access. |
-| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it within your organization. You can include information like whether the image is generalized or specialized, the operating system, minimum and maximum memory requirements, and release notes. It is a definition of a type of image. |
-| **Image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
+
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 <br>
 
-> [!IMPORTANT]
-> Specialized images are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Known preview limitations**
-> VMs can only be created from specialized images using the portal or API. The is no CLI or PowerShell support for the preview.
+
+
 
 
 ## Before you begin
@@ -89,5 +74,5 @@ You can also create Shared Image Gallery resource using templates. There are sev
 - [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Create a VM from Image Version](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-For more information about Shared Image Galleries, see the [Overview](shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](troubleshooting-shared-images.md).
+For more information about Shared Image Galleries, see the [Overview](shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](../troubleshooting-shared-images.md).
 

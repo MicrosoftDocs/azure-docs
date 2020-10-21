@@ -5,9 +5,12 @@ ms.date: "12/10/2019"
 ms.topic: "conceptual"
 description: "Learn how to configure Azure Dev Spaces to use a custom traefik ingress controller and configure HTTPS using that ingress controller"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
+ms.custom: devx-track-js
 ---
 
 # Use a custom traefik ingress controller and configure HTTPS
+
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
 
 This article shows you how to configure Azure Dev Spaces to use a custom traefik ingress controller. This article also shows you how to configure that custom ingress controller to use HTTPS.
 
@@ -357,10 +360,10 @@ Navigate to the sample application in the *dev/azureuser1* child space and notic
 
 ## Next steps
 
-Learn how Azure Dev Spaces helps you develop more complex applications across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces.
+Learn more about how Azure Dev Spaces works.
 
 > [!div class="nextstepaction"]
-> [Team development in Azure Dev Spaces][team-development-qs]
+> [How Azure Dev Spaces works](../how-dev-spaces-works.md)
 
 
 [az-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
@@ -369,9 +372,6 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 [az-network-dns-record-set-a-remove-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-remove-record
 [custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-the-domain
 [dns-zone]: ../../dns/dns-getstarted-cli.md
-[qs-cli]: ../quickstart-cli.md
-[team-development-qs]: ../quickstart-team-development.md
-
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free
 [cert-manager]: https://cert-manager.io/

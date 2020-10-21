@@ -203,7 +203,7 @@ Before you select **Create** to create the public or private VM, go to the follo
 | Basics | Resource group | **myResourceGroup** |
 | | Virtual machine name | *myVmPublic* |
 | | Public inbound ports | **Allow selected ports** |
-| | Select inbound ports | **HTTP** and **RDP** |
+| | Select inbound ports | **RDP** |
 | Networking | Virtual network | **myVirtualNetwork** |
 | | Subnet | **Public (10.0.0.0/24)** |
 | | Public IP address | The default |
@@ -216,7 +216,7 @@ Before you select **Create** to create the public or private VM, go to the follo
 | Basics | Resource group | **myResourceGroup** |
 | | Virtual machine name | *myVmPrivate* |
 | | Public inbound ports | **Allow selected ports** |
-| | Select inbound ports | **HTTP** and **RDP** |
+| | Select inbound ports | **RDP** |
 | Networking | Virtual network | **myVirtualNetwork** |
 | | Subnet | **Private (10.0.1.0/24)** |
 | | Public IP address | The default |
@@ -354,3 +354,6 @@ While you can deploy many Azure resources within a virtual network, Azure can't 
 
 > [!div class="nextstepaction"]
 > [Restrict network access to PaaS resources](tutorial-restrict-network-access-to-resources.md)
+
+> [!NOTE] 
+> Azure services cost money. Azure Cost Management helps you set budgets and configure alerts to keep spending under control. Analyze, manage, and optimize your Azure costs with Cost Management. To learn more, see the [quickstart on analyzing your costs](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

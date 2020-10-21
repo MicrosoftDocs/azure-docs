@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
 ---
@@ -95,7 +95,7 @@ Hive can also be extended through **user-defined functions (UDF)**. A UDF allows
 
 * [Use a C# user-defined function with Apache Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [How to add a custom Apache Hive user-defined function to HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [How to add a custom Apache Hive user-defined function to HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [An example Apache Hive user-defined function to convert date/time formats to Hive timestamp](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 

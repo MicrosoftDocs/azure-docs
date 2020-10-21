@@ -13,15 +13,29 @@ ms.date: 11/04/2019
 
 # How to map AI-enriched fields to a searchable index
 
-In this article, you learn how to map enriched input fields to output fields in a searchable index. Once you have [defined a skillset](cognitive-search-defining-skillset.md), you must map the output fields of any skill that directly contributes values to a given field in your search index. 
+![Indexer Stages](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "indexer stages")
 
-Output Field Mappings are required for moving content from enriched documents into the index.  The enriched document is really a tree of information, and even though there is support for complex types in the index, sometimes you may want to transform the information from the enriched tree into a more simple type (for instance, an array of strings). Output field mappings allow you to perform data shape transformations by flattening information.
+In this article, you learn how to map enriched input fields to output fields in a searchable index. Once you have [defined a skillset](cognitive-search-defining-skillset.md), you must map the output fields of any skill that directly contributes values to a given field in your search index.
+
+Output Field Mappings are required for moving content from enriched documents into the index.  The enriched document is really a tree of information, and even though there is support for complex types in the index, sometimes you may want to transform the information from the enriched tree into a more simple type (for instance, an array of strings). Output field mappings allow you to perform data shape transformations by flattening information. Output field mappings always occur after skillset execution, although it is possible for this stage to run even if no skillset is defined.
+
+Examples of output field mappings:
+
+* As part of your skillset, you extracted the names of organizations mentioned in each of the pages of your document. Now you want to map each of those organization names into a field in your index of type Edm.Collection(Edm.String).
+
+* As part of your skillset, you produced a new node called “document/translated_text”. You would like to map the information on this node to a specific field in your index.
+
+* You don’t have a skillset but are indexing a complex type from a Cosmos DB database. You would like to get to a node on that complex type and map it into a field in your index.
+
+> [!NOTE]
+> We recently enabled the functionality of mapping functions on output field mappings. For more details on mapping functions, see [Field mapping functions](./search-indexer-field-mappings.md#field-mapping-functions)
 
 ## Use outputFieldMappings
+
 To map fields, add `outputFieldMappings` to your indexer definition as shown below:
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -46,7 +60,10 @@ The body of the request is structured as follows:
     "outputFieldMappings": [
         {
             "sourceFieldName": "/document/content/organizations/*/description",
-            "targetFieldName": "descriptions"
+            "targetFieldName": "descriptions",
+            "mappingFunction": {
+                "name": "base64Decode"
+            }
         },
         {
             "sourceFieldName": "/document/content/organizations",

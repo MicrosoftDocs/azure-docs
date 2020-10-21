@@ -80,7 +80,7 @@
         href: data-factory-azure-search-connector.md
       - name: Azure SQL Database
         href: data-factory-azure-sql-connector.md
-      - name: Azure SQL Data Warehouse
+      - name: Azure Synapse Analytics
         href: data-factory-azure-sql-data-warehouse-connector.md
       - name: Azure Table Storage
         href: data-factory-azure-table-connector.md
@@ -199,10 +199,8 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Case Studies
     href: data-factory-customer-case-studies.md
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/data-factory
-  - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-data-factory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Pricing calculator

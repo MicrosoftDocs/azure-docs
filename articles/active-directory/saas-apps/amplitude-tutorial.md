@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Amplitude | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Amplitude.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 496c9ffa-c833-41fa-8d17-2dc3044954d1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Amplitude
@@ -146,15 +139,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Plan Admin** from the left navigation bar.
 
-	![Configure Single Sign-On](./media/amplitude-tutorial/configure1.png)
+	![Screenshot shows the Amplitude menu with Plan Admin selected.](./media/amplitude-tutorial/configure1.png)
 
 1. Select **Microsoft Azure Active Directory Metadata** from the **SSO Integration**.
 
-	![Configure Single Sign-On](./media/amplitude-tutorial/configure2.png)
+	![Screenshot shows the Plan Admin pane with the Microsoft Azure Active Directory Metadata link called out.](./media/amplitude-tutorial/configure2.png)
 
 1. On the **Set Up Single Sign-On** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/amplitude-tutorial/configure3.png)
+	![Screenshot shows the Set Up Single Sign-on section with values described in this step.](./media/amplitude-tutorial/configure3.png)
 
 	a. Open the downloaded **Metadata Xml** from Azure portal in notepad, paste the content into the **Microsoft Azure Active Directory Metadata** textbox.
 

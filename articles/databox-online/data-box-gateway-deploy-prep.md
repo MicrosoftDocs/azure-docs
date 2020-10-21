@@ -9,7 +9,7 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Gateway so I can use it to transfer data to Azure. 
+#Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Gateway so I can use it to transfer data to Azure.  
 ---
 
 # Tutorial: Prepare to deploy Azure Data Box Gateway
@@ -48,8 +48,8 @@ Here you find the configuration prerequisites for your Data Box Gateway resource
 Before you begin, make sure that:
 
 * Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
-* You have owner or contributor access at resource group level for the Data Box Edge/Data Box Gateway, IoT Hub, and Azure Storage resources.
-    - To create any Data Box Edge/ Data Box Gateway resource, you should have permissions as a contributor (or higher) scoped at resource group level. You also need to make sure that the `Microsoft.DataBoxEdge` provider is registered. For information on how to register, go to [Register resource provider](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
+* You have owner or contributor access at resource group level for the Azure Stack Edge / Data Box Gateway, IoT Hub, and Azure Storage resources.
+    - To create any Azure Stack Edge / Data Box Gateway resource, you should have permissions as a contributor (or higher) scoped at resource group level. You also need to make sure that the `Microsoft.DataBoxEdge` provider is registered. For information on how to register, go to [Register resource provider](data-box-gateway-manage-access-power-connectivity-mode.md#register-resource-providers).
     - To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.
 - You have admin or user access to Microsoft Graph API. For more information, see [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference).
 - You have your Microsoft Azure storage account with access credentials.
@@ -88,8 +88,7 @@ To create a Data Box Gateway resource, take the following steps in the Azure por
 
     - The Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
     - Or, the Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us). For more details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
-
-2. In the left-pane, select **+ Create a resource**. Search for **Data Box Edge / Data Box Gateway**. Select Data Box Edge / Data Box Gateway. Select **Create**.
+2. In the left-pane, select **+ Create a resource**. Search for **Azure Stack Edge / Data Box Gateway**. Select Azure Stack Edge / Data Box Gateway. Select **Create**.
 3. Pick the subscription that you want to use for Data Box Gateway device. Select the region where you want to deploy the Data Box Gateway resource. For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Choose a location closest to the geographical region where you want to deploy your device. In the **Data Box Gateway** option, select **Create**.
 
     ![Search Data Box Gateway service](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
@@ -118,7 +117,7 @@ To create a Data Box Gateway resource, take the following steps in the Azure por
 
 The resource creation takes a few minutes. After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
 
-![Review Data Box Gateway resource details](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
+![Review Data Box Gateway resource details 2](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
 
 ## Download the virtual device image
 
@@ -136,7 +135,7 @@ Follow these steps in the [Azure portal](https://portal.azure.com/) to download 
 2. On the **Download image** tile, select the virtual device image corresponding to the operating system on the host server used to provision the VM. The image files are approximately 5.6 GB.
    
    * [VHDX for Hyper-V on Windows Server 2012 R2 and later](https://aka.ms/dbe-vhdx-2012).
-   * [VMDK for VMWare ESXi 6.0, 6.5, or 6.7](https://aka.ms/dbe-vmdk).
+   * [VMDK for VMware ESXi 6.0, 6.5, or 6.7](https://aka.ms/dbe-vmdk).
 
     ![Download Data Box Gateway virtual device image](media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png)
 

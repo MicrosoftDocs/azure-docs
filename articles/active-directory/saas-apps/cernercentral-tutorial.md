@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Cerner Central | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Cerner Central.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d2bc549d-d286-4679-854e-bb67c62b0475
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Cerner Central
 
@@ -105,17 +98,17 @@ To configure Azure AD single sign-on with Cerner Central, perform the following 
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
-	| `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
+    ```http
+    https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata
+    https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
-	| `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
+    ```http
+    https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso
+    https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Cerner Central Client support team](mailto:SISupport@cbre.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

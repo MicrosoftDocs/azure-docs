@@ -7,10 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/06/2019
+ms.date: 09/11/2020
 ---
 
 # Mapping data flow Debug Mode
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## Overview
 
@@ -18,13 +20,18 @@ Azure Data Factory mapping data flow's debug mode allows you to interactively wa
 
 ![Debug slider](media/data-flow/debugbutton.png "Debug slider")
 
-Once you turn on the slider, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with eight cores of general compute with a 60-minute time to live will be spun up. For more information on data flow integration runtimes, see [Data flow performance](concepts-data-flow-performance.md#increasing-compute-size-in-azure-integration-runtime).
+Once you turn on the slider, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with eight cores of general compute with a 60-minute time to live will be spun up. For more information on data flow integration runtimes, see [Data flow performance](concepts-data-flow-performance.md#ir).
 
 ![Debug IR selection](media/data-flow/debugbutton2.png "Debug IR selection")
 
 When Debug mode is on, you'll interactively build your data flow with an active Spark cluster. The session will close once you turn debug off in Azure Data Factory. You should be aware of the hourly charges incurred by Azure Databricks during the time that you have the debug session turned on.
 
 In most cases, it's a good practice to build your Data Flows in debug mode so that you can validate your business logic and view your data transformations before publishing your work in Azure Data Factory. Use the "Debug" button on the pipeline panel to test your data flow in a pipeline.
+
+![View data flow debug sessions](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+
+> [!NOTE]
+> Every debug session that a user starts from their ADF browser UI is a new session with its own Spark cluster. You can use the monitoring view for debug sessions above to view and manage debug sessions per factory.
 
 ## Cluster status
 
@@ -34,13 +41,15 @@ When you are finished with your debugging, turn the Debug switch off so that you
 
 ## Debug settings
 
-Debug settings can be edited by clicking "Debug Settings" on the Data Flow canvas toolbar. You can select the row limit or file source to use for each of your Source transformations here. The row limits in this setting are only for the current debug session. You can also select the staging linked service to be used for a SQL DW source. 
+Once you turn on debug mode, you can edit how a data flow previews data. Debug settings can be edited by clicking "Debug Settings" on the Data Flow canvas toolbar. You can select the row limit or file source to use for each of your Source transformations here. The row limits in this setting are only for the current debug session. You can also select the staging linked service to be used for an Azure Synapse Analytics source. 
 
 ![Debug settings](media/data-flow/debug-settings.png "Debug settings")
 
 If you have parameters in your Data Flow or any of its referenced datasets, you can specify what values to use during debugging by selecting the **Parameters** tab.
 
 ![Debug settings parameters](media/data-flow/debug-settings2.png "Debug settings parameters")
+
+The default IR used for debug mode in ADF data flows is a small 4-core single worker node with a 4-core single driver node. This works fine with smaller samples of data when testing your data flow logic. If you expand the row limits in your debug settings during data preview or set a higher number of sampled rows in your source during pipeline debug, then you may wish to consider setting a larger compute environment in a new Azure Integration Runtime. Then you can restart your debug session using the larger compute environment.
 
 ## Data preview
 
@@ -52,6 +61,8 @@ With debug on, the Data Preview tab will light-up on the bottom panel. Without d
 > File sources only limit the rows that you see, not the rows being read. For very large datasets, it is recommended that you take a small portion of that file and use it for your testing. You can select a temporary file in Debug Settings for each source that is a file dataset type.
 
 When running in Debug Mode in Data Flow, your data will not be written to the Sink transform. A Debug session is intended to serve as a test harness for your transformations. Sinks are not required during debug and are ignored in your data flow. If you wish to test writing the data in your Sink, execute the Data Flow from an Azure Data Factory Pipeline and use the Debug execution from a pipeline.
+
+Data Preview is a snapshot of your transformed data using row limits and data sampling from data frames in Spark memory. Therefore, the sink drivers are not utilized or tested in this scenario.
 
 ### Testing join conditions
 

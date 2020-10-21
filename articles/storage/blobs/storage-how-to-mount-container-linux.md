@@ -1,10 +1,10 @@
 ---
 title: How to mount Azure Blob storage as a file system on Linux | Microsoft Docs
-description: Mount an Azure Blob storage container with FUSE on Linux
+description: Learn how to mount an Azure Blob storage container with blobfuse, a virtual file system driver on Linux.
 author: rishabpoh
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm
@@ -71,6 +71,7 @@ Blobfuse provides native-like performance by requiring a temporary path in the f
 ### (Optional) Use a ramdisk for the temporary path
 The following example creates a ramdisk of 16 GB and a directory for blobfuse. Choose the size based on your needs. This ramdisk allows blobfuse to open files up to 16 GB in size. 
 ```bash
+sudo mkdir /mnt/ramdisk
 sudo mount -t tmpfs -o size=16g tmpfs /mnt/ramdisk
 sudo mkdir /mnt/ramdisk/blobfusetmp
 sudo chown <youruser> /mnt/ramdisk/blobfusetmp

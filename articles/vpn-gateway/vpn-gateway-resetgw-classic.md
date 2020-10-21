@@ -1,12 +1,12 @@
 ---
 title: 'Reset an Azure VPN gateway to reestablish IPsec tunnel'
-description: This article walks you through resetting your Azure VPN Gateway to reestablish IPsec tunnels. The article applies to VPN gateways in both the classic, and the Resource Manager deployment models.
+description: Reset your Azure VPN Gateway to reestablish IPsec tunnels for VPN gateways in both the classic and the Resource Manager deployment models.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 01/09/2020
+ms.topic: how-to
+ms.date: 09/02/2020
 ms.author: cherylmc
 
 ---

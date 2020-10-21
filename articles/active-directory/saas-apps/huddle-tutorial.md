@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Huddle | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Huddle.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 8389ba4c-f5f8-4ede-b2f4-32eae844ceb0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Huddle
 
@@ -103,36 +96,33 @@ To configure Azure AD single sign-on with Huddle, perform the following steps:
 	> [!NOTE]
 	> Your huddle instance will be automatically detected from the domain you enter below.
 
-    ![Huddle Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box,type a URL:
 
-	| | |
-	|--|--|
-	| `https://login.huddle.net`|
-	| `https://login.huddle.com`|
-	| |
+    ```http
+    https://login.huddle.net
+    https://login.huddle.com
+    ```
 
     b. In the **Reply URL** text box, type a URL:
 
-	| | |
-	|--|--|
-	| `https://login.huddle.net/saml/browser-sso`|
-	| `https://login.huddle.com/saml/browser-sso`|
-	| `https://login.huddle.com/saml/idp-initiated-sso`|
-	| |
+    ```http
+    https://login.huddle.net/saml/browser-sso
+    https://login.huddle.com/saml/browser-sso
+    https://login.huddle.com/saml/idp-initiated-sso
+    ```
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Huddle Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
 
-    | | |
-	|--|--|
-	| `https://<customsubdomain>.huddle.com`|
-	| `https://us.huddle.com`|
-	| |
+    ```http
+    https://<customsubdomain>.huddle.com
+    https://us.huddle.com
+        ```
 
 	> [!NOTE]
 	> The Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [Huddle Client support team](https://huddle.zendesk.com) to get this value.

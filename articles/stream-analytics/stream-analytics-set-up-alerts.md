@@ -5,7 +5,8 @@ author: jseb225
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
+ms.custom: contperfq1
 ms.date: 06/21/2019
 ---
 # Set up alerts for Azure Stream Analytics jobs
@@ -54,20 +55,12 @@ The following alerts are recommended for monitoring the performance of your Stre
 |Metric|Condition|Time Aggregation|Threshold|Corrective Actions|
 |-|-|-|-|-|
 |SU% Utilization|Greater than|Maximum|80|There are multiple factors that increase SU% Utilization. You can scale with query parallelization or increase the number of streaming units. For more information, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).|
-|Runtime errors|Greater than|Total|0|Examine the activity or diagnostic logs and make appropriate changes to the inputs, query, or outputs.|
+|Runtime errors|Greater than|Total|0|Examine the activity or resource logs and make appropriate changes to the inputs, query, or outputs.|
 |Watermark delay|Greater than|Maximum|When average value of this metric over the last 15 minutes is greater than late arrival tolerance (in seconds). If you have not modified the late arrival tolerance, the default is set to 5 seconds.|Try increasing the number of SUs or parallelizing your query. For more information on SUs, see [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). For more information on parallelizing your query, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).|
-|Input deserialization errors|Greater than|Total|0|Examine the activity or diagnostic logs and make appropriate changes to the input. For more information on diagnostic logs, see [Troubleshoot Azure Stream Analytics using diagnostics logs](stream-analytics-job-diagnostic-logs.md)|
-
-## Get help
-
-For more detail on configuring alerts in the Azure portal, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).  
-
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+|Input deserialization errors|Greater than|Total|0|Examine the activity or resource logs and make appropriate changes to the input. For more information on resource logs, see [Troubleshoot Azure Stream Analytics using resource logs](stream-analytics-job-diagnostic-logs.md)|
 
 ## Next steps
-* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
-* [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

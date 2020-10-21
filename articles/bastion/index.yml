@@ -35,7 +35,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a Bastion host
-            url: bastion-create-host-portal.md
+            url: ./tutorial-create-host-portal.md
           - text: Connect to a virtual machine (Linux)
             url: bastion-connect-vm-ssh.md
           - text: Connect to a virtual machine (Windows)

@@ -68,7 +68,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## Mount the file share as a volume
 
-To mount the Azure Files share into your pod, configure the volume in the container spec. Create a new file named `azure-files-pod.yaml` with the following contents. If you changed the name of the Files share or secret name, update the *shareName* and *secretName*. If desired, update the `mountPath`, which is the path where the Files share is mounted in the pod. For Windows Server containers (currently in preview in AKS), specify a *mountPath* using the Windows path convention, such as *'D:'*.
+To mount the Azure Files share into your pod, configure the volume in the container spec. Create a new file named `azure-files-pod.yaml` with the following contents. If you changed the name of the Files share or secret name, update the *shareName* and *secretName*. If desired, update the `mountPath`, which is the path where the Files share is mounted in the pod. For Windows Server containers, specify a *mountPath* using the Windows path convention, such as *'D:'*.
 
 ```yaml
 apiVersion: v1
@@ -233,6 +233,8 @@ Update your container spec to reference your *PersistentVolumeClaim* and update 
 For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
 
 For more information about AKS clusters interact with Azure Files, see the [Kubernetes plugin for Azure Files][kubernetes-files].
+
+For storage class parameters, see [Static Provision(bring your own file share)](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#static-provisionbring-your-own-file-share).
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create

@@ -2,21 +2,14 @@
 title: 'Tutorial: Configure Box for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Box .
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-
-ms.assetid: 1c959595-6e57-4954-9c0d-67ba03ee212b
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2017
+ms.date: 07/20/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure Box for automatic user provisioning
 
@@ -34,6 +27,9 @@ To configure Azure AD integration with Box, you need the following items:
 
 > [!NOTE]
 > When you test the steps in this tutorial, we recommend that you do *not* use a production environment.
+
+> [!NOTE]
+> Apps need to be enabled in the Box application first.
 
 To test the steps in this tutorial, follow these recommendations:
 
@@ -91,17 +87,17 @@ The objective of this section is to outline how to enable provisioning of Active
 
 4. Set the **Provisioning Mode** to **Automatic**. 
 
-    ![provisioning](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![Screenshot of the Provisioning tab for Box in Azure portal. Provisioning Mode is set to Automatic and Authorize is highlighted in Admin Credentials.](./media/box-userprovisioning-tutorial/provisioning.png)
 
 5. Under the **Admin Credentials** section, click **Authorize** to open a Box login dialog in a new browser window.
 
 6. On the **Login to grant access to Box** page, provide the required credentials, and then click **Authorize**. 
    
-    ![Enable automatic user provisioning](./media/box-userprovisioning-tutorial/IC769546.png "Enable automatic user provisioning")
+    ![Screenshot of the Log in to grant access to box screen, showing entry for Email and Password, and the Authorize button.](./media/box-userprovisioning-tutorial/IC769546.png "Enable automatic user provisioning")
 
 7. Click **Grant access to Box** to authorize this operation and to return to the Azure portal. 
    
-    ![Enable automatic user provisioning](./media/box-userprovisioning-tutorial/IC769549.png "Enable automatic user provisioning")
+    ![Screenshot of the authorize access screen in Box, showing an explanatory message and the Grant access to Box button.](./media/box-userprovisioning-tutorial/IC769549.png "Enable automatic user provisioning")
 
 8. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your Box app. If the connection fails, ensure your Box account has Team Admin permissions and try the **"Authorize"** step again.
 

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Discovery Benefits SSO | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Discovery Benefits SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a788cd07-0eed-4067-b79d-19b840e8836d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Discovery Benefits SSO
@@ -88,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. Click on **Edit**  icon to open the **Unique User Identifier (Name ID)** dialog.
 
-	![Discovery Benefits SSO configuration](./media/discovery-benefits-sso-tutorial/attribute01.png)
+	![Screenshot that shows the "User Attributes & Claims" section with the "Required claim" ellipses on the right side selected.](./media/discovery-benefits-sso-tutorial/attribute01.png)
 
 	![Discovery Benefits SSO configuration](./media/discovery-benefits-sso-tutorial/attribute02.png)
 
@@ -105,7 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	f. We have auto-populated the additional claims which are required for SSO configuration (`SSOInstance` and `SSOID`). Use the **Edit** icon to map the values as per your organization.
 
-	![Discovery Benefits SSO configuration](./media/discovery-benefits-sso-tutorial/attribute03.png)
+	![Screenshot that shows the "User Attributes & Claims" with the "S S O Instance" and "S S O I D" values highlighted.](./media/discovery-benefits-sso-tutorial/attribute03.png)
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 

@@ -16,6 +16,8 @@ ms.author: jingwang
 ---
 # Load data from Office 365 by using Azure Data Factory
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article shows you how to use the Data Factory _load data from Office 365 into Azure Blob storage_. You can follow similar steps to copy data to Azure Data Lake Gen1 or Gen2. Refer to [Office 365 connector article](connector-office-365.md) on copying data from Office 365 in general.
 
 ## Create a data factory
@@ -141,7 +143,7 @@ Now go to the destination Azure Blob Storage and verify that Office 365 data has
 
 ## Next steps
 
-Advance to the following article to learn about Azure SQL Data Warehouse support: 
+Advance to the following article to learn about Azure Synapse Analytics (formerly SQL Data Warehouse) support: 
 
 > [!div class="nextstepaction"]
 >[Office 365 connector](connector-office-365.md)

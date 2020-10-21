@@ -8,6 +8,7 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
+ms.custom: devx-track-python
 ---
 
 # Quickstart: Run a workflow through the Microsoft Genomics service
@@ -42,18 +43,18 @@ For more information about Microsoft Genomics, see [What is Microsoft Genomics?]
 
 ## Set up: Install the Microsoft Genomics Python client
 
-You need to install both Python and the Microsoft Genomics Python client in your local environment. 
+You need to install both Python and the Microsoft Genomics Python client `msgen` in your local environment. 
 
 ### Install Python
 
 The Microsoft Genomics Python client is compatible with Python 2.7.12 or a later 2.7.xx version. 2.7.14 is the suggested version. You can find the download [here](https://www.python.org/downloads/release/python-2714/). 
 
 > [!IMPORTANT]
-> Python 3.x isn't compatible with Python 2.7.xx.  MSGen is a Python 2.7 application. When running MSGen, make sure that your active Python environment is using a 2.7.xx version of Python. You may get errors when trying to use MSGen with a 3.x version of Python.
+> Python 3.x isn't compatible with Python 2.7.xx.  `msgen` is a Python 2.7 application. When running `msgen`, make sure that your active Python environment is using a 2.7.xx version of Python. You may get errors when trying to use `msgen` with a 3.x version of Python.
 
-### Install the Microsoft Genomics client
+### Install the Microsoft Genomics Python client `msgen`
 
-Use Python `pip` to install the Microsoft Genomics client `msgen`. The follow instructions assume Python is already in your system path. If you have issues with `pip` install not recognized, you need to add Python and the scripts subfolder to your system path.
+Use Python `pip` to install the Microsoft Genomics client `msgen`. The following instructions assume Python2.x is already in your system path. If you have issues with `pip` install not being recognized, you need to add Python and the scripts subfolder to your system path.
 
 ```
 pip install --upgrade --no-deps msgen
@@ -61,14 +62,9 @@ pip install msgen
 ```
 
 If you don't want to install `msgen` as a system-wide binary and modify system-wide Python packages, use the `–-user` flag with `pip`.
-If you use the package-based installation or setup.py, all necessary required packages are installed. Otherwise, the basic required packages for `msgen` are 
+When you use the package-based installation or setup.py, all necessary required packages are installed.
 
- * [Azure-storage](https://pypi.python.org/pypi/azure-storage). 
- * [Requests](https://pypi.python.org/pypi/requests). 
-
-You can install these packages using `pip`, `easy_install` or through standard `setup.py` procedures. 
-
-### Test the Microsoft Genomics client
+### Test `msgen` Python client
 To test the Microsoft Genomics client, download the config file from your Genomics account. 
 In the Azure portal, navigate to your Genomics account by selecting **All services** in the top left, and then searching for and selecting Genomics accounts.
 
@@ -115,18 +111,20 @@ The Microsoft Genomics service expects paired end reads (fastq or bam files) as 
 
 Within your storage account, you need to make one blob container for your input data and a second blob container for your output data.  Upload the input data into your input blob container. Various tools can be used to do this, including [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter), or [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
-## Run a workflow through the Microsoft Genomics service using the Python client 
+## Run a workflow through the Microsoft Genomics service using the `msgen` Python client
 
 To run a workflow through the Microsoft Genomics service, edit the *config.txt* file to specify the input and output storage container for your data.
 Open the *config.txt* file that you downloaded from your Genomics account. The sections you need to specify are your subscription key and the six items at the bottom, the storage account name, key, and container name for both the input and output. You can find this information by navigating in the Azure portal to **Access keys** for your storage account, or directly from the Azure Storage Explorer.  
 
-![Genomics config](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomics config")
+![Genomics config](./media/quickstart-run-genomics-workflow-portal/genomics-config.PNG "Genomics config")
 
 If you would like to run GATK4, set the `process_name` parameter to `gatk4`.
 
-By default, the Genomics service outputs VCF files. If you would like a gVCF output rather than a VCF output (equivalent to `-emitRefConfidence` in GATK 3.x and `emit-ref-confidence` in GATK 4.x), add the  `emit_ref_confidence` parameter to your *config.txt* and set it to `gvcf`, as shown in the preceding figure.  To change back to VCF output, either remove it from the *config.txt* file or set the `emit_ref_confidence` parameter to `none`. 
+By default, the Genomics service outputs VCF files. If you would like a gVCF output rather than a VCF output (equivalent to `-emitRefConfidence` in GATK 3.x and `emit-ref-confidence` in GATK 4.x), add the `emit_ref_confidence` parameter to your *config.txt* and set it to `gvcf`, as shown in the preceding figure.  To change back to VCF output, either remove it from the *config.txt* file or set the `emit_ref_confidence` parameter to `none`. 
 
-### Submit your workflow to the Microsoft Genomics service the Microsoft Genomics client
+`bgzip` is a tool that compresses the vcf or gvcf file, and `tabix` creates an index for the compressed file. By default, the Genomics service runs `bgzip` followed by `tabix` on ".g.vcf" output but does not run these tools by default for ".vcf" output. When run, the service produces ".gz" (bgzip output) and ".tbi" (tabix output) files. The argument is a boolean, which is set to false by default for ".vcf" output, and to true by default for ".g.vcf" output. To use on the command line, specify `-bz` or `--bgzip-output` as `true` (run bgzip and tabix) or `false`. To use this argument in the *config.txt* file, add `bgzip_output: true` or `bgzip_output: false` to the file.
+
+### Submit your workflow to the Microsoft Genomics service using the `msgen` Python client
 
 Use the Microsoft Genomics Python client to submit your workflow with the following command:
 
@@ -142,4 +140,5 @@ msgen list -f c:\temp\config.txt
 Once your workflow completes, you can view the output files in your Azure storage account in the output container that you configured. 
 
 ## Next steps
-In this article, you uploaded sample input data into Azure storage and submitted a workflow to the Microsoft Genomics service through the `msgen` Python client. To learn more about other input file types that can be used with the Microsoft Genomics service, see the following pages: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md). You can also explore this tutorial using our [Azure notebook tutorial.](https://aka.ms/genomicsnotebook)
+
+In this article, you uploaded sample input data into Azure storage and submitted a workflow to the Microsoft Genomics service through the `msgen` Python client. To learn more about other input file types that can be used with the Microsoft Genomics service, see the following pages: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md). You can also explore this tutorial using our [Azure Notebooks example](https://aka.ms/genomicsnotebook) by downloading the "Genomics Tutorial.ipynb" file and using a notebook reader like [Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) to open the file and run through it.

@@ -17,6 +17,8 @@ ms.author: chlound
 
 # Use Azure Key Vault secrets in pipeline activities
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 You can store credentials or secret values in an Azure Key Vault and use them during pipeline execution to pass to your activities.
 
 ## Prerequisites
@@ -31,7 +33,7 @@ This feature relies on the data factory managed identity.  Learn how it works fr
 
 2. Open the key vault access policies and add the managed identity permissions to Get and List secrets.
 
-    ![Key Vault access policies](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
+    ![Screenshot that shows the "Access policies" page with the "Add Access Policy" action highlighted.](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
 
     ![Key Vault access policies](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 

@@ -1,18 +1,11 @@
 ---
 title: Deploy OpenShift Container Platform 3.11 in Azure 
 description: Deploy OpenShift Container Platform 3.11 in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-linux
-
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.subservice: workloads
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 04/05/2020
 ms.author: haroldw
@@ -309,7 +302,7 @@ Different releases may have different parameters so verify the necessary paramet
 ### Deploy using Azure CLI
 
 > [!NOTE] 
-> The following command requires Azure CLI 2.0.8 or later. You can verify the CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> The following command requires Azure CLI 2.0.8 or later. You can verify the CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
 The following example deploys the OpenShift cluster and all related resources into a resource group named openshiftrg, with a deployment name of myOpenShiftCluster. The template is referenced directly from the GitHub repo, and a local parameters file named azuredeploy.parameters.json file is used.
 

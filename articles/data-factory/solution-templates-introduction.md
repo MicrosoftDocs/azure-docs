@@ -15,6 +15,8 @@ ms.date: 01/04/2019
 
 # Templates
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Templates are predefined Azure Data Factory pipelines that allow you to get started quickly with Data Factory. Templates are useful when you're new to Data Factory and want to get started quickly. These templates reduce the development time for building data integration projects thereby improving developer productivity.
 
 ## Create Data Factory pipelines from templates
@@ -61,9 +63,9 @@ Data Factory uses Azure Resource Manager templates for saving data factory pipel
 
         -   From SQL Server on premises to Azure SQL Database
 
-        -   From SQL Server on premises to Azure SQL Data Warehouse
+        -   From SQL Server on premises to Azure Synapse Analytics (formerly SQL Data Warehouse)
 
-        -   From Oracle on premises to Azure SQL Data Warehouse
+        -   From Oracle on premises to Azure Synapse Analytics (formerly SQL Data Warehouse)
 
 -   SSIS templates
 

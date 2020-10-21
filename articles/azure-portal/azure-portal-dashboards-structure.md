@@ -5,7 +5,7 @@ services: azure-portal
 documentationcenter: ''
 author: adamabmsft
 manager: mtillman
-editor: tysonn
+
 
 ms.service: azure-portal
 ms.devlang: NA
@@ -21,7 +21,7 @@ This document walks through the structure of an Azure dashboard, using the follo
 
 ![sample dashboard](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Since shared [Azure dashboards are resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), this dashboard can be represented as JSON.  The following JSON represents the dashboard visualized above.
+Since shared [Azure dashboards are resources](../azure-resource-manager/management/overview.md), this dashboard can be represented as JSON.  The following JSON represents the dashboard visualized above.
 
 ```json
 
@@ -300,7 +300,7 @@ The name is the segment of the resource ID that does not include the subscriptio
 All dashboards are of type __Microsoft.Portal/dashboards__.
 
 ### The location property
-Unlike other resources, dashboards don’t have a runtime component.  For dashboards, the location indicates the primary geographic location that stores the dashboard’s JSON representation. The value should be one of the location codes that can be fetched using the [locations API on the subscriptions resource](https://docs.microsoft.com/rest/api/resources/subscriptions).
+Unlike other resources, dashboards don’t have a runtime component.  For dashboards, the location indicates the primary geographic location that stores the dashboard’s JSON representation. The value should be one of the location codes that can be fetched using the [locations API on the subscriptions resource](/rest/api/resources/subscriptions).
 
 ### The tags property
 Tags are a common feature of Azure resources that let you organize your resource by arbitrary name value pairs. For dashboards, there is one special tag called __hidden-title__. If your dashboard has this property populated, then it is used as the display name for your dashboard in the portal. Azure resource Ids cannot be renamed, but tags can. This tag gives you a way to have a renamable display name for your dashboard.
@@ -326,7 +326,7 @@ The __position__ property contains the size and location information for the par
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![grid-units](./media/azure-portal-dashboards-structure/grid-units.png)
+![Screenshot shows a close up of the grid, with one square grid unit highlighted.](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### The metadata object
 Each part has a metadata property, an object has only one required property called __type__. This string tells the portal which tile to show. Our example dashboard uses these types of tiles:

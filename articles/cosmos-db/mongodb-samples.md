@@ -8,7 +8,7 @@ ms.topic: sample
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-
+ms.custom: devx-track-js
 ---
 # Build an app using Node.js and Azure Cosmos DB's API for MongoDB 
 > [!div class="op_single_selector"]

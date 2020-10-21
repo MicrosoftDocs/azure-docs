@@ -33,9 +33,9 @@ In this section, you will retrieve the keys from the Azure portal.
 
 ## Enable access for redis-cli.exe
 
-With Azure Cache for Redis, only the SSL port (6380) is enabled by default. The `redis-cli.exe` command-line tool doesn't support SSL. You have two configuration choices to use it:
+With Azure Cache for Redis, only the TLS port (6380) is enabled by default. The `redis-cli.exe` command-line tool doesn't support TLS. You have two configuration choices to use it:
 
-1. [Enable the non-SSL port (6379)](cache-configure.md#access-ports) - **This configuration is not recommended** because in this configuration, the access keys are sent via TCP in clear text. This change can compromise access to your cache. The only scenario where you might consider this configuration is when you are just accessing a test cache.
+1. [Enable the non-TLS port (6379)](cache-configure.md#access-ports) - **This configuration is not recommended** because in this configuration, the access keys are sent via TCP in clear text. This change can compromise access to your cache. The only scenario where you might consider this configuration is when you are just accessing a test cache.
 
 2. Download and install [stunnel](https://www.stunnel.org/downloads.html).
 
@@ -67,9 +67,9 @@ When using stunnel, run *redis-cli.exe*, and pass only your *port*, and *access 
 redis-cli.exe -p 6380 -a YourAccessKey
 ```
 
-![stunnel with redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
+![Screenshot that shows that your connection to the cache is successful.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-If you're using a test cache with the **unsecure** non-SSL port, run `redis-cli.exe` and pass your *host name*, *port*, and *access key* (primary or secondary) to connect to the test cache.
+If you're using a test cache with the **unsecure** non-TLS port, run `redis-cli.exe` and pass your *host name*, *port*, and *access key* (primary or secondary) to connect to the test cache.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey

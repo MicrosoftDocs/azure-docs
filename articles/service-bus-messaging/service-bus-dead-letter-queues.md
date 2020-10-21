@@ -1,22 +1,11 @@
 ---
 title: Service Bus dead-letter queues | Microsoft Docs
 description: Describes dead-letter queues in Azure Service Bus. Service Bus queues and topic subscriptions provide a secondary subqueue, called a dead-letter queue.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/23/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
+ms.custom: "fasttrack-edit, devx-track-csharp"
 ---
+
 # Overview of Service Bus dead-letter queues
 
 Azure Service Bus queues and topic subscriptions provide a secondary subqueue, called a *dead-letter queue* (DLQ). The dead-letter queue doesn't need to be explicitly created and can't be deleted or otherwise managed independent of the main entity.
@@ -46,14 +35,13 @@ As the message gets moved by the broker, two properties are added to the message
 
 Applications can define their own codes for the `DeadLetterReason` property, but the system sets the following values.
 
-| Condition | DeadLetterReason | DeadLetterErrorDescription |
-| --- | --- | --- |
-| Always |HeaderSizeExceeded |The size quota for this stream has been exceeded. |
-| !TopicDescription.<br />EnableFilteringMessagesBeforePublishing and SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
-| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |The message expired and was dead lettered. |
-| SubscriptionDescription.RequiresSession |Session ID is null. |Session enabled entity doesn't allow a message whose session identifier is null. |
-| !dead letter queue | MaxTransferHopCountExceeded | The maximum number of allowed hops when forwarding between queues. Value is set to 4. |
-| Application explicit dead lettering |Specified by application |Specified by application |
+| DeadLetterReason | DeadLetterErrorDescription |
+| --- | --- |
+|HeaderSizeExceeded |The size quota for this stream has been exceeded. |
+|TTLExpiredException |The message expired and was dead lettered. See the [Exceeding TimeToLive](#exceeding-timetolive) section for details. |
+|Session ID is null. |Session enabled entity doesn't allow a message whose session identifier is null. |
+|MaxTransferHopCountExceeded | The maximum number of allowed hops when forwarding between queues. Value is set to 4. |
+| MaxDeliveryCountExceededExceptionMessage | Message could not be consumed after maximum delivery attempts. See the [Exceeding MaxDeliveryCount](#exceeding-maxdeliverycount) section for details. |
 
 ## Exceeding MaxDeliveryCount
 
@@ -65,11 +53,11 @@ This behavior can't be disabled, but you can set [MaxDeliveryCount](/dotnet/api/
 
 When the [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) or [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) property is set to **true** (the default is **false**), all expiring messages are moved to the DLQ, specifying the  `TTLExpiredException` reason code.
 
-Expired messages are only purged and moved to the DLQ when there is at least one active receiver pulling from the main queue or subscription; that behavior is by design.
+Expired messages are only purged and moved to the DLQ when there is at least one active receiver pulling from the main queue or subscription, and [deferred messages](./message-deferral.md) will also not be purged and moved to the dead-letter queue after they expire. These behaviours are by design.
 
 ## Errors while processing subscription rules
 
-When the [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) property is enabled for a subscription, any errors that occur while a subscription's SQL filter rule executes are captured in the DLQ along with the offending message.
+When the [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) property is enabled for a subscription, any errors that occur while a subscription's SQL filter rule executes are captured in the DLQ along with the offending message. Don't use this option in a production environment in which not all message types have subscribers.
 
 ## Application-level dead-lettering
 

@@ -9,7 +9,8 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Managing Storage in the Azure independent clouds using PowerShell
@@ -108,6 +109,7 @@ The results are similar to the following values:
 | SqlDatabaseDnsSuffix | `.database.cloudapi.de` |
 | **StorageEndpointSuffix** | `core.cloudapi.de` |
 | ... | ... |
+
 To retrieve just the storage endpoint suffix property, retrieve the specific cloud and ask for just that one property.
 
 ```powershell
@@ -148,7 +150,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 ## After setting the environment
 
-From here going forward, you can use the same PowerShell used to manage your storage accounts and access the data plane as described in the article [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md).
+You can now use PowerShell to manage your storage accounts and access blob, queue, file, and table data. For more information, see [Az.Storage](/powershell/module/az.storage).
 
 ## Clean up resources
 

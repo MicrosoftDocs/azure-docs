@@ -1,12 +1,14 @@
 ---
 title: Manage Virtual Machine Scale Sets with the Azure CLI
 description: Common Azure CLI commands to manage Virtual Machine Scale Sets, such as how to start and stop an instance, or change the scale set capacity.
-author: cynthn
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: management
 ms.date: 05/29/2018
-ms.author: cynthn
+ms.reviewer: mimckitt
+ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Manage a virtual machine scale set with the Azure CLI
@@ -42,6 +44,20 @@ az vmss get-instance-view \
     --instance-id 0
 ```
 
+You can also get detailed *instanceView* information for all instances in one API call, which can help avoid API throttling for large installations. Provide your own values for `--resource-group`, `--subscription`, and `--name`.
+
+```azurecli
+az vmss list-instances \
+    --expand instanceView \
+    --select instanceView \
+    --resource-group <resourceGroupName> \
+    --subscription <subID> \
+    --name <vmssName>
+```
+
+```rest
+GET "https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSSName>/virtualMachines?api-version=2019-03-01&%24expand=instanceView"
+```
 
 ## List connection information for VMs
 To connect to the VMs in a scale set, you SSH or RDP to an assigned public IP address and port number. By default, network address translation (NAT) rules are added to the Azure load balancer that forwards remote connection traffic to each VM. To list the address and ports to connect to VM instances in a scale set, use [az vmss list-instance-connection-info](/cli/azure/vmss). The following example lists connection information for VM instances in the scale set named *myScaleSet* and in the *myResourceGroup* resource group. Provide your own values for these names:

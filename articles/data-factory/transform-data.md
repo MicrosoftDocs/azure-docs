@@ -1,6 +1,6 @@
 ---
 title: Transform data
-description: Learn how to transform data or process data in Azure Data Factory using Hadoop, Machine Learning, or Azure Data Lake Analytics.
+description: Transform data or process data in Azure Data Factory using Hadoop, Machine Learning, or Azure Data Lake Analytics.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -28,6 +28,8 @@ ms.date: 07/31/2018
 > * [Databricks Jar](transform-data-databricks-jar.md)
 > * [Databricks Python](transform-data-databricks-python.md)
 > * [.NET custom](transform-data-using-dotnet-custom-activity.md)
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## Overview
 This article explains data transformation activities in Azure Data Factory that you can use to transform and process your raw data into predictions and insights at scale. A transformation activity executes in a computing environment such as Azure Databricks or Azure HDInsight. It provides links to articles with detailed information on each transformation activity.
@@ -71,7 +73,7 @@ Over time, the predictive models in the Machine Learning scoring experiments nee
 See [Use Machine Learning activities](transform-data-using-machine-learning.md) for details about these Machine Learning activities. 
 
 ### Stored procedure activity
-You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure activity](transform-data-using-stored-procedure.md) article for details.  
+You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse), SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure activity](transform-data-using-stored-procedure.md) article for details.  
 
 ### Data Lake Analytics U-SQL activity
 Data Lake Analytics U-SQL activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL activity](transform-data-using-data-lake-analytics.md) article for details. 

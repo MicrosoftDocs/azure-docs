@@ -9,17 +9,19 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
+ms.date: 08/24/2020
 ---
 # Two-Class Boosted Decision Tree module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a machine learning model that is based on the boosted decision trees algorithm. 
 
-A boosted decision tree is an ensemble learning method in which the second tree corrects for the errors of the first tree, the third tree corrects for the errors of the first and second trees, and so forth.  Predictions are based on the entire ensemble of trees together that makes the prediction.
+A boosted decision tree is an ensemble learning method in which the second tree corrects for the errors of the first tree, the third tree corrects for the errors of the first and second trees, and so forth. Predictions are based on the entire ensemble of trees together that makes the prediction.
   
 Generally, when properly configured, boosted decision trees are the easiest methods with which to get top performance on a wide variety of machine learning tasks. However, they are also one of the more memory-intensive learners, and the current implementation holds everything in memory. Therefore, a boosted decision tree model might not be able to process the large datasets that some linear learners can handle.
+
+This module is based LightGBM algorithm.
 
 ## How to configure
 
@@ -56,9 +58,19 @@ You can train this type of model using [Train Model](././train-model.md).
      The random seed is set by default to 0, which means the initial seed value is obtained from the system clock.  Successive runs using a random seed can have different results.
   
 
-9. Train the model.
+9. Train the model:
+
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
   
-    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](./train-model.md) module.  
+    + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
+    > 
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > 
+    > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.  
    
 ## Results
 

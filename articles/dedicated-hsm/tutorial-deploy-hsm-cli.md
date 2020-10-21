@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tutorial deploy into an existing virtual network using the Azure CLI - Azure Dedicated HSM | Microsoft Docs
 description: Tutorial showing how to deploy a dedicated HSM using the CLI into an existing virtual network
 services: dedicated-hsm
@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: "mvc, seodec18"
+ms.custom: "mvc, seodec18, devx-track-azurecli"
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
@@ -34,7 +34,7 @@ This tutorial focuses on a pair of HSMs and required ExpressRoute Gateway (see S
 
 ## Prerequisites
 
-Azure Dedicated HSM is not currently available in the Azure portal. All interaction with the service will be via command-line or using PowerShell. This tutorial will use the command-line (CLI) interface in the Azure Cloud Shell. If you are new to the Azure CLI, follow getting started instructions here: [Azure CLI 2.0 Get Started](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+Azure Dedicated HSM is not currently available in the Azure portal. All interaction with the service will be via command-line or using PowerShell. This tutorial will use the command-line (CLI) interface in the Azure Cloud Shell. If you are new to the Azure CLI, follow getting started instructions here: [Azure CLI 2.0 Get Started](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
 Assumptions:
 
@@ -59,15 +59,7 @@ az feature show \
    --name AzureDedicatedHSM
 ```
 
-The following command verifies the networking features required for the Dedicated HSM service.
-
-```azurecli
-az feature show \
-   --namespace Microsoft.Network \
-   --name AllowBaremetalServers
-```
-
-Both commands should return a status of "Registered" (as shown below). If the commands don't return "Registered" you need to register for this service, contact your Microsoft account representative.
+The commands should return a status of "Registered" (as shown below). If the commands don't return "Registered" you need to register for this service by contacting your Microsoft account representative.
 
 ![subscription status](media/tutorial-deploy-hsm-cli/subscription-status.png)
 
@@ -140,7 +132,7 @@ az network vnet create \
 ```
 
 ```azurecli
-az network vnet create \
+az network vnet subnet create \
   --vnet-name myHSM-vnet \
   --resource-group myRG \
   --name hsmsubnet \

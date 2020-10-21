@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a spark cluster and query some data.
 ---
 
@@ -16,6 +16,8 @@ ms.custom: mvc
 In this quickstart, you use Azure PowerShell to create an Apache Spark cluster in Azure HDInsight. You then create a Jupyter notebook, and use it to run Spark SQL queries against Apache Hive tables. Azure HDInsight is a managed, full-spectrum, open-source analytics service for enterprises. The Apache Spark framework for Azure HDInsight enables fast data analytics and cluster computing using in-memory processing. Jupyter notebook lets you interact with your data, combine code with markdown text, and do simple visualizations.
 
 [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md) | [Apache Spark](https://spark.apache.org/) | [Apache Hive](https://hive.apache.org/) | [Jupyter Notebook](https://jupyter.org/)
+
+If you're using multiple clusters together, you'll want to create a virtual network, and if you're using a Spark cluster you'll also want to use the Hive Warehouse Connector. For more information, see [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md) and [Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector](../interactive-query/apache-hive-warehouse-connector.md).
 
 ## Prerequisite
 
@@ -136,11 +138,11 @@ If you run into an issue with creating HDInsight clusters, it could be that you 
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **HDInsight clusters**.
    
-   ![Open HDInsight cluster in the Azure portal](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-search-hdinsight-cluster.png)
+   ![Screenshot shows the Azure portal search for H D Insight.](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-search-hdinsight-cluster.png)
    
 1. From the list, select the cluster you created.
    
-   ![Open HDInsight cluster in the Azure portal](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-open-hdinsight-cluster.png)
+   ![Screenshot shows H D Insight clusters with the cluster that you created.](./media/apache-spark-jupyter-spark-sql-use-powershell/azure-portal-open-hdinsight-cluster.png)
    
 1. On the cluster **Overview** page, select **Cluster dashboards**, and then select **Jupyter Notebook**. If prompted, enter the cluster login credentials for the cluster.
 

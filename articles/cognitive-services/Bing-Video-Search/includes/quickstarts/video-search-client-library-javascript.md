@@ -8,17 +8,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: aahi
+ms.custom: devx-track-js
 ---
 
 Use this quickstart to begin searching for news with the Bing Video Search client library for JavaScript. While Bing Video Search has a REST API compatible with most programming languages, the client library provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js). It contains more annotations and features.
 
 ## Prerequisites
 
-- [Node.js](https://www.nodejs.org/)
-
-To set up a console application using the Bing Video Search client library:
-* Run `npm install ms-rest-azure` in your development environment.
-* Run `npm install azure-cognitiveservices-videosearch` in your development environment.
+* The latest version of [Node.js](https://nodejs.org/en/download/).
+* The [Bing Video Search SDK for JavaScript](https://www.npmjs.com/package/@azure/cognitiveservices-videosearch)
+     *  To install, run `npm install @azure/cognitiveservices-videosearch`
+* The `CognitiveServicesCredentials` class from `@azure/ms-rest-azure-js` package to authenticate the client.
+     * To install, run `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](~/includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
@@ -27,8 +28,8 @@ To set up a console application using the Bing Video Search client library:
 1. Create a new JavaScript file in your favorite IDE or editor, and add a `require()` statement for the Bing Video Search client library, and `CognitiveServicesCredentials` module. Create a variable for your subscription key. 
     
     ```javascript
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-    const VideoSearchAPIClient = require('azure-cognitiveservices-videosearch');
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
+    const VideoSearchAPIClient = require('@azure/cognitiveservices-videosearch');
     ```
 
 2. Create an instance of `CognitiveServicesCredentials` with your key. Then use it to create an instance of the video search client.

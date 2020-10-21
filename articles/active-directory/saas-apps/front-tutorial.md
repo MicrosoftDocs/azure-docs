@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Front | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Front.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 88270b6d-2571-434a-b139-b6ccc3a2b19f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Front
 
@@ -130,23 +124,23 @@ To configure Azure AD single sign-on with Front, perform the following steps:
 
 2. Go to **Settings (cog icon at the bottom of the left sidebar) > Preferences**.
    
-    ![Configure Single Sign-On On App side](./media/front-tutorial/tutorial_front_000.png)
+    ![Screenshot that shows the "Settings (cog icon)" selected with "Preferences" highlighted.](./media/front-tutorial/tutorial_front_000.png)
 
 3. Click **Single Sign On** link.
    
-    ![Configure Single Sign-On On App side](./media/front-tutorial/tutorial_front_001.png)
+    ![Screenshot that shows the "Company preferences" section with the "Single Sign On" link selected.](./media/front-tutorial/tutorial_front_001.png)
 
 4. Select **SAML** in the drop-down list of **Single Sign On**.
    
-    ![Configure Single Sign-On On App side](./media/front-tutorial/tutorial_front_002.png)
+    ![Screenshot that shows the "Single Sign On" drop-down list with "S A M L" selected.](./media/front-tutorial/tutorial_front_002.png)
 
 5. In the **Entry Point** textbox put the value of **Login URL** from Azure AD application configuration wizard.
     
-    ![Configure Single Sign-On On App side](./media/front-tutorial/tutorial_front_003.png)
+    ![Screenshot that shows the "Entry Point" text box.](./media/front-tutorial/tutorial_front_003.png)
 
 6. Open your downloaded **Certificate(Base64)** file in notepad, copy the content of it into your clipboard, and then paste it to the **Signing certificate** textbox.
     
-    ![Configure Single Sign-On On App side](./media/front-tutorial/tutorial_front_004.png)
+    ![Screenshot that shows "Signing certificate" highlighted, with the text box greyed out.](./media/front-tutorial/tutorial_front_004.png)
 
 7. On the **Service provider settings** section, perform the following steps:
 

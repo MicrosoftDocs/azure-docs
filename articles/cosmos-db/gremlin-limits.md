@@ -1,18 +1,18 @@
 ---
 title: Limits of Azure Cosmos DB Gremlin
 description: Reference documentation for runtime limitations of Graph engine
-author: LuisBosquez
+author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 10/04/2019
-ms.author: lbosq
+ms.author: sngun
 ---
 
 # Azure Cosmos DB Gremlin limits
 This article talks about the limits of Azure Cosmos DB Gremlin engine and explains how they may impact customer traversals.
 
-Cosmos DB Gremlin is built on top of Cosmos DB infrastructure. Due to this, all limits explained in [Azure Cosmos DB service limits](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) still apply. 
+Cosmos DB Gremlin is built on top of Cosmos DB infrastructure. Due to this, all limits explained in [Azure Cosmos DB service limits](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) still apply.
 
 ## Limits
 
@@ -29,5 +29,5 @@ When Gremlin limit is reached, traversal is canceled with a **x-ms-status-code**
 *Resource token per hour* | **100** | Number of unique resource tokens used by Gremlin clients to connect to Gremlin account in a region. When the application exceeds hourly unique token limit, `"Exceeded allowed resource token limit of 100 that can be used concurrently"` will be returned on the next authentication request.
 
 ## Next steps
-* [Azure Cosmos DB Gremlin response headers](gremlin-headers.md) 
+* [Azure Cosmos DB Gremlin response headers](gremlin-headers.md)
 * [Azure Cosmos DB Resource Tokens with Gremlin](how-to-use-resource-tokens-gremlin.md)

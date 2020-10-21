@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Kintone | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Kintone.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: c2b947dc-e1a8-4f5f-b40e-2c5180648e4f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Kintone
 
@@ -106,10 +100,10 @@ To configure Azure AD single sign-on with Kintone, perform the following steps:
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 	
-	| |
-	|--|
-	| `https://<companyname>.cybozu.com` |
-	| `https://<companyname>.kintone.com` |
+    ```http
+    https://<companyname>.cybozu.com
+    https://<companyname>.kintone.com
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Kintone Client support team](https://www.kintone.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -146,7 +140,7 @@ To configure Azure AD single sign-on with Kintone, perform the following steps:
 
 1. Click **Enable SAML authentication**.
 
-    ![SAML Authentication](./media/kintone-tutorial/ic785882.png "SAML Authentication")
+    ![Screenshot that shows "Users & System Administration" selected.](./media/kintone-tutorial/ic785882.png "SAML Authentication")
 
 1. In the SAML Authentication section, perform the following steps:
 
@@ -233,7 +227,7 @@ To enable Azure AD users to sign in to Kintone, they must be provisioned into Ki
 
 1. Click **New User**.
 
-    ![New Users](./media/kintone-tutorial/ic785889.png "New Users")
+    ![Screenshot that shows the "Users" section with the "New User" action selected.](./media/kintone-tutorial/ic785889.png "New Users")
 
 1. In the **New User** section, perform the following steps:
 

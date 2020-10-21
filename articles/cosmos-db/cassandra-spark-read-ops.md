@@ -2,13 +2,13 @@
 title: Read Cassandra API table data using Spark
 titleSufix: Azure Cosmos DB
 description: This article describes how to read data from Cassandra API tables in Azure Cosmos DB.
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: how-to
+ms.date: 06/02/2020
 ms.custom: seodec18
 ---
 
@@ -78,25 +78,22 @@ readBooksDF.show
 
 ### Apply filters
 
-Currently predicate pushdown is not supported, the samples below reflect client-side filtering. 
+You can push down predicates to the database to allow for better optimized Spark queries. A predicate is a condition on a query that returns true or false, typically located in the WHERE clause. A predicate push down filters the data in the database query, reducing the number of entries retrieved from the database and improving query performance. By default the Spark Dataset API will automatically push down valid WHERE clauses to the database. 
 
 ```scala
-val readBooksDF = spark
-  .read
-  .format("org.apache.spark.sql.cassandra")
-  .options(Map( "table" -> "books", "keyspace" -> "books_ks"))
-  .load
-  .select("book_name","book_author", "book_pub_year")
-  .filter("book_pub_year > 1891")
-//.filter("book_name IN ('A sign of four','A study in scarlet')")
-//.filter("book_name='A sign of four' OR book_name='A study in scarlet'")
-//.filter("book_author='Arthur Conan Doyle' AND book_pub_year=1890")
-//.filter("book_pub_year=1903")  
+val df = spark.read.cassandraFormat("books", "books_ks").load
+df.explain
+val dfWithPushdown = df.filter(df("book_pub_year") > 1891)
+dfWithPushdown.explain
 
 readBooksDF.printSchema
 readBooksDF.explain
 readBooksDF.show
 ```
+
+The PushedFilters section of the physical plan includes the GreaterThan push down filter. 
+
+:::image type="content" source="./media/cassandra-spark-read-ops/pushdown-predicates.png" alt-text="partitions":::
 
 ## RDD API
 

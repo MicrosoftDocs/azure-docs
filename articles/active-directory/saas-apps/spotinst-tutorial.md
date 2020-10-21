@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Spotinst | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Spotinst.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 2f6dbd70-c2db-4ae9-99ee-976c3090d214
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Spotinst
@@ -76,19 +70,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
+1. In the **Basic SAML Configuration** section, if you want to configure the application in IDP initiated mode, complete these steps:
 
-	a. Check **Set additional URLs**.
-
-	b. In the **Relay State** textbox, type a value: `<ID>`
-
-1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
-
-	In the **Sign-on URL** text box, type the URL:
-    `https://console.spotinst.com/auth/saml`
-
-	> [!NOTE]
-	> The Relay State value is not real. You will update the Relay State value with the actual Relay State value, which is explained later in the tutorial.
+   1. Make sure **Reply URL** is set to: https://console.spotinst.com/auth/saml.
+   1. In **Relay State**, enter your Spotinst Organization ID, which you can also confirm on the **SSO** tab.
+   1. **Sign-on URL** must be empty.
 
 1. Click **Save**.
 
@@ -148,7 +134,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click on the **user icon** on the top right side of the screen and click **Settings**.
 
-	![Spotinst settings](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
+	![Screenshot shows Settings selected from the User icon.](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
 3. Click on the **SECURITY** tab on the top and then select **Identity Providers** and perform the following steps:
 
@@ -170,15 +156,15 @@ The objective of this section is to create a user called Britta Simon in Spotins
 
    b. Click on the **user icon** on the top right side of the screen and click **Settings**.
 
-	![Spotinst settings](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
+	![Screenshot shows Settings selected from the User icon.](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
 	c. Click **Users** and select **ADD USER**.
 
-	![Spotinst settings](./media/spotinst-tutorial/adduser1.png)
+	![Screenshot shows ADD USER selected from Users.](./media/spotinst-tutorial/adduser1.png)
 
 	d. On the add user section, perform the following steps:
 
-	![Spotinst settings](./media/spotinst-tutorial/adduser2.png)
+	![Screenshot shows the Add user section where you can enter the values described.](./media/spotinst-tutorial/adduser2.png)
 
 	* In the **Full Name** textbox, enter the full name of user like **BrittaSimon**.
 

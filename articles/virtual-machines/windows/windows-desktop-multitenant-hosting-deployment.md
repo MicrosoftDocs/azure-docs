@@ -1,17 +1,9 @@
 ---
 title: How to deploy Windows 10 on Azure with Multitenant Hosting Rights 
-description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure
-services: virtual-machines-windows
-documentationcenter: ''
+description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure with Multitenant Hosting Rights.
 author: xujing
-manager: gwallace
-editor: ''
-
-ms.assetid: 
 ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
@@ -58,7 +50,7 @@ For more information:
 
 
 ## Deploying Windows 10 with Multitenant Hosting Rights
-Make sure you have [installed and configured the latest Azure PowerShell](/powershell/azure/overview). Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzVhd` cmdlet as follows:
+Make sure you have [installed and configured the latest Azure PowerShell](/powershell/azure/). Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzVhd` cmdlet as follows:
 
 ```powershell
 Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -67,7 +59,7 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
 
 
 **Deploy using Azure Resource Manager Template Deployment**
-Within your Resource Manager templates, an additional parameter for `licenseType` can be specified. You can read more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md). Once you have your VHD uploaded to Azure, edit you Resource Manager template to include the license type as part of the compute provider and deploy your template as normal:
+Within your Resource Manager templates, an additional parameter for `licenseType` can be specified. You can read more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md). Once you have your VHD uploaded to Azure, edit you Resource Manager template to include the license type as part of the compute provider and deploy your template as normal:
 ```json
 "properties": {
     "licenseType": "Windows_Client",
@@ -111,7 +103,5 @@ LicenseType              :
 >
 
 ## Next Steps
-- Learn more about [Configuring VDA for Windows 10](https://docs.microsoft.com/windows/deployment/vda-subscription-activation)
+- Learn more about [Configuring VDA for Windows 10](/windows/deployment/vda-subscription-activation)
 - Learn more about [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)
-
-

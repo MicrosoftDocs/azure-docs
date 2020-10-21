@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -74,7 +74,7 @@ Configure Cross-Origin Resource Sharing: https://docs.microsoft.com/azure/cosmos
 
 Enable DDoS Protection Standard on the Virtual Networks associated with your Azure Cosmos DB instances to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
 
-How to configureAzure Cosmos DB Advanced Threat Protection: https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
+How to configure Azure Cosmos DB Advanced Threat Protection: https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
 How to configure DDoS protection: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
@@ -117,7 +117,7 @@ How to configure Cosmos DB Advanced Threat Protection: https://docs.microsoft.co
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
-**Guidance**: For resources that need access to your Azure Cosmos account, use Virtual Network service tags to define network access controls on network securitygGroups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., AzureCosmosDB) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+**Guidance**: For resources that need access to your Azure Cosmos account, use Virtual Network service tags to define network access controls on network security groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., AzureCosmosDB) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
 For more information about using service tags: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
@@ -282,11 +282,11 @@ Create, view, and manage log alerts using Azure Monitor: https://docs.microsoft.
 
 **Guidance**: You can use the Identity and Access control (IAM) pane in the Azure portal to configure role-based access control (RBAC) and maintain inventory on Azure Cosmos DB resources. The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.
 
-Azure Cosmos DB provides built-in RBAC for common management scenarios in Azure Cosmos DB. An individual who has a profile in Azure Active Directory (AD) can assign these RBAC roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources.
+Azure Cosmos DB provides built-in RBAC for common management scenarios in Azure Cosmos DB. An individual who has a profile in Azure Active Directory (AD) can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources.
 
 You can also use the Azure AD PowerShell module to perform adhoc queries to discover accounts that are members of administrative groups. 
 
-Additionally, some actions in Azure Cosmos DB can be controlled with Azure Active Directory and account-specific master keys.  Use the 'disableKeyBasedMetadataWriteAccess' account setting to control key access.
+Additionally, some actions in Azure Cosmos DB can be controlled with Azure Active Directory and account-specific primary keys.  Use the 'disableKeyBasedMetadataWriteAccess' account setting to control key access.
 
 Understand role-based access control in Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
@@ -294,9 +294,9 @@ Build your own custom roles using Azure Cosmos DB Actions (Microsoft.DocumentDB 
 
 Create a new role in Azure Active Directory: https://docs.microsoft.com/azure/role-based-access-control/custom-roles
 
-How to get a directory role in Azure Active Directory with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+How to get a directory role in Azure Active Directory with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true
 
-How to get members of a directory role in Azure Active Directory with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+How to get members of a directory role in Azure Active Directory with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true
 
 Restrict user access to data operations only: https://docs.microsoft.com/azure/cosmos-db/how-to-restrict-user-data
 
@@ -306,7 +306,7 @@ Restrict user access to data operations only: https://docs.microsoft.com/azure/c
 
 ### 3.2: Change default passwords where applicable
 
-**Guidance**: The concept of default or blank passwords does not exist in relation to Azure AD or Azure Cosmos DB. Instead, Azure Cosmos DB uses two types of keys to authenticate users and provide access to its data and resources; master keys and resource tokens. The keys can be regenerated at any time.
+**Guidance**: The concept of default or blank passwords does not exist in relation to Azure AD or Azure Cosmos DB. Instead, Azure Cosmos DB uses two types of keys to authenticate users and provide access to its data and resources; primary keys and resource tokens. The keys can be regenerated at any time.
 
 Understanding secure access to data in Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data
 
@@ -320,7 +320,7 @@ How to programmatically access keys using Azure Active Directory: https://docs.m
 
 ### 3.3: Use dedicated administrative accounts
 
-**Guidance**: Not applicable; Azure Cosmos DB does not support administrator accounts.  All access is integrated with Azure Active Directory and Azure role-based access control (RBAC).
+**Guidance**: Not applicable; Azure Cosmos DB does not support administrator accounts.  All access is integrated with Azure Active Directory and Azure role-based access control (Azure RBAC).
 
 
 
@@ -524,7 +524,7 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Azure Cosmos DB provides built-in role-based access control (RBAC) for common management scenarios in Azure Cosmos DB. An individual who has a profile in Azure Active Directory can assign these RBAC roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources. Role assignments are scoped to control-plane access only, which includes access to Azure Cosmos accounts, databases, containers, and offers (throughput).
+**Guidance**: Azure Cosmos DB provides built-in role-based access control (RBAC) for common management scenarios in Azure Cosmos DB. An individual who has a profile in Azure Active Directory can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources. Role assignments are scoped to control-plane access only, which includes access to Azure Cosmos accounts, databases, containers, and offers (throughput).
 
 How to implement RBAC in Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
@@ -634,9 +634,9 @@ Supported features available in Azure Security Center: https://docs.microsoft.co
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
-How to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true
 
 Understanding Azure role-based access control: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -680,7 +680,7 @@ How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 ### 6.5: Monitor for unapproved Azure resources
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
 - Not allowed resource types
 
@@ -788,7 +788,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 - Cosmos DB should use a virtual network service endpoint
 
-How to view available Azure Policy Aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+How to view available Azure Policy aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -807,7 +807,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -828,10 +828,10 @@ Understand Azure Policy Effects: https://docs.microsoft.com/azure/governance/pol
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: If using custom Azure policy definitions for your Cosmos DB or related resources, use Azure Repos to securely store and manage your code.
+**Guidance**: If using custom Azure Policy definitions for your Cosmos DB or related resources, use Azure Repos to securely store and manage your code.
 
-Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true
+https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -865,7 +865,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 ### 7.9: Implement automated configuration monitoring for Azure services
 
-**Guidance**: Use Azure Policy aliases in the "Microsoft.DocumentDB" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure Cosmos DB instances and related resources. 
+**Guidance**: Use Azure Policy aliases in the "Microsoft.DocumentDB" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure Cosmos DB instances and related resources. 
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -887,9 +887,11 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 How to integrate with Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-How to create a Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+How to create a Key Vault: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-How to provide Key Vault authentication with a managed identity: https://docs.microsoft.com/azure/key-vault/managed-identity
+How to authenticate to Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+How to assign a Key Vault access policy: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Azure Security Center monitoring**: Yes
 
@@ -998,7 +1000,7 @@ https://docs.microsoft.com/azure/cosmos-db/how-to-backup-and-restore
 
 How to restore Azure Key Vault Secrets:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true
 
 **Azure Security Center monitoring**: Not applicable
 

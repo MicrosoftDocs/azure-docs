@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with RFPIO | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and RFPIO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 87187076-7b50-4247-814f-f217b052703f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with RFPIO
 
@@ -100,7 +93,7 @@ To configure Azure AD single sign-on with RFPIO, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
 
-    ![RFPIO Domain and URLs single sign-on information](common/idp-identifier.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter an Identifier.](common/idp-identifier.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://www.rfpio.com`
@@ -109,7 +102,7 @@ To configure Azure AD single sign-on with RFPIO, perform the following steps:
 
     c. In the **Relay State** textbox enter a string value. Contact [RFPIO support team](https://www.rfpio.com/contact/) to get this value.
 
-    ![RFPIO Domain and URLs single sign-on information](common/idp-preintegrated-relay.png)
+    ![Screenshot shows Set additional U R Ls.](common/idp-preintegrated-relay.png)
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -141,23 +134,23 @@ To configure Azure AD single sign-on with RFPIO, perform the following steps:
 
 1. Click on the bottom left corner dropdown.
 
-	![Configure Single Sign-On](./media/rfpio-tutorial/app1.png)
+	![Screenshot shows the down arrow at the bottom of the pane.](./media/rfpio-tutorial/app1.png)
 
 1. Click on the **Organization Settings**. 
 
-	![Configure Single Sign-On](./media/rfpio-tutorial/app2.png)
+	![Screenshot shows Organization Settings selected.](./media/rfpio-tutorial/app2.png)
 
 1. Click on the **FEATURES & INTEGRATION**.
 
-	![Configure Single Sign-On](./media/rfpio-tutorial/app4.png)
+	![Screenshot shows Features and Integration selected from Settings.](./media/rfpio-tutorial/app4.png)
 
 1. In the **SAML SSO Configuration** Click **Edit**.
 
-	![Configure Single Sign-On](./media/rfpio-tutorial/app3.png)
+	![Screenshot shows SAML S S O Configuration with the Edit button called out.](./media/rfpio-tutorial/app3.png)
 
 1. In this Section perform following actions:
 
-	![Configure Single Sign-On](./media/rfpio-tutorial/app5.png)
+	![CScreenshot shows SAML S S O Configuration with SAML enabled.](./media/rfpio-tutorial/app5.png)
 	
 	a. Copy the content of the **Downloaded Metadata XML** and paste it into the **identity configuration** field.
 
@@ -226,23 +219,23 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. Click on the bottom left corner dropdown.
 
-	![Configure Single Sign-On](./media/rfpio-tutorial/app1.png)
+	![Screenshot shows the down arrow at the bottom of the pane.](./media/rfpio-tutorial/app1.png)
 
 1. Click on the **Organization Settings**. 
 
-	![Configure Single Sign-On](./media/rfpio-tutorial/app2.png)
+	![Screenshot shows Organization Settings selected.](./media/rfpio-tutorial/app2.png)
 
 1. Click **TEAM MEMBERS**.
 
-	![Configure Single Sign-On](./media/rfpio-tutorial/app6.png)
+	![Screenshot shows Team Members selected from Settings.](./media/rfpio-tutorial/app6.png)
 
 1. Click on **ADD MEMBERS**.
 
-	![Configure Single Sign-On](./media/rfpio-tutorial/app7.png)
+	![Screenshot shows the Add Members button.](./media/rfpio-tutorial/app7.png)
 
 1. In the **Add New Members** section. Perform following actions:
 
-	![Configure Single Sign-On](./media/rfpio-tutorial/app8.png)
+	![Screenshot shows Add New Members where you can enter the values described.](./media/rfpio-tutorial/app8.png)
 
 	a. Enter **Email address** in the **Enter one email per line** field.
 

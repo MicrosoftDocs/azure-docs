@@ -8,6 +8,7 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
+ms.custom:  [amqp, mqtt]
 ---
 
 # Provisioning devices with Azure IoT Hub Device Provisioning Service
@@ -18,7 +19,7 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 
 * Zero-touch provisioning to a single IoT solution without hardcoding IoT Hub connection information at the factory (initial setup)
 * Load-balancing devices across multiple hubs
-* Connecting devices to their owner’s IoT solution based on sales transaction data (multitenancy)
+* Connecting devices to their owner's IoT solution based on sales transaction data (multitenancy)
 * Connecting devices to a particular IoT solution depending on use-case (solution isolation)
 * Connecting a device to the IoT hub with the lowest latency (geo-sharding)
 * Reprovisioning based on a change in the device
@@ -80,7 +81,7 @@ DPS has many features, making it ideal for provisioning devices.
 * **Encryption for data at rest** allows data in DPS to be encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant.
 
 
-You can learn more about the concepts and features involved in device provisioning in [device concepts](concepts-device.md), [service concepts](concepts-service.md), and [security concepts](concepts-security.md).
+You can learn more about the concepts and features involved in device provisioning by reviewing the [DPS terminology](concepts-service.md) topic along with the other conceptual topics in the same section.
 
 ## Cross-platform support
 Just like all Azure IoT services, DPS works cross-platform with a variety of operating systems. Azure offers open-source SDKs in a variety of [languages](https://github.com/Azure/azure-iot-sdks) to facilitate connecting devices and managing the service. DPS supports the following protocols for connecting devices:
@@ -115,7 +116,9 @@ DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub]
 
 ## Next steps
 You now have an overview of provisioning IoT devices in Azure. The next step is to try out an end-to-end IoT scenario.
-> [!div class="nextstepaction"]
-> [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md)
-> [Create and provision a simulated device](quick-create-simulated-device.md)
-> [Set up device for provisioning](tutorial-set-up-device.md)
+
+[Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md)
+
+[Create and provision a simulated device](quick-create-simulated-device.md)
+
+[Set up device for provisioning](tutorial-set-up-device.md)

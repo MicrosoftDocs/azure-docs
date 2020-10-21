@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with LaunchDarkly | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and LaunchDarkly.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 3f0671bc-f93f-496e-b465-b9ce8c6633fa
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with LaunchDarkly
 
@@ -101,7 +94,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![LaunchDarkly Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL:
     `app.launchdarkly.com`
@@ -117,7 +110,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://app.launchdarkly.com`
 
-    ![LaunchDarkly Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -139,19 +132,19 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 2. Select **Account Settings** from the left navigation panel.
 
-	![LaunchDarkly Configuration](./media/launchdarkly-tutorial/configure1.png)
+	![Screenshot shows the Account Settings item selected under Production.](./media/launchdarkly-tutorial/configure1.png)
 
 3. Click **Security** tab.
 
-	![LaunchDarkly Configuration](./media/launchdarkly-tutorial/configure2.png)
+	![Screenshot shows the Security tab of Account settings.](./media/launchdarkly-tutorial/configure2.png)
 
 4. Click **ENABLE SSO** and then **EDIT SAML CONFIGURATION**.
 
-	![LaunchDarkly Configuration](./media/launchdarkly-tutorial/configure3.png)
+	![Screenshot shows the Single sign-on page where you can ENABLE S S O and EDIT SAML CONFIGURATION.](./media/launchdarkly-tutorial/configure3.png)
 
 5. On the **Edit your SAML configuration** section, perform the following steps:
 
-	![LaunchDarkly Configuration](./media/launchdarkly-tutorial/configure4.png)
+	![Screenshot shows the Edit your SAML configuration section where you can make the changes described here.](./media/launchdarkly-tutorial/configure4.png)
 
 	a. Copy the **SAML consumer service URL** for your instance and paste it in Reply URL textbox in **LaunchDarkly Domain and URLs** section on Azure portal.
 

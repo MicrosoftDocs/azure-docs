@@ -10,11 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/18/2018
+ms.date: 06/17/2020
 ms.author: yexu
 
 ---
 # Copy Data tool in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The Azure Data Factory Copy Data tool eases and optimizes the process of ingesting data into a data lake, which is usually a first step in an end-to-end data integration scenario.  It saves time, especially when you use Azure Data Factory to ingest data from a data source for the first time. Some of the benefits of using this tool are:
 
 - When using the Azure Data Factory Copy Data tool, you do not need understand Data Factory definitions for linked services, datasets, pipelines, activities, and triggers. 
@@ -31,7 +33,7 @@ The following table provides guidance on when to use the Copy Data tool vs. per-
 
 To start the Copy Data tool, click the **Copy Data** tile on the home page of your data factory.
 
-![Get started page - link to Copy Data tool](./media/copy-data-tool/get-started-page.png)
+![Get started page - link to Copy Data tool](./media/doc-common-process/get-started-page.png)
 
 
 ## Intuitive flow for loading data into a data lake
@@ -63,7 +65,7 @@ The schema of data source may not be same as the schema of data destination in m
 The Copy Data tool monitors and learns your behavior when you are mapping columns between source and destination stores. After you pick one or a few columns from source data store, and map them to the destination schema, the Copy Data tool starts to analyze the pattern for column pairs you picked from both sides. Then, it applies the same pattern to the rest of the columns. Therefore, you see all the columns have been mapped to the destination in a way you want just after several clicks.  If you are not satisfied with the choice of column mapping provided by Copy Data tool, you can ignore it and continue with manually mapping the columns. Meanwhile, the Copy Data tool constantly learns and updates the pattern, and ultimately reaches the right pattern for the column mapping you want to achieve. 
 
 > [!NOTE]
-> When copying data from SQL Server or Azure SQL Database into Azure SQL Data Warehouse, if the table does not exist in the destination store, Copy Data tool supports creation of the table automatically by using the source schema. 
+> When copying data from SQL Server or Azure SQL Database into Azure Synapse Analytics (formerly SQL Data Warehouse), if the table does not exist in the destination store, Copy Data tool supports creation of the table automatically by using the source schema. 
 
 ## Filter data
 You can filter source data to select only the data that needs to be copied to the sink data store. Filtering reduces the volume of the data to be copied to the sink data store and therefore enhances the throughput of the copy operation. Copy Data tool provides a flexible way to filter data in a relational database by using the SQL query language, or files in an Azure blob folder. 

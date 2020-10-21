@@ -1,17 +1,18 @@
 ---
 title: View reservations for Azure resources| Microsoft Docs
-description: Learn how to view Azure reservations in the Azure portal.
+description: Learn how to view Azure reservations in the Azure portal. See reservations and utilization by using APIs, PowerShell, CLI, and Power BI.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 03/31/2020
+ms.subservice: reservations
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
 ---
 
 # View Azure reservations
 
-You can view and manage the purchased reservation from Azure portal.   
+You can view and manage the purchased reservation from the Azure portal.
 
 ## Permissions to view a reservation
 
@@ -19,7 +20,7 @@ To view or manage a reservation, you need to have reader or owner permission on 
 
 For more information, see [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
-## View reservation and utilization in Azure portal
+## View reservation and utilization in the Azure portal
 
 To view a reservation as an Owner or Reader
 
@@ -49,7 +50,7 @@ There are two options for Power BI users
 - [Manage Azure Reservations](manage-reserved-vm-instance.md).
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
-- [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Understand reservation usage for CSP subscriptions](/partner-center/azure-reservations)
 
 ## Need help? Contact us
 

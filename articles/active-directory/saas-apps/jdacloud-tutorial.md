@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with JDA Cloud | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and JDA Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 06af825f-79ec-4de9-8851-c79d65d1e586
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with JDA Cloud
 
@@ -99,7 +93,7 @@ To configure Azure AD single sign-on with JDA Cloud, perform the following steps
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![JDA Cloud Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.jdadelivers.com`
@@ -109,7 +103,7 @@ To configure Azure AD single sign-on with JDA Cloud, perform the following steps
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![JDA Cloud Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://ssonp-dl2.jdadelivers.com/sp/startSSO.ping?PartnerIdpId=<Azure AD Identifier>`

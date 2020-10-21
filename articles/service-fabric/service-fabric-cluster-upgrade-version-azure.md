@@ -14,7 +14,7 @@ You can set your cluster to receive automatic fabric upgrades as they are releas
 You do this by setting the "upgradeMode" cluster configuration on the portal or using Resource Manager at the time of creation or later on a live cluster 
 
 > [!NOTE]
-> Make sure to keep your cluster running a supported fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/). The new release is available to choose then. 
+> Make sure to keep your cluster running a supported fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). The new release is available to choose then. 
 > 
 > 
 
@@ -23,7 +23,7 @@ You do this by setting the "upgradeMode" cluster configuration on the portal or 
 ## Set the upgrade mode in the Azure portal
 You can set the cluster to automatic or manual when you are creating the cluster.
 
-![Create_Manualmode][Create_Manualmode]
+![Screenshot shows the Create Service Fabric cluster pane with option 2 Cluster configuration selected and the Cluster configuration pane open.][Create_Manualmode]
 
 You can set the cluster to automatic or manual when on a live cluster, using the manage experience. 
 
@@ -34,12 +34,12 @@ If the cluster health policies are not met, the upgrade is rolled back. Scroll d
 
 Once you have fixed the issues that resulted in the rollback, you need to initiate the upgrade again, by following the same steps as before.
 
-![Manage_Automaticmode][Manage_Automaticmode]
+![Screenshot shows the Service Fabric clusters window with the Fabric upgrades pane open and the upgrade options highlighted, including Automatic and Manual.][Manage_Automaticmode]
 
 ## Set the upgrade mode using a Resource Manager template
 Add the "upgradeMode" configuration to the Microsoft.ServiceFabric/clusters resource definition and set the "clusterCodeVersion" to one of the supported fabric versions as shown below and then deploy the template. The valid values for "upgradeMode" are "Manual" or "Automatic"
 
-![ARMUpgradeMode][ARMUpgradeMode]
+![Screenshot shows a template, which is plaintext indented to reflect structure and the clusterCodeVersion and upgradeMode are highlighted.][ARMUpgradeMode]
 
 ### Upgrading to a new version on a cluster that is set to Manual mode via a Resource Manager template.
 When the cluster is in Manual mode, to upgrade to a new version, change the "clusterCodeVersion" to a supported version and deploy it. 
@@ -106,7 +106,7 @@ Output:
 
 ## Next steps
 * Learn how to customize some of the [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md)
-* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md)
+* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-in-out.md)
 * Learn about [application upgrades](service-fabric-application-upgrade.md)
 
 <!--Image references-->

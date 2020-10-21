@@ -70,7 +70,7 @@ Principles and patterns for the network perimeter have been available for decade
 The following are best practices for managing the identity perimeter.
 
 **Best practice**: Secure your keys and credentials to secure your PaaS deployment.   
-**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules (HSMs). [Azure Key Vault](../../key-vault/key-vault-overview.md) safeguards your keys and secrets by encrypting authentication keys, storage account keys, data encryption keys, .pfx files, and passwords using keys that are protected by HSMs.
+**Detail**: Losing keys and credentials is a common problem. You can use a centralized solution where keys and secrets can be stored in hardware security modules (HSMs). [Azure Key Vault](../../key-vault/general/overview.md) safeguards your keys and secrets by encrypting authentication keys, storage account keys, data encryption keys, .pfx files, and passwords using keys that are protected by HSMs.
 
 **Best practice**: Don’t put credentials and other secrets in source code or GitHub.   
 **Detail**: The only thing worse than losing your keys and credentials is having an unauthorized party gain access to them. Attackers can take advantage of bot technologies to find keys and secrets stored in code repositories such as GitHub. Do not put key and secrets in these public code repositories.
@@ -147,10 +147,10 @@ Fuzz testing is a method for finding program failures (code errors) by supplying
 
 
 ## Next steps
-In this article, we focused on security advantages of an Azure PaaS deployment and security best practices for cloud applications. Next, learn recommended practices for securing your PaaS web and mobile solutions using specific Azure services. We’ll start with Azure App Service, Azure SQL Database and Azure SQL Data Warehouse, and Azure Storage. As articles on recommended practices for other Azure services become available, links will be provided in the following list:
+In this article, we focused on security advantages of an Azure PaaS deployment and security best practices for cloud applications. Next, learn recommended practices for securing your PaaS web and mobile solutions using specific Azure services. We’ll start with Azure App Service, Azure SQL Database and Azure Synapse Analytics, and Azure Storage. As articles on recommended practices for other Azure services become available, links will be provided in the following list:
 
 - [Azure App Service](paas-applications-using-app-services.md)
-- [Azure SQL Database and Azure SQL Data Warehouse](paas-applications-using-sql.md)
+- [Azure SQL Database and Azure Synapse Analytics](paas-applications-using-sql.md)
 - [Azure Storage](paas-applications-using-storage.md)
 - Azure Cache for Redis
 - Azure Service Bus

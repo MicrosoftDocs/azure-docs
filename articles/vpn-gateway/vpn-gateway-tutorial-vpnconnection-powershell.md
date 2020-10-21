@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 03/11/2020
+ms.date: 10/13/2020
 ms.author: yushwang
 ms.custom: mvc
 #Customer intent: I want to create an S2S VPN connection so that I can connect my VNet and on-premises network.
@@ -30,7 +30,7 @@ The following diagram shows the topology for this tutorial:
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
-## Requirements
+## Prerequisites
 
 Complete the first tutorial: [Create VPN gateway with Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) to create the following resources:
 
@@ -239,8 +239,7 @@ In this tutorial, you learned about creating and managing S2S VPN connections su
 > * Add more VPN connections
 > * Delete a VPN connection
 
-Advance to the following tutorials to learn about S2S, VNet-to-VNet, and P2S connections.
+Next, you can add a P2S connection:
 
 > [!div class="nextstepaction"]
-> * [Create VNet-to-VNet connections](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Create P2S connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

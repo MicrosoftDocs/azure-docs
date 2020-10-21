@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Server-side performance queries
@@ -13,7 +14,7 @@ Good rendering performance on the server is critical for stable frame rates and 
 
 Most impactful for the rendering performance is the model input data. You can tweak the input data as described in [Configuring the model conversion](../../how-tos/conversion/configure-model-conversion.md).
 
-Client-side application performance might be a bottleneck, too. For an in-depth analysis of client-side performance, it's recommended to take a [performance trace](../../how-tos/performance-tracing.md).
+Client-side application performance might be a bottleneck, too. For an in-depth analysis of client-side performance, it's recommended to take a [:::no-loc text="performance trace":::](../../how-tos/performance-tracing.md).
 
 ## Client/server timeline
 
@@ -32,7 +33,7 @@ The illustration shows how:
 
 Frame statistics provide some high-level information for the last frame, such as latency. The data provided in the `FrameStatistics` structure is measured on the client side, so the API is a synchronous call:
 
-````c#
+```cs
 void QueryFrameData(AzureSession session)
 {
     FrameStatistics frameStatistics;
@@ -41,7 +42,18 @@ void QueryFrameData(AzureSession session)
         // do something with the result
     }
 }
-````
+```
+
+```cpp
+void QueryFrameData(ApiHandle<AzureSession> session)
+{
+    FrameStatistics frameStatistics;
+    if (*session->GetGraphicsBinding()->GetLastFrameStatistics(&frameStatistics) == Result::Success)
+    {
+        // do something with the result
+    }
+}
+```
 
 The retrieved `FrameStatistics` object holds the following members:
 
@@ -70,7 +82,7 @@ None of the values above gives clear indication of pure network latency (the red
 
 *Performance assessment queries* provide more in-depth information about the CPU and GPU workload on the server. Since the data is requested from the server, querying a performance snapshot follows the usual async pattern:
 
-``` cs
+```cs
 PerformanceAssessmentAsync _assessmentQuery = null;
 
 void QueryPerformanceAssessment(AzureSession session)
@@ -84,6 +96,21 @@ void QueryPerformanceAssessment(AzureSession session)
 
         _assessmentQuery = null;
     };
+}
+```
+
+```cpp
+void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
+{
+    ApiHandle<PerformanceAssessmentAsync> assessmentQuery = *session->Actions()->QueryServerPerformanceAssessmentAsync();
+    assessmentQuery->Completed([] (ApiHandle<PerformanceAssessmentAsync> res)
+    {
+        // do something with the result:
+        PerformanceAssessment result = res->GetResult();
+
+        // ...
+
+    });
 }
 ```
 
@@ -105,9 +132,9 @@ This assessment metric provides a rough indication of the server's health, but i
 
 ## Statistics debug output
 
-The class `ARRServiceStats` wraps around both the frame statistics and performance assessment queries and provides convenient functionality to return statistics as aggregated values or as a pre-built string. The following code is the easiest way to show server-side statistics in your client application.
+The class `ARRServiceStats` is a C# class that wraps around both the frame statistics and performance assessment queries and provides convenient functionality to return statistics as aggregated values or as a pre-built string. The following code is the easiest way to show server-side statistics in your client application.
 
-``` cs
+```cs
 ARRServiceStats _stats = null;
 
 void OnConnect()
@@ -140,6 +167,11 @@ The code above populates the text label with the following text:
 The `GetStatsString` API formats a string of all the values, but each single value can also be queried programmatically from the `ARRServiceStats` instance.
 
 There are also variants of the members, which aggregate the values over time. See members with suffix `*Avg`, `*Max`, or `*Total`. The member `FramesUsedForAverage` indicates how many frames have been used for this aggregation.
+
+## API documentation
+
+* [C# RemoteManager.QueryServerPerformanceAssessmentAsync()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.queryserverperformanceassessmentasync)
+* [C++ RemoteManager::QueryServerPerformanceAssessmentAsync()](/cpp/api/remote-rendering/remotemanager#queryserverperformanceassessmentasync)
 
 ## Next steps
 

@@ -1,13 +1,13 @@
 ---
 title: Work with JavaScript integrated query API in Azure Cosmos DB Stored Procedures and Triggers
 description: This article introduces the concepts for JavaScript language-integrated query API to create stored procedures and triggers in Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.author: mjbrown
+ms.date: 05/07/2020
+ms.author: tisande
 ms.reviewer: sngun
-
+ms.custom: devx-track-js
 ---
 
 # JavaScript query API in Azure Cosmos DB

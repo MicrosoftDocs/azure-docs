@@ -7,7 +7,7 @@ ms.author: mhopkins
 ms.date: 01/23/2017
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: dineshm
 ---
 
@@ -58,7 +58,7 @@ The response for a segmented listing operation includes:
 * *_segment*, which contains the set of results returned for a single call to the listing API.
 * *continuation_token*, which is passed to the next call in order to get the next page of results. When there are no more results to return, the continuation token is null.
 
-For example, a typical call to list all blobs in a container may look like the following code snippet. The code is available in our [samples](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
+For example, a typical call to list all blobs in a container may look like the following code snippet. The code is available in our [samples](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp):
 
 ```cpp
 // List blobs in the blob container
@@ -196,5 +196,5 @@ For more information about Azure Storage and Client Library for C++, see the fol
 * [How to use Table Storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [How to use Queue Storage from C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Azure Storage Client Library for C++ API documentation.](https://azure.github.io/azure-storage-cpp/)
-* [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure Storage Team Blog](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)

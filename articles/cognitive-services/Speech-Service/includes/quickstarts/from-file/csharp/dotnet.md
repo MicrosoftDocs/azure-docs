@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -11,7 +11,7 @@ ms.author: dapine
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../get-started.md)
+> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
@@ -203,4 +203,4 @@ Now you're ready to build your app and test our speech recognition using the Spe
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

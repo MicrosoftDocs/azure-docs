@@ -13,12 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 08/31/2020
 ms.author: willzhan
 ms.reviewer: juliako
 
 ---
-# Hybrid design of DRM subsystems 
+# Hybrid design of DRM subsystems
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 This topic discusses hybrid design of DRM subsystem(s) using Azure Media Services.
 
@@ -99,29 +101,29 @@ Based on the explanations in the previous section, the following five hybrid sce
 |AMS|Third-party|Outside|No|No|Sample 4|
 |Third-party|Third-party|AMS|Yes|No|	
 
-In the samples, PlayReady protection works for both DASH and smooth streaming. The video URLs below are smooth streaming URLs. To get the corresponding DASH URLs, just append "(format=mpd-time-csf)". You could use the [azure media test player](https://aka.ms/amtest) to test in a browser. It allows you to configure which streaming protocol to use, under which tech. IE11 and Microsoft Edge on Windows 10 support PlayReady through EME. For more information, see [details about the test tool](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
+In the samples, PlayReady protection works for both DASH and smooth streaming. The video URLs below are smooth streaming URLs. To get the corresponding DASH URLs, just append "(format=mpd-time-csf)". You could use the [azure media test player](https://aka.ms/amtest) to test in a browser. It allows you to configure which streaming protocol to use, under which tech. IE11 and Microsoft Edge on Windows 10 support PlayReady through EME. For more information, see [details about the test tool](./offline-playready-streaming-windows-10.md).
 
 ### Sample 1
 
-* Source (base) URL: https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest 
-* PlayReady LA_URL (DASH & smooth): https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
-* Widevine LA_URL (DASH): https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4 
-* FairPlay LA_URL (HLS): https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8 
+* Source (base) URL: `https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest` 
+* PlayReady LA_URL (DASH & smooth): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/` 
+* Widevine LA_URL (DASH): `https://willzhanmswest.keydelivery.mediaservices.windows.net/Widevine/?kid=78de73ae-6d0f-470a-8f13-5c91f7c4` 
+* FairPlay LA_URL (HLS): `https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8` 
 
 ### Sample 2
 
 * Source (base) URL: https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
-* PlayReady LA_URL (DASH & smooth): http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx 
+* PlayReady LA_URL (DASH & smooth): `http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx` 
 
 ### Sample 3
 
 * Source URL: https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL (DASH & smooth): https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
+* PlayReady LA_URL (DASH & smooth): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/` 
 
 ### Sample 4
 
 * Source URL: https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL (DASH & smooth): https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
+* PlayReady LA_URL (DASH & smooth): `https://willzhan12.cloudapp.net/playready/rightsmanager.asmx` 
 
 ## Additional notes
 
@@ -138,4 +140,3 @@ View Media Services learning paths.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

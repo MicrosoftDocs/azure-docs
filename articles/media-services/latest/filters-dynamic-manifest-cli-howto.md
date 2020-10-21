@@ -3,7 +3,7 @@ title: Use CLI to create filters with Azure Media Services| Microsoft Docs
 description: This article shows how to use CLI to create filters with Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -11,26 +11,28 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/13/2019
-ms.author: juliako
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
 
 ---
-# Creating filters with CLI 
+# Creating filters with CLI
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 When delivering your content to customers (streaming Live events or Video on Demand), your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
 
 For detailed description of this feature and scenarios where it is used, see [Dynamic Manifests](filters-dynamic-manifest-overview.md) and [Filters](filters-concept.md).
 
-This topic shows how to configure a filter for a Video on-Demand asset and use CLI for Media Services v3 to create [Account Filters](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) and [Asset Filters](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
+This topic shows how to configure a filter for a Video on-Demand asset and use CLI for Media Services v3 to create [Account Filters](/cli/azure/ams/account-filter?view=azure-cli-latest) and [Asset Filters](/cli/azure/ams/asset-filter?view=azure-cli-latest). 
 
 > [!NOTE]
 > Make sure to review [presentationTimeRange](filters-concept.md#presentationtimerange).
 
 ## Prerequisites 
 
-- [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
+- [Create a Media Services account](./create-account-howto.md). Make sure to remember the resource group name and the Media Services account name. 
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
@@ -76,7 +78,7 @@ The following example defines the track selection conditions that are added to t
 
 ## Create account filters
 
-The following [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) command creates an account filter with filter track selections that were [defined earlier](#define-a-filter). 
+The following [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest) command creates an account filter with filter track selections that were [defined earlier](#define-a-filter). 
 
 The command allows you to pass an optional `--tracks` parameter that contains JSON representing the track selections.  Use @{file} to load JSON from a file. If you are using the Azure CLI locally, specify the whole file path:
 
@@ -84,17 +86,17 @@ The command allows you to pass an optional `--tracks` parameter that contains JS
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
 
-Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
+Also, see [JSON examples for filters](/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
 
 ## Create asset filters
 
-The following [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) command creates an asset filter with filter track selections that were [defined earlier](#define-a-filter). 
+The following [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest) command creates an asset filter with filter track selections that were [defined earlier](#define-a-filter). 
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
 ```
 
-Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter).
+Also, see [JSON examples for filters](/rest/api/media/assetfilters/createorupdate#create-an-asset-filter).
 
 ## Associate filters with Streaming Locator
 
@@ -128,4 +130,4 @@ The following table shows some examples of URLs with filters:
 
 ## See also
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](/cli/azure/ams?view=azure-cli-latest)

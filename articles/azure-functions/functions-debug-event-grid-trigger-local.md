@@ -3,7 +3,7 @@ title: Azure Functions Event Grid local debugging
 description: Learn to locally debug Azure functions triggered by an Event Grid event
 author: craigshoemaker
 
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
 ---
@@ -48,7 +48,7 @@ ngrok http -host-header=localhost 7071
 ```
 As the utility is set up, the command window should look similar to the following screenshot:
 
-![Start ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
+![Screenshot that shows the Command Prompt after starting the "ngrok" utility.](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
 
 Copy the **HTTPS** URL generated when *ngrok* is run. This value is used when configuring the event grid event endpoint.
 
@@ -58,7 +58,7 @@ Open the Azure portal and navigate to a storage account and click on the **Event
 
 ![Add storage account event](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
 
-In the *Events* window, click on the **Event Subscription** button. In the *Even Subscription* window, click on the *Endpoint Type* dropdown and select **Web Hook**.
+In the *Events* window, click on the **Event Subscription** button. In the *Event Subscription* window, click on the *Endpoint Type* dropdown and select **Web Hook**.
 
 ![Select subscription type](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
 

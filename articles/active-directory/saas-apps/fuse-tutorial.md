@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Fuse | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Fuse.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 5ef34f58-863a-4b37-875c-e8efa3e18bb3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Fuse
 

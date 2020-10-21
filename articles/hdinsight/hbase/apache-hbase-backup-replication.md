@@ -1,11 +1,11 @@
 ---
 title: Backup & replication for Apache HBase, Phoenix - Azure HDInsight
 description: Set up Backup and replication for Apache HBase and Apache Phoenix in Azure HDInsight
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ---
@@ -31,19 +31,15 @@ With this approach, you copy all HBase data, without being able to select a subs
 
 HBase in HDInsight uses the default storage selected when creating the cluster, either Azure Storage blobs or Azure Data Lake Storage. In either case, HBase stores its data and metadata files under the following path:
 
-    /hbase
+`/hbase`
 
 * In an Azure Storage account the `hbase` folder resides at the root of the blob container:
 
-    ```
-    wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
-    ```
+  `wasbs://<containername>@<accountname>.blob.core.windows.net/hbase`
 
 * In Azure Data Lake Storage, the `hbase` folder resides under the root path you specified when provisioning a cluster. This root path typically has a `clusters` folder, with a subfolder named after your HDInsight cluster:
 
-    ```
-    /clusters/<clusterName>/hbase
-    ```
+  `/clusters/<clusterName>/hbase`
 
 In either case, the `hbase` folder contains all the data that HBase has flushed to disk, but it may not contain the in-memory data. Before you can rely on this folder as an accurate representation of the HBase data, you must shut down the cluster.
 
@@ -59,31 +55,37 @@ On the source HDInsight cluster, use the [Export utility](https://hbase.apache.o
 
 To export table data, first SSH into the head node of your source HDInsight cluster and then run the following `hbase` command:
 
-    hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>"
+```console
+hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>"
+```
 
 The export directory must not already exist. The table name is case-sensitive.
 
 To import table data, SSH into the head node of your destination HDInsight cluster and then run the following `hbase` command:
 
-    hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<export>"
+```console
+hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<export>"
+```
 
 The table must already exist.
 
 Specify the full export path to the default storage or to any of the attached storage options. For example, in Azure Storage:
 
-    wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
+`wasbs://<containername>@<accountname>.blob.core.windows.net/<path>`
 
 In Azure Data Lake Storage Gen2, the syntax is:
 
-    abfs://<containername>@<accountname>.dfs.core.windows.net/<path>
+`abfs://<containername>@<accountname>.dfs.core.windows.net/<path>`
 
 In Azure Data Lake Storage Gen1, the syntax is:
 
-    adl://<accountName>.azuredatalakestore.net:443/<path>
+`adl://<accountName>.azuredatalakestore.net:443/<path>`
 
 This approach offers table-level granularity. You can also specify a date range for the rows to include, which allows you to perform the process incrementally. Each date is in milliseconds since the Unix epoch.
 
-    hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>" <numberOfVersions> <startTimeInMS> <endTimeInMS>
+```console
+hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>" <numberOfVersions> <startTimeInMS> <endTimeInMS>
+```
 
 Note that you have to specify the number of versions of each row to export. To include all versions in the date range, set `<numberOfVersions>` to a value greater than your maximum possible row versions, such as 100000.
 
@@ -93,16 +95,19 @@ The [CopyTable utility](https://hbase.apache.org/book.html#copy.table) copies da
 
 To use CopyTable within a cluster, SSH into the head node of your source HDInsight cluster and then run this `hbase` command:
 
-    hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> <srcTableName>
-
+```console
+hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> <srcTableName>
+```
 
 To use CopyTable to copy to a table on a different cluster, add the `peer` switch with the destination cluster's address:
 
-    hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> --peer.adr=<destinationAddress> <srcTableName>
+```console
+hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> --peer.adr=<destinationAddress> <srcTableName>
+```
 
 The destination address is composed of the following three parts:
 
-    <destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>
+`<destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>`
 
 * `<ZooKeeperQuorum>` is a comma-separated list of Apache ZooKeeper nodes, for example:
 
@@ -116,7 +121,9 @@ See [Manually Collecting the Apache ZooKeeper Quorum List](#manually-collect-the
 
 The CopyTable utility also supports parameters to specify the time range of rows to copy, and to specify the subset of column families in a table to copy. To see the complete list of parameters supported by CopyTable, run CopyTable without any parameters:
 
-    hbase org.apache.hadoop.hbase.mapreduce.CopyTable
+```console
+hbase org.apache.hadoop.hbase.mapreduce.CopyTable
+```
 
 CopyTable scans the entire source table content that will be copied over to the destination table. This may reduce your HBase cluster's performance while CopyTable executes.
 
@@ -129,29 +136,35 @@ When both HDInsight clusters are in the same virtual network, as described previ
 
 To acquire the quorum host names, run the following curl command:
 
-    curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/configurations?type=hbase-site&tag=TOPOLOGY_RESOLVED" | grep "hbase.zookeeper.quorum"
+```console
+curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/configurations?type=hbase-site&tag=TOPOLOGY_RESOLVED" | grep "hbase.zookeeper.quorum"
+```
 
 The curl command retrieves a JSON document with HBase configuration information, and the grep command returns only the "hbase.zookeeper.quorum" entry, for example:
 
-    "hbase.zookeeper.quorum" : "zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net"
+```output
+"hbase.zookeeper.quorum" : "zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net"
+```
 
 The quorum host names value is the entire string to the right of the colon.
 
 To retrieve the IP addresses for these hosts, use the following curl command for each host in the previous list:
 
-    curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/hosts/<zookeeperHostFullName>" | grep "ip"
+```console
+curl -u admin:<password> -X GET -H "X-Requested-By: ambari" "https://<clusterName>.azurehdinsight.net/api/v1/clusters/<clusterName>/hosts/<zookeeperHostFullName>" | grep "ip"
+```
 
 In this curl command, `<zookeeperHostFullName>` is the full DNS name of a ZooKeeper host, such as the example `zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net`. The output of the command contains the IP address for the specified host, for example:
 
-    100    "ip" : "10.0.0.9",
+`100    "ip" : "10.0.0.9",`
 
 After you collect the IP addresses for all ZooKeeper nodes in your quorum, rebuild the destination address:
 
-    <destinationAddress>  = <Host_1_IP>,<Host_2_IP>,<Host_3_IP>:<Port>:<ZnodeParent>
+`<destinationAddress>  = <Host_1_IP>,<Host_2_IP>,<Host_3_IP>:<Port>:<ZnodeParent>`
 
 In our example:
 
-    <destinationAddress> = 10.0.0.9,10.0.0.8,10.0.0.12:2181:/hbase-unsecure
+`<destinationAddress> = 10.0.0.9,10.0.0.8,10.0.0.12:2181:/hbase-unsecure`
 
 ## Snapshots
 
@@ -159,31 +172,49 @@ In our example:
 
 To create a snapshot, SSH in to the head node of your HDInsight HBase cluster and start the `hbase` shell:
 
-    hbase shell
+```console
+hbase shell
+```
 
 Within the hbase shell, use the snapshot command with the names of the table and of this snapshot:
 
-    snapshot '<tableName>', '<snapshotName>'
+```console
+snapshot '<tableName>', '<snapshotName>'
+```
 
 To restore a snapshot by name within the `hbase` shell, first disable the table, then restore the snapshot and re-enable the table:
 
-    disable '<tableName>'
-    restore_snapshot '<snapshotName>'
-    enable '<tableName>'
+```console
+disable '<tableName>'
+restore_snapshot '<snapshotName>'
+enable '<tableName>'
+```
 
 To restore a snapshot to a new table, use clone_snapshot:
 
-    clone_snapshot '<snapshotName>', '<newTableName>'
+```console
+clone_snapshot '<snapshotName>', '<newTableName>'
+```
 
 To export a snapshot to HDFS for use by another cluster, first create the snapshot as described previously and then use the ExportSnapshot utility. Run this utility from within the SSH session to the head node, not within the `hbase` shell:
 
-     hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot <snapshotName> -copy-to <hdfsHBaseLocation>
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot <snapshotName> -copy-to <hdfsHBaseLocation>
+```
 
 The `<hdfsHBaseLocation>` can be any of the storage locations accessible to your source cluster, and should point to the hbase folder used by your destination cluster. For example, if you have a secondary Azure Storage account attached to your source cluster, and that account provides access to the container used by the default storage of the destination cluster, you could use this command:
 
-    hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```
 
-After the snapshot is exported, SSH into the head node of the destination cluster and restore the snapshot using the restore_snapshot command as previously described.
+If you don't have a secondary Azure Storage account attached to your source cluster or if your source cluster is an on-premises cluster (or non-HDI cluster), you might experience authorization issues when you try to access the storage account of your HDI cluster. To resolve this, specify the key to your storage account as a command-line parameter as shown in the following example. You can get the key to your storage account in the Azure portal.
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.windows.net=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```
+
+After the snapshot is exported, SSH into the head node of the destination cluster and restore the snapshot by using the `restore_snapshot` command as described earlier.
 
 Snapshots provide a complete backup of a table at the time of the `snapshot` command. Snapshots don't provide the ability to perform incremental snapshots by windows of time, nor to specify subsets of columns families to include in the snapshot.
 

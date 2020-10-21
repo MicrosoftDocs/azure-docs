@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Ungerboeck Software | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Ungerboeck Software.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: bd861069-8a15-4d29-aa26-0d7be3a0a94a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Ungerboeck Software with Azure Active Directory
@@ -82,23 +75,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     
-       **For production environment**:
+    *  **For production environment**:
 
-       | |
-       |-|
-       | `https://<SUBDOMAIN>.ungerboeck.com/prod` |
-       | `https://<SUBDOMAIN>.ungerboeck.net/prod` |
-       | `https://<SUBDOMAIN>.ungerboeck.io/prod` |
-       | |
+       - `https://<SUBDOMAIN>.ungerboeck.com/prod`
+       - `https://<SUBDOMAIN>.ungerboeck.net/prod`
+       - `https://<SUBDOMAIN>.ungerboeck.io/prod`
 
-        **For test environment**:
+   * **For test environment**:
 
-       | |
-       |-|
-       | `https://<SUBDOMAIN>.ungerboeck.com/test` |
-       | `https://<SUBDOMAIN>.ungerboeck.net/test` |
-       | `https://<SUBDOMAIN>.ungerboeck.io/test` |
-       | |
+     - `https://<SUBDOMAIN>.ungerboeck.com/test`
+     - `https://<SUBDOMAIN>.ungerboeck.net/test`
+     - `https://<SUBDOMAIN>.ungerboeck.io/test`
 
    > [!NOTE]
    > These values are not real. Update these values with the actual Sign on URL and Identifier which is explained later in the **Configure Ungerboeck Software Single Sign-On** section of the tutorial.

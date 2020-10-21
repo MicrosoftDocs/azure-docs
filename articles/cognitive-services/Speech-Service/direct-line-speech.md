@@ -3,13 +3,13 @@ title: Direct Line Speech - Speech service
 titleSuffix: Azure Cognitive Services
 description: An overview of the features, capabilities, and restrictions for Voice assistants using Direct Line Speech with the Speech Software Development Kit (SDK).
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 # What is Direct Line Speech?
@@ -22,7 +22,7 @@ Direct Line Speech offers the highest levels of customization and sophistication
 
 ## Getting started with Direct Line Speech
 
-The first steps for creating a voice assistant using Direct Line Speech are to [get a speech subscription key](get-started.md), create a new bot associated with that subscription, and connect the bot to the Direct Line Speech channel.
+The first steps for creating a voice assistant using Direct Line Speech are to [get a speech subscription key](overview.md#try-the-speech-service-for-free), create a new bot associated with that subscription, and connect the bot to the Direct Line Speech channel.
 
    ![Conceptual diagram of the Direct Line Speech orchestration service flow](media/voice-assistants/overview-directlinespeech.png "The Speech Channel flow")
 
@@ -59,7 +59,7 @@ Direct Line Speech and its associated functionality for voice assistants are an 
 
 ## Next steps
 
-* [Get a Speech service subscription key for free](get-started.md)
+* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
 * [Get the Speech SDK](speech-sdk.md)
 * [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Get the Virtual Assistant Solution and Enterprise Template](https://github.com/Microsoft/AI)

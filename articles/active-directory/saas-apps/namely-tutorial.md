@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Namely | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Namely.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 9541d5c4-4c82-4b5b-b01a-6a3f75a2b7a1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Namely
 
@@ -130,19 +124,19 @@ To configure Azure AD single sign-on with Namely, perform the following steps:
 
 2. In the toolbar on the top, click **Company**.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_06.png) 
+    ![Screenshot shows the Company value selected.](./media/namely-tutorial/tutorial_namely_06.png) 
 
 3. Click the **Settings** tab.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_07.png) 
+    ![Screenshot shows the Company Settings tab selected.](./media/namely-tutorial/tutorial_namely_07.png) 
 
 4. Click **SAML**.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_08.png) 
+    ![Screenshot shows SAML selected.](./media/namely-tutorial/tutorial_namely_08.png) 
 
 5. On the **SAML Settings** page, perform the following steps:
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_09.png)
+    ![Screenshot shows SAML Settings where you can enter the values described.](./media/namely-tutorial/tutorial_namely_09.png)
  
     a. Click **Enable SAML**. 
 
@@ -213,15 +207,15 @@ The objective of this section is to create a user called Britta Simon in Namely.
 
 2. In the toolbar on the top, click **People**.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_10.png) 
+    ![Screenshot shows the People value selected.](./media/namely-tutorial/tutorial_namely_10.png) 
 
 3. Click the **Directory** tab.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_11.png) 
+    ![Screenshot shows the People Directory tab selected.](./media/namely-tutorial/tutorial_namely_11.png) 
 
 4. Click **Add New Person**.
 
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_12.png)
+    ![Screenshot shows the Add New Person option.](./media/namely-tutorial/tutorial_namely_12.png)
 
 5. On the **Add New Person** dialog, perform the following steps:
 

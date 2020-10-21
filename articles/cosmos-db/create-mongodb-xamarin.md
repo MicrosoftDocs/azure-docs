@@ -6,8 +6,9 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/16/2020
+ms.date: 10/09/2020
 ms.author: masoucou
+ms.custom: devx-track-csharp
 
 ---
 
@@ -19,7 +20,7 @@ ms.author: masoucou
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
@@ -84,12 +85,9 @@ The following snippets are all taken from the `MongoService` class, found at the
 
 * Initialize the Mongo Client.
     ```cs
-    MongoClientSettings settings = MongoClientSettings.FromUrl(
-        new MongoUrl(APIKeys.ConnectionString)
-    );
+    MongoClientSettings settings = MongoClientSettings.FromUrl(new MongoUrl(APIKeys.ConnectionString));
 
-    settings.SslSettings =
-        new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
+    settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
 
     settings.RetryWrites = false;
 
@@ -103,7 +101,8 @@ The following snippets are all taken from the `MongoService` class, found at the
 
     var db = mongoClient.GetDatabase(dbName);
 
-    var collectionSettings = new MongoCollectionSettings {
+    var collectionSettings = new MongoCollectionSettings 
+    {
         ReadPreference = ReadPreference.Nearest
     };
 

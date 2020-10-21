@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with ANAQUA | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ANAQUA.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: ab13b73e-ca4f-460c-8f79-fabf81b778c0
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/31/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate ANAQUA with Azure Active Directory

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with XaitPorter | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and XaitPorter.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d33c7cb7-0550-425b-882a-619a713a71b7
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with XaitPorter
 
@@ -114,7 +108,7 @@ To configure Azure AD single sign-on with XaitPorter, perform the following step
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
-6. Provide the **IP address** or the **App Federation Metadata Url** to the [SmartRecruiters support team](https://www.smartrecruiters.com/about-us/contact-us/), so that XaitPorter can ensure that IP address is reachable from your XaitPorter instance configuring whitelist at their side. 
+6. Provide the **IP address** or the **App Federation Metadata Url** to the [SmartRecruiters support team](https://www.smartrecruiters.com/about-us/contact-us/), so that XaitPorter can ensure that IP address is reachable from your XaitPorter instance configuring approved list at their side. 
 
 ### Configure XaitPorter Single Sign-On
 
@@ -215,4 +209,3 @@ When you click the XaitPorter tile in the Access Panel, you should be automatica
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

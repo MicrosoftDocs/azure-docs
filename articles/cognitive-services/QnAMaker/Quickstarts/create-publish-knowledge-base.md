@@ -1,8 +1,10 @@
 ---
 title: "Quickstart: Create, train, and publish knowledge base - QnA Maker"
 description: You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. This article includes an example of creating a QnA Maker knowledge base from a simple FAQ webpage, to answer questions QnA Maker.
-ms.topic: conceptual
-ms.date: 02/08/2020
+ms.service: cognitive-services
+ms.subservice: qna-maker
+ms.topic: quickstart
+ms.date: 05/26/2020
 
 ---
 
@@ -13,7 +15,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 ## Prerequisites
 
 > [!div class="checklist"]
-> * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+> * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 > * A QnA Maker [resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
 
 ## Create your first QnA Maker knowledge base
@@ -30,7 +32,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 1. In **Step 3**, select your Active directory, subscription, service (resource), and the language for all knowledge bases created in the service.
 
-   ![Screenshot of selecting a QnA Maker service knowledge base](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Screenshot of selecting a QnA Maker service knowledge base":::
 
 1. In **Step 3**, name your knowledge base **My Sample QnA KB**.
 
@@ -60,7 +62,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
-    ![ Add the question as text and the answer formatted with markdown.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Add the question as text and the answer formatted with markdown.":::
 
     The markdown symbol, `*`, is used for bullet points. The `\n` is used for a new line.
 
@@ -77,7 +79,7 @@ In the upper right, select **Save and train** to save your edits and train QnA M
 
     `How many Azure services are used by a knowledge base?`
 
-    ![ Enter an example user query in the textbox. ](../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Enter an example user query in the textbox.":::
 
 1. Select **Inspect** to examine the response in more detail. The test window is used to test your changes to the knowledge base before publishing your knowledge base.
 
@@ -85,7 +87,7 @@ In the upper right, select **Save and train** to save your edits and train QnA M
 
 ## Publish the knowledge base
 
-When you publish a knowledge base, the contents of your knowledge base moves from the `test` index to a `prod` index in Azure search.
+When you publish a knowledge base, the contents of your knowledge base move from the `test` index to a `prod` index in Azure search.
 
 ![Screenshot of moving the contents of your knowledge base](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 
@@ -127,7 +129,7 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
     The chat bot responds with an answer from your knowledge base.
 
-    ![Enter a user query into the test web chat.](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Enter a user query into the test web chat.":::
 
 ## What did you accomplish?
 

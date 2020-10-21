@@ -31,10 +31,11 @@ The columns are anonymized and use a series of enumerated names: "Col1" (for the
 
 Here is an excerpt of the first 20 columns of two observations (rows) from this dataset:
 
-    Col1    Col2    Col3    Col4    Col5    Col6    Col7    Col8    Col9    Col10    Col11    Col12    Col13    Col14    Col15            Col16            Col17            Col18            Col19        Col20
-
-    0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb
-    0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb
+> `Col1    Col2    Col3    Col4    Col5    Col6    Col7    Col8    Col9    Col10    Col11    Col12    Col13    Col14    Col15            Col16            Col17            Col18            Col19        Col20`
+>
+> `0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb`
+>
+> `0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb`
 
 There are missing values in both the numeric and categorical columns in this dataset. A simple method for handling the missing values is described. Additional details of the data are explored when storing them into Hive tables.
 
@@ -60,7 +61,7 @@ Set up your Azure Data Science environment for building predictive analytics sol
 
    * Link the storage account created in step 1 with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
    * Enable Remote Access to the head node of the cluster after it is created. Remember the remote access credentials you specify here (different from the credentials specified at cluster creation): complete the following procedures.
-3. [Create an Azure Machine Learning Studio (classic) workspace](../studio/create-workspace.md): This Azure Machine Learning workspace is used for building machine learning models after an initial data exploration and down sampling on the HDInsight cluster.
+3. [Create an Azure Machine Learning Studio (classic) workspace](../classic/create-workspace.md): This Azure Machine Learning workspace is used for building machine learning models after an initial data exploration and down sampling on the HDInsight cluster.
 
 ## <a name="getdata"></a>Get and consume data from a public source
 The [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) dataset can be accessed by clicking on the link, accepting the terms of use, and providing a name. A snapshot is shown here:
@@ -94,7 +95,9 @@ Now you are set up and ready to begin first part of the walkthrough: data explor
 ## <a name="hive-db-tables"></a> Create Hive database and tables
 To create Hive tables for our Criteo dataset, open the ***Hadoop Command Line*** on the desktop of the head node, and enter the Hive directory by entering the command
 
-    cd %hive_home%\bin
+```console
+cd %hive_home%\bin
+```
 
 > [!NOTE]
 > Run all Hive commands in this walkthrough from the Hive bin/ directory prompt. This takes care of any path issues automatically. You can use the terms "Hive directory prompt", "Hive bin/ directory prompt", and "Hadoop Command Line" interchangeably.
@@ -102,8 +105,8 @@ To create Hive tables for our Criteo dataset, open the ***Hadoop Command Line***
 > [!NOTE]
 > To execute any Hive query, one can always use the following commands:
 >
->        cd %hive_home%\bin
->        hive
+> `cd %hive_home%\bin`
+> `hive`
 
 After the Hive REPL appears with a "hive >"sign, simply cut and paste the query to execute it.
 
@@ -117,34 +120,36 @@ Split the test dataset into two different tables because one of the days is a ho
 
 The script [sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql) is displayed here for convenience:
 
-    CREATE DATABASE IF NOT EXISTS criteo;
-    DROP TABLE IF EXISTS criteo.criteo_count;
-    CREATE TABLE criteo.criteo_count (
-    col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-    LINES TERMINATED BY '\n'
-    STORED AS TEXTFILE LOCATION 'wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/count';
+```hiveql
+CREATE DATABASE IF NOT EXISTS criteo;
+DROP TABLE IF EXISTS criteo.criteo_count;
+CREATE TABLE criteo.criteo_count (
+col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE LOCATION 'wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/count';
 
-    DROP TABLE IF EXISTS criteo.criteo_train;
-    CREATE TABLE criteo.criteo_train (
-    col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-    LINES TERMINATED BY '\n'
-    STORED AS TEXTFILE LOCATION 'wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/train';
+DROP TABLE IF EXISTS criteo.criteo_train;
+CREATE TABLE criteo.criteo_train (
+col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE LOCATION 'wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/train';
 
-    DROP TABLE IF EXISTS criteo.criteo_test_day_22;
-    CREATE TABLE criteo.criteo_test_day_22 (
-    col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-    LINES TERMINATED BY '\n'
-    STORED AS TEXTFILE LOCATION 'wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/test/day_22';
+DROP TABLE IF EXISTS criteo.criteo_test_day_22;
+CREATE TABLE criteo.criteo_test_day_22 (
+col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE LOCATION 'wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/test/day_22';
 
-    DROP TABLE IF EXISTS criteo.criteo_test_day_23;
-    CREATE TABLE criteo.criteo_test_day_23 (
-    col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-    LINES TERMINATED BY '\n'
-    STORED AS TEXTFILE LOCATION 'wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/test/day_23';
+DROP TABLE IF EXISTS criteo.criteo_test_day_23;
+CREATE TABLE criteo.criteo_test_day_23 (
+col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE LOCATION 'wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/test/day_23';
+```
 
 All these tables are external so you can point to their Azure Blob Storage (wasb) locations.
 
@@ -152,38 +157,50 @@ All these tables are external so you can point to their Azure Blob Storage (wasb
 
 * **Using the Hive REPL command line**: The first is to issue a "hive" command and copy and paste a query at the Hive REPL command line:
 
-        cd %hive_home%\bin
-        hive
+  ```console
+  cd %hive_home%\bin
+  hive
+  ```
 
      Now at the REPL command line, cutting and pasting the query executes it.
 * **Saving queries to a file and executing the command**: The second is to save the queries to a '.hql' file ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) and then issue the following command to execute the query:
 
-        hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
+  ```console
+  hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
+  ```
 
 ### Confirm database and table creation
 Next, confirm the creation of the database with the following command from the Hive bin/ directory prompt:
 
-        hive -e "show databases;"
+```console
+hive -e "show databases;"
+```
 
 This gives:
 
-        criteo
-        default
-        Time taken: 1.25 seconds, Fetched: 2 row(s)
+```output
+criteo
+default
+Time taken: 1.25 seconds, Fetched: 2 row(s)
+```
 
 This confirms the creation of the new database, "criteo".
 
 To see what tables were created, simply issue the command here from the Hive bin/ directory prompt:
 
-        hive -e "show tables in criteo;"
+```output
+hive -e "show tables in criteo;"
+```
 
 You should then see the following output:
 
-        criteo_count
-        criteo_test_day_22
-        criteo_test_day_23
-        criteo_train
-        Time taken: 1.437 seconds, Fetched: 4 row(s)
+```ouput
+criteo_count
+criteo_test_day_22
+criteo_test_day_23
+criteo_train
+Time taken: 1.437 seconds, Fetched: 4 row(s)
+```
 
 ## <a name="exploration"></a> Data exploration in Hive
 Now you are ready to do some basic data exploration in Hive. You begin by counting the number of examples in the train and test data tables.
@@ -191,126 +208,162 @@ Now you are ready to do some basic data exploration in Hive. You begin by counti
 ### Number of train examples
 The contents of [sample&#95;hive&#95;count&#95;train&#95;table&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_train_table_examples.hql) are shown here:
 
-        SELECT COUNT(*) FROM criteo.criteo_train;
+```hiveql
+SELECT COUNT(*) FROM criteo.criteo_train;
+```
 
 This yields:
 
-        192215183
-        Time taken: 264.154 seconds, Fetched: 1 row(s)
+```output
+192215183
+Time taken: 264.154 seconds, Fetched: 1 row(s)
+```
 
 Alternatively, one may also issue the following command from the Hive bin/ directory prompt:
 
-        hive -f C:\temp\sample_hive_count_criteo_train_table_examples.hql
+```console
+hive -f C:\temp\sample_hive_count_criteo_train_table_examples.hql
+```
 
 ### Number of test examples in the two test datasets
 Now count the number of examples in the two test datasets. The contents of [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;22&#95;table&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_22_table_examples.hql) are here:
 
-        SELECT COUNT(*) FROM criteo.criteo_test_day_22;
+```hiveql
+SELECT COUNT(*) FROM criteo.criteo_test_day_22;
+```
 
 This yields:
 
-        189747893
-        Time taken: 267.968 seconds, Fetched: 1 row(s)
+```output
+189747893
+Time taken: 267.968 seconds, Fetched: 1 row(s)
+```
 
 As usual, you may also call the script from the Hive bin/ directory prompt by issuing the command:
 
-        hive -f C:\temp\sample_hive_count_criteo_test_day_22_table_examples.hql
+```console
+hive -f C:\temp\sample_hive_count_criteo_test_day_22_table_examples.hql
+```
 
 Finally, you examine the number of test examples in the test dataset based on day\_23.
 
 The command to do this is similar to the one shown (refer to [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
 
-        SELECT COUNT(*) FROM criteo.criteo_test_day_23;
+```hiveql
+SELECT COUNT(*) FROM criteo.criteo_test_day_23;
+```
 
 This gives:
 
-        178274637
-        Time taken: 253.089 seconds, Fetched: 1 row(s)
+```output
+178274637
+Time taken: 253.089 seconds, Fetched: 1 row(s)
+```
 
 ### Label distribution in the train dataset
 The label distribution in the train dataset is of interest. To see this, show contents of [sample&#95;hive&#95;criteo&#95;label&#95;distribution&#95;train&#95;table.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_label_distribution_train_table.hql):
 
-        SELECT Col1, COUNT(*) AS CT FROM criteo.criteo_train GROUP BY Col1;
+```hiveql
+SELECT Col1, COUNT(*) AS CT FROM criteo.criteo_train GROUP BY Col1;
+```
 
 This yields the label distribution:
 
-        1       6292903
-        0       185922280
-        Time taken: 459.435 seconds, Fetched: 2 row(s)
+```output
+1       6292903
+0       185922280
+Time taken: 459.435 seconds, Fetched: 2 row(s)
+```
 
 The percentage of positive labels is about 3.3% (consistent with the original dataset).
 
 ### Histogram distributions of some numeric variables in the train dataset
 You can use Hive's native "histogram\_numeric" function to find out what the distribution of the numeric variables looks like. Here are the contents of [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
 
-        SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM
-            (SELECT
-            histogram_numeric(col2, 20) as col2_hist
-            FROM
-            criteo.criteo_train
-            ) a
-            LATERAL VIEW explode(col2_hist) exploded_table as hist;
+```hiveql
+SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM
+    (SELECT
+    histogram_numeric(col2, 20) as col2_hist
+    FROM
+    criteo.criteo_train
+    ) a
+    LATERAL VIEW explode(col2_hist) exploded_table as hist;
+```
 
 This yields the following:
 
-        26      155878415
-        2606    92753
-        6755    22086
-        11202   6922
-        14432   4163
-        17815   2488
-        21072   1901
-        24113   1283
-        27429   1225
-        30818   906
-        34512   723
-        38026   387
-        41007   290
-        43417   312
-        45797   571
-        49819   428
-        53505   328
-        56853   527
-        61004   160
-        65510   3446
-        Time taken: 317.851 seconds, Fetched: 20 row(s)
+```output
+26      155878415
+2606    92753
+6755    22086
+11202   6922
+14432   4163
+17815   2488
+21072   1901
+24113   1283
+27429   1225
+30818   906
+34512   723
+38026   387
+41007   290
+43417   312
+45797   571
+49819   428
+53505   328
+56853   527
+61004   160
+65510   3446
+Time taken: 317.851 seconds, Fetched: 20 row(s)
+```
 
 The LATERAL VIEW - explode combination in Hive serves to produce a SQL-like output instead of the usual list. In this table, the first column corresponds to the bin center and the second to the bin frequency.
 
 ### Approximate percentiles of some numeric variables in the train dataset
 Also of interest with numeric variables is the computation of approximate percentiles. Hive's native "percentile\_approx" does this for us. The contents of [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) are:
 
-        SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
+```hiveql
+SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
+```
 
 This yields:
 
-        1.0     2.1418600917169246      2.1418600917169246    6.21887086390288 27.53454893115633       65535.0
-        Time taken: 564.953 seconds, Fetched: 1 row(s)
+```output
+1.0     2.1418600917169246      2.1418600917169246    6.21887086390288 27.53454893115633       65535.0
+Time taken: 564.953 seconds, Fetched: 1 row(s)
+```
 
 The distribution of percentiles is closely related to the histogram distribution of any numeric variable usually.
 
 ### Find number of unique values for some categorical columns in the train dataset
 Continuing the data exploration, find, for some categorical columns, the number of unique values they take. To do this, show contents of [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
 
-        SELECT COUNT(DISTINCT(Col15)) AS num_uniques FROM criteo.criteo_train;
+```hiveql
+SELECT COUNT(DISTINCT(Col15)) AS num_uniques FROM criteo.criteo_train;
+```
 
 This yields:
 
-        19011825
-        Time taken: 448.116 seconds, Fetched: 1 row(s)
+```output
+19011825
+Time taken: 448.116 seconds, Fetched: 1 row(s)
+```
 
 Col15 has 19M unique values! Using naive techniques like "one-hot encoding" to encode such high-dimensional categorical variables is not feasible. In particular, a powerful, robust technique called [Learning With Counts](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) for tackling this problem efficiently is explained and demonstrated.
 
 Finally look at the number of unique values for some other categorical columns as well. The contents of [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) are:
 
-        SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)),
-        COUNT(DISTINCT(Col18), COUNT(DISTINCT(Col19), COUNT(DISTINCT(Col20))
-        FROM criteo.criteo_train;
+```hiveql
+SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)),
+COUNT(DISTINCT(Col18), COUNT(DISTINCT(Col19), COUNT(DISTINCT(Col20))
+FROM criteo.criteo_train;
+```
 
 This yields:
 
-        30935   15200   7349    20067   3
-        Time taken: 1933.883 seconds, Fetched: 1 row(s)
+```output
+30935   15200   7349    20067   3
+Time taken: 1933.883 seconds, Fetched: 1 row(s)
+```
 
 Again, note that except for Col20, all the other columns have many unique values.
 
@@ -318,80 +371,95 @@ Again, note that except for Col20, all the other columns have many unique values
 
 The count distributions of pairs of categorical variables are also of interest. This can be determined using the code in [sample&#95;hive&#95;criteo&#95;paired&#95;categorical&#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
 
-        SELECT Col15, Col16, COUNT(*) AS paired_count FROM criteo.criteo_train GROUP BY Col15, Col16 ORDER BY paired_count DESC LIMIT 15;
+```hiveql
+SELECT Col15, Col16, COUNT(*) AS paired_count FROM criteo.criteo_train GROUP BY Col15, Col16 ORDER BY paired_count DESC LIMIT 15;
+```
 
 Reverse order the counts by their occurrence and look at the top 15 in this case. This gives us:
 
-        ad98e872        cea68cd3        8964458
-        ad98e872        3dbb483e        8444762
-        ad98e872        43ced263        3082503
-        ad98e872        420acc05        2694489
-        ad98e872        ac4c5591        2559535
-        ad98e872        fb1e95da        2227216
-        ad98e872        8af1edc8        1794955
-        ad98e872        e56937ee        1643550
-        ad98e872        d1fade1c        1348719
-        ad98e872        977b4431        1115528
-        e5f3fd8d        a15d1051        959252
-        ad98e872        dd86c04a        872975
-        349b3fec        a52ef97d        821062
-        e5f3fd8d        a0aaffa6        792250
-        265366bf        6f5c7c41        782142
-        Time taken: 560.22 seconds, Fetched: 15 row(s)
+```output
+ad98e872        cea68cd3        8964458
+ad98e872        3dbb483e        8444762
+ad98e872        43ced263        3082503
+ad98e872        420acc05        2694489
+ad98e872        ac4c5591        2559535
+ad98e872        fb1e95da        2227216
+ad98e872        8af1edc8        1794955
+ad98e872        e56937ee        1643550
+ad98e872        d1fade1c        1348719
+ad98e872        977b4431        1115528
+e5f3fd8d        a15d1051        959252
+ad98e872        dd86c04a        872975
+349b3fec        a52ef97d        821062
+e5f3fd8d        a0aaffa6        792250
+265366bf        6f5c7c41        782142
+Time taken: 560.22 seconds, Fetched: 15 row(s)
+```
 
 ## <a name="downsample"></a> Down sample the datasets for Azure Machine Learning
 Having explored the datasets and demonstrated how to do this type of exploration for any variables (including combinations), down sample the data sets so that models in Azure Machine Learning can be built. Recall that the focus of the problem is: given a set of example attributes (feature values from Col2 - Col40), predict if Col1 is a 0 (no click) or a 1 (click).
 
 To down sample the train and test datasets to 1% of the original size, use Hive's native RAND() function. The next script, [sample&#95;hive&#95;criteo&#95;downsample&#95;train&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) does this for the train dataset:
 
-        CREATE TABLE criteo.criteo_train_downsample_1perc (
-        col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
-        ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-        LINES TERMINATED BY '\n'
-        STORED AS TEXTFILE;
+```hiveql
+CREATE TABLE criteo.criteo_train_downsample_1perc (
+col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE;
 
-        ---Now downsample and store in this table
+---Now downsample and store in this table
 
-        INSERT OVERWRITE TABLE criteo.criteo_train_downsample_1perc SELECT * FROM criteo.criteo_train WHERE RAND() <= 0.01;
+INSERT OVERWRITE TABLE criteo.criteo_train_downsample_1perc SELECT * FROM criteo.criteo_train WHERE RAND() <= 0.01;
+```
 
 This yields:
 
-        Time taken: 12.22 seconds
-        Time taken: 298.98 seconds
+```output
+Time taken: 12.22 seconds
+Time taken: 298.98 seconds
+```
 
 The script [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) does it for test data, day\_22:
 
-        --- Now for test data (day_22)
+```hiveql
+--- Now for test data (day_22)
 
-        CREATE TABLE criteo.criteo_test_day_22_downsample_1perc (
-        col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
-        ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-        LINES TERMINATED BY '\n'
-        STORED AS TEXTFILE;
+CREATE TABLE criteo.criteo_test_day_22_downsample_1perc (
+col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE;
 
-        INSERT OVERWRITE TABLE criteo.criteo_test_day_22_downsample_1perc SELECT * FROM criteo.criteo_test_day_22 WHERE RAND() <= 0.01;
+INSERT OVERWRITE TABLE criteo.criteo_test_day_22_downsample_1perc SELECT * FROM criteo.criteo_test_day_22 WHERE RAND() <= 0.01;
+```
 
 This yields:
 
-        Time taken: 1.22 seconds
-        Time taken: 317.66 seconds
-
+```output
+Time taken: 1.22 seconds
+Time taken: 317.66 seconds
+```
 
 Finally, the script [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) does it for test data, day\_23:
 
-        --- Finally test data day_23
-        CREATE TABLE criteo.criteo_test_day_23_downsample_1perc (
-        col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 srical feature; tring)
-        ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-        LINES TERMINATED BY '\n'
-        STORED AS TEXTFILE;
+```hiveql
+--- Finally test data day_23
+CREATE TABLE criteo.criteo_test_day_23_downsample_1perc (
+col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 srical feature; tring)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE;
 
-        INSERT OVERWRITE TABLE criteo.criteo_test_day_23_downsample_1perc SELECT * FROM criteo.criteo_test_day_23 WHERE RAND() <= 0.01;
+INSERT OVERWRITE TABLE criteo.criteo_test_day_23_downsample_1perc SELECT * FROM criteo.criteo_test_day_23 WHERE RAND() <= 0.01;
+```
 
 This yields:
 
-        Time taken: 1.86 seconds
-        Time taken: 300.02 seconds
+```output
+Time taken: 1.86 seconds
+Time taken: 300.02 seconds
+```
 
 With this, you are ready to use our down sampled train and test datasets for building models in Azure Machine Learning.
 
@@ -428,7 +496,7 @@ For the **Import Data** module, the values of the parameters that are provided i
 
 1. Choose "Hive query" for **Data Source**
 2. In the **Hive database query** box, a simple SELECT * FROM <your\_database\_name.your\_table\_name> - is enough.
-3. **Hcatalog server URI**: If your cluster is "abc", then this is simply: https://abc.azurehdinsight.net
+3. **Hcatalog server URI**: If your cluster is "abc", then this is simply: https:\//abc.azurehdinsight.net
 4. **Hadoop user account name**: The user name chosen at the time of commissioning the cluster. (NOT the Remote Access user name!)
 5. **Hadoop user account password**: The password for the user name chosen at the time of commissioning the cluster. (NOT the Remote Access password!)
 6. **Location of output data**: Choose "Azure"
@@ -621,4 +689,3 @@ The default API key has been replaced with our webservice's API key. Clicking **
 For the two test examples asked about in the Python script JSON framework, you get back answers in the form "Scored Labels, Scored Probabilities". In this case, the default values have been chosen that the pre-canned code provides (0's for all numeric columns and the string "value" for all categorical columns).
 
 In conclusion, our walkthrough shows how to handle large-scale dataset using Azure Machine Learning. You started with a terabyte of data, constructed a prediction model, and deployed it as a web service in the cloud.
-

@@ -4,17 +4,13 @@ description: Microsoft Azure Government provides the same ways to build applicat
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: bernie-msft
-manager: zakramer
 
-ms.assetid: 1f222624-872b-4fe7-9c65-796deae03306
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/20/2017
-ms.author: beellis
 
 ---
 # Planning identity for Azure Government applications
@@ -68,7 +64,7 @@ Supporting IaaS cloud-based applications dependent on NTLM/Kerberos authenticati
 <div></div>
 <div align="center">
 
-![alt text](./media/documentation-government-plan-identity-extending-ad-to-azure-iaas.png "Extending On-Premises Active Directory Footprint to Azure IaaS")
+![Diagram shows a site-to-site VPN connectivity example for Azure IaaS.](./media/documentation-government-plan-identity-extending-ad-to-azure-iaas.png "Extending On-Premises Active Directory Footprint to Azure IaaS")
 
 </div>
 <div></div>
@@ -115,7 +111,7 @@ The following diagram is the simplest of the scenarios to implement.
 <div></div>
 <div align="center">
 
-![alt text](./media/documentation-government-plan-identity-cloud-identities-for-subscription-administration.png "Using Cloud Identities for Multi-Cloud Subscription Administration")
+![Diagram shows a multi-cloud subscription administration option using cloud identities for Office 365 and Microsoft Azure Government.](./media/documentation-government-plan-identity-cloud-identities-for-subscription-administration.png "Using Cloud Identities for Multi-Cloud Subscription Administration")
 
 </div>
 <div></div>
@@ -133,7 +129,7 @@ In this scenario, we include administrator identities through directory synchron
 <div></div>
 <div align="center">
 
-![alt text](./media/documentation-government-plan-identity-hybrid-and-cloud-identities-for-subscription-administration.png "Using Hybrid and Cloud Identities for Multi-Cloud Subscription Administration")
+![Diagram shows a scenario for hybrid and cloud identities for multi-cloud subscription administration using smartcards for access.](./media/documentation-government-plan-identity-hybrid-and-cloud-identities-for-subscription-administration.png "Using Hybrid and Cloud Identities for Multi-Cloud Subscription Administration")
 
 </div>
 <div></div>
@@ -149,7 +145,7 @@ In this scenario, hybrid identities are used to administrator subscriptions in b
 <div></div>
 <div align="center">
 
-![alt text](./media/documentation-government-plan-identity-hybrid-identities-for-subscription-administration.png "Using Hybrid Identities for Multi-Cloud Subscription Administration")
+![Diagram shows a scenario with hybrid identities for multi-cloud subscription administration, requiring different credentials for each cloud service.](./media/documentation-government-plan-identity-hybrid-identities-for-subscription-administration.png "Using Hybrid Identities for Multi-Cloud Subscription Administration")
 
 </div>
 <div></div>
@@ -169,7 +165,7 @@ Here’s a way to find out using your browser of choice:
    - Navigate to https:\//login.microsoftonline.com/\<domainname\>/.well-known/openid-configuration  
      - \<domainname\> can either be the tenant name or domain name you gathered in step 1.
      - **An example URL**: https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
-   - The result posts back to the page in attribute/value pairs using Java Script Object Notation (JSON) format that resembles:
+   - The result posts back to the page in attribute/value pairs using JavaScript Object Notation (JSON) format that resembles:
 
      ```json
      {
@@ -178,7 +174,7 @@ Here’s a way to find out using your browser of choice:
      }
      ```
      
-   - If the **tenant_region_scope** attribute’s value is **USG** as shown, you have yourself an Azure Government tenant.
+   - If the **tenant_region_scope** attribute’s value is **USG** as shown or **USGov**, you have yourself an Azure Government tenant.
      - The result is a JSON file that’s natively rendered by more modern browsers such as Microsoft Edge, Mozilla Firefox, and Google Chrome. Internet Explorer doesn’t natively render the JSON format so instead prompts you to open or save the file. If you must use Internet Explorer, choose the save option and open it with another browser or plain text reader.
      - The tenant_region_scope property is exactly how it sounds, regional. If you have a tenant in Azure Public in North America, the value would be **NA**.
 
@@ -190,7 +186,7 @@ See “Choosing your Identity Authority” earlier in this article.
 
 **I’m an Office 365 customer and have chosen hybrid identity as my identity model. I also have several Azure subscriptions. Is it possible to use the same Azure AD tenant to handle sign-in for Office 365, applications built in my Azure subscriptions, and/or applications reconfigured to use Azure AD for sign-in?**
 
-Yes, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) to learn more about the relationship between Azure subscriptions and Azure AD. It also contains instructions on how to associate subscriptions to the common directory of your choosing.
+Yes, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) to learn more about the relationship between Azure subscriptions and Azure AD. It also contains instructions on how to associate subscriptions to the common directory of your choosing.
 
 **Can an Azure Government subscription be associated with a directory in Azure AD Public?**
 

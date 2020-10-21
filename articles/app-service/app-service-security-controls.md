@@ -1,5 +1,5 @@
 ﻿---
-title: Security controls
+title: Security controls for Azure App Service
 description: Find a checklist of security controls for evaluating Azure App Service for your organization.
 author: msmbaldwin
 
@@ -35,8 +35,8 @@ This article documents the security controls built into Azure App Service.
 
 | Security control | Yes/No | Notes |  Documentation
 |---|---|--|
-| Authentication| Yes | Customers can build applications on App Service that automatically integrate with [Azure Active Directory (Azure AD)](../active-directory/index.yml) as well as other OAuth compatible identity providers For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure Resource Manager RBAC roles. | [Authentication and authorization in Azure App Service](overview-authentication-authorization.md)
-| Authorization| Yes | For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure Resource Manager RBAC roles.  | [Authentication and authorization in Azure App Service](overview-authentication-authorization.md)
+| Authentication| Yes | Customers can build applications on App Service that automatically integrate with [Azure Active Directory (Azure AD)](../active-directory/index.yml) as well as other OAuth compatible identity providers For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure RBAC. | [Authentication and authorization in Azure App Service](overview-authentication-authorization.md)
+| Authorization| Yes | For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure RBAC.  | [Authentication and authorization in Azure App Service](overview-authentication-authorization.md)
 
 ## Data protection
 
@@ -45,7 +45,7 @@ This article documents the security controls built into Azure App Service.
 | Server-side encryption at rest: Microsoft-managed keys | Yes | Web site file content is stored in Azure Storage, which automatically encrypts the content at rest. <br><br>Customer supplied secrets are encrypted at rest. The secrets are encrypted at rest while stored in App Service configuration databases.<br><br>Locally attached disks can optionally be used as temporary storage by websites (D:\local and %TMP%). Locally attached disks are not encrypted at rest. | [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md)
 | Server-side encryption at rest: customer-managed keys (BYOK) | Yes | Customers can choose to store application secrets in Key Vault and retrieve them at runtime. | [Use Key Vault references for App Service and Azure Functions (preview)](app-service-key-vault-references.md)
 | Column level encryption (Azure Data Services)| N/A | |
-| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | Customers can configure web sites to require and use HTTPS for inbound traffic.  | [How to make an Azure App Service HTTPS only](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/) (blog post)
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | Customers can configure web sites to require and use HTTPS for inbound traffic.  | [How to make an Azure App Service HTTPS only](/archive/blogs/benjaminperkins/how-to-make-an-azure-app-service-https-only) (blog post)
 | API calls encrypted| Yes | Management calls to configure App Service occur via [Azure Resource Manager](../azure-resource-manager/index.yml) calls over HTTPS. |
 
 ## Configuration management

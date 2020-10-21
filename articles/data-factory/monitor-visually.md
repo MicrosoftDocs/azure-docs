@@ -9,10 +9,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 06/30/2020
 ---
 
 # Visually monitor Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Once you've created and published a pipeline in Azure Data Factory, you can associate it with a trigger or manually kick off an ad hoc run. You can monitor all of your pipeline runs natively in the Azure Data Factory user experience. To open the monitoring experience, select the **Monitor & Manage** tile in the data factory blade of the [Azure portal](https://portal.azure.com/). If you're already in the ADF UX, click on the **Monitor** icon on the left sidebar.
 
@@ -125,6 +127,21 @@ You can also view rerun history for a particular pipeline run.
 
 ![View history for a pipeline run](media/monitor-visually/rerun-history-image2.png)
 
+## Monitor consumption
+
+You can see the resources consumed by a pipeline run by clicking the consumption icon next to the run. 
+
+![Screenshot that shows where you can see the resources consumed by a pipeline.](media/monitor-visually/monitor-consumption-1.png)
+
+Clicking the icon opens a consumption report of resources used by that pipeline run. 
+
+![Monitor consumption](media/monitor-visually/monitor-consumption-2.png)
+
+You can plug these values into the [Azure pricing calculator](https://azure.microsoft.com/pricing/details/data-factory/) to estimate the cost of the pipeline run. For more information on Azure Data Factory pricing, see [Understanding pricing](pricing-concepts.md).
+
+> [!NOTE]
+> These values returned by the pricing calculator is an estimate. It doesn't reflect the exact amount you will be billed by Azure Data Factory 
+
 ## Gantt views
 
 Use Gantt views to quickly visualize your pipelines and activity runs.
@@ -146,9 +163,9 @@ Select the **Information** icon on the lower left. Then select **Guided Tours** 
 
 ## Alerts
 
-You can raise alerts on supported metrics in Data Factory. Select **Monitor** > **Alerts & Metrics** on the Data Factory monitoring page to get started.
+You can raise alerts on supported metrics in Data Factory. Select **Monitor** > **Alerts & metrics** on the Data Factory monitoring page to get started.
 
-![Data factory Monitor page](media/monitor-visually/alerts01.png)
+![Data factory Monitor page](media/monitor-visually/start-page.png)
 
 For a seven-minute introduction and demonstration of this feature, watch the following video:
 
@@ -156,33 +173,37 @@ For a seven-minute introduction and demonstration of this feature, watch the fol
 
 ### Create alerts
 
-1.  Select **New Alert Rule** to create a new alert.
+1.  Select **New alert rule** to create a new alert.
 
-    ![New Alert Rule button](media/monitor-visually/alerts02.png)
+    ![New Alert Rule button](media/monitor-visually/new-alerts.png)
 
 1.  Specify the rule name and select the alert severity.
 
-    ![Boxes for rule name and severity](media/monitor-visually/alerts03.png)
+    ![Boxes for rule name and severity](media/monitor-visually/name-and-severity.png)
 
 1.  Select the alert criteria.
 
-    ![Box for target criteria](media/monitor-visually/alerts04.png)
+    ![Box for target criteria](media/monitor-visually/add-criteria-1.png)
 
-    ![List of criteria](media/monitor-visually/alerts05.png)
+    ![Screenshot that shows where you select one metric to set up the alert condition.](media/monitor-visually/add-criteria-2.png)
+
+    ![List of criteria](media/monitor-visually/add-criteria-3.png)
+
+    You can create alerts on various metrics, including those for ADF entity count/size, activity/pipeline/trigger runs, Integration Runtime (IR) CPU utilization/memory/node count/queue, as well as for SSIS package executions and SSIS IR start/stop operations.
 
 1.  Configure the alert logic. You can create an alert for the selected metric for all pipelines and corresponding activities. You can also select a particular activity type, activity name, pipeline name, or failure type.
 
-    ![Options for configuring alert logic](media/monitor-visually/alerts06.png)
+    ![Options for configuring alert logic](media/monitor-visually/alert-logic.png)
 
 1.  Configure email, SMS, push, and voice notifications for the alert. Create an action group, or choose an existing one, for the alert notifications.
 
-    ![Options for configuring notifications](media/monitor-visually/alerts07.png)
+    ![Options for configuring notifications](media/monitor-visually/configure-notification-1.png)
 
-    ![Options for adding a notification](media/monitor-visually/alerts08.png)
+    ![Options for adding a notification](media/monitor-visually/configure-notification-2.png)
 
 1.  Create the alert rule.
 
-    ![Options for creating an alert rule](media/monitor-visually/alerts09.png)
+    ![Options for creating an alert rule](media/monitor-visually/create-alert-rule.png)
 
 ## Next steps
 

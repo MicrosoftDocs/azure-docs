@@ -18,6 +18,9 @@ ms.author: juliako
 
 ---
 # Playing your content with existing players
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Azure Media Services supports many popular streaming formats, such as Smooth Streaming, HTTP Live Streaming, and MPEG-Dash. This topic points you to existing players that you can use to test your streams.
 
 ### The Azure portal Media Services content player
@@ -41,10 +44,6 @@ Use [Azure Media Player](https://aka.ms/azuremediaplayer) to playback your conte
 * Progressive MP4
 
 ### Flash Player
-
-#### AES-encrypted with Token
-
-[https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
 
 #### PlayReady with Token
 

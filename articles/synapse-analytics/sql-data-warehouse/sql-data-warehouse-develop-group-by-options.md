@@ -6,7 +6,7 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
@@ -120,7 +120,7 @@ The following image shows the results of the CTAS:
 
 ![Group by cube](./media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
-The second step is to specify a target table to store interim results:
+The second step is to specify a target table for storing interim results:
 
 ```sql
 DECLARE

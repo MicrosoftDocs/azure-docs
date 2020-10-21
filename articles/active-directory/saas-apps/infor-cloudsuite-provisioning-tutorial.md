@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure Infor CloudSuite for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Infor CloudSuite.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: 3ea430bb-86a7-4bb4-8315-95434a660e88
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2019
 ms.author: Zhchia
@@ -68,11 +63,11 @@ Before configuring and enabling automatic user provisioning, you should decide w
 	
 	![Infor CloudSuite password](media/infor-cloudsuite-provisioning-tutorial/password.png)
 
-	![Infor CloudSuite identifier](media/infor-cloudsuite-provisioning-tutorial/identifier.png)
+	:::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/identifier.png" alt-text="Screenshot of the Infor CloudSuite admin console showing a highlighted table row. That row contains a user identifier, passwords, and a time stamp." border="false":::
 
 5. To generate the bearer token, copy the **User Identifier** and **SCIM Password**. Paste them in notepad++ separated by a colon. Encode the string value by navigating to **Plugins > MIME Tools > Basic64 Encode**. 
 
-	![Infor CloudSuite identifier](media/infor-cloudsuite-provisioning-tutorial/token.png)
+	:::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Screenshot of a Notepad++ document. In the Plugins menu, MIME tools is highlighted. In the MIME tools menu, Base64 encode is highlighted." border="false":::
 
 3.	Copy the bearer token. This value will be entered in the Secret Token field in the Provisioning tab of your Infor CloudSuite application in the Azure portal.
 
@@ -120,11 +115,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://mingle-t20b-scim.mingle.awsdev.infor.com/INFORSTS_TST/v2/scim` in **Tenant URL**. Input the bearer token value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Infor CloudSuite. If the connection fails, ensure your Infor CloudSuite account has Admin permissions and try again.
 

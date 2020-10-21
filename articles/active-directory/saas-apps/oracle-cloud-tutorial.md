@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Oracle Cloud Infrastructure Console | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Oracle Cloud Infrastructure Console.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: f045fe19-11f8-4ccf-a3eb-8495fdc8716f
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Oracle Cloud Infrastructure Console with Azure Active Directory
@@ -103,7 +97,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Oracle Cloud Infrastructure Console application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-   ![image](common/edit-attribute.png)
+   ![Screenshot that shows the "User Attributes" dialog with the "Edit" icon in the top-right selected.](common/edit-attribute.png)
 
 1. In addition to above, Oracle Cloud Infrastructure Console application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
@@ -113,9 +107,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
  
    1. Click **Save**.
 
-      ![image](./media/oracle-cloud-tutorial/config07.png)
+      ![Screenshot that shows the "User Attributes & Claims" section with the "Edit" icons for "Name identifier value" and "Groups returned in claim" highlighted.](./media/oracle-cloud-tutorial/config07.png)
 	
-      ![image](./media/oracle-cloud-tutorial/config11.png)
+      ![Screenshot that shows teh "Manage user claims" dialog with "Persistant" and the "Save" button selected.](./media/oracle-cloud-tutorial/config11.png)
 
    1. Click the **pen** next to **Groups returned in claim**.
 
@@ -175,15 +169,15 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 
 1. Click on the left side of the menu and click on **Identity** then navigate to **Federation**.
 
-   ![Configuration](./media/oracle-cloud-tutorial/config01.png)
+   ![Screenshot that shows the "Oracle Cloud Infrastructure Console" with "Identity" and "Federation" selected from the menu in the top-left.](./media/oracle-cloud-tutorial/config01.png)
 
 1. Save the **Service Provider metadata file** by clicking the **Download this document** link and upload it into the **Basic SAML Configuration** section of Azure portal and then click on **Add Identity Provider**.
 
-   ![Configuration](./media/oracle-cloud-tutorial/config02.png)
+   ![Screenshot that shows "Federation" selected from the left-side menu and the "Add Identity Provider" button and "Download this document" action selected.](./media/oracle-cloud-tutorial/config02.png)
 
 1. On the **Add Identity Provider** pop-up, perform the following steps:
 
-   ![Configuration](./media/oracle-cloud-tutorial/config03.png)
+   ![Screenshot that shows the "Add Identity Provider" pop-up.](./media/oracle-cloud-tutorial/config03.png)
 
    1. In the **NAME** text box, enter your name.
 
@@ -195,7 +189,7 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 
    1. Click **Continue** and on the **Edit Identity Provider** section perform the following steps:
 
-      ![Configuration](./media/oracle-cloud-tutorial/config09.png)
+      ![Screenshot that shows the "Edit Identity Provider" section with "Identity Provider Group", "O C I Group", "Add Mapping", and the "Submit" button highlighted.](./media/oracle-cloud-tutorial/config09.png)
 
    1. The **IDENTITY PROVIDER GROUP** should be selected as Custom Group. The GROUP ID should be the GUID of the group from Azure Active Directory. The group needs to be mapped with corresponding group in **OCI GROUP** field.
 

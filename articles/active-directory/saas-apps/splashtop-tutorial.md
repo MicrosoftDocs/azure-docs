@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Splashtop | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Splashtop.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: c05f63c2-4170-49ce-a967-be1cb1dbcd06
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Splashtop
@@ -86,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Splashtop application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, whereas **nameidentifier** is mapped with **user.userprincipalname**. TicketManager application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with the Edit icon selected.](common/edit-attribute.png)
 
 1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -131,17 +125,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 In this section, you will need to apply for a new SSO method from [Splashtop web portal](https://my.splashtop.com/login).
 1. In the Splashtop web portal, go to **Account info** / **Team** tab, scroll down to find **Single Sign On** section. Then click **Apply for new SSO method**.
 
-	![image](media/splashtop-tutorial/apply-for-new-SSO-method.png)
+	![Screenshot shows the Single Sign On page where you can select Apply for new S S O method.](media/splashtop-tutorial/apply-for-new-SSO-method.png)
 
 1. On the applying window, give an **SSO name**. For example, New Azure, then select **Azure** as the IDP type, and insert **Login URL** and **Azure AD Identifier** copied from Splashtop application on Azure portal.
 
-	![image](media/splashtop-tutorial/azure-sso-1.png)
+	![Screenshot shows the Apply for S S O method page where you can enter a name and other information.](media/splashtop-tutorial/azure-sso-1.png)
 
 1. For certificate info, right-click on the cert file downloaded from Splashtop application on Azure portal, edit it with Notepad, then copy the contents, paste it in **Download Certificate (Base64)** field.
 
-	![image](media/splashtop-tutorial/cert-1.png)
-	![image](media/splashtop-tutorial/cert-2.png)
-	![image](media/splashtop-tutorial/azure-sso-2.png)
+	![Screenshot show selecting a certificate file and opening it with Notepad.](media/splashtop-tutorial/cert-1.png)
+	![Screenshot shows the contents of the certificate file.](media/splashtop-tutorial/cert-2.png)
+	![Screenshot shows the Download Certificate text box.](media/splashtop-tutorial/azure-sso-2.png)
 
 1. That's it! Click **Save** and Splashtop SSO validation team will contact you for the verification info, then activate the SSO method.
 
@@ -149,11 +143,11 @@ In this section, you will need to apply for a new SSO method from [Splashtop web
 
 1. After SSO method activated, please check the newly created SSO method to enable it in the **Single Sign On** section.
 
-	![image](media/splashtop-tutorial/enable.png)
+	![Screenshot shows the Single Sign On page where you can enable the new method.](media/splashtop-tutorial/enable.png)
 
 1. Invite the test user, for example, `B.Simon@contoso.com` to your Splashtop team with the newly created SSO method.
 
-	![image](media/splashtop-tutorial/invite.png)
+	![Screenshot shows the Invite Users page where you can select your new method.](media/splashtop-tutorial/invite.png)
 
 1. You can also change an existing Splashtop account to an SSO account, see [instructions](https://support-splashtopbusiness.splashtop.com/hc/en-us/articles/360038685691-How-to-associate-SSO-method-to-existing-team-admin-member-).
 

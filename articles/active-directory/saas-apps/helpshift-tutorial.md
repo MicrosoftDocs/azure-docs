@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Helpshift | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Helpshift.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 114de95d-e9a7-4f87-b14d-54b91a63ce49
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Helpshift
@@ -139,11 +133,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open the Helpshift **Dashboard** and click on **Settings icon**.
 
-	![The Helpshift Configuration](./media/helpshift-tutorial/configuration01.png)
+	![Screenshot shows the Helpshift Settings icon.](./media/helpshift-tutorial/configuration01.png)
 
 1. Click **Integrations** tab and perform the following steps:
 
-	![The Helpshift Configuration](./media/helpshift-tutorial/configuration02.png)
+	![Screenshot shows the Integration tab where you can perform steps described.](./media/helpshift-tutorial/configuration02.png)
 
     a. Turn on the **Single Sign-On(SAML – SSO)**.
 

@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 > * Create an A and TXT record for your custom domain
 > * Create a CNAME record for your custom domain
 > * Test the new records
-> * Add custom host names you your web app
+> * Add custom host names to your web app
 > * Test the custom host names
 
 
@@ -44,7 +44,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * You must have a domain name available to test with that you can host in Azure DNS . You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
-* [Create an App Service app](../app-service/app-service-web-get-started-html.md), or use an app that you created for another tutorial.
+* [Create an App Service app](../app-service/quickstart-html.md), or use an app that you created for another tutorial.
 
 * Create a DNS zone in Azure DNS, and delegate the zone in your registrar to Azure DNS.
 

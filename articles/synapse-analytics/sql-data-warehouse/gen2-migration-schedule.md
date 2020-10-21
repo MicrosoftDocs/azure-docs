@@ -9,6 +9,7 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: synapse-analytics
 ms.topic: article
+ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
 ---
@@ -126,4 +127,4 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 - [Upgrade in-place and upgrade from a restore point](upgrade-to-latest-generation.md)
 - [Create a user-defined restore point](sql-data-warehouse-restore-points.md)
 - [Learn How to restore to Gen2](sql-data-warehouse-restore-active-paused-dw.md)
-- [Open a SQL Data Warehouse support request](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Open an Azure Synapse Analytics support request](https://go.microsoft.com/fwlink/?linkid=857950)

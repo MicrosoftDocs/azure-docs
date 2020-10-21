@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Paylocity | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Paylocity.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: f5e5a71f-ea04-4533-ba58-0ec85fdf0982
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Paylocity
@@ -108,7 +102,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click **Edit Icon**.
 
-	![The SAML Signing Certificate Edit](./media/paylocity-tutorial/edit-samlassertion.png)
+	![Screenshot that shows the "S A M L Signing Certificate" with the "Download" action for "Federation Metadata X M L" selected.](./media/paylocity-tutorial/edit-samlassertion.png)
 
 1. Select **Signing Option** as **Sign SAML response and assertion** and click **Save**.
 

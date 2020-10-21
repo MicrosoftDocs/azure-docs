@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Whatfix | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Whatfix.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: f4272f1e-7639-4bdd-9a86-e7208099da6c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/17/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Integrate Whatfix with Azure Active Directory
 

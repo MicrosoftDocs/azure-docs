@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with GTNexus SSO System | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and GTNexus SSO System.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: e677a161-1662-4eb3-b48a-b2835470b59e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with GTNexus SSO System
 
@@ -102,11 +95,11 @@ To configure Azure AD single sign-on with GTNexus SSO System, perform the follow
 
 	a. Click **Upload metadata file**.
 
-    ![image](common/upload-metadata.png)
+    ![Screenshot that shows the "Basic S A M L Configuration" page with the "Upload metadata file" action selected.](common/upload-metadata.png)
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	![image](common/browse-upload-metadata.png)
+	![Screenshot that shows the "Select a file" field with the "folder" logo and "Upload" button selected.](common/browse-upload-metadata.png)
 
 	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in GTNexus SSO System section textbox:
 

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Aha! | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Aha!.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: ad955d3d-896a-41bb-800d-68e8cb5ff48d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/09/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Aha! with Azure Active Directory
@@ -36,6 +29,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Aha! single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -149,7 +145,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 6. Click **Security and single sign-on**.
 
-	![Security and single sign-on](./media/aha-tutorial/IC798952.png "Security and single sign-on")
+	![Screenshot that highlights the Security and single sign-on menu option.](./media/aha-tutorial/IC798952.png "Security and single sign-on")
 
 7. In **Single Sign-On** section, as **Identity Provider**, select **SAML2.0**.
 

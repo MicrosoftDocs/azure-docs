@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Percolate | Microsoft Docs'
 description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and Percolate.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 355f9659-b378-44c9-aa88-236e9b529a53
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Percolate
 
@@ -103,7 +97,7 @@ To configure Azure AD single sign-on with Percolate, take these steps:
 
 5. If you want to configure the application in SP-initiated mode, select **Set additional URLs** and, in the **Sign on URL** box, enter **https://percolate.com/app/login**:
 
-   ![Percolate Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+   ![Screenshot that shows "Set additional U R Ls" selected with the "Sign on U R L" text box highlighted.](common/metadata-upload-additional-signon.png)
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Copy** icon to copy the **App Federation Metadata Url**. Save this URL.
 
 	![Copy the App Federation Metadata URL](common/copy-metadataurl.png)
@@ -184,7 +178,7 @@ In this section, you'll enable Britta Simon to use Azure AD single sign-on by gr
 
 3. In the left pane, select **Users and groups**:
 
-    ![Select Users and groups](common/users-groups-blade.png)
+    ![Screenshot that shows "Users and groups" selected from the left pane.](common/users-groups-blade.png)
 
 4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
 

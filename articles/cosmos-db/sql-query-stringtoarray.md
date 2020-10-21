@@ -27,7 +27,7 @@ StringToArray(<str_expr>)
   Returns an array expression or undefined. 
   
 ## Remarks
-  Nested string values must be written with double quotes to be valid JSON. For details on the JSON format, see [json.org](https://json.org/)
+  Nested string values must be written with double quotes to be valid JSON. For details on the JSON format, see [json.org](https://json.org/). This system function will not utilize the index.
   
 ## Examples
   
@@ -85,10 +85,6 @@ Here is the result set.
 ```json
 [{}]
 ```
-
-## Remarks
-
-This system function will not utilize the index.
 
 ## Next steps
 

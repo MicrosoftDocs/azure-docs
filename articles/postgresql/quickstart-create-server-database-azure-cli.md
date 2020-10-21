@@ -1,100 +1,92 @@
 ---
-title: 'Quickstart: Create server - Azure CLI - Azure Database for PostgreSQL - Single Server'
-description: Quickstart guide to create an Azure Database for PostgreSQL - Single Server using Azure CLI (command line interface).
-author: rachel-msft
-ms.author: raagyema
+title: 'Quickstart: Create server - Azure CLI - Azure Database for PostgreSQL - single server'
+description: In this quickstart guide, you'll create an Azure Database for PostgreSQL server by using the Azure CLI.
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 06/25/2019
-ms.custom: mvc
+ms.date: 06/25/2020
+ms.custom: mvc, devx-track-azurecli
 ---
-# Quickstart: Create an Azure Database for PostgreSQL - Single Server using the Azure CLI
+# Quickstart: Create an Azure Database for PostgreSQL server by using the Azure CLI
 
-> [!TIP]
-> Consider using the simpler [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI command (currently in preview). Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
-
-Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to create an Azure Database for PostgreSQL server in an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) using the Azure CLI.
-
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+This quickstart shows how to use [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create a single Azure Database for PostgreSQL server in five minutes. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+> [!TIP]
+> Consider using the simpler [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI command that's currently in preview. Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
 
-If you are running the CLI locally, you need to sign in to your account using the [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) command. Note the **ID** property from the command output for the corresponding subscription name.
+## Prerequisites
+This article requires you to run the Azure CLI version 2.0 or later locally. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+
+You need to log in to your account by using the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command. Note the **id** property,  which refers to **Subscription ID** for your Azure account. 
+
 ```azurecli-interactive
 az login
 ```
 
-If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Substitute the **ID** property from the **az login** output for your subscription into the subscription ID placeholder.
-```azurecli-interactive
+Select the specific subscription ID under your account by using the  [az account set](/cli/azure/account) command. Make a note of the **id** value from the **az login** output to use as the value for the **subscription** argument in the command. 
+
+```azurecli
 az account set --subscription <subscription id>
 ```
 
-## Create a resource group
+If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. To get all your subscriptions, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
 
-Create an [Azure resource group](../azure-resource-manager/management/overview.md) using the [az group create](/cli/azure/group) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
+## Create an Azure Database for PostgreSQL server
+
+Create an [Azure resource group](../azure-resource-manager/management/overview.md) by using the [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) command, and then create your PostgreSQL server inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
+
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
 
-## Create an Azure Database for PostgreSQL server
+Create an [Azure Database for PostgreSQL server](overview.md) by using the [az postgres server create](/cli/azure/postgres/server) command. A server can contain multiple databases.
 
-Create an [Azure Database for PostgreSQL server](overview.md) using the [az postgres server create](/cli/azure/postgres/server) command. A server can contain multiple databases.
-
+```azurecli-interactive
+az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 
+```
+Here are the details for the preceding arguments: 
 
 **Setting** | **Sample value** | **Description**
 ---|---|---
-name | mydemoserver | Choose a unique name that identifies your Azure Database for PostgreSQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
-resource-group | myresourcegroup | Provide the name of the Azure resource group.
-sku-name | GP_Gen5_2 | The name of the sku. Follows the convention {pricing tier}\_{compute generation}\_{vCores} in shorthand. See below this table for more information about the sku-name parameter.
-backup-retention | 7 | How long a backup should be retained. Unit is days. Range is 7-35. 
-geo-redundant-backup | Disabled | Whether geo-redundant backups should be enabled for this server or not. Allowed values: Enabled, Disabled.
-location | westus | The Azure location for the server.
-ssl-enforcement | Enabled | Whether ssl should be enabled or not for this server. Allowed values: Enabled, Disabled.
-storage-size | 51200 | The storage capacity of the server (unit is megabytes). Valid storage-size is minimum 5120MB and increases in 1024MB increments. See the [pricing tiers](./concepts-pricing-tiers.md) document for more information about storage size limits. 
-version | 9.6 | The PostgreSQL major version.
-admin-user | myadmin | The username for the administrator login. It cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
-admin-password | *secure password* | The password of the administrator user. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+name | mydemoserver | Unique name that identifies your Azure Database for PostgreSQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain 3 to 63 characters.
+resource-group | myresourcegroup | Name of the Azure resource group.
+location | westus | Azure location for the server.
+admin-user | myadmin | Username for the administrator login. It can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
+admin-password | *secure password* | Password of the administrator user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
+sku-name|GP_Gen5_2| Name of the pricing tier and compute configuration. Follow the convention {pricing tier}_{compute generation}_{vCores} in shorthand. For more information, see [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/).
+
+>[!IMPORTANT] 
+>- The default PostgreSQL version on your server is 9.6. To see all the versions supported, see [Supported PostgreSQL major versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+>- To view all the arguments for **az postgres server create** command, see [this reference document](https://docs.microsoft.com/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create).
+>- SSL is enabled by default on your server. For more information on SSL, see [Configure SSL connectivity](./concepts-ssl-connection-security.md).
+
+## Configure a server-level firewall rule 
+By default, the server that you created is not publicly accessible and is protected with firewall rules. You can configure the firewall rules on your server by using the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command to give your local environment access to connect to the server. 
+
+The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Replace the IP address or range of IP addresses that corresponds to where you'll be connecting from. If you don't know your IP address, go to [WhatIsMyIPAddress.com](https://whatismyipaddress.com/) to get it.
 
 
-The sku-name parameter value follows the convention {pricing tier}\_{compute generation}\_{vCores} as in the examples below:
-+ `--sku-name B_Gen5_1` maps to Basic, Gen 5, and 1 vCore. This option is the smallest SKU available.
-+ `--sku-name GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
-+ `--sku-name MO_Gen5_2` maps to Memory Optimized, Gen 5, and 2 vCores.
-
-Please see the [pricing tiers](./concepts-pricing-tiers.md) documentation to understand the valid values per region and per tier.
-
-The following example creates a PostgreSQL 9.6 server in West US named `mydemoserver` in your resource group `myresourcegroup` with server admin login `myadmin`. This is a **Gen 4** **General Purpose** server with **2 vCores**. Substitute the `<server_admin_password>` with your own value.
-```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
-```
-
-> [!NOTE]
-> Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/postgresql/) for more information.
-> 
-
-## Configure a server-level firewall rule
-
-Create an Azure PostgreSQL server-level firewall rule with the [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) command. A server-level firewall rule allows an external application, such as [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) or [PgAdmin](https://www.pgadmin.org/) to connect to your server through the Azure PostgreSQL service firewall. 
-
-You can set a firewall rule that covers an IP range to be able to connect from your network. The following example uses [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) to create a firewall rule `AllowMyIP` for a single IP address.
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
 ```
 
 > [!NOTE]
-> Azure PostgreSQL server communicates over port 5432. When connecting from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. Have your IT department open port 5432 to connect to your Azure PostgreSQL server.
+> To avoid connectivity issues, make sure your network's firewall allows port 5432. Azure Database for PostgreSQL servers use that port. 
 
 ## Get the connection information
 
-To connect to your server, you need to provide host information and access credentials.
+To connect to your server, provide host information and access credentials.
+
 ```azurecli-interactive
 az postgres server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-The result is in JSON format. Make a note of the **administratorLogin** and **fullyQualifiedDomainName**.
+The result is in JSON format. Make a note of the **administratorLogin** and **fullyQualifiedDomainName** values.
+
 ```json
 {
   "administratorLogin": "myadmin",
@@ -124,102 +116,39 @@ The result is in JSON format. Make a note of the **administratorLogin** and **fu
 }
 ```
 
-## Connect to PostgreSQL database using psql
+## Connect to the Azure Database for PostgreSQL server by using psql
+The [psql](https://www.postgresql.org/docs/current/static/app-psql.html) client is a popular choice for connecting to PostgreSQL servers. You can connect to your server by using psql with [Azure Cloud Shell](../cloud-shell/overview.md). You can also use psql on your local environment if you have it available. An empty database, **postgres**, is automatically created with a new PostgreSQL server. You can use that database to connect with psql, as shown in the following code. 
 
-If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/current/static/app-psql.html) to connect to an Azure PostgreSQL server. Let's now use the psql command-line utility to connect to the Azure PostgreSQL server.
-
-1. Run the following psql command to connect to an Azure Database for PostgreSQL server
    ```bash
-   psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
+ psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
-   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
-  
-   ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
-   ```
-
-   > [!TIP]
-   > If you prefer to use a URL path to connect to Postgres, URL encode the @ sign in the username with `%40`. For example the connection string for psql would be,
-   > ```
-   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
-   > ```
-
-
-2. Once you are connected to the server, create a blank database at the prompt.
-   ```sql
-   CREATE DATABASE mypgsqldb;
-   ```
-
-3. At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**:
-   ```sql
-   \c mypgsqldb
-   ```
-
-## Connect to the PostgreSQL Server using pgAdmin
-
-pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin from the [pgAdmin website](https://www.pgadmin.org/). The pgAdmin version you're using may be different from what is used in this Quickstart. Read the pgAdmin documentation if you need additional guidance.
-
-1. Open the pgAdmin application on your client computer.
-
-2. From the toolbar go to **Object**, hover over **Create**, and select **Server**.
-
-3. In the **Create - Server** dialog box, on the **General** tab, enter a unique friendly name for the server, such as **mydemoserver**.
-
-   ![The "General" tab](./media/quickstart-create-server-database-azure-cli/9-pgadmin-create-server.png)
-
-4. In the **Create - Server** dialog box, on the **Connection** tab, fill in the settings table.
-
-   ![The "Connection" tab](./media/quickstart-create-server-database-azure-cli/10-pgadmin-create-server.png)
-
-    pgAdmin parameter |Value|Description
-    ---|---|---
-    Host name/address | Server name | The server name value that you used when you created the Azure Database for PostgreSQL server earlier. Our example server is **mydemoserver.postgres.database.azure.com.** Use the fully qualified domain name (**\*.postgres.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information. 
-    Port | 5432 | The port to use when you connect to the Azure Database for PostgreSQL server. 
-    Maintenance database | *postgres* | The default system-generated database name.
-    Username | Server admin login name | The server admin login username that you supplied when you created the Azure Database for PostgreSQL server earlier. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username\@servername*.
-    Password | Your admin password | The password you chose when you created the server earlier in this Quickstart.
-    Role | Leave blank | There's no need to provide a role name at this point. Leave the field blank.
-    SSL mode | *Require* | You can set the SSL mode in pgAdmin's SSL tab. By default, all Azure Database for PostgreSQL servers are created with SSL enforcing turned on. To turn off SSL enforcing, see [SSL Enforcing](./concepts-ssl-connection-security.md).
-    
-5. Select **Save**.
-
-6. In the **Browser** pane on the left, expand the **Servers** node. Select your server, for example, **mydemoserver**. Click to connect to it.
-
-7. Expand the server node, and then expand **Databases** under it. The list should include your existing *postgres* database and any other databases you've created. You can create multiple databases per server with Azure Database for PostgreSQL.
-
-8. Right-click **Databases**, choose the **Create** menu, and then select **Database**.
-
-9. Type a database name of your choice in the **Database** field, such as **mypgsqldb2**.
-
-10. Select the **Owner** for the database from the list box. Choose your server admin login name, such as the example, **my admin**.
-
-    ![Create a database in pgadmin](./media/quickstart-create-server-database-azure-cli/11-pgadmin-database.png)
-
-11. Select **Save** to create a new blank database.
-
-12. In the **Browser** pane, you can see the database that you created in the list of databases under your server name.
-
-
+> [!TIP]
+> If you prefer to use a URL path to connect to Postgres, URL encode the @ sign in the username with `%40`. For example, the connection string for psql would be:
+>
+> ```
+> psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+> ```
 
 
 ## Clean up resources
-
-Clean up all resources you created in the quickstart by deleting the [Azure resource group](../azure-resource-manager/management/overview.md).
-
-> [!TIP]
-> Other quickstarts in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure CLI.
+If you don't need these resources for another quickstart or tutorial, you can delete them by running the following command. 
 
 ```azurecli-interactive
 az group delete --name myresourcegroup
 ```
 
-If you would just like to delete the one newly created server, you can run [az postgres server delete](/cli/azure/postgres/server) command.
+If you just want to delete the one newly created server, you can run the [az postgres server delete](/cli/azure/postgres/server) command.
+
 ```azurecli-interactive
 az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Migrate your database using Export and Import](./howto-migrate-using-export-and-import.md)
+> [Migrate your database using export and import](./howto-migrate-using-export-and-import.md)
+> 
+> [Deploy a Django web app with PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md)
+>
+> [Connect with a Node.JS app](./connect-nodejs.md)
 

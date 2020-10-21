@@ -7,6 +7,7 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: ravokkar
+ms.custom:  [amqp, mqtt]
 ---
 # Communicate with your DPS using the MQTT protocol
 
@@ -17,7 +18,7 @@ DPS enables devices to communicate with the DPS device endpoint using:
 
 DPS is not a full-featured MQTT broker and does not support all the behaviors specified in the MQTT v3.1.1 standard. This article describes how devices can use supported MQTT behaviors to communicate with DPS.
 
-All device communication with DPS must be secured using TLS/SSL. Therefore, DPS doesn’t support non-secure connections over port 1883.
+All device communication with DPS must be secured using TLS/SSL. Therefore, DPS doesn't support non-secure connections over port 1883.
 
  > [!NOTE] 
  > DPS does not currently support devices using TPM [attestation mechanism](https://docs.microsoft.com/azure/iot-dps/concepts-device#attestation-mechanism) over the MQTT protocol.
@@ -74,7 +75,7 @@ When connecting over Websocket, specify the subprotocol as `mqtt`. Follow [RFC 6
 
 ## Next steps
 
-To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt.org/documentation).
+To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt.org/).
 
 To further explore the capabilities of DPS, see:
 

@@ -1,15 +1,16 @@
 ---
 title: "Quickstart: Create a blueprint with REST API"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the REST API.
-ms.date: 02/26/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with REST API
 
 Learning how to create and assign blueprints enables the definition of common patterns to develop
-reusable and rapidly deployable configurations based on Resource Manager templates, policy,
-security, and more. In this tutorial, you learn to use Azure Blueprints to do some of the common
-tasks related to creating, publishing, and assigning a blueprint within your organization, such as:
+reusable and rapidly deployable configurations based on Azure Resource Manager templates (ARM
+templates), policy, security, and more. In this tutorial, you learn to use Azure Blueprints to do
+some of the common tasks related to creating, publishing, and assigning a blueprint within your
+organization, such as:
 
 ## Prerequisites
 
@@ -50,7 +51,7 @@ $authHeader = @{
 }
 
 # Invoke the REST API
-$restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-version=2016-06-01'
+$restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-version=2020-01-01'
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
@@ -65,8 +66,8 @@ parameter of `Invoke-RestMethod`.
 
 The first step in defining a standard pattern for compliance is to compose a blueprint from the
 available resources. We'll create a blueprint named 'MyBlueprint' to configure role and policy
-assignments for the subscription. Then we'll add a resource group, a Resource Manager template, and
-a role assignment on the resource group.
+assignments for the subscription. Then we'll add a resource group, an ARM template, and a role
+assignment on the resource group.
 
 > [!NOTE]
 > When using the REST API, the _blueprint_ object is created first. For each _artifact_ to be added
@@ -232,8 +233,8 @@ values:
      }
      ```
 
-1. Add template under resource group. The **Request Body** for a Resource Manager template includes
-   the normal JSON component of the template and defines the target resource group with
+1. Add template under resource group. The **Request Body** for an ARM template includes the normal
+   JSON component of the template and defines the target resource group with
    **properties.resourceGroup**. The template also reuses the **storageAccountType**, **tagName**,
    and **tagValue** blueprint parameters by passing each to the template. The blueprint parameters
    are available to the template by defining **properties.parameters** and inside the template JSON
@@ -383,7 +384,7 @@ values:
 1. Provide the Azure Blueprint service principal the **Owner** role on the target subscription. The
    AppId is static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), but the service principal ID varies by
    tenant. Details can be requested for your tenant using the following REST API. It uses
-   [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md)
+   [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md),
    which has different authorization.
 
    - REST API URI

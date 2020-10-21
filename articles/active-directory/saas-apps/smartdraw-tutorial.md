@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SmartDraw | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SmartDraw.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 6f8fbbe8-c771-4fa1-9326-5a9dac991ace
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with SmartDraw
@@ -154,11 +148,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Single Sign-On** under Manage your SmartDraw License.
 
-	![SmartDraw Configuration](./media/smartdraw-tutorial/configure01.png)
+	![Screenshot shows the Manage your SmartDraw License dialog box where you can select Single Sign-On.](./media/smartdraw-tutorial/configure01.png)
 
 1. On the Configuration page, perform the following steps:
 
-	![SmartDraw Configuration](./media/smartdraw-tutorial/configure02.png)
+	![Screenshot shows the Configuration page where you can enter the values described.](./media/smartdraw-tutorial/configure02.png)
 
 	a. In the **Your Domain (like acme.com)** textbox, type your domain.
 

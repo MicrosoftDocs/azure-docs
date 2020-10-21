@@ -23,7 +23,7 @@ This article provides information on troubleshooting issues with using Data Mana
 > [!NOTE]
 > This article applies to version 1 of Azure Data Factory. If you are using the current version of the Data Factory service, see [self-hosted integration runtime in Data Factory](../create-self-hosted-integration-runtime.md).
 
-See the [Data Management Gateway](data-factory-data-management-gateway.md) article for detailed information about the gateway. See the [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for a walkthrough of moving data from an on-premises SQL Server database to Microsoft Azure Blob storage by using the gateway.
+See the [Data Management Gateway](data-factory-data-management-gateway.md) article for detailed information about the gateway. See the [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for a walkthrough of moving data from a SQL Server database to Microsoft Azure Blob storage by using the gateway.
 
 ## Failed to install or register gateway
 ### 1. Problem
@@ -221,9 +221,9 @@ You might notice the following "UserErrorFailedToConnectToSqlserver" failure aft
 This can happen for different reasons, and mitigation varies accordingly.
 
 #### Resolution
-Allow outbound TCP connections over port TCP/1433 on the Data Management Gateway client side before connecting to an SQL database.
+Allow outbound TCP connections over port TCP/1433 on the Data Management Gateway client side before connecting to a SQL database.
 
-If the target database is an Azure SQL database, check SQL Server firewall settings for Azure as well.
+If the target database is in Azure SQL Database, check SQL Server firewall settings for Azure as well.
 
 See the following section to test the connection to the on-premises data store.
 

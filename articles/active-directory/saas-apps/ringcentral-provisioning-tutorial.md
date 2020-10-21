@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure RingCentral for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to RingCentral.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: 976ac071-fa7e-4f31-aed1-d174942860d4
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
@@ -88,15 +83,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://platform.ringcentral.com/scim/v2` in **Tenant URL**. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to RingCentral. If the connection fails, ensure your RingCentral account has Admin permissions and try again.
 
- 	![Provisioning tab](./media/ringcentral-provisioning-tutorial/provisioning.png)
+ 	![Screenshot of the Tenant URL and Secret Token text fields with the Test Connection option called out.](./media/ringcentral-provisioning-tutorial/provisioning.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
@@ -113,7 +108,6 @@ This section guides you through the steps to configure the Azure AD provisioning
    |userName|String|
    |externalId|String|
    |active|Boolean|
-   |displayName|String|
    |title|String|
    |emails[type eq "work"].value|String|
    |addresses[type eq "work"].country|String|
@@ -125,7 +119,6 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.familyName|String|
    |phoneNumbers[type eq "mobile"].value|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference|
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -147,8 +140,12 @@ This operation starts the initial synchronization cycle of all users and groups 
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
+2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+
+## Change log
+
+* 09/10/2020 - Removed support for "displayName" and "manager" attributes.
 
 ## Additional resources
 

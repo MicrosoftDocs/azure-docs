@@ -4,7 +4,8 @@ description: Describes how to create tokens for accessing the ARR REST APIs
 author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Get service access tokens
@@ -19,7 +20,7 @@ This article describes how to create such access token.
 
 ## Token service REST API
 
-To create access tokens, the *Secure Token Service* provides a single REST API. The URL for the ARR STS service is [https://sts.mixedreality.azure.com](https://sts.mixedreality.azure.com).
+To create access tokens, the *Secure Token Service* provides a single REST API. The URL for the ARR STS service is https:\//sts.mixedreality.azure.com.
 
 ### 'Get token' request
 

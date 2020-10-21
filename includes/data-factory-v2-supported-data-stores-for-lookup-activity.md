@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 12/13/2019
+ms.date: 09/24/2020
 ms.author: jingwang
 ms.custom: include file
 ---
@@ -20,9 +20,10 @@ ms.custom: include file
 | &nbsp; |[Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |
 | &nbsp; |[Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
+| &nbsp; |[Azure Databricks Delta Lake](../articles/data-factory/connector-azure-databricks-delta-lake.md) |
 | &nbsp; |[Azure Files](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |
-| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |
+| &nbsp; |[Azure SQL Managed Instance](../articles/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
 | &nbsp; |[Azure Synapse Analytics (formerly SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure Table storage](../articles/data-factory/connector-azure-table-storage.md) |
 | **Database** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
@@ -46,6 +47,7 @@ ms.custom: include file
 | &nbsp; |[SAP Business Warehouse via MDX](../articles/data-factory/connector-sap-business-warehouse.md) |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |
 | &nbsp; |[SAP Table](../articles/data-factory/connector-sap-table.md) |
+| &nbsp; |[Snowflake](../articles/data-factory/connector-snowflake.md) |
 | &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |
@@ -85,6 +87,7 @@ ms.custom: include file
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |
 | &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |
 | &nbsp; |[Shopify (Preview)](../articles/data-factory/connector-shopify.md) |
+| &nbsp; |[SharePoint Online List](../articles/data-factory/connector-sharepoint-online-list.md) |
 | &nbsp; |[Square (Preview)](../articles/data-factory/connector-square.md) |
 | &nbsp; |[Web Table (HTML table)](../articles/data-factory/connector-web-table.md) 
 | &nbsp; |[Xero](../articles/data-factory/connector-xero.md) |

@@ -1,10 +1,8 @@
 ---
 title: Considerations for naming Azure resources | Microsoft Docs
 description: This article contains guidance on how customers should consider naming their Azure resources to prevent attribution to business/mission sensitive workloads.
-services: Azure-government
+services: azure-government
 cloud: gov
-author: bernie-msft
-manager: zakramer
 
 ms.devlang: na
 ms.topic: article
@@ -12,7 +10,6 @@ ms.tgt_pltfrm: na
 ms.service: azure-government
 ms.workload: Azure-government
 ms.date: 4/6/2020
-ms.author: beellis
 
 ---
 # Considerations for naming Azure resources
@@ -40,7 +37,7 @@ An example of a virtual machine resource ID is:
 
 
 ## Naming considerations
-For all names that meet the criteria above, from the name of the larger resource group to the name of the end resources within it, customers should avoid names that are sensitive to business/mission functions.  Customers should also avoid names that indicate customer regulatory requirements (e.g., [ITAR](https://docs.microsoft.com/microsoft-365/compliance/offering-itar?view=o365-worldwide), [CJIS](https://docs.microsoft.com/microsoft-365/compliance/offering-cjis?view=o365-worldwide), etc.), as applicable.
+For all names that meet the criteria above, from the name of the larger resource group to the name of the end resources within it, customers should avoid names that are sensitive to business/mission functions.  Customers should also avoid names that indicate customer regulatory requirements (for example, [ITAR](/microsoft-365/compliance/offering-itar), [CJIS](/microsoft-365/compliance/offering-cjis), and so on), as applicable.
 
 >[!NOTE]
 >Also consider naming of resource tags when reviewing the [Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/>azure-resource-manager/management/toc.json).

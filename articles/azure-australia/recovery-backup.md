@@ -1,11 +1,11 @@
 ---
 title: Backup and disaster recovery in Azure Australia
 description: Backup and disaster recovery in Microsoft Azure for Australian Government agencies as it relates to the ASD Essential 8
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: yvettep
 ---
 
 # Backup and disaster recovery in Azure Australia
@@ -14,7 +14,7 @@ Having backup and disaster recovery plans with the supporting infrastructure in 
 
 Microsoft Azure provides two services that enable resilience: Azure Backup and Azure Site Recovery. These services enable you to protect your data, both on-premises and in the cloud,  for a variety of design scenarios. Azure Backup and Azure Site Recovery both use a common storage and management resource: the Azure Recovery Services Vault. This vault is used to manage, monitor, and segregate Azure Backup and Azure Site Recovery Data.
 
-This article details the key design elements for implementing Azure Backup and Azure Site Recovery in line with the [Australian Signals Directorate’s (ASD) Information Security Manual (ISM) Controls](https://acsc.gov.au/infosec/ism/index.htm).
+This article details the key design elements for implementing Azure Backup and Azure Site Recovery in line with the [Australian Signals Directorate's (ASD) Information Security Manual (ISM) Controls](https://acsc.gov.au/infosec/ism/index.htm).
 
 ## Azure Backup
 
@@ -67,7 +67,7 @@ Unlike traditional offsite storage technologies like tape media, the additional 
 
 ### Restricted access and activity monitoring
 
-Backup data must be protected from corruption, modification, and unapproved deletion. Both Azure Backup and Azure Site Recovery make use of the common Azure management fabric. This fabric provides detailed auditing, logging, and Role-Based Access Control (RBAC) to resources located within Azure. Access to backup data can be restricted to select administrative staff and all actions involving backup data can be logged and audited.
+Backup data must be protected from corruption, modification, and unapproved deletion. Both Azure Backup and Azure Site Recovery make use of the common Azure management fabric. This fabric provides detailed auditing, logging, and Azure role-based access control (Azure RBAC) to resources located within Azure. Access to backup data can be restricted to select administrative staff and all actions involving backup data can be logged and audited.
 
 Both Azure Backup and Azure Site Recovery have built-in logging and reporting features. Any issues that occur during backup or replication are reported to administrators using the Azure management fabric.
 

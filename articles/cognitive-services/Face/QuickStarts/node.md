@@ -9,85 +9,45 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 12/06/2019
+ms.date: 08/05/2020
 ms.author: pafarley
+ms.custom: devx-track-js
 #Customer intent: As a Node.js developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
 
 # Quickstart: Detect faces in an image using the Face REST API and Node.js
 
-In this quickstart, you will use the Azure Face REST API with Node.js to detect human faces in an image.
+In this quickstart, you'll use the Azure Face REST API with Node.js to detect human faces in an image.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
 
 ## Prerequisites
 
-- A Face subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face service and get your key.
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## Set up the Node environment
 
-Go to the folder where you'd like to create your project and create a new file, *facedetection.js*. Then install the `requests` module to this project. This allows your scripts to make HTTP requests.
+Go to the folder where you'd like to create your project and create a new file, *facedetection.js*. Then install the `axios` module to this project. This allows your scripts to make HTTP requests.
 
 ```shell
-npm install request --save
+npm install axios --save
 ```
 
 ## Write the Node.js script
 
-Paste the following code into *facedetection.js*. These fields specify how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you need to change the `uriBase` string so that it contains the correct endpoint string. You may wish to change the `imageUrl` field to point to your own input image.
+Paste the following code into *facedetection.js*. These fields specify how to connect to the Face service and where to get the input data. [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) and add your Face subscription key and endpoint to them. You may wish to change the `imageUrl` field to point to your own input image.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-```javascript
-'use strict';
-
-const request = require('request');
-
-// Replace <Subscription Key> with your valid subscription key.
-const subscriptionKey = '<Subscription Key>';
-
-// You must use the same location in your REST call as you used to get your
-// subscription keys. For example, if you got your subscription keys from
-// westus, replace "westcentralus" in the URL below with "westus".
-const uriBase = 'https://<My Endpoint String>.com/face/v1.0/detect';
-
-const imageUrl =
-    'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
-```
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/Face/rest/detect.js" id="environment":::
 
 Then, add the following code to call the Face API and get face attribute data from the input image. The `returnFaceAttributes` field specifies which face attributes to retrieve. You may wish to change this string depending on your intended use.
 
-
-```javascript
-// Request parameters.
-const params = {
-    'returnFaceId': 'true',
-    'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,' +
-        'emotion,hair,makeup,occlusion,accessories,blur,exposure,noise'
-};
-
-const options = {
-    uri: uriBase,
-    qs: params,
-    body: '{"url": ' + '"' + imageUrl + '"}',
-    headers: {
-        'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key' : subscriptionKey
-    }
-};
-
-request.post(options, (error, response, body) => {
-  if (error) {
-    console.log('Error: ', error);
-    return;
-  }
-  let jsonResponse = JSON.stringify(JSON.parse(body), null, '  ');
-  console.log('JSON Response\n');
-  console.log(jsonResponse);
-});
-```
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/Face/rest/detect.js" id="main":::
 
 ## Save and run the script
 
@@ -97,7 +57,35 @@ After you've made your changes, open a command prompt and run the file with the 
 node facedetection.js
 ```
 
-You should see the face information displayed as JSON data in the console window. For example:
+A successful response will display Face data in easily readable JSON format. For example:
+
+```json
+[
+   {
+      "faceId": "f7eda569-4603-44b4-8add-cd73c6dec644",
+      "faceRectangle": {
+         "top": 131,
+         "left": 177,
+         "width": 162,
+         "height": 162
+      }
+   }
+]
+```
+
+## Extract Face Attributes
+ 
+To extract face attributes, use detection model 1 and add the `returnFaceAttributes` query parameter. Edit the parameters as follows:
+
+```javascript
+    params : {
+		detectionModel: 'detection_01',
+		returnFaceAttributes: 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+        returnFaceId: true
+    },
+```
+
+The response now includes face attributes. For example:
 
 ```json
 [

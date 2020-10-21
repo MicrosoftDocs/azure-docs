@@ -1,22 +1,22 @@
 ---
-title: Model interpretability in automated machine learning
+title: Explainability in automated ML (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to get explanations for how your automated ML model determines feature importance and makes predictions when using the Azure Machine Learning SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: mesameki
-author: mesameki
-ms.reviewer: trbye
-ms.date: 03/11/2020
+ms.custom: how-to
+ms.author: mithigpe
+author: minthigpen
+ms.date: 07/09/2020
 ---
 
-# Model interpretability in automated machine learning
+# Interpretability: model explanations in automated machine learning (preview)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to enable the interpretability features for automated machine learning (ML) in Azure Machine Learning. Automated ML helps you understand engineered feature importance. 
+
+In this article, you learn how to get explanations for automated machine learning (ML) in Azure Machine Learning. Automated ML helps you understand engineered feature importance. 
 
 All SDK versions after 1.0.85 set `model_explainability=True` by default. In SDK version 1.0.85 and earlier versions users need to set `model_explainability=True` in the `AutoMLConfig` object in order to use model interpretability. 
 
@@ -28,19 +28,27 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- Interpretability features. Run `pip install azureml-interpret azureml-contrib-interpret` to get the necessary packages.
+- Interpretability features. Run `pip install azureml-interpret` to get the necessary package.
 - Knowledge of building automated ML experiments. For more information on how to use the Azure Machine Learning SDK, complete this [regression model tutorial](tutorial-auto-train-models.md) or see how to [configure automated ML experiments](how-to-configure-auto-train.md).
 
 ## Interpretability during training for the best model
 
 Retrieve the explanation from the `best_run`, which includes explanations for engineered features.
 
+> [!Warning]
+> Interpretability, best model explanation, is not available for Auto ML forecasting experiments that recommend the following algorithms as the best model: 
+> * ForecastTCN
+> * Average 
+> * Naive
+> * Seasonal Average 
+> * Seasonal Naive
+
 ### Download engineered feature importance from artifact store
 
 You can use `ExplanationClient` to download the engineered feature explanations from the artifact store of the `best_run`. 
 
 ```python
-from azureml.explain.model._internal.explanation_client import ExplanationClient
+from azureml.interpret import ExplanationClient
 
 client = ExplanationClient.from_run(best_run)
 engineered_explanations = client.download_model_explanation(raw=False)
@@ -81,20 +89,21 @@ To generate an explanation for AutoML models, use the `MimicWrapper` class. You 
 
 - The explainer setup object
 - Your workspace
-- A LightGBM model, which acts as a surrogate to the `fitted_model` automated ML model
+- A surrogate model to explain the `fitted_model` automated ML model
 
 The MimicWrapper also takes the `automl_run` object where the engineered explanations will be uploaded.
 
 ```python
-from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
-from azureml.explain.model.mimic_wrapper import MimicWrapper
+from azureml.interpret import MimicWrapper
 
 # Initialize the Mimic Explainer
-explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMExplainableModel, 
+explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
+                         explainable_model=automl_explainer_setup_obj.surrogate_model, 
                          init_dataset=automl_explainer_setup_obj.X_transform, run=automl_run,
                          features=automl_explainer_setup_obj.engineered_feature_names, 
                          feature_maps=[automl_explainer_setup_obj.feature_map],
-                         classes=automl_explainer_setup_obj.classes)
+                         classes=automl_explainer_setup_obj.classes,
+                         explainer_kwargs=automl_explainer_setup_obj.surrogate_model_params)
 ```
 
 ### Use MimicExplainer for computing and visualizing engineered feature importance
@@ -106,7 +115,7 @@ engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=au
 print(engineered_explanations.get_feature_importance_dict())
 ```
 
-### Interpretability during inference
+## Interpretability during inference
 
 In this section, you learn how to operationalize an automated ML model with the explainer that was used to compute the explanations in the previous section.
 

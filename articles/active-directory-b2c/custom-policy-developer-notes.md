@@ -8,8 +8,9 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 03/30/2020
+ms.topic: reference
+ms.date: 05/19/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -61,11 +62,11 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Feature | Development | Preview | GA | Notes |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OAuth2 authorization code](authorization-code-flow.md) |  |  | X |  |
-| OAuth2 authorization code with PKCE |  |  | X | Mobile applications only  |
+| OAuth2 authorization code with PKCE |  |  | X | [Public clients and single-page applications](authorization-code-flow.md)  |
 | [OAuth2 implicit flow](implicit-flow-single-page-application.md) |  |  | X |  |
 | [OAuth2 resource owner password credentials](ropc-custom.md) |  | X |  |  |
 | [OIDC Connect](openid-connect.md) |  |  | X |  |
-| [SAML2](connect-with-saml-service-providers.md)  |  |X  |  | POST and Redirect bindings. |
+| [SAML2](connect-with-saml-service-providers.md)  |  |  |X  | POST and Redirect bindings. |
 | OAuth1 |  |  |  | Not supported. |
 | WSFED | X |  |  |  |
 
@@ -76,7 +77,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | For example, Google+.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | For example, Facebook.  |
 | [OAuth1](oauth1-technical-profile.md) |  | X |  | For example, Twitter. |
-| [SAML2](saml-technical-profile.md) |  |   | X | For example, Salesforce, ADFS. |
+| [SAML2](saml-identity-provider-technical-profile.md) |  |   | X | For example, Salesforce, ADFS. |
 | WSFED| X |  |  |  |
 
 
@@ -97,7 +98,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [One-time password](one-time-password-technical-profile.md) |  | X |  |  |
 | [Azure Active Directory](active-directory-technical-profile.md) as local directory |  |  | X |  |
 | Azure email subsystem for email verification |  |  | X |  |
-| [Third party email service providers](custom-email.md) |  |X  |  |  |
+| [Third party email service providers](custom-email-mailjet.md) |  |X  |  |  |
 | [Multi-language support](localization.md)|  |  | X |  |
 | [Predicate validations](predicates.md) |  |  | X | For example, password complexity. |
 | [Display controls](display-controls.md) |  |X  |  |  |
@@ -107,10 +108,10 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| [2.0.0](page-layout.md#200) |  | X |  |  |
-| [1.2.0](page-layout.md#120) |  | X |  |  |
-| [1.1.0](page-layout.md#110) |  |  | X |  |
-| [1.0.0](page-layout.md#100) |  |  | X |  |
+| [2.0.0](page-layout.md) |  | X |  |  |
+| [1.2.0](page-layout.md) |  | X |  |  |
+| [1.1.0](page-layout.md) |  |  | X |  |
+| [1.0.0](page-layout.md) |  |  | X |  |
 | [JavaScript support](javascript-samples.md) |  | X |  |  |
 
 ### App-IEF integration
@@ -130,7 +131,8 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [Default SSO session provider](custom-policy-reference-sso.md#defaultssosessionprovider) |  |  | X |  |
 | [External login session provider](custom-policy-reference-sso.md#externalloginssosessionprovider) |  |  | X |  |
 | [SAML SSO session provider](custom-policy-reference-sso.md#samlssosessionprovider) |  |  | X |  |
-
+| [OAuthSSOSessionProvider](custom-policy-reference-sso.md#oauthssosessionprovider)  |  | X |  |  |
+| [Single sign-out](session-overview.md#sign-out)  |  | X |  |  |
 
 ### Security
 

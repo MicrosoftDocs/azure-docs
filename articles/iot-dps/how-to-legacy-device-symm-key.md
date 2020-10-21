@@ -1,20 +1,22 @@
 ---
-title: Provision legacy devices using symmetric keys - Azure IoT Hub Device Provisioning Service
-description: How to use symmetric keys to provision legacy devices with your Device Provisioning Service (DPS) instance
+title: Provision devices using symmetric keys - Azure IoT Hub Device Provisioning Service
+description: How to use symmetric keys to provision devices with your Device Provisioning Service (DPS) instance
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
+manager: eliotga
 ---
 
-# How to provision legacy devices using symmetric keys
+# How to provision devices using symmetric key enrollment groups
 
-A common problem with many legacy devices is that they often have an identity that is composed of a single piece of information. This identity information is usually a MAC address or a serial number. Legacy devices may not have a certificate, TPM, or any other security feature that can be used to securely identify the device. The Device Provisioning Service for IoT hub includes symmetric key attestation. Symmetric key attestation can be used to identify a device based off information like the MAC address or a serial number.
+This article demonstrates how to securely provision multiple symmetric key devices to a single IoT Hub using an enrollment group.
 
-If you can easily install a [hardware security module (HSM)](concepts-security.md#hardware-security-module) and a certificate, then that may be a better approach for identifying and provisioning your devices. Since that approach may allow you to bypass updating the code deployed to all your devices, and you would not have a secret key embedded in your device image.
+Some devices may not have a certificate, TPM, or any other security feature that can be used to securely identify the device. The Device Provisioning Service includes [symmetric key attestation](concepts-symmetric-key-attestation.md). Symmetric key attestation can be used to identify a device based off unique information like the MAC address or a serial number.
+
+If you can easily install a [hardware security module (HSM)](concepts-service.md#hardware-security-module) and a certificate, then that may be a better approach for identifying and provisioning your devices. Since that approach may allow you to bypass updating the code deployed to all your devices, and you would not have a secret key embedded in your device image.
 
 This article assumes that neither an HSM or a certificate is a viable option. However, it is assumed that you do have some method of updating device code to use the Device Provisioning Service to provision these devices. 
 
@@ -42,7 +44,7 @@ The device code demonstrated in this article will follow the same pattern as the
 
 The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
 
 * Latest version of [Git](https://git-scm.com/download/) installed.
 
@@ -68,7 +70,7 @@ The SDK includes the sample code for the simulated device. This simulated device
 
     You should expect this operation to take several minutes to complete.
 
-4. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. Run the following commands from the `azure-iot-sdk-c` directory:
+4. Create a `cmake` subdirectory in the root directory of the Git repository, and navigate to that folder. Run the following commands from the `azure-iot-sdk-c` directory:
 
     ```cmd/sh
     mkdir cmake
@@ -142,7 +144,9 @@ Create a unique registration ID for your device. Valid characters are lowercase 
 
 To generate the device key, use the group master key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device and convert the result into Base64 format.
 
-Do not include your group master key in your device code.
+> [!WARNING]
+> Your device code should only include the derived device key for the individual device. Do not include your group master key in your device code. 
+> A compromised master key has the potential to compromise the security of all devices being authenticated with it.
 
 
 #### Linux workstations

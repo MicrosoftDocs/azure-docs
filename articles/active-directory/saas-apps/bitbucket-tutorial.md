@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with SAML SSO for Bitbucket by resolution GmbH | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SAML SSO for Bitbucket by resolution GmbH.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: fc947df1-f24e-43ae-9a34-518293583d69
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SAML SSO for Bitbucket by resolution GmbH
 
@@ -102,7 +95,7 @@ To configure Azure AD single sign-on with SAML SSO for Bitbucket by resolution G
 
 4. On the **Basic SAML Configuration** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-    ![SAML SSO for Bitbucket by resolution GmbH Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<server-base-url>/plugins/servlet/samlsso`
@@ -112,7 +105,7 @@ To configure Azure AD single sign-on with SAML SSO for Bitbucket by resolution G
 
     c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![SAML SSO for Bitbucket by resolution GmbH Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<server-base-url>/plugins/servlet/samlsso`

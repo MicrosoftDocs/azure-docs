@@ -1,27 +1,26 @@
 ---
 title: HTTP to HTTPS redirection using CLI
 titleSuffix: Azure Application Gateway
-description: Learn how to create an application gateway and add a certificate for SSL termination using the Azure CLI.
+description: Learn how to create an HTTP to HTTPS redirection and add a certificate for TLS termination using the Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/15/2019
+ms.topic: how-to
+ms.date: 09/24/2020
 ms.author: victorh
 ---
 
 # Create an application gateway with HTTP to HTTPS redirection using the Azure CLI
 
-You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
+You can use the Azure CLI to create an [application gateway](overview.md) with a certificate for TLS/SSL termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create a self-signed certificate
-> * Set up a network
-> * Create an application gateway with the certificate
-> * Add a listener and redirection rule
-> * Create a virtual machine scale set with the default backend pool
+* Create a self-signed certificate
+* Set up a network
+* Create an application gateway with the certificate
+* Add a listener and redirection rule
+* Create a virtual machine scale set with the default backend pool
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -219,13 +218,6 @@ To accept the security warning if you used a self-signed certificate, select **D
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a self-signed certificate
-> * Set up a network
-> * Create an application gateway with the certificate
-> * Add a listener and redirection rule
-> * Create a virtual machine scale set with the default backend pool
+- [Create an application gateway with internal redirection using the Azure CLI](redirect-internal-site-cli.md)
 
 

@@ -1,42 +1,83 @@
 ---
-title: Intro to authentication in Azure Automation
-description: This article provides an overview of Automation security and the different authentication methods available for Automation Accounts in Azure Automation.
+title: Azure Automation account authentication overview
+description: This article provides an overview of Azure Automation account authentication.
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.subservice: process-automation
-ms.date: 03/19/2018
+ms.date: 09/28/2020
 ms.topic: conceptual
-ROBOTS: NOINDEX
 ---
-# Introduction to authentication in Azure Automation  
-Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers such as Amazon Web Services (AWS).  In order for a runbook to perform its required actions, it must have permissions to securely access the resources with the minimal rights required within the subscription.
+# Automation account authentication overview
 
-This article will cover the various authentication scenarios supported by Azure Automation and will show you how to get started based on the environment or environments you need to manage.  
+Azure Automation allows you to automate tasks against resources in Azure, on-premises, and with other cloud providers such as Amazon Web Services (AWS). You can use runbooks to automate your tasks, or a Hybrid Runbook Worker if you have business or operational processes to manage outside of Azure. Working in any one of these environments require permissions to securely access the resources with the minimal rights required.
 
-## Automation Account overview
-When you start Azure Automation for the first time, you must create at least one Automation account. Automation accounts allow you to isolate your Automation resources (runbooks, assets, configurations) from the resources contained in other Automation accounts. You can use Automation accounts to separate resources into separate logical environments. For example, you might use one account for development, another for production, and another for your on-premises environment.  An Azure Automation account is different from your Microsoft account or accounts created in your Azure subscription.
+This article covers authentication scenarios supported by Azure Automation and tells how to get started based on the environment or environments that you need to manage.
 
-The Automation resources for each Automation account are associated with a single Azure region, but Automation accounts can manage all the resources in your subscription. The main reason to create Automation accounts in different regions would be if you have policies that require data and resources to be isolated to a specific region.
+## Automation account
 
-All of the tasks that you perform against resources using Azure Resource Manager and the Azure cmdlets in Azure Automation must authenticate to Azure using Azure Active Directory organizational identity credential-based authentication.  Certificate-based  authentication was the original authentication method with Azure classic, but it was complicated to set up.  Authenticating to Azure with Azure AD user was introduced back in 2014 to not only simplify the process to configure an Authentication account, but also support the ability to non-interactively authenticate to Azure with a single user account that worked with both Azure Resource Manager and classic resources.   
+When you start Azure Automation for the first time, you must create at least one Automation account. Automation accounts allow you to isolate your Automation resources, runbooks, assets, configurations, from the resources of other accounts. You can use Automation accounts to separate resources into separate logical environments. For example, you might use one account for development, another for production, and another for your on-premises environment. An Azure Automation account is different from your Microsoft account or accounts created in your Azure subscription. For an introduction to creating an Automation account, see [Create an Automation account](automation-quickstart-create-account.md).
 
-Currently when you create a new Automation account in the Azure portal, it automatically creates:
+## Automation resources
 
-* Run As account which creates a new service principal in Azure Active Directory, a certificate, and assigns the Contributor role-based access control (RBAC), which is used to manage Resource Manager resources using runbooks.
-* Classic Run As account by uploading a management certificate, which is used to manage Azure classic resources using runbooks.  
+The Automation resources for each Automation account are associated with a single Azure region, but the account can manage all the resources in your Azure subscription. The main reason to create Automation accounts in different regions is if you have policies that require data and resources to be isolated to a specific region.
 
-Role-based access control is available with Azure Resource Manager to grant permitted actions to an Azure AD user account and Run As account, and authenticate that service principal.  Please read [Role-based access control in Azure Automation article](automation-role-based-access-control.md) for further information to help develop your model for managing Automation permissions.  
+All tasks that you create against resources using Azure Resource Manager and the PowerShell cmdlets in Azure Automation must authenticate to Azure using Azure Active Directory (Azure AD) organizational identity credential-based authentication.
 
-Runbooks running on a Hybrid Runbook Worker in your datacenter or against computing services in AWS cannot use the same method that is typically used for runbooks authenticating to Azure resources.  This is because those resources are running outside of Azure and therefore, requires their own security credentials defined in Automation to authenticate to resources that they access locally.  
+## Run As accounts
 
-## Authentication methods
-The following table summarizes the different authentication methods for each environment supported by Azure Automation and the article describing how to setup authentication for your runbooks.
+Run As accounts in Azure Automation provide authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model. There are two types of Run As accounts in Azure Automation:
 
-| Method | Environment | Article |
-| --- | --- | --- |
-| Azure AD User Account |Azure Resource Manager and Azure classic |[Authenticate Runbooks with Azure AD User account](automation-create-aduser-account.md) |
-| Azure Run As Account |Azure Resource Manager |[Authenticate Runbooks with Azure Run As account](automation-sec-configure-azure-runas-account.md) |
-| Azure Classic Run As Account |Azure classic |[Authenticate Runbooks with Azure Run As account](automation-sec-configure-azure-runas-account.md) |
-| Windows Authentication |On-Premises Datacenter |[Authenticate Runbooks for Hybrid Runbook Workers](automation-hybrid-runbook-worker.md) |
-| AWS Credentials |Amazon Web Services |[Authenticate Runbooks with Amazon Web Services (AWS)](automation-config-aws-account.md) |
+* Azure Run As account
+* Azure Classic Run As account
 
+To learn more about these two deployment models, see [Resource Manager and classic deployment](../azure-resource-manager/management/deployment-models.md).
+
+>[!NOTE]
+>Azure Cloud Solution Provider (CSP) subscriptions support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. When you are using a CSP subscription, the Azure Classic Run As account is not created, but the Azure Run As account is created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](/azure/cloud-solution-provider/overview/azure-csp-available-services).
+
+### Run As account
+
+The Azure Run As account manages Azure resources based on the Azure Resource Manager deployment and management service for Azure.
+
+When you create a Run As account, it performs the following tasks:
+
+* Creates an Azure AD application with a self-signed certificate, creates a service principal account for the application in Azure AD, and assigns the [Contributor](../role-based-access-control/built-in-roles.md#contributor) role for the account in your current subscription. You can change the certificate setting to Owner or any other role. For more information, see [Role-based access control in Azure Automation](automation-role-based-access-control.md).
+
+* Creates an Automation certificate asset named `AzureRunAsCertificate` in the specified Automation account. The certificate asset holds the certificate private key that the Azure AD application uses.
+
+* Creates an Automation connection asset named `AzureRunAsConnection` in the specified Automation account. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint.
+
+### Azure Classic Run As Account
+
+The Azure Classic Run As account manages Azure classic resources based on the Classic deployment model. You must be a co-administrator on the subscription to create or renew this type of Run As account.
+
+When you create an Azure Classic Run As account, it performs the following tasks.
+
+* Creates a management certificate in the subscription.
+
+* Creates an Automation certificate asset named `AzureClassicRunAsCertificate` in the specified Automation account. The certificate asset holds the certificate private key used by the management certificate.
+
+* Creates an Automation connection asset named `AzureClassicRunAsConnection` in the specified Automation account. The connection asset holds the subscription name, subscription ID, and certificate asset name.
+
+>[!NOTE]
+>Azure Classic Run As account is not created by default at the same time when you create an Automation account. This account is created individually following the steps described in the [Manage Run As account](manage-runas-account.md#create-a-run-as-account-in-azure-portal) article.
+
+## Service principal for Run As account
+
+The service principal for a Run As account does not have permissions to read Azure AD by default. If you want to add permissions to read or manage Azure AD, you must grant the permissions on the service principal under **API permissions**. To learn more, see [Add permissions to access your web API](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
+
+## Role-based access control
+
+Role-based access control is available with Azure Resource Manager to grant permitted actions to an Azure AD user account and Run As account, and authenticate the service principal. Read [Role-based access control in Azure Automation article](automation-role-based-access-control.md) for further information to help develop your model for managing Automation permissions.
+
+## Runbook authentication with Hybrid Runbook Worker
+
+Runbooks running on a Hybrid Runbook Worker in your datacenter or against computing services in other cloud environments like AWS, cannot use the same method that is typically used for runbooks authenticating to Azure resources. This is because those resources are running outside of Azure and therefore, requires their own security credentials defined in Automation to authenticate to resources that they access locally. For more information about runbook authentication with runbook workers, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+
+For runbooks that use Hybrid Runbook Workers on Azure VMs, you can use [runbook authentication with managed identities](automation-hrw-run-runbooks.md#runbook-auth-managed-identities) instead of Run As accounts to authenticate to your Azure resources.
+
+## Next steps
+
+* To create an Automation account from the Azure portal, see [Create a standalone Azure Automation account](automation-create-standalone-account.md).
+* If you prefer to create your account using a template, see [Create an Automation account using an Azure Resource Manager template](quickstart-create-automation-account-template.md).
+* For authentication using Amazon Web Services, see [Authenticate runbooks with Amazon Web Services](automation-config-aws-account.md).

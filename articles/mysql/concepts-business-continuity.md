@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 7/7/2020
 ---
 
 # Understand business continuity in Azure Database for MySQL
@@ -14,7 +14,7 @@ This article describes the capabilities that Azure Database for MySQL provides f
 
 ## Features that you can use to provide business continuity
 
-Azure Database for MySQL provides business continuity features that include automated backups and the ability for users to initiate geo-restore. Each has different characteristics for Estimated Recovery Time (ERT) and potential data loss. Once you understand these options, you can choose among them, and use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your Recovery Time Objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - this is your Recovery Point Objective (RPO).
+Azure Database for MySQL provides business continuity features that include automated backups and the ability for users to initiate geo-restore. Each has different characteristics for Estimated Recovery Time (ERT) and potential data loss. Estimated Recovery Time (ERT) is estimated duration for the database to be fully functional after a restore/failover request. Once you understand these options, you can choose among them, and use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your Recovery Time Objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - this is your Recovery Point Objective (RPO).
 
 The following table compares the ERT and RPO for the available features:
 
@@ -42,6 +42,14 @@ The other option is to use the Azure Database for MySQL's geo-restore feature th
 
 > [!IMPORTANT]
 > Geo-restore is only possible if you provisioned the server with geo-redundant backup storage. If you wish to switch from locally redundant to geo-redundant backups for an existing server, you must take a dump using mysqldump of your existing server and restore it to a newly created server configured with geo-redundant backups.
+
+## Cross-region read replicas
+
+You can use cross region read replicas to enhance your business continuity and disaster recovery planning. Read replicas are updated asynchronously using MySQL's binary log replication technology. Learn more about read replicas, available regions, and how to fail over from the [read replicas concepts article](concepts-read-replicas.md). 
+
+## FAQ
+### Where does Azure Database for MySQL store customer data?
+By default, Azure Database for MySQL doesn't move or store customer data out of the region it is deployed in. However, customers can optionally chose to enable [geo-redundant backups](concepts-backup.md#backup-redundancy-options) or create [cross-region read replica](concepts-read-replicas.md#cross-region-replication) for storing data in another region.
 
 ## Next steps
 

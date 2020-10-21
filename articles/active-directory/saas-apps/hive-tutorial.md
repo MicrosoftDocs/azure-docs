@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Hive | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Hive.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: cf5a8cab-b783-4e55-a3de-c20198bfa989
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Hive
@@ -151,11 +145,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **User Profile** and click **Your workspace**.
 
-    ![Hive Configuration](./media/hive-tutorial/configure1.png)
+    ![Screenshot shows the Hive website with Your workspace selected from the menu.](./media/hive-tutorial/configure1.png)
 
 1. Click **Auth** and perform the following steps:
 
-    ![Hive Configuration](./media/hive-tutorial/configure2.png)
+    ![Screenshot shows the Auth page where do the tasks described.](./media/hive-tutorial/configure2.png)
 
     a. Copy **Your Workspace ID** and append it to the **SignOn URL** and  **Reply URL** in the **Basic SAML Configuration Section** in the Azure portal.
 

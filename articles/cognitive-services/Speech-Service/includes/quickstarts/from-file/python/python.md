@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/20/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -11,7 +11,7 @@ ms.author: dapine
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../get-started.md)
+> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Create a LUIS application and get an endpoint key](../../../../quickstarts/create-luis.md)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 
@@ -116,4 +116,4 @@ If you have issues following these instructions, refer to the more extensive [Vi
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

@@ -1,21 +1,23 @@
 ---
-title: "Quickstart: Text Analytics client library v3 | Microsoft Docs"
+title: "Quickstart: Text mining using the Text Analytics client library"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to connect your applications to the Text Analytics API from Azure Cognitive Services.
+description: Use this quickstart to perform sentiment analysis and more, using the Text Analytics API from Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 10/07/2020
 ms.author: aahi
+keywords: text mining, sentiment analysis, text analytics
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
 # Quickstart: Use the Text Analytics client library
 
-Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
+Use this article to get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for mining text.
 
 Use the Text Analytics client library to perform:
 
@@ -23,13 +25,16 @@ Use the Text Analytics client library to perform:
 * Language detection
 * Entity recognition
 * Key phrase extraction
+* Opinion mining
 
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * The latest preview version of the Text Analytics API is `3.0-preview`, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). The latest stable version is `2.1`.
+> * The latest stable version of the Text Analytics API is `3.0`.
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
+
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
@@ -38,7 +43,7 @@ Use the Text Analytics client library to perform:
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> * This quickstart is only for version `3.0-preview` of the Text Analytics client library, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+> * The latest stable version of the Text Analytics API is `3.0`.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
@@ -48,7 +53,7 @@ Use the Text Analytics client library to perform:
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * The latest preview version of the Text Analytics API is `3.0-preview`, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). The latest stable version is `2.1`.
+> * The latest stable version of the Text Analytics API is `3.0`.
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 > * You can also run this version of the Text Analytics client library [in your browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
@@ -60,7 +65,7 @@ Use the Text Analytics client library to perform:
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * The latest preview version of the Text Analytics API is `3.0-preview`, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). The latest stable version is `2.1`.
+> * The latest stable version of the Text Analytics API is `3.0`.
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below. 
 

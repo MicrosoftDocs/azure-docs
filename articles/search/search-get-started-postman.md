@@ -3,27 +3,27 @@ title: 'Quickstart: Create a search index in Postman using REST APIs'
 titleSuffix: Azure Cognitive Search
 description: In this REST API quickstart, learn how to call the Azure Cognitive Search REST APIs using Postman and sample data and definitions.
 
-author: tchristiani
 manager: nitinme
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 02/10/2020
+ms.date: 08/17/2020
 ---
 
 # Quickstart: Create an Azure Cognitive Search index in Postman using REST APIs
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
-> * [C#](search-create-index-dotnet.md)
+> * [C#](./search-get-started-dotnet.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-One of the easiest ways to explore the [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice) is using Postman or another web testing tool to formulate HTTP requests and inspect the responses. With the right tools and these instructions, you can send requests and view responses before writing any code.
+This article explains how to formulate REST API requests interactively using the [Azure Cognitive Search REST APIs](/rest/api/searchservice) and an API client for sending and receiving requests. With an API client and these instructions, you can send requests and view responses before writing any code.
 
-This article explains how to formulate requests interactively. Alternatively, you can [download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) to use predefined requests.
+The article uses the Postman application. You can [download and import a Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) if you prefer to use predefined requests. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -53,30 +53,32 @@ In this section, use your web tool of choice to set up connections to Azure Cogn
 
 For either tool, you need to choose a command (GET, POST, PUT, and so forth), provide a URL endpoint, and for some tasks, provide JSON in the body of the request. Replace the search service name (YOUR-SEARCH-SERVICE-NAME)  with a valid value. Add `$select=name` to return just the name of each index. 
 
-    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name
+> `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name`
 
-Notice the HTTPS prefix, the name of the service, the name of an object (in this case, the indexes collection), and the [api-version](search-api-versions.md). The api-version is a required, lowercase string specified as `?api-version=2019-05-06` for the current version. API versions are updated regularly. Including the api-version on each request gives you full control over which one is used.  
+Notice the HTTPS prefix, the name of the service, the name of an object (in this case, the indexes collection), and the [api-version](search-api-versions.md). The api-version is a required, lowercase string specified as `?api-version=2020-06-30` for the current version. API versions are updated regularly. Including the api-version on each request gives you full control over which one is used.  
 
-Request header composition includes two elements, content type, plus the api-key used to authenticate to Azure Cognitive Search. Replace the admin API key (YOUR-AZURE-SEARCH-ADMIN-API-KEY) with a valid value. 
+Request header composition includes two elements: `Content-Type` and the `api-key` used to authenticate to Azure Cognitive Search. Replace the admin API key (YOUR-AZURE-SEARCH-ADMIN-API-KEY) with a valid value. 
 
-    api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
-    Content-Type: application/json
+```http
+api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
+Content-Type: application/json
+```
 
-In Postman, formulate a request that looks like the following screenshot. Choose **GET** as the verb, provide the URL, and click **Send**. This command connects to Azure Cognitive Search, reads the indexes collection, and returns HTTP status code 200 on a successful connection. If your service has indexes already, the response will also include index definitions.
+In Postman, formulate a request that looks like the following screenshot. Choose **GET** as the command, provide the URL, and click **Send**. This command connects to Azure Cognitive Search, reads the indexes collection, and returns HTTP status code 200 on a successful connection. If your service has indexes already, the response will also include index definitions.
 
 ![Postman request URL and header](media/search-get-started-postman/postman-url.png "Postman request URL and header")
 
 ## 1 - Create an index
 
-In Azure Cognitive Search, you usually create the index before loading it with data. The [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) is used for this task. 
+In Azure Cognitive Search, you usually create the index before loading it with data. The [Create Index REST API](/rest/api/searchservice/create-index) is used for this task. 
 
 The URL is extended to include the `hotels` index name.
 
 To do this in Postman:
 
-1. Change the verb to **PUT**.
+1. Change the command to **PUT**.
 
-2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06`.
+2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2020-06-30`.
 
 3. Provide the index definition (copy-ready code is provided below) in the body of the request.
 
@@ -86,7 +88,7 @@ To do this in Postman:
 
 ### Index definition
 
-The fields collection defines document structure. Each document must have these fields, and each field must have a data type. String fields are used in full text search, so you might want to cast numeric data as strings if you need that content to be searchable.
+The fields collection defines document structure. Each document must have these fields, and each field must have a data type. String fields are used in full text search. If you need numeric data to be searchable, you will need to cast numeric data as strings.
 
 Attributes on the field determine allowed action. The REST APIs allow many actions by default. For example, all strings are searchable, retrievable, filterable, and facetable by default. Often, you only have to set attributes when you need to turn off a behavior.
 
@@ -122,15 +124,15 @@ When you submit this request, you should get an HTTP 201 response, indicating th
 
 ## 2 - Load documents
 
-Creating the index and populating the index are separate steps. In Azure Cognitive Search, the index contains all searchable data, which you can provide as JSON documents. The [Add, Update, or Delete Documents REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) is used for this task. 
+Creating the index and populating the index are separate steps. In Azure Cognitive Search, the index contains all searchable data. In this scenario, the data is provided as JSON documents. The [Add, Update, or Delete Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) is used for this task. 
 
 The URL is extended to include the `docs` collections and `index` operation.
 
 To do this in Postman:
 
-1. Change the verb to **POST**.
+1. Change the command to **POST**.
 
-2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06`.
+2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2020-06-30`.
 
 3. Provide the JSON documents (copy-ready code is below) in the body of the request.
 
@@ -230,20 +232,20 @@ In a few seconds, you should see an HTTP 201 response in the session list. This 
 If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request: verify you changed the endpoint to include `/docs/index`.
 
 > [!Tip]
-> For selected data sources, you can choose the alternative *indexer* approach which simplifies and reduces the amount of code required for indexing. For more information, see [Indexer operations](https://docs.microsoft.com/rest/api/searchservice/indexer-operations).
+> For selected data sources, you can choose the alternative *indexer* approach which simplifies and reduces the amount of code required for indexing. For more information, see [Indexer operations](/rest/api/searchservice/indexer-operations).
 
 
 ## 3 - Search an index
 
-Now that an index and documents are loaded, you can issue queries against them using [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Now that an index and document set are loaded, you can issue queries against them using [Search Documents REST API](/rest/api/searchservice/search-documents).
 
 The URL is extended to include a query expression, specified using the search operator.
 
 To do this in Postman:
 
-1. Change the verb to **GET**.
+1. Change the command to **GET**.
 
-2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2019-05-06`.
+2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2020-06-30`.
 
 3. Click **Send**.
 
@@ -258,24 +260,24 @@ Swap out the current URL with the ones below, clicking **Send** each time to vie
 ```
 # Query example 1 - Search on restaurant and wifi
 # Return only the HotelName, Description, and Tags fields
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=restaurant wifi&$count=true&$select=HotelName,Description,Tags&api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=restaurant wifi&$count=true&$select=HotelName,Description,Tags&api-version=2020-06-30
 
 # Query example 2 - Apply a filter to the index to find hotels rated 4 or highter
 # Returns the HotelName and Rating. Two documents match
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$filter=Rating gt 4&$select=HotelName,Rating&api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$filter=Rating gt 4&$select=HotelName,Rating&api-version=2020-06-30
 
 # Query example 3 - Take the top two results, and show only HotelName and Category in the results
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=boutique&$top=2&$select=HotelName,Category&api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=boutique&$top=2&$select=HotelName,Category&api-version=2020-06-30
 
 # Query example 4 - Sort by a specific field (Address/City) in ascending order
-https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating&api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating&api-version=2020-06-30
 ```
 
 ## Get index properties
-You can also use [Get Statistics](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) to query for document counts and index size: 
+You can also use [Get Statistics](/rest/api/searchservice/get-index-statistics) to query for document counts and index size: 
 
 ```
-https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2019-05-06
+https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2020-06-30
 ```
 
 Adding `/stats` to your URL returns index information. In Postman, your request should look similar to the following, and the response includes a document count and space used in bytes.

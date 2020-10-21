@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with FCM HUB | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and FCM HUB.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: f3a9436c-8f33-462a-950b-8eb57ec31119
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/25/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with FCM HUB
@@ -90,9 +84,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     > [!NOTE]
 	> The value is not real. Update the value with the actual Sign-on URL. Contact account manager who is assigned to you or contact [FCM HUB Client support team](mailto:fcmssoadmin@us.fcm.travel) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. Click **Save**.
+1. Select **Save**.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Manage Claim** page, in the **User Attributes & Claims** section, add these custom attributes:
+   - **Name**: PortalID
+   - **Source**: Attribute
+   - **Source Attribute**: PortalID, value provided by FCM
+
+1. In the **SAML Signing Certificate** section, use the edit option to select or enter the following settings, and then select **Save**:
+   - **Signing Option**: Sign SAML response
+   - **Signing Algorithm**: SHA-256
+
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 

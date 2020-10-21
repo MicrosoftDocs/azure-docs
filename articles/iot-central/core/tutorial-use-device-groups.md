@@ -1,10 +1,10 @@
 ---
-title: Use device groups in your Azure IoT Central application | Microsoft Docs
-description: As an operator, learn how to use device groups to analyze telemetry from  devices in your Azure IoT Central application.
+title: Tutorial - Use device groups in your Azure IoT Central application | Microsoft Docs
+description: Tutorial - As an operator, learn how to use device groups to analyze telemetry from  devices in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/12/2020
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, you should complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md) quickstarts to create the **MXChip IoT DevKit** device template to work with.
+Before you begin, you should complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-simulated-device.md) quickstarts to create the **MXChip IoT DevKit** device template to work with.
 
 ## Create simulated devices
 

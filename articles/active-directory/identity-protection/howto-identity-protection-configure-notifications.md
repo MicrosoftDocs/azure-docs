@@ -5,8 +5,8 @@ description: Learn how notifications support your investigation activities.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 10/07/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -26,9 +26,13 @@ This article provides you with an overview of both notification emails.
 
 ## Users at risk detected email
 
-In response to a detected account at risk, Azure AD Identity Protection generates an email alert with **Users at risk detected** as subject. The email includes a link to the **[Users flagged for risk](../reports-monitoring/concept-user-at-risk.md)** report. As a best practice, you should immediately investigate the users at risk.
+In response to a detected account at risk, Azure AD Identity Protection generates an email alert with **Users at risk detected** as subject. The email includes a link to the **[Users flagged for risk](./overview-identity-protection.md)** report. As a best practice, you should immediately investigate the users at risk.
 
-The configuration for this alert allows you to specify at what user risk level you want the alert to be generated. The email will be generated when the user's risk level reaches what you have specified; however, you will not receive new users at risk detected email alerts for this user after they move to this user risk level. For example, if you set the policy to alert on medium user risk and your user John moves to medium risk, you will receive the users at risk detected email for John. However, you will not receive a second user at risk detected alert if John then moves to high risk or has additional risk detections.
+The configuration for this alert allows you to specify at what user risk level you want the alert to be generated. The email will be generated when the user's risk level reaches what you have specified. For example, if you set the policy to alert on medium user risk and your user John's user risk score moves to medium risk due to a real-time sign-in risk, you will receive the users at risk detected email. If the user has subsequent risk detections that cause the user risk level calculation to be the specified risk level (or higher), you will receive additional user at risk detected emails when the user risk score is recalculated. For example, if a user moves to medium risk on January 1st, you will receive an email notification if your settings are set to alert on medium risk. If that same user then has another risk detection on January 5th that's also medium risk, and the user risk score is recalculated and is still medium, you will receive another email notification. 
+
+However, an additional email notification will only be sent if the time the risk detection occurred (that caused the change in user risk level) is more recent than when the last email was sent. For example, a user sign-ins on January 1st at 5 AM and there is no real-time risk (meaning no email would be generated due to that sign-in). Ten minutes later, at 5:10 AM, the same user signs-in again and has high real-time risk, causing the user risk level to move to high and an email to be sent. Then, at 5:15 AM, the offline risk score for the original sign-in at 5 AM changes to high risk due to offline risk processing. An additional user flagged for risk e-mail would not be sent, since the time of the first sign-in was before the second sign-in that already triggered an email notification.
+
+To prevent an overload of e-mails, you will only receive one users at risk detected email within a 5 second time period. This means that if multiple users move to the specified risk level during the same 5 second time period, we will aggregate and send one e-mail to represent the change in risk level for all of them.
 
 ![Users at risk detected email](./media/howto-identity-protection-configure-notifications/01.png)
 
@@ -37,8 +41,8 @@ The configuration for this alert allows you to specify at what user risk level y
 As an administrator, you can set:
 
 - **The user risk level that triggers the generation of this email** - By default, the risk level is set to “High” risk.
-- **The recipients of this email** - By default, recipients include all Global Admins. Global Admins can also add other Global Admins, Security Admins, Security Readers as recipients.
-   - Optionally you can **Add additional emails to receive alert notifications** this feature is a preview and users defined must have the appropriate permissions to view the linked reports in the Azure portal.
+- **The recipients of this email** - Users in the Global administrator, Security administrator, or Security reader roles are automatically added to this list. We attempt to send emails to the first 20 members of each role. If a user is enrolled in PIM to elevate to one of these roles on demand then **they will only receive emails if they are elevated at the time the email is sent**.
+   - Optionally you can **Add custom email here** users defined must have the appropriate permissions to view the linked reports in the Azure portal.
 
 Configure the users at risk email in the **Azure portal** under **Azure Active Directory** > **Security** > **Identity Protection** > **Users at risk detected alerts**.
 
@@ -47,14 +51,13 @@ Configure the users at risk email in the **Azure portal** under **Azure Active D
 The weekly digest email contains a summary of new risk detections.  
 It includes:
 
-- Users at risk
-- Suspicious activities
-- Detected vulnerabilities
+- New risky users detected
+- New risky sign-ins detected (in real-time)
 - Links to the related reports in Identity Protection
 
-![Weekly digest email](./media/howto-identity-protection-configure-notifications/400.png)
+![Weekly digest email](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)
 
-By default, recipients include all Global Admins. Global Admins can also add other Global Admins, Security Admins, Security Readers as recipients.
+Users in the Global administrator, Security administrator, or Security reader roles are automatically added to this list. We attempt to send emails to the first 20 members of each role. If a user is enrolled in PIM to elevate to one of these roles on demand then **they will only receive emails if they are elevated at the time the email is sent**
 
 ### Configure weekly digest email
 
@@ -64,4 +67,4 @@ Configure the weekly digest email in the **Azure portal** under **Azure Active D
 
 ## See also
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

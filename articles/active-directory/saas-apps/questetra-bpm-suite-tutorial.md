@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Questetra BPM Suite | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Questetra BPM Suite.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: fb6d5b73-e491-4dd2-92d6-94e5aba21465
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Questetra BPM Suite
 
@@ -130,11 +124,11 @@ To configure Azure AD single sign-on with Questetra BPM Suite, perform the follo
 
 2. In the menu on the top, click **System Settings**. 
    
-    ![Azure AD Single Sign-On][10]
+    ![Screenshot shows System Settings selected from your Questetra BPM Suite company site.][10]
 
 3. To open the **SingleSignOnSAML** page, click **SSO (SAML)**. 
    
-    ![Azure AD Single Sign-On][11]
+    ![Screenshot shows S S O (SAML) selected.][11]
 
 4. On your **Questetra BPM Suite** company site, in the **SP Information** section, perform the following steps:
 

@@ -1,7 +1,7 @@
 ---
-title: Use Azure Cognitive Search in .NET
+title: Use Microsoft.Azure.Search (v10) in .NET
 titleSuffix: Azure Cognitive Search
-description: Learn how to use Azure Cognitive Search in a .NET application using C# and the .NET SDK. Code-based tasks include connect to the service, index content, and query an index.
+description: Learn how to create and manage search objects a .NET application using C# and version 10 of the .NET SDK. Code snippets demonstrate connecting to the service, creating indexes, and queries.
 
 manager: nitinme
 author: brjohnstmsft
@@ -9,13 +9,17 @@ ms.author: brjohnst
 ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/05/2020
+ms.custom: devx-track-csharp
 ---
-# How to use Azure Cognitive Search from a .NET Application
+# How to use Microsoft.Azure.Search (v10) in a .NET Application
 
-This article is a walkthrough to get you up and running with the [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk). You can use the .NET SDK to implement a rich search experience in your application using Azure Cognitive Search.
+This article explains how to create and manage search objects using C# and the [Azure Cognitive Search (v10) .NET SDK](/dotnet/api/overview/azure/search). Version 10 is the last version of the Microsoft.Azure.Search package. Moving forward, new features will be rolled out in [Azure.Search.Documents](/dotnet/api/overview/azure/search.documents-readme) from the Azure SDK team.
 
-## What's in the Azure Cognitive Search SDK
+If you have existing or inflight development projects, continue to use version 10. For new projects, or to use new features, you should transition an existing search solution to the new library.
+
+## What's in version 10
+
 The SDK consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and synonym maps, as well as upload and manage documents, and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
 
 The main NuGet package is `Microsoft.Azure.Search`, which is a meta-package that includes all the other packages as dependencies. Use this package if you're just getting started or if you know your application will need all the features of Azure Cognitive Search.
@@ -28,14 +32,14 @@ The other NuGet packages in the SDK are:
 
 The various client libraries define classes like `Index`, `Field`, and `Document`, as well as operations like `Indexes.Create` and `Documents.Search` on the `SearchServiceClient` and `SearchIndexClient` classes. These classes are organized into the following namespaces:
 
-* [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
-* [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
+* [Microsoft.Azure.Search](/dotnet/api/microsoft.azure.search)
+* [Microsoft.Azure.Search.Models](/dotnet/api/microsoft.azure.search.models)
 
 If you would like to provide feedback for a future update of the SDK, see our [feedback page](https://feedback.azure.com/forums/263029-azure-search/) or create an issue on [GitHub](https://github.com/azure/azure-sdk-for-net/issues) and mention "Azure Cognitive Search" in the issue title.
 
-The .NET SDK supports version `2019-05-06` of the [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/). This version includes support for [complex types](search-howto-complex-data-types.md), [AI enrichment](cognitive-search-concept-intro.md), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete), and [JsonLines parsing mode](search-howto-index-json-blobs.md) when indexing Azure Blobs. 
+The .NET SDK targets version `2019-05-06` of the [Azure Cognitive Search REST API](/rest/api/searchservice/). This version includes support for [complex types](search-howto-complex-data-types.md), [AI enrichment](cognitive-search-concept-intro.md), [autocomplete](/rest/api/searchservice/autocomplete), and [JsonLines parsing mode](search-howto-index-json-blobs.md) when indexing Azure Blobs. 
 
-This SDK does not support [Management Operations](https://docs.microsoft.com/rest/api/searchmanagement/) such as creating and scaling Search services and managing API keys. If you need to manage your Search resources from a .NET application, you can use the [Azure Cognitive Search .NET Management SDK](https://aka.ms/search-mgmt-sdk).
+This SDK does not support [Management Operations](/rest/api/searchmanagement/) such as creating and scaling Search services and managing API keys. If you need to manage your Search resources from a .NET application, you can use the [Azure Cognitive Search .NET Management SDK](/dotnet/api/overview/azure/search).
 
 ## Upgrading to the latest version of the SDK
 If you're already using an older version of the Azure Cognitive Search .NET SDK and you'd like to upgrade to the latest generally available version, [this article](search-dotnet-sdk-migration-version-9.md) explains how.
@@ -130,7 +134,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
 ```
 
 > [!NOTE]
-> In a typical search application, index management and population may be handled by a separate component from search queries. `Indexes.GetClient` is convenient for populating an index because it saves you the trouble of providing additional `SearchCredentials`. It does this by passing the admin key that you used to create the `SearchServiceClient` to the new `SearchIndexClient`. However, in the part of your application that executes queries, it is better to create the `SearchIndexClient` directly so that you can pass in a query key, which only allows you to read data, instead of an admin key. This is consistent with the principle of least privilege and will help to make your application more secure. You can find out more about admin keys and query keys [here](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization).
+> In a typical search application, index management and population may be handled by a separate component from search queries. `Indexes.GetClient` is convenient for populating an index because it saves you the trouble of providing additional `SearchCredentials`. It does this by passing the admin key that you used to create the `SearchServiceClient` to the new `SearchIndexClient`. However, in the part of your application that executes queries, it is better to create the `SearchIndexClient` directly so that you can pass in a query key, which only allows you to read data, instead of an admin key. This is consistent with the principle of least privilege and will help to make your application more secure. You can find out more about admin keys and query keys [here](/rest/api/searchservice/#authentication-and-authorization).
 > 
 > 
 
@@ -167,46 +171,49 @@ This time we use a query key since we do not need write access to the index. You
 If you run this application with a valid service name and API keys, the output should look like this example:
 (Some console output has been replaced with "..." for illustration purposes.)
 
-	Deleting index...
+```output
 
-	Creating index...
+Deleting index...
 
-	Uploading documents...
+Creating index...
 
-	Waiting for documents to be indexed...
+Uploading documents...
 
-	Search the entire index for the term 'motel' and return only the HotelName field:
+Waiting for documents to be indexed...
 
-	Name: Secret Point Motel
+Search the entire index for the term 'motel' and return only the HotelName field:
 
-	Name: Twin Dome Motel
+Name: Secret Point Motel
 
-
-	Apply a filter to the index to find hotels with a room cheaper than $100 per night, and return the hotelId and description:
-
-	HotelId: 1
-	Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Times Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.
-
-	HotelId: 2
-	Description: The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.
+Name: Twin Dome Motel
 
 
-	Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
+Apply a filter to the index to find hotels with a room cheaper than $100 per night, and return the hotelId and description:
 
-	Name: Triple Landscape Hotel
-	Last renovated on: 9/20/2015 12:00:00 AM +00:00
+HotelId: 1
+Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Times Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.
 
-	Name: Twin Dome Motel
-	Last renovated on: 2/18/1979 12:00:00 AM +00:00
+HotelId: 2
+Description: The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.
 
 
-	Search the hotel names for the term 'hotel':
+Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
 
-	HotelId: 3
-	Name: Triple Landscape Hotel
-	...
+Name: Triple Landscape Hotel
+Last renovated on: 9/20/2015 12:00:00 AM +00:00
 
-	Complete.  Press any key to end application... 
+Name: Twin Dome Motel
+Last renovated on: 2/18/1979 12:00:00 AM +00:00
+
+
+Search the hotel names for the term 'hotel':
+
+HotelId: 3
+Name: Triple Landscape Hotel
+...
+
+Complete.  Press any key to end application... 
+```
 
 The full source code of the application is provided at the end of this article.
 
@@ -254,7 +261,7 @@ This method creates a new `Index` object with a list of `Field` objects that def
 >
 > 
 
-In addition to fields, you can also add scoring profiles, suggesters, or CORS options to the Index (these parameters are omitted from the sample for brevity). You can find more information about the Index object and its constituent parts in the [SDK reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index), as well as in the [Azure Cognitive Search REST API reference](https://docs.microsoft.com/rest/api/searchservice/).
+In addition to fields, you can also add scoring profiles, suggesters, or CORS options to the Index (these parameters are omitted from the sample for brevity). You can find more information about the Index object and its constituent parts in the [SDK reference](/dotnet/api/microsoft.azure.search.models.index), as well as in the [Azure Cognitive Search REST API reference](/rest/api/searchservice/).
 
 ### Populating the index
 The next step in `Main` populates the newly-created index. This index population is done in the following method:
@@ -386,7 +393,7 @@ The second part creates an `IndexBatch` containing the documents. You specify th
 The third part of this method is a catch block that handles an important error case for indexing. If your Azure Cognitive Search service fails to index some of the documents in the batch, an `IndexBatchException` is thrown by `Documents.Index`. This exception can happen if you are indexing documents while your service is under heavy load. **We strongly recommend explicitly handling this case in your code.** You can delay and then retry indexing the documents that failed, or you can log and continue like the sample does, or you can do something else depending on your application's data consistency requirements.
 
 > [!NOTE]
-> You can use the [`FindFailedActionsToRetry`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) method to construct a new batch containing only the actions that failed in a previous call to `Index`. There is a discussion of how to properly use it [on StackOverflow](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
+> You can use the [`FindFailedActionsToRetry`](/dotnet/api/microsoft.azure.search.indexbatchexception.findfailedactionstoretry) method to construct a new batch containing only the actions that failed in a previous call to `Index`. There is a discussion of how to properly use it [on StackOverflow](https://stackoverflow.com/questions/40012885/azure-search-net-sdk-how-to-use-findfailedactionstoretry).
 >
 >
 
@@ -461,7 +468,7 @@ The first thing to notice is that the name of each public property in the `Hotel
 
 The second thing to notice is each property is decorated with attributes such as `IsFilterable`, `IsSearchable`, `Key`, and `Analyzer`. These attributes map directly to the [corresponding field attributes in an Azure Cognitive Search index](/rest/api/searchservice/create-index). The `FieldBuilder` class uses these properties to construct field definitions for the index.
 
-The third important thing about the `Hotel` class is the data types of the public properties. The .NET types of these properties map to their equivalent field types in the index definition. For example, the `Category` string property maps to the `category` field, which is of type `Edm.String`. There are similar type mappings between `bool?`, `Edm.Boolean`, `DateTimeOffset?`, and `Edm.DateTimeOffset` and so on. The specific rules for the type mapping are documented with the `Documents.Get` method in the [Azure Cognitive Search .NET SDK reference](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). The `FieldBuilder` class takes care of this mapping for you, but it can still be helpful to understand in case you need to troubleshoot any serialization issues.
+The third important thing about the `Hotel` class is the data types of the public properties. The .NET types of these properties map to their equivalent field types in the index definition. For example, the `Category` string property maps to the `category` field, which is of type `Edm.String`. There are similar type mappings between `bool?`, `Edm.Boolean`, `DateTimeOffset?`, and `Edm.DateTimeOffset` and so on. The specific rules for the type mapping are documented with the `Documents.Get` method in the [Azure Cognitive Search .NET SDK reference](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). The `FieldBuilder` class takes care of this mapping for you, but it can still be helpful to understand in case you need to troubleshoot any serialization issues.
 
 Did you happen to notice the `SmokingAllowed` property?
 
@@ -472,7 +479,7 @@ public bool? SmokingAllowed => (Rooms != null) ? Array.Exists(Rooms, element => 
 
 The `JsonIgnore` attribute on this property tells the `FieldBuilder` to not serialize it to the index as a field.  This is a great way to create client-side calculated properties you can use as helpers in your application.  In this case, the `SmokingAllowed` property reflects whether any `Room` in the `Rooms` collection allows smoking.  If all are false, it indicates that the entire hotel does not allow smoking.
 
-Some properties such as `Address` and `Rooms` are instances of .NET classes.  These properties represent more complex data structures and, as a result, require fields with a [complex data type](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) in the index.
+Some properties such as `Address` and `Rooms` are instances of .NET classes.  These properties represent more complex data structures and, as a result, require fields with a [complex data type](./search-howto-complex-data-types.md) in the index.
 
 The `Address` property represents a set of multiple values in the `Address` class, defined below:
 
@@ -553,7 +560,7 @@ Your data model in .NET and its corresponding index schema should be designed to
 This ability to use your own classes to interact with documents in the index works in both directions; You can also retrieve search results and have the SDK automatically deserialize them to a type of your choice, as we will see in the next section.
 
 > [!NOTE]
-> The Azure Cognitive Search .NET SDK also supports dynamically-typed documents using the `Document` class, which is a key/value mapping of field names to field values. This is useful in scenarios where you don't know the index schema at design-time, or where it would be inconvenient to bind to specific model classes. All the methods in the SDK that deal with documents have overloads that work with the `Document` class, as well as strongly-typed overloads that take a generic type parameter. Only the latter are used in the sample code in this tutorial. The [`Document` class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.document) inherits from `Dictionary<string, object>`.
+> The Azure Cognitive Search .NET SDK also supports dynamically-typed documents using the `Document` class, which is a key/value mapping of field names to field values. This is useful in scenarios where you don't know the index schema at design-time, or where it would be inconvenient to bind to specific model classes. All the methods in the SDK that deal with documents have overloads that work with the `Document` class, as well as strongly-typed overloads that take a generic type parameter. Only the latter are used in the sample code in this tutorial. The [`Document` class](/dotnet/api/microsoft.azure.search.models.document) inherits from `Dictionary<string, object>`.
 > 
 >
 
@@ -563,7 +570,9 @@ When designing your own model classes to map to an Azure Cognitive Search index,
 
 This is not just a hypothetical concern: Imagine a scenario where you add a new field to an existing index that is of type `Edm.Int32`. After updating the index definition, all documents will have a null value for that new field (since all types are nullable in Azure Cognitive Search). If you then use a model class with a non-nullable `int` property for that field, you will get a `JsonSerializationException` like this when trying to retrieve documents:
 
-    Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
+```output
+Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
+```
 
 For this reason, we recommend that you use nullable types in your model classes as a best practice.
 
@@ -638,12 +647,12 @@ private static void RunQueries(ISearchIndexClient indexClient)
 }
 ```
 
-Each time it executes a query, this method first creates a new `SearchParameters` object. This object is used to specify additional options for the query such as sorting, filtering, paging, and faceting. In this method, we're setting the `Filter`, `Select`, `OrderBy`, and `Top` property for different queries. All the `SearchParameters` properties are documented [here](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters).
+Each time it executes a query, this method first creates a new `SearchParameters` object. This object is used to specify additional options for the query such as sorting, filtering, paging, and faceting. In this method, we're setting the `Filter`, `Select`, `OrderBy`, and `Top` property for different queries. All the `SearchParameters` properties are documented [here](/dotnet/api/microsoft.azure.search.models.searchparameters).
 
 The next step is to actually execute the search query. Running the search is done using the `Documents.Search` method. For each query, we pass the search text to use as a string (or `"*"` if there is no search text), plus the search parameters created earlier. We also specify `Hotel` as the type parameter for `Documents.Search`, which tells the SDK to deserialize documents in the search results into objects of type `Hotel`.
 
 > [!NOTE]
-> You can find more information about the search query expression syntax [here](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search).
+> You can find more information about the search query expression syntax [here](/rest/api/searchservice/Simple-query-syntax-in-Azure-Search).
 > 
 > 
 
@@ -677,9 +686,11 @@ WriteDocuments(results);
 
 In this case, we're searching the entire index for the word "motel" in any searchable field and we only want to retrieve the hotel names, as specified by the `Select` parameter. Here are the results:
 
-    Name: Secret Point Motel
+```output
+Name: Secret Point Motel
 
-    Name: Twin Dome Motel
+Name: Twin Dome Motel
+```
 
 The next query is a little more interesting.  We want to find any hotels that have a room with a nightly rate of less than $100 and return only the hotel ID and description:
 
@@ -696,15 +707,17 @@ results = indexClient.Documents.Search<Hotel>("*", parameters);
 WriteDocuments(results);
 ```
 
-This query uses an OData `$filter` expression, `Rooms/any(r: r/BaseRate lt 100)`, to filter the documents in the index. This uses the [any operator](https://docs.microsoft.com/azure/search/search-query-odata-collection-operators) to apply the 'BaseRate lt 100' to every item in the Rooms collection. You can find out more about the OData syntax that Azure Cognitive Search supports [here](https://docs.microsoft.com/azure/search/query-odata-filter-orderby-syntax).
+This query uses an OData `$filter` expression, `Rooms/any(r: r/BaseRate lt 100)`, to filter the documents in the index. This uses the [any operator](./search-query-odata-collection-operators.md) to apply the 'BaseRate lt 100' to every item in the Rooms collection. You can find out more about the OData syntax that Azure Cognitive Search supports [here](./query-odata-filter-orderby-syntax.md).
 
 Here are the results of the query:
 
-	HotelId: 1
-	Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York...
+```output
+HotelId: 1
+Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York...
 
-	HotelId: 2
-	Description: The hotel is situated in a nineteenth century plaza, which has been expanded and renovated to...
+HotelId: 2
+Description: The hotel is situated in a nineteenth century plaza, which has been expanded and renovated to...
+```
 
 Next, we want to find the top two hotels that have been most recently renovated, and show the hotel name and last renovation date. Here is the code: 
 
@@ -726,8 +739,10 @@ In this case, we again use OData syntax to specify the `OrderBy` parameter as `l
 
 Here are the results:
 
-	Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
-	Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
+```output
+Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
+Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
+```
 
 Finally, we want to find all hotels names that match the word "hotel":
 
@@ -743,13 +758,15 @@ WriteDocuments(results);
 
 And here are the results, which include all fields since we did not specify the `Select` property:
 
+```output
 	HotelId: 3
 	Name: Triple Landscape Hotel
 	...
+```
 
 This step completes the tutorial, but don't stop here. **Next steps provide additional resources for learning more about Azure Cognitive Search.
 
 ## Next steps
-* Browse the references for the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) and [REST API](https://docs.microsoft.com/rest/api/searchservice/).
-* Review [naming conventions](https://docs.microsoft.com/rest/api/searchservice/Naming-rules) to learn the rules for naming various objects.
-* Review [supported data types](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) in Azure Cognitive Search.
+* Browse the references for the [.NET SDK](/dotnet/api/microsoft.azure.search) and [REST API](/rest/api/searchservice/).
+* Review [naming conventions](/rest/api/searchservice/Naming-rules) to learn the rules for naming various objects.
+* Review [supported data types](/rest/api/searchservice/Supported-data-types) in Azure Cognitive Search.

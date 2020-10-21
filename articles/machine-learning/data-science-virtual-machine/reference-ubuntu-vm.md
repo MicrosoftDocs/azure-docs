@@ -5,6 +5,7 @@ description: Details on tools included in the Ubuntu Data Science Virtual Machin
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: devx-track-python
 
 ms.author: gopalv
 ms.date: 09/11/2019
@@ -50,7 +51,7 @@ Some example notebooks are available in JupyterHub.
 
 H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed. 
 
-To open H2O from the command line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`. There are various [command-line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you might want to configure. You can access the Flow web UI by browsing to http://localhost:54321 to get started. Sample notebooks are also available in JupyterHub.
+To open H2O from the command line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`. There are various [command-line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you might want to configure. You can access the Flow web UI by browsing to `http://localhost:54321` to get started. Sample notebooks are also available in JupyterHub.
 
 ### Keras
 
@@ -64,7 +65,7 @@ MXNet is a deep learning framework designed for both efficiency and flexibility.
 
 The NVIDIA Deep Learning GPU Training System, known as DIGITS, is a system to simplify common deep learning tasks. These tasks include managing data, designing and training neural networks on GPU systems, and monitoring performance in real time with advanced visualization.
 
-DIGITS is available as a service called *digits*. Start the service and browse to http://localhost:5000 to get started.
+DIGITS is available as a service called *digits*. Start the service and browse to `http://localhost:5000` to get started.
 
 DIGITS is also installed as a Python module in the Conda root environment.
 
@@ -135,7 +136,7 @@ If you're on a graphical interface or have X11 forwarding set up, you can enter 
 
 The Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in by using your local Linux username and password.
 
-The Jupyter notebook server has been pre-configured with Python 2, Python 3, and R kernels. Use the **Jupyter Notebook** desktop icon to open the browser and access the notebook server. If you're on the VM via SSH or the X2Go client, you can also access the Jupyter notebook server at [https://localhost:8000/](https://localhost:8000/).
+The Jupyter notebook server has been pre-configured with Python 2, Python 3, and R kernels. Use the **Jupyter Notebook** desktop icon to open the browser and access the notebook server. If you're on the VM via SSH or the X2Go client, you can also access the Jupyter notebook server at `https://localhost:8000/`.
 
 > [!NOTE]
 > Continue if you get any certificate warnings.
@@ -229,7 +230,7 @@ The following Azure tools are installed on the VM:
 * **Azure Storage Explorer**: Azure Storage Explorer is a graphical tool that you can use to browse through the objects that you have stored in your Azure storage account, and to upload and download data to and from Azure blobs. You can access Storage Explorer from the desktop shortcut icon. You can also open it from a shell prompt by entering **StorageExplorer**. You must be signed in from an X2Go client, or have X11 forwarding set up.
 * **Azure libraries**: The following are some of the pre-installed libraries.
   
-  * **Python**: The Azure-related libraries in Python are *azure*, *azureml*, *pydocumentdb*, and *pyodbc*. With the first three libraries, you can access Azure storage services, Azure Machine Learning, and Azure Cosmos DB (a NoSQL database on Azure). The fourth library, pyodbc (along with the Microsoft ODBC driver for SQL Server), enables access to SQL Server, Azure SQL Database, and Azure SQL Data Warehouse from Python by using an ODBC interface. Enter **pip list** to see all the listed libraries. Be sure to run this command in both the Python 2.7 and 3.5 environments.
+  * **Python**: The Azure-related libraries in Python are *azure*, *azureml*, *pydocumentdb*, and *pyodbc*. With the first three libraries, you can access Azure storage services, Azure Machine Learning, and Azure Cosmos DB (a NoSQL database on Azure). The fourth library, pyodbc (along with the Microsoft ODBC driver for SQL Server), enables access to SQL Server, Azure SQL Database, and Azure Synapse Analytics from Python by using an ODBC interface. Enter **pip list** to see all the listed libraries. Be sure to run this command in both the Python 2.7 and 3.5 environments.
   * **R**: The Azure-related libraries in R are AzureML and RODBC.
   * **Java**: The list of Azure Java libraries can be found in the directory /dsvm/sdk/AzureSDKJava on the VM. The key libraries are Azure storage and management APIs, Azure Cosmos DB, and JDBC drivers for SQL Server.  
 
@@ -245,8 +246,6 @@ Operationalize the machine learning models that you have built by wrapping them 
 
 You can also build your models in R or Python on the VM, and then deploy them in production on Azure Machine Learning. We have installed libraries in R (**AzureML**) and Python (**azureml**) to enable this functionality.
 
-For information on how to deploy models in R and Python into Azure Machine Learning, see [Ten things you can do on the Data Science Virtual Machine](vm-do-ten-things.md).
-
 > [!NOTE]
 > These instructions were written for the Windows version of the Data Science Virtual Machine. But the information provided there on deploying models to Azure Machine Learning is applicable to the Linux VM.
 
@@ -260,8 +259,10 @@ The VM comes with machine learning tools and algorithms that have been pre-compi
 * **Python**: Anaconda Python comes bundled with machine learning algorithms with libraries like Scikit-learn. You can install other libraries by using the `pip install` command.
 * **LightGBM**: A fast, distributed, high-performance gradient boosting framework based on decision tree algorithms.
 * **R**: A rich library of machine learning functions is available for R. Pre-installed libraries include lm, glm, randomForest, and rpart. You can install other libraries by running this command:
-  
-        install.packages(<lib name>)
+
+    ```r
+    install.packages(<lib name>)
+    ```
 
 Here is some additional information about the first three machine learning tools in the list.
 

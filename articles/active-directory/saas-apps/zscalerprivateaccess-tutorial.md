@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Zscaler Private Access (ZPA) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler Private Access (ZPA).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: 83711115-1c4f-4dd7-907b-3da24b37c89e
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/23/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Zscaler Private Access (ZPA) with Azure Active Directory
@@ -36,6 +29,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Zscaler Private Access (ZPA) single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 

@@ -1,10 +1,11 @@
 ---
 title: Azure Blob storage output binding for Azure Functions
-description: Learn how to provide Azure Blob storage data to an Azure Function.
+description: Learn how to provide Azure Blob storage output binding data to an Azure Function.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
 # Azure Blob storage output binding for Azure Functions
@@ -388,9 +389,9 @@ The `@BlobOutput` attribute gives you access to the blob that triggered the func
 
 | Binding |  Reference |
 |---|---|
-| Blob | [Blob Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
-| Blob, Table, Queue |  [Storage Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Blob, Table, Queue |  [Troubleshooting](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Blob | [Blob Error Codes](/rest/api/storageservices/fileservices/blob-service-error-codes) |
+| Blob, Table, Queue |  [Storage Error Codes](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, Table, Queue |  [Troubleshooting](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## Next steps
 

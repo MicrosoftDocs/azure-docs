@@ -37,6 +37,9 @@ Before [adding an identity source](#add-an-identity-source-on-vcenter), temporar
 * [Set Up New Active Directory on a Private Cloud](#set-up-new-active-directory-on-a-private-cloud)
 * [Set Up Active Directory on Azure](#set-up-active-directory-on-azure)
 
+> [!IMPORTANT]
+> **Active Directory (Windows Integrated Authentication) is not supported.** Only Active Directory over LDAP option is supported as an identity source.
+
 ## Add On-Premises Active Directory as a Single Sign-On Identity Source
 
 To set up your on-premises Active Directory as a Single Sign-On identity source, you need:
@@ -75,7 +78,7 @@ To set up a new Active Directory forest and domain, you need:
 * One or more virtual machines running Microsoft Windows Server to use as domain controllers for the new Active Directory forest and domain.
 * One or more virtual machines running DNS service for name resolution.
 
-See [Install a New Windows Server 2012 Active Directory Forest](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-forest--level-200-) for detailed steps.
+See [Install a New Windows Server 2012 Active Directory Forest](/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-forest--level-200-) for detailed steps.
 
 > [!TIP]
 > For high availability of services, we recommend setting up multiple domain controllers and DNS servers.
@@ -89,7 +92,7 @@ To set up a new Active Directory domain in an existing Active Directory forest, 
 * Site-to-Site VPN connection to your Active Directory forest location.
 * DNS Server to resolve the name of your existing Active Directory forest.
 
-See [Install a new Windows Server 2012 Active Directory child or tree domain](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-child-or-tree-domain--level-200-) for detailed steps.
+See [Install a new Windows Server 2012 Active Directory child or tree domain](/windows-server/identity/ad-ds/deploy/install-a-new-windows-server-2012-active-directory-child-or-tree-domain--level-200-) for detailed steps.
 
 After setting up the Active Directory domain, you can [add an identity source on vCenter](#add-an-identity-source-on-vcenter) for your new Active Directory.
 

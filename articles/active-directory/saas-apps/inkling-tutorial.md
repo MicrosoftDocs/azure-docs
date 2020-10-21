@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Inkling | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Inkling.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 64c7ee45-ee8a-42f7-bf04-fd0e00833ea9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Inkling
 

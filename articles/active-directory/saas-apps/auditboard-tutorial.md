@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with AuditBoard | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and AuditBoard.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 072724b9-d1c8-4c22-9571-d1d0d7eb5ea2
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with AuditBoard
 
@@ -100,7 +93,7 @@ To configure Azure AD single sign-on with AuditBoard, perform the following step
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP initiated** mode perform the following steps:
 
-    ![AuditBoard Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml`
@@ -113,7 +106,7 @@ To configure Azure AD single sign-on with AuditBoard, perform the following step
     d. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.auditboardapp.com/`
 
-    ![AuditBoard Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [AuditBoard Client support team](mailto:support@auditboard.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

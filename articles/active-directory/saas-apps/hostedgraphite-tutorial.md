@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Hosted Graphite | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Hosted Graphite.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a1ac4d7f-d079-4f3c-b6da-0f520d427ceb
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Hosted Graphite
 
@@ -101,7 +94,7 @@ To configure Azure AD single sign-on with Hosted Graphite, perform the following
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Hosted Graphite Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://www.hostedgraphite.com/metadata/<user id>`
@@ -111,7 +104,7 @@ To configure Azure AD single sign-on with Hosted Graphite, perform the following
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Hosted Graphite Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://www.hostedgraphite.com/login/saml/<user id>/`
@@ -139,23 +132,23 @@ To configure Azure AD single sign-on with Hosted Graphite, perform the following
 
 2. Go to the **SAML Setup page** in the sidebar (**Access -> SAML Setup**).
 
-    ![Configure Single Sign-On On App side](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
+    ![Screenshot shows the Access menu with SAML Setup selected.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
 
 3. Confirm these URls match your configuration done on the **Basic SAML Configuration** section of the Azure portal.
 
-    ![Configure Single Sign-On On App side](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
+    ![Screenshot shows Basic SAML Configuration.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
 
 4. In  **Entity or Issuer ID** and **SSO Login URL** textboxes, paste the value of **Azure Ad Identifier** and **Login URL** which you have copied from Azure portal.
 
-    ![Configure Single Sign-On On App side](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
+    ![Screenshot shows entries for Identity Provider.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
 
 5. Select **Read-only** as **Default User Role**.
 
-    ![Configure Single Sign-On On App side](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
+    ![Screenshot shows Default User Role, which is Read-only.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
 
 6. Open your base-64 encoded certificate in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **X.509 Certificate** textbox.
 
-    ![Configure Single Sign-On On App side](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
+    ![Screenshot shows X dot 509 Certificate.](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
 
 7. Click **Save** button.
 

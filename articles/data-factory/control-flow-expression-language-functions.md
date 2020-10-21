@@ -17,6 +17,7 @@ ms.date: 11/25/2019
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-functions-variables.md)
 > * [Current version](control-flow-expression-language-functions.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides details about expressions and functions supported by Azure Data Factory. 
 
@@ -58,6 +59,11 @@ Expressions can appear anywhere in a JSON string value and always result in anot
 |"Answer is: \@\@{pipeline().parameters.myNumber}"| Returns the string `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ## Examples
+
+### Complex expression example
+The below example shows a complex example that references a deep sub-field of activity output. To reference a pipeline parameter that evaluates to a sub-field, use [] syntax instead of dot(.) operator (as in case of subfield1 and subfield2)
+
+@activity('*activityName*').output.*subfield1*.*subfield2*[pipeline().parameters.*subfield3*].*subfield4*
 
 ### A dataset with a parameter
 In the following example, the BlobDataset takes a parameter named **path**. Its value is used to set a value for the **folderPath** property by using the expression: `dataset().path`. 
@@ -263,7 +269,7 @@ These functions are useful inside conditions, they can be used to evaluate any t
 | [dayOfMonth](control-flow-expression-language-functions.md#dayOfMonth) | Return the day of the month component from a timestamp. |
 | [dayOfWeek](control-flow-expression-language-functions.md#dayOfWeek) | Return the day of the week component from a timestamp. |
 | [dayOfYear](control-flow-expression-language-functions.md#dayOfYear) | Return the day of the year component from a timestamp. |
-| [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | Return the date from a timestamp. |
+| [formatDateTime](control-flow-expression-language-functions.md#formatDateTime) | Return the timestamp as a string in optional format. |
 | [getFutureTime](control-flow-expression-language-functions.md#getFutureTime) | Return the current timestamp plus the specified time units. See also [addToTime](control-flow-expression-language-functions.md#addToTime). |
 | [getPastTime](control-flow-expression-language-functions.md#getPastTime) | Return the current timestamp minus the specified time units. See also [subtractFromTime](control-flow-expression-language-functions.md#subtractFromTime). |
 | [startOfDay](control-flow-expression-language-functions.md#startOfDay) | Return the start of the day for a timestamp. |
@@ -523,27 +529,27 @@ And returns the result using the optional "D" format: `"Tuesday, January 2, 2018
 
 ### and
 
-Check whether all expressions are true.
-Return true when all expressions are true,
+Check whether both expressions are true.
+Return true when both expressions are true,
 or return false when at least one expression is false.
 
 ```
-and(<expression1>, <expression2>, ...)
+and(<expression1>, <expression2>)
 ```
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | Yes | Boolean | The expressions to check |
+| <*expression1*>, <*expression2*> | Yes | Boolean | The expressions to check |
 |||||
 
 | Return value | Type | Description |
 | ------------ | -----| ----------- |
-| true or false | Boolean | Return true when all expressions are true. Return false when at least one expression is false. |
+| true or false | Boolean | Return true when both expressions are true. Return false when at least one expression is false. |
 ||||
 
 *Example 1*
 
-These examples check whether the specified Boolean values are all true:
+These examples check whether the specified Boolean values are both true:
 
 ```
 and(true, true)
@@ -559,7 +565,7 @@ And returns these results:
 
 *Example 2*
 
-These examples check whether the specified expressions are all true:
+These examples check whether the specified expressions are both true:
 
 ```
 and(equals(1, 1), equals(2, 2))
@@ -913,7 +919,7 @@ This example converts a timestamp to the specified time zone:
 convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time')
 ```
 
-And returns this result: `"2018-01-01T00:00:00.0000000"`
+And returns this result: `"2018-01-01T00:00:00Z"`
 
 *Example 2*
 
@@ -2425,20 +2431,20 @@ And return these results:
 
 Check whether at least one expression is true.
 Return true when at least one expression is true,
-or return false when all are false.
+or return false when both are false.
 
 ```
-or(<expression1>, <expression2>, ...)
+or(<expression1>, <expression2>)
 ```
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>, ... | Yes | Boolean | The expressions to check |
+| <*expression1*>, <*expression2*> | Yes | Boolean | The expressions to check |
 |||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| true or false | Boolean | Return true when at least one expression is true. Return false when all expressions are false. |
+| true or false | Boolean | Return true when at least one expression is true. Return false when both expressions are false. |
 ||||
 
 *Example 1*

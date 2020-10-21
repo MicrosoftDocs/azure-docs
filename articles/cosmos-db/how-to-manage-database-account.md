@@ -3,8 +3,8 @@ title: Learn how to manage database accounts in Azure Cosmos DB
 description: Learn how to manage Azure Cosmos DB resources by using the Azure portal, PowerShell, CLI, and Azure Resource Manager templates
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 12/02/2019
+ms.topic: how-to
+ms.date: 09/18/2020
 ms.author: mjbrown
 ---
 
@@ -24,11 +24,11 @@ Please see [Create an Azure Cosmos DB account with Azure CLI](manage-with-cli.md
 
 ### <a id="create-database-account-via-ps"></a>Azure PowerShell
 
-Please see [Create an Azure Cosmos DB account with Powershell](manage-with-powershell.md#create-account)
+Please see [Create an Azure Cosmos DB account with PowerShell](manage-with-powershell.md#create-account)
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager template
 
-This Azure Resource Manager template will create an Azure Cosmos account for SQL API configured with two regions and options to select consistency level, automatic failover, and multi-master. To deploy this template, click on Deploy to Azure on the readme page, [Create Azure Cosmos account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)
+Please see [Create Azure Cosmos DB account with Azure Resource Manager templates](manage-sql-with-resource-manager.md)
 
 ## Add/remove regions from your database account
 
@@ -44,7 +44,7 @@ This Azure Resource Manager template will create an Azure Cosmos account for SQL
 
 1. To save your changes, select **OK**.
 
-   ![Add or remove regions menu](./media/how-to-manage-database-account/add-region.png)
+   :::image type="content" source="./media/how-to-manage-database-account/add-region.png" alt-text="Add or remove regions menu":::
 
 In a single-region write mode, you cannot remove the write region. You must fail over to a different region before you can delete the current write region.
 
@@ -56,7 +56,7 @@ Please see [Add or remove regions with Azure CLI](manage-with-cli.md#add-or-remo
 
 ### <a id="add-remove-regions-via-ps"></a>Azure PowerShell
 
-Please see [Add or remove regions with Powershell](manage-with-powershell.md#update-account)
+Please see [Add or remove regions with PowerShell](manage-with-powershell.md#update-account)
 
 ## <a id="configure-multiple-write-regions"></a>Configure multiple write-regions
 
@@ -64,7 +64,7 @@ Please see [Add or remove regions with Powershell](manage-with-powershell.md#upd
 
 Open the **Replicate Data Globally** tab and select **Enable** to enable multi-region writes. After you enable multi-region writes, all the read regions that you currently have on the account will become read and write regions.
 
-![Azure Cosmos account configures multi-master screenshot](./media/how-to-manage-database-account/single-to-multi-master.png)
+:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Azure Cosmos account configures multi-region writes screenshot":::
 
 ### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
@@ -72,11 +72,11 @@ Please see [Enable multiple-write regions with Azure CLI](manage-with-cli.md#ena
 
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
-Please see [Enable multiple-write regions with Powershell](manage-with-powershell.md#multi-master)
+Please see [Enable multiple-write regions with PowerShell](manage-with-powershell.md#multi-region-writes)
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager template
 
-An account can be migrated from single-master to multi-master by deploying the Resource Manager template used to create the account and setting `enableMultipleWriteLocations: true`. The following Azure Resource Manager template is a bare minimum template that will deploy an Azure Cosmos account for SQL API with two regions and multiple write locations enabled.
+An account can be migrated from single write region to multiple write regions by deploying the Resource Manager template used to create the account and setting `enableMultipleWriteLocations: true`. The following Azure Resource Manager template is a bare minimum template that will deploy an Azure Cosmos account for SQL API with two regions and multiple write locations enabled.
 
 ```json
 {
@@ -144,13 +144,13 @@ The Automatic failover option allows Azure Cosmos DB to failover to the region w
 
 2. At the top of the pane, select **Automatic Failover**.
 
-   ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Replicate data globally menu":::
 
 3. On the **Automatic Failover** pane, make sure that **Enable Automatic Failover** is set to **ON**. 
 
 4. Select **Save**.
 
-   ![Automatic failover portal menu](./media/how-to-manage-database-account/automatic-failover.png)
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Automatic failover portal menu":::
 
 ### <a id="enable-automatic-failover-via-cli"></a>Azure CLI
 
@@ -158,7 +158,7 @@ Please see [Enable automatic failover with Azure CLI](manage-with-cli.md#enable-
 
 ### <a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
 
-Please see [Enable automatic failover with Powershell](manage-with-powershell.md#enable-automatic-failover)
+Please see [Enable automatic failover with PowerShell](manage-with-powershell.md#enable-automatic-failover)
 
 ## Set failover priorities for your Azure Cosmos account
 
@@ -173,7 +173,7 @@ After a Cosmos account is configured for automatic failover, the failover priori
 
 2. At the top of the pane, select **Automatic Failover**.
 
-   ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Replicate data globally menu":::
 
 3. On the **Automatic Failover** pane, make sure that **Enable Automatic Failover** is set to **ON**.
 
@@ -181,7 +181,7 @@ After a Cosmos account is configured for automatic failover, the failover priori
 
 5. Select **Save**.
 
-   ![Automatic failover portal menu](./media/how-to-manage-database-account/automatic-failover.png)
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Automatic failover portal menu":::
 
 ### <a id="set-failover-priorities-via-cli"></a>Azure CLI
 
@@ -189,7 +189,7 @@ Please see [Set failover priority with Azure CLI](manage-with-cli.md#set-failove
 
 ### <a id="set-failover-priorities-via-ps"></a>Azure PowerShell
 
-Please see [Set failover priority with Powershell](manage-with-powershell.md#modify-failover-priority)
+Please see [Set failover priority with PowerShell](manage-with-powershell.md#modify-failover-priority)
 
 ## <a id="manual-failover"></a>Perform manual failover on an Azure Cosmos account
 
@@ -199,7 +199,7 @@ Please see [Set failover priority with Powershell](manage-with-powershell.md#mod
 The process for performing a manual failover involves changing the account's write region (failover priority = 0) to another region configured for the account.
 
 > [!NOTE]
-> Multi-master accounts cannot be manually failed over. For applications using the Azure Cosmos SDK, the SDK will detect when a region becomes unavailable, then redirect automatically to the next closest region if using multi-homing API in the SDK.
+> Accounts with multiple write regions cannot be manually failed over. For applications using the Azure Cosmos SDK, the SDK will detect when a region becomes unavailable, then redirect automatically to the next closest region if using multi-homing API in the SDK.
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure portal
 
@@ -207,13 +207,13 @@ The process for performing a manual failover involves changing the account's wri
 
 2. At the top of the menu, select **Manual Failover**.
 
-   ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Replicate data globally menu":::
 
 3. On the **Manual Failover** menu, select your new write region. Select the check box to indicate that you understand this option changes your write region.
 
 4. To trigger the failover, select **OK**.
 
-   ![Manual failover portal menu](./media/how-to-manage-database-account/manual-failover.png)
+   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Manual failover portal menu":::
 
 ### <a id="enable-manual-failover-via-cli"></a>Azure CLI
 
@@ -221,7 +221,7 @@ Please see [Trigger manual failover with Azure CLI](manage-with-cli.md#trigger-m
 
 ### <a id="enable-manual-failover-via-ps"></a>Azure PowerShell
 
-Please see [Trigger manual failover with Powershell](manage-with-powershell.md#trigger-manual-failover)
+Please see [Trigger manual failover with PowerShell](manage-with-powershell.md#trigger-manual-failover)
 
 ## Next steps
 

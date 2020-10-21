@@ -7,14 +7,8 @@
     href: Overview.md
 - name: Quickstarts
   items:
-  - name: Using the client SDK
-    items:
-    - name: .NET SDK
-      href: Quickstarts/csharp-sdk.md
-    - name: Python SDK
-      href: QuickStarts/python-sdk.md
-    - name: Go SDK
-      href: QuickStarts/go-sdk.md
+  - name: Using the client library
+    href: Quickstarts/client-libraries.md
   - name: Using the REST API  
     items:
     - name: Detect faces in an image  
@@ -43,8 +37,6 @@
     items:
     - name: C#
       href: Tutorials/FaceAPIinCSharpTutorial.md
-    - name: Android
-      href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: Concepts
   items:
   - name: Face detection
@@ -55,9 +47,7 @@
   items:
   - name: Detect faces
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-  - name: Identify faces
-    href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
-  - name: Add faces
+  - name: Add faces to a group
     href: Face-API-How-to-Topics/how-to-add-faces.md
   - name: Use the HeadPose attribute
     href: Face-API-How-to-Topics/how-to-use-headpose.md

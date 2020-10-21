@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen1 - performance tuning
-description: Describes how to tune Azure Data Lake Storage Gen1 for performance.
+description: Learn how using all available throughput in Azure Data Lake Storage Gen1 is important to get the best performance by performing as many reads and writes in parallel as possible.
 
 author: stewu
 ms.service: data-lake-store
@@ -35,15 +35,15 @@ The network connectivity between your source data and Data Lake Storage Gen1 can
 
 ### Configure data ingestion tools for maximum parallelization
 
-After you've addressed the source hardware and network connectivity bottlenecks, you're ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them. To learn more about which tool to use for your scenario, visit this [article](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
+After you've addressed the source hardware and network connectivity bottlenecks, you're ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them. To learn more about which tool to use for your scenario, visit this [article](./data-lake-store-data-scenarios.md).
 
 | Tool          | Settings | More Details                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| Powershell       | PerFileThreadCount, ConcurrentFileCount | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
-| AdlCopy    | Azure Data Lake Analytics units | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| DistCp            | -m (mapper) | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| Powershell       | PerFileThreadCount, ConcurrentFileCount | [Link](./data-lake-store-get-started-powershell.md) |
+| AdlCopy    | Azure Data Lake Analytics units | [Link](./data-lake-store-copy-data-azure-storage-blob.md#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m (mapper) | [Link](./data-lake-store-copy-data-wasb-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies | [Link](../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mapper) | [Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
+| Sqoop           | fs.azure.block.size, -m (mapper) | [Link](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## Structure your data set
 
@@ -61,15 +61,11 @@ Sometimes, data pipelines have limited control over the raw data that has lots o
 
 For Hive and ADLA workloads, partition pruning of time-series data can help some queries read only a subset of the data, which improves performance.
 
-Those pipelines that ingest time-series data, often place their files with a structured naming for files and folders. The following is a common example we see for data that is structured by date:
-
-    \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+Those pipelines that ingest time-series data, often place their files with a structured naming for files and folders. The following is a common example we see for data that is structured by date: *\DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv*.
 
 Notice that the datetime information appears both as folders and in the filename.
 
-For date and time, the following is a common pattern
-
-    \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+For date and time, the following is a common pattern: *\DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv*.
 
 Again, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder.
 

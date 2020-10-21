@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Trakstar | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Trakstar.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 411cb8c3-95c6-4138-acf2-ffc7f663e89a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Trakstar
 

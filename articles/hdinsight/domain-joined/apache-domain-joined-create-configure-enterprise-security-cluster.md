@@ -6,7 +6,7 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/10/2019
 ---
 
@@ -187,11 +187,11 @@ Create an Active Directory tenant administrator.
 
 1. On the **Connect to Azure AD** page, enter the username and password of the global administrator for Azure AD. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your Active Directory tenant. Then select **Next**.
 
-    ![The "Connect to Azure AD" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
+    ![The "Connect to Azure A D" page.](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
 1. On the **Connect to Active Directory Domain Services** page, enter the username and password for an enterprise admin account. Use the username `HDIFabrikam\HDIFabrikamAdmin` and its password that you created earlier. Then select **Next**.
 
-   ![The "Connect to Azure AD" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
+   ![The "Connect to A D D S" page.](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. On the **Azure AD sign-in configuration** page, select **Next**.
    ![The "Azure AD sign-in configuration" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 

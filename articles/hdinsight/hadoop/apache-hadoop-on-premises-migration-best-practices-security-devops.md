@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ---
@@ -106,8 +106,6 @@ Regularly upgrade to the latest HDInsight version to take advantage of the lates
 For more information, see the article: [Upgrade HDInsight cluster to a new version](../hdinsight-upgrade-cluster.md).
 
 ## Patch cluster operating systems
-
-As a managed Hadoop service, HDInsight takes care of patching the OS of the VMs used by HDInsight clusters.
 
 For more information, see the article: [OS patching for HDInsight](../hdinsight-os-patching.md).
 

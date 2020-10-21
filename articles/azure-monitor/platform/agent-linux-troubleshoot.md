@@ -39,7 +39,7 @@ If none of these steps work for you, the following support channels are also ava
  Additional configurations | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
  >[!NOTE]
- >Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [data menu Log Analytics Advanced Settings](../../azure-monitor/platform/agent-data-sources.md#configuring-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from Log Analytics **Advanced Settings** or for a single agent run the following:  
+ >Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [data menu Log Analytics Advanced Settings](./agent-data-sources.md#configuring-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from Log Analytics **Advanced Settings** or for a single agent run the following:  
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
 
 ## Installation error codes
@@ -49,7 +49,7 @@ If none of these steps work for you, the following support channels are also ava
 | NOT_DEFINED | Because the necessary dependencies are not installed, the auoms auditd plugin will not be installed | Installation of auoms failed, install package auditd. |
 | 2 | Invalid option provided to the shell bundle. Run `sudo sh ./omsagent-*.universal*.sh --help` for usage |
 | 3 | No option provided to the shell bundle. Run `sudo sh ./omsagent-*.universal*.sh --help` for usage. |
-| 4 | Invalid package type OR invalid proxy settings; omsagent-*rpm*.sh packages can only be installed on RPM-based systems, and omsagent-*deb*.sh packages can only be installed on Debian-based systems. It is recommend you use the universal installer from the [latest release](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Also review to verify your proxy settings. |
+| 4 | Invalid package type OR invalid proxy settings; omsagent-*rpm*.sh packages can only be installed on RPM-based systems, and omsagent-*deb*.sh packages can only be installed on Debian-based systems. It is recommend you use the universal installer from the [latest release](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Also review to verify your proxy settings. |
 | 5 | The shell bundle must be executed as root OR there was 403 error returned during onboarding. Run your command using `sudo`. |
 | 6 | Invalid package architecture OR there was error 200 error returned during onboarding; omsagent-*x64.sh packages can only be installed on 64-bit systems, and omsagent-*x86.sh packages can only be installed on 32-bit systems. Download the correct package for your architecture from the [latest release](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Installation of OMS package failed. Look through the command output for the root failure. |
@@ -146,7 +146,7 @@ Below the output plugin, uncomment the following section by removing the `#` in 
 
 ### Probable causes
 * The proxy specified during onboarding was incorrect
-* The Azure Monitor and Azure Automation Service Endpoints are not whitelisted in your datacenter 
+* The Azure Monitor and Azure Automation Service Endpoints are not included in the approved list in your datacenter 
 
 ### Resolution
 1. Reonboard to Azure Monitor with the Log Analytics agent for Linux by using the following command with the option `-v` enabled. It allows verbose output of the agent connecting through the proxy to Azure Monitor. 
@@ -224,7 +224,7 @@ Performance related bugs don't happen all the time, and they are very difficult 
 * The number of messages being forwarded per second are too great for the base configuration of the Log Analytics agent for Linux to handle
 
 ### Resolution
-* Verify the configuration in the Log Analytics workspace for Syslog has all the facilities and the correct log levels. Review [configure Syslog collection in the Azure portal](../../azure-monitor/platform/data-sources-syslog.md#configure-syslog-in-the-azure-portal)
+* Verify the configuration in the Log Analytics workspace for Syslog has all the facilities and the correct log levels. Review [configure Syslog collection in the Azure portal](./data-sources-syslog.md#configure-syslog-in-the-azure-portal)
 * Verify the native syslog messaging daemons (`rsyslog`, `syslog-ng`) are able to receive the forwarded messages
 * Check firewall settings on the Syslog server to ensure that messages are not being blocked
 * Simulate a Syslog message to Log Analytics using `logger` command
@@ -418,7 +418,7 @@ You can continue reonboard after using the `--purge` option
 ### Resolution 
 Perform the following steps to correct the issue.
 1. Remove extension from Azure portal.
-2. Install the agent following the [instructions](../../azure-monitor/learn/quick-collect-linux-computer.md).
+2. Install the agent following the [instructions](../learn/quick-collect-linux-computer.md).
 3. Restart the agent by running the following command: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 * Wait several minutes and the provisioning state changes to **Provisioning succeeded**.
 

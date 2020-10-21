@@ -1,11 +1,12 @@
 ---
 title: Write stored procedures, triggers, and UDFs in Azure Cosmos DB
 description: Learn how to define stored procedures, triggers, and user-defined functions in Azure Cosmos DB
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
+ms.topic: how-to
+ms.date: 06/16/2020
+ms.author: tisande
+ms.custom: devx-track-js
 ---
 
 # How to write stored procedures, triggers, and user-defined functions in Azure Cosmos DB
@@ -16,15 +17,12 @@ To call a stored procedure, trigger, and user-defined function, you need to regi
 
 > [!NOTE]
 > For partitioned containers, when executing a stored procedure, a partition key value must be provided in the request options. Stored procedures are always scoped to a partition key. Items that have a different partition key value will not be visible to the stored procedure. This also applied to triggers as well.
-
 > [!Tip]
 > Cosmos supports deploying containers with stored procedures, triggers and user-defined functions. For more information see [Create an Azure Cosmos DB container with server-side functionality.](manage-sql-with-resource-manager.md#create-sproc)
 
 ## <a id="stored-procedures"></a>How to write stored procedures
 
 Stored procedures are written using JavaScript, they can create, update, read, query, and delete items inside an Azure Cosmos container. Stored procedures are registered per collection, and can operate on any document or an attachment present in that collection.
-
-**Example**
 
 Here is a simple stored procedure that returns a "Hello World" response.
 
@@ -46,29 +44,50 @@ Once written, the stored procedure must be registered with a collection. To lear
 
 ### <a id="create-an-item"></a>Create an item using stored procedure
 
-When you create an item by using stored procedure, the item is inserted into the Azure Cosmos container and an ID for the newly created item is returned. Creating an item is an asynchronous operation and depends on the JavaScript callback functions. The callback function has two parameters - one for the error object in case the operation fails and another for a return value; in this case, the created object. Inside the callback, you can either handle the exception or throw an error. In case a callback is not provided and there is an error, the Azure Cosmos DB runtime will throw an error. 
+When you create an item by using stored procedure, the item is inserted into the Azure Cosmos container and an ID for the newly created item is returned. Creating an item is an asynchronous operation and depends on the JavaScript callback functions. The callback function has two parameters - one for the error object in case the operation fails and another for a return value; in this case, the created object. Inside the callback, you can either handle the exception or throw an error. In case a callback is not provided and there is an error, the Azure Cosmos DB runtime will throw an error.
 
 The stored procedure also includes a parameter to set the description, it's a boolean value. When the parameter is set to true and the description is missing, the stored procedure will throw an exception. Otherwise, the rest of the stored procedure continues to run.
 
-The following example stored procedure takes a new Azure Cosmos item as input, inserts it into the Azure Cosmos container and returns the ID for the newly created item. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET SQL API](create-sql-api-dotnet.md)
+The following example stored procedure takes an array of new Azure Cosmos items as input, inserts it into the Azure Cosmos container and returns the count of the items inserted. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET SQL API](create-sql-api-dotnet.md)
 
 ```javascript
-function createToDoItem(itemToCreate) {
+function createToDoItems(items) {
+    var collection = getContext().getCollection();
+    var collectionLink = collection.getSelfLink();
+    var count = 0;
 
-    var context = getContext();
-    var container = context.getCollection();
+    if (!items) throw new Error("The array is undefined or null.");
 
-    var accepted = container.createDocument(container.getSelfLink(),
-        itemToCreate,
-        function (err, itemCreated) {
-            if (err) throw new Error('Error' + err.message);
-            context.getResponse().setBody(itemCreated.id)
-        });
-    if (!accepted) return;
+    var numItems = items.length;
+
+    if (numItems == 0) {
+        getContext().getResponse().setBody(0);
+        return;
+    }
+
+    tryCreate(items[count], callback);
+
+    function tryCreate(item, callback) {
+        var options = { disableAutomaticIdGeneration: false };
+
+        var isAccepted = collection.createDocument(collectionLink, item, options, callback);
+
+        if (!isAccepted) getContext().getResponse().setBody(count);
+    }
+
+    function callback(err, item, options) {
+        if (err) throw err;
+        count++;
+        if (count >= numItems) {
+            getContext().getResponse().setBody(count);
+        } else {
+            tryCreate(items[count], callback);
+        }
+    }
 }
 ```
 
-### Arrays as input parameters for stored procedures 
+### Arrays as input parameters for stored procedures
 
 When defining a stored procedure in Azure portal, input parameters are always sent as a string to the stored procedure. Even if you pass an array of strings as an input, the array is converted to string and sent to the stored procedure. To work around this, you can define a function within your stored procedure to parse the string as an array. The following code shows how to parse a string  input parameter as an array:
 
@@ -97,12 +116,12 @@ function tradePlayers(playerId1, playerId2) {
     var player1Document, player2Document;
 
     // query for players
-    var filterQuery = 
-    {     
+    var filterQuery =
+    {
         'query' : 'SELECT * FROM Players p where p.id = @playerId1',
         'parameters' : [{'name':'@playerId1', 'value':playerId1}] 
     };
-            
+
     var accept = container.queryDocuments(container.getSelfLink(), filterQuery, {},
         function (err, items, responseOptions) {
             if (err) throw new Error("Error" + err.message);
@@ -110,10 +129,10 @@ function tradePlayers(playerId1, playerId2) {
             if (items.length != 1) throw "Unable to find both names";
             player1Item = items[0];
 
-            var filterQuery2 = 
-            {     
+            var filterQuery2 =
+            {
                 'query' : 'SELECT * FROM Players p where p.id = @playerId2',
-                'parameters' : [{'name':'@playerId2', 'value':playerId2}] 
+                'parameters' : [{'name':'@playerId2', 'value':playerId2}]
             };
             var accept2 = container.queryDocuments(container.getSelfLink(), filterQuery2, {},
                 function (err2, items2, responseOptions2) {
@@ -203,6 +222,56 @@ function bulkImport(items) {
             tryCreate(items[count], callback);
         }
     }
+}
+```
+
+### <a id="async-promises"></a>Async await with stored procedures
+
+The following is an example of a stored procedure that uses async-await with Promises using a helper function. The stored procedure queries for an item and replaces it.
+
+```javascript
+function async_sample() {
+    const ERROR_CODE = {
+        NotAccepted: 429
+    };
+
+    const asyncHelper = {
+        queryDocuments(sqlQuery, options) {
+            return new Promise((resolve, reject) => {
+                const isAccepted = __.queryDocuments(__.getSelfLink(), sqlQuery, options, (err, feed, options) => {
+                    if (err) reject(err);
+                    resolve({ feed, options });
+                });
+                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "replaceDocument was not accepted."));
+            });
+        },
+
+        replaceDocument(doc) {
+            return new Promise((resolve, reject) => {
+                const isAccepted = __.replaceDocument(doc._self, doc, (err, result, options) => {
+                    if (err) reject(err);
+                    resolve({ result, options });
+                });
+                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "replaceDocument was not accepted."));
+            });
+        }
+    };
+
+    async function main() {
+        let continuation;
+        do {
+            let { feed, options } = await asyncHelper.queryDocuments("SELECT * from c", { continuation });
+
+            for (let doc of feed) {
+                doc.newProp = 1;
+                await asyncHelper.replaceDocument(doc);
+            }
+
+            continuation = options.continuation;
+        } while (continuation);
+    }
+
+    main().catch(err => getContext().abort(err));
 }
 ```
 

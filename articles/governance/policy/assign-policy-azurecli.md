@@ -1,8 +1,9 @@
 ---
 title: "Quickstart: New policy assignment with Azure CLI"
 description: In this quickstart, you use Azure CLI to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 01/11/2020
-ms.topic: quickstart
+ms.date: 10/14/2020
+ms.topic: quickstart 
+ms.custom: devx-track-azurecli
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources with Azure CLI
 
@@ -83,7 +84,7 @@ Next, run the following command to get the resource IDs of the non-compliant res
 output into a JSON file:
 
 ```console
-armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-09-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 
 Your results resemble the following example:

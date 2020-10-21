@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ServiceNow.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: a5a1a264-7497-47e7-b129-a1b5b1ebff5b
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/25/2020
+ms.date: 06/19/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow
@@ -40,6 +34,9 @@ To get started, you need the following items:
 * The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled. You can do this by [submitting a service request](https://hi.service-now.com).
 * For automatic configuration, enable the multi-provider plugin for ServiceNow.
 * To install the ServiceNow Classic (Mobile) application, go to the appropriate store, and search for the ServiceNow Classic application. Then download it.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -100,8 +97,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	c. For **Reply URL**, enter one of the following URL:
 
-	|||
-	|-|-|
+	| Reply URL|
+	|----------|
 	| `https://instancename.service-now.com/navpage.do` |
 	| `https://instancename.service-now.com/customer.do` | 
 
@@ -174,8 +171,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	c. For **Reply URL**, enter one of the following URL:
 
-	|||
-	|-|-|
+	| Reply URL |
+	|-----------|
 	| `https://instancename.service-now.com/navpage.do` |
 	| `https://instancename.service-now.com/customer.do` |
 
@@ -292,11 +289,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 		     > [!NOTE]
 		     > If the Test Connection is failing and you are not able to activate this connection then ServiceNow does offer the override switch. You have to enter **Sys_properties.LIST** in the **Search Navigation** and it will open the new page of System Properties. Here you have to create a new property with the name as **glide.authenticate.multisso.test.connection.mandatory** with **datatype** as **True/False** and then set the **value** as **False**.
 
-		     > ![Screenshot of Test Results page](./media/servicenow-tutorial/testconnection-fail.png "Configure single sign-on")
+		     > ![Screenshot shows the System Properties tab with a test connection called out.](./media/servicenow-tutorial/testconnection-fail.png "Configure single sign-on")
 		
 	      1. When asked for your credentials, enter them. You'll see the following page. The **SSO Logout Test Results** error is expected. Ignore the error and select  **Activate**.
 
-		     ![Screenshot of Test Results page](./media/servicenow-tutorial/servicenowactivate.png "Configure single sign-on")
+		     ![Screenshot shows the S S O Login Test Results and the S S O Logout Test Results, along with the Activate button.](./media/servicenow-tutorial/servicenowactivate.png "Configure single sign-on")
   
 1. To configure **ServiceNow** manually, follow these steps:
 
@@ -349,11 +346,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 		  > [!NOTE]
 		  > If the Test Connection is failing and you are not able to activate this connection then ServiceNow does offer the override switch. You have to enter **Sys_properties.LIST** in the **Search Navigation** and it will open the new page of System Properties. Here you have to create a new property with the name as **glide.authenticate.multisso.test.connection.mandatory** with **datatype** as **True/False** and then set the **value** as **False**.
 
-		  > ![Screenshot of Test Results page](./media/servicenow-tutorial/testconnection-fail.png "Configure single sign-on")
+		  > ![Screenshot shows the System Properties tab with a test connection called out.](./media/servicenow-tutorial/testconnection-fail.png "Configure single sign-on")
 
 		* When asked for your credentials, enter them. You'll see the following page. The **SSO Logout Test Results** error is expected. Ignore the error and select  **Activate**.
 
-		  ![Screenshot of Test Results page](./media/servicenow-tutorial/servicenowactivate.png "Configure single sign-on")
+		  ![Screenshot shows the S S O Login Test Results and the S S O Logout Test Results, along with the Activate button.](./media/servicenow-tutorial/servicenowactivate.png "Configure single sign-on")
 
 ### Create ServiceNow test user
 

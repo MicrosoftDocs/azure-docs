@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Syxsense | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Syxsense.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a109c82f-ece5-4897-9d1b-a18044462e8a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Syxsense
@@ -85,11 +79,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.cloudmanagementsuite.com/Saml2/Acs`
-
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.cloudmanagementsuite.com/samlautologin`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Syxsense Client support team](mailto:DevTeam@syxsense.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

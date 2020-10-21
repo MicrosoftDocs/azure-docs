@@ -5,8 +5,8 @@ description: Learn how to configure a Conditional Access policy in Azure Active 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 11/21/2019
+ms.topic: how-to
+ms.date: 10/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -23,10 +23,7 @@ This article gives you the information you need to configure a Conditional Acces
 
 ## Prerequisites
 
-This article assumes that you are familiar with: 
-
-- The [basic concepts](overview.md) of Azure AD Conditional Access 
-- The [best practices](best-practices.md) for configuring Conditional Access policies in the Azure portal
+This article assumes that you are familiar with the [basic concepts](overview.md) of Conditional Access. 
 
 ## Scenario description
 
@@ -62,8 +59,8 @@ Instead of trying to define what all locations are that are not trusted, you can
 
 ## Policy deployment
 
-With the approach outlined in this article, you can now configure a Conditional Access policy for untrusted locations. To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended. For more information, see [How to deploy a new policy](best-practices.md#how-should-you-deploy-a-new-policy). 
+With the approach outlined in this article, you can now configure a Conditional Access policy for untrusted locations. To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended.
 
 ## Next steps
 
-If you would like to learn more about Conditional Access, see [What is Conditional Access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+If you would like to learn more about Conditional Access, see [What is Conditional Access in Azure Active Directory?](./overview.md)

@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-
+ms.custom: devx-track-js
 ---
 # Geospatial and GeoJSON location data in Azure Cosmos DB
 
@@ -16,9 +16,19 @@ This article is an introduction to the geospatial functionality in Azure Cosmos 
 * How can I query geospatial data in Azure Cosmos DB in SQL and LINQ?
 * How do I enable or disable spatial indexing in Azure Cosmos DB?
 
+## Spatial Data Use Cases
+
+Geospatial data often involve proximity queries, for example, "find all coffee shops near my current location". Common use cases are:
+
+* Geolocation Analytics, driving specific located marketing initiatives.
+* Location based personalization, for multiple industries like Retail and Healthcare.
+* Logistics enhancement, for transport optimization.
+* Risk Analysis, especially for insurance and finance companies.
+* Situational awareness, for alerts and notifications.
+
 ## Introduction to spatial data
 
-Spatial data describes the position and shape of objects in space. In most applications, these correspond to objects on the earth and geospatial data. Spatial data can be used to represent the location of a person, a place of interest, or the boundary of a city, or a lake. Common use cases often involve proximity queries, for example, "find all coffee shops near my current location."
+Spatial data describes the position and shape of objects in space. In most applications, these correspond to objects on the earth and geospatial data. Spatial data can be used to represent the location of a person, a place of interest, or the boundary of a city, or a lake.
 
 Azure Cosmos DB's SQL API supports two spatial data types: the **geometry** data type and the **geography** data type.
 

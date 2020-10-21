@@ -1,10 +1,10 @@
 ---
 title: Tutorial- Deploy an app to Azure Service Fabric Mesh 
 description: In this tutorial, you learn how to deploy an application to Service Fabric Mesh using a template.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
 ---
@@ -167,7 +167,7 @@ The preceding output confirms the presence of `azure-mesh-todo-service:1.0-nanos
 ## Retrieve credentials for the registry
 
 > [!IMPORTANT]
-> Enabling the admin user on an ACR instance is not recommended for production scenarios. It is done here for convenience. For production scenarios, use a [service principal](https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal) for both user and system authentication in production scenarios.
+> Enabling the admin user on an ACR instance is not recommended for production scenarios. It is done here for convenience. For production scenarios, use a [service principal](../container-registry/container-registry-auth-service-principal.md) for both user and system authentication in production scenarios.
 
 In order to deploy a container instance from the registry that was created using a template, you must provide the registry credentials during the deployment. First, enable the admin user on your registry with the following command:
 
@@ -187,7 +187,7 @@ Use the returned ACR login server name, user name, and password values when crea
 
 ## Download and explore the template and parameters files
 
-A Service Fabric Mesh application is an Azure resource that you can deploy and manage using Azure Resource Manager (RM) templates. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview) and [Understand the structure and syntax of RM Templates](/azure/azure-resource-manager/resource-group-authoring-templates).
+A Service Fabric Mesh application is an Azure resource that you can deploy and manage using Azure Resource Manager (RM) templates. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Azure Resource Manager overview](../azure-resource-manager/management/overview.md) and [Understand the structure and syntax of RM Templates](../azure-resource-manager/templates/template-syntax.md).
 
 This tutorial uses the To Do List sample as an example.  Instead of building new template and parameters files, download the [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) and [mesh_rp.windows.parameter.json parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) files.
 

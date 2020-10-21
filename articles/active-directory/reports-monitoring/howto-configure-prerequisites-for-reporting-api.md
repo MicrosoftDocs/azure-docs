@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -22,16 +22,17 @@ ms.collection: M365-identity-device-management
 ---
 # Prerequisites to access the Azure Active Directory reporting API
 
-The [Azure Active Directory (Azure AD) reporting APIs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from of programming languages and tools.
+The [Azure Active Directory (Azure AD) reporting APIs](./concept-reporting-api.md) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from of programming languages and tools.
 
-The reporting API uses [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) to authorize access to the web APIs.
+The reporting API uses [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) to authorize access to the web APIs.
 
 To prepare your access to the reporting API, you need to:
 
 1. [Assign roles](#assign-roles)
-2. [Register an application](#register-an-application)
-3. [Grant permissions](#grant-permissions)
-4. [Gather configuration settings](#gather-configuration-settings)
+2. [License Requirements](#license-requirements)
+3. [Register an application](#register-an-application)
+4. [Grant permissions](#grant-permissions)
+5. [Gather configuration settings](#gather-configuration-settings)
 
 ## Assign roles
 
@@ -42,6 +43,10 @@ To get access to the reporting data through the API, you need to have one of the
 - Security Administrator
 
 - Global Administrator
+
+## License Requirements
+
+In order to access the sign-in reports for a tenant, an Azure AD tenant must have associated Azure AD Premium license. Azure AD Premium P1 (or above) license is required  to access sign-in reports for any Azure AD tenant. Alternatively if the directory type is Azure AD B2C , the sign-in reports are accessible through the API without any additional license requirement. 
 
 
 ## Register an application
@@ -216,5 +221,5 @@ Follow the steps in the [Prerequisites to access the Azure Active Directory repo
 ## Next steps
 
 * [Get data using the Azure Active Directory reporting API with certificates](tutorial-access-api-with-certificates.md)
-* [Audit API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Audit API reference](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [Sign-in activity report API reference](/graph/api/resources/signin?view=graph-rest-beta)

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Domo | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Domo.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Domo
@@ -85,20 +78,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<companyname>.domo.com` |
-	| `https://<companyname>.beta.domo.com` |
-	| `https://<companyname>.demo.domo.com` |
-	| `https://<companyname>.dev.domo.com` |
-	| `https://<companyname>.fastage1.domo.com` |
-	| `https://<companyname>.frdev.domo.com` |
-	| `https://<companyname>.gastage.domo.com` |
-	| `https://<companyname>.load.domo.com` |
-	| `https://<companyname>.local.domo.com` |
-	| `https://<companyname>.qa.domo.com` |
-	| `https://<companyname>.stage.domo.com` |
-	| | |
+    ```http
+    https://<companyname>.domo.com
+    https://<companyname>.beta.domo.com
+    https://<companyname>.demo.domo.com
+    https://<companyname>.dev.domo.com
+    https://<companyname>.fastage1.domo.com
+    https://<companyname>.frdev.domo.com
+    https://<companyname>.gastage.domo.com
+    https://<companyname>.load.domo.com
+    https://<companyname>.local.domo.com
+    https://<companyname>.qa.domo.com
+    https://<companyname>.stage.domo.com
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Domo Client support team](mailto:support@domo.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

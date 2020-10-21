@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with QuickHelp | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and QuickHelp.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 655c9ad3-2076-4e2c-8e47-9ed3bf04be56
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with QuickHelp
 
@@ -132,17 +126,17 @@ To configure Azure AD single sign-on with QuickHelp, perform the following steps
 
 2. In the menu on the top, click **Admin**.
    
-    ![Configure Single Sign-On][21]
+    ![Screenshot shows the Admin menu item for Brainstorm.][21]
 
 3. In the **QuickHelp Admin** menu, click **Settings**.
    
-    ![Configure Single Sign-On][22]
+    ![Screenshot shows Settings selected from the QuickHelp Admin menu.][22]
 
 4. Click **Authentication Settings**.
 
 5. On the **Authentication Settings** page, perform the following steps
    
-    ![Configure Single Sign-On][23]
+    ![Screenshot shows the Authentication Settings page where you can enter the values described.][23]
    
     a. As **SSO Type**, select **WSFederation**.
    

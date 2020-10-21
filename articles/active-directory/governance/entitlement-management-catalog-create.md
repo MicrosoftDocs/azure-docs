@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
@@ -51,11 +51,11 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 ### Creating a catalog programmatically
 
-You can also create a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
+You can also create a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
 
 ## Add resources to a catalog
 
-To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites. The groups can be cloud-created Office 365 Groups or cloud-created Azure AD security groups. The applications can be Azure AD enterprise applications, including both SaaS applications and your own applications federated to Azure AD. The sites can be SharePoint Online sites or SharePoint Online site collections.
+To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites. The groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups. The applications can be Azure AD enterprise applications, including both SaaS applications and your own applications federated to Azure AD. The sites can be SharePoint Online sites or SharePoint Online site collections.
 
 **Prerequisite role:** See [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
@@ -81,7 +81,7 @@ To include resources in an access package, the resources must exist in a catalog
 
 ### Adding a resource to a catalog programmatically
 
-You can also add a resource to a catalog using Microsoft Graph.  A user in an appropriate role, or a catalog and resource owner, with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
+You can also add a resource to a catalog using Microsoft Graph.  A user in an appropriate role, or a catalog and resource owner, with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
 
 ## Remove resources from a catalog
 
@@ -98,6 +98,7 @@ You can remove resources from a catalog. A resource can only be removed from a c
 1. Select the resources you want to remove.
 
 1. Click **Remove** (or click the ellipsis (**...**) and then click **Remove resource**).
+
 
 ## Add additional catalog owners
 
@@ -153,7 +154,7 @@ You can delete a catalog, but only if it does not have any access packages.
 
 ### Deleting a catalog programmatically
 
-You can also delete a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [delete an accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
+You can also delete a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [delete an accessPackageCatalog](/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
 
 ## Next steps
 

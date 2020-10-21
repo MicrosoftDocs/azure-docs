@@ -1,11 +1,11 @@
 ---
 title: Security compliance with Azure Policy and Azure Blueprints
 description: Ensuring compliance and enforcing security with Azure Policy and Azure Blueprints for Australian Government agencies as it relates to the ASD ISM and Essential 8
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: yvettep
 ---
 
 # Security compliance with Azure Policy and Azure Blueprints
@@ -27,7 +27,7 @@ This library of built-in Azure Polices enable an organisation to quickly enforce
 * Monitoring virtual machines for missing system updates
 * Auditing accounts with elevated permissions for multi-factor authentication
 * Identifying unencrypted SQL Databases
-* Monitoring the use of custom Azure role-based access control (RBAC)
+* Monitoring the use of custom Azure role-based access control (Azure RBAC)
 * Restricting the Azure regions that resources can be created in
 
 If governance or regulatory controls are not met by a built-in Azure Policy definition, a custom definition can be created and assigned. All Azure Policy definitions are defined in JSON and follow a standard [definition structure](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure). Existing Azure Policy definitions can also be duplicated and used to form the basis of a custom Policy definition.
@@ -91,7 +91,7 @@ Azure Blueprints extend the capability of Azure Policy by combining them with:
 * Azure Resource Groups
 * [Azure Resource Manager Templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
 
-Blueprints allow for the creation of environment designs that deploy Azure resources from Resource Manager templates, configure RBAC, and enforce and audit configuration by assigning Azure Policy. Blueprints form an editable and redeployable environment template. Once the Blueprint has been created, it can then be assigned to an Azure Subscription. Once assigned, all of the Azure resources defined within the Blueprint will be created and the Azure Policies applied. The deployment and configuration of resources defined in an Azure Blueprint can be monitored from the Azure Blueprint console in the Azure portal.
+Blueprints allow for the creation of environment designs that deploy Azure resources from Resource Manager templates, configure Azure RBAC, and enforce and audit configuration by assigning Azure Policy. Blueprints form an editable and redeployable environment template. Once the Blueprint has been created, it can then be assigned to an Azure Subscription. Once assigned, all of the Azure resources defined within the Blueprint will be created and the Azure Policies applied. The deployment and configuration of resources defined in an Azure Blueprint can be monitored from the Azure Blueprint console in the Azure portal.
 
 Azure Blueprints that have been edited must be republished in the Azure portal. Each time a Blueprint is republished, the version number of the Blueprint is incremented. The version number allows you to determine which specific version of a Blueprint has been deployed to an organisation's Azure Subscriptions. If desired, the currently assigned version of the Blueprint can be updated to the latest version.
 
@@ -105,7 +105,7 @@ To create an Azure Blueprint, you can start with a blank Blueprint template, or 
 
 ![Azure Blueprint Artifacts](media/blueprint-artifacts.png)
 
-These artifacts could include the Azure Resource Group and Resources and associated Azure Policy and Policy Initiatives to enforce the configuration required for your environment to be compliant you’re your regulatory requirements, for example, the ISM controls for system hardening.
+These artifacts could include the Azure Resource Group and Resources and associated Azure Policy and Policy Initiatives to enforce the configuration required for your environment to be compliant you're your regulatory requirements, for example, the ISM controls for system hardening.
 
 Each of these artifacts can also be configured with parameters. These values are provided when the Blueprint has been assigned to an Azure subscription and deployed. Parameters allow for a single Blueprint to be created and used to deploy resources into different environments without having to edit the underlying Blueprint.
 

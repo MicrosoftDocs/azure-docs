@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Bersin | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Bersin.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: bbc9d229-69fb-4ab5-b6c3-5f3d790ea13e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Bersin
 
@@ -100,7 +93,7 @@ To configure Azure AD single sign-on with Bersin, do the following steps:
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, do the following step:
 
-    ![Bersin Domain and URLs single sign-on information](common/idp-identifier-relay.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-identifier-relay.png)
 
 	a. In the **Identifier** text box, type a URL using the following pattern:
     `https://www.bersin.com/shibboleth`
@@ -112,7 +105,7 @@ To configure Azure AD single sign-on with Bersin, do the following steps:
 
 5. Click **Set additional URLs** and do the following steps if you wish to configure the application in **SP** initiated mode:
 
-    ![Bersin Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://www.bersin.com/Login.aspx`

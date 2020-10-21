@@ -15,10 +15,12 @@ ms.date: 12/14/2018
 
 # Bulk copy from a database with a control table
 
-To copy data from a data warehouse in Oracle Server, Netezza, Teradata, or SQL Server to Azure SQL Data Warehouse, you have to load huge amounts of data from multiple tables. Usually, the data has to be partitioned in each table so that you can load rows with multiple threads in parallel from a single table. This article describes a template to use in these scenarios.
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+To copy data from a data warehouse in Oracle Server, Netezza, Teradata, or SQL Server to Azure Synapse Analytics (formerly SQL Data Warehouse), you have to load huge amounts of data from multiple tables. Usually, the data has to be partitioned in each table so that you can load rows with multiple threads in parallel from a single table. This article describes a template to use in these scenarios.
 
  >!NOTE 
- > If you want to copy data from a small number of tables with relatively small data volume to SQL Data Warehouse, it's more efficient to use the [Azure Data Factory Copy Data tool](copy-data-tool.md). The template that's described in this article is more than you need for that scenario.
+ > If you want to copy data from a small number of tables with relatively small data volume to Azure Synapse Analytics, it's more efficient to use the [Azure Data Factory Copy Data tool](copy-data-tool.md). The template that's described in this article is more than you need for that scenario.
 
 ## About this solution template
 
@@ -38,7 +40,7 @@ The template defines following parameters:
 - *Data_Destination_Container* is the root folder path where the data is copied to in your destination store. 
 - *Data_Destination_Directory* is the directory path under the root where the data is copied into your destination store. 
 
-The last three parameters, which define the path in your destination store are only visible if the destination that you choose is file-based storage. If you choose "Azure Synapse Analytics (formerly SQL DW)" as the destination store, these parameters are not required. But the table names and the schema in SQL Data Warehouse must be the same as the ones in the source database.
+The last three parameters, which define the path in your destination store are only visible if the destination that you choose is file-based storage. If you choose "Azure Synapse Analytics (formerly SQL DW)" as the destination store, these parameters are not required. But the table names and the schema in Azure Synapse Analytics must be the same as the ones in the source database.
 
 ## How to use this solution template
 
@@ -88,7 +90,7 @@ The last three parameters, which define the path in your destination store are o
 
     ![Review the result](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (Optional) If you chose "Azure Synapse Analytics (formerly SQL DW)" as the data destination, you must enter a connection to Azure Blob storage for staging, as required by SQL Data Warehouse Polybase. The template will automatically generate a container path for your Blob storage. Check if the container has been created after the pipeline run.
+9. (Optional) If you chose "Azure Synapse Analytics (formerly SQL DW)" as the data destination, you must enter a connection to Azure Blob storage for staging, as required by Azure Synapse Analytics Polybase. The template will automatically generate a container path for your Blob storage. Check if the container has been created after the pipeline run.
 	
 	![Polybase setting](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
 	   

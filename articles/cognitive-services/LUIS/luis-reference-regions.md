@@ -1,6 +1,8 @@
 ---
 title: Publishing regions & endpoints - LUIS
 description: The region specified in the Azure portal is the same where you will publish the LUIS app and an endpoint URL is generated for this same region.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/19/2019
 ---
@@ -15,9 +17,9 @@ There are three LUIS authoring portals, based on region. You must author and pub
 
 |LUIS|Authoring region|Azure region name|
 |--|--|--|
-|[www.luis.ai][www.luis.ai] <br>[preview.luis.ai](https://preview.luis.ai)|U.S.<br>not Europe<br>not Australia| `westus`|
-|[au.luis.ai][au.luis.ai] <br>[preview.au.luis.ai](https://preview.au.luis.ai)|Australia| `australiaeast`|
-|[eu.luis.ai][eu.luis.ai] <br>[preview.eu.luis.ai](https://preview.eu.luis.ai)|Europe|`westeurope`|
+|[www.luis.ai][www.luis.ai] <br>[previous.luis.ai](https://previous.luis.ai)|U.S.<br>not Europe<br>not Australia| `westus`|
+|[au.luis.ai][au.luis.ai] <br>[previous.au.luis.ai](https://previous.au.luis.ai)|Australia| `australiaeast`|
+|[eu.luis.ai][eu.luis.ai] <br>[previous.eu.luis.ai](https://previous.eu.luis.ai)|Europe|`westeurope`|
 
 Authoring regions have [paired fail-over regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 

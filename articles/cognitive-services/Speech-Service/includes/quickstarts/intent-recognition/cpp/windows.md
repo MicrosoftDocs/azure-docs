@@ -1,10 +1,10 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.topic: include
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ---
 
@@ -68,6 +68,8 @@ Insert this code below your `IntentRecognizer`. Make sure that you replace `"You
 > If you need help finding this value, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-33)]
+
+This example uses the `AddIntent()` function to individually add intents. If you want to add all intents from a model, use `AddAllIntents(model)` and pass the model.
 
 ## Recognize an intent
 

@@ -151,7 +151,9 @@ Azure generates the activity log by default. The logs are preserved for 90 days 
 
 ### Access log
 
-The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format, as shown in the following example for v1:
+The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format as shown below. 
+
+#### For Application Gateway Standard and WAF SKU (v1)
 
 |Value  |Description  |
 |---------|---------|
@@ -167,7 +169,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |receivedBytes     | Size of packet received, in bytes.        |
 |sentBytes| Size of packet sent, in bytes.|
 |timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
-|sslEnabled| Whether communication to the back-end pools used SSL. Valid values are on and off.|
+|sslEnabled| Whether communication to the back-end pools used TLS/SSL. Valid values are on and off.|
 |host| The hostname with which the request has been sent to the backend server. If backend hostname is being overridden, this name will reflect that.|
 |originalHost| The hostname with which the request was received by the Application Gateway from the client.|
 ```json
@@ -195,7 +197,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
     }
 }
 ```
-For Application Gateway and WAF v2, the logs show a little more information:
+#### For Application Gateway and WAF v2 SKU
 
 |Value  |Description  |
 |---------|---------|
@@ -210,13 +212,16 @@ For Application Gateway and WAF v2, the logs show a little more information:
 |receivedBytes     | Size of packet received, in bytes.        |
 |sentBytes| Size of packet sent, in bytes.|
 |timeTaken| Length of time (in **seconds**) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
-|sslEnabled| Whether communication to the back-end pools used SSL. Valid values are on and off.|
-|sslCipher| Cipher suite being used for SSL communication (if SSL is enabled).|
-|sslProtocol| SSL/TLS protocol being used (if SSL is enabled).|
+|sslEnabled| Whether communication to the back-end pools used TLS. Valid values are on and off.|
+|sslCipher| Cipher suite being used for TLS communication (if TLS is enabled).|
+|sslProtocol| SSL/TLS protocol being used (if TLS is enabled).|
 |serverRouted| The backend server that application gateway routes the request to.|
 |serverStatus| HTTP status code of the backend server.|
 |serverResponseLatency| Latency of the response from the backend server.|
-|host| Address listed in the host header of the request.|
+|host| Address listed in the host header of the request. If rewritten, this field contains the updated host name|
+|originalRequestUriWithArgs| This field contains the original request URL |
+|requestUri| This field contains the URL after the rewrite operation on Application Gateway |
+|originalHost| This field contains the original request host name
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -363,7 +368,7 @@ We have published a Resource Manager template that installs and runs the popular
 ## Next steps
 
 * Visualize counter and event logs by using [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md).
-* [Visualize your Azure activity log with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog post.
+* [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
 * [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
 
 [1]: ./media/application-gateway-diagnostics/figure1.png

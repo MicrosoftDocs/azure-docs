@@ -1,11 +1,11 @@
 ---
 title: Identity federation in Azure Australia
 description: Guidance on configuring identity federation within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: yvettep
 ---
 
 # Identity federation in Azure Australia
@@ -97,4 +97,4 @@ Privileged Identity Management, a component of Azure Active Directory, can be us
 
 ## Next steps
 
-Review the article on [Role-Based Access Controls and Privileged Identity Management](role-privileged.md).
+Review the article on [Azure role-based access control (Azure RBAC) and Privileged Identity Management](role-privileged.md).
