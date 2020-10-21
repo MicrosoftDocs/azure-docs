@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Azure Blob storage library v12 - C++"
-description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for C++ to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+title: "Quickstart: Azure Blob Storage library v12 - C++"
+description: In this quickstart, you learn how to use the Azure Blob Storage client library version 12 for C++ to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: mhopkins-msft
 
 ms.author: mhopkins
@@ -10,11 +10,11 @@ ms.subservice: blobs
 ms.topic: quickstart
 ---
 
-# Quickstart: Azure Blob storage client library v12 for C++
+# Quickstart: Azure Blob Storage client library v12 for C++
 
-Get started with the Azure Blob storage client library v12 for C++. Azure Blob storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
+Get started with the Azure Blob Storage client library v12 for C++. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob Storage is optimized for storing massive amounts of unstructured data.
 
-Use the Azure Blob storage client library v12 for C++ to:
+Use the Azure Blob Storage client library v12 for C++ to:
 
 - Create a container
 - Upload a blob to Azure Storage
@@ -26,7 +26,7 @@ Additional resources:
 
 - [API reference documentation](https://azure.github.io/azure-sdk-for-cpp/storage.html)
 - [Library source code](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)
-- [Samples](/azure/storage/common/storage-samples-c-plus-plus?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+- [Samples](/azure/storage/common/storage-samples-c-plus-plus?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -42,7 +42,7 @@ Additional resources:
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Blob storage client library v12 for C++.
+This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for C++.
 
 ### Install the packages
 
@@ -75,7 +75,7 @@ Add the following libraries to the project:
 
 ## Object model
 
-Azure Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob storage offers three types of resources:
+Azure Blob Storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. Blob Storage offers three types of resources:
 
 - The storage account
 - A container in the storage account
@@ -83,7 +83,7 @@ Azure Blob storage is optimized for storing massive amounts of unstructured data
 
 The following diagram shows the relationship between these resources.
 
-![Diagram of Blob storage architecture](./media/storage-blobs-introduction/blob1.png)
+![Diagram of Blob Storage architecture](./media/storage-blobs-introduction/blob1.png)
 
 Use the following C++ classes to interact with these resources:
 
@@ -94,7 +94,7 @@ Use the following C++ classes to interact with these resources:
 
 ## Code examples
 
-These example code snippets show you how to perform the following with the Azure Blob storage client library for C++:
+These example code snippets show you how to perform the following with the Azure Blob Storage client library for C++:
 
 - [Add include files](#add-include-files)
 - [Get the connection string](#get-the-connection-string)
@@ -164,7 +164,7 @@ Add this code to the end of `main()`:
 
 ### Delete a Blob
 
-The following code deletes the blob from the Azure Blob storage container by calling the [BlobClient.Delete](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html#a621eabcc8d23893ca1eb106494198615) function.
+The following code deletes the blob from the Azure Blob Storage container by calling the [BlobClient.Delete](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html#a621eabcc8d23893ca1eb106494198615) function.
 
 :::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_DeleteBlob":::
 
@@ -178,12 +178,12 @@ Add this code to the end of `main()`:
 
 ## Run the code
 
-This app creates a container if it doesn't already exist, and uploads a text file to the container in Azure Blob storage. The example then lists the blobs in the container, downloads the file, and displays the file contents. Finally, the app deletes the blob and the container.
+This app creates a container if it doesn't already exist, and uploads a text file to the container in Azure Blob Storage. The example then lists the blobs in the container, downloads the file, and displays the file contents. Finally, the app deletes the blob and the container.
 
 The output of the app is similar to the following example:
 
 ```output
-Azure Blob storage v12 - C++ quickstart sample
+Azure Blob Storage v12 - C++ quickstart sample
 Creating container: myblobcontainer
 Uploading blob: blob.txt
 Listing blobs...
@@ -195,9 +195,9 @@ Deleting container: myblobcontainer
 
 ## Next steps
 
-In this quickstart, you learned how to upload, download, and list blobs using C++.
+In this quickstart, you learned how to upload, download, and list blobs using C++. You also learned how to created and delete an Azure Blob Storage container.
 
-To see a C++ Blob storage sample, continue to:
+To see a C++ Blob Storage sample, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure Blob storage SDK v12 for C++ sample](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-blobs/sample)
+> [Azure Blob Storage SDK v12 for C++ sample](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-blobs/sample)
