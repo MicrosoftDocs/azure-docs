@@ -10,7 +10,6 @@ ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.custom: references_regions
 ---
 
 # Use blob index tags (preview) to manage and find data on Azure Blob Storage
