@@ -36,9 +36,10 @@ Solutions that must be removed before you can unlink your automation account:
 
 >[!IMPORTANT]
 > **Azure Sentinel customers:**
-> - Once deployed on a workspace, Azure Sentinel **does not currently support** the moving of that workspace to other resource groups or subscriptions. 
+> 
+> After being deployed on a workspace, Azure Sentinel **does not currently support** the moving of that workspace to other resource groups or subscriptions. 
 >
->   If you have already moved the workspace, disable all active rules under **Analytics** and re-enable them after five minutes. This should be effective in most cases, though, to reiterate, it is unsupported and undertaken at your own risk.
+> If you have already moved the workspace, disable all active rules under **Analytics** and re-enable them after five minutes. This should be effective in most cases, though, to reiterate, it is unsupported and undertaken at your own risk.
 
 >[!IMPORTANT]
 > Any Azure or external resources that point to the workspace must be reviewed and updated to point to the new resource target path.
