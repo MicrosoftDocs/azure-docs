@@ -846,7 +846,7 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
@@ -863,7 +863,7 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
@@ -880,7 +880,7 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
@@ -897,7 +897,7 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
@@ -914,7 +914,7 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
@@ -931,7 +931,7 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
@@ -948,7 +948,7 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
@@ -965,7 +965,7 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
