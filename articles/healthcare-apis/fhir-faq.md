@@ -43,11 +43,11 @@ From a development standpoint, every feature is deployed to the open-source Micr
 
 ### Where can I see what is releasing into the Azure API for FHIR?
 
-To see some of what is releasing into the Azure API for FHIR, please refer to the [release](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. We have worked to tag items with Azure-API-for-FHIR if they will release to the managed service and are usually available two weeks after they are on the release page in open-source. We have also included instructions on how to test the build [here](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you would like to test in your own environment. We are evaluating how to best share additional managed service updates.
+To see some of what is releasing into the Azure API for FHIR, please refer to the [release](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. Starting in November 2020, we have worked to tag items with Azure-API-for-FHIR if they will release to the managed service and are usually available two weeks after they are on the release page in open-source. We have also included instructions on how to test the build [here](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you would like to test in your own environment. We are evaluating how to best share additional managed service updates.
 
 ### In which regions is Azure API for FHIR Available?
 
-Currently, we have general availability for both public and government in the following geo-regions: US Gov Virginia, East US, East US 2, North Central US, South Central US, and West US 2. For information about government cloud services at Microsoft, check out [Azure services by FedRAMP](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope).
+Currently, we have general availability for both public and government in [multiple geo-regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For information about government cloud services at Microsoft, check out [Azure services by FedRAMP](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope).
 
 ### What is SMART on FHIR?
 
@@ -66,7 +66,7 @@ We allow you to load any valid FHIR JSON data into the server. If you want to st
 
 ### What is the limit on _count?
 
-The current limit on _count is 100.
+The current limit on _count is 100. If you set _count to more than 100, you will receive a warning in the bundle that only 100 records will be shown.
 
 ### Are there any limitations on the Group Export functionality?
 
@@ -92,7 +92,7 @@ We support sorting by the date last updated: _sort=_lastUpdated. For more inform
 
 ### How does $export work?
 
-$export is part of the FHIR specification: https://hl7.org/fhir/uv/bulkdata/export/index.html. If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account - you can simply call $export on the FHIR API and all the FHIR resources will be exported to the storage account. 
+$export is part of the FHIR specification: https://hl7.org/fhir/uv/bulkdata/export/index.html. If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account - you can simply call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, check out our [article on $export](https://docs.microsoft.com/azure/healthcare-apis/export-data).
 
 ## Using Azure API for FHIR
 
