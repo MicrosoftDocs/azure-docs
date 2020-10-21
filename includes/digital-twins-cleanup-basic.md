@@ -19,9 +19,3 @@ Open an Azure Cloud Shell and run the following command to delete the resource g
 ```azurecli
 az group delete --name <your-resource-group>
 ```
-
-Next, delete the Azure Active Directory app registration you created for your client app with this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
