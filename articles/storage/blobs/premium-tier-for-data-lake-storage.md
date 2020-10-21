@@ -1,6 +1,6 @@
 ---
 title: Premium tier for Azure Data Lake Storage | Microsoft Docs
-description: Put description here. 
+description: Use the premium performance tier with Azure Data Lake Storage Gen2 
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -11,41 +11,35 @@ ms.author: normesta
 
 # Premium tier for Azure Data Lake Storage
 
-Azure Data Lake Storage Gen2 now supports the [premium performance](storage-blob-performance-tiers.md#premium-performance) tier. 
+Azure Data Lake Storage Gen2 now supports the [premium performance tier](storage-blob-performance-tiers.md#premium-performance). The premium performance tier is ideal for big data analytics applications and workloads that require low consistent latency and have a high number of transactions.  
 
-## Workloads that benefit from this tier
+> [!NOTE]
+> Premium tier for Azure Data Lake Storage is generally available in all public cloud regions. Put exceptions here.
 
-Sub-heading text goes here.
+## Evaluating the cost impact
 
-Interactive workloads. These workloads require instant updates and user feedback, such as e-commerce and mapping applications, interactive video applications, etc. For example, in an e-commerce application, less frequently viewed items are likely not cached. However, they must be instantly displayed to the customer on demand. As another example, data scientists, analysts and developers can derive time-sensitive insights even faster by running queries on data stored in ADLS Premium. 
+The premium performance tier has a higher storage costs but a lower transaction cost as compared to the standard performance tier. If your applications and workloads execute a large number of transactions (specifically write transactions), the premium performance tier might become very cost effective.
 
-IOT/Streaming Analytics. In an IoT scenario, lots of smaller write operations might be pushed to the cloud every second. Large amounts of data might be taken in, aggregated for analysis purposes, and then deleted almost immediately. The high ingestion capabilities of ADLS Premium make it efficient for this type of workload. 
+The following table demonstrates the cost-effectiveness of the premium tier for Azure Data Lake Storage. Each column heading represents the number of transactions in a month. Each row heading represents the percentage of transactions that are read-transactions. Each cell in the table shows the percentage of cost reduction associated with a read transaction percentage and the number of transactions executed. 
 
-Artificial intelligence/machine learning (AI/ML). AI/ML deals with the consumption and processing of different data types like visuals, speech, and text. This high-performance computing type of workload deals with large amounts of data that requires rapid response and efficient ingestion times for data analysis. 
-
-Data transformation. Processes that require constant editing, modification, and conversion of data require instant updates. For accurate data representation, consumers of this data must see these changes reflected immediately.  
-
-## Determining the cost-effectiveness of choosing this tier
-
-ADLS Premium has higher data storage cost, but lower transaction cost compared to data stored in the regular hot tier. This makes it cost effective for workloads with very high transaction rates.  
-
-The table below showcases when ADLS Premium will be cost effective compared to ADLS hot tier for different read-write mixes.  
-
-Columns represent transactions/TB/month.   
-
-Rows represent % of reads over writes.   
-
-Positive data values indicate percentage cost reduction when using ADLS Premium.   
-
-e.g., For a 70/30 read-write mix analytics workload in US East 2, when transactions/TB/month reach 90M/TB and higher (or ~35 TPS/TB and higher), ADLS Premium is more cost effective than ADLS standard tier.  
+For example, if the number of transactions executed were 90M TB or higher and 70% of transactions were read transactions, the premium performance tier is more cost effective.
 
 > [!div class="mx-imgBorder"]
 > ![image goes here](./media/premium-tier-for-data-lake-storage/premium-performance-data-lake-storage-cost-analysis-table.png)
 
-## Getting started 
+## Accessing feature availability 
 
-There is no dedicated tier for Data Lake Storage. That term refers to the availability of the premium tier to accounts that have a hierarchical namespace. To gain access to this tier, create a new blockblobstorage account, and then enable the hierarchical namespace feature on that account. For specific guidance, see [Create a storage account for Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
+Some Blob storage features might not be available or might only have partial support with the premium performance tier. For a complete list, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features). Then, review a list of [known issues](data-lake-storage-known-issues.md) to assess any gaps in functionality.
+
+## Enabling the premium performance tier 
+
+You can use the premium tier for Azure Data Lake Storage by creating a [BlockBlobStorage](storage-blob-create-account-block-blob.md) account with the **Hierarchical namespace** setting enabled. You can enable the **Hierarchical namespace** setting in the **Advanced** tab of the **Create storage account** page. You must enable this setting when you create the account. You can't enable it afterwards.
+
+The following image shows this setting in the **Create storage account** page.
+
+> [!div class="mx-imgBorder"]
+> ![Hierarchical namespace setting](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
 
 ## Next steps
 
-Put something here.
+- See the [bog announcement](http://www.microsoft.com) of Premium tier for Azure Data Lake Storage.
