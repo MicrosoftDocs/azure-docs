@@ -92,6 +92,6 @@ In this article, we looked at how you can perform performance and scale testing 
 
 * [Azure Cosmos DB performance testing sample](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [Client configuration options to improve Azure Cosmos DB performance](performance-tips.md)
-* [Server-side partitioning in Azure Cosmos DB](partition-data.md)
+* [Server-side partitioning in Azure Cosmos DB](partitioning-overview.md)
 
 
