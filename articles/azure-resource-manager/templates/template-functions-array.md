@@ -44,7 +44,7 @@ An array.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json) shows how to use the array function with different types.
+The following example shows how to use the array function with different types.
 
 # [JSON](#tab/json)
 
@@ -134,7 +134,7 @@ A string or array of concatenated values.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) shows how to combine two arrays.
+The following example shows how to combine two arrays.
 
 # [JSON](#tab/json)
 
@@ -255,7 +255,7 @@ Checks whether an array contains a value, an object contains a key, or a string 
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) shows how to use contains with different types:
+The following example shows how to use contains with different types:
 
 # [JSON](#tab/json)
 
@@ -369,7 +369,7 @@ An array. When no parameters are provided, it returns an empty array.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) shows how to use createArray with different types:
+The following example shows how to use createArray with different types:
 
 # [JSON](#tab/json)
 
@@ -468,7 +468,7 @@ Returns **True** if the value is empty; otherwise, **False**.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) checks whether an array, object, and string are empty.
+The following example checks whether an array, object, and string are empty.
 
 # [JSON](#tab/json)
 
@@ -549,7 +549,7 @@ The type (string, int, array, or object) of the first element in an array, or th
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) shows how to use the first function with an array and string.
+The following example shows how to use the first function with an array and string.
 
 # [JSON](#tab/json)
 
@@ -620,7 +620,7 @@ An array or object with the common elements.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) shows how to use intersection with arrays and objects:
+The following example shows how to use intersection with arrays and objects:
 
 # [JSON](#tab/json)
 
@@ -726,7 +726,7 @@ The type (string, int, array, or object) of the last element in an array, or the
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) shows how to use the last function with an array and string.
+The following example shows how to use the last function with an array and string.
 
 # [JSON](#tab/json)
 
@@ -795,7 +795,7 @@ An int.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) shows how to use length with an array and string:
+The following example shows how to use length with an array and string:
 
 # [JSON](#tab/json)
 
@@ -913,7 +913,7 @@ An int representing the maximum value.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) shows how to use max with an array and a list of integers:
+The following example shows how to use max with an array and a list of integers:
 
 # [JSON](#tab/json)
 
@@ -983,7 +983,7 @@ An int representing the minimum value.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) shows how to use min with an array and a list of integers:
+The following example shows how to use min with an array and a list of integers:
 
 # [JSON](#tab/json)
 
@@ -1054,7 +1054,7 @@ An array of integers.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json) shows how to use the range function:
+The following example shows how to use the range function:
 
 # [JSON](#tab/json)
 
@@ -1118,7 +1118,7 @@ An array or string.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) skips the specified number of elements in the array, and the specified number of characters in a string.
+The following example skips the specified number of elements in the array, and the specified number of characters in a string.
 
 # [JSON](#tab/json)
 
@@ -1206,7 +1206,7 @@ An array or string.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) takes the specified number of elements from the array, and characters from a string.
+The following example takes the specified number of elements from the array, and characters from a string.
 
 # [JSON](#tab/json)
 
@@ -1295,7 +1295,7 @@ An array or object.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) shows how to use union with arrays and objects:
+The following example shows how to use union with arrays and objects:
 
 # [JSON](#tab/json)
 
