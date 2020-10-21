@@ -21,6 +21,86 @@ If none of these steps work for you, the following support channels are also ava
 * File a [GitHub Issue](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
 * Visit the Log Analytics Feedback page to review submitted ideas and bugs [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) or file a new one.  
 
+## Log Analytics Troubleshooting Tool
+
+The Log Analytics Agent Linux Troubleshooting Tool is a script designed to help find and diagnose issues with the Log Analytics Agent. It is automatically included with the agent upon installation.
+
+### How to Use
+The Troubleshooting Tool can be run by pasting the following command into a terminal window on a machine with the Log Analytics agent:
+`sudo /opt/microsoft/omsagent/bin/troubleshooter`
+
+### Manual Installation
+The Troubleshooting Tool is automatically included upon installation of the Log Analytics Agent. However, if installation fails in any way, it can also be installed manually by following the steps below.
+
+1. Copy the troubleshooter bundle onto your machine: `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
+2. Unpack the bundle: `tar -xzvf omsagent_tst.tar.gz`
+3. Run the manual installation: `sudo ./install_tst`
+
+### Requirements
+The Troubleshooting Tool requires Python 2.6+ installed on the machine, but will work with either Python2 or Python3. In addition, *gdb is required*, as well as the following Python packages:
+| Python Package | Required for Python2? | Required for Python3? |
+| --- | --- | --- |
+| copy | **yes** | **yes** |
+| errno | **yes** | **yes** |
+| os | **yes** | **yes** |
+| platform | **yes** | **yes** |
+| re | **yes** | **yes** |
+| socket | **yes** | **yes** |
+| ssl | **yes** | **yes** |
+| subprocess | **yes** | **yes** |
+| urllib2 | **yes** | no |
+| urllib.request | no | **yes** |
+
+### Scenarios Covered
+Below is a list of scenarios checked by the Troubleshooting Tool:
+
+1. Agent is unhealthy, heartbeat doesn't work properly
+	* Verify agent is installed / connected
+	* Check if running multi-homing (multi-homing is not supported yet)
+	* Verify agent is currently running
+	* Start / restart agent if necessary
+	* Check if agent is encountering an error in omsagent.log
+2. Agent doesn't start, can't connect to Log Analytic Services
+	* Ask about error codes encountered during onboarding
+	* Verify agent is installed
+	* Check omsadmin.conf
+	* Check internet connectivity
+	* Check agent service endpoint connectivity
+	* Check log analytics endpoints connectivity
+	* Run queries to see if logs are flowing
+3. Agent syslog isn't working
+	* Verify agent is installed / connected / healthy
+	* Check if machine is running rsyslog or syslog-ng
+	* Check 95-omsagent.conf for configuration errors
+	* Check syslog.conf for configuration errors
+	* Verify data is being sent to port
+4. Agent has high CPU / memory usage
+	* Verify agent is installed / connected / healthy
+	* Check if logs are rotating correctly with logrotate
+	* Check if OMI is running at 100% CPU
+	* Check if slab memory / dentry cache usage is erroring
+5. Agent having installation issues
+	* Ask about error codes encountered during installation
+	* Check OS version is supported
+	* Check disk space
+	* Check package manager
+	* Check package installation (DSC, OMI, SCX)
+	* Check agent version
+	* Check location / permissions on files
+	* Check certificate and RSA key
+6. Agent custom logs aren't working
+	* Ask user if running custom logs
+	* Verify agent is installed / connected / healthy
+	* Check if agent has pulled configuration from OMS backend
+	* Check customlog.conf for configuration errors
+	* Parse through custom logs for errors
+7. (A) Run all scenarios
+	* Run through scenarios 1-6 in the following order: 5, 2, 1, 4, 3, 6
+8. (L) Collect logs
+	* Run Log Collector tool
+9. No issues found
+	* Tell customer what information to collect
+
 ## Important log locations and Log Collector tool
 
  File | Path
