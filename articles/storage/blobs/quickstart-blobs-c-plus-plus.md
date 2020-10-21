@@ -26,15 +26,15 @@ Additional resources:
 
 - [API reference documentation](https://azure.github.io/azure-sdk-for-cpp/storage.html)
 - [Library source code](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)
-- [Package (Vcpkg)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-- [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-c-plus-plus?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+- [Samples](/azure/storage/common/storage-samples-c-plus-plus?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## Prerequisites
 
 - [Azure subscription](https://azure.microsoft.com/free/)
-- [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+- [Azure storage account](/azure/storage/common/storage-quickstart-create-account)
+- [C++ compiler](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
 - [CMake](https://cmake.org/)
 - [Vcpkg - C and C++ package manager](https://github.com/microsoft/vcpkg/blob/master/docs/index.md)
 - [LibCurl](https://curl.haxx.se/libcurl/)
