@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob Storage cli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/01/2020
+ms.date: 10/21/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -195,7 +195,7 @@ Deleting container: myblobcontainer
 
 ## Next steps
 
-In this quickstart, you learned how to upload, download, and list blobs using C++. You also learned how to created and delete an Azure Blob Storage container.
+In this quickstart, you learned how to upload, download, and list blobs using C++. You also learned how to create and delete an Azure Blob Storage container.
 
 To see a C++ Blob Storage sample, continue to:
 
