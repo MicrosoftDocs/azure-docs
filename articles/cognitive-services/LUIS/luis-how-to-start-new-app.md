@@ -55,7 +55,7 @@ It is required to enter a name of an app and choose an application culture. It i
 After the app is created, the LUIS portal shows the **Intents** list with the `None` intent already created for you. You now have an empty app. Add more [intents](luis-how-to-add-intents.md) to your app.
 
     
-   > ![Intents list with None intent created with no example utterances](media/pizza-tutorial-new-app-empty-intent-list.png)
+   > ![Intents list with None intent created with no example utterances](media/app-settings/intents-page-none.png)
 
 ## Other actions available on My Apps page
 
