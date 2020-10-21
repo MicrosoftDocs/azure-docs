@@ -55,51 +55,19 @@ The Troubleshooting Tool requires Python 2.6+ installed on the machine, but will
 Below is a list of scenarios checked by the Troubleshooting Tool:
 
 1. Agent is unhealthy, heartbeat doesn't work properly
-	* Verify agent is installed / connected
-	* Check if running multi-homing (multi-homing is not supported yet)
-	* Verify agent is currently running
-	* Start / restart agent if necessary
-	* Check if agent is encountering an error in omsagent.log
 2. Agent doesn't start, can't connect to Log Analytic Services
-	* Ask about error codes encountered during onboarding
-	* Verify agent is installed
-	* Check omsadmin.conf
-	* Check internet connectivity
-	* Check agent service endpoint connectivity
-	* Check log analytics endpoints connectivity
-	* Run queries to see if logs are flowing
 3. Agent syslog isn't working
-	* Verify agent is installed / connected / healthy
-	* Check if machine is running rsyslog or syslog-ng
-	* Check 95-omsagent.conf for configuration errors
-	* Check syslog.conf for configuration errors
-	* Verify data is being sent to port
 4. Agent has high CPU / memory usage
-	* Verify agent is installed / connected / healthy
-	* Check if logs are rotating correctly with logrotate
-	* Check if OMI is running at 100% CPU
-	* Check if slab memory / dentry cache usage is erroring
 5. Agent having installation issues
-	* Ask about error codes encountered during installation
-	* Check OS version is supported
-	* Check disk space
-	* Check package manager
-	* Check package installation (DSC, OMI, SCX)
-	* Check agent version
-	* Check location / permissions on files
-	* Check certificate and RSA key
 6. Agent custom logs aren't working
-	* Ask user if running custom logs
-	* Verify agent is installed / connected / healthy
-	* Check if agent has pulled configuration from OMS backend
-	* Check customlog.conf for configuration errors
-	* Parse through custom logs for errors
 7. (A) Run all scenarios
-	* Run through scenarios 1-6 in the following order: 5, 2, 1, 4, 3, 6
 8. (L) Collect logs
-	* Run Log Collector tool
 9. No issues found
-	* Tell customer what information to collect
+
+For more details, please check out our [Github documentation](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md).
+
+ >[!NOTE]
+ >Please run the Log Collector tool when you experience an issue. Having the logs initially will greatly help our support team troubleshoot your issue quicker.
 
 ## Important log locations and Log Collector tool
 
