@@ -124,19 +124,19 @@ To configure Azure AD single sign-on with PerformanceCentre, perform the followi
 
 2. In the tab on the left side, click **Configure**.
    
-    ![Azure AD Single Sign-On][10]
+    ![Screenshot that shows the "PerformanceCenter" menu with "Configure" selected.][10]
 
 3. In the tab on the left side, click **Miscellaneous**, and then click **Single Sign On**.
    
-    ![Azure AD Single Sign-On][11]
+    ![Screenshot that shows the "Configure" tab with "Single Sign-On" selected from the "Miscellaneous" menu.][11]
 
 4. As **Protocol**, select **SAML**.
    
-    ![Azure AD Single Sign-On][12]
+    ![Screenshot that shows the "Single Sign-On Configuration" section with "S A M L" selected from the "Protocol" menu.][12]
 
 5. Open your downloaded metadata file in notepad, copy the content, paste it into the **Identity Provider Metadata** textbox, and then click **Save**.
    
-    ![Azure AD Single Sign-On][13]
+    ![Screenshot that shows the "Identity Provider Metadata" textbox.][13]
 
 6. Verify that the values for the **Entity Base URL** and **Entity ID URL** are correct.
     
@@ -203,7 +203,7 @@ The objective of this section is to create a user called Britta Simon in Perform
 
 2. In the menu on the left, click **Interrelate**, and then click **Create Participant**.
    
-    ![Create User][400]
+    ![Screenshot that shows the "PerformanceCenter" company site "Interrelate -Participants" page with the "Create Participant" button selected.][400]
 
 3. On the **Interrelate - Create Participant** dialog, perform the following steps:
    

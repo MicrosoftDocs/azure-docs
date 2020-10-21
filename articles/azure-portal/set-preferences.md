@@ -92,7 +92,7 @@ If your admin has enabled an inactivity timeout policy, you can still set your o
 
 ### Change the directory timeout setting (admin)
 
-Admins in the [Global Administrator role](../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) can enforce the maximum idle time before a session is signed out. The inactivity timeout setting applies at the directory level. The setting takes effect for new sessions. It won't apply immediately to any users who are already signed in. For more information about directories, see [Active Directory Domain Services Overview](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+Admins in the [Global Administrator role](../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) can enforce the maximum idle time before a session is signed out. The inactivity timeout setting applies at the directory level. The setting takes effect for new sessions. It won't apply immediately to any users who are already signed in. For more information about directories, see [Active Directory Domain Services Overview](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 If you're a Global Administrator, and you want to enforce an idle timeout setting for all users of the Azure portal, follow these steps:
 

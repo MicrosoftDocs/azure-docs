@@ -207,6 +207,14 @@ Refer to the following list to configure managed identity for Azure Logic Apps (
 - [Azure portal](../../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)
 - [Azure Resource Manager template](../../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
+### Azure Machine Learning 
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | Preview | Not Available | Not available | Not available |
+| User assigned | Preview | Not available | Not available | Not available |
+
+For more information, see [Use managed identities with Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).
 
 ### Azure Policy
 

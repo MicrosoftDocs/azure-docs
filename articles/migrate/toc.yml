@@ -52,10 +52,12 @@
       items:
       - name: About migration options for VMware VMs
         href: server-migrate-overview.md
-      - name: Migrate VMware VMs with agentless migration
+      - name: Migrate VMware VMs with agentless migration - Azure portal
         href: tutorial-migrate-vmware.md
       - name: Migrate VMware VMs with agent-based migration
         href: tutorial-migrate-vmware-agent.md
+      - name: Migrate VMware VMs with agentless migration - PowerShell
+        href: tutorial-migrate-vmware-powershell.md 
     - name: Migrate Hyper-V VMs
       href: tutorial-migrate-hyper-v.md
     - name: Migrate physical servers

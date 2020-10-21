@@ -1,5 +1,5 @@
 ---
-title: Add API connectors to user flows 
+title: Add API connectors to user flows (preview)
 description: Configure an API connector to be used in a user flow.
 services: active-directory-b2c
 ms.service: active-directory
@@ -13,7 +13,7 @@ manager: celestedg
 ms.custom: "it-pro"
 ---
 
-# Add an API connector to a sign-up user flow
+# Add an API connector to a sign-up user flow (preview)
 
 To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow.
 
@@ -234,8 +234,8 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | String            | Yes      | The version of the API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Yes      | Value must be `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | Values can be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attributes** for a user flow. Values can be returned in the token if selected as an **Application claim**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The returned claim does not need to contain `_<extensions-app-id>_`. Values are be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attribute** for a user flow. Custom attributes cannot be sent back in the token. |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | Returned values can overwrite values collected from a user. They can also be returned in the token if selected as an **Application claim**.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`. Returned values can overwrite values collected from a user. They can also be returned in the token if selected as an **Application claim**.  |
 
 ### Example of a blocking response
 
@@ -263,6 +263,8 @@ Content-type: application/json
 
 ### Example of a validation-error response
 
+
+
 ```http
 HTTP/1.1 400 Bad Request
 Content-type: application/json
@@ -281,6 +283,8 @@ Content-type: application/json
 | action      | String  | Yes      | Value must be `ValidationError`.                                           |
 | status      | Integer | Yes      | Must be value `400` for a ValidationError response.                        |
 | userMessage | String  | Yes      | Message to display to the user.                                            |
+
+*Note:* HTTP status code has to be "400" in addition to the "status" value in the body of the response.
 
 **End-user experience with a validation-error response**
 

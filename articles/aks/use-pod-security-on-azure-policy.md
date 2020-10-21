@@ -352,7 +352,7 @@ For more information about limiting pod network traffic, see [Secure traffic bet
 [policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes.md
 [policy-limitations]: ../governance/policy/concepts/policy-for-kubernetes.md?#limitations
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
-[policy-samples]: policy-samples.md#microsoftcontainerservice
+[policy-samples]: ./policy-reference.md#microsoftcontainerservice
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli

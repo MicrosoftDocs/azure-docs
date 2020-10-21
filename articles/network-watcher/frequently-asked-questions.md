@@ -78,6 +78,14 @@ Network Watcher just needs to be enabled once for a subscription for it's featur
 ### How can I manage the Network Watcher Resource? 
 The Network Watcher resource represents the backend service for Network Watcher and is fully managed by Azure. Customers do no need to manage it. Operations like move are not supported on the resource. However, [the resource can be deleted](https://docs.microsoft.com/azure/network-watcher/network-watcher-create#delete-a-network-watcher-in-the-portal). 
 
+## Service availability and redundancy 
+
+### Is the Network Watcher service zone resilient? 
+Yes. The the Network Watcher service is zone-resilient by default. 
+
+### How do I configure the Network Watcher service to be zone-resilient? 
+No customer configuration is necessary to enable zone-resiliency. Zone-resiliency for Network Watcher resources is available by default and managed by the service itself. 
+
 ## NSG Flow Logs
 
 ### What does NSG Flow Logs do?

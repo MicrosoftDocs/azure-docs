@@ -55,21 +55,7 @@ You can create a parameter object either manually, or by using a provided helper
 
 Without the use of any custom helper classes, you can represent a twin's properties in a `Dictionary<string, object>`, where the `string` is the name of the property and the `object` is an object representing the property and its value.
 
-```csharp
-// Define the model type for the twin to be created
-Dictionary<string, object> meta = new Dictionary<string, object>()
-{
-    { "$model", "dtmi:com:contoso:Room;1" }
-};
-// Initialize the twin properties
-Dictionary<string, object> twin = new Dictionary<string, object>()
-{
-    { "$metadata", meta },
-    { "Temperature", temperature},
-    { "Humidity", humidity},
-};
-client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
-```
+[!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
 
 #### Create twins with the helper class
 

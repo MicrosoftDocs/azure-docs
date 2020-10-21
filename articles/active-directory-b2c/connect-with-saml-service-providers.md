@@ -450,7 +450,7 @@ A SAML token is a security token that is issued by Azure AD B2C after a successf
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |The time at which the token becomes valid. The time value is encoded in UTC. Your application should use this claim to verify the validity of the token lifetime. To change the settings on your token lifetimes, set the `TokenNotBeforeSkewInSeconds` [metadata](saml-issuer-technical-profile.md#metadata) of the SAML token issue technical profile. |
 |`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | The time at which the token becomes invalid. Your application should use this claim to verify the validity of the token lifetime. The value is 15 minutes after the `NotBefore` and cannot be changed.|
 |`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |A URI reference that identifies an intended audience. It identifies the intended recipient of the token. The value is identical to the SAML request `AssertionConsumerServiceURL`.|
-|`<Response>` `<Assertion>` `<saml:AttributeStatement>` collection of `<Attribute>` | | Assertions collection (claims), as configured in the [relying party technical profile](relyingparty.md#technicalprofile) output claims. You can configure the name of the assertion by setting the `PartnerClaimType` of the output claim. |
+|`<Response>` `<Assertion>` `<AttributeStatement>` collection of `<Attribute>` | | Assertions collection (claims), as configured in the [relying party technical profile](relyingparty.md#technicalprofile) output claims. You can configure the name of the assertion by setting the `PartnerClaimType` of the output claim. |
 
 ## Next steps
 

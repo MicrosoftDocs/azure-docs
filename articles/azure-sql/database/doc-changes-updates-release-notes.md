@@ -58,6 +58,7 @@ This table provides a quick comparison for the change in terminology:
 
 | Feature | Details |
 | ---| --- |
+| <a href="/azure/azure-sql/database/elastic-transactions-overview">Distributed transactions</a> | Distributed transactions across Managed Instances. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Instance pools</a> | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> | Create instance-level logins using a <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> statement. |
 | [Transactional Replication](../managed-instance/replication-transactional-overview.md) | Replicate the changes from your tables into other databases in SQL Managed Instance, SQL Database, or SQL Server. Or update your tables when some rows are changed in other instances of SQL Managed Instance or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
@@ -91,6 +92,8 @@ The following features are enabled in the SQL Managed Instance deployment model 
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
+|[Distributed transactions can be executed after removing Managed Instance from Server Trust Group](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Oct 2020|Has Workaround||
+|[Distributed transactions cannot be executed after Managed Instance scaling operation](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Oct 2020|Has Workaround||
 |[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) in Azure SQL and `BACKUP`/`RESTORE` statement in Managed Instance cannot use Azure AD Manage Identity to authenticate to Azure storage|Sep 2020|Has Workaround||
 |[Service Principal cannot access Azure AD and AKV](#service-principal-cannot-access-azure-ad-and-akv)|Aug 2020|Has Workaround||
 |[Restoring manual backup without CHECKSUM might fail](#restoring-manual-backup-without-checksum-might-fail)|May 2020|Resolved|June 2020|
@@ -120,6 +123,14 @@ The following features are enabled in the SQL Managed Instance deployment model 
 |Database mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
 |Contained databases not supported in SQL Managed Instance||Resolved|Aug 2019|
 
+### Distributed transactions can be executed after removing Managed Instance from Server Trust Group
+
+[Server Trust Groups](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) are used to establish trust between Managed Instances that is prerequisite for executing [distributed transactions](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). After removing Managed Instance from Server Trust Group or deleting the group you still might be able to execute distributed transactions. There is a workaround you can apply to be sure that distributed transactions are disabled and that is [user-initiated manual failover](https://docs.microsoft.com/azure/azure-sql/managed-instance/user-initiated-failover) on Managed Instance.
+
+### Distributed transactions cannot be executed after Managed Instance scaling operation
+
+Managed Instance scaling operations that include changing service tier or number of vCores will reset Server Trust Group settings on the backend and disable running [distributed transactions](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). As a workaround, delete and create new [Server Trust Group](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) on Azure portal.
+
 ### BULK INSERT and BACKUP/RESTORE statements cannot use Managed Identity to access Azure storage
 
 Bulk insert statement cannot use `DATABASE SCOPED CREDENTIAL` with Managed Identity to authenticate to Azure storage. As a workaround, switch to SHARED ACCESS SIGNATURE authentication. The following example will not work on Azure SQL (both Database and Managed Instance):
@@ -139,7 +150,7 @@ BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzur
 
 In some circumstances there might exist an issue with Service Principal used to access Azure AD and Azure Key Vault (AKV) services. As a result, this issue impacts usage of Azure AD authentication and Transparent Database Encryption (TDE) with SQL Managed Instance. This might be experienced as an intermittent connectivity issue, or not being able to run statements such are CREATE LOGIN/USER FROM EXTERNAL PROVIDER or EXECUTE AS LOGIN/USER. Setting up TDE with customer-managed key on a new Azure SQL Managed Instance might also not work in some circumstances.
 
-**Workaround**: To prevent this issue from occurring on your SQL Managed Instance before executing any update commands, or in case you have already experienced this issue after update commands, go to Azure Portal, access SQL Managed Instance [Active Directory admin blade](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal). Verify if you can see the error message "Managed Instance needs a Service Principal to access Azure Active Directory. Click here to create a Service Principal”. In case you have encountered this error message, click on it, and follow the step by step instructions provided until this error have been resolved.
+**Workaround**: To prevent this issue from occurring on your SQL Managed Instance before executing any update commands, or in case you have already experienced this issue after update commands, go to Azure portal, access SQL Managed Instance [Active Directory admin blade](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal). Verify if you can see the error message "Managed Instance needs a Service Principal to access Azure Active Directory. Click here to create a Service Principal”. In case you have encountered this error message, click on it, and follow the step by step instructions provided until this error have been resolved.
 
 ### Restoring manual backup without CHECKSUM might fail
 

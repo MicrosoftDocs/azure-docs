@@ -22,7 +22,7 @@ ms.author: duau
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
 
-Learn how to create an ExpressRoute circuit by deploying an Azure Resource Manager template by using Azure PowerShell. For more information on developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.network/expressroutecircuits).
+Learn how to create an ExpressRoute circuit by deploying an Azure Resource Manager template by using Azure PowerShell. For more information on developing Resource Manager templates, see [Resource Manager documentation](../azure-resource-manager/index.yml) and the [template reference](/azure/templates/microsoft.network/expressroutecircuits).
 
 ## Before you begin
 

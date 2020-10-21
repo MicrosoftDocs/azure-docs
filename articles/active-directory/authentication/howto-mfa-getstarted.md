@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
@@ -223,7 +223,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 To plan your Conditional Access policy strategy, which will determine when MFA and other controls are required, refer to [Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md).
 
-It is important that you prevent being inadvertently locked out of your Azure AD tenant. You can mitigate the impact of this inadvertent lack of administrative access by [creating two or more emergency access accounts in your tenant](../users-groups-roles/directory-emergency-access.md) and excluding them from your Conditional Access policy.
+It is important that you prevent being inadvertently locked out of your Azure AD tenant. You can mitigate the impact of this inadvertent lack of administrative access by [creating two or more emergency access accounts in your tenant](../roles/security-emergency-access.md) and excluding them from your Conditional Access policy.
 
 ### Create Conditional Access policy
 

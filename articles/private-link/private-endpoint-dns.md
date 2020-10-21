@@ -111,7 +111,7 @@ This model can be extended to multiple peered virtual networks that are associat
 > A single private DNS zone is required for this configuration. Creating multiple zones with the same name for different virtual networks would need manual operations to merge the DNS records.
 
 > [!IMPORTANT]
-> if you're using using a private endpoint in a hub-and-spoke model from a different subscription, reuse the same private DNS zone on the hub.
+> if you're using a private endpoint in a hub-and-spoke model from a different subscription, reuse the same private DNS zone on the hub.
 
 In this scenario, there's a [hub and spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) networking topology with the spoke networks sharing a common private endpoint, and all the spoke virtual networks are linked to the same private DNS zone. 
 

@@ -143,7 +143,7 @@ Add the following configuration:
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
 > [!IMPORTANT] 
-> To see all configurations required to enable correlation, see the [JavaScript correlation documentation](/app/javascript.md#enable-correlation).
+> To see all configurations required to enable correlation, see the [JavaScript correlation documentation](/azure/azure-monitor/app/javascript#enable-correlation).
 
 ## Telemetry correlation in OpenCensus Python
 

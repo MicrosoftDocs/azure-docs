@@ -90,7 +90,7 @@ To store our certificates securely and to make them accessible from multiple dev
 
 To connect an Azure IoT Edge device to an IoT hub, we first create an identity for the device in the hub. We take the connection string from the device identity in the cloud and use it to configure the runtime on our IoT Edge device. Once a configured device connects to the hub, we are able to deploy modules and send messages. We can also change the configuration of the physical IoT Edge device by changing its corresponding device identity in IoT hub.
 
-For this tutorial, we create the new device identity using Visual Studio Code. You can also complete these steps using the [Azure portal](how-to-register-device.md#register-in-the-azure-portal), or [Azure CLI](how-to-register-device.md#register-with-the-azure-cli).
+For this tutorial, we create the new device identity using Visual Studio Code. You can also complete these steps using the Azure portal or the Azure CLI.
 
 1. On your development machine, open Visual Studio Code.
 

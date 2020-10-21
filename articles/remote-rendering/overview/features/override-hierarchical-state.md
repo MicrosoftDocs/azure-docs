@@ -100,8 +100,8 @@ Transparent rendering puts more workload on the server's GPUs than standard rend
 
 ## API documentation
 
-* [C# HierarchicalStateOverrideComponent class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
-* [C++ HierarchicalStateOverrideComponent class](https://docs.microsoft.com/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
+* [C# HierarchicalStateOverrideComponent class](/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
+* [C++ HierarchicalStateOverrideComponent class](/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
 
 ## Next steps
 

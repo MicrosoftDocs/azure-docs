@@ -1,5 +1,5 @@
 ---
-title: Azure AD Application Proxy frequently asked questions | Microsoft Docs
+title: Azure Active Directory Application Proxy frequently asked questions
 description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
 services: active-directory
 author: kenwith
@@ -79,7 +79,6 @@ Application Proxy requires Windows Server 2012 R2 or later. There is currently a
 	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
 	```
 
-
 ## Application configuration
 
 ### I am receiving an error about an invalid certificate or possible wrong password
@@ -119,6 +118,12 @@ For more information, see the whitepaper [Understanding Kerberos Constrained Del
 ### Does NTLM authentication work with Azure AD Application Proxy?
 
 NTLM authentication can’t be used as a pre-authentication or single sign-on method. NTLM authentication can be used only when it can be negotiated directly between the client and the published web application. Using NTLM authentication usually causes a sign-in prompt to appear in the browser.
+
+### Can I use the logon identity “On-premises user principal name” or “On-premises SAM account name” in a B2B IWA single sign-on scenario?
+
+No, this won’t work, because a guest user in Azure AD doesn't have the attribute that is required by any of the logon identities mentioned above.
+
+In this case there will be a fallback to “User principal name”. For more details on the B2B scenario please read [Grant B2B users in Azure AD access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).
 
 ## Pass-through authentication
 
@@ -193,5 +198,5 @@ This scenario isn't supported directly. Your options for this scenario are:
 1. Publish both the HTTP and HTTPS URLs as separate applications with a wildcard, but give each of them a different custom domain. This configuration will work since they have different external URLS.
 
 2. Publish the HTTPS URL through a wildcard application. Publish the HTTP applications separately using these Application Proxy PowerShell cmdlets:
-   - [Application Proxy Application Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
-   - [Application Proxy Connector Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)
+   - [Application Proxy Application Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
+   - [Application Proxy Connector Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)

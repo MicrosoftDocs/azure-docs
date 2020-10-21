@@ -42,9 +42,6 @@ To create a workspace, you need an Azure subscription. If you don't have an Azur
    Subscription |Select the Azure subscription that you want to use.
    Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. You need *contributor* or *owner* role to use an existing resource group.  For more information about access, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
    Region | Select the Azure region closest to your users and the data resources to create your workspace.
-   Workspace edition | Select **Basic** or **Enterprise**.  This workspace edition determines the features to which you'll have access and pricing. Learn more about [Azure Machine Learning](overview-what-is-azure-ml.md). 
-
-    ![Configure your workspace](./media/how-to-manage-workspace/select-edition.png)
 
 1. When you're finished configuring the workspace, select **Review + Create**. Optionally, use the [Networking](#networking) and [Advanced](#advanced) sections to configure more settings for the workspace.
 

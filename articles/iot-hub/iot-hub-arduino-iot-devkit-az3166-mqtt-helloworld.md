@@ -26,7 +26,7 @@ In this project, you learn:
 
 ## What you need
 
-Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) to:
+Finish the [Getting Started Guide](./iot-hub-arduino-iot-devkit-az3166-get-started.md) to:
 
 * Have your DevKit connected to Wi-Fi
 * Prepare the development environment
@@ -86,4 +86,4 @@ If you encounter problems, refer to the [IoT DevKit FAQ](https://microsoft.githu
 
 ## Next steps
 
-Now that you have learned how to configure your MXChip Iot DevKit as an MQTT client and use the MQTT Client library to send messages to an MQTT broker, here is the suggested next step: [Azure IoT Remote Monitoring solution accelerator overview](https://docs.microsoft.com/azure/iot-suite/)
+Now that you have learned how to configure your MXChip Iot DevKit as an MQTT client and use the MQTT Client library to send messages to an MQTT broker, here is the suggested next step: [Azure IoT Remote Monitoring solution accelerator overview](/azure/iot-suite/)

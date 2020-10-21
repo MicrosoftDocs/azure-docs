@@ -61,6 +61,8 @@
         href: plan-sso-deployment.md
       - name: Single sign-on options 
         href: sso-options.md
+      - name: OIDC-based SSO
+        href: configure-oidc-single-sign-on.md
       - name: SAML-based SSO
         href: configure-saml-single-sign-on.md
       - name: Password-based SSO
@@ -218,6 +220,8 @@
         href: troubleshoot-password-based-sso.md
       - name: Troubleshoot SAML-based single sign-on
         href: troubleshoot-saml-based-sso.md
+      - name: Debug SAML-based single sign-on
+        href: debug-saml-sso-issues.md
       - name: Troubleshoot user sign-in
         items:
         - name: Unexpected consent prompt
@@ -230,12 +234,8 @@
           href: application-sign-in-problem-application-error.md
         - name: Problem signing into a Microsoft app
           href: application-sign-in-problem-first-party-microsoft.md
-        - name: Problem with federated single sign-on - non-gallery app
-          href: application-sign-in-problem-federated-sso-non-gallery.md
-        - name: Problem with federated single sign-on - gallery app
+        - name: Problem with single sign-on
           href: application-sign-in-problem-federated-sso-gallery.md
-        - name: Problem with custom-developed app
-          href: application-sign-in-problem-custom-dev.md
       - name: Troubleshoot on-premises apps
         items:
         - name: Application Proxy troubleshooting

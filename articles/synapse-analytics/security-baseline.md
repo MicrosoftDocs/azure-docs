@@ -3,6 +3,7 @@ title: Azure security baseline for Synapse Analytics
 description: The Synapse Analytics security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: synapse-analytics
+ms.subservice: security
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
