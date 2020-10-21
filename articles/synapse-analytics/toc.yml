@@ -2,8 +2,6 @@
   href: sql-data-warehouse/index.yml
 - name: Switch to Azure Synapse (formerly SQL DW)
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
-- name: "------------------------------------------"
-  items:
 - name: Overview
   items:
   - name: What is Azure Synapse?
@@ -20,22 +18,31 @@
     items:
     - name: Introduction
       href: get-started.md
+      displayName: get, started
     - name: 1 Create a Synapse workspace
       href: get-started-create-workspace.md
+      displayName: get, started
     - name: 2 Analyze using a SQL Pool
       href: get-started-analyze-sql-pool.md
+      displayName: get, started
     - name: 3 Analyze using Spark
       href: get-started-analyze-spark.md
+      displayName: get, started
     - name: 4 Analyze using SQL on-demand
       href: get-started-analyze-sql-on-demand.md
+      displayName: get, started
     - name: 5 Analyze data in a storage account
       href: get-started-analyze-storage.md
+      displayName: get, started
     - name: 6 Orchestrate with pipelines
       href: get-started-pipelines.md
+      displayName: get, started
     - name: 7 Visualize with Power BI
       href: get-started-visualize-power-bi.md
+      displayName: get, started
     - name: 8 Monitor
       href: get-started-monitor.md
+      displayName: get, started
     - name: 9 Explore the Knowledge Center
       href: get-started-knowledge-center.md
       displayName: get, started
@@ -87,18 +94,21 @@
     items:
     - name: Create a Synapse workspace using the Azure portal
       href: quickstart-create-workspace.md
+      displayName: quickstart
     - name: Create a Synapse workspace using Azure CLI
       href: quickstart-create-workspace-cli.md
+      displayName: quickstart
     - name: Create a Synapse workspace using Azure PowerShell
       href: quickstart-create-workspace-powershell.md
+      displayName: quickstart
     - name: Deploy with a template
       href: quickstart-deployment-template-workspaces.md
+      displayName: quickstart
     - name: Link a Power BI workspace
       href: quickstart-power-bi.md
-    - name: Use Synapse Studio 
-      href: quickstart-synapse-studio.md
+      displayName: quickstart
   - name: Tutorials
-    items:  
+    items:
   - name: Concepts
     items:
     - name: Shared metadata management
