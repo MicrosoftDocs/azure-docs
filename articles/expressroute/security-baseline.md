@@ -240,7 +240,7 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure Azure role-based access control (Azure RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.
 
-Additionally, partners using the ExpressRoute Partner Resource Manager API can apply Role-Based Access Control to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
+Additionally, partners using the ExpressRoute Partner Resource Manager API can apply role-based access control to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
 
 * [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -457,7 +457,7 @@ How to configure Site to Site IPSEC over ExpressRoute: https://docs.microsoft.co
 
 Azure ExpressRoute also has circuit owner and circuit user roles. Circuit users are owners of virtual network gateways that are not within the same subscription as the ExpressRoute circuit. The circuit owner has the power to modify and revoke authorizations at any time. Revoking an authorization results in all link connections being deleted from the subscription whose access was revoked. Circuit users can redeem authorizations (one authorization per virtual network).
 
-Additionally, partners using the ExpressRoute Partner Resource Manager API can apply Role-Based Access Control to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
+Additionally, partners using the ExpressRoute Partner Resource Manager API can apply role-based access control to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
 
 * [Understand Azure RBAC](../role-based-access-control/overview.md)
 

@@ -101,15 +101,15 @@ This section describes viewing assignments of a role with single-application sco
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 1. Select **App registrations**, and then select the app registration to view its properties. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
 
-    ![Create or edit app registrations from the App registrations page](./media/view-assignments/appreg-all-apps.png)
+    ![Create or edit app registrations from the App registrations page](./media/view-assignments/app-reg-all-apps.png)
 
 1. In the app registration, select **Roles and administrators**, and then select a role to view its properties.
 
-    ![View app registration role assignments from the App registrations page](./media/view-assignments/appreg-assignments.png)
+    ![View app registration role assignments from the App registrations page](./media/view-assignments/app-reg-assignments.png)
 
 1. Select **Assignments** to view the assignments for the role. Opening the assignments view from within the app registration shows you the assignments that are scoped to this Azure AD resource.
 
-    ![View app registration role assignments from the properties of an app registration](./media/view-assignments/appreg-assignments-2.png)
+    ![View app registration role assignments from the properties of an app registration](./media/view-assignments/app-reg-assignments-2.png)
 
 ## Next steps
 
