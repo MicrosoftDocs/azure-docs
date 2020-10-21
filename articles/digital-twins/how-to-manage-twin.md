@@ -382,7 +382,7 @@ For an example of how to delete all twins at once, download the sample app used 
 
 You can use the runnable code sample below to create a twin, update its details, and delete the twin. 
 
-The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) model definition from [*Tutorial: Explore Azure Digital Twins with a sample client app*](../articles/digital-twins/tutorial-command-line-app.md). You can use this link to go directly to the file, or download it as part of the full end-to-end sample project [here](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
+The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) model definition from [*Tutorial: Explore Azure Digital Twins with a sample client app*](tutorial-command-line-app.md). You can use this link to go directly to the file, or download it as part of the full end-to-end sample project [here](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
 
 Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance details and run the sample.
 
