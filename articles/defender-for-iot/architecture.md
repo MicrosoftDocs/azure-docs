@@ -65,7 +65,7 @@ Using machine learning, the policy violation detection engine alerts users of an
 The industrial malware detection engine identifies behaviors that indicate the presence of known malware, such as Conficker, Black Energy, Havex, WannaCry,NotPetya, and Triton. 
 
 #### Anomaly detection engine
-The anomaly detection engine detects unusual machine-to-machine (M2M) communications and behaviors. By modeling ICS networks as deterministic sequences of states and transitions, the platform requires a shorter learning period than generic mathematical approaches or analytics originally developed for IT rather than OT. It also detects anomalies faster, with minimal false positives. Anomaly detection engine alerts include Excessive SMB login attempts, and PLC Scan Detected alerts.
+The anomaly detection engine detects unusual machine-to-machine (M2M) communications and behaviors. By modeling ICS networks as deterministic sequences of states and transitions, the platform requires a shorter learning period than generic mathematical approaches or analytics originally developed for IT rather than OT. It also detects anomalies faster, with minimal false positives. Anomaly detection engine alerts include Excessive SMB sign-in attempts, and PLC Scan Detected alerts.
 
 #### Operational incident detection
 The operational incident detection detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure. For example, the device is suspected to be disconnected (unresponsive), and Siemens S7 stop PLC command was sent alerts.
@@ -78,7 +78,7 @@ Managing Azure Defender for IoT across hybrid environments is accomplished via t
 - The Azure portal
 
 #### Sensor console
-Sensor detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, asset inventory, and in an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. You can also use the console to view and handle threats detected by sensor engines, forward information to third party systems, manage users, and more.
+Sensor detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, asset inventory, and in an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. You can also use the console to view and handle threats detected by sensor engines, forward information to third-party systems, manage users, and more.
 
 ![Defender for IoT sensor console](./media/architecture/sensor-console.png)
 
