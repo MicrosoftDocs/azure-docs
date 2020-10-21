@@ -188,7 +188,7 @@ Upgrade the server as follows:
     ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Click **Finish** to close the installer.
-8. To upgrade rest of the Site Recovery components, refer to our [upgrade guidance](./service-updates-how-to.md#between-an-on-premises-vmware-or-physical-site-to-azure).
+8. To upgrade rest of the Site Recovery components, refer to our [upgrade guidance](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).
 
 ## Upgrade configuration server/process server from the command line
 
