@@ -63,7 +63,7 @@
     - name: HDInsight
       href: ../hdinsight/hdinsight-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
     - name: Power BI
-      href: .../power-bi/admin/service-security-private-links?toc=%2fazure%2fprivate-link%2ftoc.json
+      href: /power-bi/admin/service-security-private-links
   - name: Compute
     items:
     - name: Batch
