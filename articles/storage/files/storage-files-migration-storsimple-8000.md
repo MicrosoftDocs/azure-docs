@@ -124,7 +124,7 @@ This section discusses considerations around deploying the different resource ty
 You will likely need to deploy several Azure storage accounts. Each one will hold a smaller number of Azure file shares, as per your deployment plan, completed in the previous section of this article. Got to the Azure portal to [deploy your planned storage accounts](../common/storage-account-create.md#create-a-storage-account). Consider adhering to the following, basic settings for any new storage account:
 
 ##### Subscription
-You can use the same subscription you used for your StorSimple deployment or a different one. The only limitation is that your subscription must be in the same AAD tenant as the StorSimple subscription. Consider moving the StorSimple subscription to the correct tenant before starting a migration. You can only move the entire subscription, individual StorSimple resources cannot be moved to a different tenant or subscription.
+You can use the same subscription you used for your StorSimple deployment or a different one. The only limitation is that your subscription must be in the same Azure AD tenant as the StorSimple subscription. Consider moving the StorSimple subscription to the correct tenant before starting a migration. You can only move the entire subscription, individual StorSimple resources cannot be moved to a different tenant or subscription.
 
 ##### Resource group
 Resource groups are assisting with organization of resources and admin management permissions. Find out more about [resource groups in Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
@@ -267,7 +267,7 @@ Sorts multiple source locations into a new directory structure:
 
 ### Semantic rules
 * Always specify folder paths relative to the root level. 
-* Begin each folder path with a root level indicator “\”. 
+* Begin each folder path with a root level indicator "\". 
 * Do not include drive letters. 
 * When specifying multiple paths, source or target paths cannot overlap:</br>
    Invalid source path overlap example:</br>
