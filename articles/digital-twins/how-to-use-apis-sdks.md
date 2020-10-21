@@ -64,6 +64,7 @@ To use the data plane APIs:
    - you can view the [SDK reference documentation](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest).
 * You can use the **Java** SDK. To use the Java SDK...
    - you can view and install the package from Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
+   - you can find the SDK source in GitHub: [Azure IoT Digital Twins client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
    - you can view the [SDK reference documentation](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview)
 * You can generate an SDK for another language using AutoRest. Follow the instructions in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
