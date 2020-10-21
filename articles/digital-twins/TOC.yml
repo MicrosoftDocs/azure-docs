@@ -165,14 +165,14 @@
           href: /dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview
         - name: .NET (C#) SDK - source
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core
-        - name: JavaScript SDK - npm
-          href: https://www.npmjs.com/package/@azure/digital-twins/ 
-        - name: JavaScript SDK - reference
-          href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
         - name: Java SDK - Maven
           href: https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar  
         - name: Java SDK - reference
           href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview
+        - name: JavaScript SDK - npm
+          href: https://www.npmjs.com/package/@azure/digital-twins/ 
+        - name: JavaScript SDK - reference
+          href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
   - name: Digital Twins CLI 
     items: 
     - name: Digital Twins CLI reference
