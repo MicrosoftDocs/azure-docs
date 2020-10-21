@@ -22,9 +22,6 @@ Invitation emails are a critical component to bring partners on board as B2B col
 
 ![Screenshot showing the B2B invitation email](media/invitation-email-elements/invitation-email.png)
 
-> [!NOTE]
-> This new email template is still being rolled out to all tenants, so some tenants are still using an older design. By the end of May 2020, invitations from all tenants will be using this template.
-
 ## Explaining the email
 
 Let's look at a few elements of the email so you know how best to use their capabilities.
@@ -49,17 +46,11 @@ The email starts with a brief warning to the user about phishing, alerting them 
 
 ![Image of the phishing warning in the email](media/invitation-email-elements/phishing-warning.png)
 
-### Inviter's information
+### Inviter's information and invitation message
 
-The email includes information about the inviter and the organization they’re sending the invitation from. This includes the sender’s name and email address, as well as the name and primary domain associated with the organization. All of this information should help the invitee make an informed decision about accepting the invitation.
+The email includes the name and primary domain associated with the organization sending the invitation. This information should help the invitee make an informed decision about accepting the invitation. If the inviter includes a message as part of their invitation when they [invite a guest user to the directory, group, or app](add-users-administrator.md) or when they [use the invitation API](customize-invitation-api.md), the message is highlighted in the main section of the email. Also included are the inviter’s name and profile image if they’ve set one. The message itself is a text area, so for security reasons, it doesn't process HTML tags.
 
-![Image of the inviter's information in the email](media/invitation-email-elements/inviters-information.png)
-
-### Invitation message
-
-If the inviter includes a message as part of their invitation when they [invite a guest user to the directory, group, or app](add-users-administrator.md) or when they [use the invitation API](customize-invitation-api.md), the message is highlighted in the main section of the email. Also included are the inviter’s name and profile image if they’ve set one. The message itself is a text area, so for security reasons, it doesn't process HTML tags.
-
-![Image of the invitation message in the email](media/invitation-email-elements/invitation-message.png)
+![Image of the invitation message in the email](media/invitation-email-elements/invitation-message-inviters-info.png)
 
 ### Accept button and redirect URL
 
