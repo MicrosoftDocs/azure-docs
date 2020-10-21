@@ -399,6 +399,10 @@
                       href: how-to-custom-commands-send-activity-to-client.md
                     - name: Set up web endpoints
                       href: how-to-custom-commands-setup-web-endpoints.md
+                    - name: Update a command from the client app
+                      href: how-to-custom-commands-update-command-from-client.md
+                    - name: Update a command from a web endpoint
+                      href: how-to-custom-commands-update-command-from-web-endpoint.md
                 - name: Deploy
                   items:
                     - name: Continuous Deployment with Azure DevOps
