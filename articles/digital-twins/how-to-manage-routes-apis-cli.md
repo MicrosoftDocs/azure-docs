@@ -227,7 +227,6 @@ Without filtering, endpoints receive a variety of events from Azure Digital Twin
 * Telemetry fired by [digital twins](concepts-twins-graph.md) using the Azure Digital Twins service API
 * Twin property change notifications, fired on property changes for any twin in the Azure Digital Twins instance
 * Life-cycle events, fired when twins or relationships are created or deleted
-* Model change events, fired when [models](concepts-models.md) configured in an Azure Digital Twins instance are added or deleted
 
 You can restrict the events being sent by adding a **filter** for an endpoint to your event route.
 
