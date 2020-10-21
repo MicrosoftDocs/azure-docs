@@ -76,7 +76,7 @@ After you've configured the location, you can't change it. If you need to move y
     > [!NOTE]
     > To protect your Azure Arc enabled machines, use the instructions in [Quickstart: Connect hybrid machine with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
-1. If you've already licensed and deployed Microsoft Defender for Endpoints on your servers, remove it using the procedure described in [Offboard Windows servers](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
+1. If you've already licensed and deployed Microsoft Defender for Endpoints on your servers, remove it using the procedure described in [Offboard Windows servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
 1. From Security Center's menu, select **Pricing & settings**.
 1. Select the subscription you want to change.
 1. Select **Threat detection**.
@@ -89,11 +89,11 @@ After you've configured the location, you can't change it. If you need to move y
 
 ## Access the Microsoft Defender for Endpoint portal
 
-1. Ensure the user account has the necessary permissions. [Learn more](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+1. Ensure the user account has the necessary permissions. [Learn more](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
-1. Check whether you have a proxy or firewall that is blocking anonymous traffic. The Defender for Endpoint sensor connects from the system context, so anonymous traffic must be permitted. To ensure unhindered access to the Defender for Endpoint portal, follow the instructions in [Enable access to service URLs in the proxy server](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
+1. Check whether you have a proxy or firewall that is blocking anonymous traffic. The Defender for Endpoint sensor connects from the system context, so anonymous traffic must be permitted. To ensure unhindered access to the Defender for Endpoint portal, follow the instructions in [Enable access to service URLs in the proxy server](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
-1. Open the [Microsoft Defender Security Center portal](https://securitycenter.windows.com/). Learn more about the portal's features and icons, in [Microsoft Defender Security Center portal overview](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
+1. Open the [Microsoft Defender Security Center portal](https://securitycenter.windows.com/). Learn more about the portal's features and icons, in [Microsoft Defender Security Center portal overview](/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
 
 ## Send a test alert
 
@@ -123,7 +123,7 @@ Defender for Endpoint is included at no additional cost with **Azure Defender fo
 
 ### How do I switch from a third-party EDR tool?
 
-Full instructions for switching from a non-Microsoft endpoint solution are available in the Microsoft Defender for Endpoint documentation: [Migration overview](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
+Full instructions for switching from a non-Microsoft endpoint solution are available in the Microsoft Defender for Endpoint documentation: [Migration overview](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
   
 
 
