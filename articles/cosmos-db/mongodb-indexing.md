@@ -36,7 +36,8 @@ One query uses multiple single field indexes where available. You can create up 
 
 Azure Cosmos DB's API for MongoDB supports compound indexes for accounts that use the version 3.6 wire protocol. You can include up to eight fields in a compound index. Unlike in MongoDB, you should create a compound index only if your query needs to sort efficiently on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a single compound index. 
 
-You can't create compound indexes on nested properties or arrays.
+> [!NOTE]
+> You can't create compound indexes on nested properties or arrays.
 
 The following command creates a compound index on the fields `name` and `age`:
 
