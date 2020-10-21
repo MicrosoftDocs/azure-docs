@@ -1,5 +1,5 @@
 ---
-title: Overview of DevOps Starter | Microsoft Docs
+title: Overview of DevOps Starter for Azure | Microsoft Docs
 description: Understand the value for DevOps Starter
 services: devops-project
 documentationcenter: ''
@@ -26,7 +26,7 @@ ms.author: mlearned
 
   DevOps starter the following supports two CI/CD providers, to automate your deployments
   * [GitHub Actions](https://github.com/features/actions)
-  * [Azure DevOps](https://azure.microsoft.com/en-in/services/devops)
+  * [Azure DevOps](https://azure.microsoft.com/services/devops)
 
   DevOps Starter automates the setup of an entire continuous integration (CI) and continuous delivery (CD) for your application to Azure.  You can start with existing code or use one of the provided sample applications. Then you can quickly deploy that application to various Azure services such as Virtual Machines, App Service, Azure Kubernetes Services (AKS), Azure SQL Database, and Azure Service Fabric.  
 
