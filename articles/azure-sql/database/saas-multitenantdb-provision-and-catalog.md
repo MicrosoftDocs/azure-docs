@@ -157,7 +157,7 @@ To understand how the Wingtip app implements new tenant provisioning in a shared
 
 2. Add a breakpoint by putting your cursor anywhere on line 38, the line that says: *New-Tenant `*, and then press **F9**.
 
-   ![Screenshot that highlights the line that inclues New Tenant.](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
+   ![Screenshot that highlights the line that includes New Tenant.](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
 3. Run the script by pressing **F5**.
 
