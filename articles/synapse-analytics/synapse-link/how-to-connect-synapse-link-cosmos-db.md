@@ -1,6 +1,6 @@
 ---
 title: Connect to Azure Synapse Link (preview) for Azure Cosmos DB
-description: Learn how to connect a database created with Azure Cosmos DB to an Azure Synapse workspace with Azure Synapse Link.
+description: Learn how to connect an Azure Cosmos DB database to an Azure Synapse workspace with Azure Synapse Link.
 services: synapse-analytics 
 author: ArnoMicrosoft
 ms.service: synapse-analytics 
@@ -13,19 +13,19 @@ ms.reviewer: jrasnick
 
 # Connect to Azure Synapse Link (preview) for Azure Cosmos DB
 
-This article describes how to access a database created with Azure Cosmos DB from Azure Synapse Analytics Studio with Azure Synapse Link.
+This article describes how to access an Azure Cosmos DB database from Azure Synapse Analytics Studio with Azure Synapse Link.
 
 ## Prerequisites
 
-Before you connect a database created with Azure Cosmos DB to your workspace, you'll need an:
+Before you connect an Azure Cosmos DB database to your workspace, you'll need an:
 
 > [!IMPORTANT]
 > Azure Synapse Link for Azure Cosmos DB is currently supported for workspaces that don't have a managed virtual network enabled.
 
-* Existing database created with Azure Cosmos DB, or create a new account by following the steps in [Quickstart: Manage an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account).
+* Existing Azure Cosmos DB database, or create a new account by following the steps in [Quickstart: Manage an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account).
 * Existing Azure Synapse workspace, or create a new workspace by following the steps in [Quickstart: Create a Synapse workspace](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
 
-## Enable an Azure Cosmos DB analytical store
+## Enable Synapse Link on an Azure Cosmos DB database account
 
 To run large-scale analytics into Azure Cosmos DB without affecting your operational performance, we recommend enabling Synapse Link for Azure Cosmos DB. Synapse Link brings HTAP capability to a container and built-in support in Azure Synapse.
 
@@ -33,11 +33,11 @@ To run large-scale analytics into Azure Cosmos DB without affecting your operati
 
 From your Azure Synapse workspace, select **Launch Synapse Studio**. On the Synapse Studio home page, select **Data**, which takes you to the Data Object Explorer.
 
-## Connect a database created with Azure Cosmos DB to an Azure Synapse workspace
+## Connect an Azure Cosmos DB database to an Azure Synapse workspace
 
-Connecting a database created with Azure Cosmos DB is done as a linked service. With an Azure Cosmos DB linked service, you can browse and explore data, read, and write from Apache Spark for Azure Synapse Analytics or SQL into Azure Cosmos DB.
+Connecting an Azure Cosmos DB database is done as a linked service. With an Azure Cosmos DB linked service, you can browse and explore data, read, and write from Apache Spark for Azure Synapse Analytics or SQL into Azure Cosmos DB.
 
-From the Data Object Explorer, you can directly connect to a database created with Azure Cosmos DB by following these steps:
+From the Data Object Explorer, you can directly connect to an Azure Cosmos DB database by following these steps:
 
 1. Select the **+** icon near **Data**.
 1. Select **Connect to external data**.
@@ -48,7 +48,7 @@ From the Data Object Explorer, you can directly connect to a database created wi
 1. (Optional) If no region is specified, Azure Synapse runtime operations will be routed toward the nearest region where the analytical store is enabled. You can also manually set the region you want your users to use to access the Azure Cosmos DB analytical store. Select **Additional connection properties**, and then select **New**. Under **Property Name**, enter **PreferredRegions**. Set the **Value** to the region you want, for example, **WestUS2**. (There are no spaces between the words and the number.)
 1. Select **Create**.
 
-Databases created with Azure Cosmos DB appear on the **Linked** tab under the **Azure Cosmos DB** section. With Azure Cosmos DB, you can differentiate an HTAP-enabled container from an OLTP-only container through the following icons:
+Azure Cosmos DB databases appear on the **Linked** tab under the **Azure Cosmos DB** section. With Azure Cosmos DB, you can differentiate an HTAP-enabled container from an OLTP-only container through the following icons:
 
 **OLTP-only container**:
 
