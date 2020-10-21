@@ -148,10 +148,6 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Then choose **Select** at the bottom of the screen.
 1. In the **Add Assignment** dialog box, select **Assign**.
 
-## Configure Nitro Productivity Suite SSO
-
-To configure single sign-on on Nitro Productivity Suite side, send the downloaded **Certificate (Base64)** and appropriate copied URLs from the Azure portal to the [Nitro Productivity Suite support team](https://www.gonitro.com/support). The support team ensures that the SAML SSO connection is set properly on both sides.
-
 ### Create a Nitro Productivity Suite test user
 
 Nitro Productivity Suite supports just-in-time user provisioning, which is enabled by default. There is no additional action for you to take. If a user doesn't already exist in Nitro Productivity Suite, a new one is created after authentication.
@@ -175,4 +171,6 @@ When you select the Nitro Productivity Suite tile in Access Panel, you're automa
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Protect Nitro Productivity Suite with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Nitro Productivity Suite support team](https://www.gonitro.com/support)
 
