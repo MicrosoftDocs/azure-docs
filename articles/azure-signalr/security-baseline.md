@@ -46,7 +46,7 @@ You can also use network access control to allow or deny certain types of reques
 
 - [How to configure network access control for Azure SignalR Service](howto-network-access-control.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -57,7 +57,7 @@ You can also use network access control to allow or deny certain types of reques
 
 **Guidance**: If your client/server side of Azure SignalR Service is deployed in an Azure Virtual Network, you can follow above instructions to monitor and log network traffic.
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -68,7 +68,7 @@ You can also use network access control to allow or deny certain types of reques
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -81,7 +81,7 @@ You can also use network access control to allow or deny certain types of reques
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### 1.5: Record network packets
 
@@ -92,7 +92,7 @@ You can also use network access control to allow or deny certain types of reques
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
@@ -103,7 +103,7 @@ You can also use network access control to allow or deny certain types of reques
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### 1.7: Manage traffic to web applications
 
@@ -112,7 +112,7 @@ You can also use network access control to allow or deny certain types of reques
 
 **Guidance**: Not applicable; this recommendation is intended for offerings that can host web applications such as App Service and Azure Virtual Machines. Azure SignalR Service is not intended to host web applications, so there is no need to describe managing traffic to those applications.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -125,7 +125,7 @@ You can also use network access control to allow or deny certain types of reques
 Use Virtual Network Service Tags to define network access controls on Network Security Groups or Azure Firewall to control access to your Azure SignalR Service resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name "AzureSignalR" in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 - [How to use service tags for Azure SignalR Service](howto-service-tags.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -144,7 +144,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 - [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -157,7 +157,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags) 
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -168,7 +168,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Guidance**: 
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -183,7 +183,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Guidance**: Azure SignalR Service does not support configuring your own time synchronization sources. Azure SignalR Service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Microsoft
 
