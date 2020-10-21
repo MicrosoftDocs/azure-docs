@@ -89,7 +89,7 @@ In the following steps, you deploy the analytics store, which is called **tenant
 
 Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-dpt-&lt;User&gt;** and **catalog-dpt-&lt;User&gt;** servers using Login = *developer*, Password = *P\@ssword1*. See the [introductory tutorial](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) for more guidance.
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
+![Screenshot that shows the information needed to connect to SQL Server.](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
 In the Object Explorer, perform the following steps:
 
@@ -104,7 +104,7 @@ See the following database items in the SSMS Object Explorer by expanding the an
 - The star-schema tables are **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, and **dim_Dates**.
 - The stored procedure is used to populate the star-schema tables from the raw data tables.
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
+![Screenshot of the database items shown in the SSMS Object Explorer.](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
 
 ## Data extraction 
 

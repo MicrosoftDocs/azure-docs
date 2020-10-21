@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: sample
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 10/21/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
@@ -23,9 +23,6 @@ You can use Microsoft identity platform to:
 - Require an access token to access a protected web API.
 
 This article briefly describes and provides you with links to samples for the Microsoft identity platform endpoint. These samples show you how it's done, and also provide code snippets that you can use in your applications. On the code sample page, you'll find detailed readme topics that help with requirements, installation, and setup. Comments within the code help you understand the critical sections.
-
-> [!NOTE]
-> If you're interested in v1.0 samples, see [Azure AD code samples (v1.0 endpoint)](../azuread-dev/sample-v1-code.md).
 
 To understand the basic scenario for each sample type, see [App types for the Microsoft identity platform endpoint](v2-app-types.md).
 
@@ -138,5 +135,4 @@ To learn about [samples](https://github.com/microsoftgraph/msgraph-community-sam
 
 ## See also
 
-- [Azure Active Directory (v1.0) developer's guide](../azuread-dev/v1-overview.md)
-- [Microsoft Graph API conceptual and reference](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)
+[Microsoft Graph API conceptual and reference](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)
