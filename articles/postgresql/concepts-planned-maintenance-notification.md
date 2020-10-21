@@ -1,25 +1,25 @@
 ---
-title: Planned maintenance notification - Azure Database for MySQL - Single Server
-description: This article describes the Planned maintenance notification feature in Azure Database for MySQL - Single Server
+title: Planned maintenance notification - Azure Database for PostgreSQL - Single Server
+description: This article describes the Planned maintenance notification feature in Azure Database for PostgreSQL - Single Server
 author: ambhatna
 ms.author: ambhatna
-ms.service: mysql
+ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
 ---
-# Planned maintenance notification in Azure Database for MySQL - Single Server
+# Planned maintenance notification in Azure Database for PostgreSQL - Single Server
 
-Learn how to prepare for planned maintenance events on your Azure Database for MySQL.
+Learn how to prepare for planned maintenance events on your Azure Database for PostgreSQL.
 
 ## What is a planned maintenance?
 
-Azure Database for MySQL service performs automated patching of the underlying hardware, OS, and database engine. The patch includes new service features, security and software updates. For MySQL engine, minor version upgrades are automatic and included as part of the patching cycle. There is no user action or configuration settings required for patching. The patch is tested extensively and rolled out using safe deployment practices.
+Azure Database for PostgreSQL service performs automated patching of the underlying hardware, OS, and database engine. The patch includes new service features, security and software updates. For PostgreSQL engine, minor version upgrades are automatic and included as part of the patching cycle. There is no user action or configuration settings required for patching. The patch is tested extensively and rolled out using safe deployment practices.
 
 A planned maintenance is an maintenance window when these service updates are deployed to servers in a given Azure region. During planned maintenance, a notification event is created to inform customers when the service update is deployed in the Azure region hosting their servers. Minimum duration between two planned maintenance is 30 days. You receive a notification of the next maintenance window 72 hours in advance.
 
 ## Planned Maintenance - Duration and Customer Impact
 
-A planned maintenance for a given Azure region is typically expected to run 15 hrs. The window also includes buffer time to execute a rollback plan if required. During planned maintenance, there can be database server restarts or failovers which might lead to brief unavailability of the database servers for end users. Azure Database for MySQL servers are running in containers so database server restarts are typically quick, expected to complete typically in 60-120 seconds. The entire planned maintenance event including each server restarts is carefully monitored by the engineering team. The server failovers time is dependent on database recovery time which can cause the database to come online longer if you have heavy transactional activity on the server at the time of failover. To avoid longer restart time, it is recommended to avoid any long running transactions (bulk loads) during planned maintenance events.
+A planned maintenance for a given Azure region is typically expected to run 15 hrs. The window also includes buffer time to execute a rollback plan if required. During planned maintenance, there can be database server restarts or failovers which might lead to brief unavailability of the database servers for end users. Azure Database for PostgreSQL servers are running in containers so database server restarts are typically quick, expected to complete typically in 60-120 seconds. The entire planned maintenance event including each server restarts is carefully monitored by the engineering team. The server failovers time is dependent on database recovery time which can cause the database to come online longer if you have heavy transactional activity on the server at the time of failover. To avoid longer restart time, it is recommended to avoid any long running transactions (bulk loads) during planned maintenance events.
 
 In summary, while the planned maintenance event runs for 15 hours, the individual server impact generally lasts 60 seconds depending on the transactional activity on the server. A notification is sent 72 calendar hours before planned maintenance starts and another one while maintenance is in progress for a given region.
 
@@ -32,7 +32,7 @@ You can utilize the planned maintenance notifications feature to receive alerts 
 > [!IMPORTANT]
 > Planned maintenance notifications are currently available in preview in all regions **except** West Central US
 
-**Planned maintenance notifications** allow you to receive alerts for upcoming planned maintenance event to your Azure Database for MySQL. These notifications are integrated with [Service Health's](../service-health/overview.md) planned maintenance and allow you to view all scheduled maintenance for your subscriptions in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 calendar hours before the event.
+**Planned maintenance notifications** allow you to receive alerts for upcoming planned maintenance event to your Azure Database for PostgreSQL. These notifications are integrated with [Service Health's](../service-health/overview.md) planned maintenance and allow you to view all scheduled maintenance for your subscriptions in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 calendar hours before the event.
 
 We will make every attempt to provide **Planned maintenance notification** 72 hours notice for all events. However, in cases of critical or security patches, notifications might be sent closer to the event or be omitted.
 
@@ -59,7 +59,7 @@ For detailed steps on how to create **service health alerts**, refer to [Create 
 
 ## Can I control or change planned maintenance for my servers after I receive a notification event?
 
-Maintenance is needed to keep your server secure, stable, and up-to-date. The planned maintenance event cannot be cancelled or postponed. Once the notification is sent to a given Azure region, the patching schedule changes cannot be made for any individual server in that region. The patch is rolled out for entire region at once. Azure Database for MySQL - Single server service is designed for cloud native application that doesn't require granular control or customization of the service. If you are looking to have ability to schedule maintenance for your servers, we recommend you consider [Flexible servers](./flexible-server/overview.md).
+Maintenance is needed to keep your server secure, stable, and up-to-date. The planned maintenance event cannot be cancelled or postponed. Once the notification is sent to a given Azure region, the patching schedule changes cannot be made for any individual server in that region. The patch is rolled out for entire region at once. Azure Database for PostgreSQL - Single server service is designed for cloud native application that doesn't require granular control or customization of the service. If you are looking to have ability to schedule maintenance for your servers, we recommend you consider [Flexible servers](./flexible-server/overview.md).
 
 ## Are all the Azure regions patched at the same time?
 
@@ -72,7 +72,7 @@ A transient error, also known as a transient fault, is an error that will resolv
 
 ## Next steps
 
-- For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team at *AskAzureDBforMySQL@service.microsoft.com*.
+- For any questions or suggestions you might have about working with Azure Database for PostgreSQL, send an email to the Azure Database for PostgreSQL Team at *AskAzureDBforMySQL@service.microsoft.com*.
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
-- [Troubleshoot connection issues to Azure Database for MySQL - Single Server](howto-troubleshoot-common-connection-issues.md)
-- [Handle transient errors and connect efficiently to Azure Database for MySQL - Single Server](concepts-connectivity.md)
+- [Troubleshoot connection issues to Azure Database for PostgreSQL - Single Server](howto-troubleshoot-common-connection-issues.md)
+- [Handle transient errors and connect efficiently to Azure Database for PostgreSQL - Single Server](concepts-connectivity.md)
