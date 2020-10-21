@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 10/21/2020
 ms.author: alkohli
 ---
 # Azure Stack Edge Blob storage requirements
@@ -45,7 +45,7 @@ The following Azure client library versions are supported for Azure Stack Edge B
 
 [!INCLUDE [data-box-rest-supported-azure-client-libraries](../../includes/data-box-rest-supported-azure-client-libraries.md)]
 
-### Install the PHP client via Composer
+### Install the PHP client via Composer - Current
 
 To install the PHP client via Composer:
 
@@ -62,11 +62,15 @@ To install the PHP client via Composer:
 
 3. Run: php composer.phar install.
 
-### Endpoint declaration
+
+## Endpoint declaration
 
 In the Azure Stack Edge Blob storage SDK, the endpoint suffix - `<device serial number>.microsoftdatabox.com` - identifies the Azure Stack Edge domain. For more information on the blob service endpoint, go to [Transfer data via storage accounts with Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
- 
-#### .NET example
+
+
+## Examples
+
+### .NET
 
 For Azure Stack Edge Blob storage, the endpoint suffix is specified in the `app.config` file:
 
@@ -76,7 +80,7 @@ value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
 EndpointSuffix=<<serial no. of the device>.microsoftdatabox.com  />
 ```
 
-#### Java example
+### Java
 
 For Azure Stack Edge Blob storage, the endpoint suffix is specified in the setup of connection string:
 
@@ -88,7 +92,7 @@ public static final String storageConnectionString =
     "EndpointSuffix=<serial no. of the device>.microsoftdatabox.com ";
 ```
 
-#### Node.js example
+### Node.js
 
 For Azure Stack Edge Blob storage, the endpoint suffix is specified in the declaration instance:
 
@@ -97,7 +101,7 @@ var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob. <serial no. of the device>.microsoftdatabox.com ');
 ```
 
-#### C++ example
+### C++
 
 For Azure Stack Edge Blob storage, the endpoint suffix is specified in the setup of the connection string:
 
@@ -108,7 +112,7 @@ AccountKey=your_storage_account_key;
 EndpointSuffix=<serial no. of the device>.microsoftdatabox.com "));
 ```
 
-#### PHP example
+### PHP
 
 For Azure Stack Edge Blob storage, the endpoint suffix is specified in the setup of the connection string:
 
@@ -117,7 +121,7 @@ $connectionString = 'BlobEndpoint=http://<storage account name>.blob.<serial no.
 AccountName=<storage account name>;AccountKey=<storage account key>'
 ```
 
-#### Python example
+### Python
 
 For Azure Stack Edge Blob storage, the endpoint suffix is specified in the declaration instance:
 
@@ -127,7 +131,7 @@ account_key='mykey',
 endpoint_suffix=’<serial no. of the device>.microsoftdatabox.com’)
 ```
 
-#### Ruby example
+### Ruby
 
 For Azure Stack Edge Blob storage, the endpoint suffix is specified in the setup of the connection string:
 
