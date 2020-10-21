@@ -24,7 +24,7 @@ For more information on allowed transactions and corresponding charges, see the 
 For Azure Stack Edge service, one of the secrets used is Channel Integrity Key (CIK). This key allows you to encrypt your secrets. With the integration of key vault, the CIK is securely stored in the key vault. For more information, see [Securely store secrets and keys](../key-vault/general/overview.md#securely-store-secrets-and-keys).
 
 
-## Key vault creation.
+## Key vault creation
 
 A key vault is created for Azure Stack Edge resource during the process of activation key generation. 
 
