@@ -1,63 +1,58 @@
 ---
 title: Update a cluster to use certificate common name 
-description: Learn how to switch a Service Fabric cluster from using certificate thumbprints to using certificate common name.
+description: Learn how to convert a Service Fabric cluster certificate from thumbprint-based declarations to common names.
 
 ms.topic: conceptual
 ms.date: 09/06/2019
 ---
-# Change cluster from certificate thumbprint to common name
-No two certificates can have the same thumbprint, which can make cluster certificate rollover and management difficult. By upgrading a running Service Fabric cluster from declaring cluster certificates by thumbprint to declaring them by common name, management can be simplified. This simplifies management by expanding the set of allowed cluster certificates and by making it such that rotations do not require a cluster upgrade. This article describes how to move a running cluster to common name.
+# Convert cluster certificates from thumbprint-based declarations to common names
+The signature of a certificate (colloquially known as 'thumbprint') is unique, which means a cluster certificate declared by thumbprint refers to a specific instance of a certificate. This, in turn, makes certificate rollover - and management, in general - difficult and explicit: each change requires orchestrating upgrades of the cluster and the underlying computing hosts. Converting a Service Fabric cluster's certificate declarations from  thumbprint-based to declarations based on the certificate's subject Common Name simplifies management considerably - in particular, rolling over a certificate no longer necessitates a cluster upgrade. This article describes how to convert an existing cluster to common name-based declarations without downtime.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Moving to Certificate Authority (CA)-signed certificates
-When a cluster declares certificates by common name, mutual trust of a certificate in the cluster comes from mutual trust in the issuer of the certificate, rather than the cryptographic uniqueness of the certificate's thumbprint. For this reason, cluster certificates declared by common name should not be self-signed, and should come from a trusted CA. Service Fabric offers two different strategies to validate certificates by common name. One uses a pinned list of issuer thumbprints, and the other relies on the CA certificate being installed in the Trusted Root store of nodes. These strategies are discussed more [here.](cluster-security-certificates.md#common-name-based-certificate-validation-declarations) If your cluster is currently using a self-signed certificate declared by thumbprint, you will need to transition to declaring the target CA-signed certificate by thumbprint before moving to common name.
+The security of a cluster whose certificate is declared by thumbprint rests on the fact that it is impossible, or computationally unfeasible to forge a  certificate with the same signature as another one. In this case, the provenance of the certificate is less important, and so self-signed certificates are adequate. By contrast, the security of a cluster with certificates declared by common name flows from the Public Key Infrastructure service (PKI) which issued that certificate, and includes aspects such as their certification practices, whether their operational security is audited and many others. For this reason, the choice of a PKI is important, intimate knowledge of the issuers (Certificate Authority, or CA) is required, and self-signed certificates are essentially worthless. A certificate declared by common name (CN) is typically considered valid if its chain can be built successfully, the subject has the expected CN element, and its issuer (immediate or higher in the chain) is trusted by the agent performing the validation. Service Fabric supports declaring certificates by CN with 'implicit' issuer (the chain must end in a trust anchor), or with issuers declared by thumbprint ("issuer pinning"); please see this  [article](cluster-security-certificates.md#common-name-based-certificate-validation-declarations) for more details. To convert a cluster using a self-signed certificate declared by thumbprint to common name, the target, CA-signed certificate must be first introduced into the cluster by thumbprint; only then is the conversion from TP to CN possible.
 
-For the purposes of testing, a self-signed certificate can be used by pinning the certificate's common name to its own thumbprint. Note that this does not give a good proxy for demonstrating that the cluster will work as expected when using a certificate issued by a proper CA. It is recommended to instead use a testing-specific CA-signed certificate, or a certificate issued by a free CA, like _Let's Encrypt_.
-
-### Using a cluster certificate with an appropriate SAN
-The Service Fabric runtime does not impose restrictions on the common name of the cluster certificate. There are some nuances in the selection and validation of certificates with wildcards in their common name, which is discussed in [the article on certificate selection and validation](cluster-security-certificates.md). Some browsers may raise security warnings when the Service Fabric Server certificate is self-signed, or if the subject alternative name (SAN) of the certificate does not match the management domain. For example, your browser may warn you that your cluster, which has domain `https://mycluster.eastus.cloudapp.azure.com`, is presenting a certificate with a SAN of `https://mycluster.contoso.com`, when accessing SFX. If your objective is to match these, and since it is not possible to provision certificates for the default domain (\*.cloudapp.azure.com), it is recommended to provision a custom domain, via [Azure DNS Zone](../dns/dns-delegate-domain-azure-dns.md), issue a certificate for this domain, and to update your cluster's "managementEndpoint" to this custom domain alias.
+For testing purposes, a self-signed certificate can be declared by CN, pinning the issuer to its own thumbprint; from a security standpoint, this is nearly equivalent to declaring the same certificate by TP. Note, however, that a successful conversion of this kind does not guarantee a successful conversion from TP to CN with a CA-signed certificate. Therefore it is recommended to test conversion with a proper, CA-signed certificate (free options exist).
 
 ## Upload the certificate and install it in the scale set
-In Azure, your certificate should be uploaded to a key vault and installed on the virtual machine scale set that the cluster is running on by [updating the ARM definition of the virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-securely-ship-a-certificate-to-the-vm). It is important that both current and target cluster certificates are installed on the VMs of every nodetype before starting any Service Fabric upgrade that will introduce the target certificate, either by thumbprint or by common name, to the cluster definition. The journey from certificate issuance to provisioning onto a Service fabric node is discussed in depth [here](cluster-security-certificate-management.md#the-journey-of-a-certificate).
+In Azure, the recommended mechanism for obtaining and provisioning certificates involves the Azure Key Vault service and its tooling. A certificate matching the cluster certificate declaration must be provisioned to every node of the virtual machine scale sets comprising your cluster; please refer to [secrets on virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-securely-ship-a-certificate-to-the-vm) for further details. It is important that both current and target cluster certificates are installed on the VMs of every node type of the cluster before making changes in the cluster's certificate declarations. The journey from certificate issuance to provisioning onto a Service fabric node is discussed in depth [here](cluster-security-certificate-management.md#the-journey-of-a-certificate).
 
 ## Bring cluster to an optimal starting state
-An upgrade from thumbprint-based certificate declaration to common-name based certificate declaration represents a change in both 
+Converting a certificate declaration from thumbprint-based to common-name based impacts both:
 
-- How nodes in the cluster choose which certificate to present to each other
-- How nodes validate those certificates when received 
+- How each node in the cluster finds and presents its credentials to other nodes
+- How each node validates the credentials of its counterpart upon establishing a secure connection  
 
-Review the [presentation and validation rules for both configurations](cluster-security-certificates.md#certificate-configuration-rules) before proceeding. The most important consideration when performing a thumbprint-to-common name conversion is that upgraded and unupgraded nodes will be able mutually authenticate throughout the duration of the upgrade. The recommended way to achieve mutual trust during the duration of the upgrade is to move onto the goal certificate by thumbprint before starting the transition to common name. If the cluster is already in a recommended starting state, this section can be skipped.
+Review the [presentation and validation rules for both configurations](cluster-security-certificates.md#certificate-configuration-rules) before proceeding. The most important consideration when performing a thumbprint-to-common name conversion is that upgraded and not-yet-upgraded nodes (that is, nodes belonging to different upgrade domains) must be able to perform successful mutual authentication at any time during the upgrade. The recommended way to achieve this is to declare the target/goal certificate by thumbprint in an initial upgrade, and complete the transition to common name in a subsequent one. If the cluster is already in a recommended starting state, this section can be skipped.
 
-There are multiple recommended starting states before the conversion, but the important invariant is that the cluster is already using the goal-state certificate, as declared by thumbprint, before the upgrade begins. We consider `GoalCert`, `OldCert1`, `OldCert2`:
+There are multiple valid starting states for a conversion; the invariant is that the cluster is already using the target certificate (declared by thumbprint) at the start of the upgrade to common name. We consider `GoalCert`, `OldCert1`, `OldCert2`:
 
-#### Recommended Starting States
+#### Valid Starting States
 - `Thumbprint: GoalCert, ThumbprintSecondary: None`
-- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, where `GoalCert` has a later `NotAfter` date than `OldCert1`
-- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, where `GoalCert` has a later `NotAfter` date than `OldCert1`
+- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, where `GoalCert` has a later `NotAfter` date than that of `OldCert1`
+- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, where `GoalCert` has a later `NotAfter` date than that of `OldCert1`
 
-#### Steps to get to above state if cluster is currently in another state
+If your cluster is not in one of the valid states described above, please refer to the appendix on achieving that state at the end of this article.
 
-| Starting State | Upgrade 1 | Upgrade 2 |
-| :--- | :--- | :--- |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` and `GoalCert` has a later `NotAfter` date than `OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` and `OldCert1` has a later `NotAfter` date than `GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
-| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, where `OldCert1` has a later `NotAfter` date than `GoalCert` | Upgrade to `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
-| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, where `OldCert1` has a later `NotAfter` date than `GoalCert` | Upgrade to `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
-| `Thumbprint: OldCert1, ThumbprintSecondary: OldCert2` | Remove one of `OldCert1` or `OldCert2` to get to state `Thumbprint: OldCertx, ThumbprintSecondary: None` | Continue from the new starting state |
+## Select the desired common-name-based certificate validation scheme
+As described previously, Service Fabric supports declaring certificates by CN with an implicit trust anchor, or with explicitly pinning the issuer thumbprints. Please refer to [this article](cluster-security-certificates.md#common-name-based-certificate-validation-declarations) for details, and ensure you have a good understanding of the differences, and the implications of choosing either mechanism. Syntactically, this difference/choice is determined by the value of the `certificateIssuerThumbprintList` parameter: empty means relying on a trusted root CA (trust anchor), whereas a set of thumbprints restricts the allowed direct issuers of cluster certificates.
 
-For instructions on how to carry out any of these upgrades, see [this document](service-fabric-cluster-security-update-certs-azure.md).
-
-## Decide between Common-name validation or Common-name validation with Issuer Pinning
-The difference is described [here](cluster-security-certificates.md#common-name-based-certificate-validation-declarations) and determines whether to populate the parameter `certificateIssuerThumbprintList`, or leave it empty.
+   > [!NOTE]
+   > The 'certificateIssuerThumbprint' field allows specifying the expected direct issuers of certificates declared by subject common name. Acceptable values are one or more comma-separated SHA1 thumbprints. Note this is a strengthening of the certificate validation - if no issuers are specified/list is empty, the certificate will be accepted for authentication if its chain can be built, and ends up in a root trusted by the validator. If one or more issuer thumbprints are specified, the certificate will be accepted if the thumbprint of its direct issuer, as extracted from the chain, matches any of the values specified in this field - irrespective of whether the root is trusted or not. Note that a PKI may use different certification authorities ('issuers') to sign certificates with a given subject, and so it is important to specify all expected issuer thumbprints for that subject. In other words, the renewal of a certificate is not guaranteed to be signed by the same issuer as the certificate being renewed.
+   >
+   > Specifying the issuer is considered a best practice; while omitting it will continue to work - for certificates chaining up to a trusted root - this behavior has limitations and may be phased out in the near future. Also note that clusters deployed in Azure, and secured with X509 certificates issued by a private PKI and declared by subject may not be able to be validated by the Azure Service Fabric service (for cluster-to-service communication), if the PKI's Certificate Policy is not discoverable, available and accessible. 
 
 ## Update the Cluster's Azure Resource Management (ARM) Template and Deploy
-Using ARM templates is our recommended way of managing Service Fabric clusters. Updating a cluster's certificate declaration should be done via an ARM template deployment. There is not an equivalent Azure portal experience at this time. If you do not have an ARM template representing the cluster, it is possible to build one for a living cluster. Writing the template is described [here](service-fabric-cluster-creation-create-template.md) and [here](service-fabric-cluster-creation-via-arm.md). It is possible to get a good starting point for the manifest by navigating to the Portal, to the resource group of the cluster, selecting **Settings**, selecting **Deployments**.  Selecting the most recent deployment and clicking **View template**. This template will require changes before it is fully deployable.
+It is recommended to manage Azure Service Fabric clusters with ARM templates; an alternative, also using json artifacts, is the [Azure Resource Explorer (preview)](https://resources.azure.com). An equivalent experience is not available in the Azure Portal at this time. If the original template corresponding to an existing cluster is not available, an equivalent template can be obtained in the Azure Portal by navigating to the resource group containing the cluster, selecting **Export template** from the **Automation** left-hand menu, and then further selecting the desired resources; at a minimum, the VMSS and cluster resources, respectively, should be exported. The generated template can also be downloaded. Note this template may require changes before it is fully deployable, and may not match exactly the original one - it is a reflection of the current state of the cluster resource.
 
-There are two changes needed in your template, one for the Service Fabric Node Extension, which is an extension of the virtual machine resource, and another change in the cluster resource definition. First add the new parameters, your certificate common name, say `certificateCommonName`, and if pinning, the comma-delimited list of direct issuers of the cert, say `certificateIssuerThumbprintList`.
+The necessary changes are as follows:
+    - updating the definition of the Service Fabric Node Extension (under the virtual machine resource); if the cluster defines multiple node types, you will need to update the definition of each corresponding virtual machine scale set
+    - updating the cluster resource definition
 
-In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint. Note, if your cluster includes multiple nodetypes/scale sets, you will need to update the SF Node Extension definition on each of the scale sets.
+Detailed examples are included below.
 
+### Updating the virtual machine scale set resource(s)
 From
 ```json
 "virtualMachineProfile": {
@@ -111,7 +106,8 @@ To
                 },
 ```
 
-In the **Microsoft.ServiceFabric/clusters** resource, add a **certificateCommonNames** setting with a **commonNames** property and remove the **certificate** setting (with the thumbprint property):
+### Updating the cluster resource
+In the **Microsoft.ServiceFabric/clusters** resource, add a **certificateCommonNames** property with a **commonNames** setting, and remove the **certificate** property altogether (all its settings):
 
 From
 ```json
@@ -159,11 +155,6 @@ To
         ...
 ```
 
-   > [!NOTE]
-   > The 'certificateIssuerThumbprint' field allows specifying the expected direct issuers of certificates with a given subject common name. This field accepts a comma-separated enumeration of SHA1 thumbprints. Note this is a strengthening of the certificate validation - in the case when the issuer is not specified or empty, the certificate will be accepted for authentication if its chain can be built, and ends up in a root trusted by the validator. If the issuer is specified, the certificate will be accepted if the thumbprint of its direct issuer matches any of the values specified in this field - irrespective of whether the root is trusted or not. Note that a PKI may use different certification authorities to issue certificates for the same subject, and so it is important to specify all expected issuer thumbprints for a given subject.
-   >
-   > Specifying the issuer is considered a best practice; while omitting it will continue to work - for certificates chaining up to a trusted root - this behavior has limitations and may be phased out in the near future. Also note that clusters deployed in Azure, and secured with X509 certificates issued by a private PKI and declared by subject may not be able to be validated by the Azure Service Fabric service (for cluster-to-service communication), if the PKI's Certificate Policy is not discoverable, available and accessible. 
-
 For more information, see [Deploy a Service Fabric cluster that uses certificate common name instead of thumbprint.](./service-fabric-create-cluster-using-cert-cn.md)
 
 ## Deploy the updated template
@@ -175,6 +166,19 @@ $groupname = "sfclustertutorialgroup"
 New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
     -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" 
 ```
+
+## Appendix: achieve a valid starting state for converting a cluster to CN-based certificate declarations
+
+| Starting State | Upgrade 1 | Upgrade 2 |
+| :--- | :--- | :--- |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` and `GoalCert` has a later `NotAfter` date than `OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` and `OldCert1` has a later `NotAfter` date than `GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
+| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, where `OldCert1` has a later `NotAfter` date than `GoalCert` | Upgrade to `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, where `OldCert1` has a later `NotAfter` date than `GoalCert` | Upgrade to `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: OldCert2` | Remove one of `OldCert1` or `OldCert2` to get to state `Thumbprint: OldCertx, ThumbprintSecondary: None` | Continue from the new starting state |
+
+For instructions on how to carry out any of these upgrades, see [this document](service-fabric-cluster-security-update-certs-azure.md).
+
 
 ## Next steps
 * Learn about [cluster security](service-fabric-cluster-security.md).
