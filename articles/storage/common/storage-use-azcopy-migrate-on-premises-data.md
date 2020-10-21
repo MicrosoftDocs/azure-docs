@@ -58,7 +58,7 @@ Place the AzCopy file anywhere on your computer. Add the location of the file to
 
 ## Authenticate with Azure AD
 
-First, assign the [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) role to your identity. See [Use the Azure portal to assign an Azure role for access to blob and queue data](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
+First, assign the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) role to your identity. See [Use the Azure portal to assign an Azure role for access to blob and queue data](/azure/storage/common/storage-auth-aad-rbac-portal).
 
 Then, open a command prompt, type the following command, and press the ENTER key.
 
@@ -74,7 +74,7 @@ A sign-in window will appear. In that window, sign into your Azure account by us
 
 ## Upload contents of a folder to Blob storage
 
-You can use AzCopy to upload all files in a folder to Blob storage on [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) or [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux). To upload all blobs in a folder, enter the following AzCopy command:
+You can use AzCopy to upload all files in a folder to Blob storage on [Windows](/azure/storage/common/storage-use-azcopy) or [Linux](/azure/storage/common/storage-use-azcopy-linux). To upload all blobs in a folder, enter the following AzCopy command:
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
@@ -173,7 +173,7 @@ To validate that the scheduled task/cron job runs correctly, create new files in
 
 To learn more about ways to move on-premises data to Azure Storage and vice versa, follow this link:
 
-* [Move data to and from Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
+* [Move data to and from Azure Storage](/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 For more information about AzCopy, see any of these articles:
 
