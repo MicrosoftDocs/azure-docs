@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-This article shows you how to use Visual Studio Code to connect the function you created in the [previous quickstart article](functions-create-first-function-vs-code.md) to Azure Storage. The output binding that you add to this function writes data from the HTTP request to a message in an Azure Queue storage queue. 
+This article shows you how to use Visual Studio Code to connect the function you created in the [previous quickstart article][previous-quickstart] to Azure Storage. The output binding that you add to this function writes data from the HTTP request to a message in an Azure Queue storage queue. 
 
 Most bindings require a stored connection string that Functions uses to access the bound service. To make it easier, you use the Storage account that you created with your function app. The connection to this account is already stored in an app setting named `AzureWebJobsStorage`.  
 
@@ -28,7 +28,7 @@ Before you start this article, you must meet the following requirements:
 * Install [.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x).
 ::: zone-end
 
-* Complete the steps in [part 1 of the Visual Studio Code quickstart](functions-create-first-function-vs-code.md). 
+* Complete the steps in [part 1 of the Visual Studio Code quickstart][previous-quickstart]. 
 
 This article assumes that you're already signed in to your Azure subscription from Visual Studio Code. You can sign in by running `Azure: Sign In` from the command palette. 
 
@@ -208,26 +208,47 @@ You created resources to complete these quickstarts. You may be billed for these
 You've updated your HTTP triggered function to write data to a Storage queue. Now you can learn more about developing Functions using Visual Studio Code:
 
 + [Develop Azure Functions using Visual Studio Code](functions-develop-vs-code.md)
+
++ [Azure Functions triggers and bindings](functions-triggers-bindings.md).
 ::: zone pivot="programming-language-csharp"  
 + [Examples of complete Function projects in C#](/samples/browse/?products=azure-functions&languages=csharp).
+
 + [Azure Functions C# developer reference](functions-dotnet-class-library.md)  
+
+[previous-quickstart]: create-first-function-vs-code-csharp.md
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 + [Examples of complete Function projects in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
+
 + [Azure Functions JavaScript developer guide](functions-reference-node.md)  
+
+[previous-quickstart]: create-first-function-vs-code-javascript.md
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Examples of complete Function projects in Java](/samples/browse/?products=azure-functions&languages=java).
+
++ [Azure Functions Java developer guide](functions-reference-java.md)  
+
+[previous-quickstart]: create-first-function-vs-code-java.md
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Examples of complete Function projects in TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
+
 + [Azure Functions TypeScript developer guide](functions-reference-node.md#typescript)  
+
+[previous-quickstart]: create-first-function-vs-code-typescript.md
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Examples of complete Function projects in Python](/samples/browse/?products=azure-functions&languages=python).
+
 + [Azure Functions Python developer guide](functions-reference-python.md)  
+
+[previous-quickstart]: create-first-function-vs-code-python.md
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Examples of complete Function projects in PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
+
 + [Azure Functions PowerShell developer guide](functions-reference-powershell.md) 
+
+[previous-quickstart]: create-first-function-vs-code-powershell.md
 ::: zone-end
-+ [Azure Functions triggers and bindings](functions-triggers-bindings.md).
-+ [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/)
-+ [Estimating Consumption plan costs](functions-consumption-costs.md) article.
