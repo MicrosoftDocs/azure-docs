@@ -53,13 +53,19 @@ If you already have your web app created, grant the web app access to the Key Va
     > Prior to Visual Studio 2017 V15.6 we used to recommend installing the Azure Services Authentication extension for Visual Studio. But it is deprecated now as the functionality is integrated within the Visual Studio . Hence if you are on an older version of visual Studio 2017 , we suggest you to update to at least VS 2017 15.6 or up so that you can use this functionality natively and access the Key-vault from using the Visual Studio sign-in Identity itself.
     >
 
-4. Add the following NuGet packages to your project:
+4. Log in to Azure using the CLI, you can type:
+
+    ```azurecli
+    az login
+    ```
+
+5. Add the following NuGet packages to your project:
 
     ```
     Azure.Identity
     Azure.Extensions.AspNetCore.Configuration.Secrets
     ```
-5. Add the following code to Program.cs file:
+6. Add the following code to Program.cs file:
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -78,21 +84,6 @@ If you already have your web app created, grant the web app access to the Key Va
                 });
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
-    ```
-6. Set up the following environment variables for DefaultAzureCredential.
-
-    Linux
-    ``` bash
-    export AZURE_TENANT_ID = "<YourTenantId>"
-    export AZURE_CLIENT_ID = "<YourClientId>"
-    export AZURE_CLIENT_SECRET = "<YourClientSecret>"
-    ```
-
-    Windows
-    ``` cmd
-    setx AZURE_TENANT_ID "<YourTenantId>"
-    setx AZURE_CLIENT_ID "<YourClientId>"
-    setx AZURE_CLIENT_SECRET "<YourClientSecret>"
     ```
 
 7. Add your Key Vault URL to launchsettings.json file. The environment variable name *KEYVAULT_ENDPOINT* is defined in the code you added in step 7.
