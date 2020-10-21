@@ -119,7 +119,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input your OpenText Directory Services Tenant URL
    * Non-specifc tenant url : {OTDS URL}/scim/{partitionName}
-   * Specifc tenant url :  {OTDS URL}/otdstenant/{tenantID}/scim/{partitionName}
+   * Specific tenant url :  {OTDS URL}/otdstenant/{tenantID}/scim/{partitionName}
 
 6. Enter the Secret Token retrieved from Step 2. Click **Test Connection** to ensure Azure AD can connect to OpenText Directory Services. If the connection fails, ensure your OpenText Directory Services account has Admin permissions and try again.
 
