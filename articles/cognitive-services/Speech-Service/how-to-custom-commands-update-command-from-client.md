@@ -3,7 +3,7 @@ title: 'Update a command from the client app'
 titleSuffix: Azure Cognitive Services
 description: update a command from the client app
 services: cognitive-services
-author: encorona
+author: encoronams
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service

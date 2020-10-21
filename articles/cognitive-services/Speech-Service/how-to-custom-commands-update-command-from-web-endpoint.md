@@ -3,7 +3,7 @@ title: 'Update a command from a web endpoint'
 titleSuffix: Azure Cognitive Services
 description: update a command from a web endpoint
 services: cognitive-services
-author: encorona
+author: encoronams
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
