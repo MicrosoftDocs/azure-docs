@@ -12,9 +12,6 @@ ms.author: acomet
 
 In this article, you learn how to build a serverless Synapse SQL pool (which, was previously referred to as **SQL on-demand**) database and views over Synapse Link for Azure Cosmos DB. You will query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query.
 
-> [!NOTE]
-> Using the Azure Cosmos DB analytic store with serverless SQL pool is currently under gated preview. To request access, reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
-
 In this scenario, you will use dummy data about Surface product sales in a partner retail store. You will analyze the revenue per store based on the proximity to large households and the impact of advertising for a specific week. In this article, you create two views named **RetailSales** and **StoreDemographics** and a query between them. You can get the sample product data from this [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) repo.
 
 ## Prerequisites
