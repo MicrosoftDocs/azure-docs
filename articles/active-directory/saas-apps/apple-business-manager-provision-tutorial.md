@@ -158,7 +158,7 @@ Once you've configured provisioning, use the following resources to monitor your
 * [Manage existing SCIM token and connections in Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdc9a823611)
 * [Disconnect the SCIM connection in Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd609be3a61)
 * [Manage existing SCIM token and connections in Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdc9a8236e9)
-* [Troubleshooting the SCIM connection in Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd403a0f3bd)
+* [Troubleshooting the SCIM connection in Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd403a0f3bd/web)
 
 ## Next steps
 

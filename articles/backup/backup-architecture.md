@@ -40,7 +40,7 @@ Vaults have the following features:
 - You specify how data in the vault is replicated for redundancy:
   - **Locally redundant storage (LRS)**: To protect against failure in a datacenter, you can use LRS. LRS replicates data to a storage scale unit. [Learn more](../storage/common/storage-redundancy.md#locally-redundant-storage).
   - **Geo-redundant storage (GRS)**: To protect against region-wide outages, you can use GRS. GRS replicates your data to a secondary region. [Learn more](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **Zone-redundant storage (ZRS)**: replicates your data in [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), guaranteeing data residency and resiliency in the same region. [Learn more](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Zone-redundant storage (ZRS)**: replicates your data in [availability zones](../availability-zones/az-overview.md#availability-zones), guaranteeing data residency and resiliency in the same region. [Learn more](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - By default, Recovery Services vaults use GRS.
 
 Recovery Services vaults have the following additional features:

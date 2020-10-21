@@ -102,7 +102,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click **Edit Icon**.
 
-	![The SAML Signing Certificate Edit](./media/paylocity-tutorial/edit-samlassertion.png)
+	![Screenshot that shows the "S A M L Signing Certificate" with the "Download" action for "Federation Metadata X M L" selected.](./media/paylocity-tutorial/edit-samlassertion.png)
 
 1. Select **Signing Option** as **Sign SAML response and assertion** and click **Save**.
 

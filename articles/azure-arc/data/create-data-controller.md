@@ -34,7 +34,7 @@ Currently, the supported list of Kubernetes services and distributions are the f
 > * The minimum supported version of Kubernetes is v1.14.
 > * See the [connectivity requirements](connectivity.md) to understand what connectivity is required between your environment and Azure.
 > * See the [storage configuration guidance](storage-configuration.md) to understand the details of how to configure your persistent storage.
-> * If you are using Azure Kubernetes Service, your cluster's worker node VM size should be at least **Standard_D8s_v3** and use **premium disks.** 
+> * If you are using Azure Kubernetes Service, your cluster's worker node VM size should be at least **Standard_D8s_v3** and use **premium disks.** The cluster should not span multiple availability zones. 
 > * If you are using another Kubernetes distribution or service, you should ensure that you have a minimum node size of 8 GB RAM and 4 cores and a sum total capacity of 32 GB RAM available across all of your Kubernetes nodes. For example, you could have 1 node at 32 GB RAM and 4 cores or you could have 2 nodes with 16GB RAM and 4 cores each.
 
 > [!NOTE]
@@ -60,7 +60,7 @@ There are multiple options for creating the Azure Arc data controller:
 > **Just want to try things out?**  
 > Get started quickly with [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM!
 > 
-- [Create a data controller with Azure Data CLI (azdata)](create-data-controller-using-azdata.md)
+- [Create a data controller with [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](create-data-controller-using-azdata.md)
 - [Create a data controller with Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Create a data controller from the Azure portal via a Jupyter notebook in Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
 - [Create a data controller with Kubernetes tools such as kubectl or oc](create-data-controller-using-kubernetes-native-tools.md)

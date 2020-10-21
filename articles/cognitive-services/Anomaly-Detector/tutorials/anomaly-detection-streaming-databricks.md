@@ -4,13 +4,13 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to use the Anomaly Detector API and Azure Databricks to monitor anomalies in your data.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # Tutorial: Anomaly detection on streaming data using Azure Databricks
@@ -58,7 +58,7 @@ In this section, you create an Azure Databricks workspace using the [Azure porta
 
 1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
 
-    ![Databricks on Azure portal](../media/tutorials/azure-databricks-on-portal.png "Databricks on Azure portal")
+    ![Azure Databricks on portal](../media/tutorials/azure-databricks-on-portal.png "Databricks on Azure portal")
 
 3. Under **Azure Databricks Service**, provide the following values to create a Databricks workspace:
 
@@ -110,7 +110,7 @@ To receive a stream of tweets, you must create an application in Twitter. Follow
 
 3. In the application page, select the **Keys and Access Tokens** tab and copy the values for **Consumer Key** and **Consumer Secret**. Also, select **Create my access token** to generate the access tokens. Copy the values for **Access Token** and **Access Token Secret**.
 
-    ![Twitter application details](../media/tutorials/twitter-app-key-secret.png "Twitter application details")
+    ![Twitter application details 2](../media/tutorials/twitter-app-key-secret.png "Twitter application details")
 
 Save the values that you retrieved for the Twitter application. You need the values later in the tutorial.
 
@@ -188,7 +188,7 @@ In this section, you create two notebooks in Databricks workspace with the follo
 
 2. In the **Create Notebook** dialog box, enter **SendTweetsToEventHub** as name, select **Scala** as the language, and select the Spark cluster that you created earlier.
 
-    ![Create notebook in Databricks](../media/tutorials/databricks-notebook-details.png "Create notebook in Databricks")
+    ![Notebook details](../media/tutorials/databricks-notebook-details.png "Create notebook in Databricks")
 
     Select **Create**.
 

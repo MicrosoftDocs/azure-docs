@@ -102,3 +102,6 @@ Yes.
 
 ### What should I add to my on-premises VPN device for the BGP peering session?
 You should add a host route of the Azure BGP Peer IP address on your VPN device pointing to the IPsec S2S VPN tunnel. For example, if the Azure VPN Peer IP is "10.12.255.30", you should add a host route for "10.12.255.30" with a nexthop interface of the matching IPsec tunnel interface on your VPN device.
+
+### Does the Virtual Network Gateway support Bidirectional Forwarding Detection (BFD) for Site-to-Site connections with BGP?
+No. Bidirectional Forwarding Detection (BFD) is a protocol that can be used along BGP to detect neighbor downtime quicker than using standard BGP keepalives. BFD uses subsecond timers designed to work in LAN environments, but not across the public Internet or Wide Area Network connections. For connections over the public Internet, having certain packets delayed or even dropped is not unusual, so introducing these aggressive timers would add instability that might end up potentially causing routes being dampened by BGP. As alternative, you can configure your on-premises device with timers lower than the default 60-second keepalive interval and the 180-second hold timer for a quicker convergence time.

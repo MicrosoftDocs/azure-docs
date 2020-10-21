@@ -75,7 +75,7 @@ You can even create multiple instances of the same type of relationship between 
 
 ## List relationships
 
-To access the list of relationships for a given twin in the graph, you can use:
+To access the list of **outgoing** relationships coming from a given twin in the graph, you can use:
 
 ```csharp
 await client.GetRelationshipsAsync(id);
@@ -111,11 +111,11 @@ public async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(string
 
 You can use the retrieved relationships to navigate to other twins in your graph. To do this, read the `target` field from the relationship that is returned, and use it as the ID for your next call to `GetDigitalTwin`. 
 
-### Find relationships to a digital twin
+### Find incoming relationships to a digital twin
 
-Azure Digital Twins also has an API to find all incoming relationships to a given twin. This is often useful for reverse navigation, or when deleting a twin.
+Azure Digital Twins also has an API to find all **incoming** relationships to a given twin. This is often useful for reverse navigation, or when deleting a twin.
 
-The previous code sample focused on finding outgoing relationships. The following example is similar, but finds incoming relationships instead. It also deletes them once they are found.
+The previous code sample focused on finding outgoing relationships from a twin. The following example is structured similarly, but finds *incoming* relationships to the twin instead.
 
 Note that the `IncomingRelationship` calls do not return the full body of the relationship.
 
@@ -248,7 +248,7 @@ Consider the following data table, describing a set of digital twins and relatio
 | room    | Room21 | Floor02 | contains | … |
 | room    | Room22 | Floor02 | contains | … |
 
-The following code uses the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) to read a spreadsheet and construct an Azure Digital Twins twin graph from the results.
+The following code uses the [Microsoft Graph API](/graph/overview) to read a spreadsheet and construct an Azure Digital Twins twin graph from the results.
 
 ```csharp
 var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"].Workbook.Worksheets["Building"].usedRange;

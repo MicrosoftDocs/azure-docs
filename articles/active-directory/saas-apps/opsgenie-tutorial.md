@@ -130,15 +130,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. To enable SSO, select **Enabled**.
    
-    ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
+    ![Screenshot that shows the "Enabled" checkbox selected.](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
 
 4. In the **Provider** section, click the **Azure Active Directory** tab.
    
-    ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
+    ![Screenshot that shows the "Provider" section with the "Azure Active Directory" tab selected.](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
 
 5. On the Azure Active Directory dialog page, perform the following steps:
    
-    ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
+    ![Screenshot that shows the "Single sign-on" section with the "Enable single sign-on" toggle, "S A M L 2.0 Endpoint", and "Metadata U R L".](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
 	
     a. Copy the **App ID URI** value and paste it into **Identifier (Entity ID)** textbox in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -166,7 +166,7 @@ The objective of this section is to create a user called B.Simon in OpsGenie.
 
 4. On the **Add User** dialog, perform the following steps:
    
-    ![OpsGenie Settings](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
+    ![Screenshot that shows the "Add User" dialog with the "Email" and "Full name" text boxes highlighted, and the "Save" button selected.](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
    
     a. In the **Email** textbox, type the email address of B.Simon addressed in Azure Active Directory.
    

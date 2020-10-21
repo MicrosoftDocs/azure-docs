@@ -20,17 +20,17 @@ To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-* An Azure IoT hub. If you don't have an IoT hub, you can use the [`az iot hub create` command](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) to create one or [Create an IoT hub using the portal](iot-hub-create-through-portal.md).
+* An Azure IoT hub. If you don't have an IoT hub, you can use the [`az iot hub create` command](/cli/azure/iot/hub#az-iot-hub-create) to create one or [Create an IoT hub using the portal](iot-hub-create-through-portal.md).
 
-* An Azure Storage account. If you don't have an Azure Storage account, you can use the Azure CLI to create one. For more information, see [Create a storage account](../storage/common/storage-create-storage-account.md).
+* An Azure Storage account. If you don't have an Azure Storage account, you can use the Azure CLI to create one. For more information, see [Create a storage account](../storage/common/storage-account-create.md).
 
 ## Sign in and set your Azure account
 
 Sign in to your Azure account and select your subscription.
 
-1. At the command prompt, run the [login command](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest):
+1. At the command prompt, run the [login command](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest):
 
     ```azurecli
     az login
@@ -38,7 +38,7 @@ Sign in to your Azure account and select your subscription.
 
     Follow the instructions to authenticate using the code and sign in to your Azure account through a web browser.
 
-2. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure accounts associated with your credentials. Use the following [command to list the Azure accounts](https://docs.microsoft.com/cli/azure/account) available for you to use:
+2. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure accounts associated with your credentials. Use the following [command to list the Azure accounts](/cli/azure/account) available for you to use:
 
     ```azurecli
     az account list
@@ -139,5 +139,5 @@ Follow these links to learn more about managing Azure IoT Hub:
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide](iot-hub-devguide.md)
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)
 * [Secure your IoT solution from the ground up](../iot-fundamentals/iot-security-ground-up.md)

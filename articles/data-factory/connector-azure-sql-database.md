@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory
@@ -38,6 +38,8 @@ For Copy activity, this Azure SQL Database connector supports these functions:
 - Copying data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieving data by using a SQL query or a stored procedure. You can also choose to parallel copy from an Azure SQL Database source, see the [Parallel copy from SQL database](#parallel-copy-from-sql-database) section for details.
 - As a sink, automatically creating destination table if not exists based on the source schema; appending data to a table or invoking a stored procedure with custom logic during the copy.
+
+If you use Azure SQL Database [serverless tier](../azure-sql/database/serverless-tier-overview.md), note when the server is paused, activity run fails instead of waiting for the auto resume to be ready. You can add activity retry or chain additional activities to make sure the server is live upon the actual execution.
 
 >[!NOTE]
 > Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver via a self-hosted integration runtime. Learn more from [Using Always Encrypted](#using-always-encrypted) section. 

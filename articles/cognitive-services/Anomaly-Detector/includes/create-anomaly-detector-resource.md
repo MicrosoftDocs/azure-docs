@@ -2,12 +2,12 @@
 title: Container support
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
 ms.date: 09/10/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 ## Create an Anomaly Detector resource

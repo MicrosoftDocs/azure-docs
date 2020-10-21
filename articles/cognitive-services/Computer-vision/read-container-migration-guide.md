@@ -60,10 +60,10 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 >[!NOTE]
 > MongoDB is no longer supported in 3.x versions of the container. Instead, the containers support Azure Storage and offline file systems.
 
-| Implementation |	Required runtime argument(s) |
+| Implementation |    Required runtime argument(s) |
 |---------|---------|
-|File level (default)	| No runtime arguments required. `/share` directory will be used. |
-|Azure Blob	| `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
+|File level (default)    | No runtime arguments required. `/share` directory will be used. |
+|Azure Blob    | `Storage:ObjectStore:AzureBlob:ConnectionString={AzureStorageConnectionString}` |
 
 ## Queue implementations
 
@@ -73,7 +73,7 @@ In v3.x of the container, RabbitMQ is currently not supported. The supported bac
 |---------|---------|-------|
 | In Memory (default) | No runtime arguments required. | Development and testing |
 | Azure Queues | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Production |
-| RabbitMQ	| Unavailable | Production |
+| RabbitMQ    | Unavailable | Production |
 
 For added redundancy the Read v3.x container uses a visibility timer to ensure requests can be successfully processed in the event of a crash, when running in a multi-container set-up. 
 
@@ -81,7 +81,7 @@ Set the timer with `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, which set
 
 | Default value | Recommended value |
 |---------|---------|
-| 30000 |	120000 |
+| 30000 |    120000 |
 
 
 ## Next steps

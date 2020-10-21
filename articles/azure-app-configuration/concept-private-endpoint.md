@@ -67,5 +67,5 @@ Learn more about creating a private endpoint for your App Configuration store, r
 
 Learn to configure your DNS server with private endpoints:
 
-- [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS configuration for Private Endpoints](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [DNS configuration for Private Endpoints](../private-link/private-endpoint-overview.md#dns-configuration)

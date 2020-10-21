@@ -7,23 +7,24 @@ ms.date: 10/01/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-
+zone_pivot_groups: non-azure-machines
 ---
-
 #  Connect your non-Azure machines to Security Center
 
-Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. 
+Security Center can monitor the security posture of your non-Azure computers, but first you need to connect them to Azure. 
 
-You can add non-Azure computers in any of the following ways:
+You can connect your non-Azure computers in any of the following ways:
 
 - Using Azure Arc (**recommended**)
 - From Security Center's pages in the Azure portal (**Getting started** and **Inventory**)
 
-Each of these is described below.
+Each of these is described on this page.
+
+::: zone pivot="azure-arc"
 
 ## Add non-Azure machines with Azure Arc
 
-Using Azure Arc is the preferred way of adding your non-Azure machines to Azure Security Center.
+Azure Arc is the preferred way of adding your non-Azure machines to Azure Security Center.
 
 A machine with Azure Arc enabled, becomes an Azure resource and appears in Security Center with recommendations like your other Azure resources. 
 
@@ -39,7 +40,11 @@ Learn more about [Azure Arc](../azure-arc/servers/overview.md).
 > [!TIP]
 > If you're onboarding AWS machines, Security Center's connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md).
 
-## Add non-Azure machines from Security Center's portal pages
+::: zone-end
+
+::: zone pivot="azure-portal"
+
+## Add non-Azure machines from the Azure portal
 
 1. From Security Center's menu, open the **Getting started** page.
 1. Select the **Get started** tab.
@@ -75,7 +80,7 @@ To add Azure Stack VMs, you need the information on the **Agents management** pa
 1. Log into your **Azure Stack** portal and open the **Virtual machines** page.
 1. Select the virtual machine that you want to protect with Security Center.
     >[!TIP]
-    > For information on how to create a virtual machine on Azure Stack, see [this quickstart for Windows virtual machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) or [this quickstart for Linux virtual machines](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
+    > For information on how to create a virtual machine on Azure Stack, see [this quickstart for Windows virtual machines](/azure-stack/user/azure-stack-quick-windows-portal) or [this quickstart for Linux virtual machines](/azure-stack/user/azure-stack-quick-linux-portal).
 1. Select **Extensions**. The list of virtual machine extensions installed on this virtual machine is shown.
 1. Select the **Add** tab. The **New Resource** menu shows the list of available virtual machine extensions.
 1. Select the **Azure Monitor, Update and Configuration Management** extension and select **Create**. The **Install extension** configuration page opens.
@@ -111,6 +116,7 @@ When complete, the **Log Analytics agent** appears in **Control Panel**. You can
 
 For further information on installing and configuring the agent, see [Connect Windows machines](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
+::: zone-end
 
 ## Verifying
 Congratulations! Now you can see your Azure and non-Azure machines together in one place. Open the [asset inventory page](asset-inventory.md) and filter to the relevant resource types. These icons distinguish the types:

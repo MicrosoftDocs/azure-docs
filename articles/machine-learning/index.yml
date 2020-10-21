@@ -86,3 +86,14 @@ landingContent:
             url: https://docs.microsoft.com/rest/api/azureml/
           - text: Machine learning CLI
             url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+
+  # Studio (classic) catchall
+  - title: 'Looking for Studio (classic)'
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Studio (classic) landing
+            url: classic/index.yml
+          - text: Studio (classic) vs studio
+            url: overview-what-is-machine-learning-studio.md
+

@@ -36,10 +36,7 @@ To learn more about how IoT Plug and Play devices work with DTDL, see [IoT Plug 
 
 - Azure CLI IoT extension 0.10.0.
 
-    To learn more, see [Install and use the Azure IoT extension for the Azure CLI](howto-use-iot-pnp-cli.md).
-
-    > [!TIP]
-    > The Azure IoT extension includes commands to help certify devices. See `az iot product -h`.
+    The Azure IoT extension includes commands to help certify devices. See `az iot product -h`.
 
 ## Libraries and SDKs
 
@@ -59,7 +56,7 @@ To learn more about the libraries and SDKs, see [Microsoft SDKs for IoT Plug and
 
 ## REST APIs
 
-REST API [2020-09-30](https://docs.microsoft.com/rest/api/iothub).
+REST API [2020-09-30](/rest/api/iothub).
 
 To learn more, see [IoT Plug and Play developer guide](concepts-developer-guide-service.md).
 

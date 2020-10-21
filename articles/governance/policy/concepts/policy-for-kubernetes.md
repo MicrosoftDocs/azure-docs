@@ -67,6 +67,8 @@ The following general limitations apply to the Azure Policy Add-on for Kubernete
   available for the `Microsoft.Kubernetes.Data`
   [Resource Provider mode](./definition-structure.md#resource-provider-modes). Use
   [Component details](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+- [Exemptions](./exemption-structure.md) aren't supported for
+  [Resource Provider modes](./definition-structure.md#resource-provider-modes).
 
 The following limitations apply only to the Azure Policy Add-on for AKS:
 
@@ -109,7 +111,7 @@ The following recommendation applies only to AKS and the Azure Policy Add-on:
   CRD should be proxied without any processing in NMI. The system pods with
   `kubernetes.azure.com/managedby: aks` label in _kube-system_ namespace should be excluded in
   `aad-pod-identity` by configuring the AzurePodIdentityException CRD. For more information, see
-  [Disable aad-pod-identity for a specific pod or application](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+  [Disable aad-pod-identity for a specific pod or application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   To configure an exception, install the
   [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 

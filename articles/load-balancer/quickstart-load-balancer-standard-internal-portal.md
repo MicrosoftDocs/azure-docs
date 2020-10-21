@@ -625,5 +625,6 @@ In this quickstart, you:
 * Attached 2 VMs to the load balancer.
 * Configured the load balancer traffic rule, health probe, and then tested the load balancer. 
 
-To learn more about Azure Load Balancer, continue to [What is Azure Load Balancer?](load-balancer-overview.md) and [Load Balancer frequently asked questions](load-balancer-faqs.md).
-
+To learn more about Azure Load Balancer, continue to..
+> [!div class="nextstepaction"]
+> [What is Azure Load Balancer?](load-balancer-overview.md) 

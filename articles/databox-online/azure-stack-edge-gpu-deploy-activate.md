@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/10/2020
+ms.date: 10/07/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -87,6 +87,7 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
  
 The device activation is complete. You can now add shares on your device.
 
+If you encounter any issues during activation, go to [Troubleshoot activation and Azure Key Vault errors](azure-stack-edge-gpu-troubleshoot-activation.md#activation-errors).
 
 ## Next steps
 

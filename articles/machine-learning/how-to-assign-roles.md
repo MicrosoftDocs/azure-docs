@@ -64,6 +64,22 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 Azure Machine Learning built-in actions for many operations and tasks. For a complete list, see [Azure resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
+## MLflow operations in Azure Machine learning
+
+This tables describes the permission scope that should be added to actions in the custom role created to perform MLflow operations.
+
+| MLflow operation | Scope |
+| --- | --- |
+| List all experiments in the workspace tracking store, get an experiment by id, get an experiment by name | Microsoft.MachineLearningServices/workspaces/experiments/read |
+| Create an experiment with a name , set a tag on an experiment, restore an experiment marked for deletion| Microsoft.MachineLearningServices/workspaces/experiments/write | 
+| Delete an experiment | Microsoft.MachineLearningServices/workspaces/experiments/delete |
+| Get a run and related data and metadata, get a list of all values for the specified metric for a given run, list artifacts for a run | Microsoft.MachineLearningServices/workspaces/experiments/runs/read |
+| Create a new run within an experiment, delete runs, restore deleted runs, log metrics under the current run, set tags on a run, delete tags on a run, log params (key-value pair) used for a run, log a batch of metrics, params, and tags for a run, update run status | Microsoft.MachineLearningServices/workspaces/experiments/runs/write |
+| Get registered model by name, fetch a list of all registered models in the registry, search for registered models, latest version models for each requests stage, get a registered model’s version, search model versions, get URI where a model version’s artifacts are stored, search for runs by experiment ids | Microsoft.MachineLearningServices/workspaces/models/read |
+| Create a new registered model, update a registered model’s name/description, rename existing registered model, create new version of the model, update a model version’s description, transition a registered model to one of the stages | Microsoft.MachineLearningServices/workspaces/models/write |
+| Delete a registered model along with all its version, delete specific versions of a registered model | Microsoft.MachineLearningServices/workspaces/models/delete |
+
+
 ## Create custom role
 
 If the built-in roles are insufficient, you can create custom roles. Custom roles might have read, write, delete, and compute resource permissions in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level.
@@ -138,7 +154,7 @@ The following table is a summary of Azure Machine Learning activities and the pe
 | Publishing a pipeline endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Deploying a registered model on an AKS/ACI resource | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (when you are not using Azure Active Directory auth) OR `"/workspaces/read"` (when you are using token auth) |
-| Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
+| Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
 | Create new custom role | Owner, contributor, or custom role allowing `Microsoft.Authorization/roleDefinitions/write` | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 
 > [!TIP]
@@ -250,6 +266,46 @@ Yes here are some common scenarios with custom proposed role definitions that yo
         ]
     }
     ```
+     
+* __MLflow Data Scientist Custom__: Allows a data scientist to perform all MLflow AzureML supported operations **except**:
+
+   * Creation of compute
+   * Deploying models to a production AKS cluster
+   * Deploying a pipeline endpoint in production
+
+   `mlflow_data_scientist_custom_role.json` :
+   ```json
+   {
+        "Name": "MLFlow Data Scientist Custom",
+        "IsCustom": true,
+        "Description": "Can perform azureml mlflow integrated functionalities that includes mlflow tracking, projects, model registry",
+        "Actions": [
+	        "Microsoft.MachineLearningServices/workspaces/experiments/read",
+	        "Microsoft.MachineLearningServices/workspaces/experiments/write",
+	        "Microsoft.MachineLearningServices/workspaces/experiments/delete",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/models/read",
+            "Microsoft.MachineLearningServices/workspaces/models/write",
+            "Microsoft.MachineLearningServices/workspaces/models/delete"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+        ],
+     "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```   
 
 * __MLOps Custom__: Allows you to assign a role to a service principal and use that to automate your MLOps pipelines. For example, to submit runs against an already published pipeline:
 

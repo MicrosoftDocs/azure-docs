@@ -87,7 +87,7 @@ The Linux agent depends on some system packages in order to function properly:
 * Network tools: ip-route
 * Kernel support for mounting UDF filesystems.
 
-Ensure your VM has access to IP address 168.63.129.16. For more information, see [What is IP address 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+Ensure your VM has access to IP address 168.63.129.16. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 
 ## Installation

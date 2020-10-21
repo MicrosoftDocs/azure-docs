@@ -298,6 +298,6 @@ management groups looks like **"/providers/Microsoft.Management/managementGroups
 
 To learn more about management groups, see:
 
-- [Create management groups to organize Azure resources](./create.md)
+- [Create management groups to organize Azure resources](./create-management-group-portal.md)
 - [How to change, delete, or manage your management groups](./manage.md)
 - See options for [How to protect your resource hierarchy](./how-to/protect-resource-hierarchy.md)

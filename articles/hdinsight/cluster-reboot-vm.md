@@ -26,8 +26,8 @@ When a node is rebooting, the cluster might become unhealthy, and jobs might slo
 - The temp disk is full on the node.
 - The process table on the VM has many entries where the process has completed, but it's listed with "Terminated state."
 
-> [!WARNING]
-> Be careful when you reboot VMs for **HBase** and **Kafka** clusters because rebooting might cause data to be lost.
+> [!NOTE]
+> Rebooting VMs is not supported  for **HBase** and **Kafka** clusters because rebooting might cause data to be lost.
 
 ## Use PowerShell to reboot VMs
 

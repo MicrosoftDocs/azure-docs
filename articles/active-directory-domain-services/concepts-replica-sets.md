@@ -2,7 +2,7 @@
 title: Replica sets concepts for Azure AD Domain Services | Microsoft Docs
 description: Learn what replica sets are in Azure Active Directory Domain Services and how they provide redundancy to applications that require identity services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.author: iainfou
+ms.author: joflore
 ---
 
 # Replica sets concepts and features for Azure Active Directory Domain Services (preview)

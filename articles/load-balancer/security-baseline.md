@@ -99,7 +99,7 @@ Security Center (Standard Tier) provides just-in-time virtual machine access, an
 Use Security Center's Adaptive Network Hardening feature to recommend network security group configurations that limit ports and source IPs based on actual traffic and threat intelligence.
  
 
-- [Manage Azure DDoS Protection Standard using the Azure portal](https://docs.microsoft.com/azure/virtual-network/manage-ddos`protection)
+- [Manage Azure DDoS Protection Standard using the Azure portal](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
 
 - [Azure Firewall threat intelligence-based filtering](https://docs.microsoft.com/azure/firewall/threat-intel)
 
