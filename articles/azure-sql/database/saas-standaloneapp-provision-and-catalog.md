@@ -33,7 +33,7 @@ When deploying an application for a tenant, the app and database are provisioned
 
 While each tenant’s app and database are fully isolated, various management and analytics scenarios may operate across tenants.  For example, applying a schema change for a new release of the application requires changes to the schema of each tenant database. Reporting and analytics scenarios may also require access to all the tenant databases regardless of where they are deployed.
 
-   ![app-per-tenant pattern](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
+   ![Diagram that shows how to use a tenant catalog with the application per tenant pattern.](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
 
 The tenant catalog holds a mapping between a tenant identifier and a tenant database, allowing an identifier to be resolved to a server and database name.  In the Wingtip SaaS app, the tenant identifier is computed as a hash of the tenant name, although other schemes could be used.  While standalone applications don't need the catalog to manage connections, the catalog can be used to scope other actions to a set of tenant databases. For example, Elastic Query can use the catalog to determine the set of databases across which queries are distributed for cross-tenant reporting.
 

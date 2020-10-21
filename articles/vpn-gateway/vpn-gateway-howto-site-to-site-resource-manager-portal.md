@@ -57,6 +57,8 @@ The examples in this article use the following values. You can use these values 
 
 ## <a name="CreatVNet"></a>1. Create a virtual network
 
+[!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
+
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="VNetGateway"></a>2. Create the VPN gateway
