@@ -741,32 +741,32 @@ In this example, curl will be used to to make a POST API call to Azure Active Di
 
 1. Request an Azure AD token to authenticate to self-host VM
 
-Please ensure the correct values are substituted in the curl request.
+   Please ensure the correct values are substituted in the curl request.
 
-```
-curl --location --request POST 'https://login.microsoftonline.com/{TENANT_ID}/oauth2/token' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'client_id={CLIENT_ID} ' \
---data-urlencode 'client_secret={CLIENT_SECRET}' \
---data-urlencode 'resource=https://management.core.windows.net'
-```
-Here is an example of the response from the request:
-```JSON
-{
-    "token_type": "Bearer",
-    "expires_in": "86399",
-    "ext_expires_in": "86399",
-    "expires_on": "1599663998",
-    "not_before": "1599577298",
-    "resource": "https://management.core.windows.net",
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJS…"
-}
-```
+   ```
+   curl --location --request POST 'https://login.microsoftonline.com/{TENANT_ID}/oauth2/token' \
+   --header 'Content-Type: application/x-www-form-urlencoded' \
+   --data-urlencode 'grant_type=client_credentials' \
+   --data-urlencode 'client_id={CLIENT_ID} ' \
+   --data-urlencode 'client_secret={CLIENT_SECRET}' \
+   --data-urlencode 'resource=https://management.core.windows.net'
+   ```
+   Here is an example of the response from the request:
+   ```JSON
+   {
+       "token_type": "Bearer",
+       "expires_in": "86399",
+       "ext_expires_in": "86399",
+       "expires_on": "1599663998",
+       "not_before": "1599577298",
+       "resource": "https://management.core.windows.net",
+       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJS…"
+   }
+   ```
 
 2. Submit a request for the self-test VM
 
-Please ensure the Bearer token and parameters are substituted with the correct values.
+Ensure the Bearer token and parameters are substituted with the correct values.
 
 ```
 curl --location --request POST 'https://isvapp.azurewebsites.net/selftest-vm' \
