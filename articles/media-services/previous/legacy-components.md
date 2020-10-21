@@ -35,7 +35,7 @@ The following Media Analytics media processors are either deprecated or soon to 
  
 | **Media processor name** | **Retirement date** | **Additional notes** |
 | --- | --- | ---|
-| Azure Media Indexer 2 | January 1st, 2020 | This media processor will be replaced by the [Media Services v3 AudioAnalyzerPreset Basic mode](../lastest/analyzing-video-audio-files-concept.md). For more information, see [Migrate from Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md). |
+| Azure Media Indexer 2 | January 1st, 2020 | This media processor will be replaced by the [Media Services v3 AudioAnalyzerPreset Basic mode](../latest/analyzing-video-audio-files-concept.md). For more information, see [Migrate from Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md). |
 | Azure Media Indexer | March 1, 2023 | This media processor will be replaced by the [Media Services v3 AudioAnalyzerPreset Basic mode](../latest/analyzing-video-audio-files-concept.md). For more information, see [Migrate from Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md). |
 | Motion Detection | June 1st, 2020|No replacement plans at this time. |
 | Video Summarization |June 1st, 2020|No replacement plans at this time.|
