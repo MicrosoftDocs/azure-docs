@@ -141,11 +141,9 @@ landingContent:
 
   - title: Help and feedback
     linkLists:
-      - linkListType: reference
-        links:
-          - text: Troubleshooting
-            url: troubleshooting.md
-          - text: Ask questions on Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/LUIS
-          - text: Influence service with UserVoice
-            url: https://cognitive.uservoice.com/forums/551524-luis
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
+        - text: Troubleshooting
+          url: troubleshooting.md

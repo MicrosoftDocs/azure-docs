@@ -54,7 +54,7 @@ In this step, you create an Azure logic app that receives Service Bus events via
         ![Logic Apps Designer - select the shared access key](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
     8. Select your **topic** and **subscription**. 
     
-        ![Logic Apps Designer - select your Service Bus topic and subscription](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
+        ![Screenshot that shows where you select your topic and subscription.](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
 7. Select **+ New step**, and do the following steps: 
     1. Select **Service Bus**.
     2. Select **Complete the message in a topic subscription** from the list of actions. 

@@ -156,12 +156,8 @@ landingContent:
      
   - title: Help and feedback
     linkLists:
-      - linkListType: reference
-        links:
-          - text: UserVoice
-            url: https://cognitive.uservoice.com/forums/559960-content-moderator
-          - text: Knowledge Base
-            url: https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator
-          - text: Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
           

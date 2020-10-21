@@ -143,7 +143,7 @@ This article describes how to troubleshoot the chroot environment in the Rescue 
       #umount /rescue/dev/
       #umount /rescue/run
       #cd /
-      #umount /rescue/boot/efi
+      #umount /rescue/boot/
       #umount /rescue
       ```
 
