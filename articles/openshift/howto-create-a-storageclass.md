@@ -36,13 +36,13 @@ LOCATION=eastus
 
 az group create -l $LOCATION -n $AZURE_FILES_RESOURCE_GROUP
 
-AZURE_STORAGE_ACCOUNT_NAME=aro_azure_files_sa
+AZURE_STORAGE_ACCOUNT_NAME=aroazurefilessa
 
 az storage account create \
-	-- name $AZURE_STORAGE_ACCOUNT_NAME \
-	-- resource-group $AZURE_FILES_RESOURCE_GROUP \
-	-- kind StorageV2 \
-	-- sku Standard_LRS
+	--name $AZURE_STORAGE_ACCOUNT_NAME \
+	--resource-group $AZURE_FILES_RESOURCE_GROUP \
+	--kind StorageV2 \
+	--sku Standard_LRS
 ```
 
 ## Set Permissions
@@ -53,22 +53,22 @@ The ARO service principal requires 'listKeys' permission on the new Azure storag
 ```bash
 ARO_RESOURCE_GROUP=aro-rg
 CLUSTER=cluster
-ARO_SERVICE_PRINCIPAL_ID=$(az aro show -g $ARO_RESOURCE_GROUP -n $CLUSTER –query servicePrincipalProfile.clientId -o tsv)
+ARO_SERVICE_PRINCIPAL_ID=$(az aro show -g $ARO_RESOURCE_GROUP -n $CLUSTER –-query servicePrincipalProfile.clientId -o tsv)
 
-az role assignment create –role Contributor –assignee $ARO_SERVICE_PRINCIPAL_ID -g $AZURE_FILES RESOURCE_GROUP
+az role assignment create –-role Contributor -–assignee $ARO_SERVICE_PRINCIPAL_ID -g $AZURE_FILES_RESOURCE_GROUP
 ```
 
 ### Set ARO cluster permissions
 
 The OpenShift persistent volume binder service account will require the ability to read secrets. Create and assign an OpenShift clusterrole to achieve this.
 ```bash
-ARO_API_SERVER=$(az aro list –query “[?contains(name,’$CLUSTER’)].[apiserverProfile.url]” -o tsv)
+ARO_API_SERVER=$(az aro list --query "[?contains(name,'$CLUSTER')].[apiserverProfile.url]" -o tsv)
 
-oc login -u kubeadmin -p $(az aro list-credentials -g $ARO_RESOURCE_GROUP -n $CLUSTER –query=kubeadminPassword -o tsv) $APISERVER
+oc login -u kubeadmin -p $(az aro list-credentials -g $ARO_RESOURCE_GROUP -n $CLUSTER --query=kubeadminPassword -o tsv) $APISERVER
 
 oc create clusterrole azure-secret-reader \
-	-- verb=create,get \
-	-- resource=secrets
+	--verb=create,get \
+	--resource=secrets
 
 oc adm policy add-cluster-role-to-user azure-secret-reader system:serviceaccount:kube-system:persistent-volume-binder
 ```
@@ -103,7 +103,7 @@ The default StorageClass on ARO is called managed-premium and uses the azure-dis
 ```bash
 oc patch storageclass managed-premium -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
 
-oc patch storageclass azure-file -p '{"metadata": {"annotations": {"storageclass.kubernetes.io/": "true"}}}'
+oc patch storageclass azure-file -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
 ```
 
 ## Verify Azure File StorageClass (optional)
@@ -121,7 +121,7 @@ oc set volume dc/httpd-example --add --name=v1 -t pvc --claim-size=1G -m /data
 
 #Wait for the new deployment to rollout
 export POD=$(oc get pods --field-selector=status.phase==Running -o jsonpath={.items[].metadata.name})
-
+oc exec $POD -- bash -c "mkdir ./data"
 oc exec $POD -- bash -c "echo 'azure file storage' >> /data/test.txt"
 
 oc exec $POD -- bash -c "cat /data/test.txt"
