@@ -135,7 +135,7 @@ In the application's `main` method, create a [ContentModeratorClient](https://do
 
 ### Set up sample image
 
-In a new method, construct a **[BodyModelModel](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.models.bodymodelmodel?view=azure-java-stable)** object with a given URL string that points to an image.
+In a new method, construct a **[BodyModelModel](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.models.bodymodelmodel?view=azure-java-stable)** object with a given URL string that points to an image.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_imagemod)]
 
