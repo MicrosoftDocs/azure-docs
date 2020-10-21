@@ -309,7 +309,7 @@ Please see the [Windows](../virtual-network/create-vm-accelerated-networking-pow
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
-    For more information, see [Azure Cosmos DB indexing policies](/azure/cosmos-db/index-policy).
+    For more information, see [Azure Cosmos DB indexing policies](index-policy.md).
 
 ## Throughput
 <a id="measure-rus"></a>
