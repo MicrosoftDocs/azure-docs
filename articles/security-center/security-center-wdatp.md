@@ -80,7 +80,7 @@ After you've configured the location, you can't change it. If you need to move y
 1. From Security Center's menu, select **Pricing & settings**.
 1. Select the subscription you want to change.
 1. Select **Threat detection**.
-1. Select **Allow Windows Defender ATP to access my data**, and select **Save**.
+1. Select **Allow Microsoft Defender for Endpoint to access my data**, and select **Save**.
 
     :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Enable the integration between Azure Security Center and Microsoft's EDR solution, Microsoft Defender for Endpoint":::
 
