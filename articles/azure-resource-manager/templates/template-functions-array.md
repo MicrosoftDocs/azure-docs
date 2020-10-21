@@ -198,25 +198,37 @@ The output from the preceding example with the default values is:
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) shows how to combine two string values and return a concatenated string.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "prefix": {
-            "type": "string",
-            "defaultValue": "prefix"
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "concatOutput": {
-            "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]",
-            "type" : "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "prefix": {
+      "type": "string",
+      "defaultValue": "prefix"
     }
+  },
+  "resources": [],
+  "outputs": {
+    "concatOutput": {
+      "type": "string",
+      "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param prefix string = 'prefix'
+
+output concatOutput string = concat(prefix, uniqueString(resourceGroup().id))
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -245,54 +257,85 @@ Checks whether an array contains a value, an object contains a key, or a string 
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) shows how to use contains with different types:
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "stringToTest": {
-            "type": "string",
-            "defaultValue": "OneTwoThree"
-        },
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c"}
-        },
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "OneTwoThree"
     },
-    "resources": [
-    ],
-    "outputs": {
-        "stringTrue": {
-            "type": "bool",
-            "value": "[contains(parameters('stringToTest'), 'e')]"
-        },
-        "stringFalse": {
-            "type": "bool",
-            "value": "[contains(parameters('stringToTest'), 'z')]"
-        },
-        "objectTrue": {
-            "type": "bool",
-            "value": "[contains(parameters('objectToTest'), 'one')]"
-        },
-        "objectFalse": {
-            "type": "bool",
-            "value": "[contains(parameters('objectToTest'), 'a')]"
-        },
-        "arrayTrue": {
-            "type": "bool",
-            "value": "[contains(parameters('arrayToTest'), 'three')]"
-        },
-        "arrayFalse": {
-            "type": "bool",
-            "value": "[contains(parameters('arrayToTest'), 'four')]"
-        }
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
+    },
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "stringTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('stringToTest'), 'e')]"
+    },
+    "stringFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('stringToTest'), 'z')]"
+    },
+    "objectTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('objectToTest'), 'one')]"
+    },
+    "objectFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('objectToTest'), 'a')]"
+    },
+    "arrayTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('arrayToTest'), 'three')]"
+    },
+    "arrayFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('arrayToTest'), 'four')]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param stringToTest string = 'OneTwoThree'
+param objectToTest object = {
+  'one': 'a'
+  'two': 'b'
+  'three': 'c'
+}
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+
+output stringTrue bool = contains(stringToTest, 'e')
+output stringFalse bool = contains(stringToTest, 'z')
+output objectTrue bool = contains(objectToTest, 'one')
+output objectFalse bool = contains(objectToTest, 'a')
+output arrayTrue bool = contains(arrayToTest, 'three')
+output arrayFalse bool = contains(arrayToTest, 'four')
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -305,7 +348,7 @@ The output from the preceding example with the default values is:
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
 
-## createarray
+## createArray
 
 `createArray (arg1, arg2, arg3, ...)`
 
@@ -321,50 +364,77 @@ Creates an array from the parameters.
 
 An array. When no parameters are provided, it returns an empty array.
 
+> [!NOTE]
+> The createArray function expects at least one argument in Bicep.
+
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json) shows how to use createArray with different types:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c"}
-        },
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "stringArray": {
-            "type": "array",
-            "value": "[createArray('a', 'b', 'c')]"
-        },
-        "intArray": {
-            "type": "array",
-            "value": "[createArray(1, 2, 3)]"
-        },
-        "objectArray": {
-            "type": "array",
-            "value": "[createArray(parameters('objectToTest'))]"
-        },
-        "arrayArray": {
-            "type": "array",
-            "value": "[createArray(parameters('arrayToTest'))]"
-        },
-        "emptyArray": {
-            "type": "array",
-            "value": "[createArray()]"
-        }
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "stringArray": {
+      "type": "array",
+      "value": "[createArray('a', 'b', 'c')]"
+    },
+    "intArray": {
+      "type": "array",
+      "value": "[createArray(1, 2, 3)]"
+    },
+    "objectArray": {
+      "type": "array",
+      "value": "[createArray(parameters('objectToTest'))]"
+    },
+    "arrayArray": {
+      "type": "array",
+      "value": "[createArray(parameters('arrayToTest'))]"
+    },
+    "emptyArray": {
+      "type": "array",
+      "value": "[createArray()]"
+    }
+  }
 }
 ```
+
+```bicep
+param objectToTest object = {
+  'one': 'a'
+  'two': 'b'
+  'three': 'c'
+}
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+
+output stringArray array = createArray('a', 'b', 'c')
+output intArray array = createArray(1, 2, 3)
+output objectArray array = createArray(objectToTest)
+output arrayArray array = createArray(arrayToTest)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -398,40 +468,52 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testArray": {
-            "type": "array",
-            "defaultValue": []
-        },
-        "testObject": {
-            "type": "object",
-            "defaultValue": {}
-        },
-        "testString": {
-            "type": "string",
-            "defaultValue": ""
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testArray": {
+      "type": "array",
+      "defaultValue": []
     },
-    "resources": [
-    ],
-    "outputs": {
-        "arrayEmpty": {
-            "type": "bool",
-            "value": "[empty(parameters('testArray'))]"
-        },
-        "objectEmpty": {
-            "type": "bool",
-            "value": "[empty(parameters('testObject'))]"
-        },
-        "stringEmpty": {
-            "type": "bool",
-            "value": "[empty(parameters('testString'))]"
-        }
+    "testObject": {
+      "type": "object",
+      "defaultValue": {}
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": ""
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "arrayEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testArray'))]"
+    },
+    "objectEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testObject'))]"
+    },
+    "stringEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testString'))]"
+    }
+  }
 }
 ```
+
+```bicep
+param testArray array = []
+param testObject object = {}
+param testString string = ''
+
+output arrayEmpty bool = empty(testArray)
+output objectEmpty bool = empty(testObject)
+output stringEmpty bool = empty(testString)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -463,28 +545,41 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "arrayOutput": {
-            "type": "string",
-            "value": "[first(parameters('arrayToTest'))]"
-        },
-        "stringOutput": {
-            "type": "string",
-            "value": "[first('One Two Three')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "arrayOutput": {
+      "type": "string",
+      "value": "[first(parameters('arrayToTest'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[first('One Two Three')]"
+    }
+  }
 }
 ```
+
+```bicep
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+
+output arrayOutput string = first(arrayToTest)
+output stringOutput string = first('One Two Three')
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -517,40 +612,78 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstObject": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c"}
-        },
-        "secondObject": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "z", "three": "c"}
-        },
-        "firstArray": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        },
-        "secondArray": {
-            "type": "array",
-            "defaultValue": ["two", "three"]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "objectOutput": {
-            "type": "object",
-            "value": "[intersection(parameters('firstObject'), parameters('secondObject'))]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[intersection(parameters('firstArray'), parameters('secondArray'))]"
-        }
+    "secondObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "z",
+        "three": "c"
+      }
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [ "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "objectOutput": {
+      "type": "object",
+      "value": "[intersection(parameters('firstObject'), parameters('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[intersection(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
 }
 ```
+
+```bicep
+param firstObject object = {
+  'one': 'a'
+  'two': 'b'
+  'three': 'c'
+}
+
+param secondObject object = {
+  'one': 'a'
+  'two': 'z'
+  'three': 'c'
+}
+
+param firstArray array = [
+  'one'
+  'two'
+  'three'
+]
+
+param secondArray array = [
+  'two'
+  'three'
+]
+
+output objectOutput object = intersection(firstObject, secondObject)
+output arrayOutput array = intersection(firstArray, secondArray)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -581,28 +714,41 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "arrayOutput": {
-            "type": "string",
-            "value": "[last(parameters('arrayToTest'))]"
-        },
-        "stringOutput": {
-            "type": "string",
-            "value": "[last('One Two Three')]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "arrayOutput": {
+      "type": "string",
+      "value": "[last(parameters('arrayToTest'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[last('One Two Three')]"
+    }
+  }
 }
 ```
+
+```bicep
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+
+output arrayOutput string = last(arrayToTest)
+output stringOutput string = last('One Two three')
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -633,51 +779,75 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [
-                "one",
-                "two",
-                "three"
-            ]
-        },
-        "stringToTest": {
-            "type": "string",
-            "defaultValue": "One Two Three"
-        },
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {
-                "propA": "one",
-                "propB": "two",
-                "propC": "three",
-                "propD": {
-                    "propD-1": "sub",
-                    "propD-2": "sub"
-                }
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
     },
-    "resources": [],
-    "outputs": {
-        "arrayLength": {
-            "type": "int",
-            "value": "[length(parameters('arrayToTest'))]"
-        },
-        "stringLength": {
-            "type": "int",
-            "value": "[length(parameters('stringToTest'))]"
-        },
-        "objectLength": {
-            "type": "int",
-            "value": "[length(parameters('objectToTest'))]"
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "One Two Three"
+    },
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "propA": "one",
+        "propB": "two",
+        "propC": "three",
+        "propD": {
+          "propD-1": "sub",
+          "propD-2": "sub"
         }
+      }
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayLength": {
+      "type": "int",
+      "value": "[length(parameters('arrayToTest'))]"
+    },
+    "stringLength": {
+      "type": "int",
+      "value": "[length(parameters('stringToTest'))]"
+    },
+    "objectLength": {
+      "type": "int",
+      "value": "[length(parameters('objectToTest'))]"
+    }
+  }
 }
 ```
+
+```bicep
+param arrayToTest array = [
+  'one'
+  'two'
+  'three'
+]
+param stringToTest string = 'One Two Three'
+param objectToTest object = {
+  'propA': 'one'
+  'propB': 'two'
+  'propC': 'three'
+  'propD': {
+    'propD-1': 'sub'
+    'propD-2': 'sub'
+  }
+}
+
+output arrayLength int = length(arrayToTest)
+output stringLength int = length(stringToTest)
+output objectLength int = length(objectToTest)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -691,10 +861,13 @@ You can use this function with an array to specify the number of iterations when
 
 ```json
 "copy": {
-    "name": "websitescopy",
-    "count": "[length(parameters('siteNames'))]"
+  "name": "websitescopy",
+  "count": "[length(parameters('siteNames'))]"
 }
 ```
+
+> [!NOTE]
+> JGAO - research copy
 
 For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 
@@ -720,27 +893,42 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[max(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[max(0,3,2,5,4)]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ 0, 3, 2, 5, 4 ]
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "int",
+      "value": "[max(parameters('arrayToTest'))]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[max(0,3,2,5,4)]"
+    }
+  }
 }
 ```
+
+```bicep
+param arrayToTest array = [
+  0
+  3
+  2
+  5
+  4
+]
+
+output arrayOutput int = max(arrayToTest)
+output intOutput int = max(0,3,2,5,4)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -771,27 +959,42 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[min(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[min(0,3,2,5,4)]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ 0, 3, 2, 5, 4 ]
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "int",
+      "value": "[min(parameters('arrayToTest'))]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[min(0,3,2,5,4)]"
+    }
+  }
 }
 ```
+
+```bicep
+param arrayToTest array = [
+  0
+  3
+  2
+  5
+  4
+]
+
+output arrayOutput int = min(arrayToTest)
+output intOutput int = min(0,3,2,5,4)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -823,27 +1026,36 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "startingInt": {
-            "type": "int",
-            "defaultValue": 5
-        },
-        "numberOfElements": {
-            "type": "int",
-            "defaultValue": 3
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "startingInt": {
+      "type": "int",
+      "defaultValue": 5
     },
-    "resources": [],
-    "outputs": {
-        "rangeOutput": {
-            "type": "array",
-            "value": "[range(parameters('startingInt'),parameters('numberOfElements'))]"
-        }
+    "numberOfElements": {
+      "type": "int",
+      "defaultValue": 3
     }
+  },
+  "resources": [],
+  "outputs": {
+    "rangeOutput": {
+      "type": "array",
+      "value": "[range(parameters('startingInt'),parameters('numberOfElements'))]"
+    }
+  }
 }
 ```
+
+```bicep
+param startingInt int = 5
+param numberOfElements int = 3
+
+output rangeOutput array = range(startingInt, numberOfElements)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -874,43 +1086,59 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testArray": {
-            "type": "array",
-            "defaultValue": [
-                "one",
-                "two",
-                "three"
-            ]
-        },
-        "elementsToSkip": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "testString": {
-            "type": "string",
-            "defaultValue": "one two three"
-        },
-        "charactersToSkip": {
-            "type": "int",
-            "defaultValue": 4
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testArray": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
     },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "array",
-            "value": "[skip(parameters('testArray'),parameters('elementsToSkip'))]"
-        },
-        "stringOutput": {
-            "type": "string",
-            "value": "[skip(parameters('testString'),parameters('charactersToSkip'))]"
-        }
+    "elementsToSkip": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": "one two three"
+    },
+    "charactersToSkip": {
+      "type": "int",
+      "defaultValue": 4
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "array",
+      "value": "[skip(parameters('testArray'),parameters('elementsToSkip'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[skip(parameters('testString'),parameters('charactersToSkip'))]"
+    }
+  }
 }
 ```
+
+```bicep
+param testArray array = [
+  'one'
+  'two'
+  'three'
+]
+param elementsToSkip int = 2
+param testString string = 'one two three'
+param charactersToSkip int = 4
+
+output arrayOutput array = skip(testArray, elementsToSkip)
+output stringOutput string = skip(testString, charactersToSkip)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -942,43 +1170,59 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testArray": {
-            "type": "array",
-            "defaultValue": [
-                "one",
-                "two",
-                "three"
-            ]
-        },
-        "elementsToTake": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "testString": {
-            "type": "string",
-            "defaultValue": "one two three"
-        },
-        "charactersToTake": {
-            "type": "int",
-            "defaultValue": 2
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testArray": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
     },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "array",
-            "value": "[take(parameters('testArray'),parameters('elementsToTake'))]"
-        },
-        "stringOutput": {
-            "type": "string",
-            "value": "[take(parameters('testString'),parameters('charactersToTake'))]"
-        }
+    "elementsToTake": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": "one two three"
+    },
+    "charactersToTake": {
+      "type": "int",
+      "defaultValue": 2
     }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "array",
+      "value": "[take(parameters('testArray'),parameters('elementsToTake'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[take(parameters('testString'),parameters('charactersToTake'))]"
+    }
+  }
 }
 ```
+
+```bicep
+param testArray array = [
+  'one'
+  'two'
+  'three'
+]
+param elementsToTake int = 2
+param testString string = 'one two three'
+param charactersToTake int = 4
+
+output arrayOutput array = take(testArray, elementsToTake)
+output stringOutput string = take(testString, charactersToTake)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -1011,40 +1255,78 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstObject": {
-            "type": "object",
-            "defaultValue": {"one": "a", "two": "b", "three": "c1"}
-        },
-        "secondObject": {
-            "type": "object",
-            "defaultValue": {"three": "c2", "four": "d", "five": "e"}
-        },
-        "firstArray": {
-            "type": "array",
-            "defaultValue": ["one", "two", "three"]
-        },
-        "secondArray": {
-            "type": "array",
-            "defaultValue": ["three", "four"]
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c1"
+      }
     },
-    "resources": [
-    ],
-    "outputs": {
-        "objectOutput": {
-            "type": "object",
-            "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
-        }
+    "secondObject": {
+      "type": "object",
+      "defaultValue": {
+        "three": "c2",
+        "four": "d",
+        "five": "e"
+      }
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [ "three", "four" ]
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "objectOutput": {
+      "type": "object",
+      "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
 }
 ```
+
+```bicep
+param firstObject object = {
+  'one': 'a'
+  'two': 'b'
+  'three': 'c1'
+}
+
+param secondObject object = {
+  'one': 'c2'
+  'two': 'd'
+  'three': 'e'
+}
+
+param firstArray array = [
+  'one'
+  'two'
+  'three'
+]
+
+param secondArray array = [
+  'three'
+  'four'
+]
+
+output objectOutput object = union(firstObject, secondObject)
+output arrayOutput array = union(firstArray, secondArray)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
