@@ -19,7 +19,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ## 2020-10-20
 
-### Azure Machine Learning SDK for Python v1.16.0
+### Azure Machine Learning SDK for Python v1.17.0
 + **Bug fixes and improvements**
   + **automl-client-core-nativeclient**
     + Time/calendar based features created by AutoML will now have the prefix \\_automl\\_. Example: \\_automl\\_year
