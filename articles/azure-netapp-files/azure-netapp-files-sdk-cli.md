@@ -39,8 +39,8 @@ The table below lists the supported CLI tools and their command reference.
 
 |    Tool    |    Command reference    |
 |------------------|--------------------------------------------|
-|    Azure CLI  |    [az netappfiles](/cli/azure/netappfiles?view=azure-cli-latest)    |
-|    PowerShell   |    [Azure PowerShell for Azure NetApp Files](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
+|    Azure CLI  |    [az netappfiles](/cli/azure/netappfiles?view=azure-cli-latest&preserve-view=true)    |
+|    PowerShell   |    [Azure PowerShell for Azure NetApp Files](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files&preserve-view=true)    |
 
 ## Code samples
 
@@ -50,7 +50,7 @@ See [code samples for Azure NetApp Files](/samples/browse/?filter-products=netap
 
 Azure Resource Manager (ARM) allows you to provision your applications using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application during every stage of the application lifecycle.   
 
-See [available ARM templates for Azure NetApp Files](/resources/templates/?term=anf).
+See [available ARM templates for Azure NetApp Files](https://azure.microsoft.com/resources/templates/?term=anf).
 
 ## Next steps   
  [Download Azure SDKs](https://azure.microsoft.com/downloads/)
