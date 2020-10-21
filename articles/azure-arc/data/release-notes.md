@@ -58,3 +58,4 @@ The following issues apply to this release:
 - Scaling the number of Postgres Hyperscale worker nodes _down_ is not supported.
 - If you are using Azure Kubernetes Service Engine (AKS Engine) on Azure Stack Hub with Azure Arc data controller and database instances, upgrading to a newer Kubernetes version is not supported. Uninstall Azure Arc data controller and all the database instances before upgrading the Kubernetes cluster.
 - Preview does not support backup/restore for Postgres version 11 engine. It only supports backup/restore for Postgres version 12.
+- On Azure Kubernetes Service (AKS), clusters that span [multiple availability zones](../../aks/availability-zones.md) are not currently supported for Azure Arc enabled data services.
