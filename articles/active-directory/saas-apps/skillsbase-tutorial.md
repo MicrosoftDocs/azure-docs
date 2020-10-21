@@ -129,11 +129,11 @@ To configure Azure AD single sign-on with Skills Base, perform the following ste
 
 3. On the **Authentication** Page, select Single Sign-On as **SAML 2**.
 
-	![The single](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
+	![Screenshot shows the Authentication page with SAML 2 selected for Sing Sign-on.](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
 
 4. On the **Authentication** Page, Perform the following steps:
 
-	![The single](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
+	![Screenshot shows the Authentication page where you can enter the values described.](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
 
 	a. Click on **Update IdP metadata** button next to **Status** option and paste the contents of Metadata XML that you downloaded from the Azure portal in the specified textbox.
 

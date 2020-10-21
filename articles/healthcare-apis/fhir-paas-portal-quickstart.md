@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart 
 ms.date: 03/15/2020
-ms.author: matjazl
+ms.author: cavoeg
 ---
 
 # Quickstart: Deploy Azure API for FHIR using Azure portal

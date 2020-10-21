@@ -1,30 +1,35 @@
 ---
-title: Indexers accessing secure resources via private endpoints
+title: Indexer connections through a private endpoint
 titleSuffix: Azure Cognitive Search
-description: How to guide that describes setting up private endpoints for indexers to communicate with secure resources
+description: Configure indexer connections to access content from other Azure resources that are protected through a private endpoint.
 
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 10/14/2020
 ---
 
-# Accessing secure resources via private endpoints
+# Indexer connections through a private endpoint (Azure Cognitive Search)
 
-Azure resources (such as storage accounts that are used as data sources), can be configured such that they can only be accessed from a specific list of virtual networks. They can also be configured to disallow any "public network" access.
-Customers can request Azure Cognitive Search to create an (outbound) [private endpoint connection](../private-link/private-endpoint-overview.md) in order to securely access data from such data sources via indexers.
+Many Azure resources (such as Azure Storage accounts) can be configured to accept connections from a specific list of virtual networks, and refuse outside connections that originate from a public network. If you are using an indexer to index data in Azure Cognitive Search, and your data source is on a private network, you can create an (outbound) [private endpoint connection](../private-link/private-endpoint-overview.md) to reach the data.
+
+To use this indexer connection method, there are two requirements:
+
++ The Azure resource providing content or code must be previously registered with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
+
++ Azure Cognitive Search service must be Basic or higher (not available on the Free tier). Additionally, if your indexer has a skillset, the tier must be Standard 2 (S2) or higher. For more information, see [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
 
 ## Shared Private Link Resources Management APIs
 
-Private endpoints that are created by Azure Cognitive Search upon customer request, to access "secure" resources are referred to as *shared private link resources*. The customer is "sharing" access to a resource (such as a storage account), that has on-boarded to the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
+Private endpoints of secured resources that are created through Azure Cognitive Search APIs are referred to as *shared private link resources* because you are "sharing" access to a resource (such as a storage account) that has been on-boarded to the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
 
-Azure Cognitive Search offers via the search management API, the ability to [Create or Update shared private link resources](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate). You will use this API along with other *shared private link resources* management APIs to configure access to a secure resource from an Azure Cognitive Search indexer.
+Through its Management REST API, Azure Cognitive Search provides a [CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) operation that you can use to configure access from an Azure Cognitive Search indexer.
 
-Private endpoint connections to some resources can only be created via the preview version of the search management API (`2020-08-01-Preview`), indicated with the "preview" tag in the table below. Resources without "preview" tag can be created via both the preview API as well as the GA API (`2020-08-01`)
+Private endpoint connections to some resources can only be created with the preview version of the search management API (`2020-08-01-Preview` or later), indicated with the "preview" tag in the table below. Resources without "preview" tag can be created using either the preview or generally available API version (`2020-08-01` or later).
 
-The following are the list of Azure resources to which outbound private endpoints can be created from Azure Cognitive Search. `groupId` listed in the table below needs to be used exactly (case-sensitive) in the API to create a shared private link resource.
+The following are the list of Azure resources to which outbound private endpoints can be created from Azure Cognitive Search. The `groupId` values listed in the table below need to be used exactly as written (case-sensitive) in the API to create a shared private link resource.
 
 | Azure Resource | Group ID |
 | --- | --- |
@@ -36,23 +41,23 @@ The following are the list of Azure resources to which outbound private endpoint
 | Azure Key Vault | `vault` |
 | Azure Functions (preview) | `sites` |
 
-The list of Azure resources for which outbound private endpoint connections are supported can also be queried via the [List Supported API](/rest/api/searchmanagement/privatelinkresources/listsupported).
+The list of Azure resources for which outbound private endpoint connections are supported can also be queried using the [List Supported API](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-For the purposes of this guide, a mix of [ARMClient](https://github.com/projectkudu/ARMClient) and [Postman](https://www.postman.com/) are used to demonstrate the REST API calls.
+In the remainder of this article, a mix of [ARMClient](https://github.com/projectkudu/ARMClient) and [Postman](https://www.postman.com/) are used to demonstrate the REST API calls.
 
 > [!NOTE]
-> Throughout this guide, let's assume that the name of the search service is __contoso-search__ which exists in the resource group __contoso__ of a subscription with subscription ID __00000000-0000-0000-0000-000000000000__. The resource ID of this search service will be `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`
+> Throughout this article, assume that the name of the search service is __contoso-search__ which exists in the resource group __contoso__ of a subscription with subscription ID __00000000-0000-0000-0000-000000000000__. The resource ID of this search service will be `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`
 
-The rest of the guide will show how the __contoso-search__ service can be configured so that its indexers can access data from the secure storage account `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage`
+The rest of the examples will show how the __contoso-search__ service can be configured so that its indexers can access data from the secure storage account `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage`
 
 ## Securing your storage account
 
-Configure the storage account to [allow access only from specific subnets](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). Via the Azure portal, if you check this option and leave the set empty, it means that no traffic from any virtual network is allowed.
+Configure the storage account to [allow access only from specific subnets](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). In the Azure portal, if you check this option and leave the set empty, it means that no traffic from any virtual network is allowed.
 
    ![Virtual Network Access](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png "Virtual Network Access")
 
 > [!NOTE]
-> The [trusted Microsoft service approach](../storage/common/storage-network-security.md#trusted-microsoft-services) can be used to bypass virtual network or IP restrictions on such a storage account and can enable the search service to access data in the storage account as described in the [how to guide](search-indexer-howto-access-trusted-service-exception.md). However, when using this approach communication between Azure Cognitive Search and the storage account happens via the public IP address of the storage account, over the secure Microsoft backbone network.
+> The [trusted Microsoft service approach](../storage/common/storage-network-security.md#trusted-microsoft-services) can be used to bypass virtual network or IP restrictions on such a storage account and can enable the search service to access data in the storage account, as described in [Indexer access to Azure Storage using the trusted service exception ](search-indexer-howto-access-trusted-service-exception.md). However, when using this approach communication between Azure Cognitive Search and the storage account happens via the public IP address of the storage account, over the secure Microsoft backbone network.
 
 ## Step 1: Create a shared private link resource to the storage account
 
@@ -113,7 +118,7 @@ After the private endpoint connection request is approved, it means that traffic
 
 ## Step 2b: Query the status of the shared private link resource
 
- To confirm that the shared private link resource has been updated after approval, obtain its status via the [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get).
+ To confirm that the shared private link resource has been updated after approval, obtain its status using the [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get).
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 
@@ -139,15 +144,15 @@ If the `properties.provisioningState` of the resource is `Succeeded` and `proper
 > [!NOTE]
 > This step can be performed even before the private endpoint connection is approved. Until the private endpoint connection is approved, any indexer that tries to communicate with a secure resource (such as the storage account), will end up in a transient failure state. New indexers will fail to be created. As soon as the private endpoint connection is approved, indexers will be able to access the private storage account.
 
-1. [Create a data source](/rest/api/searchservice/create-data-source) that points to the secure storage account and an appropriate container within the storage account. The following shows this request performed via Postman.
+1. [Create a data source](/rest/api/searchservice/create-data-source) that points to the secure storage account and an appropriate container within the storage account. The following shows this request in Postman.
 ![Create Data Source](media\search-indexer-howto-secure-access\create-ds.png "Data Source creation")
 
-2. Similarly [create an index](/rest/api/searchservice/create-index) and optionally [create a skillset](/rest/api/searchservice/create-skillset) using the REST API.
+1. Similarly [create an index](/rest/api/searchservice/create-index) and optionally [create a skillset](/rest/api/searchservice/create-skillset) using the REST API.
 
-3. [Create an indexer](/rest/api/searchservice/create-indexer) that points to the data source, index, and skillset created above. In addition, force the indexer to run in the private execution environment, by setting the indexer configuration property `executionEnvironment` to `"Private"`.
+1. [Create an indexer](/rest/api/searchservice/create-indexer) that points to the data source, index, and skillset created above. In addition, force the indexer to run in the private execution environment, by setting the indexer configuration property `executionEnvironment` to `"Private"`.
 ![Create Indexer](media\search-indexer-howto-secure-access\create-idr.png "Indexer creation")
 
-The indexer should be created successfully, and should be making progress - indexing content from the storage account over the private endpoint connection. The status of the indexer can be monitored via the [Indexer status API](/rest/api/searchservice/get-indexer-status).
+The indexer should be created successfully, and should be making progress - indexing content from the storage account over the private endpoint connection. The status of the indexer can be monitored using the [Indexer status API](/rest/api/searchservice/get-indexer-status).
 
 > [!NOTE]
 > If you already have existing indexers, you can simply update them via the [PUT API](/rest/api/searchservice/create-indexer) to set the `executionEnvironment` to `"Private"`.

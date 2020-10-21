@@ -62,7 +62,7 @@ When you create an Azure Batch pool using the Virtual Machine Configuration, you
 
 ### Third-party images
 
-Pools can be created using third-party images published to Azure Marketplace. With user subscription mode Batch accounts, you may see the error "Allocation failed due to marketplace purchase eligibility check" when creating a pool with certain third-party images. To resolve this error, accept the terms set by the publisher of the image. You can do so by using [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) or [Azure CLI](https://docs.microsoft.com/cli/azure/vm/image/terms).
+Pools can be created using third-party images published to Azure Marketplace. With user subscription mode Batch accounts, you may see the error "Allocation failed due to marketplace purchase eligibility check" when creating a pool with certain third-party images. To resolve this error, accept the terms set by the publisher of the image. You can do so by using [Azure PowerShell](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) or [Azure CLI](/cli/azure/vm/image/terms).
 
 ### Azure region dependency
 

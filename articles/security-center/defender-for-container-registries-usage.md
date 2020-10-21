@@ -25,7 +25,7 @@ When the scanner reports vulnerabilities to Security Center, Security Center pre
 |Release state:|Generally available (GA)|
 |Pricing:|**Azure Defender for container registries** is billed as shown on [the pricing page](security-center-pricing.md)|
 |Supported registries and images:|![Yes](./media/icons/yes-icon.png) Linux-hosted ACR registries that are accessible from the public internet and provide shell access.<br>![No](./media/icons/no-icon.png) Windows-hosted ACR registries.<br>![No](./media/icons/no-icon.png) 'Private' registries - Security Center requires your registries to be accessible from the public internet. Security Center can't currently connect to, or scan, registries with access limited with a firewall, a service endpoint, or private endpoints such as Azure Private Link.<br>![No](./media/icons/no-icon.png) Super minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS.|
-|Required roles and permissions:|**Security reader** and [Azure Container Registry reader role](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
+|Required roles and permissions:|**Security reader** and [Azure Container Registry reader role](../container-registry/container-registry-roles.md)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 

@@ -133,8 +133,8 @@ Azure Remote Rendering provides a few built-in environment maps that are always 
 
 ## API documentation
 
-* [C# RemoteManager.SkyReflectionSettings property](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
-* [C++ RemoteManager::SkyReflectionSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
+* [C# RemoteManager.SkyReflectionSettings property](/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
+* [C++ RemoteManager::SkyReflectionSettings()](/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
 
 ## Next steps
 

@@ -114,6 +114,8 @@ Go to [Hello World from Enclave](#hello-world) deployment section to test an app
 az aks update --enable-addons confcom --resource-group myResourceGroup --name myAKSCluster
 ```
 
+![DCSv2 AKS Cluster Creation](./media/confidential-nodes-aks-overview/CLIAKSProvisioning.gif)
+
 ## Adding confidential computing node to existing AKS cluster<a id="existing-cluster"></a>
 
 This section assumes you have an AKS cluster running already that meets the criteria listed in the pre-requisites section.

@@ -21,7 +21,7 @@ The following table shows a summary of the Data Box export order steps and the t
 
 | Data Box export order stage       | Tool to track and audit                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Create order               | [Set up access control on the order via RBAC](#set-up-access-control-on-the-order) <br> [Enable verbose log in the order](#enable-verbose-log-in-the-order)                                                    |
+| Create order               | [Set up access control on the order via Azure RBAC](#set-up-access-control-on-the-order) <br> [Enable verbose log in the order](#enable-verbose-log-in-the-order)                                                    |
 | Order processed            | [Track the order](#track-the-order) through <ul><li> Azure portal </li><li> Shipping carrier website </li><li>Email notifications</ul> |
 | Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs-during-setup)              |
 | Data copy from device        | [Review copy logs](#copy-log) <br> [Review verbose logs](#verbose-log) before you copy data            |
@@ -42,7 +42,7 @@ To restrict access to an order, you can:
 - Assign a role at an order level. The user only has those permissions as defined by the roles to interact with that specific Data Box order only and nothing else.
 - Assign a role at the resource group level, the user has access to all the Data Box orders within a resource group.
 
-For more information on suggested RBAC use, see [Best practices for Azure RBAC](../role-based-access-control/best-practices.md).
+For more information on suggested Azure RBAC use, see [Best practices for Azure RBAC](../role-based-access-control/best-practices.md).
 
 ## Enable verbose log in the order
 

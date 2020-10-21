@@ -61,7 +61,7 @@ Under **Instance details**:
 
     c. **Details**: Based on the selected notification type, enter an email address, phone number, etc.
     
-    d. **Common alert schema**: You can choose to enable the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
+    d. **Common alert schema**: You can choose to enable the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
 
     ![The Notifications tab](./media/action-groups/action-group-2-notifications.png)
     
@@ -77,7 +77,7 @@ Under **Instance details**:
 
     c. **Details**: Based on the action type, enter a webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
     
-    d. **Common alert schema**: You can choose to enable the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
+    d. **Common alert schema**: You can choose to enable the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
     
     ![The Actions tab](./media/action-groups/action-group-3-actions.png)
 
@@ -315,4 +315,3 @@ Using **Service Tag** for ActionGroup helps with minimizing the complexity of fr
 * Learn more about [rate limiting](./alerts-rate-limiting.md) on alerts.
 * Get an [overview of activity log alerts](./alerts-overview.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](../../service-health/alerts-activity-log-service-notifications-portal.md).
-

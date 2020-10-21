@@ -1,17 +1,20 @@
 ---
-title: Provision container throughput in Azure Cosmos DB
-description: Learn how to provision throughput at the container level in Azure Cosmos DB using Azure portal, CLI, PowerShell and various other SDKs. 
+title: Provision container throughput in Azure Cosmos DB SQL API
+description: Learn how to provision throughput at the container level in Azure Cosmos DB SQL API using Azure portal, CLI, PowerShell and various other SDKs. 
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 12/13/2019
+ms.date: 10/14/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ---
 
-# Provision standard (manual) throughput on an Azure Cosmos container
+# Provision standard (manual) throughput on an Azure Cosmos container - SQL API
 
-This article explains how to provision standard (manual) throughput on a container (collection, graph, or table) in Azure Cosmos DB. You can provision throughput on a single container, or [provision throughput on a database](how-to-provision-database-throughput.md) and share it among the containers within the database. You can provision throughput on a container using Azure portal, Azure CLI, or Azure Cosmos DB SDKs.
+This article explains how to provision standard (manual) throughput on a container in Azure Cosmos DB SQL API. You can provision throughput on a single container, or [provision throughput on a database](how-to-provision-database-throughput.md) and share it among the containers within the database. You can provision throughput on a container using Azure portal, Azure CLI, or Azure Cosmos DB SDKs.
+
+If you are using a different API, see [API for MongoDB](how-to-provision-throughput-mongodb.md), [Cassandra API](how-to-provision-throughput-cassandra.md), [Gremlin API](how-to-provision-throughput-gremlin.md) articles to provision the throughput.
 
 ## Azure portal
 
@@ -19,15 +22,15 @@ This article explains how to provision standard (manual) throughput on a contain
 
 1. [Create a new Azure Cosmos account](create-sql-api-dotnet.md#create-account), or select an existing Azure Cosmos account.
 
-1. Open the **Data Explorer** pane, and select **New Collection**. Next, provide the following details:
+1. Open the **Data Explorer** pane, and select **New Container**. Next, provide the following details:
 
    * Indicate whether you are creating a new database or using an existing one.
-   * Enter a Container (or Table or Graph) ID.
-   * Enter a partition key value (for example, `/userid`).
+   * Enter a Container ID.
+   * Enter a partition key value (for example, `/ItemID`).
    * Enter a throughput that you want to provision (for example, 1000 RUs).
    * Select **OK**.
 
-    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png" alt-text="Screenshot of Data Explorer, with New Collection highlighted":::
+    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Screenshot of Data Explorer, with New Collection highlighted":::
 
 ## Azure CLI or PowerShell
 
@@ -36,15 +39,10 @@ To create a container with dedicated throughput see,
 * [Create a container using Azure CLI](manage-with-cli.md#create-a-container)
 * [Create a container using PowerShell](manage-with-powershell.md#create-container)
 
-> [!Note]
-> If you are provisioning throughput on a container in an Azure Cosmos account configured with the Azure Cosmos DB API for MongoDB, use `/myShardKey` for the partition key path. If you are provisioning throughput on a container in an Azure Cosmos account configured with Cassandra API, use `/myPrimaryKey` for the partition key path.
-
 ## .NET SDK
 
 > [!Note]
 > Use the Cosmos SDKs for SQL API to provision throughput for all Cosmos DB APIs, except Cassandra and MongoDB API.
-
-### <a id="dotnet-most"></a>SQL, Gremlin, and Table APIs
 
 # [.NET SDK V2](#tab/dotnetv2)
 
@@ -94,47 +92,6 @@ offer.content.offerThroughput = 2000;
 // Replace the offer.
 await client.offer(offer.id).replace(offer);
 ```
-
-### <a id="dotnet-mongodb"></a>MongoDB API
-
-```csharp
-// refer to MongoDB .NET Driver
-// https://docs.mongodb.com/drivers/csharp
-
-// Create a new Client
-String mongoConnectionString = "mongodb://DBAccountName:Password@DBAccountName.documents.azure.com:10255/?ssl=true&replicaSet=globaldb";
-mongoUrl = new MongoUrl(mongoConnectionString);
-mongoClientSettings = MongoClientSettings.FromUrl(mongoUrl);
-mongoClient = new MongoClient(mongoClientSettings);
-
-// Change the database name
-mongoDatabase = mongoClient.GetDatabase("testdb");
-
-// Change the collection name, throughput value then update via MongoDB extension commands
-// https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-custom-commands#update-collection
-
-var result = mongoDatabase.RunCommand<BsonDocument>(@"{customAction: ""UpdateCollection"", collection: ""testcollection"", offerThroughput: 400}");
-```
-
-### <a id="dotnet-cassandra"></a>Cassandra API
-
-Similar commands can be issued through any CQL-compliant driver.
-
-```csharp
-// Create a Cassandra table with a partition (primary) key and provision throughput of 400 RU/s
-session.Execute("CREATE TABLE myKeySpace.myTable(
-    user_id int PRIMARY KEY,
-    firstName text,
-    lastName text) WITH cosmosdb_provisioned_throughput=400");
-
-```
-### Alter or change throughput for Cassandra table
-
-```csharp
-// Altering the throughput too can be done through code by issuing following command
-session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throughput=5000");
-```
-
 
 ## Next steps
 

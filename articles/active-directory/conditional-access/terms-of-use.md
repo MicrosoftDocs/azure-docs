@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -389,4 +389,3 @@ A: Terms of use utilizes the following endpoints for authentication: https://tok
 ## Next steps
 
 - [Quickstart: Require terms of use to be accepted before accessing cloud apps](require-tou.md)
-- [Best practices for Conditional Access in Azure Active Directory](best-practices.md)
