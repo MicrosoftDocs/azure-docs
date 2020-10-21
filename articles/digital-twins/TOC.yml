@@ -134,7 +134,7 @@
         - name: Swagger
           href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins
         - name: .NET (C#) SDK - NuGet
-          href: https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1
+          href: https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/
         - name: .NET (C#) SDK - reference
           href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview
         - name: .NET (C#) SDK - source
