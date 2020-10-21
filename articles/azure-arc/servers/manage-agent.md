@@ -145,7 +145,7 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc enabled se
 
 * **Show** - View agent status and its configuration properties (Resource Group name, Subscription ID, version, etc.), which can help when troubleshooting an issue with the agent.
 
-* **Logs** - Creates a .zip file containing logs to assist you while troubleshooting.
+* **Logs** - Creates a .zip file in the current directory containing logs to assist you while troubleshooting.
 
 * **Version** - Shows the Connected Machine agent version.
 
