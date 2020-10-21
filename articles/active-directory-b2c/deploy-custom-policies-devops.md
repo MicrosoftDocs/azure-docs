@@ -29,7 +29,7 @@ There are three primary steps required for enabling Azure Pipelines to manage cu
 
 ## Prerequisites
 
-* [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the [B2C IEF Policy Administrator](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) role
+* [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the [B2C IEF Policy Administrator](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) role
 * [Custom policies](custom-policy-get-started.md) uploaded to your tenant
 * [Management app](microsoft-graph-get-started.md) registered in your tenant with the Microsoft Graph API permission *Policy.ReadWrite.TrustFramework*
 * [Azure Pipeline](https://azure.microsoft.com/services/devops/pipelines/), and access to an [Azure DevOps Services project][devops-create-project]
