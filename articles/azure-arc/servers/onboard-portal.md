@@ -1,7 +1,7 @@
 ---
 title: Connect hybrid machines to Azure from the Azure portal
 description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc enabled servers from the Azure portal.
-ms.date: 09/24/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -79,7 +79,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
     msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
     ```
 
-    If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+    If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%ProgramData%\AzureConnectedMachineAgent\log*.
 
 2. If the machine needs to communicate through a proxy server, to set the proxy server environment variable, run the following command:
 
@@ -112,7 +112,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
 
 1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.ps1` script.
 
-If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%ProgramData%\AzureConnectedMachineAgent\log*.
 
 ## Install and validate the agent on Linux
 

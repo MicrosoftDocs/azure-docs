@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Arc enabled servers Connected Machine agent.
-ms.date: 10/20/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ---
 
@@ -133,7 +133,7 @@ Actions of the [yum](https://access.redhat.com/articles/yum-cheat-sheet) command
     zypper update
     ```
 
-Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as installation and removal of packages, are logged in the `/var/log/zypper.log` log file. 
+Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as installation and removal of packages, are logged in the `/var/log/zypper.log` log file.
 
 ## About the Azcmagent tool
 
@@ -143,7 +143,7 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc enabled se
 
 * **Disconnect** - To disconnect the machine from Azure Arc
 
-* **Show** - View agent status and its configuration properties (Resource Group name, Subscription ID, version, etc.), which can help when troubleshooting an issue with the agent.
+* **Show** - View agent status and its configuration properties (Resource Group name, Subscription ID, version, etc.), which can help when troubleshooting an issue with the agent. Include the `-j` parameter to output the results in JSON format.
 
 * **Logs** - Creates a .zip file in the current directory containing logs to assist you while troubleshooting.
 
@@ -195,7 +195,7 @@ To disconnect using an access token, run the following command:
 
 To disconnect with your elevated logged-on credentials (interactive), run the following command:
 
-`azcmagent disconnect --tenant-id <tenantID>`
+`azcmagent disconnect`
 
 ## Remove the agent
 
