@@ -67,7 +67,7 @@ No, all the Azure regions are patched during the deployment wise window timings.
 
 ## Retry logic
 
-A transient error, also known as a transient fault, is an error that will resolve itself. [Transient errors](./concepts-connectivity#transient-errors.md) can occur during maintenance. Most of these events are automatically mitigated by the system in less than 60 seconds. Transient errors should be handled using [retry logic](concepts-connectivity.md#handling-transient-errors).
+A transient error, also known as a transient fault, is an error that will resolve itself. [Transient errors](concepts-connectivity#transient-errors.md) can occur during maintenance. Most of these events are automatically mitigated by the system in less than 60 seconds. Transient errors should be handled using [retry logic](./concepts-connectivity.md#handling-transient-errors).
 
 
 ## Next steps

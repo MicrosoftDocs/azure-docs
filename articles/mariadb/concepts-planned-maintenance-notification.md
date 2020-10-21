@@ -59,7 +59,7 @@ For detailed steps on how to create **service health alerts**, refer to [Create 
 
 ## Can I control or change planned maintenance for my servers after I receive a notification event?
 
-Maintenance is needed to keep your server secure, stable, and up-to-date. The planned maintenance event cannot be cancelled or postponed. Once the notification is sent to a given Azure region, the patching schedule changes cannot be made for any individual server in that region. The patch is rolled out for entire region at once. Azure Database for MariaDB service is designed for cloud native application that doesn't require granular control or customization of the service. If you are looking to have ability to schedule maintenance for your servers, we recommend you consider [Flexible servers](./flexible-server/overview.md).
+Maintenance is needed to keep your server secure, stable, and up-to-date. The planned maintenance event cannot be cancelled or postponed. Once the notification is sent to a given Azure region, the patching schedule changes cannot be made for any individual server in that region. The patch is rolled out for entire region at once. Azure Database for MariaDB service is designed for cloud native application that doesn't require granular control or customization of the service.
 
 ## Are all the Azure regions patched at the same time?
 
@@ -67,7 +67,7 @@ No, all the Azure regions are patched during the deployment wise window timings.
 
 ## Retry logic
 
-A transient error, also known as a transient fault, is an error that will resolve itself. [Transient errors](./concepts-connectivity#transient-errors.md) can occur during maintenance. Most of these events are automatically mitigated by the system in less than 60 seconds. Transient errors should be handled using [retry logic](concepts-connectivity.md#handling-transient-errors).
+A transient error, also known as a transient fault, is an error that will resolve itself. [Transient errors](concepts-connectivity#transient-errors.md) can occur during maintenance. Most of these events are automatically mitigated by the system in less than 60 seconds. Transient errors should be handled using [retry logic](concepts-connectivity.md#handling-transient-errors).
 
 
 ## Next steps
