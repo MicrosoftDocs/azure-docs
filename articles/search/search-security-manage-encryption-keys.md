@@ -94,7 +94,7 @@ You can set both properties using the portal, PowerShell, or Azure CLI commands.
 
 ### Using Azure CLI
 
-+ If you have an [installation of Azure CLI](../cli/azure/install-azure-cli.md), you can run the following command to enable the required properties.
++ If you have an [installation of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), you can run the following command to enable the required properties.
 
    ```azurecli-interactive
    az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
