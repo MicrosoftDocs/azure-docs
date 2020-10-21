@@ -9,9 +9,9 @@ ms.date: 09/29/2020
 # Deploy Horizon on Azure VMware Solution 
 
 >[!NOTE]
->This document focuses on the VMware Horizon product. This is formerly known as Horizon 7 before the product name change from Horizon 7 to Horizon. Horizon is a different solution than Horizon Cloud on Azure, although there are some shared components. Key advantages of the Azure VMware Solution include both a simpler sizing method and that VMware Cloud Foundation management is integrated into the Azure portal.
+>This document focuses on the VMware Horizon product, formerly known as Horizon 7. Horizon is a different solution than Horizon Cloud on Azure, although there are some shared components. Key advantages of the Azure VMware Solution include both a more straightforward sizing method and the integration of VMware Cloud Foundation management into the Azure portal.
 
-[VMware Horizon](https://www.vmware.com/products/horizon.html)® is a virtual desktop and applications platform that runs in the data center and provides simple and centralized management. It delivers virtual desktops and applications to end users on any device, anywhere. Horizon lets you create and broker connections to Windows virtual desktops, Linux virtual desktops, Remote Desktop Server (RDS) hosted applications, desktops, and physical machines.
+[VMware Horizon](https://www.vmware.com/products/horizon.html)®, a virtual desktop and applications platform, run in the data center and provides simple and centralized management. It delivers virtual desktops and applications on any device, anywhere. Horizon lets you create and broker connections to Windows and Linux virtual desktops, Remote Desktop Server (RDS) hosted applications, desktops, and physical machines.
 
 Here, we focus specifically on deploying Horizon on Azure VMware Solution. For general information on VMware Horizon, refer to the Horizon production documentation:
 
@@ -23,7 +23,7 @@ Here, we focus specifically on deploying Horizon on Azure VMware Solution. For g
 
 With Horizon's introduction on Azure VMware Solution, there are now two Virtual Desktop Infrastructure (VDI) solutions on the Azure platform. The following diagram summarizes the key differences at a high level.
 
-:::image type="content" source="media/horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Differences between Horizon on Azure VMware Solution and Horizon Cloud on Azure" border="false":::
+:::image type="content" source="media/horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Horizon on Azure VMware Solution and Horizon Cloud on Azure" border="false":::
 
 Horizon 2006 and later versions on the Horizon 8 release line supports both on-premises deployment and Azure VMware Solution deployment. There are a few Horizon features that are supported on-premises but not on Azure VMware Solution. Additional products in the Horizon ecosystem are also supported. For for information, see [feature parity and interoperability](https://kb.vmware.com/s/article/80850).
 
@@ -92,9 +92,9 @@ This section lays out the network architecture at a high level with some common 
 
 :::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Single Horizon pod on Azure VMware Solution" border="false":::
 
-A single Horizon pod is the most straight forward deployment scenario because you deploy just one Horizon pod in the US East region.  Since each private cloud/SDDC is estimated to handle 4,000 desktop sessions, deploy the maximum Horizon pod size.  You can plan the deployment of up to three private clouds/SDDCs.
+A single Horizon pod is the most straight forward deployment scenario because you deploy just one Horizon pod in the US East region.  Since each private cloud/SDDC is estimated to handle 4,000 desktop sessions, you deploy the maximum Horizon pod size.  You can plan the deployment of up to three private clouds/SDDCs.
 
-So, in combination with the Horizon infrastructure virtual machines (VMs) deployed in Azure Virtual Network, you can reach the 12,000 sessions per Horizon pod, which is based on your workload and data needs. The connection between each private cloud and SDDC to the Azure Virtual Network is ExpressRoute Fast Path. No east-west traffic between private clouds is needed.
+With the Horizon infrastructure virtual machines (VMs) deployed in Azure Virtual Network, you can reach the 12,000 sessions per Horizon pod. The connection between each private cloud and SDDC to the Azure Virtual Network is ExpressRoute Fast Path.  No east-west traffic between private clouds is needed. 
 
 Key assumptions for this basic deployment example include that:
 
@@ -153,7 +153,7 @@ Here's what you'll need to gather for your planned workload:
 
 * Required storage per desktop
 
-In general, VDI deployments are either CPU or RAM constrained, as those factors will determine the host size. Let's take the following example for a LoginVSI Knowledge Worker type of workload, validated with performance testing:
+In general, VDI deployments are either CPU or RAM constrained, which determines the host size. Let's take the following example for a LoginVSI Knowledge Worker type of workload, validated with performance testing:
 
 * 2,000 concurrent desktop deployment
 
@@ -186,7 +186,7 @@ There are two available licenses for use with the Azure VMware Solution, which c
 
 If only deploying Horizon on Azure VMware Solution for the foreseeable future, then use the Horizon Subscription License as it is a lower cost.
 
-If deploying both Horizon on Azure VMware Solution and on-premises, as with a disaster recovery use case, then choose the Horizon Universal Subscription License. The Universal license is a higher cost because it includes a vSphere license for on-premises deployment.
+If deployed on Azure VMware Solution and on-premises, as with a disaster recovery use case, choose the Horizon Universal Subscription License. It includes a vSphere license for on-premises deployment, so it has a higher cost.
 
 Work with your VMware EUC sales team to determine the Horizon licensing cost based on your needs.
 
@@ -207,4 +207,4 @@ Based on the standard deployment architecture, Horizon infrastructure VMs are ma
 | MS-SQL Database                  | D4sv3          | 2       | *Option to use SQL service on Azure*     |
 | Windows file share               | D4sv3          |         | *Optional*                               |
 
-The infrastructure VM cost amounts to \$0.36 per user per month for the 2,000-desktop deployment in the example above. This example uses US East Azure instance pricing as of June 2020. Your pricing may vary depending on region, options selected, and timing.
+The infrastructure VM cost amounts to \$0.36 per user per month for the 2,000-desktop deployment in the example above. This example uses US East Azure instance June 2020 pricing. Your pricing may vary depending on region, options selected, and timing.
