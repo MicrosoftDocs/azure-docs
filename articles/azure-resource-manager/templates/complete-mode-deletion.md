@@ -17,6 +17,8 @@ If you deploy to [more than one resource group in a template](cross-scope-deploy
 
 The resources are listed by resource provider namespace. To match a resource provider namespace with its Azure service name, see [Resource providers for Azure services](../management/azure-services-resource-providers.md).
 
+> [!NOTE]
+> Always use the [what-if operation](template-deploy-what-if.md) before deploying a template in complete mode. What-if shows you which resources will be created, deleted, or modified. Use what-if to avoid unintentionally deleting resources.
 Jump to a resource provider namespace:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
@@ -33,7 +35,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automanage](#microsoftautomanage)
 > - [Microsoft.Automation](#microsoftautomation)
-> - [Microsoft.AutonomousDevelopmentPlatform](#microsoftautonomousdevelopmentplatform)
 > - [Microsoft.AVS](#microsoftavs)
 > - [Microsoft.Azure.Geneva](#microsoftazuregeneva)
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
@@ -43,7 +44,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.BareMetalInfrastructure](#microsoftbaremetalinfrastructure)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
-> - [Microsoft.Bing](#microsoftbing)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.BlockchainTokens](#microsoftblockchaintokens)
@@ -95,7 +95,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft.DynamicsLcs](#microsoftdynamicslcs)
-> - [Microsoft.Elastic](#microsoftelastic)
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
@@ -124,7 +123,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.LabServices](#microsoftlabservices)
 > - [Microsoft.Logic](#microsoftlogic)
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
-> - [Microsoft.MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.Maintenance](#microsoftmaintenance)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
@@ -145,7 +143,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft.ObjectStore](#microsoftobjectstore)
 > - [Microsoft.OffAzure](#microsoftoffazure)
-> - [Microsoft.OpenLogisticsPlatform](#microsoftopenlogisticsplatform)
 > - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
 > - [Microsoft.Peering](#microsoftpeering)
@@ -357,14 +354,6 @@ Jump to a resource provider namespace:
 > | automationAccounts / softwareUpdateConfigurations | No |
 > | automationAccounts / webhooks | No |
 
-## Microsoft.AutonomousDevelopmentPlatform
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | accounts | Yes |
-> | accounts / datapools | No |
-
 ## Microsoft.AVS
 
 > [!div class="mx-tableFixed"]
@@ -548,16 +537,6 @@ Jump to a resource provider namespace:
 > | transfers / operationStatus | No |
 > | transfers / validateTransfer | No |
 > | validateAddress | No |
-
-## Microsoft.Bing
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | accounts | Yes |
-> | accounts / skus | No |
-> | accounts / usages | No |
-> | registeredSubscriptions | No |
 
 ## Microsoft.BingMaps
 
@@ -1246,14 +1225,6 @@ Jump to a resource provider namespace:
 > | lcsprojects / clouddeployments | No |
 > | lcsprojects / connectors | No |
 
-## Microsoft.Elastic
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | monitors | Yes |
-> | monitors / tagRules | No |
-
 ## Microsoft.EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
@@ -1538,18 +1509,6 @@ Jump to a resource provider namespace:
 > | webServices | Yes |
 > | Workspaces | Yes |
 
-## Microsoft.MachineLearningExperimentation
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | accounts | Yes |
-> | accounts / workspaces | Yes |
-> | accounts / workspaces / projects | Yes |
-> | teamAccounts | Yes |
-> | teamAccounts / workspaces | Yes |
-> | teamAccounts / workspaces / projects | Yes |
-
 ## Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
@@ -1558,14 +1517,11 @@ Jump to a resource provider namespace:
 > | workspaces | Yes |
 > | workspaces / batchEndpoints | Yes |
 > | workspaces / batchEndpoints / deployments | Yes |
-> | workspaces / codeJobs | No |
 > | workspaces / codes | No |
 > | workspaces / codes / versions | No |
 > | workspaces / computes | No |
 > | workspaces / datastores | No |
 > | workspaces / eventGridFilters | No |
-> | workspaces / inferenceEndpoints | Yes |
-> | workspaces / inferenceEndpoints / deployments | Yes |
 > | workspaces / jobs | No |
 > | workspaces / labelingJobs | No |
 > | workspaces / linkedServices | No |
@@ -1855,13 +1811,6 @@ Jump to a resource provider namespace:
 > | MasterSites | Yes |
 > | ServerSites | Yes |
 > | VMwareSites | Yes |
-
-## Microsoft.OpenLogisticsPlatform
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | workspaces | Yes |
 
 ## Microsoft.OperationalInsights
 
