@@ -222,7 +222,9 @@ await DeleteRelationship(client, srcId, $"{targetId}-contains->{srcId}");
 
 The following runnable code snippet uses the relationship operations from this article to create a twin graph out of digital twins and relationships.
 
-[!INCLUDE [Azure Digital Twins: sample models](../../includes/digital-twins-manage-twins-sample-models.md)]
+The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) and [Floor.json](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) model definitions from [*Tutorial: Explore Azure Digital Twins with a sample client app*](../articles/digital-twins/tutorial-command-line-app.md). You can use these links to go directly to the files, or download them as part of the full end-to-end sample project [here](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
+
+Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance details and run the sample.
 
 ```csharp 
 using System;
