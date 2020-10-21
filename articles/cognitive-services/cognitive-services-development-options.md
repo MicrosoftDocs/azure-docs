@@ -29,204 +29,80 @@ The tools that you will use to customize and configure models are different than
 * You can send a PDF to the Form Recognizer service and detect tables, cells, and text inside of those cells, and you get a JSON output with coordinates and details
 
 Azure offers a wide range of tools that are designed for different types of users, many of which can be used with Cognitive Services. Designer-driven tools are the easiest to use, and are quick to set up and automate, but may have limitations when it comes to customization. Whereas, our REST APIs and client libraries provide users with more control and flexibility, but require more effort, time, and expertise to build a solution. If you choose to use REST APIs and client libraries, there is a presumption that you're comfortable working with modern programming languages like C#, Java, Python, and JavaScript.
-
-+-------+-------+-------+-------+-------+-------+-------+-------+
-|       | C     | Big   | Conti | Func  | Logic | Power | AI    |
-|       | lient | Data  | nuous | tions | Apps  | Aut   | Bu    |
-|       | Libra | for   | I     | and   |       | omate | ilder |
-|       | ries, | The   | ntegr | Web   |       |       |       |
-|       | and   | Cogn  | ation | Job   |       |       |       |
-|       | REST  | itive | with  |       |       |       |       |
-|       | endp  | Ser   | D     |       |       |       |       |
-|       | oints | vices | evOps |       |       |       |       |
-|       |       | for   |       |       |       |       |       |
-|       |       | Big   |       |       |       |       |       |
-|       |       | Data  |       |       |       |       |       |
-+=======+=======+=======+=======+=======+=======+=======+=======+
-| T     | Devel | Data  | D     | Devel | In    | Bus   | Bus   |
-| arget | opers | s     | evelo | opers | tegra | iness | iness |
-| user  | and   | cient | pers, | and   | tors, | u     | u     |
-|       | data  | ists, | data  | data  | d     | sers, | sers, |
-|       | scien | Data  | s     | scien | evelo | Share | Share |
-|       | tists | Engin | cient | tists | pers, | Point | Point |
-|       |       | eers, | ists, |       | and   | admin | admin |
-|       |       | I     | and   |       | IT    | istra | istra |
-|       |       | ntegr | data  |       | pros  | tors. | tors. |
-|       |       | ators | engi  |       |       |       |       |
-|       |       |       | neers |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+
-| Ben   | Pro   | The   | A     | Serve | Desi  | Aut   | A     |
-| efits | vides | Azure | llows | rless | gner- | omate | tu    |
-|       | the   | Cogn  | you   | co    | first | repet | rnkey |
-|       | gre   | itive | to    | mpute | (de   | itive | sol   |
-|       | atest | Ser   | co    | se    | clara | m     | ution |
-|       | f     | vices | ntinu | rvice | tive) | anual | that  |
-|       | lexib | for   | ously | that  | d     | tasks | b     |
-|       | ility | Big   | ad    | lets  | evelo | s     | rings |
-|       | to    | Data  | just, | you   | pment | imply | the   |
-|       | call  | lets  | up    | run   | model | by    | power |
-|       | the   | users | date, | event | prov  | reco  | of AI |
-|       | ser   | ch    | and   | -trig | iding | rding | th    |
-|       | vices | annel | d     | gered | adv   | mouse | rough |
-|       | from  | tera  | eploy | cod.e | anced | cl    | a     |
-|       | any   | bytes | ap    |       | op    | icks, | point |
-|       | lan   | of    | plica | **No  | tions | keyst | -and- |
-|       | guage | data  | tions | te**: | and   | rokes | click |
-|       | and   | th    | and   | We    | i     | and   | e     |
-|       | e     | rough | m     | bJobs | ntegr | copy  | xperi |
-|       | nviro | Cogn  | odels | re    | ation | paste | ence. |
-|       | nment | itive | pro   | quire | in a  | steps |       |
-|       |       | Ser   | gramm | and   | low   | from  | No    |
-|       |       | vices | atica | App   | -code | your  | c     |
-|       |       | usi   | lly.\ | Se    | sol   | des   | oding |
-|       |       | ng [A | \     | rvice | ution | ktop! | or    |
-|       |       | pache | There |       |       |       | data  |
-|       |       | Spar  | is    |       |       |       | sc    |
-|       |       | k&trade;](h | s     |       |       |       | ience |
-|       |       | ttps: | ignif |       |       |       | s     |
-|       |       | //doc | icant |       |       |       | kills |
-|       |       | s.mic | be    |       |       |       | requ  |
-|       |       | rosof | nefit |       |       |       | ired. |
-|       |       | t.com | when  |       |       |       |       |
-|       |       | /en-u | regu  |       |       |       |       |
-|       |       | s/dot | larly |       |       |       |       |
-|       |       | net/s | using |       |       |       |       |
-|       |       | park/ | your  |       |       |       |       |
-|       |       | what- | data  |       |       |       |       |
-|       |       | is-sp | to    |       |       |       |       |
-|       |       | ark). | im    |       |       |       |       |
-|       |       | It\'s | prove |       |       |       |       |
-|       |       | easy  | and   |       |       |       |       |
-|       |       | to    | u     |       |       |       |       |
-|       |       | c     | pdate |       |       |       |       |
-|       |       | reate | m     |       |       |       |       |
-|       |       | l     | odels |       |       |       |       |
-|       |       | arge- | for   |       |       |       |       |
-|       |       | scale | Sp    |       |       |       |       |
-|       |       | i     | eech, |       |       |       |       |
-|       |       | ntell | Vi    |       |       |       |       |
-|       |       | igent | sion, |       |       |       |       |
-|       |       | ap    | Lang  |       |       |       |       |
-|       |       | plica | uage, |       |       |       |       |
-|       |       | tions | and   |       |       |       |       |
-|       |       | with  | Deci  |       |       |       |       |
-|       |       | any   | sion. |       |       |       |       |
-|       |       | datas |       |       |       |       |       |
-|       |       | tore. |       |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+
-| UI    | N/A   | N/A   | N/A   | UI +  | UI +  | UI    | UI    |
-| Tools | --    | --    | --    | Code  | Code  | Only  | Only  |
-|       | code  | code  | code  |       |       |       |       |
-|       | first | first | first |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+
-| Su    | Azure | Azure | Azure | Azure | Azure | Azure | AI    |
-| bscri | Cogn  | Cogn  | Cogn  | Cogn  | Cogn  | Cogn  | Bu    |
-| ption | itive | itive | itive | itive | itive | itive | ilder |
-|       | Ser   | Ser   | Ser   | Ser   | Ser   | Ser   | Su    |
-|       | vices | vices | vices | vices | vices | vices | bscri |
-|       | Res   | Res   | Res   | Res   | Res   | Res   | ption |
-|       | ource | ource | ource | ource | ource | ource |       |
-|       |       |       | +     | +     | +     | +     |       |
-|       |       |       | G     | Azure | Logic | Power |       |
-|       |       |       | ithub | Func  | Apps  | Aut   |       |
-|       |       |       | ac    | tions | Deplo | omate |       |
-|       |       |       | count | Su    | yment | Su    |       |
-|       |       |       |       | bscri |       | bscri |       |
-|       |       |       |       | ption |       | ption |       |
-|       |       |       |       |       |       | +     |       |
-|       |       |       |       |       |       | O     |       |
-|       |       |       |       |       |       | ffice |       |
-|       |       |       |       |       |       | 365   |       |
-|       |       |       |       |       |       | Su    |       |
-|       |       |       |       |       |       | bscri |       |
-|       |       |       |       |       |       | ption |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+
-| S     | You   | You   | You   | You   |       |       |       |
-| ample | need  | need  | need  | need  |       |       |       |
-| scen  | to    | to    | to    | to    |       |       |       |
-| arios | inte  | build | build | trans |       |       |       |
-|       | grate | an    | an    | cribe |       |       |       |
-|       | one   | image | a     | audio |       |       |       |
-|       | of    | clas  | pplic | files |       |       |       |
-|       | the   | sific | ation | and   |       |       |       |
-|       | Cogn  | ation | that  | then  |       |       |       |
-|       | itive | model | class | tran  |       |       |       |
-|       | Ser   | that  | ifies | slate |       |       |       |
-|       | vices | uses  | diff  | them  |       |       |       |
-|       | into  | deep  | erent | at a  |       |       |       |
-|       | an    | n     | types | re    |       |       |       |
-|       | exi   | eural | of    | gular |       |       |       |
-|       | sting | net   | flo   | cad   |       |       |       |
-|       | code  | works | wers. | ence. |       |       |       |
-|       | base. | at    | You   | The   |       |       |       |
-|       |       | scale | have  | tr    |       |       |       |
-|       | Y     | on    | an    | igger |       |       |       |
-|       | ou're | A     | in    | or    |       |       |       |
-|       | c     | pache | itial | event |       |       |       |
-|       | omfor | Sp    | dat   | is    |       |       |       |
-|       | table | ark.\ | aset, | when  |       |       |       |
-|       | bui   | \     | but   | new   |       |       |       |
-|       | lding | See   | pho   | audio |       |       |       |
-|       | and   | an    | togra | is    |       |       |       |
-|       | depl  | ex    | phers | added |       |       |       |
-|       | oying | ample | in    | to a  |       |       |       |
-|       | ap    | of    | the   | st    |       |       |       |
-|       | plica | how   | f     | orage |       |       |       |
-|       | tions | this  | ields | acc   |       |       |       |
-|       | and   | was   | will  | ount. |       |       |       |
-|       | want  | done  | con   |       |       |       |       |
-|       | full  | with  | tinue |       |       |       |       |
-|       | f     | the   | to    |       |       |       |       |
-|       | lexib | [Snow | add   |       |       |       |       |
-|       | ility | Le    | new   |       |       |       |       |
-|       | for   | opard | co    |       |       |       |       |
-|       | how   | Trus  | ntent |       |       |       |       |
-|       | Cogn  | t](ht | to    |       |       |       |       |
-|       | itive | tp:// | your  |       |       |       |       |
-|       | Ser   | www.d | data  |       |       |       |       |
-|       | vices | atawi | base. |       |       |       |       |
-|       | are   | zard. |       |       |       |       |       |
-|       | integ | io/20 | You   |       |       |       |       |
-|       | rated | 17/06 | can   |       |       |       |       |
-|       | into  | /27/s | use   |       |       |       |       |
-|       | your  | aving | CI/CD |       |       |       |       |
-|       | ap    | -snow | to    |       |       |       |       |
-|       | plica | -leop | u     |       |       |       |       |
-|       | tions | ards- | pdate |       |       |       |       |
-|       | and   | with- | your  |       |       |       |       |
-|       | prod  | deep- | model |       |       |       |       |
-|       | ucts. | learn | with  |       |       |       |       |
-|       |       | ing-a | new   |       |       |       |       |
-|       |       | nd-co | i     |       |       |       |       |
-|       |       | mpute | mages |       |       |       |       |
-|       |       | r-vis | and   |       |       |       |       |
-|       |       | ion-o | im    |       |       |       |       |
-|       |       | n-spa | prove |       |       |       |       |
-|       |       | rk/). | its   |       |       |       |       |
-|       |       | have  | clas  |       |       |       |       |
-|       |       | a     | sific |       |       |       |       |
-|       |       | large | ation |       |       |       |       |
-|       |       | qua   | pe    |       |       |       |       |
-|       |       | ntity | rform |       |       |       |       |
-|       |       | of    | ance. |       |       |       |       |
-|       |       | data  |       |       |       |       |       |
-|       |       | in a  |       |       |       |       |       |
-|       |       | blob  |       |       |       |       |       |
-|       |       | or a  |       |       |       |       |       |
-|       |       | dat   |       |       |       |       |       |
-|       |       | abase |       |       |       |       |       |
-|       |       | that  |       |       |       |       |       |
-|       |       | needs |       |       |       |       |       |
-|       |       | to be |       |       |       |       |       |
-|       |       | proc  |       |       |       |       |       |
-|       |       | essed |       |       |       |       |       |
-|       |       | with  |       |       |       |       |       |
-|       |       | the   |       |       |       |       |       |
-|       |       | cogn  |       |       |       |       |       |
-|       |       | itive |       |       |       |       |       |
-|       |       | serv  |       |       |       |       |       |
-|       |       | ices. |       |       |       |       |       |
-+-------+-------+-------+-------+-------+-------+-------+-------+
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Client Libraries, and REST endpoints</th>
+<th>Big Data for The Cognitive Services for Big Data</th>
+<th>Continuous Integration with DevOps</th>
+<th>Functions and Web Job</th>
+<th>Logic Apps</th>
+<th>Power Automate</th>
+<th>AI Builder</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Target user</td>
+<td>Developers and data scientists</td>
+<td>Data scientists, Data Engineers, Integrators</td>
+<td>Developers, data scientists, and data engineers</td>
+<td>Developers and data scientists</td>
+<td>Integrators, developers, and IT pros</td>
+<td>Business users, SharePoint administrators.</td>
+<td>Business users, SharePoint administrators.</td>
+</tr>
+<tr class="even">
+<td>Benefits</td>
+<td>Provides the greatest flexibility to call the services from any language and environment</td>
+<td>The Azure Cognitive Services for Big Data lets users channel terabytes of data through Cognitive Services using <a href="https://docs.microsoft.com/en-us/dotnet/spark/what-is-spark">Apache Spark&trade;</a>. It's easy to create large-scale intelligent applications with any datastore.</td>
+<td>Allows you to continuously adjust, update, and deploy applications and models programmatically.<br />
+<br />
+There is significant benefit when regularly using your data to improve and update models for Speech, Vision, Language, and Decision.</td>
+<td><p>Serverless compute service that lets you run event-triggered cod.e</p>
+<p><strong>Note</strong>: WebJobs require and App Service</p></td>
+<td>Designer-first (declarative) development model providing advanced options and integration in a low-code solution</td>
+<td>Automate repetitive manual tasks simply by recording mouse clicks, keystrokes and copy paste steps from your desktop!</td>
+<td><p>A turnkey solution that brings the power of AI through a point-and-click experience.</p>
+<p>No coding or data science skills required.</p></td>
+</tr>
+<tr class="odd">
+<td>UI Tools</td>
+<td>N/A – code first</td>
+<td>N/A – code first</td>
+<td>N/A – code first</td>
+<td>UI + Code</td>
+<td>UI + Code</td>
+<td>UI Only</td>
+<td>UI Only</td>
+</tr>
+<tr class="even">
+<td>Subscription</td>
+<td>Azure Cognitive Services Resource</td>
+<td>Azure Cognitive Services Resource</td>
+<td>Azure Cognitive Services Resource + Github account</td>
+<td>Azure Cognitive Services Resource + Azure Functions Subscription</td>
+<td>Azure Cognitive Services Resource + Logic Apps Deployment</td>
+<td>Azure Cognitive Services Resource + Power Automate Subscription + Office 365 Subscription</td>
+<td>AI Builder Subscription</td>
+</tr>
+<tr class="odd">
+<td>Sample scenarios</td>
+<td><p>You need to integrate one of the Cognitive Services into an existing code base.</p>
+<p>You're comfortable building and deploying applications and want full flexibility for how Cognitive Services are integrated into your applications and products.</p></td>
+<td>You need to build an image classification model that uses deep neural networks at scale on Apache Spark.<br />
+<br />
+See an example of how this was done with the <a href="http://www.datawizard.io/2017/06/27/saving-snow-leopards-with-deep-learning-and-computer-vision-on-spark/">Snow Leopard Trust</a>. have a large quantity of data in a blob or a database that needs to be processed with the cognitive services.</td>
+<td><p>You need to build an application that classifies different types of flowers. You have an initial dataset, but photographers in the fields will continue to add new content to your database.</p>
+<p>You can use CI/CD to update your model with new images and improve its classification performance.</p></td>
+<td>You need to transcribe audio files and then translate them at a regular cadence. The trigger or event is when new audio is added to a storage account.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 ## Client libraries and REST APIs
 
