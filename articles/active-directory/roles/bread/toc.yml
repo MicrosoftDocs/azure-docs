@@ -99,9 +99,9 @@
   topicHref: /azure/index
   items:  
   - name: Active Directory
-    tocHref: /azure/enterprise-users/
+    tocHref: /azure/active-directory/enterprise-users/
     topicHref: /azure/active-directory/index
     items:
     - name: Roles
-      tocHref: /azure/enterprise-users/
+      tocHref: /azure/active-directory/enterprise-users/
       topicHref: /azure/active-directory/roles/index
