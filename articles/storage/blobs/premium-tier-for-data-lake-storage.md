@@ -29,7 +29,7 @@ For example, if the number of transactions executed were 90M TB or higher and 70
 
 ## Accessing feature availability 
 
-Some Blob storage features might not be available or might only have partial support with the premium performance tier. For a complete list, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features). Then, review a list of [known issues](data-lake-storage-known-issues.md) to assess any gaps in functionality.
+Some Blob storage features might not be available or might only have partial support with the premium performance tier. For a complete list, see [Blob storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md). Then, review a list of [known issues](data-lake-storage-known-issues.md) to assess any gaps in functionality.
 
 ## Enabling the premium performance tier 
 
