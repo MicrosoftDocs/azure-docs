@@ -18,7 +18,7 @@ Get started with Azure Private Link by using a Private Endpoint to connect secur
 
 In this quickstart, you'll create a private endpoint for an Azure web app and deploy a virtual machine to test the private connection.  
 
-Private endpoints can be created for different kinds Azure services such as Azure SQL and Azure Storage.
+Private endpoints can be created for different kinds of Azure services, such as Azure SQL and Azure Storage.
 
 ## Prerequisites
 
