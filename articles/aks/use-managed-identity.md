@@ -33,7 +33,7 @@ You must have the following resource installed:
   CRD should be proxied without any processing in NMI. The system pods with
   `kubernetes.azure.com/managedby: aks` label in _kube-system_ namespace should be excluded in
   `aad-pod-identity` by configuring the AzurePodIdentityException CRD. For more information, see
-  [Disable aad-pod-identity for a specific pod or application](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+  [Disable aad-pod-identity for a specific pod or application](https://github.com/Azure/aad-pod-identity/blob/b438ba37efa102d0c71015ca8a54a1d4bcdae3c5/docs/readmes/README.app-exception.md).
   To configure an exception, install the
   [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 

@@ -91,7 +91,7 @@ The following recommendation applies only to AKS and the Azure Policy Add-on:
   CRD should be proxied without any processing in NMI. The system pods with
   `kubernetes.azure.com/managedby: aks` label in _kube-system_ namespace should be excluded in
   `aad-pod-identity` by configuring the AzurePodIdentityException CRD. For more information, see
-  [Disable aad-pod-identity for a specific pod or application](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+  [Disable aad-pod-identity for a specific pod or application](https://github.com/Azure/aad-pod-identity/blob/b438ba37efa102d0c71015ca8a54a1d4bcdae3c5/docs/readmes/README.app-exception.md).
   To configure an exception, install the
   [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
@@ -346,7 +346,7 @@ For more information about limiting pod network traffic, see [Secure traffic bet
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity
-[aad-pod-identity-exception]: https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md
+[aad-pod-identity-exception]: https://github.com/Azure/aad-pod-identity/blob/b438ba37efa102d0c71015ca8a54a1d4bcdae3c5/docs/readmes/README.app-exception.md
 
 <!-- LINKS - internal -->
 [policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes.md
