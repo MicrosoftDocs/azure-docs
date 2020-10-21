@@ -46,7 +46,7 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 ### Install the packages
 
-If you haven't already, install the LibCurl and LibXML2 packages by using the `vcpkg install` commmand.
+If you haven't already, install the LibCurl and LibXML2 packages by using the `vcpkg install` command.
 
 ```console
 vcpkg.exe install libxml2:x64-windows curl:x64-windows
