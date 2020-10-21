@@ -30,6 +30,22 @@ The best way to get started learning to write log queries using KQL is leveragin
 - [Query samples](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor) - Sample queries illustrating a variety of different concepts.
 
 
+## Data structure
+Log queries retrieve their data from a Log Analytics workspace. Each workspace contains multiple tables are that are organized into separate columns with multiple rows of data. Each table is defined by a unique set of columns that are shared by the rows of data provided by the data source. 
+
+[![Azure Monitor Logs structure](media/log-query-overview/logs-structure.png)](media/log-query-overview/logs-structure.png#lightbox)
+
+
+Log data from Application Insights is also stored in Azure Monitor Logs, but it's stored different depending on how your application is configured. For a workspace-based application, data is stored in a Log Analytics workspace in a standard set of tables to hold data such as application requests, exceptions, and page views. Multiple applications can use the same workspace. For a classic application, the data is not stored in a Log Analytics workspace. It uses the same query language, and you create and run queries using the same Log Analytics tool in the Azure portal. Data for classic applications though is stored separately from each other. Its general structure is the same as workspace-based applications although the table and column names are different. See [Workspace-based resource changes](../app/apm-tables.md) for a detailed comparison of the schema for workspace-based and classic applications.
+
+
+> [!NOTE]
+> We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. To query/view against the [new workspace-based table structure/schema](../app/apm-tables.md) you must first navigate to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience. See [Query scope](../log-query/scope.md) for more details.
+
+
+[![Azure Monitor Logs structure for Application Insights](media/log-query-overview/logs-structure-ai.png)](media/log-query-overview/logs-structure-ai.png#lightbox)
+
+
 
 ## Reference documentation
 [Documentation for KQL](/azure/data-explorer/kusto/query/) including the reference for all commands and operators is available in the Azure Data Explorer documentation. Even as you get proficient using KQL, you'll still regularly use the reference to investigate new commands and scenarios that you haven't used before.
