@@ -20,7 +20,7 @@ ms.custom: devx-track-csharp
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-Most mobile apps need to store data in the cloud, and Azure Cosmos DB is a cloud database for mobile apps. It has everything a mobile developer needs. It is a fully managed database as a service that scales on demand. It can bring your data to your application transparently, wherever your users are located around the globe. By using the [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md), you can enable Xamarin mobile apps to interact directly with Azure Cosmos DB, without a middle tier.
+Most mobile apps need to store data in the cloud, and Azure Cosmos DB is a cloud database for mobile apps. It has everything a mobile developer need. It is a fully managed database as a service that scales on demand. It can bring your data to your application transparently, wherever your users are located around the globe. By using the [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md), you can enable Xamarin mobile apps to interact directly with Azure Cosmos DB, without a middle tier.
 
 This article provides a tutorial for building mobile apps with Xamarin and Azure Cosmos DB. You can find the complete source code for the tutorial at [Xamarin and Azure Cosmos DB on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin), including how to manage users and permissions.
 
@@ -31,7 +31,7 @@ Azure Cosmos DB provides the following key capabilities for mobile app developer
 
 * Rich queries over schemaless data. Azure Cosmos DB stores data as schemaless JSON documents in heterogeneous collections. It offers [rich and fast queries](how-to-sql-query.md) without the need to worry about schemas or indexes.
 * Fast throughput. It takes only a few milliseconds to read and write documents with Azure Cosmos DB. Developers can specify the throughput they need, and Azure Cosmos DB honors it with 99.99% availability SLA for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts.
-* Limitless scale. Your Azure Cosmos containers [grow as your app grows](partition-data.md). You can start with small data size and throughput of hundreds of requests per second. Your collections or databases can grow to petabytes of data and arbitrarily large throughput with hundreds of millions of requests per second.
+* Limitless scale. Your Azure Cosmos containers [grow as your app grows](partitioning-overview.md). You can start with small data size and throughput of hundreds of requests per second. Your collections or databases can grow to petabytes of data and arbitrarily large throughput with hundreds of millions of requests per second.
 * Globally distributed. Mobile app users are on the go, often across the world. Azure Cosmos DB is a [globally distributed database](distribute-data-globally.md). Click the map to make your data accessible to your users.
 * Built-in rich authorization. With Azure Cosmos DB, you can easily implement popular patterns like [per-user data](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems) or multiuser shared data, without complex custom authorization code.
 * Geospatial queries. Many mobile apps offer geo-contextual experiences today. With first-class support for [geospatial types](geospatial.md), Azure Cosmos DB makes creating these experiences easy to accomplish.
@@ -45,7 +45,7 @@ It's easy to get started with Azure Cosmos DB. Go to the Azure portal, and creat
 
 :::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="Azure Cosmos DB Quick start for mobile apps":::
 
-Or if you have an existing Xamarin app, you can add the [Azure Cosmos DB NuGet package](sql-api-sdk-dotnet-core.md). Azure Cosmos DB supports Xamarin.IOS, Xamarin.Android, and Xamarin Forms shared libraries.
+Or if you have an existing Xamarin app, you can add the [Azure Cosmos DB NuGet package](sql-api-sdk-dotnet-core.md). Azure Cosmos DB supports Xamarin.iOS, Xamarin.Android, and Xamarin Forms shared libraries.
 
 ### Work with data
 Your data records are stored in Azure Cosmos DB as schemaless JSON documents in heterogeneous collections. You can store documents with different structures in the same collection:
@@ -83,10 +83,10 @@ You can find a complete code sample of this pattern at [Resource Token Broker on
 
 :::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="Azure Cosmos DB users and permissions broker" border="false":::
 
-If you want two users to have access to the same to-do list, you can add additional permissions to the access token in Resource Token Broker.
+If you want two users to have,  access to the same to-do list, you can add additional permissions to the access token in Resource Token Broker.
 
 ### Scale on demand
-Azure Cosmos DB is a managed database as a service. As your user base grows, you don't need to worry about provisioning VMs or increasing cores. All you need to tell Azure Cosmos DB is how many operations per second (throughput) your app needs. You can specify the throughput via the **Scale** tab by using a measure of throughput called Request Units (RUs) per second. For example, a read operation on a 1-KB document requires 1 RU. You can also add alerts to the **Throughput** metric to monitor the traffic growth and programmatically change the throughput as alerts fire.
+Azure Cosmos DB is a managed database as a service. As your user base grows, you don't need to worry about provisioning VMs or increasing cores. All you need to tell Azure Cosmos DB is how many operations per second (throughput) your app needs. You can specify the throughput via the **Scale** tab by using a measure of throughput called Request Units (RUs) per second. For example, a read operation on a 1-KB document requires one RU. You can also add alerts to the **Throughput** metric to monitor the traffic growth and programmatically change the throughput as alerts fire.
 
 :::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="Azure Cosmos DB scale throughput on demand":::
 
