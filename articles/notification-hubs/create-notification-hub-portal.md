@@ -51,7 +51,7 @@ In this section, you create a notification hub in an existing namespace.
       ![Screenshot that shows the Notification Hub Namespaces web page with the new hub in the list.](./media/create-notification-hub-portal/new-hub-in-list.png)
 8. Select your **notification hub** to see the home page for your notification hub.
 
-      ![Azure portal - notifications -> Go to resource](./media/create-notification-hub-portal/hub-home-page.png)
+      ![Screenshot that shows the home page for your notification hub.](./media/create-notification-hub-portal/hub-home-page.png)
 
 ## Next steps
 
