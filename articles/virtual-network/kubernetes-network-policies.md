@@ -236,7 +236,7 @@ Following are some sample dashboard for NPM metrics in Container Insights (CI) a
 ![Azure Workbook summary counts](media/kubernetes-network-policies/workbook-summary-counts.png)
 
 #### CI Counts over Time
-![Azure Workbook counts over time](media/kubernetes-network-policies/workbook-counts-over-time.png)
+[![Azure Workbook counts over time](media/kubernetes-network-policies/workbook-counts-over-time.png)](media/kubernetes-network-policies/workbook-counts-over-time.png#lightbox)
 
 #### CI IPSet Entries
 ![Azure Workbook IPSet entries](media/kubernetes-network-policies/workbook-ipset-entries.png)
