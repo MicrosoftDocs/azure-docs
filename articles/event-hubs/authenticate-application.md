@@ -11,7 +11,7 @@ Microsoft Azure provides integrated access control management for resources and 
 When a role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of subscription, the resource group, the Event Hubs namespace, or any resource under it. An  Azure AD security can assign roles to a user, a group, an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
 
 > [!NOTE]
-> A role definition is a collection of permissions. Role-based access control (RBAC) controls how these permissions are enforced through role assignment. A role assignment consists of three elements: security principal, role definition, and scope. For more information, see [Understanding the different roles](../role-based-access-control/overview.md).
+> A role definition is a collection of permissions. Azure role-based access control (Azure RBAC) controls how these permissions are enforced through role assignment. A role assignment consists of three elements: security principal, role definition, and scope. For more information, see [Understanding the different roles](../role-based-access-control/overview.md).
 
 ## Built-in roles for Azure Event Hubs
 Azure provides the following Azure built-in roles for authorizing access to Event Hubs data using Azure AD and OAuth:
@@ -26,7 +26,7 @@ For Schema Registry built-in roles, see [Schema Registry roles](schema-registry-
 > Our preview release supported adding Event Hubs data access privileges to Owner or Contributor role. However, data access privileges for Owner and Contributor role are no longer honored. If you are using the Owner or Contributor role, switch to using the Azure Event Hubs Data Owner role.
 
 ## Assign Azure roles using the Azure portal  
-To learn more on managing access to Azure resources using RBAC and the Azure portal, see [this article](..//role-based-access-control/role-assignments-portal.md). 
+To learn more on managing access to Azure resources using Azure RBAC and the Azure portal, see [this article](..//role-based-access-control/role-assignments-portal.md). 
 
 After you've determined the appropriate scope for a role assignment, navigate to that resource in the Azure portal. Display the access control (IAM) settings for the resource, and follow these instructions to manage role assignments:
 
@@ -104,12 +104,12 @@ For a list of scenarios for which acquiring tokens is supported, see the [Scenar
     This sample has been updated to use the latest **Azure.Messaging.EventHubs** library.
 
 ## Next steps
-- To learn more about RBAC, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?
+- To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?
 - To learn how to assign and manage Azure role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:
-    - [Manage role-based access control (RBAC) with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
-    - [Manage role-based access control (RBAC) with Azure CLI](../role-based-access-control/role-assignments-cli.md)
-    - [Manage role-based access control (RBAC) with the REST API](../role-based-access-control/role-assignments-rest.md)
-    - [Manage role-based access control (RBAC) with Azure Resource Manager Templates](../role-based-access-control/role-assignments-template.md)
+    - [Add or remove Azure role assignments using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
+    - [Add or remove Azure role assignments using Azure CLI](../role-based-access-control/role-assignments-cli.md)
+    - [Add or remove Azure role assignments using the REST API](../role-based-access-control/role-assignments-rest.md)
+    - [Add Azure role assignments using Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)
 
 See the following related articles:
 - [Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources](authenticate-managed-identity.md)

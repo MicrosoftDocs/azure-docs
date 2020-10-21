@@ -82,7 +82,7 @@ The first two permissions are needed for [creating the AAD application](#create-
 
 The person running the FarmBeats install from marketplace needs to be an owner of the Resource Group in which FarmBeats is being installed. For subscription owners, this happens automatically when Resource Group is created. For others, please pre-create the Resource Group and ask the Subscription owner to make you an owner of the Resource Group.
 
-You can verify your access permissions in the Azure portal by following the instructions on [role based access control](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+You can verify your access permissions in the Azure portal by following the instructions on [Azure role-based access control](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
 ### Decide Subscription and Region
 

@@ -259,7 +259,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ### 4.6: Use Azure RBAC to manage access to resources
 
-**Guidance**: Azure Role-Based Access Control (Azure RBAC) enables fine-grained access management for Azure users, groups, and resources. With Azure RBAC, you can grant the level of access that users need. 
+**Guidance**: Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure users, groups, and resources. With Azure RBAC, you can grant the level of access that users need. 
 
 In Azure DNS, there exists the DNS Zone Contributor role, as well as zone level and record set level Azure RBAC. It is also possible to build your own custom Azure roles to provide finer-grained control.
 

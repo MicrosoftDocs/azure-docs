@@ -24,7 +24,7 @@ In addition to managing your Azure Digital Twins instance in the Azure portal, A
 * Managing twin relationships
 * Configuring endpoints
 * Managing [routes](concepts-route-events.md)
-* Configuring [security](concepts-security.md) via role-based access control (RBAC)
+* Configuring [security](concepts-security.md) via Azure role-based access control (Azure RBAC)
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 

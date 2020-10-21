@@ -6,7 +6,7 @@ ms.date: 06/23/2020
 ---
 
 # Authorize access to Event Hubs resources using Azure Active Directory
-Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize requests to Event Hubs resources. With Azure AD, you can use role-based access control (RBAC) to grant permissions to a security principal, which may be a user, or an application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).
+Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize requests to Event Hubs resources. With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, or an application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).
 
 ## Overview
 When a security principal (a user, or an application) attempts to access an Event Hubs resource, the request must be authorized. With Azure AD, access to a resource is a two-step process. 
@@ -68,7 +68,7 @@ For more information about how built-in roles are defined, see [Understand role 
 
 ## Next steps
 - Learn how to assign an Azure built-in role to a security principal, see [Authenticate access to Event Hubs resources using Azure Active Directory](authenticate-application.md).
-- Learn [how to create custom roles with RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole).
+- Learn [how to create custom roles with Azure RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole).
 - Learn [how to use Azure Active Directory with EH](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
 
 See the following related articles:

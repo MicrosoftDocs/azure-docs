@@ -20,7 +20,7 @@ This error may occur on many types of service requests that require authenticati
 
 ### Cause #1
 
-Most often, this error indicates that your role-based access control (RBAC) permissions for the service are not set up correctly. Many actions for an Azure Digital Twins instance require you to have the *Azure Digital Twins Owner (Preview)* role **on the instance you are trying to manage**. 
+Most often, this error indicates that your Azure role-based access control (Azure RBAC) permissions for the service are not set up correctly. Many actions for an Azure Digital Twins instance require you to have the *Azure Digital Twins Owner (Preview)* role **on the instance you are trying to manage**. 
 
 ### Cause #2
 

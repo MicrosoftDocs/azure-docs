@@ -16,7 +16,7 @@ We are introducing some important changes to support more fine-grained role-base
 ## What is changing?
 
 Previously, secrets could be obtained via the HDInsight API by cluster users
-possessing the Owner, Contributor, or Reader [RBAC
+possessing the Owner, Contributor, or Reader [Azure
 roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles), as they were available to anyone with the `*/read` permission. Secrets are defined as values that could be used to obtain more elevated access than a user's role should allow. These include values such as cluster gateway HTTP credentials, storage account keys, and database credentials.
 
 Beginning on September 3, 2019, accessing these secrets will require the `Microsoft.HDInsight/clusters/configurations/action` permission, meaning they can no longer be accessed by users with the Reader role. The roles that have this permission are Contributor, Owner, and the new HDInsight Cluster Operator role (more on that below).
@@ -182,7 +182,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### Using the Azure portal
 
-You can alternatively use the Azure portal to add the HDInsight Cluster Operator role assignment to a user. See the documentation, [Manage access to Azure resources using RBAC and the Azure portal - Add a role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
+You can alternatively use the Azure portal to add the HDInsight Cluster Operator role assignment to a user. See the documentation, [Add or remove Azure role assignments using the Azure portal - Add a role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
 
 ## FAQ
 

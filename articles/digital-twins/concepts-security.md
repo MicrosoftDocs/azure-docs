@@ -17,15 +17,15 @@ ms.service: digital-twins
 
 # Secure Azure Digital Twins
 
-For security, Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called **role-based access control (RBAC)**. You can read about the general principles of RBAC for Azure [here](../role-based-access-control/overview.md).
+For security, Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called **Azure role-based access control (Azure RBAC)**. You can read about the general principles of Azure RBAC [here](../role-based-access-control/overview.md).
 
 Azure Digital Twins also supports encryption of data at rest.
 
-## Granting permissions with RBAC
+## Granting permissions with Azure RBAC
 
-RBAC is provided to Azure Digital Twins via integration with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
+Azure RBAC is provided to Azure Digital Twins via integration with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
-You can use RBAC to grant permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD, and receives an OAuth 2.0 token in return. This token can be used to authorize an access request to an Azure Digital Twins instance.
+You can use Azure RBAC to grant permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD, and receives an OAuth 2.0 token in return. This token can be used to authorize an access request to an Azure Digital Twins instance.
 
 ### Authentication and authorization
 
@@ -58,7 +58,7 @@ Azure provides the below Azure built-in roles for authorizing access to an Azure
 For more information about how built-in roles are defined, see [*Understand role definitions*](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating Azure custom roles, see [*Azure custom roles*](../role-based-access-control/custom-roles.md).
 
 You can assign roles in two ways:
-* via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [*Add or remove role assignments using Azure RBAC and the Azure portal*](../role-based-access-control/role-assignments-portal.md))
+* via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [*Add or remove Azure role assignments using the Azure portal*](../role-based-access-control/role-assignments-portal.md))
 * via CLI commands to add or remove a role
 
 For more detailed steps on how to do this, try it out in the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md).
@@ -96,4 +96,4 @@ To resolve this error, you can do one of the following:
 
 * See how to interact with these concepts from client application code in [*How-to: Write app authentication code*](how-to-authenticate-client.md).
 
-* Read more about [RBAC for Azure](../role-based-access-control/overview.md).
+* Read more about [Azure RBAC](../role-based-access-control/overview.md).

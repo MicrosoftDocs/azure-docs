@@ -15,7 +15,7 @@ Enterprise Security is an optional package that you can add on your HDInsight cl
 
 * Integration with Active Directory for authentication.
 
-    In the past, you created HDInsight clusters with local admin user and local SSH user. The local admin user can access all the files, folders, tables, and columns.  With  Enterprise Security Package, you enable role-based access control by integrating HDInsight with your Azure Active Directory Domain Services.
+    In the past, you created HDInsight clusters with local admin user and local SSH user. The local admin user can access all the files, folders, tables, and columns.  With  Enterprise Security Package, you enable Azure role-based access control by integrating HDInsight with your Azure Active Directory Domain Services.
 
     For more information, see:
 
