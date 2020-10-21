@@ -12,7 +12,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/21/2020
 ms.author: inhenkel
 ---
 
@@ -42,19 +42,28 @@ Media Services currently supports the following built-in analyzer presets:
 |**Preset name**|**Scenario**|**Details**|
 |---|---|---|
 |[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio Standard|The preset applies a predefined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing content with a single audio track that contains speech in a single language. You can specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region'. Supported languages are English ('en-US' and 'en-GB'), Spanish ('es-ES' and 'es-MX'), French ('fr-FR'), Italian ('it-IT'), Japanese ('ja-JP'), Portuguese ('pt-BR'), Chinese ('zh-CN'), German ('de-DE'), Arabic ('ar-EG' and 'ar-SY'), Russian ('ru-RU'), Hindi ('hi-IN'), and Korean ('ko-KR').<br/><br/> If the language isn't specified or set to null, automatic language detection chooses the first language detected and continues with the selected language for the duration of the file. The automatic language detection feature currently supports English, Chinese, French, German, Italian, Japanese, Spanish, Russian, and Portuguese. It doesn't support dynamically switching between languages after the first language is detected. The automatic language detection feature works best with audio recordings with clearly discernible speech. If automatic language detection fails to find the language, the transcription falls back to English.|
-[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio Basic|This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463|
-|[VideoAnalyzerPreset]https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio and video|Extracts insights (rich metadata) from both audio and video, and outputs a JSON format file. You can specify whether you only want to extract audio insights when processing a video file. For more information, see [Analyze video](analyze-videos-tutorial-with-api.md).|
+|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio Basic|This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. The list of supported languages is available [here](https://go.microsoft.com/fwlink/?linkid=2109463)|
+|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio and video|Extracts insights (rich metadata) from both audio and video, and outputs a JSON format file. You can specify whether you only want to extract audio insights when processing a video file. For more information, see [Analyze video](analyze-videos-tutorial-with-api.md).|
 |[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detecting faces present in video|Describes the settings to be used when analyzing a video to detect all the faces present.|
 
-### AudioAnalyzerPreset
+### AudioAnalyzerPreset standard mode
 
-The preset enables you to extract multiple audio insights from an audio or video file. It includes both Standard and Basic modes.
+The preset enables you to extract multiple audio insights from an audio or video file.
 
 The output includes a JSON file (with all the insights) and VTT file for the audio transcript. This preset accepts a property that specifies the language of the input file in the form of a [BCP47](https://tools.ietf.org/html/bcp47) string. The audio insights include:
 
 * **Audio transcription**: A transcript of the spoken words with timestamps. Multiple languages are supported.
 * **Speaker indexing**: A mapping of the speakers and the corresponding spoken words.
 * **Speech sentiment analysis**: The output of sentiment analysis performed on the audio transcription.
+* **Keywords**: Keywords that are extracted from the audio transcription.
+
+### AudioAnalyzerPreset basic mode
+
+The preset enables you to extract multiple audio insights from an audio or video file.
+
+The output includes a JSON file and VTT file for the audio transcript. This preset accepts a property that specifies the language of the input file in the form of a [BCP47](https://tools.ietf.org/html/bcp47) string. The output includes:
+
+* **Audio transcription**: A transcript of the spoken words with timestamps. Multiple languages are supported, but automatic language detection and speaker diarization are not included.
 * **Keywords**: Keywords that are extracted from the audio transcription.
 
 ### VideoAnalyzerPreset

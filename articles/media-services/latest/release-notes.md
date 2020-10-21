@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 10/21/2020
 ms.author: inhenkel
 ---
 
@@ -38,7 +38,11 @@ To stay up-to-date with the most recent developments, this article provides you 
 ## October 2020
 
 ### Basic Audio Analysis
-Audio Analysis is now also available as Basic tier. Basic Audio Analyzer preset provides a low-cost option to extract only speech transcription, and format output captions and subtitles. This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. See the list of [supported languages.](analyzing-video-audio-files-concept.md#built-in-presets)
+The Audio Analysis preset now includes a Basic mode pricing tier. The new Basic Audio Analyzer mode provides a low-cost option to extract speech transcription, and format output captions and subtitles. This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. See the list of [supported languages.](analyzing-video-audio-files-concept.md#built-in-presets)
+
+Customers using Indexer v1 and Indexer v2 should migrate to the Basic Audio Analysis preset.
+
+For more information about the Basic Audio Analyzer mode, see [Analyzing Video and Audio files](analyzing-video-audio-files.md).
 
 ## August 2020
 
