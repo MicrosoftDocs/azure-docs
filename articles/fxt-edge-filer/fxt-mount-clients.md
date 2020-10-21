@@ -15,6 +15,7 @@ This tutorial teaches you how to mount NFS clients to the Azure FXT Edge Filer c
 This tutorial teaches:
 
 > [!div class="checklist"]
+>
 > * Strategies for load balancing clients across the range of client-facing IP addresses
 > * How to construct a mount path from a client-facing IP address and namespace junction
 > * Which arguments to use in a mount command

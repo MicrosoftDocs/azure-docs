@@ -229,6 +229,8 @@
   items:
     - name: Intent recognition documentation
       href: index-intent-recognition.yml
+    - name: Intent recognition overview
+      href: intent-recognition.md
     - name: Intent recognition quickstart
       href: quickstarts/intent-recognition.md
     - name: How-to guides

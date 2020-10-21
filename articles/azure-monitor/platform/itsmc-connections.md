@@ -40,7 +40,8 @@ Ensure the following prerequisites are met:
 
 > [!NOTE]
 > 
-> ITSM Connector can only connect to cloud-based ServiceNow instances. On-premises ServiceNow instances are currently not supported.
+> - ITSM Connector can only connect to cloud-based ServiceNow instances. On-premises ServiceNow instances are currently not supported.
+> - In order to use custom templates as a part of the actions the parameter "ProjectionType" in the SCSM should be mapped to "IncidentManagement!System.WorkItem.Incident.ProjectionType"
 
 ### Connection procedure
 

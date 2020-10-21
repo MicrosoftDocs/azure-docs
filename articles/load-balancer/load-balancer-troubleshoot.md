@@ -26,6 +26,12 @@ When the Load Balancer connectivity is unavailable, the most common symptoms are
 
 When the external clients to the backend VMs go through the load balancer, the IP address of the clients will be used for the communication. Make sure the IP address of the clients are added into the NSG allow list. 
 
+## Symptom: No outbound connectivity from Standard internal Load Balancers (ILB)
+
+**Validation and resolution**
+
+Standard ILBs are **secure by default**. Basic ILBs allowed connecting to the internet via a *hidden* Public IP address. This is not recommened for production workloads as the IP address is neither static nor locked down via NSGs that you own. If you recently moved from a Basic ILB to a Standard ILB, you should create a Public IP explicitly via [Outbound only](egress-only.md) configuration which locks down the IP via NSGs. 
+
 ## Symptom: VMs behind the Load Balancer are not responding to health probes
 For the backend servers to participate in the load balancer set, they must pass the probe check. For more information about health probes, see [Understanding Load Balancer Probes](load-balancer-custom-probe-overview.md). 
 
