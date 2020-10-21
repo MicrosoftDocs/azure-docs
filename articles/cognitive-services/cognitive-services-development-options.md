@@ -56,7 +56,7 @@ Azure offers a wide range of tools that are designed for different types of user
 <tr class="even">
 <td>Benefits</td>
 <td>Provides the greatest flexibility to call the services from any language and environment</td>
-<td>The Azure Cognitive Services for Big Data lets users channel terabytes of data through Cognitive Services using <a href="https://docs.microsoft.com/en-us/dotnet/spark/what-is-spark">Apache Spark&trade;</a>. It's easy to create large-scale intelligent applications with any datastore.</td>
+<td>The Azure Cognitive Services for Big Data lets users channel terabytes of data through Cognitive Services using <a href="https://docs.microsoft.com/dotnet/spark/what-is-spark">Apache Spark&trade;</a>. It's easy to create large-scale intelligent applications with any datastore.</td>
 <td>Allows you to continuously adjust, update, and deploy applications and models programmatically.<br />
 <br />
 There is significant benefit when regularly using your data to improve and update models for Speech, Vision, Language, and Decision.</td>
@@ -157,16 +157,16 @@ The tools that you will use to train and configure models are different than tho
 <tr class="odd">
 <td>Vision</td>
 <td>Custom vision</td>
-<td><a href="https://docs.microsoft.com/en-us/ai-builder/object-detection-overview">AI Builder</a></td>
+<td><a href="https://docs.microsoft.com/ai-builder/object-detection-overview">AI Builder</a></td>
 <td><a href="https://www.customvision.ai/">https://www.customvision.ai/</a></td>
 <td></td>
-<td><a href="https://docs.microsoft.com/en-us/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification?pivots=programming-language-csharp">Quickstart</a></td>
+<td><a href="https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification?pivots=programming-language-csharp">Quickstart</a></td>
 </tr>
 <tr class="even">
 <td></td>
 <td>Form Recognizer</td>
-<td><a href="https://docs.microsoft.com/en-us/ai-builder/form-processing-model-overview">AI Builder</a></td>
-<td>Tool must be set up yourself. <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/quickstarts/label-tool?tabs=v2-0">Quickstart</a></td>
+<td><a href="https://docs.microsoft.com/ai-builder/form-processing-model-overview">AI Builder</a></td>
+<td>Tool must be set up yourself. <a href="https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool?tabs=v2-0">Quickstart</a></td>
 <td></td>
 <td></td>
 </tr>
@@ -205,10 +205,10 @@ The tools that you will use to train and configure models are different than tho
 <tr class="odd">
 <td>Language</td>
 <td>Language Understanding (LUIS)</td>
-<td><a href="https://powervirtualagents.microsoft.com/en-us/">Power Virtual Agents</a></td>
+<td><a href="https://powervirtualagents.microsoft.com/">Power Virtual Agents</a></td>
 <td><a href="https://www.luis.ai/">https://www.luis.ai/</a></td>
 <td></td>
-<td><a href="https://docs.microsoft.com/en-us/azure/cognitive-services/luis/azure-sdk-quickstart?pivots=programming-language-csharp">Quickstart</a></td>
+<td><a href="https://docs.microsoft.com/azure/cognitive-services/luis/azure-sdk-quickstart?pivots=programming-language-csharp">Quickstart</a></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -216,7 +216,7 @@ The tools that you will use to train and configure models are different than tho
 <td></td>
 <td><a href="https://www.qnamaker.ai/">https://www.qnamaker.ai/</a></td>
 <td></td>
-<td><a href="https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/quickstarts/quickstart-sdk?tabs=visual-studio&amp;pivots=programming-language-csharp">Quickstart</a></td>
+<td><a href="https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/quickstart-sdk?tabs=visual-studio&amp;pivots=programming-language-csharp">Quickstart</a></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -248,7 +248,7 @@ The tools that you will use to train and configure models are different than tho
 <td>N/A</td>
 <td><a href="https://contentmoderator.cognitive.microsoft.com/dashboard">https://contentmoderator.cognitive.microsoft.com/dashboard</a></td>
 <td></td>
-<td><a href="https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/client-libraries?pivots=programming-language-csharp">Quickstart</a></td>
+<td><a href="https://docs.microsoft.com/azure/cognitive-services/content-moderator/client-libraries?pivots=programming-language-csharp">Quickstart</a></td>
 </tr>
 </tbody>
 </table>
