@@ -20,7 +20,7 @@ Azure provides the following Azure built-in roles for authorizing access to Even
 - [Azure Event Hubs Data Sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Use this role to give send access to Event Hubs resources.
 - [Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Use this role to give receiving access to Event Hubs resources.   
 
-For Schema Registry built-in roles, see [Schema Registry roles](schema-registry-overview.md#role-based-access-control).
+For Schema Registry built-in roles, see [Schema Registry roles](schema-registry-overview.md#azure-role-based-access-control).
 
 > [!IMPORTANT]
 > Our preview release supported adding Event Hubs data access privileges to Owner or Contributor role. However, data access privileges for Owner and Contributor role are no longer honored. If you are using the Owner or Contributor role, switch to using the Azure Event Hubs Data Owner role.

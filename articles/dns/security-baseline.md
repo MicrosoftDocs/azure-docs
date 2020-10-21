@@ -101,7 +101,7 @@ In Azure DNS, there exists the DNS Zone Contributor role, as well as zone level 
 
 - [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-- [Understand Azure RBAC in Azure DNS](dns-protect-zones-recordsets.md#role-based-access-control)
+- [Understand Azure RBAC in Azure DNS](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 **Azure Security Center monitoring**: Yes
 
@@ -265,7 +265,7 @@ In Azure DNS, there exists the DNS Zone Contributor role, as well as zone level 
 
 - [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Understand Azure RBAC in Azure DNS](dns-protect-zones-recordsets.md#role-based-access-control)
+- [Understand Azure RBAC in Azure DNS](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 - [Understand Azure RBAC in Azure Private DNS](dns-protect-private-zones-recordsets.md)
 
