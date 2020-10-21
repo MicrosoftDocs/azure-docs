@@ -195,6 +195,13 @@ No, AKS is a managed service, and manipulation of the IaaS resources is not supp
 
 The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo.
 
+## Are AKS Service Images required to run as root?
+
+Other than the images listed below, no they are not required to run as root:
+
+- *mcr.microsoft.com/oss/kubernetes/coredns*
+- *mcr.microsoft.com/azuremonitor/containerinsights/ciprod*
+
 <!-- LINKS - internal -->
 
 [aks-upgrade]: ./upgrade-cluster.md
