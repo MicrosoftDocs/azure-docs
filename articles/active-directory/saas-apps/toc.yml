@@ -493,6 +493,8 @@
         href: dynamicsignal-tutorial.md
       - name: Dynatrace
         href: dynatrace-tutorial.md
+      - name: EAComposer
+        href: eacomposer-tutorial.md
       - name: EAB Navigate
         href: eab-navigate-tutorial.md
       - name: EAB Navigate IMPL
