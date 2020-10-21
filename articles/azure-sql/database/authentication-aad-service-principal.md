@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/17/2020
+ms.date: 10/21/2020
 ---
 
 # Azure Active Directory service principal with Azure SQL
@@ -74,7 +74,9 @@ To enable an Azure AD object creation in SQL Database and Azure Synapse on behal
     - The Azure AD user who is granting this permission must be part of the Azure AD **Global Administrator** or **Privileged Roles Administrator** role.
 
 > [!IMPORTANT]
-> Steps 1 and 2 must be executed in the above order. First, create or assign the server identity, followed by granting the [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) permission. Omitting one of these steps, or both will cause an execution error during an Azure AD object creation in Azure SQL on behalf of an Azure AD application. For step by step instructions to create an Azure AD user on behalf of an Azure AD application, see [Tutorial: Create Azure AD users using Azure AD applications](authentication-aad-service-principal-tutorial.md).
+> Steps 1 and 2 must be executed in the above order. First, create or assign the server identity, followed by granting the [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) permission. Omitting one of these steps, or both will cause an execution error during an Azure AD object creation in Azure SQL on behalf of an Azure AD application.
+>
+> If you are using the service principal to set or unset the Azure AD admin, the application must also have the [Directory.Read.All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) Application API permission in Azure AD. For more information on [permissions required to set an Azure AD admin](authentication-aad-service-principal-tutorial.md#permissions-required-to-set-or-unset-the-azure-ad-admin), and step by step instructions to create an Azure AD user on behalf of an Azure AD application, see [Tutorial: Create Azure AD users using Azure AD applications](authentication-aad-service-principal-tutorial.md).
 >
 > In **public preview**, you can assign the **Directory Readers** role to a group in Azure AD. The group owners can then add the managed identity as a member of this group, which would bypass the need for a **Global Administrator** or **Privileged Roles Administrator** to grant the **Directory Readers** role. For more information on this feature, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
