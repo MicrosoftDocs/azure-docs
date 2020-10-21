@@ -30,8 +30,7 @@ To complete this quickstart, you'll need:
      sudo apt-get install build-essential libssl1.0.0 libasound2 wget
      ```
 
-> [!NOTE]
-> If libssl1.0.0 is not available, install libssl1.0.x (where x is greater than 0) or libssl1.1 instead.
+     If libssl1.0.0 is not available, install libssl1.0.x (where x is greater than 0) or libssl1.1 instead.
 
    * On RHEL/CentOS:
 

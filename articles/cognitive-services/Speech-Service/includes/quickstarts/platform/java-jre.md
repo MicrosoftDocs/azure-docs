@@ -41,8 +41,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
     sudo apt-get install build-essential libssl1.0.0 libasound2
     ```
 
-> [!NOTE]
-> If libssl1.0.0 is not available, install libssl1.0.x (where x is greater than 0) or libssl1.1 instead.
+    If libssl1.0.0 is not available, install libssl1.0.x (where x is greater than 0) or libssl1.1 instead.
 
   - On RHEL/CentOS, run the following commands to install the required packages:
 
