@@ -23,7 +23,7 @@ To collaborate with your colleagues, you can invite them to your Video Indexer a
 ## Invite new users
 
 1. Sign in on the [Video Indexer](https://www.videoindexer.ai/) website. Make sure you are connected with an admin account.
-1. If you are an admin, you see the **Share account** button in the top-right corner. Click on the button and you can invite users. 
+1. If you are the admin, you see the **Share account** button in the top-right corner. Click on the button and you can invite users. 
 
    ![Invite new users](./media/invite-users/share-account.png)
 1. Add the email addresses of the people you want to add to your Video Indexer account:
