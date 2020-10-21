@@ -22,6 +22,8 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in H
   Typically, the REST endpoint must meet this criteria for the connector to work:
 
   * The Swagger file must be hosted on an HTTPS URL that's publicly accessible.
+  
+  * The Swagger file must contain an operationID for each operation in the definition. If not, the connnector will only show the last operation in the Swagger file. 
 
   * The Swagger file must have [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) enabled.
 
