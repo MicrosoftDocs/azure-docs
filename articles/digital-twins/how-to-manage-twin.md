@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/09/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -104,7 +104,7 @@ foreach (string prop in twin.CustomProperties.Keys)
   Console.WriteLine($"Property '{prop}': {value}");
 }
 ```
-Only properties that have been set at least once are returned when you retrieve a twin with `GetDigitalTwin`.
+Only properties that have been set at least once are returned when you retrieve a twin with the `GetDigitalTwin()` method.
 
 >[!TIP]
 >The `displayName` for a twin is part of its model metadata, so it will not show when getting data for the twin instance. To see this value, you can [retrieve it from the model](how-to-manage-model.md#retrieve-models).
@@ -115,7 +115,7 @@ Consider the following model (written in [Digital Twins Definition Language (DTD
 
 ```json
 {
-    "@id": " dtmi:com:contoso:Moon;1",
+    "@id": "dtmi:example:Moon;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2",
     "contents": [
@@ -143,7 +143,7 @@ The result of calling `object result = await client.GetDigitalTwinAsync("my-moon
   "radius": 1737.1,
   "mass": 0.0734,
   "$metadata": {
-    "$model": "dtmi:com:contoso:Moon;1",
+    "$model": "dtmi:example:Moon;1",
     "radius": {
       "desiredValue": 1737.1,
       "desiredVersion": 5,
@@ -269,7 +269,7 @@ For example, consider the following JSON Patch document that replaces the digita
   {
     "op": "replace",
     "path": "/$metadata/$model",
-    "value": "dtmi:com:contoso:foo;1"
+    "value": "dtmi:example:foo;1"
   }
 ]
 ```
@@ -288,7 +288,7 @@ The patch for this situation needs to update both the model and the twin's tempe
   {
     "op": "replace",
     "path": "$metadata.$model",
-    "value": "dtmi:com:contoso:foo_new"
+    "value": "dtmi:example:foo_new"
   },
   {
     "op": "add",
@@ -417,7 +417,7 @@ namespace minimal
             Console.WriteLine($"Service client created – ready to go");
             await client.CreateModelsAsync(typeList);
             twin.Metadata = new DigitalTwinMetadata();
-            twin.Metadata.ModelId = "dtmi:com:contoso:Room;1";
+            twin.Metadata.ModelId = "dtmi:example:Room;1";
             // Initialize properties
             Dictionary<string, object> props = new Dictionary<string, object>();
             props.Add("Temperature", 35.0);

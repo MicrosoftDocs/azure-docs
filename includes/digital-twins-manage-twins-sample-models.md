@@ -3,7 +3,7 @@ author: v-lakast
 description: include file for Azure Digital Twins - manage twins sample models
 ms.service: digital-twins
 ms.topic: include
-ms.date: 10/19/2020
+ms.date: 10/21/2020
 ms.author: v-lakast
 ---
 

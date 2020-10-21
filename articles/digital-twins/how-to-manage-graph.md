@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/09/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -29,7 +29,7 @@ This article focuses on managing relationships and the graph as a whole; to work
 
 Relationships describe how different digital twins are connected to each other, which forms the basis of the twin graph.
 
-Relationships are created using the `CreateRelationship` call. 
+Relationships are created using the `CreateRelationship()` call. 
 
 To create a relationship, you need to specify:
 * The source twin ID (`srcId` in the code sample below): The ID of the twin where the relationship originates.
@@ -124,13 +124,12 @@ public static async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync
         }
 
 ```
-
 You can now call this method to see the outgoing relationships of the twins like this:
 
 ```csharp
 await FindOutgoingRelationshipsAsync(client, twin_Id);
 ```
-You can use the retrieved relationships to navigate to other twins in your graph. To do this, read the `target` field from the relationship that is returned, and use it as the ID for your next call to `GetDigitalTwin`.
+You can use the retrieved relationships to navigate to other twins in your graph. To do this, read the `target` field from the relationship that is returned, and use it as the ID for your next call to `GetDigitalTwin()`.
 
 ### Find incoming relationships to a digital twin
 
@@ -252,16 +251,16 @@ namespace minimal
             var typeList = new List<string>();
             string srcId = "myRoomID";
             string targetId = "myFloorID";
-            string dtdl = File.ReadAllText("room.json");
-            string dtdl1 = File.ReadAllText("floor.json");
+            string dtdl = File.ReadAllText("Room.json");
+            string dtdl1 = File.ReadAllText("Floor.json");
             typeList.Add(dtdl);
             typeList.Add(dtdl1);
             // Upload the model to the service
 
-            //await client.CreateModelsAsync(typeList);
+            await client.CreateModelsAsync(typeList);
 
             twin.Metadata = new DigitalTwinMetadata();
-            twin.Metadata.ModelId = "dtmi:com:contoso:room;1";
+            twin.Metadata.ModelId = "dtmi:example:Room;1";
             // Initialize properties
             Dictionary<string, object> props = new Dictionary<string, object>();
             props.Add("Temperature", 35.0);
@@ -271,10 +270,10 @@ namespace minimal
             await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
             // Creating twin data for second twin
             twin.Metadata = new DigitalTwinMetadata();
-            twin.Metadata.ModelId = "dtmi:com:contoso:floor;1";
+            twin.Metadata.ModelId = "dtmi:example:Floor;1";
             // Initialize properties
             Dictionary<string, object> props1 = new Dictionary<string, object>();
-            props1.Add("capacity", 5.0);
+            props1.Add("Capacity", 5.0);
             twin.CustomProperties = props1;
             await client.CreateDigitalTwinAsync(targetId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
             Console.WriteLine();
