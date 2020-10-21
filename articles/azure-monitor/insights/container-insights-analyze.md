@@ -286,7 +286,7 @@ The icons in the status field indicate the online statuses of pods, as described
 | ![Terminated status icon](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|
 | ![Failed status icon](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |
 
-## Monitor and Visualize Network Configurations
+## Monitor and visualize network configurations
 Azure Network Policy Manager includes informative Prometheus metrics that allow you to monitor and better understand your network configurations. It provides built-in visualizations in either the Azure portal or Grafana Labs. For details, see [Monitor and Visualize Network Configurations with Azure NPM](../../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
 
 
