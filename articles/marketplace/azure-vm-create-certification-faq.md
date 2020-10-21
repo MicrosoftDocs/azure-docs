@@ -407,7 +407,7 @@ To complete these steps you'll need to prepare the technical assets for the VM i
 5. On the **Technical configuration** tab, under **VM Images** , select **+ Add VM Image**.
 
 > [!NOTE]
-> You can add only one VM image to one plan at a time. To add multiple VM images, publish the first one and wait until it reaches the Publisher sign-off stage, then add the next VM image.
+> You can add only one VM image to one plan at a time. To add multiple VM images, publish the first one live before you add the next VM image.
 
 6. In the boxes that appear, provide a new disk version and the virtual machine image.
 7. Select **Save draft**.

@@ -1247,6 +1247,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-use-parallel-run-step.md",
+      "redirect_url": "/azure/machine-learning/tutorial-pipeline-batch-scoring-classification",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/batch-ai/cli-samples.md",
       "redirect_url": "/previous-versions/azure/batch-ai/cli-samples",
       "redirect_document_id": false
@@ -8935,7 +8940,7 @@
     },
     {
       "source_path": "articles/connectors/connectors-create-api-twitter",
-      "redirect_url": "/connectors/twitterconnector/",
+      "redirect_url": "/connectors/twitter/",
       "redirect_document_id": true
     },
     {
@@ -24344,8 +24349,13 @@
     },
     {
       "source_path": "articles/active-directory/develop/howto-v1-debug-saml-sso-issues.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/howto-v1-debug-saml-sso-issues",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/debug-saml-sso-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/howto-v1-debug-saml-sso-issues.md",
+      "redirect_url": "/azure/active-directory/manage-apps/debug-saml-sso-issues",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/howto-v1-enable-sso-android.md",
@@ -25614,8 +25624,8 @@
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-saml-debugging.md",
-      "redirect_url": "/azure/active-directory/develop/howto-v1-debug-saml-sso-issues",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/debug-saml-sso-issues",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-devhowto-appsource-certified.md",
@@ -31814,8 +31824,8 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create",
-      "redirect_document_id": true
+      "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/appsource-package-preparation.md",
@@ -31825,6 +31835,11 @@
     {
       "source_path": "articles/marketplace/enable-trial-using-azure-ad.md",
       "redirect_url": "/azure/marketplace/enable-appsource-marketplace-using-azure-ad",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/azure-vm-create-offer.md",
+      "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
       "redirect_document_id": true
     },
     {
@@ -32044,7 +32059,7 @@
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-post-publishing.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create",
+      "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
       "redirect_document_id": false
     },
     {
@@ -32054,7 +32069,7 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-publish-virtual-machine.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create",
+      "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
       "redirect_document_id": false
     },
     {
@@ -45514,32 +45529,32 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-create-offer.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create",
+      "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create",
+      "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-skus-tab.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create",
+      "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create",
+      "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create",
+      "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-support-tab.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create",
+      "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
       "redirect_document_id": false
     },
     {
@@ -45554,7 +45569,12 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation",
+      "redirect_url": "/azure/marketplace/azure-vm-create-certification-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/common-issues-during-vhd-creation.md",
+      "redirect_url": "/azure/marketplace/azure-vm-create-certification-faq",
       "redirect_document_id": false
     },
     {
@@ -45574,12 +45594,12 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create",
+      "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create",
+      "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
       "redirect_document_id": false
     },
     {
@@ -45594,7 +45614,7 @@
     },
     {
       "source_path": "articles/marketplace/partner-center-portal/create-azure-vm-technical-asset.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
+      "redirect_url": "/azure/marketplace/azure-vm-create-using-approved-base",
       "redirect_document_id": false
     },
     {
@@ -45654,12 +45674,12 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-publish-offer.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create",
+      "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create",
+      "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
       "redirect_document_id": false
     },
     {
@@ -53302,7 +53322,7 @@
     {
       "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk.md",
       "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-csharp",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/go-sdk.md",
@@ -56830,7 +56850,7 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create",
+      "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
       "redirect_document_id": false
     },
     {
