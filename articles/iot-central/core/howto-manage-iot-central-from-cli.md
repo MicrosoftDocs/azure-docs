@@ -23,14 +23,6 @@ Instead of creating and managing IoT Central applications on the [Azure IoT Cent
 
  - If you need to run your CLI commands in a different Azure subscription, see [Change the active subscription](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription).
 
-## Install the extension
-
-The commands in this article are part of the **azure-iot** CLI extension. Run the following command to install the extension:
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
-
 ## Create an application
 
 Use the [az iot central app create](/cli/azure/iot/central/app?view=azure-cli-latest#az-iot-central-app-create) command to create an IoT Central application in your Azure subscription. For example:

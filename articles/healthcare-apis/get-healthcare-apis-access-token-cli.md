@@ -16,14 +16,6 @@ In this article, you'll learn how to obtain an access token for the Azure API fo
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## Sign in with Azure CLI
-
-Before you can obtain a token, you need to sign in with the user that you want to obtain a token for:
-
-```azurecli-interactive
-az login
-```
-
 ## Obtain a token
 
 The Azure API for FHIR uses a `resource`  or `Audience` with URI equal to the URI of the FHIR server `https://<FHIR ACCOUNT NAME>.azurehealthcareapis.com`. You can obtain a token and store it in a variable (named `$token`) with the following command:

@@ -30,16 +30,6 @@ This quickstart walks you through creating a Linux virtual machine that's config
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - You use the Azure CLI to complete many of the steps in this quickstart, and Azure IoT has an extension to enable additional functionality.
-
- - Add the Azure IoT extension to the Cloud Shell instance.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
  - **Cloud resources**: A resource group to manage all the resources you use in this quickstart. We use the example resource group name **IoTEdgeResources** throughout this quickstart and the following tutorials.
 
      ```azurecli-interactive

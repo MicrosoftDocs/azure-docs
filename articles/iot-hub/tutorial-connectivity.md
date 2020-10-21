@@ -28,14 +28,6 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - The CLI scripts you run in this tutorial use the [Microsoft Azure IoT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). To install this extension, run the following CLI command:
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
  - The device simulator application you run in this tutorial is written using Node.js. You need Node.js v10.x.x or later on your development machine.
 
    You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).

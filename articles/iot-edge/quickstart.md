@@ -31,16 +31,6 @@ This quickstart walks you through creating a Windows virtual machine and configu
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - You use the Azure CLI to complete many of the steps in this quickstart. Azure IoT has an extension to enable additional functionality.
-
-   Add the Azure IoT extension to the Cloud Shell instance.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
-
-   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
-
  - **Cloud resources**: A resource group to manage all the resources you use in this quickstart.
 
      ```azurecli-interactive
@@ -58,8 +48,8 @@ This quickstart walks you through creating a Windows virtual machine and configu
  - Once your virtual machine starts, you can download an RDP file for use when connecting to your virtual machine:
 
    1. Navigate to your new Windows virtual machine in the Azure portal.
-   1. Select **Connect**.
-   1. On the **RDP** tab, select **Download RDP File**.
+   2. Select **Connect**.
+   3. On the **RDP** tab, select **Download RDP File**.
 
    Open this file with Remote Desktop Connection to connect to your Windows virtual machine using the administrator name and password you specified with the `az vm create` command.
 
