@@ -169,6 +169,8 @@
           href: https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar  
         - name: Java SDK - reference
           href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview
+        - name: Java SDK - source
+          href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core 
         - name: JavaScript SDK - npm
           href: https://www.npmjs.com/package/@azure/digital-twins/ 
         - name: JavaScript SDK - reference
