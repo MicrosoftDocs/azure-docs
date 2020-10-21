@@ -193,9 +193,9 @@ If you exceed the credit amount, your service are disabled until the next month 
 
 ### Grant administrative access to an Azure subscription
 
-RBAC has several built-in roles that you can use to assign permissions. To make a user an administrator of an Azure subscription, assign them the [Owner](../../role-based-access-control/built-in-roles.md#owner) role at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the right to delegate access to others.
+Azure RBAC has several built-in roles that you can use to assign permissions. To make a user an administrator of an Azure subscription, assign them the [Owner](../../role-based-access-control/built-in-roles.md#owner) role at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the right to delegate access to others.
 
-For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For more information, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### View billing information in the Azure portal
 
@@ -233,7 +233,7 @@ Resource Manager provides several benefits:
 
 - You can define the dependencies between resources so they are deployed in the correct order.
 
-- You can apply access control to all services in your resource group because RBAC is natively integrated into the management platform.
+- You can apply access control to all services in your resource group because Azure RBAC is natively integrated into the management platform.
 
 - You can apply tags on resources to logically organize all the resources in your subscription.
 
@@ -281,7 +281,7 @@ You can build Resource Manager templates in any text editor. However, the Azure 
 
 Finally, you can convert existing resource groups into a reusable template from the Azure portal. This can be helpful if you want to create a deployable template of an existing resource group, or you just want to examine the underlying JSON. To export a resource group, select the **Automation Script** button from the resource group’s settings.
 
-## Security of Azure resources (RBAC)
+## Security of Azure resources (Azure RBAC)
 
 You can grant operational access to user accounts at a specified scope: subscription, resource group, or individual resource. This means you can deploy a set of resources into a resource group, such as a virtual machine and all related resources, and grant permissions to a specific user or group. This approach limits access to only the resources that belong to the target resource group. You can also grant access to a single resource, such as a virtual machine or a virtual network.
 
@@ -301,7 +301,7 @@ Here are a few example [built-in roles in Azure](../../role-based-access-control
 
 - **Storage Account Contributor**: A user with this role can manage storage accounts but cannot manage access to the storage accounts.
 
-For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For more information, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Azure Virtual Machines
 
