@@ -2,7 +2,7 @@
 title: Template functions - arrays
 description: Describes the functions to use in an Azure Resource Manager template for working with arrays.
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 10/21/2020
 ---
 # Array functions for ARM templates
 
@@ -46,42 +46,64 @@ An array.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json) shows how to use the array function with different types.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "intToConvert": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "stringToConvert": {
-            "type": "string",
-            "defaultValue": "efgh"
-        },
-        "objectToConvert": {
-            "type": "object",
-            "defaultValue": {"a": "b", "c": "d"}
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "intToConvert": {
+      "type": "int",
+      "defaultValue": 1
     },
-    "resources": [
-    ],
-    "outputs": {
-        "intOutput": {
-            "type": "array",
-            "value": "[array(parameters('intToConvert'))]"
-        },
-        "stringOutput": {
-            "type": "array",
-            "value": "[array(parameters('stringToConvert'))]"
-        },
-        "objectOutput": {
-            "type": "array",
-            "value": "[array(parameters('objectToConvert'))]"
-        }
+    "stringToConvert": {
+      "type": "string",
+      "defaultValue": "efgh"
+    },
+    "objectToConvert": {
+      "type": "object",
+      "defaultValue": {
+        "a": "b",
+        "c": "d"
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "intOutput": {
+      "type": "array",
+      "value": "[array(parameters('intToConvert'))]"
+    },
+    "stringOutput": {
+      "type": "array",
+      "value": "[array(parameters('stringToConvert'))]"
+    },
+    "objectOutput": {
+      "type": "array",
+      "value": "[array(parameters('objectToConvert'))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param intToConvert int = 1
+param stringToConvert string = 'efgh'
+param objectToConvert object = {
+  'a': 'b'
+  'c': 'd'
+}
+
+output intOutput array = array(intToConvert)
+output stringOutput array = array(stringToConvert)
+output objectOutput array = array(objectToConvert)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
