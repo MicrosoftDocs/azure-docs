@@ -304,7 +304,7 @@ Once enabled, distributed tracing support for IoT Hub will follow this flow:
 1. The IoT device sends the message to IoT Hub.
 1. The message arrives at IoT hub gateway.
 1. IoT Hub looks for the `tracestate` in the message properties, and checks to see if it's in the correct format.
-1. If so, IoT Hub generates a globally unique `trace-id` for the message, a `span-id` for the "hop", and logs them to Azure Monitor diagnostic logs under the operation `DiagnosticIoTHubD2C`.
+1. If so, IoT Hub generates a globally unique `trace-id` for the message, a `span-id` for the "hop", and logs them to [IoT Hub distributed tracing logs](monitor-iot-hub-reference.md#distributed-tracing-preview) under the operation `DiagnosticIoTHubD2C`.
 1. Once the message processing is finished, IoT Hub generates another `span-id` and logs it along with the existing `trace-id` under the operation `DiagnosticIoTHubIngress`.
 1. If routing is enabled for the message, IoT Hub writes it to the custom endpoint, and logs another `span-id` with the same `trace-id` under the category `DiagnosticIoTHubEgress`.
 1. The steps above are repeated for each message generated.
@@ -321,3 +321,4 @@ Once enabled, distributed tracing support for IoT Hub will follow this flow:
 - To learn more about the general distributed tracing pattern in microservices, see [Microservice architecture pattern: distributed tracing](https://microservices.io/patterns/observability/distributed-tracing.html).
 - To set up configuration to apply distributed tracing settings to a large number of devices, see [Configure and monitor IoT devices at scale](./iot-hub-automatic-device-management.md).
 - To learn more about Azure Monitor, see [What is Azure Monitor?](../azure-monitor/overview.md).
+- To learn more about using Azure Monitor with IoT HUb, see [Monitor IoT Hub](monitor-iot-hub.md)

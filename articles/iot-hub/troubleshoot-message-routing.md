@@ -34,7 +34,7 @@ To troubleshoot this issue, analyze the following.
 
 All the [IoT Hub metrics related to routing](monitor-iot-hub-reference.md#routing-metrics) are prefixed with *Routing*. You can combine information from multiple metrics to identify root cause for issues. For example, use metric **Routing Delivery Attempts** to identify the number of messages that were delivered to an endpoint or dropped when they didn't match queries on any of the routes and fallback route was disabled. Check the **Routing Latency** metric to observe whether latency for message delivery is steady or increasing. A growing latency can indicate a problem with a specific endpoint and we recommend checking [the health of the endpoint](#the-health-of-the-endpoint). These routing metrics also have [dimensions](monitor-iot-hub-reference.md#metric-dimensions) that provide details on the metric like the endpoint type, specific endpoint name and a reason why the message was not delivered.
 
-#### The diagnostic logs for any operational issues
+#### The resource logs for any operational issues
 
 Observe the [**Routes** resource logs](monitor-iot-hub-reference.md#routes) to get more information on the routing and endpoint [operations](#operation-names) or identify errors and relevant [error code](#common-error-codes) to understand the issue further. For example, the operation name **RouteEvaluationError** in the log indicates the route could not be evaluated because of an issue with the message format. Use the tips provided for the specific [operation names](#operation-names) to mitigate the issue. When an event is logged as an error, the log will also provide more information on why the evaluation failed. For example, if the operation name is **EndpointUnhealthy**, an [Error code](#common-error-codes) of 403004 indicates the endpoint ran out of space.
 
@@ -61,7 +61,7 @@ You can enable/disable the fallback route in the Azure portal->Message Routing b
 <a id="last-known-errors"></a>
 [!INCLUDE [iot-hub-include-last-known-errors](../../includes/iot-hub-include-last-known-errors.md)]
 
-## Routes diagnostic logs
+## Routes resource logs
 
 The following are the operation names and error codes logged in the [routes resource logs](monitor-iot-hub-reference.md#routes).
 
