@@ -12,7 +12,8 @@ ms.date: 04/05/2018
 # Monitor and scale a single PostgreSQL server using Azure CLI
 This sample CLI script scales a single Azure Database for PostgreSQL server to a different performance level after querying the metrics. 
 
-> [!IMPORTANT] The storage size can only be increased, and there is direct option to revert back after completion of this task.
+> [!IMPORTANT] 
+> Storage can only be scaled up, not down.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
