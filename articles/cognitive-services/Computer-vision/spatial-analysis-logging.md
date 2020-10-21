@@ -18,7 +18,7 @@ Spatial analysis includes a set of features to monitor the health of the system 
 
 ## Enable visualizations
 
-To enable a visualization of AI Insights events in a video frame, you need to use the `.debug` version of a [spatial analysis operation](spatial-analysis-operations.md) on a Desktop machine. The visualization is not possible on ASE devices. There are four debug operations available.
+To enable a visualization of AI Insights events in a video frame, you need to use the `.debug` version of a [spatial analysis operation](spatial-analysis-operations.md) on a Desktop machine. The visualization is not possible on Azure Stack Edge (ASE) devices. There are four debug operations available.
 
 If your device is not an Azure Stack Edge device, edit the [non-ASE specific deployment manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)) to use the correct value for the `DISPLAY` environment variable. It needs to match the `$DISPLAY` variable on the host computer. After updating the deployment manifest, redeploy the container.
 
