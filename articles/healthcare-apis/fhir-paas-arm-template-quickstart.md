@@ -229,4 +229,4 @@ In this quickstart guide, you've deployed the Azure API for FHIR into your subsc
 >[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
 
 >[!div class="nextstepaction"]
->[Register Applications Overview](fhir-app-registrations.md)
+>[Register Applications Overview](fhir-app-registration.md)
