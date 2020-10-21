@@ -13,7 +13,7 @@ ms.author: aahi
 ---
 # Text Analytics API v3 language support 
 
-[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
+[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
 
 
 #### [Sentiment Analysis](#tab/sentiment-analysis)
