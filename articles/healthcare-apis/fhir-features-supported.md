@@ -98,7 +98,7 @@ All search parameter types are supported.
 | `_include`              | No        | Yes       | No        |         |
 | `_revinclude`           | No        | Yes       | No        | Included items are limited to 100. |
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count` is supported |
-| `_total`                | No        | No        | No        |         |
+| `_total`                | Partial   | Partial   | Partial   | _total=non and _total=accurate      |
 | `_elements`             | Yes       | Yes       | Yes       |         |
 | `_contained`            | No        | No        | No        |         |
 | `containedType`         | No        | No        | No        |         |
