@@ -176,7 +176,7 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## INSERT..EXECUTE
 
-Synapse SQL doesn't permit you to consume the result set of a stored procedure with an INSERT statement. There's an alternative approach you can use. For an example, see the article on [temporary tables](develop-tables-temporary.md).
+Synapse SQL doesn't permit you to consume the result set of a stored procedure with an INSERT statement. There's an alternative approach you can use. For an example, see the article on [temporary tables](develop-tables-temporary.md) for provisioned Synapse SQL pool.
 
 ## Limitations
 

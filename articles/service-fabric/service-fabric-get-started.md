@@ -88,7 +88,7 @@ Now that you've finished setting up your development environment, start building
 
 * [Learn how to create, deploy, and manage applications](service-fabric-tutorial-create-dotnet-app.md)
 * [Learn about the programming models: Reliable Services and Reliable Actors](service-fabric-choose-framework.md)
-* [Check out the Service Fabric code samples on GitHub](https://aka.ms/servicefabricsamples)
+* [Check out the Service Fabric code samples on GitHub](/samples/browse/?products=azure)
 * [Visualize your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)

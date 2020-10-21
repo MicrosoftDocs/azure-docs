@@ -179,7 +179,7 @@ Imagine there's an outage in the region in which the application is deployed, an
 
 3. Monitor the status of the recovery process in the PowerShell window.
 
-	![Recovery process](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
+	![Screenshot that shows the PowerShell window where you can monitor the status of the recovery process.](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
 
 > [!NOTE]
 > To explore the code for the recovery jobs, review the PowerShell scripts in the ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\RecoveryJobs folder.
@@ -197,7 +197,7 @@ While the application endpoint is disabled in Traffic Manager, the application i
 
   * If you open a tenant's events page directly while the tenant is offline, the page displays a tenant offline notification. For example, if Contoso Concert Hall is offline, try to open http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall.
 
-	![Recovery process](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
+	![Screenshot that shows an offline events page.](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
 ## Provision a new tenant in the recovery region
 Even before tenant databases are restored, you can provision new tenants in the recovery region. New tenant databases provisioned in the recovery region are repatriated with the recovered databases later.   
