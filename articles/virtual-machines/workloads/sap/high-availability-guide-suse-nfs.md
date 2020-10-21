@@ -510,7 +510,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    
    sudo crm configure primitive nfsserver systemd:nfs-server \
      op monitor interval="30s"
-   sudo crm configure clone cl-nfsserver nfsserver
+   sudo crm configure clone cl-nfsserver nfsserver \
+     meta interleave="true"
 
    sudo crm configure primitive exportfs_<b>NW1</b> \
      ocf:heartbeat:exportfs \
