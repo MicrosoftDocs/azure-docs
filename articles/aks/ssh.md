@@ -33,7 +33,7 @@ Use the [az aks show][az-aks-show] command to get the resource group name of you
 
 ```azurecli-interactive
 CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
+SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query '[0].name' -o tsv)
 ```
 
 The above example assigns the name of the cluster resource group for the *myAKSCluster* in *myResourceGroup* to *CLUSTER_RESOURCE_GROUP*. The example then uses *CLUSTER_RESOURCE_GROUP* to list the scale set name and assign it to *SCALE_SET_NAME*.
