@@ -31858,6 +31858,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/marketplace/partner-center-portal/azure-vm-image-certification.md",
+      "redirect_url": "/azure/marketplace/azure-vm-image-test",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/marketplace/gtm-promote-your-business.md",
       "redirect_url": "/azure/marketplace/gtm-marketing-best-practices",
       "redirect_document_id": false
@@ -45630,6 +45635,11 @@
     {
       "source_path": "articles/marketplace/partner-center-portal/create-azure-vm-technical-asset.md",
       "redirect_url": "/azure/marketplace/azure-vm-create-using-approved-base",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/vm-images-to-managed-disks-faq.md",
+      "redirect_url": "/azure/marketplace/azure-vm-create-faq",
       "redirect_document_id": false
     },
     {
