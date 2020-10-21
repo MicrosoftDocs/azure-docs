@@ -1,7 +1,7 @@
 ﻿---
 
 title: 'Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint'
-description: Use this tutorial to learn how to create a Private Endpoint using the Azure portal.
+description: Use this tutorial to learn how to create a Azure SQL server with a private endpoint.
 services: private-link
 author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
@@ -250,7 +250,7 @@ When you're done using the private endpoint, SQL server, and the VM, delete the 
 
 ## Next steps
 
-In this quickstart, you created a:
+In this tutorial, you created a:
 
 * Virtual network and bastion host.
 * Virtual machine.
