@@ -7,7 +7,7 @@ ms.service: mysql
 ms.custom: "mvc, devx-track-csharp"
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 9/29/2020
+ms.date: 10/16/2020
 ---
 
 # Quickstart: Use .NET (C#) to connect and query data in Azure Database for MySQL

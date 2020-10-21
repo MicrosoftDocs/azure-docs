@@ -46,12 +46,15 @@ In this section, you use an X.509 certificate to connect a device with a cert de
     npm install
     ```
 
-1. Create a root certificate and then derive a device certificate by running the script. Be sure to only use lower-case alphanumerics and hyphens for certificate name:
+1. Create a root certificate and then derive a device certificate by running the script:
 
     ```cmd/sh
     node create_test_cert.js root mytestrootcert
     node create_test_cert.js device mytestdevice mytestrootcert
     ```
+
+    > [!TIP]
+    > A device ID can contain letters, numbers, and the `-` character.
 
 These commands produce three files each for the root and the device certificate
 

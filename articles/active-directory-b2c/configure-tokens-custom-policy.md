@@ -84,6 +84,9 @@ The following values are set in the previous example:
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
 
+> [!NOTE]
+> Single-page applications using the authorization code flow with PKCE always have a refresh token lifetime of 24 hours. [Learn more about the security implications of refresh tokens in the browser](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+
 ## Next steps
 
 - Learn more about [Azure AD B2C session](session-overview.md).

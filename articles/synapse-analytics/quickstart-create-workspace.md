@@ -5,7 +5,7 @@ services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics 
 ms.topic: quickstart
-ms.subservice: overview
+ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick 

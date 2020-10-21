@@ -6,7 +6,7 @@ author: duongau
 Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
 ms.service: traffic-manager
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 10/19/2020
 ms.author: duau
 ---
 
@@ -196,11 +196,13 @@ In this section, you can see Traffic Manager in action.
 
 7. Repeat steps 1-6 on the VM myVMWestEurope to see the weighted website response.
 
-## Delete the Traffic Manager profile
+## Clean up resources
 
 When you no longer need the resource groups that you created in this tutorial, you can delete them. To do so, select the resource group (**ResourceGroupTM1** or **ResourceGroupTM2**), and then select **Delete**.
 
 ## Next steps
 
+To learn more about routing methods, see:
+
 > [!div class="nextstepaction"]
-> [Route traffic to specific endpoints based on the user's geographic location](traffic-manager-configure-geographic-routing-method.md)
+> [Traffic routing method](traffic-manager-routing-methods.md)

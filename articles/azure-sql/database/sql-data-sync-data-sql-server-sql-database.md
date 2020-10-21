@@ -131,6 +131,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - The names of objects (databases, tables, and columns) can't contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 - Azure Active Directory authentication isn't supported.
 - If there are tables with the same name but different schema (for example, dbo.customers and sales.customers) only one of the tables can be added into sync.
+- A table name can't have characters that have an ASCII value smaller or equal than '-'.
 - Columns with User-Defined Data Types aren't supported
 - Moving servers between different subscriptions isn't supported. 
 
