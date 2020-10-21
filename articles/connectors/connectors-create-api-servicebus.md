@@ -67,7 +67,7 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and open your blank logic app in the Logic App Designer.
 
-1. In the portal search box, enter `azure service bus`, and from the triggers list, select the trigger that you want.
+1. In the portal search box, enter `azure service bus`. From the triggers list that appears, select the trigger that you want.
 
    For example, to trigger your logic app when a new item gets sent to a Service Bus queue, select the **When a message is received in a queue (auto-complete)** trigger.
 
@@ -122,13 +122,13 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and open your logic app in the Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
 
 1. Under the step where you want to add an action, select **New step**.
 
    Or, to add an action between steps, move your pointer over the arrow between those steps. Select the plus sign (**+**) that appears, and select **Add an action**.
 
-1. Under **Choose an action**, in the search box, enter "azure service bus" as your filter. From the actions list, select the action that you want. 
+1. Under **Choose an action**, in the search box, enter `azure service bus`. From the actions list that appears, select the action that you want. 
 
    For this example, select the **Send message** action.
 
