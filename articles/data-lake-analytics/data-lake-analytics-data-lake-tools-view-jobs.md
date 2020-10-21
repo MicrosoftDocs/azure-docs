@@ -4,7 +4,6 @@ description: This article describes how to use Job Browser and Job View for Azur
 ms.service: data-lake-analytics
 
 
-ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: how-to
 ms.date: 08/02/2017
 ---
