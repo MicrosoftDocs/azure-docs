@@ -29,6 +29,7 @@ This page is updated frequently, so revisit it often.
 
 - [Vulnerability assessment for on-premise and multi-cloud machines (preview)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
 - [Azure Firewall recommendation added (preview)](#azure-firewall-recommendation-added-preview)
+- [Authorized IP ranges should be defined on Kubernetes Services recommendation updated with quick fix](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
 - [Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
 
 ### Vulnerability assessment for on-premise and multi-cloud machines (preview)
@@ -58,6 +59,15 @@ A new recommendation has been added to protect all your virtual networks with Az
 The recommendation, **Virtual networks should be protected by Azure Firewall** advises you to restrict access to your virtual networks and prevent potential threats by using Azure Firewall.
 
 Learn more about [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/).
+
+
+### Authorized IP ranges should be defined on Kubernetes Services recommendation updated with quick fix
+
+The recommendation **Authorized IP ranges should be defined on Kubernetes Services** now has a quick fix option.
+
+For more details of this recommendation and all other Security Center recommendations, see [Security recommendations - a reference guide](recommendations-reference.md).
+
+:::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="The authorized IP ranges should be defined on Kubernetes Services recommendation with the quick fix option":::
 
 
 ### Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)
