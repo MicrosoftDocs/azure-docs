@@ -48,7 +48,7 @@ Next, the extracted data is transformed and loaded into a set of [star-schema](h
 
 Together the central and dimension tables enable efficient analytical processing. The star-schema used in this tutorial is displayed in the following image:
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics-adf/starschematables.JPG)
+![Diagram that shows the star schema that is used in this tutorial.](./media/saas-tenancy-tenant-analytics-adf/starschematables.JPG)
 
 Finally, the star-schema tables are queried. Query results are displayed visually using Power BI to highlight insights into tenant behavior and their use of the application. With this star-schema, you run queries that expose:
 

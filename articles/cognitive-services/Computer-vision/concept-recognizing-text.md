@@ -33,7 +33,7 @@ The **Read** call takes images and documents as its input. They have the followi
 * The PDF dimensions must be at most 17 x 17 inches, corresponding to legal or A3 paper sizes and smaller.
 
 ### Read 3.2 preview allows selecting page(s)
-With the [Read 3.2 preview API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005), for large multi-page documents, you can provide specific page numbers or page ranges as an input parameter to extract text from only those pages. This is a new input parameter in addition to the optional language parameter.
+With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005), for large multi-page documents, you can provide specific page numbers or page ranges as an input parameter to extract text from only those pages. This is a new input parameter in addition to the optional language parameter.
 
 > [!NOTE]
 > **Language input** 
@@ -46,7 +46,7 @@ The Read API's [Read call](https://westcentralus.dev.cognitive.microsoft.com/doc
 
 |Response header| Result URL |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/vision/v3.2/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/vision/v3.1/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 > [!NOTE]
 > **Billing** 
@@ -125,23 +125,17 @@ See the following example of a successful JSON response:
 }
 ```
 ### Read 3.2 preview adds text line style (Latin languages only)
-The [Read 3.2 preview API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) outputs an **appearance** object classifying whether each text line is print or handwriting style, along with a confidence score. This feature is supported only for Latin languages.
+The [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) outputs an **appearance** object classifying whether each text line is print or handwriting style, along with a confidence score. This feature is supported only for Latin languages.
 
-```json
-  "appearance": {
-              "style": "handwriting",
-              "styleConfidence": 0.836
-            }
-```
-Get started with the [Computer Vision OCR SDK quickstarts](./quickstarts-sdk/client-library.md) and the [Read REST API quickstarts](./QuickStarts/CSharp-hand-text.md) to start integrating OCR capabilities into your applications.
+Get started with the [Computer Vision Read OCR SDK quickstarts](./quickstarts-sdk/client-library.md) and the [Read REST API quickstarts](./QuickStarts/CSharp-hand-text.md) to start integrating OCR capabilities into your applications.
 
 ## Supported languages for print text
-The [Read 3.2 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages.
+The [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages.
 
 See the [Supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) for the full list of OCR-supported languages.
 
 ### Read 3.2 preview adds Simplified Chinese and Japanese
-The [Read 3.2 API public preview](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) adds support for Simplified Chinese and Japanese. If your scenario requires supporting more languages, see the [OCR API](#ocr-api) section. 
+The [Read 3.2 API public preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) adds support for Simplified Chinese and Japanese. If your scenario requires supporting more languages, see the [OCR API](#ocr-api) section. 
 
 ## Supported languages for handwritten text
 The Read operation currently supports extracting handwritten text exclusively in English.
@@ -150,7 +144,7 @@ The Read operation currently supports extracting handwritten text exclusively in
 The [Read 3.x REST API](./QuickStarts/CSharp-hand-text.md) is the preferred option for most customers because of ease of integration and fast productivity out of the box. Azure and the Computer Vision service handle scale, performance, data security, and compliance needs while you focus on meeting your customers' needs.
 
 ## Deploy on-premise with Docker containers
-The [Read 2.0 Docker container (preview)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) enables you to deploy the new OCR capabilities in your own local environment. Containers are great for specific security and data governance requirements.
+The [Read Docker container (preview)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) enables you to deploy the new OCR capabilities in your own local environment. Containers are great for specific security and data governance requirements.
 
 ## Example outputs
 
@@ -197,7 +191,7 @@ As with all the cognitive services, developers using the Read/OCR services shoul
 
 ## Next steps
 
-- Get started with the [Computer Vision Read 3.0 SDK quickstarts](./quickstarts-sdk/client-library.md) in C#, Java, JavaScript, or Python.
-- Use the [Read 3.1 REST API quickstarts](./QuickStarts/CSharp-hand-text.md) in C#, Java, JavaScript, or Python to learn how to use the REST APIs.
-- Learn about the [Read 3.1 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
-- Learn about the [Read 3.2 public preview REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) with added support for Simplified Chinese and Japanese.
+- Get started with the [Computer Vision Read SDK quickstarts](./quickstarts-sdk/client-library.md) in C#, Java, JavaScript, or Python.
+- Use the [Read REST API quickstarts](./QuickStarts/CSharp-hand-text.md) in C#, Java, JavaScript, or Python to learn how to use the REST APIs.
+- Learn about the [Read REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
+- Learn about the [Read 3.2 public preview REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) with added support for Simplified Chinese and Japanese.

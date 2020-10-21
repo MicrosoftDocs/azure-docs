@@ -129,6 +129,8 @@ If you already have a VNet, verify that the settings are compatible with your VP
 
 ### To create a virtual network
 
+[!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
+
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## Create the VNet1 gateway

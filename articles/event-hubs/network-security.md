@@ -2,7 +2,7 @@
 title: Network security for Azure Event Hubs 
 description: This article describes how to configure access from private endpoints
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 10/20/2020
 ---
 
 # Network security for Azure Event Hubs 
@@ -67,8 +67,8 @@ For more information, see [How to configure virtual network service endpoints fo
 
 A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
-> [!NOTE]
-> This feature is supported only with the **dedicated** tier. For more information about the dedicated tier, see [Overview of Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
+> [!IMPORTANT]
+> This feature is supported for both **standard** and **dedicated** tiers. It's not supported in the **basic** tier.
 
 For more information, see [How to configure private endpoints for an event hub](private-link-service.md)
 
