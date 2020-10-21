@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
 
 ---
@@ -33,7 +33,7 @@ See the other articles in this series:
 
 
 > [!IMPORTANT]
-> While most of the studio works with data stored in a virtual network, integrated notebooks __do not__. Integrated notebooks do not support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook]() section.
+> If your workspace is in a sovereign cloud, such as Azure Government or Azure China 21Vianet, integrated notebooks __do not__ support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](how-to-secure-training-vnet#access-data-in-a-compute-instance-notebook) section.
 
 
 ## Prerequisites
