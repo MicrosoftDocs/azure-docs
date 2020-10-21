@@ -31,9 +31,9 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 ### Legacy APNs support deprecated
 
-**Q**: Because the legacy binary interface for Apple Push Notification service is being deprecated in November 2020, how can I continue to use the Microsoft Authenticator/Phone Factor to sign-in?
+**Q**: Because the legacy binary interface for Apple Push Notification service is being deprecated in November 2020, how can I continue to use Microsoft Authenticator/Phone Factor to sign-in?
 
-**A**: [Apple announced deprecation](https://developer.apple.com/news/?id=11042019a) of push notifications for iOS devices that use its binary interface. To continue to receive push notifications, we recommend that users update their Authenticator app to the latest version of the app. In the meantime, you can work around it by manually checking for notifications in the Authenticator app.
+**A**: [Apple announced deprecation](https://developer.apple.com/news/?id=11042019a) of push notifications that use its binary interface for iOS devices, such as those used by Phone Factor. To continue to receive push notifications, we recommend that users update their Authenticator app to the latest version of the app. In the meantime, you can work around it by manually checking for notifications in the Authenticator app.
 
 ### App Lock feature
 
