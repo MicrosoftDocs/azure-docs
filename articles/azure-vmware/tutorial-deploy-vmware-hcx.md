@@ -62,7 +62,7 @@ Infrastructure components must be running the required minimum version.
 
 * [All required ports](https://ports.vmware.com/home/VMware-HCX) should be open for communication between on-premises components and Azure VMware Solution SDDC.
 
-* For more information: [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
+For more information, see the [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
 
 
 ### IP addresses
@@ -71,13 +71,13 @@ Infrastructure components must be running the required minimum version.
    
 ## Deploy the VMware HCX Connector OVA on-premises
 
->[!NOTE]
->Before you deploy the virtual appliance to your on-premises vCenter, you'll need to download the VMware HCX Connector OVA. 
+> [!NOTE]
+> Before you deploy the virtual appliance to your on-premises vCenter, you must download the VMware HCX Connector OVA. 
 
 1. Open a browser window, sign in to the Azure VMware Solution HCX Manager on `https://x.x.x.9` port 443 with the **cloudadmin** user credentials, and then go to **Support**.
 
-   >[!TIP]
-   >Note the IP address of the HCX Cloud Manager in Azure VMware Solution. To identify the IP address, on the Azure VMware Solution pane, go to **Manage** > **Connectivity** and then select the **HCX** tab. 
+   > [!TIP]
+   > Note the IP address of the HCX Cloud Manager in Azure VMware Solution. To identify the IP address, on the Azure VMware Solution pane, go to **Manage** > **Connectivity** and then select the **HCX** tab. 
    >
    >The vCenter password was defined when you set up the private cloud.
 
@@ -100,8 +100,8 @@ Infrastructure components must be running the required minimum version.
 
 1. Select **Next**, verify the configuration, and then select **Finish** to deploy the HCX Connector OVA.
      
-   >[!NOTE]
-   >Generally, the VMware HCX Connector that you're deploying now is deployed onto the cluster's management network.  
+   > [!NOTE]
+   > Generally, the VMware HCX Connector that you're deploying now is deployed onto the cluster's management network.  
    
    > [!IMPORTANT]
    > You might need to turn on the virtual appliance manually.  If that's the case, wait 10-15 minutes before proceeding to the next step.
@@ -269,12 +269,13 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 ### Create a service mesh
 
 Now it's time to configure a service mesh between on-premises and Azure VMware Solution SDDC.
-   >[!NOTE]
-   >To successfully establish a service mesh with AVS:
+
+   > [!NOTE]
+   > To successfully establish a service mesh with Azure VMware Solution:
    >
-   >Ports UDP 500/4500 are open between your on-prem HCX connector defined 'uplink' network profile addresses and AVS HCX Cloud'uplink' network profile addresses.
+   > Ports UDP 500/4500 are open between your on-premises HCX connector-defined 'uplink' network profile addresses and the Azure VMware Solution HCX Cloud 'uplink' network profile addresses.
    >
-   > Be sure to review [HCX required ports](https://ports.vmware.com/home/VMware-HCX)
+   > Be sure to review [HCX required ports](https://ports.vmware.com/home/VMware-HCX).
 
 1. Under **Infrastructure**, select **Interconnect** > **Service Mesh** > **Create Service Mesh**.    
 
