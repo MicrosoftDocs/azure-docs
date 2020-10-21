@@ -43,7 +43,7 @@ Note the following details:
   * Spokes send internet traffic to the Perimeter VNet through a direct VNet peering.
 * Branches get to spokes via a static routing pointing to the Service VNet. They don't learn specific prefixes from the virtual networks that override the summarized static route.
 * The Service VNet is similar to a Shared Services VNet that needs to be reachable from every VNet and every branch.
-* The Perimeter VNet doesn't need to have connectivity over Virtual WAN, because the only traffic it supports comes over direct virtual network peerings. To simplify configuration, however, in this article you use the same connectivity model as for the perimeter VNet.
+* The Perimeter VNet doesn't need to have connectivity over Virtual WAN, because the only traffic it supports comes over direct virtual network peerings. To simplify configuration, however, in this article you use the same connectivity model as for the Perimeter VNet.
 
 From the table, you can see three distinct connectivity patterns, which translates to three route tables. The associations to the different virtual networks are as follows:
 
@@ -115,9 +115,9 @@ To set up routing via NVA, here are the steps to consider:
 
    * **Routes:** Add an aggregated static route entry for VNets 1, 2, and 3, with next hop as the VNet 4 connection. Configure a static route in VNet 4’s connection for VNet 1, 2, and 3 aggregated prefixes, and indicate the next hop to be the specific IP of the NVA in VNet 4.
 
-   * **Association:** Make sure the option for branches (VPN/ER/P2S) is selected, ensuring that on-premises branch connections are associated to the *defaultroutetable*.
+   * **Association:** Make sure the option for branches (VPN/ER/P2S) is selected, ensuring that on-premises branch connections are associated to the default route table.
 
-   * **Propagation from:** Make sure the option for branches (VPN/ER/P2S) is selected, ensuring that on-premises connections are propagating routes to the *defaultroutetable*.
+   * **Propagation from:** Make sure the option for branches (VPN/ER/P2S) is selected, ensuring that on-premises connections are propagating routes to the default route table.
 
 :::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Diagram of workflow." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
