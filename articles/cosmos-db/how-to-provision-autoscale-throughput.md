@@ -1,17 +1,20 @@
 ---
-title: Provision autoscale throughput in Azure Cosmos DB
-description: Learn how to provision autoscale throughput at the container and database level in Azure Cosmos DB using Azure portal, CLI, PowerShell, and various other SDKs. 
+title: Provision autoscale throughput in Azure Cosmos DB SQL API
+description: Learn how to provision autoscale throughput at the container and database level in Azure Cosmos DB SQL API using Azure portal, CLI, PowerShell, and various other SDKs. 
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 10/15/2020
 ms.custom: devx-track-csharp
 ---
 
-# Provision autoscale throughput on database or container in Azure Cosmos DB
+# Provision autoscale throughput on database or container in Azure Cosmos DB - SQL API
 
-This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database.
+This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB SQL API. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database.
+
+If you are using a different API, see [API for MongoDB](how-to-provision-throughput-mongodb.md), [Cassandra API](how-to-provision-throughput-cassandra.md), [Gremlin API](how-to-provision-throughput-gremlin.md) articles to provision the throughput.
 
 ## Azure portal
 
@@ -47,7 +50,7 @@ To provision autoscale on shared throughput database, select the **Provision dat
 > [!NOTE]
 > When you enable autoscale on an existing database or container, the starting value for max RU/s is determined by the system, based on your current manual provisioned throughput settings and storage. After the operation completes, you can change the max RU/s if needed. [Learn more.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
-## Azure Cosmos DB .NET V3 SDK for SQL API
+## Azure Cosmos DB .NET V3 SDK
 
 Use [version 3.9 or higher](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK for SQL API to manage autoscale resources. 
 
@@ -104,7 +107,7 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
-## Azure Cosmos DB Java V4 SDK for SQL API
+## Azure Cosmos DB Java V4 SDK
 
 You can use [version 4.0 or higher](https://mvnrepository.com/artifact/com.azure/azure-cosmos) of the Azure Cosmos DB Java SDK for SQL API to manage autoscale resources.
 
@@ -237,14 +240,6 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 ```
 
 ---
-
-## Cassandra API
-
-Azure Cosmos DB accounts for Cassandra API can be provisioned for autoscale using [CQL commands](manage-scale-cassandra.md#use-autoscale), [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) or [Azure Resource Manager templates](resource-manager-samples.md).
-
-## Azure Cosmos DB API for MongoDB
-
-Azure Cosmos DB accounts for MongoDB API can be provisioned for autoscale using [MongoDB extension commands](mongodb-custom-commands.md), [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) or [Azure Resource Manager templates](resource-manager-samples.md).
 
 ## Azure Resource Manager
 

@@ -123,6 +123,15 @@ await identityClient.revokeTokens(userResponse);
 console.log(`\nSuccessfully revoked all tokens for user with Id: ${userResponse.communicationUserId}`);
 ```
 
+## Refresh user access tokens
+
+To refresh a token, use the `CommunicationUser` object to re-issue:
+
+```javascript  
+let userResponse = new CommunicationUser(existingUserId);
+let tokenResponse = await identityClient.issueToken(userResponse, ["voip"]);
+```
+
 ## Delete a user
 
 Deleting a user revokes all active tokens and prevents you from issuing subsequent tokens for the identities. It also removes all the persisted content associated with the user.

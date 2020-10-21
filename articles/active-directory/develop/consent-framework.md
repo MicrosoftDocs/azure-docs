@@ -10,10 +10,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 10/21/2020
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
-ms.custom: aaddev, has-adal-ref
 ---
 
 # Azure Active Directory consent framework
@@ -60,5 +59,4 @@ The following steps show you how the consent experience works for both the appli
 
 ## Next steps
 
-* See [how to convert an app to be multi-tenant](howto-convert-app-to-be-multi-tenant.md)
-* For more depth, learn [how consent is supported at the OAuth 2.0 protocol layer during the authorization code grant flow.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)
+See [how to convert an app to be multi-tenant](howto-convert-app-to-be-multi-tenant.md)

@@ -108,7 +108,7 @@ In this task, you start a process that syncs the configuration of the servers, e
 	* **$DemoScenario = 1**, Start a background job that syncs tenant server, and pool configuration info into the catalog
 
 3. Press **F5** to run the sync script. A new PowerShell session is opened to sync the configuration of tenant resources.
-![Sync process](./media/saas-dbpertenant-dr-geo-replication/sync-process.png)
+![Screenshot that shows the new PowerShell session that is opened to sync the configuration of tenant resources.](./media/saas-dbpertenant-dr-geo-replication/sync-process.png)
 
 Leave the PowerShell window running in the background and continue with the rest of the tutorial. 
 
