@@ -247,12 +247,6 @@ Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resourc
 az group delete --name <your-resource-group>
 ```
 
-If you're deleting your Azure Digital Twins instance, you can also delete the Azure AD app registration you created for it in the end-to-end tutorial, using this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
-
 Finally, delete the project sample folders that you downloaded to your local machine (*Azure_Digital_Twins_end_to_end_samples.zip* and *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
 
 ## Next steps

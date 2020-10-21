@@ -3,7 +3,7 @@ title: How to create update deployments for Azure Automation Update Management
 description: This article describes how to schedule update deployments and review their status.
 services: automation
 ms.subservice: update-management
-ms.date: 10/14/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ---
 
@@ -49,12 +49,12 @@ To schedule a new update deployment, perform the following steps. Depending on t
     > [!NOTE]
     > This option is not available if you selected an Azure VM or Arc enabled server. The operating system is automatically identified.
 
-5. In the **Groups to update (preview)** region, define a query that combines subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Use dynamic groups with Update Management](configure-groups.md).
+5. In the **Groups to update** region, define a query that combines subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Use dynamic groups with Update Management](configure-groups.md).
 
     > [!NOTE]
     > This option is not available if you selected an Azure VM or Arc enabled server. The machine is automatically targeted for the scheduled deployment.
 
-6. In the **Machines to update** region, select a saved search, an imported group, or pick **Machines** from the dropdown menu and select individual machines. With this option, you can see the readiness of the Log Analytics agent for each machine. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/platform/computer-groups.md). You can include up to a maximum of 500 machines in a scheduled update deployment.
+6. In the **Machines to update** region, select a saved search, an imported group, or pick **Machines** from the dropdown menu and select individual machines. With this option, you can see the readiness of the Log Analytics agent for each machine. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/platform/computer-groups.md). You can include up to a maximum of 1000 machines in a scheduled update deployment.
 
     > [!NOTE]
     > This option is not available if you selected an Azure VM or Arc enabled server. The machine is automatically targeted for the scheduled deployment.
@@ -78,7 +78,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
 10. Use the **Recurrence** to specify if the deployment occurs once or uses a recurring schedule, then select **OK**.
 
-11. In the **Pre-scripts + Post-scripts (Preview)** region, select the scripts to run before and after your deployment. To learn more, see [Manage pre-scripts and post-scripts](pre-post-scripts.md).
+11. In the **Pre-scripts + Post-scripts** region, select the scripts to run before and after your deployment. To learn more, see [Manage pre-scripts and post-scripts](pre-post-scripts.md).
 
 12. Use the **Maintenance window (minutes)** field to specify the amount of time allowed for updates to install. Consider the following details when specifying a maintenance window:
 
@@ -106,7 +106,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
     > [!NOTE]
     > When you're finished configuring the deployment schedule for a selected Arc enabled server, select **Review + create**.
 
-15. You're returned to the status dashboard. Select **Deployment schedules** to show the deployment schedule that you've created.
+15. You're returned to the status dashboard. Select **Deployment schedules** to show the deployment schedule that you've created. A maximum of 500 schedules are listed. If you have more than 500 schedules and you want to review the complete list, see the [Software Update Configurations - List](/rest/api/automation/softwareupdateconfigurations/list) REST API method using version 2019-06-01 or higher.
 
 ## Schedule an update deployment programmatically
 
