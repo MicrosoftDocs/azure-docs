@@ -192,11 +192,11 @@ Site Recovery follows the N-4 support model. [Learn more](./service-updates-how-
 
 ### Where can I find upgrade information for disaster recovery to Azure?
 
-[Learn about upgrading](./service-updates-how-to.md#between-an-on-premises-vmware-or-physical-site-to-azure).
+[Learn about upgrading](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).
 
 ## Do I need to reboot source machines for each upgrade?
 
-A reboot is recommended but not mandatory for each upgrade. [Learn more](./service-updates-how-to.md#between-an-on-premises-vmware-or-physical-site-to-azure).
+A reboot is recommended but not mandatory for each upgrade. [Learn more](./service-updates-how-to.md#reboot-after-mobility-service-upgrade).
 
 ## Configuration server
 
