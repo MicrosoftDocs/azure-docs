@@ -19598,6 +19598,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/synapse-analytics/quickstart-synapse-studio.md",
+      "redirect_url": "/azure/synapse-analytics/get-started-create-workspace",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-build-multi-tenant-apps.md",
       "redirect_url": "/azure/sql-database/saas-tenancy-app-design-patterns",
       "redirect_document_id": false
@@ -53765,8 +53770,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": " \"articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-views.md\"",
-      "redirect_url": " \"/azure/synapse-analytics/sql-data-warehouse/performance-tuning-materialized-views\"",
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-views.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/performance-tuning-materialized-views",
       "redirect_document_id": " false"
     },
     {
