@@ -83,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, EAComposer application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, EAComposer application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
 	| Name |  Source Attribute|
 	| --------------- | --------- |
@@ -136,11 +136,11 @@ In this section, a user called Britta Simon is created in EAComposer. EAComposer
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to EAComposer Sign-on URL where you can initiate the login flow. 
+1. Click on **Test this application** in Azure portal. This will redirect to EAComposer Sign on URL where you can initiate the login flow. 
 
 2. Go to EAComposer Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the EAComposer tile in the Access Panel, this will redirect to EAComposer Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. You can use Microsoft Access Panel. When you click the EAComposer tile in the Access Panel, this will redirect to EAComposer Sign on URL. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## Next steps
