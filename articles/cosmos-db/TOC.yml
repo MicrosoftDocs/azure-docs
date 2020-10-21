@@ -95,6 +95,7 @@
     - name: Enterprise readiness - Compliance
       href: compliance.md
   - name: SQL/Core API
+    expanded: true
     items:
     - name: Quickstarts
       expanded: true
