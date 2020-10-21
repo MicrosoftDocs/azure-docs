@@ -42,7 +42,7 @@ The Audio Analysis preset now includes a Basic mode pricing tier. The new Basic 
 
 Customers using Indexer v1 and Indexer v2 should migrate to the Basic Audio Analysis preset.
 
-For more information about the Basic Audio Analyzer mode, see [Analyzing Video and Audio files](analyzing-video-audio-files.md).
+For more information about the Basic Audio Analyzer mode, see [Analyzing Video and Audio files](analyzing-video-audio-files-concept.md).
 
 ## August 2020
 
