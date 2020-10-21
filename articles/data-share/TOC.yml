@@ -44,10 +44,6 @@
     - name: Share from Azure Data Explorer
       href: /azure/data-explorer/data-share
       maintainContext: true
-  - name: Monitor
-    href: how-to-monitor.md
-  - name: Troubleshoot
-    href: data-share-troubleshoot.md
   - name: Add datasets
     href: how-to-add-datasets.md
   - name: Configure dataset mappings
@@ -58,10 +54,14 @@
     href: how-to-delete-invitation.md
   - name: Revoke a share subscription
     href: how-to-revoke-share-subscription.md
+  - name: Monitor
+    href: how-to-monitor.md
   - name: Security
     href: security.md
   - name: Disaster recovery
     href: disaster-recovery.md
+  - name: Troubleshoot
+    href: data-share-troubleshoot.md
 
 - name: Reference
   items:

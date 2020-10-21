@@ -29,10 +29,10 @@ The root management group is created automatically when you do any of the follow
 2. Create a management group via an API call.
 3. Create a management group with PowerShell.
 
-For a detailed overview of management groups, see the [Organize your resources with Azure management groups](../azure-resource-manager/management-groups-overview.md) article.
+For a detailed overview of management groups, see the [Organize your resources with Azure management groups](../governance/management-groups/overview.md) article.
 
 ## Create a management group in the Azure portal
-You can organize subscriptions into management groups and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. While management groups aren't required to onboard Security Center, it’s highly recommended that you create at least one management group so the root management group is created. After the group is created, all subscriptions under your Azure AD tenant will be linked to it. For instructions for PowerShell and more information, see [Create management groups for resource and organization management](../azure-resource-manager/management-groups-create.md).
+You can organize subscriptions into management groups and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. While management groups aren't required to onboard Security Center, it’s highly recommended that you create at least one management group so the root management group is created. After the group is created, all subscriptions under your Azure AD tenant will be linked to it. For instructions for PowerShell and more information, see [Create management groups for resource and organization management](../governance/management-groups/create-management-group-portal.md).
 
  
 1. Sign in to the [Azure portal](https://portal.azure.com).

@@ -15,7 +15,7 @@ Event Hubs provides message streaming through a partitioned consumer pattern in 
 
 A partition is an ordered sequence of events that is held in an event hub. As newer events arrive, they are added to the end of this sequence. A partition can be thought of as a "commit log."
 
-![Event Hubs](./media/event-hubs-partitions/partition.png)
+![Diagram that displays the older to newer squence of events.](./media/event-hubs-partitions/partition.png)
 
 Event Hubs retains data for a configured retention time that applies across all partitions in the event hub. Events expire on a time basis; you cannot explicitly delete them. Because partitions are independent and contain their own sequence of data, they often grow at different rates.
 
