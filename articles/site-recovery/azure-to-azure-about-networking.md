@@ -36,8 +36,8 @@ Typically, networks are protected using firewalls and network security groups (N
 > Using an authenticated proxy to control network connectivity isn't supported by Site Recovery, and replication can't be enabled.
 
 >[!NOTE]
-> IP address based filtering should not be performed to control outbound connectivity.
-> Azure Site Recovery IP addresses should not be added in Azure Routing table to control outbound connectivity.
+>- IP address based filtering should not be performed to control outbound connectivity.
+>- Azure Site Recovery IP addresses should not be added in Azure Routing table to control outbound connectivity.
 
 ## Outbound connectivity for URLs
 
