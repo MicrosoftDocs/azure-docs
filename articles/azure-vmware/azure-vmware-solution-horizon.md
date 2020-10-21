@@ -194,14 +194,16 @@ Work with your VMware EUC sales team to determine the Horizon licensing cost bas
 
 ### Cost of the Horizon infrastructure VMs on Azure Virtual Network
 
-Based on the standard deployment architecture, Horizon infrastructure VMs are made up of Connection Servers, UAGs, App Volume Managers, and are deployed in the customer's Azure Virtual Network. Additional Azure native instances are required to support High Availability (HA), Microsoft SQL, or Microsoft Active Directory (AD) services on Azure. The following is a list of Azure instances
-based on a 2,000-desktop deployment example. 
+Based on the standard deployment architecture, Horizon infrastructure VMs are made up of Connection Servers, UAGs, App Volume Managers, and are deployed in the customer's Azure Virtual Network. Additional Azure native instances are required to support High Availability (HA), Microsoft SQL, or Microsoft Active Directory (AD) services on Azure. The following is a list of Azure instances based on a 2,000-desktop deployment example. 
+
+>[!NOTE]
+>To be able to handle failure, deploy one more server than is required for the number of connections (n+1). The minimum recommended number of instances of the Connection Server, UAG and App Volumes Manager is 2, and the number of required will grow based on the amount of users the environment will support.  A single Connection Server supports a maximum of 4,000 sessions, although 2,000 is recommended as a best practice. Up to seven Connection Servers are supported per pod with a recommendation of 12,000 active sessions in total per pod. For the most current numbers, see the [VMware Knowledge Base article VMware Horizon 7 Sizing Limits and Recommendations](https://kb.vmware.com/s/article/2150348).
 
 | Horizon Infrastructure Component | Azure Instance | Number of Instances Needed (for 2,000-desktops)    | Comment  |
 |----------------------------------|----------------|----------------------------------------------------|----------|
-| Connection Server                | D4sv3          | 2       | *Includes 1 instance for HA*             |    
-| UAG                              | F2sv2          | 2       | *Includes 1 instance for HA*             |
-| App Volumes Manager              | D4sv3          | 2       | *Includes 1 instance for HA*             |
+| Connection Server                | D4sv3          | 2       | *See Note Above*                         |    
+| UAG                              | F2sv2          | 2       | *See Note Above*                         |
+| App Volumes Manager              | D4sv3          | 2       | *See Note Above*                         |
 | Cloud Connector                  | D4sv3          | 1       |                                          |
 | AD Controller                    | D4sv3          | 2       | *Option to use MSFT AD service on Azure* |
 | MS-SQL Database                  | D4sv3          | 2       | *Option to use SQL service on Azure*     |

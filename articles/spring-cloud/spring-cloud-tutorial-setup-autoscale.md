@@ -20,7 +20,7 @@ Autoscale is a built-in feature of Azure Spring Cloud that helps microservice ap
 To follow these procedures, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A deployed Azure Spring Cloud service instance. Follow the [quickstart on deploying an app via the Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) to get started.
+* A deployed Azure Spring Cloud service instance. Follow the [quickstart on deploying an app via the Azure CLI](./spring-cloud-quickstart.md) to get started.
 * At least one application already created in your service instance.
 
 ## Navigate to the Autoscale page in the Azure portal
@@ -65,5 +65,5 @@ If you are on the Basic tier and constrained by one or more of these limits, you
 
 ## Next steps
 
-* [Overview of autoscale in Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Azure CLI Monitoring autoscale](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)
+* [Overview of autoscale in Microsoft Azure](../azure-monitor/platform/autoscale-overview.md)
+* [Azure CLI Monitoring autoscale](/cli/azure/monitor/autoscale?preserve-view=true&view=azure-cli-latest)

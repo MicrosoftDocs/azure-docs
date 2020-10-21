@@ -2,7 +2,7 @@
 title: Configure Azure Storage firewalls and virtual networks | Microsoft Docs
 description: Configure layered network security for your storage account using Azure Storage firewalls and Azure Virtual Network.
 services: storage
-author: tamram
+author: santoshc
 
 ms.service: storage
 ms.topic: how-to

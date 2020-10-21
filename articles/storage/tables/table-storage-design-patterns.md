@@ -293,7 +293,7 @@ In a relational database, it is natural to use joins in queries to return relate
 
 Assume you are storing employee entities in the Table service using the following structure:  
 
-![Employee entity structure](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
+![Screenshot that shows how you can store employee entities in the Table service.](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
 
 You also need to store historical data relating to reviews and performance for each year the employee has worked for your organization and you need to be able to access this information by year. One option is to create another table that stores entities with the following structure:  
 

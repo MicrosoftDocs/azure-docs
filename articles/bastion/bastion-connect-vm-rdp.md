@@ -18,7 +18,7 @@ Using Azure Bastion, you can securely and seamlessly connect to your virtual mac
 
 Azure Bastion provides secure connectivity to all of the VMs in the virtual network in which it is provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH. For more information, see the [What is Azure Bastion?](bastion-overview.md).
 
-## Before you begin
+## Prerequisites
 
 Before you begin, verify that you have met the following criteria:
 

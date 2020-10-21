@@ -83,7 +83,7 @@ The report also identifies Windows VMs where Hybrid Benefit is **enabled** but t
 
 You can apply a filter on _chargetype_ to view RI underutilization data.
 
-For more information about amortized data, see [Get Enterprise Agreement reservation costs and usage](/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea).
+For more information about amortized data, see [Get Enterprise Agreement reservation costs and usage](../reservations/understand-reserved-instance-usage-ea.md).
 
 **RI Savings** - The report shows the savings accrued by reservations for subscription, resource group, and the resource level. It displays:
 

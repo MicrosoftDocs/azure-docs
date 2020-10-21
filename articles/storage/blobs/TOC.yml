@@ -145,8 +145,6 @@
           href: encryption-scope-overview.md
       - name: Immutable blobs
         href: storage-blob-immutable-storage.md
-      - name: Built-in security controls
-        href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Use Azure Private Endpoints
         href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Configure network routing preference
@@ -686,11 +684,10 @@
       items:
       - name: Security recommendations
         href: security-recommendations.md
-      - name: Access control (directories and files)
+      - name: Access control model
+        href: data-lake-storage-access-control-model.md
+      - name: Access control lists
         href: data-lake-storage-access-control.md
-      - name: Security controls by Azure Policy
-        displayName: regulatory, compliance, standards, domains
-        href: ./security-controls-policy.md
     - name: Compatibility
       items:
       - name: Multi-protocol access

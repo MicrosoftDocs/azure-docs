@@ -3,7 +3,7 @@ title: View Azure Kubernetes Service (AKS) controller logs
 description: Learn how to enable and view the logs for the Kubernetes master node in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 10/14/2020
 
 ---
 
@@ -26,8 +26,16 @@ Azure Monitor logs are enabled and managed in the Azure portal. To enable log co
 1. Select your AKS cluster, such as *myAKSCluster*, then choose to **Add diagnostic setting**.
 1. Enter a name, such as *myAKSClusterLogs*, then select the option to **Send to Log Analytics**.
 1. Select an existing workspace or create a new one. If you create a workspace, provide a workspace name, a resource group, and a location.
-1. In the list of available logs, select the logs you wish to enable. For this example, enable the *kube-audit* logs. Common logs include the *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler*. You can return and change the collected logs once Log Analytics workspaces are enabled.
+1. In the list of available logs, select the logs you wish to enable. For this example, enable the *kube-audit* and *kube-audit-admin* logs. Common logs include the *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler*. You can return and change the collected logs once Log Analytics workspaces are enabled.
 1. When ready, select **Save** to enable collection of the selected logs.
+
+## Log categories
+
+In addition to entries written by Kubernetes, your project's audit logs also have entries from AKS.
+
+Audit logs are recorded into two categories, *kube-audit-admin* and *kube-audit*. The *kube-audit* category contains all audit log data for every audit event, including *get*, *list*, *create*, *update*, *delete*, *patch*, and *post*.
+
+The *kube-audit-admin* category is a subset of the *kube-audit* log category. *kube-audit-admin* reduces the number of logs significantly by excluding the *get* and *list* audit events from the log.
 
 ## Schedule a test pod on the AKS cluster
 
@@ -63,7 +71,12 @@ pod/nginx created
 
 ## View collected logs
 
-It may take a few minutes for the diagnostics logs to be enabled and appear. In the Azure portal, navigate to your AKS cluster, and select **Logs** on the left-hand side. Close the *Example Queries* window if it appears.
+It may take a few minutes for the diagnostics logs to be enabled and appear.
+
+> [!NOTE]
+> If you need all audit log data for compliance or other purposes, collect and store it in inexpensive storage such as blob storage. Use the *kube-audit-admin* log category to collect and save a meaningful set of audit log data for monitoring and alerting purposes.
+
+In the Azure portal, navigate to your AKS cluster, and select **Logs** on the left-hand side. Close the *Example Queries* window if it appears.
 
 On the left-hand side, choose **Logs**. To view the *kube-audit* logs, enter the following query in the text box:
 
@@ -81,6 +94,24 @@ AzureDiagnostics
 | where log_s contains "nginx"
 | project log_s
 ```
+
+To view the *kube-audit-admin* logs, enter the following query in the text box:
+
+```
+AzureDiagnostics
+| where Category == "kube-audit-admin"
+| project log_s
+```
+
+In this example, the query shows all create jobs in *kube-audit-admin*. There are likely many results returned, to scope down the query to view the logs about the NGINX pod created in the previous step, add an additional *where* statement to search for *nginx* as shown in the following example query.
+
+```
+AzureDiagnostics
+| where Category == "kube-audit-admin"
+| where log_s contains "nginx"
+| project log_s
+```
+
 
 For more information on how to query and filter your log data, see [View or analyze data collected with log analytics log search][analyze-log-analytics].
 
