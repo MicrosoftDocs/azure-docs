@@ -298,7 +298,7 @@ If your Azure Active Directory is connected to on-premises Active Directory, the
 
 #### Establish integrated monitoring
 
-The [Azure Security Center](../../security-center/security-center-intro.md):
+The [Azure Security Center](../../security-center/security-center-introduction.md):
 
 * Provides integrated security monitoring and policy management across your Azure subscriptions
 * Helps detect threats that may otherwise go unnoticed

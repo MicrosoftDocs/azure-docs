@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Create a role-assignable group in Azure Active Directory
 
-You can only assign a role to a group that was created with the ‘isAssignableToRole’ property set to True, or was created in the Azure AD portal with **Azure AD roles can be assigned to the group** turned on. This group attribute makes the group one that can be assigned to a role in Azure Active Directory (Azure AD). This article describes how to create this special kind of group. **Note:** A group with isAssignableToRole property set to true cannot be of dynamic membership type. For more information, see [Using a group to manage Azure AD role assignments](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept).
+You can only assign a role to a group that was created with the ‘isAssignableToRole’ property set to True, or was created in the Azure AD portal with **Azure AD roles can be assigned to the group** turned on. This group attribute makes the group one that can be assigned to a role in Azure Active Directory (Azure AD). This article describes how to create this special kind of group. **Note:** A group with isAssignableToRole property set to true cannot be of dynamic membership type. For more information, see [Using a group to manage Azure AD role assignments](./roles-groups-concept.md).
 
 ## Using Azure AD admin center
 
