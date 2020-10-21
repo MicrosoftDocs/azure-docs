@@ -166,7 +166,7 @@
         - name: .NET (C#) SDK - source
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core
         - name: JavaScript SDK - npm
-          href: https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1  
+          href: https://www.npmjs.com/package/@azure/digital-twins/ 
         - name: JavaScript SDK - reference
           href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
         - name: Java SDK - Maven

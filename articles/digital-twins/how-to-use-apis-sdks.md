@@ -60,7 +60,7 @@ To use the data plane APIs:
    - you can view the [SDK reference documentation](/dotnet/api/overview/azure/digitaltwins?preserve-view=true&view=azure-dotnet-preview).
    - you can see detailed information and usage examples by continuing to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section of this article.
 * You can use the **JavaScript** SDK. To use the JavaScript SDK...
-   - you can view and install the package from npm: [Azure Azure Digital Twins client library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
+   - you can view and install the package from npm: [Azure Azure Digital Twins client library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins).
    - you can view the [SDK reference documentation](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest).
 * You can use the **Java** SDK. To use the Java SDK...
    - you can view and install the package from Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
