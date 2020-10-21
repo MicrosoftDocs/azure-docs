@@ -406,7 +406,7 @@
       items:
       - name: Model scoring wizard for SQL pools
         href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
-      - name: Run a regression experiment using Azure AutoML (Scoring in DW)
+      - name: Run a regression experiment using Azure AutoML
         href: ./spark/apache-spark-azure-machine-learning-tutorial.md
 
 

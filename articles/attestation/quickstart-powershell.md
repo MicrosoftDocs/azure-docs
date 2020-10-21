@@ -182,7 +182,7 @@ $teeType = "<tee Type>"
 Get-AzAttestationPolicy   -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Tee $teeType 
 ```
 
-Supported TEE types are "sgxenclave" and "vbsenclave".
+Supported TEE types are "SgxEnclave", "OpenEnclave" and "VbsEnclave".
 
 Set-AttestationPolicy sets a new policy for the specified TEE. The cmdlet accepts policy in either text or JWT format and is controlled by the PolicyFormat parameter. "Text" is the default value for PolicyFormat. 
 

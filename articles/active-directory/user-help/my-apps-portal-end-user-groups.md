@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 02/03/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
@@ -16,7 +16,7 @@ ms.custom: "user-help, seo-update-azuread-jan"
 
 # Update your Groups info on the My Apps portal
 
-You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
+You can use your work or school account with the web-based **My Apps** portal to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
@@ -39,13 +39,11 @@ If your administrator has given you permission to view the **Groups** tile, you 
 
     The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
-    ![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
+    ![Apps page in the My Apps portal](media/my-apps-portal-end-user-groups/my-apps-home-large.png)
 
-3. Select the **Groups** tile to see your group-related information.
+3. Pull down the **My Apps** menu and select **My Groups** to see your group-related information.
 
-    ![Groups page with both owned and member groups](media/my-apps-portal/my-apps-portal-groups-page.png)
-
-4. Based on your permissions, you can use the **Groups** page to:
+4. Based on your permissions, you can use the **My Groups** page to:
 
     - **Review the groups you own.** View information about any groups you own within your organization from the **Groups I own** area. Selecting a specific group name provides you with more details about the group, including the group type, the number of members, the join policy, and the active members list.
 
