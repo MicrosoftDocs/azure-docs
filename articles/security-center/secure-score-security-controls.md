@@ -54,15 +54,15 @@ Security Center displays your score prominently in the portal: it's the first ma
 
 To recap, your secure score is shown in the following locations in Security Center's portal pages.
 
-- In a tile on Security Center's **Overview** (main dashboard)
+- In a tile on Security Center's **Overview** (main dashboard):
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="The secure score on Security Center's dashboard":::
 
-- In the dedicated **Secure score** page
+- In the dedicated **Secure score** page:
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score on Security Center's secure score page":::
 
-- At the top of the **Recommendations** page
+- At the top of the **Recommendations** page:
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="The secure score on Security Center's recommendations page":::
 
