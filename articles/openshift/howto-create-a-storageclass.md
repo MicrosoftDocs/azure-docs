@@ -101,7 +101,7 @@ oc create -f azure-storageclass-azure-file.yaml
 The default StorageClass on ARO is called managed-premium and uses the azure-disk provisioner. Change this by issuing patch commands against the StorageClass manifests.
 
 ```bash
-oc patch storageclass managed-premium -p '{"metadata": {"annotations": {"storageclass.kubernetes.io/": "false"}}}'
+oc patch storageclass managed-premium -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
 
 oc patch storageclass azure-file -p '{"metadata": {"annotations": {"storageclass.kubernetes.io/": "true"}}}'
 ```
