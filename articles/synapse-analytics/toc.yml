@@ -39,8 +39,6 @@
     - name: 9 Explore the Knowledge Center
       href: get-started-knowledge-center.md
       displayName: get, started
-  - name: Use Synapse Studio 
-    href: quickstart-synapse-studio.md
 # - name: Tutorials
 #   items:
   # - name: Data Scientist
@@ -61,24 +59,8 @@
   #   items: 
   # - name: Synapse Link
   #   items:
-- name: How-to guides
-  items:
-  - name: Secure
-    items:
-    - name: Manage access control 
-      items:
-      - name: Set up permissions for Azure Synapse workspace managed Identity
-        href: security/how-to-grant-workspace-managed-identity-permissions.md
-      - name: Set up access control
-        href: security/how-to-set-up-access-control.md
-    - name: Manage private endpoints
-      items:
-      - name: Set up Managed private endpoints to data sources
-        href: security/how-to-create-managed-private-endpoints.md
-      - name: Connect to Azure Synapse workspace with private endpoints
-        href: security/how-to-connect-to-workspace-with-private-links.md
-      - name: Provision and secure a linked service with Managed Vnet
-        href: ./data-integration/linked-service.md
+# - name: How-to guides
+#   items:
   # - name: Manage and monitor
   #   items:
   # - name: Ingest and prepare data
@@ -91,7 +73,6 @@
   #       items:
   # - name: Transform & analyze data
   #   items:
-
     # - name: Synapse Link
     #   items:
     # - name: Synapse SQL
@@ -114,6 +95,8 @@
       href: quickstart-deployment-template-workspaces.md
     - name: Link a Power BI workspace
       href: quickstart-power-bi.md
+    - name: Use Synapse Studio 
+      href: quickstart-synapse-studio.md
   - name: Tutorials
     items:  
   - name: Concepts
@@ -176,6 +159,22 @@
         href: troubleshoot/troubleshoot-synapse-studio-powershell.md
   - name: How-to guides
     items:
+    - name: Secure
+      items:
+      - name: Manage access control 
+        items:
+        - name: Set up permissions for Azure Synapse workspace managed Identity
+          href: security/how-to-grant-workspace-managed-identity-permissions.md
+        - name: Set up access control
+          href: security/how-to-set-up-access-control.md
+      - name: Manage private endpoints
+        items:
+        - name: Set up Managed private endpoints to data sources
+          href: security/how-to-create-managed-private-endpoints.md
+        - name: Connect to Azure Synapse workspace with private endpoints
+          href: security/how-to-connect-to-workspace-with-private-links.md
+        - name: Provision and secure a linked service with Managed Vnet
+          href: ./data-integration/linked-service.md
 - name: Synapse SQL
   items:
   - name: Overview
