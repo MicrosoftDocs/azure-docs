@@ -69,7 +69,7 @@ DevOps Starter creates a workflow in GitHub. You can use an existing GitHub orga
 
    The dashboard provides visibility into your GitHub code repo, your CI/CD workflow, and your running application in Azure.   
 
-   ![Dashboard view](_img/azure-devops-project-nodejs/full-dashboard.PNG)
+   ![Dashboard view](_img/azure-devops-project-nodejs/full-dashboard.png)
 
 DevOps Starter automatically configures a trigger that deploys code changes to your repo.
     
