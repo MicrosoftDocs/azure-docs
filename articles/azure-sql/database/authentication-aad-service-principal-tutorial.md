@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/17/2020
+ms.date: 10/21/2020
 ---
 
 # Tutorial: Create Azure AD users using Azure AD applications
@@ -62,7 +62,7 @@ In this tutorial, you learn how to:
     > [!IMPORTANT]
     > If an Azure AD Identity is set up for the Azure SQL logical server, the [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) permission must be granted to the identity. We will walk through this step in following section. **Do not** skip this step as Azure AD authentication will stop working.
 
-    - If you used the [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) command with the parameter `AssignIdentity` for a new SQL server creation in the past, you will need to execute the [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) command afterwards as a separate command to enable this property in the Azure fabric.
+    - If you used the [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) command with the parameter `AssignIdentity` for a new SQL server creation in the past, you'll need to execute the [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) command afterwards as a separate command to enable this property in the Azure fabric.
 
 1. Check the server identity was successfully assigned. Execute the following PowerShell command:
 
@@ -162,13 +162,13 @@ For a similar approach on how to set the **Directory Readers** permission for SQ
 
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="api-permissions":::
 
-2. You will also need to create a client secret for signing in. Follow the guide here to [upload a certificate or create a secret for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
+2. You'll also need to create a client secret for signing in. Follow the guide here to [upload a certificate or create a secret for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
 3. Record the following from your application registration. It should be available from your **Overview** pane:
     - **Application ID**
     - **Tenant ID** - This should be the same as before
 
-In this tutorial, we will be using *AppSP* as our main service principal, and *myapp* as the second service principal user that will be created in Azure SQL by *AppSP*. You will need to create two applications, *AppSP* and *myapp*.
+In this tutorial, we'll be using *AppSP* as our main service principal, and *myapp* as the second service principal user that will be created in Azure SQL by *AppSP*. You'll need to create two applications, *AppSP* and *myapp*.
 
 For more information on how to create an Azure AD application, see the article [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
