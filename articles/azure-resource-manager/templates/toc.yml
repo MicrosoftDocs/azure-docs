@@ -359,7 +359,7 @@
         href: deploy-to-management-group.md
       - name: Tenant
         href: deploy-to-tenant.md
-      - name: Functions in scopes
+      - name: Functions across scopes
         href: scope-functions.md
     - name: What-if deployment
       href: template-deploy-what-if.md

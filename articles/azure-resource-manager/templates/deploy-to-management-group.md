@@ -2,7 +2,7 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 10/21/2020
 ---
 
 # Create resources at the management group level
@@ -56,33 +56,11 @@ The schema for a parameter file is the same for all deployment scopes. For param
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
-## Deployment scopes
-
-When deploying to a management group, you can target the management group specified in the deployment command or you can select another management groups in the tenant.
-
-Resources defined within the resources section of the template are applied to the management group from the deployment command.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-mg.json" highlight="5":::
-
-To target another management group, add a nested deployment and specify the `scope` property. Set the `scope` property to a value in the format `Microsoft.Management/managementGroups/<mg-name>`.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
-
-You can also target subscriptions or resource groups within a management group. The user deploying the template must have access to the specified scope.
-
-To target a subscription within the management group, use a nested deployment and the `subscriptionId` property.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
-
-To target a resource group within that subscription, add another nested deployment and the `resourceGroup` property.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="10,21,25":::
-
-To use a management group deployment for creating a resource group within a subscription and deploying a storage account to that resource group, see [Deploy to subscription and resource group](#deploy-to-subscription-and-resource-group).
-
 ## Deployment commands
 
-The commands for management group deployments are different than the commands for resource group deployments.
+To deploy to a management group, use the management group deployment commands.
+
+# [Azure CLI](#tab/azure-cli)
 
 For Azure CLI, use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
@@ -94,6 +72,8 @@ az deployment mg create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
 ```
 
+# [PowerShell](#tab/azure-powershell)
+
 For Azure PowerShell, use [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment).
 
 ```azurepowershell-interactive
@@ -104,7 +84,53 @@ New-AzManagementGroupDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json"
 ```
 
+---
+
 For REST API, use [Deployments - Create At Management Group Scope](/rest/api/resources/deployments/createorupdateatmanagementgroupscope).
+
+## Deployment scopes
+
+When deploying to a management group, you can deploy resources to:
+
+* the target management group from the operation
+* another management group in the tenant
+* subscriptions in the management group
+* resource groups in the management group (through two nested deployments)
+* the tenant for the management group
+
+### Scope to target management group
+
+Resources defined within the resources section of the template are applied to the management group from the deployment command.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-mg.json" highlight="5":::
+
+### Scope to another management group
+
+To target another management group, add a nested deployment and specify the `scope` property. Set the `scope` property to a value in the format `Microsoft.Management/managementGroups/<mg-name>`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
+
+### Scope to subscription
+
+You can also target subscriptions within a management group. The user deploying the template must have access to the specified scope.
+
+To target a subscription within the management group, use a nested deployment and the `subscriptionId` property.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
+
+### Scope to resource group
+
+To target a resource group within that subscription, add two nested deployments. The first targets the subscription that has the resource group. The second targets the resource group by setting the `resourceGroup` property.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="10,21,25":::
+
+To use a management group deployment for creating a resource group within a subscription and deploying a storage account to that resource group, see [Deploy to subscription and resource group](#deploy-to-subscription-and-resource-group).
+
+### Scope to tenant
+
+You can create resources at the tenant by adding a nested deployment with the `scope` set to `/`. In the following example, the nested deployment is scoped to `/`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-tenant.json" highlight="9,13":::
 
 ## Deployment location and name
 
@@ -115,6 +141,8 @@ You can provide a name for the deployment, or use the default deployment name. T
 For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
 
 ## Azure Policy
+
+Custom policy definitions that are deployed to the management group are extensions of the management group. To get the ID of a custom policy definition, use the [extensionResourceId()](template-functions-resource.md#extensionresourceid) function. Built-in policy definitions are tenant level resources. To get the ID of a built-in policy definition, use the [tenantResourceId](template-functions-resource.md#tenantresourceid) function.
 
 The following example shows how to [define](../../governance/policy/concepts/definition-structure.md) a policy at the management group level, and assign it.
 
