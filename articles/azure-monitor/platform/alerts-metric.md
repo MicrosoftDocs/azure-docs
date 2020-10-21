@@ -152,4 +152,4 @@ Metric alert rules have dedicated PowerShell cmdlets available:
 - [Understand how metric alerts work](alerts-metric-overview.md)
 - [Understand how metric alerts with Dynamic Thresholds condition work](alerts-dynamic-thresholds.md)
 - [Understand the web hook schema for metric alerts](./alerts-metric-near-real-time.md#payload-schema)
-- [Learn more about troubleshooting problems in metric alerts](alerts-troubleshoot-metric)
+- [Learn more about troubleshooting problems in metric alerts](alerts-troubleshoot-metric.md)
