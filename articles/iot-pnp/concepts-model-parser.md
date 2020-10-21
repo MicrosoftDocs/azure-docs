@@ -23,6 +23,8 @@ The parser is available in NuGet.org with the ID: [Microsoft.Azure.DigitalTwins.
 dotnet add package Microsoft.Azure.DigitalTwins.Parser
 ```
 
+>Note: The latest version of the parser is `3.12.5`
+
 ## Use the parser to validate a model
 
 The model you want to validate might be composed of one or more interfaces described in JSON files. You can use the parser to load all the files in a given folder and use the parser to validate all the files as a whole, including any references between the files:
@@ -52,40 +54,33 @@ The model you want to validate might be composed of one or more interfaces descr
     IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     ```
 
-1. Check for validation errors. If the parser finds any errors, it throws an `AggregateException` with a list of detailed error messages:
+1. Check for validation errors. If the parser finds any errors, it throws an `ParsingException` with a list of errors:
 
-    ```csharp
-    try
+```csharp
+try
+{
+    IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
+}
+catch (ParsingException pex)
+{
+    Console.WriteLine(pex.Message);
+    foreach (var err in pex.Errors)
     {
-        IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
+        Console.WriteLine(err.PrimaryID);
+        Console.WriteLine(err.Message);
     }
-    catch (AggregateException ae)
-    {
-        foreach (var e in ae.InnerExceptions)
-        {
-            Console.WriteLine(e.Message);
-        }
-    }
-    ```
+}
+```
 
 1. Inspect the `Model`. If the validation succeeds, you can use the model parser API to inspect the model. The following code snippet shows how to iterate over all the models parsed and displays the existing properties:
 
-    ```csharp
-    foreach (var m in parseResult)
-    {
-        Console.WriteLine(m.Key);
-        foreach (var item in m.Value.AsEnumerable<DTEntityInfo>())
-        {
-            var p = item as DTInterfaceInfo;
-            if (p!=null)
-            {
-                Console.WriteLine($"\t{p.Id}");
-                Console.WriteLine($"\t{p.Description.FirstOrDefault()}");
-            }
-            Console.WriteLine("--------------");
-        }
-    }
-    ```
+```csharp
+foreach (var item in parseResult)
+{
+    Console.WriteLine($"\t{item.Key}");
+    Console.WriteLine($"\t{item.Value.DisplayName?.Values.FirstOrDefault()}");             
+}
+ ```
 
 ## Next steps
 
