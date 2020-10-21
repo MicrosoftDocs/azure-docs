@@ -75,7 +75,7 @@ In the example above, replace the placeholders with your subscription ID, resour
 
 ## Connect to the workspace
 
-Use the `Azure/aml-workspace@v1` action to connect to your Azure Machine Learning workspace. 
+Use the [Azure Machine Learning Workspace action](https://github.com/marketplace/actions/azure-machine-learning-workspace) to connect to your Azure Machine Learning workspace. 
 
 ```yaml
     - name: Connect/Create Azure Machine Learning Workspace
@@ -100,7 +100,7 @@ The action writes the workspace Azure Resource Manager (ARM) properties to a con
 
 ## Connect to a Compute Target in Azure Machine Learning
 
-Use the `Azure/aml-compute@v1` action to connect to a compute target in Azure Machine Learning.  If the compute target exists, the action will connect to it. Otherwise the action will create a new compute target. The AML Compute action only supports Azure ML Clusters and AKS Clusters.
+Use the [Azure Machine Learning Compute action](https://github.com/Azure/aml-compute) to connect to a compute target in Azure Machine Learning.  If the compute target exists, the action will connect to it. Otherwise the action will create a new compute target. The [AML Compute action](https://github.com/Azure/aml-compute) only supports the Azure ML compute cluster and Azure Kubernetes Service (AKS). 
 
 ```yaml
     - name: Connect/Create Azure Machine Learning Compute Target
@@ -111,7 +111,7 @@ Use the `Azure/aml-compute@v1` action to connect to a compute target in Azure Ma
 ```
 ## Submit training run
 
-Use the `Azure/aml-run@v1` action to submit a ScriptRun, an Estimator or a Pipeline to Azure Machine Learning. 
+Use the [Azure Machine Learning Training action](https://github.com/Azure/aml-run) to submit a ScriptRun, an Estimator or a Pipeline to Azure Machine Learning. 
 
 ```yaml
     - name: Submit training run
@@ -123,7 +123,7 @@ Use the `Azure/aml-run@v1` action to submit a ScriptRun, an Estimator or a Pipel
 
 ## Register model in registry
 
-Use the `Azure/aml-registermodel@v1` action to register a model to Azure Machine Learning.
+Use the [Azure Machine Learning Register Model action](https://github.com/Azure/aml-registermodel) to register a model to Azure Machine Learning.
 
 ```yaml
     - name: Register model
@@ -137,7 +137,7 @@ Use the `Azure/aml-registermodel@v1` action to register a model to Azure Machine
 
 ## Deploy model to Azure Machine Learning to ACI
 
-Use the `Azure/aml-deploy@v1` action to deploys a model and create an endpoint for the model. 
+Use the [Azure Machine Learning Deploy action](https://github.com/Azure/aml-deploy) to deploys a model and create an endpoint for the model. You can also use the Azure Machine Learning Deploy to deploy to Azure Kubernetes Service. See [this sample workflow](https://github.com/Azure-Samples/mlops-enterprise-template) for a model that deploys to Azure Kubernetes Service.
 
 ```yaml
     - name: Deploy model
