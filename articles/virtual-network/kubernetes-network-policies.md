@@ -107,7 +107,8 @@ Users previously were only able to learn about their Network Configuration with 
 - Time taken to apply a policy with IPTable/IPSet level granularity.
  
 ### Supported Metrics
-Following is the list of supported metrics
+Following is the list of supported metrics:
+
 | Metric Name                       | Description                                    | Prometheus Metric Type | Labels         |
 | --                                | --                                             | --       |  -                           |
 | `npm_num_policies`                | number of network policies                     | Gauge    |  -                           |
