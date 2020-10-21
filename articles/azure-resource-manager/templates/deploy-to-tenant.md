@@ -2,7 +2,7 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 10/21/2020
 ---
 
 # Create resources at the tenant level
@@ -73,21 +73,11 @@ The Global Administrator for the Azure Active Directory doesn't automatically ha
 
 The principal now has the required permissions to deploy the template.
 
-## Deployment scopes
-
-When deploying to a tenant, you can target the tenant or management groups, subscriptions, and resource groups in the tenant. The user deploying the template must have access to the specified scope.
-
-Resources defined within the resources section of the template are applied to the tenant.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
-
-To target a management group within the tenant, add a nested deployment and specify the `scope` property.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
-
 ## Deployment commands
 
 The commands for tenant deployments are different than the commands for resource group deployments.
+
+# [Azure CLI](#tab/azure-cli)
 
 For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
@@ -98,6 +88,8 @@ az deployment tenant create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
+# [PowerShell](#tab/azure-powershell)
+
 For Azure PowerShell, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
 
 ```azurepowershell-interactive
@@ -107,7 +99,32 @@ New-AzTenantDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
+---
+
 For REST API, use [Deployments - Create Or Update At Tenant Scope](/rest/api/resources/deployments/createorupdateattenantscope).
+
+## Deployment scopes
+
+When deploying to a management group, you can deploy resources to:
+
+* the tenant
+* management groups within the tenant
+* subscriptions
+* resource groups (through two nested deployments)
+
+The user deploying the template must have access to the specified scope.
+
+### Scope to tenant
+
+Resources defined within the resources section of the template are applied to the tenant.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+### Scope to management group
+
+To target a management group within the tenant, add a nested deployment and specify the `scope` property.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
 
 ## Deployment location and name
 
