@@ -45638,11 +45638,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/marketplace/partner-center-portal/vm-images-to-managed-disks-faq.md",
-      "redirect_url": "/azure/marketplace/azure-vm-create-faq",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/marketplace/partner-center-portal/vm-certification-issues-solutions.md",
       "redirect_url": "/azure/marketplace/azure-vm-create-certification-faq",
       "redirect_document_id": false
