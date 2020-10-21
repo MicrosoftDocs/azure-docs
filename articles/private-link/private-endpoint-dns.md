@@ -34,7 +34,7 @@ Your applications don't need to change the connection URL. When trying to resolv
 For Azure services, use the recommended zone names as described in the following table:
 
 | Private link resource type / Subresource |Private DNS zone name | Public DNS zone forwarders |
-|---|---|---|---|
+|---|---|---|
 | Azure Automation / (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
 | Azure SQL Database (Microsoft.Sql/servers) / SQL Server | privatelink.database.windows.net | database.windows.net |
 | Azure Synapse Analytics (Microsoft.Sql/servers) / SQL Server  | privatelink.database.windows.net | database.windows.net |
