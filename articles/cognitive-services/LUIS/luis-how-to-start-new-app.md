@@ -41,12 +41,11 @@ After [signing in to LUIS](sign-in-luis-portal.md), you will land on My Apps Pag
 
 1. On **My Apps** page, select your **Subscription**, and  **Authoring resource** then **+ New App**. 
 
-      > [!div class="mx-imgBorder"]
-      > ![LUIS my apps page](./media/app-settings/select-sub-and-resource.png)
+   > ![LUIS my apps page](./media/app-settings/select-sub-and-resource.png)
 
 1. In the dialog box, enter the name of your application, such as 'my app`.
 
-      ![Create new app dialog](./media/app-settings/create-new-app-luis.png)
+   > ![Create new app dialog](./media/app-settings/create-new-app-luis.png)
 
 It is required to enter a name of an app and choose an application culture. It is optional to write a description for the app and associate it with a prediction resource.  If at any point you wish to associate your application to a prediction resource, you can go to the **Manage** section of you app in the **Azure Resources** tab.  and then select **Done**. 
 
@@ -55,8 +54,8 @@ It is required to enter a name of an app and choose an application culture. It i
 
 After the app is created, the LUIS portal shows the **Intents** list with the `None` intent already created for you. You now have an empty app. Add more [intents](luis-how-to-add-intents.md) to your app.
 
-    > [!div class="mx-imgBorder"]
-    > ![Intents list with None intent created with no example utterances.](media/pizza-tutorial-new-app-empty-intent-list.png)
+    
+   > ![Intents list with None intent created with no example utterances](media/pizza-tutorial-new-app-empty-intent-list.png)
 
 ## Other actions available on My Apps page
 
