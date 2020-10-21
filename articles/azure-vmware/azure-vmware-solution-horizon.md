@@ -67,7 +67,7 @@ A typical Horizon architecture design uses a pod and block strategy. A block is 
 
 Every cloud has its own network connectivity scheme. Combined with VMware SDDC networking / NSX Edge, the Azure VMware Solution network connectivity presents unique requirements for deploying Horizon that is different from on-premises.
 
-Each Azure private cloud / SDDC can handle 4,000 desktop or application sessions, assuming:
+Each Azure private cloud and SDDC can handle 4,000 desktop or application sessions, assuming:
 
 * The workload traffic aligns with the LoginVSI task worker profile.
 
@@ -78,7 +78,7 @@ Each Azure private cloud / SDDC can handle 4,000 desktop or application sessions
 >[!NOTE]
 >Your workload profile and needs may be different, and therefore results may vary based on your use case. User Data volumes may lower scale limits in the context of your workload. Size and plan your deployment accordingly. For more information, see the sizing guidelines in the [Size Azure VMware Solution hosts for Horizon deployments](#size-azure-vmware-solution-hosts-for-horizon-deployments) section.
 
-Given the Azure private cloud / SDDC max limit, we recommend a deployment architecture where the Horizon Connection Servers and VMware Unified Access Gateways (UAGs) are running inside the Azure Virtual Network. It effectively turns each Azure private cloud / SDDC into a block. In turn, maximizing the scalability of Horizon running on Azure VMware Solution.
+Given the Azure private cloud and SDDC max limit, we recommend a deployment architecture where the Horizon Connection Servers and VMware Unified Access Gateways (UAGs) are running inside the Azure Virtual Network. It effectively turns each Azure private cloud and SDDC into a block. In turn, maximizing the scalability of Horizon running on Azure VMware Solution.
 
 The connection from Azure Virtual Network to the Azure private clouds / SDDCs should be configured with ExpressRoute FastPath. The following diagram shows a basic Horizon pod deployment.
 
@@ -92,7 +92,7 @@ This section lays out the network architecture at a high level with some common 
 
 :::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Single Horizon pod on Azure VMware Solution" border="false":::
 
-A single Horizon pod is the most straight forward deployment scenario because you deploy just one Horizon pod in the US East region.  Since each private cloud/SDDC is estimated to handle 4,000 desktop sessions, you deploy the maximum Horizon pod size.  You can plan the deployment of up to three private clouds/SDDCs.
+A single Horizon pod is the most straight forward deployment scenario because you deploy just one Horizon pod in the US East region.  Since each private cloud and SDDC is estimated to handle 4,000 desktop sessions, you deploy the maximum Horizon pod size.  You can plan the deployment of up to three private clouds/SDDCs.
 
 With the Horizon infrastructure virtual machines (VMs) deployed in Azure Virtual Network, you can reach the 12,000 sessions per Horizon pod. The connection between each private cloud and SDDC to the Azure Virtual Network is ExpressRoute Fast Path.  No east-west traffic between private clouds is needed. 
 
@@ -106,7 +106,7 @@ You connect your AD domain controller in Azure Virtual Network with your on-prem
 
 A variation on the basic example might be to support connectivity for on-premises resources. For example, users access desktops and generate virtual desktop application traffic or connect to an on-premises Horizon pod using CPA.
 
-The diagram shows how to support connectivity for on-premises resources. To connect to your corporate network to the Azure Virtual Network, you'll need an ExpressRoute circuit.  You'll also need to connect your corporate network with each of the private cloud/SDDCs using ExpressRoute Global Reach.  It allows the connectivity from the SDDC to the ExpressRoute circuit and on-premises resources. 
+The diagram shows how to support connectivity for on-premises resources. To connect to your corporate network to the Azure Virtual Network, you'll need an ExpressRoute circuit.  You'll also need to connect your corporate network with each of the private cloud and SDDCs using ExpressRoute Global Reach.  It allows the connectivity from the SDDC to the ExpressRoute circuit and on-premises resources. 
 
 :::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Connect your corporate network to an Azure Virtual Network" border="false":::
 
