@@ -2317,7 +2317,7 @@ This loop action contains actions that run until the specified condition is true
 |||| 
 
 > [!NOTE]
-> If the expression depends on the output of any action within the until loop then you have to make sure that you are accounting for any failure
+> If the expression depends on the output from any action within the Until loop, make sure that you account for any failure that results from that action.
 
 *Example*
 
