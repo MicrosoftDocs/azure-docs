@@ -39,9 +39,11 @@ Starting with versions released after August 2018, we are making the following c
 >[!NOTE]
 >If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
 
-### Python 2 requirement
+### Python requirement
 
- The Log Analytics agent requires Python 2. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
+Starting from Agent version 1.13.27, the Linux Agent will support both Python 2 and 3. We always recommend using the latest agent. 
+
+If you are using an older version of the agent, you must have the Virtual Machine use python 2 by default. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
@@ -67,7 +69,7 @@ The OMS Agent has limited customization support for Linux.
 The following are currently supported: 
 - FIPs
 
-The following are planned but not yet supported:
+The following are in consideration but not yet supported:
 - CIS
 - SELINUX
 

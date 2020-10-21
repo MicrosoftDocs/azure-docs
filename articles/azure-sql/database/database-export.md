@@ -42,7 +42,7 @@ Exporting a BACPAC of a database from [Azure SQL Managed Instance](../managed-in
 
 1. To export a database using the [Azure portal](https://portal.azure.com), open the page for your database and click **Export** on the toolbar.
 
-   ![Database export](./media/database-export/database-export1.png)
+   ![Screenshot that highlights the Export button.](./media/database-export/database-export1.png)
 
 2. Specify the BACPAC filename, select an existing Azure storage account and container for the export, and then provide the appropriate credentials for access to the source database. A SQL **Server admin login** is needed here even if you are the Azure admin, as being an Azure admin does not equate to having admin permissions in Azure SQL Database or Azure SQL Managed Instance.
 

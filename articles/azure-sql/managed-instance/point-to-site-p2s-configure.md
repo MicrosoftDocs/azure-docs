@@ -80,13 +80,13 @@ This quickstart:
 2. Select **Connect**.
 3. In the dialog box, select **Connect**.
 
-    ![VPN connection](./media/point-to-site-p2s-configure/vpn-connection2.png)  
+    ![Screenshot that highlights the Connect button.](./media/point-to-site-p2s-configure/vpn-connection2.png)  
 4. When you're prompted that Connection Manager needs elevated privileges to update your route table, choose **Continue**.
 5. Select **Yes** in the User Account Control dialog box to continue.
 
    You've established a VPN connection to your SQL Managed Instance VNet.
 
-    ![VPN connection](./media/point-to-site-p2s-configure/vpn-connection-succeeded.png)  
+    ![Screenshot that highlights the Connected message when you've established your connection.](./media/point-to-site-p2s-configure/vpn-connection-succeeded.png)  
 
 ## Connect with SSMS
 
