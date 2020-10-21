@@ -239,7 +239,7 @@ To get you started, here are the recommended settings for the alert querying the
 - Target: Select your Log Analytics resource
 - Criteria: 
    - Signal name: Custom log search
-   - Search query: `_LogOperation | where Detail has 'OverQuota'`
+   - Search query: `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
    - Based on: Number of results
    - Condition: Greater than
    - Threshold: 0
