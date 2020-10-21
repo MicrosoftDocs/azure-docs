@@ -416,8 +416,8 @@ Consider the following data table, describing a set of digital twins and relatio
 | --- | --- | --- | --- | --- |
 | dtmi:example:Floor;1 | Floor1 |  contains | Room1 |{"Temperature": 80, "Humidity": 60}
 | dtmi:example:Floor;1 | Floor0 |  has      | Room0 |{"Temperature": 70, "Humidity": 30}
-| dtmi:example:Room;1  | Floor1 | 
-| dtmi:example:Room;1  | Floor0 |
+| dtmi:example:Room;1  | Room1 | 
+| dtmi:example:Room;1  | Room0 |
 
 The following code uses the [Microsoft Graph API](/graph/overview) to read a spreadsheet and construct an Azure Digital Twins twin graph from the results.
 
