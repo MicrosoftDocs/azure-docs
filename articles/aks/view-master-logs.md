@@ -33,11 +33,11 @@ Azure Monitor logs are enabled and managed in the Azure portal. To enable log co
 
 In addition to entries written by Kubernetes, your project's audit logs also have entries from AKS.
 
-Audit logs are recorded into three categories, *kube-audit-admin*, *guard* and *kube-audit*. The *kube-audit* category contains all audit log data for every audit event, including *get*, *list*, *create*, *update*, *delete*, *patch*, and *post*.
+Audit logs are recorded into three categories: *kube-audit*, *kube-audit-admin*, and *guard*.
 
-The *kube-audit-admin* category is a subset of the *kube-audit* log category. *kube-audit-admin* reduces the number of logs significantly by excluding the *get* and *list* audit events from the log.
-
-The *guard* category is managed AAD and Azure RBAC audits. Token in, user info out for managed AAD, and access reviews in and out for Azure RBAC.
+- The *kube-audit* category contains all audit log data for every audit event, including *get*, *list*, *create*, *update*, *delete*, *patch*, and *post*.
+- The *kube-audit-admin* category is a subset of the *kube-audit* log category. *kube-audit-admin* reduces the number of logs significantly by excluding the *get* and *list* audit events from the log.
+- The *guard* category is managed Azure AD and Azure RBAC audits. For managed Azure AD: token in, user info out. For Azure RBAC: access reviews in and out.
 
 ## Schedule a test pod on the AKS cluster
 
