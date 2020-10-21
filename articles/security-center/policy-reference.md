@@ -57,5 +57,5 @@ learn more, see the following articles.
 - [Azure Security Center planning and operations guide](./security-center-planning-and-operations-guide.md): Learn how to plan and understand design considerations in Azure Security Center.
 - [Security health monitoring in Azure Security Center](./security-center-monitoring.md): Learn how to monitor the health of your Azure resources.
 - [Manage and respond to security alerts in Azure Security Center](./security-center-managing-and-responding-alerts.md): Learn how to manage and respond to security alerts.
-- [Monitor partner solutions with Azure Security Center](./security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
+- [Monitor partner solutions with Azure Security Center](./security-center-partner-integration.md): Learn how to monitor the health status of your partner solutions.
 - [Azure Policy](../governance/policy/overview.md): Learn to audit and govern your Azure resources.
