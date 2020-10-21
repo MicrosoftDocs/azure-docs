@@ -580,14 +580,14 @@ To test your logic app, follow these steps to start a debugging session and find
    | Action status | Icon | Description |
    |---------------|------|-------------|
    | Aborted | ![Icon for "Aborted" action status][aborted-icon] | The action stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | Cancelled | ![Icon for "Cancelled" action status][cancelled-icon] | The action was running but received a cancel request. |
+   | Cancelled | ![Icon for "Cancelled" action status][cancelled-icon] | The action was running but received a cancellation request. |
    | Failed | ![Icon for "Failed" action status][failed-icon] | The action failed. |
    | Running | ![Icon for "Running" action status][running-icon] | The action is currently running. |
-   | Skipped | ![Icon for "Skipped" action status][skipped-icon] | |
+   | Skipped | ![Icon for "Skipped" action status][skipped-icon] | The action was skipped because the immediately preceding action failed. Each action has a `runAfter` condition that requires that the preceding action finish successfully before the current action can run. |
    | Succeeded | ![Icon for "Succeeded" action status][succeeded-icon] | The action succeeded. |
-   | Succeeded with retries | ![Icon for "Succeeded with retries" action status][succeeded-with-retries-icon] | 
-   | Timed out | ![Icon for "Timed out" action status][timed-out-icon] | The workflow run stopped due to an action that timed out. |
-   | Waiting | ![Icon for "Waiting" action status][waiting-icon] | The workflow run hasn't started or is paused, for example, due to an earlier workflow that's still running. |
+   | Succeeded with retries | ![Icon for "Succeeded with retries" action status][succeeded-with-retries-icon] | The action succeeded but only after one or more retries. To review the retry history, select that action in the run history details view so that the inputs and outputs pane for that action appears. |
+   | Timed out | ![Icon for "Timed out" action status][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
+   | Waiting | ![Icon for "Waiting" action status][waiting-icon] | The action hasn't started or is paused because execution hasn't reached this action. |
    ||||
 
    [aborted-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/aborted.png
