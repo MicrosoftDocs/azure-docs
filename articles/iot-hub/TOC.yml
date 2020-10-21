@@ -317,10 +317,6 @@
               href: iot-hub-configure-file-upload-powershell.md
             - name: Use Azure CLI
               href: iot-hub-configure-file-upload-cli.md
-        - name: Metrics in Azure Monitor
-          href: iot-hub-metrics.md
-        - name: Set up diagnostic logs
-          href: iot-hub-monitor-resource-health.md
         - name: Secure your hub with an X.509 certificate
           href: iot-hub-security-x509-get-started.md
         - name: Upgrade an IoT hub
