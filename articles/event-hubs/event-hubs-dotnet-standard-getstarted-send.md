@@ -56,6 +56,7 @@ This section shows you how to create a .NET Core console application to send eve
 1. Add the following `using` statements to the top of the **Program.cs** file:
 
     ```csharp
+    using System;
     using System.Text;
     using System.Threading.Tasks;
     using Azure.Messaging.EventHubs;
@@ -145,6 +146,7 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
 1. Add the following `using` statements at the top of the **Program.cs** file.
 
     ```csharp
+    using System;
     using System.Text;
     using System.Threading.Tasks;
     using Azure.Storage.Blobs;
