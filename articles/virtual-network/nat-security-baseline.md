@@ -44,7 +44,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 - [NAT gateway resource](nat-gateway-resource.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Microsoft
 
@@ -80,7 +80,7 @@ Use Azure Security Center and follow the network protection recommendations to h
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -91,7 +91,7 @@ Use Azure Security Center and follow the network protection recommendations to h
 
 **Guidance**: Not applicable; Virtual Network NAT doesn't support controlling outbound traffic with network security groups (NSG).  Inbound traffic is only allowed in response to an outbound originated flow.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -104,7 +104,7 @@ Use Azure Security Center and follow the network protection recommendations to h
 
 - [How to create a Network Watcher instance](../network-watcher/network-watcher-create.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -115,7 +115,7 @@ Use Azure Security Center and follow the network protection recommendations to h
 
 **Guidance**: Not applicable; not supported within NAT gateway resources themselves.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -126,7 +126,7 @@ Use Azure Security Center and follow the network protection recommendations to h
 
 **Guidance**: Not applicable.  Virtual Network NAT provides outbound originated connectivity.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -137,7 +137,7 @@ Use Azure Security Center and follow the network protection recommendations to h
 
 **Guidance**: Virtual Network NAT doesn't support controlling outbound traffic with network security groups (NSG).  Inbound traffic is only allowed in response to an outbound originated flow.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -163,7 +163,7 @@ Use Azure Security Center and follow the network protection recommendations to h
 
 **Guidance**: Virtual Network NAT doesn't support controlling outbound traffic with network security groups (NSG).  Inbound traffic is only allowed in response to an outbound originated flow.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -193,7 +193,7 @@ Use Azure Security Center and follow the network protection recommendations to h
 
 **Guidance**: Not Applicable; Azure Network NAT does not support configuring your own time synchronization sources. The Azure Network NAT service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Microsoft
 
@@ -212,7 +212,7 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -229,7 +229,7 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 
 Virtual Network NAT currently does not produce any additional diagnostic logs which are configurable by customers.
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -240,7 +240,7 @@ Virtual Network NAT currently does not produce any additional diagnostic logs wh
 
 **Guidance**: Not applicable; Virtual Network NAT does not expose any operating system configurations or security logs to customers. Microsoft is responsible for monitoring the underlying service's compute infrastructure.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Microsoft
 
@@ -251,7 +251,7 @@ Virtual Network NAT currently does not produce any additional diagnostic logs wh
 
 **Guidance**: Not applicable; Virtual Network NAT does not currently produce any Azure Activity, or other logs. For this reason, the customer is unable to set retention settings for logs related to the NAT gateway resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -262,7 +262,7 @@ Virtual Network NAT currently does not produce any additional diagnostic logs wh
 
 **Guidance**: Not applicable; Virtual Network NAT does not currently produce customer facing logs. For this reason, customers are unable to review and monitor logs related to NAT gateway resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -279,7 +279,7 @@ Virtual Network NAT currently does not produce any additional diagnostic logs wh
 
 - [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md) 
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -290,7 +290,7 @@ Virtual Network NAT currently does not produce any additional diagnostic logs wh
 
 **Guidance**: Not Applicable; Virtual Network NAT does not produce or expose any anti-malware logging to customers. For all Microsoft managed resources, Microsoft handles the anti-malware logging.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Microsoft
 
@@ -301,7 +301,7 @@ Virtual Network NAT currently does not produce any additional diagnostic logs wh
 
 **Guidance**: Not applicable; Virtual Network NAT does not produce or process DNS query logs.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -313,7 +313,7 @@ Virtual Network NAT currently does not produce any additional diagnostic logs wh
 **Guidance**: 
 Not applicable; Virtual Network NAT does not expose a command line to users.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -328,7 +328,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT doesn't use administrative accounts.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -339,7 +339,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not Applicable; Virtual Network NAT doesn't have default passwords.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -350,7 +350,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT doesn't use dedicated administrative accounts.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -361,7 +361,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT doesn't support SSO.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -372,7 +372,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT doesn't support multi-factor authentication.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -383,7 +383,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT doesn't support management from a customer workstation.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -394,7 +394,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT doesn't use any administrative accounts.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -405,7 +405,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT doesn't support capability of approved location as condition for access.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -416,7 +416,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT is not integrated with Azure Active Directory.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -427,7 +427,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT doesn't support the capability for user access review and reconcile.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -438,7 +438,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT doesn't have capabilities to monitor deactivated credentials.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -449,7 +449,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT doesn't support capabilities to detect account login behavior deviation.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -460,7 +460,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT doesn't store customer data.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -475,7 +475,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT doesn't store customer data.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -486,7 +486,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT does not interact with systems storing or processing sensitive information by design. This control is intended to describe how to monitor and block unauthorized transfer of sensitive information.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -497,7 +497,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT does not interact with systems storing or processing sensitive information by design. This control is intended to describe how to monitor and block unauthorized transfer of sensitive information.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -508,7 +508,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT does not store sensitive information by design. This control is intended to describe how to monitor and block unauthorized transfer of sensitive information.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -519,7 +519,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT does not store sensitive information by design. This control is intended to describe how to monitor and block unauthorized transfer of sensitive information.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -530,7 +530,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Virtual Network NAT does not support integration with Azure Active Directory (AAD), because of this you can not leverage RBAC features with it.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -541,7 +541,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT does not interact with compute hosts or containers which offer host-based data loss prevention.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -552,7 +552,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT does not store sensitive information by design. This control is intended to describe how to monitor and block unauthorized transfer of sensitive information.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -563,7 +563,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Virtual Network NAT does not store sensitive information by design. This control is intended to describe how to monitor and block unauthorized transfer of sensitive information.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -578,7 +578,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -589,7 +589,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 
 **Guidance**: Not applicable; Microsoft performs patch management on the underlying operating systems that support Virtual Network NAT.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Microsoft
 
@@ -601,7 +601,7 @@ Not applicable; Virtual Network NAT does not expose a command line to users.
 **Guidance**: 
 Not applicable; Virtual Network NAT doesn't support third-party software installations.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -612,7 +612,7 @@ Not applicable; Virtual Network NAT doesn't support third-party software install
 
 **Guidance**: Not applicable.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -623,7 +623,7 @@ Not applicable; Virtual Network NAT doesn't support third-party software install
 
 **Guidance**: Not applicable
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -644,7 +644,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [Azure Resource Graph queries](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -655,7 +655,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -672,7 +672,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -683,7 +683,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Not applicable
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -698,7 +698,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 - [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -709,7 +709,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Not applicable
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -720,7 +720,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Not applicable
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -731,7 +731,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Not applicable.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -740,13 +740,13 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33824.).
 
-**Guidance**: Use Azure Policy to restrict which services you can provision in your environment. 
+**Guidance**: Use Azure Policy to restrict which services you can provision in your environment.
 
-- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -757,7 +757,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Not applicable
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -768,7 +768,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Not applicable.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -779,7 +779,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Not applicable.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -790,7 +790,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Not applicable.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -806,7 +806,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 **Guidance**: 
 Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -818,7 +818,7 @@ Not applicable; this recommendation is intended for compute resources.
 **Guidance**: 
 Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -829,7 +829,7 @@ Not applicable; this recommendation is intended for compute resources.
 
 **Guidance**: Not applicable
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -841,7 +841,7 @@ Not applicable; this recommendation is intended for compute resources.
 **Guidance**: 
 Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -853,7 +853,7 @@ Not applicable; this recommendation is intended for compute resources.
 **Guidance**: 
 Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -865,7 +865,7 @@ Not applicable; this recommendation is intended for compute resources.
 **Guidance**: 
 Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -876,7 +876,7 @@ Not applicable; this recommendation is intended for compute resources.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -887,7 +887,7 @@ Not applicable; this recommendation is intended for compute resources.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -898,7 +898,7 @@ Not applicable; this recommendation is intended for compute resources.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -909,7 +909,7 @@ Not applicable; this recommendation is intended for compute resources.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -920,7 +920,7 @@ Not applicable; this recommendation is intended for compute resources.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -931,7 +931,7 @@ Not applicable; this recommendation is intended for compute resources.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -942,7 +942,7 @@ Not applicable; this recommendation is intended for compute resources.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -957,7 +957,7 @@ Not applicable; this recommendation is intended for compute resources.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -968,7 +968,7 @@ Not applicable; this recommendation is intended for compute resources.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -979,7 +979,7 @@ Not applicable; this recommendation is intended for compute resources.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -994,7 +994,7 @@ Not applicable; this recommendation is intended for compute resources.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -1005,7 +1005,7 @@ Not applicable; this recommendation is intended for compute resources.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -1016,7 +1016,7 @@ Not applicable; this recommendation is intended for compute resources.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -1027,7 +1027,7 @@ Not applicable; this recommendation is intended for compute resources.
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Not applicable
 
@@ -1043,7 +1043,7 @@ Not applicable; this recommendation is intended for compute resources.
 **Guidance**: 
 An incident response procedure should be created for the offering to ensure appropriate incident response processes can occur so that it receives the appropriate level of prioritization till the incidents resolution.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1055,7 +1055,7 @@ An incident response procedure should be created for the offering to ensure appr
 **Guidance**: 
 An incident scoring and prioritization procedure should be created for the offering to ensure proper risk or threat scoring can occur so that it receives the appropriate level of prioritization till the incidents resolution.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1067,7 +1067,7 @@ An incident scoring and prioritization procedure should be created for the offer
 **Guidance**: 
 An incident security response procedure should be created and tested for the offering to ensure proper mitigation can occur with the appropriate level of prioritization till the incidents forecasted resolution.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1079,7 +1079,7 @@ An incident security response procedure should be created and tested for the off
 **Guidance**: 
 An incident security response procedure should be created and tested for the offering to ensure proper mitigation can occur with the appropriate level of prioritization till the incidents forecasted resolution.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1090,7 +1090,7 @@ An incident security response procedure should be created and tested for the off
 
 **Guidance**: An incident security response procedure should be created and tested for the offering to ensure proper mitigation can occur with the appropriate level of prioritization till the incidents forecasted resolution.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1102,7 +1102,7 @@ An incident security response procedure should be created and tested for the off
 **Guidance**: 
 An incident security response procedure should be created and tested for the offering to ensure proper mitigation can occur with the appropriate level of prioritization till the incidents forecasted resolution.
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1121,7 +1121,7 @@ An incident security response procedure should be created and tested for the off
 
 - [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure Security Center monitoring**: Not applicable
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
