@@ -129,7 +129,7 @@ Here's how you can create a wildcard index on all fields:
 `db.coll.createIndex( { "$**" : 1 } )`
 
 > [!NOTE]
-> If you are just starting development, we **strongly** recommend starting off with a wildcard index on all fields. This can simplifies development and makes it easier to optimize queries.
+> If you are just starting development, we **strongly** recommend starting off with a wildcard index on all fields. This can simplify development and make it easier to optimize queries.
 
 Documents with many fields may have a high Request Unit (RU) charge for writes and updates. Therefore, if you have a write-heavy workload, you should opt to individually index paths as opposed to using wildcard indexes.
 
