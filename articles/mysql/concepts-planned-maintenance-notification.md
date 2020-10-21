@@ -13,13 +13,13 @@ Learn how to prepare for planned maintenance events on your Azure Database for M
 
 ## What is a planned maintenance?
 
-Azure Database for MySQL service performs automated patching of the underlying hardware, OS, and database engine. The patch includes new service features, security and software updates. For MySQL engine, minor version upgrades are automatic and included as part of the patching cycle. There is no user action or configuration settings required for patching. The patch is tested extensively and rolled out using safe deployment practices.
+Azure Database for MySQL service performs automated patching of the underlying hardware, OS, and database engine. The patch includes new service features, security, and software updates. For MySQL engine, minor version upgrades are automatic and included as part of the patching cycle. There is no user action or configuration settings required for patching. The patch is tested extensively and rolled out using safe deployment practices.
 
-A planned maintenance is an maintenance window when these service updates are deployed to servers in a given Azure region. During planned maintenance, a notification event is created to inform customers when the service update is deployed in the Azure region hosting their servers. Minimum duration between two planned maintenance is 30 days. You receive a notification of the next maintenance window 72 hours in advance.
+A planned maintenance is a maintenance window when these service updates are deployed to servers in a given Azure region. During planned maintenance, a notification event is created to inform customers when the service update is deployed in the Azure region hosting their servers. Minimum duration between two planned maintenance is 30 days. You receive a notification of the next maintenance window 72 hours in advance.
 
 ## Planned Maintenance - Duration and Customer Impact
 
-A planned maintenance for a given Azure region is typically expected to run 15 hrs. The window also includes buffer time to execute a rollback plan if required. During planned maintenance, there can be database server restarts or failovers which might lead to brief unavailability of the database servers for end users. Azure Database for MySQL servers are running in containers so database server restarts are typically quick, expected to complete typically in 60-120 seconds. The entire planned maintenance event including each server restarts is carefully monitored by the engineering team. The server failovers time is dependent on database recovery time which can cause the database to come online longer if you have heavy transactional activity on the server at the time of failover. To avoid longer restart time, it is recommended to avoid any long running transactions (bulk loads) during planned maintenance events.
+A planned maintenance for a given Azure region is typically expected to run 15 hrs. The window also includes buffer time to execute a rollback plan if necessary. During planned maintenance, there can be database server restarts or failovers, which might lead to brief unavailability of the database servers for end users. Azure Database for MySQL servers are running in containers so database server restarts are typically quick, expected to complete typically in 60-120 seconds. The entire planned maintenance event including each server restarts is carefully monitored by the engineering team. The server failovers time is dependent on database recovery time, which can cause the database to come online longer if you have heavy transactional activity on the server at the time of failover. To avoid longer restart time, it is recommended to avoid any long running transactions (bulk loads) during planned maintenance events.
 
 In summary, while the planned maintenance event runs for 15 hours, the individual server impact generally lasts 60 seconds depending on the transactional activity on the server. A notification is sent 72 calendar hours before planned maintenance starts and another one while maintenance is in progress for a given region.
 
@@ -42,7 +42,7 @@ You can either check the planned maintenance notification on Azure portal or con
 
 1. In the [Azure portal](https://portal.azure.com), select **Service Health**.
 2. Select **Planned Maintenance** tab
-3. Select **Subscription**, **Region** and **Service** for which you want to check the planned maintenance notification. 
+3. Select **Subscription**, **Region, and **Service** for which you want to check the planned maintenance notification. 
    
 ### To receive planned maintenance notification
 
@@ -59,7 +59,7 @@ For detailed steps on how to create **service health alerts**, refer to [Create 
 
 ## Can I control or change planned maintenance for my servers after I receive a notification event?
 
-Maintenance is needed to keep your server secure, stable, and up-to-date. The planned maintenance event cannot be cancelled or postponed. Once the notification is sent to a given Azure region, the patching schedule changes cannot be made for any individual server in that region. The patch is rolled out for entire region at once. Azure Database for MySQL - Single server service is designed for cloud native application that doesn't require granular control or customization of the service. If you are looking to have ability to schedule maintenance for your servers, we recommend you consider [Flexible servers](./flexible-server/overview.md).
+Maintenance is needed to keep your server secure, stable, and up-to-date. The planned maintenance event cannot be canceled or postponed. Once the notification is sent to a given Azure region, the patching schedule changes cannot be made for any individual server in that region. The patch is rolled out for entire region at once. Azure Database for MySQL - Single server service is designed for cloud native application that doesn't require granular control or customization of the service. If you are looking to have ability to schedule maintenance for your servers, we recommend you consider [Flexible servers](./flexible-server/overview.md).
 
 ## Are all the Azure regions patched at the same time?
 
