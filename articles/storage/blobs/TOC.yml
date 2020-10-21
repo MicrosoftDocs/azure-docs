@@ -53,6 +53,8 @@
           href: quickstart-blobs-javascript-browser.md
         - name: JavaScript (v10 SDK for browser)
           href: storage-quickstart-blobs-javascript-client-libraries-legacy.md
+      - name: C++ (v12 SDK)
+        href: quickstart-blobs-c-plus-plus.md
       - name: Go
         href: storage-quickstart-blobs-go.md
       - name: PHP
@@ -105,6 +107,8 @@
       href: ../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: JavaScript
       href: ../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: C++
+      href: ../common/storage-samples-c-plus-plus.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Other languages
       href: ../common/storage-samples.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure PowerShell
