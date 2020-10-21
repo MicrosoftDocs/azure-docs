@@ -31,7 +31,8 @@ While provisioning your TSI environment, you'll be required to select a Time Ser
 
 As an IoT Plug and Play user, the pertinent question for selecting your TS ID is the prevalence of [components](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#component) your device models. 
 
-    ![TS ID selection](./media/tutorial-configure-tsi/ts-id-selection-pnp.png)
+![TS ID selection](./media/tutorial-configure-tsi/ts-id-selection-pnp.png)
+
 
 Refer back to your [TemperatureController.json](https://raw.githubusercontent.com/Azure/opendigitaltwins-dtdl/master/DTDL/v2/samples/TemperatureController.json) file. There are two thermostats sending time series data, thus you'll want to use a composite key consiting of `iot-hub-connection-device-id` and `dt-subject` in the section below.
 
