@@ -4,8 +4,6 @@
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: "------------------------------------------"
   items:
-- name:
-  href:  
 - name: Overview
   items:
   - name: What is Azure Synapse?
@@ -43,8 +41,8 @@
       displayName: get, started
   - name: Use Synapse Studio 
     href: quickstart-synapse-studio.md
-- name: Tutorials
-  items:
+# - name: Tutorials
+#   items:
   # - name: Data Scientist
   #   items:
   # - name: Data Analyst
@@ -91,10 +89,9 @@
   #       items:
   #     - name: Apache Spark
   #       items:
-  - name: Transform & analyze data
-    items:
-    - name: Analyze arrays and nested structures
-      href: how-to-analyze-complex-schema.md
+  # - name: Transform & analyze data
+  #   items:
+
     # - name: Synapse Link
     #   items:
     # - name: Synapse SQL
@@ -518,6 +515,8 @@
         href: monitoring/how-to-monitor-spark-applications.md
       - name: Apache Spark application details
         href: monitoring/apache-spark-applications.md
+      - name: Analyze JSON with Apache Spark
+        href: how-to-analyze-complex-schema.md
     - name: Ingest and prepare data
       items:
       - name: Into the data warehouse
