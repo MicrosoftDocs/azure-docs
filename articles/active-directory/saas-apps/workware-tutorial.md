@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 10/21/2020
 ms.author: jeedes
 
 ---
@@ -54,10 +54,10 @@ Configure and test Azure AD SSO with Workware using a test user called **B.Simon
 To configure and test Azure AD SSO with Workware, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Workware SSO](#configure-workware-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Workware test user](#create-workware-test-user)** - to have a counterpart of B.Simon in Workware that is linked to the Azure AD representation of user.
+    * **[Create Workware test user](#create-workware-test-user)** - to have a counterpart of B.Simon in Workware that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -126,7 +126,9 @@ To use the SSO feature in Workware, the following setup needs to be completed:
 
 1. Go to the **System Settings** page and click on **SSO Authentication**
 
-1. In the **SSO Authentication** section, click on the **Add SSO Authentication** button and enter the following details: 
+1. In the **SSO Authentication** section, click on the **Add SSO Authentication** button and perform the following steps: 
+
+    ![SSO Authentication](./media/workware-tutorial/authentication.png)
 
     1. In the **External Identity Provider**, provide the name of the IDP.
     1. Select **SAML2.0** as **Authentication Type**
@@ -135,8 +137,7 @@ To use the SSO feature in Workware, the following setup needs to be completed:
     1. In the **Identity Provider Logout URL** textbox, enter the **Logout URL** value, which you have copied from the Azure portal.
     1. Click on **Enable**.
     1. Upload the downloaded **Certificate** into the **Identity Provider Certificate** from the Azure portal.
-
-    ![SSO Authentication](./media/workware-tutorial/authentication.png)
+    1. Click **Save**
 
 
 ### Create Workware test user
@@ -159,9 +160,9 @@ To use the SSO feature in Workware, the following setup needs to be completed:
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-1. Click on Test this application in Azure portal and you should be automatically signed in to the Workware for which you set up the SSO
+* Click on Test this application in Azure portal and you should be automatically signed in to the Workware for which you set up the SSO
 
-1. You can use Microsoft Access Panel. When you click the Workware tile in the Access Panel, you should be automatically signed in to the Workware for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft Access Panel. When you click the Workware tile in the Access Panel, you should be automatically signed in to the Workware for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## Next steps
