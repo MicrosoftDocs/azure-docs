@@ -158,7 +158,7 @@ For a complete list of the pre-integrated applications, see the [Active Director
 
 For more information, see:
 
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../manage-apps/configure-saml-single-sign-on.md)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
 ---
