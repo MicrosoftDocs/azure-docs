@@ -10,14 +10,18 @@ ms.date: 10/21/2020
 ms.author: aahi
 ---
 
-Use this quickstart to make your first image search using the Bing Image Search client library, which is a wrapper for the API and contains the same features. This simple C# application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
+Use this quickstart to make your first image search using the Bing Image Search client library. 
+
+The client search library is a wrapper for the REST API and contains the same features. 
+
+You'll create a C# application sends an image search query, parses the JSON response, and displays the URL of the first image returned.
 
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) with additional error handling and annotations.
 
 ## Prerequisites
 
-* If you're using Windows, any edition of [Visual Studio 2017 or later](https://visualstudio.microsoft.com/vs/whatsnew/).
-* If you're using MacOS or Linux, [VS Code](https://code.visualstudio.com) with [.NET Core installed](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install).
+* If you're using Windows, any edition of [Visual Studio 2017 or later](https://visualstudio.microsoft.com/vs/whatsnew/)
+* If you're using macOS or Linux, [VS Code](https://code.visualstudio.com) with [.NET Core installed](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install)
 * [A free Azure subscription](https://azure.microsoft.com/free/dotnet)
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-image-search-signup-requirements.md)]
@@ -42,13 +46,13 @@ First, create a new C# console application.
 # [VS Code](#tab/vscode)
 
 1. Open up the terminal window in VS Code.
-1. Create a new console project named *BingImageSearch* by entering the following in the terminal window:
+1. Create a new console project named *BingImageSearch* by entering the following code in the terminal window:
     
     ```bash
     dotnet new console -n BingImageSearch
     ```
 1. Open the *BingImageSearch* folder in VS Code.
-1. Add the [Cognitive Image Search NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch) NuGetPackage by entering the follwing in the terminal window:
+1. Add the [Cognitive Image Search NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch) NuGetPackage by entering the following code in the terminal window:
 
     ```bash
     dotnet add package Microsoft.Azure.CognitiveServices.Search.ImageSearch
@@ -59,7 +63,7 @@ First, create a new C# console application.
 ## Initialize the application
 
 
-1. Replace all of the `using` statements in *Program.cs* with the following:
+1. Replace all of the `using` statements in *Program.cs* with the following code:
 
     ```csharp
     using System;
@@ -90,30 +94,32 @@ First, create a new C# console application.
     
 ## Send a search query using the client
     
-1. Still in the `Main` method, use the client to search with a query text:
+Still in the `Main` method, use the client to search with a query text:
     
-    ```csharp
-    // make the search request to the Bing Image API, and get the results"
-    imageResults = await client.Images.SearchAsync(query: searchTerm).Result; //search query
-    ```
+```csharp
+// make the search request to the Bing Image API, and get the results"
+imageResults = await client.Images.SearchAsync(query: searchTerm).Result; //search query
+```
 
 ## Parse and view the first image result
 
-1. Parse the image results returned in the response. If the response contains search results, store the first result and print out its details, such as a thumbnail URL, the original URL,along with the total number of returned images.  
+Parse the image results returned in the response. 
 
-    ```csharp
-    if (imageResults != null)
-    {
-        //display the details for the first image result.
-        var firstImageResult = imageResults.Value.First();
-        Console.WriteLine($"\nTotal number of returned images: {imageResults.Value.Count}\n");
-        Console.WriteLine($"Copy the following URLs to view these images on your browser.\n");
-        Console.WriteLine($"URL to the first image:\n\n {firstImageResult.ContentUrl}\n");
-        Console.WriteLine($"Thumbnail URL for the first image:\n\n {firstImageResult.ThumbnailUrl}");
-        Console.WriteLine("Press any key to exit ...");
-        Console.ReadKey();
-    }
-    ```
+If the response contains search results, store the first result and print out some of its details.
+
+```csharp
+if (imageResults != null)
+{
+    //display the details for the first image result.
+    var firstImageResult = imageResults.Value.First();
+    Console.WriteLine($"\nTotal number of returned images: {imageResults.Value.Count}\n");
+    Console.WriteLine($"Copy the following URLs to view these images on your browser.\n");
+    Console.WriteLine($"URL to the first image:\n\n {firstImageResult.ContentUrl}\n");
+    Console.WriteLine($"Thumbnail URL for the first image:\n\n {firstImageResult.ThumbnailUrl}");
+    Console.WriteLine("Press any key to exit ...");
+    Console.ReadKey();
+}
+```
 
 ## Next steps
 
