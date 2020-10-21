@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: User provisioning for GitHub - Azure AD'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to GitHub.
+description: Learn how to configure Azure Active Directory to automatically provision and de-provision user organization membership in GitHub Enterprise Cloud.
 services: active-directory
 author: ArvindHarinder1
 manager: CelesteDG
@@ -13,7 +13,7 @@ ms.author: arvinh
 ---
 # Tutorial: Configure GitHub for automatic user provisioning
 
-The objective of this tutorial is to show you the steps you need to perform in GitHub and Azure AD to automatically provision and de-provision user accounts from Azure AD to GitHub.
+The objective of this tutorial is to show you the steps you need to perform in GitHub and Azure AD to automate provisioning of GitHub Enterprise Cloud organization membership.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ Before configuring and enabling the provisioning service, you need to decide wha
 
 ## Configuring user provisioning to GitHub
 
-This section guides you through connecting your Azure AD to GitHub's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in GitHub based on user and group assignment in Azure AD.
+This section guides you through connecting your Azure AD to GitHub's SCIM provisioning API to automate provisioning of GitHub organization membership. This integration, which leverages an OAuth app](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/authorizing-oauth-apps#oauth-apps-and-organizations), automatically adds, manages, and removes members' access to a GitHub Enterprise Cloud organization based on user and group assignment in Azure AD. When users are [provisioned to a GitHub organization via SCIM](https://docs.github.com/en/free-pro-team@latest/rest/reference/scim#provision-and-invite-a-scim-user), an email invitation is sent to the user's email address.
 
 ### Configure automatic user account provisioning to GitHub in Azure AD
 
@@ -75,13 +75,13 @@ This section guides you through connecting your Azure AD to GitHub's user accoun
 
 10. Under the Mappings section, select **Synchronize Azure Active Directory Users to GitHub**.
 
-11. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to GitHub. The attributes selected as **Matching** properties are used to match the user accounts in GitHub for update operations. Select the Save button to commit any changes.
+11. In the **Attribute Mappings** section, review the user attributes that are synchronized from Azure AD to GitHub. The attributes selected as **Matching** properties are used to match the user accounts in GitHub for update operations. Do not enable the _Matching precendence_ setting for the other default attributes in the Provisioning section as this may result in errors. Select the Save button to commit any changes.
 
 12. To enable the Azure AD provisioning service for GitHub, change the **Provisioning Status** to **On** in the **Settings** section
 
 13. Click **Save**.
 
-This operation starts the initial synchronization of any users and/or groups assigned to GitHub in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service.
+This operation starts the initial synchronization of any users and/or groups assigned to GitHub in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service. 
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
