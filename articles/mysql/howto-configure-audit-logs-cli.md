@@ -13,16 +13,11 @@ ms.custom: devx-track-azurecli
 
 You can configure the [Azure Database for MySQL audit logs](concepts-audit-logs.md) from the Azure CLI.
 
-## Prerequisites
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-To step through this how-to guide, you need:
+- You need an [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-portal.md).
 
-- [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-portal.md)
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-> [!IMPORTANT]
-> This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+ - This article requires version 2.0 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
 
 ## Configure audit logging
 
