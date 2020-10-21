@@ -140,7 +140,7 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
  
    b.    Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. The actual DNS zones may be different from what is shown in the screenshot below. 
    > [!NOTE]
-   > If you choose **No** and prefer to manage DNS records manyally, please follow the intstuction in [Azure Private Endpoint DNS configuration](https://docs.microsoft.com/azure/private-link/private-endpoint-dns). Also, make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and your connectivity with Azure Monitor.
+   > If you choose **No** and prefer to manage DNS records manyally, first complete setting up your Private Link - including this Private Ednpoint and the AMPLS configuration. Then, configure your DNS according to the intstuction in [Azure Private Endpoint DNS configuration](https://docs.microsoft.com/azure/private-link/private-endpoint-dns). Make sure not to create empty records as preparation for your Private Link setup. The DNS records you create can override existing settings and impact your connectivity with Azure Monitor.
  
    c.    Click **Review + create**.
  
