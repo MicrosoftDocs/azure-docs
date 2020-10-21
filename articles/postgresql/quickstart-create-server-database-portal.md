@@ -34,18 +34,18 @@ Go to the [Azure portal](https://portal.azure.com/) to create an Azure Database 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/quickstart-create-database-portal/create-basics.png" alt-text="Screenshot that shows the Basics tab for creating a single server.":::
 
-   Setting|Suggested value|Description
-   ---|---|---
-   Subscription|your subscription name|select the desired Azure Subscription.
-   Resource group|*myresourcegroup*| A new or an existing resource group from your subscription.
-   Server name |*mydemoserver*|A unique name that identifies your Azure Database for PostgreSQL server. The domain name *postgres.database.azure.com* is appended to the server name that you provide. The server can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain 3 to 63 characters.
-   Data source | **None** | Select **None** to create a new server from scratch. Select **Backup** only if you were restoring from a geo-backup of an existing server.
-   Admin username |*myadmin*| Enter your server admin username. It can't start with **pg_** and these values are not allowed: **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest**, or **public**.
-   Password |your password| A new password for the server admin user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (for example, !, $, #, %).
-   Location|your desired location| Select a location from the dropdown list.
-   Version|The latest major version| The latest PostgreSQL major version, unless you have specific requirements otherwise.
-   Compute + storage | *use the defaults*| The defaults are as follows <br/> Sku : **Gen 5**, **General Purpose**  <br/> Compute : **4 vCores** <br/>Storage: **100 GB** <br/> Backup retention: **7 days** <br/> Backup redundancy: **Geographically Redundant** <br/><br/>For more information, see [pricing details](https://azure.microsoft.com/pricing/details/postgresql/server/) and update the defaults if needed.
-<br/>
+   |Setting|Suggested value|Description|
+   |:---|:---|:---|
+   |Subscription|your subscription name|select the desired Azure Subscription.|
+   |Resource group|*myresourcegroup*| A new or an existing resource group from your subscription.|
+   |Server name |*mydemoserver*|A unique name that identifies your Azure Database for PostgreSQL server. The domain name *postgres.database.azure.com* is appended to the server name that you provide. The server can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain 3 to 63 characters.|
+   |Data source | **None** | Select **None** to create a new server from scratch. Select **Backup** only if you were restoring from a geo-backup of an existing server.|
+   |Admin username |*myadmin*| Enter your server admin username. It can't start with **pg_** and these values are not allowed: **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest**, or **public**.|
+   |Password |your password| A new password for the server admin user. It must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (for example, !, $, #, %).|
+   |Location|your desired location| Select a location from the dropdown list.|
+   |Version|The latest major version| The latest PostgreSQL major version, unless you have specific requirements otherwise.|
+   |Compute + storage | *use the defaults*| The default pricing tier is **General Purpose**  with **4 vCores** and **100 GB** storage.Backup retention is set to **7 days** with **Geographically Redundant** backup option.<br/>For more information, see [pricing details](https://azure.microsoft.com/pricing/details/postgresql/server/) and update the defaults if needed.|
+
 
 
    > [!NOTE]
