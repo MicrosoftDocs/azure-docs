@@ -370,7 +370,7 @@ For additional guidance on fine-tuning performance, see the following resources:
 
 1. Make sure that TCP/IP is enabled as a client protocol on the application server. For more information, see [Configure client protocols](/sql/database-engine/configure-windows/configure-client-protocols). On application servers where you don't have SQL tools installed, verify that TCP/IP is enabled by running **cliconfg.exe** (SQL Server Client Network utility).
 2. Check the application’s connection string to make sure it's configured correctly. For example, make sure that the connection string specifies the correct port (1433) and fully qualified server name.
-See [Get connection information](./connect-query-ssms.md#get-sql-server-connection-information).
+See [Get connection information](./connect-query-ssms.md#get-server-connection-information).
 3. Try increasing the connection timeout value. We recommend using a connection timeout of at least 30 seconds.
 4. Test the connectivity between the application server and the Azure SQL Database by using [SQL Server management Studio (SSMS)](./connect-query-ssms.md), a UDL file, ping, or telnet. For more information, see [Troubleshooting connectivity issues](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) and [Diagnostics for connectivity issues](./troubleshoot-common-connectivity-issues.md#diagnostics).
 
