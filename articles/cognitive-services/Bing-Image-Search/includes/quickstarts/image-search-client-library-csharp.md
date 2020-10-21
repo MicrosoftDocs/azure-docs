@@ -94,7 +94,7 @@ First, create a new C# console application.
     
     ```csharp
     // make the search request to the Bing Image API, and get the results"
-    imageResults = client.Images.SearchAsync(query: searchTerm).Result; //search query
+    imageResults = await client.Images.SearchAsync(query: searchTerm).Result; //search query
     ```
 
 ## Parse and view the first image result
