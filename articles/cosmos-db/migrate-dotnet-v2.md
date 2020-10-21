@@ -65,7 +65,7 @@ The 2.1.x library has the following key changes:
 * Advanced extensions for the implementation of the ChangeFeedDocument interface and class for additional error handling and tracing
 * Added support for using custom store to persist continuation tokens per partition
 
-For more information, see the [change feed processor library in Azure Cosmos DB](change-feed.md) and the change feed processor SDK [release notes](sql-api-sdk-dotnet-changefeed.md).
+For more information, see the change feed processor library [release notes](sql-api-sdk-dotnet-changefeed.md).
 
 ### Using the bulk executor library
 
