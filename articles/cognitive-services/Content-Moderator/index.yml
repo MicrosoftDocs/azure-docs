@@ -155,9 +155,9 @@ landingContent:
             url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
      
   - title: Help and feedback
-  linkLists:
+    linkLists:
     - linkListType: reference
       links:
         - text: Support and help options
-          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
           
