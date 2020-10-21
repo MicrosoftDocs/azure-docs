@@ -1,5 +1,5 @@
 ---
-title: Sign in to LUIS portal
+title: Sign up to LUIS portal
 description: If you are a new user signing in to the LUIS portal, the sign-in experience will slightly differ based on your current user account.
 services: cognitive-services
 ms.custom:
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.author: a-sakand
 author: skandil
 ---
-# Sign in to LUIS portal
+# Sign-up to LUIS portal
 
 If you are a new user signing in to the LUIS portal, the sign-in experience will slightly differ based on your current user account:
   * Associated with an Azure subscription
@@ -30,9 +30,9 @@ An account, which is not associated with an Azure subscription has the Azure ico
 
 An account associated with an Azure subscription allows you to select your subscription and resource to use.
 
-:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Partial screen-shot of LUIS portal with Subscription and Authoring resource selection drop-down boxes.":::
+:::image type="content" source="media/app-settings/select-sub-and-resource.png" alt-text="Partial screen-shot of LUIS portal with Subscription and Authoring resource selection drop-down boxes.":::
 
-## Sign in with account associated with an Azure subscription
+## Sign-up with account associated with an Azure subscription
 
 1. Sign in to [LUIS portal](https://www.luis.ai) and agree to the terms of use.
 
@@ -78,7 +78,7 @@ An account associated with an Azure subscription allows you to select your subsc
     > If you have a subscription and at least one authoring resource in the region same as the one you are signing up to in the portal, you might automatically sign in to LUIS migrated and associated with a resource without the need of choosing which path to go in.
 
 
-## Sign in with user account not associated with an Azure subscription
+## Sign-up with user account not associated with an Azure subscription
 
 1. Sign in to [LUIS portal](https://www.luis.ai) and check that you agree to the terms of use.
 
