@@ -63,6 +63,7 @@
       href: protect-with-drm.md
     - name: Content protection with Azure AD
       href: azure-ad-content-protection.md
+      displayName: AAD, Active Directory
   - name: REST
     items:
     - name: Encode and stream a remote file REST
@@ -127,8 +128,8 @@
     - name: Overview
       href: analyzing-video-audio-files-concept.md
       displayName: analyze, analyzing, presets, jobs
-    - name: Transforms and jobs
-      href: transforms-jobs-concept.md    
+  - name: Transforms and jobs
+    href: transforms-jobs-concept.md    
   - name: Live streaming 
     items:
     - name: Overview
