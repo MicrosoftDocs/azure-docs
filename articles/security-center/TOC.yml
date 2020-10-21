@@ -135,10 +135,6 @@
       href: security-center-monitoring.md
     - name: Reference list of recommendations
       href: recommendations-reference.md
-    - name: Protect network resources
-      href: security-center-network-recommendations.md
-    - name: Protect identity and access
-      href: security-center-identity-access.md
     - name: Manage security recommendations
       items:
       - name: Automate responses to recommendations
@@ -146,6 +142,10 @@
         href: workflow-automation.md
       - name: Exempt a resource from a recommendation
         href: exempt-resource.md
+    - name: Protect network resources
+      href: security-center-network-recommendations.md
+    - name: Protect identity and access
+      href: security-center-identity-access.md
   - name: Azure Defender alerts
     items:
     - name: Azure Defender alerts overview

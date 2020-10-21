@@ -24,17 +24,17 @@ Azure Security Center has two main goals: to help you understand your current se
 
 Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.
 
-The **Recommendations** page shows the outstanding actions necessary to raise your score and includes:
+The secure score is shown in the Azure portal pages as a percentage value, but the underlying values are also clear:
 
-- **The score** - The secure score is shown as a percentage value, but the underlying values are also clear:
+:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Overall secure score as shown in the portal":::
 
-    :::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Overall secure score as shown in the portal":::
+To improve your score, review Security Center's security recommendations page for the outstanding actions necessary to raise your score. 
 
-- **Security controls** - Each control is a logical group of related security recommendations, and reflects your vulnerable attack surfaces. A control is a set of security recommendations, with instructions that help you implement those recommendations. Your score only improves when you remediate *all* of the recommendations for a single resource within a control.
+Recommendations are grouped into **security controls**. Each control is a logical group of related security recommendations, and reflects your vulnerable attack surfaces. A control is a set of security recommendations, with instructions that help you implement those recommendations. Your score only improves when you remediate *all* of the recommendations for a single resource within a control.
 
-    To immediately see how well your organization is securing each individual attack surface, review the scores for each security control.
+To see how well your organization is securing each individual attack surface, review the scores for each security control.
 
-    For more information, see [How your secure score is calculated](secure-score-security-controls.md#how-your-secure-score-is-calculated) below. 
+For more information, see [How your secure score is calculated](secure-score-security-controls.md#how-your-secure-score-is-calculated) below. 
 
 
 >[!TIP]
@@ -44,7 +44,11 @@ The **Recommendations** page shows the outstanding actions necessary to raise yo
 
 ## Access your secure score
 
-You can find your overall secure score, as well as your score per subscription, through the Azure portal or programatically with the Azure Security Center REST API.
+You can find your overall secure score, as well as your score per subscription, through the Azure portal or programatically as described in the following sections:
+
+- [Get your secure score from the portal](#get-your-secure-score-from-the-portal)
+- [Get your secure score from the REST API](#get-your-secure-score-from-the-rest-api)
+- [Get your secure score from Azure Resource Graph (ARG)](#get-your-secure-score-from-azure-resource-graph-arg)
 
 ### Get your secure score from the portal
 
@@ -52,19 +56,17 @@ Security Center displays your score prominently in the portal: it's the first ma
 
 To recap, your secure score is shown in the following locations in Security Center's portal pages.
 
-- In a tile on Security Center's dashboard
+- In a tile on Security Center's **Overview** (main dashboard)
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="The secure score on Security Center's dashboard":::
 
 - In the dedicated **Secure score** page
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score on Security Center's dashboard":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score on Security Center's secure score page":::
 
 - At the top of the **Recommendations** page
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score on Security Center's dashboard":::
-
-
+    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="The secure score on Security Center's dashboard":::
 
 
 
@@ -75,6 +77,40 @@ You can access your score via the secure score API (currently in preview). The A
 ![Retrieving a single secure score via the API](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 For examples of tools built on top of the secure score API, see [the secure score area of our GitHub community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
+
+
+
+### Get your secure score from Azure Resource Graph (ARG)
+
+Azure Resource Graph provides instant access to resource information across your cloud environments with robust filtering, grouping, and sorting capabilities. It's a quick and efficient way to query information across Azure subscriptions programmatically or from within the Azure portal. [Learn more about Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/).
+
+To access the secure score for multiple subscriptions with ARG:
+
+1. From the Azure portal, open **Azure Resource Graph Explorer**.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
+
+1. Enter your Kusto query (using the examples below for guidance).
+
+    - This query returns the subscription ID, the current score in points and as a percentage, and the maximum score for the subscription. 
+
+        ```kusto
+        SecurityResources 
+        | where type == 'microsoft.security/securescores' 
+        | extend current = properties.score.current, max = todouble(properties.score.max)
+        | project subscriptionId, current, max, percentage = ((current / max)*100)
+        ```
+
+    - This query returns the status of all the security controls. For each control, you'll get the number of unhealthy resources, the current score, and the maximum score. 
+
+        ```kusto
+        SecurityResources 
+        | where type == 'microsoft.security/securescores/securescorecontrols'
+        | extend SecureControl = properties.displayName, unhealthy = properties.unhealthyResourceCount, currentscore = properties.score.current, maxscore = properties.score.max
+        | project SecureControl , unhealthy, currentscore, maxscore
+        ```
+
+1. Select **Run query**.
 
 ## How your secure score is calculated 
 
