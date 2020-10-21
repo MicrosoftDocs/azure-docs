@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2020
+ms.date: 10/20/2020
 ms.author: duau
 ---
 
@@ -156,6 +156,10 @@ Learn about all the documented [timeouts and limits for Azure Front Door](../azu
 ### How long does it take for a rule to take effect after being added to the Front Door Rules Engine?
 
 The Rules Engine configuration takes about 10 to 15 minutes to complete an update. You can expect the rule to take effect as soon as the update is completed. 
+
+### Can I configure Azure CDN behind my Front Door profile or vice versa?
+
+Azure Front Door and Azure CDN can't be configured together because both services utilizes the same Azure edge sites when responding to requests. 
 
 ## Performance
 

@@ -17,48 +17,60 @@ ms.topic: how-to
 
 ## Prerequisites
 
-To retrieve the Azure Arc enabled data services logs you will need the Azure Data CLI tool. [Installation instructions](./install-client-tools.md)
+Before proceeding you need:
 
-You will need to be able to log in to the Azure Arc enabled data services controller service as an administrator.
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. [Installation instructions](./install-client-tools.md).
+* An administrator account to sign in to the Azure Arc enabled data services controller.
 
 ## Get Azure Arc enabled data services logs
 
-You can get the Azure Arc enabled data services logs across all pods or specific pods for troubleshooting purposes.  You can do this using standard Kubernetes tools such as the `kubectl logs` command or in this article you will be using the Azure Data CLI tool which makes it easier to get all of the logs at once.
+You can get the Azure Arc enabled data services logs across all pods or specific pods for troubleshooting purposes. You can do this using standard Kubernetes tools such as the `kubectl logs` command or in this article you will be using the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] tool, which makes it easier to get all of the logs at once.
 
-First, make sure you are logged into the data controller.
+1. Sign in to the data controller with an administrator account.
 
-```console
-azdata login
-```
+   ```console
+   azdata login
+   ```
 
-Then run the following command to dump the logs:
-```console
-azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+2. Run the following command to dump the logs:
 
-#Example:
-#azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
-```
+   ```console
+   azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+   ```
 
-The log files will be created in the current working directory by default in a subdirectory called 'logs'.  You can output the log files to a different directory using the `--target-folder` parameter.
+   For example:
 
-You can choose to compress the files by omitting the `--skip-compress` parameter.
+   ```console
+   #azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
+   ```
 
-You can trigger and include memory dumps by omitting the `--exclude-dumps`, but this is not recommended unless Microsoft Support has requested the memory dumps.  Taking a memory dump requires that the data controller setting `allowDumps` is set to `true` the time of the data controller creation.
+The data controller creates the log files in the current working directory in a subdirectory called `logs`. 
 
-You can optionally choose to filter to collect logs for just a specific pod (`--pod`) or container (`--container`) by name.
+## Options
 
-You can also choose to filter to collect logs for a specific custom resource by passing the `--resource-kind` and `--resource-name` paramater.  The `resource-kind` parameter value should be one of the custom resource definition names which can be retrieved by the command `kubectl get customresourcedefinition`.
+`azdata arc dc debug copy-logs` provides the following options to manage the output.
+
+* Output the log files to a different directory using the `--target-folder` parameter.
+* Compress the files by omitting the `--skip-compress` parameter.
+* Trigger and include memory dumps by omitting the `--exclude-dumps`. This method is not recommended unless Microsoft Support has requested the memory dumps. Taking a memory dump requires that the data controller setting `allowDumps` is set to `true` the time of the data controller creation.
+* Filter to collect logs for just a specific pod (`--pod`) or container (`--container`) by name.
+* Filter to collect logs for a specific custom resource by passing the `--resource-kind` and `--resource-name` parameter. The `resource-kind` parameter value should be one of the custom resource definition names, which can be retrieved by the command `kubectl get customresourcedefinition`.
+
+With these parameters, you can replace the `<parameters>` in the following example. 
 
 ```console
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
+```
 
-#Example
+For example
+
+```console
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-Example of folder hierarchy.  Note that folder hierarchy is organized by pod name name and then by container and then by directory hierarchy within the container.
+Example of folder hierarchy. The folder hierarchy is organized by pod name, then container, and then by directory hierarchy within the container.
 
-```console
+```output
 <export directory>
 ├───debuglogs-arc-20200827-180403
 │   ├───bootstrapper-vl8j2
@@ -176,3 +188,7 @@ Example of folder hierarchy.  Note that folder hierarchy is organized by pod nam
             ├───journal
             └───openvpn
 ```
+
+## Next steps
+
+[azdata arc dc debug copy-logs](/sql/azdata/reference/reference-azdata-arc-dc-debug#azdata-arc-dc-debug-copy-logs?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json)

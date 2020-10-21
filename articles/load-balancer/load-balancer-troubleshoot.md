@@ -157,6 +157,17 @@ If you decide to open a support case, collect the following information for a qu
 - Use Psping from one of the backend VMs within the VNet to test the probe port response (example: psping 10.0.0.4:3389) and record results. 
 - If no response is received in these ping tests, run a simultaneous Netsh trace on the backend VM and the VNet test VM while you run PsPing then stop the Netsh trace. 
  
+## Symptom: Load Balancer in failed state 
+
+**Resolution**
+
+- Once you identify the resource that is in a failed state, go to [Azure Resource Explorer](https://resources.azure.com/) and identify the resource in this state. 
+- Update the toggle on the right hand top corner to Read/Write.
+- Click on Edit for the resource in failed state.
+- Click on PUT followed by GET to ensure the provisioning state was updated to Succeeded.
+- You can then proceed continue with other actions as the resource is out of failed state.
+
+
 ## Next steps
 
 If the preceding steps do not resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).
