@@ -48,9 +48,9 @@ Recovery security baseline mapping file](https://github.com/MicrosoftDocs/Securi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33681.).
 
-**Guidance**: Not applicable to Site Recovery's Services Vault, a Site Recovery resource. The Vault cannot be deployed or associated to an Azure Virtual Network or a network security group. 
+**Guidance**: Not applicable to Site Recovery's Services vault, a Site Recovery resource. The vault cannot be deployed or associated to an Azure Virtual Network or a network security group. 
 
-Recovery Service Vault is a Platform as a Service (PaaS) resource and replication of data is performed over a secured encrypted channel.
+Recovery Service vault is a Platform as a Service (PaaS) resource and replication of data is performed over a secured encrypted channel.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -193,7 +193,7 @@ You can use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33692.).
 
-**Guidance**: Enable Azure Activity Log diagnostic settings for audit logging and send the logs to a Log Analytics workspace, Azure Storage account or an Azure Event Hub for archiving. 
+**Guidance**: Enable Azure Activity Log diagnostic settings for audit logging and send the logs to a Log Analytics workspace, Azure Storage account or an Azure Event Hub for archival.
 
 Use Azure Activity Log data to determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed on your Azure resources.
 
@@ -336,7 +336,7 @@ Microsoft handles the anti-malware logging for all Microsoft managed resources.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33701.).
 
-**Guidance**: No roles are assigned by default. They need to be explicitly assigned based on business need, Any role assignments can be checked with PowerShell cli or Azure Active Directory (Azure AD) to discover accounts that are members of administrative groups.
+**Guidance**: No roles are assigned by default. They need to be explicitly assigned based on business need. Any role assignments can be checked with PowerShell cli or Azure Active Directory (Azure AD) to discover accounts that are members of administrative groups.
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -403,8 +403,7 @@ Create a process to track identity and access control for administrative account
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33705.).
 
-**Guidance**: Enable Azure Active
-Directory (Azure AD), Multi-Factor Authentication (MFA) and follow Security Center's Identity and Access recommendations. 
+**Guidance**: Enable Azure AD, multifactor authentication and follow Security Center's Identity and Access recommendations. 
 - [Plan an Azure Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [Monitor identity and access](../security-center/security-center-identity-access.md)
@@ -418,7 +417,7 @@ Directory (Azure AD), Multi-Factor Authentication (MFA) and follow Security Cent
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33706.).
 
-**Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation (PAW)) with Azure Multi-Factor Authentication (MFA) for administrative tasks and to perform privileged actions on Site Recovery resources.
+**Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation (PAW)) with Azure multifactor authentication for administrative tasks and to perform privileged actions on Site Recovery resources.
 
 - [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
@@ -433,7 +432,7 @@ Directory (Azure AD), Multi-Factor Authentication (MFA) and follow Security Cent
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33707.).
 
-**Guidance**: Use Azure Active Directory (Azure AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
+**Guidance**: Use Azure AD's Privileged Identity Management (PIM) feature for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 View alerts and reports on risky user behavior with Azure AD risk detection feature.
 
 - [How to deploy Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
@@ -461,7 +460,7 @@ View alerts and reports on risky user behavior with Azure AD risk detection feat
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33709.).
 
-**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for Site Recovery. Azure AD protects data by using strong encryption for data at rest, in transit and also salts, hashes, and securely stores user credentials. 
+**Guidance**: Use Azure AD as the central authentication and authorization system for Site Recovery. Azure AD protects data by using strong encryption for data at rest, in transit and also salts, hashes, and securely stores user credentials. 
 
 - [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
@@ -474,10 +473,10 @@ View alerts and reports on risky user behavior with Azure AD risk detection feat
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33710.).
 
-**Guidance**: Use Azure Active
-Directory (Azure AD) logs to help discover stale accounts. 
+**Guidance**: Use Azure AD logs to help discover stale accounts. 
 
 Efficiently manage group memberships, access to enterprise applications and role assignments with Azure AD's Identity and Access Reviews. 
+
 Create a process to review user access on a regular basis to ensure only users with completed access reviews have continued access. 
 
 - [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
@@ -493,7 +492,7 @@ Create a process to review user access on a regular basis to ensure only users w
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33711.).
 
-**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for Site Recovery resources. Azure AD protects data by using strong encryption for data at rest and in transit and also salts, hashes, and securely stores user credentials.
+**Guidance**: Use Azure AD as the central authentication and authorization system for Site Recovery resources. Azure AD protects data by using strong encryption for data at rest and in transit and also salts, hashes, and securely stores user credentials.
 
 You have access to Azure AD sign-in activity, audit, and risk event log sources, which allow you to integrate them with Azure Sentinel or any SIEM or monitoring tool available in the Azure Marketplace.
 
@@ -512,7 +511,7 @@ Further streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33712.).
 
-**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for your Recovery Services Vaults. 
+**Guidance**: Use Azure AD as the central authentication and authorization system for your Recovery Services vaults. 
 
 Employ Azure AD's Identity Protection features for account login behavior detection and to configure automated responses to detected suspicious actions, as related to user identities. Also ingest data into Azure Sentinel for further investigation.
 
@@ -565,7 +564,7 @@ All of Site Recovery's Disaster Recovery data is transferred or stored in custom
 
 Separate resources with a virtual network or subnet, tagged appropriately, and secured by a network security group or Azure Firewall. 
 
-Turn off virtual machines which store or process sensitive data, when not in use. Implement policy and procedures to make this as a recurring process. 
+Turn off virtual machines which store or process sensitive data, when not in use. Implement policy and procedures to make this a recurring process. 
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
@@ -601,7 +600,7 @@ Microsoft manages the underlying platform used by Site Recovery and treats all c
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33717.).
 
-**Guidance**: Site Recovery uses a secure https channel, encrypted using Advanced Encryption Standard (AES 256), from Azure workload servers to Site Recovery services hosted behind a Recovery Services Vault.
+**Guidance**: Site Recovery uses a secure https channel, encrypted using Advanced Encryption Standard (AES 256), from Azure workload servers to Site Recovery services hosted behind a Recovery Services vault.
 
 Current TLS versions supported for Site Recovery are TLS 1.0, TLS 1.1, TLS 1.2 in regions, which were live by the end of 2019. TLS1.2 is the only supported TLS version for any new regions.
 
@@ -780,7 +779,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33729.).
 
-**Guidance**: Apply tags to Recovery Services Vaults and other related resources used by Site Recovery with tag-metadata to logically organize them into a taxonomy.
+**Guidance**: Apply tags to Recovery Services vaults and other related resources, used by Site Recovery with metadata, to logically organize them into a taxonomy.
 - [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
@@ -911,7 +910,7 @@ Understanding how to create and manage policies in Azure is important for stayin
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33738.).
 
-**Guidance**: Use the Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App. This can prevent the creation and changes to resources within a high security environment.
+**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App. This can prevent the creation and changes to resources within a high security environment.
 
 - [How to configure Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
@@ -1002,7 +1001,7 @@ Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33745.).
 
-**Guidance**: Use Azure Repos to securely store and manage your code if you're using custom Azure Policy definitions for your Recovery Services Vaults and related resources.
+**Guidance**: Choose Azure Repos to securely store and manage your code if you're using custom Azure Policy definitions for your Recovery Services Vaults and related resources.
 
 - [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
 
@@ -1079,13 +1078,13 @@ Use Azure Policy [audit], [deny], and [deploy if not exist] effects to automatic
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33751.).
 
-**Guidance**: Customer should manage Site Recovery secrets integrated with Azure Key Vault, while enabling Disaster Recovery for Azure Disk Encryption-enabled virtual machines. 
+**Guidance**: Customer should manage Site Recovery secrets integrated with Azure Key vault, while enabling Disaster Recovery for Azure Disk Encryption-enabled virtual machines. 
 
-- [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
+- [How to create a Key vault](../key-vault/secrets/quick-create-portal.md)
 
-- [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+- [How to authenticate to Key vault](../key-vault/general/authentication.md)
 
-- [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
+- [How to assign a Key vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 - [How to enable DR for Azure Disk Encryption-enabled virtual machines using Site Recovery](azure-to-azure-how-to-enable-replication-ade-vms.md)
 
@@ -1098,12 +1097,11 @@ Use Azure Policy [audit], [deny], and [deploy if not exist] effects to automatic
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33752.).
 
-**Guidance**: Site Recovery supports system-managed identity only where a customer can enable system managed identity on Recovery Services Vault. The same methodology applies to resources used in the Disaster Recovery offering to define the access boundary. 
+**Guidance**: Site Recovery supports system-managed identity only where a customer can enable system managed identity on Recovery Services vault. The same methodology applies to resources used in the Disaster Recovery offering to define the access boundary. 
 
-Use Managed Identities to provide Azure services with an automatically managed identity in Azure Active
-Directory (Azure AD). 
+Use managed identities to provide Azure services with an automatically managed identity in Azure AD. 
 
-Managed Identities allow you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
+Managed identities allow you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
 - [How to integrate with Azure Managed Identities](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity?tabs=core2x)
 
@@ -1118,9 +1116,7 @@ Managed Identities allow you to authenticate to any service that supports Azure 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33753.).
 
-**Guidance**: Implement Credential Scanner to identify credentials within code. 
-
-Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
+**Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
 - [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
@@ -1139,7 +1135,7 @@ Credential Scanner will also encourage moving discovered credentials to more sec
 
 **Guidance**: Not applicable to Site Recovery. This recommendation is intended for compute resources. 
 
-Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Site Recovery for Recovery Services Vault resources), however it does not run on customer content.
+Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Site Recovery for Recovery Services vault resources), however it does not run on customer content.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
