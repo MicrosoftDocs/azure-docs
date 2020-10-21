@@ -587,7 +587,7 @@ To test your logic app, follow these steps to start a debugging session and find
    | Succeeded | ![Icon for "Succeeded" action status][succeeded-icon] | The action succeeded. |
    | Succeeded with retries | ![Icon for "Succeeded with retries" action status][succeeded-with-retries-icon] | The action succeeded but only after one or more retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
    | Timed out | ![Icon for "Timed out" action status][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
-   | Waiting | ![Icon for "Waiting" action status][waiting-icon] | The action hasn't started or is paused because execution hasn't reached this action. |
+   | Waiting | ![Icon for "Waiting" action status][waiting-icon] | Applies to a webhook action that's waiting for an inbound request from a caller. |
    ||||
 
    [aborted-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/aborted.png
