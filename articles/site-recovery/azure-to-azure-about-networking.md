@@ -24,7 +24,7 @@ Learn how Site Recovery provides disaster recovery for [this scenario](azure-to-
 
 The following diagram depicts a typical Azure environment, for applications running on Azure VMs:
 
-![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+![Diagram that depicts a typical Azure environment for applications running on Azure VMs.](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
 If you're using Azure ExpressRoute or a VPN connection from your on-premises network to Azure, the environment is as follows:
 

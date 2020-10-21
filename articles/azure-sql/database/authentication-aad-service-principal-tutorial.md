@@ -60,7 +60,7 @@ In this tutorial, you learn how to:
     For more information, see the [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) command.
 
     > [!IMPORTANT]
-    > If an Azure AD Identity is set up for the Azure SQL logical server, the [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) permission must be granted to the identity. We will walk through this step in following section. **Do not** skip this step as Azure AD authentication will stop working.
+    > If an Azure AD Identity is set up for the Azure SQL logical server, the [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission must be granted to the identity. We will walk through this step in following section. **Do not** skip this step as Azure AD authentication will stop working.
 
     - If you used the [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) command with the parameter `AssignIdentity` for a new SQL server creation in the past, you will need to execute the [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) command afterwards as a separate command to enable this property in the Azure fabric.
 
