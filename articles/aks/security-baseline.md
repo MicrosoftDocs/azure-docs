@@ -858,7 +858,7 @@ Track the configurations of your machines to aid in pinpointing operational issu
 
 - [How to use File Integrity Monitoring](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Understand Azure Change Tracking](../automation/change-tracking.md)
+- [Understand Azure Change Tracking](../automation/change-tracking/overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 

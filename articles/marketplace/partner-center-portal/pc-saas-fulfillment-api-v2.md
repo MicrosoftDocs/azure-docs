@@ -996,11 +996,11 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
 
 To start the development process, we recommend creating dummy API responses on the publisher side.  These responses can be based on sample responses provided in this document.
 
-When the publisher is ready for the end to end testing: 
+When the publisher is ready for the end to end testing:
 
 * Publish a SaaS offer to a limited preview audience and keep it in preview stage.
-* This offer should have a plan with 0 price, so not to trigger actual billing expense while testing.  Another option is to set a non-zero price and cancel all test purchases within 24 hours. 
-* Ensure all flows are invoked end to end, just like a customer would purchase the offer. 
+* This offer should have a plan with 0 price, so not to trigger actual billing expense while testing.  Another option is to set a non-zero price and cancel all test purchases within 24 hours.
+* Ensure all flows are invoked end to end, just like a customer would purchase the offer.
 * If the partner wants to test full purchase and billing flow, do so with offer that is priced above 0$.  The purchase will be billed, and an invoice will be generated.
 
 A purchase flow can be triggered from the Azure portal or Microsoft AppSource sites, depending on where the offer is being published.
@@ -1009,8 +1009,7 @@ A purchase flow can be triggered from the Azure portal or Microsoft AppSource si
 
 ## Get support
 
-See [Support for the commercial marketplace program in Partner Center](support.md) for publisher support options.
-
+See [Support for the commercial marketplace program in Partner Center](../support.md) for publisher support options.
 
 ## Next steps
 

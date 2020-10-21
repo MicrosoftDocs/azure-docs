@@ -106,41 +106,22 @@ Next, you'll add code to this file to fill out some functionality.
 
 The first thing your app will need to do is authenticate against the Azure Digital Twins service. Then, you can create a service client class to access the SDK functions.
 
-In order to authenticate, you need three pieces of information:
-* The *Directory (tenant) ID* for your subscription
-* The *Application (client) ID* created when you set up the Azure Digital Twins instance earlier
-* The *hostName* of your Azure Digital Twins instance
-
->[!TIP]
-> If you don't know your *Directory (tenant) ID*, you can get it by running this command in [Azure Cloud Shell](https://shell.azure.com):
-> 
-> ```azurecli
-> az account show --query tenantId
-> ```
+In order to authenticate, you need the *hostName* of your Azure Digital Twins instance.
 
 In *Program.cs*, paste the following code below the "Hello, World!" printout line in the `Main` method. 
-Set the value of `adtInstanceUrl` to your Azure Digital Twins instance *hostName*, `clientId` to your *Application ID*, and `tenantId` to your *Directory ID*.
+Set the value of `adtInstanceUrl` to your Azure Digital Twins instance *hostName*.
 
 ```csharp
-string clientId = "<your-application-ID>";
-string tenantId = "<your-directory-ID>";
-string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+var credential = new DefaultAzureCredential();
+DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
 Console.WriteLine($"Service client created – ready to go");
 ```
 
 Save the file. 
 
-Note that this example uses an interactive browser credential:
-```csharp
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-```
-
-This type of credential will cause a browser window to open, asking you to provide your Azure credentials. 
-
 >[!NOTE]
-> For information on other types of credentials, see the documentation for the [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
+> This example uses a `DefaultAzureCredential` for authentication. For information on other types of credentials, see the documentation for the [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md), or the Azure Digital Twins article about [authenticating client applications](how-to-authenticate-client.md).
 
 In your command window, run the code with this command: 
 
@@ -466,11 +447,10 @@ namespace minimal
         {
             Console.WriteLine("Hello World!");
             
-            string clientId = "<your-application-ID>";
-            string tenantId = "<your-directory-ID>";
-            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-            var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+            
+            var credential = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
             Console.WriteLine($"Service client created – ready to go");
 
             Console.WriteLine();

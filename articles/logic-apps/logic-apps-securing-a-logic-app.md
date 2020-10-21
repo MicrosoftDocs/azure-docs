@@ -1063,7 +1063,7 @@ You can use Azure Logic Apps in [Azure Government](../azure-government/documenta
 
   * [Azure App Service plans](../app-service/overview-hosting-plans.md)
   * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
-  * [Azure Dedicated Hosts for virtual machines](../virtual-machines/windows/dedicated-hosts.md)
+  * [Azure Dedicated Hosts for virtual machines](../virtual-machines/dedicated-hosts.md)
   * [Virtual machine isolation in Azure](../virtual-machines/isolation.md)
   * [Deploy dedicated Azure services into virtual networks](../virtual-network/virtual-network-for-azure-services.md)
 

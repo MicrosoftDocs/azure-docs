@@ -162,7 +162,7 @@ To add a claim condition:
 3. Select the group(s) to which the user should belong. You can select up to 50 unique groups across all claims for a given application. 
 4. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
 
-The order in which you add the conditions are important. Azure AD evaluates the conditions from top to bottom to decide which value to emit in the claim. 
+The order in which you add the conditions are important. Azure AD evaluates the conditions from top to bottom to decide which value to emit in the claim. The last value which matches the expression will be emitted in the claim.
 
 For example, Britta Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, Microsoft identity platform will evaluate the conditions as follow.
 
