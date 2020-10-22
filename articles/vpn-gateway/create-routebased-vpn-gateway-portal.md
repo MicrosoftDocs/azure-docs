@@ -19,6 +19,8 @@ The steps in this article will create a VNet, a subnet, a gateway subnet, and a 
 
 ## <a name="vnet"></a>Create a virtual network
 
+[!INCLUDE [Cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
+
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="gwvalues"></a>Configure and create the gateway

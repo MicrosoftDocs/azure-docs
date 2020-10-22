@@ -39,7 +39,7 @@ Datahub is designed as an extensible API platform. We are working with many more
 
 The Azure FarmBeats Accelerator is a sample web application, that is built on top of Datahub. The Accelerator jump-starts your user interface and model development. The Azure FarmBeats accelerator uses Azure FarmBeats' APIs. It visualizes ingested sensor data as charts and  model outputs as maps. For example, you can use the accelerator to create a farm quickly and get a vegetation index map or a sensor placement map for that farm easily.
 
-## Role-based Access Control (RBAC)
+## Azure role-based access control (Azure RBAC)
 
 An administrator can define access rules for Azure FarmBeats using one of the predefined roles. Roles determine what areas of the application a user has access to and what actions they can perform. There are two kinds of roles in Azure FarmBeats - for users and for partners.
 

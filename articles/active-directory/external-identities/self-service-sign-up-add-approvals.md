@@ -25,7 +25,7 @@ This article gives an example of how to integrate with an approval system. In th
 
 ## Register an application for your approval system
 
-You need to register your approval system as an application in your Azure AD tenant so it can authenticate with Azure AD and have permission to create users. Learn more about [authentication and authorization basics for Microsoft Graph](https://docs.microsoft.com/graph/auth/auth-concepts).
+You need to register your approval system as an application in your Azure AD tenant so it can authenticate with Azure AD and have permission to create users. Learn more about [authentication and authorization basics for Microsoft Graph](/graph/auth/auth-concepts).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
@@ -259,14 +259,14 @@ The `userMessage` in the response is displayed to the user, for example:
 
 ## User account creation after manual approval
 
-After obtaining manual approval, the custom approval system creates a [user](https://docs.microsoft.com/graph/azuread-users-concept-overview) account by using [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api). The way your approval system provisions the user account depends on the identity provider that was used by the user.
+After obtaining manual approval, the custom approval system creates a [user](/graph/azuread-users-concept-overview) account by using [Microsoft Graph](/graph/use-the-api). The way your approval system provisions the user account depends on the identity provider that was used by the user.
 
 ### For a federated Google or Facebook user
 
 > [!IMPORTANT]
 > The approval system should explicitly check that `identities`, `identities[0]` and `identities[0].issuer` are present and that `identities[0].issuer` equals 'facebook' or 'google' to use this method.
 
-If your user signed in with a Google or Facebook account, you can use the [User creation API](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
+If your user signed in with a Google or Facebook account, you can use the [User creation API](/graph/api/user-post-users?tabs=http&view=graph-rest-1.0).
 
 1. The approval system uses receives the HTTP request from the user flow.
 
@@ -326,7 +326,7 @@ Content-type: application/json
 
 ### For a federated Azure Active Directory user
 
-If a user signs in with a federated Azure Active Directory account, you must use the [invitation API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) to create the user and then optionally the [user update API](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) to assign more attributes to the user.
+If a user signs in with a federated Azure Active Directory account, you must use the [invitation API](/graph/api/invitation-post?view=graph-rest-1.0) to create the user and then optionally the [user update API](/graph/api/user-update?view=graph-rest-1.0) to assign more attributes to the user.
 
 1. The approval system receives the HTTP request from the user flow.
 
@@ -385,4 +385,4 @@ Content-type: application/json
 ## Next steps
 
 - Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
-- Checkout the [self-service sign-up for guest users with manual approval sample](code-samples-self-service-sign-up.md#custom-approval-workflows). 
+- Checkout the [self-service sign-up for guest users with manual approval sample](code-samples-self-service-sign-up.md#custom-approval-workflows).

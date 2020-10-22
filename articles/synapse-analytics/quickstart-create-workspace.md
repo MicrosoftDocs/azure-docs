@@ -18,13 +18,8 @@ This quickstart describes the steps to create an Azure Synapse workspace by usin
 
 1. Open the [Azure portal](https://portal.azure.com), and at the top search for **Synapse**.
 1. In the search results, under **Services**, select **Azure Synapse Analytics (workspaces preview)**.
-1. Select **Add** to create a workspace using these settings:
-
-    |Tab|Setting | Suggested value | Description |
-    |---|---|---|---|
-    |Basics|**Workspace name**|You can name it anything.| In this document, we'll use **myworkspace**.|
-    |Basics|**Region**|Match the region of the storage account.|
-
+1. Select **Add** to create a workspace.
+1. In the **Basics** tab, give the workspace a unique name. We'll use **mysworkspace** in this document
 1. You need an ADLSGEN2 account to create a workspace. The simplest choice is to create a new one. If you want to re-use an existing one you'll need to perform some additional configuration. 
 1. OPTION 1 Creating a new ADLSGEN2 account 
     1. Under **Select Data Lake Storage Gen 2**, click **Create New** and name it **contosolake**.

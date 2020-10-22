@@ -211,8 +211,8 @@
           href: learn/quick-create-workspace-cli.md
         - name: PowerShell
           href: platform/powershell-workspace-configuration.md
-        - name: Resource Manager template
-          href: ./samples/resource-manager-workspace.md
+      - name: Monitor a workspace
+        href: platform/monitor-workspace.md
       - name: Delete and recover a workspace
         href: platform/delete-workspace.md
       - name: Manage access
@@ -992,6 +992,8 @@
       href: insights/container-insights-analyze.md
     - name: Monitor GPU performance
       href: insights/container-insights-gpu-monitoring.md
+    - name: Monitor network configuration
+      href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
     - name: Monitor Deployments & HPAs
       href: insights/container-insights-deployment-hpa-metrics.md
     - name: View live data
