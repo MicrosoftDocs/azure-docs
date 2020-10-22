@@ -127,7 +127,7 @@ The following steps show how to fetch the logical-router ID of Tier0 DR logical 
 
 7. Run the `get logical-router` command again on the SSH session of the Edge VM. The UUID of the 'DR-Provider-LR' logical router is displayed. Make a note of the UUID, which is required when configuring the L2VPN.
 
-    ![Screenshot that shows the UUID for teh logical router.](media/l2vpn-fetch06.png)
+    ![Screenshot that shows the UUID for the logical router.](media/l2vpn-fetch06.png)
 
 ## Fetch the logical-switch ID needed for L2VPN
 
