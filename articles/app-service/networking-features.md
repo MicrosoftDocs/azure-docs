@@ -16,13 +16,13 @@ You can deploy applications in Azure App Service in multiple ways. By default, a
 
 There are two main deployment types for Azure App Service: 
 - The multitenant public service hosts App Service plans in the Free, Shared, Basic, Standard, Premium, PremiumV2, and PremiumV3 pricing SKUs. 
-- The single-tenant App Service Environment (ASE) hosts Isolated SKU App Service plans directly in your Azure Virtual Network. 
+- The single-tenant App Service Environment (ASE) hosts Isolated SKU App Service plans directly in your Azure virtual network. 
 
 The features you use will depend on whether you're in the multitenant service or in an ASE. 
 
 ## Multitenant App Service networking features 
 
-Azure App Service is a distributed system. The roles that handle incoming HTTP or HTTPS requests are called *front ends*. The roles that host the customer workload are called *workers*. All of the roles in an App Service deployment exist in a multitenant network. Because there are many different customers in the same App Service scale unit, you can't connect the App Service network directly to your network. 
+Azure App Service is a distributed system. The roles that handle incoming HTTP or HTTPS requests are called *front ends*. The roles that host the customer workload are called *workers*. All the roles in an App Service deployment exist in a multitenant network. Because there are many different customers in the same App Service scale unit, you can't connect the App Service network directly to your network. 
 
 Instead of connecting the networks, you need features to handle the various aspects of application communication. The features that handle requests *to* your app can't be used to solve problems when you're making calls *from* your app. Likewise, the features that solve problems for calls from your app can't be used to solve problems to your app.  
 
@@ -126,7 +126,7 @@ To learn more about configuring service endpoints with your app, see [Azure App 
 ### Private Endpoint
 
 Private Endpoint is a network interface that connects you to your web app through Azure Private Link. It does so in a way that helps improve security and privacy. Private Endpoint uses a private IP address from your virtual network, effectively bringing the web app into your virtual network. This feature is only for *inbound* flows to your web app. For more information, see
-[Using Private Endpoints for Azure Web App][privateendpoints].
+[Using private endpoints for Azure Web App][privateendpoints].
 
 Some use cases for this feature:
 
@@ -144,7 +144,7 @@ App Service Hybrid Connections enables your apps to make *outbound* calls to spe
 
 App Service Hybrid Connections is built on the Azure Relay Hybrid Connections capability. App Service uses a specialized form of the feature that only supports making outbound calls from your app to a TCP host and port. This host and port only need to resolve on the host where Hybrid Connection Manager is installed. 
 
-When the app, in App Service, does a DNS lookup on the host and port defined in your hybrid connection, the traffic is automatically redirected to go through the hybrid connection and out of Hybrid Connection Manager. To learn more, see [App Service Hybrid Connections][hybridconn].
+When the app, in App Service, does a DNS lookup on the host and port defined in your hybrid connection, the traffic automatically redirects to go through the hybrid connection and out of Hybrid Connection Manager. To learn more, see [App Service Hybrid Connections][hybridconn].
 
 This feature is commonly used to:
 
@@ -169,7 +169,7 @@ Gateway-required App Service VNet Integration enables your app to make *outbound
 This feature solves the problem of accessing resources in other virtual networks. It can even be used to connect through a virtual network to either other virtual networks or on-premises. It doesn't work with ExpressRoute-connected virtual networks, but it does work with site-to-site VPN-connected networks. It's usually inappropriate to use this feature from an app in an App Service Environment (ASE) because the ASE is already in your virtual network. Use cases for this feature:
 
 * Accessing resources on private IPs in your Azure virtual networks. 
-* Accessing resources on-premises if there is a site-to-site VPN. 
+* Accessing resources on-premises if there's a site-to-site VPN. 
 * Accessing resources in peered virtual networks. 
 
 When this feature is enabled, your app will use the DNS server that the destination virtual network is configured with. For more information on this feature, see [App Service VNet Integration][vnetintegrationp2s]. 
@@ -229,7 +229,7 @@ The features noted for the multitenant service can be used together to solve mor
 
 ### Place an app into a virtual network
 
-You might wonder how to put an app into a virtual network. If you put your app into a virtual network, the inbound and outbound endpoints for the app are within the virtual network. An ASE is the best way to solve this problem, but you can meet most of your needs within the multitenant service by combining features. For example, you can host intranet-only applications with private inbound and outbound addresses by:
+You might wonder how to put an app into a virtual network. If you put your app into a virtual network, the inbound and outbound endpoints for the app are within the virtual network. An ASE is the best way to solve this problem. But you can meet most of your needs within the multitenant service by combining features. For example, you can host intranet-only applications with private inbound and outbound addresses by:
 
 * Creating an application gateway with private inbound and outbound addresses.
 * Securing inbound traffic to your app with service endpoints. 
@@ -239,7 +239,7 @@ This deployment style won't give you a dedicated address for outbound traffic to
 
 ### Create multitier applications
 
-A multitier application is an application in which the API back-end apps can be accessed only from the front-end tier. There are two ways to create a multitier application. Both start by using VNet Integration to connect your front-end web app to a subnet in a virtual network. This will enable your web app to make calls into your virtual network. After your front-end app is connected to the virtual network, you have to decide how to lock down access to your API application. You can:
+A multitier application is an application in which the API back-end apps can be accessed only from the front-end tier. There are two ways to create a multitier application. Both start by using VNet Integration to connect your front-end web app to a subnet in a virtual network. Doing so will enable your web app to make calls into your virtual network. After your front-end app is connected to the virtual network, you need to decide how to lock down access to your API application. You can:
 
 * Host both the front end and the API app in the same ILB ASE, and expose the front-end app to the internet by using an application gateway.
 * Host the front end in the multitenant service and the back end in an ILB ASE.
@@ -251,31 +251,33 @@ If you're hosting both the front end and API app for a multitier application, yo
 
   ![Diagram that illustrates the use of private endpoints in a two-tier app.](media/networking-features/multi-tier-app-private-endpoint.png)
 
-- Use service endpoints to secure inbound traffic to your API app to only coming from the subnet used by your front-end web app
+- Use service endpoints to ensure inbound traffic to your API app comes only from the subnet used by your front-end web app:
 
-  ![service endpoints secured app](media/networking-features/multi-tier-app.png)
+  ![Diagram that illustrates the use of service endpoints to help secure an app.](media/networking-features/multi-tier-app.png)
 
-The tradeoffs between the two techniques are:
+Here are some considerations to help you decide which method to use:
 
-* with Service endpoints, you have only have to secure traffic to your API app to the integration subnet. This secures the API app but you still could have a data exfiltration possibility from your front-end app to other apps in the App Service.
-* with Private endpoints you have two subnets at play. This adds to complexity. Also, the private endpoint is a top-level resource and adds more to manage. The benefit of using private endpoints is that you do not have a data exfiltration possibility. 
+* When you use service endpoints, you only need to secure traffic to your API app to the integration subnet. This helps to secure the API app, but you could still have data exfiltration from your front-end app to other apps in the app service.
+* When you use private endpoints, you have two subnets at play, which adds complexity. Also, the private endpoint is a top-level resource and adds management overhead. The benefit of using private endpoints is that you don't have the possibility of data exfiltration. 
 
-Either technique will work with multiple front-ends. At small scale, service endpoints is a lot easier to use because you simply enable service endpoints for the API app on the front-end integration subnet. As you add more front-end apps, you have to adjust every API app to have service endpoints with the integration subnet. With Private endpoints, you have more complexity but you don't have to change anything on your API apps after setting a private endpoint. 
+Either method will work with multiple front ends. On a small scale, service endpoints are easier to use because you simply enable service endpoints for the API app on the front-end integration subnet. As you add more front-end apps, you need to adjust every API app to include service endpoints with the integration subnet. When you use private endpoints, there's more complexity, but you don't have to change anything on your API apps after you set a private endpoint. 
 
 ### Line-of-business applications
 
-Line-of-business (LOB) applications are internal applications that are not normally exposed for access from the internet. These applications are called from inside corporate networks where access can be strictly controlled. If you use an ILB ASE, it is easy to host your line-of-business applications. If you use the multi-tenant service, you can either use Private endpoints or Service endpoints combined with an Application Gateway. There are two reasons to use an Application Gateway with Service endpoints instead of Private endpoints:
+Line-of-business (LOB) applications are internal applications that aren't normally exposed for access from the internet. These applications are called from inside corporate networks where access can be strictly controlled. If you use an ILB ASE, it's easy to host your line-of-business applications. If you use the multitenant service, you can either use private endpoints or use service endpoints combined with an application gateway. There are two reasons to use an application gateway with service endpoints instead of using private endpoints:
 
-* you need WAF protection on your LOB apps
-* you want to load balance to multiple instances of your LOB apps
+* You need WAF protection on your LOB apps.
+* You want to load balance to multiple instances of your LOB apps.
 
-If neither is the case, you are better off using Private endpoints. With Private endpoints available in App Service, you can expose your apps on private addresses in your VNet. The private endpoint you place in your VNet can be reached across ExpressRoute and VPN connections. Configuring Private endpoints will expose your apps on a private address but you will need to configure DNS to reach that address from on-premises. To make this work, you will need to forward the Azure DNS private zone containing your private endpoints to your on-premises DNS servers. Azure DNS private zones do not support zone forwarding but, you can support that using a DNS server for that purpose. This template, [DNS Forwarder](https://azure.microsoft.com/resources/templates/301-dns-forwarder/), makes it easier to forward your Azure DNS private zone to your on-premises DNS servers.
+If neither of these needs apply, you're better off using private endpoints. With private endpoints available in App Service, you can expose your apps on private addresses in your virtual network. The private endpoint you place in your virtual network can be reached across ExpressRoute and VPN connections. 
+
+Configuring private endpoints will expose your apps on a private address, but you'll need to configure DNS to reach that address from on-premises. To make this configuration work, you'll need to forward the Azure DNS private zone that contains your private endpoints to your on-premises DNS servers. Azure DNS private zones don't support zone forwarding, but you can support zone forwarding by using a DNS server for that purpose. The [DNS Forwarder](https://azure.microsoft.com/resources/templates/301-dns-forwarder/) template makes it easier to forward your Azure DNS private zone to your on-premises DNS servers.
 
 ## App Service ports
 
-If you scan the App Service, you will find several ports that are exposed for inbound connections. There is no way to block or control access to these ports in the multi-tenant service. The ports that are exposed are as follows:
+If you scan App Service, you'll find several ports that are exposed for inbound connections. There's no way to block or control access to these ports in the multitenant service. Here's the list of exposed ports:
 
-| Use | Ports |
+| Use | Port or ports |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  Management | 454, 455 |
