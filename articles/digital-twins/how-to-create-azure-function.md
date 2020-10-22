@@ -189,7 +189,9 @@ The Azure function skeleton from earlier examples requires that a bearer token t
 
 You can create system-managed identity and assign the function app's identity to the _Azure Digital Twins Data Owner_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
 
- Use [Azure Cloud Shell](https://shell.azure.com) to run the commands.
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
+
+Use [Azure Cloud Shell](https://shell.azure.com) to run the commands.
 
 Use the following command to create the system-managed identity. Take note of the _principalId_ field in the output.
 

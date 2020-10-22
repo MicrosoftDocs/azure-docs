@@ -54,10 +54,8 @@ Azure provides the below Azure built-in roles for authorizing access to an Azure
 
 >[!NOTE]
 > These roles were recently renamed from their earlier names in preview:
->
-> *Azure Digital Twins Data Owner* was formerly *Azure Digital Twins Owner (Preview)*.
->
-> *Azure Digital Twins Data Reader* was formerly *Azure Digital Twins Reader (Preview)*.
+> * *Azure Digital Twins Data Owner* was formerly *Azure Digital Twins Owner (Preview)*.
+> * *Azure Digital Twins Data Reader* was formerly *Azure Digital Twins Reader (Preview)*.
 
 For more information about how built-in roles are defined, see [*Understand role definitions*](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating Azure custom roles, see [*Azure custom roles*](../role-based-access-control/custom-roles.md).
 
