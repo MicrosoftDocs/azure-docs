@@ -122,9 +122,19 @@ Select **Choose file**, select the JSON you saved previously, and click **Upload
 
 You should see the newly defined Thermostat Type.
 
+### Optional - Create a hierarchy
+
+![Add a hierarchy](./media/tutorial-configure-tsi/add-hierarchy.png)
+
 ### Assign your instances to the correct type
 
-Device fleet hierarchy?
+![Edit instances](./media/tutorial-configure-tsi/edit-instance.png)
+
+![Change instance type](./media/tutorial-configure-tsi/change-type.png)
+
+![Assign to hierarchy](./media/tutorial-configure-tsi/assign-to-hierarchy.png)
+
+## Next Steps
 
 
 
