@@ -129,11 +129,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. On the **CONFIGURATION** tab, select **User Identity & Access**, and then select the **Authentication** Method tab.
 
-	![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+	![Screenshot shows Authentication selected from User Identity & Access.](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
 
 3. On the **CONFIGURATION** page, perform the following steps:
 
-	![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+	![Screenshot shows the Configuration page where you can enter the values described.](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
 
 	a. For **Authentication Method**, select SAML.
 

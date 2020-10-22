@@ -16,7 +16,7 @@ ms.date: 01/03/2020
 The HDInsight SDK for Go provides classes and functions that allow you to manage your HDInsight clusters. It includes operations to create, delete, update, list, resize, execute script actions, monitor, get properties of HDInsight clusters, and more.
 
 > [!NOTE]  
->GoDoc reference material for this SDK is also [available here](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
+>GoDoc reference material for this SDK is also [available here](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight).
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -486,4 +486,4 @@ for (page.NotDone()) {
 
 ## Next steps
 
-Explore the [GoDoc reference material](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight). The GoDocs provide reference documentation for all functions in the SDK.
+Explore the [GoDoc reference material](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight). The GoDocs provide reference documentation for all functions in the SDK.

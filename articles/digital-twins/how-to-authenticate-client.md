@@ -21,7 +21,7 @@ After you [set up an Azure Digital Twins instance and authentication](how-to-set
 
 Azure Digital Twins performs authentication using [Azure AD Security Tokens based on OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-jwts-and-claims). To authenticate your SDK, you'll need to get a bearer token with the right permissions to Azure Digital Twins, and pass it along with your API calls. 
 
-This article describes how to obtain credentials using the `Azure.Identity` client library. While this article shows code examples in C#, such as what you'd write for the [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core), you can use a version of `Azure.Identity` regardless of what SDK you're using (for more on the SDKs available for Azure Digital Twins, see [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md)).
+This article describes how to obtain credentials using the `Azure.Identity` client library. While this article shows code examples in C#, such as what you'd write for the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true), you can use a version of `Azure.Identity` regardless of what SDK you're using (for more on the SDKs available for Azure Digital Twins, see [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md)).
 
 ## Prerequisites
 
@@ -106,9 +106,9 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 
 The [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) method is intended for interactive applications and will bring up a web browser for authentication. You can use this instead of `DefaultAzureCredential` in cases where you require interactive authentication.
 
-To use the interactive browser credentials, you will need an **app registration** that has permissions to the Azure Digital Twins APIs. For steps on how to set up this app registration, see the [*Set up access permissions for client applications*](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) section of *How-to: Set up an instance and authentication*. Once the app registration is set up, you'll need...
-* the app registration's *Application (client) ID*
-* the app registration's *Directory (tenant) ID*
+To use the interactive browser credentials, you will need an **app registration** that has permissions to the Azure Digital Twins APIs. For steps on how to set up this app registration, see [*How-to: Create an app registration*](how-to-create-app-registration.md). Once the app registration is set up, you'll need...
+* the app registration's *Application (client) ID* ([instructions to find](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* the app registration's *Directory (tenant) ID* ([instructions to find](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
 * the Azure Digital Twins instance's URL ([instructions to find](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 
 Here is an example of the code to create an authenticated SDK client using `InteractiveBrowserCredential`.

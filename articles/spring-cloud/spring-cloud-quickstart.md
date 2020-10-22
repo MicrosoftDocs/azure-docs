@@ -4,7 +4,7 @@ description: In this quickstart, we deploy a Spring Cloud application to the Azu
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 09/18/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
@@ -414,10 +414,10 @@ The following procedure builds and deploys the application using the Azure CLI. 
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --is-public
     ```
 
-1. Deploy the Jar file for the app:
+1. Deploy the Jar file for the app (`target\hellospring-0.0.1-SNAPSHOT.jar` on Windows):
 
     ```azurecli
-    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
+    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --jar-path <jar file path>
     ```
     
 1. It takes a few minutes to finish deploying the application. To confirm that it has deployed, go to the **Apps** blade in the Azure portal. You should see the status of the application.

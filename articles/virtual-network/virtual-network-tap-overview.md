@@ -62,7 +62,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
 - [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
-- [RSA NetWitness® Platform](https://www.rsa.com/azure)
+- [RSA NetWitness® Platform](https://www.rsa.com/content/dam/en/solution-brief/rsa-netwitness-platform-overview-for-federal-agencies.pdf)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)
 
 

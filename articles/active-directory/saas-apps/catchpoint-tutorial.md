@@ -21,7 +21,7 @@ In this tutorial, you learn how to integrate Catchpoint with Azure Active Direct
 * Enable automatic Catchpoint sign-in for users with Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Catchpoint supports SP-initiated and IDP-initiated SSO.
 * Catchpoint supports just-in-time (JIT) user provisioning.
-* After you configure Catchpoint, you can enforce session control. This precaution protects against exfiltration and infiltration of your organization's sensitive data in real time. Session control is an extension of Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* After you configure Catchpoint, you can enforce session control. This precaution protects against exfiltration and infiltration of your organization's sensitive data in real time. Session control is an extension of Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Add Catchpoint from the gallery
 
@@ -99,7 +99,7 @@ Follow these steps in the Azure portal to enable Azure AD SSO:
     | namespace | user.assignedrole |
 
     > [!NOTE]
-    > The `namespace` claim needs to be mapped with the account name. This account name should be set up with a role in Azure AD to be passed back in SAML response. For more information about roles in Azure AD, see [Configure the role claim issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+    > The `namespace` claim needs to be mapped with the account name. This account name should be set up with a role in Azure AD to be passed back in SAML response. For more information about roles in Azure AD, see [Configure the role claim issued in the SAML token for enterprise applications](../develop/active-directory-enterprise-app-role-management.md).
 
 1. Go to the **Set Up Single Sign-On with SAML** page. In the **SAML Signing Certificate** section,  find **Certificate (Base64)**. Select **Download** to save the certificate to your computer.
 
@@ -170,7 +170,7 @@ Catchpoint supports just-in-time user provisioning, which is enabled by default.
 
 In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
 
-When you select the Catchpoint tile in the My Apps portal, you should be automatically signed in to the Catchpoint app with SSO configured. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+When you select the Catchpoint tile in the My Apps portal, you should be automatically signed in to the Catchpoint app with SSO configured. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 > [!NOTE]
 > When you're signed in to the Catchpoint application through the login page, after providing **Catchpoint Credentials**, enter the valid **Namespace** value in the **Company Credentials(SSO)** field and select **Login**.
@@ -179,12 +179,12 @@ When you select the Catchpoint tile in the My Apps portal, you should be automat
 
 ## Additional resources
 
-- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Catchpoint with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

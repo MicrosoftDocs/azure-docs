@@ -23,7 +23,7 @@ This article helps you troubleshoot issues when deploying the [Azure Migrate](mi
 
 If you receive the error "The provided manifest file is invalid: Invalid OVF manifest entry", do the following:
 
-1. Verify that the Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. [Learn more](./tutorial-prepare-vmware.md). If the hash value doesn't match, download the OVA file again and retry the deployment.
+1. Verify that the Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. [Learn more](./tutorial-discover-vmware.md). If the hash value doesn't match, download the OVA file again and retry the deployment.
 2. If deployment still fails, and you're using the VMware vSphere client to deploy the OVF file, try deploying it through the vSphere web client. If deployment still fails, try using a different web browser.
 3. If you're using the vSphere web client and trying to deploy it on vCenter Server 6.5 or 6.7, try to deploy the OVA directly on the ESXi host:
    - Connect to the ESXi host directly (instead of vCenter Server) with the web client (https://<*host IP Address*>/ui).

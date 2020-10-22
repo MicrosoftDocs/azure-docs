@@ -31,7 +31,7 @@ ms.custom: mvc
 
 ## Update (June 2020)
 
-- Assessments for migrating on-premises VMware VMs to [Azure VMware Solution (AVS)](https://go.microsoft.com/fwlink/?linkid=2132637) is now supported. [Learn more](how-to-create-azure-vmware-solution-assessment.md)
+- Assessments for migrating on-premises VMware VMs to [Azure VMware Solution (AVS)](./concepts-azure-vmware-solution-assessment-calculation.md) is now supported. [Learn more](how-to-create-azure-vmware-solution-assessment.md)
 - Support for multiple credentials on appliance for physical server discovery.
 - Support to allow Azure login from appliance for tenant where tenant restriction has been configured.
 
@@ -99,4 +99,4 @@ If you're using the previous version of Azure Migrate (only assessment of on-pre
 
 - [Learn more](https://azure.microsoft.com/pricing/details/azure-migrate/) about Azure Migrate pricing.
 - [Review frequently asked questions](resources-faq.md) about Azure Migrate.
-- Try out our tutorials to assess [VMware VMs](tutorial-assess-vmware.md) and [Hyper-V VMs](tutorial-assess-hyper-v.md).
+- Try out our tutorials to assess [VMware VMs](./tutorial-assess-vmware-azure-vm.md) and [Hyper-V VMs](tutorial-assess-hyper-v.md).
