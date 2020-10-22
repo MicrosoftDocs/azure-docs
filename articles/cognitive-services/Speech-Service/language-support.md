@@ -165,7 +165,7 @@ For more information about regional availability, see [regions](regions.md#stand
 | `fr-CH` <sup>New</sup> | French (Switzerland) | Female | `fr-CH-ArianeNeural` | General |
 | `fr-FR` | French  (France) | Female | `fr-FR-DeniseNeural` | General |
 | `fr-FR` <sup>New</sup> | French (France) | Male | `fr-FR-HenriNeural` | General |
-| `he-IL` <sup>New</sup> | Hebrew (Isareal) | Female | `he-IL-HilaNeural` | General |
+| `he-IL` <sup>New</sup> | Hebrew (Israel) | Female | `he-IL-HilaNeural` | General |
 | `hi-IN` | Hindi  (India) | Female | `hi-IN-SwaraNeural` | General |
 | `hr-HR` <sup>New</sup> | Croatian (Croatia) | Female | `hr-HR-GabrijelaNeural` | General |
 | `hu-HU` <sup>New</sup> | Hungarian (Hungary) | Female | `hu-HU-NoemiNeural` | General |
