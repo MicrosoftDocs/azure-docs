@@ -85,6 +85,14 @@ try
 }
 ```
 
+#### Set up local Azure credentials
+
+With this type of authentication, the code will search for credentials within your local environment, such as an Azure login in a local [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) or in Visual Studio/Visual Studio Code. This means that you should **log into Azure locally** through one of these mechanisms to set up credentials for your app.
+
+If you're using Visual Studio or Visual Studio Code to run your code, ensure that you're logged into that IDE using the same Azure credentials that you want to use to access your Azure Digital Twins instance.
+
+Otherwise, you can [install the local **Azure CLI**](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true), start a command prompt on your machine, and run the `az login` command to log into your Azure account.
+
 ### ManagedIdentityCredential method
 
 The [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) method works great in cases where you need [managed identities (MSI)](../active-directory/managed-identities-azure-resources/overview.md)—for example, when working with Azure Functions.
