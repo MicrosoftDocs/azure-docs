@@ -37,6 +37,29 @@ For the SDKs that don't implement pre-aggregation (that is, older versions of Ap
 
 It is worth mentioning that the collection endpoint pre-aggregates events before ingestion sampling, which means that [ingestion sampling](./sampling.md) will never impact the accuracy of pre-aggregated metrics, regardless of the SDK version you use with your application.  
 
+### SDK supported pre-aggregated metrics table
+
+| Current Production SDKs      | SDK Pre-Aggregation      | [TrackMetric API](api-custom-events-metrics.md#trackmetric) (No SDK Pre-Aggregation) | SDK Pre Aggregation|
+|------------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
+| .NET and .NET Core Framework | Supported (V2.13.1+)    | Supported                                 | Supported (V2.7.2+) via [GetMetric](get-metric.md) |
+| Java                         | Not Supported            | Supported                                 | Not Supported                           |
+| Node.js                      | Not Supported<sup>1<sup> | Supported                                 | Not Supported                           |
+| Python                       | Not Supported            | Supported                                 | Supported via [OpenCensus.stats](opencensus-python.md#metrics) |  
+
+1. Node.js supports [Extended Metrics](nodejs.ms#extended-metrics), which has a few of the commonly requested metrics.
+
+## Codeless supported pre-aggregated metrics able
+
+| Current Production SDKs      | SDK Pre-Aggregation      | [TrackMetric API](api-custom-events-metrics.md#trackmetric) (No SDK Pre-Aggregation) | SDK Pre Aggregation|
+|------------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
+| ASP<span>.NET                      | Supported <sup>1<sup>    | Not Supported                             | Not Supported                           |
+| ASP<span>.NET Core                 | Supported <sup>2<sup>    | Not Supported                             | Not Supported                           |
+| Java                         | Not Supported            | Not Supported                             | Supported via [Micrometer](micrometer-java.md)|
+|Node.js                       | Not Supported            | Not Supported                             | Not Supported                           |
+
+1. ASP.NET codeless attach on App Service only emits metrics in "full" monitoring mode. ASP.NET codeless attach on App Service, VM/VMSS, and On-Premises emits standard metrics without dimensions. SDK is required for all dimensions.
+2. ASP.NET Core codeless attach on App Service emits standard metrics without dimensions. SDK is required for all dimensions.
+
 ## Using pre-aggregation with Application Insights custom metrics
 
 You can use pre-aggregation with custom metrics. The two main benefits are the ability to configure and alert on a dimension of a custom metric and reducing the volume of data sent from the SDK to the Application Insights collection endpoint.
