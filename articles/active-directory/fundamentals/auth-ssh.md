@@ -22,7 +22,7 @@ Secure Shell (SSH) is a network protocol that provides encryption for operating 
 
 Azure Active Directory (Azure AD) provides a Virtual Machine (VM) extension for Linux®-based systems running on Azure. 
 
-## Use when: 
+## Use when 
 
 * Working with Linux®-based VMs that require remote sign in
 
@@ -45,8 +45,6 @@ SSH with Azure AD
 * **Azure AD**: Authenticates the identity of the user using device flow, and issues token to the Linux VMs.
 
 * **Linux VM**: Accepts token and provides successful connection.
-
-##  
 
 ## Implement SSH with Azure AD 
 
