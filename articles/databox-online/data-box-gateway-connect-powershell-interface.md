@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: how-to
-ms.date: 08/02/2019
+ms.date: 10/20/2020
 ms.author: alkohli
 ---
 # Manage an Azure Data Box Gateway device via Windows PowerShell
@@ -26,23 +26,23 @@ This article includes the following procedures:
 
 ## Connect to the PowerShell interface
 
-[!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
+[!INCLUDE [Connect to admin runspace](../../includes/data-box-gateway-connect-minishell.md)]
 
 ## Create a support package
 
-[!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
+[!INCLUDE [Create a support package](../../includes/data-box-gateway-create-support-package.md)]
 
 ## Upload certificate
 
-[!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
+[!INCLUDE [Upload certificate](../../includes/data-box-gateway-upload-certificate.md)]
 
 ## Boot up in non-DHCP environment
 
-[!INCLUDE [Boot up in non-DHCP environment](../../includes/data-box-edge-gateway-boot-non-dhcp.md)]
+[!INCLUDE [Boot up in non-DHCP environment](../../includes/data-box-gateway-boot-non-dhcp.md)]
 
 ## View device information
 
-[!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
+[!INCLUDE [View device information](../../includes/data-box-gateway-view-device-info.md)]
 
 ## Next steps
 
