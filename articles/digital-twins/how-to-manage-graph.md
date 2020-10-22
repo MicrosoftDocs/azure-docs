@@ -222,9 +222,18 @@ await DeleteRelationship(client, srcId, $"{targetId}-contains->{srcId}");
 
 The following runnable code snippet uses the relationship operations from this article to create a twin graph out of digital twins and relationships.
 
-The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) and [Floor.json](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) model definitions from [*Tutorial: Explore Azure Digital Twins with a sample client app*](tutorial-command-line-app.md). You can use these links to go directly to the files, or download them as part of the full end-to-end sample project [here](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
+The snippet uses the [*Room.json*](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) and [*Floor.json*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) model definitions from [*Tutorial: Explore Azure Digital Twins with a sample client app*](tutorial-command-line-app.md). You can use these links to go directly to the files, or download them as part of the full end-to-end sample project [here](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
 
-Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance details and run the sample.
+Before you run the sample, do the following:
+* Download the model files, place them in your project, and replace the `<path-to>` placeholders in the code below to tell your program where to find them.
+* Replace the placeholder `<your-instance-hostname>` with your Azure Digital Twins instance's hostname.
+* Add these packages to your project:
+    ```cmd/sh
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
+    dotnet add package Azure.identity
+    ```
+
+Then, run the sample.
 
 ```csharp 
 using System;
@@ -253,8 +262,8 @@ namespace minimal
             var typeList = new List<string>();
             string srcId = "myRoomID";
             string targetId = "myFloorID";
-            string dtdl = File.ReadAllText("Room.json");
-            string dtdl1 = File.ReadAllText("Floor.json");
+            string dtdl = File.ReadAllText("<path-to>/Room.json");
+            string dtdl1 = File.ReadAllText("<path-to>/Floor.json");
             typeList.Add(dtdl);
             typeList.Add(dtdl1);
             // Upload the model to the service
