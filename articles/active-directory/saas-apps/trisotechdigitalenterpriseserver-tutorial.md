@@ -116,15 +116,15 @@ To configure Azure AD single sign-on with Trisotech Digital Enterprise Server, p
 
 2. Click on the **Menu icon** and then select **Administration**.
 
-	![Configure Single Sign-On](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
+	![Screenshot shows the Administration icon in Microsoft Digital Enterprise Server.](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
 
 3. Select **User Provider**.
 
-	![Configure Single Sign-On](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
+	![Screenshot shows User Provider selected from the menu.](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
 
 4. In the **User Provider Configurations** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
+	![Screenshot shows the User Provider Configurations where you can enter the values described.](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
 
 	a. Select **Secured Assertion Markup Language 2 (SAML 2)** from the dropdown in the **Authentication Method**.
 
