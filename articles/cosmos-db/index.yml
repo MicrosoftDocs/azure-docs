@@ -71,7 +71,7 @@ landingContent:
           - text: Build a .NET web app to manage your data
             url: sql-api-dotnet-application.md
           - text: Java app with Async SDK
-            url: sql-api-async-java-get-started.md
+            url: ./create-sql-api-java.md
           - text: Query data with SQL queries
             url: tutorial-query-sql-api.md
       - linkListType: how-to-guide
@@ -181,7 +181,7 @@ landingContent:
           - text: CQL shell, Spark – Cassandra API
             url: cassandra-import-data.md
           - text: Azure Database Migration Service – MongoDB API
-            url: /azure/dms/tutorial-mongodb-cosmos-db 
+            url: ../dms/tutorial-mongodb-cosmos-db.md
           - text: AzCopy, Data migration tool – Table API
             url: table-import.md                         
       - linkListType: how-to-guide
@@ -225,4 +225,4 @@ landingContent:
       - linkListType: concept
         links:
           - text: Differences between Table API and Azure Table storage
-            url: table-support.md 
+            url: table-support.md
