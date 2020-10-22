@@ -24,7 +24,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-automl-core**
     + Fixed an issue where get_output may raise an XGBoostError.
   + **azureml-automl-runtime**
-    + Time/calendar based features created by AutoML will now have the prefix \\_automl\\_. Example: \\_automl\\_year
+    + Time/calendar based features created by AutoML will now have the prefix.
     + Fixed an IndexError occurring during training of StackEnsemble for classification datasets with large number of classes and subsampling enabled.
     + Fixed an issue where VotingRegressor predictions may be inaccurate after refitting the model.
   + **azureml-core**
