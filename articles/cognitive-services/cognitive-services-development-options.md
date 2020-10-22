@@ -136,6 +136,6 @@ Language Understanding and the Speech service offer continuous integration and c
 * [CI/CD for LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-devops-automation)
 
 ## Next steps
-
-* Learn more about low code development options for Cognitive Services
-* [Learn more about Big Data for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/big-data/cognitive-services-for-big-data)
+<!--
+* Learn more about low code development options for Cognitive Services -->
+* [Create a Cognitive Services resource and start building](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Clinux)
