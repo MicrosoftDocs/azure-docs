@@ -33,4 +33,4 @@ Add `microsoft.insights/workbooks/write` to save shared workbooks. For more deta
 
 ## Next steps
 
-* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.

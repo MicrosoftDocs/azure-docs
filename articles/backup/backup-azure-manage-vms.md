@@ -19,6 +19,8 @@ You can manage backups by using the dashboard and by drilling down to individual
 
 ![Full dashboard view with slider](./media/backup-azure-manage-vms/bottom-slider.png)
 
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
 ## View VMs on the dashboard
 
 To view VMs on the vault dashboard:

@@ -137,7 +137,5 @@ If you don't resolve your problem here, see the following options.
   * [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
   * [Troubleshoot registry performance](container-registry-troubleshoot-performance.md)
 * [Community support](https://azure.microsoft.com/support/community/) options
-* [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
+* [Microsoft Q&A](/answers/products/)
 * [Open a support ticket](https://azure.microsoft.com/support/create-ticket/) - based on information you provide, a quick diagnostic might be run for authentication failures in your registry
-
-

@@ -133,7 +133,9 @@ In this section, you'll create a load balancer rule:
     | Backend port | Enter **80**. |
     | Backend pool | Select **myBackendPool**.|
     | Health probe | Select **myHealthProbe**. |
-    | Create implicit outbound rules | Select **No**.
+    | Idle timeout (minutes) | Move the slider to **15** minutes. |
+    | TCP reset | Select **Enabled**. |
+    | Outbound source network address translation (SNAT) | Select **(Recommended) Use outbound rules to provide backend pool members access to the internet.**. |
 
 4. Leave the rest of the defaults and then select **OK**.
 
@@ -621,6 +623,6 @@ In this quickstart, you:
 * Attached 3 VMs to the load balancer.
 * Configured the load balancer traffic rule, health probe, and then tested the load balancer. 
 
-To learn more about Azure Load Balancer, continue to..
+To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
 > [What is Azure Load Balancer?](load-balancer-overview.md)

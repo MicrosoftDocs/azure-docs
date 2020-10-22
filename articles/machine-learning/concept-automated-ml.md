@@ -1,5 +1,5 @@
 ---
-title: What is automated ML / AutoML
+title: What is automated ML? AutoML
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning can automatically pick an algorithm for you, and generate a model from it to save you time by using the parameters and criteria you provide to select the best algorithm for your model.
 services: machine-learning
@@ -157,15 +157,15 @@ The web interface for automated ML always uses a remote [compute target](concept
 Consider these factors when choosing your compute target:
 
  * **Choose a local compute**: If your scenario is about initial explorations or demos using small data and short trains (i.e. seconds or a couple of minutes per child run), training on your local computer might be a better choice.  There is no setup time, the infrastructure resources (your PC or VM) are directly available.
- * **Chose a remote ML compute cluster**: If you are training with larger datasets like in production training creating models which need longer trains, remote compute will provide much better end-to-end time performance because `AutoML` will parallelize trains across the cluster's nodes. On a remote compute, the start up time for the internal infrastructure will add around 1.5 minutes per child run, plus additional minutes for the cluster infrastructure if the VMs are not yet up and running.
+ * **Choose a remote ML compute cluster**: If you are training with larger datasets like in production training creating models which need longer trains, remote compute will provide much better end-to-end time performance because `AutoML` will parallelize trains across the cluster's nodes. On a remote compute, the start-up time for the internal infrastructure will add around 1.5 minutes per child run, plus additional minutes for the cluster infrastructure if the VMs are not yet up and running.
 
 ### Pros and cons
 Consider these pros and cons when choosing to use local vs. remote.
 
 |  | Pros (Advantages)  |Cons (Handicaps)  |
 |---------|---------|---------|---------|
-|**Local compute target** |  <li> No environment start up time   | <li>  Subset of features<li>  Can't parallelize runs <li> Worse for large data. <li>No data streaming while training <li>  No DNN-based featurization <li> Python SDK only |
-|**Remote ML compute clusters**|  <li> Full set of features <li> Parallelize child runs <li>   Large data support<li>  DNN-based featurization <li>  Dynamic scalability of compute cluster on demand <li> No-code experience (web UI) also available  |  <li> Start up time for cluster nodes <li> Start up time for each child run    |
+|**Local compute target** |  <li> No environment start-up time   | <li>  Subset of features<li>  Can't parallelize runs <li> Worse for large data. <li>No data streaming while training <li>  No DNN-based featurization <li> Python SDK only |
+|**Remote ML compute clusters**|  <li> Full set of features <li> Parallelize child runs <li>   Large data support<li>  DNN-based featurization <li>  Dynamic scalability of compute cluster on demand <li> No-code experience (web UI) also available  |  <li> Start-up time for cluster nodes <li> Start-up time for each child run    |
 
 ### Feature availability 
 
@@ -218,7 +218,7 @@ The following settings allow you to configure your automated ML experiment.
 |**Split data into train/validation sets**| ✓|✓
 |**Supports ML tasks: classification, regression, and forecasting**| ✓| ✓
 |**Optimizes based on primary metric**| ✓| ✓
-|**Supports AML compute as compute target** | ✓|✓
+|**Supports Azure ML compute as compute target** | ✓|✓
 |**Configure forecast horizon, target lags & rolling window**|✓|✓
 |**Set exit criteria** |✓|✓ 
 |**Set concurrent iterations**| ✓|✓

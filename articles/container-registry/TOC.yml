@@ -120,10 +120,11 @@
           href: container-registry-repository-scoped-permissions.md
       - name: Azure role-based access control
         href: container-registry-roles.md
+        displayName: permissions, authorization
       - name: Content trust
         href: container-registry-content-trust.md
       - name: Image scanning with Security Center
-        href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+        href: ../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json
     - name: Registries and other Azure services
       expanded: false
       items:
