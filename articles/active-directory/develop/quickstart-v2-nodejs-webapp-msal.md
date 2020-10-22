@@ -20,15 +20,10 @@ ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
 
 In this quickstart, you run a code sample that demonstrates how a Node.js web app can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow. The code sample also demonstrates obtaining an access token to call a web API, in this case the Microsoft Graph API. See [How the sample works](#how-the-sample-works) for an illustration.
 
-This quickstart uses MSAL Node with the authorization code flow.
+This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node) with the authorization code flow.
 
 > [!IMPORTANT]
-> MSAL Node is in **public preview**. This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features might be unsupported or have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-TEST
-
-> [!IMPORTANT]
-> MSAL Node [!INCLUDE [PREVIEW TEXT](../../../includes/active-directory-develop-preview.md)]
+> MSAL Node [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ## Prerequisites
 
