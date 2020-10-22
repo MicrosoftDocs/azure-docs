@@ -58,4 +58,4 @@ Learn more about how to set up notifications in the [planned maintenance notific
 - See [how to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
 - For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 - Read our blog on [best practices for monitoring your server](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).
-- Learn more about [planned maintenance notifications](./concepts-planned-maintenance-notification.md) in Azure Database for PostgreSQL - Single Server
+- Learn more about [planned maintenance notifications](./concepts-planned-maintenance-notification.md) in Azure Database for PostgreSQL - Single Server.
