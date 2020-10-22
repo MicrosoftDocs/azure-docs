@@ -157,6 +157,8 @@
       - name: Private link
         href: concepts-data-access-and-security-private-link.md
         displayName: security, private link, private endpoint
+    - name: Planned maintenance
+      href: concepts-planned-maintenance-notification.md
     - name: Business continuity
       items:
       - name: Business continuity intro
