@@ -184,4 +184,4 @@ In this tutorial, you learned about basic VPN gateway creation and management su
 Next, proceed with the following tutorial:
 
 > [!div class="nextstepaction"]
-> * [Create a S2S connection](vpn-gateway-create-site-to-site-rm-powershell)
+> * [Create a S2S connection](vpn-gateway-create-site-to-site-rm-powershell.md)
