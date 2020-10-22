@@ -253,23 +253,24 @@ namespace minimal
 
         static async Task Main(string[] args)
         {
+            //Create the Azure Digital Twins client for API calls
             Console.WriteLine("Hello World!");
             DigitalTwinsClient client = createDTClient();
             Console.WriteLine($"Service client created – ready to go");
 
-            Console.WriteLine($"Upload a model");
-            BasicDigitalTwin twin = new BasicDigitalTwin();
-            var typeList = new List<string>();
-            string srcId = "myRoomID";
-            string targetId = "myFloorID";
+            //Upload models
+            Console.WriteLine($"Upload models");
             string dtdl = File.ReadAllText("<path-to>/Room.json");
             string dtdl1 = File.ReadAllText("<path-to>/Floor.json");
+            var typeList = new List<string>();
             typeList.Add(dtdl);
             typeList.Add(dtdl1);
-            // Upload the model to the service
-
+            // Upload the models to the service
             await client.CreateModelsAsync(typeList);
 
+            //Create new (Room) digital twin
+            string srcId = "myRoomID";
+            BasicDigitalTwin twin = new BasicDigitalTwin();
             twin.Metadata = new DigitalTwinMetadata();
             twin.Metadata.ModelId = "dtmi:example:Room;1";
             // Initialize properties
@@ -277,24 +278,31 @@ namespace minimal
             props.Add("Temperature", 35.0);
             props.Add("Humidity", 55.0);
             twin.CustomProperties = props;
-
+            //Create the twin
             await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
-            // Creating twin data for second twin
+            
+            //Create second (Floor) digital twin
+            string targetId = "myFloorID";
             twin.Metadata = new DigitalTwinMetadata();
             twin.Metadata.ModelId = "dtmi:example:Floor;1";
             // Initialize properties
             Dictionary<string, object> props1 = new Dictionary<string, object>();
             props1.Add("Capacity", 5.0);
             twin.CustomProperties = props1;
+            //Create the twin
             await client.CreateDigitalTwinAsync(targetId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
             Console.WriteLine();
             Console.WriteLine("Deleting existing relationships to the twin");
             Console.WriteLine();
             await DeleteRelationship(client, srcId);
             Console.WriteLine("Twin created successfully");
+
+            //Create relationship between them
             await CreateRelationship(client, srcId, targetId, "contains");
             await CreateRelationship(client, srcId, targetId, "has");
             Console.WriteLine();
+
+            //Print twins and their relationships
             Console.WriteLine("Printing srcId - Outgoing relationships");
             Console.WriteLine();
             await FetchAndPrintTwinAsync(srcId, client);
@@ -302,16 +310,6 @@ namespace minimal
             Console.WriteLine("Printing targetId - Incoming relationships");
             Console.WriteLine();
             await FetchAndPrintTwinAsync(targetId, client);
-
-        }
-
-        private static async Task DeleteRelationship(DigitalTwinsClient client, string srcId)
-        {
-            List<BasicRelationship> lists = await FindOutgoingRelationshipsAsync(client, srcId);
-            foreach(BasicRelationship rel in lists) {
-                await client.DeleteRelationshipAsync(srcId, rel.Id);
-            }
-            
         }
 
         private static DigitalTwinsClient createDTClient()
@@ -404,6 +402,13 @@ namespace minimal
             }
         }
 
+        private static async Task DeleteRelationship(DigitalTwinsClient client, string srcId)
+        {
+            List<BasicRelationship> lists = await FindOutgoingRelationshipsAsync(client, srcId);
+            foreach(BasicRelationship rel in lists) {
+                await client.DeleteRelationshipAsync(srcId, rel.Id);
+            }   
+        }
     }
 }
 ```
