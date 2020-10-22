@@ -126,7 +126,7 @@
       href: troubleshoot-reservation-utilization.md??toc=/azure/cost-management-billing/reservations/toc.json
     - name: Troubleshoot reservation recommendations
       href: troubleshoot-reservation-recommendation.md??toc=/azure/cost-management-billing/reservations/toc.json
-      - name: Reference
+- name: Reference
   items:
   - name: Reservations REST API
     href: reservation-apis.md?toc=/azure/cost-management-billing/reservations/toc.json
