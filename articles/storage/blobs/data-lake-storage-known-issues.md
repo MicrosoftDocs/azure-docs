@@ -94,7 +94,7 @@ The setting for retention days is not yet supported, but you can delete logs man
 ## Lifecycle management policies with premium-performance BlockBlobStorage storage accounts
 
 - Lifecycle management policies are supported only on general-purpose v2 accounts. They aren't yet supported in premium BlockBlobStorage storage accounts.
-- Data can't be moved from the premium tier to lower tiers.
+- Data can't be moved from the premium tier to lower tiers or vice-versa with lifecycle management policies. However, you can use Azure Data Factory to move data between an account that uses the premium tier to or from an account in a lower tier.
 
 
 ## Dremio support with premium-performance BlockBlobStorage storage accounts
