@@ -63,6 +63,6 @@ You've now established a secure and private connection between Synapse and your 
 
 ## Next steps
 
-To develop further understanding of Managed private endpoint in Synapse Analytics, see the [Concept around Synapse Managed private endpoint](data-integration-data-lake.md) article.
+To develop further understanding of Managed private endpoint in Synapse Analytics, see the [Concept around Synapse Managed private endpoint](../security/synapse-workspace-managed-private-endpoints.md) article.
 
 For more information on data integration for Synapse Analytics, see the [Ingesting data into a Data Lake](data-integration-data-lake.md) article.
