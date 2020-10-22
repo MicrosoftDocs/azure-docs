@@ -1,6 +1,6 @@
 ---
-title: Tutorial to prepare Azure portal, datacenter environment to deploy Azure Stack Edge Mini Rdevice | Microsoft Docs
-description: The first tutorial about deploying Azure Stack Edge Mini Rdevice involves preparing the Azure portal.
+title: Tutorial to prepare Azure portal, datacenter environment to deploy Azure Stack Edge Mini R device | Microsoft Docs
+description: The first tutorial about deploying Azure Stack Edge Mini R device involves preparing the Azure portal.
 services: databox
 author: alkohli
 
@@ -40,11 +40,15 @@ To deploy Azure Stack Edge Mini R, refer to the following tutorials in the presc
 |**[3. Connect to the device](azure-stack-edge-mini-r-deploy-connect.md)** |Once the device is installed, connect to device local web UI.  |
 |**[4. Configure network settings](azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy.md)** |Configure network including the compute network and web proxy settings for your device.   |
 |**[5. Configure device settings](azure-stack-edge-mini-r-deploy-set-up-device-update-time.md)** |Assign a device name and DNS domain, configure update server and device time. |
-|**[6. Configure security settings](azure-stack-edge-mini-r-deploy-configure-certificates.md)** |Configure certificates for your device. Use device generated certificates or bring your own certificates.   |
+|**[6. Configure security settings](azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption.md)** |Configure certificates, VPN, encryption-at-rest for your device. Use device generated certificates or bring your own certificates.   |
 |**[7. Activate the device](azure-stack-edge-mini-r-deploy-activate.md)** |Use the activation key from service to activate the device. The device is ready to set up SMB or NFS shares or connect via REST. |
-|**[8. Configure compute](azure-stack-edge-mini-r-deploy-configure-compute.md)** |Configure the compute role on your device. This will also create a Kubernetes cluster. |
+|**[8. Configure compute](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configure the compute role on your device. This will also create a Kubernetes cluster. |
 
 You can now begin to set up the Azure portal.
+
+## Deployment configuration checklist
+
+Before you deploy your device, you need to collect information to configure the software on your Azure Stack Edge Pro device. Preparing some of this information ahead of time helps streamline the process of deploying the device in your environment. Use the [Azure Stack Edge Pro R deployment configuration checklist](azure-stack-edge-mini-r-deploy-checklist.md) to note down the configuration details as you deploy your device.
 
 ## Prerequisites
 
@@ -52,25 +56,14 @@ Following are the configuration prerequisites for your Azure Stack Edge resource
 
 ### For the Azure Stack Edge resource
 
-Before you begin, make sure that:
-
-* Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
-* You have owner or contributor access at resource group level for the Azure Stack Edge/Azure Storage Gateway, IoT Hub, and Azure Storage resources.
-
-    * To create any Azure Stack Edge resource, you should have permissions as a contributor (or higher) scoped at resource group level. You also need to make sure that the `Microsoft.DataBoxEdge` provider is registered. For information on how to register, go to [Register resource provider](azure-stack-edge-j-series-manage-access-power-connectivity-mode.md#register-resource-providers).
-    * To create any IoT Hub resource, make sure that Microsoft.Devices provider is registered. For information on how to register, go to [Register resource provider](azure-stack-edge-j-series-manage-access-power-connectivity-mode.md#register-resource-providers).
-    * To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.
-* You have admin or user access to Azure Active Directory Graph API. For more information, see [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
-- You have your Microsoft Azure storage account with access credentials.
+[!INCLUDE [Azure Stack Edge resource prerequisites](../../includes/azure-stack-edge-gateway-resource-prerequisites.md)]
 
 ### For the Azure Stack Edge device
 
 Before you deploy a physical device, make sure that:
 
 - You've reviewed the safety information for this device at [Safety guidelines for your Azure Stack Edge device](azure-stack-edge-mini-r-safety.md).
-- You have access to a flat, stable, and level work surface where the device can rest safely.
-- The site where you intend to set up the device has standard AC power from an independent source or a rack power distribution unit (PDU).
-- You have received the physical device.
+[!INCLUDE [Azure Stack Edge device prerequisites](../../includes/azure-stack-edge-gateway-device-prerequisites.md)] 
 
 ### For the datacenter network
 
@@ -92,86 +85,83 @@ To create a Azure Stack Edge resource, take the following steps in the Azure por
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
 
-2. In the left-pane, select **+ Create a resource**.
+2. In the left-pane, select **+ Create a resource**. Search for and select **Azure Stack Edge / Data Box Gateway**. Select **Create**. 
 
-    ![Create new resource](media/azure-stack-edge-k-series-deploy-prep/deploy-order-01.png)
+3. Pick the subscription that you want to use for the Azure Stack Edge Pro device. Select the country to where you want to ship this physical device. Select **Show devices**.
 
-3. Search for **Azure Stack Edge / Data Box Gateway**. Select **Azure Stack Edge / Data Box Gateway**.
-
-    ![Search Data Box Edge/ Data Box Gateway service](media/azure-stack-edge-k-series-deploy-prep/deploy-order-02.png)
+    ![Create a resource 1](media/azure-stack-edge-pro-r-deploy-prep/create-resource-1.png)
 
 
-4. Select **Create**.
+4. Select device type. Under **Azure Stack Edge**, choose **Azure Stack Edge Mini R** and then choose **Select**. If you see any issues or are unable to select the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
-    ![Select create](media/azure-stack-edge-k-series-deploy-prep/deploy-order-03.png)
+    ![Create a resource 2](media/azure-stack-edge-pro-r-deploy-prep/create-resource-2.png)
 
 
-5. Pick the subscription that you want to use for the Azure Stack Edge device. Select the region where you want to deploy the Azure Stack Edge resource. For this release, East US, South East Asia, and West Europe are available. 
-
-    Choose a location closest to the geographical region where you want to deploy your device. The region stores only the metadata for device management. The actual data can be stored in any storage account.
-    
-    Select **Apply**.
-
-    ![Pick subscription, location, country](media/azure-stack-edge-k-series-deploy-prep/deploy-order-04.png)
-
-6. Select your Azure Stack Edge device. In this example, **Azure Stack Edge Rugged K-series** was selected.
-
-    ![Pick Azure Stack Edge device](media/azure-stack-edge-k-series-deploy-prep/deploy-order-05.png)
-
-3. On the **Basics** tab, enter or select the following **Project details**.
+6. On the **Basics** tab, enter or select the following **Project details**.
     
     |Setting  |Value  |
     |---------|---------|
     |Subscription    |This is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
     |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/resource-group-overview.md).     |
 
-8. Enter or select the following **Instance details**.
+
+7. Enter or select the following **Instance details**.
 
     |Setting  |Value  |
     |---------|---------|
     |Name   | A friendly name to identify the resource.<br>The name has between 2 and 50 characters containing letter, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
-    |Region     |For this release, East US, South East Asia, and West Europe are available to deploy your resource. If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choose a location closest to the geographical region where you want to deploy your device.|
+    |Region     |For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choose a location closest to the geographical region where you want to deploy your device.|
 
-   The **Basics** tab should look like the following screenshot:
+    ![Create a resource 4](media/azure-stack-edge-pro-r-deploy-prep/create-resource-4.png)
 
-   ![Basics tab](media/azure-stack-edge-k-series-deploy-prep/deploy-order-06.png)
- 
 
-5. Select **Next: Shipping address**.
+8. Select **Next: Shipping address**.
 
-    - If you already have a device, select the combo box for **I have an Azure Stack Edge device**.
+    - If you already have a device, select the combo box for **I have a Azure Stack Edge Pro R device**.
 
-        ![Check existing device](media/azure-stack-edge-k-series-deploy-prep/deploy-order-07.png)
+        ![Create a resource 5](media/azure-stack-edge-pro-r-deploy-prep/create-resource-5.png)
 
     - If this is the new device that you are ordering, enter the contact name, company, address to ship the device, and contact information.
 
-        ![Shipping address for new device](media/azure-stack-edge-k-series-deploy-prep/deploy-order-08.png)
+        ![Create a resource 6](media/azure-stack-edge-pro-r-deploy-prep/create-resource-6.png)
 
-6. Select **Next: Review + create**.
+9. Select **Next: Tags**. Optionally provide tags to categorize resources and consolidate billing. Select **Next: Review + create**.
 
-7. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
+10. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
 
-    ![Review Azure Stack Edge resource details and privacy terms](media/azure-stack-edge-k-series-deploy-prep/deploy-order-09.png)
+    ![Create a resource 7](media/azure-stack-edge-pro-r-deploy-prep/create-resource-7.png) 
+
+    You are also notified that during the resource creation, a Managed Service Identity (MSI) is enabled that lets you authenticate to cloud services. This identity exists for as long as the resource exists.
 
 8. Select **Create**.
 
-   The resource creation takes a few minutes. After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
+    The resource creation takes a few minutes. An MSI is also created that lets the Azure Stack Edge device communicate with the resource provider in Azure.
+    
+    After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
+    
+    ![Go to the Azure Stack Edge Pro resource](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
+    
+    After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
 
-   ![Go to the Azure Stack Edge resource](media/azure-stack-edge-k-series-deploy-prep/deploy-order-10.png)
-
-   You device is now ready for setup and activation.
+   If you run into any issues during the order process, see [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
 ## Get the activation key
 
-After the Azure Stack Edge resource is up and running, you'll need to get the activation key. This key is used to activate and connect your Azure Stack Edge device with the resource. You can get this key now while you are in the Azure portal.
+After the Azure Stack Edge resource is up and running, you'll need to get the activation key. This key is used to activate and connect your Azure Stack Edge Mini R device with the resource. You can get this key now while you are in the Azure portal.
 
 1. Select the resource that you created. Select **Overview** and then select **Device setup**.
 
     ![Select Device setup](media/azure-stack-edge-k-series-deploy-prep/activation-key-01.png)
 
-2. On the **Activate** tile, select **Generate key** to create an activation key. Select the copy icon to copy the key and save it for later use.
+2. On the **Activate** tile, provide a name for the Azure Key Vault or accept the default name. The key vault name can be between 3 and 24 characters. 
 
-    ![Get activation key](media/azure-stack-edge-k-series-deploy-prep/activation-key-02.png)
+    A key vault is created for each Azure Stack Edge resource that is activated with your device. The key vault lets you store and access secrets, for example, the Channel Integrity Key (CIK) for the service is stored in the key vault. 
+
+    Once you have specified a key vault name, select **Generate key** to create an activation key. 
+
+    ![Get activation key](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
+
+    Wait a few minutes as the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.
 
 > [!IMPORTANT]
 > - The activation key expires three days after it is generated.
@@ -188,4 +178,4 @@ In this tutorial, you learned about Azure Stack Edge topics such as:
 Advance to the next tutorial to learn how to install Azure Stack Edge.
 
 > [!div class="nextstepaction"]
-> [Install Azure Stack Edge](./azure-stack-edge-k-series-deploy-install.md)
+> [Install Azure Stack Edge](./azure-stack-edge-mini-r-deploy-install.md)

@@ -59,14 +59,15 @@ Your Azure Stack Edge Pro R device has the following network hardware:
 
 * **Mellanox dual port 25G ConnectX-4 channel network adapter** - PORT 3 and PORT 4. 
 
-Here are the details for the Mellanox card: MCX4421A-ACAN
+<!--Here are the details for the Mellanox card: MCX4421A-ACAN
 
 | Parameter           | Description                 |
 |-------------------------|----------------------------|
 | Model    | ConnectX®-4 Lx EN network interface card                      |
 | Model Description               | 25GbE dual-port SFP28; PCIe3.0 x8; ROHS R6                    |
 | Device Part Number (XR2) | MCX4421A-ACAN  |
-| PSID (R640)           | MT_2420110034                         |<!-- confirm w/ Ravi what is this-->
+| PSID (R640)           | MT_2420110034                         |-->
+<!-- confirm w/ Ravi what is this-->
 
 For a full list of supported cables, switches, and transceivers for these network cards, go to: [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).
 

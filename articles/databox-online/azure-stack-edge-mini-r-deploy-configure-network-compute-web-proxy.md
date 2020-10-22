@@ -49,23 +49,23 @@ Follow these steps to configure the network for your device.
 
 4. In the local web UI, go to **Get started**. On the **Security** tile, select **Certificates** and then select **Configure**. 
 
-    ![Local web UI "Get started" page](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-32.png)
+    ![Local web UI "Get started" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png)
 
     1. Select **+ Add certificate**. 
     
-        ![Local web UI "Get started" page](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-2.png)
+        ![Local web UI "Get started" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-1.png)
 
     2. Upload the signing chain and select **Apply**.
 
-        ![Local web UI "Get started" page](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-3.png)
+        ![Local web UI "Get started" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-2.png)
 
     3. Repeat the procedure with the Wi-Fi certificate. 
 
-        ![Local web UI "Get started" page](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-4.png)
+        ![Local web UI "Get started" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-4.png)
 
     4. The new certificates should be displayed on the **Certificates** page. 
     
-        ![Local web UI "Get started" page](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-5.png)
+        ![Local web UI "Get started" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-5.png)
 
     5. Go back to **Get started**.
 
@@ -75,27 +75,30 @@ Follow these steps to configure the network for your device.
 
     On your physical device, there are five network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3 and PORT 4 are all 10-Gbps network interfaces. The fifth port is the Wi-Fi port. 
 
-    ![Local web UI "Network settings" page](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-7m.png)    
+    ![Local web UI "Network settings" page 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-1.png)    
     
     Select the Wi-Fi port and configure the port settings. 
     
     > [!IMPORTANT]
     > We strongly recommend that you configure a static IP address for the Wi-Fi port.  
 
-    ![Local web UI "Network settings" page](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-8.png)
+    ![Local web UI "Network settings" page 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-2.png)
 
+    The **Network** page updates after you apply the Wi-Fi port settings.
+
+    ![Local web UI "Network settings" page 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-4.png)
    
 4. Select **Add Wi-Fi profile** and  upload your Wi-Fi profile. 
 
-    ![Local web UI "Port 1 Network settings" 1](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-9m.png)
+    ![Local web UI "Port 1 Network settings" 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-1.png)
     
     A wireless network profile contains the SSID (network name), password key, and security information to be able to connect to a wireless network. You can get the Wi-Fi profile for your environment from your network administrator.
 
-    ![Local web UI "Port 1 Network settings" 2](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-10.png)
+    ![Local web UI "Port 1 Network settings" 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-2.png)
 
     After the profile is added, the list of Wi-Fi profiles updates to reflect the new profile. The profile should show the **Connection status** as **Disconnected**. 
 
-    ![Local web UI "Port 1 Network settings" 3](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-11.png)
+    ![Local web UI "Port 1 Network settings" 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-3.png)
 
     As you configure the network settings, keep in mind:
 
@@ -110,15 +113,15 @@ Follow these steps to configure the network for your device.
 
 5. After the wireless network profile is successfully loaded, connect to this profile. Select **Connect to Wi-Fi profile**. 
 
-    ![Local web UI "Port 1 Network settings"](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-12.png)
+    ![Local web UI "Port 1 Network settings" 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-4.png)
 
 6. Select the Wi-Fi profile that you added in the previous step and select **Apply**. 
 
-    ![Local web UI "Port 1 Network settings"](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-13.png)
+    ![Local web UI "Port 1 Network settings" 5](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-5.png)
 
-    The **Connection status** should update to **Connected**. The signal strength updates to indicate the quality in percentage. 
+    The **Connection status** should update to **Connected**. The signal strength updates to indicate the quality of the signal. 
 
-    ![Local web UI "Port 1 Network settings"](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-14.png)
+    ![Local web UI "Port 1 Network settings" 6](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-6.png)
 
     > [!NOTE]
     > To transfer large amounts of data, we recommend that you use a wired connection instead of the wireless network. 
@@ -134,7 +137,7 @@ Follow these steps to enable compute and configure compute network.
 
 1. In the **Compute** page, select a network interface that you want to enable for compute. 
 
-    ![Compute page in local UI 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png)
+    ![Compute page in local UI 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/compute-network-1.png)
 
 1. In the **Network settings** dialog, select **Enable**. When you enable compute, a virtual switch is created on your device on that network interface. The virtual switch is used for the compute infrastructure on the device. 
     
@@ -153,11 +156,11 @@ Follow these steps to enable compute and configure compute network.
     
 1. Select **Apply**.
 
-    ![Compute page in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-3.png)
+    ![Compute page in local UI 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/compute-network-3.png)
 
 1. The configuration is takes a couple minutes to apply and you may need to refresh the browser. You can see that the specified port is enabled for compute. 
  
-    ![Compute page in local UI 4](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-4.png)
+    ![Compute page in local UI 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/compute-network-4.png)
 
     Select **Next: Web proxy** to configure web proxy.  
 
@@ -181,7 +184,7 @@ This is an optional configuration.
 
     4. To validate and apply the configured web proxy settings, select **Apply**.
     
-   ![Local web UI "Web proxy settings" page](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-22.png)
+   ![Local web UI "Web proxy settings" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/web-proxy-1.png)
 
 2. After the settings are applied, select **Next: Device**.
 
@@ -200,4 +203,4 @@ In this tutorial, you learned about:
 To learn how to set up your Azure Stack Edge Mini R device, see:
 
 > [!div class="nextstepaction"]
-> [Configure device settings](./azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
+> [Configure device settings](./azure-stack-edge-mini-r-deploy-set-up-device-update-time.md)

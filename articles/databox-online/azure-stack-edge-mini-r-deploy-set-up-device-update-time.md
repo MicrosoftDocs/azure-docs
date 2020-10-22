@@ -28,7 +28,7 @@ In this tutorial, you learn about:
 
 ## Prerequisites
 
-Before you configure device related settings on your Azure Stack Edge Mini R  device with GPU, make sure that:
+Before you configure device related settings on your Azure Stack Edge Mini R device with GPU, make sure that:
 
 * For your physical device:
 
@@ -48,21 +48,24 @@ Follow these steps to configure device related settings:
 
     3. To validate and apply the configured device settings, select **Apply**.
 
-        ![Local web UI "Device" page 1](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
+        ![Local web UI "Device" page 1](./media/azure-stack-edge-mini-r-deploy-set-up-device-update-time/set-up-device-1.png)
 
-        If you have changed the device name and the DNS domain, the automatically generated self-signed certificates on the device will not work. You need to choose one of the following options when you configure certificates.: 
+        If you have changed the device name and the DNS domain, the self-signed certificates that existed on the device will not work. 
+
+        ![Local web UI "Device" page 2](./media/azure-stack-edge-mini-r-deploy-set-up-device-update-time/set-up-device-2.png)
+
+        You need to choose one of the following options when you configure certificates: 
         
         - Generate and download the device certificates. 
         - Bring your own certificates for the device including the signing chain.
     
 
-        ![Local web UI "Device" page 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
-
     4. When the device name and the DNS domain are changed, the SMB endpoint is created.  
+
+        ![Local web UI "Device" page 3](./media/azure-stack-edge-mini-r-deploy-set-up-device-update-time/set-up-device-3.png)
 
     5. After the settings are applied, select **Next: Update server**.
 
-        ![Local web UI "Device" page 3](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
 
 ## Configure update
 
@@ -70,11 +73,11 @@ Follow these steps to configure device related settings:
 
     - You can get the updates directly from the **Microsoft Update server**.
 
-        ![Local web UI "Update Server" page](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-2.png)
+        ![Local web UI "Update Server" page](./media/azure-stack-edge-mini-r-deploy-set-up-device-update-time/update-server-1.png)
 
         You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
         
-        ![Local web UI "Update Server" page 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
+        ![Local web UI "Update Server" page 2](./media/azure-stack-edge-mini-r-deploy-set-up-device-update-time/update-server-2.png)
 
         > [!NOTE] 
         > If a separate Windows Update server is configured and if you choose to connect over *https* (instead of *http*), then signing chain certificates required to connect to the update server are needed. For information on how to create and upload certificates, go to [Manage certificates](azure-stack-edge-j-series-manage-certificates.md). 
@@ -105,7 +108,7 @@ NTP servers are required because your device must synchronize time so that it ca
 
     4. To validate and apply the configured time settings, select **Apply**.
 
-        ![Local web UI "Time" page](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/time-2.png)
+        ![Local web UI "Time" page](./media/azure-stack-edge-mini-r-deploy-set-up-device-update-time/time-settings-1.png)
 
 2. After the settings are applied, select **Next: Certificates**.
 
@@ -121,7 +124,7 @@ In this tutorial, you learn about:
 > * Configure update 
 > * Configure time
 
-To learn how to configure certificates for your Azure Stack Edge Mini R  device, see:
+To learn how to configure certificates for your Azure Stack Edge Mini R device, see:
 
 > [!div class="nextstepaction"]
 > [Configure certificates](./azure-stack-edge-mini-r-deploy-configure-certificates.md)

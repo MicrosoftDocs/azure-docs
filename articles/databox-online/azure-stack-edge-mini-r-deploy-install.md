@@ -1,5 +1,5 @@
 ---
-title: Tutorial to install Azure Stack Edge Mini Rphysical device | Microsoft Docs
+title: Tutorial to install Azure Stack Edge Mini R physical device | Microsoft Docs
 description: The second tutorial about installing Azure Stack Edge Mini R device involves how to cable the physical device for power and network.
 services: databox
 author: alkohli
@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/03/2020
+ms.date: 10/20/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Mini R device in datacenter so I can use it to transfer data to Azure.  
 ---
-# Tutorial: Install Azure Stack Edge Mini R device
+# Tutorial: Install Azure Stack Edge Mini R
 
-This tutorial describes how to install a Azure Stack Edge Mini R physical device. The installation procedure involves cabling the device.
+This tutorial describes how to install an Azure Stack Edge Mini R physical device. The installation procedure involves cabling the device.
 
 The installation can take around 30 minutes to complete.
 
@@ -36,7 +36,7 @@ Before you begin, make sure that:
     * You've generated the activation key to activate your device with the Azure Stack Edge resource.
 
  
-### For the Azure Stack Edge physical device
+### For the Azure Stack Edge Mini R physical device
 
 Before you deploy a device:
 
@@ -51,9 +51,9 @@ Before you deploy a device:
 
 Before you begin:
 
-- Review the networking requirements for deploying Azure Stack Edge, and configure the datacenter network per the requirements. For more information, see [Azure Stack Edge networking requirements](azure-stack-edge-mini-r-system-requirements.md#networking-port-requirements).
+- Review the networking requirements for deploying Azure Stack Edge Mini R, and configure the datacenter network per the requirements. For more information, see [Azure Stack Edge networking requirements](azure-stack-edge-mini-r-system-requirements.md#networking-port-requirements).
 
-- Make sure that the minimum Internet bandwidth is 20 Mbps for the optimal functioning of the device.
+- Make sure that the minimum Internet bandwidth is 20 Mbps for the optimal functioning of the device. <!-- engg TBC -->
 
 
 ## Inspect the device
@@ -85,7 +85,7 @@ Before you start cabling your device, you need the following:
 > [!NOTE]
 > - If you are connecting only one data network interface, we recommend that you use a 10-GbE network interface such as PORT 3 or PORT 4 to send data to Azure. 
 > - For best performance and to handle large volumes of data, consider connecting all the data ports.
-> - The Azure Stack Edge device should be connected to the datacenter network so that it can ingest data from data source servers.
+> - The Azure Stack Edge device should be connected to the datacenter network so that it can ingest data from data source servers. <!-- engg TBC -->
 
 On your Azure Stack Edge device:
 
@@ -109,38 +109,38 @@ Take the following steps to cable your device for power and network.
 
 1. Identify the various network and storage components on the front plane of your device.
 
-    ![Network and storage interfaces on device](./media/azure-stack-edge-k-series-deploy-install/ports-front-plane.png)
+    ![Network and storage interfaces on device](./media/azure-stack-edge-mini-r-deploy-install/ports-front-plane.png)
 
 2. Locate the power button on the  bottom left corner of the front of the device. 
 
-    ![Front plane of a device](./media/azure-stack-edge-k-series-deploy-install/device-power-button.png)
+    ![Front plane of a device](./media/azure-stack-edge-mini-r-deploy-install/device-power-button.png)
 
 3. The battery is connected to the back plane of your device. Identify the second power button located on the battery. 
 
-    ![Front plane of a device](./media/azure-stack-edge-k-series-deploy-install/battery-power-button.png)
+    ![Front plane of a device](./media/azure-stack-edge-mini-r-deploy-install/battery-power-button.png)
 
 
     Connect one end of the power cord to the battery and the other to the power outlet. 
 
-    ![Power cord connection](./media/azure-stack-edge-k-series-deploy-install/power-cord-connector-1.png) 
+    ![Power cord connection](./media/azure-stack-edge-mini-r-deploy-install/power-cord-connector-1.png) 
 
     When running only on battery (battery is not connected to the source of power), both the power switch on the front and the switch on the battery should be toggled to ON position. When the battery is connected to a power source, only the power button on the front of the device should be toggled to ON position. 
 
 4. Press the power button in the front plane to turn on the device. 
     
     > [!NOTE]
-    > To turn on or turn off the power to the device, you have to depress the black button on top of the power button and then and then toggle the power button to ON or OFF position. 
+    > To turn on or turn off the power to the device, you have to depress the black button on top of the power button and then toggle the power button to ON or OFF position. 
 
 5. If configuring Wi-Fi on this device, use the following cabling diagram:
 
-    ![Cabling for Wi-Fi](./media/azure-stack-edge-k-series-deploy-install/wireless-cabled.png)  
+    ![Cabling for Wi-Fi](./media/azure-stack-edge-mini-r-deploy-install/wireless-cabled.png)  
 
     - Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. PORT 1 is the dedicated management interface.
 
 
     If using a wired configuration for this device, use the following diagram:
      
-    ![Cabling for Wired](./media/azure-stack-edge-k-series-deploy-install/wired-cabled.png)     
+    ![Cabling for Wired](./media/azure-stack-edge-mini-r-deploy-install/wired-cabled.png)     
     - Connect the 1-GbE network interface PORT 1 to the computer that's used to configure the physical device. PORT 1 is the dedicated management interface.
     - Connect one or more of PORT 2, PORT 3, or PORT 4 to the datacenter network/Internet.
     
