@@ -49,7 +49,7 @@ Generate the Certificate Signing Request (CSR) file, which Apple uses to generat
 
 2. Select **Keychain Access**, expand **Certificate Assistant**, and then select **Request a Certificate from a Certificate Authority**.
 
-   :::image type="content" source="media/ios-sdk-get-started/image1.png" alt-text="Keychain access":::
+   :::image type="content" source="media/ios-sdk-get-started/image1.png" alt-text="Screenshot that highlights the Request a Certificate from a Certificate Authority menu option.":::
 
    > [!NOTE]
    > By default, Keychain Access selects the first item in the list. This can be a problem if you're in the **Certificates** category and **Apple Worldwide Developer Relations Certification Authority** is not the first item in the list. Make sure you have a non-key item, or the **Apple Worldwide Developer Relations Certification Authority** key is selected, before generating the CSR (Certificate Signing Request).

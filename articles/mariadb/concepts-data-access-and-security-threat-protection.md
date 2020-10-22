@@ -36,6 +36,6 @@ Advanced Threat Protection for Azure Database for MariaDB detects anomalous acti
 
 ## Next steps
 
-* Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Learn more about [Azure Security Center](../security-center/security-center-introduction.md)
 * For more information on pricing, see the [Azure Database for MariaDB Pricing page](https://azure.microsoft.com/pricing/details/mariadb/) 
-* Configure [Azure Database for MariaDB Advanced Threat Protection](howto-database-threat-protection-portal.md) using the Azure portal  
+* Configure [Azure Database for MariaDB Advanced Threat Protection](howto-database-threat-protection-portal.md) using the Azure portal

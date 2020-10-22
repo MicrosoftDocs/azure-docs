@@ -39,7 +39,7 @@ When you add a new work account, you need to consider the following configuratio
 
     - **User** - Users can access assigned resources but cannot manage most tenant resources.
     - **Global administrator** - Global administrators have full control over all tenant resources.
-    - **Limited administrator** - Select the administrative role or roles for the user. For more information about the roles that can be selected, see [Assigning administrator roles in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+    - **Limited administrator** - Select the administrative role or roles for the user. For more information about the roles that can be selected, see [Assigning administrator roles in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ### Create a work account
 
