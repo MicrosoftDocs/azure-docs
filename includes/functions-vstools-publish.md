@@ -20,7 +20,7 @@ ms.custom: include file
 
 :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-2.png" alt-text="Select Azure Function App":::
 
-1. In **Function Instance**, click on **Create a new Azure Function...** link, and then use the values specified in the following table:
+1. In **Function Instance**, select **Create a new Azure Function...** and then use the values specified in the following table:
 
 
     | Setting      | Value  | Description                                |
