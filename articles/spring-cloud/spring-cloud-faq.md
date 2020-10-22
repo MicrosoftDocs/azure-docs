@@ -158,7 +158,7 @@ Yes. For more information, see [Launch your Spring Cloud application from source
 
 ### Does Azure Spring Cloud support autoscaling in app instances?
 
-No.
+Yes.  See [Setup autoscale](spring-cloud-tutorial-setup-autoscale.md).
 
 ::: zone pivot="programming-language-java"
 ### What are the best practices for migrating existing Spring Cloud microservices to Azure Spring Cloud?
