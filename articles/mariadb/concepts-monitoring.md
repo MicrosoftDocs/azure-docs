@@ -65,4 +65,4 @@ Learn more about how to set up notifications in the [planned maintenance notific
 
 - For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 - See [How to set up alerts](howto-alert-metric.md) for guidance on creating an alert on a metric.
-- Learn more about [planned maintenance notifications](./concepts-planned-maintenance-notification.md) in Azure Database for MariaDB
+- Learn more about [planned maintenance notifications](./concepts-planned-maintenance-notification.md) in Azure Database for MariaDB.
