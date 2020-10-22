@@ -33,7 +33,7 @@ The following table shows how each Blob storage feature is supported with Data L
 |Diagnostic logs|Generally available|Preview |[Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Archive Access Tier|Generally available|Not supported|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
 |Lifecycle management policies (tiering)|Generally available|Not yet supported|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
-|Lifecycle management policies (delete blob)|Generally available|Generally available|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md|
+|Lifecycle management policies (delete blob)|Generally available|Generally available|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
 |Logging in Azure Monitor|Preview |Preview|[Monitoring Azure Storage](../common/monitor-storage.md)|
 |Snapshots|Preview|Not yet supported|[Blob snapshots](snapshots-overview.md)|
 |Static websites|Preview|Preview|[Static website hosting in Azure Storage](storage-blob-static-website.md)|

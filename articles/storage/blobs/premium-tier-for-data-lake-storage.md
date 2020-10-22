@@ -31,11 +31,11 @@ AI/ML deals with the consumption and processing of different data types like vis
 
 ## Cost effectiveness
 
-The premium performance tier has a higher storage cost but a lower transaction cost as compared to the standard performance tier. If your applications and workloads execute a large number of transactions, the premium performance tier can be cost effective.
+The premium performance tier has a higher storage cost but a lower transaction cost as compared to the standard performance tier. If your applications and workloads execute a large number of transactions, the premium performance tier can be cost-effective.
 
-The following table demonstrates the cost-effectiveness of the premium tier for Azure Data Lake Storage. Each column represents the number of transactions in a month.  Each row represents the percentage of transactions that are read-transactions. Each cell in the table shows the percentage of cost reduction associated with a read transaction percentage and the number of transactions executed. 
+The following table demonstrates the cost-effectiveness of the premium tier for Azure Data Lake Storage. Each column represents the number of transactions in a month.  Each row represents the percentage of transactions that are read transactions. Each cell in the table shows the percentage of cost reduction associated with a read transaction percentage and the number of transactions executed. 
 
-For example, assuming that your account is in the East US 2, if the number of transactions with your account exceeds 90M, and 70% of those transactions are read transactions, the premium performance tier is more cost effective.
+For example, assuming that your account is in the East US 2 region, the number of transactions with your account exceeds 90M, and 70% of those transactions are read transactions, the premium performance tier is more cost-effective.
 
 > [!div class="mx-imgBorder"]
 > ![image goes here](./media/premium-tier-for-data-lake-storage/premium-performance-data-lake-storage-cost-analysis-table.png)
