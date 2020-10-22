@@ -8,7 +8,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article 
-ms.date: 05/08/2020
+ms.date: 10/0821/2020
 ms.author: juliako
 ---
  
@@ -62,17 +62,21 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
 > If your Azure subscription uses certificate-based multi-factor authentication, it's crucial that you perform the following steps on a device that has the required certificates installed.
 
 1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
-
-2. Select the **Create new account** button:
+1. Select the **Create new account** button:
 
     ![Create new Video Indexer account](./media/create-account/connect-to-azure.png)
 
-3. When the subscriptions list appears, select the subscription you want to use.
+    If later you want to delete the account, you have two options:
 
-    ![Connect Video Indexer to Azure](./media/create-account/connect-vi-to-azure-subscription.png)
+    * Delete from the Video Indexer website. Select the account -> **Settings** -> **Delete this account** (if must be the owner). 
+    * Via the API, call (delete account).
 
-4. Select an Azure region from the supported locations: West US 2, North Europe, or East Asia.
-5. Under **Azure Media Services account**, choose one of these options:
+    It takes 90 (IIRC) days if you delete from portal. If you do that from the API,n you have parameter that you can specify to delete immediately.
+1. When the subscriptions list appears, select the subscription you want to use.
+
+    ![Connect Video Indexer to Azure](./media/create-account/new-account-on-azure-subscription.png)
+1. Select an Azure region from the supported locations: West US 2, North Europe, or East Asia.
+1. Under **Azure Media Services account**, choose one of these options:
 
     * To create a new Media Services account, select **Create new resource group**. Provide a name for your resource group.
 
@@ -87,13 +91,14 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
     * To manually configure your connection, select the **Switch to manual configuration** link.
 
         For detailed information, see the [Connect to Azure manually](#connect-to-azure-manually-advanced-option) (advanced option) section that follows.
-6. When you're done, choose **Connect**. This operation might take up to a few minutes.
+1. When you're done, choose **Create**. This operation might take up to a few minutes.
 
     After you're connected to Azure, your new Video Indexer account appears in the account list:
 
     ![new account](./media/create-account/new-account.png)
 
-7. Browse to your new account.
+> [!TIP]
+> To give a friendly display hame to your account go to **Settings**.
 
 ## Connect to Azure manually (advanced option)
 
@@ -135,7 +140,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
 ### Connect manually
 
-In the **Connect Video Indexer to an Azure subscription** dialog of your [Video Indexer](https://www.videoindexer.ai/) page, select the **Switch to manual configuration** link.
+In the **Create a new account on an Azure subscription** dialog of your [Video Indexer](https://www.videoindexer.ai/) page, select the **Switch to manual configuration** link.
 
 In the dialog, provide the following information:
 
