@@ -94,8 +94,7 @@ az monitor diagnostic-settings list --resource Firewall07
 Use the [az monitor diagnostic-settings show](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_show) to see the active diagnostic settings for a resource.
 
 ```azurecli
-az monitor diagnostic-settings show --name AzureFirewallApplicationRule \
-    --resource /subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Network/azureFirewalls/Firewall07
+az monitor diagnostic-settings show --name AzureFirewallApplicationRule --resource Firewall07
 ```
 
 Run the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command to update the settings.
