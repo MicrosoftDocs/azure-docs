@@ -145,8 +145,8 @@ For metrics with a **Unit** value of **Count** only total (sum) aggregation is v
 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|Event Grid deliveries(preview)|EventGridDeliveries|Count|Total|The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid).|ResourceId,<br/>Result,<br/>EventType|
-|Event Grid latency (preview)|EventGridLatency|Milliseconds|Average|The average latency (milliseconds) from when the Iot Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event.|ResourceId,<br/>EventType|
+|Event Grid deliveries(preview)|EventGridDeliveries|Count|Total|The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid).|Result,<br/>EventType<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
+|Event Grid latency (preview)|EventGridLatency|Milliseconds|Average|The average latency (milliseconds) from when the Iot Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event.|EventType<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 
 For metrics with a **Unit** value of **Count** only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
@@ -173,9 +173,9 @@ For metrics with a **Unit** value of **Count** only total (sum) aggregation is v
 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-| Routing Delivery Attempts (preview) |RoutingDeliveries | Count | Total |This is the routing delivery metric. Use the dimensions to identify the delivery status for a specific endpoint or for a specific routing source.| ResourceID,<br>Result,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*. |
-| Routing Delivery Data Size In Bytes (preview)|RoutingDataSizeInBytesDelivered| Bytes | Total |The total number of bytes routed by IoT Hub to custom endpoint and built-in endpoint. Use the dimensions to identify data size routed to a specific endpoint or for a specific routing source.| ResourceID,<br>RoutingSource,<br>EndpointType<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
-| Routing Latency (preview) |RoutingDeliveryLatency| Milliseconds | Average |This is the routing delivery latency metric. Use the dimensions to identify the latency for a specific endpoint or for a specific routing source.| ResourceID,<br>RoutingSource,<br>EndpointType,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
+| Routing Delivery Attempts (preview) |RoutingDeliveries | Count | Total |This is the routing delivery metric. Use the dimensions to identify the delivery status for a specific endpoint or for a specific routing source.| Result,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*. |
+| Routing Delivery Data Size In Bytes (preview)|RoutingDataSizeInBytesDelivered| Bytes | Total |The total number of bytes routed by IoT Hub to custom endpoint and built-in endpoint. Use the dimensions to identify data size routed to a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
+| Routing Latency (preview) |RoutingDeliveryLatency| Milliseconds | Average |This is the routing delivery latency metric. Use the dimensions to identify the latency for a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 |Routing: blobs delivered to storage|d2c.endpoints.egress.<br>storage.blobs|Count|Total|The number of times IoT Hub routing delivered blobs to storage endpoints.|None|
 |Routing: data delivered to storage|d2c.endpoints.egress.<br>storage.bytes|Bytes|Total|The amount of data (bytes) IoT Hub routing delivered to storage endpoints.|None|
 |Routing: message latency for Event Hub|d2c.endpoints.latency.<br>eventHubs|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into custom endpoints of type Event Hub. This does not include messages routes to built-in endpoint (events).|None|
@@ -208,16 +208,17 @@ For metrics with a **Unit** value of **Count** only total (sum) aggregation is v
 
 ## Metric dimensions
 
-Azure IoT Hub has the following dimensions associated with some of its routing metrics.
+Azure IoT Hub has the following dimensions associated with some of its routing and event grid metrics.
 
 |Dimension Name | Description|
 |---|---|
-|**ResourceID**|Your IoT Hub resource ID.|
+||
+|**EndpointName**| The endpoint name.|
+|**EndpointType**|One of the following: **eventHubs**, **serviceBusQueues**, **cosmosDB**, **serviceBusTopics**. **builtin**, or **blobStorage**.|
+|**EventType**| One of the following Event Grid event types: **Microsoft.Devices.DeviceCreated**. **Microsoft.Devices.DeviceDeleted**, **Microsoft.Devices.DeviceConnected**, **Microsoft.Devices.DeviceDisconnected**, or **Microsoft.Devices.DeviceTelemetry**. For more information, see [Event types](iot-hub-event-grid.md#event-types).|
+|**FailureReasonCategory**| One of the following: **invalid**, **dropped**, **orphaned**, or **null**.|
 |**Result**| Either **success** or **failure**.|
 |**RoutingSource**| Device Messages<br>Twin Change Events<br>Device Lifecycle Events|
-|**EndpointType**|One of the following: **eventHubs**, **serviceBusQueues**, **cosmosDB**, **serviceBusTopics**. **builtin**, or **blobStorage**.|
-|**FailureReasonCategory**| One of the following: **invalid**, **dropped**, **orphaned**, or **null**.|
-|**EndpointName**| The endpoint name.|
 
 To learn more about metric dimensions, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
