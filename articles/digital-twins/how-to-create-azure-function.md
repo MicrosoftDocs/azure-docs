@@ -201,7 +201,7 @@ Use the _principalId_ value in the following command to assign the function app'
 ```azurecli	
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
 ```
-Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on setting an environment variables, see [*Environment variables*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables). 
+Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on setting an environment variables, see [*Environment variables*](/sandbox/functions-recipes/environment-variables). 
 
 > [!TIP]
 > The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the hostName, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
@@ -233,24 +233,24 @@ Also note the **object ID** shown on the _Identity_ page, as it will be used in 
 
 ### Assign access roles using Azure portal
 
-Select _Azure role assignments_ button, that opens up to Azure role assignments page. Then, select _+Add role assignment(Preview)_.
+Select the _Azure role assignments_ button, which will open up the *Azure role assignments* page. Then, select _+ Add role assignment (Preview)_.
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure portal: add role assignment":::
 
-On the _Add role assignment (Preview)_ window that opens up, select
+On the _Add role assignment (Preview)_ page that opens up, select:
 
 * _Scope_: Resource group
 * _Subscription_: select your Azure subscription
 * _Resource group_: select your resource group from the dropdown
 * _Role_: select _Azure Digital Twins Owner (Preview)_ from the dropdown
 
-Save your details by selecting _Save_ button.
+Then, save your details by hitting the _Save_ button.
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure portal: add role assignment (Preview) ":::
 
 ### Configure application settings using Azure portal
 
-You can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [*Environment variables*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables). Application settings are exposed as environment variables to access the digital twins instance. 
+You can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [*Environment variables*](/sandbox/functions-recipes/environment-variables). Application settings are exposed as environment variables to access the digital twins instance. 
 
 You'll need ADT_INSTANCE_URL to create an application setting.
 

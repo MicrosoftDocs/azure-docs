@@ -268,7 +268,7 @@ The following example shows how you can use the `ExplanationClient` class to ena
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Set up an Azure Machine Learning Compute as your compute target and submit your training run. See [Create compute targets with Python SDK](how-to-create-attach-compute-sdk.md#amlcompute) for instructions. You might also find the [example notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) helpful.
+1. Set up an Azure Machine Learning Compute as your compute target and submit your training run. See [Create and manage Azure Machine Learning compute clusters](how-to-create-attach-compute-cluster.md) for instructions. You might also find the [example notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) helpful.
 
 1. Download the explanation in your local Jupyter notebook.
 

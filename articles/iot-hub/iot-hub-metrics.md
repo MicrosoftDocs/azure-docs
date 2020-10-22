@@ -16,7 +16,7 @@ IoT Hub metrics give you information about the state of the Azure IoT resources 
 Metrics are enabled by default. You can view IoT Hub metrics from the Azure portal.
 
 > [!NOTE]
-> You can use IoT Hub metrics to view information about IoT Plug and Play devices connected to your IoT Hub. IoT Plug and Play devices are part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md).
+> You can use IoT Hub metrics to view information about [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) devices connected to your IoT Hub.
 
 ## How to view IoT Hub metrics
 
@@ -133,4 +133,4 @@ To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide](iot-hub-devguide.md)
 
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)

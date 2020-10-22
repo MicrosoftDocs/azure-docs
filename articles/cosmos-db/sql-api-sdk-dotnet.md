@@ -34,7 +34,7 @@ ms.custom: devx-track-dotnet
 | |  |
 |---|---|
 |**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
-|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet&preserve-view=true)|
 |**Samples**|[.NET code samples](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples)|
 |**Get started**|[Get started with the Azure Cosmos DB .NET SDK](sql-api-get-started.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|

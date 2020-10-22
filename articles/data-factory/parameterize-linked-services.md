@@ -6,7 +6,7 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 10/16/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
@@ -33,6 +33,7 @@ You can parameterize any type of linked service.
 When authoring linked service on UI,  Data Factory provides built-in parameterization experience for the following types of connectors. In linked service creation/edit blade, you can find options to new parameters and add dynamic content.
 
 - Amazon Redshift
+- Amazon S3
 - Azure Cosmos DB (SQL API)
 - Azure Database for MySQL
 - Azure SQL Database

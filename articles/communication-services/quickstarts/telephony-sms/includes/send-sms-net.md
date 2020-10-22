@@ -54,7 +54,7 @@ dotnet build
 While still in the application directory, install the Azure Communication Services SMS client library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Sms --version 1.0.0-beta.1
+dotnet add package Azure.Communication.Sms --version 1.0.0-beta.2
 ```
 
 Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace.
@@ -101,7 +101,7 @@ smsClient.Send(
 );
 ```
 
-You should replace `<leased-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number you wish to send a message to. All phone number parameters should adhere to the [E.164 standard](../../../concepts/telephony-sms/plan-solution.md#optional-reading-international-public-telecommunication-numbering-plan-e164).
+You should replace `<leased-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number you wish to send a message to.
 
 The `EnableDeliveryReport` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 

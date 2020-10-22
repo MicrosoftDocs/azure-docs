@@ -1,11 +1,11 @@
 ---
 title: Read replicas - Azure Database for PostgreSQL - Single Server
 description: This article describes the read replica feature in Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 10/15/2020
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
@@ -38,7 +38,7 @@ You can have a primary server in any [Azure Database for PostgreSQL region](http
 ### Universal replica regions
 You can always create a read replica in any of the following regions, regardless of where your primary server is located. These are the universal replica regions:
 
-Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2, West Central US.
+Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2, West Central US.
 
 ### Paired regions
 In addition to the universal replica regions, you can create a read replica in the Azure paired region of your primary server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
@@ -78,7 +78,7 @@ At the prompt, enter the password for the user account.
 ## Monitor replication
 Azure Database for PostgreSQL provides two metrics for monitoring replication. The two metrics are **Max Lag Across Replicas** and **Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article](howto-read-replicas-portal.md).
 
-The **Max Lag Across Replicas** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is available on the primary server only.
+The **Max Lag Across Replicas** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is available on the primary server only, and will be available only if at least one of the read replica is connected to the primary.
 
 The **Replica Lag** metric shows the time since the last replayed transaction. If there are no transactions occurring on your primary server, the metric reflects this time lag. This metric is available for replica servers only. Replica Lag is calculated from the `pg_stat_wal_receiver` view:
 
@@ -121,7 +121,7 @@ Learn how to [stop replication to a replica](howto-read-replicas-portal.md).
 ## Failover
 There is no automated failover between primary and replica servers. 
 
-Since replication is asynchronous, there is lag between the primary and the replica. The amount of lag can be influenced by a number of factors like how heavy the workload running on the primary server is and the latency between data centers. In most cases, replica lag ranges between a few seconds to a couple minutes. You can track your actual replication lag using the metric *Replica Lag*, which is available for each replica. This metric shows the time since the last replayed transaction. We recommend that you identify what your average lag is by observing your replica lag over a period of time. You can set an alert on replica lag, so that if it goes outside your expected range, you can take action.
+Since replication is asynchronous, there is lag between the primary and the replica. The amount of lag can be influenced by a number of factors like how heavy the workload running on the primary server is and the latency between data centers. In typical cases, replica lag ranges between a few seconds to a couple minutes. However, in  cases where the primary runs very heavy workloads and the replica is not catching up fast enough, the lag can be higher. You can track your actual replication lag using the metric *Replica Lag*, which is available for each replica. This metric shows the time since the last replayed transaction. We recommend that you identify what your average lag is by observing your replica lag over a period of time. You can set an alert on replica lag, so that if it goes outside your expected range, you can take action.
 
 > [!Tip]
 > If you failover to the replica, the lag at the time you delink the replica from the primary will indicate how much data is lost.
@@ -136,6 +136,9 @@ Once you have decided you want to failover to a replica,
 	
 Once your application is successfully processing reads and writes, you have completed the failover. The amount of downtime your application experiences will depend on when you detect an issue and complete steps 1 and 2 above.
 
+### Disaster recovery
+
+When there is a major disaster event such as availability zone-level or regional failures, you can perform disaster recovery operation by promoting your read replica. From the UI portal, you can navigate to the read replica server. Then click the replication tab, and you can stop the replica to promote it to be an independent server. Alternatively, you can use the [Azure CLI](https://docs.microsoft.com/cli/azure/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) to stop and promote the replica server.
 
 ## Considerations
 

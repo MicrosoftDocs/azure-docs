@@ -70,7 +70,7 @@ The following limits apply only for networking resources managed through Azure R
 | Backend resources per Load Balancer <sup>1<sup> | 150                   |
 | High-availability ports                 | 1 per internal frontend       |
 | Outbound rules per Load Balancer        | 600                           |
-| [TCP idle timeout](https://docs.microsoft.com/azure/load-balancer/load-balancer-tcp-idle-timeout#tcp-idle-timeout) | 4 minutes/30 minutes          |
+| Load Balancers per VM                   | 2 (1 Public and 1 internal)   |
 
 <sup>1</sup>The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set placement groups.
 
@@ -83,7 +83,8 @@ The following limits apply only for networking resources managed through Azure R
 | Rules per NIC (across all IPs on a NIC) | 300                          |
 | Frontend IP configurations              | 200                          |
 | Backend pool size                       | 300 IP configurations, single availability set |
-| Availability sets per Load Balancer     | 150                          |
+| Availability sets per Load Balancer     | 1                            |
+| Load Balancers per VM                   | 2 (1 Public and 1 internal)  |
 
 <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 

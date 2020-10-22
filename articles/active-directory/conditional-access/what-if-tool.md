@@ -34,7 +34,7 @@ In the **Conditional Access What If tool**, you first need to configure the sett
 
 - The user you want to test 
 - The cloud apps the user would attempt to access
-- The conditions under which access to the configures cloud apps is performed
+- The conditions under which access to the configured cloud apps is performed
      
 As a next step, you can initiate a simulation run that evaluates your settings. Only policies that are enabled are part of an evaluation run.
 

@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 8/7/2020
+ms.date: 9/29/2020
 ---
 
 # How to configure Azure Database for MySQL Data-in Replication
@@ -46,10 +46,41 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
 1. Review the [master server requirements](concepts-data-in-replication.md#requirements) before proceeding. 
 
-   For example, ensure the source server allows both inbound and outbound traffic on port 3306 and that the source server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN). 
+2. Ensure the source server allows both inbound and outbound traffic on port 3306 and that the source server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN). 
    
    Test connectivity to the source server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) available in the Azure portal.
 
+   If your organization has strict security policies and will not allow all IP addresses on the source server to enable communication from Azure to your source server, you can potentially use the below command to determine the IP address of your MySQL server.
+
+   1. Sign in to your Azure Database for MySQL using a tool like MySQL command-line.
+   2. Execute the below query.
+      ```bash
+      mysql> SELECT @@global.redirect_server_host;
+      ```
+      Below is some sample output:
+      ```bash 
+      +-----------------------------------------------------------+
+      | @@global.redirect_server_host                             |
+      +-----------------------------------------------------------+
+      | e299ae56f000.tr1830.westus1-a.worker.database.windows.net |
+       +-----------------------------------------------------------+
+      ```
+   3. Exit from the MySQL command-line.
+   4. Execute the below in the ping utility to get the IP address.
+      ```bash
+      ping <output of step 2b>
+      ``` 
+      For example: 
+      ```bash      
+      C:\Users\testuser> ping e299ae56f000.tr1830.westus1-a.worker.database.windows.net
+      Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
+      ```
+
+   5. Configure your source server's firewall rules to include the previous step's outputted IP address on port 3306.
+
+   > [!NOTE]
+   > This IP address may change due to maintenance/deployment operations. This method of connectivity is only for customers who cannot afford to allow all IP address on 3306 port.
+   
 1. Turn on binary logging
 
    Check to see if binary logging has been enabled on the source by running the following command: 
@@ -121,7 +152,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
 1. Get binary log file name and offset
 
-   Run the [` show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) command to determine the current binary log file name and offset.
+   Run the [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) command to determine the current binary log file name and offset.
     
    ```sql
     show master status;

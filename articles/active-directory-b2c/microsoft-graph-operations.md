@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -28,6 +28,15 @@ Each link in the following sections targets the corresponding page within the Mi
 - [Delete a user](https://docs.microsoft.com/graph/api/user-delete)
 
 For more information about managing Azure AD B2C user accounts with the Microsoft Graph API, see [Manage Azure AD B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md).
+
+## User phone number management
+
+- [Add](https://docs.microsoft.com/graph/api/authentication-post-phonemethods)
+- [Get](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)
+- [Update](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update)
+- [Delete](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete)
+
+For more information about managing user's sign-in phone number with the Microsoft Graph API, see [B2C Authentication Methods](https://docs.microsoft.com/graph/api/resources/b2cauthenticationmethodspolicy).
 
 ## Identity providers (user flow)
 
@@ -93,7 +102,7 @@ The top-level resource for policy keys in the Microsoft Graph API is the [Truste
 
 - [List extension properties](https://docs.microsoft.com/graph/api/application-list-extensionproperty)
 
-Azure AD B2C provides a directory that can hold 100 custom attributes per user. For user flows, these extension properties are [managed by using the Azure portal](custom-policy-custom-attributes.md). For custom policies, Azure AD B2C creates the property for you the first time the policy writes a value to the extension property.
+Azure AD B2C provides a directory that can hold 100 custom attributes per user. For user flows, these extension properties are [managed by using the Azure portal](custom-policy-custom-attributes.md). For custom policies, Azure AD B2C creates the property for you, the first time the policy writes a value to the extension property.
 
 ## Audit logs
 

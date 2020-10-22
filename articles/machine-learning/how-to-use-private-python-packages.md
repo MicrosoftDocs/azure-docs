@@ -90,7 +90,7 @@ The environment is now ready to be used in training runs or web service endpoint
 
 You can consume packages from an Azure storage account within your organization's firewall. The storage account can hold a curated set of packages or an internal mirror of publicly available packages.
 
-To set up such private storage, see [Secure an Azure Machine Learning workspace and associated resources](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). You must also [place the Azure Container Registry (ACR) behind the VNet](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+To set up such private storage, see [Secure an Azure Machine Learning workspace and associated resources](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints). You must also [place the Azure Container Registry (ACR) behind the VNet](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 > [!IMPORTANT]
 > You must complete this step to be able to train or deploy models using the private package repository.

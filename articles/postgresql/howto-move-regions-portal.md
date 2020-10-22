@@ -1,8 +1,8 @@
 ---
 title: Move Azure regions - Azure portal - Azure Database for PostgreSQL - Single Server
 description: Move an Azure Database for PostgreSQL server from one Azure region to another using a read replica and the Azure portal.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources

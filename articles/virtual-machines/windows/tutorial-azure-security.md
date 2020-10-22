@@ -63,7 +63,7 @@ To set up a security policy for an entire subscription:
 
 ## View VM configuration health
 
-After you've turned on data collection and set a security policy, Security Center begins to provide alerts and recommendations. As VMs are deployed, the data collection agent is installed. Security Center is then populated with data for the new VMs. For in-depth information about VM configuration health, see [Protect your VMs in Security Center](../../security-center/security-center-virtual-machine-protection.md). 
+After you've turned on data collection and set a security policy, Security Center begins to provide alerts and recommendations. As VMs are deployed, the data collection agent is installed. Security Center is then populated with data for the new VMs. For in-depth information about VM configuration health, see [Protect your VMs in Security Center](../../security-center/asset-inventory.md). 
 
 As data is collected, the resource health for each VM and related Azure resource is aggregated. The information is shown in an easy-to-read chart. 
 

@@ -145,11 +145,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **User Profile** and click **Your workspace**.
 
-    ![Hive Configuration](./media/hive-tutorial/configure1.png)
+    ![Screenshot shows the Hive website with Your workspace selected from the menu.](./media/hive-tutorial/configure1.png)
 
 1. Click **Auth** and perform the following steps:
 
-    ![Hive Configuration](./media/hive-tutorial/configure2.png)
+    ![Screenshot shows the Auth page where do the tasks described.](./media/hive-tutorial/configure2.png)
 
     a. Copy **Your Workspace ID** and append it to the **SignOn URL** and  **Reply URL** in the **Basic SAML Configuration Section** in the Azure portal.
 

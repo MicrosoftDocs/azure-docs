@@ -34,7 +34,7 @@ All above the operations are also available in the `.debug` version, which have 
 | cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | Tracks when a person crosses a designated line in the camera's field of view. <br> Emits a _personLineEvent_ event when the person crosses the zone and provides directional info. |
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 
-Spatial analysis can also be run with [Live Video Analytics](https://azure.microsoft.com/services/media-services/live-video-analytics/) as their Video AI module. 
+Spatial analysis can also be run with [Live Video Analytics](https://aka.ms/lva-spatial-analysis) as their Video AI module. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 

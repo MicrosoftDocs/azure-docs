@@ -6,7 +6,7 @@ author: msmimart
 manager: celestedg
 
 ms.author: mimart
-ms.date: 01/29/2020
+ms.date: 10/02/2020
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
@@ -33,7 +33,8 @@ The following tables provide links to samples for applications including iOS, An
 | Sample | Description |
 |--------| ----------- |
 | [dotnet-webapp-and-webapi](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi) | A combined sample for a .NET web application that calls a .NET Web API, both secured using Azure AD B2C. |
-| [dotnetcore-webapp](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp) | An ASP.NET Core web application that can sign in a user using Azure AD B2C, get an access token using MSAL.NET and call an API. |
+| [dotnetcore-webapp-openidconnect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C) | An ASP.NET Core web application that uses OpenID Connect to sign in users in Azure AD B2C. |
+| [dotnetcore-webapp-msal-api](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C) | An ASP.NET Core web application that can sign in a user using Azure AD B2C, get an access token using MSAL.NET and call an API. |
 | [openidconnect-nodejs](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS) | A Node.js app that provides a quick and easy way to set up a Web application with Express using OpenID Connect. |
 | [javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | A small node.js Web API for Azure AD B2C that shows how to protect your web api and accept B2C access tokens using passport.js. |
 | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/README_B2C.md) | Demonstrate how to Integrate B2C of Microsoft identity platform with a Python web application.  |
@@ -42,10 +43,23 @@ The following tables provide links to samples for applications including iOS, An
 
 | Sample | Description |
 |--------| ----------- |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | A single page application (SPA) calling a Web API. Authentication is done with Azure AD B2C by using MSAL.js. |
+| [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | A single page application (SPA) calling a Web API. Authentication is done with Azure AD B2C by using MSAL.js. This sample uses the authorization code flow with PKCE. |
+| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | A single page application (SPA) calling a Web API. Authentication is done with Azure AD B2C by using MSAL.js. This samples uses the implicit flow.|
 
 ## SAML test application
 
 | Sample | Description |
 |--------| ----------- |
 | [saml-sp-tester](https://github.com/azure-ad-b2c/saml-sp-tester/tree/master/source-code) | SAML test application to test Azure AD B2C configured to act as SAML identity provider. |
+
+## API connectors
+
+The following tables provide links to code samples for leveraging web APIs in your user flows using [API connectors](api-connectors-overview.md).
+
+## API connector Azure Function quickstarts
+
+| Sample                                                                                                                          | Description                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connector-azure-function-validate) | This .NET Core Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information. |
+| [Node.js](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | This Node.js Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information.  |
+| [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | This Python Azure Function sample demonstrates how to limit sign-ups to specific email domains and validate user-provided information.    |

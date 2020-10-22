@@ -14,7 +14,7 @@ ms.custom: devx-track-java
 
 Azure Spring Cloud makes it easy to deploy Spring Boot-based microservice applications to Azure with zero code changes.  Azure Spring Cloud manages the infrastructure of Spring Cloud applications, so developers can focus on their code.  Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
-Azure Spring Cloud supports both Java [Spring Boot](https://spring.io/projects/spring-boot) and ASP.NET Core [Steeltoe](https://steeltoe.io/) apps. Steeltoe support is currently offered as a public preview. Public preview offerings let you experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Azure Spring Cloud supports both Java [Spring Boot](https://spring.io/projects/spring-boot) and ASP.NET Core [Steeltoe](https://steeltoe.io/) apps. Steeltoe support is currently offered as a public preview. Public preview offerings let you experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other Azure services including storage, databases, monitoring, and more.
 
@@ -28,7 +28,7 @@ This introduction describes the following capabilities of Azure Spring Cloud:
 
 ## Spring Cloud Config Server
 
-Azure Spring Cloud Config Server provides externalized configuration in a distributed system with both server and client-side support.  Azure Spring Cloud Config Server is a central location to manage application properties across all environments. For more information see [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config.md). 
+Azure Spring Cloud Config Server provides externalized configuration in a distributed system with both server and client-side support.  Azure Spring Cloud Config Server is a central location to manage application properties across all environments. For more information see [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config). 
 
 ## Blue/green deployments
 

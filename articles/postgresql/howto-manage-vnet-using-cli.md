@@ -1,8 +1,8 @@
 ---
 title: Use virtual network rules - Azure CLI - Azure Database for PostgreSQL - Single Server
 description: This article describes how to create and manage VNet service endpoints and rules for Azure Database for PostgreSQL using Azure CLI command line.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
@@ -44,7 +44,7 @@ Service endpoints can be configured on virtual networks independently, by a user
 
 To secure Azure service resources to a VNet, the user must have permission to "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/" for the subnets being added. This permission is included in the built-in service administrator roles, by default and can be modified by creating custom roles.
 
-Learn more about [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) and assigning specific permissions to [custom roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
+Learn more about [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) and assigning specific permissions to [custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 VNets and Azure service resources can be in the same or different subscriptions. If the VNet and Azure service resources are in different subscriptions, the resources should be under the same Active Directory (AD) tenant. Ensure that both the subscriptions have the **Microsoft.Sql** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
 

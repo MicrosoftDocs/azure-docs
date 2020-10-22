@@ -1,8 +1,8 @@
 ---
 title: Manage read replicas - Azure PowerShell - Azure Database for PostgreSQL
 description: Learn how to set up and manage read replicas in Azure Database for PostgreSQL using PowerShell.
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020 

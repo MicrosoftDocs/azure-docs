@@ -29,15 +29,15 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Before you start, you should complete the previous [Create a live video analytics application in Azure IoT Central](./tutorial-video-analytics-create-app.md) tutorial.
+* Before you start, you should complete the previous [Create a live video analytics application in Azure IoT Central (YOLO v3)](./tutorial-video-analytics-create-app-yolo-v3.md) or [Create a video analytics in Azure IoT Central (OpenVINO&trade;)](tutorial-video-analytics-create-app-openvino.md)tutorial.
 * A device, such as an Intel NUC, running Linux, that can run Docker containers, and has enough processing power to run video analytics.
-* The [IoT Edge runtime installed](../../iot-edge/how-to-install-iot-edge-linux.md) and running on the device.
+* The [IoT Edge runtime installed](../../iot-edge/how-to-install-iot-edge.md) and running on the device.
 * Be able to connect to the IoT Edge device from your Windows machine, you need the [PuTTY SSH client](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) or an equivalent utility.
 * You also need an Azure subscription. If you don't have an Azure subscription, you can create one for free on the [Azure sign-up page](https://aka.ms/createazuresubscription).
 
 ## Configure the IoT Edge device
 
-If you don't have the IoT Edge runtime installed in your Intel NUC machine, see [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge-linux.md) instructions.
+If you don't have the IoT Edge runtime installed in your Intel NUC machine, see [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge.md) instructions.
 
 To update the IoT Edge runtime:
 

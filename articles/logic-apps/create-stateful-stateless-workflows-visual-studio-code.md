@@ -408,9 +408,11 @@ The logic app workflow in this example uses this trigger and these actions:
 
 1. If you have to delete an item on the designer, follow these steps:
 
-   1. On the designer, select the item.
+   1. On the designer, select the item, which opens the item's details pane to the right side.
 
-   1. In the item's details pane that opens to the right side, select the ellipses (**...**) button **>** **Delete**. To confirm the deletion, select **OK**.
+   1. Expand the Visual Studio Code window widely enough so that next to the trigger or action name, the ellipses (**...**) button appears in the uppermost right corner. 
+
+   1. Open the ellipses (**...**) menu, and select **Delete**. To confirm the deletion, select **OK**.
 
       ![Screenshot that shows selected item on designer with open details pane and with selected ellipses button and "Delete" option.](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 

@@ -147,7 +147,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the top-right corner of the page, click on **Profile** and then navigate to **Settings** > **Add Ons**.
 
-    ![EZOfficeInventory configuration](./media/ezofficeinventory-tutorial/configure01.png)
+    ![Screenshot that shows the "Settings" page with the "Add Ons" action selected.](./media/ezofficeinventory-tutorial/configure01.png)
 
 1. Scroll down up to the **SAML Integration** section, perform the following steps:
 

@@ -95,7 +95,7 @@ To configure Azure AD single sign-on with SAML SSO for Bitbucket by resolution G
 
 4. On the **Basic SAML Configuration** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-    ![SAML SSO for Bitbucket by resolution GmbH Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<server-base-url>/plugins/servlet/samlsso`
@@ -105,7 +105,7 @@ To configure Azure AD single sign-on with SAML SSO for Bitbucket by resolution G
 
     c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![SAML SSO for Bitbucket by resolution GmbH Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<server-base-url>/plugins/servlet/samlsso`

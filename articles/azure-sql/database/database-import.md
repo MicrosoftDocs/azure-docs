@@ -4,7 +4,7 @@ description: Create a new database in Azure SQL Database or Azure SQL Managed In
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: migrate
-ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: quickstart
 author: stevestein

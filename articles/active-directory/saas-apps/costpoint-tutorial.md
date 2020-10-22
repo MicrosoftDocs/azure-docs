@@ -38,7 +38,7 @@ In this tutorial, you will configure and test Azure AD SSO in a test environment
 
 Costpoint SAML SSO configuration is explained in the **DeltekCostpoint711Security.pdf** guide. Download this guide from the Deltek Costpoint support site and refer to the **SAML Single Sign-on Setup** > **Configure SAML Single Sign-on between Costpoint and Microsoft Azure** section. Follow the instructions and generate a **Costpoint SP Federation Metadata XML** file. 
 
-![Costpoint Configuration Utility](./media/costpoint-tutorial/config-utility.png)
+![Screenshot that shows the "Product Configuration Utility" with the "Weblogic - Security" tab selected.](./media/costpoint-tutorial/config-utility.png)
 
 ## Add Costpoint from the gallery
 
@@ -161,7 +161,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting B.Si
 
 ### Create a Costpoint test user
 
-In this section, you create a user in Costpoint. Assume the user id is **B.SIMON** and the user's name is **B.Simon**. Work with the [Costpoint Client support team](https://www.deltek.com/about/contact-us) to add the user in the Costpoint platform. The user must be created and activated before they can use single sign-on.
+In this section, you create a user in Costpoint. Assume the user ID is **B.SIMON** and the user's name is **B.Simon**. Work with the [Costpoint Client support team](https://www.deltek.com/about/contact-us) to add the user in the Costpoint platform. The user must be created and activated before they can use single sign-on.
 
 After the user is created, the user's **Authentication Method** selection must be **Active Directory**, the **SAML Single Sign-on** check box must be selected, and the user name from Azure Active Directory must be **Active Directory or Certificate ID** (shown in the following screenshot).
 

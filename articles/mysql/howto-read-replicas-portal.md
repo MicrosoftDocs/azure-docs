@@ -114,7 +114,7 @@ To delete a source server from the Azure portal, use the following steps:
 
 3. Type the name of the source server and click **Delete** to confirm deletion of the source server.  
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-master-confirm.png" alt-text="Azure Database for MySQL - Delete master":::
+   :::image type="content" source="./media/howto-read-replica-portal/delete-master-confirm.png" alt-text="Azure Database for MySQL - Delete master confirm":::
 
 ## Monitor replication
 
@@ -132,7 +132,7 @@ To delete a source server from the Azure portal, use the following steps:
 
 5. View the replication lag for the selected time range. The image below displays the last 30 minutes.
 
-   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png" alt-text="Select time range":::
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png" alt-text="Select time range 30 minutes":::
 
 ## Next steps
 

@@ -28,7 +28,7 @@ This article will walk you through the basics of securing your Synapse SQL pool.
 
 Connection Security refers to how you restrict and secure connections to your database using firewall rules and connection encryption.
 
-Firewall rules are used by both the [logical SQL server](../../azure-sql/database/logical-servers.md) and its databases to reject connection attempts from IP addresses that haven't been explicitly whitelisted. To allow connections from your application or client machine's public IP address, you must first create a server-level firewall rule using the Azure portal, REST API, or PowerShell.
+Firewall rules are used by both the [logical SQL server](../../azure-sql/database/logical-servers.md) and its databases to reject connection attempts from IP addresses that haven't been explicitly approved. To allow connections from your application or client machine's public IP address, you must first create a server-level firewall rule using the Azure portal, REST API, or PowerShell.
 
 As a best practice, you should restrict the IP address ranges allowed through your server-level firewall as much as possible.  To access SQL pool from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  
 

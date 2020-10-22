@@ -44,6 +44,10 @@
     items:
     - name: Country/Region hierarchy used by Traffic Manager
       href: traffic-manager-geographic-regions.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Nested Traffic Manager profiles
     href: traffic-manager-nested-profiles.md
   - name: Endpoint types

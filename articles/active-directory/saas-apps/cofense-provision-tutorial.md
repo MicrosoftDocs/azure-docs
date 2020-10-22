@@ -49,7 +49,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![Recepient Sync tnc](media/cofense-provisioning-tutorial/recipient-sync-toc.png)
 
-3. Copy the values from the **URL** and **Token fields**.
+3. Copy the values from the **URL** and **Token** fields.
 
 	![Recepient Sync](media/cofense-provisioning-tutorial/recipient-sync-getting-started.png)
 

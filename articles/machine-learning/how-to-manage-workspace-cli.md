@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/28/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to
 ---
@@ -137,21 +137,7 @@ The output of this command is similar to the following JSON:
 ### Virtual network and private endpoint
 
 > [!IMPORTANT]
-> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the following regions:
->
-> * **East US**
-> * **South Central US**
-> * **West US**
-> * **West US 2**
-> * **Central Canada**
-> * **Southeast Asia**
-> * **Japan East**
-> * **North Europe**
-> * **East Australia**
-> * **UK South**
->
-> This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions or Azure China 21Vianet regions.
 
 If you want to restrict access to your workspace to a virtual network, you can use the following parameters:
 
@@ -368,7 +354,7 @@ To share a workspace with another user on your subscription, use the following c
 az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
 ```
 
-For more information on roles-based access control (RBAC) with Azure Machine Learning, see [Manage users and roles](how-to-assign-roles.md).
+For more information on Azure role-based access control (Azure RBAC) with Azure Machine Learning, see [Manage users and roles](how-to-assign-roles.md).
 
 For more information, see the [az ml workspace share](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-share) documentation.
 

@@ -7,7 +7,7 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
-ms.date: 08/25/2020
+ms.date: 10/2/2020
 ---
 
 # Outputs from Azure Stream Analytics
@@ -21,10 +21,10 @@ Some outputs types support [partitioning](#partitioning), and [output batch size
 | Output type | Partitioning | Security | 
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Azure Active Directory user </br> MSI|
-|[Azure SQL Database](sql-database-output.md)|Yes, needs to enabled.|SQL user auth </br> MSI (Preview)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|No|SQL user auth|
+|[Azure SQL Database](sql-database-output.md)|Yes, optional.|SQL user auth </br> MSI (Preview)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|SQL user auth|
 |[Blob storage and Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|MSI </br> Access key|
-|[Azure Event Hubs](event-hubs-output.md)|Yes|Access key|
+|[Azure Event Hubs](event-hubs-output.md)|Yes, need to set the partition key column in output configuration.|Access key|
 |[Power BI](power-bi-output.md)|No|Azure Active Directory user </br> MSI|
 |[Azure Table storage](table-storage-output.md)|Yes|Account key|
 |[Azure Service Bus queues](service-bus-queues-output.md)|Yes|Access key|
@@ -36,7 +36,7 @@ Some outputs types support [partitioning](#partitioning), and [output batch size
 
 Stream Analytics supports partitions for all outputs except for Power BI. For more information on partition keys and the number of output writers, see the article for the specific output type you're interested in. All output articles are linked in the previous section.  
 
-The number of output writers can be controlled using an `INTO <partition count>` (see [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) clause in your query, which can be helpful in achieving a desired job topology. If your output adapter is not partitioned, lack of data in one input partition causes a delay up to the late arrival amount of time. In such cases, the output is merged to a single writer, which might cause bottlenecks in your pipeline. To learn more about late arrival policy, see [Azure Stream Analytics event order considerations](stream-analytics-out-of-order-and-late-events.md).
+Additionally, for more advanced tuning of the partitions, the number of output writers can be controlled using an `INTO <partition count>` (see [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) clause in your query, which can be helpful in achieving a desired job topology. If your output adapter is not partitioned, lack of data in one input partition causes a delay up to the late arrival amount of time. In such cases, the output is merged to a single writer, which might cause bottlenecks in your pipeline. To learn more about late arrival policy, see [Azure Stream Analytics event order considerations](stream-analytics-out-of-order-and-late-events.md).
 
 ## Output batch size
 

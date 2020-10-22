@@ -159,11 +159,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Go to **Common Site Settings** and navigate to **SSO Configuration**.
  
-	![Configure single sign-on](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
+	![Screenshot shows Cisco Webex Administration with Common Site Settings and S S O Configuration selected.](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
 
 3. On the **Webex Administration** page, perform the following steps:
 
-	![Configure single sign-on](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
+	![Screenshot shows the Webex Administration page with the information described in this step.](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
 
 	a. select **SAML 2.0** as **Federation Protocol**.
 

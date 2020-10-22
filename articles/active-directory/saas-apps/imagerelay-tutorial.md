@@ -124,27 +124,27 @@ To configure Azure AD single sign-on with Image Relay, perform the following ste
 
 2. In the toolbar on the top, click the **Users & Permissions** workload.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
+    ![Screenshot shows Users & Permissions selected from the toolbar.](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
 
 3. Click **Create New Permission**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
+    ![Screenshot shows a text box to enter Permission title and an option to choose Permission Type.](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
 
 4. In the **Single Sign On Settings** workload, select the **This Group can only sign-in via Single Sign On** check box, and then click **Save**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
+    ![Screenshot shows the Single Sign On Settings where you can select the option.](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
 
 5. Go to **Account Settings**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
+    ![Screenshot shows the Account Settings toolbar option.](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
 
 6. Go to the **Single Sign On Settings** workload.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
+    ![Screenshot shows the Single Sign On Settings menu option.](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
 
 7. On the **SAML Settings** dialog, perform the following steps:
 
-	![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
+	![Screenshot shows the SAML Settings dialog box where you can enter the information.](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
 
     a. In **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
@@ -156,19 +156,19 @@ To configure Azure AD single sign-on with Image Relay, perform the following ste
 
     e. Under **x.509 Certificate**, click **Update Certificate**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
+    ![Screenshot shows the option to Update Certificate.](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
 
     f. Open the downloaded certificate in notepad, copy the content, and then paste it into the **x.509 Certificate** textbox.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
+    ![Screenshot shows the x dot 509 Certificate.](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
 
     g. In **Just-In-Time User Provisioning** section, select the **Enable Just-In-Time User Provisioning**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
+    ![Screenshot shows the Just-In-Time User Provisioning section with the enable control selected.](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
 
     h. Select the permission group (for example, **SSO Basic**) which is allowed to sign in only through single sign-on.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
+    ![Screenshot shows the Just-In-Time User Provisioning section with S S O Basic selected.](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
 
     i. Click **Save**.
 
@@ -233,11 +233,11 @@ The objective of this section is to create a user called Britta Simon in Image R
 
 2. Go to **Users & Permissions**     and select **Create SSO User**.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
+    ![Screenshot shows Create S S O User selected from the menu.](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
 
 3. Enter the **Email**, **First Name**, **Last Name**, and **Company** of the user you want to provision and select the permission group (for example, SSO Basic) which is the group that can sign in only through single sign-on.
 
-    ![Configure Single Sign-On](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
+    ![Screenshot shows Create a S S O User page where you can enter the required information.](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
 
 4. Click **Create**.
 

@@ -12,7 +12,7 @@ ms.date: 04/29/2020
 
 # Safely manage Python environment on Azure HDInsight using Script Action
 
-HDInsight has two built-in Python installations in the Spark cluster, Anaconda Python 2.7 and Python 3.5. Customers may need to customize the Python environment. Like installing external Python packages or another Python version. Here, we show the best practice of safely managing Python environments for Apache Spark clusters on HDInsight.
+HDInsight has two built-in Python installations in the Spark cluster, Anaconda Python 2.7 and Python 3.5. Customers may need to customize the Python environment like installing external Python packages. Here, we show the best practice of safely managing Python environments for Apache Spark clusters on HDInsight.
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
 
     - Or use PyPi repo, change `seaborn` and `py35new` correspondingly:
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install seaborn
         ```
 
     Use below command if you would like to install a library with a specific version:
@@ -93,7 +93,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
     - Or use PyPi repo, change `numpy==1.16.1` and `py35new` correspondingly:
 
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install numpy==1.16.1
         ```
 
     if you don't know the virtual environment name, you can SSH to the head node of the cluster and run `/usr/bin/anaconda/bin/conda info -e` to show all virtual environments.

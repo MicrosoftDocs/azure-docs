@@ -1,6 +1,6 @@
 ---
-title: Limits and quotas IoT Plug and Play Preview | Microsoft Docs
-description: Understand the limits, quotas, and throttling that apply when you use IoT Plug and Play Preview.
+title: Limits and quotas IoT Plug and Play | Microsoft Docs
+description: Understand the limits, quotas, and throttling that apply when you use IoT Plug and Play.
 author: prashmo
 ms.author: prashmo
 ms.date: 07/21/2020
@@ -9,13 +9,13 @@ ms.service: iot-pnp
 services: iot-pnp
 ---
 
-# IoT Plug and Play Preview limits, quotas, and throttles
+# IoT Plug and Play limits, quotas, and throttles
 
-This article explains the IoT Plug and Play-specific limits, quotas, and throttling that apply in the public preview. There are existing [IoT Hub quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md) that also apply.
+This article explains the IoT Plug and Play-specific limits, quotas, and throttling. There are existing [IoT Hub quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md) that also apply.
 
 ## IoT Hub
 
-For the public preview, the following limits and quotas apply to an IoT hub:
+The following limits and quotas apply to an IoT hub:
 
 | Limits, restrictions, and throttles | Value | Notes |
 |-----|-----|-----|

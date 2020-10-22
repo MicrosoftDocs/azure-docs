@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/21/2019
+ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
 
@@ -19,6 +19,10 @@ ms.reviewer: jroth
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article describes how to register your SQL Server virtual machines (VMs) in bulk in Azure with the SQL VM resource provider by using the `Register-SqlVMs` PowerShell cmdlet.
+
+This article teaches you to register SQL Server VMs in bulk. Alternatively, you can register [all SQL Server VMs automatically](sql-vm-resource-provider-automatic-registration.md) or [individual SQL Server VMs](sql-vm-resource-provider-register.md). 
+
+## Overview
 
 The `Register-SqlVMs` cmdlet can be used to register all virtual machines in a given list of subscriptions, resource groups, or a list of specific virtual machines. The cmdlet will register the virtual machines in _lightweight_ management mode, and then generate both a [report and a log file](#output-description). 
 

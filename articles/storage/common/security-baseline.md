@@ -377,13 +377,13 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure AD Privil
 
 ### 3.9: Use Azure Active Directory
 
-**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD provides role-based access control (RBAC) for fine-grained control over a client's access to resources in a storage account.  Use Azure AD credentials when possible as a security best practice, rather than using the account key, which can be more easily compromised. When your application design requires shared access signatures for access to Blob storage, use Azure AD credentials to create a user delegation shared access signatures (SAS) when possible for superior security.
+**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure provides Azure role-based access control (Azure RBAC) for fine-grained control over a client's access to resources in a storage account.  Use Azure AD credentials when possible as a security best practice, rather than using the account key, which can be more easily compromised. When your application design requires shared access signatures for access to Blob storage, use Azure AD credentials to create a user delegation shared access signatures (SAS) when possible for superior security.
 
 - [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 - [Use the Azure Storage resource provider to access management resources](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [How to configure access to Azure Blob and Queue data with RBAC in Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [How to configure access to Azure Blob and Queue data with Azure RBAC in Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [Authorizing access to data in Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
 
@@ -475,7 +475,7 @@ Create Diagnostic Settings for Azure Active Directory user accounts, sending the
 
 ### 4.2: Isolate systems storing or processing sensitive information
 
-**Guidance**: Implement isolation using separate subscriptions, management groups, and storage accounts for individual security domains such as environment, data sensitivity.  You can restrict your Storage Account to control the level of access to your storage accounts that your applications and enterprise environments demand, based on the type and subset of networks used. When network rules are configured, only applications requesting data over the specified set of networks can access a storage account. You can control access to Azure Storage via Azure AD RBAC. You can also configure Private Endpoints to improve security as traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. 
+**Guidance**: Implement isolation using separate subscriptions, management groups, and storage accounts for individual security domains such as environment, data sensitivity.  You can restrict your Storage Account to control the level of access to your storage accounts that your applications and enterprise environments demand, based on the type and subset of networks used. When network rules are configured, only applications requesting data over the specified set of networks can access a storage account. You can control access to Azure Storage via Azure RBAC. You can also configure Private Endpoints to improve security as traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. 
 
 - [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
 
@@ -531,13 +531,13 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Azure Active Directory (Azure AD) authorizes access rights to secured resources through role-based access control (RBAC). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access blob or queue data. 
+**Guidance**: Azure Active Directory (Azure AD) authorizes access rights to secured resources through Azure role-based access control (Azure RBAC). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access blob or queue data. 
 
 - [How to assign Azure roles for Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
 - [Use the Azure Storage resource provider to access management resources](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
 
-- [How to configure access to Azure Blob and Queue data with RBAC in Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [How to configure access to Azure Blob and Queue data with Azure RBAC in Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
 
 - [How to create and configure an AAD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 

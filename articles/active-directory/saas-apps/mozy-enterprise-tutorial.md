@@ -121,11 +121,11 @@ To configure Azure AD single sign-on with Mozy Enterprise, perform the following
 
 2. In the **Configuration** section, click **Authentication Policy**.
    
-	![Authentication policy](./media/mozy-enterprise-tutorial/ic777314.png "Authentication policy")
+	![Screenshot shows Authentication Policy selected from Configuration.](./media/mozy-enterprise-tutorial/ic777314.png "Authentication policy")
 
 3. On the **Authentication Policy** section, perform the following steps:
    
-	![Authentication policy](./media/mozy-enterprise-tutorial/ic777315.png "Authentication policy")
+	![Screenshot shows the Authentication Policy section where you can enter the values described.](./media/mozy-enterprise-tutorial/ic777315.png "Authentication policy")
    
     a. Select **Directory Service** as **Provider**.
    

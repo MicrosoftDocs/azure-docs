@@ -110,7 +110,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 5. Amazon Web Services (AWS) application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes & Claims** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes & Claims** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with the edit control called out.](common/edit-attribute.png)
 
 6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
@@ -122,9 +122,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![image](common/new-save-attribute.png)
+	![Screenshot shows User claims with Add new claim and Save called out.](common/new-save-attribute.png)
 
-	![image](common/new-attribute-details.png)
+	![Screenshot shows Manage user claims where you can enter the values described in this step.](common/new-attribute-details.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
@@ -195,7 +195,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. Search **Administrator Access** in the search bar and select the **AdministratorAccess** checkbox and then click **Next: Tags**.
 
-	![Select Administrator Access](./media/aws-multi-accounts-tutorial/administrator-access.png)
+	![Screenshot shows AdministratorAccess selected as a Policy name.](./media/aws-multi-accounts-tutorial/administrator-access.png)
 
 1. On the **Add tags (optional)** section, perform the following steps:
 
@@ -224,7 +224,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. Please make a note of account ID for that AWS account either from EC2 properties or IAM dashboard as highlighted below:
 
-	![Select Administrator Access](./media/aws-multi-accounts-tutorial/aws-accountid.png)
+	![Screenshot shows where the account I D appears in the A W S window.](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
 1. Now sign into [Azure portal](https://portal.azure.com/) and navigate to **Groups**.
 
@@ -236,7 +236,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. Once all the roles are created in the accounts, they show up in the **Roles** list for those accounts.
 
-	![Roles setup](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-listofroles.png)
+	![Screenshot shows the Roles list with Role name, Description, and Trusted entities.](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-listofroles.png)
 
 1. We need to capture all the Role ARN and Trusted Entities for all the roles across all the accounts, which we need to map manually with Azure AD application.
 
@@ -268,7 +268,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
 	![Microsoft Graph Explorer dialog box3](./media/aws-multi-accounts-tutorial/graph-explorer-new1.png)
-
+  
 	f. From the list of Service Principals fetched, get the one you need to modify. You can also use the Ctrl+F to search the application from all the listed ServicePrincipals. You can use following query by using the **Service Principal Object ID** which you have copied from Azure AD Properties page to get to the respective Service Principal.
 
 	`https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.

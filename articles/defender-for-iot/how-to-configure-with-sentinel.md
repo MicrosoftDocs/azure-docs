@@ -17,7 +17,7 @@ ms.author: mlottner
 
 # Connect your data from Defender for IoT to Azure Sentinel (preview)
 
-The Azure Security Center for IoT data connector in Azure Sentinel is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+The Azure Defender for IoT data connector in Azure Sentinel is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
 
 In this guide, learn how to connect your Defender for IoT data to Azure Sentinel.
 
@@ -28,6 +28,8 @@ In this guide, learn how to connect your Defender for IoT data to Azure Sentinel
 
 Connect alerts from Defender for IoT and stream them directly into Azure Sentinel.
 
+By more tightly integrating Azure Defender for IoT with Azure Sentinel, the first cloud-native SIEM and the first SIEM with native IoT and OT security, Microsoft provides a simpler approach to unified security across IT and industrial networks. When combined with Azure Sentinel’s machine learning, this integration enables organizations to quickly detect multistage attacks that often cross IT and OT boundaries. Additionally, Azure Defender for IoT’s integration with Azure Sentinel's security orchestration, automation, and response (SOAR) capabilities enables automated response and prevention using built-in OT-optimized playbooks. 
+
 ## Prerequisites
 
 - You must have Workspace **read** and **write** permissions.
@@ -35,8 +37,6 @@ Connect alerts from Defender for IoT and stream them directly into Azure Sentine
 - You must have both **read** and **write** permissions on the **Azure IoT Hub** you wish to connect.
 - You must also have **read** and **write** permissions on the **Azure IoT Hub resource group**.
 
-> [!NOTE]
-> You must have the Azure Security Center Standard tier licensing running on your subscription to send general Azure resource alerts. With the free tier licensing required for Defender for IoT, only Defender for IoT related alerts will be forwarded to Azure Sentinel.
 
 ## Connect to Defender for IoT
 
@@ -49,9 +49,9 @@ Connect alerts from Defender for IoT and stream them directly into Azure Sentine
 > [!NOTE]
 >It can take 10 seconds or more to refresh the hub list after making connection changes.
 
-## Log Analytics alert display
+## Using Log Analytics for alert display
 
-To use the relevant schema in Log Analytics to display  the Defender for IoT alerts:
+To use the relevant schema in Log Analytics to display the Defender for IoT alerts:
 
 1. Open **Logs** > **SecurityInsights** > **SecurityAlert**, or search for **SecurityAlert**.
 1. Filter to see only Defender for IoT generated alerts using the following kql filter:

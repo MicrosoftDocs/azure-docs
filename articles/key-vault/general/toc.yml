@@ -47,6 +47,8 @@
     href: basic-concepts.md
   - name: Security
     items:
+    - name: Key Vault Authentication Fundamentals
+      href: authentication-fundamentals.md
     - name: Azure Key Vault security
       href: overview-security.md
     - name: Best Practices to use Key Vault - Azure Key Vault
@@ -103,10 +105,14 @@
       href: rbac-migration.md  
     - name: Troubleshoot access issues
       href: troubleshooting-access-issues.md
+  - name: How to enable logging
+    href: howto-logging.md
   - name: Develop
     items:
     - name: Azure Key Vault Developer's Guide
       href: developers-guide.md
+    - name: Use Azure Resource Manager to deploy Key Vault
+      href: vault-create-template.md
     - name: Save Web App secrets
       href: vs-secure-secret-appsettings.md
     - name: Service-to-service authentication with .NET
@@ -135,6 +141,8 @@
       href: access-behind-firewall.md
   - name: Soft-delete
     items:
+    - name: Key Vault Recovery (Soft Delete & Purge Protection)
+      href: key-vault-recovery.md
     - name: Use soft-delete with CLI
       href: soft-delete-cli.md
     - name: Use soft-delete with PowerShell
@@ -147,6 +155,10 @@
       href: move-subscription.md
     - name: Move Key Vault to Another Region
       href: move-region.md
+  - name: Networking
+    items:
+    - name: Diagnose Private Links Configuration Issues
+      href: private-link-diagnostics.md
 
 - name: Reference
   items:
@@ -156,6 +168,8 @@
     href: client-libraries.md
   - name: REST API error codes - Azure Key Vault
     href: rest-error-codes.md
+  - name: Common error codes - Azure Key Vault
+    href: common-error-codes.md
   - name: Common parameters and headers 
     href: common-parameters-and-headers.md
   - name: Key vault versions 

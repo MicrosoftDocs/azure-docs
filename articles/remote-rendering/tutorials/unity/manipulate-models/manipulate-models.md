@@ -156,7 +156,7 @@ Now, when the **RemoteBounds** script is added to the same game object as the **
 
 1. Run the application again. Shortly after the model loads, you'll see the bounds for the remote object. You'll see something like the below values:
 
-     ![Bounds updated](./media/updated-bounds.png)
+     ![Screenshot that shows the remote object bounds example.](./media/updated-bounds.png)
 
 Now we have a local **BoxCollider** configured with accurate bounds on the Unity object. The bounds allow for visualization and interaction using the same strategies we'd use for a locally rendered object. For example, scripts that alter the Transform, physics, and more.
 
@@ -232,7 +232,7 @@ First, let's create a static wrapper around the remote ray cast queries. This sc
     ```
 
     > [!NOTE]
-    > Unity has a class named [**RaycastHit**](https://docs.unity3d.com/ScriptReference/RaycastHit.html), and Azure Remote Rendering has a class named [**RayCastHit**](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.raycasthit). The uppercase **C** is an important difference to avoid compile errors.
+    > Unity has a class named [**RaycastHit**](https://docs.unity3d.com/ScriptReference/RaycastHit.html), and Azure Remote Rendering has a class named [**RayCastHit**](/dotnet/api/microsoft.azure.remoterendering.raycasthit). The uppercase **C** is an important difference to avoid compile errors.
 
     **RemoteRayCaster** provides a common access point for casting remote rays into the current session. To be more specific, we'll implement an MRTK pointer handler next. The script will implement the `IMixedRealityPointerHandler` interface, which will tell MRTK that we want this script to listen for [Mixed Reality Pointer](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/Input/Pointers.html) events.
 
