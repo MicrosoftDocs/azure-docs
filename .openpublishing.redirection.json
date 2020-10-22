@@ -20966,6 +20966,11 @@
       "source_path": "articles/vpn-gateway/vpn-gateway-point-to-site-gateway-public-ca.md",
       "redirect_url": "/azure/vpn-gateway/point-to-site-about",
       "redirect_document_id": false
+	 },
+	 {
+      "source_path": "articles/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md",
+      "redirect_url": "/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md",
