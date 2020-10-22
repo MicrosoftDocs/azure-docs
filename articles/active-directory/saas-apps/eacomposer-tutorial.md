@@ -73,21 +73,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    a. In the **Sign-on URL** text box, type the URL:
+    In the **Sign-on URL** text box, type the URL:
     `https://www.eacomposer.com/solution/login.aspx`
-
-	b. In the **Reply URL** text box, type the URL:
-    `https://www.eacomposer.com/saml/ssoservice.aspx`
-
-1. EAComposer application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
-
-	![image](common/default-attributes.png)
-
-1. In addition to above, EAComposer application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
-	
-	| Name |  Source Attribute|
-	| --------------- | --------- |
-	| role | user.groups |
 
 1. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
