@@ -125,15 +125,15 @@ To configure Azure AD single sign-on with UNIFI, perform the following steps:
 
 2. Click on the **Users**.
 
-	![Configure Single Sign-On](./media/unifi-tutorial/app1.png)
+	![Screenshot shows Users selected from the UNIFI site.](./media/unifi-tutorial/app1.png)
 
 3. Click on the **Add New Identity Provider**.
 
-	![Configure Single Sign-On](./media/unifi-tutorial/app2.png)
+	![Screenshot shows Ad New Identity Provider selected.](./media/unifi-tutorial/app2.png)
 
 4. In the **Add Identity Provider** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/unifi-tutorial/app3.png) 
+	![Screenshot shows the Add Identity Provider where you can enter the values described.](./media/unifi-tutorial/app3.png) 
 
 	a. In the **Provider Name** textbox, type the name of the Identity Provider..
 

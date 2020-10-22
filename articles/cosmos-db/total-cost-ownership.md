@@ -35,7 +35,7 @@ The serverless provisioning model of Azure Cosmos DB eliminates the need to over
 
 * **You pay by the hour:** For large-scale workloads, that need to scale at any point in time, you are only charged by the hour. The workloads on an application typically vary across times of the year, and by the data that is queried. With Azure Cosmos DB, you can scale up or down as you need and pay only for what you need. With on-premises or IaaS-hosted systems, you can't match this model, because there isn't a way to decommission the hardware every hour. In such cases, you can potentially save between 10 to 14 times on an average with Azure Cosmos DB.
 
-* **You get numerous features for free:** In Azure Cosmos DB, write workloads are substantially cheaper compared to alternative database services. In addition, Azure Cosmos DB offers features such as such as [automatic indexing](indexing-policies.md), [Time to Live (TTL)](time-to-live.md), [Change Feed](change-feed.md) and others without any additional charges, something that other database services typically charge.
+* **You get numerous features for free:** In Azure Cosmos DB, write workloads are substantially cheaper compared to alternative database services. In addition, Azure Cosmos DB offers features such as such as [automatic indexing](index-policy.md), [Time to Live (TTL)](time-to-live.md), [Change Feed](change-feed.md) and others without any additional charges, something that other database services typically charge.
 
 * **Uses unified currency for diverse workloads:** Unlike alternative offerings, in Azure Cosmos DB, you do not need to segment workloads, for example, into reads and writes. Or provision throughput on a per workload type that is read throughput vs. write throughput. In Azure Cosmos DB, provisioned throughput is reserved using a unified and normalized currency in terms of Request Units or RU/sec. Azure Cosmos DB doesn't force you to assign priority to your workloads, perform capacity planning or pay for each type of capacity separately. Such approach enables you to easily interchange the same RU/s between various operations and workload types.
 
@@ -58,6 +58,6 @@ The serverless provisioning model of Azure Cosmos DB eliminates the need to over
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)
 * Learn more about [Optimizing storage cost](optimize-cost-storage.md)
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
-* Learn more about [Optimizing the cost of queries](optimize-cost-queries.md)
+* Learn more about [Optimizing the cost of queries](./optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of multi-region Cosmos accounts](optimize-cost-regions.md)
 * Learn more about [The Total Cost of (Non) Ownership of a NoSQL Database Cloud Service](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)
