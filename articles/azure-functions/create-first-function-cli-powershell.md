@@ -101,6 +101,7 @@ New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-r
 ```
 
 The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure. 
+
 ---
 
 In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 

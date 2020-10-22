@@ -14,7 +14,7 @@ Before you can deploy your function code to Azure, you need to create three reso
 - A Storage account, which maintains state and other information about your projects.
 - A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
-Use the following Azure CLI commands to create these items. Each command provides JSON output upon completion.
+Use the following commands to create these items. Both Azure CLI and PowerShell are supported.
 
 1. If you haven't done so already, sign in to Azure:
 

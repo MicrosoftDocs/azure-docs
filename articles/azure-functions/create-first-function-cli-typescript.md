@@ -118,6 +118,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 1. When you're ready, use **Ctrl**+**C** and choose `y` to stop the functions host.
 
 [!INCLUDE [functions-create-azure-resources-cli](../../includes/functions-create-azure-resources-cli.md)]
+
 # [Azure CLI](#tab/azure-cli)
     
 ```azurecli
