@@ -76,8 +76,5 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](../articles/azure-functions/storage-considerations.md#storage-account-requirements).
     
-    The storage account incurs only a few cents (USD) for this quickstart.
-
-1. Create the function app in Azure:
 
 
