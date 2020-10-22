@@ -101,4 +101,4 @@ these resources using the following steps:
 Advance to the next article to learn how to:
 
 > [!div class="nextstepaction"]
-> [Create and manage Site-to-site VPN connections](/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> [Create and manage Site-to-site VPN connections](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
