@@ -87,7 +87,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 ### Temporary table
 
-A temporary table only exists for the duration of the session. You can use a temporary table to prevent other users from seeing temporary results. Using temporary tables also reduces the need for cleanup.  Temporary tables utilize local storage and, in SQL pools, can offer faster performance.  
+A temporary table only exists for the duration of the session. You can use a temporary table to prevent other users from seeing temporary results. Using temporary tables also reduces the need for cleanup.  Temporary tables utilize local storage and, in dedicated SQL pools, can offer faster performance.  
 
 Serverless SQL pool supports temporary tables. But, its usage is limited since you can select from a temporary table but cannot join it with files in storage.
 
@@ -143,9 +143,9 @@ The table category often determines the optimal option for table distribution.
 
 ## Partitions
 
-In SQL pools, a partitioned table stores and executes operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition.
+In dedicated SQL pools, a partitioned table stores and executes operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition.
 
-You can also maintain the data through partition switching. Since the data in SQL pools is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  
+You can also maintain the data through partition switching. Since the data in a dedicated SQL pool is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  
 
 > [!TIP]
 > When partition switching into table partitions that are not empty, consider using the TRUNCATE_TARGET option in your [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement if the existing data is to be truncated.
