@@ -72,4 +72,4 @@ Follow these steps to remotely connect from an NFS client.
     When prompted, provide the password used to sign into your device.
  
 > [!NOTE]
-> This procedure does not work on Mac OS.
+> This procedure does not work on macOS.
