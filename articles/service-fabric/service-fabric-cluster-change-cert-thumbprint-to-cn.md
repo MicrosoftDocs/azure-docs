@@ -59,7 +59,7 @@ There are multiple valid starting states for a conversion. The invariant is that
 - `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, where `GoalCert` has a later `NotAfter` date than that of `OldCert1`
 - `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, where `GoalCert` has a later `NotAfter` date than that of `OldCert1`
 
-If your cluster isn't in one of the valid states previously described, see the appendix on achieving that state at the end of this article.
+If your cluster isn't in one of the valid states previously described, see information on achieving that state in the section at the end of this article.
 
 ## Select the desired CN-based certificate validation scheme
 
@@ -206,7 +206,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
     -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" 
 ```
 
-## Appendix: Achieve a valid starting state for converting a cluster to CN-based certificate declarations
+## Achieve a valid starting state for converting a cluster to CN-based certificate declarations
 
 | Starting state | Upgrade 1 | Upgrade 2 |
 | :--- | :--- | :--- |
