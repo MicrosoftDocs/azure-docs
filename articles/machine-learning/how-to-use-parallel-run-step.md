@@ -39,9 +39,9 @@ In this article, you learn the following tasks:
 
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning](https://aka.ms/AMLFree).
 
-* For a guided quickstart, complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace. 
+* For a guided quickstart, complete the [setup tutorial for compute instance](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace. 
 
-* To manage your own environment and dependencies, see the [how-to guide](how-to-configure-environment.md) on configuring your own local environment.
+* To manage your own environment and dependencies, complete the [setup tutorial for local environments](tutorial-1st-experiment-sdk-setup-local.md) on configuring your own local environment.
 
 ## Set up machine learning resources
 
