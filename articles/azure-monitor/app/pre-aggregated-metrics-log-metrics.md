@@ -48,7 +48,7 @@ It is worth mentioning that the collection endpoint pre-aggregates events before
 
 1. Node.js supports [Extended Metrics](nodejs.md#extended-metrics), which has a few of the commonly requested metrics.
 
-## Codeless supported pre-aggregated metrics able
+### Codeless supported pre-aggregated metrics table
 
 | Current Production SDKs      | SDK Pre-Aggregation      | [TrackMetric API](api-custom-events-metrics.md#trackmetric) (No SDK Pre-Aggregation) | SDK Pre Aggregation|
 |------------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
@@ -60,7 +60,7 @@ It is worth mentioning that the collection endpoint pre-aggregates events before
 1. ASP.NET codeless attach on App Service only emits metrics in "full" monitoring mode. ASP.NET codeless attach on App Service, VM/VMSS, and On-Premises emits standard metrics without dimensions. SDK is required for all dimensions.
 2. ASP.NET Core codeless attach on App Service emits standard metrics without dimensions. SDK is required for all dimensions.
 
-### Using pre-aggregation with Application Insights custom metrics
+## Using pre-aggregation with Application Insights custom metrics
 
 You can use pre-aggregation with custom metrics. The two main benefits are the ability to configure and alert on a dimension of a custom metric and reducing the volume of data sent from the SDK to the Application Insights collection endpoint.
 
