@@ -1,6 +1,6 @@
 ---
 title: SSH authentication with Azure Active Directory
-description: Architectural guidance on achieving SSH integration with Azure Active Directory
+description: Architectural guidance on achieving SSH integration with Azure Active Directory   
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -16,7 +16,7 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# SSH
+# SSH  
 
 Secure Shell (SSH) is a network protocol that provides encryption for operating network services securely over an unsecured network. SSH also provides a command-line sign in, executes remote commands, and securely transfer files. It is commonly used in UNIX-based systems such as Linux®. SSH replaces the Telnet protocol, which does not provide encryption in an unsecured network. 
 
