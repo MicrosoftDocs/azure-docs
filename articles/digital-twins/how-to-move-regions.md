@@ -79,7 +79,7 @@ To proceed with ADT Explorer, first download the sample application code and set
 
 Navigate to the sample here: [Azure Digital Twins (ADT) explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine as _**ADT_Explorer.zip**_. Unzip the file.
 
-Next, set up permissions for ADT Explorer to run on your machine. To do this, follow the steps in the [*Set ADT Explorer permissions*](quickstart-adt-explorer.md#set-adt-explorer-permissions) section of the Azure Digital Twins quickstart.
+Next, set up your local credentials to authenticate with ADT Explorer on your machine. To do this, follow the steps in the [*Set up local Azure credentials*](quickstart-adt-explorer.md#set-up-local-azure-credentials) section of the Azure Digital Twins quickstart.
 
 Finally, run and configure ADT Explorer to connect to your original Azure Digital Twins instance. Follow the steps in the [*Run and configure ADT Explorer*](quickstart-adt-explorer.md#run-and-configure-adt-explorer) section of the quickstart.
 
