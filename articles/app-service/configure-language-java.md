@@ -687,11 +687,15 @@ App Service allows users to choose the major version of the JVM, such as Java 8 
 
 If you choose to pin the minor version, you will need to periodically update the JVM minor version on the site. To ensure that your application runs on the newer minor version, create a staging slot and increment the minor version on the staging site. Once you have confirmed the application runs correctly on the new minor version, you can swap the staging and production slots.
 
+## JBoss EAP hardware options
+
+JBoss EAP is only available on the Premium and Isolated hardware options. Customers that created a JBoss EAP site on a Free, Shared, Basic, or Standard tier during the public preview should scale up to Premium or Isolated hardware tier to avoid unexpected behavior.
+
 ## Java runtime statement of support
 
 ### JDK versions and maintenance
 
-Azure's supported Java Development Kit (JDK) is [Zulu](https://www.azul.com/downloads/azure-only/zulu/) provided through [Azul Systems](https://www.azul.com/). Azul Zulu Enterprise builds of OpenJDK are a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure and Azure Stack backed by Microsoft and Azul Systems. They contain all the components for building and running Java SE applications. You can install the JDK from [Java JDK Installation](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Azure's supported Java Development Kit (JDK) is [Zulu](https://www.azul.com/downloads/azure-only/zulu/) provided through [Azul Systems](https://www.azul.com/). Azul Zulu Enterprise builds of OpenJDK are a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure and Azure Stack backed by Microsoft and Azul Systems. They contain all the components for building and running Java SE applications. You can install the JDK from [Java JDK Installation](https://aka.ms/azure-jdks).
 
 Major version updates will be provided through new runtime options in Azure App Service. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
 

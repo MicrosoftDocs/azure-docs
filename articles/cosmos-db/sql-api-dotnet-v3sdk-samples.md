@@ -49,7 +49,7 @@ An Azure subscription or free Cosmos DB trial account
 
 ## Database examples
 
-The [RunDatabaseDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L65-L91) method of the sample *DatabaseManagement* project shows how to do the following tasks. To learn about Azure Cosmos databases before you run the following samples, see [Work with databases, containers, and items](databases-containers-items.md).
+The [RunDatabaseDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L65-L91) method of the sample *DatabaseManagement* project shows how to do the following tasks. To learn about Azure Cosmos databases before you run the following samples, see [Work with databases, containers, and items](account-databases-containers-items.md).
 
 | Task | API reference |
 | --- | --- |
@@ -60,7 +60,7 @@ The [RunDatabaseDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/maste
 
 ## Container examples
 
-The [RunContainerDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L69-L89) method of the sample *ContainerManagement* project shows how to do the following tasks. To learn about Azure Cosmos containers before you run the following samples, see [Work with databases, containers, and items](databases-containers-items.md).
+The [RunContainerDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L69-L89) method of the sample *ContainerManagement* project shows how to do the following tasks. To learn about Azure Cosmos containers before you run the following samples, see [Work with databases, containers, and items](account-databases-containers-items.md).
 
 | Task | API reference |
 | --- | --- |
@@ -73,7 +73,7 @@ The [RunContainerDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/mast
 
 ## Item examples
 
-The [RunItemsDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L119-L130) method of the sample *ItemManagement* project shows how to do the following tasks. To learn about Azure Cosmos items before you run the following samples, see [Work with databases, containers, and items](databases-containers-items.md).
+The [RunItemsDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L119-L130) method of the sample *ItemManagement* project shows how to do the following tasks. To learn about Azure Cosmos items before you run the following samples, see [Work with databases, containers, and items](account-databases-containers-items.md).
 
 | Task | API reference |
 | --- | --- |

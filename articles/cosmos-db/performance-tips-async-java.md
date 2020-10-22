@@ -300,4 +300,4 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 ## Next steps
 
-To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](partition-data.md).
+To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](partitioning-overview.md).

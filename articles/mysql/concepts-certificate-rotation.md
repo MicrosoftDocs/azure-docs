@@ -99,7 +99,7 @@ If you do not update the root certificate before February 15, 2021 (02/15/2021),
 ### 4. What is the impact if using App Service with Azure Database for MySQL?
 For Azure app services, connecting to Azure Database for MySQL, we can have two possible scenarios and it depends on how on you are using SSL with your application.
 *   This new certificate has been added to App Service at platform level. If you are using the SSL certificates included on App Service platform in your application, then no action is needed.
-*   If you are explicitly including the path to SSL cert file in your code, then you would need to download the new cert and update the code to use the new cert.
+*   If you are explicitly including the path to SSL cert file in your code, then you would need to download the new cert and update the code to use the new cert. A good example of this scenario is when you use custom containers in App Service as shared in the [App Service documentation](/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress.md)
 
 ### 5. What is the impact if using Azure Kubernetes Services (AKS) with Azure Database for MySQL?
 If you are trying to connect to the Azure Database for MySQL using Azure Kubernetes Services (AKS), it is similar to access from a dedicated customers host environment. Refer to the steps [here](../aks/ingress-own-tls.md).
