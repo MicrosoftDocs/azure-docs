@@ -56,7 +56,7 @@ If you want to learn more about Big Data for Cognitive Services, a good place to
 
 ### Azure Functions and Azure Service Web Jobs
 
-[Azure Functions](https://azure.microsoft.com/services/functions/) and [Azure App Service Web Jobs](https://docs.microsoft.com/azure/app-service/webjobs-create) both provide code-first integration services designed for developers and are built on [Azure App Services](https://docs.microsoft.com/azure/app-service/webjobs-create). These products provide serverless infrastructure for writing code. Within that code you can make calls to our services using our client libraries and REST APIs. 
+[Azure Functions](https://docs.microsoft.com/azure/azure-functions/) and [Azure App Service Web Jobs](https://docs.microsoft.com/azure/app-service/) both provide code-first integration services designed for developers and are built on [Azure App Services](https://docs.microsoft.com/azure/app-service/). These products provide serverless infrastructure for writing code. Within that code you can make calls to our services using our client libraries and REST APIs. 
 
 * **Target user(s)**: Developers and data scientists
 * **Benefits**: Serverless compute service that lets you run event-triggered code. 
@@ -64,9 +64,9 @@ If you want to learn more about Big Data for Cognitive Services, a good place to
 * **Subscription(s)**:
 
 
-### Logic Apps 
+### Azure Logic Apps 
 
-Logic apps shares the same workflow designer and connectors as Power Automate but provides more advanced and control including integrations with Visual Studio and DevOps. Power Automate makes it easy to integrate with your cognitive services resources through service-specific connectors that provide a proxy or wrapper around the APIs. These are the same connectors as those available in Power Automate. 
+[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) share the same workflow designer and connectors as Power Automate but provides more advanced and control including integrations with Visual Studio and DevOps. Power Automate makes it easy to integrate with your cognitive services resources through service-specific connectors that provide a proxy or wrapper around the APIs. These are the same connectors as those available in Power Automate. 
 
 * **Target user(s)**: Developers, integrators, IT pros, DevOps
 * **Benefits**: Designer-first (declarative) development model providing advanced options and integration in a low-code solution
@@ -75,7 +75,7 @@ Logic apps shares the same workflow designer and connectors as Power Automate bu
 
 ### Power Automate 
 
-Power automate is a service in [the Power Platform](https://docs.microsoft.com/learn/powerplatform/) that helps you create automated workflows between apps and services without writing code. We offer several connectors to make it easy to interact with your Cognitive Services resource in a Power Automate solution. Power Automate is built on top of Logic Apps. 
+Power automate is a service in the [Power Platform](https://docs.microsoft.com/en-us/power-platform/) that helps you create automated workflows between apps and services without writing code. We offer several connectors to make it easy to interact with your Cognitive Services resource in a Power Automate solution. Power Automate is built on top of Logic Apps. 
 
 * **Target user(s)**: Business users (analysts) and Sharepoint administrators
 * **Benefits**: Automate repetitive manual tasks simply by recording mouse clicks, keystrokes and copy paste steps from your desktop!
@@ -93,7 +93,7 @@ Power automate is a service in [the Power Platform](https://docs.microsoft.com/l
 
 ### Continuous integration and deployment
 
-You can use Azure DevOps and GitHub actions to manage your deployments. In the [section below](#Continuous-integration-and-delivery-with-DevOps-and-GitHub-Actions) that discusses, we have two examples of CI/CD integrations to train and deploy custom models for Speech and the Language Understanding (LUIS) service. 
+You can use Azure DevOps and GitHub actions to manage your deployments. In the [section below](#continuous-integration-and-delivery-with-devops-and-github-actions) that discusses, we have two examples of CI/CD integrations to train and deploy custom models for Speech and the Language Understanding (LUIS) service. 
 
 * **Target user(s)**: Developers, data scientists, and data engineers
 * **Benefits**: Allows you to continuously adjust, update, and deploy applications and models programmatically. There is significant benefit when regularly using your data to improve and update models for Speech, Vision, Language, and Decision. 
