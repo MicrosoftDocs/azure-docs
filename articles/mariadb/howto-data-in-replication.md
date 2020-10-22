@@ -207,7 +207,7 @@ The following steps prepare and configure the MariaDB server hosted on-premises,
 
 1. Set the source server.
 
-   All Data-in Replication functions are done by stored procedures. You can find all procedures at [Data-in Replication Stored Procedures](./reference-stored-procedures.md). Stored procedures can be run in the MySQL shell or MySQL Workbench.
+   All Data-in Replication functions are done by stored procedures. You can find all procedures at [Data-in Replication Stored Procedures](reference-stored-procedures.md). Stored procedures can be run in the MySQL shell or MySQL Workbench.
 
    To link two servers and start replication, sign in to the target replica server in the Azure DB for MariaDB service. Next, set the external instance as the source server by using the `mysql.az_replication_change_master` or `mysql.az_replication_change_master_with_gtid` stored procedure on the Azure DB for MariaDB server.
 

@@ -29,8 +29,8 @@ The [*mysql system database*](https://mariadb.com/kb/en/library/the-mysql-databa
 - Each table must have a primary key.
 - Source server should use the InnoDB engine.
 - User must have permissions to configure binary logging and create new users on the source server.
-- If the source server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mariadb.az_replication_change_master` stored procedure. Refer to the following [examples](./howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
-- Ensure the source server's IP address has been added to the Azure Database for MariaDB replica server's firewall rules. Update firewall rules using the [Azure portal](./howto-manage-firewall-portal.md) or [Azure CLI](./howto-manage-firewall-cli.md).
+- If the source server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mariadb.az_replication_change_master` stored procedure. Refer to the following [examples](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
+- Ensure the source server's IP address has been added to the Azure Database for MariaDB replica server's firewall rules. Update firewall rules using the [Azure portal](howto-manage-firewall-portal.md) or [Azure CLI](howto-manage-firewall-cli.md).
 - Ensure the machine hosting the source server allows both inbound and outbound traffic on port 3306.
 - Ensure the the source server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN).
 

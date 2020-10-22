@@ -189,4 +189,4 @@ In this tutorial, you use the Azure portal to learned how to:
 > * Restore data
 
 > [!div class="nextstepaction"]
-> [How to connect applications to Azure Database for MariaDB](./howto-connection-string.md)
+> [How to connect applications to Azure Database for MariaDB](howto-connection-string.md)

@@ -23,7 +23,7 @@ Data ex-filtration in Azure Database for MariaDB is when an authorized user, suc
 
 Consider a scenario with a user running MariaDB workbench inside an Azure VM connecting to an Azure Database for MariaDB instance. This MariaDB instance is in the West US data center. The example below shows how to limit access with public endpoints on Azure Database for MariaDB using network access controls.
 
-* Disable all Azure service traffic to Azure Database for MariaDB via the public endpoint by setting Allow Azure Services to OFF. Ensure no IP addresses or ranges are allowed to access the server either via [firewall rules](./concepts-firewall-rules.md) or [virtual network service endpoints](./concepts-data-access-security-vnet.md).
+* Disable all Azure service traffic to Azure Database for MariaDB via the public endpoint by setting Allow Azure Services to OFF. Ensure no IP addresses or ranges are allowed to access the server either via [firewall rules](./concepts-firewall-rules.md) or [virtual network service endpoints](concepts-data-access-security-vnet.md).
 
 * Only allow traffic to the Azure Database for MariaDB using the Private IP address of the VM. For more information, see the articles on [Service Endpoint](concepts-data-access-security-vnet.md) and [VNet firewall rules](howto-manage-vnet-portal.md).
 
@@ -52,8 +52,8 @@ With Private Link, you can enable cross-premises access to the private endpoint 
 
 Private endpoints are required to enable Private Link. This can be done using the following how-to guides.
 
-* [Azure portal](./howto-configure-privatelink-portal.md)
-* [CLI](./howto-configure-privatelink-cli.md)
+* [Azure portal](howto-configure-privatelink-portal.md)
+* [CLI](howto-configure-privatelink-cli.md)
 
 ### Approval Process
 
@@ -124,11 +124,11 @@ To learn how to set the **Deny Public Network Access** for your Azure Database f
 
 To learn more about Azure Database for MariaDB security features, see the following articles:
 
-* To configure a firewall for Azure Database for MariaDB, see [Firewall support](./concepts-firewall-rules.md).
+* To configure a firewall for Azure Database for MariaDB, see [Firewall support](concepts-firewall-rules.md).
 
-* To learn how to configure a virtual network service endpoint for your Azure Database for MariaDB, see [Configure access from virtual networks](./concepts-data-access-security-vnet.md).
+* To learn how to configure a virtual network service endpoint for your Azure Database for MariaDB, see [Configure access from virtual networks](concepts-data-access-security-vnet.md).
 
-* For an overview of Azure Database for MariaDB connectivity, see [Azure Database for MariaDB Connectivity Architecture](./concepts-connectivity-architecture.md)
+* For an overview of Azure Database for MariaDB connectivity, see [Azure Database for MariaDB Connectivity Architecture](concepts-connectivity-architecture.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md
