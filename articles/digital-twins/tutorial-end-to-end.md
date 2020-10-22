@@ -458,12 +458,6 @@ Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure
 az group delete --name <your-resource-group>
 ```
 
-Next, delete the Azure AD app registration you created for your client app with this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
-
 Finally, delete the project sample folder you downloaded to your local machine.
 
 ## Next steps

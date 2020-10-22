@@ -176,9 +176,9 @@
         - name: Java SDK - source
           href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core 
         - name: JavaScript SDK - npm
-          href: https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1  
+          href: https://www.npmjs.com/package/@azure/digital-twins/ 
         - name: JavaScript SDK - reference
-          href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest        
+          href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
   - name: Digital Twins CLI 
     items: 
     - name: Digital Twins CLI reference
