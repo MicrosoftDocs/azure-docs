@@ -2,14 +2,12 @@
 title: Deploy resources to resource groups
 description: Describes how to deploy resources in an Azure Resource Manager template. It shows how to target more than one resource group.
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 10/22/2020
 ---
 
-# Create resources in resource group
+# Resource group deployments
 
-You can deploy an Azure Resource Manager template (ARM template) at the level of resource group. Within the same template, you can deploy resources to more than one resource group.
-
-To deploy templates at the resource group, use Azure CLI, PowerShell, REST API, or the portal.
+This article describes how to scope your deployment to a resource group. You use an Azure Resource Manager template (ARM template) for the deployment. The article also shows how to expand the scope beyond the resource group in the deployment operation.
 
 ## Supported resources
 
@@ -20,13 +18,15 @@ Most resources can be deployed to a resource group. For a list of available reso
 For templates, use the following schema:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"
 ```
 
 For parameter files, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#"
 ```
 
 ## Deployment commands
@@ -59,7 +59,14 @@ New-AzResourceGroupDeployment `
 
 ---
 
-For REST API, use [Deployments - Create Or Update](/rest/api/resources/deployments/createorupdate).
+For more detailed information about deployment commands and options for deploying ARM templates, see:
+
+* [Deploy resources with ARM templates and Azure portal](deploy-portal.md)
+* [Deploy resources with ARM templates and Azure CLI](deploy-cli.md)
+* [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md)
+* [Deploy resources with ARM templates and Azure Resource Manager REST API](deploy-rest.md)
+* [Use a deployment button to deploy templates from GitHub repository](deploy-to-azure-button.md)
+* [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md)
 
 ## Deployment scopes
 
@@ -75,19 +82,25 @@ The user deploying the template must have access to the specified scope.
 
 To deploy resources to the target resource, add those resources to the resources section of the template.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-rg.json" highlight="5":::
 
-### Scope to other resource groups
+### Scope to resource group in same subscription
 
-To deploy resources to a resource group within another subscription, add a nested deployment and include the `resourceGroup` property. In the following example, the nested deployment targets a resource group named `rg2`.
+To deploy resources to a different resource group in the same subscription, add a nested deployment and include the `resourceGroup` property. In the following example, the nested deployment targets a resource group named `demoResourceGroup`.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/same-sub-to-resource-group.json" highlight="9,13":::
+
+### Scope to resource group in different subscription
+
+To deploy resources to a resource group in a different subscription, add a nested deployment and include the `subscriptionId` and `resourceGroup` properties. In the following example, the nested deployment targets a resource group named `demoResourceGroup`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/different-sub-to-resource-group.json" highlight="9,10,14":::
 
 ### Scope to tenant
 
 You can create resources at the tenant by adding a nested deployment with the `scope` set to `/`. In the following example, the nested deployment is scoped to `/`.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-tenant.json" highlight="9,13":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,13":::
 
 ## Cross resource groups
 
@@ -192,9 +205,6 @@ az deployment group create \
 
 ---
 
-
 ## Next steps
 
 * For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Sample templates can be found at [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments).
-* You can also deploy templates at [management group level](deploy-to-management-group.md) and [tenant level](deploy-to-tenant.md).

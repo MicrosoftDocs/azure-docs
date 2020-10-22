@@ -5745,7 +5745,7 @@
     },
     {
       "source_path": "articles/azure-resource-manager/templates/cross-resource-group-deployment.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/cross-scope-deployment",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-to-resource-group",
       "redirect_document_id": false
     },
     {
@@ -6035,7 +6035,12 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-cross-resource-group-deployment.md",
-      "redirect_url": "/azure/azure-resource-manager/templates/cross-resource-group-deployment",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-to-resource-group",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates/cross-scope-deployment.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/deploy-to-resource-group",
       "redirect_document_id": false
     },
     {
