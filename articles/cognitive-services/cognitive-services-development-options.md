@@ -114,13 +114,15 @@ The tools that you will use to train and configure models are different than tho
 |--------|---------|------------------|------------|
 | Vision | Custom Vision | https://www.customvision.ai/ | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification?pivots=programming-language-csharp) | 
 | Vision | Form Recognizer | Sample labeling tool | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool?tabs=v2-0) |
-| Decision | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Quickstart](#) |
-| Decision | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [Quickstart](#) |
-| Decision | Personalizer | UI is available in the Azure portal under your Personalizer resource. | [Quickstart](#) |
-| Language | Language Understanding (LUIS) | https://www.luis.ai/ | [Quickstart](#) |
-| Language | QnA Maker | https://www.qnamaker.ai/ | [Quickstart](#) |
-| Language | Translator/Custom Translator | | [Quickstart](#) |
-| Speech | Speech Studio: Custom Voice, Custom Speech, Custom Commands | https://speech.microsoft.com/ | [Quickstart](#) |
+| Decision | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/human-in-the-loop) |
+| Decision | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/web-portal) |
+| Decision | Personalizer | UI is available in the Azure portal under your Personalizer resource. | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/personalizer/quickstart-personalizer-sdk) |
+| Language | Language Understanding (LUIS) | https://www.luis.ai/ | |
+| Language | QnA Maker | https://www.qnamaker.ai/ | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base) |
+| Language | Translator/Custom Translator | https://portal.customtranslator.azure.ai/ | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model) |
+| Speech | Custom Commands | https://speech.microsoft.com/ | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-commands) |
+| Speech | Custom Speech | https://speech.microsoft.com/ | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech) |
+| Speech | Custom Voice | https://speech.microsoft.com/ | [Quickstart](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice) |  
 
 ### Continuous integration and delivery with DevOps and GitHub Actions
 
