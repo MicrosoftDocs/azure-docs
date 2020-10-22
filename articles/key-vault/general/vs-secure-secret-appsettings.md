@@ -53,14 +53,19 @@ If you already have your web app created, grant the web app access to the Key Va
     > Prior to Visual Studio 2017 V15.6 we used to recommend installing the Azure Services Authentication extension for Visual Studio. But it is deprecated now as the functionality is integrated within the Visual Studio . Hence if you are on an older version of visual Studio 2017 , we suggest you to update to at least VS 2017 15.6 or up so that you can use this functionality natively and access the Key-vault from using the Visual Studio sign-in Identity itself.
     >
 
-4. Add the following NuGet packages to your project:
+4. Log in to Azure using the CLI, you can type:
+
+    ```azurecli
+    az login
+    ```
+
+5. Add the following NuGet packages to your project:
 
     ```
-    Microsoft.Azure.KeyVault
-    Microsoft.Azure.Services.AppAuthentication
-    Microsoft.Extensions.Configuration.AzureKeyVault
+    Azure.Identity
+    Azure.Extensions.AspNetCore.Configuration.Secrets
     ```
-5. Add the following code to Program.cs file:
+6. Add the following code to Program.cs file:
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -70,12 +75,7 @@ If you already have your web app created, grant the web app access to the Key Va
                     var keyVaultEndpoint = GetKeyVaultEndpoint();
                     if (!string.IsNullOrEmpty(keyVaultEndpoint))
                     {
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
-                        builder.AddAzureKeyVault(
-                        keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                        builder.AddAzureKeyVault(new Uri(keyVaultEndpoint), new DefaultAzureCredential(), new KeyVaultSecretManager());
                     }
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
@@ -85,11 +85,12 @@ If you already have your web app created, grant the web app access to the Key Va
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-6. Add your Key Vault URL to launchsettings.json file. The environment variable name *KEYVAULT_ENDPOINT* is defined in the code you added in step 6.
+
+7. Add your Key Vault URL to launchsettings.json file. The environment variable name *KEYVAULT_ENDPOINT* is defined in the code you added in step 7.
 
     ![Add Key Vault URL as a project environment variable](../media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
-7. Start debugging the project. It should run successfully.
+8. Start debugging the project. It should run successfully.
 
 ## ASP.NET and .NET applications
 

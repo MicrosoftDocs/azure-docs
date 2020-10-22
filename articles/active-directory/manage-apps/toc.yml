@@ -7,6 +7,8 @@
       href: what-is-application-management.md
     - name: What is single sign-on (SSO)?
       href: what-is-single-sign-on.md
+    - name: What's new in docs?
+      href: whats-new-docs.md
   - name: Quickstarts
     expanded: true
     items:
