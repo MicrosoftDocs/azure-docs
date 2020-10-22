@@ -96,6 +96,21 @@ This command copies Database1 to a new database named Database2 on the same serv
    CREATE DATABASE Database2 AS COPY OF Database1;
    ```
 
+### Copy to an elastic pool
+
+Log in to the master database with the server administrator login or the login that created the database you want to copy. For database copying to succeed, logins that are not the server administrator must be members of the `dbmanager` role.
+
+This command copies Database1 to a new database named Database2 in an elastic pool named pool1. Depending on the size of your database, the copying operation might take some time to complete.
+
+Database1 can be a single or pooled database, but pool1 must be the same service tier as Database1. 
+
+   ```sql
+   -- execute on the master database to start copying
+   CREATE DATABASE "Database2"
+   AS COPY OF "Database1"
+   (SERVICE_OBJECTIVE = ELASTIC_POOL( name = "pool1" ) ) ;
+   ```
+
 ### Copy to a different server
 
 Log in to the master database of the target server where the new database is to be created. Use a login that has the same name and password as the database owner of the source database on the source server. The login on the target server must also be a member of the `dbmanager` role, or be the server administrator login.
