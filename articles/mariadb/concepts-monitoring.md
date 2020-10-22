@@ -53,8 +53,6 @@ You can enable slow query logging on your server. These logs are also available 
 
 The [Performance Recommendations](concepts-performance-recommendations.md) feature identifies opportunities to improve workload performance. Performance Recommendations provides you with recommendations for creating new indexes that have the potential to improve the performance of your workloads. To produce index recommendations, the feature takes into consideration various database characteristics, including its schema and the workload as reported by Query Store. After implementing any performance recommendation, customers should test performance to evaluate the impact of those changes.
 
-Learn more about how to set up notifications in the [planned maintenance notifications](concepts-performance-recommendations.md) document.
-
 ## Planned maintenance notification
 
 [Planned maintenance notifications](./concepts-planned-maintenance-notification.md) allow you to receive alerts for upcoming planned maintenance to your Azure Database for MariaDB. These notifications are integrated with [Service Health's](../service-health/overview.md) planned maintenance and allow you to view all scheduled maintenance for your subscriptions in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 hours before the event.
