@@ -60,18 +60,20 @@ With this type of authentication, ADT Explorer will search for credentials withi
 If you're already logged into Azure through one of these ways, you can skip to the [next section](#run-and-configure-adt-explorer).
 
 Otherwise, you can install the local **Azure CLI** with these steps:
-1. Follow the process at [**this install link**](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to complete the installation that matches your OS
-2. Open a console window on your machine
+1. Follow the process at [**this install link**](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to complete the installation that matches your OS.
+2. Open a console window on your machine.
 3. Run `az login` and follow the authentication prompts to log into your Azure account.
 
-After doing this, ADT Explorer should pick up your Azure credentials automatically when you run it.
+After doing this, ADT Explorer should pick up your Azure credentials automatically when you run it in the next section.
+
+You can close the authentication console window if you'd like, or keep it open to use in the next step.
 
 ### Run and configure ADT Explorer
 
 Next, run the ADT Explorer application and configure it for your Azure Digital Twins instance.
 
 Navigate to the downloaded and unzipped _**Azure_Digital_Twins__ADT__explorer**_ folder. 
-Open a command prompt at the folder location *Azure_Digital_Twins__ADT__explorer/client/src*.
+Open a console window to the folder location *Azure_Digital_Twins__ADT__explorer/client/src*.
 
 Run `npm install` to download all the required dependencies.
 
