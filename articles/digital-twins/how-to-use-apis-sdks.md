@@ -102,6 +102,8 @@ var credential = new DefaultAzureCredential();
 DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
 ```
 
+[!INCLUDE [Azure Digital Twins: local credentials note](../../includes/digital-twins-local-credentials-short.md)] 
+
 Upload a model and list models:
 
 ```csharp

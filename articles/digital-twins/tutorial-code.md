@@ -36,6 +36,8 @@ What you need to begin:
 
 [!INCLUDE [Azure Digital Twins tutorials: instance prereq](../../includes/digital-twins-tutorial-prereq-instance.md)]
 
+[!INCLUDE [Azure Digital Twins: local credentials prereq](../../includes/digital-twins-local-credentials.md)]
+
 ## Set up project
 
 Once you are ready to go with your Azure Digital Twins instance, start setting up the client app project. 
@@ -120,8 +122,7 @@ Console.WriteLine($"Service client created – ready to go");
 
 Save the file. 
 
->[!NOTE]
-> This example uses a `DefaultAzureCredential` for authentication. For information on other types of credentials, see the documentation for the [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md), or the Azure Digital Twins article about [authenticating client applications](how-to-authenticate-client.md).
+[!INCLUDE [Azure Digital Twins: local credentials note](../../includes/digital-twins-local-credentials-short.md)] 
 
 In your command window, run the code with this command: 
 
