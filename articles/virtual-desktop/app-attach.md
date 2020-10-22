@@ -1,13 +1,13 @@
 ---
-title: Windows Virtual Desktop MSIX app attach - Azure
-description: How to set up MSIX app attach for Windows Virtual Desktop.
+title: Configure Windows Virtual Desktop MSIX app attach PowerShell - Azure
+description: How to configure MSIX app attach for Windows Virtual Desktop with PowerShell scripts.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
 ---
-# Set up MSIX app attach
+# Create PowerShell scripts for MSIX app attach
 
 > [!IMPORTANT]
 > MSIX app attach is currently in public preview.
@@ -25,9 +25,13 @@ Before you get started, here's what you need to configure MSIX app attach:
 - The MSIX packaging tool.
 - A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored.
 
+<!--Delete?-->
+
 ## Get the OS image
 
 First, you need to get the OS image. You can get the OS image through the Azure portal. However, if you're a member of the Windows Insider program, you have the option to use the Windows Insider portal instead.
+
+<!--Delete?-->
 
 ### Get the OS image from the Azure portal
 
@@ -43,6 +47,8 @@ To get the OS image from the Azure portal:
 
      >[!NOTE]
      >You can use this VM to directly test MSIX app attach. To learn more, skip ahead to [Generate a VHD or VHDX package for MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Otherwise, keep reading this section.
+
+<!--Delete?-->
 
 ### Get the OS image from the Windows Insider portal
 
@@ -61,6 +67,8 @@ To get the OS image from the Windows Insider Portal:
      >At the moment, English is the only language that has been tested with the feature. You can select other languages, but they may not display as intended.
 
 4. When the download link is generated, select the **64-bit Download** and save it to your local hard disk.
+
+<!--Delete?-->
 
 ## Prepare the VHD image for Azure
 
