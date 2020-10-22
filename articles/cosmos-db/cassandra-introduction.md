@@ -26,7 +26,7 @@ The Cassandra API enables you to interact with data stored in Azure Cosmos DB us
 
 **Ability to use existing code and tools**: Azure Cosmos DB provides wire protocol level compatibility with existing Cassandra SDKs and tools. This compatibility ensures you can use your existing codebase with Azure Cosmos DB Cassandra API with trivial changes.
 
-**Throughput and storage elasticity**: Azure Cosmos DB provides guaranteed throughput across all regions and can scale the provisioned throughput with Azure portal, PowerShell, or CLI operations. You can [elastically scale](manage-scale-cassandra.md) storage and throughput for your tables as needed with predictable performance.
+**Throughput and storage elasticity**: Azure Cosmos DB provides throughput across all regions and can scale the provisioned throughput with Azure portal, PowerShell, or CLI operations. You can [elastically scale](manage-scale-cassandra.md) storage and throughput for your tables as needed with predictable performance.
 
 **Global distribution and availability**: Azure Cosmos DB provides the ability to globally distribute data across all Azure regions and serve the data locally while ensuring low latency data access and high availability. Azure Cosmos DB provides 99.99% high availability within a region and 99.999% read and write availability across multiple regions with no operations overhead. Learn more in [Distribute data globally](distribute-data-globally.md) article. 
 

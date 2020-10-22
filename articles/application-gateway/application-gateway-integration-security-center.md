@@ -39,7 +39,7 @@ If you do not have an existing Application Gateway, or want to create a new one,
 
 If you have an existing application gateway, you can choose it under **Use existing solution**
 
-![Page to add a web application firewall][4]
+![Screenshot of the Add a Web Application Firewall page. Under Use existing solution, an application gateway is visible.][4]
 
 Adding a web application to an application gateway through Security Center does not add the resource as a backend pool member. This must be done on the application gateway resource directly.
 
@@ -57,7 +57,7 @@ Click **Link app** to open **Link Applications**, here you are given the options
 
 Security Center tracks applications added to an application gateway as a protected resource.  It monitors the health of this resource and ensures that it is protected by an application gateway. The next step is to add the private IP, public IP, or NIC of your virtual machine to the backend pool of the application gateway. Until this is done an additional recommendation of **Finalize application protection** is shown until the resource is added.
 
-![Page to add a web application firewall][5]
+![Screenshot of the Finalize application protection page, with one application visible. Text explains which steps to take to protect the application.][5]
 
 ## Security Alerts
 

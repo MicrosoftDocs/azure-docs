@@ -25,12 +25,19 @@ This article describes the functional system architecture of the Defender for Io
 Defender for IoT connects both to the Azure cloud as well as to on-premises components. The solution is designed for scalability in large and geographically distributed environments with multiple remote locations. This solution enables a multi-layered distributed architecture by country, region, business unit, or zone. 
 
 Azure Defender for IoT includes the following components: 
-- Azure Defender for IoT sensors
-- Management consoles:
-    - Sensor console
-    - On-premises management console
-    - Azure portal
-- Embedded security agent (security module and IoT SDK)
+
+**Cloud connected deployments**
+
+- Azure Defender for IoT sensor VM or appliance
+- Azure portal for cloud management and integration to Azure Sentinel
+- On-premises management console for local-site management
+- An embedded security agent (optional)
+
+**Air-gapped (Offline) deployments**
+
+- Azure Defender for IoT sensor VM or appliance
+- On-premises management console for local site management
+
 
 ![Defender  for IoT architecture](./media/architecture/defender-iot-security-architecture.png)
 

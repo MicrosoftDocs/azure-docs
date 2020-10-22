@@ -27,7 +27,7 @@ The Azure Communication Services **Group Calling Hero Sample** demonstrates how 
 In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
 
 > [!IMPORTANT]
-> [Download the sample from GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
+> [Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 ## Overview
 
@@ -100,7 +100,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 ## Next steps
 
 >[!div class="nextstepaction"] 
->[Download the sample from GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
+>[Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 For more information, see the following articles:
 

@@ -78,14 +78,16 @@ The following table provides links to resources for each type of security soluti
 |  | Ensure that the [Encryption in transit](./encryption-in-transit.md) feature is enabled to use TLS and IPSec for intra-cluster communication. | Customer |
 |  | Configure [customer-managed keys](../../storage/common/storage-encryption-keys-portal.md) for Azure Storage encryption | Customer |
 |  | Control access to your data by Azure support using [Customer lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Customer |
-| Application and middleware security | Integrate with AAD-DS and [Configure Authentication](apache-domain-joined-configure-using-azure-adds.md) | Customer |
+| Application and middleware security | Integrate with AAD-DS and [Configure ESP](apache-domain-joined-configure-using-azure-adds.md) or use [HIB for OAuth Authentication](identity-broker.md)| Customer |
 |  | Configure [Apache Ranger Authorization](apache-domain-joined-run-hive.md) policies | Customer |
 |  | Use [Azure Monitor logs](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Customer |
 | Operating system security | Create clusters with most recent secure base image | Customer |
 |  | Ensure [OS Patching](../hdinsight-os-patching.md) on regular intervals | Customer |
+|  | Ensure [CMK disk encryption for VMs](../disk-encryption.md) | Customer |
 | Network security | Configure a [virtual network](../hdinsight-plan-virtual-network-deployment.md) |
-|  | Configure [Inbound network security group (NSG) rules](../control-network-traffic.md) | Customer |
+|  | Configure [Inbound network security group (NSG) rules](../control-network-traffic.md) or [private link](../hdinsight-private-link.md) | Customer |
 |  | Configure [Outbound traffic restriction](../hdinsight-restrict-outbound-traffic.md) with Firewall | Customer |
+|  | Configure [IPSec encryption in transit](encryption-in-transit.md) between cluster nodes | Customer |
 | Virtualized infrastructure | N/A | HDInsight (Cloud provider) |
 | Physical infrastructure security | N/A | HDInsight (cloud provider) |
 

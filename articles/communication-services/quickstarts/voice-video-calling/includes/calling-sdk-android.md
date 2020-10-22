@@ -140,8 +140,8 @@ Mobile push notifications are the pop-up notifications you see on mobile devices
 
 ### Prerequisites
 
-To complete this section, create a Firebase account and enable Cloud Messaging (FCM). Ensure that Firebase Cloud Messaging is connected to an Azure Notification Hub (ANH) instance. See [Connect Firebase to Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) for instructions.
-This section also assumes that you're using Android Studio version 3.6 or higher to build your application.
+A Firebase account set up with Cloud Messaging (FCM) enabled and with your Firebase Cloud Messaging service connected to an Azure Notification Hub instance. See [Communication Services notifications](https://docs.microsoft.com/azure/communication-services/concepts/notifications) for more information.
+Additionally, the tutorial assumes you're using Android Studio version 3.6 or higher to build your application.
 
 A set of permissions is required for the Android application in order to be able to receive notifications messages from Firebase Cloud Messaging. In your `AndroidManifest.xml` file, add the following set of permissions right after the *<manifest ...>* or below the *</application>* tag
 
@@ -192,21 +192,21 @@ Add this snippet to retrieve the token:
                     @Override
                     public void onComplete(@NonNull Task<InstanceIdResult> task) {
                         if (!task.isSuccessful()) {
-                            Log.w(TAG, "getInstanceId failed", task.getException());
+                            Log.w("PushNotification", "getInstanceId failed", task.getException());
                             return;
                         }
 
                         // Get new Instance ID token
                         String deviceToken = task.getResult().getToken();
                         // Log
-                        Log.d(TAG, "Device Registration token retrieved successfully");
+                        Log.d("PushNotification", "Device Registration token retrieved successfully");
                     }
                 });
 ```
 Register the device registration token with the Calling Services client library for incoming call push notifications:
 
 ```java
-String deviceRegistrationToken = "some_token";
+String deviceRegistrationToken = "<Device Token from previous section>";
 try {
     callAgent.registerPushNotification(deviceRegistrationToken).get();
 }
@@ -223,16 +223,16 @@ To obtain the payload from Firebase Cloud Messaging, begin by creating a new Ser
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
-    private java.util.Map<String, String> pushNotificationMessageData;
+    private java.util.Map<String, String> pushNotificationMessageDataFromFCM;
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+            Log.d("PushNotification", "Message Notification Body: " + remoteMessage.getNotification().getBody());
         }
         else {
-            pushNotificationMessageData = serializeDictionaryAsJson(remoteMessage.getData());
+            pushNotificationMessageDataFromFCM = remoteMessage.getData();
         }
     }
 }
@@ -249,10 +249,9 @@ Add the following service definition to the `AndroidManifest.xml` file, inside t
         </service>
 ```
 
-Once the payload is retrieved, it can be passed to the Communication Services client library to be handled by calling the `handlePushNotification` method on a `CallAgent` instance.
+- Once the payload is retrieved, it can be passed to the *Communication Services* client library to be handled by calling the *handlePushNotification* method on a *CallAgent* instance. A `CallAgent` instance is created by calling the `createCallAgent(...)` method on the `CallClient` class.
 
 ```java
-java.util.Map<String, String> pushNotificationMessageDataFromFCM = remoteMessage.getData();
 try {
     callAgent.handlePushNotification(pushNotificationMessageDataFromFCM).get();
 }
