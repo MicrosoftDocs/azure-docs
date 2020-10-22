@@ -296,7 +296,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
 
 - [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
 
@@ -708,6 +708,8 @@ In addition, use Azure Policy to put restrictions on the type of resources that 
 - Not allowed resource types
 - Allowed resource types
 
+More related details are provided below,
+
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
 - [How to create management groups](/azure/governance/management-groups/create)
@@ -785,8 +787,11 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32042.).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
+
 - Not allowed resource types
 - Allowed resource types
+
+More related details are provided below,
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -851,7 +856,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32047.).
 
-**Guidance**: Use Azure Policy aliases &lt;!--- in the "Microsoft.Resources" namespace --!&gt; to create custom policies to audit or enforce the configuration of your Azure resources. You may also use built-in Azure Policy definitions.
+**Guidance**: Use Azure Policy aliases "Microsoft.Resources" namespace to create custom policies to audit or enforce the configuration of your Azure resources. You may also use built-in Azure Policy definitions.
 
 Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization.
 
@@ -943,7 +948,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32053.).
 
-**Guidance**: Define and implement standard security configurations for Azure resources using Azure Policy. Use Azure Policy aliases &lt;!--- in the "Microsoft.Resources" namespace ---!&gt; to create custom policies to audit or enforce the network configuration of your Azure resources. You can also make use of built-in policy definitions related to your specific resources.  Additionally, you can use Azure Automation to deploy configuration changes.
+**Guidance**: Define and implement standard security configurations for Azure resources using Azure Policy. Use Azure Policy aliases "Microsoft.Resources" namespace to create custom policies to audit or enforce the network configuration of your Azure resources. You can also make use of built-in policy definitions related to your specific resources.  Additionally, you can use Azure Automation to deploy configuration changes.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -969,7 +974,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32055.).
 
-**Guidance**: Use built-in Azure Policy definitions &lt;!--- as well as Azure Policy aliases in the "Microsoft.Resources" namespace---!&gt; to create custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
+**Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Resources" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
