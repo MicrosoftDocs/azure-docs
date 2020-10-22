@@ -85,7 +85,7 @@ The [item_management.py](https://github.com/Azure/azure-sdk-for-python/blob/mast
 
 ## Indexing examples
 
-The [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) Python sample shows how to do the following tasks. To learn about indexing in Azure Cosmos DB before running the following samples, see [indexing policies](index-policy.md), [indexing types](/azure/cosmos-db/index-overview#index-kinds), and [indexing paths](/azure/cosmos-db/index-policy#including-and-excluding-property-paths) conceptual articles.
+The [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) Python sample shows how to do the following tasks. To learn about indexing in Azure Cosmos DB before running the following samples, see [indexing policies](index-policy.md), [indexing types](index-overview.md#index-kinds), and [indexing paths](index-policy.md#including-and-excluding-property-paths) conceptual articles.
 
 | Task | API reference |
 | --- | --- |
