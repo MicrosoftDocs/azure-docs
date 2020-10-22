@@ -126,6 +126,14 @@ To target a management group within the tenant, add a nested deployment and spec
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
 
+### Scope to subscription
+
+You can also target subscriptions within the tenant. The user deploying the template must have access to the specified scope.
+
+To target a subscription within the tenant, use a nested deployment and the `subscriptionId` property.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-subscription.json" highlight="10,18":::
+
 ## Deployment location and name
 
 For tenant level deployments, you must provide a location for the deployment. The location of the deployment is separate from the location of the resources you deploy. The deployment location specifies where to store deployment data.
