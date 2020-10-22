@@ -93,7 +93,7 @@ The setting for retention days is not yet supported, but you can delete logs man
 
 ## Lifecycle management policies with premium tier for Azure Data Lake Storage
 
-You can't move data that's stored in the premium tier between hot, cool, and archive tiers. However, you can copy blobs from a block blob storage account to the hot access tier in a different account. . However, you can use Azure Data Factory to move data between an account that uses the premium tier to or from an account in a lower tier.
+You can't move data that's stored in the premium tier between hot, cool, and archive tiers. However, you can copy data from the premium tier to the hot access tier in a different account.
 
 ## Dremio support with premium-performance BlockBlobStorage storage accounts
 
