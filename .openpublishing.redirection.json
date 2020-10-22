@@ -58439,9 +58439,14 @@
       "redirect_document_id": false
     },
     {
-    "source_path": "articles/cosmos-db/optimize-cost-queries.md",
-    "redirect_url": "/azure/cosmos-db/optimize-cost-reads-writes",
-    "redirect_document_id": false
+      "source_path": "articles/storsimple/storsimple-5000-7000-afs-migration.md",
+      "redirect_url": "/azure/storage/files/storage-files-migration-storsimple-8000",
+      "redirect_document_id": false
+    },
+    {    
+      "source_path": "articles/cosmos-db/optimize-cost-queries.md",
+      "redirect_url": "/azure/cosmos-db/optimize-cost-reads-writes",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Concepts/design-language-culture.md",
