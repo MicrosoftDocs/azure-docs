@@ -847,6 +847,8 @@
         href: ./hdinsight-troubleshoot-hive.md
       - name: Apache Hive logs taking up entire disk space on Head node
         href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
+      - name: Security options for Hive
+        href: ./interactive-query/hdinsight-security-options-for-hive.md
 - name: ML Services
   items:
   - name: Overview

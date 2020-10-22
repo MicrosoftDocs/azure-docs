@@ -19,10 +19,10 @@ If you need to, you can make a managed disk from an image version stored in a Sh
 
 ## CLI
 
-Set the `source` variable to the ID of the image version, then use [az disk create](/cli/azure/disk.md#az_disk_create) to create the managed disk. 
+Set the `source` variable to the ID of the image version, then use [az disk create](/cli/azure/disk#az_disk_create) to create the managed disk. 
 
 
-You can see a list image versions using [az sig image-version list](/cli/azure/sig/image-version.md#az_sig_image_version_list). In this example, we are looking for all of the image versions that are part of the *myImageDefinition* image definition in the *myGallery* image gallery.
+You can see a list image versions using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list). In this example, we are looking for all of the image versions that are part of the *myImageDefinition* image definition in the *myGallery* image gallery.
 
 ```azurecli-interactive
 az sig image-version list \
