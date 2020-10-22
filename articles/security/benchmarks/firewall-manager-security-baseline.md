@@ -513,7 +513,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### AM-2: Ensure security team has access to asset inventory and metadata
 
