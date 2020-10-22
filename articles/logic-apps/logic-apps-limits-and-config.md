@@ -36,32 +36,31 @@ Here are the limits for a single logic app definition:
 
 <a name="run-duration-retention-limits"></a>
 
-## Run duration and retention limits
+## Run duration and retention history limits
 
 Here are the limits for a single logic app run:
 
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Run duration | 90 days | 366 days | Run duration is calculated by using a run's start time and the limit that's specified *at start time* by the workflow setting, [**Run history retention in days**](#change-duration). <p><p>To change the default limit, which is 90 days, see [change run duration](#change-duration). |
-| Run retention in storage | 90 days | 366 days | Run retention is calculated by using a run's start time and the limit that's specified *at the current time* by the workflow setting, [**Run history retention in days**](#change-retention). Whether a run completes or times out, the retention calculation always uses the run's start time. When a run's duration exceeds the *current* retention limit, the run is removed from the runs history. <p><p>If you change this setting, the current limit is always used for calculating retention, no matter the previous limit. For example, if you reduce the retention limit from 90 days to 30 days, a run that's 60 days old is removed from the runs history. If you increase the retention period from 30 days to 60 days, a run that's 20 days old stays in the runs history for another 40 days. <p><p>To change the default limit, which is 90 days, see [change run retention in storage](#change-retention). |
+| Run duration | 90 days | 366 days | Run duration is calculated by using a run's start time. |
+| Run history retention in storage | 90 days | 366 days | When a run completes or times out, run history retention is always calculated by using the run's start time and the limit that's specified at the *current time* by the workflow setting, [**Run history retention in days**](#change-retention). If you change this setting, the *current* limit is always used for calculating retention, no matter the previous limit. When a run's duration exceeds the current limit, the run is removed from the runs history. <p><p>For example, suppose that you reduce the retention limit from 90 days to 30 days. A 60-day-old run is removed from the runs history. If you increase the retention period from 30 days to 60 days, a 20-day-old run stays in the runs history for another 40 days. <p><p>To change the default limit, which is 90 days, see [change run history retention in storage](#change-retention). |
 | Minimum recurrence interval | 1 second | 1 second ||
 | Maximum recurrence interval | 500 days | 500 days ||
 |||||
 
-<a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### Change run duration and run retention in storage
+### Change run history retention in storage
 
-To change the default limit for run duration and run retention in storage, follow these steps. To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
+To change the default limit for run history retention in storage, follow these steps. To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
 
 > [!NOTE]
 > For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
 > For logic apps in an integration service environment, you can decrease or increase the 90-day default limit.
 
-1. Go to the [Azure portal](https://portal.azure.com). In the portal search box, find and select **Logic apps**.
+1. In the [Azure portal](https://portal.azure.com) search box, find and select **Logic apps**.
 
-1. Select and then open your logic app in the Logic App Designer.
+1. Find and select your logic app. Open your logic app in the Logic App Designer.
 
 1. On the logic app's menu, select **Workflow settings**.
 

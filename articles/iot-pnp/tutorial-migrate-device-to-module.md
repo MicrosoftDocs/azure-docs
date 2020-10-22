@@ -1,5 +1,5 @@
 ---
-title: Connect a generic IoT Plug and Play generic module | Microsoft Docs
+title: Connect a generic IoT Plug and Play module | Microsoft Docs
 description: Use sample C# IoT Plug and Play device code in a generic module.
 author: ericmitt
 ms.author: ericmitt

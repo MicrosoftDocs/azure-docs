@@ -44,19 +44,18 @@ Default permissions for member users can be restricted in the following ways:
 Permission | Setting explanation
 ---------- | ------------
 Users can register application | Setting this option to No prevents users from creating application registrations. The ability can then be granted back to specific individuals by adding them to the Application Developer role.
-Allow users to connect work or school account with LinkedIn | Setting this option to No prevents users from connecting their work or school account with their LinkedIn account. For more information, see [LinkedIn account connections data sharing and consent](../users-groups-roles/linkedin-user-consent.md).
-Ability to create security groups | Setting this option to No prevents users from creating security groups. Global administrators and User administrators can still create security groups. See [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) to learn how.
-Ability to create Microsoft 365 groups | Setting this option to No prevents users from creating Microsoft 365 groups. Setting this option to Some allows a select set of users to create Microsoft 365 groups. Global administrators and User administrators will still be able to create Microsoft 365 groups. See [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) to learn how.
+Allow users to connect work or school account with LinkedIn | Setting this option to No prevents users from connecting their work or school account with their LinkedIn account. For more information, see [LinkedIn account connections data sharing and consent](../enterprise-users/linkedin-user-consent.md).
+Ability to create security groups | Setting this option to No prevents users from creating security groups. Global administrators and User administrators can still create security groups. See [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md) to learn how.
+Ability to create Microsoft 365 groups | Setting this option to No prevents users from creating Microsoft 365 groups. Setting this option to Some allows a select set of users to create Microsoft 365 groups. Global administrators and User administrators will still be able to create Microsoft 365 groups. See [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md) to learn how.
 Restrict access to Azure AD administration portal | Setting this option to No lets non-administrators use the Azure AD administration portal to read and manage Azure AD resources. Yes restricts all non-administrators from accessing any Azure AD data in the administration portal.<p>**Note**: this setting does not restrict access to Azure AD data using PowerShell or other clients such as Visual Studio.When set to Yes, to grant a specific non-admin user the ability to use the Azure AD administration portal assign any administrative role such as the Directory Readers role.<p>This role allows reading basic directory information, which member users have by default (guests and service principals do not).
 Ability to read other users | This setting is available in PowerShell only. Setting this flag to $false prevents all non-admins from reading user information from the directory. This flag does not prevent reading user information in other Microsoft services like Exchange Online. This setting is meant for special circumstances, and setting this flag to $false is not recommended.
-
 
 ## Restrict guest users default permissions
 
 Default permissions for guest users can be restricted in the following ways:
 
->[!NOTE] 
->The **Guests user access restrictions** setting replaced the **Guest users permissions are limited** setting. For guidance on using this feature, see [Restrict guest access permissions (preview) in Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+>[!NOTE]
+>The guests user access restrictions setting replaced the **Guest users permissions are limited** setting. For guidance on using this feature, see [Restrict guest access permissions (preview) in Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
 
 Permission | Setting explanation
 ---------- | ------------
@@ -139,7 +138,7 @@ Users can perform the following actions on owned groups.
 
 ## Next steps
 
-* To learn more about the guests user access restrictions setting, see [Restrict guest access permissions (preview) in Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+* To learn more about the guests user access restrictions setting, see [Restrict guest access permissions (preview) in Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
 * To learn more about how to assign Azure AD administrator roles, see [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

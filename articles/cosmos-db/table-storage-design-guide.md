@@ -321,7 +321,7 @@ This example also shows a department entity and its related employee entities in
 
 An alternative approach is to denormalize your data, and store only employee entities with denormalized department data, as shown in the following example. In this particular scenario, this denormalized approach might not be the best if you have a requirement to be able to change the details of a department manager. To do this, you would need to update every employee in the department.  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE02.png" alt-text="Graphic of employee entity":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE02.png" alt-text="Graphic of employee entity that shows how to denormalize your data, and store only employee entities with denormalized department data.":::
 
 For more information, see the [Denormalization pattern](#denormalization-pattern) later in this guide.  
 
@@ -419,7 +419,7 @@ Store multiple copies of each entity by using different `RowKey` values (in the 
 #### Context and problem
 Table storage automatically indexes entities by using the `PartitionKey` and `RowKey` values. This enables a client application to retrieve an entity efficiently by using these values. For example, using the following table structure, a client application can use a point query to retrieve an individual employee entity by using the department name and the employee ID (the `PartitionKey` and `RowKey` values). A client can also retrieve entities sorted by employee ID within each department.
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE06.png" alt-text="Graphic of employee entity":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE06.png" alt-text="Graphic of employee entity where a client application can use a point query to retrieve an individual employee entity by using the department name and the employee ID (the PartitionKey and RowKey values).":::
 
 If you also want to find an employee entity based on the value of another property, such as email address, you must use a less efficient partition scan to find a match. This is because Table storage doesn't provide secondary indexes. In addition, there's no option to request a list of employees sorted in a different order than `RowKey` order.  
 
@@ -479,7 +479,7 @@ Store multiple copies of each entity by using different `RowKey` values in separ
 #### Context and problem
 Table storage automatically indexes entities by using the `PartitionKey` and `RowKey` values. This enables a client application to retrieve an entity efficiently by using these values. For example, using the following table structure, a client application can use a point query to retrieve an individual employee entity by using the department name and the employee ID (the `PartitionKey` and `RowKey` values). A client can also retrieve entities sorted by employee ID within each department.  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Graphic of employee entity":::[9]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Graphic of employee entity structure that, when used, a client application can use a point query to retrieve an individual employee entity by using the department name and the employee ID (the PartitionKey and RowKey values).":::[9]
 
 If you also want to be able to find an employee entity based on the value of another property, such as email address, you must use a less efficient partition scan to find a match. This is because Table storage doesn't provide secondary indexes. In addition, there's no option to request a list of employees sorted in a different order than `RowKey` order.  
 
@@ -593,7 +593,7 @@ Maintain index entities to enable efficient searches that return lists of entiti
 #### Context and problem
 Table storage automatically indexes entities by using the `PartitionKey` and `RowKey` values. This enables a client application to retrieve an entity efficiently by using a point query. For example, using the following table structure, a client application can efficiently retrieve an individual employee entity by using the department name and the employee ID (the `PartitionKey` and `RowKey`).  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE13.png" alt-text="Graphic of employee entity":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE13.png" alt-text="Graphic of employee entity structure where a client application can efficiently retrieve an individual employee entity by using the department name and the employee ID (the PartitionKey and RowKey).":::
 
 If you also want to be able to retrieve a list of employee entities based on the value of another non-unique property, such as last name, you must use a less efficient partition scan. This scan finds matches, rather than using an index to look them up directly. This is because Table storage doesn't provide secondary indexes.  
 
@@ -634,7 +634,7 @@ Option 3: Create index entities in a separate partition or table
 
 For this option, use index entities that store the following data:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Graphic showing employee entity, with string containing a list of employee IDs with same last name":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Screenshot that shows the Employee index entity that contains a list of employee IDs for employees with the last name stored in the RowKey and PartitionKey.":::
 
 The `EmployeeIDs` property contains a list of employee IDs for employees with the last name stored in the `RowKey` and `PartitionKey`.  
 
@@ -699,7 +699,7 @@ In a relational database, it's natural to use joins in queries to return related
 
 Assume you are storing employee entities in Table storage by using the following structure:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE18.png" alt-text="Graphic of employee entity":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE18.png" alt-text="Graphic of employee entity structure you should use to store employee entities in Table storage.":::
 
 You also need to store historical data relating to reviews and performance for each year the employee has worked for your organization, and you need to be able to access this information by year. One option is to create another table that stores entities with the following structure:  
 
@@ -900,7 +900,7 @@ When you have a high volume of inserts, increase scalability by spreading the in
 #### Context and problem
 Prepending or appending entities to your stored entities typically results in the application adding new entities to the first or last partition of a sequence of partitions. In this case, all of the inserts at any particular time are taking place in the same partition, creating a hotspot. This prevents Table storage from load-balancing inserts across multiple nodes, and possibly causes your application to hit the scalability targets for partition. For example, consider the case of an application that logs network and resource access by employees. An entity structure such as the following can result in the current hour's partition becoming a hotspot, if the volume of transactions reaches the scalability target for an individual partition:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE26.png" alt-text="Graphic of employee entity":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE26.png" alt-text="Graphic of an entity structure that can result in the current hour's partition becoming a hotspot, if the volume of transactions reaches the scalability target for an individual partition.":::
 
 #### Solution
 The following alternative entity structure avoids a hotspot on any particular partition, as the application logs events:  
@@ -931,7 +931,7 @@ Typically, you should use Blob storage instead of Table storage to store log dat
 #### Context and problem
 A common use case for log data is to retrieve a selection of log entries for a specific date/time range. For example, you want to find all the error and critical messages that your application logged between 15:04 and 15:06 on a specific date. You don't want to use the date and time of the log message to determine the partition you save log entities to. That results in a hot partition because at any particular time, all the log entities will share the same `PartitionKey` value (see the [Prepend/append anti-pattern](#prepend-append-anti-pattern)). For example, the following entity schema for a log message results in a hot partition, because the application writes all log messages to the partition for the current date and hour:  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE28.png" alt-text="Graphic of log message entity":::
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE28.png" alt-text="Graphic that shows an entity schema for a log message results in a hot partition.":::
 
 In this example, the `RowKey` includes the date and time of the log message to ensure that log messages are sorted in date/time order. The `RowKey` also includes a message ID, in case multiple log messages share the same date and time.  
 
