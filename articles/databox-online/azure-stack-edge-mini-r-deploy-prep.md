@@ -139,7 +139,7 @@ To create a Azure Stack Edge resource, take the following steps in the Azure por
     
     After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
     
-    ![Go to the Azure Stack Edge Pro resource](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
+    ![Go to the Azure Stack Edge Pro resource](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-1.png)
     
     After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
 
@@ -151,7 +151,7 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
 1. Select the resource that you created. Select **Overview** and then select **Device setup**.
 
-    ![Select Device setup](media/azure-stack-edge-k-series-deploy-prep/activation-key-01.png)
+    ![Select Device setup](media/azure-stack-edge-mini-r-deploy-prep/activation-key-01.png)
 
 2. On the **Activate** tile, provide a name for the Azure Key Vault or accept the default name. The key vault name can be between 3 and 24 characters. 
 
@@ -159,7 +159,7 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
     Once you have specified a key vault name, select **Generate key** to create an activation key. 
 
-    ![Get activation key](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
+    ![Get activation key](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png)
 
     Wait a few minutes as the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.
 

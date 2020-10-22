@@ -127,4 +127,4 @@ In this tutorial, you learn about:
 To learn how to configure certificates for your Azure Stack Edge Mini R device, see:
 
 > [!div class="nextstepaction"]
-> [Configure certificates](./azure-stack-edge-mini-r-deploy-configure-certificates.md)
+> [Configure certificates](./azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption.md)

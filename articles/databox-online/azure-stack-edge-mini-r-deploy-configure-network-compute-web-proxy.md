@@ -49,29 +49,29 @@ Follow these steps to configure the network for your device.
 
 4. In the local web UI, go to **Get started**. On the **Security** tile, select **Certificates** and then select **Configure**. 
 
-    ![Local web UI "Get started" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png)
+    ![Local web UI "Certificates" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png)
 
     1. Select **+ Add certificate**. 
     
-        ![Local web UI "Get started" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-1.png)
+        ![Local web UI "Certificates" page 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-1.png)
 
     2. Upload the signing chain and select **Apply**.
 
-        ![Local web UI "Get started" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-2.png)
+        ![Local web UI "Certificates" page 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-2.png)
 
     3. Repeat the procedure with the Wi-Fi certificate. 
 
-        ![Local web UI "Get started" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-4.png)
+        ![Local web UI "Certificates" page 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-4.png)
 
     4. The new certificates should be displayed on the **Certificates** page. 
     
-        ![Local web UI "Get started" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-5.png)
+        ![Local web UI "Certificates" page 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-5.png)
 
     5. Go back to **Get started**.
 
 3. On the **Network** tile, select **Configure**.  
     
-    ![Local web UI "Network settings" tile](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-6.png)
+    <!--![Local web UI "Network settings" tile](./media/azure-stack-edge-k-series-deploy-connect-setup-activate/set-up-device-6.png)-->
 
     On your physical device, there are five network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3 and PORT 4 are all 10-Gbps network interfaces. The fifth port is the Wi-Fi port. 
 
@@ -90,15 +90,15 @@ Follow these steps to configure the network for your device.
    
 4. Select **Add Wi-Fi profile** and  upload your Wi-Fi profile. 
 
-    ![Local web UI "Port 1 Network settings" 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-1.png)
+    ![Local web UI "Port WiFi Network settings" 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-1.png)
     
     A wireless network profile contains the SSID (network name), password key, and security information to be able to connect to a wireless network. You can get the Wi-Fi profile for your environment from your network administrator.
 
-    ![Local web UI "Port 1 Network settings" 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-2.png)
+    ![Local web UI "Port WiFi Network settings" 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-2.png)
 
     After the profile is added, the list of Wi-Fi profiles updates to reflect the new profile. The profile should show the **Connection status** as **Disconnected**. 
 
-    ![Local web UI "Port 1 Network settings" 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-3.png)
+    ![Local web UI "Port WiFi Network settings" 3](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-3.png)
 
     As you configure the network settings, keep in mind:
 
@@ -113,15 +113,15 @@ Follow these steps to configure the network for your device.
 
 5. After the wireless network profile is successfully loaded, connect to this profile. Select **Connect to Wi-Fi profile**. 
 
-    ![Local web UI "Port 1 Network settings" 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-4.png)
+    ![Local web UI "Port Wi-Fi Network settings" 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-4.png)
 
 6. Select the Wi-Fi profile that you added in the previous step and select **Apply**. 
 
-    ![Local web UI "Port 1 Network settings" 5](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-5.png)
+    ![Local web UI "Port Wi-Fi Network settings" 5](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-5.png)
 
     The **Connection status** should update to **Connected**. The signal strength updates to indicate the quality of the signal. 
 
-    ![Local web UI "Port 1 Network settings" 6](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-6.png)
+    ![Local web UI "Port Wi-Fi Network settings" 6](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-6.png)
 
     > [!NOTE]
     > To transfer large amounts of data, we recommend that you use a wired connection instead of the wireless network. 

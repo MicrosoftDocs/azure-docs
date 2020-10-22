@@ -31,8 +31,8 @@ Before you configure and set up your Azure Stack Edge Mini R device, make sure t
     
     - You've installed the physical device as detailed in [Install Azure Stack Edge Mini R](azure-stack-edge-mini-r-deploy-install.md).
     - You've configured the network and compute network settings as detailed in [Configure network, compute network, web proxy](azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy.md)
-    - You have uploaded your own certificates on your device if you changed the device name or the DNS domain via the **Device** page. These steps are detailed in [Configure certificates, VPN, and encryption-at-rest](azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption-at-rest.md). If you haven't done this step, activation will be blocked.
-    - You have configured the encryption-at-rest for your device. If you haven't done this step, you will see an error during the device activation and the activation will be blocked. For more information, go to [Configure certificates, VPN, and encryption-at-rest](azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption-at-rest.md).
+    - You have uploaded your own certificates on your device if you changed the device name or the DNS domain via the **Device** page. These steps are detailed in [Configure certificates, VPN, and encryption-at-rest](azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption.md). If you haven't done this step, activation will be blocked.
+    - You have configured the encryption-at-rest for your device. If you haven't done this step, you will see an error during the device activation and the activation will be blocked. For more information, go to [Configure certificates, VPN, and encryption-at-rest](azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption.md).
     
 * You have the activation key from the Azure Stack Edge service that you created to manage the Azure Stack Edge Mini R device. For more information, go to [Prepare to deploy Azure Stack Edge Mini R](azure-stack-edge-mini-r-deploy-prep.md).
 

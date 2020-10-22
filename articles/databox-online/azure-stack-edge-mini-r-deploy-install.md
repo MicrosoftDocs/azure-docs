@@ -113,11 +113,11 @@ Take the following steps to cable your device for power and network.
 
 2. Locate the power button on the  bottom left corner of the front of the device. 
 
-    ![Front plane of a device](./media/azure-stack-edge-mini-r-deploy-install/device-power-button.png)
+    ![Front plane of a device with power button on the device](./media/azure-stack-edge-mini-r-deploy-install/device-power-button.png)
 
 3. The battery is connected to the back plane of your device. Identify the second power button located on the battery. 
 
-    ![Front plane of a device](./media/azure-stack-edge-mini-r-deploy-install/battery-power-button.png)
+    ![Front plane of a device with power button on the battery](./media/azure-stack-edge-mini-r-deploy-install/battery-power-button.png)
 
 
     Connect one end of the power cord to the battery and the other to the power outlet. 
@@ -158,4 +158,4 @@ In this tutorial, you learned about Azure Stack Edge topics such as how to:
 Advance to the next tutorial to learn how to connect, set up, and activate your device.
 
 > [!div class="nextstepaction"]
-> [Connect and set up Azure Stack Edge](./azure-stack-edge-mini-r-deploy-connect-setup-activate.md)
+> [Connect and set up Azure Stack Edge](./azure-stack-edge-mini-r-deploy-connect.md)

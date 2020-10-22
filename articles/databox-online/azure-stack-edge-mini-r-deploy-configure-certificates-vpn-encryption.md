@@ -105,7 +105,7 @@ You already added the signing chain in an earlier step on this device. You can n
     To configure VPN, you'll first need to ensure that you have all the necessary configuration done in Azure. For details, see [Configure VPN via PowerShell for your Azure Stack Edge Mini R device](azure-stack-edge-placeholder.md). Once this is complete, you can do the configuration in the local UI.
     
     1. On the VPN page, select **Configure**.
-        ![Configure local UI 2](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/configure-vpn-1.png)
+        ![Configure VPN local UI 1](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/configure-vpn-1.png)
 
     2. In the **Configure VPN** blade:
 
@@ -114,7 +114,7 @@ You already added the signing chain in an earlier step on this device. You can n
         3. Select **eastus** as the region.
         4. Select **Apply**.
 
-        ![Configure local UI 2](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/configure-vpn-2.png)
+        ![Configure VPN local UI 2](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/configure-vpn-2.png)
     
     3. Configure IP address ranges to be accessed using VPN only. 
     
@@ -122,7 +122,7 @@ You already added the signing chain in an earlier step on this device. You can n
         - Enter the VNET IPv4 range that you had chosen for your Azure Virtual Network.
         - Select **Apply**.
     
-        ![Configure local UI 5](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/configure-vpn-3.png)
+        ![Configure VPN local UI 3](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/configure-vpn-3.png)
 
 Your device is now ready to be encrypted. Configure encryption at rest.
 
