@@ -292,9 +292,6 @@ namespace minimal
             //Create the twin
             await client.CreateDigitalTwinAsync(targetId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
             Console.WriteLine();
-            Console.WriteLine("Deleting existing relationships to the twin");
-            Console.WriteLine();
-            await DeleteRelationship(client, srcId);
             Console.WriteLine("Twin created successfully");
 
             //Create relationship between them
@@ -303,6 +300,20 @@ namespace minimal
             Console.WriteLine();
 
             //Print twins and their relationships
+            Console.WriteLine("Printing srcId - Outgoing relationships");
+            Console.WriteLine();
+            await FetchAndPrintTwinAsync(srcId, client);
+            Console.WriteLine();
+            Console.WriteLine("Printing targetId - Incoming relationships");
+            Console.WriteLine();
+            await FetchAndPrintTwinAsync(targetId, client);
+
+            //Delete only the "contains" relationship
+            Console.WriteLine("Deleting the contains relationship");
+            Console.WriteLine();
+            await DeleteRelationship(client, srcId, $"{srcId}-contains->{targetId}");
+
+            //Print twins and their relationships again
             Console.WriteLine("Printing srcId - Outgoing relationships");
             Console.WriteLine();
             await FetchAndPrintTwinAsync(srcId, client);
@@ -330,7 +341,7 @@ namespace minimal
 
             try
             {
-                string relId = $"{targetId}-{relName}->{srcId}";
+                string relId = $"{srcId}-{relName}->{targetId}";
                 await client.CreateRelationshipAsync(srcId, relId, JsonSerializer.Serialize(relationship));
                 Console.WriteLine($"Created {relName} relationship successfully");
             }
@@ -402,12 +413,18 @@ namespace minimal
             }
         }
 
-        private static async Task DeleteRelationship(DigitalTwinsClient client, string srcId)
+        private static async Task DeleteRelationship(DigitalTwinsClient client, string srcId, string relId)
         {
-            List<BasicRelationship> lists = await FindOutgoingRelationshipsAsync(client, srcId);
-            foreach(BasicRelationship rel in lists) {
-                await client.DeleteRelationshipAsync(srcId, rel.Id);
-            }   
+            try
+            {
+                Response response = await client.DeleteRelationshipAsync(srcId, relId);
+                await FetchAndPrintTwinAsync(srcId, client);
+                Console.WriteLine("Deleted relationship successfully");
+            }
+            catch (RequestFailedException Ex)
+            {
+                Console.WriteLine($"Error {Ex.ErrorCode}");
+            }
         }
     }
 }
