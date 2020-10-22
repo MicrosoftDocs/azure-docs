@@ -1,14 +1,14 @@
 ---
 title: Cognitive Services development options
 titleSuffix: Azure Cognitive Services
-description: 
+description: As part of Azure, you have access to automation and integration tools  like Logic Apps and Power Automate, deployment options such as Azure Functions and the App Service, opportunities to containerize Cognitive Services for secure access in private clouds, and finally leveraging tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for Big Data scenarios.
 services: cognitive-services
 manager: nitinme
 author: erhopf
 ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 10/22/2020
 ---
 
 # Cognitive Services development options
@@ -100,6 +100,10 @@ You can use Azure DevOps and GitHub actions to manage your deployments. In the [
 * **UI tools**: N/A - Code only 
 * **Subscription(s)**: Azure account + Cognitive Services resource + GitHub account
 
+## On-prem containers 
+
+Many of the Cognitive Services can be deployed in containers for on-prem access and use. Using these containers gives you the flexibility to bring Cognitive Services closer to your data for compliance, security or other operational reasons. For a complete list of Cognitive Services containers, see [Containers support](./cognitive-services-container-support.md).
+
 ## Customization
 
 As you progress on your journey building an application or workflow with the Cognitive Services, you may find that you need to customize the model to achieve the desired performance. Many of our services allow you to build on top of the pre-built models to meet your specific business needs. For all our customizable services, we provide both a UI-driven experience for walking through the process as well as APIs for code-driven training. For example:
@@ -108,7 +112,7 @@ As you progress on your journey building an application or workflow with the Cog
 * You want to build an image classifier with Custom Vision that can tell the difference between coniferous and deciduous trees
 * You want to build a custom neural voice with your personal voice data for an improved automated customer experience
 
-The tools that you will use to train and configure models are different than those that you'll use to call the Cognitive Services. In many cases, Cognitive Services that support customization provide portals and UI tools designed to help you train, evaluate, and deploy models. Let's quickly take a look at a few options:
+The tools that you will use to train and configure models are different than those that you'll use to call the Cognitive Services. In many cases, Cognitive Services that support customization provide portals and UI tools designed to help you train, evaluate, and deploy models. Let's quickly take a look at a few options:<br><br>
 
 | Pillar | Service | Customization UI | Quickstart |
 |--------|---------|------------------|------------|
