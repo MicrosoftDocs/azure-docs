@@ -124,4 +124,4 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md).
