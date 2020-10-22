@@ -16,7 +16,7 @@ This article provides high-level steps used to transfer Azure subscriptions to a
 
 Before you start a transfer request, you should download or export any cost and billing information that you want to keep. Billing and utilization information doesn't transfer with the subscription. For more information about exporting cost management data, see [Create and manage exported data](../costs/tutorial-export-acm-data.md). For more information about downloading your invoice and usage data, see [Download or view your Azure billing invoice and daily usage data](download-azure-invoice-daily-usage-date.md).
 
-If you have any existing reservations, they stop applying after you transfer a subscription. Be sure to [cancel any reservations and refund them](../reservations/exchange-and-refund-azure-reservations) before you transfer a subscription.
+If you have any existing reservations, they stop applying after you transfer a subscription. Be sure to [cancel any reservations and refund them](../reservations/exchange-and-refund-azure-reservations.md) before you transfer a subscription.
 
 ## Transfer EA subscriptions to a CSP partner
 
