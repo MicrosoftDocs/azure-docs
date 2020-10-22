@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 10/22/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -169,6 +169,27 @@ The following example demonstrates the use of a self-asserted technical profile 
     <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
   </ValidationTechnicalProfiles>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+</TechnicalProfile>
+```
+
+### Output claims sign-up or sign-in page
+
+In a combined sign-up or sign-in page, using content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`, the first two claims are the claims that collects the username and the password. The rest of the claims are not rendered, and must be return default values, or surface claims form validation technical profiles. For example, the SelfAsserted-LocalAccountSignin-Email technical profile presents the signInName and password claims at the top to the collection. 
+
+```xml
+<TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+  ...
+  <OutputClaims>
+    <!--Username and password-->
+    <OutputClaim ClaimTypeReferenceId="signInName" Required="true" />
+    <OutputClaim ClaimTypeReferenceId="password" Required="true" />
+    <!--Claims return by the login-NonInteractive validation technical profile-->
+    <OutputClaim ClaimTypeReferenceId="objectId" />
+    <OutputClaim ClaimTypeReferenceId="authenticationSource" />
+  </OutputClaims>
+  <ValidationTechnicalProfiles>
+    <ValidationTechnicalProfile ReferenceId="login-NonInteractive" />
+  </ValidationTechnicalProfiles>
 </TechnicalProfile>
 ```
 
