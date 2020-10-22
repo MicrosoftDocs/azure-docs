@@ -251,7 +251,7 @@ Indexing best practices in Azure Cosmos DB's API for MongoDB are different from 
 
 [Wildcard indexes](mongodb-indexing.md#wildcard-indexes) can simplify indexing. Unlike in MongoDB, wildcard indexes can support multiple fields in query predicates. There will not be a difference in query performance if you use one single wildcard index instead of creating a separate index for each property. Adding a wildcard index for all properties is the easiest way to optimize all of your queries.
 
-You can add new indexes at any time, with no effect on write or read availability. You can [track index transformation progress](./how-to-manage-indexing-policy.md#use-the-net-sdk-v3).
+You can add new indexes at any time, with no effect on write or read availability. You can [track index transformation progress](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### Understand which aggregation operations use the index
 

@@ -12,7 +12,7 @@ ms.author: thvankra
 
 There are a variety of options to explore the elastic nature of the Azure Cosmos DB API for Cassandra. To understand how to scale effectively in Azure Cosmos DB, it is important to understand how to provision the right amount of request units (RU/s) to account for the performance demands in your system. To learn more about request units, see the [request units](request-units.md) article. 
 
-For the Cassandra API, you can retrieve the Request Unit charge for individual queries using the [.NET and Java SDKs](./find-request-unit-charge.md#cassandra-api). This is helpful in determining the amount of RU/s you will need to provision in the service.
+For the Cassandra API, you can retrieve the Request Unit charge for individual queries using the [.NET and Java SDKs](./find-request-unit-charge-cassandra.md). This is helpful in determining the amount of RU/s you will need to provision in the service.
 
 :::image type="content" source="./media/request-units/request-units.png" alt-text="Database operations consume Request Units" border="false":::
 
