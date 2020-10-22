@@ -93,7 +93,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
    * In the **Domain** box, fill in the subdomain based on Step 6.
 
-   * In the **Admin Username** box, fill in the username of the admin account on your Clarizen Tenant. An example is admin@contoso.com.
+   * In the **Admin Username** box, fill in the username of the admin account on your Tableau Online Tenant. An example is admin@contoso.com.
 
    * In the **Admin Password** box, fill in the password of the admin account that corresponds to the admin username.
 
