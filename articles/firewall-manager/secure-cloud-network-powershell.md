@@ -31,8 +31,6 @@ In this tutorial, you learn how to:
 
     If you have Az.Network version 3.4.0 or later, you'll need to downgrade to use some of the commands in this tutorial. You can check the version of your Az.Network module with the command `Get-InstalledModule -Name Az.Network`. To uninstall the Az.Network module, run `Uninstall-Module -name az.network`. To install the Az.Network 3.2.0 module, run `Install-Module az.network -RequiredVersion 3.2.0 -force`.
 
-To
-
 ## Sign in to Azure
 
 ```azurepowershell
