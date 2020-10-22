@@ -88,7 +88,7 @@ Now, we'll configure our tests to use the emulator. The emulator build task expo
 
 In this tutorial, we'll use the [Visual Studio Test task](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) to run unit tests configured via a **.runsettings** file. To learn more about unit test setup, visit the [documentation](/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?preserve-view=true&view=vs-2017). The complete Todo application code sample that you use in this document is available on [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
 
-Below is an example of a **.runsettings** file that defines parameters to be passed into an application's unit tests. Note the `authKey` variable used is the [well-known key](./local-emulator.md#authenticating-requests) for the emulator. This `authKey` is the key expected by the emulator build task and should be defined in your **.runsettings** file.
+Below is an example of a **.runsettings** file that defines parameters to be passed into an application's unit tests. Note the `authKey` variable used is the [well-known key](./local-emulator.md#authenticate-requests) for the emulator. This `authKey` is the key expected by the emulator build task and should be defined in your **.runsettings** file.
 
 ```csharp
 <RunSettings>
