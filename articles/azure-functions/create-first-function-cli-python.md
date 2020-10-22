@@ -136,7 +136,7 @@ Use the following Azure CLI commands to create these items. Each command provide
 
     ---
 
-    `> [!NOTE]
+    > [!NOTE]
     > You can't host Linux and Windows apps in the same resource group. If you have an existing resource group named `AzureFunctionsQuickstart-rg` with a Windows function app or web app, you must use a different resource group.
 
 1. Create a general-purpose storage account in your resource group and region:
