@@ -17,7 +17,7 @@ Converting an Azure Service Fabric cluster's certificate declarations from thumb
 
 The security of a cluster whose certificate is declared by thumbprint rests on the fact that it's impossible, or computationally unfeasible, to forge a certificate with the same signature as another one. In this case, the provenance of the certificate is less important, so self-signed certificates are adequate.
 
-By contrast, the security of a cluster whose certificates are declared by CN flows from the implicit trust the cluster owner has in their certificate provider. The provider is the public key infrastructure (PKI) service that issued the certificate. This trust is based, among other factors, on the PKI's certification practices, whether their operational security is audited and approved by yet-other trusted parties, and so on.
+By contrast, the security of a cluster whose certificates are declared by CN flows from the implicit trust the cluster owner has in their certificate provider. The provider is the public key infrastructure (PKI) service that issued the certificate. Trust is based, among other factors, on the PKI's certification practices, whether their operational security is audited and approved by yet-other trusted parties, and so on.
 
 The cluster owner must also have detailed knowledge of which certificate authorities (CAs) are issuing their certificates, since this is a fundamental aspect of validating certificates by subject. This also implies that self-signed certificates are wholly unsuitable for this purpose. Literally anyone can generate a certificate with a given subject.
 
