@@ -69,6 +69,8 @@ Instance(**Type I and Type II**)
 - Script to enable Kdump can be found [here](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
 > [!NOTE]
 > this script is made based on our lab setup and Customer is expected to contact OS vendor for any further tuning.
+> Separate LUN is going to be provisioned for the new and existing servers for saving the dumps and script will take care of configuring the file system out of the LUN.
+> Microsoft will not be responsible for analyzing the dump. Customer has to open a ticket with OS vendor to get it analyzed.
 
 - Run this script on HANA Large Instance using the below command
 
@@ -79,7 +81,7 @@ Instance(**Type I and Type II**)
     sudo bash enable-kdump.sh
     ```
 
-- If the command outputs Kdump is successfully enabled, please reboot the system to apply the change, then the Kdump is successfully enabled. Reboot the system to apply changes.
+- If the command outputs Kdump is successfully enabled, please make sure to reboot the system to apply the changes successfully.
 
 - If the command output is Failed to do certain operation, Exiting!!!!, then Kdump service is not enabled. Refer to section [Support issue](#support-issue).
 
