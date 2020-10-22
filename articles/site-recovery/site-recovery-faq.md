@@ -66,7 +66,7 @@ Review [Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-
 
 You can use the [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Site Recovery.
 
-For detailed estimate on costs, run the deployment planner tool for [VMware](https://aka.ms/siterecovery_deployment_planner) or [Hyper-V](https://aka.ms/asr-deployment-planner), and use the [cost estimation report](https://aka.ms/asr_DP_costreport).
+For detailed estimate on costs, run the deployment planner tool for [VMware](./site-recovery-deployment-planner.md) or [Hyper-V](https://aka.ms/asr-deployment-planner), and use the [cost estimation report](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 
 ### Managed disks are now used to replicate VMware VMs and physical servers. Do I incur additional charges for the cache storage account with managed disks?

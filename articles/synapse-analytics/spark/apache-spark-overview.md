@@ -40,7 +40,7 @@ Spark pools in Azure Synapse offer a fully managed Spark service. The benefits o
 
 Spark pools in Azure Synapse include the following components that are available on the pools by default.
 
-- [Spark Core](https://spark.apache.org/docs/latest/). Includes Spark Core, Spark SQL, GraphX, and MLlib.
+- [Spark Core](https://spark.apache.org/docs/2.4.5/). Includes Spark Core, Spark SQL, GraphX, and MLlib.
 - [Anaconda](https://docs.continuum.io/anaconda/)
 - [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
 - [Nteract notebook](https://nteract.io/)
@@ -76,7 +76,7 @@ Use the following articles to learn more about Apache Spark in Synapse Analytics
 - [Quickstart: Create a Spark pool in Azure Synapse](../quickstart-create-apache-spark-pool-portal.md)
 - [Quickstart: Create an Apache Spark notebook](../quickstart-apache-spark-notebook.md)
 - [Tutorial: Machine learning using Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
-- [Apache Spark official documentation](https://spark.apache.org/docs/latest/)
+- [Apache Spark official documentation](https://spark.apache.org/docs/2.4.5/)
 
 > [!NOTE]
 > Some of the official Apache Spark documentation relies on using the spark console, this is not available on Azure Synapse Spark, use the notebook or IntelliJ experiences instead

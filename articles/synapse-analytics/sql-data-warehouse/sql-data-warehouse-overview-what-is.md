@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 # What is Azure Synapse Analytics (formerly SQL DW)?
 
-> [!NOTE] 
+> [!NOTE]
 >Explore the [Azure Synapse (workspaces preview) documentation](../overview-what-is.md).
 >
 

@@ -12,7 +12,7 @@ ms.date: 8/13/2020
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MariaDB provides various metrics that give insight into the behavior of your server.
 
 ## Metrics
-All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../azure-monitor/platform/data-platform.md).
 
 For step by step guidance, see [How to set up alerts](howto-alert-metric.md).
 
@@ -73,12 +73,12 @@ During planned maintenance, you can expect your server to restart and [transient
 7. Ensure Enable rule upon creation is set to Yes.
 8. Select **Create alert rule** to complete your alert
 
-For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md).
+For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 > [!Note]
 > We will make every attempt to provide **Planned maintenance notification** 72 hours notice for all events. However, in cases of critical or security patches, notifications might be sent closer to the event or be omitted.
 
 ## Next steps
 
-- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../azure-monitor/platform/data-platform.md).
   - See [How to set up alerts](howto-alert-metric.md) for guidance on creating an alert on a metric.

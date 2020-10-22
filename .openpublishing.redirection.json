@@ -5358,7 +5358,12 @@
     },
     {
       "source_path": "articles/key-vault/key-vault-security-controls.md",
-      "redirect_url": "/azure/key-vault/general/security-controls",
+      "redirect_url": "/azure/key-vault/general/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/key-vault-security-controls.md",
+      "redirect_url": "/azure/key-vault/general/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -19593,6 +19598,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/synapse-analytics/quickstart-synapse-studio.md",
+      "redirect_url": "/azure/synapse-analytics/get-started-create-workspace",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-build-multi-tenant-apps.md",
       "redirect_url": "/azure/sql-database/saas-tenancy-app-design-patterns",
       "redirect_document_id": false
@@ -31858,6 +31868,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/marketplace/partner-center-portal/azure-vm-image-certification.md",
+      "redirect_url": "/azure/marketplace/azure-vm-image-test",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/marketplace/gtm-promote-your-business.md",
       "redirect_url": "/azure/marketplace/gtm-marketing-best-practices",
       "redirect_document_id": false
@@ -33029,7 +33044,12 @@
     },
     {
       "source_path": "articles/api-management/api-management-security-attributes.md",
-      "redirect_url": "/azure/api-management/api-management-security-controls",
+      "redirect_url": "/azure/api-management/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-security-controls.md",
+      "redirect_url": "/azure/api-management/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -33044,7 +33064,12 @@
     },
     {
       "source_path": "articles/backup/backup-security-attributes.md",
-      "redirect_url": "/azure/backup/backup-security-controls",
+      "redirect_url": "/azure/backup/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-security-controls.md",
+      "redirect_url": "/azure/backup/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -33054,12 +33079,22 @@
     },
     {
       "source_path": "articles/event-hubs/event-hubs-security-attributes.md",
-      "redirect_url": "/azure/event-hubs/event-hubs-security-controls",
+      "redirect_url": "/azure/event-hubs/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/event-hubs/event-hubs-security-controls.md",
+      "redirect_url": "/azure/event-hubs/security-baseline",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/expressroute/expressroute-security-attributes.md",
-      "redirect_url": "/azure/expressroute/expressroute-security-controls",
+      "redirect_url": "/azure/expressroute/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-security-controls.md",
+      "redirect_url": "/azure/expressroute/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -33074,7 +33109,12 @@
     },
     {
       "source_path": "articles/service-bus-messaging/service-bus-messaging-security-attributes.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-messaging-security-controls",
+      "redirect_url": "/azure/service-bus-messaging/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-bus-messaging/service-bus-messaging-security-controls.md",
+      "redirect_url": "/azure/service-bus-messaging/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -33084,27 +33124,52 @@
     },
     {
       "source_path": "articles/service-fabric/service-fabric-security-attributes.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-security-controls",
+      "redirect_url": "/azure/service-fabric/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-security-controls.md",
+      "redirect_url": "/azure/service-fabric/security-baseline",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/common/storage-security-attributes.md",
-      "redirect_url": "/azure/storage/common/storage-security-controls",
+      "redirect_url": "/azure/storage/common/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-security-controls.md",
+      "redirect_url": "/azure/storage/common/security-baseline",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/virtual-machines-linux-security-attributes.md",
-      "redirect_url": "/azure/virtual-machines/linux/virtual-machines-linux-security-controls",
+      "redirect_url": "/azure/virtual-machines/linux/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/virtual-machines-linux-security-controls.md",
+      "redirect_url": "/azure/virtual-machines/linux/security-baseline",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/windows/virtual-machines-windows-security-attributes.md",
-      "redirect_url": "/azure/virtual-machines/windows/virtual-machines-windows-security-controls",
+      "redirect_url": "/azure/virtual-machines/windows/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/virtual-machines-windows-security-controls.md",
+      "redirect_url": "/azure/virtual-machines/windows/security-baseline",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-security-attributes.md",
-      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-security-controls",
+      "redirect_url": "/azure/virtual-machine-scale-sets/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-security-controls.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -53705,8 +53770,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": " \"articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-views.md\"",
-      "redirect_url": " \"/azure/synapse-analytics/sql-data-warehouse/performance-tuning-materialized-views\"",
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-views.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/performance-tuning-materialized-views",
       "redirect_document_id": " false"
     },
     {
@@ -54760,7 +54825,12 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-security-attributes.md",
-      "redirect_url": "/azure/sql-database/sql-database-security-controls",
+      "redirect_url": "/azure/azure-sql/database/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql/database/security-controls.md",
+      "redirect_url": "/azure/azure-sql/database/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -57894,6 +57964,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/support.md",
+      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/cognitive-services-support-options?context=/azure/cognitive-services/speech-service/context/context",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/authentication/active-directory-passwords-troubleshoot.md",
       "redirect_url": "/azure/active-directory/authentication/troubleshoot-sspr",
       "redirect_document_id": true
@@ -58402,6 +58477,407 @@
       "source_path": "articles/healthcare-apis/fhir-oss-portal-quickstart.md",
       "redirect_url": "/azure/healthcare-apis/fhir-paas-portal-quickstart",
       "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/custom-consent-permissions.md",
+        "redirect_url": "/azure/active-directory/roles/custom-consent-permissions",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/custom-enterprise-app-permissions.md",
+        "redirect_url": "/azure/active-directory/roles/custom-enterprise-app-permissions",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/custom-enterprise-apps.md",
+        "redirect_url": "/azure/active-directory/roles/custom-enterprise-apps",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/directory-admin-roles-secure.md",
+        "redirect_url": "/azure/active-directory/roles/security-planning",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/directory-administrative-units.md",
+        "redirect_url": "/azure/active-directory/roles/administrative-units",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/directory-assign-admin-roles.md",
+        "redirect_url": "/azure/active-directory/roles/permissions-reference",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/directory-delete-howto.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/directory-delete-howto",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/directory-emergency-access.md",
+        "redirect_url": "/azure/active-directory/roles/security-emergency-access",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/directory-manage-roles-portal.md",
+        "redirect_url": "/azure/active-directory/roles/manage-roles-portal",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/directory-overview-user-model.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/directory-overview-user-model",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/directory-self-service-signup.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/directory-self-service-signup",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/directory-service-limits-restrictions.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/directory-service-limits-restrictions",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/domains-admin-takeover.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/domains-admin-takeover",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/domains-manage.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/domains-manage",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-assign-sensitivity-labels.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-assign-sensitivity-labels",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-bulk-download-members.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-bulk-download-members",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-bulk-download.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-bulk-download",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-bulk-import-members.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-bulk-import-members",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-bulk-remove-members.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-bulk-remove-members",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-change-type.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-change-type",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-create-rule.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-create-rule",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-dynamic-membership.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-dynamic-membership",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-dynamic-rule-validation.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-dynamic-rule-validation",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-dynamic-tutorial.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-dynamic-tutorial",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-lifecycle.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-lifecycle",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-members-owners-search.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-members-owners-search",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-naming-policy.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-naming-policy",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-quickstart-expiration.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-quickstart-expiration",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-quickstart-naming-policy.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-quickstart-naming-policy",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-restore-deleted.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-restore-deleted",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-saasapps.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-saasapps",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-self-service-management.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-self-service-management",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-settings-cmdlets.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-settings-cmdlets",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-settings-v2-cmdlets.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-settings-v2-cmdlets",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/groups-troubleshooting.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/groups-troubleshooting",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/licensing-directory-independence.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/licensing-directory-independence",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/licensing-group-advanced.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/licensing-group-advanced",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/licensing-groups-assign.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/licensing-groups-assign",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/licensing-groups-change-licenses.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/licensing-groups-change-licenses",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/licensing-groups-migrate-users.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/licensing-groups-migrate-users",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/licensing-groups-resolve-problems.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/licensing-groups-resolve-problems",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/licensing-ps-examples.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/licensing-ps-examples",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/licensing-service-plan-reference.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/licensing-service-plan-reference",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/linkedin-integration.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/linkedin-integration",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/linkedin-user-consent.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/linkedin-user-consent",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/my-staff-configure.md",
+        "redirect_url": "/azure/active-directory/roles/my-staff-configure",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-admin-units-add-manage-groups.md",
+        "redirect_url": "/azure/active-directory/roles/admin-units-add-manage-groups",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-admin-units-add-manage-users.md",
+        "redirect_url": "/azure/active-directory/roles/admin-units-add-manage-users",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-admin-units-assign-roles.md",
+        "redirect_url": "/azure/active-directory/roles/admin-units-assign-roles",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-admin-units-faq-troubleshoot.md",
+        "redirect_url": "/azure/active-directory/roles/admin-units-faq-troubleshoot",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-admin-units-manage.md",
+        "redirect_url": "/azure/active-directory/roles/admin-units-manage",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-assign-graph.md",
+        "redirect_url": "/azure/active-directory/roles/custom-assign-graph",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-assign-powershell.md",
+        "redirect_url": "/azure/active-directory/roles/custom-assign-powershell",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-concept-delegation.md",
+        "redirect_url": "/azure/active-directory/roles/concept-delegation",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-create-custom.md",
+        "redirect_url": "/azure/active-directory/roles/custom-create",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-custom-available-permissions.md",
+        "redirect_url": "/azure/active-directory/roles/custom-available-permissions",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-custom-overview.md",
+        "redirect_url": "/azure/active-directory/roles/custom-overview",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-delegate-app-roles.md",
+        "redirect_url": "/azure/active-directory/roles/delegate-app-roles",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-delegate-by-task.md",
+        "redirect_url": "/azure/active-directory/roles/delegate-by-task",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-groups-assign-role.md",
+        "redirect_url": "/azure/active-directory/roles/groups-assign-role",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-groups-concept.md",
+        "redirect_url": "/azure/active-directory/roles/groups-concept",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-groups-create-eligible.md",
+        "redirect_url": "/azure/active-directory/roles/groups-create-eligible",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-groups-faq-troubleshooting.md",
+        "redirect_url": "/azure/active-directory/roles/groups-faq-troubleshooting",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-groups-pim-eligible.md",
+        "redirect_url": "/azure/active-directory/roles/groups-pim-eligible",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-groups-remove-assignment.md",
+        "redirect_url": "/azure/active-directory/roles/groups-remove-assignment",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-groups-view-assignments.md",
+        "redirect_url": "/azure/active-directory/roles/groups-view-assignments",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-m365-workload-docs.md",
+        "redirect_url": "/azure/active-directory/roles/m365-workload-docs",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-quickstart-app-registration-limits.md",
+        "redirect_url": "/azure/active-directory/roles/quickstart-app-registration-limits",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/roles-view-assignments.md",
+        "redirect_url": "/azure/active-directory/roles/view-assignments",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/signin-account-support.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/signin-account-support",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/signin-realm-discovery.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/signin-realm-discovery",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/users-bulk-add.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/users-bulk-add",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/users-bulk-delete.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/users-bulk-delete",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/users-bulk-download.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/users-bulk-download",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/users-bulk-restore.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/users-bulk-restore",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/users-close-account.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/users-close-account",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/users-restrict-guest-permissions.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/users-restrict-guest-permissions",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/users-revoke-access.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/users-revoke-access",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/active-directory/users-groups-roles/users-search-enhanced.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/users-search-enhanced",
+        "redirect_document_id": true
+    },
+
+    {
+        "source_path": "articles/active-directory/users-groups-roles/users-sharing-accounts.md",
+        "redirect_url": "/azure/active-directory/enterprise-users/users-sharing-accounts",
+        "redirect_document_id": true
     },
     {
       "source_path": "articles/healthcare-apis/fhir-oss-powershell-quickstart.md",
