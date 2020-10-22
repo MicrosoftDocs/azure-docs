@@ -1,5 +1,5 @@
 ---
-title: "DB2 to SQL Managed Instance - Migration Guide"
+title: "Migration guide: DB2 to SQL Managed Instance"
 description: Follow this guide to migrate your DB2 databases to Azure SQL Managed Instance. 
 ms.service: sql-database
 ms.subservice: migration
@@ -14,7 +14,7 @@ ms.date: 08/25/2020
 # Migration guide: DB2 to SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
-This guide helps you migrate your DB2 databases to Azure SQL Managed Instance. 
+This guide teaches you to migrate your DB2 databases to Azure SQL Managed Instance using the SQL Server Migration Assistant for DB2. 
 
 For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
 
@@ -110,12 +110,12 @@ To publish your schema and migrate your data, follow these steps:
 
    :::image type="content" source="media/db2-to-managed-instance-guide/migrate-data.png" alt-text="Right-click the schema and choose migrate data":::
 
-1. Provide connection details for both the DB2 and SQL Server instances. 
+1. Provide connection details for both DB2 and SQL Managed Instance. 
 1. View the **Data Migration report**. 
 
    :::image type="content" source="media/db2-to-managed-instance-guide/data-migration-report.png" alt-text="Review the data migration report":::
 
-1. Connect to your SQL Server instance by using SQL Server Management Studio and validate the migration by reviewing the data and schema. 
+1. Connect to SQL Managed Instance by using SQL Server Management Studio and validate the migration by reviewing the data and schema. 
 
    :::image type="content" source="media/db2-to-managed-instance-guide/compare-schema-in-ssms.png" alt-text="Compare the schema in SSMS":::
 
