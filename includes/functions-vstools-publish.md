@@ -36,7 +36,7 @@ ms.custom: include file
 
 
 1. Select **Create** to create a function app and its related resources in Azure. 
-1. In the **Functions instance**, ensure **Run from package file** is checked. Your function app is deployed using [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) mode enabled. This deployment, which results in better performance, is the recommended way of running your functions. <br/>If you don't use this option, make sure to stop your function app project from running locally before you publish to Azure. 
+1. In the **Functions instance**, make sure that **Run from package file** is checked. Your function app is deployed using [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) mode enabled. This is the recommended deployment method for your functions project, since it results in better performance. 
 
     :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-4.png" alt-text="Finish profile creation":::
 
