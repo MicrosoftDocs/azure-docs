@@ -250,7 +250,7 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## Consistency mapping 
 
-Azure Cosmos DB Cassandra API provides choice of consistency for read operations.  The consistency mapping is detailed [here](./consistency-levels.md#cassandra-mapping).
+Azure Cosmos DB Cassandra API provides choice of consistency for read operations.  The consistency mapping is detailed [here](./cassandra-consistency.md#mapping-consistency-levels).
 
 ## Permission and role management
 
