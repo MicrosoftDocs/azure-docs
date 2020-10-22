@@ -132,7 +132,7 @@ If a transient failure, service unavailability, or throttling happens while Stre
 
 ## Common issues
 
-1. An unique index constraint is added to the collection and the output data from ASA violates this constraint. Please make sure that the output data from ASA does not violate unique constraints or remove such constraints. Additional details here https://docs.microsoft.com/en-us/azure/cosmos-db/unique-keys
+1. An unique index constraint is added to the collection and the output data from ASA violates this constraint. Please make sure that the output data from ASA does not violate unique constraints or remove such constraints. Additional details here https://docs.microsoft.com/azure/cosmos-db/unique-keys
 
 2. PartitionKey column does not exists.
 
