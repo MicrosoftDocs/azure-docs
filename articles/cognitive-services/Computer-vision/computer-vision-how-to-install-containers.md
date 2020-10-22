@@ -164,9 +164,9 @@ More [examples](./computer-vision-resource-container-config.md#example-docker-ru
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-If you need higher throughput (for example, when processing multi-page files), consider deploying multiple containers [on a Kubernetes cluster](deploy-computer-vision-on-premises.md), using [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-create) and [Azure Queue](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction).
+If you need higher throughput (for example, when processing multi-page files), consider deploying multiple containers [on a Kubernetes cluster](deploy-computer-vision-on-premises.md), using [Azure Storage](../../storage/common/storage-account-create.md) and [Azure Queue](../../storage/queues/storage-queues-introduction.md).
 
-If you're using Azure Storage to store images for processing, you can create a [connection string](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string) to use when calling the container.
+If you're using Azure Storage to store images for processing, you can create a [connection string](../../storage/common/storage-configure-connection-string.md) to use when calling the container.
 
 To find your connection string:
 
@@ -339,7 +339,7 @@ The `operation-location` is the fully qualified URL and is accessed via an HTTP 
 ---
 
 > [!IMPORTANT]
-> If you deploy multiple Read containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+> If you deploy multiple Read containers behind a load balancer, for example, under Docker Compose or Kubernetes, you must have an external cache. Because the processing container and the GET request container might not be the same, an external cache stores the results and shares them across containers. For details about cache settings, see [Configure Computer Vision Docker containers](./computer-vision-resource-container-config.md).
 
 ### Synchronous read
 

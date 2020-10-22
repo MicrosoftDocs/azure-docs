@@ -19,7 +19,7 @@ Brand detection is a specialized mode of [object detection](concept-object-detec
 
 The Computer Vision service detects whether there are brand logos in a given image; if so, it returns the brand name, a confidence score, and the coordinates of a bounding box around the logo.
 
-The built-in logo database covers popular brands in consumer electronics, clothing, and more. If you find that the brand you're looking for is not detected by the Computer Vision service, you may be better served creating and training your own logo detector using the [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) service.
+The built-in logo database covers popular brands in consumer electronics, clothing, and more. If you find that the brand you're looking for is not detected by the Computer Vision service, you may be better served creating and training your own logo detector using the [Custom Vision](../custom-vision-service/index.yml) service.
 
 ## Brand detection example
 
