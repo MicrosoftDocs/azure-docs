@@ -129,7 +129,7 @@ To create a Azure Stack Edge resource, take the following steps in the Azure por
 
 10. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
 
-    ![Create a resource 7](media/azure-stack-edge-pro-mini-deploy-prep/create-resource-7.png) 
+    ![Create a resource 7](media/azure-stack-edge-mini-r-deploy-prep/create-resource-7.png) 
 
     You are also notified that during the resource creation, a Managed Service Identity (MSI) is enabled that lets you authenticate to cloud services. This identity exists for as long as the resource exists.
 
@@ -151,7 +151,7 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
 1. Select the resource that you created. Select **Overview** and then select **Device setup**.
 
-    ![Select Device setup](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-2.png)
+    ![Select Device setup](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-2.png)
 
 2. On the **Activate** tile, provide a name for the Azure Key Vault or accept the default name. The key vault name can be between 3 and 24 characters. 
 
