@@ -39,16 +39,15 @@ Go to the [Azure portal](https://portal.azure.com/) to create an MySQL Single Se
 
 **Setting** | **Suggested value** | **Field description**
 ---|---|---
-Subscription | Your subscription | Select the Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you get billed for the resource.
-Resource group | *myresourcegroup* | Provide a new or existing resource group name. Resource group can be used organize your dependencies that belong to single project.
-Server name | Unique server name | Enter a unique name that identifies your Azure Database for MySQL server. For example, 'mysqldbserver'.The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
-Data source |*None* | Select *None* to create a new server from scratch. (You would select *Backup* if you were creating a server from a geo-backup of an existing Azure Database for MySQL server).
-Server admin login | myadmin | Enter a username for your server administrator. You cannot use **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public** as the admin username.
-Password | *Your choice* | Provide a new password for the server admin account. Password must be 8 to 128 characters in length with a combination of uppercase or lowercase letters, numbers, and non-alphanumeric characters (!, $, #, %, and so on).
-Confirm password | *Your choice*| Confirm the admin account password.
-Location | *The region closest to your users*| Choose the location that is closest to your users or your other Azure applications.
-Version | *The latest major version*| The latest major version (unless you have specific requirements that require another version).
-Compute + Storage | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** |The compute, storage, and backup configurations for your new server. Select **Configure server**. Next, select the appropriate pricing tier, for more information, see the [pricing page](https://azure.microsoft.com/pricing/details/mysql/). To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. Select **OK**.
+Subscription | your subscription | Select the desired Azure Subscription.
+Resource group | *myresourcegroup* | A new or an existing resource group from your subscription.
+Server name | *mydemoserver* | Enter a unique name. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
+Data source |*None* | Select None to create a new server from scratch. Select Backup only if you were restoring from a geo-backup of an existing server.
+Admin username | *mydemoadmin* | Enter your server admin username. You cannot use **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public** as the admin username.
+Password | your password | A new password for the server admin user. Password must be 8 to 128 characters in length with a combination of uppercase or lowercase letters, numbers, and non-alphanumeric characters (!, $, #, %, and so on).
+Location |your desired location | Select a location from the dropdown list.
+Version | latest major version| Use the latest major version. See [all supported versions](https://docs.microsoft.com/en-us/azure/postgresql/concepts-supported-versions)
+Compute + Storage | use defaults| The default pricing tier is General Purpose with **4 vCores** and **100 GB** storage. Backup retention is set to **7 days** with Geographically Redundant backup option.<br/>Learn about the [pricing](https://azure.microsoft.com/pricing/details/mysql/) and update the defaults if needed.
 
    > [!NOTE]
    > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized.
