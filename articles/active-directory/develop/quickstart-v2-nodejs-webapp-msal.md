@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/21/2020
+ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
 # Customer intent: As an application developer, I want to know how to set up authentication in a web application built using Node.js and MSAL Node.
@@ -22,10 +22,13 @@ In this quickstart, you run a code sample that demonstrates how a Node.js web ap
 
 This quickstart uses MSAL Node with the authorization code flow.
 
-> [!NOTE]
-> This feature is in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> [!IMPORTANT]
+> MSAL Node is in **public preview**. This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features might be unsupported or have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+TEST
+
+> [!IMPORTANT]
+> MSAL Node [!INCLUDE [PREVIEW TEXT](../../../includes/active-directory-develop-preview.md)]
 
 ## Prerequisites
 
