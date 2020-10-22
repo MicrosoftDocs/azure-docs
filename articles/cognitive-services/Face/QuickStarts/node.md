@@ -39,7 +39,7 @@ npm install axios --save
 
 ## Write the Node.js script
 
-Paste the following code into *facedetection.js*. These fields specify how to connect to the Face service and where to get the input data. [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) and add your Face subscription key and endpoint to them. You may wish to change the `imageUrl` field to point to your own input image.
+Paste the following code into *facedetection.js*. These fields specify how to connect to the Face service and where to get the input data. [Create environment variables](../../cognitive-services-apis-create-account.md?tabs=multiservice%252cwindows#configure-an-environment-variable-for-authentication) and add your Face subscription key and endpoint to them. You may wish to change the `imageUrl` field to point to your own input image.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
