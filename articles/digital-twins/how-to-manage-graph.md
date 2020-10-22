@@ -294,9 +294,9 @@ namespace minimal
             Console.WriteLine();
             Console.WriteLine("Twin created successfully");
 
-            //Create relationship between them
+            //Create relationships between them
             await CreateRelationship(client, srcId, targetId, "contains");
-            await CreateRelationship(client, srcId, targetId, "has");
+            await CreateRelationship(client, targetId, srcId, "is-in");
             Console.WriteLine();
 
             //Print twins and their relationships
