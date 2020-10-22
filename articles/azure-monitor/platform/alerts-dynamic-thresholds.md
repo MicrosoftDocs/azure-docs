@@ -93,7 +93,7 @@ For existing resources with sufficient metric data, Dynamic Thresholds can trigg
 
 ## Dynamic Thresholds best practices
 
-Dynamic Thresholds can be applied to any platform or custom metric in Azure Monitor and it was also tuned for the common application and infrastructure metrics.
+Dynamic Thresholds can be applied to most platform and custom metrics in Azure Monitor and it was also tuned for the common application and infrastructure metrics.
 The following items are best practices on how to configure alerts on some of these metrics using Dynamic Thresholds.
 
 ### Dynamic Thresholds on virtual machine CPU percentage metrics
