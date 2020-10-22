@@ -39,7 +39,7 @@ az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachine
 Check your registration.
 
 ```azurecli-interactive
-az provider show -n Microsoft.VirtualMachineImages -o json  | grep registrationState
+az provider show -n Microsoft.VirtualMachineImages -o json | grep registrationState
 az provider show -n Microsoft.KeyVault -o json | grep registrationState
 az provider show -n Microsoft.Compute -o json | grep registrationState
 az provider show -n Microsoft.Storage -o json | grep registrationState
