@@ -17,7 +17,9 @@ Converting an Azure Service Fabric cluster's certificate declarations from thumb
 
 The security of a cluster whose certificate is declared by thumbprint rests on the fact that it's impossible, or computationally unfeasible, to forge a certificate with the same signature as another one. In this case, the provenance of the certificate is less important, so self-signed certificates are adequate.
 
-By contrast, the security of a cluster with certificates declared by CN flows from the public key infrastructure (PKI) service that issued the certificates and includes aspects such as their certification practices, whether their operational security is audited, and many others. For this reason, the choice of a PKI is important. Intimate knowledge of the issuer's certificate authority (CA) is required, and self-signed certificates are essentially worthless.
+By contrast, the security of a cluster whose certificates are declared by CN flows from the implicit trust the cluster owner has in their certificate provider. The provider is the public key infrastructure (PKI) service that issued the certificate. This trust is based, among other factors, on the PKI's certification practices, whether their operational security is audited and approved by yet-other trusted parties, and so on.
+
+The cluster owner must also have detailed knowledge of which certificate authorities (CAs) are issuing their certificates, since this is a fundamental aspect of validating certificates by subject. This also implies that self-signed certificates are wholly unsuitable for this purpose. Literally anyone can generate a certificate with a given subject.
 
 A certificate declared by CN is typically considered valid if:
 
@@ -34,7 +36,7 @@ For more information, see [Common-name-based certificate validation declarations
 
 To convert a cluster by using a self-signed certificate declared by thumbprint to CN, the target, CA-signed certificate must be first introduced into the cluster by thumbprint. Only then is the conversion from thumbprint to CN possible.
 
-For testing purposes, a self-signed certificate can be declared by CN, which pins the issuer to its own thumbprint. From a security standpoint, this action is nearly equivalent to declaring the same certificate by thumbprint. A successful conversion of this kind doesn't guarantee a successful conversion from thumbprint to CN with a CA-signed certificate. We recommend you test conversion with a proper, CA-signed certificate. Free options exist for this testing.
+For testing purposes, a self-signed certificate *could* be declared by CN, but only if the issuer is pinned to its own thumbprint. From a security standpoint, this action is nearly equivalent to declaring the same certificate by thumbprint. A successful conversion of this kind doesn't guarantee a successful conversion from thumbprint to CN with a CA-signed certificate. We recommend you test conversion with a proper, CA-signed certificate. Free options exist for this testing.
 
 ## Upload the certificate and install it in the scale set
 
