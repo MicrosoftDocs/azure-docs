@@ -501,7 +501,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Configure Keep Alive
 
-   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this, you need to set a parameter in the SAP NetWeaver ASCS/SCS profile and change the Linux system settings. Read [SAP Note 1410736][1410736] for more information.
+   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this, you need to set a parameter in the SAP NetWeaver ASCS/SCS profile, if using ENSA1, and change the Linux system `keepalive` settings on all SAP servers. Read [SAP Note 1410736][1410736] for more information.
 
    <pre><code># Change the Linux system configuration
    sudo sysctl net.ipv4.tcp_keepalive_time=300
