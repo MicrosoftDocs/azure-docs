@@ -102,4 +102,4 @@ When you're done with this project, make sure to remove your subscription key fr
 
 ## See also
 
-* [Azure Node SDK reference](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/)
+* [Azure Node SDK reference](/javascript/api/@azure/cognitiveservices-websearch/)
