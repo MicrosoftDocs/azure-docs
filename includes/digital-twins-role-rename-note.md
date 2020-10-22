@@ -8,4 +8,4 @@ ms.author: baanders
 ---
 
 >[!NOTE]
-> This role was recently renamed from its earlier names in preview. *Azure Digital Twins Data Owner* was formerly *Azure Digital Twins Owner (Preview)*.
+> This role was recently renamed from its earlier name in preview. _**Azure Digital Twins Data Owner**_ was formerly *Azure Digital Twins Owner (Preview)*.
