@@ -94,7 +94,7 @@ The following features are enabled in the SQL Managed Instance deployment model 
 |---------|---------|---------|---------|
 |[Distributed transactions can be executed after removing Managed Instance from Server Trust Group](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Oct 2020|Has Workaround||
 |[Distributed transactions cannot be executed after Managed Instance scaling operation](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Oct 2020|Has Workaround||
-|[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) in Azure SQL and `BACKUP`/`RESTORE` statement in Managed Instance cannot use Azure AD Manage Identity to authenticate to Azure storage|Sep 2020|Has Workaround||
+|[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql)/[OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) in Azure SQL and `BACKUP`/`RESTORE` statement in Managed Instance cannot use Azure AD Manage Identity to authenticate to Azure storage|Sep 2020|Has Workaround||
 |[Service Principal cannot access Azure AD and AKV](#service-principal-cannot-access-azure-ad-and-akv)|Aug 2020|Has Workaround||
 |[Restoring manual backup without CHECKSUM might fail](#restoring-manual-backup-without-checksum-might-fail)|May 2020|Resolved|June 2020|
 |[Agent becomes unresponsive upon modifying, disabling, or enabling existing jobs](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|May 2020|Resolved|June 2020|
@@ -133,7 +133,7 @@ Managed Instance scaling operations that include changing service tier or number
 
 ### BULK INSERT and BACKUP/RESTORE statements cannot use Managed Identity to access Azure storage
 
-Bulk insert statement cannot use `DATABASE SCOPED CREDENTIAL` with Managed Identity to authenticate to Azure storage. As a workaround, switch to SHARED ACCESS SIGNATURE authentication. The following example will not work on Azure SQL (both Database and Managed Instance):
+Bulk insert, BACKUP, and RESTORE statements, and OPENROWSET function cannot use `DATABASE SCOPED CREDENTIAL` with Managed Identity to authenticate to Azure storage. As a workaround, switch to SHARED ACCESS SIGNATURE authentication. The following example will not work on Azure SQL (both Database and Managed Instance):
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
