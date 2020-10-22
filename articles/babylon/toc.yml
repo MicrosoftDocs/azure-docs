@@ -27,6 +27,8 @@
       href: starter-kit-tutorial-4.md
     - name: 5 - Glossary terms
       href: starter-kit-tutorial-5.md
+    - name: 5 - Catalog Insights
+      href: starter-kit-tutorial-6.md    
   - name: Call Babylon REST APIs
     href: tutorial-using-rest-apis.md
 #- name: Samples
