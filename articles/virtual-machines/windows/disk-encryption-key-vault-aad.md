@@ -1,6 +1,6 @@
 ---
 title: Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)
-description: This article provides prerequisites for using Microsoft Azure Disk Encryption for IaaS VMs.
+description: In this article, learn how to create and configure a key vault for Azure Disk Encryption with Azure AD.
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security

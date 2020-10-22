@@ -9,8 +9,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2020
-ms.author: miguego
+ms.date: 09/10/2020
+ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory single sign-on integration with SharePoint on-premises
 
@@ -19,8 +19,6 @@ In this tutorial, you learn how to integrate SharePoint on-premises with Azure A
 * Control who has access to SharePoint on-premises in Azure AD.
 * Enable your users to be automatically signed in to SharePoint on-premises with their Azure AD accounts.
 * Manage your accounts in the Azure portal.
-
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
@@ -39,7 +37,7 @@ To configure the integration of SharePoint on-premises into Azure AD, you need t
 
 To add SharePoint on-premises from the gallery:
 
-1. In the [Azure portal](https://portal.azure.com), on the leftmost pane, select **Azure Active Directory**.
+1. In the Azure portal, on the leftmost pane, select **Azure Active Directory**.
 
    > [!NOTE]
    > If the element isn't available, you can also open it through the **All services** link at the top of the leftmost pane. In the following overview, the **Azure Active Directory** link is located in the **Identity** section. You can also search for it by using the filter box.
@@ -66,7 +64,7 @@ In this section, you configure Azure AD SSO with SharePoint on-premises. For SSO
 
 To configure and test Azure AD SSO with SharePoint on-premises, complete these building blocks:
 
-- [Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on) to enable your users to use this feature.
+- [Configure Azure AD SSO](#configure-azure-ad-sso) to enable your users to use this feature.
 - [Configure SharePoint on-premises](#configure-sharepoint-on-premises) to configure the SSO settings on the application side.
 - [Create an Azure AD test user in the Azure portal](#create-an-azure-ad-test-user-in-the-azure-portal) to create a new user in Azure AD for SSO.
 - [Create an Azure AD security group in the Azure portal](#create-an-azure-ad-security-group-in-the-azure-portal) to create a new security group in Azure AD for SSO.
@@ -75,13 +73,13 @@ To configure and test Azure AD SSO with SharePoint on-premises, complete these b
 - [Grant access to a guest account to SharePoint on-premises in the Azure portal](#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal) to give permissions to a guest account in Azure AD for SharePoint on-premises.
 - [Configure the trusted identity provider for multiple web applications](#configure-the-trusted-identity-provider-for-multiple-web-applications) to use the same trusted identity provider for multiple web applications.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 In this section, you enable Azure AD SSO in the Azure portal.
 
 To configure Azure AD SSO with SharePoint on-premises:
 
-1. In the [Azure portal](https://portal.azure.com/), select **Azure Active Directory** > **Enterprise applications**. Select the previously created enterprise application name, and select **Single sign-on**.
+1. In the Azure portal, select **Azure Active Directory** > **Enterprise applications**. Select the previously created enterprise application name, and select **Single sign-on**.
 
 1. In the **Select a Single sign-on method** dialog box, select the **SAML** mode to enable SSO.
  
@@ -202,7 +200,7 @@ To fix this scenario with the people picker, an open-source solution called [Azu
   > [!NOTE]
   > Without AzureCP, you can add groups by adding the Azure AD group's ID, but this method isn't user friendly and reliable. Here's how it looks:
   > 
-  >![Add an Azure AD group to a SharePoint group](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
+  >![Add an Azure AD group to a SharePoint group by ID](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
   
 ### Grant permissions to an Azure AD group in SharePoint on-premises
 
@@ -241,7 +239,7 @@ You can grant access to your SharePoint site to a guest account in a consistent 
 
 1. Change the **Source Attribute** property to the value **user.localuserprincipalname**, and select **Save**.
 
-    ![User Attributes & Claims initial](./media/sharepoint-on-premises-tutorial/manage-claim.png)
+    ![User Attributes & Claims initial Source Attribute](./media/sharepoint-on-premises-tutorial/manage-claim.png)
 
 1. Using the ribbon, go back to **SAML-based Sign-on**. Now the **User Attributes & Claims** section looks like this: 
 
@@ -284,9 +282,6 @@ The configuration works for a single web application, but additional configurati
 
 You might have other scenarios where you want to give access to your SharePoint on-premises instance for your internal users. For this scenario, you have to deploy Microsoft Azure Active Directory Connect to permit syncing your on-premises users with Azure AD. This setup is discussed in another article.
 
-## Additional resources
+## Next Steps
 
-- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-- [What is hybrid identity with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
+Once you configure SharePoint on-premises you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)

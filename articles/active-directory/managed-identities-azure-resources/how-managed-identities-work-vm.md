@@ -3,7 +3,7 @@ title: How managed identities for Azure resources work with with Azure virtual m
 description: Description of managed identities for Azure resources work with Azure virtual machines.
 services: active-directory
 documentationcenter:
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor:
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 06/11/2020
-ms.author: markvi
+ms.author: barclayn
 
 #As a developer, I'd like to ...
 ms.collection: M365-identity-device-management
@@ -52,7 +52,7 @@ The following diagram shows how managed service identities work with Azure virtu
 
 3. Azure Resource Manager configures the identity on the VM by updating the Azure Instance Metadata Service identity endpoint with the service principal client ID and certificate.
 
-4. After the VM has an identity, use the service principal information to grant the VM access to Azure resources. To call Azure Resource Manager, use role-based access control (RBAC) in Azure AD to assign the appropriate role to the VM service principal. To call Key Vault, grant your code access to the specific secret or key in Key Vault.
+4. After the VM has an identity, use the service principal information to grant the VM access to Azure resources. To call Azure Resource Manager, use Azure role-based access control (Azure RBAC) to assign the appropriate role to the VM service principal. To call Key Vault, grant your code access to the specific secret or key in Key Vault.
 
 5. Your code that's running on the VM can request a token from the Azure Instance Metadata service endpoint, accessible only from within the VM: `http://169.254.169.254/metadata/identity/oauth2/token`
     - The resource parameter specifies the service to which the token is sent. To authenticate to Azure Resource Manager, use `resource=https://management.azure.com/`.
@@ -70,7 +70,7 @@ The following diagram shows how managed service identities work with Azure virtu
 
 3. Azure Resource Manager receives a request to configure the user-assigned managed identity on a VM and updates the Azure Instance Metadata Service identity endpoint with the user-assigned managed identity service principal client ID and certificate.
 
-4. After the user-assigned managed identity is created, use the service principal information to grant the identity access to Azure resources. To call Azure Resource Manager, use RBAC in Azure AD to assign the appropriate role to the service principal of the user-assigned identity. To call Key Vault, grant your code access to the specific secret or key in Key Vault.
+4. After the user-assigned managed identity is created, use the service principal information to grant the identity access to Azure resources. To call Azure Resource Manager, use Azure RBAC to assign the appropriate role to the service principal of the user-assigned identity. To call Key Vault, grant your code access to the specific secret or key in Key Vault.
 
    > [!Note]
    > You can also do this step before step 3.

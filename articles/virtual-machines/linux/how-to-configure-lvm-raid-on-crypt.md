@@ -456,4 +456,5 @@ df -h
 ```
 ## Next steps
 
+- [Resize logical volume management devices encrypted with Azure Disk Encryption](how-to-resize-encrypted-lvm.md)
 - [Azure Disk Encryption troubleshooting](disk-encryption-troubleshooting.md)

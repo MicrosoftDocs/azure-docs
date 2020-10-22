@@ -131,7 +131,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
     > [!NOTE]
     > Before uploading the IdP metadata to the Qlik Sense server, the file needs to be edited to remove information to ensure proper operation between Azure AD and Qlik Sense server.
 
-    ![QlikSense][qs24]
+    ![Screenshot shows a Visual Studio Code window with the Federation Metadata X M L file.][qs24]
 
     a. Open the FederationMetaData.xml file, which you have downloaded from Azure portal in a text editor.
 
@@ -145,19 +145,19 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 3. In the QMC, click on the **Virtual Proxies** menu item.
 
-    ![QlikSense][qs6]
+    ![Screenshot shows Virtual proxies selected from CONFIGURE SYSTEM.][qs6]
 
 4. At the bottom of the screen, click the **Create new** button.
 
-    ![QlikSense][qs7]
+    ![Screenshot shows the Create new option.][qs7]
 
 5. The Virtual proxy edit screen appears.  On the right side of the screen is a menu for making configuration options visible.
 
-    ![QlikSense][qs9]
+    ![Screenshot shows Identification selected from Properties.][qs9]
 
 6. With the Identification menu option checked, enter the identifying information for the Azure virtual proxy configuration.
 
-    ![QlikSense][qs8]  
+    ![Screenshot shows Edit virtual proxy Identification section where you can enter the values described.][qs8]  
 
     a. The **Description** field is a friendly name for the virtual proxy configuration.  Enter a value for a description.
 
@@ -169,7 +169,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 7. Click on the Authentication menu option to make it visible.  The Authentication screen appears.
 
-    ![QlikSense][qs10]
+    ![Screenshot shows Edit virtual proxy Authentication section where you can enter the values described.][qs10]
 
     a. The **Anonymous access mode** drop down determines if anonymous users may access Qlik Sense through the virtual proxy.  The default option is No anonymous user.
 
@@ -191,55 +191,55 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 8. Click on the **LOAD BALANCING** menu option to make it visible.  The Load Balancing screen appears.
 
-    ![QlikSense][qs11]
+    ![Screenshot shows the Virtual proxy edit screen for LOAD BALANCING where you can select Add new server node.][qs11]
 
 9. Click on the **Add new server node** button, select engine node or nodes Qlik Sense will send sessions to for load balancing purposes, and click the **Add** button.
 
-    ![QlikSense][qs12]
+    ![Screenshot shows the Add server nodes to load balance on dialog button where you can Add servers.][qs12]
 
 10. Click on the Advanced menu option to make it visible. The Advanced screen appears.
 
-    ![QlikSense][qs13]
+    ![Screenshot shows the Edit virtual proxy Advanced screen.][qs13]
 
     The Host allow list identifies hostnames that are accepted when connecting to the Qlik Sense server.  **Enter the hostname users will specify when connecting to Qlik Sense server.** The hostname is the same value as the SAML host uri without the https://.
 
 11. Click the **Apply** button.
 
-    ![QlikSense][qs14]
+    ![Screenshot shows the Apply button.][qs14]
 
 12. Click OK to accept the warning message that states proxies linked to the virtual proxy will be restarted.
 
-    ![QlikSense][qs15]
+    ![Screenshot shows the Apply changes to virtual proxy confirmation message.][qs15]
 
 13. On the right side of the screen, the Associated items menu appears.  Click on the **Proxies** menu option.
 
-    ![QlikSense][qs16]
+    ![Screenshot shows Proxies selected from Associated items.][qs16]
 
 14. The proxy screen appears.  Click the **Link** button at the bottom to link a proxy to the virtual proxy.
 
-    ![QlikSense][qs17]
+    ![Screenshot shows the Link button.][qs17]
 
 15. Select the proxy node that will support this virtual proxy connection and click the **Link** button.  After linking, the proxy will be listed under associated proxies.
 
-    ![QlikSense][qs18]
+    ![Screenshot shows Select proxy services.][qs18]
   
-    ![QlikSense][qs19]
+    ![Screenshot shows Associated proxies in the Virtual proxy associated items dialog box.][qs19]
 
 16. After about five to ten seconds, the Refresh QMC message will appear.  Click the **Refresh QMC** button.
 
-    ![QlikSense][qs20]
+    ![Screenshot shows the message Your session has ended.][qs20]
 
 17. When the QMC refreshes, click on the **Virtual proxies** menu item. The new SAML virtual proxy entry is listed in the table on the screen.  Single click on the virtual proxy entry.
 
-    ![QlikSense][qs51]
+    ![Screenshot shows Virtual proxies with a single entry.][qs51]
 
 18. At the bottom of the screen, the Download SP metadata button will activate.  Click the **Download SP metadata** button to save the metadata to a file.
 
-    ![QlikSense][qs52]
+    ![Screenshot shows the Download S P metadata button.][qs52]
 
 19. Open the sp metadata file.  Observe the **entityID** entry and the **AssertionConsumerService** entry.  These values are equivalent to the **Identifier**, **Sign on URL** and the **Reply URL** in the Azure AD application configuration. Paste these values in the **Qlik Sense Enterprise Domain and URLs** section in the Azure AD application configuration if they are not matching, then you should replace them in the Azure AD App configuration wizard.
 
-    ![QlikSense][qs53]
+    ![Screenshot shows a plain text editor with a EntityDescriptor with entityID and AssertionConsumerService called out.][qs53]
 
 ### Create Qlik Sense Enterprise test user
 

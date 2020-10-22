@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -82,7 +82,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 * [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Understand Azure Security Center Integrated Threat Intelligence](../security-center/threat-protection.md)
+* [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 * [Understand Azure Security Center Adaptive Network Hardening](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -144,11 +144,11 @@ If you are using Hybrid Runbook Workers hosted on Azure virtual machines, you ca
 
 **Guidance**: Define and implement standard security configurations for network resources used by Azure Automation with Azure Policy.
 
-You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, Azure RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+* [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
 * [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -518,7 +518,7 @@ However, when using Hybrid Runbook Workers backed by Azure virtual machines and 
 
 * [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../governance/management-groups/create.md)
+* [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -568,11 +568,11 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 **Responsibility**: Customer
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure AD RBAC to control access to Azure Automation resources using the built-in role definitions, assign access for users accessing your automation resources following a least privileged or 'just-enough' access model. When using Hybrid Runbook Workers, leverage managed identities for those virtual machines to avoid using service principals, when using both the multi-tenant or Hybrid Runbook Workers make sure to apply properly scoped RBAC permissions on the identity of the runbook workers.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to Azure Automation resources using the built-in role definitions, assign access for users accessing your automation resources following a least privileged or 'just-enough' access model. When using Hybrid Runbook Workers, leverage managed identities for those virtual machines to avoid using service principals, when using both the multi-tenant or Hybrid Runbook Workers make sure to apply properly scoped Azure RBAC permissions on the identity of the runbook workers.
 
-* [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+* [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 * [Runbook permissions for a Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md#runbook-permissions-for-a-hybrid-runbook-worker)
 
@@ -718,7 +718,7 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then y
 
 * [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../governance/management-groups/create.md)
+* [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -750,7 +750,7 @@ In addition, use the Azure Resource Graph to query/discover resources within sub
 
 * [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Azure Policy sample built-ins for Azure Automation](./policy-samples.md)
+* [Azure Policy sample built-ins for Azure Automation](./policy-reference.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -852,7 +852,7 @@ Adaptive application control is an intelligent, automated, end-to-end solution f
 
 * [Azure Web Application Firewall Overview](../web-application-firewall/overview.md)
 
-* [Network security groups](../virtual-network/security-overview.md)
+* [Network security groups](../virtual-network/network-security-groups-overview.md)
 
 * [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
@@ -880,7 +880,7 @@ You may also use recommendations from Azure Security Center as a secure configur
 
 * [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy sample built-ins for Azure Automation](./policy-samples.md)
+* [Azure Policy sample built-ins for Azure Automation](./policy-reference.md)
 
 * [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -918,7 +918,7 @@ When using the Hybrid Runbook Worker feature, use Azure Security Center recommen
 
 * [Deploy an Automation Account using an Azure Resource Manager template](./quickstart-create-automation-account-template.md#deploy-the-template)
 
-* [Azure Policy sample built-ins for Azure Automation](./policy-samples.md)
+* [Azure Policy sample built-ins for Azure Automation](./policy-reference.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -966,9 +966,9 @@ For most scenarios, the Microsoft base VM templates combined with the Azure Auto
 
 When using the Hybrid Runbook Worker feature, ensure you are properly limiting access to the custom OS image located in your storage account so only authorized users may access the image.
 
-* [Understand RBAC in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Understand Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [How to configure RBAC in Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [How to configure Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -982,7 +982,7 @@ When using the Hybrid Runbook Worker feature, ensure you are properly limiting a
 
 * [How to use Aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
-* [Azure Policy sample built-ins for Azure Automation](./policy-samples.md)
+* [Azure Policy sample built-ins for Azure Automation](./policy-reference.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1012,7 +1012,7 @@ When using the Hybrid Runbook Worker feature, leverage Azure Security Center to 
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy sample built-ins for Azure Automation](./policy-samples.md)
+* [Azure Policy sample built-ins for Azure Automation](./policy-reference.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1040,7 +1040,9 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 
 * [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [How to provide Key Vault authentication with a managed identity](../key-vault/general/managed-identity.md)
+* [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+
+* [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 

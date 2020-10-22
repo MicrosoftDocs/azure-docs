@@ -5,7 +5,8 @@ author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
-ms.author: dglover
+ms.author: dglover 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create your first function with Kotlin and Maven
@@ -18,7 +19,7 @@ This article guides you through using the Maven command-line tool to build and p
 
 To develop functions using Kotlin, you must have the following installed:
 
-- [Java Developer Kit](https://aka.ms/azure-jdks), version 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure CLI](/cli/azure)
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above

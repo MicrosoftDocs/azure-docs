@@ -3,10 +3,11 @@ title: Azure security baseline for Azure Machine Learning
 description: The Azure Machine Learning security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -26,7 +27,7 @@ The Azure Security Baseline for Microsoft Azure Machine Learning contains recomm
 
 Azure Firewall can be used to control access to your Azure Machine Learning workspace and the public internet.
 
-- [How to securely run experiments and inference in an isolated virtual network](how-to-enable-virtual-network.md)
+- [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 
 - [Use workspace behind Azure Firewall for Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
 
@@ -56,7 +57,7 @@ Enable network security group flow logs and send the logs to an Azure Storage ac
 
 - [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 
-- [Network isolation during training &amp; inference with private virtual networks](how-to-enable-virtual-network.md)
+- [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -92,7 +93,7 @@ Deploy Azure Firewall at each of the organization's network boundaries with thre
 
 **Guidance**: Deploy the firewall solution of your choice at each of your organization's network boundaries to detect and/or block malicious traffic.
 
-Select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  When payload inspection is not a requirement, Azure Firewall threat intelligence can be used. Azure Firewall threat intelligence-based filtering is used to alert on and/or block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
+Select an offer from Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  When payload inspection is not a requirement, Azure Firewall threat intelligence can be used. Azure Firewall threat intelligence-based filtering is used to alert on and/or block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
 
 - [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -120,7 +121,7 @@ Azure Machine Learning service documents a list of service tags for its compute 
 
 - [For more information about using service tags](../virtual-network/service-tags-overview.md)
 
-- [For Azure Machine Learning virtual network](how-to-enable-virtual-network.md)
+- [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -271,9 +272,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, enable antimalware event collection for Microsoft Antimalware for Azure Cloud Services and Virtual Machines.
 
-- [How to configure Microsoft Antimalware for a virtual machine](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
+- [How to configure Microsoft Antimalware for a virtual machine](/powershell/module/servicemanagement/azure.service/set-azurevmmicrosoftantimalwareextension)
 
-- [How to configure the Microsoft Antimalware extension for cloud services](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
+- [How to configure the Microsoft Antimalware extension for cloud services](/powershell/module/servicemanagement/azure.service/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
 
 - [Understand Microsoft Antimalware](../security/fundamentals/antimalware.md)
 
@@ -303,13 +304,13 @@ Azure Machine Learning has varying support across different compute resources an
 
 ### 3.1: Maintain an inventory of administrative accounts
 
-**Guidance**: You can use the Identity and Access Management tab for a resource in the Azure portal to configure role-based access control (RBAC) and maintain inventory on Azure Machine Learning resources. The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.
+**Guidance**: You can use the Identity and Access Management tab for a resource in the Azure portal to configure Azure role-based access control (Azure RBAC) and maintain inventory on Azure Machine Learning resources. The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.
 
-Azure Machine Learning provides built-in RBAC for common management scenarios in Azure Machine Learning. An individual who has a profile in Azure Active Directory (Azure AD) can assign these RBAC roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Machine Learning resources.
+Azure Machine Learning provides built-in roles for common management scenarios in Azure Machine Learning. An individual who has a profile in Azure Active Directory (Azure AD) can assign these roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Machine Learning resources.
 
 You can also use the Azure AD PowerShell module to perform adhoc queries to discover accounts that are members of administrative groups.
 
-- [Understand role-based access control in Azure Machine Learning](how-to-assign-roles.md)
+- [Understand Azure role-based access control in Azure Machine Learning](how-to-assign-roles.md)
 
 - [How to get a directory role in Azure Active Directory with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -327,7 +328,7 @@ You can also use the Azure AD PowerShell module to perform adhoc queries to disc
 
 ### 3.3: Use dedicated administrative accounts
 
-**Guidance**: Azure Machine Learning comes with three default roles when a new workspace is created, create standard operating procedures around the use of owner accounts.
+**Guidance**: Azure Machine Learning comes with three default roles when a new workspace is created, creating standard operating procedures around the use of owner accounts.
 
 You can also enable a just-in-time access to administrative accounts by using Azure AD Privileged Identity Management and Azure Resource Manager. 
 
@@ -721,9 +722,9 @@ You can implement your own process for removing unauthorized software. You can a
 
 Remove Azure resources when they are no longer needed.
 
-- [How to use File Integrity Monitoring](../security-center/security-center-file-integrity-monitoring.md#using-file-integrity-monitoring)
+- [How to use File Integrity Monitoring](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Understand Azure Automation Change Tracking and Inventory](../automation/change-tracking.md)
+- [Understand Azure Automation Change Tracking and Inventory](../automation/change-tracking/overview.md)
 
 - [How to enable Azure virtual machine inventory](../automation/automation-tutorial-installed-software.md)
 
@@ -904,13 +905,13 @@ Azure Machine Learning fully supports Git repositories for tracking work; you ca
 
 ### 7.6: Securely store custom operating system images
 
-**Guidance**: Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, use Azure role-based access control (RBAC) to ensure that only authorized users can access your custom images. Use an Azure Shared Image Gallery you can share your images to different users, service principals, or Azure AD groups within your organization. Store container images in Azure Container Registry and use RBAC to ensure that only authorized users have access.
+**Guidance**: Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, use Azure role-based access control (Azure RBAC) to ensure that only authorized users can access your custom images. Use an Azure Shared Image Gallery you can share your images to different users, service principals, or Azure AD groups within your organization. Store container images in Azure Container Registry and use Azure RBAC to ensure that only authorized users have access.
 
-- [Understand RBAC in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Understand Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-- [Understand RBAC for Container Registry](../container-registry/container-registry-roles.md)
+- [Understand Azure RBAC for Container Registry](../container-registry/container-registry-roles.md)
 
-- [How to configure RBAC in Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [Shared Image Gallery overview](../virtual-machines/windows/shared-image-galleries.md)
 
@@ -982,7 +983,9 @@ Use Azure Key Vault to pass secrets to remote runs securely instead of cleartext
 
 - [How to create a Key Vault](/azure/key-vault/quick-create-portal)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+- [How to authenticate to Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+- [How to assign a Key Vault access policy](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1099,7 +1102,7 @@ customer-managed keys.
 
 ### 9.4: Ensure protection of backups and customer-managed keys
 
-**Guidance**: For on-premises backup, encryption at rest is provided using the passphrase you provide when backing up to Azure. Use role-based access control to protect backups and customer-managed keys. 
+**Guidance**: For on-premises backup, encryption at rest is provided using the passphrase you provide when backing up to Azure. Use Azure role-based access control to protect backups and customer-managed keys. 
 
 Enable soft delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. If Azure Storage is used to store backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted.
  

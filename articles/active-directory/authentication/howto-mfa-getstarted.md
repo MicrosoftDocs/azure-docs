@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
@@ -107,7 +107,7 @@ We recommend that organizations use Conditional Access to define their network u
 Administrators can choose the [authentication methods](../authentication/concept-authentication-methods.md) that they want to make available for users. It is important to allow more than a single authentication method so that users have a backup method available in case their primary method is unavailable. The following methods are available for administrators to enable:
 
 > [!TIP]
-> Microsoft recommends using the mobile app as the primary method for Azure Multi-Factor Authentication for the best security and user experience.
+> Microsoft recommends using the Microsoft Authenticator (mobile app) as the primary method for Azure Multi-Factor Authentication for a more secure and improved user experience. The Microsoft Authenticator app also [meets](https://azure.microsoft.com/resources/microsoft-nist/) the National Institute of Standards and Technology Authenticator Assurance Levels. 
 
 ### Notification through mobile app
 
@@ -223,7 +223,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 To plan your Conditional Access policy strategy, which will determine when MFA and other controls are required, refer to [Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md).
 
-It is important that you prevent being inadvertently locked out of your Azure AD tenant. You can mitigate the impact of this inadvertent lack of administrative access by [creating two or more emergency access accounts in your tenant](../users-groups-roles/directory-emergency-access.md) and excluding them from your Conditional Access policy.
+It is important that you prevent being inadvertently locked out of your Azure AD tenant. You can mitigate the impact of this inadvertent lack of administrative access by [creating two or more emergency access accounts in your tenant](../roles/security-emergency-access.md) and excluding them from your Conditional Access policy.
 
 ### Create Conditional Access policy
 

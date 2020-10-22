@@ -10,7 +10,7 @@ manager: anandsub
 ms.reviewer:
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/30/2020
+ms.date: 09/08/2020
 ---
 
 # Source control in Azure Data Factory
@@ -41,7 +41,7 @@ Below is a list of some of the advantages git integration provides to the author
 -   **Better Performance:** An average factory with git integration loads 10 times faster than one authoring against the data factory service. This performance improvement is because resources are downloaded via Git.
 
 > [!NOTE]
-> Authoring directly with the Data Factory service is disabled in the Azure Data Factory UX when a Git repository is configured. Changes can be made directly to the service via PowerShell or an SDK.
+> Authoring directly with the Data Factory service is disabled in the Azure Data Factory UX when a Git repository is configured. Changes made via PowerShell or an SDK are published directly to the Data Factory service, and are not entered into Git.
 
 ## Author with Azure Repos Git integration
 
@@ -158,6 +158,8 @@ The configuration pane shows the following GitHub repository settings:
 
 - GitHub integration with the Data Factory visual authoring tools only works in the generally available version of Data Factory.
 
+- Azure Data Factory doesn't support GitHub organization accounts
+
 - A maximum of 1,000 entities per resource type (such as pipelines and datasets) can be fetched from a single GitHub branch. If this limit is reached, is suggested to split your resources into separate factories. Azure DevOps Git does not have this limitation.
 
 ## Version control
@@ -237,13 +239,13 @@ Below are some examples of situations that can cause a stale publish branch:
 
 ## Switch to a different Git repository
 
-To switch to a different Git repository, click the **Git Repo Settings** icon in the upper right corner of the Data Factory overview page. If you can't see the icon, clear your local browser cache. Select the icon to remove the association with the current repo.
+To switch to a different Git repository, go to Git configuration page in the management hub under **Source control**. Select **Disconnect**. 
 
-![Git icon](media/author-visually/remove-repo.png)
+![Git icon](media/author-visually/remove-repository.png)
 
-Once the Repository Settings pane appears, select **Remove Git**. Enter your data factory name and click **confirm** to remove the Git repository associated with your data factory.
+Enter your data factory name and click **confirm** to remove the Git repository associated with your data factory.
 
-![Remove the association with the current Git repo](media/author-visually/remove-repo2.png)
+![Remove the association with the current Git repo](media/author-visually/remove-repository-2.png)
 
 After you remove the association with the current repo, you can configure your Git settings to use a different repo and then import existing Data Factory resources to the new repo.
 

@@ -315,6 +315,7 @@ At the corporate firewall level, you need to configure the following domains and
 
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
+
 At the Windows firewall level or machine level, these outbound ports are normally enabled. If they aren't, you can configure the domains and ports on a self-hosted integration runtime machine.
 
 > [!NOTE]
@@ -326,13 +327,13 @@ At the Windows firewall level or machine level, these outbound ports are normall
 
 Ensure that you properly enable firewall rules on the corporate firewall, the Windows firewall of the self-hosted integration runtime machine, and the data store itself. Enabling these rules lets the self-hosted integration runtime successfully connect to both source and sink. Enable rules for each data store that is involved in the copy operation.
 
-For example, to copy from an on-premises data store to a SQL Database sink or an Azure SQL Data Warehouse sink, take the following steps:
+For example, to copy from an on-premises data store to a SQL Database sink or an Azure Synapse Analytics (formerly SQL Data Warehouse) sink, take the following steps:
 
 1. Allow outbound TCP communication on port 1433 for both the Windows firewall and the corporate firewall.
 1. Configure the firewall settings of the SQL Database to add the IP address of the self-hosted integration runtime machine to the list of allowed IP addresses.
 
 > [!NOTE]
-> If your firewall doesn't allow outbound port 1433, the self-hosted integration runtime can't access the SQL database directly. In this case, you can use a [staged copy](copy-activity-performance.md) to SQL Database and SQL Data Warehouse. In this scenario, you require only HTTPS (port 443) for the data movement.
+> If your firewall doesn't allow outbound port 1433, the self-hosted integration runtime can't access the SQL database directly. In this case, you can use a [staged copy](copy-activity-performance.md) to SQL Database and Azure Synapse Analytics. In this scenario, you require only HTTPS (port 443) for the data movement.
 
 ## Proxy server considerations
 

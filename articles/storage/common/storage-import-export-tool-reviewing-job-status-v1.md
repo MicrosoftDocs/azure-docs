@@ -1,12 +1,12 @@
 ---
 title: Reviewing Azure Import/Export job status - v1 | Microsoft Docs
 description: Learn how to use the log files created by the import or export job to see the status of the job.
-author: twooley
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/26/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
 ---
 

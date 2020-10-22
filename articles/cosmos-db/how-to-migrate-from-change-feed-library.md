@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
+ms.custom: devx-track-dotnet
 ---
 
 # Migrate from the change feed processor library to the Azure Cosmos DB .NET V3 SDK

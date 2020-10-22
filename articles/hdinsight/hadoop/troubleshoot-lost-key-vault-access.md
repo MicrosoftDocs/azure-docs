@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight clusters with disk encryption lose Key Vault access
-description: Troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
+description: Troubleshooting steps and possible resolutions for Key Vault access issues when interacting with Azure HDInsight clusters.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh

@@ -6,6 +6,7 @@ author: spelluru
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: spelluru
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Respond to Azure Service Bus events received via Azure Event Grid by using Azure Functions and Azure Logic Apps
@@ -90,7 +91,7 @@ Connect a logic app with Azure Service Bus and Azure Event Grid by following the
         ![Logic Apps Designer - select the shared access key](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
     8. Select your **topic** and **subscription**. 
     
-        ![Logic Apps Designer - select your Service Bus topic and subscription](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
+        ![Screenshot that shows where you select your topic and subscription.](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
 7. Select **+ New step**, and do the following steps: 
     1. Select **Service Bus**.
     2. Select **Complete the message in a topic subscription** from the list of actions. 

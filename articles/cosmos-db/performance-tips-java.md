@@ -60,14 +60,14 @@ So if you're asking "How can I improve my database performance?" consider the fo
       DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
       ```
 
-      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="Illustration of the Azure Cosmos DB connection policy" border="false":::
+      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="Diagram shows the Azure Cosmos D B connection policy." border="false":::
 
    <a id="same-region"></a>
 2. **Collocate clients in same Azure region for performance**
 
     When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
-    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Illustration of the Azure Cosmos DB connection policy" border="false":::
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Diagram shows requests and responses in two regions, where computers connect to a Cosmos D B Account through mid-tier services." border="false":::
    
 ## SDK Usage
 1. **Install the most recent SDK**
@@ -181,4 +181,4 @@ So if you're asking "How can I improve my database performance?" consider the fo
     The request charge (the request processing cost) of a given operation is directly correlated to the size of the document. Operations on large documents cost more than operations for small documents.
 
 ## Next steps
-To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](partition-data.md).
+To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](partitioning-overview.md).

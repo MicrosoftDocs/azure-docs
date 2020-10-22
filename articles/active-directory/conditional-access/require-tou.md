@@ -23,7 +23,7 @@ Before accessing certain cloud apps in your environment, you might want to get c
 - A simple method to configure ToU
 - The option to require accepting your terms of use through a Conditional Access policy  
 
-This quickstart shows how to configure an [Azure AD Conditional Access policy](../active-directory-conditional-access-azure-portal.md) that requires a ToU to be accepted for a selected cloud app in your environment.
+This quickstart shows how to configure an [Azure AD Conditional Access policy](./overview.md) that requires a ToU to be accepted for a selected cloud app in your environment.
 
 ![Create policy](./media/require-tou/5555.png)
 
@@ -207,4 +207,4 @@ When no longer needed, delete the test user and the Conditional Access policy:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Require MFA for specific apps](app-based-mfa.md)
+> [Require MFA for specific apps](../authentication/tutorial-enable-azure-mfa.md)

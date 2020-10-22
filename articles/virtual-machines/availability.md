@@ -46,7 +46,7 @@ Azure virtual machine scale sets let you create and manage a group of load balan
 
 **Fault domains and update domains**
 
-Virtual machine scale sets simplify designing for high availability by aligning fault domains and update domains. You will only have to define fault domains count for the scale set. The number of fault domains available to the scale sets may vary by region. See [Manage the availability of virtual machines in Azure](./windows/manage-availability.md).
+Virtual machine scale sets simplify designing for high availability by aligning fault domains and update domains. You will only have to define fault domains count for the scale set. The number of fault domains available to the scale sets may vary by region. See [Manage the availability of virtual machines in Azure](./manage-availability.md).
 
 
 ## Availability sets
@@ -56,7 +56,7 @@ In an availability set, VMs are automatically distributed across these fault dom
 
 For VMs using [Azure Managed Disks](./faq-for-disks.md), VMs are aligned with managed disk fault domains when using a managed availability set. This alignment ensures that all the managed disks attached to a VM are within the same managed disk fault domain. 
 
-Only VMs with managed disks can be created in a managed availability set. The number of managed disk fault domains varies by region - either two or three managed disk fault domains per region. You can read more about these managed disk fault domains for [Linux VMs](./linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) or [Windows VMs](./windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
+Only VMs with managed disks can be created in a managed availability set. The number of managed disk fault domains varies by region - either two or three managed disk fault domains per region. You can read more about these managed disk fault domains for [Linux VMs](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) or [Windows VMs](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 ![Managed availability set](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 

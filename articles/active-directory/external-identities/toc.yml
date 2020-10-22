@@ -2,11 +2,14 @@
   href: index.yml
   items:
   - name: Overview
+    expanded: true
     items:
     - name: Compare solutions for External Identities
       href: compare-with-b2c.md
     - name: What is B2B guest user access?
       href: what-is-b2b.md
+    - name: What is Azure AD B2C?
+      href: https://docs.microsoft.com/azure/active-directory-b2c/overview
   - name: Quickstarts
     items:
     - name: Add guest users in the portal
@@ -15,25 +18,25 @@
       href: b2b-quickstart-invite-powershell.md
   - name: Tutorials
     items:
-    - name: Bulk invite via PowerShell
+    - name: Bulk invite guest users via PowerShell
       href: bulk-invite-powershell.md
-    - name: Bulk invite via the portal
+    - name: Bulk invite guest users via the portal
       href: tutorial-bulk-invite.md
-    - name: Enforce multi-factor authentication
+    - name: Enforce multi-factor authentication for guest users
       href: b2b-tutorial-require-mfa.md
   - name: Samples
     items:
-    - name: Samples for self-service sign-up
+    - name: Samples for guest user self-service sign-up
       href: code-samples-self-service-sign-up.md
     - name: Code and Azure PowerShell samples
       href: code-samples.md
   - name: Concepts
     expanded: false
     items:
+    - name: External Identities pricing
+      href: external-identities-pricing.md
     - name: B2B best practices
       href: b2b-fundamentals.md
-    - name: B2B licensing
-      href: licensing-guidance.md
     - name: B2B and Office 365 external sharing
       href: o365-external-user.md
     - name: Invitation redemption
@@ -63,9 +66,9 @@
   - name: How-to guides
     expanded: true
     items:
-    - name: Configure external sharing
+    - name: Configure external collaboration settings
       href: delegate-invitations.md
-    - name: Invite B2B users
+    - name: Invite guest users
       items:
       - name: Admins adding B2B users
         href: add-users-administrator.md
@@ -91,7 +94,7 @@
         href: direct-federation-adfs.md
     - name: One-time passcode authentication
       href: one-time-passcode.md
-    - name: Self-service sign-up (Preview)
+    - name: Self-service sign-up for guest users (Preview)
       items:
       - name: Add a self-service sign-up user flow
         href: self-service-sign-up-user-flow.md
@@ -103,7 +106,7 @@
         href: self-service-sign-up-add-api-connector.md
       - name: Add a custom approval system
         href: self-service-sign-up-add-approvals.md
-    - name: Manage guest accounts
+    - name: Manage guest user accounts
       items:
       - name: Add a B2B user to a role
         href: add-guest-to-role.md
@@ -113,7 +116,7 @@
         href: user-properties.md
       - name: B2B for Azure AD integrated apps
         href: configure-saas-apps.md
-    - name: Manage access in a hybrid organization
+    - name: Manage guest access in a hybrid organization
       items:
       - name: Grant local users access to cloud apps
         href: hybrid-on-premises-to-cloud.md

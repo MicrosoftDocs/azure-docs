@@ -21,10 +21,6 @@ The following features are in public preview. You can take advantage of these fe
 
 Azure Stream Analytics supports [Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for Azure SQL Database output sinks. Managed identities eliminate the limitations of user-based authentication methods, like the need to reauthenticate due to password changes. 
 
-### Output to Azure Synapse Analytics
-
-Azure Stream Analytics jobs can output to a SQL pool table in [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) and can process throughput rates up to 200MB/sec. This supports the most demanding real-time analytics and hot-path data processing needs for workloads such as reporting and dashboarding.  
-
 ### Real-time high performance scoring with custom ML models managed by Azure Machine Learning
 
 Azure Stream Analytics supports high-performance, real-time scoring by leveraging custom pre-trained Machine Learning models managed by Azure Machine Learning, and hosted in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI), using a workflow that does not require you to write code. [Sign up](https://aka.ms/asapreview1) for preview
@@ -47,7 +43,7 @@ Visual Studio tools for Azure Stream Analytics enhance the local testing feature
 
 ### Visual Studio Code for Azure Stream Analytics
 
-Azure Stream Analytics jobs can be authored in Visual Studio Code. See our [VS Code getting started tutorial](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
+Azure Stream Analytics jobs can be authored in Visual Studio Code. See our [VS Code getting started tutorial](https://docs.microsoft.com/azure/stream-analytics/quick-create-visual-studio-code).
 
 ### Local testing with live data in Visual Studio Code
 

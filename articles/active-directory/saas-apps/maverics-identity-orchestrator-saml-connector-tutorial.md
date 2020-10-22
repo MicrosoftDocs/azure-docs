@@ -31,7 +31,7 @@ This tutorial demonstrates how to migrate an on-premises web application that's 
 4. Set up an Azure key vault, and configure Maverics to use it as its secrets management provider.
 5. Demonstrate user migration and session abstraction by using Maverics to provide access to an on-premises Java web application.
 
-For additional installation and configuration instructions, go to the [Strata website](https://strata.io/docs).
+For additional installation and configuration instructions, go to the [Strata website](https://www.strata.io).
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ subscription. To obtain the Maverics software, contact [Strata sales](mailto:sal
 
 ## Install Maverics Identity Orchestrator
 
-To get started with the Maverics Identity Orchestrator installation, see the [installation instructions](https://strata.io/docs).
+To get started with the Maverics Identity Orchestrator installation, see the [installation instructions](https://www.strata.io).
 
 ### System requirements
 * Supported operating systems

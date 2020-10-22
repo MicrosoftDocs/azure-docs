@@ -1,6 +1,6 @@
 ---
 title: Incrementally copy data using Change Tracking using Azure portal
-description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in a SQL Server database to a database in Azure SQL Database.
+description: In this tutorial, you create an Azure data factory with a pipeline that loads delta data based on change tracking information in the source database in Azure SQL Database to an Azure blob storage.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -280,10 +280,10 @@ In this step, you create a pipeline with a copy activity that copies the entire 
 
 1. Click **+ (plus)** in the left pane, and click **Pipeline**.
 
-    ![New pipeline menu](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
+    ![Screenshot shows the Pipeline option for a data factory.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
 2. You see a new tab for configuring the pipeline. You also see the pipeline in the treeview. In the **Properties** window, change the name of the pipeline to **FullCopyPipeline**.
 
-    ![New pipeline menu](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
+    ![Screenshot shows a pipeline with a name entered.](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
 3. In the **Activities** toolbox, expand **Data Flow**, and drag-drop the **Copy** activity to the pipeline designer surface, and set the name **FullCopyActivity**.
 
     ![Full copy activity-name](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png)
@@ -298,7 +298,7 @@ In this step, you create a pipeline with a copy activity that copies the entire 
     ![Validate the pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. To publish entities (linked services, datasets, and pipelines), click **Publish**. Wait until the publishing succeeds.
 
-    ![Publish button](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
+    ![Screenshot shows data factory with the Publish All button called out.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button.png)
 8. Wait until you see the **Successfully published** message.
 
     ![Publishing succeeded](./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png)
@@ -310,16 +310,16 @@ In this step, you create a pipeline with a copy activity that copies the entire 
 ### Run the full copy pipeline
 Click **Trigger** on the toolbar for the pipeline, and click **Trigger Now**.
 
-![Trigger Now menu](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
+![Screenshot shows the Trigger Now option selected from the Trigger menu.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
 
 ### Monitor the full copy pipeline
 
 1. Click the **Monitor** tab on the left. You see the pipeline run in the list and its status. To refresh the list, click **Refresh**. The links in the Actions column let you view activity runs associated with the pipeline run and to rerun the pipeline.
 
-    ![Pipeline runs](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
+    ![Screenshot shows pipeline runs for a data factory.](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
 2. To view activity runs associated with the pipeline run, click the **View Activity Runs** link in the **Actions** column. There is only one activity in the pipeline, so you see only one entry in the list. To switch back to the pipeline runs view, click **Pipelines** link at the top.
 
-    ![Activity runs](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
+    ![Screenshot shows activity runs for a data factory with the Pipelines link called out.](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
 
 ### Review the results
 You see a file named `incremental-<GUID>.txt` in the `incchgtracking` folder of the `adftutorial` container.
@@ -357,19 +357,19 @@ In this step, you create a pipeline with the following activities, and run it pe
 
 1. In the Data Factory UI, switch to the **Edit** tab. Click **+ (plus)** in the left pane, and click **Pipeline**.
 
-    ![New pipeline menu](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
+    ![Screenshot shows how to create a pipeline in a data factory.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. You see a new tab for configuring the pipeline. You also see the pipeline in the treeview. In the **Properties** window, change the name of the pipeline to **IncrementalCopyPipeline**.
 
     ![Pipeline name](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
 3. Expand **General** in the **Activities** toolbox, and drag-drop the **Lookup** activity to the pipeline designer surface. Set the name of the activity to **LookupLastChangeTrackingVersionActivity**. This activity gets the change tracking version used in the last copy operation that is stored in the table **table_store_ChangeTracking_version**.
 
-    ![Lookup Activity - name](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
+    ![Screenshot shows a pipeline with a lookup activity.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
 4. Switch to the **Settings** in the **Properties** window, and select **ChangeTrackingDataset** for the **Source Dataset** field.
 
-    ![Lookup Activity - settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
+    ![Screenshot shows the Settings tab in the Properties window.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
 5. Drag-and-drop the **Lookup** activity from the **Activities** toolbox to the pipeline designer surface. Set the name of the activity to **LookupCurrentChangeTrackingVersionActivity**. This activity gets the current change tracking version.
 
-    ![Lookup Activity - name](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
+    ![Screenshot shows a pipeline with two lookup activities.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. Switch to the **Settings** in the **Properties** window, and do the following steps:
 
    1. Select **SourceDataset** for the **Source Dataset** field.
@@ -380,7 +380,7 @@ In this step, you create a pipeline with the following activities, and run it pe
        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
        ```
 
-      ![Lookup Activity - settings](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![Screenshot shows a query added to the Settings tab in the Properties window.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. In the **Activities** toolbox, expand **Data Flow**, and drag-drop the **Copy** activity to the pipeline designer surface. Set the name of the activity to **IncrementalCopyActivity**. This activity copies the data between last change tracking version and the current change tracking version to the destination data store.
 
     ![Copy Activity - name](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
@@ -427,21 +427,21 @@ In this step, you create a pipeline with the following activities, and run it pe
     ![Validate button](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16. Publish entities (linked services, datasets, and pipelines) to the Data Factory service by clicking the **Publish All** button. Wait until you see the **Publishing succeeded** message.
 
-       ![Publish button](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![Screenshot shows the Publish All button for a data factory.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### Run the incremental copy pipeline
 1. Click **Trigger** on the toolbar for the pipeline, and click **Trigger Now**.
 
-    ![Trigger Now menu](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
+    ![Screenshot shows a pipeline with activities and the Trigger Now option selected from the Trigger menu.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
 2. In the **Pipeline Run** window, select **Finish**.
 
 ### Monitor the incremental copy pipeline
 1. Click the **Monitor** tab on the left. You see the pipeline run in the list and its status. To refresh the list, click **Refresh**. The links in the **Actions** column let you view activity runs associated with the pipeline run and to rerun the pipeline.
 
-    ![Pipeline runs](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
+    ![Screenshot shows pipeline runs for a data factory including your pipeline.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
 2. To view activity runs associated with the pipeline run, click the **View Activity Runs** link in the **Actions** column. There is only one activity in the pipeline, so you see only one entry in the list. To switch back to the pipeline runs view, click **Pipelines** link at the top.
 
-    ![Activity runs](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
+    ![Screenshot shows pipeline runs for a data factory with several marked as succeeded.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
 
 
 ### Review the results

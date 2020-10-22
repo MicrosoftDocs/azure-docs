@@ -44,7 +44,7 @@ In Azure Database for PostgreSQL, restoring a Hyperscale (Citus) cluster
 creates a new cluster from the original nodes' backups. 
 
 > [!IMPORTANT]
->You can only restore the hyperscale cluster within the same subscription and resource group, and with a different cluster name.
+>You can only restore the Hyperscale (Citus) cluster within the same subscription and resource group, and with a different cluster name.
 
 
 > [!IMPORTANT]

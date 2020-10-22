@@ -17,7 +17,7 @@ This best practices article focuses on how to run your cluster and workloads fro
 
 > [!div class="checklist"]
 > * What are pod resource requests and limits
-> * Ways to develop and deploy applications with Dev Spaces and Visual Studio Code
+> * Ways to develop and deploy applications with Bridge to Kubernetes and Visual Studio Code
 > * How to use the `kube-advisor` tool to check for issues with deployments
 
 ## Define pod resource requests and limits
@@ -69,13 +69,13 @@ For more information about resource measurements and assignments, see [Managing 
 
 ## Develop and debug applications against an AKS cluster
 
-**Best practice guidance** - Development teams should deploy and debug against an AKS cluster using Dev Spaces. This development model makes sure that role-based access control (RBAC), network, or storage needs are implemented before the app is deployed to production.
+**Best practice guidance** - Development teams should deploy and debug against an AKS cluster using Bridge to Kubernetes.
 
-With Azure Dev Spaces, you develop, debug, and test applications directly against an AKS cluster. Developers within a team work together to build and test throughout the application lifecycle. You can continue to use existing tools such as Visual Studio or Visual Studio Code. An extension is installed for Dev Spaces that gives an option to run and debug the application in an AKS cluster.
+With Bridge to Kubernetes, you can develop, debug, and test applications directly against an AKS cluster. Developers within a team work together to build and test throughout the application lifecycle. You can continue to use existing tools such as Visual Studio or Visual Studio Code. An extension is installed for Bridge to Kubernetes that allows you to develop directly in an AKS cluster.
 
-This integrated development and test process with Dev Spaces reduces the need for local test environments, such as [minikube][minikube]. Instead, you develop and test against an AKS cluster. This cluster can be secured and isolated as noted in previous section on the use of namespaces to logically isolate a cluster. When your apps are ready to deploy to production, you can confidently deploy as your development was all done against a real AKS cluster.
+This integrated development and test process with Bridge to Kubernetes reduces the need for local test environments, such as [minikube][minikube]. Instead, you develop and test against an AKS cluster. This cluster can be secured and isolated as noted in previous section on the use of namespaces to logically isolate a cluster.
 
-Azure Dev Spaces is intended for use with applications that run on Linux pods and nodes.
+Bridge to Kubernetes is intended for use with applications that run on Linux pods and nodes.
 
 ## Use the Visual Studio Code extension for Kubernetes
 
@@ -101,7 +101,7 @@ This best practices article focused on how to run your cluster and workloads fro
 
 To implement some of these best practices, see the following articles:
 
-* [Develop with Dev Spaces][dev-spaces]
+* [Develop with Bridge to Kubernetes][btk]
 * [Check for issues with kube-advisor][aks-kubeadvisor]
 
 <!-- EXTERNAL LINKS -->
@@ -112,7 +112,7 @@ To implement some of these best practices, see the following articles:
 
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: /visualstudio/containers/overview-local-process-kubernetes
+[btk]: /visualstudio/containers/overview-bridge-to-kubernetes
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

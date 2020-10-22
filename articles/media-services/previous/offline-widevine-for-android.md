@@ -18,7 +18,9 @@ ms.author: willzhan
 ms.reviewer: dwgeo
 
 ---
-# Offline Widevine streaming for Android  
+# Offline Widevine streaming for Android
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Version 3](../latest/offline-widevine-for-android.md)

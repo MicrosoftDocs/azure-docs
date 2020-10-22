@@ -1,13 +1,10 @@
 ---
 title: Create clusters on Windows Server and Linux 
-description: Service Fabric clusters run on Windows Server and Linux, which means you'll be able to deploy and host Service Fabric applications anywhere you can run Windows Server or Linux.
+description: Service Fabric clusters run on Windows Server and Linux. You can deploy and host Service Fabric applications anywhere you can run Windows Server or Linux.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
-
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: dekapur
 ---
 
 # Overview of Service Fabric clusters on Azure
@@ -76,7 +73,7 @@ For more information, read [Service Fabric Role-Based Access Control (RBAC)](ser
 ### Network security groups 
 Network security groups (NSGs) control inbound and outbound traffic of a subnet, VM, or specific NIC.  By default, when multiple VMs are put on the same virtual network they can communicate with each other through any port.  If you want to constrain communications among the machines you can define NSGs to segment the network or isolate VMs from each other.  If you have multiple node types in a cluster, you can apply NSGs to subnets to prevent machines belonging to different node types from communicating with each other.  
 
-For more information, read about [security groups](../virtual-network/security-overview.md)
+For more information, read about [security groups](../virtual-network/network-security-groups-overview.md)
 
 ## Scaling
 

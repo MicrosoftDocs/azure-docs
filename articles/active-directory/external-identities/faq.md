@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 03/19/2020
+ms.date: 09/23/2020
 
 ms.author: mimart
 author: msmimart
@@ -113,6 +113,9 @@ If the partner has an Azure AD tenant that is federated to the on-premises authe
 
 ### I thought Azure AD B2B didn't accept gmail.com and outlook.com email addresses, and that B2C was used for those kinds of accounts?
 We are removing the differences between B2B and business-to-consumer (B2C) collaboration in terms of which identities are supported. The identity used isn't a good reason to choose between using B2B or using B2C. For information about choosing your collaboration option, see [Compare B2B collaboration and B2C in Azure Active Directory](compare-with-b2c.md).
+
+### Can an Azure AD B2C local account be invited to an Azure AD tenant for B2B collaboration?
+No. An Azure AD B2C local account can only be used to sign in to the Azure AD B2C tenant. The account can't be used to sign into an Azure AD tenant. Inviting an Azure AD B2C local account to an Azure AD tenant for B2B collaboration isn't supported.
 
 ### What applications and services support Azure B2B guest users?
 All Azure AD-integrated applications can support Azure B2B guest users, but they must use an endpoint set up as a tenant to authenticate guest users. You might also need to [customize the claims](claims-mapping.md) in the SAML token that is issued when a guest user authenticates to the app. 

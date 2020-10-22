@@ -126,15 +126,15 @@ To configure Azure AD single sign-on with Sequr, perform the following steps:
 
 1. Click on the **Integrations** from the left navigation panel.
 
-	![Sequr Configuration](./media/sequr-tutorial/configure1.png)
+	![Screenshot shows Integration selected from the navigation panel.](./media/sequr-tutorial/configure1.png)
 
 1. Scroll down to the **Single Sign-On** section and click **Manage**.
 
-	![Sequr Configuration](./media/sequr-tutorial/configure2.png)
+	![Screenshot shows the Single Sign-on section with the Manage button selected.](./media/sequr-tutorial/configure2.png)
 
 1. In the **Manage Single Sign-On** section, perform the following steps:
 
-	![Sequr Configuration](./media/sequr-tutorial/configure3.png)
+	![Screenshot shows the Manage Single Sign-On section where you can enter the values described.](./media/sequr-tutorial/configure3.png)
 
 	a. In the **Identity Provider Single Sign-On URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 

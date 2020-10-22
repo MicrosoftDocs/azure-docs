@@ -3,9 +3,9 @@ title: What is monitored by Azure Monitor
 description: Reference of all services and other resources monitored by Azure Monitor.
 ms.subservice: 
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 06/15/2020
+author: rboucher
+ms.author: robb
+ms.date: 08/15/2020
 
 ---
 
@@ -116,7 +116,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |IoT Hub | Yes | Yes | No |  |
 |Key Vault | Yes | Yes | [Yes](./insights/key-vault-insights-overview.md) |  |
 |Kubernetes Service (AKS) | No | No | [Yes](insights/container-insights-overview.md)  |  |
-|Load Balancer | Yes | Yes | No |  |
+|Load Balancer | Yes | No | No |  |
 |Logic Apps | Yes | Yes | No |  |
 |Machine Learning Service | No | No | No |  |
 |Managed Applications  | No | No | No |  |
@@ -147,7 +147,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Signup Portal | No | No | No |  |
 |Site Recovery | No | Yes | No |  |
 |Spring Cloud Service | No | No | No |  |
-|SQL Data Warehouse | Yes | Yes | No |  |
+|Azure Synapse Analytics | Yes | Yes | No |  |
 |SQL Database | Yes | Yes | No |  |
 |SQL Server Stretch Database | Yes | Yes | No |  |
 |Stack | No | No | No |  |
@@ -172,7 +172,7 @@ The services and solutions in the following table store their data in a Log Anal
 
 | Product/Service | Description |
 |:---|:---|
-| [Azure Automation](../automation/index.yml) | Manage operating system updates and track changes on Windows and Linux computers. See [Change Tracking](../automation/change-tracking.md) and [Update Management](../automation/update-management/update-mgmt-overview.md). |
+| [Azure Automation](../automation/index.yml) | Manage operating system updates and track changes on Windows and Linux computers. See [Change Tracking](../automation/change-tracking/overview.md) and [Update Management](../automation/update-management/update-mgmt-overview.md). |
 | [Azure Information Protection ](/azure/information-protection/) | Classify and optionally protect documents and emails. See [Central reporting for Azure Information Protection](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Azure Security Center](../security-center/index.yml) | Collect and analyze security events and perform threat analysis. See [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Connects to different sources including Office 365 and Amazon Web Services Cloud Trail. See [Connect data sources](../sentinel/connect-data-sources.md). |

@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: "mvc, seodec18"
+ms.custom: "mvc, seodec18, devx-track-azurepowershell"
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2020

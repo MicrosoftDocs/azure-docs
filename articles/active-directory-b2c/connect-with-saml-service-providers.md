@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -249,6 +249,9 @@ Your final relying party policy file should look like the following:
 </TrustFrameworkPolicy>
 ```
 
+> [!NOTE]
+> When implementing other types of user flows (for example sign-in, password reset, or profile editing), the process is essentially the same as described in this section. In step 4 above, you'll change the last step of the user journey from `JWTIssuer` to `Saml2AssertionIssuer`. And in step 6 above, in the relying party section, you'll change the **Protocol** from `OpenIdConnect` to `SAML2`.
+
 ### 3.2 Upload and test your policy metadata
 
 Save your changes and upload the new policy file. After you've uploaded both policies (the extension and the relying party files), open a web browser and navigate to the policy metadata.
@@ -350,7 +353,8 @@ To complete this tutorial using our [SAML Test Application][samltest]:
 
 Select **Login** and you should be presented with a user sign-in screen. Upon sign-in, a SAML assertion is issued back to the sample application.
 
-## Enable Encypted Assertions
+## Enable Encrypted Assertions (Optional)
+
 To Encrypt SAML Assertions sent back to the Service Provider, Azure AD B2C will use the Service providers public key certificate. The public key must exist in the SAML Metadata outlined in the above ["samlMetadataUrl"](#samlmetadataurl) as a KeyDescriptor with a use of 'Encryption'.
 
 The following is an example of the SAML metadata KeyDescriptor with a use set to Encryption:
@@ -365,35 +369,50 @@ The following is an example of the SAML metadata KeyDescriptor with a use set to
 </KeyDescriptor>
 ```
 
-To enable Azure AD B2C to send encrypted assertions set the **WantsEncryptedAssertion** metadata item to true in the Relying Party Technical Profile as shown below;
+To enable Azure AD B2C to send encrypted assertions, set the **WantsEncryptedAssertion** metadata item to `true` in the [relying party technical profile](relyingparty.md#technicalprofile). You can also configure the algorithm used to encrypt the SAML assertion. For more information, see [relying party technical profile metadata](relyingparty.md#metadata). 
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-  PolicySchemaVersion="0.3.0.0"
-  TenantId="contoso.onmicrosoft.com"
-  PolicyId="B2C_1A_signup_signin_saml"
-  PublicPolicyUri="http://contoso.onmicrosoft.com/B2C_1A_signup_signin_saml">
- ..
- ..
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="SAML2"/>
-      <Metadata>
-          <Item Key="WantsEncryptedAssertions">true</Item>
-      </Metadata>
-     ..
-     ..
-     ..
-    </TechnicalProfile>
-  </RelyingParty>
-</TrustFrameworkPolicy>
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="WantsEncryptedAssertions">true</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
 ```
+
+## Enable identity provider initiated flow (Optional)
+
+In identity provider initiated flow, the sign-in process is initiated by the identity provider (Azure AD B2C), which sends an unsolicited SAML response to the service provider (your relying party application). To enable identity provider initiated flow, set the **IdpInitiatedProfileEnabled** metadata item to `true` in the [relying party technical profile](relyingparty.md#technicalprofile).
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="IdpInitiatedProfileEnabled">true</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+To sign in or sign up a user through identity provider initiated flow, use the following URL:
+
+```
+https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/generic/login
+```
+
+Replace the following values:
+
+* **tenant-name** with your tenant name
+* **policy-name** with your SAML relying party policy name
 
 ## Sample policy
 
@@ -414,6 +433,24 @@ The following SAML relying party (RP) scenarios are supported via your own metad
 
 The following SAML relying party (RP) scenarios are unsupported currently:
 * Identity Provider initiated sign on, where the Identity Provider is an external Identity Provider, for example ADFS.
+
+## SAML token
+
+A SAML token is a security token that is issued by Azure AD B2C after a successful sign-in. It contains information about the user, the service provider for which the token is intended, signature, and validity time. The following table lists the claims and properties that you can expect in a SAML token issued by Azure AD B2C.
+
+|Element  |Property  |Notes  |
+|---------|---------|---------|
+|`<Response>`| `ID` | An auto-generated unique identifier of the response. | 
+|`<Response>`| `InResponseTo` | The ID of the SAML request that this message is in response to. | 
+|`<Response>` | `IssueInstant` | The time instant of issue of the response. The time value is encoded in UTC.  To change the settings on your token lifetimes, set the `TokenNotBeforeSkewInSeconds` [metadata](saml-issuer-technical-profile.md#metadata) of the SAML token issuer technical profile. | 
+|`<Response>` | `Destination`| A URI reference indicating the address to which this response has been sent. The value is identical to the SAML request `AssertionConsumerServiceURL`. | 
+|`<Response>` `<Issuer>` | |Identifies the token issuer. This is an arbitrary URI defined by the SAML token issue's `IssuerUri` [metadata](saml-issuer-technical-profile.md#metadata)     |
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |The principal about which the token asserts information, such as the user object ID. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory.|
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | A URI reference representing the classification of string-based identifier information. By default this property is omitted. You can set the relying party [SubjectNamingInfo](relyingparty.md#subjectnaminginfo) to specify the `NameID` format, such as `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`. |
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |The time at which the token becomes valid. The time value is encoded in UTC. Your application should use this claim to verify the validity of the token lifetime. To change the settings on your token lifetimes, set the `TokenNotBeforeSkewInSeconds` [metadata](saml-issuer-technical-profile.md#metadata) of the SAML token issue technical profile. |
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | The time at which the token becomes invalid. Your application should use this claim to verify the validity of the token lifetime. The value is 15 minutes after the `NotBefore` and cannot be changed.|
+|`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |A URI reference that identifies an intended audience. It identifies the intended recipient of the token. The value is identical to the SAML request `AssertionConsumerServiceURL`.|
+|`<Response>` `<Assertion>` `<AttributeStatement>` collection of `<Attribute>` | | Assertions collection (claims), as configured in the [relying party technical profile](relyingparty.md#technicalprofile) output claims. You can configure the name of the assertion by setting the `PartnerClaimType` of the output claim. |
 
 ## Next steps
 

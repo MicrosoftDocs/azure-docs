@@ -1,7 +1,7 @@
 ---
 title: Integrate Azure Relay with Azure Private Link Service
 description: Learn how to integrate Azure Relay with Azure Private Link Service
-ms.date: 06/23/2020
+ms.date: 09/24/2020
 ms.topic: article
 ---
 
@@ -9,12 +9,6 @@ ms.topic: article
 Azure **Private Link Service** enables you to access Azure services (for example, Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a private endpoint in your virtual network. For more information, see [What is Azure Private Link (Preview)?](../private-link/private-link-overview.md)
 
 A **private endpoint** is a network interface that allows your workloads running in a virtual network to connect privately and securely to a service that has a **private link resource** (for example, a Relay namespace). The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute, VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network eliminating exposure from the public Internet. You can provide a level of granularity in access control by allowing connections to specific Azure Relay namespaces. 
-
-
-> [!IMPORTANT]
-> This feature is currently in **preview**. 
->
-> We currently support private link connections on sender clients. 
 
 
 ## Add a private endpoint using Azure portal

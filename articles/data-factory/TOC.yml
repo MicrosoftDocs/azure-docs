@@ -187,7 +187,7 @@
         href: concepts-data-flow-monitoring.md
       - name: Data flow performance
         href: concepts-data-flow-performance.md
-      - name: Manage graph
+      - name: Manage data flow canvas
         href: concepts-data-flow-manage-graph.md
       - name: Expression builder
         href: concepts-data-flow-expression-builder.md
@@ -249,6 +249,8 @@
       href: connector-azure-database-for-mysql.md
     - name: Azure Database for PostgreSQL
       href: connector-azure-database-for-postgresql.md
+    - name: Azure Databricks Delta Lake
+      href: connector-azure-databricks-delta-lake.md
     - name: Azure File Storage
       href: connector-azure-file-storage.md
     - name: Azure SQL Database
@@ -332,6 +334,8 @@
       items:
       - name: MongoDB (legacy)
         href: connector-mongodb-legacy.md
+    - name: MongoDB Atlas
+      href: connector-mongodb-atlas.md
     - name: MySQL
       href: connector-mysql.md
     - name: Netezza
@@ -542,6 +546,8 @@
       href: data-flow-new-branch.md
     - name: Pivot
       href: data-flow-pivot.md
+    - name: Rank
+      href: data-flow-rank.md
     - name: Select
       href: data-flow-select.md
     - name: Sink
@@ -590,6 +596,8 @@
       href: enable-customer-managed-key.md
     - name: Managed Virtual Network
       href: managed-virtual-network-private-endpoint.md
+    - name: Azure Private Link for Data Factory
+      href: data-factory-private-link.md
   - name: Monitor and manage
     items:
     - name: Monitor visually
@@ -696,6 +704,8 @@
         href: how-to-data-flow-error-rows.md
       - name: Azure SQL DB to Azure Cosmos DB
         href: how-to-sqldb-to-cosmosdb.md
+      - name: Dedupe and NULL check with snippets
+        href: how-to-data-flow-dedupe-nulls-snippets.md
     - name: SSIS migration from on-premises
       items:
       - name: SSIS migration overview

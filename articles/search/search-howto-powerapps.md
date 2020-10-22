@@ -26,7 +26,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## Prerequisites
 
-* [Power Apps account](http://make.powerapps.com)
+* [Power Apps account](https://make.powerapps.com)
 
 * [Hotels-sample index](search-get-started-portal.md)
 
@@ -36,7 +36,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 A connector in Power Apps is a data source connection. In this step, you'll create a custom connector to connect to a search index in the cloud.
 
-1. [Sign in](http://make.powerapps.com) to Power Apps.
+1. [Sign in](https://make.powerapps.com) to Power Apps.
 
 1. On the left, expand **Data** > **Custom Connectors**.
  
@@ -256,5 +256,4 @@ If you are using a free service, remember that you are limited to three indexes,
 Power Apps enables the rapid application development of custom apps. Now that you know how to connect to a search index, learn more about creating a rich visualize experience in a custom Power App.
 
 > [!div class="nextstepaction"]
-> [Power Apps Learning Catalog](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
-
+> [Power Apps Learning Catalog](/powerapps/learning-catalog/get-started)

@@ -23,7 +23,7 @@ Contoso wants to deploy an intelligent edge module to the oil pump jack that det
 
 The following diagram shows the key components in the tutorial scenario:
 
-![Overview](media/iot-accelerators-remote-monitoring-edge/overview.png)
+![Diagram shows oil pump jack connected to I o T Edge stream analytics module in the I o T Edge device for telemetry and commands. Filtered telemetry goes to the I o T Edge device in Remote monitoring solution accelerator in the cloud. The cloud also contains Deployment and Package. Deployment deploys the I o T Edge runtime in the device.](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 In this tutorial, you:
 

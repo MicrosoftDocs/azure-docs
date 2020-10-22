@@ -6,6 +6,7 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
+ms.custom: devx-track-csharp
 ---
 # Working with Dates in Azure Cosmos DB
 

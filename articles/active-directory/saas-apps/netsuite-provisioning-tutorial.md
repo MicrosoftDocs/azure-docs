@@ -22,6 +22,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   An Azure Active directory tenant.
 *   A Netsuite OneWorld subscription. Note that automatic user provisioning is presently only supported with NetSuite OneWorld.
 *   A user account in Netsuite with administrator permissions.
+*   Integration with Azure AD requires a 2FA exemption. Please contact Netsuite support team for this exception.
 
 ## Assigning users to Netsuite OneWorld
 
@@ -56,7 +57,7 @@ The objective of this section is to outline how to enable user provisioning of A
 
 1. Set the **Provisioning Mode** to **Automatic**. 
 
-    ![provisioning](./media/netsuite-provisioning-tutorial/provisioning.png)
+    ![Screenshot shows the Netsuite Provisioning page, with Provisioning Mode set to Automatic and other values you can set.](./media/netsuite-provisioning-tutorial/provisioning.png)
 
 1. Under the **Admin Credentials** section, provide the following configuration settings:
    

@@ -115,11 +115,11 @@ To configure Azure AD single sign-on with Flatter Files, perform the following s
 
 2. Click **DASHBOARD**. 
    
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
+    ![Screenshot that shows "DASHBOARD" selected in the "Flatter Files" app.](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 3. Click **Settings**, and then perform the following steps on the **Company** tab: 
    
-    ![Configure Single Sign-On](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+    ![Screenshot that shows the "Company" tab with "Use S A M L 2.0 for Authentication" checked and the "Configure S A M L" button selected.](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
 	a. Select **Use SAML 2.0 for Authentication**.
     
@@ -201,7 +201,7 @@ The objective of this section is to create a user called Britta Simon in Flatter
 
 2. In the navigation pane on the left, click **Settings**, and then click the **Users** tab.
    
-    ![Create a Flatter Files User](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
+    ![Screenshot that shows the "Settings" page with the "Users" tab selected.](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
 3. Click **Add User**. 
 

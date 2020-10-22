@@ -90,15 +90,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. JFrog Artifactory application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with the edit control called out.](common/edit-attribute.png)
 
 1. In addition to above, JFrog Artifactory application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
 	a. Click the **pen** next to **Groups returned in claim**.
 
-	![image](./media/jfrog-artifactory-tutorial/config04.png)
+	![Screenshot shows User Attributes & Claims with the Edit icon selected.](./media/jfrog-artifactory-tutorial/config04.png)
 
-	![image](./media/jfrog-artifactory-tutorial/config05.png)
+	![Screenshot shows the Group Claims section with All groups selected.](./media/jfrog-artifactory-tutorial/config05.png)
 
 	b. Select **All Groups** from the radio list.
 

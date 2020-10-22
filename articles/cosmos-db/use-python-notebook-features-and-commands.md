@@ -165,7 +165,7 @@ See [Python SDK samples](https://github.com/Azure/azure-sdk-for-python/tree/mast
 ## Create a custom instance of ``cosmos_client``
 For more flexibility, you can create a custom instance of ``cosmos_client`` in order to:
 
-- Customize the [connection policy](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview)
+- Customize the [connection policy](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview&preserve-view=true)
 - Run operations against a different Azure Cosmos account than the one you are in
 
 You can access the connection string and primary key of the current account via the [environment variables](#access-the-account-endpoint-and-primary-key-env-variables). 

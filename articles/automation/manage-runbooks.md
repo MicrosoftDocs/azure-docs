@@ -287,7 +287,7 @@ The summary displays a count and graphical representation of the job status for 
 
 Clicking the tile presents the Jobs page, which includes a summarized list of all jobs executed. This page shows the status, runbook name, start time, and completion time for each job.
 
-![Automation account Jobs page](./media/manage-runbooks/automation-account-jobs-status-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="Screenshot of the Jobs page.":::
 
 You can filter the list of jobs by selecting **Filter jobs**. Filter on a specific runbook, job status, or a choice from the dropdown list, and provide the time range for the search.
 
@@ -295,7 +295,7 @@ You can filter the list of jobs by selecting **Filter jobs**. Filter on a specif
 
 Alternatively, you can view job summary details for a specific runbook by selecting that runbook from the Runbooks page in your Automation account and then selecting **Jobs**. This action presents the Jobs page. From here, you can click a job record to view its details and output.
 
-![Automation account Jobs page](./media/manage-runbooks/automation-runbook-job-summary-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Screenshot of the Jobs page with the Errors button highlighted.":::
 
 ### Retrieve job statuses using PowerShell
 

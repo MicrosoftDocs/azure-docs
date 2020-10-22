@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/13/2020
+ms.date: 09/09/2020
 ms.author: mbaldwin
 ---
 # Data encryption models
@@ -144,7 +144,7 @@ The Azure services that support each encryption model:
 | Azure Cognitive Search           | Yes                | Yes                | -                  |
 | Azure Cognitive Services         | Yes                | Yes                | -                  |
 | Azure Machine Learning           | Yes                | Yes                | -                  |
-| Azure Machine Learning Studio    | Yes                | Preview, RSA 2048-bit | -               |
+| Azure Machine Learning Studio (classic) | Yes         | Preview, RSA 2048-bit | -               |
 | Content Moderator                | Yes                | Yes                | -                  |
 | Face                             | Yes                | Yes                | -                  |
 | Language Understanding           | Yes                | Yes                | -                  |
@@ -152,11 +152,11 @@ The Azure services that support each encryption model:
 | QnA Maker                        | Yes                | Yes                | -                  |
 | Speech Services                  | Yes                | Yes                | -                  |
 | Translator Text                  | Yes                | Yes                | -                  |
-| Power BI                         | Yes                | Preview, RSA 2048-bit | -                  |
+| Power BI                         | Yes                | Yes, RSA 4096-bit  | -                  |
 | **Analytics**                    |                    |                    |                    |
-| Azure Stream Analytics           | Yes                | N/A\*            | -                  |
-| Event Hubs                       | Yes                | Yes, all RSA Lengths. | -                  |
-| Functions                        | Yes                | Yes, all RSA Lengths. | -                  |
+| Azure Stream Analytics           | Yes                | N/A\*              | -                  |
+| Event Hubs                       | Yes                | Yes                | -                  |
+| Functions                        | Yes                | Yes                | -                  |
 | Azure Analysis Services          | Yes                | -                  | -                  |
 | Azure Data Catalog               | Yes                | -                  | -                  |
 | Azure HDInsight                  | Yes                | All                | -                  |
@@ -170,9 +170,9 @@ The Azure services that support each encryption model:
 | Container Instances              | Yes                | Yes                | -                  |
 | Container Registry               | Yes                | Yes                | -                  |
 | **Compute**                      |                    |                    |                    |
-| Virtual Machines                 | Yes                | Yes, RSA 2048-bit  | -                  |
-| Virtual Machine Scale Set        | Yes                | Yes, RSA 2048-bit  | -                  |
-| SAP HANA                         | Yes                | Yes, RSA 2048-bit  | -                  |
+| Virtual Machines                 | Yes                | Yes                | -                  |
+| Virtual Machine Scale Set        | Yes                | Yes                | -                  |
+| SAP HANA                         | Yes                | Yes                | -                  |
 | App Service                      | Yes                | Yes\*\*            | -                  |
 | Automation                       | Yes                | Yes\*\*            | -                  |
 | Azure Functions                  | Yes                | Yes\*\*            | -                  |
@@ -182,13 +182,13 @@ The Azure services that support each encryption model:
 | Service Bus                      | Yes                | Yes                | -                  |
 | Site Recovery                    | Yes                | Yes                | -                  |
 | **Databases**                    |                    |                    |                    |
-| SQL Server on Virtual Machines   | Yes                | Yes, RSA 2048-bit  | Yes                |
-| Azure SQL Database               | Yes                | Yes, RSA 2048-bit  | Yes                |
+| SQL Server on Virtual Machines   | Yes                | Yes                | Yes                |
+| Azure SQL Database               | Yes                | Yes, RSA 3072-bit  | Yes                |
 | Azure SQL Database for MariaDB   | Yes                | -                  | -                  |
 | Azure SQL Database for MySQL     | Yes                | Yes                | -                  |
 | Azure SQL Database for PostgreSQL | Yes               | Yes                | -                  |
-| Azure Synapse Analytics          | Yes                | Yes, RSA 2048-bit  | -                  |
-| SQL Server Stretch Database      | Yes                | Yes, RSA 2048-bit  | Yes                |
+| Azure Synapse Analytics          | Yes                | Yes, RSA 3072-bit  | -                  |
+| SQL Server Stretch Database      | Yes                | Yes, RSA 3072-bit  | Yes                |
 | Table Storage                    | Yes                | Yes                | Yes                |
 | Azure Cosmos DB                  | Yes                | Yes                | -                  |
 | Azure Databricks                 | Yes                | Yes                | -                  |
@@ -198,7 +198,7 @@ The Azure services that support each encryption model:
 | Azure Repos                      | Yes                | -                  | Yes                |
 | **Identity**                     |                    |                    |                    |
 | Azure Active Directory           | Yes                | -                  | -                  |
-| Azure Active Directory Domain Services | Yes          | Yes, RSA 2048-bit  | -                  |
+| Azure Active Directory Domain Services | Yes          | Yes                | -                  |
 | **Integration**                  |                    |                    |                    |
 | Service Bus                      | Yes                | Yes                | Yes                |
 | Event Grid                       | Yes                | -                  | -                  |
@@ -215,20 +215,20 @@ The Azure services that support each encryption model:
 | Azure Security Center for IoT    | Yes                | Yes                | -                  |
 | Azure Sentinel                   | Yes                | Yes                | -                  |
 | **Storage**                      |                    |                    |                    |
-| Blob Storage                     | Yes                | Yes, RSA 2048-bit  | Yes                |
-| Premium Blob Storage             | Yes                | Yes, RSA 2048-bit  | Yes                |
+| Blob Storage                     | Yes                | Yes                | Yes                |
+| Premium Blob Storage             | Yes                | Yes                | Yes                |
 | Disk Storage                     | Yes                | Yes                | -                  |
 | Ultra Disk Storage               | Yes                | Yes                | -                  |
 | Managed Disk Storage             | Yes                | Yes                | -                  |
-| File Storage                     | Yes                | Yes, RSA 2048-bit  | -                  |
-| File Premium Storage             | Yes                | Yes, RSA 2048-bit  | -                  |
-| File Sync                        | Yes                | Yes, RSA 2048-bit  | -                  |
+| File Storage                     | Yes                | Yes                | -                  |
+| File Premium Storage             | Yes                | Yes                | -                  |
+| File Sync                        | Yes                | Yes                | -                  |
 | Queue Storage                    | Yes                | Yes                | Yes                |
 | Avere vFXT                       | Yes                | -                  | -                  |
 | Azure Cache for Redis            | Yes                | N/A\*              | -                  |
 | Azure NetApp Files               | Yes                | Yes                | -                  |
-| Archive Storage                  | Yes                | Yes, RSA 2048-bit  | -                  |
-| StorSimple                       | Yes                | Yes, RSA 2048-bit  | Yes                |
+| Archive Storage                  | Yes                | Yes                | -                  |
+| StorSimple                       | Yes                | Yes                | Yes                |
 | Azure Backup                     | Yes                | Yes                | Yes                |
 | Data Box                         | Yes                | -                  | Yes                |
 | Data Box Edge                    | Yes                | Yes                | -                  |

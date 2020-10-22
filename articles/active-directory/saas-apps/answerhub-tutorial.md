@@ -136,7 +136,7 @@ In this section, you set up single sign-on for AnswerHub.
 
 4. On the **IDP Config** tab, complete these steps:
 
-    ![Users & Groups tab](./media/answerhub-tutorial/ic785172.png "SAML Setup")  
+    ![Screenshot shows AnswerHub page with the Users & Groups tab selected.](./media/answerhub-tutorial/ic785172.png "SAML Setup")  
   
     a. In the **IDP Login URL** box, paste the **Login URL** that you copied from the Azure portal.
   
@@ -227,7 +227,7 @@ To enable Azure AD users to sign in to AnswerHub, you need to add them in Answer
 
 4. In the left pane, in the **Manage Users** section, select **Create or import users**, and then select **Users & Groups**.
 
-   ![Users & Groups tab](./media/answerhub-tutorial/ic785175.png "Users & Groups")
+   ![Screenshot shows AnswerHub page with the Users & Groups tab selected and the Create or import users link called out.](./media/answerhub-tutorial/ic785175.png "Users & Groups")
 
 5. In the appropriate boxes, enter the **Email address**, **Username**, and **Password** of a valid Azure AD account that you want to add, and then select **Save**.
 

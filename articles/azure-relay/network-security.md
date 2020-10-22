@@ -1,6 +1,6 @@
 ---
 title: Network security for Azure Relay
-description: This article describes how to configure access from private endpoints
+description: This article describes how to use IP firewall rules and private endpoints with Azure Relay.
 ms.topic: conceptual
 ms.date: 06/23/2020
 ---

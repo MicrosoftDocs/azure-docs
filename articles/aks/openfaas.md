@@ -87,7 +87,8 @@ alertmanager-config  1     20s
 NOTES:
 To verify that openfaas has started, run:
 
-  kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
+```console
+kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
 
 A public IP address is created for accessing the OpenFaaS gateway. To retrieve this IP address, use the [kubectl get service][kubectl-get] command. It may take a minute for the IP address to be assigned to the service.
@@ -129,7 +130,7 @@ Now that OpenFaaS is operational, create a function using the OpenFaas portal.
 
 Click on **Deploy New Function** and search for **Figlet**. Select the Figlet function, and click **Deploy**.
 
-![Figlet](media/container-service-serverless/figlet.png)
+![Screenshot shows the Deploy A New Function dialog box with the text figlet on the search line.](media/container-service-serverless/figlet.png)
 
 Use curl to invoke the function. Replace the IP address in the following example with that of your OpenFaas gateway.
 

@@ -8,7 +8,7 @@ ms.service: sql-database
 ms.subservice: development
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 08/05/2020
+ms.date: 06/26/2020
 ms.custom: devx-track-java
 ---
 
@@ -132,7 +132,7 @@ Using your favorite IDE, create a new Java project, and add a `pom.xml` file in 
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
-            <version>8.2.2.jre8</version>
+            <version>7.4.1.jre8</version>
         </dependency>
     </dependencies>
 </project>

@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 07/09/2020
+ms.date: 09/30/2020
 ---
 
 # Manage Azure Machine Learning resources with the VS Code Extension (preview)
@@ -39,10 +39,10 @@ For more information, see [workspaces](concept-workspace.md).
     1. Choose your Azure subscription
     1. Choose or create a new resource group to provision the workspace in
     1. Select the location where to provision the workspace.
-    1. Choose between the *basic* and *enterprise* edition. Learn more about the different [Azure Machine Learning editions](concept-editions.md).
 
 Alternative methods to create a workspace include:
 
+- Open the command palette **View > Command Palette** and enter into the text prompt **Azure ML: Create Workspace**.
 - Click the `+` icon at the top of the Azure Machine Learning view.
 - Create a new workspace when prompted to select a workspace during the provisioning of other resources.
 
@@ -196,6 +196,7 @@ For more information, see [experiments](concept-azure-machine-learning-architect
 1. Expand the **Experiments** node inside your workspace.
 1. Right-click the experiment you want to run.
 1. Select the **Run Experiment** icon in the activity bar.
+1. Select whether you want to run your experiment locally or remotely. See the [debugging guide](how-to-debug-visual-studio-code.md) for more information on running and debugging experiments locally.
 1. Choose your subscription.
 1. Choose the Azure ML Workspace to run the experiment under.
 1. Choose your experiment.
@@ -237,6 +238,39 @@ Once a run is complete, you may want to download the logs and assets such as the
 ### View run metadata
 
 In the extension, you can inspect metadata such as the run configuration used for the run as well as run details.
+
+## Compute instances
+
+For more information, see [compute instances](concept-compute-instance.md).
+
+### Create compute instance
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the workspace node you want to create the compute instance under.
+1. Right-click the **Compute instances** node and select **Create compute instance**.
+1. In the prompt:
+    1. Provide a name for your compute instance.
+    1. Select a VM size from the list.
+    1. Choose whether you want to enable SSH access.
+        1. If you enable SSH access, you'll have to also provide the public SSH key or the file containing the key. For more information, see the [guide on creating and using SSH keys on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+
+### Stop or restart compute instance
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Compute instance** node inside your workspace.
+1. Right-click the compute instance you want to stop or restart and select **Stop Compute instance** or **Restart compute instance** respectively.
+
+### View compute instance configuration
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Compute instance** node inside your workspace.
+1. Right-click the compute instance you want to inspect and select **View Compute instance Properties**.
+
+### Delete compute instance
+
+1. Expand the subscription node that contains your workspace.
+1. Expand the **Compute instance** node inside your workspace.
+1. Right-click the compute instance you want to delete and select **Delete compute instance**.
 
 ## Compute clusters
 
@@ -282,7 +316,7 @@ To create a run configuration in the extension:
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Compute clusters** node inside your workspace.
-1. Right-click the compute target you want create the run configuration under and select **Create Run Configuration**.
+1. Right-click the compute target you want to create the run configuration under and select **Create Run Configuration**.
 1. In the prompt:
     1. Provide a name for your compute target
     1. Choose or create a new environment.

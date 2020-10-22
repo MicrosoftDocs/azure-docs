@@ -9,7 +9,7 @@ ms.custom: sqldbrb=4
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 11/13/2019
 ---
 # Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
@@ -20,7 +20,7 @@ In the provisioned compute tier of the vCore-based purchasing model, you can exc
 > [!NOTE]
 > Changing to Azure Hybrid Benefit does not require any downtime.
 
-![pricing](./media/azure-hybrid-benefit/pricing.png)
+![vcore pricing structure](./media/azure-hybrid-benefit/pricing.png)
 
 ## Choose a license model
 

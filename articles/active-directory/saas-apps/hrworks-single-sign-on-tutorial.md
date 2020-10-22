@@ -152,15 +152,15 @@ To enable Azure AD users, sign in to HRworks Single Sign-On, they must be provis
 
 1. Click on **Administrator** > **Persons** > **Persons** > **New person** from the left side of menu bar.
 
-	 ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure02.png)
+	 ![Screenshot shows Screenshot shows H R works page with Persons and New person selected.](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 1. On the Pop-up, click **Next**.
 
-	![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure03.png)
+	![Screenshot shows a list of countries for you to choose from for the person.](./media/hrworks-single-sign-on-tutorial/configure03.png)
 
 1. On the **Create new person with country for legal terms** pop-up, fill the respective details like **First name**, **Last name** and click **Create**.
 
-	![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure04.png)
+	![Screenshot shows text boxes where you can enter first and last names for the person.](./media/hrworks-single-sign-on-tutorial/configure04.png)
 
 ## Test SSO
 

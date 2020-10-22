@@ -219,11 +219,11 @@ To enable Azure AD users to log in to Canvas, they must be provisioned into Canv
 
 3. Click **Users**.
 
-   ![Users](./media/canvas-lms-tutorial/ic775995.png "Users")
+   ![Screenshot shows Canvas menu with Users selected.](./media/canvas-lms-tutorial/ic775995.png "Users")
 
 4. Click **Add New User**.
 
-   ![Users](./media/canvas-lms-tutorial/ic775996.png "Users")
+   ![Screenshot shows the Add a new User button.](./media/canvas-lms-tutorial/ic775996.png "Users")
 
 5. On the Add a New User dialog page, perform the following steps:
 

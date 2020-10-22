@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 10/14/2020
 ---
 
 # Lookup activity in Azure Data Factory
@@ -24,7 +24,9 @@ Lookup activity reads and returns the content of a configuration file or table. 
 
 ## Supported capabilities
 
-The following data sources are supported for Lookup activity. The largest number of rows that can be returned by Lookup activity is 5,000, up to 2 MB in size. Currently, the longest duration for Lookup activity before timeout is one hour.
+The following data sources are supported for Lookup activity. 
+
+The Lookup activity can return up to 5000 rows; if the result set contains more records, the first 5000 rows will be returned. The Lookup activity output supports up to around 4 MB in size, activity will fail if the size exceeds the limit. Currently, the longest duration for Lookup activity before timeout is 24 hours.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -65,7 +67,7 @@ firstRowOnly | Indicates whether to return only the first row or all rows. | Boo
 
 The lookup result is returned in the `output` section of the activity run result.
 
-* **When `firstRowOnly` is set to `true` (default)**, the output format is as shown in the following code. The lookup result is under a fixed `firstRow` key. To use the result in subsequent activity, use the pattern of  `@{activity('LookupActivity').output.firstRow.table`.
+* **When `firstRowOnly` is set to `true` (default)**, the output format is as shown in the following code. The lookup result is under a fixed `firstRow` key. To use the result in subsequent activity, use the pattern of  `@{activity('LookupActivity').output.firstRow.table}`.
 
     ```json
     {

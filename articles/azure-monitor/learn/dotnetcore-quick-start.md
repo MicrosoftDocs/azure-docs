@@ -100,7 +100,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 When you are done testing, you can delete the resource group and all related resources. To do so follow the steps below.
 
 > [!NOTE]
-> If you used an existing resource group the instructions below will not work and you will need to just delete the individual Application Insights resource. Keep in mind anytime you delete a resource group all underyling resources that are members of that group will be deleted.
+> If you used an existing resource group the instructions below will not work and you will need to just delete the individual Application Insights resource. Keep in mind anytime you delete a resource group all underlying resources that are members of that group will be deleted.
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**.
 2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.

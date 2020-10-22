@@ -1,6 +1,6 @@
 ---
 title: Translate links and URLs Azure AD App Proxy | Microsoft Docs
-description: Covers the basics about Azure AD Application Proxy connectors.
+description: Learn how to redirect hard-coded links for apps published with Azure AD Application proxy.
 services: active-directory
 documentationcenter: ''
 author: kenwith

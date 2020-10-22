@@ -10,7 +10,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/11/2020
 ---
 
@@ -276,7 +276,7 @@ After the initial Full load is completed, the databases are marked **Ready to cu
 
     ![Complete cutover screen](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
 
-3. When the database migration status shows **Completed**, connect your applications to the new target instance of Azure Database for PostgreSQL.
+3. When the database migration status shows **Completed**, [recreate sequences](https://wiki.postgresql.org/wiki/Fixing_Sequences) (if applicable), and connect your applications to the new target instance of Azure Database for PostgreSQL.
 
 ## Next steps
 

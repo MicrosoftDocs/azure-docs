@@ -154,7 +154,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 **Guidance:** DevTest Labs uses the Azure AD service for identity management. Consider these two key aspects when you give users access to an environment based on DevTest Labs:
 
-- **Resource management:** It provides access to the Azure portal to manage resources (create VMs, create environments, start, stop, restart, delete, and apply artifacts, and so on). Resource management is done in Azure by using role-based access control (RBAC). You assign roles to users and set resource and access-level permissions.
+- **Resource management:** It provides access to the Azure portal to manage resources (create VMs, create environments, start, stop, restart, delete, and apply artifacts, and so on). Resource management is done in Azure by using Azure role-based access control (Azure RBAC). You assign roles to users and set resource and access-level permissions.
 - **Virtual machines (network-level)**: In the default configuration, VMs use a local admin account. If there's a domain available (Azure AD Domain Services, an on-premises domain, or a cloud-based domain), machines can be joined to the domain. Users can then use their domain-based identities using the domain join artifact to connect to the machines. 
 
 - [Reference architecture for DevTest Labs](devtest-lab-reference-architecture.md#architecture)
@@ -259,7 +259,7 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 ### 4.1: Maintain an inventory of sensitive information
 **Guidance:** Use tags to assist in tracking Azure resources that store or process sensitive information.
 
-- [How to create and use tags](../azure-resource-manager/resource-group-using-tags.md)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring:** Not applicable
 
@@ -268,10 +268,10 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 ### 4.2: Isolate systems storing or processing sensitive information
 **Guidance:** Implement separate subscriptions or management groups for development, test, and production. Azure DevTest Labs instances should be separated by virtual network/subnet and tagged appropriately. 
 
-- [How to create additional Azure subscriptions](../billing/billing-create-subscription.md)
-- [How to create management groups](../governance/management-groups/create.md)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
+- [How to create management groups](../governance/management-groups/create-management-group-portal.md)
 - [How to configure a virtual network for DevTest Labs](devtest-lab-configure-vnet.md)
-- [How to create and use tags](../azure-resource-manager/resource-group-using-tags.md)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 - [How to create and use tags for DevTest Labs](devtest-lab-add-tag.md)
 
 **Azure Security Center monitoring:** Currently not available
@@ -310,9 +310,9 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 **Responsibility:** Customer
 
 ### 4.6: Use Azure RBAC to control access to resources
-**Guidance:** Use Azure Active Directory (Azure AD) role-based access control (RBAC) to control access to labs in Azure DevTest Labs.
+**Guidance:** Use Azure role-based access control (Azure RBAC) to control access to labs in Azure DevTest Labs.
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 - [Understand roles in DevTest Labs](devtest-lab-add-devtest-user.md)
 
 **Azure Security Center monitoring:** Not applicable
@@ -375,7 +375,7 @@ Microsoft performs vulnerability management on the underlying resources that sup
 **Guidance:** Use Azure Update Management to ensure the most recent security updates are installed on your Windows and Linux VMs hosted within DevTest Labs. For Windows VMs, ensure Windows Update has been enabled and set to update automatically. This setting isn't currently available to configure through DevTest Labs, however lab admin/subscription admin can configure this setting on the underlying compute VMs in their subscription. 
 
 - [How to configure Update Management for VMs in Azure](../automation/update-management/update-mgmt-overview.md)
-- [Understand Azure security policies monitored by Security Center](../security-center/security-center-policy-definitions.md)
+- [Understand Azure security policies monitored by Security Center](../security-center/policy-reference.md)
 
 **Azure Security Center monitoring:** Not applicable
 
@@ -439,7 +439,7 @@ As a subscription admin, you can also use the Azure Update Management solution t
 **Guidance:** Use tagging, management groups, and separate subscriptions, and separate labs where appropriate, to organize and track labs and lab-related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription quickly.
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 - [How to create a lab using DevTest Labs](devtest-lab-create-lab.md)
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 - [How to configure tags for a lab](devtest-lab-add-tag.md)
@@ -489,7 +489,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 **Guidance:** Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. As a subscription admin, you may use Change Tracking to identify all software installed on VMs hosted in DevTest Labs. You can implement your own process or use Azure Automation State Configuration for removing unauthorized software.
 
 - [An introduction to Azure Automation](../automation/automation-intro.md)
-- [Track changes in your environment with the Change Tracking solution](../automation/change-tracking.md)
+- [Track changes in your environment with the Change Tracking solution](../automation/change-tracking/overview.md)
 - [Azure Automation state configuration overview](../automation/automation-dsc-overview.md)
 
 **Azure Security Center monitoring:** Not Available
@@ -513,7 +513,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 See the following articles: 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
-- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/not-allowed-resource-types.md)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring:** Yes
 
@@ -555,7 +555,7 @@ See the following articles:
 - [Configure virtual network for DevTest Labs](devtest-lab-configure-vnet.md)
 - [Azure Firewall overview](../firewall/overview.md)
 - [Web Application Firewall overview](../web-application-firewall/overview.md)
-- [Network security overview](../virtual-network/security-overview.md)
+- [Network security overview](../virtual-network/network-security-groups-overview.md)
 - [Azure Virtual Network overview]()
 - [Organize your resources with Azure management groups](../governance/management-groups/overview.md)
 - [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
@@ -613,7 +613,7 @@ You may also use recommendations from Azure Security Center as a secure configur
 
 Also, Azure Marketplace Virtual Machine Images published by Microsoft are managed and maintained by Microsoft.
 
-- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md)
 - [Azure Automation State Configuration overview](../automation/automation-dsc-overview.md)
 - [Sample script to upload a VHD to Azure and create a new VM](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
 - [How to create an image factory in DevTest Labs](image-factory-create.md)
@@ -625,8 +625,8 @@ Also, Azure Marketplace Virtual Machine Images published by Microsoft are manage
 ### 7.5: Securely store configuration of Azure resources
 **Guidance:** Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates and Desired State Configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps.
 
-- [Azure Repos Git tutorial](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow)
-- [About permissions and groups](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
+- [Azure Repos Git tutorial](/azure/devops/repos/git/gitworkflow)
+- [About permissions and groups](/azure/devops/organizations/security/about-permissions?tabs=preview-page&view=azure-devops)
 - [Integration between Azure DevTest Labs and Azure DevOps workflow](devtest-lab-dev-ops.md)
 
 **Azure Security Center monitoring:** Not applicable
@@ -634,12 +634,12 @@ Also, Azure Marketplace Virtual Machine Images published by Microsoft are manage
 **Responsibility:** Customer
 
 ### 7.6: Securely store custom operating system images
-**Guidance:** If using custom images, use role-based access control (RBAC) to ensure only authorized users may access the images. Using a Shared Image Gallery, you can share your images to specific labs that need it. For container images, store them in Azure Container Registry and use RBAC to ensure only authorized users may access the images.
+**Guidance:** If using custom images, use Azure role-based access control (Azure RBAC) to ensure only authorized users may access the images. Using a Shared Image Gallery, you can share your images to specific labs that need it. For container images, store them in Azure Container Registry and use Azure RBAC to ensure only authorized users may access the images.
 
-- [Understand RBAC in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-- [How to configure RBAC in Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Understand Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [How to configure Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 - [Configure a Shared Image Gallery for a DevTest Labs](configure-shared-image-gallery.md)
-- [Understand RBAC for Container Registry](../container-registry/container-registry-roles.md)
+- [Understand Azure RBAC for Container Registry](../container-registry/container-registry-roles.md)
 
 **Azure Security Center monitoring:** Not applicable
 
@@ -677,7 +677,7 @@ Also, Azure Marketplace Virtual Machine Images published by Microsoft are manage
 ### 7.10: Implement automated configuration monitoring for operating systems
 **Guidance:** Use Azure Security Center to perform baseline scans for OS and Docker Settings for containers.
 
-- [Understand Azure Security Center container recommendations](../security-center/security-center-container-recommendations.md)
+- [Understand Azure Security Center container recommendations](../security-center/container-security.md)
 
 **Azure Security Center monitoring:** Not applicable
 
@@ -688,8 +688,9 @@ Also, Azure Marketplace Virtual Machine Images published by Microsoft are manage
 
 - [Configure managed identity to deploy Azure Resource Manager environments in DevTest Labs](use-managed-identities-environments.md)
 - [Configure managed identity to deploy virtual machines in DevTest Labs](enable-managed-identities-lab-vms.md)
-- [How to create a key vault](../key-vault/quick-create-portal.md)
-- [How to provide Key Vault authentication with a managed identity](../key-vault/managed-identity.md)
+- [How to create a key vault](../key-vault/secrets/quick-create-portal.md)
+- [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+- [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring:** Yes
 

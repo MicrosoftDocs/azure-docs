@@ -38,7 +38,7 @@ For example, let's suppose that you are running one general purpose, Gen5 – 32
 4. Fill-in the required fields. Existing or new databases that match the attributes you select qualify to get the reserved capacity discount. The actual number of your Azure Database for MySQL servers that get the discount depend on the scope and quantity selected.
 
 
-![Overview of reserved pricing](media/concepts-reserved-pricing/mysql-reserved-price.png)
+:::image type="content" source="media/concepts-reserved-pricing/mysql-reserved-price.png" alt-text="Overview of reserved pricing":::
 
 
 The following table describes required fields.

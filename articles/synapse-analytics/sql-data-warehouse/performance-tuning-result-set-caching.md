@@ -21,8 +21,6 @@ When result set caching is enabled, Synapse SQL automatically caches query resul
 
 [Turn ON/OFF result set caching for a user database](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
-[Turn ON/OFF result set caching for a user database](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-
 [Turn ON/OFF result set caching for a session](/sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 [Check the size of cached result set](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  
@@ -53,11 +51,11 @@ WHERE request_id  = <'request_id'>;
 
 Here is an example output for a query executed with result set caching disabled.
 
-![Query-steps-with-rsc-disabled](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
+![Screenshot shows query results, including location type and command.](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
 
 Here is an example output for a query executed with result set caching enabled.
 
-![Query-steps-with-rsc-enabled](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
+![Screenshot shows query results with the command selected * from [D W ResultCache D b] dot d b o called out.](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
 
 ## When cached results are used
 

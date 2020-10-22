@@ -6,6 +6,7 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: vturecek
+ms.custom: devx-track-csharp
 ---
 # Service remoting in C# with Reliable Services
 

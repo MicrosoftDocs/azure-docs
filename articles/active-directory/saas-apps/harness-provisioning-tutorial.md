@@ -121,7 +121,7 @@ To configure automatic user provisioning for Harness in Azure AD, do the followi
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
  
-   a. In the **Tenant URL** box, enter **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`**.  
+   a. In the **Tenant URL** box, enter **`https://app.harness.io/gateway/api/scim/account/<your_harness_account_ID>`**. You can obtain your Harness account ID from the URL in your browser when you are logged into Harness.
    b. In the **Secret Token** box, enter the SCIM Authentication Token value that you saved in step 6 of the "Set up Harness for provisioning" section.  
    c. Select **Test Connection** to ensure that Azure AD can connect to Harness. If the connection fails, ensure that your Harness account has *Admin* permissions, and then try again.
 

@@ -33,7 +33,7 @@ Copy the configuration ID from the output to use later.
 
 Using `--maintenanceScope host` ensures that the maintenance config is used for controlling updates to the host.
 
-If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your subscription.
+If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your resource group.
 
 You can query for available maintenance configurations using `az maintenance configuration list`.
 

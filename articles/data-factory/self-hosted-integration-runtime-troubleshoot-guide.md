@@ -2,11 +2,11 @@
 title: Troubleshoot self-hosted integration runtime in Azure Data Factory
 description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory. 
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/05/2020
-ms.author: abnarain
+ms.date: 10/22/2020
+ms.author: lle
 ---
 
 # Troubleshoot self-hosted integration runtime
@@ -518,7 +518,7 @@ This behavior occurs when nodes can't communicate with each other.
 ### Connectivity issue between Self-hosted IR and Data Factory or Self-hosted IR and data source/sink
 
 To troubleshoot the network connectivity issue, you should know 
-how to [collect the network trace](#how-to-collect-netmon-trace), understand how to use it, and [analyze the netmon trace](#how-to-analyze-netmon-trace) before applying the Netmon Tools in real cases from Self-hosted IR.
+how to collect the network trace, understand how to use it, and [analyze the netmon trace](#how-to-analyze-netmon-trace) before applying the Netmon Tools in real cases from Self-hosted IR.
 
 #### Symptoms
 
@@ -574,53 +574,12 @@ Take the netmon trace and analyze further.
 
     Therefore, you need to engage the network team to check what the fourth hop is from Self-hosted IR. If it is the firewall as Linux System, then check any logs on why that device resets the package after TCP 3 handshake. However, if you are not sure where to do investigation, try to get the netmon trace from Self-hosted IR and Firewall together during the problematic time to figure out which device may reset this package and cause the disconnection. In this case, you also need to engage your network team to move forward.
 
-### How to collect netmon trace
-
-1.	Download the Netmon Tools from [this website](https://www.microsoft.com/en-sg/download/details.aspx?id=4865), and install it on your Server Machine (whatever server having the issue) and Client (such as Self-hosted IR).
-
-2.	Create a folder, for example, in the following path: *D:\netmon*. Make sure that it has enough space to save the log.
-
-3.	Capture the IP and Port Information. 
-    1. Start a CMD Prompt.
-    2. Select Run as admin and run the following command:
-       
-        ```
-        Ipconfig /all >D:\netmon\IP.txt
-        netstat -abno > D:\netmon\ServerNetstat.txt
-        ```
-
-4.	Capture the Netmon Trace (network package).
-    1. Start a CMD Prompt.
-    2. Select Run as admin and run the following command:
-        
-        ```
-        cd C:\Program Files\Microsoft Network Monitor 3
-        ```
-    3. You can use three different commands to capture the network page:
-        - Option A: RoundRobin File command (This will capture only one file and will overwrite old logs).
-
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.cap:200M
-            ```         
-        - Option B: Chained File command (This will create new file if 200 MB is reached).
-        
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.chn:200M
-            ```          
-        - Option C: Scheduled File command.
-
-            ```
-            nmcap /network * /capture /StartWhen /Time 10:30:00 AM 10/28/2011 /StopWhen /Time 11:30:00 AM 10/28/2011 /file D:\netmon\ServerConnection.chn:200M
-            ```  
-
-5.	Press **Ctrl+C** to stop capture the Netmon trace.
- 
-> [!NOTE]
-> If you can only collect the netmon trace on the client machine, please get the server ip address to help you analyze the trace.
-
 ### How to analyze netmon trace
 
-When you try to telnet **8.8.8.8 888** with above netmon trace collected, you are supposed to see below trace:
+> [!NOTE] 
+> Below instruction is applicable to netmon trace. Since netmon trace is currently out of support, you can leverage wireshark as the same.
+
+When you try to telnet **8.8.8.8 888** with netmon trace collected, you are supposed to see below trace:
 
 ![netmon trace 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
 
@@ -655,6 +614,40 @@ Below example shows what a good scenario would look like.
 
     ![TCP 4 handshake workflow](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
+
+### Receiving email to update the network configuration to allow communication with new IP addresses
+
+#### Email notification from Microsoft
+
+You may receive below email notification, which recommends you to update the network configuration to allow communication with new IP addresses for Azure Data Factory by 8 November 2020:
+
+   ![Email notification](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
+
+#### How to determine if you are impacted by this notification
+
+This notification impacts the following scenarios:
+##### Scenario 1: Outbound communication from Self-hosted Integration Runtime running on premises behind the corporate firewall
+How to determine if you are impacted:
+- You are not impacted if you are defining firewall rules based on FQDN names using the approach described in this document: [firewall configuration and allow list setting up for ip address](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
+- You are impacted however if you are explicitly whitelisting outbound IPs on your corporate firewall.
+
+Action to take if you are impacted: notify your network infrastructure team to update your network configuration to use the latest Data Factory IP addresses by November 8, 2020.  To download the latest IP addresses, go to [service tags IP range download link](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+
+##### Scenario 2: Outbound communication from Self-hosted Integration Runtime running on an Azure VM inside customer managed Azure virtual network
+How to determine if you are impacted:
+- Check if you have any outbound NSG rules in your private network which contains Self-hosted Integration Runtime. If there are no outbound restrictions, then there is no impact.
+- If you have outbound rule restrictions, check if you use service tag or not. If you use service tag, then no need to change or add anything as the new IP ranges is under existing service tag. 
+ ![Destination check](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+- You are impacted however if you are explicitly whitelisting outbound IP addresses on your NSG rules setting on the Azure virtual network.
+
+Action to take if you are impacted: notify your network infrastructure team to update NSG rules on your Azure virtual network configuration to use the latest Data Factory IP addresses by November 8, 2020.  To download the latest IP addresses, go to [service tags IP range download link](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+
+##### Scenario 3: Outbound communication from SSIS Integration Runtime in customer managed Azure virtual network
+- Check if you have any outbound NSG rules in your private network which contains SSIS Integration Runtime. If there are no outbound restrictions, then there is no impact.
+- If you have outbound rule restrictions, check if you use service tag or not. If you use service tag, then no need to change or add anything as the new IP ranges is under existing service tag.
+- You are impacted however if you are explicitly whitelisting outbound IP address on your NSG rules setting on the Azure virtual network.
+
+Action to take if you are impacted: notify your network infrastructure team to update NSG rules on your Azure virtual network configuration to use the latest Data Factory IP addresses by November 8, 2020.  To download the latest IP addresses, go to [service tags IP range download link](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
 ## Self-hosted IR sharing
 

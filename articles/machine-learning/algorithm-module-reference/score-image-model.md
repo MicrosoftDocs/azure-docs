@@ -14,7 +14,7 @@ ms.date: 05/26/2020
 
 # Score Image Model
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to generate predictions using a trained image model on input image data.
 

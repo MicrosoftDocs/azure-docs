@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Join sensor data with weather forecast data by using Azure Notebooks(Python) | Microsoft Azure Maps'
-description: This tutorial shows you how to join sensor data with weather forecast data from Microsoft Azure Maps Weather Service using Azure Notebooks(Python).
+description: Tutorial on how to join sensor data with weather forecast data from Microsoft Azure Maps Weather Service using Azure Notebooks(Python).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/29/2020
@@ -177,9 +177,6 @@ The graphs below visualize the forecast data. For the change of wind speed, see 
 
 ![Wind speed plot](./media/weather-service-tutorial/speed-date-plot.png) ![Wind direction plot](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
-
-## Next steps
-
 In this tutorial you learned, how to call Azure Maps REST APIs to get weather forecast data. You also learned how to visualize the data on graphs.
 
 To learn more about how to call Azure Maps REST APIs inside Azure Notebooks, see [EV routing using Azure Notebooks](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing).
@@ -191,4 +188,9 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 
 For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
-To learn more about Azure Notebooks, see [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+## Next steps
+
+To learn more about Azure Notebooks, see
+
+> [!div class="nextstepaction"]
+> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)

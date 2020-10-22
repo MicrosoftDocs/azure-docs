@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
 
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 

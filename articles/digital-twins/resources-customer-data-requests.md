@@ -30,7 +30,7 @@ Azure Digital Twins stores the [Azure Active Directory](../active-directory/fund
 
 ## Deleting customer data
 
-Azure Digital Twins administrators can use the Azure portal to delete data related to users. It is also possible to perform delete operations on individual digital twins using the Azure Digital Twins REST APIs. For more information about the APIs available, see [Azure Digital Twins REST APIs documentation](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+Azure Digital Twins administrators can use the Azure portal to delete data related to users. It is also possible to perform delete operations on individual digital twins using the Azure Digital Twins REST APIs. For more information about the APIs available, see [Azure Digital Twins REST APIs documentation](/rest/api/azure-digitaltwins/).
 
 ## Exporting customer data
 
@@ -40,4 +40,4 @@ Customer data, including user roles and role assignments, can be selected, copie
 
 ## Links to additional documentation
 
-For a full list of the Azure Digital Twins service APIs, see the [Azure Digital Twins REST APIs documentation](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+For a full list of the Azure Digital Twins service APIs, see the [Azure Digital Twins REST APIs documentation](/rest/api/azure-digitaltwins/).

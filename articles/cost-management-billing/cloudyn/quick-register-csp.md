@@ -1,7 +1,7 @@
 ---
 
 title: Register using CSP Partner information with Cloudyn in Azure
-description: This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal.
+description: Learn details about the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal.
 author: bandersmsft
 ms.author: banders
 ms.date: 03/12/2020
@@ -26,7 +26,7 @@ As a CSP partner, you can register with Cloudyn. Your registration provides acce
 > Only CSP Direct partners and CSP Indirect Providers can complete Cloudyn registration.
 >
 > Configuring the Partner Center API is required for authentication and data access. A Partner Center Global Administrator account is needed to provision API access.
-> For more information, see [Connect to the Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+> For more information, see [Connect to the Partner Center API](/partner-center/develop/set-up-api-access-in-partner-center).
 >
 > Access to Cloudyn can be made available to CSP Indirect Resellers after their CSP Indirect Provider registers with Cloudyn. CSP Indirect Resellers can then provide Cloudyn access to Azure customers and subscriptions.
 >

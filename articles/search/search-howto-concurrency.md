@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.custom: devx-track-csharp
 ---
 # How to manage concurrency in Azure Cognitive Search
 
@@ -23,8 +24,8 @@ Optimistic concurrency is implemented through access condition checks in API cal
 
 All resources have an [*entity tag (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) that provides object version information. By checking the ETag first, you can avoid concurrent updates in a typical workflow (get, modify locally, update) by ensuring the resource's ETag matches your local copy.
 
-+ The REST API uses an [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the request header.
-+ The .NET SDK sets the ETag through an accessCondition object, setting the [If-Match | If-Match-None header](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource. Any object inheriting from [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) has an accessCondition object.
++ The REST API uses an [ETag](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the request header.
++ The .NET SDK sets the ETag through an accessCondition object, setting the [If-Match | If-Match-None header](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource. Any object inheriting from [IResourceWithETag (.NET SDK)](/dotnet/api/microsoft.azure.search.models.iresourcewithetag) has an accessCondition object.
 
 Every time you update a resource, its ETag changes automatically. When you implement concurrency management, all you're doing is putting a precondition on the update request that requires the remote resource to have the same ETag as the copy of the resource that you modified on the client. If a concurrent process has changed the remote resource already, the ETag will not match the precondition and the request will fail with HTTP 412. If you're using the .NET SDK, this manifests as a `CloudException` where the `IsAccessConditionFailed()` extension method returns true.
 
@@ -212,6 +213,6 @@ Try modifying either of the following samples to include ETags or AccessConditio
 
 ## See also
 
-[Common HTTP request and response headers](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
-[HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
-[Index operations (REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)
+[Common HTTP request and response headers](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
+[HTTP status codes](/rest/api/searchservice/http-status-codes)
+[Index operations (REST API)](/rest/api/searchservice/index-operations)

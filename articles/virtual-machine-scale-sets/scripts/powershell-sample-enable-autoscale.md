@@ -7,7 +7,7 @@ ms.topic: sample
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 06/25/2020
-ms.custom: avverma
+ms.custom: avverma, devx-track-azurepowershell
 ---
 
 # Automatically scale a virtual machine scale set with PowerShell

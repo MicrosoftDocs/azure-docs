@@ -18,7 +18,9 @@ ms.author: juliako
 ---
 # Migrate from Media Indexer and Media Indexer 2 to Video Indexer
 
-The [Azure Media Indexer](media-services-index-content.md) media processor and [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) media processors are being retired. For the retirement dates, see this [legacy components](legacy-components.md) topic. [Azure Media Services Video Indexer](../video-indexer/index.yml) replaces these legacy media processors.
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+The [Azure Media Indexer](media-services-index-content.md) media processor and [Azure Media Indexer 2 Preview](./legacy-components.md) media processors are being retired. For the retirement dates, see this [legacy components](legacy-components.md) topic. [Azure Media Services Video Indexer](../video-indexer/index.yml) replaces these legacy media processors.
 
 Azure Media Services Video Indexer is built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models. To see what scenarios Video Indexer can be used in, what features it offers, and how to get started, see [Video Indexer video and audio models](../video-indexer/video-indexer-overview.md). 
 

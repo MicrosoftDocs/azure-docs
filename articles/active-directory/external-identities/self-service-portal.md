@@ -1,7 +1,6 @@
 ---
 title: Self-service sign-up portal for B2B collaboration - Azure AD
-description: Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications
-
+description: Learn how to customize the onboarding workflow for Azure Active Directory B2B users to fit your organization’s needs.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B

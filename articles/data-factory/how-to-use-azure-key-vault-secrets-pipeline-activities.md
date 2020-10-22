@@ -33,7 +33,7 @@ This feature relies on the data factory managed identity.  Learn how it works fr
 
 2. Open the key vault access policies and add the managed identity permissions to Get and List secrets.
 
-    ![Key Vault access policies](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
+    ![Screenshot that shows the "Access policies" page with the "Add Access Policy" action highlighted.](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
 
     ![Key Vault access policies](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 

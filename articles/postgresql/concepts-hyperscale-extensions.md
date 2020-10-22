@@ -35,6 +35,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Large Object maintenance. |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Provides a data type for hierarchical tree-like structures. |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Data type for representing line segments or floating-point intervals. |
+> | [tdigest](https://github.com/tvondra/tdigest) | Data type for on-line accumulation of rank-based statistics such as quantiles and trimmed means. |
 > | [topn](https://github.com/citusdata/postgresql-topn/) | Type for top-n JSONB. |
 
 ### Full-text search extensions
@@ -68,7 +69,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | [timetravel](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6) | Functions for implementing time travel. |
 > | [uuid-ossp](https://www.postgresql.org/docs/current/static/uuid-ossp.html) | Generates universally unique identifiers (UUIDs). |
 
-### Hyperscale extensions
+### Hyperscale (Citus) extensions
 
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** |

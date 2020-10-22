@@ -71,7 +71,7 @@ when making changes in one don't forget the other two.
 
 3. Use the **Add WebJob** settings as specified in the table.
 
-   ![Add WebJob page](./media/web-sites-create-web-jobs/addwjcontinuous.png)
+   ![Screenshot that shows the Add WebJob settings that you need to configure.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
@@ -109,7 +109,7 @@ when making changes in one don't forget the other two.
 
 3. Use the **Add WebJob** settings as specified in the table.
 
-   ![Add WebJob page](./media/web-sites-create-web-jobs/addwjtriggered.png)
+   ![Screenshot that shows the settings that need to be set for creating a manually triggered WebJob.](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |

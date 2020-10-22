@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 08/24/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -34,8 +34,8 @@ For information about encryption and key management for Azure managed disks, see
 
 Data in a new storage account is encrypted with Microsoft-managed keys by default. You can continue to rely on Microsoft-managed keys for the encryption of your data, or you can manage encryption with your own keys. If you choose to manage encryption with your own keys, you have two options. You can use either type of key management, or both:
 
-- You can specify a *customer-managed key* with Azure Key Vault to use for encrypting and decrypting data in Blob storage and in Azure Files.<sup>1,2</sup> For more information about customer-managed keys, see [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](encryption-customer-managed-keys.md).
-- You can specify a *customer-provided key* on Blob storage operations. A client making a read or write request against Blob storage can include an encryption key on the request for granular control over how blob data is encrypted and decrypted. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
+- You can specify a *customer-managed key* to use for encrypting and decrypting data in Blob storage and in Azure Files.<sup>1,2</sup> Customer-managed keys must be stored in Azure Key Vault or Azure Key Vault Managed Hardware Security Model (HSM) (preview). For more information about customer-managed keys, see [Use customer-managed keys for Azure Storage encryption](encryption-customer-managed-keys.md).
+- You can specify a *customer-provided key* on Blob storage operations. A client making a read or write request against Blob storage can include an encryption key on the request for granular control over how blob data is encrypted and decrypted. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](../blobs/encryption-customer-provided-keys.md).
 
 The following table compares key management options for Azure Storage encryption.
 
@@ -43,7 +43,7 @@ The following table compares key management options for Azure Storage encryption
 |--|--|--|--|
 | Encryption/decryption operations | Azure | Azure | Azure |
 | Azure Storage services supported | All | Blob storage, Azure Files<sup>1,2</sup> | Blob storage |
-| Key storage | Microsoft key store | Azure Key Vault | Customer's own key store |
+| Key storage | Microsoft key store | Azure Key Vault or Key Vault HSM | Customer's own key store |
 | Key rotation responsibility | Microsoft | Customer | Customer |
 | Key control | Microsoft | Customer | Customer |
 
@@ -52,6 +52,14 @@ The following table compares key management options for Azure Storage encryption
 
 > [!NOTE]
 > Microsoft-managed keys are rotated appropriately per compliance requirements. If you have specific key rotation requirements, Microsoft recommends that you move to customer-managed keys so that you can manage and audit the rotation yourself.
+
+## Doubly encrypt data with infrastructure encryption
+
+Customers who require high levels of assurance that their data is secure can also enable 256-bit AES encryption at the Azure Storage infrastructure level. When infrastructure encryption is enabled, data in a storage account is encrypted twice &mdash; once at the service level and once at the infrastructure level &mdash; with two different encryption algorithms and two different keys. Double encryption of Azure Storage data protects against a scenario where one of the encryption algorithms or keys may be compromised. In this scenario, the additional layer of encryption continues to protect your data.
+
+Service-level encryption supports the use of either Microsoft-managed keys or customer-managed keys with Azure Key Vault. Infrastructure-level encryption relies on Microsoft-managed keys and always uses a separate key.
+
+For more information about how to create a storage account that enables infrastructure encryption, see [Create a storage account with infrastructure encryption enabled for double encryption of data](infrastructure-encryption-enable.md).
 
 ## Encryption scopes for Blob storage (preview)
 
@@ -65,6 +73,8 @@ After you have created an encryption scope, you can specify that encryption scop
 
 > [!NOTE]
 > Encryption scopes are not supported with read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS) accounts during preview.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!IMPORTANT]
 > The encryption scopes preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
@@ -96,6 +106,5 @@ If your encryption scope is protected with customer-managed keys for Azure Key V
 ## Next steps
 
 - [What is Azure Key Vault?](../../key-vault/general/overview.md)
-- [Configure customer-managed keys for Azure Storage encryption from the Azure portal](storage-encryption-keys-portal.md)
-- [Configure customer-managed keys for Azure Storage encryption from PowerShell](storage-encryption-keys-powershell.md)
-- [Configure customer-managed keys for Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)
+- [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)
+- [Encryption scopes for Blob storage (preview)](../blobs/encryption-scope-overview.md)

@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Connect Azure Analysis Services with Power BI Desktop | Microsoft Docs
 author: minewiskan
-description: Learn how to get an Analysis Services server name from the Azure portal and then connect to the server by using Power BI Desktop.
+description: In this tutorial, learn how to get an Analysis Services server name from the Azure portal and then connect to the server by using Power BI Desktop.
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
 #Customer intent: As a BI developer, I want to connect to a sample tabular model on a server and create a basic report by using the Power BI Desktop client application.
@@ -65,4 +65,4 @@ In **Azure portal** > server > **Overview** > **Server name**, copy the server n
 If no longer needed, do not save your report or delete the file if you did save.
 
 ## Next steps
-In this tutorial, you learned how to use Power BI Desktop to connect to a data model on a server and create a basic report. If you're not familiar with how to create a data model, see the [Adventure Works Internet Sales tabular data modeling tutorial](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) in the SQL Server Analysis Services docs.
+In this tutorial, you learned how to use Power BI Desktop to connect to a data model on a server and create a basic report. If you're not familiar with how to create a data model, see the [Adventure Works Internet Sales tabular data modeling tutorial](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) in the SQL Server Analysis Services docs.

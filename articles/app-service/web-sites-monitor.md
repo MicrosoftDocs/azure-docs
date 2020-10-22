@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 ---
 # Monitor apps in Azure App Service
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) provides
+[Azure App Service](./overview.md) provides
 built-in monitoring functionality for web apps, mobile, and API apps in the [Azure portal](https://portal.azure.com).
 
 In the Azure portal, you can review *quotas* and *metrics* for an app and App Service plan, and set up *alerts* and *autoscaling* rules based metrics.
@@ -57,7 +57,7 @@ You can increase or remove quotas from your app by upgrading your App Service pl
 ## Understand metrics
 
 > [!NOTE]
-> **File System Usage** is a new metric being rolled out globally, no data is expected unless you've been granted access for private preview.
+> **File System Usage** is a new metric being rolled out globally, no data is expected unless your app is hosted in an App Service Environment.
 > 
 
 > [!IMPORTANT]
@@ -152,14 +152,14 @@ You can access metrics directly from the resource **Overview** page. Here you'll
 
 Clicking on any of those charts will take you to the metrics view where you can create custom charts, query different metrics and much more. 
 
-To learn more about metrics, see [Monitor service metrics](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+To learn more about metrics, see [Monitor service metrics](../azure-monitor/platform/data-platform.md).
 
 ## Alerts and autoscale
-Metrics for an app or an App Service plan can be hooked up to alerts. For more information, see [Receive alert notifications](../monitoring-and-diagnostics/insights-alerts-portal.md).
+Metrics for an app or an App Service plan can be hooked up to alerts. For more information, see [Receive alert notifications](../azure-monitor/platform/alerts-classic-portal.md).
 
 App Service apps hosted in Basic or higher App Service plans support autoscale. With autoscale, you can configure rules that monitor the App Service plan metrics. Rules can increase or decrease the instance count, which can provide additional resources as needed. Rules can also help you save money when the app is over-provisioned.
 
-For more information about autoscale, see [How to scale](../monitoring-and-diagnostics/insights-how-to-scale.md) and [Best practices for Azure Monitor autoscaling](../azure-monitor/platform/autoscale-best-practices.md).
+For more information about autoscale, see [How to scale](../azure-monitor/platform/autoscale-get-started.md) and [Best practices for Azure Monitor autoscaling](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

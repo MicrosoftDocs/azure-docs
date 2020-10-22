@@ -74,7 +74,7 @@ This table lists the versions of HDInsight that are available in the Azure porta
 | HDInsight version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability in the Azure portal |
 | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |September 24, 2018 | | |Yes |Yes |
-| HDInsight 3.6 |Ubuntu 16.0.4 LTS |April 4, 2017      | *June 31, 2021 |June 31, 2021 |Yes |Yes |
+| HDInsight 3.6 |Ubuntu 16.0.4 LTS |April 4, 2017      | *June 30, 2021 |June 30, 2021 |Yes |Yes |
 
 *We are extending the support timeframe for certain HDInsight 3.6 cluster types
 

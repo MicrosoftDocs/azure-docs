@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
+ms.custom: devx-track-csharp
 ---
 
 # About the Speech SDK audio input stream API

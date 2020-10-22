@@ -59,7 +59,7 @@ For other Security Center quickstart templates, see these [community contributed
 
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-securitycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
 
-    To find more information about this deployment option, see [Use a deployment button to deploy templates from GitHub repository](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button).
+    To find more information about this deployment option, see [Use a deployment button to deploy templates from GitHub repository](../azure-resource-manager/templates/deploy-to-azure-button.md).
 
 ## Review deployed resources
 
@@ -68,9 +68,7 @@ Use the Azure portal to check the workflow automation has been deployed.
 1. From [the Azure portal](https://portal.azure.com), open **Security Center**.
 1. From the top menu bar, select the filter icon, and select the specific subscription on which you deployed the new workflow automation.
 1. From Security Center's sidebar, open **workflow automation** and check for your new automation.
-
-    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="Image alt text." lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
-
+    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="List of configured automations" lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
     >[!TIP]
     > If you have many workflow automations on your subscription, use the **filter by name** option. 
 
@@ -81,11 +79,9 @@ When no longer needed, delete the workflow automation using the Azure portal.
 1. From [the Azure portal](https://portal.azure.com), open **Security Center**.
 1. From the top menu bar, select the filter icon, and select the specific subscription on which you deployed the new workflow automation.
 1. From Security Center's sidebar, open **workflow automation** and find the automation to be deleted.
-
-    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Image alt text." lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
-
+    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Steps for removing a workflow automation" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. Select the checkbox for the item to be deleted.
-1. From the toolbar, select delete.
+1. From the toolbar, select **Delete**.
 
 
 ## Next steps
@@ -93,4 +89,4 @@ When no longer needed, delete the workflow automation using the Azure portal.
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

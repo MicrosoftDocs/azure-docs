@@ -48,7 +48,7 @@ The following configuration is done by AKS.
 
 Below is a network topology deployed in AKS clusters by default, which use an `outboundType` of `loadBalancer`.
 
-![outboundtype-lb](media/egress-outboundtype/outboundtype-lb.png)
+![Diagram shows ingress I P and egress I P, where the ingress I P directs traffic to a load balancer, which directs traffic to and from an internal cluster and other traffic to the egress I P, which directs traffic to the Internet, M C R, Azure required services, and the A K S Control Plane.](media/egress-outboundtype/outboundtype-lb.png)
 
 ### Outbound type of userDefinedRouting
 

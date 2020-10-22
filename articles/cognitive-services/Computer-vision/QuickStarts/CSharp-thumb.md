@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ---
 # Quickstart: Generate a thumbnail using the Computer Vision REST API and C#
 
@@ -55,7 +55,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
         
         // The GenerateThumbnail method endpoint
-        static string uriBase = endpoint + "vision/v3.0/generateThumbnail";
+        static string uriBase = endpoint + "vision/v3.1/generateThumbnail";
         // Add an image to your bin/debug/netcoreappX.X folder, then add the image name (with extension), here
         static string imageFilePath = @"my-image-name";
 

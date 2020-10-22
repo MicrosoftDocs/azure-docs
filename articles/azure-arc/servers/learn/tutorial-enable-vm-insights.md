@@ -2,12 +2,12 @@
 title: Tutorial - Monitor a hybrid machine with Azure Monitor for VMs
 description: Learn how to collect and analyze data from a hybrid machine in Azure Monitor.
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 09/23/2020
 ---
 
 # Tutorial: Monitor a hybrid machine with Azure Monitor for VMs
 
-[Azure Monitor](../overview.md) can collect data directly from your hybrid virtual machines into a Log Analytics workspace for detailed analysis and correlation. Typically this would entail installing the [Log Analytics agent](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) on the machine using a script, manually, or automated method following your configuration management standards. Arc enabled servers (preview) recently introduced support to install the Log Analytics and Dependency agent [VM extensions](../manage-vm-extensions.md) for Windows and Linux, enabling Azure Monitor to collect data from your non-Azure VMs.
+[Azure Monitor](../overview.md) can collect data directly from your hybrid virtual machines into a Log Analytics workspace for detailed analysis and correlation. Typically this would entail installing the [Log Analytics agent](../../../azure-monitor/platform/agents-overview.md#log-analytics-agent) on the machine using a script, manually, or automated method following your configuration management standards. Arc enabled servers recently introduced support to install the Log Analytics and Dependency agent [VM extensions](../manage-vm-extensions.md) for Windows and Linux, enabling Azure Monitor to collect data from your non-Azure VMs.
 
 This tutorial shows you how to configure and collect data from your Linux or Windows VMs by enabling Azure Monitor for VMs following a simplified set of steps, which streamlines the experience and takes a shorter amount of time.  
 

@@ -217,11 +217,11 @@ In order to enable Azure AD users to sign in to Bonusly, they must be provisione
 
 1. Click **Add User**.
 
-    ![Add User](./media/bonus-tutorial/ic781044.png "Add User")
+    ![Screenshot shows Manage Users where you can select Add User.](./media/bonus-tutorial/ic781044.png "Add User")
 
 1. On the **Add User** dialog, perform the following steps:
 
-    ![Add User](./media/bonus-tutorial/ic781045.png "Add User")  
+    ![Screenshot shows the Add User dialog box where you can enter this information.](./media/bonus-tutorial/ic781045.png "Add User")  
 
     a. In the **First name** textbox, enter the first name of user like **Britta**.
 

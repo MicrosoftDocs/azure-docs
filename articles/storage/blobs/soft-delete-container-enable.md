@@ -14,11 +14,11 @@ ms.subservice: blobs
 
 # Enable and manage soft delete for containers (preview)
 
-Container soft delete (preview) protects your data from being accidentally or erroneously modified or deleted. When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been are deleted, within a retention period that you specify.
+Container soft delete (preview) protects your data from being accidentally or erroneously modified or deleted. When container soft delete is enabled for a storage account, a container and its contents may be recovered after it has been deleted, within a retention period that you specify.
 
 If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on container soft delete. This article shows how to enable soft delete for containers. For more details about container soft delete, including how to register for the preview, see [Soft delete for containers (preview)](soft-delete-container-overview.md).
 
-For end-to-end data protection, Microsoft recommends that you also enable soft delete for blobs and blob versioning (preview). To learn how to also enable soft delete for blobs, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md). To learn how to enable blob versioning, see [Blob versioning (preview)](versioning-overview.md).
+For end-to-end data protection, Microsoft recommends that you also enable soft delete for blobs and Blob versioning. To learn how to also enable soft delete for blobs, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md). To learn how to enable blob versioning, see [Blob versioning](versioning-overview.md).
 
 ## Enable container soft delete
 
@@ -89,7 +89,7 @@ To view soft-deleted containers in the Azure portal, follow these steps:
 You can restore a soft-deleted container and its contents within the retention period. To restore a soft-deleted container in the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal and view the list of your containers.
-1. Display the context menu for the container you wish to delete, and choose **Undelete** from the menu.
+1. Display the context menu for the container you wish to restore, and choose **Undelete** from the menu.
 
     :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Screenshot showing how to restore a soft-deleted container in Azure portal":::
 
@@ -97,4 +97,4 @@ You can restore a soft-deleted container and its contents within the retention p
 
 - [Soft delete for containers (preview)](soft-delete-container-overview.md)
 - [Soft delete for blobs](soft-delete-blob-overview.md)
-- [Blob versioning (preview)](versioning-overview.md)
+- [Blob versioning](versioning-overview.md)

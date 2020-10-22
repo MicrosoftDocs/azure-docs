@@ -3,6 +3,7 @@ title: Monitor a live ASP.NET web app with Azure Application Insights  | Microso
 description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises or in VMs.
 ms.topic: conceptual
 ms.date: 08/26/2019
+ms.custom: devx-track-dotnet
 
 ---
 
@@ -125,7 +126,7 @@ To fix update your web.config:
 </dependentAssembly>
 ```
 
-We are tracking this issue [here](https://github.com/Microsoft/ApplicationInsights-Home/issues/301).
+We are tracking this issue [here](https://github.com/MohanGsk/ApplicationInsights-Home).
 
 
 ### Application diagnostic messages

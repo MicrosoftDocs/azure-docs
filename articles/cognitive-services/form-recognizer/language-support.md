@@ -6,7 +6,7 @@ services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: immersive-reader
+ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: erhopf
@@ -14,18 +14,16 @@ ms.author: erhopf
 
 # Language support for Form Recognizer
 
-This article lists human languages supported by the Form Recognizer (Preview) service.
+This article lists human languages supported by the Form Recognizer service.
 
 
-|Language| Language code | Form Recognizer v2.0 | Form Recognizer v2.1 public preview*|
-|:-----|:----:|:-----:|:---:|:---:|
+|Language| Language code | Form Recognizer v2.0 | Form Recognizer v2.1 preview|
+|:-----|:----:|:-----:|:---:|
 |Chinese (Simplified) | `zh-Hans`| | ✔ |
-|Dutch | `nl` | |✔ |
-|English | `en` |✔ |
-|French | `fr` | |✔ |
-|German | `de` | |✔ |
-|Italian | `it` | |✔ |
-|Portuguese | `pt` | |✔ |
-|Spanish | `es` | |✔ |
-
-* Form Recognizer v2.1 public preview supports these languages for `Analyze Layout` and `Train Custom Model` (_Train With Labels_ and _Train without Labels_) operations. `Analyze Receipt` and `Analyze Business Card` are only supported in English.
+|Dutch | `nl` | | ✔ |
+|English (printed & handwritten) | `en` | ✔ | ✔|
+|French | `fr` | | ✔ |
+|German | `de` | | ✔ |
+|Italian | `it` | | ✔ |
+|Portuguese | `pt` | | ✔ |
+|Spanish | `es` | | ✔ |

@@ -1,7 +1,7 @@
 ---
 title: Details of the initiative definition structure
 description: Describes how policy initiative definitions are used to group policy definitions for deployment to Azure resources in your organization.
-ms.date: 08/17/2020
+ms.date: 10/07/2020
 ms.topic: conceptual
 ---
 # Azure Policy initiative definition structure
@@ -288,24 +288,25 @@ passed the same initiative parameter:
 ]
 ```
 
-## <a name="policy-definition-groups"></a>Policy definitions groups (Preview)
+## Policy definition groups
 
-As part of Azure Policy's [Regulatory Compliance](./regulatory-compliance.md) (Preview) feature,
-policy definitions in an initiative definition can be grouped. This information is defined in the
-`policyDefinitionGroups` _array_ property. These groupings have additional details such as the
-**control** and **compliance domain** that the policy definition provides coverage towards.
-Additional grouping details may be found in a **policyMetadata** object created by Microsoft. For
-information, see [metadata objects](#metadata-objects).
+Policy definitions in an initiative definition can be grouped and categorized. Azure Policy's
+[Regulatory Compliance](./regulatory-compliance.md) (preview) feature uses this property to group
+definitions into **controls** and **compliance domains**. This information is defined in the
+`policyDefinitionGroups` _array_ property. Additional grouping details may be found in a
+**policyMetadata** object created by Microsoft. For information, see
+[metadata objects](#metadata-objects).
 
 ### Policy definition groups parameters
 
 Each _array_ element in `policyDefinitionGroups` must have both of the following properties:
 
-- `name` (string) \[required\]: The short name for the **control**. The value of this property is
-  used by `groupNames` in `policyDefinitions`.
-- `category` (string): The **compliance domain** of the control.
-- `displayName` (string): The friendly name for the **control**. Used by the portal.
-- `description` (string): A description of what the **control** does.
+- `name` (string) \[required\]: The short name for the **group**. In Regulatory Compliance, the
+  **control**. The value of this property is used by `groupNames` in `policyDefinitions`.
+- `category` (string): The hierarchy the group belongs to. In Regulatory Compliance, the
+  **compliance domain** of the control.
+- `displayName` (string): The friendly name for the **group** or **control**. Used by the portal.
+- `description` (string): A description of what the **group** or **control** covers.
 - `additionalMetadataId` (string): The location of the [policyMetadata](#metadata-objects) object
   that has additional details about the **control** and **compliance domain**.
 
@@ -334,8 +335,7 @@ This information is:
   initiative.
 - Available via REST API. See the `Microsoft.PolicyInsights` resource provider and the
   [policyMetadata operation group](/rest/api/policy-insights/policymetadata/getresource).
-- Available via Azure CLI. See the
-  [az policy metadata](/cli/azure/policy/metadata?view=azure-cli-latest) command.
+- Available via Azure CLI. See the [az policy metadata](/cli/azure/policy/metadata) command.
 
 > [!IMPORTANT]
 > Metadata objects for Regulatory Compliance are _read-only_ and can't be created by customers.

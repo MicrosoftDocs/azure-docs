@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 
 # Rendering modes
@@ -66,6 +67,13 @@ async void ExampleConnect(AzureSession session)
     await session.ConnectToRuntime(parameters).AsTask();
 }
 ```
+
+## API documentation
+
+* [C# AzureSession.ConnectToRuntime()](/dotnet/api/microsoft.azure.remoterendering.azuresession.connecttoruntime)
+* [C# ConnectToRuntimeParams struct](/dotnet/api/microsoft.azure.remoterendering.connecttoruntimeparams)
+* [C++ AzureSession::ConnectToRuntime()](/cpp/api/remote-rendering/azuresession#connecttoruntime)
+* [C++ ConnectToRuntimeParams struct](/cpp/api/remote-rendering/connecttoruntimeparams)
 
 ## Next steps
 

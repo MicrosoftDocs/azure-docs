@@ -148,7 +148,7 @@ To configure your NTFS permissions:
 2. Run the following command to mount the Azure file share and assign it a drive letter:
 
      ```cmd
-     net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
+     net use <desired-drive-letter>: <UNC-path> <SA-key> /user:Azure\<SA-name>
      ```
 
 3. Run the following command to review the access permissions to the Azure file share:

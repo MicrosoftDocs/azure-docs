@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. Click on **Edit**  icon to open the **Unique User Identifier (Name ID)** dialog.
 
-	![Discovery Benefits SSO configuration](./media/discovery-benefits-sso-tutorial/attribute01.png)
+	![Screenshot that shows the "User Attributes & Claims" section with the "Required claim" ellipses on the right side selected.](./media/discovery-benefits-sso-tutorial/attribute01.png)
 
 	![Discovery Benefits SSO configuration](./media/discovery-benefits-sso-tutorial/attribute02.png)
 
@@ -98,7 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	f. We have auto-populated the additional claims which are required for SSO configuration (`SSOInstance` and `SSOID`). Use the **Edit** icon to map the values as per your organization.
 
-	![Discovery Benefits SSO configuration](./media/discovery-benefits-sso-tutorial/attribute03.png)
+	![Screenshot that shows the "User Attributes & Claims" with the "S S O Instance" and "S S O I D" values highlighted.](./media/discovery-benefits-sso-tutorial/attribute03.png)
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 

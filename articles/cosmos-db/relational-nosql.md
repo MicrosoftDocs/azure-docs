@@ -45,7 +45,7 @@ Various forms of “Network” databases did emerge during the time that relatio
 
 If you are maintaining a complex network of relationships in your database, you may want to consider a graph database such as the [Azure Cosmos DB Gremlin API](https://docs.microsoft.com/azure/cosmos-db/graph-introduction) for managing this data.
 
-:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Graph":::
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Database diagram shows several employees and departments connected to each other.":::
 
 Azure Cosmos DB is a multi-model database service, which offers an API projection for all the major NoSQL model types; Column-family, Document, Graph, and Key-Value. The [Gremlin (graph)](https://docs.microsoft.com/azure/cosmos-db/gremlin-support) and SQL (Core) Document API layers are fully interoperable. This has benefits for switching between different models at the programmability level. Graph stores can be queried in terms of both complex network traversals as well as transactions modeled as document records in the same store.
 
@@ -91,8 +91,8 @@ Learn how to manage your Azure Cosmos account and other concepts:
 * [How-to manage your Azure Cosmos account](how-to-manage-database-account.md)
 * [Global distribution](distribute-data-globally.md)
 * [Consistency levels](consistency-levels.md)
-* [Working with Azure Cosmos containers and items](databases-containers-items.md)
-* [VNET service endpoint for your Azure Cosmos account](vnet-service-endpoint.md)
-* [IP-firewall for your Azure Cosmos account](firewall-support.md)
+* [Working with Azure Cosmos containers and items](account-databases-containers-items.md)
+* [VNET service endpoint for your Azure Cosmos account](how-to-configure-vnet-service-endpoint.md)
+* [IP-firewall for your Azure Cosmos account](how-to-configure-firewall.md)
 * [How-to add and remove Azure regions to your Azure Cosmos account](how-to-manage-database-account.md)
 * [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

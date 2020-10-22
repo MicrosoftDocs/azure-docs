@@ -116,7 +116,7 @@ You might get an error message when you install the cloud provisioning agent.
 
 This problem is typically caused by the agent being unable to execute the PowerShell registration scripts due to local PowerShell execution policies.
 
-To resolve this problem, change the PowerShell execution policies on the server. You need to have Machine and User policies set as *Undefined* or *RemoteSigned*. If they're set as *Unrestricted*, you'll see this error. For more information, see [PowerShell execution policies](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+To resolve this problem, change the PowerShell execution policies on the server. You need to have Machine and User policies set as *Undefined* or *RemoteSigned*. If they're set as *Unrestricted*, you'll see this error. For more information, see [PowerShell execution policies](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
 
 ### Log files
 
@@ -191,7 +191,7 @@ By selecting the status, you can see additional information about the quarantine
 
   ![Restart provisioning](media/how-to-troubleshoot/quarantine3.png)
 
-- Use Microsoft Graph to [restart the provisioning job](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). You'll have full control over what you restart. You can choose to clear:
+- Use Microsoft Graph to [restart the provisioning job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). You'll have full control over what you restart. You can choose to clear:
   - Escrows, to restart the escrow counter that accrues toward quarantine status.
   - Quarantine, to remove the application from quarantine.
   - Watermarks. 
@@ -204,6 +204,3 @@ By selecting the status, you can see additional information about the quarantine
 
 - [What is provisioning?](what-is-provisioning.md)
 - [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)
-
-
-

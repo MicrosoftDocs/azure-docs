@@ -154,7 +154,7 @@ sudo -i blkid
 The output displays the UUID of the drive, `/dev/sdc1` in this case.
 
 ```bash
-/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
+/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="xfs"
 ```
 
 > [!NOTE]
@@ -169,7 +169,7 @@ sudo nano /etc/fstab
 Add a line similar to the following to the */etc/fstab* file, replacing the UUID value with your own.
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail   1  2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  xfs    defaults,nofail   1  2
 ```
 
 When you are done editing the file, use `Ctrl+O` to write the file and `Ctrl+X` to exit the editor.

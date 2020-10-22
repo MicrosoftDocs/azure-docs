@@ -92,7 +92,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
      ![image](common/edit-certificate.png)
 
-     ![Freshworks configuration](./media/freshworks-tutorial/response.png)
+     ![Screenshot that shows the "S A M L Signing Certificate" dialog with the "Edit" button selected.](./media/freshworks-tutorial/response.png)
 
     a. Select **Sign SAML response** as **Signing Option**.
 
@@ -138,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. From the left side of menu, click on **Security** icon then check the **Single sign-on** option and select **SAML SSO** under **Authentication Methods**.
 
-    ![Freshworks configuration](./media/freshworks-tutorial/configure01.png)
+    ![Screenshot that shows the "Security - Authentication Methods" section with "Single sign-on" option turned on and "S A M L S S O" selected.](./media/freshworks-tutorial/configure01.png)
 
 3. On the **Single sign-on** section, perform the following steps:
 

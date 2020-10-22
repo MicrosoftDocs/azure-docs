@@ -17,24 +17,13 @@ ms.author: kumud
 
 Distributed denial of service (DDoS) attacks are some of the largest availability and security concerns facing customers that are moving their applications to the cloud. A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet.
 
-Azure DDoS protection, combined with application design best practices, provide defense against DDoS attacks. Azure DDoS protection provides the following service tiers:
+Azure DDoS protection, combined with application design best practices, provide defense against DDoS attacks. Every property in Azure is protected by Azure's infrastructure DDoS (Basic) Protection. Azure DDoS protection Standard provides additional mitigation capabilities over the Basic service tier that are tuned specifically to Azure Virtual Network resources. 
 
-- **Basic**: Automatically enabled as part of the Azure platform. Always-on traffic monitoring, and real-time mitigation of common network-level attacks, provide the same defenses utilized by Microsoft's online services. The entire scale of Azure's global network can be used to distribute and mitigate attack traffic across regions. Protection is provided for IPv4 and IPv6 Azure [public IP addresses](virtual-network-public-ip-address.md).
-- **Standard**: Provides additional mitigation capabilities over the Basic service tier that are tuned specifically to Azure Virtual Network resources. DDoS Protection Standard is simple to enable, and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms. Policies are applied to public IP addresses associated to resources deployed in virtual networks, such as Azure Load Balancer, Azure Application Gateway, and Azure Service Fabric instances, but this protection does not apply to App Service Environments. Real-time telemetry is available through Azure Monitor views during an attack, and for history. Rich attack mitigation analytics are available via diagnostic settings. Application layer protection can be added through the [Azure Application Gateway Web Application Firewall](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or by installing a 3rd party firewall from Azure Marketplace. Protection is provided for IPv4 and IPv6 Azure [public IP addresses](virtual-network-public-ip-address.md).
+DDoS Protection Standard is simple to enable, and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms. Policies are applied to public IP addresses associated to resources deployed in virtual networks, such as Azure Load Balancer, Azure Application Gateway, and Azure Service Fabric instances, but this protection does not apply to App Service Environments. Real-time telemetry is available through Azure Monitor views during an attack, and for history. Rich attack mitigation analytics are available via diagnostic settings. Application layer protection can be added through the [Azure Application Gateway Web Application Firewall](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or by installing a 3rd party firewall from Azure Marketplace. Protection is provided for IPv4 and IPv6 Azure [public IP addresses](virtual-network-public-ip-address.md).
 
-|Feature                                         |DDoS Protection Basic                 |DDoS Protection Standard                      |
-|------------------------------------------------|--------------------------------------|----------------------------------------------|
-|Active traffic monitoring & always on detection |Yes                                   |Yes                                           |
-|Automatic attack mitigations                    |Yes                                   |Yes                                           |
-|Availability guarantee                          |Azure Region                          |Application                                   |
-|Mitigation policies                             |Tuned for Azure traffic region volume |Tuned for application traffic volume          |
-|Metrics & alerts                                |No                                    |Real time attack metrics & resource logs via                                                                                            Azure Monitor                                 |
-|Mitigation reports                              |No                                    |Post attack mitigation reports                |
-|Mitigation flow logs                            |No                                    |NRT log stream for SIEM integration           |
-|Mitigation policy customization                 |No                                    |Engage DDoS Experts                           |
-|Support                                         |Best effort                           |Access to DDoS Experts during an active attack|
-|SLA                                             |Azure Region                          |Application guarantee & cost protection       |
-|Pricing                                         |Free                                  |Monthly & usage based                         |
+![DDoS Protection Basic vs Standard](./media/ddos-protection-overview/ddosfeatures.png)
+
+Azure DDoS protection does not store customer data.
 
 ## Types of DDoS attacks that DDoS Protection Standard mitigates
 
@@ -48,8 +37,6 @@ DDoS Protection Standard protects resources in a virtual network including publi
 
 ## DDoS Protection Standard features
 
-![DDoS functionality](./media/ddos-protection-overview/ddosfeatures.png)
-
 DDoS Protection Standard features include:
 
 - **Native platform integration:** Natively integrated into Azure. Includes configuration through the Azure portal. DDoS Protection Standard understands your resources and resource configuration.
@@ -58,7 +45,7 @@ DDoS Protection Standard features include:
 - **Adaptive tuning:** Intelligent traffic profiling learns your application's traffic over time, and selects and updates the profile that is the most suitable for your service. The profile adjusts as traffic changes over time.
 - **Multi-Layered protection:** Provides full stack DDoS protection, when used with a web application firewall.
 - **Extensive mitigation scale:** Over 60 different attack types can be mitigated, with global capacity, to protect against the largest known DDoS attacks.
-- **Attack analytics:** Get detailed reports in five-minute increments during an attack, and a complete summary after the attack ends. Stream mitigation flow logs to an offline security information and event management (SIEM) system for near real-time monitoring during an attack.
+- **Attack analytics:** Get detailed reports in five-minute increments during an attack, and a complete summary after the attack ends. Stream mitigation flow logs to [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-ddos-protection) or an offline security information and event management (SIEM) system for near real-time monitoring during an attack.
 - **Attack metrics:** Summarized metrics from each attack are accessible through Azure Monitor.
 - **Attack alerting:** Alerts can be configured at the start and stop of an attack, and over the attack's duration, using built-in attack metrics. Alerts integrate into your operational software like Microsoft Azure Monitor logs, Splunk, Azure Storage, Email, and the Azure portal.
 - **Cost guarantee:** Data-transfer and application scale-out service credits for documented DDoS attacks.
@@ -67,7 +54,7 @@ DDoS Protection Standard features include:
 
 DDoS Protection Standard monitors actual traffic utilization and constantly compares it against the thresholds defined in the DDoS Policy. When the traffic threshold is exceeded, DDoS mitigation is initiated automatically. When traffic returns below the threshold, the mitigation is removed.
 
-![Mitigation](./media/ddos-protection-overview/mitigation.png)
+![Diagram shows a flow starting with a customer through the Azure portal through the DDoS Protection Standard, over public I P addresses through policy generation ending at two public I P addresses.](./media/ddos-protection-overview/mitigation.png)
 
 During mitigation, traffic sent to the protected resource is redirected by the DDoS protection service and several checks are performed, such as the following checks:
 
@@ -87,3 +74,4 @@ Microsoft has partnered with [BreakingPoint Cloud](https://www.ixiacom.com/produ
 ## Next steps
 
 - [Configure DDoS Protection Standard](manage-ddos-protection.md)
+- [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/)

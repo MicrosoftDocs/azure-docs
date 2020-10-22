@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
+ms.custom: devx-track-csharp
 
 ---
 # Managing Concurrency in Microsoft Azure Storage

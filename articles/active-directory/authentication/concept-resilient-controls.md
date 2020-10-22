@@ -86,7 +86,7 @@ This example policy set will grant selected users in **AppUsers**, access to sel
 
 ### Contingencies for user lockout
 
-Alternatively, your organization can also create contingency policies. To create contingency policies, you must define tradeoff criteria between business continuity, operational cost, financial cost, and security risks. For example, you may activate a contingency policy only to a subset of users, for a subset of apps, for a subset of clients, or from a subset of locations. Contingency policies will give administrators and end users access to apps and resources, during a disruption when no mitigation method was implemented. Microsoft recommends enabling contingency policies in [report-only mode](../conditional-access/howto-conditional-access-report-only.md) when not in use so that administrators can monitor the potential impact of the policies should they need to be turned on.
+Alternatively, your organization can also create contingency policies. To create contingency policies, you must define tradeoff criteria between business continuity, operational cost, financial cost, and security risks. For example, you may activate a contingency policy only to a subset of users, for a subset of apps, for a subset of clients, or from a subset of locations. Contingency policies will give administrators and end users access to apps and resources, during a disruption when no mitigation method was implemented. Microsoft recommends enabling contingency policies in [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md) when not in use so that administrators can monitor the potential impact of the policies should they need to be turned on.
 
  Understanding your exposure during a disruption helps reduce your risk and is a critical part of your planning process. To create your contingency plan, first determine the following business requirements of your organization:
 
@@ -279,7 +279,7 @@ Undo the changes you made as part of the activated contingency plan once the ser
 ## Learn more
 
 * [Azure AD Authentication Documentation](./howto-mfaserver-iis.md)
-* [Manage emergency-access administrative accounts in Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Manage emergency-access administrative accounts in Azure AD](../roles/security-emergency-access.md)
 * [Configure named locations in Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [How to configure hybrid Azure Active Directory joined devices](../devices/hybrid-azuread-join-plan.md)
