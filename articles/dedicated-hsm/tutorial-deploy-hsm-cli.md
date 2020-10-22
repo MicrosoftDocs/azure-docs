@@ -51,7 +51,7 @@ Provisioning HSMs and integrating them into an existing virtual network via Expr
 
 ### Validating Feature Registration
 
-As mentioned above, any provisioning activity requires that the Dedicated HSM service is registered for your subscription. To validate that, run the following commands in the Azure portal cloud shell.
+As mentioned above, any provisioning activity requires that the Dedicated HSM service is registered for your subscription. To validate that, run the following commands in the Azure portal Cloud Shell.
 
 ```azurecli
 az feature show \
