@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 10/22/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -334,8 +334,8 @@ The last step is to enable Azure AD B2C as a SAML IdP in your SAML relying party
 Some or all the following are typically required:
 
 * **Metadata**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Issuer**:   Use the entityID in the metadata file
-* **Login Url/SAML endpoint/SAML Url**: Check the value in the metadata file
+* **Issuer**:  Use the `identifierUris` in the metadata file, for example `https://contoso.onmicrosoft.com/app-name`
+* **Login Url/SAML endpoint/SAML Url**: Check the value in the metadata file for the `<SingleSignOnService>` XML element
 * **Certificate**: This is *B2C_1A_SamlIdpCert*, but without the private key. To get the public key of the certificate:
 
     1. Go to the metadata URL specified above.
@@ -387,7 +387,9 @@ To enable Azure AD B2C to send encrypted assertions, set the **WantsEncryptedAss
 
 ## Enable identity provider initiated flow (Optional)
 
-In identity provider initiated flow, the sign-in process is initiated by the identity provider (Azure AD B2C), which sends an unsolicited SAML response to the service provider (your relying party application). To enable identity provider initiated flow, set the **IdpInitiatedProfileEnabled** metadata item to `true` in the [relying party technical profile](relyingparty.md#technicalprofile).
+In identity provider initiated flow, the sign-in process is initiated by the identity provider (Azure AD B2C), which sends an unsolicited SAML response to the service provider (your relying party application). The scenario where the identity provider initiated is an external identity provider, for example [AD-FS](identity-provider-adfs2016-custom.md), or [Salesforce](identity-provider-salesforce-custom.md), is unsupported currently.
+
+To enable identity provider (Azure AD B2C) initiated flow, set the **IdpInitiatedProfileEnabled** metadata item to `true` in the [relying party technical profile](relyingparty.md#technicalprofile).
 
 ```xml
 <RelyingParty>
@@ -406,14 +408,14 @@ In identity provider initiated flow, the sign-in process is initiated by the ide
 To sign in or sign up a user through identity provider initiated flow, use the following URL:
 
 ```
-https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/generic/login
+https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/generic/login?EntityId=app-identifier-uri 
 ```
 
 Replace the following values:
 
 * **tenant-name** with your tenant name
 * **policy-name** with your SAML relying party policy name
-
+* **app-identifier-uri** Use the `identifierUris` in the metadata file, such as `https://contoso.onmicrosoft.com/app-name`
 ## Sample policy
 
 We provide a complete sample policy that you can use for testing with the SAML Test App.
@@ -430,9 +432,6 @@ The following SAML relying party (RP) scenarios are supported via your own metad
 * Specify signing key to verify RP requests in application/service principal object.
 * Specify token encryption key in application/service principal object.
 * Identity Provider initiated sign on, where the Identity Provider is Azure AD B2C.
-
-The following SAML relying party (RP) scenarios are unsupported currently:
-* Identity Provider initiated sign on, where the Identity Provider is an external Identity Provider, for example ADFS.
 
 ## SAML token
 
