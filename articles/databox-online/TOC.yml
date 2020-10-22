@@ -67,94 +67,7 @@
     - name: .NET SDK
       href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet 
 
-- name: Azure Stack Edge Pro - FPGA
-  items:
-  - name: Overview
-    items:
-    - name: What is Azure Stack Edge Pro with FPGA?
-      href: azure-stack-edge-overview.md
-  - name: Tutorials
-    items:
-    - name: 1 - Prepare
-      href: azure-stack-edge-deploy-prep.md
-    - name: 2 - Install
-      href: azure-stack-edge-deploy-install.md
-    - name: 3 - Connect, set up, activate
-      href: azure-stack-edge-deploy-connect-setup-activate.md
-    - name: 4 - Add, connect to share
-      href: azure-stack-edge-deploy-add-shares.md
-    - name: 5A - Configure compute (simple)
-      href: azure-stack-edge-deploy-configure-compute.md
-    - name: 5B - Configure compute (advanced)
-      href: azure-stack-edge-deploy-configure-compute-advanced.md
-  - name: Concepts
-    items:
-    - name: Review requirements
-      href: azure-stack-edge-system-requirements.md
-    - name: Understand limits
-      href: azure-stack-edge-limits.md
-    - name: Security overview
-      href: azure-stack-edge-security.md
-    - name: Review specifications
-      items:
-      - name: Device specifications
-        href: azure-stack-edge-technical-specifications-compliance.md
-      - name: Power cord specifications
-        href: azure-stack-edge-technical-specifications-power-cords-regional.md
-  - name: How to
-    items:
-    - name: Develop C# module
-      href: azure-stack-edge-create-iot-edge-module.md
-    - name: Manage 
-      items:
-      - name: Edge compute
-        href: azure-stack-edge-manage-compute.md
-      - name: Edge compute network
-        href: azure-stack-edge-extend-compute-access-modules.md
-      - name: Shares
-        href: azure-stack-edge-manage-shares.md
-      - name: Users
-        href: azure-stack-edge-manage-users.md
-      - name: Bandwidth schedules
-        href: azure-stack-edge-manage-bandwidth-schedules.md
-      - name: Power, access, connectivity
-        href: azure-stack-edge-manage-access-power-connectivity-mode.md
-      - name: Via PowerShell
-        href: azure-stack-edge-connect-powershell-interface.md
-      - name: Troubleshoot
-        items:   
-        - name: Via logs 
-          href: azure-stack-edge-troubleshoot.md
-        - name: Ordering issues
-          href: azure-stack-edge-troubleshoot-ordering.md
-        - name: Contact Microsoft Support
-          href: azure-stack-edge-contact-microsoft-support.md    
-    - name: Monitor
-      href: azure-stack-edge-monitor.md
-    - name: Return device
-      href: azure-stack-edge-return-device.md
-    - name: Replace device
-      href: azure-stack-edge-replace-device.md   
-  - name: Release notes
-    items:
-    - name: 2007 - Current
-      href: data-box-gateway-2007-release-notes.md
-    - name: 1911
-      href: data-box-gateway-1911-release-notes.md
-    - name: 1906
-      href: data-box-gateway-1906-release-notes.md
-    - name: 1905
-      href: data-box-gateway-1905-release-notes.md
-    - name: General availability (GA)
-      href: data-box-gateway-release-notes.md
-  - name: Reference
-    items:
-    - name: Azure PowerShell
-      href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
-    - name: REST API
-      href: https://docs.microsoft.com/rest/api/databoxedgegateway
-    - name: .NET SDK
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet   
+
 
 - name: Azure Stack Edge Pro R
   items:
@@ -234,7 +147,7 @@
     - name: 8 - Configure compute
       href: azure-stack-edge-gpu-deploy-configure-compute.md 
 
-- name: Shared docs
+- name: Shared Pro GPU, Pro R, Mini R
   items:
   - name: Shared concepts
     items:
@@ -364,7 +277,94 @@
         href: azure-stack-edge-gpu-troubleshoot-activation.md    
       - name: Contact Microsoft Support
         href: azure-stack-edge-contact-microsoft-support.md 
-
+- name: Azure Stack Edge Pro - FPGA
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure Stack Edge Pro with FPGA?
+      href: azure-stack-edge-overview.md
+  - name: Tutorials
+    items:
+    - name: 1 - Prepare
+      href: azure-stack-edge-deploy-prep.md
+    - name: 2 - Install
+      href: azure-stack-edge-deploy-install.md
+    - name: 3 - Connect, set up, activate
+      href: azure-stack-edge-deploy-connect-setup-activate.md
+    - name: 4 - Add, connect to share
+      href: azure-stack-edge-deploy-add-shares.md
+    - name: 5A - Configure compute (simple)
+      href: azure-stack-edge-deploy-configure-compute.md
+    - name: 5B - Configure compute (advanced)
+      href: azure-stack-edge-deploy-configure-compute-advanced.md
+  - name: Concepts
+    items:
+    - name: Review requirements
+      href: azure-stack-edge-system-requirements.md
+    - name: Understand limits
+      href: azure-stack-edge-limits.md
+    - name: Security overview
+      href: azure-stack-edge-security.md
+    - name: Review specifications
+      items:
+      - name: Device specifications
+        href: azure-stack-edge-technical-specifications-compliance.md
+      - name: Power cord specifications
+        href: azure-stack-edge-technical-specifications-power-cords-regional.md
+  - name: How to
+    items:
+    - name: Develop C# module
+      href: azure-stack-edge-create-iot-edge-module.md
+    - name: Manage 
+      items:
+      - name: Edge compute
+        href: azure-stack-edge-manage-compute.md
+      - name: Edge compute network
+        href: azure-stack-edge-extend-compute-access-modules.md
+      - name: Shares
+        href: azure-stack-edge-manage-shares.md
+      - name: Users
+        href: azure-stack-edge-manage-users.md
+      - name: Bandwidth schedules
+        href: azure-stack-edge-manage-bandwidth-schedules.md
+      - name: Power, access, connectivity
+        href: azure-stack-edge-manage-access-power-connectivity-mode.md
+      - name: Via PowerShell
+        href: azure-stack-edge-connect-powershell-interface.md
+      - name: Troubleshoot
+        items:   
+        - name: Via logs 
+          href: azure-stack-edge-troubleshoot.md
+        - name: Ordering issues
+          href: azure-stack-edge-troubleshoot-ordering.md
+        - name: Contact Microsoft Support
+          href: azure-stack-edge-contact-microsoft-support.md    
+    - name: Monitor
+      href: azure-stack-edge-monitor.md
+    - name: Return device
+      href: azure-stack-edge-return-device.md
+    - name: Replace device
+      href: azure-stack-edge-replace-device.md   
+  - name: Release notes
+    items:
+    - name: 2007 - Current
+      href: data-box-gateway-2007-release-notes.md
+    - name: 1911
+      href: data-box-gateway-1911-release-notes.md
+    - name: 1906
+      href: data-box-gateway-1906-release-notes.md
+    - name: 1905
+      href: data-box-gateway-1905-release-notes.md
+    - name: General availability (GA)
+      href: data-box-gateway-release-notes.md
+  - name: Reference
+    items:
+    - name: Azure PowerShell
+      href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+    - name: REST API
+      href: https://docs.microsoft.com/rest/api/databoxedgegateway
+    - name: .NET SDK
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet   
 - name: Resources
   items:
   - name: Azure Stack Edge Pro C# module samples (.NET)
