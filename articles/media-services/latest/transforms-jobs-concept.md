@@ -59,7 +59,7 @@ In Media Services v3, presets are strongly typed entities in the API itself. You
 
 ### Creating Transforms
 
-You can create Transforms using REST, CLI, or any of the published SDKs. The Media Services v3 API is driven by Azure Resource Manager, so you can also use Resource Manager templates to create and deploy Transforms in your Media Services account. Role-based access control can be used to lock down access to Transforms.
+You can create Transforms using REST, CLI, or any of the published SDKs. The Media Services v3 API is driven by Azure Resource Manager, so you can also use Resource Manager templates to create and deploy Transforms in your Media Services account. Azure role-based access control can be used to lock down access to Transforms.
 
 ### Updating Transforms
 

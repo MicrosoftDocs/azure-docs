@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/29/2019
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -72,7 +72,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
     ![Get share credentials for SMB shares](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Select **OK**.
+2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. If the password has special characters, add double quotation marks before and after it. Then select **OK**.
     
     ![Get user name and password for a share](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
