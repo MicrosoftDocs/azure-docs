@@ -58,16 +58,6 @@
     - name: 2008 - Preview
       href: azure-stack-edge-gpu-2008-release-notes.md 
 
-  - name: Reference
-    items:
-    - name: Azure PowerShell
-      href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
-    - name: REST API
-      href: https://docs.microsoft.com/rest/api/databoxedgegateway
-    - name: .NET SDK
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet 
-
-
 
 - name: Azure Stack Edge Pro R
   items:
@@ -277,6 +267,16 @@
         href: azure-stack-edge-gpu-troubleshoot-activation.md    
       - name: Contact Microsoft Support
         href: azure-stack-edge-contact-microsoft-support.md 
+  - name: Shared reference
+    items:
+    - name: Azure PowerShell
+      href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+    - name: REST API
+      href: https://docs.microsoft.com/rest/api/databoxedgegateway
+    - name: .NET SDK
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet 
+
+
 - name: Azure Stack Edge Pro - FPGA
   items:
   - name: Overview
@@ -365,6 +365,7 @@
       href: https://docs.microsoft.com/rest/api/databoxedgegateway
     - name: .NET SDK
       href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet   
+
 - name: Resources
   items:
   - name: Azure Stack Edge Pro C# module samples (.NET)
