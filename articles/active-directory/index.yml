@@ -42,7 +42,7 @@ conceptualContent:
   items:
     - title: 3rd party application support
       links:
-        - url: ./saas-apps/index.yml
+        - url: ./saas-apps/tutorial-list.md
           itemType: tutorial
           text: Follow these tutorials to integrate your cloud-enabled SaaS apps with Azure AD
         - url: https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx
