@@ -145,5 +145,5 @@ To delete the server, select the **Delete** button on the **Overview** page of y
 
 
 > [!div class="nextstepaction"]
-> [Design a database](./tutorial-design-database-using-azure-portal.md##create-tables-in-the-database)
+> [Design a database](./tutorial-design-database-using-azure-portal.md#create-tables-in-the-database)
 
