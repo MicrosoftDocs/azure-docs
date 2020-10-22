@@ -20,7 +20,7 @@ ms.author: ejarvi
 
 ## Overview
 
-Azure Disk Encryption leverages the dm-crypt subsystem in Linux to provide full disk encryption on [select Azure Linux distributions](https://aka.ms/adelinux).  This solution is integrated with Azure Key Vault to manage disk encryption keys and secrets.
+Azure Disk Encryption leverages the dm-crypt subsystem in Linux to provide full disk encryption on [select Azure Linux distributions](../linux/disk-encryption-overview.md).  This solution is integrated with Azure Key Vault to manage disk encryption keys and secrets.
 
 ## Prerequisites
 

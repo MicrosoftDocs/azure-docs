@@ -22,7 +22,7 @@ You can provision throughput on databases or containers and each strategy can he
 
 * If you provision throughput on a database, all the containers, for example collections/tables/graphs within that database can share the throughput based on the load. Throughput reserved at the database level is shared unevenly, depending on the workload on a specific set of containers.
 
-* If you provision throughput on a container, the throughput is guaranteed for that container, backed by the SLA. The choice of a logical partition key is crucial for even distribution of load across all the logical partitions of a container. See [Partitioning](partitioning-overview.md) and [horizontal scaling](partition-data.md) articles for more details.
+* If you provision throughput on a container, the throughput is guaranteed for that container, backed by the SLA. The choice of a logical partition key is crucial for even distribution of load across all the logical partitions of a container. See [Partitioning](partitioning-overview.md) and [horizontal scaling](partitioning-overview.md) articles for more details.
 
 The following are some guidelines to decide on a provisioned throughput strategy:
 

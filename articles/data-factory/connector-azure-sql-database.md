@@ -666,6 +666,8 @@ Settings specific to Azure SQL Database are available in the **Settings** tab of
 
 The column name that you pick as the key here will be used by ADF as part of the subsequent update, upsert, delete. Therefore, you must pick a column that exists in the Sink mapping. If you wish to not write the value to this key column, then click "Skip writing key columns".
 
+You can parameterize the key column used here for updating your target Azure SQL Database table. If you have multiple columns for a composite key, the click on "Custom Expression" and you will be able to add dynamic content using the ADF data flow expression language, which can include an array of strings with column names for a composite key.
+
 **Table action:** Determines whether to recreate or remove all rows from the destination table prior to writing.
 
 - None: No action will be done to the table.

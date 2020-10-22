@@ -231,7 +231,7 @@ Check out the following resources for different walkthroughs of the backup/resto
 
 -   [Replicate Azure API Management Accounts](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
--   [Azure API Management: Backing Up and Restoring Configuration](https://docs.microsoft.com/archive/blogs/stuartleeks/azure-api-management-backing-up-and-restoring-configuration)
+-   [Azure API Management: Backing Up and Restoring Configuration](/archive/blogs/stuartleeks/azure-api-management-backing-up-and-restoring-configuration)
     _The approach detailed by Stuart does not match the official guidance but it is interesting._
 
 [backup an api management service]: #step1

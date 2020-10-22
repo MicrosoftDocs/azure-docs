@@ -33,7 +33,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 1. Select **New registration**.
 1. Enter a **Name** for your application. For example, `Azure AD B2C App`.
-1. Select **Accounts in any organizational directory** for this application.
+1. Select **Accounts in any organizational directory (Any Azure AD directory – Multitenant)** for this application.
 1. For the **Redirect URI**, accept the value of **Web**, and enter the following URL in all lowercase letters, where `your-B2C-tenant-name` is replaced with the name of your Azure AD B2C tenant.
 
     ```
@@ -162,7 +162,7 @@ By now, you have configured your policy so that Azure AD B2C knows how to commun
 
 ## Register the claims provider
 
-At this point, the identity provider has been set up, but it’s not available in any of the sign-up/sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider.
+At this point, the identity provider has been set up, but it's not available in any of the sign-up/sign-in screens. To make it available, you create a duplicate of an existing template user journey, and then modify it so that it also has the Azure AD identity provider.
 
 1. Open the *TrustFrameworkBase.xml* file from the starter pack.
 2. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.

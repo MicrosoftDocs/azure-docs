@@ -45,8 +45,6 @@
     - name: Azure Defender for SQL
       displayName: database
       href: defender-for-sql-introduction.md
-    - name: Azure Defender for IoT
-      href: defender-for-iot-introduction.md
     - name: Azure Defender for Key Vault
       displayName: KV, akv
       href: defender-for-key-vault-introduction.md
@@ -137,10 +135,6 @@
       href: security-center-monitoring.md
     - name: Reference list of recommendations
       href: recommendations-reference.md
-    - name: Protect network resources
-      href: security-center-network-recommendations.md
-    - name: Protect identity and access
-      href: security-center-identity-access.md
     - name: Manage security recommendations
       items:
       - name: Automate responses to recommendations
@@ -148,6 +142,10 @@
         href: workflow-automation.md
       - name: Exempt a resource from a recommendation
         href: exempt-resource.md
+    - name: Protect network resources
+      href: security-center-network-recommendations.md
+    - name: Protect identity and access
+      href: security-center-identity-access.md
   - name: Azure Defender alerts
     items:
     - name: Azure Defender alerts overview
@@ -174,37 +172,45 @@
       href: update-regulatory-compliance-packages.md
   - name: Use Azure Defender for servers
     items:
-    - name: Vulnerability scanning for VMs
+    - name: Vulnerability scanning
       items:
-      - name: Scan your VMs with the integrated VA solution
-        displayName: qualys, vulnerability
+      - name: Integrated VA scanner for machines 
+        displayName: qualys, vulnerability, arc, hybrid
         href: deploy-vulnerability-assessment-vm.md
       - name: Scan your VMs with a BYOL VA solution
         displayName: qualys, rapid7, vulnerability
         href: deploy-vulnerability-assessment-byol-vm.md
-      - name: Review and remediate vulnerabilities on your VMs
+      - name: Review and remediate vulnerabilities
         displayName: qualys, rapid7, vulnerability
         href: remediate-vulnerability-findings-vm.md
+      - name: Disable specific vulnerability findings
+        displayName: qualys, rapid7
+        href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
     - name: Secure management ports with just-in-time VM access
       items:
       - name: Overview of just-in-time VM access
         displayName: jit, management
         href: just-in-time-explained.md
       - name: Manage just-in-time access
-        displayName: jit, management
+        displayName: jit, management, ports
         href: security-center-just-in-time.md
+    - name: Use the integrated Microsoft Defender for Endpoint license
+      displayName: ATP, mdatp, wdatp
+      href: security-center-wdatp.md
     - name: Manage adaptive application controls
+      displayName: aac, whitelist, allowlist, reviewgroup
       href: security-center-adaptive-application.md
     - name: Use file integrity monitoring
       items:
       - name: Overview of file integrity monitoring
+        displayName: fim, change
         href: security-center-file-integrity-monitoring.md
       - name: Compare baselines using File Integrity Monitoring
+        displayName: fim, change
         href: security-center-file-integrity-monitoring-baselines.md
     - name: Manage adaptive network hardening
+      displayName: anh
       href: security-center-adaptive-network-hardening.md
-    - name: Integrate Microsoft Defender ATP
-      href: security-center-wdatp.md
     - name: Harden your Docker hosts
       displayName: containers
       href: harden-docker-hosts.md
@@ -240,7 +246,8 @@
       href: security-center-incident.md
     - name: Generate threat intelligence reports
       href: security-center-threat-report.md
-    - name: Validate your alert configuration (EICAR test file)
+    - name: Validate your alert configuration
+      displayname: eicar, Kubernetes, Linux
       href: security-center-alert-validation.md
     - name: Automate responses to alerts
       displayName: workflow
@@ -256,7 +263,7 @@
 - name: Reference
   items:
   - name: REST APIs
-    href: https://docs.microsoft.com/rest/api/securitycenter/
+    href: /rest/api/securitycenter/
   - name: FAQ for Azure Security Center
     items:
     - name: General questions
@@ -285,9 +292,9 @@
   - name: Manage user data
     href: security-center-privacy.md
   - name: Azure Defender for IoT documentation
-    href: https://docs.microsoft.com/azure/asc-for-iot/
+    href: /azure/asc-for-iot/
   - name: Azure security documentation
-    href: /azure/security/
+    href: ../security/index.yml
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?category=security-identity
   - name: Readiness Roadmap

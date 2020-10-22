@@ -4,6 +4,7 @@ description: Learn how to create a Synapse workspace by using Azure Resource Man
 services: azure-resource-manager
 author: julieMSFT
 ms.service: azure-resource-manager
+
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick

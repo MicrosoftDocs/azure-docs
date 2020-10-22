@@ -160,6 +160,8 @@ By creating an external file format, you specify the actual layout of the data r
 
 ### Syntax for CREATE EXTERNAL FILE FORMAT
 
+#### [SQL pool](#tab/sql-pool)
+
 ```syntaxsql
 -- Create an external file format for PARQUET files.  
 CREATE EXTERNAL FILE FORMAT file_format_name  
@@ -187,6 +189,40 @@ WITH (
     | Encoding = {'UTF8' | 'UTF16'}
 }
 ```
+
+#### [SQL on-demand](#tab/sql-on-demand)
+
+```syntaxsql
+-- Create an external file format for PARQUET files.  
+CREATE EXTERNAL FILE FORMAT file_format_name  
+WITH (  
+    FORMAT_TYPE = PARQUET  
+    [ , DATA_COMPRESSION = {  
+        'org.apache.hadoop.io.compress.SnappyCodec'  
+      | 'org.apache.hadoop.io.compress.GzipCodec'      }  
+    ]);  
+
+--Create an external file format for DELIMITED TEXT files
+CREATE EXTERNAL FILE FORMAT file_format_name  
+WITH (  
+    FORMAT_TYPE = DELIMITEDTEXT  
+    [ , DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' ]
+    [ , FORMAT_OPTIONS ( <format_options> [ ,...n  ] ) ]  
+    );  
+
+<format_options> ::=  
+{  
+    FIELD_TERMINATOR = field_terminator  
+    | STRING_DELIMITER = string_delimiter
+    | First_Row = integer
+    | USE_TYPE_DEFAULT = { TRUE | FALSE }
+    | Encoding = {'UTF8' | 'UTF16'}
+    | PARSER_VERSION = {'parser_version'}
+}
+```
+
+---
+
 
 ### Arguments for CREATE EXTERNAL FILE FORMAT
 
@@ -247,6 +283,9 @@ When reading from PARQUET external tables, this argument is ignored, but is used
 The DELIMITEDTEXT file format type supports the following compression method:
 
 - DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
+
+PARSER_VERSION = 'parser_version'
+Specifies parser version to be used when reading files. Check PARSER_VERSION argument in [OPENROWSET arguments](develop-openrowset.md#arguments) for details.
 
 ### Example for CREATE EXTERNAL FILE FORMAT
 
