@@ -25,7 +25,7 @@ Triton is a framework that is *optimized for inference*. It provides better util
 > Using Triton for deployment from Azure Machine Learning is currently in __preview__. Preview functionality may not be covered by customer support. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 > [!TIP]
-> The code snippets in this document are for illustrative purposes and may not show a complete solution. For working example code, see the [end-to-end samples of Triton in Azure Machine Learning](https://aka.ms/aml-triton-sample).
+> The code snippets in this document are for illustrative purposes and may not show a complete solution. For working example code, see the [end-to-end samples of Triton in Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/tutorials).
 
 ## Prerequisites
 
