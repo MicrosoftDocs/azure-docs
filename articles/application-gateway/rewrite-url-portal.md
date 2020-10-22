@@ -113,6 +113,15 @@ Observe the below fields in access logs to verify if the URL rewrite happened as
 
 For more information on all the fields in the access logs, see [here](application-gateway-diagnostics.md#for-application-gateway-and-waf-v2-sku).
 
+## Change the URL Host using a Rewrite
+
+If you would like to redirect to a different host, you need to modify the Host header in the request. 
+
+:::image type="content" source="./media/rewrite-url-portal/rewrite-url-host.png" alt-text="Add rewrite rule to change host":::
+
+You can also use a regular expression pattern to set the Host header.
+
+
 ##  Next steps
 
 To learn more about how to set up rewrites for some common use cases, see [common rewrite scenarios](rewrite-http-headers.md).
