@@ -251,15 +251,18 @@ namespace minimal
     class Program
     {
 
-        static async Task Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            //Create the Azure Digital Twins client for API calls
             Console.WriteLine("Hello World!");
+
+            //Create the Azure Digital Twins client for API calls
             DigitalTwinsClient client = createDTClient();
             Console.WriteLine($"Service client created – ready to go");
+            Console.WriteLine();
 
             //Upload models
             Console.WriteLine($"Upload models");
+            Console.WriteLine();
             string dtdl = File.ReadAllText("<path-to>/Room.json");
             string dtdl1 = File.ReadAllText("<path-to>/Floor.json");
             var typeList = new List<string>();
@@ -269,26 +272,25 @@ namespace minimal
             await client.CreateModelsAsync(typeList);
 
             //Create new (Floor) digital twin
-            string srcId = "myFloorID";
             BasicDigitalTwin floorTwin = new BasicDigitalTwin();
+            string srcId = "myFloorID";
             floorTwin.Metadata = new DigitalTwinMetadata();
             floorTwin.Metadata.ModelId = "dtmi:example:Floor;1";
             //Floor twins have no properties, so nothing to initialize
             //Create the twin
             await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(floorTwin));
-            Console.WriteLine();
             Console.WriteLine("Twin created successfully");
 
             //Create second (Room) digital twin
-            string targetId = "myRoomID";
             BasicDigitalTwin roomTwin = new BasicDigitalTwin();
+            string targetId = "myRoomID";
             roomTwin.Metadata = new DigitalTwinMetadata();
             roomTwin.Metadata.ModelId = "dtmi:example:Room;1";
             // Initialize properties
             Dictionary<string, object> props = new Dictionary<string, object>();
             props.Add("Temperature", 35.0);
             props.Add("Humidity", 55.0);
-            twin.CustomProperties = props;
+            roomTwin.CustomProperties = props;
             //Create the twin
             await client.CreateDigitalTwinAsync(targetId, JsonSerializer.Serialize<BasicDigitalTwin>(roomTwin));
             
@@ -297,27 +299,29 @@ namespace minimal
             Console.WriteLine();
 
             //Print twins and their relationships
-            Console.WriteLine("Printing srcId - Outgoing relationships");
-            Console.WriteLine();
+            Console.WriteLine("--- Printing details:");
+            Console.WriteLine("Outgoing relationships from source twin:");
             await FetchAndPrintTwinAsync(srcId, client);
             Console.WriteLine();
-            Console.WriteLine("Printing targetId - Incoming relationships");
-            Console.WriteLine();
+            Console.WriteLine("Incoming relationships to target twin:");
             await FetchAndPrintTwinAsync(targetId, client);
+            Console.WriteLine("--------");
+            Console.WriteLine();
 
             //Delete the relationship
             Console.WriteLine("Deleting the relationship");
-            Console.WriteLine();
             await DeleteRelationship(client, srcId, $"{srcId}-contains->{targetId}");
+            Console.WriteLine();
 
             //Print twins and their relationships again
-            Console.WriteLine("Printing srcId - Outgoing relationships");
-            Console.WriteLine();
+            Console.WriteLine("--- Printing details:");
+            Console.WriteLine("Outgoing relationships from source twin:");
             await FetchAndPrintTwinAsync(srcId, client);
             Console.WriteLine();
-            Console.WriteLine("Printing targetId - Incoming relationships");
-            Console.WriteLine();
+            Console.WriteLine("Incoming relationships to target twin:");
             await FetchAndPrintTwinAsync(targetId, client);
+            Console.WriteLine("--------");
+            Console.WriteLine();
         }
 
         private static DigitalTwinsClient createDTClient()
@@ -327,7 +331,7 @@ namespace minimal
             DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
             return client;
         }
-        public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId, string relName)
+        private async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId, string relName)
         {
             // Create relationship between twins
             var relationship = new BasicRelationship
@@ -360,7 +364,7 @@ namespace minimal
             return;
         }
 
-        public static async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        private static async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
         {
             // Find the relationships for the twin
             
@@ -385,7 +389,7 @@ namespace minimal
             }
         }
 
-        public static async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        private static async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(DigitalTwinsClient client, string dtId)
         {
             // Find the relationships for the twin
             

@@ -411,22 +411,29 @@ namespace minimal
     class Program
     {
 
-        static async Task Main(string[] args)
+        public static async Task Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            //Create the Azure Digital Twins client for API calls
             string adtInstanceUrl = "https://<your-instance-hostname>";
             var credentials = new DefaultAzureCredential();
-            Console.WriteLine();
-            Console.WriteLine($"Upload a model");
-            BasicDigitalTwin twin = new BasicDigitalTwin();
-            var typeList = new List<string>();
-            string twin_Id = "myRoomId";
-            string dtdl = File.ReadAllText("<path-to>/Room.json");
-            typeList.Add(dtdl);
-            // Upload the model to the service
             DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
             Console.WriteLine($"Service client created – ready to go");
+            Console.WriteLine();
+
+            //Upload models
+            Console.WriteLine($"Upload a model");
+            Console.WriteLine();
+            string dtdl = File.ReadAllText("<path-to>/Room.json");
+            var typeList = new List<string>();
+            typeList.Add(dtdl);
+            // Upload the model to the service
             await client.CreateModelsAsync(typeList);
+
+            //Create new digital twin
+            BasicDigitalTwin twin = new BasicDigitalTwin();
+            string twin_Id = "myRoomId";
             twin.Metadata = new DigitalTwinMetadata();
             twin.Metadata.ModelId = "dtmi:example:Room;1";
             // Initialize properties
@@ -436,7 +443,15 @@ namespace minimal
             twin.CustomProperties = props;
             await client.CreateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
             Console.WriteLine("Twin created successfully");
+            Console.WriteLine();
+
+            //Print twin
+            Console.WriteLine("--- Printing twin details:");
             twin = FetchAndPrintTwin(twin_Id, client);
+            Console.WriteLine("--------");
+            Console.WriteLine();
+
+            //Update twin data
             List<object> twinData = new List<object>();
             twinData.Add(new Dictionary<string, object>() 
             {
@@ -444,10 +459,17 @@ namespace minimal
                 { "path", "/Temperature"},
                 { "value", 25.0}
             });
-
             await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
-            Console.WriteLine("Updated Twin Properties");
+            Console.WriteLine("Twin properties updated");
+            Console.WriteLine();
+
+            //Print twin again
+            Console.WriteLine("--- Printing twin details (after update):");
             FetchAndPrintTwin(twin_Id, client);
+            Console.WriteLine("--------");
+            Console.WriteLine();
+
+            //Delete twin
             await DeleteTwin(client, twin_Id);
         }
 
@@ -465,7 +487,7 @@ namespace minimal
 
             return twin;
         }
-        static async Task DeleteTwin(DigitalTwinsClient client, string id)
+        private static async Task DeleteTwin(DigitalTwinsClient client, string id)
         {
             await FindAndDeleteOutgoingRelationshipsAsync(client, id);
             await FindAndDeleteIncomingRelationshipsAsync(client, id);
@@ -473,7 +495,6 @@ namespace minimal
             {
                 await client.DeleteDigitalTwinAsync(id);
                 Console.WriteLine("Twin deleted successfully");
-                FetchAndPrintTwin(id, client);
             }
             catch (RequestFailedException exc)
             {
@@ -481,7 +502,7 @@ namespace minimal
             }
         }
 
-        public static async Task FindAndDeleteOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        private static async Task FindAndDeleteOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
         {
             // Find the relationships for the twin
 
@@ -503,7 +524,7 @@ namespace minimal
             }
         }
 
-       static async Task FindAndDeleteIncomingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+       private static async Task FindAndDeleteIncomingRelationshipsAsync(DigitalTwinsClient client, string dtId)
         {
             // Find the relationships for the twin
 
