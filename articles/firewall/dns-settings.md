@@ -46,7 +46,7 @@ az network firewall update \
 ```
 
 > [!IMPORTANT]
-> The command `az network firewall` requires the Azure CLI extension azure-firewall to be installed. It can be installed using the command `az extension add --name azure-firewall`. 
+> The command `az network firewall` requires the Azure CLI extension `azure-firewall` to be installed. It can be installed using the command `az extension add --name azure-firewall`. 
 
 ### Configure custom DNS servers (preview) - Azure PowerShell
 
