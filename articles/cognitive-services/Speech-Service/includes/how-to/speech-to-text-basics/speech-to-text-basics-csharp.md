@@ -42,7 +42,7 @@ There are a few ways that you can initialize a [`SpeechConfig`](https://docs.mic
 * With an authorization token: pass in an authorization token and the associated region.
 
 Let's take a look at how a [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) is created using a key and region. 
-Get these credentials by following steps in [Try the Speech service for free](../../overview.md#try-the-speech-service-for-free).
+Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ```csharp
 var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");

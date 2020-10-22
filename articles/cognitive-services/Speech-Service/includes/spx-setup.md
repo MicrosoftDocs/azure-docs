@@ -107,7 +107,7 @@ For example, on Windows, this command sets your key:
 ## Create subscription config
 
 To start using the Speech CLI, you need to enter your Speech subscription key and region identifier. 
-Get these credentials by following steps in [Try the Speech service for free](../../overview.md#try-the-speech-service-for-free).
+Get these credentials by following steps in [Try the Speech service for free](../overview.md#try-the-speech-service-for-free).
 Once you have your subscription key and region identifier (ex. `eastus`, `westus`), run the following commands.
 
 ```shell
