@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 6. Your Workday application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Workday application expects **nameidentifier** to be mapped with **user.mail**, **UPN**, etc., so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with the Edit icon selected.](common/edit-attribute.png)
 
 	> [!NOTE]
     > Here we have mapped the Name ID with UPN (user.userprincipalname) as default. You need to map the Name ID with actual User ID in your Workday account (your email, UPN, etc.) for successful working of SSO.
@@ -100,9 +100,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. To modify the **Signing** options as per your requirement, click **Edit** button to open **SAML Signing Certificate** dialog.
 
-	![image](common/edit-certificate.png) 
+	![Screenshot shows the SAML Signing Certificate page with the edit icon selected.](common/edit-certificate.png) 
 
-	![image](./media/workday-tutorial/signing-option.png)
+	![Screenshot shows the SAML Signing Certificate page where you can select the Signing Option.](./media/workday-tutorial/signing-option.png)
 
 	a. Select **Sign SAML response and assertion** for **Signing Option**.
 
@@ -177,13 +177,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 5. In the **SAML Identity Providers** section, perform the following steps:
 
-    ![SAML Identity Providers](./media/workday-tutorial/IC7829271.png "SAML Identity Providers")
+    ![Screenshot shows the SAML Identity Providers page where you can perform these steps.](./media/workday-tutorial/IC7829271.png "SAML Identity Providers")
 
     a. In the **Identity Provider Name** textbox, type a provider name (for example: *SPInitiatedSSO*).
 
     b. In the Azure portal, on the **Set up Workday** section, copy the **Azure AD Identifier** value, and then paste it into the **Issuer** textbox.
 
-    ![SAML Identity Providers](./media/workday-tutorial/IC7829272.png "SAML Identity Providers")
+    ![Screenshot shows where you can enter the Issuer value.](./media/workday-tutorial/IC7829272.png "SAML Identity Providers")
 
     c. In the Azure portal, on the **Set up Workday** section, copy the **Logout URL** value, and then paste it into the **Logout Response URL** textbox.
 
@@ -193,11 +193,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     f. Click **Identity Provider Public Key Certificate**, and then click **Create**.
 
-    ![Create](./media/workday-tutorial/IC782928.png "Create")
+    ![Screenshot shows the Create link.](./media/workday-tutorial/IC782928.png "Create")
 
     g. Click **Create x509 Public Key**.
 
-    ![Create](./media/workday-tutorial/IC782929.png "Create")
+    ![Screenshot shows the option to Create x509 Public Key.](./media/workday-tutorial/IC782929.png "Create")
 
 6. In the **View x509 Public Key** section, perform the following steps:
 

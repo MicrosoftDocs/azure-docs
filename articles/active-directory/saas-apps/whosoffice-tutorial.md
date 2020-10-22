@@ -132,19 +132,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Settings** and select **Company**.
 
-    ![WhosOffice Configuration](./media/whosoffice-tutorial/configuration1.png)
+    ![Screenshot shows Company selected from Settings.](./media/whosoffice-tutorial/configuration1.png)
 
 1. Click on **Apps/Integrations**.
 
-    ![WhosOffice Configuration](./media/whosoffice-tutorial/configuration2.png)
+    ![Screenshot shows Apps / Integrations selected from Company settings.](./media/whosoffice-tutorial/configuration2.png)
 
 1. Select **Microsoft Azure** from the provider dropdown and click on **Activate Login Provider**.
 
-    ![WhosOffice Configuration](./media/whosoffice-tutorial/configuration3.png)
+    ![Screenshot shows Activate Login Provider selected for Microsoft Azure.](./media/whosoffice-tutorial/configuration3.png)
 
 1. Upload the downloaded federation metadata file from Azure portal by clicking on the **Upload** option.
     
-    ![WhosOffice Configuration](./media/whosoffice-tutorial/configuration4.png)
+    ![Screenshot shows the Upload option for a Meta Data file.](./media/whosoffice-tutorial/configuration4.png)
 
 ### Create WhosOffice test user
 
@@ -152,15 +152,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Settings** and select **Users**.
 
-    ![WhosOffice Configuration](./media/whosoffice-tutorial/user1.png)
+    ![Screenshot shows Users selected from Settings.](./media/whosoffice-tutorial/user1.png)
 
 1. Select **Create new User**.
 
-    ![WhosOffice Configuration](./media/whosoffice-tutorial/user2.png)
+    ![Screenshot shows Create new User selected.](./media/whosoffice-tutorial/user2.png)
 
 1. Provide the necessary details of the user as per your organization requirement.
 
-    ![WhosOffice Configuration](./media/whosoffice-tutorial/user3.png)
+    ![Screenshot shows the new User dialog box where you can enter user data.](./media/whosoffice-tutorial/user3.png)
 
 ## Test SSO 
 
