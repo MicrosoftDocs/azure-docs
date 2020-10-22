@@ -102,10 +102,27 @@ You can begin ingesting data into Azure Time Series Insights Gen2 without having
 * Your digital twin model identifier (DTMI) will become your Type ID
 * The Type name can be either the model's name or display name
 * The model description becomes the Type's description
-* At least one Type variable is created for each telemetry component in the model. 
+* At least one Type variable is created for each telemetry component that has a numeric schema. 
+  * Only numeric data types can be used for variables, but if a value is sent as a string that is parsable, `"0"` for example, you can use a [conversion](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) function such as `toDouble`
+* The variable name can either be the telemetry name or display name
+* When defining the variable Time Series Expression (TSX), refer to the telemetry's name on the wire, and it's data type.
+
+> [!NOTE]
+> This example shows just one aggregate variable, but each Type can have numerous variables. Different variables can reference the same telemetry value to perform different calucaultions as needed. To view the full list of filters, aggregates, and scalar functions view the [Time Series Insights Gen2 Time Series Expression syntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) documentation.
+
+Open your text editor of choice and save the JSON below to your local drive:
 
 
+In your Time Series Insights Explorer navigate to the Model tab by clicking on the model icon on the left. Click on **Types** and the click on **Upload JSON**:
 
+![Upload](./media/tutorial-configure-tsi/upload-type.png)
+
+
+Select **Choose file**, select the JSON you saved previously, and click **Upload**
+
+You should see the newly defined Thermostat Type.
+
+### Assign your instances to the correct type
 
 Device fleet hierarchy?
 
