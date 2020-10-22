@@ -142,11 +142,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Go to **Account \> Account Options \> Single Sign-On Settings**.
    
-	![Single Sign-On Settings](./media/timeoffmanager-tutorial/ic795917.png "Single Sign-On Settings")
+	![Screenshot shows Single Sign-On Settings selected from Account Options.](./media/timeoffmanager-tutorial/ic795917.png "Single Sign-On Settings")
 
 3. In the **Single Sign-On Settings** section, perform the following steps:
    
-	![Single Sign-On Settings](./media/timeoffmanager-tutorial/ic795918.png "Single Sign-On Settings")
+	![Screenshot shows the Single Sign-On Settings section where you can enter the values described.](./media/timeoffmanager-tutorial/ic795918.png "Single Sign-On Settings")
    
 	a. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **X.509 Certificate** textbox.
    
@@ -164,7 +164,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. In **Single Sign on settings** page, copy the value of **Assertion Consumer Service URL** and paste it in the **Reply URL** text box under **Basic SAML Configuration** section in Azure portal. 
 
-	  ![Single Sign-On Settings](./media/timeoffmanager-tutorial/ic795915.png "Single Sign-On Settings")
+	  ![Screenshot shows the Assertion Consumer Service U R L link.](./media/timeoffmanager-tutorial/ic795915.png "Single Sign-On Settings")
 
 ### Create TimeOffManager test user
 

@@ -15,13 +15,11 @@ This tutorial provides instructions on using the Azure Cosmos DB Data Migration 
 > [!NOTE]
 > The Azure Cosmos DB Data Migration tool is an open source tool desgined for small migrations. For larger migrations, view our [guide for ingesting data](cosmosdb-migrationchoices.md).
 
-The Azure Cosmos DB Data migration tool supports SQL (core) API 
-
-* **[SQL API](introduction.md)** - You can use any of the source options provided in the Data Migration tool to import data at a small scale. [Learn about migration options for importing data at a large scale](cosmosdb-migrationchoices.md).
+* **[SQL API](./introduction.md)** - You can use any of the source options provided in the Data Migration tool to import data at a small scale. [Learn about migration options for importing data at a large scale](cosmosdb-migrationchoices.md).
 * **[Table API](table-introduction.md)** - You can use the Data Migration tool or [AzCopy](table-import.md#migrate-data-by-using-azcopy) to import data. For more information, see [Import data for use with the Azure Cosmos DB Table API](table-import.md).
-* **[Azure Cosmos DB's API for MongoDB](mongodb-introduction.md)** - The Data Migration tool doesn't currently support Azure Cosmos DB's API for MongoDB either as a source or as a target. If you want to migrate the data in or out of collections in Azure Cosmos DB, refer to [How to migrate MongoDB data a Cosmos database with Azure Cosmos DB's API for MongoDB](cosmosdb-migrationchoices.md#azure-cosmos-db-mongo-api.md) for instructions. You can still use the Data Migration tool to export data from MongoDB to Azure Cosmos DB SQL API collections for use with the SQL API.
+* **[Azure Cosmos DB's API for MongoDB](mongodb-introduction.md)** - The Data Migration tool doesn't support Azure Cosmos DB's API for MongoDB either as a source or as a target. If you want to migrate the data in or out of collections in Azure Cosmos DB, refer to [How to migrate MongoDB data a Cosmos database with Azure Cosmos DB's API for MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) for instructions. You can still use the Data Migration tool to export data from MongoDB to Azure Cosmos DB SQL API collections for use with the SQL API.
 * **[Cassandra API](graph-introduction.md)** - The Data Migration tool isn't a supported import tool for Cassandra API accounts. [Learn about migration options for importing data into Cassandra API](cosmosdb-migrationchoices.md#azure-cosmos-db-cassandra-api)
-* **[Gremlin API](graph-introduction.md)** - The Data Migration tool isn't a supported import tool for Gremlin API accounts. [Learn about migration options for importing data into Gremlin API](cosmosdb-migrationchoices.md#other-apis)
+* **[Gremlin API](graph-introduction.md)** - The Data Migration tool isn't a supported import tool for Gremlin API accounts at this time.
 
 This tutorial covers the following tasks:
 
@@ -41,7 +39,7 @@ Before following the instructions in this article, ensure that you do the follow
 * **Create Azure Cosmos DB resources:** Before you start the migrating data, pre-create all your collections from the Azure portal. To migrate to an Azure Cosmos DB account that has database level throughput, provide a partition key when you create the Azure Cosmos containers.
 
 > [!IMPORTANT]
-> To make sure that the Data migration tool uses Transport Layer Security (TLS) 1.2 when connecting to your Azure Cosmos accounts, use the .NET Framework version 4.7 or follow the instructions found in [this article](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
+> To make sure that the Data migration tool uses Transport Layer Security (TLS) 1.2 when connecting to your Azure Cosmos accounts, use the .NET Framework version 4.7 or follow the instructions found in [this article](/dotnet/framework/network-programming/tls).
 
 ## <a id="Overviewl"></a>Overview
 
@@ -127,7 +125,7 @@ dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t
 ## <a id="MongoDB"></a>Import from MongoDB
 
 > [!IMPORTANT]
-> If you're importing to a Cosmos account configured with Azure Cosmos DB's API for MongoDB, follow these [instructions](mongodb-migrate.md).
+> If you're importing to a Cosmos account configured with Azure Cosmos DB's API for MongoDB, follow these [instructions](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json).
 
 With the MongoDB source importer option, you can import from a single MongoDB collection, optionally filter documents using a query, and modify the document structure by using a projection.  
 
@@ -155,7 +153,7 @@ dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<po
 ## <a id="MongoDBExport"></a>Import MongoDB export files
 
 > [!IMPORTANT]
-> If you're importing to an Azure Cosmos DB account with support for MongoDB, follow these [instructions](mongodb-migrate.md).
+> If you're importing to an Azure Cosmos DB account with support for MongoDB, follow these [instructions](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json).
 
 The MongoDB export JSON file source importer option allows you to import one or more JSON files produced from the mongoexport utility.  
 
@@ -268,7 +266,7 @@ The format of the Azure Table storage connection string is:
 > [!NOTE]
 > Use the Verify command to ensure that the Azure Table storage instance specified in the connection string field can be accessed.
 
-Enter the name of the Azure table from to import from. You may optionally specify a [filter](../vs-azure-tools-table-designer-construct-filter-strings.md).
+Enter the name of the Azure table from to import from. You may optionally specify a [filter](/visualstudio/azure/vs-azure-tools-table-designer-construct-filter-strings).
 
 The Azure Table storage source importer option has the following additional options:
 
@@ -328,7 +326,7 @@ The format of the Azure Cosmos DB connection string is:
 
 `AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;`
 
-You can retrieve the Azure Cosmos DB account connection string from the Keys page of the Azure portal, as described in [How to manage an Azure Cosmos DB account](manage-account.md). However, the name of the database needs to be appended to the connection string in the following format:
+You can retrieve the Azure Cosmos DB account connection string from the Keys page of the Azure portal, as described in [How to manage an Azure Cosmos DB account](./how-to-manage-database-account.md). However, the name of the database needs to be appended to the connection string in the following format:
 
 `Database=<CosmosDB Database>;`
 
@@ -399,7 +397,7 @@ The format of the Azure Cosmos DB connection string is:
 
 `AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;`
 
-The Azure Cosmos DB account connection string can be retrieved from the Keys page of the Azure portal, as described in [How to manage an Azure Cosmos DB account](manage-account.md), however the name of the database needs to be appended to the connection string in the following format:
+The Azure Cosmos DB account connection string can be retrieved from the Keys page of the Azure portal, as described in [How to manage an Azure Cosmos DB account](./how-to-manage-database-account.md), however the name of the database needs to be appended to the connection string in the following format:
 
 `Database=<CosmosDB Database>;`
 
@@ -462,7 +460,7 @@ The format of the Azure Cosmos DB connection string is:
 
 `AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;`
 
-You can retrieve the connection string for the Azure Cosmos DB account from the Keys page of the Azure portal, as described in [How to manage an Azure Cosmos DB account](manage-account.md). However, the name of the database needs to be appended to the connection string in the following format:
+You can retrieve the connection string for the Azure Cosmos DB account from the Keys page of the Azure portal, as described in [How to manage an Azure Cosmos DB account](./how-to-manage-database-account.md). However, the name of the database needs to be appended to the connection string in the following format:
 
 `Database=<Azure Cosmos database>;`
 
