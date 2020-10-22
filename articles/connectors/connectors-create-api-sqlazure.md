@@ -207,6 +207,8 @@ In this example, the logic app starts with the [Recurrence trigger](../connector
 
    This step automatically enables and publishes your logic app live in Azure.
 
+<a name="handle-bulk-data"></a>
+
 ## Handle bulk data
 
 Sometimes, you have to work with result sets so large that the connector doesn't return all the results at the same time, or you want better control over the size and structure for your result sets. Here's some ways that you can handle such large result sets:
