@@ -55,19 +55,19 @@ zone "az.cloudsimple.io"
 
 1. Right-click the DNS server and select **New Zone**. 
   
-    ![New Zone](media/DNS01.png)
+    ![Screenshot that highlights the New Zone menu option.](media/DNS01.png)
 2. Select **Stub Zone** and click **Next**.
 
-    ![New Zone](media/DNS02.png)
+    ![Screenshot that highlights the Stub Zone option.](media/DNS02.png)
 3. Select the appropriate option depending on your environment and click **Next**.
 
-    ![New Zone](media/DNS03.png)
+    ![Screenshot that shows the zone data replication options.](media/DNS03.png)
 4. Select **Forward lookup zone** and click **Next**.
 
-    ![New Zone](media/DNS01.png)
+    ![Screenshot that highlights the Forward lookup zone option.](media/DNS01.png)
 5. Enter the zone name and click **Next**.
 
-    ![New Zone](media/DNS05.png)
+    ![Screenshot that shows where to enter the zone name.](media/DNS05.png)
 6. Enter the IP addresses of the DNS servers for your Private Cloud that you obtained
 from the CloudSimple portal.
 

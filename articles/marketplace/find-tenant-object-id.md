@@ -59,7 +59,7 @@ If you need to get screenshots of these items in Azure Cloud Shell to use for de
 
 6. Find **role assignments** by selecting **Access control (IAM)** in the left menu, then **Role assignments**.
 
-    :::image type="content" source="https://docs.microsoft.com/azure/role-based-access-control/media/role-assignments-portal/role-assignments.png" alt-text="Role assignments in Azure Active Directory.":::
+    :::image type="content" source="https://docs.microsoft.com/azure/role-based-access-control/media/role-assignments-portal/role-assignments.png" alt-text="Role assignments for Azure resources.":::
 
 ## Find IDs for debugging
 
