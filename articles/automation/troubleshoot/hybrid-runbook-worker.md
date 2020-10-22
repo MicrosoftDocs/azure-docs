@@ -40,7 +40,7 @@ The following are possible causes:
 
 #### Resolution
 
-Verify that the computer has outbound access to ***.azure-automation.net** on port 443.
+Verify that the computer has outbound access to **\*.azure-automation.net** on port 443.
 
 Computers running the Hybrid Runbook Worker should meet the minimum hardware requirements before the worker is configured to host this feature. Runbooks and the background process they use might cause the system to be overused and cause runbook job delays or timeouts.
 
@@ -325,23 +325,27 @@ Failed to deregister worker. [response_status=404]
 
 #### Cause
 
-This issue can be caused if the machine is already registered with a different Automation account, or if the Azure Hybrid Worker Group was deleted or if you try to re-add the Hybrid Runbook Worker after removing it from a machine.
+This issue might occur if the machine is already registered with a different Automation account, if the Azure Hybrid Worker Group was deleted, or if you try to re-add the Hybrid Runbook Worker after you remove it from a machine.
 
 #### Resolution
 
-To resolve this issue, remove the agent `sudo sh onboard_agent.sh --purge`, then
+To resolve this issue:
 
-```
-sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
-sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
-sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
-```
+1. Remove the agent `sudo sh onboard_agent.sh --purge`.
 
-Re-onboard the agent `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com`
+1. Run these commands:
 
-Wait for the folder `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` to populate with 
+   ```
+   sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
+   sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
+   sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
+   ```
 
-and try the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` python script again.
+1. Re-onboard the agent `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com`.
+
+1. Wait for the folder `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` to populate.
+
+1. Try the `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` Python script again.
 
 ## Next steps
 
