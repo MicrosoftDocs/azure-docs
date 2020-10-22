@@ -14,12 +14,29 @@ ms.date: 09/15/2020
 ---
 
 # ParallelRunStep Performance Tuning Guide
-Understand ParallelRunStep
-Tune PRS parameters
-Tune nodes
+This guide helps users to measure and tune parameters in term of performance when using ParallelRunStep. It includes how to:
+1. Select virtual machine. Decide virtual machine type, priority, size and node count.
+1. Choose the number of worker processes in a node.
+1. Choose mini batch size.
+1. Check different kinds of performance metrics.
+
+
+# Select Virtual Machine
+1. Choose CPU or GPU virtual machine.
+1. Choose virtual machine size based on your rough estimation of cores, RAM, local storage, cost requirements. This is a **rough estimation** and you can change to new cluster based on your tuning result.
+1. Choose Dedicated or Low priority. For dev purpose, you can always use a few Dedicated virtual machines to ensure you can have a quick response.
+1. Minimum number of nodes that you want to provision. If you want a dedicated number of nodes, set that count here. For dev purpose, you can set this to the number to keep node in provisioned state to save the time of provision when running a job.
 
 > [!div class="mx-imgBorder"]
-> ![Overall Architecture](media/how-to-tune-performance-of-parallel-run-step/overall-architecture.png)
+> ![New Compute Cluster](media/how-to-tune-performance-of-parallel-run-step/new-compute-cluster.png)
+
+# Decide node_count and process_count_per_node
+The max number of worker processes running in parallel is `node_count * process_count_per_node`.
+In dev phase, you have tested out the duration per mini batch
+`node_count * process_count_per_node = total mini batches / duration per mini batch`
+
+
+# Decide mini batch size
 
 Pipeline lifecycle
 1. provision nodes. before ParallelTask, a run will start after all required nodes provisioned.
@@ -55,11 +72,21 @@ The internal scripts of ParallelRunStep requires minor CPU and memory. In common
 ParallelRunStep requires a lot of network I/O operation to support dataset processing, mini-batch scheduling and processing. Bandwidth and latency are the primary concerns of network.
 
 ### Disk
-Logs of ParallelRunStep are stored in temporary location of local disk during the job which cost minor disk usage. Under specific circumstances where dataset is consumed in "download" mode, users have to ensure computes have enough disk space to handle mini-batch.
+Logs of ParallelRunStep are stored in temporary location of local disk which cost minor disk usage.
+Under specific circumstances where dataset is consumed in "download" mode, users have to ensure computes have enough disk space to handle mini-batch. For example, there is a job where the size of each mini-match is 500 MB and the process_count_per_node is 4. If this job is running on Windows compute, where ParallelRunStep will cache each mini-batch to local disk by default, the minimum disk space should be 2000 MB.
 
 Disk size limit, VM size
 
 Dataset limit link to Dataset doc
+
+### Storage Metrics
+1. View all properties of your workspace.
+1. Click the storage link on the right pane.
+1. Click Metrics or Metrics (classic) on the left.
+1. Add the metrics you want to observe.
+
+> [!div class="mx-imgBorder"]
+> ![Storage Metrics](media/how-to-tune-performance-of-parallel-run-step/storage-metrics.png)
 
 ### Check Storage Metrics
 
@@ -72,8 +99,32 @@ For the sizes and options for Azure virtual machines, please refer to:
 - [Sizes for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/sizes)
 
 
-## Best Practices of Compute Target Choice
-TBC.
+## How To Choose Mini-batch Size
+Mini-batch size is passed to a single run() call in entry script. To investigate the performance of mini-batch processing, a detailed log can be found in `logs/sys/job_report/processed_mini-batch.csv`. There are three metrics which are helpful:
+- Elapsed Seconds: The total duration of mini-batch processing.
+- Process Seconds: The CPU time of mini-batch processing. This metric indicates the busyness of CPU.
+- Run Method Seconds: The duration of run() in entry script.
+
+## How To Choose Node Count
+Node count determines the number of compute nodes to be used for running the user script. It should not exceed the maximum number of nodes of compute target.
+In general, more node counts can provide better parallelism and save more job running time. The number of mini-batches processed by each node can be found in `logs/sys/job_report/node_summary.csv`. If the report shows mini-batches allocation skews a lot among all nodes, a possible explanation is that the compute resource is more than sufficient for current job. User can consider reducing node count to save budget.
+
+
+## How to Choose Process Count Per Node
+The best practice is to set it to the core number of GPU or CPU on one node. If too many processes are used, the synchronization overhead will increase and will not save overall runtime.
+
+## How to Do Profiling
+You can set the argument ```profiling_module``` to enable profiling.
+The accepted values are:
+1. Not specified, default value. Don't do profiling.
+2. cProfile
+3. profile
+The generated profile file will be saved in logs/sys/.
+
+Check [The Python Profilers](https://docs.python.org/3/library/profile.html#the-python-profilers) for more details.
+
+You can download them and inspect with viewers, such as [profile-viewer](https://pypi.org/project/profile-viewer/). Here is a sample:
+![Profile Viewer](media/how-to-tune-performance-of-parallel-run-step/profile-viewer.png)
 
 
 ## FAQ on Performance Issues
@@ -96,3 +147,10 @@ Limits
 
 ParallelTask
 1000 nodes, 65536?
+
+Understand ParallelRunStep
+Tune PRS parameters
+Tune nodes
+
+> [!div class="mx-imgBorder"]
+> ![Overall Architecture](media/how-to-tune-performance-of-parallel-run-step/overall-architecture.png)
