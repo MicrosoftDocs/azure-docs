@@ -90,7 +90,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 ### No notifications when app is closed
 
-**Q**: WHy do I only get notifications when the app is open? When the app is closed, I don't get notifications.
+**Q**: Why do I only get notifications when the app is open? When the app is closed, I don't get notifications.
 
 **A**: If you're getting notifications, but not an alert, even with your ringer on, you should check your app settings. Make sure the app is turned on to use sound or to vibrate for notifications. If you don't get notifications at all, you should check the following conditions:<ul><li>Is your phone in Do Not Disturb or Quiet mode? These modes can prevent apps from sending notifications.</li><li>Can you get notifications from other apps? If not, it could be a problem with the network connections on your phone, or the notifications channel from Android or Apple. You can try to resolve your network connections through your phone settings. You might need to talk to your service provider to help with the Android or Apple notifications channel.</li><li>Can you get notifications for some accounts on the app, but not others? If yes, remove the problematic account from your app, add it again allowing notifications, and see if that fixes the problem.</li></ul>If you tried all of these steps and are still having issues, we recommend sending your log files for diagnostics. Open the app, go to **Help**, and then select **Send logs**. After that, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) and tell us the problem you're seeing and the steps you tried.
 
