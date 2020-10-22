@@ -51,8 +51,10 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 
 [Planned maintenance notifications](./concepts-planned-maintenance-notification.md) allow you to receive alerts for upcoming planned maintenance to your Azure Database for MySQL. These notifications are integrated with [Service Health's](../service-health/overview.md) planned maintenance and allow you to view all scheduled maintenance for your subscriptions in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 hours before the event.
 
+Learn more about how to set up notifications in the [planned maintenance notifications](./concepts-planned-maintenance-notification.md) document.
 
 ## Next steps
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
 - For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 - Read our blog on [best practices for monitoring your server](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/).
+- Learn more about [planned maintenance notifications](./concepts-planned-maintenance-notification.md) in Azure Database for MySQL - Single Server
