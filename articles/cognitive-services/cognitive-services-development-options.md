@@ -63,7 +63,6 @@ If you want to learn more about Big Data for Cognitive Services, a good place to
 * **UI**: Yes
 * **Subscription(s)**:
 
-
 ### Azure Logic Apps 
 
 [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) share the same workflow designer and connectors as Power Automate but provides more advanced and control including integrations with Visual Studio and DevOps. Power Automate makes it easy to integrate with your cognitive services resources through service-specific connectors that provide a proxy or wrapper around the APIs. These are the same connectors as those available in Power Automate. 
@@ -75,7 +74,7 @@ If you want to learn more about Big Data for Cognitive Services, a good place to
 
 ### Power Automate 
 
-Power automate is a service in the [Power Platform](https://docs.microsoft.com/en-us/power-platform/) that helps you create automated workflows between apps and services without writing code. We offer several connectors to make it easy to interact with your Cognitive Services resource in a Power Automate solution. Power Automate is built on top of Logic Apps. 
+Power automate is a service in the [Power Platform](https://docs.microsoft.com/power-platform/) that helps you create automated workflows between apps and services without writing code. We offer several connectors to make it easy to interact with your Cognitive Services resource in a Power Automate solution. Power Automate is built on top of Logic Apps. 
 
 * **Target user(s)**: Business users (analysts) and Sharepoint administrators
 * **Benefits**: Automate repetitive manual tasks simply by recording mouse clicks, keystrokes and copy paste steps from your desktop!
@@ -99,10 +98,6 @@ You can use Azure DevOps and GitHub actions to manage your deployments. In the [
 * **Benefits**: Allows you to continuously adjust, update, and deploy applications and models programmatically. There is significant benefit when regularly using your data to improve and update models for Speech, Vision, Language, and Decision. 
 * **UI tools**: N/A - Code only 
 * **Subscription(s)**: Azure account + Cognitive Services resource + GitHub account
-
-## On-prem containers 
-
-Many of the Cognitive Services can be deployed in containers for on-prem access and use. Using these containers gives you the flexibility to bring Cognitive Services closer to your data for compliance, security or other operational reasons. For a complete list of Cognitive Services containers, see [Containers support](./cognitive-services-container-support.md).
 
 ## Customization
 
@@ -135,7 +130,11 @@ Language Understanding and the Speech service offer continuous integration and c
 * [CI/CD for Custom Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech-continuous-integration-continuous-deployment)
 * [CI/CD for LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-devops-automation)
 
+## On-prem containers 
+
+Many of the Cognitive Services can be deployed in containers for on-prem access and use. Using these containers gives you the flexibility to bring Cognitive Services closer to your data for compliance, security or other operational reasons. For a complete list of Cognitive Services containers, see [Containers support](./cognitive-services-container-support.md).
+
 ## Next steps
 <!--
 * Learn more about low code development options for Cognitive Services -->
-* [Create a Cognitive Services resource and start building](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Clinux)
+* [Create a Cognitive Services resource and start building](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Clinux)
