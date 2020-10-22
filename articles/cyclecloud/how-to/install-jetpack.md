@@ -17,6 +17,13 @@ ms.author: mirequa
 
 Creating a custom image with a pre-installed version of Jetpack will also provide a small performance improvement when starting VMs since Jetpack will no longer need to be downloaded and installed every time a VM boots. This performance improvement is negligible (a few seconds) and should not be the primary reason one creates the custom image.
 
+
+::: moniker range=">=cyclecloud-7"
+> [!NOTE]
+> At certain phases of installation and configuration management, Jetpack can consume 500MB of memory. 
+> Consider this when choosing a VM size. Burstable `Standard_B1ls` can be unstable.
+::: moniker-end
+
 ::: moniker range=">=cyclecloud-8"  
 ## Install via YUM or APT
 
