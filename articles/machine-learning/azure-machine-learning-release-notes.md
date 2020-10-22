@@ -31,15 +31,12 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Additional detail added about relationship between AKS deployment configuration and Azure Kubernetes Service concepts.
     + Customer can use linked service SDK to link synapse workspace into AML workspace. CRUD are supported.
     + Environment client labels support. User can label Environments and reference them by label.
-    + Add type to support custom retry
   + **azureml-dataprep**
     + Better error message when using currently unsupported Spark with Scala 2.12.
   + **azureml-explain-model**
     + The azureml-explain-model package is officially deprecated
   + **azureml-mlflow**
     + Resolved a bug in mlflow.projects.run against azureml backend where Finalizing state was not handled properly.
-  + **azureml-parallel-run**
-    + ParallelRunSetp: for append_row, add header to result if run() return pandas.DataFrame with header. User can specify parameter to to_csv() to define the format of generated csv in parallel_run_step.settings.json.
   + **azureml-pipeline-core**
     + Add support to create, list and get pipeline schedule based one pipeline endpoint.
     +  Improved the documentation of PipelineData.as_dataset with an invalid usage example - Using PipelineData.as_dataset improperly will now result in a ValueException being thrown
