@@ -26,7 +26,7 @@ Uptime SLA is available in public regions and Azure Government regions where [AK
 
 ## Limitations
 
-* Private clusters aren't currently supported.
+* Private clusters are only supported in WestUS and WestUS2.
 
 ## SLA terms and conditions
 
