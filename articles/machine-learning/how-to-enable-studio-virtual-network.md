@@ -86,7 +86,7 @@ Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect 
 1. In the datastore settings, select __Yes__ for  __Allow Azure Machine Learning service to access the storage using workspace-managed identity__.
 
 
-These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure resource-based access control (RBAC). __Reader__ access lets the workspace retrieve firewall settings, and ensure that data doesn't leave the virtual network.
+These steps add the workspace-managed identity as a __Reader__ to the storage service using Azure resource-based access control (Azure RBAC). __Reader__ access lets the workspace retrieve firewall settings, and ensure that data doesn't leave the virtual network.
 
 > [!NOTE]
 > These changes may take up to 10 minutes to take effect.
@@ -101,9 +101,9 @@ For __Azure Blob storage__, the workspace-managed identity is also added as a [B
 
 ### Azure Data Lake Storage Gen2 access control
 
-You can use both RBAC and POSIX-style access control lists (ACLs) to control data access inside of a virtual network.
+You can use both Azure RBAC and POSIX-style access control lists (ACLs) to control data access inside of a virtual network.
 
-To use RBAC, add the workspace-managed identity to the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role. For more information, see [Azure role-based access control](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
+To use Azure RBAC, add the workspace-managed identity to the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role. For more information, see [Azure role-based access control](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
 To use ACLs, the workspace-managed identity can be assigned access just like any other security principle. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
