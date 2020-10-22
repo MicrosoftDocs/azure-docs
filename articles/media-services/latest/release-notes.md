@@ -332,9 +332,9 @@ The following improvements were introduced:
 
 The new **Transform** object simplifies the Encoding model. The new object makes it easy to create and share encoding Resource Manager templates and presets. 
 
-#### Azure Active Directory authentication and RBAC
+#### Azure Active Directory authentication and Azure RBAC
 
-Azure AD Authentication and Role-Based Access Control (RBAC) enable secure Transforms, LiveEvents, Content Key Policies, or Assets by Role or Users in Azure AD.
+Azure AD Authentication and Azure role-based access control (Azure RBAC) enable secure Transforms, LiveEvents, Content Key Policies, or Assets by Role or Users in Azure AD.
 
 #### Client SDKs  
 
