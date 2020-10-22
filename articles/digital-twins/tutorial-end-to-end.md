@@ -170,7 +170,7 @@ On the *Publish* pane that opens back in the main Visual Studio window, check th
 
 ### Assign permissions to the function app
 
-To enable the function app to access Azure Digital Twins, the next step is to configure an app setting, assign the app a system-managed Azure AD identity, and give this identity the *Azure Digital Twins Owner (Preview)* role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md).
+To enable the function app to access Azure Digital Twins, the next step is to configure an app setting, assign the app a system-managed Azure AD identity, and give this identity the *Azure Digital Twins Data Owner* role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md).
 
 In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your Azure Digital Twins instance.
 
@@ -184,10 +184,10 @@ Use the following command to create the system-managed identity. Take note of th
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Use the *principalId* value from the output in the following command, to assign the function app's identity to the *Azure Digital Twins Owner (Preview)* role for your Azure Digital Twins instance:
+Use the *principalId* value from the output in the following command, to assign the function app's identity to the *Azure Digital Twins Data Owner* role for your Azure Digital Twins instance:
 
 ```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
 
 The result of this command is outputted information about the role assignment you've created. The function app now has permissions to access your Azure Digital Twins instance.
