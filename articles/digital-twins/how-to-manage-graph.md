@@ -270,30 +270,30 @@ namespace minimal
 
             //Create new (Room) digital twin
             string srcId = "myRoomID";
-            BasicDigitalTwin twin = new BasicDigitalTwin();
-            twin.Metadata = new DigitalTwinMetadata();
-            twin.Metadata.ModelId = "dtmi:example:Room;1";
+            BasicDigitalTwin roomTwin = new BasicDigitalTwin();
+            roomTwin.Metadata = new DigitalTwinMetadata();
+            roomTwin.Metadata.ModelId = "dtmi:example:Room;1";
             // Initialize properties
             Dictionary<string, object> props = new Dictionary<string, object>();
             props.Add("Temperature", 35.0);
             props.Add("Humidity", 55.0);
             twin.CustomProperties = props;
             //Create the twin
-            await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+            await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(roomTwin));
             
             //Create second (Floor) digital twin
             string targetId = "myFloorID";
-            twin.Metadata = new DigitalTwinMetadata();
-            twin.Metadata.ModelId = "dtmi:example:Floor;1";
+            BasicDigitalTwin floorTwin = new BasicDigitalTwin();
+            floorTwin.Metadata = new DigitalTwinMetadata();
+            floorTwin.Metadata.ModelId = "dtmi:example:Floor;1";
             //Floor twins have no properties, so nothing to initialize
             //Create the twin
-            await client.CreateDigitalTwinAsync(targetId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+            await client.CreateDigitalTwinAsync(targetId, JsonSerializer.Serialize<BasicDigitalTwin>(floorTwin));
             Console.WriteLine();
             Console.WriteLine("Twin created successfully");
 
             //Create relationships between them
             await CreateRelationship(client, srcId, targetId, "contains");
-            await CreateRelationship(client, targetId, srcId, "is-in");
             Console.WriteLine();
 
             //Print twins and their relationships
@@ -305,8 +305,8 @@ namespace minimal
             Console.WriteLine();
             await FetchAndPrintTwinAsync(targetId, client);
 
-            //Delete only the "contains" relationship
-            Console.WriteLine("Deleting the contains relationship");
+            //Delete the relationship
+            Console.WriteLine("Deleting the relationship");
             Console.WriteLine();
             await DeleteRelationship(client, srcId, $"{srcId}-contains->{targetId}");
 
