@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Add Authentication to a Node web app with MSAL Node | Azure"
 titleSuffix: Microsoft identity platform
-description: In this quickstart, you learn how to implement authentication with a Node.js web app and MSAL Node.
+description: In this quickstart, you learn how to implement authentication with a Node.js web app and the Microsoft Authentication Library (MSAL) for Node.js.
 services: active-directory
 author: amikuma
 manager: saeeda
@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/1/2020
+ms.date: 10/21/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-#Customer intent: As an application developer, I want to know how to set up authentication in a web application built using Node.js.
+# Customer intent: As an application developer, I want to know how to set up authentication in a web application built using Node.js and MSAL Node.
 ---
 
-# Quickstart: Sign in users and get an access token in a Node Web App using the auth code flow
+# Quickstart: Sign in users and get an access token in a Node web app using the auth code flow
 
 In this quickstart, you run a code sample that demonstrates how a Node.js web app can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow. The code sample also demonstrates obtaining an access token to call a web API, in this case the Microsoft Graph API. See [How the sample works](#how-the-sample-works) for an illustration.
 
@@ -159,15 +159,17 @@ Run the project by using Node.js:
 
 ### How the sample works
 
-The sample, when run, hosts a web server on localhost, port 3000.  When a web browser accesses this site, the sample immediately redirects the user to a Microsoft authentication page.  Because of this, the sample does not contain any *html* or display elements.  Authentication success or failure is shown at the command line.
+The sample, when run, hosts a web server on localhost, port 3000. When a web browser accesses this site, the sample immediately redirects the user to a Microsoft authentication page. Because of this, the sample does not contain any *html* or display elements. Authentication success or failure is shown at the command line.
 
 ### MSAL Node
 
 The MSAL Node library signs in users and requests the tokens that are used to access an API that's protected by Microsoft identity platform. You can download the latest version by using the Node.js Package Manager (npm):
 
 ```console
-npm install @azure/msal-browser
+npm install @azure/msal-node
 ```
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Extend a web app to call MS Graph - GitHub code sample >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/on-behalf-of/web-app/readme.md)
