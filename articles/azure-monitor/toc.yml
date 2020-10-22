@@ -1026,6 +1026,8 @@
       href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
     - name: Monitor Deployments & HPAs
       href: insights/container-insights-deployment-hpa-metrics.md
+    - name: Monitor Persistent Volumes (PVs)
+      href: insights/container-insights-persistent-volumes.md
     - name: View live data
       items:
       - name: Live Data (preview) overview

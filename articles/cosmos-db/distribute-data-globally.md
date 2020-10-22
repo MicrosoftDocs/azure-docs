@@ -49,7 +49,6 @@ Read more about global distribution in the following articles:
 * [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Create a custom conflict resolution policy for SQL API accounts](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 * [Programmable consistency models in Cosmos DB](consistency-levels.md)
-* [Choose the right consistency level for your application](consistency-levels-choosing.md)
-* [Consistency levels across Azure Cosmos DB APIs](consistency-levels-across-apis.md)
-* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
-
+* [Choose the right consistency level for your application](./consistency-levels.md)
+* [Consistency levels across Azure Cosmos DB APIs](./consistency-levels.md)
+* [Availability and performance tradeoffs for various consistency levels](./consistency-levels.md)
