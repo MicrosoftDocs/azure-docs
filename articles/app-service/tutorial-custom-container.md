@@ -227,29 +227,13 @@ Completing this tutorial incurs a small charge in your Azure account for the con
 
  - Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
 
- - his tutorial requires version 2.0.80 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
+ - This tutorial requires version 2.0.80 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
 After installing Docker and the Azure CLI, open a terminal window and verify that docker is installed:
 
 ```bash
 docker --version
 ```
-
-Also verify that your Azure CLI version is 2.0.80 or higher:
-
-```azurecli
-az --version
-```
-
-Then sign in to Azure through the CLI:
-
-```azurecli
-az login
-```
-
-The `az login` command opens a browser to gather your credentials. When the command completes, it shows JSON output containing information about your subscriptions.
-
-Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
 
 ## Clone or download the sample app
 
