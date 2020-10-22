@@ -48,20 +48,25 @@ Base distributions of Python and R are included in Machine Learning Services. Yo
 This limited public preview is subject to the [Azure preview terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 If you're interested in joining the preview program and accept these terms, then you can request enrollment by creating an Azure support ticket at [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/). 
+On the new page, the **Create an Incident** button will redirect you to the Microsoft Azure Portal, where you can create a ticket by pressing **New support request** button.
 
 1. Select the following options:
    - Issue type - **Technical**
    - Subscription - *select your subscription*
-   - Service - **SQL Database Managed Instance**
+   - Service - **SQL Managed Instance**
+   - Resource - *select your managed instance*
    - Summary - *enter a brief description of your request*
    - Problem type - **Machine Learning Services for SQL Managed Instance (Preview)**
    - Problem subtype - **Other issue or "How To" questions**
 
 1. Click **Next: Solutions**.
 
-1. Read the information about the preview, then click **Details**.
+1. Read the information about the preview, then click **Next: Details**.
 
-1. In **Description**, enter the specifics of your request including the logical server name, region, and subscription ID that you would like to enroll in the preview. Enter other details as appropriate.
+1. Within this page:
+   - For the question **Are you trying to sign up for the Preview?** select **Yes**. 
+   - In **Description**, enter the specifics of your request including the logical server name, region, and subscription ID that you would like to enroll in the preview. Enter other details as appropriate.
+   - Select your preferred contact method in the section **Preferred contact method**
 
 1. When you're finished, click **Next: Review + create**, then click **Create**.
 
