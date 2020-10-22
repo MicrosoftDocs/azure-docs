@@ -54,13 +54,13 @@ The examples in this article use the following values. You can use these values 
 * **Connection name:** VNet1toSite1
 * **Shared key:** For this example, we use abc123. But, you can use whatever is compatible with your VPN hardware. The important thing is that the values match on both sides of the connection.
 
-## <a name="CreatVNet"></a>1. Create a virtual network
+## <a name="CreatVNet"></a>Create a virtual network
 
 [!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="VNetGateway"></a>2. Create the VPN gateway
+## <a name="VNetGateway"></a>Create the VPN gateway
 
 In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
@@ -80,8 +80,7 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-
-## <a name="LocalNetworkGateway"></a>3. Create the local network gateway
+## <a name="LocalNetworkGateway"></a>Create the local network gateway
 
 The local network gateway is a specific object that represents your on-premises location (the site) for routing purposes. You give the site a name by which Azure can refer to it, then specify the IP address of the on-premises VPN device to which you will create a connection. You also specify the IP address prefixes that will be routed through the VPN gateway to the VPN device. The address prefixes you specify are the prefixes located on your on-premises network. If your on-premises network changes or you need to change the public IP address for the VPN device, you can easily update the values later.
 
@@ -94,7 +93,7 @@ The local network gateway is a specific object that represents your on-premises 
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 
-## <a name="VPNDevice"></a>4. Configure your VPN device
+## <a name="VPNDevice"></a>Configure your VPN device
 
 Site-to-Site connections to an on-premises network require a VPN device. In this step, you configure your VPN device. When configuring your VPN device, you need the following:
 
@@ -103,13 +102,13 @@ Site-to-Site connections to an on-premises network require a VPN device. In this
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
-## <a name="CreateConnection"></a>5. Create the VPN connection
+## <a name="CreateConnection"></a>Create the VPN connection
 
 Create the Site-to-Site VPN connection between your virtual network gateway and your on-premises VPN device.
 
 [!INCLUDE [Add a site-to-site connection](../../includes/vpn-gateway-add-site-to-site-connection-portal-include.md)]
 
-## <a name="VerifyConnection"></a>6. Verify the VPN connection
+## <a name="VerifyConnection"></a>Verify the VPN connection
 
 [!INCLUDE [Verify the connection](../../includes/vpn-gateway-verify-connection-portal-include.md)]
 
