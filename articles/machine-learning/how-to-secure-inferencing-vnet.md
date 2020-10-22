@@ -118,6 +118,9 @@ There are two approaches to isolate traffic to and from the AKS cluster to the v
 * __Private AKS cluster__: This approach uses Azure Private Link to secure communications with the cluster for deployment/management operations.
 * __Internal AKS load balancer__: This approach configures the endpoint for your deployments to AKS to use a private IP within the virtual network.
 
+> [!WARNING]
+> Private AKS cluster does not currently work with internal load balancer. For information on using Azure Container Networking Interface for the IP address of a private AKS cluster, see [Use kubenet networking with your own IP address](../aks/configure-kubenet.md).
+
 ### Private AKS cluster
 
 By default, AKS clusters have a control plane, or API server, with public IP addresses. You can configure AKS to use a private control plane by creating a private AKS cluster. For more information, see [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
