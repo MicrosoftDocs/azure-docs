@@ -135,10 +135,6 @@
       href: security-center-monitoring.md
     - name: Reference list of recommendations
       href: recommendations-reference.md
-    - name: Protect network resources
-      href: security-center-network-recommendations.md
-    - name: Protect identity and access
-      href: security-center-identity-access.md
     - name: Manage security recommendations
       items:
       - name: Automate responses to recommendations
@@ -146,6 +142,10 @@
         href: workflow-automation.md
       - name: Exempt a resource from a recommendation
         href: exempt-resource.md
+    - name: Protect network resources
+      href: security-center-network-recommendations.md
+    - name: Protect identity and access
+      href: security-center-identity-access.md
   - name: Azure Defender alerts
     items:
     - name: Azure Defender alerts overview
@@ -175,7 +175,7 @@
     - name: Vulnerability scanning
       items:
       - name: Integrated VA scanner for machines 
-        displayName: qualys, vulnerability, arc
+        displayName: qualys, vulnerability, arc, hybrid
         href: deploy-vulnerability-assessment-vm.md
       - name: Scan your VMs with a BYOL VA solution
         displayName: qualys, rapid7, vulnerability
@@ -184,7 +184,7 @@
         displayName: qualys, rapid7, vulnerability
         href: remediate-vulnerability-findings-vm.md
       - name: Disable specific vulnerability findings
-        displayName: qualys, rapid7, vulnerability
+        displayName: qualys, rapid7
         href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
     - name: Secure management ports with just-in-time VM access
       items:
@@ -192,20 +192,24 @@
         displayName: jit, management
         href: just-in-time-explained.md
       - name: Manage just-in-time access
-        displayName: jit, management
+        displayName: jit, management, ports
         href: security-center-just-in-time.md
     - name: Use the integrated Microsoft Defender for Endpoint license
       displayName: ATP, mdatp, wdatp
       href: security-center-wdatp.md
     - name: Manage adaptive application controls
+      displayName: aac, whitelist, allowlist, reviewgroup
       href: security-center-adaptive-application.md
     - name: Use file integrity monitoring
       items:
       - name: Overview of file integrity monitoring
+        displayName: fim, change
         href: security-center-file-integrity-monitoring.md
       - name: Compare baselines using File Integrity Monitoring
+        displayName: fim, change
         href: security-center-file-integrity-monitoring-baselines.md
     - name: Manage adaptive network hardening
+      displayName: anh
       href: security-center-adaptive-network-hardening.md
     - name: Harden your Docker hosts
       displayName: containers

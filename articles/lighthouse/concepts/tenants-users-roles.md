@@ -17,7 +17,7 @@ Whichever onboarding method you choose, you will need to define *authorizations*
 
 ## Role support for Azure Lighthouse
 
-When defining an authorization, each user account must be assigned one of the [role-based access control (RBAC) built-in roles](../../role-based-access-control/built-in-roles.md). Custom roles and [classic subscription administrator roles](../../role-based-access-control/classic-administrators.md) are not supported.
+When defining an authorization, each user account must be assigned one of the [Azure built-in roles](../../role-based-access-control/built-in-roles.md). Custom roles and [classic subscription administrator roles](../../role-based-access-control/classic-administrators.md) are not supported.
 
 All [built-in roles](../../role-based-access-control/built-in-roles.md) are currently supported with Azure Lighthouse, with the following exceptions:
 
