@@ -725,9 +725,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32214.).
 
-**Guidance**: Cloud service (classic) does not support encryption at rest. This is because Cloud services are designed for persistent storage to be an external resource (for example, Azure Storage) which can all be encrypted at rest. 
+**Guidance**: Cloud service (classic) does not support encryption at rest. This is because Cloud services (classic) are designed to be stateless. Cloud services (classic) does support external storage, for example, Azure Storage, which is encrypted at rest, by default.  
 
-Cloud services metadata's and user metadata, for example, attached disks, are stored. The customer is responsible to manage it.  
+The application data stored in temporary disks is not encrypted. The customer is responsible to manage and encrypt this data, as required.  
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
