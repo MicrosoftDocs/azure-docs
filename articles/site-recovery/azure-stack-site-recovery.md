@@ -309,7 +309,7 @@ Then run a failover as follows:
 
 ### Fail back to Azure Stack
 
-When your primary site is up and running again, you can fail back from Azure to Azure Stack. To do this, follow the steps listed out [here](https://docs.microsoft.com/azure-stack/operator/site-recovery-failback?view=azs-2005).
+When your primary site is up and running again, you can fail back from Azure to Azure Stack. To do this, follow the steps listed out [here](/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
 ## Conclusion
 
@@ -318,4 +318,3 @@ In this article we replicated Azure Stack VMs to Azure. With replication in plac
 ## Next steps
 
 After failing back, you can reprotect the VM and start replicating it to Azure again To do this, repeat the steps in this article.
-

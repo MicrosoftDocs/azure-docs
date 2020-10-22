@@ -64,7 +64,7 @@ End to end enterprise security can be achieved using the following controls:
 
 **Authentication and authorization for data access**
     - Create Domain-joined HDInsight cluster using Azure Active Directory Domain Services. (Enterprise Security Package).
-    - Use Ambari to provide Role-based access to cluster resources for AD users.
+    - Use Ambari to provide role-based access to cluster resources for AD users.
     - Use Apache Ranger to set access control policies for Hive at the table / column / row level.
     - SSH access to the cluster can be restricted only to the administrator.
 

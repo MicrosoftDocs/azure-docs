@@ -54,7 +54,7 @@ First, **set up an Azure Digital Twins instance** and the required authenticatio
 * After setting up your Azure Digital Twins instance, you'll need the instance's **_host name_** ([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
 To authenticate the ADT Explorer application, you'll also need to set up an **app registration**. Follow the instructions in [*How-to: Create an app registration*](how-to-create-app-registration.md) to set this up. 
-* Once you have an app registration, you'll need the registration's **_Application (client) ID_** and **_Directory (tenant) ID_** ([find these in the portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id).
+* Once you have an app registration, you'll need the registration's **_Application (client) ID_** and **_Directory (tenant) ID_** ([find these in the portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
 
 ### Set ADT Explorer permissions
 
@@ -323,6 +323,12 @@ To wrap up the work for this quickstart, first end the running console app. This
 If you plan to continue to the Azure Digital Twins tutorials, the instance used in this quickstart can be reused for those articles, and you don't need to remove it.
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
+
+Next, delete the Azure Active Directory app registration you created for your client app with this command:
+
+```azurecli
+az ad app delete --id <your-application-ID>
+```
 
 Finally, delete the project sample folders you downloaded to your local machine (_**Azure_Digital_Twins__ADT__explorer**_ and _**Azure_Digital_Twins_end_to_end_samples**_). You may have to delete both the zipped and unzipped versions.
 
