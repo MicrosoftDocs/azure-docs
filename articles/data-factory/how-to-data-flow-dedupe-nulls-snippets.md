@@ -26,7 +26,7 @@ By using code snippets in mapping data flows, you can easily perform common task
 
 1. Add a data flow activity.
 
-1. Select the **Source settings** tab, add a source transformation, and then connect it to one of your datasets
+1. Select the **Source settings** tab, add a source transformation, and then connect it to one of your datasets.
 
     ![Screenshot of the "Source settings" pane for adding a source type.](media/data-flow/snippet-adf-2.png)
 
