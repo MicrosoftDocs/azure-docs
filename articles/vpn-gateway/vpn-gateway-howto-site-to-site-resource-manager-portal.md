@@ -38,21 +38,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article. For more information about VPN Gateway settings in general, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md).
 
-* **Virtual network name:** VNet1
-* **Address Space:** 10.1.0.0/16
-* **Subscription:** The subscription you want to use
-* **Resource Group:** TestRG1
-* **Region:** East US
-* **Subnet:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (optional for this exercise)
-* **Gateway subnet address range:** 10.1.255.0/27
-* **Virtual network gateway name:** VNet1GW
-* **Public IP address name:** VNet1GWpip
-* **VPN type:** Route-based
-* **Connection type:** Site-to-site (IPsec)
-* **Gateway type:** VPN
-* **Local network gateway name:** Site1
-* **Connection name:** VNet1toSite1
-* **Shared key:** For this example, we use abc123. But, you can use whatever is compatible with your VPN hardware. The important thing is that the values match on both sides of the connection.
+
 
 ## <a name="CreatVNet"></a>Create a virtual network
 
@@ -69,11 +55,17 @@ Create a virtual network (VNet) using the following values:
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="VNetGateway"></a>Create the VPN gateway
+## <a name="VNetGateway"></a>Create a VPN gateway
 
 In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
-Create a virtual network gateway using the following values:
+### About the gateway subnet
+
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
+
+### Create the gateway
+
+Create a VPN gateway using the following values:
 
 * **Name:** VNet1GW
 * **Region:** East US
@@ -88,22 +80,19 @@ Create a virtual network gateway using the following values:
 * **Enable active-active mode:** Disabled
 * **Configure BGP:** Disabled
 
-[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
-
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="LocalNetworkGateway"></a>Create the local network gateway
+## <a name="LocalNetworkGateway"></a>Create a local network gateway
 
 The local network gateway is a specific object that represents your on-premises location (the site) for routing purposes. You give the site a name by which Azure can refer to it, then specify the IP address of the on-premises VPN device to which you will create a connection. You also specify the IP address prefixes that will be routed through the VPN gateway to the VPN device. The address prefixes you specify are the prefixes located on your on-premises network. If your on-premises network changes or you need to change the public IP address for the VPN device, you can easily update the values later.
 
-**Example values**
+Create a local network gateway using the following values:
 
 * **Name:** Site1
 * **Resource Group:** TestRG1
 * **Location:** East US
-
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 
@@ -116,9 +105,15 @@ Site-to-Site connections to an on-premises network require a VPN device. In this
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
-## <a name="CreateConnection"></a>Create the VPN connection
+## <a name="CreateConnection"></a>Create a VPN connection
 
 Create the Site-to-Site VPN connection between your virtual network gateway and your on-premises VPN device.
+
+Create a connection using the following values:
+
+* **Local network gateway name:** Site1
+* **Connection name:** VNet1toSite1
+* **Shared key:** For this example, we use abc123. But, you can use whatever is compatible with your VPN hardware. The important thing is that the values match on both sides of the connection.
 
 [!INCLUDE [Add a site-to-site connection](../../includes/vpn-gateway-add-site-to-site-connection-portal-include.md)]
 
