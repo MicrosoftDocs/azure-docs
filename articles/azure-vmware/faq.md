@@ -41,7 +41,7 @@ basis.
 
 #### Can I migrate vSphere VMs from on-premises environments to Azure VMware Solution private clouds?
 
-Yes. VM migration and vMotion can be used to move VMs to a private cloud if standard cross vCenter [vMotion requirements](https://kb.vmware.com/s/article/210695) are met.
+Yes. VM migration and vMotion can be used to move VMs to a private cloud if standard cross vCenter [vMotion requirements](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952) are met.
 
 #### Is a specific version of vSphere required in on-premises environments?
 
@@ -273,7 +273,7 @@ Before you create your Azure VMware Solution resource, you'll need to submit a s
    For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 <!-- LINKS - external -->
-[kb2106952]: https://kb.vmware.com/s/article/2106952
+[kb2106952]: https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=21069522
 
 <!-- LINKS - internal -->
 [Access and Identity Concepts]: concepts-identity.md

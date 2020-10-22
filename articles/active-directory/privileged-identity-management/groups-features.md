@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 # Management capabilities for privileged access Azure AD groups (preview)
 
-In Privileged Identity Management (PIM), you can now assign eligibility for membership or ownership of privileged access groups. Starting with this preview, you can assign Azure Active Directory (Azure AD) built-in roles to cloud groups and use PIM to manage group member and owner eligibility and activation. For more information about role-assignable groups in Azure AD, see [Use cloud groups to manage role assignments in Azure Active Directory (preview)](../users-groups-roles/roles-groups-concept.md).
+In Privileged Identity Management (PIM), you can now assign eligibility for membership or ownership of privileged access groups. Starting with this preview, you can assign Azure Active Directory (Azure AD) built-in roles to cloud groups and use PIM to manage group member and owner eligibility and activation. For more information about role-assignable groups in Azure AD, see [Use cloud groups to manage role assignments in Azure Active Directory (preview)](../roles/groups-concept.md).
 
 ## Require different policies for each role assignable group
 

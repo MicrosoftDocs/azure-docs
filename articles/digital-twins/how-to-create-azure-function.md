@@ -51,7 +51,7 @@ Once your function app is created, your visual studio will have auto populated c
 
 ## Write an Azure function with an Event Grid trigger
 
-You can write an Azure function by adding SDK to your function app. The function app interacts with Azure Digital Twins using the [Azure IoT Digital Twin client library for .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
+You can write an Azure function by adding SDK to your function app. The function app interacts with Azure Digital Twins using the [Azure Digital Twins SDK for .NET (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
 
 In order to use the SDK, you'll need to include the following packages into your project. You can either install the packages using visual studio NuGet package manager or add the packages using `dotnet` command-line tool. Choose either of these methods: 
 

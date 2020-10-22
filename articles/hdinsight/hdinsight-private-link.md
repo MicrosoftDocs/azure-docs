@@ -55,6 +55,8 @@ Standard load balancers do not automatically provide the [public outbound NAT](h
 
 ### Prepare your environment
 
+For successgfull creation of private link services, you must explicitly [disable network policies for private link service](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy).
+
 The following diagram shows an example of the networking configuration required before you create a cluster. In this example, all outbound traffic is [forced](../firewall/forced-tunneling.md) to Azure Firewall using UDR and the required outbound dependencies should be "allowed" on the firewall before creating a cluster. For Enterprise Security Package clusters, the network connectivity to Azure Active Directory Domain Services can be provided by VNet peering.
 
 :::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagram of private link environment before cluster creation":::

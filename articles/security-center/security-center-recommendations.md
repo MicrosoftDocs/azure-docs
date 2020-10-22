@@ -70,7 +70,10 @@ An example of a preview recommendation:
  
 ## Next steps
 
-In this document, you were introduced to security recommendations in Security Center. To learn how to remediate the recommendations:
+In this document, you were introduced to security recommendations in Security Center. For related information:
 
 - [Remediate recommendations](security-center-remediate-recommendations.md) — Learn how to configure security policies for your Azure subscriptions and resource groups.
 - [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md).
+- [Automate responses to recommendations](workflow-automation.md)
+- [Exempt a resource from a recommendation](exempt-resource.md)
+- [Security recommendations - a reference guide](recommendations-reference.md)
