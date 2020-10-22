@@ -93,7 +93,7 @@ Use the [az storage account create](/cli/azure/storage/account#az_storage_accoun
 az storage account create --resource-group databox-rg --name databoxtestsa
 ```
 
-Run the [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) command to create a Data Box job with the SKU DataBoxHeavy:
+Run the [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) command to create a Data Box job with the **--sku** value of `DataBoxHeavy`:
 
 ```azurecli
 az databox job create --resource-group databox-rg --name databoxheavy-job \
