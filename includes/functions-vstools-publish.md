@@ -40,7 +40,7 @@ ms.custom: include file
 
     :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-4.png" alt-text="Finish profile creation":::
 
-1. Click on **Finish**, and on the Publish page, select **Publish** and wait for the deployment to complete. 
+1. Select **Finish**, and on the Publish page, select **Publish** to deploy the package containing your project files to your new function app in Azure. 
 
     After the deployment completes the root URL of the function app in Azure is shown in the **Publish** tab. 
     
