@@ -25,7 +25,7 @@ The following table provides a list of compute environments that are supported b
 | ---------------------------------------- | ---------------------------------------- |
 | [On-demand Azure HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Machine Learning Studio (classic)](#azure-machine-learning-studio-classic-linked-service) | [Studio (classic) activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure Activity](data-factory-stored-proc-activity.md) |
 
@@ -225,7 +225,7 @@ This type of configuration is supported for the following compute environments:
 
 * Azure HDInsight
 * Azure Batch
-* Azure Machine Learning
+* Azure Machine Learning Studio (classic)
 * Azure Data Lake Analytics
 * Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse), SQL Server
 
@@ -306,8 +306,8 @@ Another option is to provide the **batchUri** endpoint. For example:
 | poolName          | The name of the pool of VMs.    | Yes      |
 | linkedServiceName | The name of the storage linked service that's associated with this Batch linked service. This linked service is used for staging files that are required to run the activity, and to store activity execution logs. | Yes      |
 
-## Azure Machine Learning linked service
-You can create a Machine Learning linked service to register a Machine Learning batch scoring endpoint to a data factory.
+## Azure Machine Learning Studio (classic) linked service
+You can create an Azure Machine Learning Studio (classic) linked service to register a Studio (classic) batch scoring endpoint to a data factory.
 
 ### Example
 

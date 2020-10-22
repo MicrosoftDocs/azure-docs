@@ -22,6 +22,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   An Azure Active directory tenant.
 *   A Netsuite OneWorld subscription. Note that automatic user provisioning is presently only supported with NetSuite OneWorld.
 *   A user account in Netsuite with administrator permissions.
+*   Integration with Azure AD requires a 2FA exemption. Please contact Netsuite support team for this exception.
 
 ## Assigning users to Netsuite OneWorld
 
