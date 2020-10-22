@@ -284,7 +284,7 @@ For SAML apps, there are several properties you need to configure in the applica
 
 #### identifierUris
 
-The `identifierUris` is a string collection containing user-defined URI(s) that uniquely identify a Web app within its Azure AD B2C tenant. Your service provider must set this value in the `Issuer` element of a SAML request.
+The `identifierUris` is a string collection containing user-defined URI(s) that uniquely identify a Web app within its Azure AD B2C tenant. The URI must match the SAML request's `Issuer` name. This is normaly the same value as the sevice provider metadata `entityID`.
 
 #### samlMetadataUrl
 
@@ -331,11 +331,13 @@ For this tutorial, which uses the SAML test application, leave `logoutUrl` set t
 
 The last step is to enable Azure AD B2C as a SAML IdP in your SAML relying party application. Each application is different and the steps to do so vary. Consult your app's documentation for details.
 
+The metadata can be configured in your sevice profvider as "Static Metadata" or "Dynamic Metadata". In static mode, you copy the entire, or parts of metadata from Azure AD B2C policy metadata. In dynamic mode, you set the URL to the metadata let our application read the metadata dynamically.
+
 Some or all the following are typically required:
 
 * **Metadata**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Issuer**:  Use the `identifierUris` in the metadata file, for example `https://contoso.onmicrosoft.com/app-name`
-* **Login Url/SAML endpoint/SAML Url**: Check the value in the metadata file for the `<SingleSignOnService>` XML element
+* **Issuer**:  The SAML request `issuer` value must match one of the URI configured in `identifierUris` element of the application registration manifest. If the SAML request `issuer` name doesn't exist in the `identifierUris` element, then [add it to the application registration manifest](#identifierUris). For example `https://contoso.onmicrosoft.com/app-name`. 
+* **Login Url/SAML endpoint/SAML Url**: Check the value in the Azure AD B2C SAML policy metadata file for the `<SingleSignOnService>` XML element
 * **Certificate**: This is *B2C_1A_SamlIdpCert*, but without the private key. To get the public key of the certificate:
 
     1. Go to the metadata URL specified above.
@@ -349,7 +351,7 @@ To complete this tutorial using our [SAML Test Application][samltest]:
 
 * Update the tenant name
 * Update policy name, for example *B2C_1A_signup_signin_saml*
-* Specify this issuer URI: `https://contoso.onmicrosoft.com/app-name`
+* Specify this issuer URI: Use one of the URI found in `identifierUris` element in the application registration manifest, for example `https://contoso.onmicrosoft.com/app-name`
 
 Select **Login** and you should be presented with a user sign-in screen. Upon sign-in, a SAML assertion is issued back to the sample application.
 
