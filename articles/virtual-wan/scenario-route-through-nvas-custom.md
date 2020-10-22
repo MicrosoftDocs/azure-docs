@@ -17,40 +17,36 @@ When you're working with Azure Virtual WAN virtual hub routing, you have a numbe
 
 ## Design
 
-Let's use the following naming conventions:
-
-* **Service VNet** for virtual networks where users have deployed an NVA to inspect non-internet traffic. (For example, VNet 4 in the diagram later in this article.)
+* **Spokes** for virtual networks connected to the virtual hub. (For example, VNet 1, VNet 2, and VNet 3 in the diagram later in this article.)
+* **Service VNet** for virtual networks where users have deployed an NVA to inspect non-internet traffic, and possibly with common services accessed by spokes. (For example, VNet 4 in the diagram later in this article.) 
 * **Perimeter VNet** for virtual networks where users have deployed an NVA to be used to inspect internet-bound traffic. (For example, VNet 5 in the diagram later in this article.)
-* **NVA spokes** for virtual networks connected to an NVA VNet. (For example, VNet 1, VNet 2, and VNet 3 in the diagram later in this article.)
-* **Hubs** for Virtual WAN hubs that Microsoft manages.
+* **Hubs** for Virtual WAN hubs managed by Microsoft.
 
 The following table summarizes the connections supported in this scenario:
 
-| From          | To|NVA spokes|Service VNet|Perimeter VNet|Branches static|
-|---|---|---|---|---|---|
-| **NVA spokes**| -> |      X |            X |   peering |    static    |
-| **Service VNet**| -> |    X |            X |      X    |      X       |
-| **Perimeter VNet** | -> |       X |            X |      X    |      X       |
-| **Branches** | -> |  static |            X |      X    |      X       |
+| From          | To|Spokes|Service VNet|Branches|Internet|
+|---|---|:---:|:---:|:---:|:---:|:---:|
+| **Spokes**| ->| directly |directly | through Service VNet |through Perimeter VNet |
+| **Service VNet**| ->| directly |n/a| directly | |
+| **Branches** | ->| through Service VNet |directly| directly |  |
 
-This table describes whether a Virtual WAN connection (the entries in the **From** column) learns a destination prefix (the entries in the remaining columns) for a specific traffic flow. An "X" means that connectivity is provided natively by Virtual WAN, and "static" means that connectivity is provided by Virtual WAN by using static routes.
+Each of the cells in the connectivity matrix describes whether connectivity flows directly over Virtual WAN or over one of the virtual networks with an NVA. 
 
 Note the following details:
+* Spokes:
+  * Spokes will reach other spokes directly over Virtual WAN hubs.
+  * Spokes will get connectivity to branches via a static route pointing to the Service VNet. They don't learn specific prefixes from the branches, because those are more specific and override the summary.
+  * Spokes will send internet traffic to the Perimeter VNet through a direct VNet peering.
+* Branches will get to spokes via a static routing pointing to the Service VNet. They don't learn specific prefixes from the virtual networks that override the summarized static route.
+* The Service VNet will be similar to a Shared Services VNet that needs to be reachable from every virtual network and every branch.
+* The Perimeter VNet doesn't need to have connectivity over Virtual WAN, because the only traffic it will support comes over direct virtual network peerings. To simplify configuration, however, use the same connectivity model as for the Perimeter VNet.
 
-* NVA spokes:
-  * Spokes reach other spokes directly over Virtual WAN hubs.
-  * Spokes get connectivity to branches via a static route that points to the Service VNet. They don't learn specific prefixes from the branches, because those are more specific and override the summary.
-  * Spokes send internet traffic to the Perimeter VNet through a direct VNet peering.
-* Branches get to spokes via a static routing pointing to the Service VNet. They don't learn specific prefixes from the virtual networks that override the summarized static route.
-* The Service VNet is similar to a Shared Services VNet that needs to be reachable from every VNet and every branch.
-* The Perimeter VNet doesn't need to have connectivity over Virtual WAN, because the only traffic it supports comes over direct virtual network peerings. To simplify configuration, however, in this article you use the same connectivity model as for the Perimeter VNet.
+There are three distinct connectivity patterns, which translates to three route tables. The associations to the different virtual networks are:
 
-From the table, you can see three distinct connectivity patterns, which translates to three route tables. The associations to the different virtual networks are as follows:
-
-* NVA spokes:
+* Spokes:
   * Associated route table: **RT_V2B**
   * Propagating to route tables: **RT_V2B** and **RT_SHARED**
-* NVA VNets (internal and internet):
+* NVA VNets (Service VNet and DMZ VNet):
   * Associated route table: **RT_SHARED**
   * Propagating to route tables: **RT_SHARED**
 * Branches:
