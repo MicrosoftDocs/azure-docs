@@ -49,7 +49,7 @@ To work through the scenario, you will interact with components of the pre-writt
 
 Here are the components implemented by the building scenario *AdtSampleApp* sample app:
 * Device authentication 
-* [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) usage examples (found in *CommandLoop.cs*)
+* [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * *SampleClientApp* - A sample Azure Digital Twins solution
 * *SampleFunctionsApp* - An Azure Functions app that updates your Azure Digital Twins graph as a result of telemetry from IoT Hub and Azure Digital Twins events
@@ -456,12 +456,6 @@ Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-Next, delete the Azure AD app registration you created for your client app with this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
 
 Finally, delete the project sample folder you downloaded to your local machine.
