@@ -87,15 +87,13 @@ Applications that call Blob APIs will likely work.
 
 If [anonymous read access](storage-manage-access-to-resources.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
 
-### Diagnostic logs
+## Diagnostic logs
 
 The setting for retention days is not yet supported, but you can delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK.
 
-## Lifecycle management policies with premium-performance BlockBlobStorage storage accounts
+## Lifecycle management policies with premium tier for Azure Data Lake Storage
 
-- Lifecycle management policies are supported only on general-purpose v2 accounts. They aren't yet supported in premium BlockBlobStorage storage accounts.
-- Data can't be moved from the premium tier to lower tiers or vice-versa with lifecycle management policies. However, you can use Azure Data Factory to move data between an account that uses the premium tier to or from an account in a lower tier.
-
+You can't move data that's stored in the premium tier between hot, cool, and archive tiers. However, you can copy blobs from a block blob storage account to the hot access tier in a different account. . However, you can use Azure Data Factory to move data between an account that uses the premium tier to or from an account in a lower tier.
 
 ## Dremio support with premium-performance BlockBlobStorage storage accounts
 
