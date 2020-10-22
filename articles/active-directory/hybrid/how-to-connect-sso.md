@@ -65,13 +65,13 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 |Mac OS X|N/A|N/A|Yes\*\*\*|Yes\*\*\*|Yes\*\*\*
 
 
-\*Requires Internet Explorer versions 10 or above
+\*Requires Internet Explorer version 10 or later.
 
-\*\*Requires Internet Explorer versions 10 or above. Disable Enhanced Protected Mode
+\*\*Requires Internet Explorer version 10 or later. Disable Enhanced Protected Mode.
 
-\*\*\*Requires [additional configuration](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*\*Requires [additional configuration](how-to-connect-sso-quick-start.md#browser-considerations).
 
-\*\*\*\* Edge version 77 or above.
+\*\*\*\*Requires Microsoft Edge version 77 or later.
 
 >[!NOTE]
 >For Windows 10, the recommendation is to use [Azure AD Join](../devices/concept-azure-ad-join.md) for the optimal single sign-on experience with Azure AD.
