@@ -14,7 +14,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 10/20/2020
 ms.topic: how-to
-ms.date: 08/26/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
