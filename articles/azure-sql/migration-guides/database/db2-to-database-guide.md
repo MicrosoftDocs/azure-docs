@@ -1,5 +1,5 @@
 ---
-title: "DB2 to SQL Database - Migration Guide"
+title: "Migration guide: DB2 to SQL Database"
 description: Follow this guide to migrate your DB2 databases to Azure SQL Database. 
 ms.service: sql-database
 ms.subservice: migration
@@ -14,7 +14,7 @@ ms.date: 08/25/2020
 # Migration guide: DB2 to SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-This guide helps you migrate your DB2 databases to Azure SQL Database. 
+This guide teaches you to migrate your DB2 databases to Azure SQL Database using SQL Server Migration Assistant for DB2. 
 
 For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
 
@@ -78,7 +78,7 @@ To convert the schema, follow these steps:
 
 1. (Optional) Add dynamic or ad-hoc queries to statements. Right-click the node, and then choose **Add statements**. 
 1. Select **Connect to Azure SQL Database**. 
-    1. Enter connection details to connect to the [logical server in Azure](/database/logical-servers.md) hosting your database. 
+    1. Enter connection details to connect your database in Azure SQL Database. 
     1. Choose your target SQL Database from the drop-down. 
     1. Select **Connect**. 
 
