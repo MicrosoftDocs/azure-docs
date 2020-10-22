@@ -14,7 +14,11 @@ When you have critical applications and business processes relying on Azure reso
 
 ## Monitor overview
 
-The **Overview** page in the Azure portal for each IoT hub includes charts that provide some usage metrics, such as the number of messages used and the number of devices connected to the IoT hub. This information is useful, but represents only a small amount of the monitoring data that is available for an IoT hub. Some monitoring data is collected automatically and is available for analysis as soon as you create your IoT hub. You can enable additional types of data collection with some configuration.
+The **Overview** page in the Azure portal for each IoT hub includes charts that provide some usage metrics, such as the number of messages used and the number of devices connected to the IoT hub.
+
+:::image type="content" source="media/monitor-iot-hub/overview-portal.png" alt-text="Default metric charts on IoT hub Overview page.":::
+
+This information is useful, but represents only a small amount of the monitoring data that is available for an IoT hub. Some monitoring data is collected automatically and is available for analysis as soon as you create your IoT hub. You can enable additional types of data collection with some configuration.
 
 ## What is Azure Monitor?
 
@@ -55,7 +59,7 @@ In Azure portal, you can create diagnostic settings scoped to the logs and platf
 
 The following screenshot shows a diagnostic setting for routing all platform metrics and Connection operations in resource logs to a Log Analytics workspace.
 
-![Screenshot showing the Diagnostic Settings page for IoT Hub](./media/monitor-iot-hub/diagnostic-settings-from-portal.png)
+:::image type="content" source="media/monitor-iot-hub/diagnostic-settings-from-portal.png" alt-text="Diagnostic Settings pane for an IoT hub.":::
 
 Metrics and logs routed to a Log Analytics workspace can be analyzed using Azure Monitor Logs. You can also send metrics and logs to Azure Storage for archiving or to an Event Hubs endpoint where they can be read by external applications, for example, third-party SIEM tools.
 
@@ -67,11 +71,11 @@ The metrics and logs you can collect are discussed in the following sections.
 
 You can analyze metrics for Azure IoT Hub with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool.
 
+In Azure portal, you can select **Metrics** under **Monitoring** on the left-pane of your IoT hub to open metrics explorer scoped, by default, to the platform metrics emitted by your IoT hub:
+
+:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="Metrics explorer page for an IoT hub.":::
+
 For a list of the platform metrics collected for Azure IoT Hub, see [Metrics in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#metrics). For a list of the platform metrics collected for all Azure services, see [Supported metrics with Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
-
-On your IoT hub in Azure portal, Azure Monitor provides a metrics explorer experience scoped, by default, to the platform metrics emitted by your IoT hub. You can access this experience by selecting **Metrics** under **Monitoring** on the left-pane of your IoT hub:
-
-![Screenshot showing the metrics explorer page for IoT Hub](./media/monitor-iot-hub/metric-explorer-from-portal.png)
 
 For IoT Hub platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#supported-aggregations).
 
@@ -95,7 +99,7 @@ To route data to Azure Monitor Logs, you must create a diagnostic setting to sen
 
 On your IoT hub in Azure portal, Azure Monitor provides an Azure Monitor Logs experience scoped, by default, to the logs and metrics collected (via diagnostic settings) for your IoT hub. You can access this experience by selecting **Logs** under **Monitoring** on the left-pane of your IoT hub:
 
-![Screenshot showing the Log Analytics page for IoT Hub](./media/monitor-iot-hub/logs-from-portal.png)
+:::image type="content" source="media/monitor-iot-hub/logs-portal.png" alt-text="Logs page for an IoT hub.":::
 
 For some common queries with IoT Hub, see [Sample Kusto queries](#sample-kusto-queries). For detailed information on using Log Analytics queries, see [Overview of log queries in Azure Monitor](/azure/azure-monitor/log-query/log-query-overview).
 
@@ -142,67 +146,66 @@ AzureDiagnostics
 
 Following are queries that you can use to help you monitor your IoT hub.
 
-<!-- Put in a code section here. -->  
-```kusto
-// Connectvity errors 
-// Identify device connection errors. 
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
-| where Category == "Connections" and Level == "Error"
-```
+- Connectivity Errors: Identify device connection errors.
 
-```kusto
-// Devices with most throttling errors 
-// Identify devices that made the most requests resulting in throttling errors.
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
-| where ResultType == "429001"
-| extend DeviceId = tostring(parse_json(properties_s).deviceId)
-| summarize count() by DeviceId, Category, _ResourceId
-| order by count_ desc
-```
+    ```kusto
+    AzureDiagnostics
+    | where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+    | where Category == "Connections" and Level == "Error"
+    ```
 
-```kusto
-// Dead endpoints 
-// Identify dead or unhealthy endpoints by the number times the issue was reported, as well as the reason why.
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
-| where Category == "Routes" and OperationName in ("endpointDead", "endpointUnhealthy")
-| extend parsed_json = parse_json(properties_s)
-| extend Endpoint = tostring(parsed_json.endpointName), Reason = tostring(parsed_json.details) 
-| summarize count() by Endpoint, OperationName, Reason, _ResourceId
-| order by count_ desc
-```
+- Throttling Errors: Identify devices that made the most requests resulting in throttling errors.
 
-```kusto
-// Error summary 
-// Count of errors across all operations by type.
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
-| where Level == "Error"
-| summarize count() by ResultType, ResultDescription, Category, _ResourceId
-```
+    ```kusto
+    AzureDiagnostics
+    | where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+    | where ResultType == "429001"
+    | extend DeviceId = tostring(parse_json(properties_s).deviceId)
+    | summarize count() by DeviceId, Category, _ResourceId
+    | order by count_ desc
+    ```
 
-```kusto
-// Recently connected devices
-// List of devices that IoT Hub saw connect in the specified time period.
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
-| where Category == "Connections" and OperationName == "deviceConnect"
-| extend DeviceId = tostring(parse_json(properties_s).deviceId)
-| summarize max(TimeGenerated) by DeviceId, _ResourceId
-```
+- Dead Endpoints: Identify dead or unhealthy endpoints by the number times the issue was reported, as well as the reason why.
 
-```kusto
-// SDK version of devices 
-// List of devices and their SDK versions for device connections or device to cloud twin operations
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
-| where Category == "Connections" or Category == "D2CTwinOperations"
-| extend parsed_json = parse_json(properties_s) 
-| extend SDKVersion = tostring(parsed_json.sdkVersion) , DeviceId = tostring(parsed_json.deviceId)
-| distinct DeviceId, SDKVersion, TimeGenerated, _ResourceId
-```
+    ```kusto
+    AzureDiagnostics
+    | where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+    | where Category == "Routes" and OperationName in ("endpointDead", "endpointUnhealthy")
+    | extend parsed_json = parse_json(properties_s)
+    | extend Endpoint = tostring(parsed_json.endpointName), Reason = tostring(parsed_json.details) 
+    | summarize count() by Endpoint, OperationName, Reason, _ResourceId
+    | order by count_ desc
+    ```
+
+- Error summary: Count of errors across all operations by type.
+
+    ```kusto
+    AzureDiagnostics
+    | where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+    | where Level == "Error"
+    | summarize count() by ResultType, ResultDescription, Category, _ResourceId
+    ```
+
+- Recently connected devices: List of devices that IoT Hub saw connect in the specified time period.
+
+    ```kusto
+    AzureDiagnostics
+    | where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+    | where Category == "Connections" and OperationName == "deviceConnect"
+    | extend DeviceId = tostring(parse_json(properties_s).deviceId)
+    | summarize max(TimeGenerated) by DeviceId, _ResourceId
+    ```
+
+- SDK version of devices: List of devices and their SDK versions for device connections or device to cloud twin operations.
+
+    ```kusto
+    AzureDiagnostics
+    | where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+    | where Category == "Connections" or Category == "D2CTwinOperations"
+    | extend parsed_json = parse_json(properties_s)
+    | extend SDKVersion = tostring(parsed_json.sdkVersion) , DeviceId = tostring(parsed_json.deviceId)
+    | distinct DeviceId, SDKVersion, TimeGenerated, _ResourceId
+    ```
 
 ### Read logs from Azure Event Hubs
 
