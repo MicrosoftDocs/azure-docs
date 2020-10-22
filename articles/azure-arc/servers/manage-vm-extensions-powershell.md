@@ -52,8 +52,6 @@ Get-AzConnectedMachineExtension -ResourceGroupName myResourceGroup -MachineName 
 Name    Location  PropertiesType        ProvisioningState
 ----    --------  --------------        -----------------
 custom  westus2   CustomScriptExtension Succeeded
-custom  westus2   CustomScriptExtension Succeeded
-dsc     westus2   DSC                   Succeeded
 ```
 
 ## Remove an installed extension
