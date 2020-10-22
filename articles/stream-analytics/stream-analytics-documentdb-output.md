@@ -132,11 +132,11 @@ If a transient failure, service unavailability, or throttling happens while Stre
 
 ## Common issues
 
-1. An unique index constraint is added to the collection and the output data from ASA violates this constraint. Please make sure that the output data from ASA does not violate unique constraints or remove such constraints. Additional details here https://docs.microsoft.com/azure/cosmos-db/unique-keys
+1. A unique index constraint is added to the collection and the output data from Stream Analytics violates this constraint. Ensure the output data from Stream Analytics doesn't violate unique constraints or remove constraints. For more information, see [Unique key constraints in Azure Cosmos DB](../cosmos-db/unique-keys.md).
 
-2. PartitionKey column does not exists.
+2. The `PartitionKey` column does not exists.
 
-3. Id column does not exist.
+3. The `Id` column does not exist.
 
 ## Next steps
 
