@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/01/2020
+ms.date: 10/22/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -53,7 +53,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    - **Initial domain name** - Enter a domain name for your Azure AD B2C tenant.
    - **Country or region** - Select your country or region from the list. This selection can't be changed later.
    - **Subscription** - Select your subscription from the list.
-   - **Resource group** - Select a resource group that will contain the tenant. Or select **Create new**, enter a **Name** for the resource group, select the **Resource group location**, and then select **OK**.
 
     ![Create tenant form in with example values in Azure portal](media/tutorial-create-tenant/review-and-create-tenant.png)
 
