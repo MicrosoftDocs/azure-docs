@@ -174,7 +174,7 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 The local network gateway specifies the address range and the Public IP address associated with your classic VNet and its virtual network gateway. If you are doing these steps as an exercise, refer to the Example values.
 
-[!INCLUDE [Add local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-empty.md)]
+[!INCLUDE [Add local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-ip-empty.md)]
 
 ## <a name="modifylng"></a>Section 3 - Modify the classic VNet local site settings
 
