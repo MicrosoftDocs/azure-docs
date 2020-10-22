@@ -46,7 +46,7 @@ It is worth mentioning that the collection endpoint pre-aggregates events before
 | Node.js                      | Not Supported<sup>1<sup> | Supported                                 | Not Supported                           |
 | Python                       | Not Supported            | Supported                                 | Supported via [OpenCensus.stats](opencensus-python.md#metrics) |  
 
-1. Node.js supports [Extended Metrics](nodejs.ms#extended-metrics), which has a few of the commonly requested metrics.
+1. Node.js supports [Extended Metrics](nodejs.md#extended-metrics), which has a few of the commonly requested metrics.
 
 ## Codeless supported pre-aggregated metrics able
 
