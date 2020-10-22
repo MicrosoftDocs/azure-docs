@@ -68,7 +68,7 @@
     - name: Create a route-based VPN gateway
       items:
       - name: Azure portal
-        href: create-routebased-vpn-gateway-portal.md
+        href: tutorial-create-gateway-portal.md
       - name: Azure PowerShell
         href: create-routebased-vpn-gateway-powershell.md
       - name: Azure CLI
