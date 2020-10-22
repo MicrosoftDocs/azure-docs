@@ -2,17 +2,20 @@
 title: How to create and manage DHCP
 description: This article explains how to manage DHCP in Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 10/22/2020
 ---
-# How to create and manage DHCP in Azure VMWare Solution
+# How to create and manage DHCP in Azure VMware Solution
 
-NSX-T provides the ability to configure DHCP for your private cloud. If you plan to use NSX-T to host your DHCP server, see [Create DHCP server](#create-dhcp-server). Otherwise, if you have a third-party external DHCP server in your network and you want to relay requests to that DHCP server, see [Create DHCP relay service](#create-dhcp-relay-service).
+NSX-T provides the ability to configure DHCP for your private cloud. If you use NSX-T to host your DHCP server, see [Create DHCP server](#create-dhcp-server). Otherwise, if you have a third-party external DHCP server in your network, see [Create DHCP relay service](#create-dhcp-relay-service).
 
 ## Create DHCP server
 
 Use the following steps to configure a DHCP server on NSX-T.
 
-From NSX manager, navigate to the **Networking** tab and select **DHCP** under **IP Management**. Select the **ADD SERVER** button. Then provide the server name and server IP address. Once done, select **Save**.
+1. From NSX manager, navigate to the **Networking** tab and select **DHCP** under **IP Management**. 
+1. Select the **ADD SERVER** button. 
+1. Then provide the server name and server IP address. 
+1. Select **Save**.
 
 :::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="add DHCP server" border="true":::
 
@@ -50,7 +53,10 @@ Once you've created your DHCP Server, you'll need to add network segments to it.
 
 ## Create DHCP relay service
 
-1. In the NXT-T window, select the **Networking** tab, and under **IP Management**, select **DHCP**. Select **ADD SERVER**. Choose DHCP Relay for the **Server Type** and enter the server name and IP address for the relay server. Select **Save** to save your changes.
+1. In the NXT-T window, select the **Networking** tab, and under **IP Management**, select **DHCP**. 
+1. Select **ADD SERVER**. 
+1. Select DHCP Relay for the **Server Type** and enter the server name and IP address for the relay server. 
+1. Select **Save**.
 
    :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="create dhcp relay server" border="true":::
 
@@ -62,7 +68,9 @@ Once you've created your DHCP Server, you'll need to add network segments to it.
 
    :::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="edit ip address allocation" border="true":::
 
-1. Into the dialog box, for **Type**, select **DHCP Relay Server**. In the **DHCP Relay** dropdown, select your DHCP relay server. When finished, select **Save**
+1. For **Type**, select **DHCP Relay Server**. 
+1. In the **DHCP Relay** dropdown, select your DHCP relay server. 
+1. Select **Save**
 
    :::image type="content" source="./media/manage-dhcp/set-ip-address-management-relay.png" alt-text="set ip address management" border="true":::
 
@@ -71,18 +79,21 @@ Once you've created your DHCP Server, you'll need to add network segments to it.
 > [!NOTE]
 > This configuration is required to realize DHCP relay functionality on the DHCP Client Segment. 
 
-1. Under **Connectivity**, select **Segments**. Select the vertical ellipses and select **Edit**. Instead, if you wanted to add a new segment, you can select **Add Segment** to create a new segment.
+1. Under **Connectivity**, select **Segments**. 
+1. Select the vertical ellipses and select **Edit**. If you wanted to add a new segment, you can select **Add Segment** to create a new segment.
 
    :::image type="content" source="./media/manage-dhcp/edit-segments.png" alt-text="edit a network subnet" border="true":::
 
-1. Add details about the segment. Select the value under **Subnets** or **Set Subnets** to add or modify the subnet.
+1. Add details about the segment. 
+1. Select the value under **Subnets** or **Set Subnets** to add or modify the subnet.
 
    :::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="network segments" border="true":::
 
-1. Select the vertical ellipses and choose **Edit**. If you need to create a new subnet, select **Add Subnet** to create a Gateway and configure a DHCP range. Provide the Range of the IP pool and select **Apply**, and then select **Save**
+1. Select the vertical ellipses and choose **Edit**. If you need to create a new subnet, select **Add Subnet** to create a Gateway and configure a DHCP range. 
+1. Provide the Range of the IP pool and select **Apply**, and then select **Save**
 
    :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="edit subnets" border="true":::
 
-1. Now a DHCP server pool is assigned to the segment.
+   A DHCP server pool is assigned to the segment.
 
    :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="DHCP server pool assigned to segment" border="true":::
