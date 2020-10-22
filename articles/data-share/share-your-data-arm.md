@@ -34,9 +34,9 @@ The following resources are defined in the template:
 * [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts):
 * [Microsoft.Storage/storageAccounts/blobServices/containers](/azure/templates/microsoft.storage/storageaccounts/blobservices/containers)
 * [Microsoft.DataShare/accounts](/azure/templates/microsoft.datashare/accounts)
-* [Microsoft.DataShare/accounts/shares](azure/templates/microsoft.datashare/accounts/shares)
+* [Microsoft.DataShare/accounts/shares](/azure/templates/microsoft.datashare/accounts/shares)
 * [Microsoft.Storage/storageAccounts/providers/roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [Microsoft.DataShare/accounts/shares/dataSets](azure/templates/microsoft.datashare/accounts/shares/datasets)
+* [Microsoft.DataShare/accounts/shares/dataSets](/azure/templates/microsoft.datashare/accounts/shares/datasets)
 * [Microsoft.DataShare/accounts/shares/invitations](/azure/templates/microsoft.datashare/accounts/shares/invitations)
 * [Microsoft.DataShare/accounts/shares/synchronizationSettings](/azure/templates/microsoft.datashare/accounts/shares/synchronizationsettings)
 
