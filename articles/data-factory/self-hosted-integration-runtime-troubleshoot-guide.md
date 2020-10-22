@@ -2,11 +2,11 @@
 title: Troubleshoot self-hosted integration runtime in Azure Data Factory
 description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory. 
 services: data-factory
-author: nabhishek
+author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/16/2020
-ms.author: abnarain
+ms.date: 10/22/2020
+ms.author: lle
 ---
 
 # Troubleshoot self-hosted integration runtime
