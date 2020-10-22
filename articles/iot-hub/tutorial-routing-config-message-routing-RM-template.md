@@ -360,7 +360,7 @@ Use the File Explorer that pops up to find the files on your local disk and sele
 
 After the files are uploaded, a results dialog shows something like the following image.
 
-![Cloud Shell menu bar with Upload/Download files highlighted](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
+![Cloud Shell menu bar with Upload/Download results highlighted](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
 
 The files are uploaded to the share used by your Cloud Shell instance. 
 

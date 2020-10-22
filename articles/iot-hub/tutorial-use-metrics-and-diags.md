@@ -130,12 +130,12 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 2. Look for the **Monitoring** section in the IoT Hub blade. Click **Diagnostic settings**. 
 
-   ![Screenshot showing the diagnostic settings part of the IoT Hub blade.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
+   ![Screenshot showing the diagnostic settings part of the IoT Hub blade-1.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
 
 
 3. Make sure the subscription and resource group are correct. Under **Resource Type**, uncheck **Select All**, then look for and check **IoT Hub**. (It puts the checkmark next to *Select All* again, just ignore it.) Under **Resource**, select the hub name. Your screen should look like this image: 
 
-   ![Screenshot showing the diagnostic settings part of the IoT Hub blade.](./media/tutorial-use-metrics-and-diags/02-diagnostic-settings-start.png)
+   ![Screenshot showing the diagnostic settings part of the IoT Hub blade-2.](./media/tutorial-use-metrics-and-diags/02-diagnostic-settings-start.png)
 
 4. Now click **Turn on diagnostics**. The Diagnostics settings pane is displayed. Specify the name of your diagnostic logs settings as "diags-hub".
 
@@ -174,7 +174,7 @@ Now set up some metrics to watch for when messages are sent to the hub.
 
    Now your screen shows the minimized metric for *Telemetry messages sent*, plus the new metric for *Total number of messages used*.
 
-   ![Screenshot showing adding a metric for telemetry messages sent.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
+   ![Screenshot showing adding a metric for telemetry messages used.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
 
    Click **Pin to dashboard**. It will pin it to the dashboard of your Azure portal so you can access it again. If you don't pin it to the dashboard, your settings are not retained.
 
@@ -361,7 +361,7 @@ Click **Download** to download it and open it. You see the logs of the device co
 
 To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the storage account, and the resource group itself. If you have pinned metrics to the dashboard, you will have to remove those manually by clicking on the three dots in the upper right-hand corner of each and selecting **Remove**.
 
-To remove the resource group, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
+To remove the resource group, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) command.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
