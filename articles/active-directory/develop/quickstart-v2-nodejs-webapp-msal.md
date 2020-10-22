@@ -35,19 +35,6 @@ This quickstart uses MSAL Node with the authorization code flow.
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart application
-> To start your quickstart application, use either of the following options.
->
-> ### Option 1 (Express): Register and auto configure your app and then download your code sample
->
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
-> 1. If your account gives you access to more than one tenant, select the account at the top right, and then set your portal session to the Azure Active Directory (Azure AD) tenant you want to use.
-> 1. Select [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/NodeWebAppQuickstartPage/sourceType/docs).
-> 1. Enter a name for your application.
-> 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-> 1. Select **Register**.
-> 1. Go to the quickstart pane and follow the instructions to download and automatically configure your new application.
->
-> ### Option 2 (Manual): Register and manually configure your application and code sample
 >
 > #### Step 1: Register your application
 >
@@ -57,20 +44,11 @@ This quickstart uses MSAL Node with the authorization code flow.
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter a name for your application.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-> 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
-> 1. In the left pane of the registered application, select **Authentication**.
-> 1. Under **Platform configurations**, select **Add a platform**. In the pane that opens select **Single-page application**.
-> 1. Set the **Redirect URI** value to `http://localhost:3000/`.
-> 1. Select **Configure**.
-
-> [!div class="sxs-lookup" renderon="portal"]
-> #### Step 1: Configure your application in the Azure portal
-> To make the code sample in this quickstart work, you need to add a `redirectUri` as `http://localhost:3000/`.
-> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [Make these changes for me]()
->
-> > [!div id="appconfigured" class="alert alert-info"]
-> > ![Already configured](media/quickstart-v2-javascript/green-check.png) Your application is configured with these attributes.
+> 1. Set the **Redirect URI** value to `http://localhost:3000/redirect`.
+> 1. Select **Register**. 
+> 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
+> 1. Under **Certificates & Secrets**, select **New Client Secret**.  Leave the description blank and default expiration, and then click **Add**.
+> 1. Note the **Value** of the **Client Secret** for later use.
 
 #### Step 2: Download the project
 
@@ -86,57 +64,47 @@ This quickstart uses MSAL Node with the authorization code flow.
 > [!div renderon="docs"]
 > #### Step 3: Configure your Node app
 >
-> In the *app* folder, open the *authConfig.js* file and update the `clientID`, `authority`, and `redirectUri` values in the `config` object.
+> Extract the project, and open the folder *ms-identity-node*, then open the *index.js* file.
+> Set the `clientID` with the **Application (client) ID**.
+> Set the `clientSecret` with the **Value** of the **Client Secret**.
 >
 >```javascript
 >const config = {
 >    auth: {
 >        clientId: "Enter_the_Application_Id_Here",
->        authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
->        clientSecret: ""
+>        authority: "https://login.microsoftonline.com/common",
+>        clientSecret: "Enter_the_Client_Secret_Here"
 >    },
->    system: {
->        loggerOptions: {
->            loggerCallback(loglevel, message, containsPii) {
->                console.log(message);
->            },
->            piiLoggingEnabled: false,
->            logLevel: msal.LogLevel.Verbose,
->        }
->    }
+>    system: {
+>        loggerOptions: {
+>            loggerCallback(loglevel, message, containsPii) {
+>                console.log(message);
+>            },
+>            piiLoggingEnabled: false,
+>            logLevel: msal.LogLevel.Verbose,
+>        }
+>    }
 >};
->
 > ```
-
-> [!div renderon="portal" class="sxs-lookup"]
-> > [!NOTE]
-> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 >
 > Modify the values in the `config` section as described here:
 >
 > - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
-> - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter `https://login.microsoftonline.com/`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
-> - `Enter_the_Tenant_info_here` is set to one of the following:
->   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
->   - If your application supports *accounts in any organizational directory*, replace this value with `organizations`.
->   - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`. **For this quickstart**, use `common`.
->   - To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
-> - `Enter_the_Redirect_Uri_Here` is `http://localhost:3000/`.
+> - `Enter_the_Client_Secret_Here` is the **Value** of the **Client Secret** for the application you registered.
 >
-> The `authority` value in your *authConfig.js* should be similar to the following if you're using the main (global) Azure cloud:
+> The default `authority` value represents main (global) Azure cloud:
 >
 > ```javascript
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
 > > [!TIP]
-> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
+> > To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal. Go under **Certificates & Secrets** to retrieve or generate a new **Client Secret**.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
-> We have configured your project with values of your app's properties.
 >
 > [!div renderon="docs"]
 >
@@ -159,7 +127,7 @@ Run the project by using Node.js:
 
 ### How the sample works
 
-The sample, when run, hosts a web server on localhost, port 3000. When a web browser accesses this site, the sample immediately redirects the user to a Microsoft authentication page. Because of this, the sample does not contain any *html* or display elements. Authentication success or failure is shown at the command line.
+The sample, when run, hosts a web server on localhost, port 3000. When a web browser accesses this site, the sample immediately redirects the user to a Microsoft authentication page. Because of this, the sample does not contain any *html* or display elements. Authentication success displays the message, "OK".
 
 ### MSAL Node
 
@@ -172,4 +140,4 @@ npm install @azure/msal-node
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Extend a web app to call MS Graph - GitHub code sample >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/on-behalf-of/web-app/readme.md)
+> [Adding Auth to an existing web app - GitHub code sample >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/auth-code/readme.md)
