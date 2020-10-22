@@ -292,7 +292,7 @@ namespace minimal
             //Create the twin
             await client.CreateDigitalTwinAsync(targetId, JsonSerializer.Serialize<BasicDigitalTwin>(roomTwin));
             
-            //Create relationships between them
+            //Create relationship between them
             await CreateRelationship(client, srcId, targetId, "contains");
             Console.WriteLine();
 
