@@ -52,9 +52,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    - **Organization name** - Enter a name for your Azure AD B2C tenant.
    - **Initial domain name** - Enter a domain name for your Azure AD B2C tenant.
    - **Country or region** - Select your country or region from the list. This selection can't be changed later.
-   - **Subscription** - Select your subscription from the list.
-
-    ![Create tenant form in with example values in Azure portal](media/tutorial-create-tenant/review-and-create-tenant.png)
 
 1. Select **Review + create**.
 1. Review your directory settings. Then select **Create**.
