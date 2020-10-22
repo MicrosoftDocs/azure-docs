@@ -124,7 +124,7 @@ You can use `iotedge` command line tool to check the status and logs of the runn
 
 ## Collect log files with the diagnostics container
 
-Spatial analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets. The spatial analysis diagnostics module is available in the Microsoft Container Registry for you to download. In the sample deployment manifest, ([ASE](https://go.microsoft.com/fwlink/?linkid=2142179) or [non-ASE](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)), look for the *diagnostics* module.
+Spatial analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets. The spatial analysis diagnostics module is available in the Microsoft Container Registry for you to download. In the  [ASE](https://go.microsoft.com/fwlink/?linkid=2142179) or [non-ASE](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) sample deployment manifest, look for the *diagnostics* module.
 
 In the "env" section add the following configuration:
 
