@@ -338,7 +338,7 @@ Microsoft handles the anti-malware logging for all Microsoft managed resources.
 
 **Guidance**: No roles are assigned by default. They need to be explicitly assigned based on business need. Any role assignments can be checked with PowerShell cli or Azure Active Directory (Azure AD) to discover accounts that are members of administrative groups.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
 
 - [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
 
@@ -1005,7 +1005,7 @@ Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create
 
 - [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops)
+- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
