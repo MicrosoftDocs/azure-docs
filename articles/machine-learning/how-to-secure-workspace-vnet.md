@@ -278,6 +278,13 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
     }
     ```
 
+    This template creates a _private endpoint_ for network access from the workspace to your ACR. The screenshot below shows an example of this private endpoint.
+
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="ACR private endpoint settings":::
+
+    > [!IMPORTANT]
+    > Do not delete this endpoint! If you accidentally delete it, you can re-apply the template in this step to create a new one.
+
 ## Next steps
 
 This article is part one of a four-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
