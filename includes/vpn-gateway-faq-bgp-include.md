@@ -35,11 +35,11 @@ The useable ranges of private ASNs are:
 
 * 64512-65514 and 65521-65534
 
-These ASNs aren't reserved by IANA or Azure for use, and therefore can be used to assign to your Azure VPN Gateway.
+These ASNs aren't reserved by IANA or Azure for use, and therefore can be used to assign to your Azure VPN gateway.
 
 ### What address does VPN Gateway use for BGP peer IP?
 
-By default, the Azure VPN gateway allocates a single IP address from the *GatewaySubnet* range for active-standby VPN gateways, or two IP addresses for active-active VPN gateways. These addresses are allocated automatically when you create the VPN gateway. You can get the actual BGP IP address allocated by using PowerShell or by locating it in the Azure portal. In PowerShell, use **Get-AzVirtualNetworkGateway**, and look for the **bgpPeeringAddress** property. In the Azure portal, on the **Gateway Configuration** page, look under the **Configure BGP ASN** property.
+By default, VPN Gateway allocates a single IP address from the *GatewaySubnet* range for active-standby VPN gateways, or two IP addresses for active-active VPN gateways. These addresses are allocated automatically when you create the VPN gateway. You can get the actual BGP IP address allocated by using PowerShell or by locating it in the Azure portal. In PowerShell, use **Get-AzVirtualNetworkGateway**, and look for the **bgpPeeringAddress** property. In the Azure portal, on the **Gateway Configuration** page, look under the **Configure BGP ASN** property.
 
 If your on-premises VPN routers use **APIPA** IP addresses (169.254.x.x) as the BGP IP addresses, you must specify an additional **Azure APIPA BGP IP address** on your Azure VPN gateway. Azure VPN Gateway selects the APIPA address to use with the on-premises APIPA BGP peer specified in the local network gateway, or the private IP address for a non-APIPA, on-premises BGP peer. For more information, see [Configure BGP](../articles/vpn-gateway/bgp-howto.md).
 
