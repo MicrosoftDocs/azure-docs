@@ -55,12 +55,12 @@ First, **set up an Azure Digital Twins instance** and the required authenticatio
 
 The ADT Explorer application uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (part of the `Azure.Identity` library) to authenticate users with the Azure Digital Twins instance. For more on different ways a client app can authenticate with Azure Digital Twins, see [*How-to: Write app authentication code*](how-to-authenticate-client.md).
 
-With this type of authentication, ADT Explorer will search for credentials within your local environment, such as an Azure login in a local [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or in Visual Studio/Visual Studio Code. This means that you should **log into Azure locally** through one of these mechanisms to set up credentials for the ADT Explorer app.
+With this type of authentication, ADT Explorer will search for credentials within your local environment, such as an Azure login in a local [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) or in Visual Studio/Visual Studio Code. This means that you should **log into Azure locally** through one of these mechanisms to set up credentials for the ADT Explorer app.
 
 If you're already logged into Azure through one of these ways, you can skip to the [next section](#run-and-configure-adt-explorer).
 
 Otherwise, you can install the local **Azure CLI** with these steps:
-1. Follow the process at [**this install link**](/cli/azure/install-azure-cli?view=azure-cli-latest) to complete the installation that matches your OS
+1. Follow the process at [**this install link**](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to complete the installation that matches your OS
 2. Open a console window on your machine
 3. Run `az login` and follow the authentication prompts to log into your Azure account.
 
