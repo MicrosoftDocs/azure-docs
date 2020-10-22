@@ -87,6 +87,7 @@ If your application uses the REST API, update its request endpoint to the v3 end
 See the reference documentation for examples of the JSON response.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 * [Version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
+* [Version 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
 
 ### Client libraries
 
@@ -119,7 +120,6 @@ See the reference documentation for examples of the JSON response.
 
 ## See also
 
-* [Text Analytics API v2 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/)
 * [What is the Text Analytics API](overview.md)
 * [Language support](language-support.md)
 * [Model versioning](concepts/model-versioning.md)
