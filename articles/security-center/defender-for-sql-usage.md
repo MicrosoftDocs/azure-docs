@@ -45,7 +45,7 @@ Both of these are described below.
 ### Step 1. Provision the Log Analytics agent on your SQL server's host:
 
 - **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [auto provision the Log Analytics agent](security-center-enable-data-collection.md#workspace-configuration). Alternatively, you can follow the manual procedure for [Onboard your Azure Stack VMs](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
-- **SQL Server on Azure Arc** - If your SQL Server is hosted on an [Azure Arc](../azure-arc/index.yml) machine, you can deploy the Log Analytics agent using the Security Center recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”. Alternatively, you can follow the manual procedure in the [Azure Arc documentation](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal).
+- **SQL Server on Azure Arc** - If your SQL Server is managed by [Azure Arc](../azure-arc/index.yml) enabled servers, you can deploy the Log Analytics agent using the Security Center recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”. Alternatively, you can follow the installation methods described in the [Azure Arc documentation](../azure-arc/servers/manage-vm-extensions.md).
 
 - **SQL Server on-prem** - If your SQL Server is hosted on an on-premises Windows machine without Azure Arc, you have two options for connecting it to Azure:
     
