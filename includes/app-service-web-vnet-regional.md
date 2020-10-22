@@ -2,7 +2,7 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 06/08/2020
+ms.date: 10/21/2020
 ms.author: ccompy
 ---
 Using regional VNet Integration enables your app to access:
@@ -36,10 +36,10 @@ By default, your app routes only RFC1918 traffic into your VNet. If you want to 
 There are some limitations with using VNet Integration with VNets in the same region:
 
 * You can't reach resources across global peering connections.
-* The feature is available only from newer Azure App Service scale units that support PremiumV2 App Service plans. Note that *this does not mean your app must run on a PremiumV2 pricing tier*, only that it must run on an App Service Plan where the PremiumV2 option is available (which implies that it is a newer scale unit where this VNet integration feature is then also available).
+* The feature is available from all App Service scale units in Premium V2 and Premium V3. It is also available in Standard but only from newer App Service scale units. If you are on an older scale unit you can only use the feature from a Premium V2 App Service plan. If you want to be certain of being able to use the feature in a Standard App Service plan, use a new Resource Group when creating the app in a new App Service plan. 
 * The integration subnet can be used by only one App Service plan.
 * The feature can't be used by Isolated plan apps that are in an App Service Environment.
-* The feature requires an unused subnet that's a /27 with 32 addresses or larger in an Azure Resource Manager VNet.
+* The feature requires an unused subnet that's a /27 or larger in an Azure Resource Manager VNet.
 * The app and the VNet must be in the same region.
 * You can't delete a VNet with an integrated app. Remove the integration before you delete the VNet.
 * You can only integrate with VNets in the same subscription as the app.
@@ -47,7 +47,19 @@ There are some limitations with using VNet Integration with VNets in the same re
 * You can't change the subscription of an app or a plan while there's an app that's using regional VNet Integration.
 * Your app cannot resolve addresses in Azure DNS Private Zones without configuration changes
 
-One address is used for each plan instance. If you scale your app to five instances, then five addresses are used. Since subnet size can't be changed after assignment, you must use a subnet that's large enough to accommodate whatever scale your app might reach. A /26 with 64 addresses is the recommended size. A /26 with 64 addresses accommodates a Premium plan with 30 instances. When you scale a plan up or down, you need twice as many addresses for a short period of time.
+VNet Integration depends on use of a dedicated subnet.  When you provision a subnet, the Azure subnet loses 5 IPs for from the start. One address is used from the integration subnet for each plan instance. If you scale your app to four instances, then four addresses are used. The debit of 5 addresses from the subnet size means that the maximum available addresses per CIDR block are:
+
+- /28 has 11 addresses
+- /27 has 27 address
+- /26 has 59 addresses
+
+If you scale up or down in size, you need double your address need for a short period of time. The real available supported addresses per subnet size is:
+
+- /28 is 5 addresses
+- /27 is 13 addresses
+- /26 is 29 addresses
+
+Since subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity, a /26 with 64 addresses is the recommended size.  
 
 If you want your apps in another plan to reach a VNet that's already connected to by apps in another plan, select a different subnet than the one being used by the preexisting VNet Integration.
 
