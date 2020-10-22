@@ -44,7 +44,10 @@ The schema you use for tenant deployments is different than the schema for resou
 For templates, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    ...
+}
 ```
 
 The schema for a parameter file is the same for all deployment scopes. For parameter files, use:

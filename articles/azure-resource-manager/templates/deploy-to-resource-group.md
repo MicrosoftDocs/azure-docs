@@ -18,15 +18,13 @@ Most resources can be deployed to a resource group. For a list of available reso
 For templates, use the following schema:
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"
+"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"
 ```
 
 For parameter files, use:
 
 ```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#"
+"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#"
 ```
 
 ## Deployment commands
