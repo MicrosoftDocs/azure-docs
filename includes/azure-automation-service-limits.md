@@ -5,7 +5,7 @@ services: automation
 author: mgoedtel
 ms.service: automation
 ms.topic: "include"
-ms.date: 10/14/2020
+ms.date: 10/21/2020
 ms.author: magoedte
 ms.custom: "include file"
 ---
@@ -55,4 +55,4 @@ The following table shows the limits for Update Management.
 
 | **Resource** | **Limit**| **Notes** |
 |---|---|---|
-|Number of machines per update deployment|500||
+|Number of machines per update deployment|1000||

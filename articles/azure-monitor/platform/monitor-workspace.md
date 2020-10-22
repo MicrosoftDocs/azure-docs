@@ -51,19 +51,19 @@ Ingestion operations are issues that occurred during data ingestion including no
 |:---|:---|:---|:---|
 | Custom log | Error   | Custom fields column limit reached. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
 | Custom log | Error   | Custom logs ingestion failed. | |
-| Custom log | Error   | Metadata. | |
-| Data | Error   | Data was dropped because the request was created earlier than the number of set days. | [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md#alert-when-daily-cap-reached)
+| Metadata. | Error | Configuration error detected. | |
+| Data collection | Error   | Data was dropped because the request was created earlier than the number of set days. | [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md#alert-when-daily-cap-reached)
 | Data collection | Info    | Collection machine configuration is detected.| |
 | Data collection | Info    | Data collection started due to new day. | [Manage usage and costs with Azure Monitor Logs](/manage-cost-storage.md#alert-when-daily-cap-reached) |
 | Data collection | Warning | Data collection stopped due to daily limit reached.| [Manage usage and costs with Azure Monitor Logs](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Data processing | Error   | Invalid JSON format. | [Send log data to Azure Monitor with the HTTP Data Collector API (public preview)](data-collector-api.md#request-body) | 
+| Data processing | Warning | Value has been trimmed to the max allowed size. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
+| Data processing | Warning | Field value trimmed as size limit reached. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) | 
 | Ingestion rate | Info | Ingestion rate limit approaching 70%. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
 | Ingestion rate | Warning | Ingestion rate limit approaching the limit. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
 | Ingestion rate | Error   | Rate limit reached. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
-| JSON parsing | Error   | Invalid JSON format. | [Send log data to Azure Monitor with the HTTP Data Collector API (public preview)](data-collector-api.md#request-body) | 
-| JSON parsing | Warning | Value have been trimmed to the max allowed size. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
-| Max column size limit | Warning | Field value trimmed as size limit reached. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) | 
 | Storage | Error   | Cannot access the storage account as credentials used are invalid.  |
-| Table   | Error   | Max custom field limit reached. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces)|
+
 
 
    
@@ -87,21 +87,32 @@ To create an alert rule for a specific operation, use a query that includes the 
 
 The following example creates a warning alert when the ingestion volume rate has reached 80% of the limit.
 
-```kusto
-_LogsOperation
-| where Category == "Ingestion"
-| where Operation == "Ingestion rate"
-| where Level == "Warning"
-```
+- Target: Select your Log Analytics workspace
+- Criteria:
+  - Signal name: Custom log search
+  - Search query: `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
+  - Based on: Number of results
+  - Condition: Greater than
+  - Threshold: 0
+  - Period: 5 (minutes)
+  - Frequency: 5 (minutes)
+- Alert rule name: Daily data limit reached
+- Severity: Warning (Sev 1)
+
 
 The following example creates a warning alert when the data collection has reached the daily limit. 
-```kusto
-Operation 
-| where OperationCategory == "Ingestion" 
-|where OperationKey == "Data Collection" 
-| where OperationStatus == "Warning"
-```
 
+- Target: Select your Log Analytics workspace
+- Criteria:
+  - Signal name: Custom log search
+  - Search query: `_LogOperation | where Category == "Ingestion" | where Operation == "Data Collection" | where Level == "Warning"`
+  - Based on: Number of results
+  - Condition: Greater than
+  - Threshold: 0
+  - Period: 5 (minutes)
+  - Frequency: 5 (minutes)
+- Alert rule name: Daily data limit reached
+- Severity: Warning (Sev 1)
 
 
 

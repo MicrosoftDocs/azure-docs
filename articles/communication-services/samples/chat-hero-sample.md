@@ -22,12 +22,14 @@ ms.service: azure-communication-services
 > links to our Hero Sample repo need to be updated when the sample is publicly available.
 ---->
 
+> [!IMPORTANT]
+> [This sample is available on GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+
+
 The Azure Communication Services **Group Chat Hero Sample** demonstrates how the Communication Services Chat Web client library can be used to build a group calling experience.
 
 In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
 
-> [!IMPORTANT]
-> [Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 ## Overview
 

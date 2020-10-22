@@ -69,12 +69,12 @@ To enable an Azure AD object creation in SQL Database and Azure Synapse on behal
     > [!NOTE]
     > Server identity can be assigned using CLI commands as well. For more information, see [az sql server create](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create&preserve-view=true) and [az sql server update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update&preserve-view=true).
 
-2. Grant the Azure AD [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) permission to the server identity created or assigned to the server.
+2. Grant the Azure AD [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission to the server identity created or assigned to the server.
     - To grant this permission, follow the description used for SQL Managed Instance that is available in the following article: [Provision Azure AD admin (SQL Managed Instance)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance)
     - The Azure AD user who is granting this permission must be part of the Azure AD **Global Administrator** or **Privileged Roles Administrator** role.
 
 > [!IMPORTANT]
-> Steps 1 and 2 must be executed in the above order. First, create or assign the server identity, followed by granting the [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) permission. Omitting one of these steps, or both will cause an execution error during an Azure AD object creation in Azure SQL on behalf of an Azure AD application.
+> Steps 1 and 2 must be executed in the above order. First, create or assign the server identity, followed by granting the [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission. Omitting one of these steps, or both will cause an execution error during an Azure AD object creation in Azure SQL on behalf of an Azure AD application.
 >
 > If you are using the service principal to set or unset the Azure AD admin, the application must also have the [Directory.Read.All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) Application API permission in Azure AD. For more information on [permissions required to set an Azure AD admin](authentication-aad-service-principal-tutorial.md#permissions-required-to-set-or-unset-the-azure-ad-admin), and step by step instructions to create an Azure AD user on behalf of an Azure AD application, see [Tutorial: Create Azure AD users using Azure AD applications](authentication-aad-service-principal-tutorial.md).
 >

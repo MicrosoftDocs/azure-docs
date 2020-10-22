@@ -20,25 +20,24 @@ When working with Virtual WAN virtual hub routing, there are quite a few availab
 
 In this scenario we will use the naming convention:
 
-* "Service VNet" for virtual networks where users have deployed an NVA (VNet 4 in **Figure 1**) to inspect non-Internet traffic.
+* "Spokes" for virtual networks connected to the virtual hub (VNet 1, VNet 2, and VNet 3 in **Figure 1**).
+* "Service VNet" for virtual networks where users have deployed an NVA (VNet 4 in **Figure 1**) to inspect non-Internet traffic, and possibly with common services accessed by spokes.
 * "DMZ VNet" for virtual networks where users have deployed an NVA to be used to inspect Internet-bound traffic (VNet 5 in **Figure 1**).
-* "NVA Spokes" for virtual networks connected to an NVA VNet (VNet 1, VNet 2, and VNet 3 in **Figure 1**).
 * "Hubs" for Microsoft-managed Virtual WAN Hubs.
 
 The following connectivity matrix summarizes the flows supported in this scenario:
 
 **Connectivity matrix**
 
-| From          | To:|*NVA Spokes*|*Service VNet*|*DMZ VNet*|*Branches Static*|
-|---|---|---|---|---|---|
-| **NVA Spokes**| &#8594;|      X |            X |   Peering |    Static    |
-| **Service VNet**| &#8594;|    X |            X |      X    |      X       |
-| **DMZ VNet** | &#8594;|       X |            X |      X    |      X       |
-| **Branches** | &#8594;|  Static |            X |      X    |      X       |
+| From          | To:|*Spokes*|*Service VNet*|*Branches*|*Internet*|
+|---|---|:---:|:---:|:---:|:---:|:---:|
+| **Spokes**| &#8594;| Directly |Directly | Through Service VNet |Through DMZ VNet |
+| **Service VNet**| &#8594;| Directly |n/a| Directly | |
+| **Branches** | &#8594;| Through Service VNet |Directly| Directly |  |
 
-Each of the cells in the connectivity matrix describes whether a Virtual WAN connection (the "From" side of the flow, the row headers) learns a destination prefix (the "To" side of the flow, the column headers in italics) for a specific traffic flow. An "X" means that connectivity is provided natively by Virtual WAN, and "Static" means that connectivity is provided by Virtual WAN using static routes. Let's go in detail over the different rows:
+Each of the cells in the connectivity matrix describes whether connectivity flows directly over Virtual WAN or over one of the VNets with an NVA. Let's go in detail over the different rows:
 
-* NVA Spokes:
+* Spokes:
   * Spokes will reach other spokes directly over Virtual WAN hubs.
   * Spokes will get connectivity to branches via a static route pointing to the Service VNet. They should not learn specific prefixes from the branches (otherwise those would be more specific and override the summary).
   * Spokes will send Internet traffic to the DMZ VNet through a direct VNet peering.
@@ -47,12 +46,12 @@ Each of the cells in the connectivity matrix describes whether a Virtual WAN con
 * The Service VNet will be similar to a Shared Services VNet that needs to be reachable from every VNet and every branch.
 * The DMZ VNet does not really need to have connectivity over Virtual WAN, since the only traffic it will support will come over direct VNet peerings. However, we will use the same connectivity model as for the DMZ VNet to simplify configuration.
 
-So, our connectivity matrix gives us three distinct connectivity patterns, which translates to three route tables. The associations to the different VNets will be as follows:
+Our connectivity matrix gives us three distinct connectivity patterns, which translates to three route tables. The associations to the different VNets will be as follows:
 
-* NVA Spokes:
+* Spokes:
   * Associated route table: **RT_V2B**
   * Propagating to route tables: **RT_V2B** and **RT_SHARED**
-* NVA VNets (internal and Internet):
+* NVA VNets (Service VNet and DMZ VNet):
   * Associated route table: **RT_SHARED**
   * Propagating to route tables: **RT_SHARED**
 * Branches:
