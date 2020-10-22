@@ -74,7 +74,7 @@
     - name: Verify a VPN gateway connection
       href: vpn-gateway-verify-connection-resource-manager.md
     - name: Reset a VPN gateway
-      href: vpn-gateway-resetgw-classic.md
+      href: reset-gateway.md
     - name: Delete a VPN gateway
       items:
       - name: Azure portal
