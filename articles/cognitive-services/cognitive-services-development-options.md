@@ -13,7 +13,16 @@ ms.date: 10/22/2020
 
 # Cognitive Services development options
 
-The Azure Cognitive Services is cloud-based AI services that allow developers to build intelligence into their applications and products without deep knowledge of Machine Learning. With the Cognitive Services, you have access to  out-of-the-box, ready to use AI capabilities or models that are built, trained, and updated by Microsoft. In many cases, you also have the option to customize the models for your business needs. The Cognitive Services is organized into four categories: Decision, Language, Speech, and Vision. A common path to access these services is through REST APIs, client libraries, and custom tools (like command-line interfaces) provided by Microsoft. However, this is only one path to success. As part of Azure, you have access to automation and integration tools  like Logic Apps and Power Automate, deployment options such as Azure Functions and the App Service, opportunities to containerize Cognitive Services for secure access in private clouds, and finally leveraging tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for Big Data scenarios. In this document, we provide a high-level overview of development and deployment options to help you get started with Cognitive Services.  
+In this document, we provide a high-level overview of development and deployment options to help you get started with Azure Cognitive Services.  
+
+Azure Cognitive Services are cloud-based AI services that allow developers to build intelligence into their applications and products without deep knowledge of machine learning. With Cognitive Services, you have access to AI capabilities or models that are built, trained, and updated by Microsoft - ready to be used in your applications. In many cases, you also have the option to customize the models for your business needs. 
+
+Cognitive Services are organized into four categories: Decision, Language, Speech, and Vision. Typically you would access these services through REST APIs, client libraries, and custom tools (like command-line interfaces) provided by Microsoft. However, this is only one path to success. Through Azure, you also have access to several development options, such as:
+
+* Automation and integration tools like Logic Apps and Power Automate.
+* Deployment options such as Azure Functions and the App Service. 
+* Cognitive Services Docker containers for secure access.
+* Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for Big Data scenarios. 
 
 Before we jump in, it's important to know that the Cognitive Services is primarily used for two distinct tasks: 
 
