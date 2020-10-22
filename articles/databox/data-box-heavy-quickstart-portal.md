@@ -96,7 +96,11 @@ az storage account create --resource-group databox-rg --name databoxtestsa
 Run the [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) command to create a Data Box job with the SKU DataBoxHeavy:
 
 ```azurecli
-az databox job create --resource-group databox-rg --name databoxheavy-job --location westus --sku DataBoxHeavy --contact-name "Jim Gan" --phone 4085555555 --city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" --postal-code 94089 --country US --state-or-province CA --storage-account databoxtestsa --staging-storage-account databoxtestsa --resource-group-for-managed-disk rg-for-md
+az databox job create --resource-group databox-rg --name databoxheavy-job \
+    --location westus --sku DataBoxHeavy --contact-name "Jim Gan" --phone 4085555555 \
+    --city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" \
+    --postal-code 94089 --country US --state-or-province CA --storage-account databoxtestsa \
+    --staging-storage-account databoxtestsa --resource-group-for-managed-disk rg-for-md
 ```
 
 > [!NOTE]

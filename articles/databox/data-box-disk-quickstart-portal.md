@@ -86,13 +86,13 @@ Use the [az extension add](/cli/azure/extension#az_extension_add) command to add
 az extension add --name databox
 ```
 
-Run the [az group create](/cli/azure/group #az_group_create) command to create a resource group or use an existing resource group:
+Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group or use an existing resource group:
 
 ```azurecli
 az group create --name databox-rg --location westus 
 ```
 
-Use the [az storage account create](/cli/azure/storage/account #az_storage_account_create) command to create a storage account or use an existing storage account:
+Use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command to create a storage account or use an existing storage account:
 
 ```azurecli
 az storage account create --resource-group databox-rg --name databoxtestsa
@@ -101,7 +101,11 @@ az storage account create --resource-group databox-rg --name databoxtestsa
 Run the [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) command to create a Data Box job with the SKU DataBoxDisk:
 
 ```azurecli
-az databox job create --resource-group databox-rg --name databoxdisk-job -location westus --sku DataBoxDisk --contact-name "Jim Gan" --phone=4085555555 –city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" --postal-code 94089 --country US --state-or-province CA --storage-account databoxtestsa --expected-data-size 1
+az databox job create --resource-group databox-rg --name databoxdisk-job \
+    -location westus --sku DataBoxDisk --contact-name "Jim Gan" --phone=4085555555 \
+    –city Sunnyvale --email-list JimGan@contoso.com --street-address1 "1020 Enterprise Way" \
+    --postal-code 94089 --country US --state-or-province CA \
+    --storage-account databoxtestsa --expected-data-size 1
 ```
 
 Run the [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update) to update a job, as in this example, where you change the contact name and email:
