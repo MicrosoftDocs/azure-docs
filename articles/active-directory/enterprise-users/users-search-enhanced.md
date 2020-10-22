@@ -56,7 +56,7 @@ The following are the displayed user properties on the **All users** page:
 
 - Name: The display name of the user.
 - User principal name: The user principal name (UPN) of the user.
-- User Type: The user type of the user, either Member or Guest.
+- User Type: Member, guest, none.
 - Directory synced: Indicates whether the user is synced from an on-premises directory.
 - Identity issuer: The issuers of the identity used to sign into a user account.
 - Object ID: The object ID of the user.
@@ -64,6 +64,7 @@ The following are the displayed user properties on the **All users** page:
 - Company name: The company name which the user is associated.
 - Invitation state: The status of the invitation for a guest user.
 - Mail: The email of the user.
+- Last sign-in: the date the user last signed in. This property is visible only to users with permission to read audit logs (Reporting_ApplicationAuditLogs_Read)
 
 ![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
 
@@ -72,7 +73,7 @@ The following are the displayed user properties on the **All users** page:
 The **Deleted users** page includes all the columns that are available on the **All users** page, and a few additional columns, namely:
 
 - Deletion date: The date the user was first deleted from the organization (the user is restorable).
-- Permanent deletion date: The date the user was permanently deleted from the organization.
+- Permanent deletion date: The date after which the process of permanently deleting the user from the organization automatically begins. Deletion dates are displayed in Coordinated Universal Time ‎(UTC)‎.
 
 Some columns are displayed by default. To add other columns, select **Columns** on the page, select the column names you’d like to add, and select **OK** to save your preferences.
 
@@ -130,6 +131,7 @@ You can view the total number of users in the **All users** and **Deleted users*
 
 Question | Answer
 -------- | ------
+Why is the deleted user still displayed when the permanent deletion date has passed? | The permanent deletion date is displayed in the UTC time zone, so this may not match your current time zone. Also, this date is the earliest date after which the user will be permanently deleted from the organization, so it may still be processing. Permanently deleted users will automatically be removed from the list.
 What happen to the bulk capabilities for users and guests? | The bulk operations are all still available for users and guests, including bulk create, bulk invite, bulk delete, and download users. We’ve just merged them into a menu called **Bulk operations**. You can find the **Bulk operations** options at the top of the **All users** page.
 What happened to the Source column? | The **Source** column has been replaced with other columns that provide similar information, while allowing you to filter on those values independently. Examples include **Creation type**, **Directory synced** and **Identity issuer**.
 What happened to the User Name column? | The **User Name** column is still there, but it’s been renamed to **User Principal Name**. This  better reflects the information contained in that column. You’ll also notice that the full User Principal Name is now displayed for B2B guests. This matches what you’d get in MS Graph.  
