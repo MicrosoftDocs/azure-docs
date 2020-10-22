@@ -130,7 +130,7 @@ After you create the private AKS cluster, [attach the cluster to the virtual net
 > [!IMPORTANT]
 > Before using a private link enabled AKS cluster with Azure Machine Learning, you must open a support incident to enable this functionality. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
-## Internal AKS load balancer
+### Internal AKS load balancer
 
 By default, AKS deployments use a [public load balancer](../aks/load-balancer-standard.md). In this section, you learn how to configure AKS to use an internal load balancer. An internal (or private) load balancer is used where only private IPs are allowed as frontend. Internal load balancers are used to load balance traffic inside a virtual network
 
