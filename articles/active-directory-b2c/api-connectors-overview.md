@@ -16,6 +16,10 @@ ms.custom: "it-pro"
 # Use API connectors to customize and extend sign-up user flows
 
 ## Overview 
+
+> [!IMPORTANT]
+> API connectors for sign-up is a public preview feature of Azure AD B2C. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 As a developer or IT administrator, you can use API connectors to integrate your sign-up user flows with web APIs to customize the sign-up experience. With API connectors, you can:
 
 - **Perform identity verification**. Use an identity verification service to add an extra level of security to account creation decisions.
