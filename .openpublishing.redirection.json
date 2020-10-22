@@ -15811,7 +15811,7 @@
       "source_path": "articles/guidance/guidance-hybrid-network-expressroute-vpn-failover.md",
       "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover",
       "redirect_document_id": false
-    },
+	 },
     {
       "source_path": "articles/guidance/guidance-hybrid-network-expressroute.md",
       "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/expressroute",
@@ -20956,6 +20956,11 @@
       "source_path": "articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic",
       "redirect_document_id": false
+	 },
+	 {
+      "source_path": "articles/vpn-gateway/vpn-gateway-resetgw-classic.md",
+      "redirect_url": "/azure/vpn-gateway/reset-gateway",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/vpn-gateway/vpn-gateway-security-controls.md",
@@ -20975,6 +20980,11 @@
     {
       "source_path": "articles/vpn-gateway/vpn-gateway-point-to-site-gateway-public-ca.md",
       "redirect_url": "/azure/vpn-gateway/point-to-site-about",
+      "redirect_document_id": false
+	 },
+	 {
+      "source_path": "articles/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md",
+      "redirect_url": "/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell",
       "redirect_document_id": false
     },
     {
@@ -33185,6 +33195,11 @@
     {
       "source_path": "articles/vpn-gateway/vpn-gateway-security-attributes.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-security-controls",
+      "redirect_document_id": false
+	 },
+	 {
+      "source_path": "articles/vpn-gateway/create-routebased-vpn-gateway-portal.md",
+      "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
       "redirect_document_id": false
     },
     {
@@ -58434,9 +58449,14 @@
       "redirect_document_id": false
     },
     {
-    "source_path": "articles/cosmos-db/optimize-cost-queries.md",
-    "redirect_url": "/azure/cosmos-db/optimize-cost-reads-writes",
-    "redirect_document_id": false
+      "source_path": "articles/storsimple/storsimple-5000-7000-afs-migration.md",
+      "redirect_url": "/azure/storage/files/storage-files-migration-storsimple-8000",
+      "redirect_document_id": false
+    },
+    {    
+      "source_path": "articles/cosmos-db/optimize-cost-queries.md",
+      "redirect_url": "/azure/cosmos-db/optimize-cost-reads-writes",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Concepts/design-language-culture.md",

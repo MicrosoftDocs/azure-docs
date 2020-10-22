@@ -47,4 +47,4 @@ To learn about optimizing your RU consumption, see these articles:
 
 * [Request units and throughput in Azure Cosmos DB](request-units.md)
 * [Optimize provisioned throughput cost in Azure Cosmos DB](optimize-cost-throughput.md)
-* [Optimize query cost in Azure Cosmos DB](optimize-cost-queries.md)
+* [Optimize query cost in Azure Cosmos DB](./optimize-cost-reads-writes.md)
