@@ -7,9 +7,9 @@ ms.date: 06/09/2020
 
 # Back up Azure VMware Solution VMs with Azure Backup Server
 
-In this article, we go through the procedures to back up VMware virtual machines (VMs) running on Azure VMware Solution by using Azure Backup Server. Before you begin, make sure you thoroughly go through [Set up Microsoft Azure Backup Server for Azure VMware Solution](set-up-backup-server-for-azure-vmware-solution.md).
+In this article, we'll back up VMware virtual machines (VMs) running on Azure VMware Solution with Azure Backup Server. First, thoroughly go through [Set up Microsoft Azure Backup Server for Azure VMware Solution](set-up-backup-server-for-azure-vmware-solution.md).
 
-Then, we walk through all of the necessary procedures to:
+Then, we'll walk through all of the necessary procedures to:
 
 > [!div class="checklist"] 
 > * Set up a secure channel so that Azure Backup Server can communicate with VMware servers over HTTPS. 
@@ -153,11 +153,15 @@ VMware 6.7 onwards had TLS enabled as the communication protocol.
 
    ![Add VMware server to Azure Backup Server](../backup/media/backup-azure-backup-server-vmware/tasks-screen.png)
 
-1. On the **Finish** page, review the settings and then select **Close**.
+1. On the **Finish** page, review the settings, and then select **Close**.
 
    ![Finish page](../backup/media/backup-azure-backup-server-vmware/summary-screen.png)
 
-   You should see the vCenter server listed under **Production Server** with the type as **VMware Server** and **Agent Status** as **OK**. If you see **Agent Status** as **Unknown**, select **Refresh**.
+   You see the vCenter server listed under **Production Server** with:
+   - Type as **VMware Server** 
+   - Agent Status as **OK** 
+   
+      If you see **Agent Status** as **Unknown**, select **Refresh**.
 
 ## Configure a protection group
 
@@ -197,10 +201,10 @@ Protection groups gather multiple VMs and apply the same data retention and back
 
    - The recommended disk allocations are based on the retention range you specified, the type of workload, and the size of the protected data. Make any changes required, and then select **Next**.
    - **Data size:** Size of the data in the protection group.
-   - **Disk space:** Recommended amount of disk space for the protection group. If you want to modify this setting, allocate total space that's slightly larger than the amount that you estimate each data source grows.
+   - **Disk space:** Recommended amount of disk space for the protection group. If you want to modify this setting, select space lightly larger than the amount you estimate each data source grows.
    - **Storage pool details:** Shows the status of the storage pool, which includes total and remaining disk size.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/review-disk-allocation.png" alt-text="Review disk space allocated in the storage pool":::
+   :::image type="content" source="media/azure-vmware-solution-backup/review-disk-allocation.png" alt-text="Review disk space given in the storage pool":::
 
    > [!NOTE]
    > In some scenarios, the data size reported is higher than the actual VM size. We're aware of the issue and currently investigating it.
@@ -224,14 +228,14 @@ Protection groups gather multiple VMs and apply the same data retention and back
 
    ![Specify online protection data](../backup/media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
-1. On the **Specify Online Backup Schedule** page, indicate how often you want to back up data from local storage to Azure, and then select **Next**. 
+1. On the **Specify Online Backup Schedule** page, indicate how often you want to back up data from local storage to Azure. 
 
    - Cloud recovery points for the data to get generated according to the schedule. 
    - After the recovery point gets generated, it's then transferred to the Recovery Services vault in Azure.
 
    ![Specify online backup schedule](../backup/media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
-1. On the **Specify Online Retention Policy** page, indicate how long you want to keep the recovery points that get created from the daily, weekly, monthly, or yearly backups to Azure, and then select **Next**.
+1. On the **Specify Online Retention Policy** page, indicate how long you want to keep the recovery points that get created from the backups to Azure.
 
    - There's no time limit for how long you can keep data in Azure.
    - The only limit is that you can't have more than 9,999 recovery points per protected instance. In this example, the protected instance is the VMware server.
@@ -265,7 +269,7 @@ In the Azure Backup Server Administrator Console, there are two ways to find rec
 
 1. In the Azure Backup Server Administrator Console, select the **Recovery** view. 
 
-1. Using the **Browse** pane, browse or filter to find the VM you want to recover. After you select a VM or folder, the **Recovery points for** pane displays the available recovery points.
+1. Using the **Browse** pane, browse or filter to find the VM you want to recover. After you select a VM or folder, the **Recovery points for pane display the available recovery points.
 
    ![Available recovery points](../backup/media/restore-azure-backup-server-vmware/recovery-points.png)
 
@@ -307,11 +311,11 @@ You can restore individual files from a protected VM recovery point. This featur
 
 1. In the Azure Backup Server Administrator Console, select the **Recovery** view.
 
-1. Using the **Browse** pane, browse or filter to find the VM you want to recover. After you select a VM or folder, the **Recovery points for** pane displays the available recovery points.
+1. Using the **Browse** pane, browse or filter to find the VM you want to recover. After you select a VM or folder, the **Recovery points for pane display the available recovery points.
 
    ![Recovery points available](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
-1. In the **Recovery points for** pane, use the calendar to select the date that contains the desired recovery points. Depending on how the backup policy was configured, dates can have more than one recovery point. 
+1. In the **Recovery points for** pane, use the calendar to select the date that contains the wanted recovery points. Depending on how the backup policy was configured, dates can have more than one recovery point. 
 
 1. After you select the day when the recovery point was taken, make sure you choose the correct **Recovery time**. 
 
