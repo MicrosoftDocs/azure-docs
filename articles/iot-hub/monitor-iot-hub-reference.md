@@ -22,6 +22,22 @@ You can also find a single table that lists all of the IoT Hub platform metrics 
 
 To learn about metrics supported by other Azure services, see [Supported metrics with Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
+**Topics in this section**
+
+- [Supported aggregations](#supported-aggregations)
+- [Cloud to device command metrics](#cloud-to-device-command-metrics)
+- [Cloud to device direct methods metrics](#cloud-to-device-direct-methods-metrics)
+- [Cloud to device twin operations metrics](#cloud-to-device-twin-operations-metrics)
+- [Configurations metrics](#configurations-metrics)
+- [Daily quota metrics](#daily-quota-metrics)
+- [Device metrics](#device-metrics)
+- [Device telemetry metrics](#device-telemetry-metrics)
+- [Device to cloud twin operations metrics](#device-to-cloud-twin-operations-metrics)
+- [Event grid metrics](#event-grid-metrics)
+- [Jobs metrics](#jobs-metrics)
+- [Routing metrics](#routing-metrics)
+- [Twin query metrics](#twin-query-metrics)
+
 ### Supported aggregations
 
 The **Aggregation Type** column in each table corresponds to the default aggregation that is used when the metric is selected for a chart or alert.
@@ -209,6 +225,26 @@ To learn more about metric dimensions, see [Multi-dimensional metrics](/azure/az
 
 This section lists all the resource log category types and schemas collected for Azure IoT Hub. The resource provider and type for all IoT Hub logs is [Microsoft.Devices/IotHubs](/azure/azure-monitor/platform/resource-logs-categories#microsoftdevicesiothubs).
 
+**Topics in this section**
+
+- [Connections](#connections)
+- [Device telemetry](#device-telemetry)
+- [Cloud-to-device commands](#cloud-to-device-commands)
+- [Device identity operations](#device-identity-operations)
+- [File upload operations](#file-upload-operations)
+- [Routes](#routes)
+- [Device-to-cloud twin operations](#device-to-cloud-twin-operations)
+- [Cloud-to-device twin operations](#cloud-to-device-twin-operations)
+- [Twin queries](#twin-queries)
+- [Jobs operations](#jobs-operations)
+- [Direct Methods](#direct-methods)
+- [Distributed Tracing (Preview)](#distributed-tracing-preview)
+  - [IoT Hub D2C (device-to-cloud) logs](#iot-hub-d2c-device-to-cloud-logs)
+  - [IoT Hub ingress logs](#iot-hub-ingress-logs)
+  - [IoT Hub egress logs](#iot-hub-egress-logs)
+- [Configurations](#configurations)
+- [Device Streams (Preview)](#device-streams-preview)
+
 ### Connections
 
 The connections category tracks device connect and disconnect events from an IoT hub as well as errors. This category is useful for identifying unauthorized connection attempts and or alerting when you lose connection to devices.
@@ -227,6 +263,29 @@ The connections category tracks device connect and disconnect events from an IoT
             "category": "Connections",
             "level": "Information",
             "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+### Device telemetry
+
+The device telemetry category tracks errors that occur at the IoT hub and are related to the telemetry pipeline. This category includes errors that occur when sending telemetry events (such as throttling) and receiving telemetry events (such as unauthorized reader). This category cannot catch errors caused by code running on the device itself.
+
+```json
+{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "ingress",
+            "category": "DeviceTelemetry",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"batching\":\"0\",\"messageSizeInBytes\":\"<messageSizeInBytes>\",\"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\",\"partitionId\":\"1\"}", 
             "location": "Resource location"
         }
     ]
@@ -285,6 +344,38 @@ The device identity operations category tracks errors that occur when you attemp
 }
 ```
 
+### File upload operations
+
+The file upload category tracks errors that occur at the IoT hub and are related to file upload functionality. This category includes:
+
+* Errors that occur with the SAS URI, such as when it expires before a device notifies the hub of a completed upload.
+
+* Failed uploads reported by the device.
+
+* Errors that occur when a file is not found in storage during IoT Hub notification message creation.
+
+This category cannot catch errors that directly occur while the device is uploading a file to storage.
+
+```json
+{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "ingress",
+            "category": "FileUploadOperations",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"blobUri\":\"http//bloburi.com\"}",
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
 ### Routes
 
 The [message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) category tracks errors that occur during message route evaluation and endpoint health as perceived by IoT Hub. This category includes events such as:
@@ -319,40 +410,9 @@ Here are more details on routing resource logs:
 * [List of routing resource log error codes](troubleshoot-message-routing.md#diagnostics-error-codes)
 * [List of routing resource logs operationNames](troubleshoot-message-routing.md#diagnostics-operation-names)
 
-### Device telemetry
+### Device-to-cloud twin operations
 
-The device telemetry category tracks errors that occur at the IoT hub and are related to the telemetry pipeline. This category includes errors that occur when sending telemetry events (such as throttling) and receiving telemetry events (such as unauthorized reader). This category cannot catch errors caused by code running on the device itself.
-
-```json
-{
-    "records":
-    [
-        {
-            "time": "UTC timestamp",
-            "resourceId": "Resource Id",
-            "operationName": "ingress",
-            "category": "DeviceTelemetry",
-            "level": "Error",
-            "resultType": "Event status",
-            "resultDescription": "MessageDescription",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"batching\":\"0\",\"messageSizeInBytes\":\"<messageSizeInBytes>\",\"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\",\"partitionId\":\"1\"}", 
-            "location": "Resource location"
-        }
-    ]
-}
-```
-
-### File upload operations
-
-The file upload category tracks errors that occur at the IoT hub and are related to file upload functionality. This category includes:
-
-* Errors that occur with the SAS URI, such as when it expires before a device notifies the hub of a completed upload.
-
-* Failed uploads reported by the device.
-
-* Errors that occur when a file is not found in storage during IoT Hub notification message creation.
-
-This category cannot catch errors that directly occur while the device is uploading a file to storage.
+The device-to-cloud twin operations category tracks device-initiated events on device twins. These operations can include get twin, update reported properties, and subscribe to desired properties.
 
 ```json
 {
@@ -361,13 +421,11 @@ This category cannot catch errors that directly occur while the device is upload
         {
             "time": "UTC timestamp",
             "resourceId": "Resource Id",
-            "operationName": "ingress",
-            "category": "FileUploadOperations",
-            "level": "Error",
-            "resultType": "Event status",
-            "resultDescription": "MessageDescription",
+            "operationName": "update",
+            "category": "D2CTwinOperations",
+            "level": "Information",
             "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"blobUri\":\"http//bloburi.com\"}",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}",
             "location": "Resource location"
         }
     ]
@@ -390,28 +448,6 @@ The cloud-to-device twin operations category tracks service-initiated events on 
             "level": "Information",
             "durationMs": "1",
             "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\"}",
-            "location": "Resource location"
-        }
-    ]
-}
-```
-
-### Device-to-cloud twin operations
-
-The device-to-cloud twin operations category tracks device-initiated events on device twins. These operations can include get twin, update reported properties, and subscribe to desired properties.
-
-```json
-{
-    "records":
-    [
-        {
-            "time": "UTC timestamp",
-            "resourceId": "Resource Id",
-            "operationName": "update",
-            "category": "D2CTwinOperations",
-            "level": "Information",
-            "durationMs": "1",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}",
             "location": "Resource location"
         }
     ]
@@ -643,22 +679,6 @@ The device streams category tracks request-response interactions sent to individ
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure IoT Hub and available for query by Log Analytics. For a  list of these tables and links to more information for the IoT Hub resource type, see [IoT Hub](/azure/azure-monitor/reference/tables/tables-resourcetype#iot-hub) in the Azure Monitor Logs table reference.
 
 For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
-
-## Activity log
-<!-- REQUIRED. Please keep heading in this order -->
-
-The following table lists the operations related to Azure IoT Hub that may be created in the Activity log.
-
-<!-- Fill in the table with the operations that can be created in the Activity log for the service. -->
-| Operation | Description |
-|:---|:---|
-| All administrative operations | |
-| Create or update IoTHub resources (Microsoft.Devices/IoTHubs) | |
-| Delete IoTHub resources (Microsoft.Devices/IoTHubs) | |
-| Get all IoTHub keys (Microsoft.Devices/IoTHubs) | |
-| Export devices (Microsoft.Devices/IoTHubs) | |
-| Import devices (Microsoft.Devices/IoTHubs) | |
-| Approve private endpoint connection (Microsoft.Devices/IoTHubs) | |
 
 ## See Also
 

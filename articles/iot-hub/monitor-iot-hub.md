@@ -51,7 +51,7 @@ When routing platform metrics to other locations, be aware that:
 
 - The following platform metrics are not exportable via diagnostic settings: *Connected devices (preview)* and *Total devices (preview)*.
 
-- Multi-dimensional metrics, for example some [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](/azure/azure-monitor/platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
+- Multi-dimensional metrics, for example some [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
 
 Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
 
@@ -93,7 +93,7 @@ When routing IoT Hub platform metrics to Azure Monitor Logs, be aware that:
 
 - The following platform metrics are not exportable via diagnostic settings: *Connected devices (preview)* and *Total devices (preview)*.
 
-- Multi-dimensional metrics, for example some [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](/azure/azure-monitor/platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
+- Multi-dimensional metrics, for example some [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
 
 To route data to Azure Monitor Logs, you must create a diagnostic setting to send resource logs or platform metrics to a Log Analytics workspace. To learn more, see [Collection and routing](#collection-and-routing).
 
