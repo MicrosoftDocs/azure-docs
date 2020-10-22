@@ -48,7 +48,7 @@ Click on the "Show code" button to see the sample code that you can use in your 
 
 You should see the following once your SDK is initialized:
 
-![UserProvisioning](./media/user-provisioning.png)
+:::image type="content" source="./media/user-provisioning.png" alt-text="User provisioning" lightbox="./media/user-provisioning.png":::
 
 You're now ready to begin placing calls using your Communication Services resource!
 
@@ -60,17 +60,17 @@ For 1:1 or 1:N outgoing calls, you can specify multiple Communication Services U
 
 When calling PSTN phone numbers, specify your alternate caller ID. Click on the "Place call" button to place an outgoing call:
 
-![PlaceACall](./media/place-a-call.png)
+:::image type="content" source="./media/place-a-call.png" alt-text="Place a call" lightbox="./media/place-a-call.png":::
 
 To join a group call, enter the GUID that identifies the call and click on the "Join group" button:
 
-![JoinAGroupCall](./media/join-a-group-call.png)
+:::image type="content" source="./media/join-a-group-call.png" alt-text="Join a group call" lightbox="./media/join-a-group-call.png":::
 
 Click on the "Show code" button to see the sample code for placing calls, receiving calls, and joining group calls.
 
 An active call looks like this:
 
-![GroupCall](./media/group-call.png)
+:::image type="content" source="./media/group-call.png" alt-text="Group call" lightbox="./media/group-call.png":::
 
 This sample also provides code snippets for the following capabilities:
 
