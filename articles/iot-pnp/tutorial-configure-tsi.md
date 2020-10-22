@@ -33,8 +33,9 @@ As an IoT Plug and Play user, the pertinent question for selecting your TS ID is
 
 ![TS ID selection](./media/tutorial-configure-tsi/ts-id-selection-pnp.png)
 
+* If you've been doing the Quickstart and your IoT Hub device represents the [Thermostat](https://raw.githubusercontent.com/Azure/opendigitaltwins-dtdl/master/DTDL/v2/samples/Thermostat.json), use `iot-hub-connection-device-id` as your TS ID.
 
-Refer back to your [TemperatureController.json](https://raw.githubusercontent.com/Azure/opendigitaltwins-dtdl/master/DTDL/v2/samples/TemperatureController.json) file. There are two thermostats sending time series data, thus you'll want to use a composite key consiting of `iot-hub-connection-device-id` and `dt-subject` in the section below.
+* If you've been doing one of the tutorials for a multi component device, use a composite key in the section below, written as  `iot-hub-connection-device-id, dt-subject`
 
 ## Provision your Azure Time Series Insights Gen2 environment
 
@@ -50,15 +51,15 @@ storage=mytsicoldstore
 rg=my-pnp-resourcegroup
 az storage account create -g $rg -n $storage --https-only
 key=$(az storage account keys list -g $rg -n $storage --query [0].value --output tsv)
-az timeseriesinsights environment longterm create --name my-tsi-env --resource-group $rg --time-series-id-properties my-ts-id-property --sku-name L1 --data-retention 7 --storage-account-name $storage --storage-management-key $key
+az timeseriesinsights environment longterm create --name my-tsi-env --resource-group $rg --time-series-id-properties my-ts-id-property --sku-name L1 --sku-capacity 1 --data-retention 7 --storage-account-name $storage --storage-management-key $key --location eastus2
 ```
 
-Now you'll configure the IoT Hub you created previously as your environment's [event source](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingestion-event-sources). When the event source is created, TSI will begin ingesting and storing any data currently stored in your hub, beginning with the earliest event. 
+Now you'll configure the IoT Hub you created previously as your environment's [event source](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingestion-event-sources). When your event source is connected, TSI will begin ingesting and storing events from your hub, beginning with the earliest event stored.
 
 First create a unique consumer group for TSI environment. Replace `my-pnp-hub` with the name of the IoT Hub you used previously.
 
 ```azurecli-interactive
-az iot hub consumer-group create --my-pnp-hub --name tsi-consumer-group 
+az iot hub consumer-group create --hub-name my-pnp-hub --name tsi-consumer-group 
 ```
 
 Connect the IoT Hub. Replace `my-pnp-resourcegroup`, `my-pnp-hub`, and `my-tsi-env` with your respective values.
@@ -71,4 +72,21 @@ es_resource_id=$(az iot hub create -g $rg -n $iothub --query id --output tsv)
 shared_access_key=$(az iot hub policy list -g $rg --hub-name $iothub --query "[?keyName=='service'].primaryKey" --output tsv)
 az timeseriesinsights event-source iothub create -g $rg --environment-name $env -n iot-hub-event-source --consumer-group-name tsi-consumer-group  --key-name iothubowner --shared-access-key $shared_access_key --event-source-resource-id $es_resource_id
 ```
-Navigate to your resource group in the Azure portal and select your newly created TSI environment. In the metrics  
+Navigate to your resource group in the [Azure portal](https://portal.azure.com) and select your newly created Time Series Insights environment. Visit the *Time Series Insights Explorer URL* shown in the instance overview.
+
+![Portal overview page](./media/tutorial-configure-tsi/view-environment.png)
+
+In the explorer, you should see your two thermostats under "All hierarchies." Next, you'll curate your Time Series Model based off of your device model.
+
+![Explorer view 1](./media/tutorial-configure-tsi/view-environment.png)
+
+## Model synchronization between Digital Twins Definition Language and Time Series Insights Gen2
+
+Next you'll translate your DTDL device model to the asset model in Azure Time Series Insights (TSI). TODO: more intro paragraph, the differences, etc etc.
+
+Device fleet hierarchy?
+
+
+
+
+
