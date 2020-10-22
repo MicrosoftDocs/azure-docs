@@ -106,7 +106,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
     > [!NOTE]
     > When you're finished configuring the deployment schedule for a selected Arc enabled server, select **Review + create**.
 
-15. You're returned to the status dashboard. Select **Deployment schedules** to show the deployment schedule that you've created. A maximum of 500 schedules are listed. If you have more than 500 schedules and you want to review the complete list, see the [Software Update Configurations - List](/rest/api/automation/softwareupdateconfigurations/list) REST API method using version 2019-06-01 or higher.
+15. You're returned to the status dashboard. Select **Deployment schedules** to show the deployment schedule that you've created. A maximum of 500 schedules are listed. If you have more than 500 schedules and you want to review the complete list, see the [Software Update Configurations - List](/rest/api/automation/softwareupdateconfigurations/list) REST API method. Specify API version 2019-06-01 or higher.
 
 ## Schedule an update deployment programmatically
 
