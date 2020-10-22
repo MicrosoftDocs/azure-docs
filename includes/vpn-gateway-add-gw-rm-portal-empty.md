@@ -5,12 +5,12 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 10/19/2020
+ ms.date: 10/22/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
 
-1. From the [Azure portal](https://portal.azure.com), in **Search resources, services, and docs (G+/)** type *virtual network gateway**. Locate **Virtual network gateway** in the search results and select it.
+1. From the [Azure portal](https://portal.azure.com), in **Search resources, services, and docs (G+/)** type **virtual network gateway**. Locate **Virtual network gateway** in the search results and select it.
 
    :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-empty/search.png" alt-text="Search field" lightbox="./media/vpn-gateway-add-gw-rm-portal-empty/search-expand.png":::
 
