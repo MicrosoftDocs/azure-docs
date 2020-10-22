@@ -69,7 +69,7 @@ The [Azure IoT Hub .NET (C#) device SDK](https://github.com/Azure/azure-iot-sdk-
 | Linux                                | .NET Core 2.1                                              |
 | Windows 10 Desktop and Server SKUs   | .NET Core 2.1, .NET Framework 4.5.1, or .NET Framework 4.7 |
 
-The .NET SDK can also be used with Windows IoT Core with the [Azure Device Agent](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) or [a custom NTService that can use RPC to communicate with UWP applications](https://docs.microsoft.com/samples/microsoft/windows-iotcore-samples/ntservice-rpc/).
+The .NET SDK can also be used with Windows IoT Core with the [Azure Device Agent](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) or [a custom NTService that can use RPC to communicate with UWP applications](/samples/microsoft/windows-iotcore-samples/ntservice-rpc/).
 
 ### Node.js SDK
 
@@ -119,7 +119,7 @@ If you're not able to use one of the IoT Hub device SDKs, you can connect direct
 
 ## Support and other resources
 
-If you experience problems while using the Azure IoT device SDKs, there are several ways to seek support summarized below. For full information on all of your support options, please see [Azure IoT Support and Help Options](https://aka.ms/iothelp). 
+If you experience problems while using the Azure IoT device SDKs, there are several ways to seek support summarized below. For full information on all of your support options, please see [Azure IoT Support and Help Options](../iot-fundamentals/iot-support-help.md). 
 
 **Reporting bugs** – Bugs in the device SDKs can be reported on the issues page of the relevant GitHub project. Fixes rapidly make their way from the project in to product updates.
 
@@ -133,7 +133,7 @@ If you experience problems while using the Azure IoT device SDKs, there are seve
 
 * [Azure IoT Hub Python SDK issues](https://github.com/Azure/azure-iot-sdk-python/issues)
 
-**Technical Questions** – You can ask technical questions on both [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) using the tag *azure-iot-sdk*.
+**Technical Questions** – You can ask technical questions on both [Microsoft Q&A](/answers/topics/azure-iot-sdk.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) using the tag *azure-iot-sdk*.
 
 **Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a new support request directly from the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 

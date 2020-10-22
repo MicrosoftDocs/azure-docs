@@ -1,13 +1,13 @@
 ---
 title: Azure delegated resource management
 description: Azure delegated resource management is a key part of Azure Lighthouse, allowing service providers to manage delegated resources at scale with agility and precision.
-ms.date: 08/12/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
 ---
 
 # Azure delegated resource management
 
-Azure delegated resource management is one of the key components of [Azure Lighthouse](../overview.md). With Azure delegated resource management, service providers can simplify customer engagement and onboarding experiences, while managing delegated resources at scale with agility and precision.
+Azure delegated resource management is one of the key components of [Azure Lighthouse](../overview.md). With Azure delegated resource management, service providers can simplify customer engagement and onboarding experiences, while managing delegated resources at scale with agility and precision. Customers maintain control over which service providers can access their tenant, Customers maintain control over who can access their tenant, what resources they can access, and what actions can be taken.
 
 ## What is Azure delegated resource management?
 
@@ -30,7 +30,8 @@ At a high level, here's how Azure delegated resource management works:
 2. You specify this access and onboard the customer to Azure Lighthouse in one of two ways:
    - [Publish an Azure Marketplace managed service offer](../how-to/publish-managed-services-offers.md) (private or public) that the customer will accept
    - [Deploy an Azure Resource Manager template to the customer's tenant](../how-to/onboard-customer.md) for one or more specific subscriptions or resource groups
-3. Once the customer has been onboarded, authorized users can sign in to your managing tenant and perform tasks at the given customer scope, based on the access that you defined.
+
+3. Once the customer has been onboarded, authorized users can sign in to your managing tenant and perform tasks at the given customer scope, based on the access that you defined. Customers can review service provider actions and have the option to remove access if needed.
 
 > [!NOTE]
 > You can manage delegated resources that are located in different [regions](../../availability-zones/az-overview.md#regions). However, delegation of subscriptions across a [national cloud](../../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds, isn't supported.

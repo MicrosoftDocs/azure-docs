@@ -115,10 +115,18 @@ The service runs the community version of MySQL. This allows full application co
 
 One of the advantage of running your workload in Azure is it's global reach. The flexible server for Azure Database for MySQL is available today in following Azure regions:
 
+- West Europe
 - North Europe
-- Southeast Asia
+- UK South
 - East US 2
 - West US 2
+- Central US
+- East US
+- Canada Central
+- Southeast Asia
+- Korea Central
+- Japan East
+- Australia East
 
 We are working on adding new servers soon.
 

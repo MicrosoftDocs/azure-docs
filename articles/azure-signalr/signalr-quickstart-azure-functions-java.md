@@ -97,6 +97,6 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 In this quickstart, you built and ran a real-time serverless application using Maven. Next, learn about how to create Java Azure Functions from scratch.
 
 > [!div class="nextstepaction"]
-> [Create your first function with Java and Maven](../azure-functions/functions-create-first-java-maven.md)
+> [Create your first function with Java and Maven](../azure-functions/functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java%252cprogramming-language-java)
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsjava)
