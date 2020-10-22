@@ -38,9 +38,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-2: Connect private networks together
 
@@ -55,9 +55,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-3: Establish private network access to Azure services
 
@@ -72,9 +72,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-4: Protect applications and services from external network attacks
 
@@ -89,9 +89,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
 
@@ -106,9 +106,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-6: Simplify network security rules
 
@@ -123,9 +123,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-7: Secure Domain Name Service (DNS)
 
@@ -140,9 +140,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Identity Management
 
@@ -161,9 +161,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ID-2: Manage application identities securely and automatically
 
@@ -178,9 +178,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ID-3: Use Azure AD single sign-on (SSO) for application access
 
@@ -195,9 +195,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ID-4: Use strong authentication controls for all Azure Active Directory based access
 
@@ -212,9 +212,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ID-5: Monitor and alert on account anomalies
 
@@ -229,9 +229,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ID-6: Restrict Azure resource access based on conditions
 
@@ -246,9 +246,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ID-7: Eliminate unintended credential exposure
 
@@ -263,9 +263,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ID-8: Secure user access to legacy applications
 
@@ -280,9 +280,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Privileged Access
 
@@ -301,9 +301,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PA-2: Restrict administrative access to business-critical systems
 
@@ -318,9 +318,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PA-3: Review and reconcile user access regularly
 
@@ -335,9 +335,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PA-4: Set up emergency access in Azure AD
 
@@ -352,9 +352,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PA-5: Automate entitlement management 
 
@@ -369,9 +369,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PA-6: Use privileged access workstations
 
@@ -386,9 +386,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PA-7: Follow just enough administration (least privilege principle) 
 
@@ -403,9 +403,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Data Protection
 
@@ -424,9 +424,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Microsoft
 
 ### DP-2: Protect sensitive data
 
@@ -441,9 +441,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Microsoft
 
 ### DP-3: Monitor for unauthorized transfer of sensitive data
 
@@ -458,9 +458,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Microsoft
 
 ### DP-4: Encrypt sensitive information in transit
 
@@ -475,9 +475,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Microsoft
 
 ### DP-5: Encrypt sensitive data at rest
 
@@ -492,9 +492,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Microsoft
 
 ## Asset Management
 
@@ -511,9 +511,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### AM-2: Ensure security team has access to asset inventory and metadata
 
@@ -528,9 +528,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### AM-3: Use only approved Azure services
 
@@ -545,9 +545,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### AM-4: Ensure security of asset lifecycle management
 
@@ -562,9 +562,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
@@ -579,9 +579,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### AM-6: Use only approved applications in compute resources
 
@@ -596,9 +596,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Logging and Threat Detection
 
@@ -617,9 +617,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### LT-2: Enable threat detection for Azure identity and access management
 
@@ -634,9 +634,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### LT-3: Enable logging for Azure network activities
 
@@ -651,9 +651,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### LT-4: Enable logging for Azure resources
 
@@ -668,9 +668,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### LT-5: Centralize security log management and analysis
 
@@ -685,9 +685,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### LT-6: Configure log storage retention
 
@@ -702,9 +702,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### LT-7: Use approved time synchronization sources
 
@@ -719,9 +719,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Incident Response
 
@@ -848,7 +848,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-2: Sustain secure configurations for Azure services
 
@@ -865,7 +865,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-3: Establish secure configurations for compute resources
 
@@ -882,7 +882,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-4: Sustain secure configurations for compute resources
 
@@ -899,7 +899,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-5: Securely store custom operating system and container images
 
@@ -916,7 +916,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-6: Perform software vulnerability assessments
 
@@ -933,7 +933,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
 
@@ -950,7 +950,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-8: Conduct regular attack simulation
 
@@ -967,7 +967,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Endpoint Security
 
