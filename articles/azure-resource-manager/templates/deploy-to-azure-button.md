@@ -2,7 +2,7 @@
 title: Deploy to Azure button
 description: Use button to deploy Azure Resource Manager templates from a GitHub repository.
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 10/22/2020
 ---
 # Use a deployment button to deploy templates from GitHub repository
 
@@ -10,7 +10,7 @@ This article describes how to use the **Deploy to Azure** button to deploy templ
 
 The deployment scope is determined by the template schema. For more information, see:
 
-* [resource groups]()
+* [resource groups](deploy-to-resource-group.md)
 * [subscriptions](deploy-to-subscription.md)
 * [management groups](deploy-to-management-group.md)
 * [tenants](deploy-to-tenant.md).

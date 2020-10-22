@@ -2,7 +2,7 @@
 title: Deploy resources with Azure portal
 description: Use Azure portal and Azure Resource Manage to deploy your resources to a resource group in your subscription.
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 10/22/2020
 ---
 
 # Deploy resources with ARM templates and Azure portal

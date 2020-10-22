@@ -78,6 +78,8 @@ When deploying to a resource group, you can deploy resources to:
 
 The user deploying the template must have access to the specified scope.
 
+This section shows how to specify different scopes. You can combine these different scopes in a single template.
+
 ### Scope to target resource group
 
 To deploy resources to the target resource, add those resources to the resources section of the template.
@@ -86,7 +88,9 @@ To deploy resources to the target resource, add those resources to the resources
 
 ### Scope to resource group in same subscription
 
-To deploy resources to a different resource group in the same subscription, add a nested deployment and include the `resourceGroup` property. In the following example, the nested deployment targets a resource group named `demoResourceGroup`.
+To deploy resources to a different resource group in the same subscription, add a nested deployment and include the `resourceGroup` property. If you don't specify the subscription ID or resource group, the subscription and resource group from the parent template are used. All the resource groups must exist before running the deployment.
+
+In the following example, the nested deployment targets a resource group named `demoResourceGroup`.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/same-sub-to-resource-group.json" highlight="9,13":::
 
@@ -104,11 +108,7 @@ You can create resources at the tenant by adding a nested deployment with the `s
 
 ## Cross resource groups
 
-To target a resource group that is different than the one for parent template, use a [nested or linked template](linked-templates.md). Within the deployment resource type, specify values for the subscription ID and resource group that you want the nested template to deploy to. The resource groups can exist in different subscriptions.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crosssubscription.json" range="38-43" highlight="5-6":::
-
-If you don't specify the subscription ID or resource group, the subscription and resource group from the parent template are used. All the resource groups must exist before running the deployment.
+You can deploy to more than one resource group in a single ARM template. To target a resource group that is different than the one for parent template, use a [nested or linked template](linked-templates.md). Within the deployment resource type, specify values for the subscription ID and resource group that you want the nested template to deploy to. The resource groups can exist in different subscriptions.
 
 > [!NOTE]
 > You can deploy to **800 resource groups** in a single deployment. Typically, this limitation means you can deploy to one resource group specified for the parent template, and up to 799 resource groups in nested or linked deployments. However, if your parent template contains only nested or linked templates and does not itself deploy any resources, then you can include up to 800 resource groups in nested or linked deployments.

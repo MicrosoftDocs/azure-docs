@@ -2,7 +2,7 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 10/22/2020
 ---
 
 # Create resources at the tenant level
@@ -101,7 +101,14 @@ New-AzTenantDeployment `
 
 ---
 
-For REST API, use [Deployments - Create Or Update At Tenant Scope](/rest/api/resources/deployments/createorupdateattenantscope).
+For more detailed information about deployment commands and options for deploying ARM templates, see:
+
+* [Deploy resources with ARM templates and Azure portal](deploy-portal.md)
+* [Deploy resources with ARM templates and Azure CLI](deploy-cli.md)
+* [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md)
+* [Deploy resources with ARM templates and Azure Resource Manager REST API](deploy-rest.md)
+* [Use a deployment button to deploy templates from GitHub repository](deploy-to-azure-button.md)
+* [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md)
 
 ## Deployment scopes
 
@@ -113,6 +120,8 @@ When deploying to a management group, you can deploy resources to:
 * resource groups (through two nested deployments)
 
 The user deploying the template must have access to the specified scope.
+
+This section shows how to specify different scopes. You can combine these different scopes in a single template.
 
 ### Scope to tenant
 
