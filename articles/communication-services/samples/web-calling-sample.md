@@ -31,8 +31,10 @@ This sample was built for developers and makes it very easy for you to get start
 
 When the [web calling sample](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) is running on your machine, you'll see the following landing page:
 
-![Page1](./media/web-calling-tutorial-page-1.png)
-![Page2](./media/web-calling-tutorial-page-2.png)
+:::image type="content" source="./media/web-calling-tutorial-page-1.png" alt-text="Web calling tutorial 1" lightbox="./media/web-calling-tutorial-page-1.png":::
+
+:::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Web calling tutorial 2" lightbox="./media/web-calling-tutorial-page-2.png":::
+
 
 ## User provisioning and SDK initialization 
 
