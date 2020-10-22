@@ -78,25 +78,25 @@ You can create an integration account by using the Azure CLI commands in this se
 
 ### Create an integration account
 
-Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az logic integration-account](/cli/azure/ext/logic/logic/integration-account) extension:
+To add the [az logic integration-account](/cli/azure/ext/logic/logic/integration-account) extension, use the [az extension add](/cli/azure/extension#az_extension_add) command:
 
 ```azurecli
 az extension add –-name logic
 ```
 
-Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group or use an existing resource group:
+To create a resource group or use an existing resource group, run the [az group create](/cli/azure/group#az_group_create) command:
 
 ```azurecli
 az group create --name myresourcegroup --location westus
 ```
 
-Use the [az logic integration-account list](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_list) command to see the integration accounts for a resource group:
+To list the integration accounts for a resource group, use the [az logic integration-account list](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_list) command:
 
 ```azurecli
 az logic integration-account list --resource-group myresourcegroup
 ```
 
-Run the [az logic integration-account create](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_create) command to create an integration account:
+To create an integration account, run the [az logic integration-account create](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_create) command:
 
 ```azurecli
 az logic integration-account create --resource-group myresourcegroup \
@@ -108,7 +108,7 @@ Your integration account name can contain only letters, numbers, hyphens (-), un
 > [!TIP]
 > To create an integration account inside an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), select that ISE as the location. For more information, see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
 
-Use the [az logic integration-account show](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_show) command to see a specific integration account.
+To view a specific integration account, use the [az logic integration-account show](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_show) command:
 
 ```azurecli
 az logic integration-account show --name integration_account_01 --resource-group myresourcegroup
@@ -127,7 +127,7 @@ For more information about pricing, see these resources:
 * [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
 * [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 
-Use the [az logic integration-account import](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_import) command to import an integration account by using a JSON file:
+To import an integration account by using a JSON file, use the [az logic integration-account import](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_import) command:
 
 ```azurecli
 az logic integration-account import --name integration_account_01 \
