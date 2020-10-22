@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 ms.author: radeltch
 
 ---
@@ -677,7 +677,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>
    # Change the Linux system configuration
-   sudo sysctl net.ipv4.tcp_keepalive_time=120
+   sudo sysctl net.ipv4.tcp_keepalive_time=300
    </code></pre>
 
 7. **[A]** Configure the SAP users after the installation

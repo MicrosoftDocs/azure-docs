@@ -14,7 +14,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 ms.author: radeltch
 
 ---
@@ -618,7 +618,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    ```
    # Change the Linux system configuration
-   sudo sysctl net.ipv4.tcp_keepalive_time=120
+   sudo sysctl net.ipv4.tcp_keepalive_time=300
    ```
 
 1. **[A]** Update the /usr/sap/sapservices file
