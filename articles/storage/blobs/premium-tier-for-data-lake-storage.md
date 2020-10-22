@@ -13,7 +13,7 @@ ms.author: normesta
 
 Azure Data Lake Storage Gen2 now supports the [premium performance tier](storage-blob-performance-tiers.md#premium-performance). The premium performance tier is ideal for big data analytics applications and workloads that require low consistent latency and have a high number of transactions. 
 
-## Example workloads
+## Workloads that can benefit from the premium performance tier
 
 Example workloads include interactive workloads, IoT, streaming analytics, artificial intelligence, and machine learning. 
 
