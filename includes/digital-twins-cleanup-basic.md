@@ -1,6 +1,6 @@
 ---
 author: baanders
-description: include file for cleaning up a basic Azure Digital Twins instance and app registration
+description: include file for cleaning up a basic Azure Digital Twins instance
 ms.service: digital-twins
 ms.topic: include
 ms.date: 8/13/2020
