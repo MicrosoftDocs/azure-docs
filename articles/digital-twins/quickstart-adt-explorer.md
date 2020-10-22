@@ -324,6 +324,12 @@ If you plan to continue to the Azure Digital Twins tutorials, the instance used 
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
+Next, delete the Azure Active Directory app registration you created for your client app with this command:
+
+```azurecli
+az ad app delete --id <your-application-ID>
+```
+
 Finally, delete the project sample folders you downloaded to your local machine (_**Azure_Digital_Twins__ADT__explorer**_ and _**Azure_Digital_Twins_end_to_end_samples**_). You may have to delete both the zipped and unzipped versions.
 
 ## Next steps 
