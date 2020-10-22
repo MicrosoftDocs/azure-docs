@@ -39,12 +39,14 @@ As an IoT Plug and Play user, the pertinent question for selecting your TS ID is
 
 ## Provision your Azure Time Series Insights Gen2 environment
 
-The command below will do the following:
+The command below does the following:
 
-* Create an Azure storage account that will be your environment's [cold store](https://docs.microsoft.com/en-us/azure/time-series-insights/concepts-storage#cold-store), designed for long-term retention and analytics over historical data. Replace `mytsicoldstore` with a unique name for your account.
-* Create an Azure Time Series Insights Gen2 environment. Replace `my-tsi-env` with a name of your choosing
-
-Replace `my-pnp-resourcegroup` with the name of the resource group you used during set-up, and replace `my-ts-id-property` with your TS ID property value based on the selection criteria above.
+* Creates an Azure storage account for your environment's [cold store](https://docs.microsoft.com/en-us/azure/time-series-insights/concepts-storage#cold-store), designed for long-term retention and analytics over historical data.
+  * Replace `mytsicoldstore` with a unique name for your account.
+* Creates an Azure Time Series Insights Gen2 environment, including warm storage with a retention period of 7 days, and a cold store for infinite retention. 
+  * Replace `my-tsi-env` with a unique name for your TSI environment 
+  * Replace `my-pnp-resourcegroup` with the name of the resource group you used during set-up
+  * Replace `my-ts-id-property` with your TS ID property value based on the selection criteria above
 
 ```azurecli-interactive
 storage=mytsicoldstore
@@ -54,9 +56,9 @@ key=$(az storage account keys list -g $rg -n $storage --query [0].value --output
 az timeseriesinsights environment longterm create --name my-tsi-env --resource-group $rg --time-series-id-properties my-ts-id-property --sku-name L1 --sku-capacity 1 --data-retention 7 --storage-account-name $storage --storage-management-key $key --location eastus2
 ```
 
-Now you'll configure the IoT Hub you created previously as your environment's [event source](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingestion-event-sources). When your event source is connected, TSI will begin ingesting and storing events from your hub, beginning with the earliest event stored.
+Now you'll configure the IoT Hub you created previously as your environment's [event source](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingestion-event-sources). When your event source is connected, TSI will begin indexing events from your hub, beginning with the earliest event in the queue.
 
-First create a unique consumer group for TSI environment. Replace `my-pnp-hub` with the name of the IoT Hub you used previously.
+First create a unique consumer group on your IoT Hub for your TSI environment. Replace `my-pnp-hub` with the name of the IoT Hub you used previously.
 
 ```azurecli-interactive
 az iot hub consumer-group create --hub-name my-pnp-hub --name tsi-consumer-group 
@@ -82,7 +84,13 @@ In the explorer, you should see your two thermostats under "All hierarchies." Ne
 
 ## Model synchronization between Digital Twins Definition Language and Time Series Insights Gen2
 
-Next you'll translate your DTDL device model to the asset model in Azure Time Series Insights (TSI). TODO: more intro paragraph, the differences, etc etc.
+Next you'll translate your DTDL device model to the asset model in Azure Time Series Insights (TSI). TSI's Time Series Model is a semantic modeling tool for data contextualization within TSI. Time Series Model has three core components:
+
+* [Time Series Model instances](#time-series-model-instances). Instances are virtual representations of the time series themselves. Instances will be uniquely identified by your TS ID.
+* [Time Series Model hierarchies](#time-series-model-hierarchies). Hierarchies organize instances by specifying property names and their relationships.
+* [Time Series Model types](#time-series-model-types). Types help you define variables or formulas for doing computations. Types are associated with a specific instance.
+
+
 
 Device fleet hierarchy?
 
