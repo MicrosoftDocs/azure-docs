@@ -11,19 +11,19 @@ ms.author: normesta
 
 # Premium tier for Azure Data Lake Storage
 
-Azure Data Lake Storage Gen2 now supports the [premium performance tier](storage-blob-performance-tiers.md#premium-performance). The premium performance tier is ideal for big data analytics applications and workloads that require low consistent latency and have a high number of transactions. Example workloads include:
+Azure Data Lake Storage Gen2 now supports the [premium performance tier](storage-blob-performance-tiers.md#premium-performance). The premium performance tier is ideal for big data analytics applications and workloads that require low consistent latency and have a high number of transactions. Example workloads include interactive workloads, IoT, streaming analytics, artificial intelligence, and machine learning. 
 
-- **Interactive workloads** 
+**Interactive workloads** 
 
-  These workloads require instant updates and user feedback, such as e-commerce and mapping applications, interactive video applications, etc. For example, in an e-commerce application, less frequently viewed items are likely not cached. However, they must be instantly displayed to the customer on demand. As another example, data scientists, analysts and developers can derive time-sensitive insights even faster by running queries on data stored in an account that uses the premium performance tier. 
+These workloads require instant updates and user feedback, such as e-commerce and mapping applications, interactive video applications, etc. For example, in an e-commerce application, less frequently viewed items are likely not cached. However, they must be instantly displayed to the customer on demand. As another example, data scientists, analysts and developers can derive time-sensitive insights even faster by running queries on data stored in an account that uses the premium performance tier. 
 
-- **IOT/Streaming Analytics** 
+**IoT/Streaming Analytics** 
 
-  In an IoT scenario, lots of smaller write operations might be pushed to the cloud every second. Large amounts of data might be ingested, aggregated for analysis purposes, and then deleted almost immediately. The high ingestion capabilities of the premium performance tier make it efficient for this type of workload. 
+In an IoT scenario, lots of smaller write operations might be pushed to the cloud every second. Large amounts of data might be ingested, aggregated for analysis purposes, and then deleted almost immediately. The high ingestion capabilities of the premium performance tier make it efficient for this type of workload. 
 
-- **Artificial intelligence/machine learning (AI/ML)** 
+**Artificial intelligence/machine learning (AI/ML)** 
 
-  AI/ML deals with the consumption and processing of different data types like visuals, speech, and text. This high-performance computing type of workload deals with large amounts of data that requires rapid response and efficient ingestion times for data analysis. 
+AI/ML deals with the consumption and processing of different data types like visuals, speech, and text. This high-performance computing type of workload deals with large amounts of data that requires rapid response and efficient ingestion times for data analysis. 
 
 ## Evaluating the cost impact
 
@@ -93,4 +93,4 @@ Premium tier for Azure Data Lake Storage is generally available in the following
 
 ## Next steps
 
-- See the [bog announcement](http://www.microsoft.com) of Premium tier for Azure Data Lake Storage.
+See the premium tier for Azure Data Lake Storage [bog announcement](https://www.microsoft.com).
