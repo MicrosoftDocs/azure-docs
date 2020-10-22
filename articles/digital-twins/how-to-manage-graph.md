@@ -285,10 +285,7 @@ namespace minimal
             string targetId = "myFloorID";
             twin.Metadata = new DigitalTwinMetadata();
             twin.Metadata.ModelId = "dtmi:example:Floor;1";
-            // Initialize properties
-            Dictionary<string, object> props1 = new Dictionary<string, object>();
-            props1.Add("Capacity", 5.0);
-            twin.CustomProperties = props1;
+            //Floor twins have no properties, so nothing to initialize
             //Create the twin
             await client.CreateDigitalTwinAsync(targetId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
             Console.WriteLine();
