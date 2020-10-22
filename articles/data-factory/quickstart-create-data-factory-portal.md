@@ -73,7 +73,7 @@ Watching this video helps you understand the Data Factory UI:
 ## Create a linked service
 In this procedure, you create a linked service to link your Azure Storage account to the data factory. The linked service has the connection information that the Data Factory service uses at runtime to connect to it.
 
-1. Open [Manage tab](https://docs.microsoft.com/azure/data-factory/author-management-hub) from the left pane.
+1. Open [Manage tab](./author-management-hub.md) from the left pane.
 
 1. On the Linked services page, select **+New** to create a new linked service.
 
@@ -219,4 +219,4 @@ This procedure is optional in this tutorial. You can create a *scheduler trigger
 1. Confirm that an output file is created for every pipeline run until the specified end date and time in the **output** folder. 
 
 ## Next steps
-The pipeline in this sample copies data from one location to another location in Azure Blob storage. To learn about using Data Factory in more scenarios, go through the [tutorials](tutorial-copy-data-portal.md). 
+The pipeline in this sample copies data from one location to another location in Azure Blob storage. To learn about using Data Factory in more scenarios, go through the [tutorials](tutorial-copy-data-portal.md).
