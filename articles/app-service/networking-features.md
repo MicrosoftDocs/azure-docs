@@ -36,7 +36,7 @@ Other than noted exceptions, you can use all of these features together. You can
 
 ## Use cases and features
 
-For any given use case, there might be a few ways to solve the problem. Choosing the best feature sometimes goes beyond the use case itself. The following inbound use cases suggest how to use App Service networking features to solve problems with controlling traffic going to your app. 
+For any given use case, there might be a few ways to solve the problem. Choosing the best feature sometimes goes beyond the use case itself. The following inbound use cases suggest how to use App Service networking features to solve problems with controlling traffic going to your app:
  
 | Inbound use case | Feature |
 |---------------------|-------------------|
@@ -49,12 +49,12 @@ For any given use case, there might be a few ways to solve the problem. Choosing
 | Load balance traffic to your apps in different regions | Azure Front Door with access restrictions | 
 | Load balance traffic in the same region | [Application Gateway with service endpoints][appgwserviceendpoints] | 
 
-The following outbound use cases suggest how to use App Service networking features to solve outbound access needs for your app. 
+The following outbound use cases suggest how to use App Service networking features to solve outbound access needs for your app:
 
 | Outbound use case | Feature |
 |---------------------|-------------------|
 | Access resources in an Azure virtual network in the same region | VNet Integration </br> ASE |
-| Access resources in an Azure virtual network in a different region | Gateway required VNet Integration </br> ASE and virtual network peering |
+| Access resources in an Azure virtual network in a different region | Gateway-required VNet Integration </br> ASE and virtual network peering |
 | Access resources secured with service endpoints | VNet Integration </br> ASE |
 | Access resources in a private network that's not connected to Azure | Hybrid Connections |
 | Access resources across Azure ExpressRoute circuits | VNet Integration </br> ASE | 
@@ -68,7 +68,7 @@ Azure App Service scale units support many customers in each deployment. The Fre
 
 #### Outbound addresses
 
-The worker VMs are broken down in large part by the App Service plans. The Free, Shared, Basic, Standard, and Premium plans all use the same worker VM type. The Premiumv2 plan uses another VM type. Premiumv3 uses yet another VM type. When you change the VM family, you get a different set of outbound addresses. If you scale from Standard to Premiumv2, your outbound addresses will change. If you scale from Premiumv2 to Premiumv3, your outbound addresses will change. In some older scale units, both the inbound and outbound addresses will change when you scale from Standard to Premiumv2. 
+The worker VMs are broken down in large part by the App Service plans. The Free, Shared, Basic, Standard, and Premium plans all use the same worker VM type. The PremiumV2 plan uses another VM type. PremiumV3 uses yet another VM type. When you change the VM family, you get a different set of outbound addresses. If you scale from Standard to PremiumV2, your outbound addresses will change. If you scale from PremiumV2 to PremiumV3, your outbound addresses will change. In some older scale units, both the inbound and outbound addresses will change when you scale from Standard to PremiumV2. 
 
 There are a number of addresses that are used for outbound calls. The outbound addresses used by your app for making outbound calls are listed in the properties for your app. These addresses are shared by all the apps running on the same worker VM family in the App Service deployment. If you want to see all the addresses that your app might use in a scale unit, there's property called `possibleOutboundAddresses` that will list them. 
 
