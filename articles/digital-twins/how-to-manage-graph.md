@@ -216,7 +216,7 @@ private static async Task DeleteRelationship(DigitalTwinsClient client, string s
 You can now call this method to delete a relationship like this:
 
 ```csharp
-await DeleteRelationship(client, srcId, $"{targetId}-contains->{srcId}");
+await DeleteRelationship(client, srcId, relId);
 ```
 ## Create a twin graph 
 
