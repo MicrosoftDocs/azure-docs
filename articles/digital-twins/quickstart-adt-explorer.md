@@ -51,6 +51,21 @@ The rest of this section walks you through these steps.
 First, **set up an Azure Digital Twins instance** and the required authentication to be able to work with it. To do this, follow the instructions in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). Depending on your preferred experience, the setup article is offered for the [Azure portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md), or [automated Cloud Shell deployment script sample](how-to-set-up-instance-scripted.md). All versions of the instructions also contain steps to verify that you have completed each step successfully and are ready to move on to using your new instance.
 * After setting up your Azure Digital Twins instance, you'll need the instance's **_host name_** ([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
+### Set up local Azure credentials
+
+The ADT Explorer application uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (part of the `Azure.Identity` library) to authenticate users with the Azure Digital Twins instance. For more on different ways a client app can authenticate with Azure Digital Twins, see [*How-to: Write app authentication code*](how-to-authenticate-client.md).
+
+With this type of authentication, ADT Explorer will search for credentials within your local environment, including an Azure login in a local [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or in Visual Studio/Visual Studio Code. 
+
+If you're already logged into Azure through one of these mechanisms, you can skip to the [next section](#run-and-configure-adt-explorer).
+
+Otherwise, you can install the local **Azure CLI** with these steps:
+1. Follow the process at [**this install link**](/cli/azure/install-azure-cli?view=azure-cli-latest) to complete the installation that matches your OS
+2. Open a console window on your machine
+3. Run `az login` and follow the authentication prompts to log into your Azure account.
+
+After doing this, ADT Explorer should pick up your Azure credentials automatically when you run it.
+
 ### Run and configure ADT Explorer
 
 Next, run the ADT Explorer application and configure it for your Azure Digital Twins instance.
