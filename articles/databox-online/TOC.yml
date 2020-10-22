@@ -51,14 +51,6 @@
       - name: Power cord specifications
         href: azure-stack-edge-technical-specifications-power-cords-regional.md
 
-  - name: Release notes
-    items:
-    - name: 2010 - GA
-      href: azure-stack-edge-gpu-2009-release-notes.md 
-    - name: 2008 - Preview
-      href: azure-stack-edge-gpu-2008-release-notes.md 
-
-
 - name: Azure Stack Edge Pro R
   items:
   - name: Overview
@@ -267,6 +259,13 @@
         href: azure-stack-edge-gpu-troubleshoot-activation.md    
       - name: Contact Microsoft Support
         href: azure-stack-edge-contact-microsoft-support.md 
+  - name: Shared release notes
+    items:
+    - name: 2010 - GA
+      href: azure-stack-edge-gpu-2009-release-notes.md 
+    - name: 2008 - Preview
+      href: azure-stack-edge-gpu-2008-release-notes.md 
+  
   - name: Shared reference
     items:
     - name: Azure PowerShell
