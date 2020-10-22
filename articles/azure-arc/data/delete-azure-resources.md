@@ -58,7 +58,7 @@ You can delete specific Azure Arc enabled data services resources using the Azur
 
 To delete SQL managed instance resources from Azure using the Azure CLI replace the placeholder values in the command below and run it.
 
-```console
+```azurecli
 az resource delete --name <sql instance name> --resource-type Microsoft.AzureData/sqlManagedInstances --resource-group <resource group name>
 
 #Example
@@ -69,7 +69,7 @@ az resource delete --name <sql instance name> --resource-type Microsoft.AzureDat
 
 To delete a PostgreSQL Hyperscale server group resource from Azure using the Azure CLI replace the placeholder values in the command below and run it.
 
-```console
+```azurecli
 az resource delete --name <postgresql instance name> --resource-type Microsoft.AzureData/postgresInstances --resource-group <resource group name>
 
 #Example
@@ -83,7 +83,7 @@ az resource delete --name <postgresql instance name> --resource-type Microsoft.A
 
 To delete an Azure Arc data controller from Azure using the Azure CLI replace the placeholder values in the command below and run it.
 
-```console
+```azurecli
 az resource delete --name <data controller name> --resource-type Microsoft.AzureData/dataControllers --resource-group <resource group name>
 
 #Example
