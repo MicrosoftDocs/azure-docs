@@ -287,19 +287,20 @@ String clientId = "your-client-id";
 String clientSecret = "your-client-secret";
 String resourceManagerUrl = "https://management.azure.com";
 
-HttpRequest tokenAuthenticationRequest = TokenAuthenticationRequest(tenantId, clientId, clientSecret, resourceManagerUrl);
+HttpRequest tokenAuthenticationRequest = tokenAuthenticationRequest(tenantId, clientId, clientSecret, resourceManagerUrl);
 
 HttpClient client = HttpClient.newBuilder().build();
+Gson gson = new Gson();
 HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 if (response.statusCode == 200)
 {
-    JSONObject jsonObject = new JSONObject(response.body());
-    accessToken = jsonObject.get("access_token");
+     body = gson.fromJson(body, AuthenticationBody.class);
+
     // ... etc ... 
 }
 // ... etc ...
 
-static HttpRequest TokenAuthenticationRequest(String tenantId, String clientId, String clientSecret, String resourceManagerUrl){
+static HttpRequest tokenAuthenticationRequest(String tenantId, String clientId, String clientSecret, String resourceManagerUrl){
     String authUrl = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenantId);
     String clientIdParam = String.format("client_id=%s", clientId);
     String resourceParam = String.format("resource=%s", resourceManagerUrl);
@@ -312,6 +313,17 @@ static HttpRequest TokenAuthenticationRequest(String tenantId, String clientId, 
             .POST(HttpRequest.BodyPublishers.ofString(bodyString))
             .build();
     return request;
+}
+
+class AuthenticationBody {
+    String access_token;
+    String token_type;
+    int expires_in;
+    String scope;
+    String refresh_token;
+    String id_token;
+    
+    AuthenticationBody() {}
 }
 ```
 
