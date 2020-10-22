@@ -81,6 +81,8 @@
       href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
+  - name: Planned maintenance
+    href: concepts-planned-maintenance-notification.md
   - name: Business continuity
     items:
     - name: Business continuity intro
@@ -260,7 +262,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/mariadb/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-database-mariadb.html
+    href: /answers/topics/azure-database-mariadb.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
   - name: Request a feature
