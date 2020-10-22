@@ -23,6 +23,8 @@ The Key Vault VM extension supports below versions of Windows:
 - Windows Server 2016
 - Windows Server 2012
 
+The Key Vault VM extensio is also supported on custom local VM that is uploaded and converted into a specialized image for use in Azure using Windows Server 2019 core install.
+
 ### Supported certificate content types
 
 - PKCS #12
@@ -55,7 +57,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
         "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
-          "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
+          "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
@@ -190,9 +192,9 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
     
     ```azurecli
        # Start the deployment
-         az vm extension set -n "KeyVaultForWindows" `
+         az vm extension set -name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         -g "<resourcegroup>" `
+         -resource-group "<resourcegroup>" `
          --vm-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCerts> \"] }}'
     ```
@@ -218,6 +220,11 @@ Please be aware of the following restrictions/requirements:
 ### Troubleshoot
 
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell.
+
+### Frequently Asked Questions
+
+* Is there is a limit on the number of observedCertificates you can setup?
+  No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
 
 ## Azure PowerShell
 ```powershell

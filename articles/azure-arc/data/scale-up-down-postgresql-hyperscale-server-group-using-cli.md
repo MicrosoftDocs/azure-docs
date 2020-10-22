@@ -19,7 +19,7 @@ There are times when you may need to change the characteristics or the definitio
 - Scale up or down the number of vCores that each of the coordinator or the worker nodes uses
 - Scale up or down the memory that each of the coordinator or the worker nodes uses
 
-This guide explains you how to scale vCore and/or memory.
+This guide explains how to scale vCore and/or memory.
 
 Scaling up or down the vCore or memory settings of your server group means you have the possibility to set a minimum and/or a maximum for each of the vCore and memory settings. If you want to configure your server group to use a specific number of vCore or a specific amount of memory, you would set the min settings equal to the max settings.
 

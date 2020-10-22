@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 10/20/2020
 ms.author: alkohli
 ---
 
@@ -28,7 +28,7 @@ The Data Box Gateway solution consists of four main components that interact wit
 
 The Data Box Gateway service is a management service that's hosted in Azure. The service is used to configure and manage the device.
 
-[!INCLUDE [data-box-edge-gateway-service-protection](../../includes/data-box-edge-gateway-service-protection.md)]
+[!INCLUDE [data-box-gateway-service-protection](../../includes/data-box-gateway-service-protection.md)]
 
 ## Data Box Gateway device protection
 
@@ -43,7 +43,7 @@ The Data Box Gateway device is a virtual device that's provisioned in the hyperv
 
 Only an authorized Data Box Gateway device is allowed to join the Data Box Gateway service that you create in your Azure subscription. To authorize a device, you need to use an activation key to activate the device with the Data Box Gateway service.
 
-[!INCLUDE [data-box-edge-gateway-activation-key](../../includes/data-box-edge-gateway-activation-key.md)]
+[!INCLUDE [data-box-gateway-activation-key](../../includes/data-box-gateway-activation-key.md)]
 
 For more information, see [Get an activation key](data-box-gateway-deploy-prep.md#get-the-activation-key).
 
@@ -56,7 +56,7 @@ You can:
 - Connect to the local web UI of the device via a browser and then provide a password to sign in to the device.
 - Remotely connect to the device's PowerShell interface over HTTP. Remote management is turned on by default. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your Data Box Gateway device](data-box-gateway-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-[!INCLUDE [data-box-edge-gateway-password-best-practices](../../includes/data-box-edge-gateway-password-best-practices.md)]
+[!INCLUDE [data-box-gateway-password-best-practices](../../includes/data-box-gateway-password-best-practices.md)]
 - Use the local web UI to [change the password](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). If you change the password, be sure to notify all remote access users so that they don't have problems signing in.
 
 ## Protect your data
@@ -65,15 +65,15 @@ This section describes the Data Box Gateway security features that protect in-tr
 
 ### Protect data at rest
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-data-rest.md)]
+[!INCLUDE [data-box-gateway-data-rest](../../includes/data-box-gateway-data-rest.md)]
 
 ### Protect data in flight
 
-[!INCLUDE [data-box-edge-gateway-data-flight](../../includes/data-box-edge-gateway-data-flight.md)]
+[!INCLUDE [data-box-gateway-data-flight](../../includes/data-box-gateway-data-flight.md)]
 
 ### Protect data using storage accounts
 
-[!INCLUDE [data-box-edge-gateway-data-storage-accounts](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
+[!INCLUDE [data-box-gateway-data-storage-accounts](../../includes/data-box-gateway-protect-data-storage-accounts.md)]
 
 - Rotate and then [sync your storage account keys](data-box-gateway-manage-shares.md#sync-storage-keys) regularly to help protect your storage account from unauthorized users.
 
@@ -88,7 +88,7 @@ To secure the virtual disks on your Data Box Gateway virtual machine, we recomme
 
 The Data Box Gateway service collects personal information in the following scenarios:
 
-[!INCLUDE [data-box-edge-gateway-manage-personal-data](../../includes/data-box-edge-gateway-manage-personal-data.md)]
+[!INCLUDE [data-box-gateway-manage-personal-data](../../includes/data-box-gateway-manage-personal-data.md)]
 
 To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Data Box Gateway](data-box-gateway-manage-shares.md).
 

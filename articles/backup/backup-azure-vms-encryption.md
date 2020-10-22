@@ -10,13 +10,13 @@ This article describes how to back up and restore Windows or Linux Azure virtual
 
 ## Encryption using platform-managed keys
 
-By default, all the disks in your VMs are automatically encrypted-at-rest using platform-managed keys (PMK) that use [storage service encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption). You can back up these VMs using Azure Backup without any specific actions required to support encryption on your end. For more information about encryption with platform-managed keys, [see this article](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys).
+By default, all the disks in your VMs are automatically encrypted-at-rest using platform-managed keys (PMK) that use [storage service encryption](../storage/common/storage-service-encryption.md). You can back up these VMs using Azure Backup without any specific actions required to support encryption on your end. For more information about encryption with platform-managed keys, [see this article](../virtual-machines/windows/disk-encryption.md#platform-managed-keys).
 
 ![Encrypted disks](./media/backup-encryption/encrypted-disks.png)
 
 ## Encryption using customer-managed keys
 
-When you encrypt disks with custom-managed keys (CMK), the key used for encrypting the disks is stored in the Azure Key Vault and is managed by you. Storage Service Encryption (SSE) using CMK differs from Azure Disk Encryption (ADE) encryption. ADE uses the encryption tools of the operating system. SSE encrypts data in the storage service, enabling you to use any OS or images for your VMs. For more information about encryption of managed disks with customer-managed keys, see [this article](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+When you encrypt disks with custom-managed keys (CMK), the key used for encrypting the disks is stored in the Azure Key Vault and is managed by you. Storage Service Encryption (SSE) using CMK differs from Azure Disk Encryption (ADE) encryption. ADE uses the encryption tools of the operating system. SSE encrypts data in the storage service, enabling you to use any OS or images for your VMs. For more information about encryption of managed disks with customer-managed keys, see [this article](../virtual-machines/windows/disk-encryption.md#customer-managed-keys).
 
 ## Encryption support using ADE
 
