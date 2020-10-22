@@ -51,14 +51,14 @@ Go to the [Azure portal](https://portal.azure.com/) to create an Azure Database 
    > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier can't later be scaled to General Purpose or Memory Optimized.
 
 5. Select **Review + create** to review your selections. Select **Create** to provision the server. This operation might take a few minutes.
-> [!NOTE]
-> An empty database, **postgres**, is created. You'll also find an **azure_maintenance** database that's used to separate the managed service processes from user actions. You can't access the **azure_maintenance** database.
+    > [!NOTE]
+    > An empty database, **postgres**, is created. You'll also find an **azure_maintenance** database that's used to separate the managed service processes from user actions. You can't access the **azure_maintenance** database.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-database-portal/deployment-success.png" alt-text="success deployment.":::
 
 
-## Configure a server-level firewall rule
+## Configure a firewall rule
 By default, the server that you create is not publicly accessible. You need to give permissions to your IP address. Go to your server resource in the Azure portal and select **Connection security** from left-side menu for your server resource. If you're not sure how to find your resource, see [Open resources](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
 
 > [!div class="mx-imgBorder"]
