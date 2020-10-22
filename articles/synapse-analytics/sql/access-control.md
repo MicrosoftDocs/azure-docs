@@ -142,7 +142,7 @@ CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
 ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
-### dedicated SQL pool
+### Dedicated SQL pool
 
 To grant access to a user to a **single** SQL database, follow these steps:
 
