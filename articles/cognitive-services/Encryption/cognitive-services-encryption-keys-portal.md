@@ -34,5 +34,5 @@ The process to enable Customer-Managed Keys with Azure Key Vault for Cognitive S
 
 ## Next steps
 
-* [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+* [What is Azure Key Vault](../../key-vault/general/overview.md)?
 * [Cognitive Services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
