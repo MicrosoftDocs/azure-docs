@@ -40,7 +40,7 @@ For more information, see [Azure Security Baselines overview](../security/benchm
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](../governance/policy/samples/index.md#network)
+- [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
 - [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -144,7 +144,7 @@ Additionally, The PostgreSQL engine uses roles to control access to database obj
 
 - [Understand Azure Database for PostgreSQL resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftdbforpostgresql) 
 
-- [Understand access management for Azure Database for PostgreSQL](./concepts-security.md#access-management])
+- [Understand access management for Azure Database for PostgreSQL](./concepts-security.md#access-management)
 
 - [How to create users in Azure Database for PostgreSQL - Hyperscale (Citus)](./howto-hyperscale-create-users.md)
 
