@@ -35,7 +35,7 @@ As an IoT Plug and Play user, the pertinent question for selecting your TS ID is
 
 * If you've been doing the Quickstart and your IoT Hub device represents the [Thermostat](https://raw.githubusercontent.com/Azure/opendigitaltwins-dtdl/master/DTDL/v2/samples/Thermostat.json), use `iot-hub-connection-device-id` as your TS ID.
 
-* If you've been doing one of the tutorials for a multi component device, use a composite key in the section below, written as  `iot-hub-connection-device-id, dt-subject`
+* If you've been doing one of the tutorials for the multi component [TemperatureController](https://raw.githubusercontent.com/Azure/opendigitaltwins-dtdl/master/DTDL/v2/samples/TemperatureController.json), use a composite key in the section below, written as  `iot-hub-connection-device-id, dt-subject`
 
 ## Provision your Azure Time Series Insights Gen2 environment
 
@@ -88,7 +88,22 @@ Next you'll translate your DTDL device model to the asset model in Azure Time Se
 
 * [Time Series Model instances](#time-series-model-instances). Instances are virtual representations of the time series themselves. Instances will be uniquely identified by your TS ID.
 * [Time Series Model hierarchies](#time-series-model-hierarchies). Hierarchies organize instances by specifying property names and their relationships.
-* [Time Series Model types](#time-series-model-types). Types help you define variables or formulas for doing computations. Types are associated with a specific instance.
+* [Time Series Model types](#time-series-model-types). Types help you define [variables](https://docs.microsoft.com/azure/time-series-insights/concepts-variables) or formulas for doing computations. Types are associated with a specific instance.
+
+> [!NOTE]
+> The examples below are for the multi component TemperatureController.
+
+### Define your Types
+
+You can begin ingesting data into Azure Time Series Insights Gen2 without having pre-defined a model. When telemetry arrives, TSI will attempt to auto-resolve time series instances based on the TS ID property value. All instances will be assigned the *Default Type*. You'll need to manually create a new Type to represent your models. The image below depicts a simple method to synchronize a DTDL model and a TSM Type:
+
+![DTDL to TSM Type](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
+
+* Your digital twin model identifier (DTMI) will become your Type ID
+* The Type name can be either the model's name or display name
+* The model description becomes the Type's description
+* At least one Type variable is created for each telemetry component in the model. 
+
 
 
 
