@@ -13,6 +13,9 @@ Here are the steps that are covered in detail in this article:
 1. Add the identity to an appropriate role (for example, Service Bus Data Sender) on the destination (for example, a Service Bus queue).
 1. When you create event subscriptions, enable the usage of the identity to deliver events to the destination. 
 
+> [!NOTE]
+> Currently, it's not possible to deliver events using [private endpoints](../private-link/private-endpoint-overview.md). For more information, see the [Deliver events using private endpoints](#deliver-events-using-private-endpoints) section at the end of this article. 
+
 ## Create a topic or domain with an identity
 First, let's look at how to create a topic or a domain with a system-managed identity.
 
@@ -279,7 +282,6 @@ Currently, it's not possible to deliver events using [private endpoints](../priv
 
 However, If your requirements call for a secure way to send events using an encrypted channel and a known identity of the sender (in this case, Event Grid) using public IP space, you could deliver events to Event Hubs, Service Bus, or Azure Storage service using an Azure event grid topic or a domain with system-managed identity configured as shown in this article. Then, you can use a private link configured in Azure Functions or your webhook deployed on your virtual network to pull events. See the sample: [Connect to private endpoints with Azure Functions.](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
 
-Event Grid --- **Managed Identity** ---> Event Hubs, Service Bus, Storage --- **Private Link Service** ---> Functions/Webhook
 
 Note that under this configuration, the traffic goes over the public IP/internet from Event Grid to Event Hubs, Service Bus, or Azure Storage, but the channel can be encrypted and a managed identity of Event Grid is used. If you configure your Azure Functions or webhook deployed to your virtual network to use an Event Hubs, Service Bus, or Azure Storage via private link, that section of the traffic will evidently stay within Azure.
 
