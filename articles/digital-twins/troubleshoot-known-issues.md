@@ -29,7 +29,7 @@ Alternatively, you can open the Cloud Shell pane in the Azure portal and complet
 
 :::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="View of the Azure portal with the 'Cloud Shell' icon highlighted, and the Cloud Shell appearing at the bottom of the portal window":::
 
-Finally, another solution is to [install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) on your machine so you can run Azure CLI commands locally. The local CLI does not experience this issue.
+Finally, another solution is to [install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) on your machine so you can run Azure CLI commands locally. The local CLI does not experience this issue.
 
 ### Possible causes
 
@@ -59,7 +59,7 @@ For users logged in with a personal [Microsoft account (MSA)](https://account.mi
 
 ## Issue with interactive browser authentication
 
-When writing authentication code in your Azure Digital Twins applications using version **1.2.0** of the **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet) library**, you may experience issues with the [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) method.
+When writing authentication code in your Azure Digital Twins applications using version **1.2.0** of the **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) library**, you may experience issues with the [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) method.
 
 This is not the latest version of the library. The latest version is **1.2.2**.
 
