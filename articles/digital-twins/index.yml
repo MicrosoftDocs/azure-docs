@@ -97,7 +97,7 @@ landingContent:
       - linkListType: sample
         links:
           - text: Azure Digital Twins explorer (sample)
-            url: /samples/azure-samples/digital-twins-explorer/digital-twins-explore
+            url: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer
       - linkListType: sample
         links:
           - text: DTDL validator (sample)

@@ -64,7 +64,7 @@ To use the data plane APIs:
    - you can find the SDK source in GitHub: [Azure IoT Digital Twins client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
    - you can view the [SDK reference documentation](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview)
 * You can use the **JavaScript** SDK. To use the JavaScript SDK...
-   - you can view and install the package from npm: [Azure Azure Digital Twins client library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
+   - you can view and install the package from npm: [Azure Azure Digital Twins client library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins).
    - you can view the [SDK reference documentation](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest).
 * You can generate an SDK for another language using AutoRest. Follow the instructions in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 

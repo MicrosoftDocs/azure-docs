@@ -19598,6 +19598,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/synapse-analytics/quickstart-synapse-studio.md",
+      "redirect_url": "/azure/synapse-analytics/get-started-create-workspace",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-build-multi-tenant-apps.md",
       "redirect_url": "/azure/sql-database/saas-tenancy-app-design-patterns",
       "redirect_document_id": false
@@ -49337,6 +49342,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-pnp/concepts-limits-quotas.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/retail/howto-deploy-video-analytics-template.md",
       "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-deploy",
       "redirect_document_id": true
@@ -53765,8 +53775,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": " \"articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-views.md\"",
-      "redirect_url": " \"/azure/synapse-analytics/sql-data-warehouse/performance-tuning-materialized-views\"",
+      "source_path": "articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-views.md",
+      "redirect_url": "/azure/synapse-analytics/sql-data-warehouse/performance-tuning-materialized-views",
       "redirect_document_id": " false"
     },
     {
@@ -57959,6 +57969,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/support.md",
+      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/cognitive-services-support-options?context=/azure/cognitive-services/speech-service/context/context",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/authentication/active-directory-passwords-troubleshoot.md",
       "redirect_url": "/azure/active-directory/authentication/troubleshoot-sspr",
       "redirect_document_id": true
@@ -58863,6 +58878,7 @@
         "redirect_url": "/azure/active-directory/enterprise-users/users-search-enhanced",
         "redirect_document_id": true
     },
+
     {
         "source_path": "articles/active-directory/users-groups-roles/users-sharing-accounts.md",
         "redirect_url": "/azure/active-directory/enterprise-users/users-sharing-accounts",
