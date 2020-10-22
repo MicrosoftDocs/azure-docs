@@ -815,6 +815,4 @@ CREATE STATISTICS sState
 
 ## Next steps
 
-To further improve query performance, see [Monitor your workload](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-
-For further query performance improvements, see [Best practices for dedicated SQL pool](best-practices-sql-pool.md#maintain-statistics).
+To further improve query performance for dedicated SQL pool, see [Monitor your workload](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) and [Best practices for dedicated SQL pool](best-practices-sql-pool.md#maintain-statistics).
