@@ -254,10 +254,8 @@
       href: configure-firewall.md
     - name: Secure Webhook with Azure Active Directory
       href: secure-webhook-delivery.md
-    - name: Event delivery with managed identity
+    - name: Deliver events securely
       href: managed-service-identity.md
-    - name: Deliver events to Event Hubs, Service Bus, or Functions privately
-      href: deliver-events-secure.md
   - name: Troubleshoot
     items: 
     - name: Enable diagnostic logs
