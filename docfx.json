@@ -841,6 +841,14 @@
     "template": [
       "docs.html"
     ],
-    "dest": "azure"
+    "dest": "azure",
+    "rules": {
+      "sensitive-language": {
+        "exclude": [
+          "articles/governance/policy/**/*.md",
+	  "articles/governance/blueprints/**/*.md"	
+        ]
+      }
+    }
   }
 }
