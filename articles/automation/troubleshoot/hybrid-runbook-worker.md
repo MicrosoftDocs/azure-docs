@@ -220,7 +220,7 @@ In the **Application and Services Logs\Operations Manager** event log, you see e
 
 #### Cause
 
-This issue can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify that the computer has outbound access to ***.azure-automation.net** on port 443.
+This issue can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify that the computer has outbound access to **\*.azure-automation.net** on port 443.
 
 #### Resolution
 
