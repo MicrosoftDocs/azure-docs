@@ -102,7 +102,7 @@ Beyond the high availability architecture that is included in SQL Database, ther
 ### SQL Agent jobs 
 SQL Agent jobs are not directly supported in Azure SQL Database and will need to be deployed to [Elastic Database Jobs](/azure/azure-sql/database/job-automation-overview#elastic-database-jobs-preview).
 > [!IMPORTANT]
-> Currently, Elastic Database Jobs is in Preview
+> Elastic Database Jobs is currently in Preview
 
 ### Logins and groups 
 
@@ -122,9 +122,11 @@ Be sure to take advantage of the advanced cloud-based features offered by SQL Da
 
 To strengthen security, consider using [Azure Active Directory Authentication](../../database/authentication-aad-overview.md), [auditing](../../managed-instance/auditing-configure.md), [threat detection](../../database/advanced-data-security.md), [row-level security](/sql/relational-databases/security/row-level-security), and [dynamic data masking](/sql/relational-databases/security/dynamic-data-masking).
 
-In addition to advanced management and security features, SQL Database provides a set of advanced tools that can help you [monitor and tune your workload](../../database/monitor-tune-overview.md). [Azure SQL Analytics](../../../azure-monitor/insights/azure-sql.md) allows you to monitor a large set of managed instances in a centralized manner. [Automatic tuning](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) in managed instances continuously monitors performance of your SQL plan execution statistics and automatically fixes the identified performance issues. 
+In addition to advanced management and security features, SQL Database provides a set of advanced tools that can help you [monitor and tune your workload](../../database/monitor-tune-overview.md). [Azure SQL Analytics](/azure/azure-monitor/insights/azure-sql) is an advanced cloud monitoring solution for monitoring performance of all of your Azure SQL databases at scale and across multiple subscriptions in a single view. Azure SQL Analytics collects and visualizes key performance metrics with built-in intelligence for performance troubleshooting.
+> [!IMPORTANT]
+> Azure SQL Analytics is currently in Preview
 
-Some features are only available once the [database compatibility level](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 
+[Automatic tuning](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) in managed instances continuously monitors performance of your SQL plan execution statistics and automatically fixes the identified performance issues. 
 
 ## SQL Server on Azure VM alternative
 
