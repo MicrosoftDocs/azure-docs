@@ -268,8 +268,19 @@ namespace minimal
             // Upload the models to the service
             await client.CreateModelsAsync(typeList);
 
-            //Create new (Room) digital twin
-            string srcId = "myRoomID";
+            //Create new (Floor) digital twin
+            string srcId = "myFloorID";
+            BasicDigitalTwin floorTwin = new BasicDigitalTwin();
+            floorTwin.Metadata = new DigitalTwinMetadata();
+            floorTwin.Metadata.ModelId = "dtmi:example:Floor;1";
+            //Floor twins have no properties, so nothing to initialize
+            //Create the twin
+            await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(floorTwin));
+            Console.WriteLine();
+            Console.WriteLine("Twin created successfully");
+
+            //Create second (Room) digital twin
+            string targetId = "myRoomID";
             BasicDigitalTwin roomTwin = new BasicDigitalTwin();
             roomTwin.Metadata = new DigitalTwinMetadata();
             roomTwin.Metadata.ModelId = "dtmi:example:Room;1";
@@ -279,19 +290,8 @@ namespace minimal
             props.Add("Humidity", 55.0);
             twin.CustomProperties = props;
             //Create the twin
-            await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(roomTwin));
+            await client.CreateDigitalTwinAsync(targetId, JsonSerializer.Serialize<BasicDigitalTwin>(roomTwin));
             
-            //Create second (Floor) digital twin
-            string targetId = "myFloorID";
-            BasicDigitalTwin floorTwin = new BasicDigitalTwin();
-            floorTwin.Metadata = new DigitalTwinMetadata();
-            floorTwin.Metadata.ModelId = "dtmi:example:Floor;1";
-            //Floor twins have no properties, so nothing to initialize
-            //Create the twin
-            await client.CreateDigitalTwinAsync(targetId, JsonSerializer.Serialize<BasicDigitalTwin>(floorTwin));
-            Console.WriteLine();
-            Console.WriteLine("Twin created successfully");
-
             //Create relationships between them
             await CreateRelationship(client, srcId, targetId, "contains");
             Console.WriteLine();
