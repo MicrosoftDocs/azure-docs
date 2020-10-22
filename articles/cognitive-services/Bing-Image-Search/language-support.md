@@ -119,4 +119,4 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 |United States|Spanish|es-US|
 
 ## Next steps
-For more information about the Bing News Search endpoints, see [News Image Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+For more information about the Bing News Search endpoints, see [News Image Search API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
