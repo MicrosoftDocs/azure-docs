@@ -56,6 +56,15 @@ The examples in this article use the following values. You can use these values 
 
 ## <a name="CreatVNet"></a>Create a virtual network
 
+Create a virtual network (VNet) using the following values:
+
+* **Resource group:** TestRG1
+* **Name:** VNet1
+* **Region:** (US) East US
+* **IPv4 address space:** 10.1.0.0/16
+* **Subnet name:** FrontEnd
+* **Subnet address space:** 10.1.0.0/24
+
 [!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
@@ -64,17 +73,22 @@ The examples in this article use the following values. You can use these values 
 
 In this step, you create the virtual network gateway for your VNet. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU.
 
+Create a virtual network gateway using the following values:
+
+* **Name:** VNet1GW
+* **Region:** East US
+* **Gateway type:** VPN
+* **VPN type:** Route-based
+* **SKU:** VpnGw1
+* **Generation:** Generation1
+* **Virtual network:** VNet1
+* **Gateway subnet address range:** 10.1.255.0/27
+* **Public IP address:** Create new
+* **Public IP address name:** VNet1GWpip
+* **Enable active-active mode:** Disabled
+* **Configure BGP:** Disabled
+
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
-
-### Example settings
-
-* **Instance details > Region:** East US
-* **Virtual Network > Virtual network:** VNet1
-* **Instance details > Name:** VNet1GW
-* **Instance details > Gateway type:** VPN
-* **Instance details > VPN type:** Route-based
-* **Virtual Network > Gateway subnet address range:** 10.1.255.0/27
-* **Public IP address > Public IP address name:** VNet1GWpip
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
