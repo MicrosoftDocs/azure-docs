@@ -91,7 +91,9 @@ Once captured, you can reference them in the action set using the following form
 * For a response header capture, you must use {http_resp_headerName_groupNumber}. For example, {http_resp_Location_1} or {http_resp_Location_2}
 * For a server variable, you must use {var_serverVariableName_groupNumber}. For example, {var_uri_path_1} or {var_uri_path_2}
 
-If you want to use the whole value, you should not mention the number. Simply use the format {http_req_headerName}, etc. without the groupNumber.
+If you want to use the whole value, you should not mention the number. Simply use the format {http_req_headerName}, etc. without the groupNumber. 
+
+Note - Variable names are case-sensitive when using Capture groups. Also, remember to use hyphens instead of underscore's for variables with names containing multiple words. i.e. {http_req_User-Agent_1}, {http_req_Set-Cookie_1}, etc.
 
 ## Server variables
 
