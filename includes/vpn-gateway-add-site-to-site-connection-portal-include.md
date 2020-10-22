@@ -16,7 +16,7 @@
 1. On the **Add connection** page, configure the values for your connection.
 
    * **Name:** Name your connection.
-   * **Connection type:** Select **Site-to-site(IPSec)**.
+   * **Connection type:** Select **Site-to-site (IPSec)**.
    * **Virtual network gateway:** The value is fixed because you are connecting from this gateway.
    * **Local network gateway:** Select **Choose a local network gateway** and select the local network gateway that you want to use.
    * **Shared Key:** the value here must match the value that you are using for your local on-premises VPN device. The example uses 'abc123', but you can (and should) use something more complex. The important thing is that the value you specify here must be the same value that you specify when configuring your VPN device.
