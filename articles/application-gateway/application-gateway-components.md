@@ -135,6 +135,8 @@ An application gateway can also communicate with to on-premises servers when the
 
 You can create different backend pools for different types of requests. For example, create one backend pool for general requests, and then another backend pool for requests to the microservices for your application.
 
+After you add VMSS as backend pool member, you need to upgrade VMSS instances. Until you upgrade VMSS instances, the backend will be unhealthy.
+
 ## Health probes
 
 By default, an application gateway monitors the health of all resources in its backend pool and automatically removes unhealthy ones. It then monitors unhealthy instances and adds them back to the healthy backend pool when they become available and respond to health probes.
