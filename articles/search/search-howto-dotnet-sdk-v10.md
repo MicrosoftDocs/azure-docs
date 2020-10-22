@@ -18,7 +18,7 @@ This article explains how to create and manage search objects using C# and the [
 
 If you have existing or inflight development projects, continue to use version 10. For new projects, or to use new features, you should transition an existing search solution to the new library.
 
-## What's in version 10
+## About version 10
 
 The SDK consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and synonym maps, as well as upload and manage documents, and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
 

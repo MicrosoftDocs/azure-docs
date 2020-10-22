@@ -320,11 +320,11 @@
       href: search-api-preview.md
     - name: Develop in .NET
       items:
-      - name: Use Azure.Search.Documents (v11)
+      - name: Use Azure.Search.Documents
         href: search-howto-dotnet-sdk.md
-      - name: Use Microsoft.Azure.Search (v10)
+      - name: Use Microsoft.Azure.Search
         href: search-howto-dotnet-sdk-v10.md
-      - name: Get started (v10)
+      - name: Legacy quickstart (Microsoft.Azure.Search)
         href: search-get-started-dotnet-v10.md
     - name: Upgrade the SDK
       items:

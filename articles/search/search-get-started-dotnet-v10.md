@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp
 
 This article is the C# quickstart for the legacy Microsoft.Azure.Search (version 10) client library, now superseded by the Azure.Search.Documents (version 11) client library. If you have existing search solutions that uses the Microsoft.Azure.Search libraries, you can use this quickstart to learn about those APIs. 
 
-For new solutions, we recommend the new [Azure.Search.Documents](/dotnet/api/overview/azure/search.documents-readme) client library. For an introduction, see [Quickstart: Create a search index using Azure.Search.Documents library](search-get-started-dotnet.md).
+For new solutions, we recommend the new [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library and this [C# Quickstart](search-get-started-dotnet.md).
 
 ## About this quickstart
 

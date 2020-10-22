@@ -18,7 +18,7 @@ This article explains how to create and manage search objects using C# and the [
 
 ## About version 11
 
-The SDK consists of a new client library from the Azure SDK team that is functionally equivalent to [Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10) client libraries, but implements common SDK-wide approaches where practical. Service connections and authentication are approached similarly as other Azure services.
+Azure SDK for .NET adds a new client library from the Azure SDK team that is functionally equivalent to [Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10) client libraries, but with common SDK-wide approaches where applicable. For example, service connections and authentication are handled the same as other client libraries in the SDK.
 
 As with previous versions, you can use this library to:
 
@@ -39,11 +39,11 @@ Azure.Search.Documents (version 11) targets version [`2020-06-30` of the Azure C
 
 This SDK does not support [service management operations](/rest/api/searchmanagement/), such as creating and scaling search services and managing API keys. If you need to manage your search resources from a .NET application, use the [Microsoft.Azure.Management.Search](/dotnet/api/overview/azure/search/management) library in the Azure SDK for .NET.
 
-## Migrating from a previous version
+## Upgrade from previous versoins
 
 If you have been using the previous version of the .NET SDK and you'd like to upgrade to the current generally available version, see [Upgrade to Azure Cognitive Search .NET SDK version 11](search-dotnet-sdk-migration-version-11.md)
 
-## Requirements for the SDK
+## SDK requirements
 
 1. Visual Studio 2019 or later.
 
@@ -53,13 +53,13 @@ If you have been using the previous version of the .NET SDK and you'd like to up
 
 The Azure SDK for .NET supports applications targeting the .NET Framework 4.5.2 and higher, as well as .NET Core 2.0 and higher.
 
-## Overview
+## Example application
 
-This article uses a code example and descriptions to introduce the primary workloads in Azure Cognitive Search: create, load, and query an index.
+This article "teaches by example", relying on the [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo/v11) code example on GitHub to illustrate fundamental operations in Azure Cognitive Search: create, load, and query an index.
 
-For the rest of this article, assume a new index named "hotels", populated with a few documents, with several queries that match on results. The source code for these examples can be found on GitHub at [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo/v11).
+For the rest of this article, assume a new index named "hotels", populated with a few documents, with several queries that match on results.
 
-Here is the main program, showing the overall flow:
+Below is the main program, showing the overall flow:
 
 ```csharp
 // This sample shows how to delete, create, upload documents and query an index
@@ -457,9 +457,6 @@ This time we use a query key since we do not need write access to the index. You
 
 
 ## Load an index
-
-
-
 
 <a name="how-dotnet-handles-documents"></a>
 
