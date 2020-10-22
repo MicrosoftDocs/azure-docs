@@ -278,7 +278,7 @@ No. Address spaces must not overlap to enable VNet Peering.
 There is no charge for creating a VNet peering connection. Data transfer across peering connections is charged. [See here](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### Is VNet peering traffic encrypted?
-When Vnet peering traffic moves between datacenters-- outside physical boundaries not controlled by (or on behalf of Microsoft-- [MACsec data-link layer encryption](https://docs.microsoft.com/en-us/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) is utilized on the underlying network hardware.
+When Vnet peering traffic moves between datacenters-- outside physical boundaries not controlled by (or on behalf of Microsoft-- [MACsec data-link layer encryption](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) is utilized on the underlying network hardware.
 
 ### Why is my peering connection in a *Disconnected* state?
 VNet peering connections go into *Disconnected* state when one VNet peering link is deleted. You must delete both links in order to reestablish a successful peering connection.
