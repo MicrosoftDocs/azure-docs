@@ -51,7 +51,7 @@ Once your function app is created, your visual studio will have auto populated c
 
 ## Write an Azure function with an Event Grid trigger
 
-You can write an Azure function by adding SDK to your function app. The function app interacts with Azure Digital Twins using the [Azure Digital Twins SDK for .NET (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
+You can write an Azure function by adding SDK to your function app. The function app interacts with Azure Digital Twins using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
 
 In order to use the SDK, you'll need to include the following packages into your project. You can either install the packages using visual studio NuGet package manager or add the packages using `dotnet` command-line tool. Choose either of these methods: 
 
@@ -187,9 +187,11 @@ You can set up security access for the Azure function app using one of these opt
 
 The Azure function skeleton from earlier examples requires that a bearer token to be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
 
-You can create system-managed identity and assign the function app's identity to the _Azure Digital Twins Data Owner_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
+You can create system-managed identity and assign the function app's identity to the _**Azure Digital Twins Data Owner**_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
 
- Use [Azure Cloud Shell](https://shell.azure.com) to run the commands.
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
+
+Use [Azure Cloud Shell](https://shell.azure.com) to run the commands.
 
 Use the following command to create the system-managed identity. Take note of the _principalId_ field in the output.
 
