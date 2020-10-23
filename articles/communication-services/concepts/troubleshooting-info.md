@@ -62,7 +62,46 @@ Log.d(call.getCallId())
 
 
 ## MS-CV
+If you need to log more details (i.e include the MS-CV header in the logs), the user can set up the clientOptions object instance accordingly and pass it to the ChatClient object in the constructor. 
 
+**Note:**
+The same applies for any of the Azure SDK clients (i.e Azure.Communication.Administration.CommunicationIdentityClient)
+
+``` [C#](#tab/csharp)
+//1. Import Azure.Core.Diagnostics
+using Azure.Core.Diagnostics;
+//2. Initialize an event source listener instance
+using var listener = AzureEventSourceListener.CreateConsoleLogger();
+
+Uri endpoint = new Uri("https://<RESOURCE-NAME>.communication.azure.net");
+var (token, communicationUser) = await GetCommunicationUserAndToken();
+
+CommunicationUserCredential communicationUserCredential = new CommunicationUserCredential(token);
+
+//3. Setup diagnostic settings
+var clientOptions = new ChatClientOptions()
+{
+    Diagnostics =
+    {
+        LoggedHeaderNames = { "*" },
+        LoggedQueryParameters = { "*" },
+        IsLoggingContentEnabled = true,
+    }
+};
+//4. Initialize the ChatClient instance with the clientOptions 
+ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential, clientOptions);
+ChatThreadClient chatThreadClient = await chatClient.CreateChatThreadAsync("Thread Topic - css presentation", new[] { new ChatThreadMember(communicationUser) });
+```
+
+``` [Python](#tab/python)
+from azure.communication.chat import ChatClient, CommunicationUserCredential
+endpoint = "https://communication-services-sdk-live-tests-for-python.communication.azure.com"
+chat_client = ChatClient(
+    endpoint,
+    CommunicationUserCredential(token),
+    http_logging_policy=your_logging_policy)
+```
+---
 
 ## Related information
 - [Logs and diagnostics](logging-and-diagnostics.md)
