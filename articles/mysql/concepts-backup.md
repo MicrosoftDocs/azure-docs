@@ -33,7 +33,7 @@ Transaction log backups occur every five minutes.
 The General purpose storage is the backend storage supporting [General Purpose](concepts-pricing-tiers.md) and [Memory Optimized tier](concepts-pricing-tiers.md) server. For servers with general purpose storage up to 4-TB, full backups occur once every week. Differential backups occur twice a day. Transaction log backups occur every five minutes.The backups on general purpose storage up to 4-TB storage are not snapshot based and consumes IO bandwidth at the time of backup. For large databases (> 1TB) on 4-TB storage, we recommend you consider 
 
 - Provisioning more IOPs to account for backup IOs  OR
-- Alternatively, migrate to general purpose storage that supports up to 16-TB storage if the underlying storage infastructure is available in your preferred [Azure regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). There is no additional cost for general purpose storage that supports up to 16-TB storage. For assistance with migration to 16-TB storage, please open a support ticket from Azure portal. 
+- Alternatively, migrate to general purpose storage that supports up to 16-TB storage if the underlying storage infrastructure is available in your preferred [Azure regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). There is no additional cost for general purpose storage that supports up to 16-TB storage. For assistance with migration to 16-TB storage, please open a support ticket from Azure portal. 
 
 #### General purpose storage servers with up to 16-TB storage
 In a subset of [Azure regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), all newly provisioned servers can support general purpose storage up to 16-TB storage. In other words, storage up to 16-TB storage is the default general purpose storage for all the [regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage) where it is supported. Backups on these 16-TB storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. 
@@ -50,12 +50,16 @@ The backup retention period governs how far back in time a point-in-time restore
 - Servers with up to 4-TB storage will retain up to 2 full database backups, all the differential backups, and transaction log backups performed since the earliest full database backup.
 -	Servers with up to 16-TB storage will retain the full database snapshot, all the differential snapshots and transaction log backups in last 8 days.
 
+#### Long term retention
+Long term retention of backups beyond 35 days is currently not natively supported by the service yet. You have a option to use mysqldump to take backups and store them for long term retention. Our support team has blogged a [step by step article](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) to share how you can achieve it. 
+
+
 ### Backup redundancy options
 
 Azure Database for MySQL provides the flexibility to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a [paired data center](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). This provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
 
-> [!IMPORTANT]
-> Configuring locally redundant or geo-redundant storage for backup is only allowed during server create. Once the server is provisioned, you cannot change the backup storage redundancy option.
+#### Moving from locally redundant to geo-redundant backup storage
+Configuring locally redundant or geo-redundant storage for backup is only allowed during server create. Once the server is provisioned, you cannot change the backup storage redundancy option. In order to move your backup storage from locally redundant storage to geo-redundant storage, creating a new server and migrating the data using [dump and restore](concepts-migrate-dump-restore.md) is the only supported option.
 
 ### Backup storage cost
 

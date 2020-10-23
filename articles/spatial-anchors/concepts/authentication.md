@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 ---
 # Authentication and authorization to Azure Spatial Anchors
 
-In this article, you'll learn the various ways you can authenticate to Azure Spatial Anchors from your app or web service. You'll also learn about the ways you can use role-based access control in Azure Active Directory (Azure AD) to control access to your Spatial Anchors accounts.
+In this article, you'll learn the various ways you can authenticate to Azure Spatial Anchors from your app or web service. You'll also learn about the ways you can use Azure role-based access control (Azure RBAC) in Azure Active Directory (Azure AD) to control access to your Spatial Anchors accounts.
 
 ## Overview
 
@@ -103,7 +103,7 @@ For applications that target Azure Active Directory users, we recommend that you
    1.    Go to your Spatial Anchors resource in the Azure portal.
    2.    Go to the **Access control (IAM)** tab.
    3.    Select **Add role assignment**.
-   1.    [Select a role](#role-based-access-control).
+   1.    [Select a role](#azure-role-based-access-control).
    2.    In the **Select** box, enter the names of the users, groups, and/or applications to which you want to assign access.
    3.    Select **Save**.
 
@@ -177,7 +177,7 @@ The Azure AD access token is retrieved via the [MSAL](../../active-directory/dev
         1.    Go to your Spatial Anchors resource in the Azure portal.
         2.    Go to the **Access control (IAM)** tab.
         3.    Select **Add role assignment**.
-        1.    [Select a role](#role-based-access-control).
+        1.    [Select a role](#azure-role-based-access-control).
         2.    In the **Select** box, enter the name or names of the applications to which you want to assign access. If you want your app's users to have different roles against the Spatial Anchors account, register multiple applications in Azure AD and assign a separate role to each one. Then implement your authorization logic to use the right role for your users.
         
               > [!NOTE] 
@@ -257,7 +257,7 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 ---
 
-## Role-based access control
+## Azure role-based access control
 
 To help you control the level of access granted to applications, services, or Azure AD users of your service, you can assign these pre-existing roles as needed against your Azure Spatial Anchors accounts:
 
