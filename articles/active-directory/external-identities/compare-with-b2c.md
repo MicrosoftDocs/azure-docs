@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 10/08/2020
+ms.date: 10/23/2020
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
@@ -19,30 +19,30 @@ ms.collection: M365-identity-device-management
 
 # What are External Identities in Azure Active Directory?
 
-With External Identities in Azure AD, you can allow people outside your organization to access your apps and resources, while letting them sign in using whatever identity they prefer. Your partners, distributors, suppliers, vendors, and other guest users can "bring their own identities." Whether they're part of Azure AD or another IT-managed system, or have an unmanaged social identity like Google or Facebook, they can use their own credentials to sign in. The identity provider manages the external user’s identity, and you manage access to your apps with Azure AD to keep your resources protected. 
+With External Identities in Azure AD, you can allow people outside your organization to access your apps and resources, while letting them sign in using whatever identity they prefer. Your partners, distributors, suppliers, vendors, and other guest users can "bring their own identities." Whether they have a corporate or government-issued digital identity, or an unmanaged social identity like Google or Facebook, they can use their own credentials to sign in. The external user’s identity provider manages their identity, and you manage access to your apps with Azure AD to keep your resources protected.
 
 ## External Identities scenarios
 
-Azure AD External Identities focuses less on a user's relationship to your organization and more on how the user wants to sign in to your apps and resources. Within this framework, Azure AD supports a variety of scenarios from business-to-business (B2B) collaboration to app development for customers and consumers (business-to-consumer, or B2C).
+Azure AD External Identities focuses less on a user's relationship to your organization and more on how the user wants to sign in to your apps and resources. Within this framework, Azure AD supports a variety of scenarios from business-to-business (B2B) collaboration to access management for consumer/customer- or citizen-facing applications (business-to-customer, or B2C).
 
 - **Share your apps and resources with external users (B2B collaboration)**. Invite external users into your own tenant as "guest" users that you can assign permissions to (for authorization) while letting them use their existing credentials (for authentication). Users sign in to the shared resources using a simple invitation and redemption process with their work, school, or other email account. And now with the availability of [self-service sign-up user flows (preview)](self-service-sign-up-overview.md), you can allow external users to sign up for applications themselves. The experience can be customized to allow sign-up with a work, school, or social identity (like Google or Facebook). You can also collect information about the user during the sign-up process. For more information, see the [Azure AD B2B documentation](index.yml).
 
-- **Develop white-labeled apps for consumers and customers (Azure AD B2C)**. If you're a business or developer creating customer-facing apps, you can scale to consumers, customers, or citizens by using an Azure AD B2C. Developers can use Azure AD as the full-featured identity system for their application. Customers can sign in with an identity they already have established (like Facebook or Gmail). With Azure AD B2C, you can completely customize and control how customers sign up, sign in, and manage their profiles when using your applications. For more information, see the [Azure AD B2C documentation](../../active-directory-b2c/index.yml).
+- **Build user journeys with a white-label identity management solution for consumer- and customer-facing apps (Azure AD B2C)**. If you're a business or developer creating customer-facing apps, you can scale to millions of consumers, customers, or citizens by using Azure AD B2C. Developers can use Azure AD as the full-featured Customer Identity and Access Management (CIAM) system for their applications. Customers can sign in with an identity they already have established (like Facebook or Gmail). With Azure AD B2C, you can completely customize and control how customers sign up, sign in, and manage their profiles when using your applications. For more information, see the [Azure AD B2C documentation](../../active-directory-b2c/index.yml).
 
 ## Compare External Identities solutions
 
 The following table gives a detailed comparison of the scenarios you can enable with Azure AD External Identities.
 
-|   | External user collaboration (B2B) | Apps for consumers or customers (B2C)  |
+|   | External user collaboration (B2B) | Access to consumer/customer-facing apps (B2C)  |
 | ---- | --- | --- |
-| **Primary scenario** | Collaboration using Microsoft applications (Microsoft 365, Teams, etc.) or your own collaboration software.  | Transactional applications using custom developed applications.   |
-| **Intended for**    | Organizations that want to be able to authenticate users from a partner organization, regardless of identity provider.    | Inviting customers of your mobile and web apps, whether individuals, institutional or organizational customers into an Azure AD directory separate from your own organization's directory. |
-| **Identities supported** | Employees with work or school accounts, partners with work or school accounts, or any email address. Soon to support direct federation.      | Consumer users with local application accounts (any email address or user name) or any supported social identity with direct federation.       |
-| **External user management**   | External users are managed in the same directory as employees, but annotated specially. They can be managed the same way as employees, they can be added to the same groups, and so on.    | External users are managed in the application directory. They're managed separately from the organization's employee and partner directory (if any).  |
+| **Primary scenario** | Collaboration using Microsoft applications (Microsoft 365, Teams, etc.) or your own collaboration software.  | Identity and access management for modern SaaS or custom-developed applications (not first-party Microsoft apps).   |
+| **Intended for**    | Organizations that want to be able to authenticate users from a partner external organization, regardless of identity provider.    | Providing customers (individual, instutional, or organizational customers) with sign-up and sign-in to your mobile and web apps. Customers are managed in a separate Azure AD directory from your own organization's directory. |
+| **Identities supported** | Employees with work or school accounts, partners with work or school accounts, or any email address. Gmail and Facebook are supported; soon to support direct federation.      | Consumer users with local application accounts (any email address or user name), various supported social identities, and users with corporate and government-issued identities via direct federation.       |
+| **External user management**   | External users are managed in the same directory as employees, but are annotated specially as guest users. They can be managed the same way as employees, they can be added to the same groups, and so on.    | External users are managed in the Azure AD B2C directory. They're managed separately from the organization's employee and partner directory (if any).  |
 | **Single sign-on (SSO)**      | SSO to all Azure AD-connected apps is supported. For example, you can provide access to Microsoft 365 or on-premises apps, and to other SaaS apps such as Salesforce or Workday.    | SSO to customer owned apps within the Azure AD B2C tenants is supported. SSO to Microsoft 365 or to other Microsoft SaaS apps isn't supported.    |
 | **External user lifecycle**    | Partner lifecycle: Managed by the host/inviting organization.    | Customer lifecycle: Self-serve or managed by the application.      |
-| **Security policy and compliance**        | Managed by the host/inviting organization (for example, with [Conditional Access policies](conditional-access.md)). | Managed by the application.        |
-| **Branding**  | Host/inviting organization's brand is used.    | Managed by application. Typically tends to be product branded, with the organization fading into the background.   |
+| **Security policy and compliance**        | Managed by the host/inviting organization (for example, with [Conditional Access policies](conditional-access.md)). | Managed by the organization via Conditional Access and Identity Protection.        |
+| **Branding**  | Host/inviting organization's brand is used.    | Fully customizable branding per application or organization.   |
 |  **Billing model**  |  Pricing is based on monthly active users (MAU). See [External Identities pricing](external-identities-pricing.md).  |  Pricing is based on monthly active users (MAU). See [Azure AD B2C billing model](../../active-directory-b2c/billing.md)  |
 | **More information** | [Blog post](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [Documentation](what-is-b2b.md)                   | [Product page](https://azure.microsoft.com/services/active-directory-b2c/), [Documentation](../../active-directory-b2c/index.yml)       |
 
