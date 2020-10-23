@@ -80,7 +80,7 @@ Azure Arc extends Azure management to any infrastructure, including Azure VMware
 
 ### Onboard hybrid Kubernetes clusters with Arc enabled Kubernetes
 
-You can attach a Kubernetes cluster hosted in your Azure VMWare Solution environment using Azure Arc enabled Kubernetes. 
+You can attach a Kubernetes cluster hosted in your Azure VMware Solution environment using Azure Arc enabled Kubernetes. 
 
 - See [Create an Azure Arc-enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
 
