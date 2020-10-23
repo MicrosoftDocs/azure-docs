@@ -56,7 +56,7 @@ In this section, you'll create a virtual network and subnet.
     |------------------|-----------------------------------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **myResourceGroupLB** |
+    | Resource Group   | Select **CreateIntLBQS-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
     | Region           | Select **West Europe** |
@@ -104,7 +104,7 @@ In this section, you'll create a virtual network and subnet.
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **myResourceGroupLB** created in the previous step.|
+    | Resource group         | Select **CreateIntLBQS-rg** created in the previous step.|
     | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Internal**.                                        |
@@ -220,7 +220,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroupLB** |
+    | Resource Group | Select **CreateIntLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
     | Region | Select **West Europe** |
@@ -291,7 +291,7 @@ In this section, you'll create a virtual network and subnet.
     |------------------|-----------------------------------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **myResourceGroupLB** |
+    | Resource Group   | Select **CreateIntLBQS-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
     | Region           | Select **West Europe** |
@@ -339,7 +339,7 @@ In this section, you'll create a virtual network and subnet.
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **myResourceGroupLB** created in the previous step.|
+    | Resource group         | Select **CreateIntLBQS-rg** created in the previous step.|
     | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Internal**.                                        |
@@ -460,7 +460,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroupLB** |
+    | Resource Group | Select **CreateIntLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
     | Region | Select **West Europe** |
@@ -532,7 +532,7 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroupLB** |
+    | Resource Group | Select **CreateIntLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myTestVM** |
     | Region | Select **West Europe** |
@@ -564,7 +564,7 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
 
 ## Install IIS
 
-1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **myResourceGroupLB** resource group.
+1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **CreateIntLBQS-rg** resource group.
 
 2. On the **Overview** page, select **Connect**, then **Bastion**.
 
@@ -602,7 +602,7 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
 
 2. Make note or copy the address next to **Private IP Address** in the **Overview** of **myLoadBalancer**.
 
-3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myTestVM** that is located in the **myResourceGroupLB** resource group.
+3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myTestVM** that is located in the **CreateIntLBQS-rg** resource group.
 
 4. On the **Overview** page, select **Connect**, then **Bastion**.
 
@@ -618,7 +618,7 @@ To see the load balancer distribute traffic across both VMs, you can customize t
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group **myResourceGroupLB** that contains the resources and then select **Delete**.
+When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group **CreateIntLBQS-rg** that contains the resources and then select **Delete**.
 
 ## Next steps
 
