@@ -39,6 +39,9 @@ You can connect to a VM that is deployed to your VNet by creating a Remote Deskt
 If you are having trouble connecting to a virtual machine over your VPN connection, check the following:
 
 * Verify that your VPN connection is successful.
+
 * Verify that you are connecting to the private IP address for the VM.
+
 * If you can connect to the VM using the private IP address, but not the computer name, verify that you have configured DNS properly. For more information about how name resolution works for VMs, see [Name Resolution for VMs](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+
 * For more information about RDP connections, see [Troubleshoot Remote Desktop connections to a VM](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md).
