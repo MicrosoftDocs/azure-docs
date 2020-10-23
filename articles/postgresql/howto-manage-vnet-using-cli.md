@@ -35,9 +35,6 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 ## Configure Vnet service endpoints for Azure Database for PostgreSQL
 The [az network vnet](/cli/azure/network/vnet) commands are used to configure Virtual Networks.
 
-<<<<<<< HEAD
-If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set) command. Substitute the **id** property from the **az login** output for your subscription into the subscription id placeholder.
-=======
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
@@ -50,7 +47,6 @@ az login
 ```
 
 If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account#az-account-set) command. Substitute the **id** property from the **az login** output for your subscription into the subscription id placeholder.
->>>>>>> 626344842e142966a1a4c416ba7bc9c698159dcb
 
 - The account must have the necessary permissions to create a virtual network and service endpoint.
 
