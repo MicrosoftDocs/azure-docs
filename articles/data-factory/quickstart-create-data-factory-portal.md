@@ -91,7 +91,7 @@ In this procedure, you create a linked service to link your Azure Storage accoun
 
    d. Select **Create** to save the linked service. 
 
-      ![New linked service](./media/quickstart-create-data-factory-portal/linked-service.png)
+      ![Linked service](./media/quickstart-create-data-factory-portal/linked-service.png)
 
 
 ## Create datasets

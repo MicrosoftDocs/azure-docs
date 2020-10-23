@@ -147,7 +147,7 @@ You may also send NSG flow logs to a Log Analytics workspace and use Traffic Ana
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](../governance/policy/samples/index.md#network)
+* [Azure Policy samples for networking](../governance/policy/samples/index.md) 
 
 * [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -199,7 +199,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM).You can also integrate Azure Data Factory with Git to leverage several source control benefits, such as the ability to track/audit changes and the ability to revert changes that introduce bugs.
 
-* [How to configure diagnostic settings](../azure-monitor/platform/diagnostic-settings.md#create-diagnostic-settings-in-azure-portal)
+* [How to configure diagnostic settings](../azure-monitor/platform/diagnostic-settings.md)
 
 * [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -243,7 +243,7 @@ If your organization would like to retain the security event log data, it can be
 
 **Guidance**: Enable diagnostic settings for Azure Data Factory. If choosing to store logs in a Log Analytics Workspace, set your Log Analytics Workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-* [How to enable diagnostic logs in Azure Data Factory](./monitor-using-azure-monitor.md#set-up-diagnostic-logs)
+* [How to enable diagnostic logs in Azure Data Factory](./monitor-using-azure-monitor.md)
 
 * [How to set log retention parameters for Log Analytics Workspaces](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -450,7 +450,7 @@ If you are running your Integration Runtime (IR) on an Azure Virtual Machine, yo
 
 * [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
-* [Copy and transform data in Azure SQL Database by using Azure Data Factory](./connector-azure-sql-database.md#using-service-principal-authentication)
+* [Copy and transform data in Azure SQL Database by using Azure Data Factory](./connector-azure-sql-database.md)
 
 * [How to configure and manage Azure Active Directory authentication with Azure SQL Database](../azure-sql/database/authentication-aad-configure.md)
 
@@ -1172,7 +1172,7 @@ For any of your data stores, refer to that service's security baseline for guida
 
 **Guidance**: If you are running your Integration Runtime in an Azure Virtual Machine (VM) and you back that VM up with Azure Backup, your VM is encrypted at rest with Storage Service Encryption (SSE). Azure Backup can also back up Azure VMs that are encrypted by using Azure Disk Encryption. Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.
 
-* [Soft delete for VMs](../backup/backup-azure-security-feature-cloud.md#soft-delete)
+* [Soft delete for VMs](../backup/backup-azure-security-feature-cloud.md)
 
 * [Azure Key Vault soft-delete overview](../key-vault/general/soft-delete-overview.md)
 
