@@ -20,8 +20,11 @@ This topic will walk you through how to set up MSIX app attach (preview) in a Wi
 
 Before you get started, here's what you need to configure MSIX app attach:
 
+- A functioning Windows Virtual Desktop deployment. To learn how to deploy Windows Virtual Desktop (classic), see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Windows Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
 - A Windows Virtual Desktop host pool with at least one active session host.
+- The MSIX packaging tool.
 - An MSIX-packaged application expanded into an MSIX image that's uploaded into a file share.
+- A file share in your Windows Virtual Desktop deployment where the MSIX package will be stored.
 - The file share where you uploaded the MSIX image must also be accessible to all virtual machines (VMs) in the host pool. Users will need read-only permissions to access the image.
 
 ## Configure the side load Azure portal extension
@@ -103,6 +106,46 @@ share. (For example, `\\storageaccount.file.core.windows.net\msixshare\appfolder
     -  The **Inactive** status causes Windows Virtual Desktop to ignore the package and not deliver it to users.
 
 1. When you're done, select **Save**.
+
+## Prepare the VHD image for Azure
+
+Next, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there.
+
+After you've created your master VHD image, you must disable automatic updates for MSIX app attach applications. To disable automatic updates, you'll need to run the following commands in an elevated command prompt:
+
+```cmd
+rem Disable Store auto update:
+
+reg add HKLM\Software\Policies\Microsoft\WindowsStore /v AutoDownload /t REG_DWORD /d 0 /f
+Schtasks /Change /Tn "\Microsoft\Windows\WindowsUpdate\Automatic app update" /Disable
+Schtasks /Change /Tn "\Microsoft\Windows\WindowsUpdate\Scheduled Start" /Disable
+
+rem Disable Content Delivery auto download apps that they want to promote to users:
+
+reg add HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v PreInstalledAppsEnabled /t REG_DWORD /d 0 /f
+
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Debug /v ContentDeliveryAllowedOverride /t REG_DWORD /d 0x2 /f
+
+rem Disable Windows Update:
+
+sc config wuauserv start=disabled
+```
+
+After you've disabled automatic updates, you must enable Hyper-V because you'll be using the Mount-VHD command to stage and and Dismount-VHD to destage.
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
+>[!NOTE]
+>This change will require that you restart the virtual machine.
+
+Next, prepare the VM VHD for Azure and upload the resulting VHD disk to Azure. To learn more, see [Prepare and customize a master VHD image](set-up-customize-master-image.md).
+
+Once you've uploaded the VHD to Azure, create a host pool that's based on this new image by following the instructions in the [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) tutorial.
+
+## Prepare the application for MSIX app attach
+
+If you already have an MSIX package, skip ahead to [Publish MSIX apps to an app group](#publish-msix-apps-to-an-app-group). If you want to test legacy applications, follow the instructions in [Create an MSIX package from a desktop installer on a VM](/windows/msix/packaging-tool/create-app-package-msi-vm/) to convert the legacy application to an MSIX package.
 
 ## Publish MSIX apps to an app group
 
