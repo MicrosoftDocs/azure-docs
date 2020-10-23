@@ -13,3 +13,5 @@ ms.author: baanders
 Full setup for a new Azure Digital Twins instance consists of two parts:
 1. **Creating the instance**
 2. **Setting up user access permissions**: Azure users need to have the *Azure Digital Twins Data Owner* role on the Azure Digital Twins instance to be able to manage it and its data. In this step, you as an Owner/administrator of the Azure subscription will assign this role to the person who will be managing your Azure Digital Twins instance. This may be yourself or someone else in your organization.
+
+[!INCLUDE [digital-twins-role-rename-note.md](digital-twins-role-rename-note.md)]
