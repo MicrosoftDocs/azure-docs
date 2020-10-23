@@ -162,7 +162,7 @@ This application can be run within your web browser. A successful response is re
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [REST API reference](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [REST API reference](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 To see how the Ink Recognition API works in a digital inking app, take a look at the following sample applications on GitHub:
 * [C# and Universal Windows Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
