@@ -42,7 +42,7 @@ from azureml.core import Workspace
 ```
 Set `create_resource_group` to False if you have an existing Azure resource group that you want to use for the workspace.
 
-You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure Portal or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights and container registry already exist.
+You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure portal or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights and container registry already exist.
 
 ```python
 import os
