@@ -35,7 +35,9 @@ The Live Event can be in one of the following states.
 |State|Description|
 |---|---|
 |**Stopped**| This is the initial state of the Live Event after creation (unless autostart was set to true.) No billing occurs in this state. In this state, the Live Event properties can be updated but streaming is not allowed.|
-|**Starting**| The Live Event is being started and resources are being allocated. No billing occurs in this state. Updates or streaming are not allowed during this state. If an error occurs, the Live Event returns to the Stopped state.|
+|**Starting**| The Live Event is being started and resources getting allocated. No billing occurs in this state. Updates or streaming are not allowed during this state. If an error occurs, the Live Event returns to the Stopped state.|
+| **Allocating** | The allocate action was called on the live event and resources are being provisioned for this live event. Once this operation is done successfully, the live event will transition to StandBy state.
+|**Standby**| Live event resources have been provisioned and is ready to start. Billing occurs in this state.  Most properties can still be updated, however ingest or streaming is not allowed during this state.
 |**Running**| The Live Event resources have been allocated, ingest and preview URLs have been generated, and it is capable of receiving live streams. At this point, billing is active. You must explicitly call Stop on the Live Event resource to halt further billing.|
 |**Stopping**| The Live Event is being stopped and resources are being de-provisioned. No billing occurs in this transient state. Updates or streaming are not allowed during this state.|
 |**Deleting**| The Live Event is being deleted. No billing occurs in this transient state. Updates or streaming are not allowed during this state.|

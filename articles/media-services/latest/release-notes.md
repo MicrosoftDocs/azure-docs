@@ -44,6 +44,16 @@ Customers using Indexer v1 and Indexer v2 should migrate to the Basic Audio Anal
 
 For more information about the Basic Audio Analyzer mode, see [Analyzing Video and Audio files](analyzing-video-audio-files-concept.md).  To learn to use the Basic Audio Analyzer mode with the REST API, see [How to Create a Basic Audio Transform](how-to-create-basic-audio-transform.md).
 
+## Live Events
+`vanityUrl` is now `useStaticHostName` and `hostnamePrefix` is should be set when `useStaticHostName` is set to true.
+Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in StandBy state. When `useStaticHostname` is set to true, the `hostnamePrefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
+
+Live events now have a Standby mode.  See [Live Events and Live Outputs in Media Services](https://docs.microsoft.com/en-us/azure/media-services/latest/live-events-outputs-concept).
+
+A live event output now has Stretch Mode which includes None, AutoSize, and AutoFit.
+
+To reduce latency on pass-through events, the key frame interval can be set to a non-integer range of 0.5 to 20 seconds.
+
 ## August 2020
 
 ### Dynamic Encryption

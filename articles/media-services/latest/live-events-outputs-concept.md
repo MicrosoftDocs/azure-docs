@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: inhenkel
 
 ---
@@ -71,16 +71,28 @@ The resolutions and bitrates contained in the output from the live encoder is de
 
 When creating a Live Event, you can specify the following options:
 
-* The streaming protocol for the Live Event (currently, the RTMP and Smooth Streaming protocols are supported).<br/>You can't change the protocol option while the Live Event or its associated Live Outputs are running. If you require different protocols, create a separate Live Event for each streaming protocol.  
-* When creating the event, you can specify to autostart it. <br/>When autostart is set to true, the Live Event will be started after creation. The billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. Alternatively, you can start the event when you're ready to start streaming.
+* You can give the live event a name and a description.
+* Cloud encoding includes Pass-through - no cloud encoding, Standard (up to 720p), or Premium (up to 1080p). For Standard and Premium encoding, you can choose the stretch mode of the encoded video.
+  * None: Strictly respects the output resolution specified in the encoding preset without considering the pixel aspect ratio or display aspect ratio of the input video.
+  * AutoSize:  Overrides the output resolution and changes it to match the display aspect ratio of the input, without padding. For example, if the input is 1920x1080 and the encoding preset asks for 1280x1280, then the value in the preset is overridden, and the output will be at 1280x720, which maintains the input aspect ratio of 16:9
+  * AutoFit: Pads the output (with either letterbox or pillar box) to honor the output resolution, while ensuring that the active video region in the output has the same aspect ratio as the input. For example, if the input is 1920x1080 and the encoding preset asks for 1280x1280, then the output will be at 1280x1280, which contains an inner rectangle of 1280x720 at aspect ratio of 16:9, with pillar box regions 280 pixels wide at the left and right.
+* Streaming protocol (currently, the RTMP and Smooth Streaming protocols are supported).<br/>You can't change the protocol option while the Live Event or its associated Live Outputs are running. If you require different protocols, create a separate Live Event for each streaming protocol.
+* Input ID which is a unique identifier for the input.
+* Status hostname prefix which includes none (in which case a random 128 bit hex string will be used), Use live event name, or Use custom name.  When you choose to use a customer name this value is the Custom hostname prefix.
+* You can reduce end to end latency between the live broadcast and the playback by setting the input key frame interval which is the duration (in seconds) of each media segment in the HLS output. The value should be a non-zero integer in the range of 0.5 to 20 seconds.  The value defaults to 2 seconds if *neither* of the input or output key frame intervals are set. The key frame interval is only allowed on pass-through events.
+* When creating the event, you can set it to autostart. <br/>When autostart is set to true, the Live Event will be started after creation. The billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. Alternatively, you can start the event when you're ready to start streaming.
 
-    For more information, see [Live Event states and billing](live-event-states-billing.md).
+## Standby mode
+
+When you create a live event, you can set it to Standby mode. While the event is in Standby mode, you can edit the Description, the Static hostname prefix and restrict input and preview access settings.  Standby mode is still a billable mode, but is priced differently than when you start a live stream.
+
+For more information, see [Live Event states and billing](live-event-states-billing.md).
 
 * IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this Live Event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').<br/>If no IP addresses are specified and there's no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.<br/>The IP addresses have to be in one of the following formats: IpV4 address with four numbers or CIDR address range.
 
     If you want to enable certain IPs on your own firewalls or want to constrain inputs to your live events to Azure IP addresses, download a JSON file from [Azure Datacenter IP address ranges](https://www.microsoft.com/download/details.aspx?id=41653). For details about this file, select the **Details** section on the page.
     
-* When creating the event, you can choose to turn on Live Transcriptions. <br/> By default, live transcription is disabled. You can't change this property while the Live Event or its associated Live Outputs are running. 
+* When creating the event, you can choose to turn on Live Transcriptions. <br/> By default, live transcription is disabled. For more information about live transcription read [Live transcription](live-transcription.md).
 
 ### Naming rules
 
@@ -95,6 +107,9 @@ Also see [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#
 ## Live Event ingest URLs
 
 Once the Live Event is created, you can get ingest URLs that you'll provide to the live on-premises encoder. The live encoder uses these URLs to input a live stream. For more information, see [Recommended on-premises live encoders](recommended-on-premises-live-encoders.md).
+
+>[!NOTE]
+> As of 2020-05-01, vanity URLs are known as Static Host Names
 
 You can either use non-vanity URLs or vanity URLs.
 
@@ -112,9 +127,11 @@ You can either use non-vanity URLs or vanity URLs.
     Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to reconfigure their encoders when they start the Live Event. These broadcasters want a predictive ingest URL which doesn't change over time.
     
     > [!NOTE]
-    > In the Azure portal, the vanity URL is named "*Persistent input URL*".
+    > In the Azure portal, the vanity URL is named "*Static hostname prefix*".
 
-    To specify this mode in the API, set `vanityUrl` to `true` at creation time (default is `false`). You also need to pass your own access token (`LiveEventInput.accessToken`) at creation time. You specify the token value to avoid a random token in the URL. The access token has to be a valid GUID string (with or without the hyphens). Once the mode is set, it can't be updated.
+    To specify this mode in the API, set `useStaticHostName` to `true` at creation time (default is `false`). When `useStaticHostname` is set to true, the `hostnamePrefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
+
+    You also need to pass your own access token (`LiveEventInput.accessToken`) at creation time. You specify the token value to avoid a random token in the URL. The access token has to be a valid GUID string (with or without the hyphens). Once the mode is set, it can't be updated.
 
     The access token needs to be unique in your data center. If your app needs to use a vanity URL, it's recommended to always create a new GUID instance for your access token (instead of reusing any existing GUID).
 
@@ -147,6 +164,8 @@ You can either use non-vanity URLs or vanity URLs.
 `https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
 #### Vanity URL
+
+In the following paths, `<live-event-name>` means either the name given to the event or the custom name used in the creation of the live event.
 
 ##### RTMP
 
