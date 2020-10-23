@@ -39,12 +39,12 @@ In this article you learn how to enable the following workspaces resources in a 
 
 + An existing virtual network and subnet to use with your compute resources.
 
-+ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access controls (RBAC):
++ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access control (Azure RBAC):
 
     - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 
-    For more information on RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking)
+    For more information on Azure RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking)
 
 
 ## Secure the workspace with private endpoint
@@ -277,6 +277,13 @@ Once those requirements are fulfilled, use the following steps to enable Azure C
     ]
     }
     ```
+
+    This template creates a _private endpoint_ for network access from the workspace to your ACR. The screenshot below shows an example of this private endpoint.
+
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="ACR private endpoint settings":::
+
+    > [!IMPORTANT]
+    > Do not delete this endpoint! If you accidentally delete it, you can re-apply the template in this step to create a new one.
 
 ## Next steps
 
