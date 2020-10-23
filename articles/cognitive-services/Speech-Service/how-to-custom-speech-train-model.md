@@ -28,7 +28,7 @@ If you're encountering recognition issues with a base model, using human-labeled
 
 ## Train and evaluate a model
 
-The first step to train a model is to upload training data. Use [Prepare and test your data](how-to-custom-speech-test-data.md) for step-by-step instructions to prepare human-labeled transcriptions and related text (utterances and pronunciations). After you've uploaded training data, follow these instructions to start training your model:
+The first step to train a model is to upload training data. Use [Prepare and test your data](./how-to-custom-speech-test-and-train.md) for step-by-step instructions to prepare human-labeled transcriptions and related text (utterances and pronunciations). After you've uploaded training data, follow these instructions to start training your model:
 
 1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech).
 2. Navigate to **Speech-to-text > Custom Speech > [name of project] > Training**.
@@ -72,6 +72,6 @@ Logging data is available for download under **Endpoint > Details**.
 
 ## Additional resources
 
-- [Prepare and test your data](how-to-custom-speech-test-data.md)
+- [Prepare and test your data](./how-to-custom-speech-test-and-train.md)
 - [Inspect your data](how-to-custom-speech-inspect-data.md)
 - [Evaluate your data](how-to-custom-speech-evaluate-data.md)

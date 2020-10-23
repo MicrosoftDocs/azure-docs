@@ -29,7 +29,7 @@ You must have completed the steps in the following articles:
 
 ## Language generation templates overview
 
-Custom Commands templates are based on the BotFramework's [LG templates](https://aka.ms/speech/cc-lg-format). Since Custom Commands creates a new LG template when required (that is, for speech responses in parameters or actions) you do not have to specify the name of the LG template. So, instead of defining your template as:
+Custom Commands templates are based on the BotFramework's [LG templates](/azure/bot-service/file-format/bot-builder-lg-file-format#templates). Since Custom Commands creates a new LG template when required (that is, for speech responses in parameters or actions) you do not have to specify the name of the LG template. So, instead of defining your template as:
 
  ```
     # CompletionAction
@@ -46,7 +46,7 @@ You only need to define the body of the template without the name, as follows.
 
 This change introduces variation to the speech responses being sent to the client. So, for the same utterance, the corresponding speech response would be randomly picked out of the options provided.
 
-Taking advantage of LG templates also allows you to define complex speech responses for commands using adaptive expressions. You can refer to the [LG templates format](https://aka.ms/speech/cc-lg-format) for more details. Custom Commands by default supports all the capabilities with the following minor differences:
+Taking advantage of LG templates also allows you to define complex speech responses for commands using adaptive expressions. You can refer to the [LG templates format](/azure/bot-service/file-format/bot-builder-lg-file-format#templates) for more details. Custom Commands by default supports all the capabilities with the following minor differences:
 
 * In the LG templates entities are represented as ${entityName}. In Custom Commands we don't use entities but parameters can be used as variables with either one of these representations ${parameterName} or {parameterName}
 * Template composition and expansion are not supported in Custom Commands. This is because you never edit the `.lg` file directly, but only the responses of automatically created templates.
@@ -105,7 +105,7 @@ Another way to customize Custom Commands responses is to select a custom output 
 > ![Sample Sentences with parameters](media/custom-commands/select-custom-voice.png)
 
 > [!NOTE]
-> - For **Public voices**, **Neural types** are only available for specific regions. To check availability, see [standard and neural voices by region/endpoint](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
+> - For **Public voices**, **Neural types** are only available for specific regions. To check availability, see [standard and neural voices by region/endpoint](./regions.md#standard-and-neural-voices).
 > - For **Custom voices**, they can be created from the Custom Voice project page. See [Get Started with Custom Voice](./how-to-custom-voice.md).
 
 Now the application will respond in the selected voice, instead of the default voice.

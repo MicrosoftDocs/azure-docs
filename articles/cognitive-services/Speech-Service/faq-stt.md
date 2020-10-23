@@ -14,7 +14,7 @@ ms.author: panosper
 
 # Speech to Text frequently asked questions
 
-If you can't find answers to your questions in this FAQ, check out [other support options](support.md).
+If you can't find answers to your questions in this FAQ, check out [other support options](../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
 
 ## General
 
@@ -24,7 +24,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: Where do I start if I want to use a baseline model?**
 
-**A**: First, get a [subscription key](overview.md#try-the-speech-service-for-free). If you want to make REST calls to the predeployed baseline models, see the [REST APIs](rest-apis.md). If you want to use WebSockets, [download the SDK](speech-sdk.md).
+**A**: First, get a [subscription key](overview.md#try-the-speech-service-for-free). If you want to make REST calls to the predeployed baseline models, see the [REST APIs](./overview.md#reference-docs). If you want to use WebSockets, [download the SDK](speech-sdk.md).
 
 **Q: Do I always need to build a custom speech model?**
 

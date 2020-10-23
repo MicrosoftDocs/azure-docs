@@ -14,9 +14,9 @@ ms.author: wellsi
 
 # How to configure a Microphone Array
 
-In this article, you learn how to configure a [microphone array](https://aka.ms/sdsdk-microphone). It includes setting the working angle, and how to select which microphone is used for the Speech Devices SDK.
+In this article, you learn how to configure a [microphone array](./speech-devices-sdk-microphone.md). It includes setting the working angle, and how to select which microphone is used for the Speech Devices SDK.
 
-The Speech Devices SDK works best with a microphone array that has been designed according to [our guidelines](https://aka.ms/sdsdk-microphone). The microphone array configuration can be provided by the Operating System or supplied through one of the following methods.
+The Speech Devices SDK works best with a microphone array that has been designed according to [our guidelines](./speech-devices-sdk-microphone.md). The microphone array configuration can be provided by the Operating System or supplied through one of the following methods.
 
 The Speech Devices SDK initially supported microphone arrays by selecting from a fixed set of configurations.
 
@@ -44,7 +44,7 @@ If a microphone array is specified using `AudioConfig::FromMicrophoneInput`, the
 The Microsoft Audio Stack in the Speech Devices SDK only supports downsampling for sample rates that are integral multiples of 16 KHz. Additionally the following formats are supported: 32-bit IEEE little endian float, 32-bit little endian signed int, 24-bit little endian signed int, 16-bit little endian signed int, and 8-bit signed int.
 
 ## Android
-Currently only [Roobo v1](speech-devices-sdk-android-quickstart.md) is supported by the Speech Devices SDK. Behavior is same as previous releases, except now `MicArrayGeometryConfigFile` property can be used to specify JSON file containing beamforming range.
+Currently only [Roobo v1](./speech-devices-sdk-quickstart.md?pivots=platform-android%253fpivots%253dplatform-android) is supported by the Speech Devices SDK. Behavior is same as previous releases, except now `MicArrayGeometryConfigFile` property can be used to specify JSON file containing beamforming range.
 
 ## Microphone Array Configuration JSON
 
