@@ -56,7 +56,7 @@ To perform the steps described in this article, you must have:
     > Only the **Gateway** endpoint is available for configuration in the Consumption tier.
     > You can update all of the endpoints or some of them. Commonly, customers update **Gateway** (this URL is used to call the API exposed through API Management) and **Portal** (the developer portal URL).
     > **Management** and **SCM** endpoints are used internally by the API Management instance owners only and thus are less frequently assigned a custom domain name.
-    > The **Premium** tier supports setting multiple host names for the **Gateway** endpoint.
+    > The **Premium** and **Developer** tiers support setting multiple host names for the **Gateway** endpoint.
 
 1. Select the endpoint that you want to update.
 1. In the window on the right, click **Custom**.
