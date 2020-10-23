@@ -32,7 +32,7 @@ To add an access restriction rule to your app, use the menu to open **Network**>
 
 From the Access Restrictions UI, you can review the list of access restriction rules defined for your app.
 
-![list access restrictions](media/app-service-ip-restrictions/access-restrictions-browse.png)
+![Screenshot of the Access Restrictions screen in Azure portal showing the list of access restriction rules defined for the selected app.](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
 The list will show all of the current restrictions that are on your app. If you have a VNet restriction on your app, the table will show if service endpoints are enabled for Microsoft.Web. When there are no defined restrictions on your app, your app will be accessible from anywhere.  
 
@@ -64,11 +64,11 @@ With service endpoints, you can configure your app with Application Gateways or 
 
 You can click on any row to edit an existing access restriction rule. Edits are effective immediately including changes in priority ordering.
 
-![edit an access restriction rule](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+![Screenshot of the Edit IP Restriction dialog in Azure portal showing the fields for an existing access restriction rule.](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
 
 When you edit a rule, you cannot change the type between an IP address rule and a Virtual Network rule. 
 
-![edit an access restriction rule](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
+![Screenshot of the Edit IP Restriction dialog in Azure portal showing the settings for a Virtual Network rule.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
 To delete a rule, click the **...** on your rule and then click **Remove**.
 
@@ -86,7 +86,7 @@ For the scenario where users want to explicitly block a single IP address or IP 
 
 In addition to being able to control access to your app, you can also restrict access to the scm site used by your app. The scm site is the web deploy endpoint and also the Kudu console. You can separately assign access restrictions to the scm site from the app or use the same set for both the app and the scm site. When you check the box to have the same restrictions as your app, everything is blanked out. If you uncheck the box, whatever settings you had earlier on the scm site are applied. 
 
-![list access restrictions](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+![Screenshot of the Access Restrictions screen in Azure portal showing that no access restrictions are set for the scm site or the app.](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## Programmatic manipulation of access restriction rules ##
 

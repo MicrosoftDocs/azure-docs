@@ -29,7 +29,7 @@ To get started with Security Center, you must have a subscription to Microsoft A
 To enable Azure Defender on a subscription, you must be assigned the role of Subscription Owner, Subscription Contributor, or Security Admin.
 
 
-## Open Security Center for the first time
+## Enable Security Center on your Azure subscription
 
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
 
@@ -50,6 +50,8 @@ Within minutes of launching Security Center the first time, you may see:
 
 To take full advantage of Security Center, you need to complete the steps below to enable Azure Defender and install the Log Analytics agent.
 
+> [!TIP]
+> To enable Security Center on all subscriptions within a management group, see [Enable Security Center on multiple Azure subscriptions](onboard-management-group.md).
 
 ## Enable Azure Defender
 
@@ -99,7 +101,7 @@ In this quickstart you enabled Azure Defender and provisioned the Log Analytics 
 Want to optimize and save on your cloud spending?
 
 > [!div class="nextstepaction"]
-> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

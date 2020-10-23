@@ -19,7 +19,7 @@ This article gives a few examples of business continuity architectures you might
 
 ## Apache Hive and Interactive Query
 
-[Hive Replication V2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) is the recommended for business continuity in HDInsight Hive and Interactive query clusters. The persistent sections of a standalone Hive cluster that need to be replicated are the Storage Layer and the Hive metastore. Hive clusters in a multi-user scenario with Enterprise Security Package need Azure Active Directory Domain Services and Ranger Metastore.
+[Hive Replication V2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) is recommended for business continuity in HDInsight Hive and Interactive query clusters. The persistent sections of a standalone Hive cluster that need to be replicated are the Storage Layer and the Hive metastore. Hive clusters in a multi-user scenario with Enterprise Security Package need Azure Active Directory Domain Services and Ranger Metastore.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/hive-interactive-query.png" alt-text="Hive and interactive query architecture":::
 
@@ -52,6 +52,8 @@ In an *active primary with on-demand secondary* architecture, applications write
 In an *active primary with standby secondary*, applications write to the active primary region while a standby scaled down secondary cluster in read-only mode runs during normal operations. During normal operations, you could choose to offload region specific read operations to secondary.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="active primary with standby secondary":::
+
+For more information on Hive replication and code samples refer [Apache Hive replication in Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication)
 
 ## Apache Spark
 
@@ -201,8 +203,6 @@ Replicating Ranger policies between primary and secondary can cause the secondar
 
 To learn more about the items discussed in this article, see:
 
-* [Apache Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
-* [Install and configure Azure PowerShell module Az](/powershell/azure/)
-* [Manage HDInsight using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
+* [Azure HDInsight business continuity](./hdinsight-business-continuity.md)
+* [Azure HDInsight highly available solution architecture case study](./hdinsight-high-availability-case-study.md)
+* [What is Apache Hive and HiveQL on Azure HDInsight?](./hadoop/hdinsight-use-hive.md)

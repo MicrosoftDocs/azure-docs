@@ -28,7 +28,7 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
 
 * An Azure Active Directory (Azure AD) domain.
 
-    If you don't have an Azure AD domain, create this domain with your Azure subscription. For more information, see [Managing custom domain names in your Azure AD](../../active-directory/users-groups-roles/domains-manage.md)
+    If you don't have an Azure AD domain, create this domain with your Azure subscription. For more information, see [Managing custom domain names in your Azure AD](../../active-directory/enterprise-users/domains-manage.md)
 
 * A user in your Azure AD domain with an **Application administrator** role. You'll use this member when connecting your Video Indexer account to Azure.
 
@@ -42,7 +42,7 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
 
     You'll use this member when connecting your Video Indexer account to Azure.
 
-    This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator.
+    This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator. For more information, see [View the access a user has to Azure resources](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
     ![access control](./media/create-account/access-control-iam.png)
 

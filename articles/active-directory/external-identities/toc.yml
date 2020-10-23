@@ -9,7 +9,7 @@
     - name: What is B2B guest user access?
       href: what-is-b2b.md
     - name: What is Azure AD B2C?
-      href: https://docs.microsoft.com/azure/active-directory-b2c/overview
+      href: ../../active-directory-b2c/overview.md
   - name: Quickstarts
     items:
     - name: Add guest users in the portal
@@ -137,13 +137,13 @@
     - name: FAQ
       href: faq.md
     - name: Getting support
-      href: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto
+      href: ../fundamentals/active-directory-troubleshooting-support-howto.md
     - name: Azure feedback forum
       href: https://feedback.azure.com/forums/169401-azure-active-directory
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=security-identity
     - name: Microsoft Q&A question page
-      href: https://docs.microsoft.com/answers/topics/azure-active-directory.html
+      href: /answers/topics/azure-active-directory.html
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/active-directory/
     - name: Pricing calculator

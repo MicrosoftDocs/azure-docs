@@ -44,7 +44,7 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 |Blob soft delete|Not yet supported|Not yet supported|[Soft delete for blobs](storage-blob-soft-delete.md)|
 |Blobfuse|Preview|Not yet supported|[How to mount Blob storage as a file system with blobfuse](storage-how-to-mount-container-linux.md)|
 |Account failover|Not yet supported|Not yet supported|[Disaster recovery and account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Blob container ACL|Not yet supported<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Not yet supported<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
+|Blob container ACL|Not supported<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Not supported<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|See the related note below this table.|
 |Customer-provided keys|Not yet supported|Not yet supported|[Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md)|
 |Custom domains|Not yet supported|Not yet supported|[Map a custom domain to an Azure Blob storage endpoint](storage-custom-domain-name.md)|
 |Encryption scopes|Not yet supported|Not yet supported|[Create and manage encryption scopes (preview)](encryption-scope-manage.md)|

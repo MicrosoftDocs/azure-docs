@@ -37,7 +37,7 @@ See the below video for a high-level explanation of these access controls and wh
 
 ## Allow Azure services
 
-During creation of a new logical SQL server [from the Azure portal](single-database-create-quickstart.md), this setting is left unchecked.
+By default during creation of a new logical SQL server [from the Azure portal](single-database-create-quickstart.md), this setting is set to **OFF**. This setting appears when connectivity is allowed using public service endpoint.
 
 You can also change this setting via the firewall pane after the logical SQL server is created as follows.
   

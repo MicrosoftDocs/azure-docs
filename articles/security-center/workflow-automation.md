@@ -15,7 +15,7 @@ ms.author: memildin
 
 Every security program includes multiple workflows for incident response. These processes might include notifying relevant stakeholders, launching a change management process, and applying specific remediation steps. Security experts recommend that you automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.
 
-This article describes the workflow automation feature of Azure Security Center. This feature can trigger Logic Apps on security alerts and recommendations. For example, you might want Security Center to email a specific user when an alert occurs. You'll also learn how to create Logic Apps using [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+This article describes the workflow automation feature of Azure Security Center. This feature can trigger Logic Apps on security alerts and recommendations. For example, you might want Security Center to email a specific user when an alert occurs. You'll also learn how to create Logic Apps using [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 > [!NOTE]
 > If you previously used the Playbooks (Preview) view on the sidebar, you'll find the same features together with the expanded functionality in the new workflow automation page.
@@ -28,7 +28,7 @@ This article describes the workflow automation feature of Azure Security Center.
 |----|:----|
 |Release state:|Generally available (GA)|
 |Pricing:|Free|
-|Required roles and permissions:|**Security admin role** or **Owner** on the resource group<br>Must also have write permissions for the target resource<br><br>To work with Azure Logic Apps workflows, you must also have the following Logic Apps roles/permissions:<br> - [Logic App Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)<br> - [Logic App Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) permissions are required for Logic App creation and modification<br>If you want to use Logic App connectors, you may need additional credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances)|
+|Required roles and permissions:|**Security admin role** or **Owner** on the resource group<br>Must also have write permissions for the target resource<br><br>To work with Azure Logic Apps workflows, you must also have the following Logic Apps roles/permissions:<br> - [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)<br> - [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) permissions are required for Logic App creation and modification<br>If you want to use Logic App connectors, you may need additional credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
@@ -97,9 +97,9 @@ In this article, you learned about creating Logic Apps, automating their executi
 
 For related material, see: 
 
-- [The Microsoft Learn module on how to use workflow automation to automate a security response](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
+- [The Microsoft Learn module on how to use workflow automation to automate a security response](/learn/modules/resolve-threats-with-azure-security-center/)
 - [Security recommendations in Azure Security Center](security-center-recommendations.md)
 - [Security alerts in Azure Security Center](security-center-alerts-overview.md)
-- [About Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
-- [Logic Apps connectors](https://docs.microsoft.com/connectors/)
+- [About Azure Logic Apps](../logic-apps/logic-apps-overview.md)
+- [Logic Apps connectors](/connectors/)
 - [Workflow automation data types schemas](https://aka.ms/ASCAutomationSchemas)

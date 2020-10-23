@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a blueprint with Azure CLI"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the Azure CLI.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with Azure CLI

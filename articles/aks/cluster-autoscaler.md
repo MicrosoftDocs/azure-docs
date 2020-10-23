@@ -131,18 +131,8 @@ You can also configure more granular details of the cluster autoscaler by changi
 
 > [!IMPORTANT]
 > The cluster autoscaler profile affects all node pools that use the cluster autoscaler. You can't set an autoscaler profile per node pool.
-
-### Install aks-preview CLI extension
-
-To set the cluster autoscaler settings profile, you need the *aks-preview* CLI extension version 0.4.30 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+>
+> The cluster autoscaler profile requires version *2.11.1* or greater of the Azure CLI. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ### Set the cluster autoscaler profile on an existing AKS cluster
 

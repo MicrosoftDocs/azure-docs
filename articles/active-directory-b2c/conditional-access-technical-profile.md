@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/01/2020
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -517,3 +517,7 @@ The following is an example of a relying party file that references this UserJou
   </RelyingParty>
 </TrustFrameworkPolicy>
 ```
+
+## Next steps
+
+- You can find an example of a conditional access policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).

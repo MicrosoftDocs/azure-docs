@@ -12,7 +12,7 @@ ms.date: 09/01/2020
 
 You can load data from various data sources to Azure Cosmos DB. Since Azure Cosmos DB supports multiple APIs, the targets can be any of the existing APIs. The following are some scenarios where you migrate data to Azure Cosmos DB:
 
-* Move data from one Azure Cosmos container to another container in the same database or a different database.s
+* Move data from one Azure Cosmos container to another container in the same database or a different databases.
 * Moving data between dedicated containers to shared database containers.
 * Move data from an Azure Cosmos account located in region1 to another Azure Cosmos account in the same or a different region.
 * Move data from a source such as Azure blob storage, a JSON file, Oracle database, Couchbase, DynamoDB to Azure Cosmos DB.

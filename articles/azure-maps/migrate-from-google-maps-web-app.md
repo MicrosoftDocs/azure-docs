@@ -1,19 +1,37 @@
 ---
-title: 'Migrate a web app from Google Maps | Microsoft Azure Maps'
-description: How to migrate a web app from Google Maps to Microsoft Azure Maps
+title: 'Tutorial - Migrate a web app from Google Maps | Microsoft Azure Maps'
+description: Tutorial on how to migrate a web app from Google Maps to Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/18/2020
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
 ---
 
-# Migrate a web app from Google Maps
+# Tutorial - Migrate a web app from Google Maps
 
-Most web apps, which use Google Maps, are using the Google Maps V3 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery. You can run your app on both web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript.
+Most web apps, which use Google Maps, are using the Google Maps V3 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery. You can run your app on both web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript. In this tutorial, you will learn how to:
+
+> [!div class="checklist"]
+> * Load a map
+> * Localize a map
+> * Add markers, polylines, and polygons.
+> * Display information in a popup or info window
+> * Load and display KML and GeoJSON data
+> * Cluster markers
+> * Overlay a tile layer
+> * Show traffic data
+> * Add a ground overlay
+
+You will also learn: 
+
+> [!div class="checklist"]
+> * How to accomplish common mapping tasks using the Azure Maps Web SDK
+> * Best practices to improve performance and user experience
+> * Tips on how to make your application using more advance features available in Azure Maps
 
 If migrating an existing web application, check to see if it is using an open-source map control library. Examples of open-source map control library are: Cesium, Leaflet, and OpenLayers. You can still migrate your application, even if it uses an open-source map control library, and you do not want to use the Azure Maps Web SDK. In such case, connect your application to the Azure Maps tile services ([road tiles](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 \| [satellite tiles](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)). The following points detail on how to use Azure Maps in some commonly used open-source map control libraries.
@@ -29,6 +47,11 @@ If developing using a JavaScript framework, one of the following open-source pro
 - [Azure Maps React Component](https://github.com/WiredSolutions/react-azure-maps) - A react wrapper for the Azure Maps control.
 - [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - An Azure Maps component for Vue application.
 
+## Prerequisites 
+
+1. Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+2. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 ## Key features support
 
@@ -68,7 +91,6 @@ The following are some key differences between the Google Maps and Azure Maps We
 
 This collection has code samples for each platform, and each sample covers a common use case. It's intended to help you migrate your web application from Google Maps V3 JavaScript SDK to the Azure Maps Web SDK. Code samples related to web applications are provided in JavaScript. However, Azure Maps also provides TypeScript definitions as an additional option through an [NPM module](how-to-use-map-control.md).
 
-
 **Topics**
 
 - [Load a map](#load-a-map)
@@ -86,7 +108,6 @@ This collection has code samples for each platform, and each sample covers a com
 - [Show traffic data](#show-traffic-data)
 - [Add a ground overlay](#add-a-ground-overlay)
 - [Add KML data to the map](#add-kml-data-to-the-map)
-
 
 ### Load a map
 
@@ -1726,9 +1747,18 @@ place of these Google Maps libraries
 | Geometry library      | [atlas.math](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)   |
 | Visualization library | [Heat map layer](map-add-heat-map-layer.md) |
 
-To learn more about migrating Google Maps:
+## Next steps
 
-* [how to use the services module](how-to-use-services-module.md) 
-* [how to use the drawing tools module](set-drawing-options.md)
-* [how to use the services module](how-to-use-services-module.md)
-* [how to use the map control](how-to-use-map-control.md)
+Learn more about Azure Maps Web SDK:
+
+> [!div class="nextstepaction"]
+> [How to use the map control](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [How to use the drawing tools module](set-drawing-options.md)
+
+> [!div class="nextstepaction"]
+> [How to use the services module](how-to-use-services-module.md)
+
+> [!div class="nextstepaction"]
+> [How to use the spatial IO module](how-to-use-spatial-io-module.md)
