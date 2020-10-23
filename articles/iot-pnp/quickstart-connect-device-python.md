@@ -1,6 +1,6 @@
 ---
-title: Connect IoT Plug and Play sample Python device code to Azure IoT Hub | Microsoft Docs
-description: Use Python to build and run IoT Plug and Play sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
+title: Quickstart - Connect IoT Plug and Play sample Python device code to Azure IoT Hub | Microsoft Docs
+description: Quickstart - Use Python to build and run IoT Plug and Play sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 7/14/2020

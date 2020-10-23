@@ -1,6 +1,6 @@
 ---
-title: Interact with an IoT Plug and Play device connected to your Azure IoT solution (C#) | Microsoft Docs
-description: Use C# to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
+title: Quickstart - Interact with an IoT Plug and Play device connected to your Azure IoT solution (C#) | Microsoft Docs
+description: Quickstart - Use C# to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 09/21/2020
