@@ -62,7 +62,7 @@ To do this in the Azure portal:
 
 ![Screenshot to add service principal in permissions](./media/register-scan-azure-data-explorer/permissions-auth.png)
 
-12. Once your Service Principal is set, connect your Babylon to your Azure Blob store using client ID and secret key and check your connect as shown in the screenshot below.
+12. Once your Service Principal is set, connect your Babylon to your Azure Blob store using client ID and secret key and check your connect as shown in the following screenshot.
 
 ![Screenshot showing service principal authorization](./media/register-scan-azure-data-explorer/service-principal-auth.png)
 
