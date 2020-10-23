@@ -93,6 +93,8 @@
       items:
         - name: Multi-site and multi-region federation
           href: event-hubs-federation-overview.md
+        - name: Message replication tasks and applications
+          href: event-hubs-federation-replicator-functions.md
         - name: Replicate events between Event Hubs
           href: event-hubs-federation-event-hubs.md
         - name: Acquire events from and send events to Azure Service Bus
