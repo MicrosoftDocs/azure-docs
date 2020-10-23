@@ -351,7 +351,7 @@
         href: deploy-cloud-shell.md
     - name: Scopes
       items:
-      - name: Resource groups
+      - name: Resource group
         href: deploy-to-resource-group.md
       - name: Subscription
         href: deploy-to-subscription.md

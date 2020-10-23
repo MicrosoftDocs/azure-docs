@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 10/22/2020
 ---
 
-# Resource group deployments
+# Resource group deployments with ARM templates
 
 This article describes how to scope your deployment to a resource group. You use an Azure Resource Manager template (ARM template) for the deployment. The article also shows how to expand the scope beyond the resource group in the deployment operation.
 

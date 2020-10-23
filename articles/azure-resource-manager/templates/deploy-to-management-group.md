@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 10/22/2020
 ---
 
-# Create resources at the management group level
+# Management group deployments with ARM templates
 
 As your organization matures, you can deploy an Azure Resource Manager template (ARM template) to create resources at the management group level. For example, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for a management group. With management group level templates, you can declaratively apply policies and assign roles at the management group level.
 

@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 10/22/2020
 ---
 
-# Create resource groups and resources at the subscription level
+# Subscription deployments with ARM templates
 
 To simplify the management of resources, you can use an Azure Resource Manager template (ARM template) to deploy resources at the level of your Azure subscription. For example, you can deploy [policies](../../governance/policy/overview.md) and [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to your subscription, which applies them across your subscription. You can also create resource groups within the subscription and deploy resources to resource groups in the subscription.
 

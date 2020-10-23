@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 10/22/2020
 ---
 
-# Create resources at the tenant level
+# Tenant deployments with ARM templates
 
 As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) across your Azure AD tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
 
