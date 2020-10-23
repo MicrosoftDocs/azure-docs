@@ -94,8 +94,33 @@ Data Migration Assistant supports performing scaled assessments and consolidatio
 
 After you have completed tasks associated with the Pre-migration stage, you are ready to perform the schema and data migration. 
 
-Migrate your data using your chosen [migration method](sql-server-to-database-overview.md#migration-options). 
+Migrate your data using your chosen [migration method](sql-server-to-database-overview.md#migration-options). The two recommended options for migrating to Azure SQL Managed Instance are described below.
 
+#### Import a BACPAC file to migrate a database (requires downtime during the migration)
+To import from a BACPAC file to Azure SQL Database using the Azure portal , follow the steps below:
+1. Open the Azure portal and navigate to the desired SQL Server page. On the toolbar, select **Import database**.
+	 ![Database import1](./media/sql-server-to-database-overview/sql-server-import-database.png)
+2. Specify the storage account details that contains the BACPAC file.
+3. Specify the new database size and enter credentials for the new database.
+	 ![Database import2](./media/sql-server-to-database-overview/sql-server-import-database-settings.png)
+4. Click OK on the Import Database blade to start the import process.
+5. After the BACPAC file is imported (which can be verified under **Settings** -> **Import/Export history**), select **SQL databases** and verify the new database is **Online**.
+	> [!NOTE]
+	>To maximize import speed by providing more and faster resources, scale your database to a higher service tier and compute size during the import process. You can then scale down after the import is successful.
+	>The imported database's compatibility level is based on the source database's compatibility level.
+
+For a detailed tutorial of this migration option, see [Import a BACPAC file to a database in Azure SQL Database](/azure/azure-sql/database/database-import). 
+
+#### Migration with native backup and restore (Offline size of data operation)
+RESTORE of native backups (.bak files) taken from a SQL Server instance, available on [Azure Storage](https://azure.microsoft.com/services/storage/), is one of the key capabilities of SQL Managed Instance that enables quick and easy offline database migration.
+
+The following diagram provides a high-level overview of the process:
+
+1. You can backup database(s) to Azure Blob storage service natively with SQL Server 2012 SP1 CU2 and above. Manage your backups to Azure Blob storage (also referred to as SQL Server Backup to URL) by following the instructions to [Backup with SSMS](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sqlallproducts-allversions#BackupTaskSSMS).
+	> [!NOTE]
+	> For SQL Server versions previous to SQL Server 2012 SP1 CU2, you can use the add-in SQL Server Backup to Microsoft Azure Tool to quickly and easily create backups to Microsoft Azure storage. For more information, see [download center](https://go.microsoft.com/fwlink/?LinkID=324399).
+
+To learn more about this migration option, see [Restore a database to Azure SQL Managed Instance with SSMS](https://docs.microsoft.com/azure/azure-sql/managed-instance/restore-sample-database-quickstart).
 
 ## Data sync and cutover
 
