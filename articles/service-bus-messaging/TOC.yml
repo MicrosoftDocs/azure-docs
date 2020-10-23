@@ -84,6 +84,8 @@
     items:
       - name: Multi-site and multi-region federation
         href: service-bus-federation-overview.md
+      - name: Message replication tasks and applications
+        href: service-bus-federation-replicator-functions.md
       - name: Replicate events between Service Bus entities
         href: service-bus-federation-service-bus.md
       - name: Replicate events from Service Bus to Event Hubs
