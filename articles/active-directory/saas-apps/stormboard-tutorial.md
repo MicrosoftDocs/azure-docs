@@ -96,14 +96,14 @@ To configure Azure AD single sign-on with Stormboard, perform the following step
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following step:
 
-    ![Stormboard Domain and URLs single sign-on information](common/both-replyurl.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter a Reply U R L and select Save.](common/both-replyurl.png)
 
 	In the **Reply URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.stormboard.com/saml2/ad/acs/<TEAMID>`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Stormboard Domain and URLs single sign-on information](common/both-signonurl.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/both-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.stormboard.com/saml2/ad/login/<TEAMID>`
