@@ -37,7 +37,7 @@ To publish a consulting service offer, you must meet certain eligibility require
 
 ## Configure lead management
 
-Connect your customer relationship management (CRM) system with your commercial marketplace offer so you can receive customer contact information when a customer expresses interest in your consulting service. You can modify this connection at any time during or after you create the offer. For detailed guidance, see [Customer leads from your commercial marketplace offer](./partner-center-portal/commercial-marketplace-get-customer-leads).
+Connect your customer relationship management (CRM) system with your commercial marketplace offer so you can receive customer contact information when a customer expresses interest in your consulting service. You can modify this connection at any time during or after you create the offer. For detailed guidance, see [Customer leads from your commercial marketplace offer](./partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 To configure the lead management in Partner Center:
 
@@ -56,7 +56,7 @@ To configure the lead management in Partner Center:
 6.	When you’ve configured the connection details, select **Connect**.
 7.	Select **Save draft**.
 
-After you submit your offer for publication in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment
+After you submit your offer for publication in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, test your lead connection by trying to purchase the offer yourself in the preview environment.
 
 > [!TIP]
 > Make sure the connection to the lead destination stays updated so you don't lose any leads.
