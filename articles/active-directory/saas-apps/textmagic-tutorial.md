@@ -145,11 +145,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. Select **Account settings** under the username.
 
-	![TextMagic Configuration](./media/textmagic-tutorial/config1.png)
+	![Screenshot shows Account settings selected from the user.](./media/textmagic-tutorial/config1.png)
 
 5. Click on the **Single Sign-On (SSO)** tab and fill in the following fields:  
 
-	![TextMagic Configuration](./media/textmagic-tutorial/config2.png)
+	![Screenshot shows the Single Sign-On tab where you can enter the values described.](./media/textmagic-tutorial/config2.png)
 
 	a. In **Identity provider Entity ID:** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
 

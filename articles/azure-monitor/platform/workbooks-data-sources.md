@@ -106,6 +106,6 @@ To avoid automatically making calls to untrusted hosts when using templates, the
 
 ## Next steps
 
-* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
 * [Control](workbooks-access-control.md) and share access to your workbook resources.
 * [Log Analytics query optimization tips](../log-query/query-optimization.md)

@@ -556,7 +556,7 @@ You can create as many departments as you need under your Azure EA enrollment. I
 
 After you have created departments and subscriptions, you can see data in the usage report. This information can help you track usage and manage cost and spend at the department level.
 
-You can also access usage data via the reporting API. For detailed information and sample code, see [Azure Enterprise REST APIs](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+You can also access usage data via the reporting API. For detailed information and sample code, see [Azure Enterprise REST APIs](./ea-portal-rest-apis.md).
 
 ### Can I set a spending quota and get alerts as I approach my limit?
 
@@ -568,7 +568,7 @@ To define your spending quota, select a department and then select the edit icon
 
 If you use _resource groups_ and _tags_, this information is tracked at service level, and you can access it in the detailed usage download (CSV) file. See the [download usage report](https://ea.azure.com/report/downloadusage) in the Azure Enterprise portal.
 
-You can also access usage via API. For detailed information and sample code, see [Azure Enterprise REST APIs](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+You can also access usage via API. For detailed information and sample code, see [Azure Enterprise REST APIs](./ea-portal-rest-apis.md).
 
 > [!NOTE]
 > You can only apply tags to resources that support Azure Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. You must re-deploy these resources through the Resource Manager to support tagging. All other resources support tagging.

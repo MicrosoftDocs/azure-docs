@@ -35,7 +35,11 @@
   - name: Concepts
     items:
     - name: Review requirements
-      href: azure-stack-edge-gpu-system-requirements.md 
+      items:
+      - name: For Azure Stack Edge
+        href: azure-stack-edge-gpu-system-requirements.md
+      - name: For Azure Stack Edge Blob storage
+        href: azure-stack-edge-gpu-system-requirements-rest.md
     - name: Understand limits
       href: azure-stack-edge-limits.md 
     - name: Security overview

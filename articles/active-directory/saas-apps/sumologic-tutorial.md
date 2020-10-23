@@ -163,11 +163,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. From the **Select a configuration or create a new one** list, select **Azure AD**, and then click **Configure**.
 
-    ![Configure SAML 2.0](./media/sumologic-tutorial/ic778558.png "Configure SAML 2.0")
+    ![Screenshot shows Configure SAML 2.0 where you can select Azure A D.](./media/sumologic-tutorial/ic778558.png "Configure SAML 2.0")
 
 1. On the **Configure SAML 2.0** dialog, perform the following steps:
 
-    ![Configure SAML 2.0](./media/sumologic-tutorial/ic778559.png "Configure SAML 2.0")
+    ![Screenshot shows the Configure SAML 2.0 dialog box where you can enter the values described.](./media/sumologic-tutorial/ic778559.png "Configure SAML 2.0")
 
     a. In the **Configuration Name** textbox, type **Azure AD**.
 
@@ -195,11 +195,11 @@ In order to enable Azure AD users to sign in to SumoLogic, they must be provisio
 
 1. Go to **Manage \> Users**.
 
-    ![Users](./media/sumologic-tutorial/ic778561.png "Users")
+    ![Screenshot shows Users selected from the Manage menu.](./media/sumologic-tutorial/ic778561.png "Users")
 
 1. Click **Add**.
 
-    ![Users](./media/sumologic-tutorial/ic778562.png "Users")
+    ![Screenshot shows the Add button for Users.](./media/sumologic-tutorial/ic778562.png "Users")
 
 1. On the **New User** dialog, perform the following steps:
 

@@ -233,4 +233,4 @@ In this tutorial you learned how to:
 Continue to the overview for the Change Tracking and Inventory feature to learn more about it.
 
 > [!div class="nextstepaction"]
-> [Change Tracking and Inventory overview](./change-tracking.md)
+> [Change Tracking and Inventory overview](change-tracking/overview.md)
