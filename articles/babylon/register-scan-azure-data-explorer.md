@@ -49,7 +49,7 @@ To do this in the Azure portal:
 
 6. Select **"Accounts in this organizational directory only (Microsoft only -- Single Tenant)"**
 
-7. For Redirect URI select **"Web"** and enter any URL you want; it doesn't have to be real or work
+7. For Redirect URI select **Web** and enter any URL you want; it doesn't have to be real or work
 
 8. Then select **Register**.
 
