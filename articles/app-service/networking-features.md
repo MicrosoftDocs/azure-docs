@@ -116,8 +116,8 @@ Service endpoints allow you to lock down *inbound* access to your app so that th
 
 Some use cases for this feature:
 
-* Setting up an application gateway with your app to lock down inbound traffic to your app.
-* Restricting access to your app to resources in your virtual network. These resources can include VMs, ASEs, or even other apps that use VNet Integration. 
+* Set up an application gateway with your app to lock down inbound traffic to your app.
+* Restrict access to your app to resources in your virtual network. These resources can include VMs, ASEs, or even other apps that use VNet Integration. 
 
 ![Diagram that illustrates the use of service endpoints with Application Gateway.](media/networking-features/service-endpoints-appgw.png)
 
@@ -168,9 +168,9 @@ Gateway-required App Service VNet Integration enables your app to make *outbound
 
 This feature solves the problem of accessing resources in other virtual networks. It can even be used to connect through a virtual network to either other virtual networks or on-premises. It doesn't work with ExpressRoute-connected virtual networks, but it does work with site-to-site VPN-connected networks. It's usually inappropriate to use this feature from an app in an App Service Environment (ASE) because the ASE is already in your virtual network. Use cases for this feature:
 
-* Accessing resources on private IPs in your Azure virtual networks. 
-* Accessing resources on-premises if there's a site-to-site VPN. 
-* Accessing resources in peered virtual networks. 
+* Access resources on private IPs in your Azure virtual networks. 
+* Access resources on-premises if there's a site-to-site VPN. 
+* Access resources in peered virtual networks. 
 
 When this feature is enabled, your app will use the DNS server that the destination virtual network is configured with. For more information on this feature, see [App Service VNet Integration][vnetintegrationp2s]. 
 
@@ -180,11 +180,11 @@ Gateway-required VNet Integration is useful, but it doesn't solve the problem of
 
 The new VNet Integration feature enables you to place the back end of your app in a subnet in a Resource Manager virtual network in the same region as your app. This feature isn't available from an App Service Environment, which is already in a virtual network. Use cases for this feature:
 
-* Accessing resources in Resource Manager virtual networks in the same region.
-* Accessing resources that are secured with service endpoints. 
-* Accessing resources that are accessible across ExpressRoute or VPN connections.
-* Helping to secure all outbound traffic. 
-* Force tunneling all outbound traffic. 
+* Access resources in Resource Manager virtual networks in the same region.
+* Access resources that are secured with service endpoints. 
+* Access resources that are accessible across ExpressRoute or VPN connections.
+* Help to secure all outbound traffic. 
+* Force tunnel all outbound traffic. 
 
 ![Diagram that illustrates VNet Integration.](media/networking-features/vnet-integration.png)
 
@@ -210,7 +210,7 @@ Some things aren't currently possible from the multitenant service but are possi
 * Host your apps in a single-tenant service. 
 * Scale up to many more instances than are possible in the multitenant service. 
 * Load private CA client certificates for use by your apps with private CA-secured endpoints.
-* Force TLS 1.1 across all apps hosted in the system without any ability to disable at the app level. 
+* Force TLS 1.1 across all apps hosted in the system without any ability to disable it at the app level. 
 * Provide a dedicated outbound address for all the apps in your ASE that aren't shared with customers. 
 
 ![Diagram that illustrates an ASE in a virtual network.](media/networking-features/app-service-environment.png)
