@@ -31,7 +31,7 @@ You can see **Register sources** pane open up on the right side of your screen. 
 
 **Register sources** appears. Select a source name of your choice.
 
-![Screenshot showing registration of source](./media/register-scan-azure-synapse-analytics/register.png)
+<!---![Screenshot showing registration of source](./media/register-scan-azure-synapse-analytics/register.png)--->
 
 ## Set up authentication for a scan
 Set up authentication for Azure Synapse Analytics using Azure subscription or manually.
