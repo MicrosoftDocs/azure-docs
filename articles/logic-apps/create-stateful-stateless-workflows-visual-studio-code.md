@@ -549,22 +549,20 @@ To test your logic app, follow these steps to start a debugging session and find
 
    If you created a stateful workflow, after the request that you sent triggers the workflow, the overview page shows the workflow's run status and history. For more information about run statuses, see [Review runs history](../logic-apps/monitor-logic-apps.md#review-runs-history).
 
-   ![Screenshot that shows your workflow's overview page with run status and history](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
-
    > [!TIP]
-   > If the run status doesn't appear, try refreshing the overview page by selecting **Refresh**.
+   > If the run status doesn't appear, try refreshing the overview page by selecting **Refresh**. 
+   > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
+
+   ![Screenshot that shows your workflow's overview page with run status and history](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
    | Run status | Description |
    |------------|-------------|
-   | Aborted | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
-   | Cancelled | The workflow was triggered and running but received a cancellation request. |
-   | Failed | At least one action in the workflow run failed. No subsequent actions in the workflow were set up to handle the failure. |
-   | Running | The workflow is currently running, but this status can also appear for workflows that are throttled due to limits or the current pricing plan. For more information, see the [action limits on the pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). If you set up [diagnostics logging](monitor-logic-apps.md), you can get information about any throttle events that happen. |
-   | Skipped | The workflow run was skipped because the trigger conditions weren't met. |
-   | Succeeded | The workflow run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
-   | Succeeded with retries | The workflow run succeeded but only after one or more retries. To review the retry history, in the run history details view, select the trigger or action that has the retries so that you can view the inputs and outputs. |
-   | Timed out | The workflow run stopped due to the timeout limit for an action. |
-   | Waiting | The workflow run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
+   | **Aborted** | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
+   | **Cancelled** | The workflow was triggered and running but received a cancellation request. |
+   | **Failed** | At least one action in the workflow run failed. No subsequent actions in the workflow were set up to handle the failure. |
+   | **Running** | The workflow is currently running, but this status can also appear for workflows that are throttled due to limits or the current pricing plan. For more information, see the [action limits on the pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). If you set up [diagnostics logging](monitor-logic-apps-log-analytics.md), you can get information about any throttle events that happen. |
+   | **Succeeded** | The workflow run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
+   | **Waiting** | The workflow run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
    |||
 
 1. To review the statuses for each step in a specific run and the step's inputs and outputs, select the ellipses (**...**) button for that run, and select **Show Run**.
@@ -583,7 +581,7 @@ To test your logic app, follow these steps to start a debugging session and find
    | Cancelled | ![Icon for "Cancelled" action status][cancelled-icon] | The action was running but received a cancellation request. |
    | Failed | ![Icon for "Failed" action status][failed-icon] | The action failed. |
    | Running | ![Icon for "Running" action status][running-icon] | The action is currently running. |
-   | Skipped | ![Icon for "Skipped" action status][skipped-icon] | The action was skipped because the immediately preceding action failed. Each action has a `runAfter` condition that requires that the preceding action finish successfully before the current action can run. |
+   | Skipped | ![Icon for "Skipped" action status][skipped-icon] | The action was skipped because the immediately preceding action failed. An action has a `runAfter` condition that requires that the preceding action finishes successfully before the current action can run. |
    | Succeeded | ![Icon for "Succeeded" action status][succeeded-icon] | The action succeeded. |
    | Succeeded with retries | ![Icon for "Succeeded with retries" action status][succeeded-with-retries-icon] | The action succeeded but only after one or more retries. To review the retry history, in the run history details view, select that action so that you can view the inputs and outputs. |
    | Timed out | ![Icon for "Timed out" action status][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
