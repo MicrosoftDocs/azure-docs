@@ -71,6 +71,9 @@
       displayName: Register and scan Azure SQL DB
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
+      displayName: Register and scan Azure Synapse Analytics
+    - name: Register and scan Azure Synapse Analytics
+      href: register-scan-azure-synapse-analytics.md
   - name: Classify
     items: 
     - name: Use classifications
