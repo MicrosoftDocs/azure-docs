@@ -1249,7 +1249,7 @@ Use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.netw
 
 Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
-   ![IIS Web server](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
+   ![IIS Web server](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test-page.png)
 
 To see the load balancer distribute traffic across all three VMs, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
 
