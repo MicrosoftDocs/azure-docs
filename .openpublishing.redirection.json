@@ -21044,12 +21044,12 @@
     },
     {
       "source_path": "articles/virtual-network/ddos-protection-manage-portal.md",
-      "redirect_url": "/azure/virtual-network/manage-ddos-protection",
+      "redirect_url": "/azure/ddos-protection/manage-ddos-protection-2",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-network/ddos-protection-manage-ps.md",
-      "redirect_url": "/azure/virtual-network/manage-ddos-protection",
+      "redirect_url": "/azure/ddos-protection/manage-ddos-protection-2",
       "redirect_document_id": false
     },
     {
@@ -32874,7 +32874,7 @@
     },
     {
       "source_path": "articles/security/azure-ddos-best-practices.md",
-      "redirect_url": "/azure/security/fundamentals/ddos-best-practices",
+      "redirect_url": "/azure/ddos-protection/fundamental-best-practices",
       "redirect_document_id": true
     },
     {
