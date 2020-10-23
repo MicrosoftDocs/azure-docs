@@ -85,7 +85,7 @@ The application uses a Standard_D8s_v3 virtual machine with caching enabled. It 
 
 ## Combined uncached and cached limits
 
-A virtual machine's cached limits are separate from their uncached limits. This means you can enable host caching on disks attached to a VM while  not enabling host caching on other disks. This configuration allows your virtual machines to get a total storage IO of the cached limit plus the uncached limit.
+A virtual machine's cached limits are separate from its uncached limits. This means you can enable host caching on disks attached to a VM while  not enabling host caching on other disks. This configuration allows your virtual machines to get a total storage IO of the cached limit plus the uncached limit.
 
 Let's run through an example to help you understand how these limits work together. We'll continue with the Standard_D8s_v3 virtual machine and premium disks attached configuration.
 
