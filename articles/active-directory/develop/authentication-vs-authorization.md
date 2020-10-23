@@ -25,8 +25,6 @@ This article defines authentication and authorization and briefly covers how you
 
 **Authentication** is the process of proving you are who you say you are. Authentication is sometimes shortened to AuthN. Microsoft identity platform implements the [OpenID Connect](https://openid.net/connect/) protocol for handling authentication.
 
-> [!VIDEO https://www.youtube.com/embed/tkQJSHFsduY]
-
 ## Authorization
 
 **Authorization** is the act of granting an authenticated party permission to do something. It specifies what data you're allowed to access and what you can do with that data. Authorization is sometimes shortened to AuthZ. Microsoft identity platform implements the [OAuth 2.0](https://oauth.net/2/) protocol for handling authorization.
@@ -34,6 +32,8 @@ This article defines authentication and authorization and briefly covers how you
 ## Authentication and authorization using Microsoft identity platform
 
 Instead of creating apps that each maintain their own username and password information, which incurs a high administrative burden when you need to add or remove users across multiple apps, apps can delegate that responsibility to a centralized identity provider.
+
+> [!VIDEO https://www.youtube.com/embed/tkQJSHFsduY]
 
 Azure Active Directory (Azure AD) is a centralized identity provider in the cloud. Delegating authentication and authorization to it enables scenarios such as Conditional Access policies that require a user to be in a specific location, the use of [multi-factor authentication](../authentication/concept-mfa-howitworks.md) (sometimes referred to as two-factor authentication or 2FA), as well as enabling a user to sign in once and then be automatically signed in to all of the web apps that share the same centralized directory. This capability is referred to as **Single Sign On (SSO)**.
 
