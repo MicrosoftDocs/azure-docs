@@ -18,7 +18,7 @@ This article covers the following tasks:
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the [SQL APIs](sql-api-introduction.md)
+> * Configure global distribution using the [SQL APIs](./introduction.md)
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
@@ -235,4 +235,3 @@ You can now proceed to the next tutorial to learn how to develop locally using t
 > [Develop locally with the emulator](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
-

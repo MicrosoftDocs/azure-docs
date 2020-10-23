@@ -60,7 +60,7 @@ This document is stored in Azure Cosmos DB as follows:
     }
 ```  
 
-Alternatively, you can store DateTimes as Unix timestamps, that is, as a number representing the number of elapsed seconds since January 1, 1970. Azure Cosmos DB's internal Timestamp (`_ts`) property follows this approach. You can use the [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) class to serialize DateTimes as numbers.
+Alternatively, you can store DateTimes as Unix timestamps, that is, as a number representing the number of elapsed seconds since January 1, 1970. Azure Cosmos DB's internal Timestamp (`_ts`) property follows this approach. You can use the [UnixDateTimeConverter](/dotnet/api/microsoft.azure.documents.unixdatetimeconverter) class to serialize DateTimes as numbers.
 
 ## Querying DateTimes in LINQ
 
