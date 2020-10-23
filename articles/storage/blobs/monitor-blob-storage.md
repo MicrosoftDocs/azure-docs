@@ -100,7 +100,7 @@ Logging is not enabled by default for your storage account. You can enable logs 
 
 1. Select the **Archive to a storage account** checkbox, and then click the **Configure** button.
 
-   ![Diagnostic settings page](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
+   ![Diagnostic settings page archive storage](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
 2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, click the **OK** button, and then click the **Save** button.
 
@@ -113,7 +113,7 @@ Logging is not enabled by default for your storage account. You can enable logs 
 
 2. In the **Select an event hub** pane, choose the namespace, name, and policy name of the event hub that you want to stream your logs to. 
 
-   ![Diagnostic settings page](media/monitor-blob-storage/diagnostic-logs-settings-pane-event-hub.png)
+   ![Diagnostic settings page event hub](media/monitor-blob-storage/diagnostic-logs-settings-pane-event-hub.png)
 
 3. Click the **OK** button, and then click the **Save** button.
 
@@ -121,7 +121,7 @@ Logging is not enabled by default for your storage account. You can enable logs 
 
 1. Select the **Send to Log Analytics** checkbox, select a log analytics workspace, and then click the and then click the **Save** button.
 
-   ![Diagnostic settings page](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
+   ![Diagnostic settings page log analytics](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
 
 
 ### [PowerShell](#tab/azure-powershell)
@@ -140,7 +140,7 @@ Logging is not enabled by default for your storage account. You can enable logs 
 
 #### Archive logs to a storage account
 
-Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-2.4.0) PowerShell cmdlet along with the `StorageAccountId` parameter.
+Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet along with the `StorageAccountId` parameter.
 
  ```powershell
  Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
@@ -158,7 +158,7 @@ You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of 
 
 #### Stream logs to an event hub
 
-Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-2.4.0) PowerShell cmdlet with the `EventHubAuthorizationRuleId` parameter.
+Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `EventHubAuthorizationRuleId` parameter.
 
  ```powershell
  Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
@@ -172,7 +172,7 @@ Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/po
 
 #### Send logs to Log Analytics
 
-Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-2.4.0) PowerShell cmdlet with the `WorkspaceId` parameter.
+Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `WorkspaceId` parameter.
 
  ```powershell
  Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
@@ -186,9 +186,9 @@ Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/po
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can enable Resource logging by using the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+You can enable Resource logging by using the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/).
 
-1. First, open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
+1. First, open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
 2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want to enable logs for.
 
@@ -200,7 +200,7 @@ You can enable Resource logging by using the [Azure Command-Line Interface (CLI)
 
 #### Archive logs to a storage account
 
-Enable logs by using the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command.
+Enable logs by using the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -218,7 +218,7 @@ For a description of each parameter, see the [Archive Resource logs via the Azur
 
 #### Stream logs to an event hub
 
-Enable logs by using the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command.
+Enable logs by using the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -232,7 +232,7 @@ For a description of each parameter, see the [Stream data to Event Hubs via Azur
 
 #### Send logs to Log Analytics
 
-Enable logs by using the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command.
+Enable logs by using the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
@@ -274,49 +274,7 @@ For a list of all Azure Monitor support metrics, which includes Azure Blob stora
 > [!TIP]
 > To view Azure CLI or .NET examples, choose the corresponding tabs listed here.
 
-### [PowerShell](#tab/azure-powershell)
-
-#### List the metric definition
-
-You can list the metric definition of your storage account or the Blob storage service. Use the [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition) cmdlet.
-
-In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service.  You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
-
-```powershell
-   $resourceId = "<resource-ID>"
-   Get-AzMetricDefinition -ResourceId $resourceId
-```
-
-#### Reading metric values
-
-You can read account-level metric values of your storage account or the Blob storage service. Use the [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
-
-```powershell
-   $resourceId = "<resource-ID>"
-   Get-AzMetric -ResourceId $resourceId -MetricNames "UsedCapacity" -TimeGrain 01:00:00
-```
-
-### [Azure CLI](#tab/azure-cli)
-
-#### List the account-level metric definition
-
-You can list the metric definition of your storage account or the Blob storage service. Use the [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) command.
- 
-In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
-
-```azurecli-interactive
-   az monitor metrics list-definitions --resource <resource-ID>
-```
-
-#### Read account-level metric values
-
-You can read the metric values of your storage account or the Blob storage service. Use the [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
-
-```azurecli-interactive
-   az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
-```
-
-### [.NET](#tab/dotnet)
+### [.NET](#tab/azure-portal)
 
 Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
  
@@ -454,6 +412,48 @@ The following example shows how to read metric data on the metric supporting mul
         }
     }
 
+```
+
+### [PowerShell](#tab/azure-powershell)
+
+#### List the metric definition
+
+You can list the metric definition of your storage account or the Blob storage service. Use the [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition) cmdlet.
+
+In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service.  You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
+
+```powershell
+   $resourceId = "<resource-ID>"
+   Get-AzMetricDefinition -ResourceId $resourceId
+```
+
+#### Reading metric values
+
+You can read account-level metric values of your storage account or the Blob storage service. Use the [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
+
+```powershell
+   $resourceId = "<resource-ID>"
+   Get-AzMetric -ResourceId $resourceId -MetricNames "UsedCapacity" -TimeGrain 01:00:00
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+#### List the account-level metric definition
+
+You can list the metric definition of your storage account or the Blob storage service. Use the [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) command.
+ 
+In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
+
+```azurecli-interactive
+   az monitor metrics list-definitions --resource <resource-ID>
+```
+
+#### Read account-level metric values
+
+You can read the metric values of your storage account or the Blob storage service. Use the [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list) command.
+
+```azurecli-interactive
+   az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
 
 ---
