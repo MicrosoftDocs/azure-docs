@@ -20,7 +20,7 @@ After the **Peering** resource is deployed successfully, you can view it by foll
 1. Select the **Peering** resource you created.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering resource view](../media/setup-direct-get-open.png)
+    > ![Screenshot that shows the Peering resource yuo created.](../media/setup-direct-get-open.png)
 
 1. The **Overview** page shows high-level information, as shown here.
 
