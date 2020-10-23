@@ -166,7 +166,7 @@ private static void DeleteIndexIfExists(string indexName, SearchIndexClient inde
 
 > [!NOTE]
 > The example code in this article uses the synchronous methods for simplicity, but you should use the asynchronous methods in your own applications to keep them scalable and responsive. For example, in the method above you could use [`DeleteIndexAsync`](/dotnet/api/azure.search.documents.indexes.searchindexclient.deleteindexasync) instead of [`DeleteIndex`](/dotnet/api/azure.search.documents.indexes.searchindexclient.deleteindex).
-> 
+>
 
 ## Create an index
 
@@ -194,7 +194,7 @@ Besides fields, you could also add scoring profiles, suggesters, or CORS options
 > You can always create the list of `Field` objects directly instead of using `FieldBuilder` if needed. For example, you may not want to use a model class or you may need to use an existing model class that you don't want to modify by adding attributes.
 >
 
-### Calling CreateIndex in Main()
+### Call CreateIndex in Main()
 
 `Main` creates a new "hotels" index by calling the above method:
 
@@ -417,7 +417,7 @@ The third part of this method is a catch block that handles an important error c
 
 Finally, the `UploadDocuments` method delays for two seconds. Indexing happens asynchronously in your search service, so the sample application needs to wait a short time to ensure that the documents are available for searching. Delays like this are typically only necessary in demos, tests, and sample applications.
 
-### Calling UploadDocuments in Main()
+### Call UploadDocuments in Main()
 
 The following code snippet sets up an instance of [`SearchClient`](/dotnet/api/azure.search.documents.searchclient) using the [`GetSearchClient`](/dotnet/api/azure.search.documents.indexes.searchindexclient.getsearchclient) method of indexClient. The indexClient uses an admin API key on its requests, which is required for loading or refreshing documents.
 
@@ -534,13 +534,88 @@ private static void WriteDocuments(SearchResults<Hotel> searchResults)
 }
 ```
 
-Fourth, call all of the relevant methods in Main():
+### Call RunQueries in Main()
 
 ```csharp
 SearchClient indexClientForQueries = CreateSearchClientForQueries(indexName, configuration);
+
+Console.WriteLine("{0}", "Running queries...\n");
+RunQueries(indexClientForQueries);
 ```
 
-This step concludes this introduction to the .NET SDK, but don't stop here. The next section suggests additional resources for learning more about programming with Azure Cognitive Search.
+### Explore query constructs
+
+Let's take a closer look at each of the queries in turn. Here is the code to execute the first query:
+
+```csharp
+options = new SearchOptions();
+options.Select.Add("HotelName");
+
+results = searchClient.Search<Hotel>("motel", options);
+
+WriteDocuments(results);
+```
+
+In this case, we're searching the entire index for the word "motel" in any searchable field and we only want to retrieve the hotel names, as specified by the `Select` option. Here are the results:
+
+```output
+Name: Secret Point Motel
+
+Name: Twin Dome Motel
+```
+
+In the second query, use a filter to select room with a nightly rate of less than $100. Return only the hotel ID and description in the results:
+
+```csharp
+options = new SearchOptions()
+{
+    Filter = "Rooms/any(r: r/BaseRate lt 100)"
+};
+options.Select.Add("HotelId");
+options.Select.Add("Description");
+
+results = searchClient.Search<Hotel>("*", options);
+```
+
+The above query uses an OData `$filter` expression, `Rooms/any(r: r/BaseRate lt 100)`, to filter the documents in the index. This uses the [any operator](./search-query-odata-collection-operators.md) to apply the 'BaseRate lt 100' to every item in the Rooms collection. For more information, see [OData filter syntax](./query-odata-filter-orderby-syntax.md).
+
+In the third query, find the top two hotels that have been most recently renovated, and show the hotel name and last renovation date. Here is the code: 
+
+```csharp
+options =
+    new SearchOptions()
+    {
+        Size = 2
+    };
+options.OrderBy.Add("LastRenovationDate desc");
+options.Select.Add("HotelName");
+options.Select.Add("LastRenovationDate");
+
+results = searchClient.Search<Hotel>("*", options);
+
+WriteDocuments(results);
+```
+
+In the last query, find all hotels names that match the word "hotel":
+
+```csharp
+options.Select.Add("HotelId");
+options.Select.Add("HotelName");
+options.Select.Add("Description");
+options.Select.Add("Category");
+options.Select.Add("Tags");
+options.Select.Add("ParkingIncluded");
+options.Select.Add("LastRenovationDate");
+options.Select.Add("Rating");
+options.Select.Add("Address");
+options.Select.Add("Rooms");
+
+results = searchClient.Search<Hotel>("hotel", options);
+
+WriteDocuments(results);
+```
+
+This section concludes this introduction to the .NET SDK, but don't stop here. The next section suggests additional resources for learning more about programming with Azure Cognitive Search.
 
 ## Next steps
 
@@ -551,99 +626,3 @@ This step concludes this introduction to the .NET SDK, but don't stop here. The 
 + Review [naming conventions](/rest/api/searchservice/Naming-rules) to learn the rules for naming various objects
 
 + Review [supported data types](/rest/api/searchservice/Supported-data-types)
-
-<!-- REMAINDER OF THE OVERVIEW ** QUERIES
-
-Let's take a closer look at each of the queries in turn. Here is the code to execute the first query:
-
-```csharp
-parameters =
-    new SearchParameters()
-    {
-        Select = new[] { "HotelName" }
-    };
-
-results = indexClient.Documents.Search<Hotel>("motel", parameters);
-
-WriteDocuments(results);
-```
-
-In this case, we're searching the entire index for the word "motel" in any searchable field and we only want to retrieve the hotel names, as specified by the `Select` parameter. Here are the results:
-
-```output
-Name: Secret Point Motel
-
-Name: Twin Dome Motel
-```
-
-The next query is a little more interesting.  We want to find any hotels that have a room with a nightly rate of less than $100 and return only the hotel ID and description:
-
-```csharp
-parameters =
-    new SearchParameters()
-    {
-        Filter = "Rooms/any(r: r/BaseRate lt 100)",
-        Select = new[] { "HotelId", "Description" }
-    };
-
-results = indexClient.Documents.Search<Hotel>("*", parameters);
-
-WriteDocuments(results);
-```
-
-This query uses an OData `$filter` expression, `Rooms/any(r: r/BaseRate lt 100)`, to filter the documents in the index. This uses the [any operator](./search-query-odata-collection-operators.md) to apply the 'BaseRate lt 100' to every item in the Rooms collection. You can find out more about the OData syntax that Azure Cognitive Search supports [here](./query-odata-filter-orderby-syntax.md).
-
-Here are the results of the query:
-
-```output
-HotelId: 1
-Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York...
-
-HotelId: 2
-Description: The hotel is situated in a nineteenth century plaza, which has been expanded and renovated to...
-```
-
-Next, we want to find the top two hotels that have been most recently renovated, and show the hotel name and last renovation date. Here is the code: 
-
-```csharp
-parameters =
-    new SearchParameters()
-    {
-        OrderBy = new[] { "LastRenovationDate desc" },
-        Select = new[] { "HotelName", "LastRenovationDate" },
-        Top = 2
-    };
-
-results = indexClient.Documents.Search<Hotel>("*", parameters);
-
-WriteDocuments(results);
-```
-
-In this case, we again use OData syntax to specify the `OrderBy` parameter as `lastRenovationDate desc`. We also set `Top` to 2 to ensure we only get the top two documents. As before, we set `Select` to specify which fields should be returned.
-
-Here are the results:
-
-```output
-Name: Fancy Stay        Last renovated on: 6/27/2010 12:00:00 AM +00:00
-Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
-```
-
-Finally, we want to find all hotels names that match the word "hotel":
-
-```csharp
-parameters = new SearchParameters()
-{
-    SearchFields = new[] { "HotelName" }
-};
-results = indexClient.Documents.Search<Hotel>("hotel", parameters);
-
-WriteDocuments(results);
-```
-
-And here are the results, which include all fields since we did not specify the `Select` property:
-
-```output
-	HotelId: 3
-	Name: Triple Landscape Hotel
-	...
-```
