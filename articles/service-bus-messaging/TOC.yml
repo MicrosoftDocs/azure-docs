@@ -80,6 +80,14 @@
     href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
   - name: Optimize performance
     href: service-bus-performance-improvements.md
+  - name: Federation 
+    items:
+      - name: Multi-site and multi-region federation
+        href: service-bus-federation-overview.md
+      - name: Replicate events between Service Bus entities
+        href: service-bus-federation-service-bus.md
+      - name: Replicate events from Service Bus to Event Hubs
+        href: service-bus-federation-event-hubs.md
   - name: Geo-disaster recovery and geo-replication
     href: service-bus-geo-dr.md
   - name: Asynchronous messaging and high availability

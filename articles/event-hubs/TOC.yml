@@ -95,12 +95,8 @@
           href: event-hubs-federation-overview.md
         - name: Replicate events between Event Hubs
           href: event-hubs-federation-event-hubs.md
-        - name: Replicate events from and to Apache Kafka
-          href: event-hubs-federation-apache-kafka.md
         - name: Acquire events from and send events to Azure Service Bus
           href: event-hubs-federation-service-bus.md
-        - name: Acquire events from and send events to Azure Event Grid
-          href: event-hubs-federation-event-grid.md
     - name: Geo-disaster recovery
       items:
         - name: Geo-disaster recovery and Geo-replication
