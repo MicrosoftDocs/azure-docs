@@ -1179,8 +1179,6 @@
       items:
       - name: Response Headers
         href: gremlin-headers.md
-      - name: Limits
-        href: gremlin-limits.md
       - name: REST resource provider
         href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
       - name: Resource Manager template
