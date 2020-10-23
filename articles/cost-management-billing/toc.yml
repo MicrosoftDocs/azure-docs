@@ -462,8 +462,6 @@
       href: cloudyn/activate-subs-accounts.md
     - name: Add extended metrics for VMs
       href: cloudyn/azure-vm-extended-metrics.md
-    - name: Connect a Google account
-      href: cloudyn/connect-google-account.md
     - name: Connect an AWS account
       href: cloudyn/connect-aws-account.md
     - name: Configure storage accounts
