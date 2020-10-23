@@ -2017,6 +2017,8 @@
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
         href: github-provisioning-tutorial.md
+      - name: Global Relay Identity Sync
+        href: global-relay-identity-sync-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: Harness
