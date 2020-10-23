@@ -78,17 +78,20 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 3. In the **Monitoring** section, click **Diagnostic settings (preview)**.
 
-   ![portal - Diagnostics logs](media/monitor-blob-storage/diagnostic-logs-settings-pane.png)
+   > [!div class="mx-imgBorder"]
+   > ![portal - Diagnostics logs](media/monitor-blob-storage/diagnostic-logs-settings-pane.png)   
 
 4. Choose **blob** as the type of storage that you want to enable logs for.
 
 5. Click **Add diagnostic setting**.
 
-   ![portal - Resource logs - add diagnostic setting](media/monitor-blob-storage/diagnostic-logs-settings-pane-2.png)
+   > [!div class="mx-imgBorder"]
+   > ![portal - Resource logs - add diagnostic setting](media/monitor-blob-storage/diagnostic-logs-settings-pane-2.png)
 
    The **Diagnostic settings** page appears.
 
-   ![Resource logs page](media/monitor-blob-storage/diagnostic-logs-page.png)
+   > [!div class="mx-imgBorder"]
+   > ![Resource logs page](media/monitor-blob-storage/diagnostic-logs-page.png)
 
 6. In the **Name** field of the page, enter a name for this Resource log setting. Then, select which operations you want logged (read, write, and delete operations), and where you want the logs to be sent.
 
@@ -96,7 +99,8 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 1. Select the **Archive to a storage account** checkbox, and then click the **Configure** button.
 
-   ![Diagnostic settings page archive storage](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
+   > [!div class="mx-imgBorder"]   
+   > ![Diagnostic settings page archive storage](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
 2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, click the **OK** button, and then click the **Save** button.
 
@@ -109,7 +113,8 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 2. In the **Select an event hub** pane, choose the namespace, name, and policy name of the event hub that you want to stream your logs to. 
 
-   ![Diagnostic settings page event hub](media/monitor-blob-storage/diagnostic-logs-settings-pane-event-hub.png)
+   > [!div class="mx-imgBorder"]
+   > ![Diagnostic settings page event hub](media/monitor-blob-storage/diagnostic-logs-settings-pane-event-hub.png)
 
 3. Click the **OK** button, and then click the **Save** button.
 
@@ -117,7 +122,8 @@ For general guidance, see [Create diagnostic setting to collect platform logs an
 
 1. Select the **Send to Log Analytics** checkbox, select a log analytics workspace, and then click the and then click the **Save** button.
 
-   ![Diagnostic settings page log analytics](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
+   > [!div class="mx-imgBorder"]   
+   > ![Diagnostic settings page log analytics](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
 
 ### [PowerShell](#tab/azure-powershell)
 
