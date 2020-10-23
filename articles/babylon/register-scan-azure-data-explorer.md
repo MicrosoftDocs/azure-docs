@@ -74,7 +74,7 @@ The next screen here is to scope the scan. Please select the folders you want to
 
 ![Screenshot scope scans](./media/register-scan-azure-data-explorer/scope-scan.png)
 
-The next screen is where you set your scan trigger, telling the system how often you would like to scan.
+The next screen is where you set your scan trigger, which tells the system how often you would like to scan.
 
 > [!NOTE] 
 > Once means no schedule, which is an indication to the system that the scan should only run once.
