@@ -41,7 +41,7 @@ To do this in the Azure portal:
 
 2. Select **"Azure Active Directory"** from the top search bar
 
-3. Select **"App registrations"**
+3. Select **App registrations**
 
 4. Select **"+ New application registration"**
 
