@@ -25,8 +25,7 @@ Before you begin, you must have the following:
 
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
-+ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8 or 11.  
-  _Functions support for Java 11 is currently in preview._
++ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8 or 11. The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK.     
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
