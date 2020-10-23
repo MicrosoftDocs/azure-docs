@@ -35,12 +35,12 @@ The following table shows how each Blob storage feature is supported with Data L
 |Lifecycle management policies (tiering)|Generally available|Not yet supported|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
 |Lifecycle management policies (delete blob)|Generally available|Generally available|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
 |Logging in Azure Monitor|Preview |Preview|[Monitoring Azure Storage](../common/monitor-storage.md)|
-|Snapshots|Preview|Not yet supported|[Blob snapshots](snapshots-overview.md)|
+|Snapshots|Preview|Preview|[Blob snapshots](snapshots-overview.md)|
 |Static websites|Preview|Preview|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
-|Immutable storage|Preview|Not yet supported|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
+|Immutable storage|Preview|Preview|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
 |Container soft delete|Preview|Preview|[Soft delete for containers (preview)](soft-delete-container-overview.md)|
 |Blob soft delete|Not yet supported|Not yet supported|[Soft delete for blobs](storage-blob-soft-delete.md)|
-|Blobfuse|Preview|Not yet supported|[How to mount Blob storage as a file system with blobfuse](storage-how-to-mount-container-linux.md)|
+|Blobfuse|Preview|Preview|[How to mount Blob storage as a file system with blobfuse](storage-how-to-mount-container-linux.md)|
 |Account failover|Not yet supported|Not yet supported|[Disaster recovery and account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Blob container ACL|Not supported<div role="complementary" aria-labelledby="blob-container-ACL"><sup>1</sup></div>|Not supported<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|See the related note below this table.|
 |Customer-provided keys|Not yet supported|Not yet supported|[Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md)|

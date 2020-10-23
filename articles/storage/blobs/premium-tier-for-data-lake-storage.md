@@ -85,7 +85,6 @@ Premium tier for Azure Data Lake Storage is generally available in the following
 |UK South|LRS|
 |UK West|LRS|
 |France Central|LRS|
-|Germany West Central|LRS|
 |Asia East|LRS|
 |Korea Central|LRS|
 |Korea South|LRS|
