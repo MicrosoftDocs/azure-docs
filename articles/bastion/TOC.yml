@@ -1,10 +1,11 @@
-- name: Bastion Documentation
+- name: Bastion documentation
   href: index.yml
 - name: Overview
   items: 
   - name: What is Azure Bastion?
     href: bastion-overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create a host using VM settings
     href: quickstart-host-portal.md
@@ -23,7 +24,7 @@
   - name: Create a host
     items:
     - name: Azure portal
-      href: bastion-create-host-portal.md
+      href: tutorial-create-host-portal.md
     - name: Azure PowerShell
       href: bastion-create-host-powershell.md
     - name: Azure CLI
@@ -69,7 +70,7 @@
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/en-us/answers/topics/azure-virtual-network.html
+    href: /answers/topics/azure-virtual-network.html
   - name: Preview SLA
     href: https://azure.microsoft.com/support/legal/preview-supplemental-terms
   - name: SLA

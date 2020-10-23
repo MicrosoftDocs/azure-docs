@@ -26,7 +26,7 @@ Azure Spatial Anchors can associate on-device, positioning sensor data with the 
 
 To complete this guide, make sure you have:
 
-- Basic knowledge on C++ and the <a href="https://docs.microsoft.com/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">Windows Runtime APIs</a>.
+- Basic knowledge on C++ and the <a href="/windows/uwp/cpp-and-winrt-apis/intro-to-using-cpp-with-winrt" target="_blank">Windows Runtime APIs</a>.
 - Read through the [Azure Spatial Anchors overview](../overview.md).
 - Completed one of the [5-minute Quickstarts](../index.yml).
 - Read through the [Create and locate anchors how-to](../create-locate-anchors-overview.md).

@@ -1,5 +1,5 @@
 ---
-title: Creating a Azure child DNS zones
+title: 'Tutorial: Creating a Azure child DNS zones'
 titleSuffix: Azure DNS
 description: Tutorial on how to create child DNS zones in Azure portal.
 author: jonbeck

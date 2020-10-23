@@ -36,7 +36,7 @@ There are several limitations when using customer managed keys for encrypting sh
 
 - Encryption key sets are regional resources so each region requires a different encryption key set.
 
-- You cannot share images that use customer managed keys. 
+- You cannot copy or share images that use customer managed keys. 
 
 - Once you have used your own keys to encrypt a disk or image, you cannot go back to using platform-managed keys for encrypting those disks or images.
 

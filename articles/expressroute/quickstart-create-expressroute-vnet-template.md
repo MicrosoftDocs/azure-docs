@@ -6,7 +6,7 @@ author: duongau
 mnager: kumud
 ms.service: expressroute
 ms.topic: quickstart
-ms.custom: subject-armsq
+ms.custom: subject-armqs
 ms.date: 10/12/2020
 ms.author: duau
 ---

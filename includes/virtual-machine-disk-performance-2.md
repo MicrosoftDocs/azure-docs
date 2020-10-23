@@ -5,7 +5,7 @@
  author: albecker1
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/25/2020
+ ms.date: 10/12/2020
  ms.author: albecker1
  ms.custom: include file
 ---
@@ -123,4 +123,21 @@ Metrics that help diagnose VM IO capping:
 - **VM Cached Bandwidth Consumed Percentage** - the percentage calculated by the total disk throughput completed over the max cached virtual machine throughput. If this amount is at 100%, your application running will be IO capped from your VM's cached bandwidth limit.
 - **VM uncached IOPS Consumed Percentage** - the percentage calculated by the total IOPS on a virtual machine completed over the max uncached  virtual machine IOPS limit. If this amount is at 100%, your application running will be IO capped from your VM's uncached IOPS limit.
 - **VM Uncached Bandwidth Consumed Percentage** - the percentage calculated by the total disk throughput on a virtual machine completed over the max provisioned virtual machine throughput. If this amount is at 100%, your application running will be IO capped from your VM's uncached bandwidth limit.
+
+## Storage IO utilization metrics example
+Let's run through an example of how to use these new Storage IO utilization metrics to help us debug where a bottleneck is in our system. The system set up is exactly what we had in the previous example, except this time our OS disk that we have attached is **not** cached.
+
+Set up:
+- Standard_D8s_v3 
+    - Cached IOPS: 16,000
+    - Uncached IOPS: 12,800
+- P30 OS Disk 
+    - IOPS: 5,000
+    - Host Caching: Disabled
+- 2 P30 Data Disks X 2
+    - IOPS: 5,000
+    - Host Caching: Read/write
+- 2 P30 Data Disks X 2
+    - IOPS: 5,000
+    - Host Caching: Disabled
 

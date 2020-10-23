@@ -157,7 +157,7 @@ To enable brokered authentication for Xamarin.iOS, follow the steps in the [Xama
 
 ### Enable the broker for MSAL for Android
 
-For information about enabling a broker on Android, see [Brokered authentication on Android](brokered-auth.md).
+For information about enabling a broker on Android, see [Brokered authentication on Android](msal-android-single-sign-on.md).
 
 ### Enable the broker for MSAL for iOS and macOS
 

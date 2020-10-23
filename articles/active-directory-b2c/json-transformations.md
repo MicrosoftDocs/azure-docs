@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -108,7 +108,7 @@ The following example generates a JSON string based on the claim values as well 
 </ClaimsTransformation>
 ```
 
-The following claims transformation outputs a JSON string claim that will be the body of the request sent to a REST API. The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties.
+The following claims transformation outputs a JSON string claim that will be the body of the request sent to a REST API. The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. The values come from the InputClaims' values and the InputParameters' "Value" properties.
 
 - Input claims :
   - **email**,  transformation claim type  **customerEntity.email**: "john.s@contoso.com"

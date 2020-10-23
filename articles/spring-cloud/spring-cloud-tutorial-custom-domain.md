@@ -21,7 +21,7 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 * An application deployed to Azure Spring Cloud (see [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](spring-cloud-quickstart.md), or use an existing app).
 * A domain name with access to the DNS registry for domain provider such as GoDaddy.
 * A private certificate (that is, your self-signed certificate) from a third-party provider. The certificate must match the domain.
-* A deployed instance of [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* A deployed instance of [Azure Key Vault](../key-vault/general/overview.md)
 
 ## Import certificate
 ### Prepare your certificate file in PFX (optional)
@@ -220,7 +220,6 @@ az spring-cloud app update -n <app name> --resource-group <resource group name> 
 When the operation is complete, navigate to any of the HTTPS URLs that point to your app. Note that HTTP URLs don't work.
 
 ## See also
-* [What is Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-* [Import a certificate](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate)
-* [Launch your Spring Cloud App by using the Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)
-
+* [What is Azure Key Vault?](../key-vault/general/overview.md)
+* [Import a certificate](../key-vault/certificates/certificate-scenarios.md#import-a-certificate)
+* [Launch your Spring Cloud App by using the Azure CLI](./spring-cloud-quickstart.md)

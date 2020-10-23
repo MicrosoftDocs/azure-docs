@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 10/14/2020
 ms.author: danis
 
 ---
@@ -93,10 +93,10 @@ These SLES images have been updated to provision using cloud-init, the Gen2 imag
 ### Debian
 | Publisher / Version | Offer | SKU | Version | image cloud-init ready | cloud-init package support on Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| yes (preview only) | No, in preview. |
-| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| yes (preview only) | No, in preview. |
-
-
+| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| yes (note: this is a preview image, and **must** not be used anymore, this will be removed 1st January 2021) | No, in preview. |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| yes (note: this is a preview image, and **must** not be used anymore, this will be removed 1st January 2021) | No, in preview. |
+| debian (Gen1) |debian-10 | 10-cloudinit |10:0.20201013.422| yes | yes - support from package version: `20.2-2~deb10u1` |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |0.20201013.422| yes | yes - support from package version: `20.2-2~deb10u1` |
 
 
 Currently Azure Stack will support the provisioning of cloud-init enabled images.

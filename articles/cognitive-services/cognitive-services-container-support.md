@@ -68,7 +68,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 | [Text Analytics][ta-containers-language] | F0, S | **Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. |
 | [Text Analytics][ta-containers-sentiment] | F0, S | **Sentiment Analysis v3** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyzes raw text for clues about positive or negative sentiment. This version of sentiment analysis returns sentiment labels (for example *positive* or *negative*) for each document and sentence within it. |
 | [Text Analytics][ta-containers-health] | F0, S | **Text Analytics for health** | Extract and label medical information from unstructured clinical text. |
-| [Spatial Analysis][spa-containers] | S0 | **Spatial analysis** | Extract and label medical information from unstructured clinical text. |
+| [Spatial Analysis][spa-containers] | S0 | **Spatial analysis** | Analyzes real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in physical environments. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
