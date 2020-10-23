@@ -48,8 +48,6 @@
       href: costs/manage-automation.md
     - name: Cost Management for partners
       href: costs/get-started-partners.md
-    - name: Choose between Cost Management and Cloudyn
-      href: costs/choose-between-azure-cost-management-cloudyn.md
   - name: Reservations
     items:
     - name: What are Azure Reservations?
