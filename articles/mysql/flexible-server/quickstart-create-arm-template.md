@@ -17,7 +17,7 @@ ms.date: 09/22/2020
 
 Azure Database for MySQL - Flexible Server (Preview) is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. You can use ARM templates to provision a flexible server to deploy multiple servers or multiple databases on a server.
 
-An [ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it.
+An [ARM template](../../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax, which lets you state what you intend to deploy without having to write the sequence of programming commands to create it.
 
 ## Prerequisites
 
@@ -155,7 +155,7 @@ Create a ```mysql-flexible-server-template.json``` file and copy this ```json```
 
 ## Deploy the template
 
-Select **Try it** from the following PowerShell code block to open [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+Select **Try it** from the following PowerShell code block to open [Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ```azurepowershell-interactive
 $serverName = Read-Host -Prompt "Enter a name for the new Azure Database for MySQL server"
@@ -245,7 +245,7 @@ echo "Press [ENTER] to continue ..."
 For a step-by-step tutorial that guides you through the process of creating an ARM template, see:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Create and deploy your first ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Tutorial: Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 For a step-by-step tutorial to build an app with App Service using MySQL, see:
 
