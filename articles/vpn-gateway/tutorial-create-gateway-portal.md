@@ -101,5 +101,7 @@ these resources using the following steps:
 Once you have a VPN gateway, you can configure connections. The articles below will help you create a few of the most common configurations:
 
 > [!div class="nextstepaction"]
-> [Create and manage Site-to-site VPN connections](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> [Create and manage Point-to-site VPN connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> [Site-to-Site VPN connections](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+
+> [!div class="nextstepaction"]
+> [Point-to-Site VPN connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
