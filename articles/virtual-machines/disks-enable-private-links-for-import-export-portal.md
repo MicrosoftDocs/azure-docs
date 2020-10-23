@@ -26,12 +26,6 @@ You can set the NetworkAccessPolicy property to `DenyAll` to prevent anybody fro
 
 [!INCLUDE [virtual-machines-disks-private-links-regions](../../includes/virtual-machines-disks-private-links-regions.md)]
 
-## Prerequisites
-
-To use private endpoints for exporting and importing managed disks, you must get the feature enabled on your subscription. Send an email to mdprivatelinks@microsoft .com with your subscription Ids to get the feature enabled for your subscriptions.
-
-You will need to note down the virtual network of the VM that your disks are attached to. The virtual network is necessary when configuring the private endpoint.
-
 ## Create a disk access resource
 
 1. Sign in to the Azure portal and navigate to **Disk Access** with [this link](https://aka.ms/disksprivatelinks).
@@ -96,4 +90,4 @@ You've now completed configuring Private Links that you can use when importing/e
 ## Next steps
 
 - [FAQ for Private Links](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
+- [Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell](./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md)

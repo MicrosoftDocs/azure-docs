@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/30/2020
+ms.date: 10/15/2020
 ms.author: apimpm
 
 ---
@@ -57,21 +57,19 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
    * Compute an HMAC-SHA512 hash of a string based on the **returnUrl** and **salt** query parameters ([example code provided below]):
      
      > HMAC(**salt** + '\n' + **returnUrl**)
-     > 
-     > 
+
    * Compare the above-computed hash to the value of the **sig** query parameter. If the two hashes match, move on to the next step, otherwise deny the request.
 3. Verify that you are receiving a request for sign in/sign up: the **operation** query parameter will be set to "**SignIn**".
 4. Present the user with UI to sign in or sign up
 5. If the user is signing-up you have to create a corresponding account for them in API Management. [Create a user] with the API Management REST API. When doing so, ensure that you set the user ID to the same value as in your user store or to an ID that you can keep track of.
 6. When the user is successfully authenticated:
    
-   * [request a single-sign-on (SSO) token] via the API Management REST API
-   * append a returnUrl query parameter to the SSO URL you have received from the API call above:
+   * [Request a shared access token] via the API Management REST API
+   * Append a returnUrl query parameter to the SSO URL you have received from the API call above:
      
-     > for example, `https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
-     > 
-     > 
-   * redirect the user to the above produced URL
+     > for example, `https://customer.portal.azure-api.net/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
+     
+   * Redirect the user to the above produced URL
 
 In addition to the **SignIn** operation, you can also perform account management by following the previous steps and using one of the following operations:
 
@@ -182,7 +180,7 @@ For more information on delegation, see the following video:
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[request a single-sign-on (SSO) token]: /rest/api/apimanagement/2019-12-01/user/generatessourl
+[Request a shared access token]: /rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken
 [create a user]: /rest/api/apimanagement/2019-12-01/user/createorupdate
 [calling the REST API for subscriptions]: /rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps

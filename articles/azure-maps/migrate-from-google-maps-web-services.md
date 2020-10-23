@@ -1,19 +1,35 @@
 ---
-title: 'Migrate web services from Google Maps | Microsoft Azure Maps'
-description: How to migrate web services from Google Maps to Microsoft Azure Maps
+title: 'Tutorial - Migrate web services from Google Maps | Microsoft Azure Maps'
+description: Tutorial on how to migrate web services from Google Maps to Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/19/2020
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: 
 ---
 
-# Migrate web service from Google Maps
+# Tutorial - Migrate web service from Google Maps
 
 Both Azure and Google Maps provide access to spatial APIs through REST web services. The API interfaces of these platforms perform similar functionalities. But, they each use different naming conventions and response objects.
+
+In this tutorial, you will learn how to:
+
+> * Forward and reverse geocoding
+> * Search for points of interest
+> * Calculate routes and directions
+> * Retrieve a map image
+> * Calculate a distance matrix
+> * Get time zone details
+
+You will also learn: 
+
+> [!div class="checklist"]
+> * Which Azure Maps REST service when migrating from a Google Maps Web Service
+> * Tips on how to get the most out of the Azure Maps services
+> * Insights into other related Azure Maps services
 
 The table shows the Azure Maps service APIs, which have a similar functionality to the listed Google Maps service APIs.
 
@@ -43,6 +59,12 @@ Azure Maps has several additional REST web services that may be of interest:
 
 - [Spatial operations](https://docs.microsoft.com/rest/api/maps/spatial): Offload complex spatial calculations and operations, such as geofencing, to a service.
 - [Traffic](https://docs.microsoft.com/rest/api/maps/traffic): Access real-time traffic flow and incident data.
+
+## Prerequisites 
+
+1. Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+2. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 ## Geocoding addresses
 
@@ -331,7 +353,6 @@ Let's add a red (`FF0000`) default icon, with the label "Space Needle", position
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-
 ![Azure Maps marker](media/migrate-google-maps-web-services/azure-maps-marker.png)
 
 Add three pins with the label values '1', '2', and '3':
@@ -339,8 +360,6 @@ Add three pins with the label values '1', '2', and '3':
 ```
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
-
-
 
 ![Azure Maps multiple markers](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
 
@@ -465,13 +484,24 @@ These Open-source client libraries are for other programming languages:
 
 - .NET Standard 2.0 – [GitHub project](https://github.com/perfahlen/AzureMapsRestServices) \| [NuGet package](https://www.nuget.org/packages/AzureMapsRestToolkit/)
 
-## Additional resources
+## Next steps
 
-The following are additional documentation and resources for the Azure Maps REST services.
+Learn more about Azure Maps REST services:
 
-- [Best practices for search](how-to-use-best-practices-for-search.md)
-- [Search for an address](how-to-search-for-address.md)
-- [Best practices for routing](how-to-use-best-practices-for-routing.md)
-- [Azure Maps REST Service API reference documentation](https://docs.microsoft.com/rest/api/maps/)
-- [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
-- [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)
+> [!div class="nextstepaction"]
+> [Best practices for search](how-to-use-best-practices-for-search.md)
+
+> [!div class="nextstepaction"]
+> [Search for an address](how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [Best practices for routing](how-to-use-best-practices-for-routing.md)
+
+> [!div class="nextstepaction"]
+> [Azure Maps REST Service API reference documentation](https://docs.microsoft.com/rest/api/maps/)
+
+> [!div class="nextstepaction"]
+> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+> [!div class="nextstepaction"]
+> [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)

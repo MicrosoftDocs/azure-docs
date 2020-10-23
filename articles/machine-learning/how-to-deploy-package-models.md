@@ -9,7 +9,8 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
-
+ms.reviewer: larryfr
+ms.custom: deploy
 ---
 
 # How to package a registered model with Docker

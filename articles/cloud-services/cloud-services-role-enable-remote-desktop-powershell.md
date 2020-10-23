@@ -25,7 +25,7 @@ This article describes how to enable remote desktop on your Cloud Service Roles 
 ## Configure Remote Desktop from PowerShell
 The [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure.service/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet allows you to enable Remote Desktop on specified roles or all roles of your cloud service deployment. The cmdlet lets you specify the Username and Password for the remote desktop user through the *Credential* parameter that accepts a PSCredential object.
 
-If you are using PowerShell interactively, you can easily set the PSCredential object by calling the [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
+If you are using PowerShell interactively, you can easily set the PSCredential object by calling the [Get-Credentials](/powershell/module/microsoft.powershell.security/get-credential) cmdlet.
 
 ```powershell
 $remoteusercredentials = Get-Credential
@@ -33,7 +33,7 @@ $remoteusercredentials = Get-Credential
 
 This command displays a dialog box allowing you to enter the username and password for the remote user in a secure manner.
 
-Since PowerShell helps in automation scenarios, you can also set up the **PSCredential** object in a way that doesn't require user interaction. First, you need to set up a secure password. You begin with specifying a plain text password convert it to a secure string using [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Next you need to convert this secure string into an encrypted standard string using [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx). Now you can save this encrypted standard string to a file using [Set-Content](https://technet.microsoft.com/library/ee176959.aspx).
+Since PowerShell helps in automation scenarios, you can also set up the **PSCredential** object in a way that doesn't require user interaction. First, you need to set up a secure password. You begin with specifying a plain text password convert it to a secure string using [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring). Next you need to convert this secure string into an encrypted standard string using [ConvertFrom-SecureString](/powershell/module/microsoft.powershell.security/convertfrom-securestring). Now you can save this encrypted standard string to a file using [Set-Content](/previous-versions/windows/it-pro/windows-powershell-1.0/ee176959(v=technet.10)).
 
 You can also create a secure password file so that you don't have to type in the password every time. Also, a secure password file is better than a plain text file. Use the following PowerShell to create a secure password file:
 
@@ -42,9 +42,9 @@ ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-S
 ```
 
 > [!IMPORTANT]
-> When setting the password, make sure that you meet the [complexity requirements](https://technet.microsoft.com/library/cc786468.aspx).
+> When setting the password, make sure that you meet the [complexity requirements](/previous-versions/windows/it-pro/windows-server-2003/cc786468(v=ws.10)).
 
-To create the credential object from the secure password file, you must read the file contents and convert them back to a secure string using [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
+To create the credential object from the secure password file, you must read the file contents and convert them back to a secure string using [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring).
 
 The [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure.service/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet also accepts an *Expiration* parameter, which specifies a **DateTime** at which the user account expires. For example, you could set the account to expire a few days from the current date and time.
 
@@ -96,5 +96,3 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 ## Additional resources
 
 [How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)
-
-

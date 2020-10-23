@@ -1,6 +1,8 @@
 ---
 title: What is QnA Maker service?
 description: QnA Maker is a cloud-based NLP service that easily creates a natural conversational layer over your data. It can be used to find the most appropriate answer for any given natural language input, from your custom knowledge base (KB) of information.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 05/26/2020
 ms.custom: cog-serv-seo-aug-2020
@@ -76,9 +78,9 @@ QnA Maker provides authoring, training, and publishing along with collaboration 
 
 We offer quickstarts in most popular programming languages, each designed to teach you basic design patterns, and have you running code in less than 10 minutes. See the following list for the quickstart for each feature.
 
-* [Get started with the LUIS client library](../quickstarts/quickstart-sdk.md)
-* [Get started with the LUIS portal](../quickstarts/create-publish-knowledge-base.md)
-* [Get started with the LUIS REST APis](../quickstarts/quickstart-rest-curl.md)
+* [Get started with QnA Maker client library](../quickstarts/quickstart-sdk.md)
+* [Get started with QnA Maker portal](../quickstarts/create-publish-knowledge-base.md)
+* [Get started with QnA Maker REST APis](../quickstarts/quickstart-rest-curl.md)
 
 
 ## Next steps

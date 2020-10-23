@@ -114,13 +114,13 @@ The secure score, which is based on Center for Internet Security (CIS) controls,
 **Detail**: Follow the [security recommendations](../../security-center/security-center-recommendations.md) in Security Center starting, with the highest priority items.
 
 **Best practice**: Integrate Security Center alerts into your security information and event management (SIEM) solution.   
-**Detail**: Most organizations with a SIEM use it as a central clearinghouse for security alerts that require an analyst response. Processed events produced by Security Center are published to the Azure Activity Log, one of the logs available through Azure Monitor. Azure Monitor offers a consolidated pipeline for routing any of your monitoring data into a SIEM tool. See [Export security alerts and recommendations](../../security-center/continuous-export.md#configure-siem-integration-via-azure-event-hubs) for instructions.. If you’re using Azure Sentinel, see [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Detail**: Most organizations with a SIEM use it as a central clearinghouse for security alerts that require an analyst response. Processed events produced by Security Center are published to the Azure Activity Log, one of the logs available through Azure Monitor. Azure Monitor offers a consolidated pipeline for routing any of your monitoring data into a SIEM tool. See [Stream alerts to a SIEM, SOAR, or IT Service Management solution](../../security-center/export-to-siem.md) for instructions. If you’re using Azure Sentinel, see [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Best practice**: Integrate Azure logs with your SIEM.   
 **Detail**: Use [Azure Monitor to gather and export data](/azure/azure-monitor/overview#integrate-and-export-data). This practice is critical for enabling security incident investigation, and online log retention is limited. If you’re using Azure Sentinel, see [Connect data sources](../../sentinel/connect-data-sources.md).
 
 **Best practice**: Speed up your investigation and hunting processes and reduce false positives by integrating Endpoint Detection and Response (EDR) capabilities into your attack investigation.   
-**Detail**: [Enable Microsoft Defender ATP integration](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) via your Security Center security policy. Consider using Azure Sentinel for threat hunting and incident response.
+**Detail**: [Enabling the Microsoft Defender for Endpoint integration](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) via your Security Center security policy. Consider using Azure Sentinel for threat hunting and incident response.
 
 ## Monitor end-to-end scenario-based network monitoring
 Customers build an end-to-end network in Azure by combining network resources like a virtual network, ExpressRoute, Application Gateway, and load balancers. Monitoring is available on each of the network resources.

@@ -101,8 +101,10 @@
   items:
   - name: App integration
     items:
-    - name: Register an application
+    - name: Register a web application
       href: tutorial-register-applications.md
+    - name: Register a single-page application (SPA)
+      href: tutorial-register-spa.md
     - name: Register a SAML service provider
       href: connect-with-saml-service-providers.md
       displayName: SP, RP, service provider, connect
@@ -180,6 +182,12 @@
       href: basic-age-gating.md
     - name: Define custom attributes
       href: user-flow-custom-attributes.md
+    - name: API connectors (preview)
+      items:
+      - name: Overview
+        href: api-connectors-overview.md
+      - name: Add an API connector
+        href: add-api-connector.md
     - name: Pass through external IdP token
       href: idp-pass-through-user-flow.md
   - name: Identity Protection and Conditional Access
@@ -384,6 +392,8 @@
             displayName: single sign-on
       - name: UserJourneys
         href: userjourneys.md
+      - name: SubJourneys
+        href: subjourneys.md
       - name: RelyingParty
         href: relyingparty.md
       - name: Claim resolvers

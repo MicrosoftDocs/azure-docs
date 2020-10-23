@@ -124,9 +124,7 @@ landingContent:
 
   - title: Help and feedback
     linkLists:
-      - linkListType: reference
-        links:
-          - text: UserVoice
-            url: https://cognitive.uservoice.com/forums/598141-custom-vision-service
-          - text: Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context

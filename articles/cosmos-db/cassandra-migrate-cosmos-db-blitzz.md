@@ -29,7 +29,7 @@ Blitzz’s migration solution follows a step by step approach to migrate complex
 
 * Blitzz offers high-volume and parallel database replication. It enables both the source and target platforms to be in-sync during the migration by using a technique called Change-Data-Capture (CDC). By using CDC, Blitzz continuously pulls a stream of changes from the source database(Apache Cassandra) and applies it to the destination database(Azure Cosmos DB).
 
-* It is fault-tolerant and guarantees exactly once delivery of data even during a hardware or software failure in the system.
+* It is fault-tolerant and provides exactly once delivery of data even during a hardware or software failure in the system.
 
 * It secures the data during transit using a variety of security methodologies like TLS, encryption.
 

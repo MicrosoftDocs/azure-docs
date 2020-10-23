@@ -67,6 +67,8 @@ You also have to specify one of the following categories of operations for which
 | StorageWrite | Write operations on objects. |
 | StorageDelete | Delete operations on objects. |
 
+To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
+
 ## Analyzing metrics
 
 You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
@@ -271,7 +273,7 @@ The following example shows how to read metric data on the metric supporting mul
 
 You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries.
 
-For a detailed reference of the fields that appear in these logs, see [Azure Azure Files monitoring data reference](storage-files-monitoring-reference.md).
+To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
 > [!NOTE]
 > Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1, and general-purpose v2 storage accounts. Classic storage accounts aren't supported.
@@ -287,7 +289,7 @@ Log entries are created only if there are requests made against the service endp
 - Requests that use a shared access signature (SAS) or OAuth, including failed and successful requests
 - Requests to analytics data (classic log data in the **$logs** container and class metric data in the **$metric** tables)
 
-Requests made by the Azure Files service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](storage-files-monitoring-reference.md).
+Requests made by the Azure Files service itself, such as log creation or deletion, aren't logged. For a full list of the SMB and REST requests that are logged, see [Storage logged operations and status messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
 ### Log anonymous requests
 
@@ -298,7 +300,7 @@ Requests made by the Azure Files service itself, such as log creation or deletio
 - Time out errors for both client and server
 - Failed GET requests with the error code 304 (Not Modified)
 
-All other failed anonymous requests aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](storage-files-monitoring-reference.md).
+All other failed anonymous requests aren't logged. For a full list of the SMB and REST requests that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
 ### Accessing logs in a storage account
 

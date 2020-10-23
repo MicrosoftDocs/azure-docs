@@ -30,13 +30,13 @@ By the end of 2020, the **soft-delete will be on by default for all key vaults**
 
 ### Azure TLS certificate changes  
 
-Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements.
+Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates [do not comply with one of the CA/Browser Forum Baseline requirements](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951).
 
 ### When will this change happen?
 
 - [Azure Active Directory](/azure/active-directory) (Azure AD) services began this transition on July 7, 2020.
 - All newly created Azure TLS/SSL endpoints contain updated certificates chaining up to the new Root CAs.
-- Existing Azure endpoints will transition in a phased manner beginning August 13, 2020 and completing by October 26, 2020.
+- Existing Azure endpoints will transition in a phased manner beginning August 13, 2020.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and [DPS](/azure/iot-dps/) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. For full details, see the blob post [Azure IoT TLS: Changes are coming! (…and why you care)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - [Azure Storage](/azure/storage) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. For full details, see the blob post [Azure Storage TLS: Changes are coming! (…and why you care)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 

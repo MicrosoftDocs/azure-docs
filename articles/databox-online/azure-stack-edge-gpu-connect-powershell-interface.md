@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/06/2020
 ms.author: alkohli
 ---
 # Manage an Azure Stack Edge Pro GPU device via Windows PowerShell
@@ -424,8 +424,17 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 
 Baseboard management controller (BMC) is used to remotely monitor and manage your device. This section describes the cmdlets that can be used to manage BMC configuration. Prior to running any of these cmdlets, [Connect to the PowerShell interface of the device](#connect-to-the-powershell-interface).
 
-- `Get-HcsNetBmcInterface`: Use this cmdlet to get the network configuration properties of the BMC, for example, `IPv4Address`, `IPv4Gateway`, `IPv4SubnetMask`, `DhcpEnabled`: 
-
+- `Get-HcsNetBmcInterface`: Use this cmdlet to get the network configuration properties of the BMC, for example, `IPv4Address`, `IPv4Gateway`, `IPv4SubnetMask`, `DhcpEnabled`. 
+    
+    Here is a sample output:
+    
+    ```powershell
+    [10.100.10.10]: PS>Get-HcsNetBmcInterface
+    IPv4Address   IPv4Gateway IPv4SubnetMask DhcpEnabled
+    -----------   ----------- -------------- -----------
+    10.128.53.186 10.128.52.1 255.255.252.0        False
+    [10.100.10.10]: PS>
+    ```
 - `Set-HcsNetBmcInterface`: You can use this cmdlet in the following two ways.
 
     - Use the cmdlet to enable or disable DHCP configuration for BMC by using the appropriate value for `UseDhcp` parameter. 
@@ -462,7 +471,7 @@ Baseboard management controller (BMC) is used to remotely monitor and manage you
         [10.100.10.10]: PS>
         ```    
 
-- `Set-HcsBmcPassword`: Use this cmdlet to modify the BMC password for `EdgeUser`. 
+- `Set-HcsBmcPassword`: Use this cmdlet to modify the BMC password for `EdgeUser`. The user name - `EdgeUser`- is case-sensitive.
 
     Here is a sample output: 
 

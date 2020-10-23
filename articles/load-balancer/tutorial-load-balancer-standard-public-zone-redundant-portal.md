@@ -36,6 +36,10 @@ If you prefer, you can complete this tutorial using the [Azure CLI](load-balance
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
+## Prerequisites
+
+* An Azure subscription
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -226,8 +230,10 @@ To see the load balancer distribute traffic across the VMs distributed across th
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and click **Delete**.
+When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and select **Delete**.
 
 ## Next steps
 
-Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
+Learn more about load balancing a VM within a specific availability zone..
+> [!div class="nextstepaction"]
+> [Load balance VMs within an availability zone](tutorial-load-balancer-standard-public-zonal-portal.md)

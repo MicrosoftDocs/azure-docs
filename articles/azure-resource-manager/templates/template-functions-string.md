@@ -21,6 +21,7 @@ Resource Manager provides the following functions for working with strings in yo
 * [format](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
+* [json](#json)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
@@ -888,6 +889,12 @@ The output from the preceding example with the default values is:
 | firstString | Int | 2 |
 | lastString | Int | 0 |
 | notFound | Int | -1 |
+
+## json
+
+`json(arg1)`
+
+Converts a valid JSON string into a JSON data type. For more information, see [json function](template-functions-object.md#json).
 
 ## last
 

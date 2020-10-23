@@ -1,9 +1,9 @@
 ---
 title: Runbook execution in Azure Automation
-description: This article tells provides an overview of the processing of runbooks in Azure Automation.
+description: This article provides an overview of the processing of runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ---
 
@@ -66,7 +66,7 @@ Your runbooks must include logic to deal with [resources](/rest/api/resources/re
 
 ## Security
 
-Azure Automation uses the [Azure Security Center (ASC)](../security-center/security-center-intro.md) to provide security for your resources and detect compromise in Linux systems. Security is provided across your workloads, whether resources are in Azure or not. See 
+Azure Automation uses the [Azure Security Center (ASC)](../security-center/security-center-introduction.md) to provide security for your resources and detect compromise in Linux systems. Security is provided across your workloads, whether resources are in Azure or not. See 
 [Introduction to authentication in Azure Automation](automation-security-overview.md).
 
 ASC places constraints on users who can run any scripts, either signed or unsigned, on a VM. If you are a user with root access to a VM, you must explicitly configure the machine with a digital signature or turn it off. Otherwise, you can only run a script to apply operating system updates after creating an Automation account and enabling the appropriate feature.
@@ -85,20 +85,22 @@ Azure Automation makes use of [Azure Monitor](../azure-monitor/overview.md) for 
 
 ### Log Analytics agent for Windows
 
-The [Log Analytics agent for Windows](../azure-monitor/platform/agent-windows.md) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter. You must configure the agent to report to one or more Log Analytics workspaces.
+The [Log Analytics agent for Windows](../azure-monitor/platform/agent-windows.md) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter.
 
 >[!NOTE]
 >The Log Analytics agent for Windows was previously known as the Microsoft Monitoring Agent (MMA).
 
 ### Log Analytics agent for Linux
 
-The [Log Analytics agent for Linux](../azure-monitor/platform/agent-linux.md) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with an **nxautomation** user account that allows execution of commands requiring root permissions, for example, on a Hybrid Runbook Worker. The **nxautomation** account is a system account that doesn't require a password.
+The [Log Analytics agent for Linux](../azure-monitor/platform/agent-linux.md) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with a **nxautomation** user account that allows execution of commands requiring root permissions, for example, on a Hybrid Runbook Worker. The **nxautomation** account is a system account that doesn't require a password.
 
 The **nxautomation** account with the corresponding sudo permissions must be present during [installation of a Linux Hybrid Runbook worker](automation-linux-hrw-install.md). If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
 
+You should not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the **nxautomation** account and the permissions should not be removed. Restricting this to certain folders or commands may result in a breaking change.
+
 The logs available for the Log Analytics agent and the **nxautomation** account are:
 
-* /var/opt/microsoft/omsagent/log/omsagent.log - Log Analytics agent log 
+* /var/opt/microsoft/omsagent/log/omsagent.log - Log Analytics agent log
 * /var/opt/microsoft/omsagent/run/automationworker/worker.log - Automation worker log
 
 >[!NOTE]
@@ -222,7 +224,7 @@ External services, for example, Azure DevOps Services and GitHub, can start a ru
 
 To share resources among all runbooks in the cloud, Azure uses a concept called fair share. Using fair share, Azure temporarily unloads or stops any job that has run for more than three hours. Jobs for [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status becomes Stopped.
 
-For long-running Azure Automation tasks, it's recommended to use a Hybrid Runbook Worker. Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the 3-hour fair share limit, you should develop runbooks to run on the workers that support restarts from unexpected local infrastructure issues.
+For long-running Azure Automation tasks, it's recommended to use a Hybrid Runbook Worker. Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the three hour fair share limit, you should develop runbooks to run on the workers that support restarts from unexpected local infrastructure issues.
 
 Another option is to optimize a runbook by using child runbooks. For example, your runbook might loop through the same function on several resources, for example, with a database operation on several databases. You can move this function to a [child runbook](automation-child-runbooks.md) and have your runbook call it using [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook). Child runbooks execute in parallel in separate processes.
 

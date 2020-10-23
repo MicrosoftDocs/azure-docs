@@ -31,7 +31,7 @@ To give you a possibility to optimize network latency, Azure offers [proximity p
 
 - You cannot assume that all Azure VM types are available in every and all Azure datacenters. As a result, the combination of different VM types within one proximity placement group can be restricted. These restrictions occur because the host hardware that’s needed to run a certain VM type might not be present in the datacenter to which the placement group was deployed
 - As you resize parts of the VMs that are within one proximity placement group, you cannot automatically assume that in all cases the new VM type is available in the same datacenter as the other VMs that are part of the proximity placement group
-- As Azure decommissions hardware it might force certain VMs of a proximity placement group into another Azure datacenter. For details covering this case, read the document [Co-locate resources for improved latency](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#planned-maintenance-and-proximity-placement-groups)  
+- As Azure decommissions hardware it might force certain VMs of a proximity placement group into another Azure datacenter. For details covering this case, read the document [Co-locate resources for improved latency](../../linux/co-location.md#planned-maintenance-and-proximity-placement-groups)  
 
 > [!IMPORTANT]
 > As a result of the potential restrictions, proximity placement groups should be used:
