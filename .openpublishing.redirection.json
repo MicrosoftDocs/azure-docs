@@ -2,8 +2,8 @@
   "redirections": [
     {
       "source_path": "articles/security/azure-ddos-best-practices.md",
-      "redirect_url": "articles/security/fundamentals/ddos-best-practices.md",
-      "redirect_document_id": true
+      "redirect_url": "/azure/ddos-protection/fundamental-best-practices",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-network/ddos-protection-overview.md",
