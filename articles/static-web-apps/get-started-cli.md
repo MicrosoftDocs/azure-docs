@@ -20,7 +20,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 - [GitHub](https://github.com) account
 - [GitHub personal access token](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)
 - [Azure](https://portal.azure.com) account
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed (version 2.8.0 and higher)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) installed (version 2.8.0 and higher)
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 

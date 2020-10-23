@@ -19,12 +19,12 @@ ms.subservice: B2C
 
 Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. This tutorial shows you how to register a web application using the Azure portal. 
 
-A "web application" refers to a traditional web application that perform most of the application logic on the server. They may be built using frameworks like ASP.NET Core, Maven (Java), Flask (Python), and Express (Node.js).
+A "web application" refers to a traditional web application that performs most of the application logic on the server. They may be built using frameworks like ASP.NET Core, Maven (Java), Flask (Python), and Express (Node.js).
 
 > [!IMPORTANT]
-> If you're using a **single-page application ("SPA")** instead (e.g. using Angular, Vue, or React), learn [how to register a single-page application](tutorial-register-spa.md).
+> If you're using a single-page application ("SPA") instead (e.g. using Angular, Vue, or React), learn [how to register a single-page application](tutorial-register-spa.md).
 > 
-> If you're using a **native app** instead (e.g. iOS, Android, mobile & desktop), learn [how to register a native client application](add-native-application.md).
+> If you're using a native app instead (e.g. iOS, Android, mobile & desktop), learn [how to register a native client application](add-native-application.md).
 
 ## Prerequisites
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -63,13 +63,11 @@ To register a web application in your Azure AD B2C tenant, you can use our new u
 1. Select **Applications (Legacy)**, and then select **Add**.
 1. Enter a name for the application. For example, *webapp1*.
 1. For **Include web app/ web API**, select **Yes**.
-1. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. For example, you could set it to listen locally at `https://localhost:44316`. If you don't yet know the port number, you can enter a placeholder value and change it later.
+1. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. For example, you could set it to listen locally at `http://localhost:5000`. You can add and modify redirect URIs in your registered applications at any time.
 
-    For testing purposes like this tutorial you can set it to `https://jwt.ms` which displays the contents of a token for inspection. For this tutorial, set the **Reply URL** to `https://jwt.ms`.
+    The following restrictions apply to redirect URIs:
 
-    The following restrictions apply to reply URLs:
-
-    * The reply URL must begin with the scheme `https`.
+    * The reply URL must begin with the scheme `https`, unless using `localhost`.
     * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
 
 1. Select **Create** to complete the application registration.

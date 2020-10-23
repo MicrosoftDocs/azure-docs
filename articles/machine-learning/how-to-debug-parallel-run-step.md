@@ -20,7 +20,7 @@ In this article, you learn how to debug and troubleshoot the [ParallelRunStep](h
 
 ## Testing scripts locally
 
-See the [Testing scripts locally section](how-to-debug-pipelines.md#debug-scripts-locally) for machine learning pipelines. Your ParallelRunStep runs as a step in ML pipelines so the same answer applies to both.
+See the [Testing scripts locally section](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines) for machine learning pipelines. Your ParallelRunStep runs as a step in ML pipelines so the same answer applies to both.
 
 ## Debugging scripts from remote context
 
@@ -136,6 +136,8 @@ registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
 
 ## Next steps
+
+* See these [Jupyter notebooks demonstrating Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 
 * See the SDK reference for help with the [azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true) package. View reference [documentation](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py&preserve-view=true) for ParallelRunStep class.
 
