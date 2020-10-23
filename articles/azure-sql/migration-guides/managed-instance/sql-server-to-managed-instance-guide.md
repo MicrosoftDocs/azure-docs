@@ -101,7 +101,7 @@ Based on the information in the discover and assess phase, create your target SQ
 
 After you have completed tasks associated with the Pre-migration stage, you are ready to perform the schema and data migration. You can migrate your data using your chosen [migration method](sql-server-to-managed-instance-overview.md#migration-options) based on your workload and scenario. While there are tools / utilities based migration options that can be leveraged to migrate your SQL Server databases to Azure SQL Managed Instance with minimal downtime, you can also take advantage of natively backing up your source SQL Server databases and restoring them on Azure SQL Managed Instance which is a unique capability in Azure SQL MI compared to other Azure SQL PaaS deployment models. The two most recommended options for migrating to Azure SQL Managed Instance are described below.
 
-#### Migration with minimal downtime (Online Sync and Cutover)
+#### Migration with minimal downtime (Online sync and cutover)
 To perform migrations using DMS with minimal downtime via an online sync and cutover approach, follow the steps below:
 1. Register the **Microsoft.DataMigration** resource provider in your subscription if you are performing this for the first time.
 2. Create an Azure Database Migration Service Instance in a desired location of your choice (preferably in the same region as your target Azure SQL Managed Instance) and select an existing virtual network or create a new one to host your DMS instance.
