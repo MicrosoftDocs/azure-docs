@@ -44,9 +44,9 @@ Replication applications that must access Event Hubs bound to an Azure virtual n
 
 |       | Deploy | Visualize  
 |-------|------------------|--------------|---------------|
-| **Azure Functions Consumption Plan** | [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-premium-vnet-integration%2Fazuredeploy.json)|[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-premium-vnet-integration%2Fazuredeploy.json)
-| **Azure Functions Premium Plan** |[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-premium-vnet-integration%2Fazuredeploy.json) | [![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-premium-vnet-integration%2Fazuredeploy.json)
-| **Azure Functions Premium Plan with VNet** | [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-premium-vnet-integration%2Fazuredeploy.json)|[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-premium-vnet-integration%2Fazuredeploy.json)
+| **Azure Functions Consumption Plan** | [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2FAconsumption%2Fazuredeploy.json)|[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fconsumption%2Fazuredeploy.json)
+| **Azure Functions Premium Plan** |[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium%2Fazuredeploy.json) | [![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium%2Fazuredeploy.json)
+| **Azure Functions Premium Plan with VNet** | [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium-vnet%2Fazuredeploy.json)|[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium-vnet%2Fazuredeploy.json)
 
 ### Bundling and deploying replication tasks
 
@@ -60,70 +60,75 @@ The Azure Functions runtime environment provides a set of standard tasks where y
 
 Tasks that you build yourself are called "custom tasks". Custom tasks can be built in any language supported by Azure Functions. Because Azure Functions automatically takes care of updating and maintaining standard tasks, but you need to control this for your own code, custom tasks need to be hosted in a separate replication application, which still might share the same App Service Plan.
 
-#### Standard replication tasks
+#### Configured replication tasks
 
-Standard replication tasks lean on pre-built components that are part of the Azure Functions runtime environment. That means they are maintained and updated by Microsoft and you don't have to worry about the code just as you don't need to worry about operating system updates or other updates in Azure Functions. 
-
-A replication application with standard tasks is configured using a simple configuration file that defines pairs of event sources and event destinations (and related parameters) along with the kind of task you want to execute, for instance:
+Configured replication tasks lean on pre-built components. A replication
+application with such tasks is configured using a configuration file that
+defines pairs of event sources and event destinations (and related parameters)
+along with the kind of pre-built task you want to execute, for instance:
 
 ``` JSON  
 {
-    "configurationSource" : "config",
+    "configurationSource": "config",
     "bindings" : [
         {
-            "name": "input",
-            "type": "eventHubsTrigger",
-            "connection": "west-us-event-hub-namespace-config",
-            "eventHubName" : "myeventhub",
-            
+            "direction": "in",
+            "type": "eventHubTrigger",
+            "connection": "Input1ToOutput1-source-connection",
+            "eventHubName": "input1",
+            "name": "input" 
         },
         {
-            "name": "output",
-            "type" : "eventHub",
-            "connection" : "east-us-event-hub-namespace-config",
-            "eventHubName" : "myeventhub"
+            "direction": "out",
+            "type": "eventHub",
+            "connection": "Input1ToOutput1-target-connection",
+            "eventHubName": "output1",
+            "name": "output"
         }
     ],
-    "scriptFile" : "$ReplicationTasks",
-    "entryPoint" : "$EventHubToEventHubCopy"
+    "disabled": false,
+    "scriptFile": "../dotnet/bin/Azure.Messaging.Replication.dll",
+    "entryPoint": "Azure.Messaging.Replication.EventHubReplicationTasks.ForwardToEventHub"
 }
 ```
 
-The shown configuration declares an *input* with an Event Hubs trigger that references a connection string from the application configuration for the connection information and designates the source event hub. It also declares an *output* with an Event Hubs target, using a different connection string configuration element and the target Event Hub. The replication task, referred to by "entryPoint" is the `EventHubToEventHubCopy` standard task, which copies the complete contents of the source Event Hub into the target Event Hub.
+The shown configuration declares an *input* with an Event Hubs trigger that references a connection string from the application configuration for the connection information and designates the source event hub. It also declares an *output* with an Event Hubs target, using a different connection string configuration element and the target Event Hub. The replication task, referred to by "entryPoint" is the pre-built `EventHubReplicationTasks.ForwardToEventHub` standard task, which copies the complete contents of the source Event Hub into the target Event Hub.
 
-Standard replication tasks are available to move data between pairs of Event Hubs, between Service Bus and Event Hubs, between Event Grid and Event Hubs, and between Apache Kafka and Event Hubs. Further details for how to configure and deploy those standard tasks, including the one above, are documented in dedicated articles:
+Further details for how to configure and deploy such tasks, including the one above, are documented in dedicated articles:
 
 * [Replicating event data between different Event Hubs](event-hubs-federation-event-hubs.md)
 * [Replicating event data between Event Hubs and Service Bus](event-hubs-federation-service-bus.md)
-* [Replicating event data between Event Hubs and Event Grid](event-hubs-federation-event-grid.md)
-* [Replicating event data between Event Hubs and Apache Kafka](event-hubs-federation-kafka.md)
 
 #### Custom replication tasks
 
-Custom replication tasks implement extra functionality not provided by standard tasks, often implementing one or more common [replication task pattern](event-hubs-federation-overview.md#replication-task-patterns), or integrating special routing targets.
+Custom replication tasks implement extra functionality not provided by configured tasks, often implementing one or more common [replication task pattern](event-hubs-federation-overview.md#replication-task-patterns), or integrating special routing targets.
 
-For custom tasks, you should take advantage of Azure Functions' ability to build and deploy functions in multiple languages and host them in the same App Service Plan. Build a simple Java function to use one of hundreds of [Apache Camel](https://camel.apache.org/) connectors, use JavaScript to reshape JSON data, or use your favorite Python libraries to enrich the event payload with reference data or annotations.
-
-For sending data between Event Hubs, the boilerplate code for a custom replication task that performs some action on the forwarded event on the hot path is quite simple. 
+For sending data between Event Hubs, the boilerplate code for a custom replication task that performs some action on the forwarded event on the "hot path" is quite simple. 
 
 # [C#](#tab/csharp)
 
-The function binds to an [EventHub trigger](../azure-functions/functions-bindings-event-hubs-trigger.md), specifying a configuration key *"EventHubSource"* for the connection string in the [EventHubTriggerAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs). The name of the source Event Hub instance can be set in the attribute or be overridden in the connection string.
+The following function binds to an [EventHub trigger](../azure-functions/functions-bindings-event-hubs-trigger.md), specifying a configuration key *"Eh1ToEh2-source-connection"* for the connection string in the [EventHubTriggerAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs). The name of the source Event Hub instance can be set in the attribute or be overridden in the connection string.
 
-The target Event Hub is bound with an [output binding](../azure-functions/functions-bindings-event-hubs-output?tabs=csharp), specifying a configuration key *"EventHubTarget"* for the connection string in the [EventHubAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubAttribute.cs) on the return value. The name of the target Event Hub instance can be set in the attribute or be overridden in the connection string.
+The target Event Hub is bound with an [output binding](../azure-functions/functions-bindings-event-hubs-output?tabs=csharp), specifying a configuration key *"Eh1ToEh2-target-connection"* for the connection string in the [EventHubAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubAttribute.cs) on the return value. The name of the target Event Hub instance can be set in the attribute or be overridden in the connection string.
  
 The body of the function can modify the `EventData` object or create a new one with a transformed payload.
 
-``` C#
-    [FunctionName("EventHubToEventHubBridge")]
-    [return: EventHub("target", Connection = "EventHubTarget")]            
-    public static async Task<EventData> Run(
-        [EventHubTrigger("source", Connection = "EventHubSource")] EventData event,
-        ILogger log)
+```csharp
+[FunctionName("Eh1ToEh2")]
+public static void Eh1ToEh2(
+    [EventHubTrigger("eh1", Connection = "Eh1ToEh2-source-connection")]
+    EventData[] input,
+    [EventHub("eh2", Connection = "Eh1ToEh2-target-connection")
+    IAsyncCollector<EventData> output,
+    ILogger log)
+{
+    foreach (var eventData in input)
     {
-        // some action here
-        return event; 
+        // ...your task to transform, transcode, enrich, reduce, validate, etc. ...
+
+        await output.AddAsync(eventData);
     }
+}
 ```
 
 # [Java](#tab/java)
@@ -152,70 +157,27 @@ public EventData eventHubProcessor(
 
 ---
 
-A forwarding replication task that uses batched transfers, which are preferred for fast replication between pairs of Event Hubs, looks like this: 
-
-# [C#](#tab/csharp)
-
-The trigger and output binding attributes are identical to the previous example, but the arguments differ. With the `EventData[]` parameter type, the function requests delivery of events in batches, and the `IAsyncCollector<EventData>` parameter is evaluated by the output binding to forward all output events likewise as a batch. 
-
-The body of the function inside the `foreach` loop can modify the `EventData` object or create a new one with a transformed payload and forward that to the output.
-
-``` C#
-    [FunctionName("EventHubToEventHubBridge")]
-    public static Task Run([EventHubTrigger("EventHubSource", Connection = "EventHubSource")] EventData[] events,
-        [EventHub("EventHubTarget", Connection = "EventHubTarget")] IAsyncCollector<EventData> outputEvents, 
-        ILogger log)
-    {
-        foreach (EventData eventData in events)
-        {
-            // some action here
-            await outputEvents.AddAsync(eventData);
-        }
-    }
-```
-
-# [Java](#tab/java)
-
-(TBD)
-
-# [JavaScript](#tab/javascript)
-
-(TBD)
-
-# [Python](#tab/python)
-
-(TBD)
 
 ## Custom replication application samples
 
-The following repositories contain complete replication application samples that you can clone and customize to your needs. The samples don't aim to be useful as-is, but rather illustrate the concepts.
+The following repositories contain complete replication application samples that you can clone and customize to your needs. 
 
 # [C#](#tab/csharp)
 
-* [Forwarder]() - a batch-oriented forwarder as shown above.
-* [Transcoder]() - shows how to transcode CBOR encoded payloads into JSON.
-* [Transformer]() - shows how to change the shape of a JSON payload.
+* [Template](https://github.com/Azure/azure-messaging-replication-dotnet/functions/code/CodeBaseApp) - a batch-oriented forwarder as shown above.
+* [Forwarder](https://github.com/Azure/azure-messaging-replication-dotnet/functions/code/EventHubToEventHubCopy) - a batch-oriented forwarder as shown above.
 
 # [Java](#tab/java)
 
-* [Forwarder]() - a batch-oriented forwarder as shown above.
-* [Transcoder]() - shows how to transcode CBOR encoded payloads into JSON.
-* [Transformer]() - shows how to change the shape of a JSON payload.
-
+Coming soon
 
 # [JavaScript](#tab/javascript)
 
-* [Forwarder]() - a batch-oriented forwarder as shown above.
-* [Transcoder]() - shows how to transcode CBOR encoded payloads into JSON.
-* [Transformer]() - shows how to change the shape of a JSON payload.
-
+Coming soon
 
 # [Python](#tab/python)
 
-* [Forwarder]() - a batch-oriented forwarder as shown above.
-* [Transcoder]() - shows how to transcode CBOR encoded payloads into JSON.
-* [Transformer]() - shows how to change the shape of a JSON payload.
-
+Coming soon
 ---
 
 ## Next steps
