@@ -14,11 +14,11 @@ ms.custom: devx-track-csharp
 ---
 # How to use Azure.Search.Documents in a C# .NET Application
 
-This article explains how to create and manage search objects using C# and the [Azure.Search.Documents (v11)](/dotnet/api/overview/azure/search) client library. 
+This article explains how to create and manage search objects using C# and the [Azure.Search.Documents (v11)](/dotnet/api/overview/azure/search) client library.
 
 ## About version 11
 
-Azure SDK for .NET adds a new client library from the Azure SDK team that is functionally equivalent to [Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10) client libraries, but with common SDK-wide approaches where applicable. For example, service connections and authentication are handled the same as other client libraries in the SDK.
+Azure SDK for .NET adds a new client library from the Azure SDK team that is functionally equivalent to [Microsoft.Azure.Search](/dotnet/api/overview/azure/search/client10) client libraries, but utilizes common approaches and conventions where applicable. Some examples include [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) is used for key authentication, and [System.Text.Json.Serialization](/dotnet/api/system.text.json.serialization) for JSON serialization.
 
 As with previous versions, you can use this library to:
 
@@ -39,7 +39,7 @@ Azure.Search.Documents (version 11) targets version [`2020-06-30` of the Azure C
 
 This SDK does not support [service management operations](/rest/api/searchmanagement/), such as creating and scaling search services and managing API keys. If you need to manage your search resources from a .NET application, use the [Microsoft.Azure.Management.Search](/dotnet/api/overview/azure/search/management) library in the Azure SDK for .NET.
 
-## Upgrade from previous versoins
+## Upgrade from v10
 
 If you have been using the previous version of the .NET SDK and you'd like to upgrade to the current generally available version, see [Upgrade to Azure Cognitive Search .NET SDK version 11](search-dotnet-sdk-migration-version-11.md)
 
@@ -55,7 +55,7 @@ The Azure SDK for .NET supports applications targeting the .NET Framework 4.5.2 
 
 ## Example application
 
-This article "teaches by example", relying on the [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo/v11) code example on GitHub to illustrate fundamental operations in Azure Cognitive Search: create, load, and query an index.
+This article "teaches by example", relying on the [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo/v11) code example on GitHub to illustrate fundamental concepts in Azure Cognitive Search: create, load, and query an index.
 
 For the rest of this article, assume a new index named "hotels", populated with a few documents, with several queries that match on results.
 
@@ -92,51 +92,9 @@ static void Main(string[] args)
 }
 ```
 
-If you run this application with a valid service name and API keys, the output should look like this example:
-(Some console output has been replaced with "..." for illustration purposes.)
+Next is a screenshot of the output, assuming you run this application with a valid service name and API keys:
 
-```console
-Deleting index...
-
-Creating index...
-
-Uploading documents...
-
-Waiting for documents to be indexed...
-
-Search the entire index for the term 'motel' and return only the HotelName field:
-
-Name: Secret Point Motel
-
-Name: Twin Dome Motel
-
-
-Apply a filter to the index to find hotels with a room cheaper than $100 per night, and return the hotelId and description:
-
-HotelId: 1
-Description: The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Times Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.
-
-HotelId: 2
-Description: The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.
-
-
-Search the entire index, order by a specific field (lastRenovationDate) in descending order, take the top two results, and show only hotelName and lastRenovationDate:
-
-Name: Triple Landscape Hotel
-Last renovated on: 9/20/2015 12:00:00 AM +00:00
-
-Name: Twin Dome Motel
-Last renovated on: 2/18/1979 12:00:00 AM +00:00
-
-
-Search the hotel names for the term 'hotel':
-
-HotelId: 3
-Name: Triple Landscape Hotel
-...
-
-Complete.  Press any key to end application... 
-```
+:::image type="content" source="media/search-howto-dotnet-sdk/console-output.png" alt-text="Console.WriteLine output from the sample program":::
 
 ### Client types
 
@@ -233,16 +191,18 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 
 Besides fields, you could also add scoring profiles, suggesters, or CORS options to the index (these parameters are omitted from the sample for brevity). You can find more information about the SearchIndex object and its constituent parts in the [`SearchIndex`](/dotnet/api/azure.search.documents.indexes.models.searchindex) properties list, as well as in the [REST API reference](/rest/api/searchservice/).
 
+> [!NOTE]
+> You can always create the list of `Field` objects directly instead of using `FieldBuilder` if needed. For example, you may not want to use a model class or you may need to use an existing model class that you don't want to modify by adding attributes.
+> 
+
+### Calling CreateIndex in Main()
+
 `Main` creates a new "hotels" index by calling the above method:
 
 ```csharp
 Console.WriteLine("{0}", "Creating index...\n");
 CreateIndex(indexName, indexClient);
 ```
-
-> [!NOTE]
-> You can always create the list of `Field` objects directly instead of using `FieldBuilder` if needed. For example, you may not want to use a model class or you may need to use an existing model class that you don't want to modify by adding attributes.
-> 
 
 ### Using a model class for data representation
 
@@ -427,36 +387,47 @@ The third part of this method is a catch block that handles an important error c
 
 Finally, the `UploadDocuments` method delays for two seconds. Indexing happens asynchronously in your search service, so the sample application needs to wait a short time to ensure that the documents are available for searching. Delays like this are typically only necessary in demos, tests, and sample applications.
 
-<!-- REMAINDER OF THE OVERVIEW
+### Calling UploadDocuments in Main()
 
+The following code snippet sets up an instance of [`SearchClient`](/dotnet/api/azure.search.documents.searchclient) using the [`GetSearchClient`](/dotnet/api/azure.search.documents.indexes.searchindexclient.getsearchclient) method of indexClient. The indexClient uses an admin API key on its requests, which is required for loading or refreshing documents.
 
-Finally, we execute a few search queries and display the results. This time we use a different `SearchIndexClient`:
+An alternate approach is to call `SearchClient` directly, passing in an admin API key on `AzureKeyCredential`.
 
 ```csharp
-ISearchIndexClient indexClientForQueries = CreateSearchIndexClient(indexName, configuration);
+SearchClient searchClient = indexClient.GetSearchClient(indexName);
 
-RunQueries(indexClientForQueries);
+Console.WriteLine("{0}", "Uploading documents...\n");
+UploadDocuments(searchClient);
 ```
 
-We will take a closer look at the `RunQueries` method later. Here is the code to create the new `SearchIndexClient`:
+## Run queries
+
+To run queries, set up a `SearchClient` that reads the search endpoint and query API key from **appsettings.json**:
 
 ```csharp
-private static SearchIndexClient CreateSearchIndexClient(string indexName, IConfigurationRoot configuration)
+private static SearchClient CreateSearchClientForQueries(string indexName, IConfigurationRoot configuration)
 {
-    string searchServiceName = configuration["SearchServiceName"];
+    string searchServiceEndPoint = configuration["SearchServiceEndPoint"];
     string queryApiKey = configuration["SearchServiceQueryApiKey"];
 
-    SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, indexName, new SearchCredentials(queryApiKey));
-    return indexClient;
+    SearchClient searchClient = new SearchClient(new Uri(searchServiceEndPoint), indexName, new AzureKeyCredential(queryApiKey));
+    return searchClient;
 }
 ```
 
-This time we use a query key since we do not need write access to the index. You can enter this information in the `appsettings.json` file of the [sample application](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
+### Calling CreateSearchClientForQueries in Main()
+
+The following line instantiates the client:
+
+```csharp
+SearchClient indexClientForQueries = CreateSearchClientForQueries(indexName, configuration);
+```
+
+### Create
 
 
 
-
-## Load an index
+<!-- REMAINDER OF THE OVERVIEW ** ABOUT HOTEL/ADDRESS/ROOMS
 
 <a name="how-dotnet-handles-documents"></a>
 
