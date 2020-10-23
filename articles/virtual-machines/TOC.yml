@@ -134,25 +134,44 @@
       href: docker-compose-quickstart.md
 - name: Instances
   items:
-  - name: Create VMs
+  - name: Create Linux VMs
     items:
     - name: Use the CLI
-      href: create-cli-complete.md
+      href: ./linux/create-cli-complete.md
     - name: Use an ARM template
       displayName: Azure Resource Manager
-      href: create-ssh-secured-vm-from-template.md
+      href: ./linux/create-ssh-secured-vm-from-template.md
     - name: Use REST API
-      href: create-vm-rest-api.md
-    - name: Copy or clone a VM
-      href: copy-vm.md
+      href: ./linux/create-vm-rest-api.md
+    - name: Copy a VM using CLI
+      href: ./linux/copy-vm.md
+  - name: Create Windows VMs
+    items:
+    - name: Use C#
+      href: ../../azure-resource-manager/templates/deploy-rest.md
+    - name: Use specialized disk
+      items:
+      - name: Portal
+        href: create-vm-specialized-portal.md
+      - name: PowerShell
+        href: create-vm-specialized.md
+    - name: Create VM with Chef
+      href: /azure/developer/chef/windows-vm-configure
+    - name: Use Java
+      href: java.md
+    - name: Use Python
+      href: python.md
+    - name: Use ARM template
+      displayName: Azure Resource Manager template
+      href: ps-template.md
   - name: Migrate from classic to Azure Resource Manager
     items:
     - name: Retirement starting March 1, 2023
-      href: ../classic-vm-deprecation.md
+      href: classic-vm-deprecation.md
     - name: Migration Overview
       href: migration-classic-resource-manager-overview.md
     - name: Deep dive on migration
-      href: ../migration-classic-resource-manager-deep-dive.md
+      href: migration-classic-resource-manager-deep-dive.md
     - name: Plan for migration
       href: migration-classic-resource-manager-plan.md
     - name: Migrate using the CLI
@@ -162,7 +181,7 @@
     - name: Community tools for migration
       href: ../windows/migration-classic-resource-manager-community-tools.md
     - name: FAQ
-      href: ../migration-classic-resource-manager-faq.md
+      href: migration-classic-resource-manager-faq.md
   - name: Time sync
     items: 
     - name: Linux
@@ -353,16 +372,16 @@
     - name: CLI
       href: spot-cli.md
     - name: Portal
-      href: ../spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
+      href: spot-portal.md
     - name: ARM template
-      displayName: Azure Resource Manager
+      displayName: template ARM
       href: spot-template.md
     - name: Error codes
-      href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
+      href: error-codes-spot.md
   - name: Azure Hybrid Benefit
     items:
     - name: Linux
-      href: azure-hybrid-benefit-linux.md
+      href: ./linux/azure-hybrid-benefit-linux.md
     - name: Windows 
       items:
       - name: Use Azure Hybrid Benefit license
@@ -582,7 +601,7 @@
   - name: Autoscale
     href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
   - name: High availability
-    href: ../manage-availability.md
+    href: manage-availability.md
   - name: Change availability set
     href: ../windows/change-availability-set.md
   - name: Create a proximity placement group
@@ -651,7 +670,11 @@
     - name: VM encryption with Azure portal
       href: disk-encryption-portal-quickstart.md
     - name: Key vault for Azure Disk Encryption
-      href: disk-encryption-key-vault.md
+      items: 
+      - name: Linux
+        href: ./linux/disk-encryption-key-vault.md
+      - name: Windows
+        href: ./windows/disk-encryption-key-vault.md
     - name: Disk encryption sample scripts
       href: disk-encryption-sample-scripts.md
     - name: Disk encryption on an isolated network
@@ -701,7 +724,7 @@
         - name: Azure CLI
           href: add-disk.md
         - name: Azure portal
-          href: attach-disk-portal.md
+          href: ./linux/attach-disk-portal.md
       - name: Windows
         items:
         - name: Azure PowerShell
@@ -713,14 +736,14 @@
     - name: Detach a disk
       items:
       - name: Linux
-        href: ../linux/detach-disk.md
+        href: ./linux/detach-disk.md
       - name: Windows
-        href: ../windows/detach-disk.md        
+        href: ./windows/detach-disk.md        
     - name: Deploy disks with ARM template
       displayName: Azure Resource Manager
       href: using-managed-disks-template-deployments.md
     - name: Enable shared disks
-      href: ../disks-shared-enable.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: disks-shared-enable.md
     - name: Upload a vhd to a disk
       items: 
       - name: PowerShell
@@ -830,18 +853,11 @@
   - name: Find and delete unattached NICs
     href: find-unattached-nics.md
   - name: DNS resolution
-    href: azure-dns.md
+    href: ./linux/azure-dns.md
   - name: Use internal DNS
     href: static-dns-name-resolution-for-linux-on-azure.md
 - name: Security
   items:
-  - name: Security and policy
-    href: ../security-policy.md
-  - name: Azure Disk Encryption
-    href: disk-encryption-overview.md
-  - name: Security controls by Azure Policy
-    displayName: regulatory, compliance, standards, domains
-    href: ../security-controls-policy.md
   - name: Security baseline for Azure Security Benchmark
     href: security-baseline.md
   - name: Built-in security controls
@@ -850,6 +866,17 @@
     href: security-recommendations.md
   - name: Just-in-time access
     href: ../security-center/security-center-just-in-time.md
+  - Policy
+    items:
+    - name: Overview
+      href: security-policy.md
+    - name: Controls by policy
+      displayName: regulatory, compliance, standards, domains
+      href: security-controls-policy.md
+    - name: Policy reference
+      href: policy-reference.md
+  - name: Azure Disk Encryption
+    href: disk-encryption-overview.md
   - name: Bastion
     items:
     - name: Overview
@@ -990,13 +1017,13 @@
   - name: Get usage metrics with REST
     href: metrics-vm-usage-rest.md
   - name: Boot diagnostics
-    href: ../../virtual-machines/boot-diagnostics.md
+    href: boot-diagnostics.md
 - name: Backup and recovery
   items:
   - name: Overview
-    href: ../backup-recovery.md
+    href: backup-recovery.md
   - name: Disaster recovery
-    href: ../virtual-machines-disaster-recovery-guidance.md
+    href: virtual-machines-disaster-recovery-guidance.md
   - name: Back up VMs
     href: ../../backup/backup-overview.md
     items:
@@ -1044,7 +1071,7 @@
   - name: Overview
     href: ../infrastructure-automation.md
   - name: Custom data
-    href: ../custom-data.md
+    href: custom-data.md
   - name: Ansible
     items:
     - name: Install and configure
@@ -1231,6 +1258,8 @@
       href: https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine
     - name: PowerShell samples repo
       href: https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine
+  - name: Common CLI commands
+    href: ./linux/cli-manage.md
   - name: Classic deployments
     items:
     - name: Linux VMs using classic deployment
