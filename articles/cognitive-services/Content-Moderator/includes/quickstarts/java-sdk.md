@@ -194,7 +194,7 @@ Create a new method that reads the .txt file and calls the **screenText** method
 
 Add the following code to print the moderation results to a .json file in your project directory.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_texmod_print)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ContentModerator/src/main/java/ContentModeratorQuickstart.java?name=snippet_textmod_print)]
 
 Close out the `try` and `catch` statement to complete the method.
 
