@@ -102,7 +102,7 @@ Log in to the master database with the server administrator login or the login t
 
 This command copies Database1 to a new database named Database2 in an elastic pool named pool1. Depending on the size of your database, the copying operation might take some time to complete.
 
-Database1 can be a single or pooled database. Copying between different tier pools is supported with the exception of single or elastic basic databases. For example, you can copy a standard or elastic db into a general purpose pool, but cannot copy a single or elastic basic db into any pool other than a basic pool.
+Database1 can be a single or pooled database. Copying between different tier pools is supported, but some cross-tier copies will not succeed. For example, you can copy a single or elastic standard db into a general purpose pool, but you can't copy a standard elastic db into a premium pool. 
 
    ```sql
    -- execute on the master database to start copying
