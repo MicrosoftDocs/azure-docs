@@ -53,9 +53,9 @@ Because SNAT ports can be reused if the destination IP or destination port are d
 
 For more, see [Outbound proxy Azure Load Balancer](../load-balancer/load-balancer-outbound-connections.md).
 
-### Place your APIM and backend service together in a virtual network
+### Place your APIM and backend service in the same VNet
 
-If your backend API is hosted on an Azure service that supports [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) such as App Service, you can avoid SNAT port exhaustion issues by using [regional VNet Integration](./web-sites-integrate-with-vnet.md) and service endpoints or private endpoints. When you use regional VNet Integration and place service endpoints on the integration subnet, outbound traffic from your APIM instance to those services bypasses the internet, thus avoiding SNAT port restrictions. Likewise, if you use regional VNet Integration and private endpoints, you will not have any outbound SNAT port issues to that destination.
+If your backend API is hosted on an Azure service that supports *service endpoints* such as App Service, you can avoid SNAT port exhaustion issues by placing your APIM instance and backend service in the same virtual network and exposing it through [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) or [private endpoints](../private-link/private-endpoint-overview.md). When you use a common VNet and place service endpoints on the integration subnet, outbound traffic from your APIM instance to those services bypasses the internet, thus avoiding SNAT port restrictions. Likewise, if you use a VNet and private endpoints, you will not have any outbound SNAT port issues to that destination.
 
 For details, see [How to use Azure API Management with virtual networks](api-management-using-with-vnet.md) and [Integrate App Service with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md).
 
