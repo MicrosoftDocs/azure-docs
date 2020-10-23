@@ -148,7 +148,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 *For more information, see the [Azure Security Benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
 
-### ID-1: Standardize Azure Active Directory as the central identity and authentication system
+### IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40080.).
@@ -165,7 +165,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### ID-2: Manage application identities securely and automatically
+### IM-2: Manage application identities securely and automatically
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40081.).
@@ -182,7 +182,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### ID-3: Use Azure AD single sign-on (SSO) for application access
+### IM-3: Use Azure AD single sign-on (SSO) for application access
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40082.).
@@ -199,7 +199,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### ID-4: Use strong authentication controls for all Azure Active Directory based access
+### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40083.).
@@ -216,7 +216,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### ID-5: Monitor and alert on account anomalies
+### IM-5: Monitor and alert on account anomalies
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40084.).
@@ -233,7 +233,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### ID-6: Restrict Azure resource access based on conditions
+### IM-6: Restrict Azure resource access based on conditions
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40085.).
@@ -250,7 +250,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### ID-7: Eliminate unintended credential exposure
+### IM-7: Eliminate unintended credential exposure
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40086.).
@@ -267,7 +267,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### ID-8: Secure user access to legacy applications
+### IM-8: Secure user access to legacy applications
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/40122.).
