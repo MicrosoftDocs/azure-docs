@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 10/02/2020
+ms.date: 10/23/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -73,7 +73,10 @@ The following are the displayed user properties on the **All users** page:
 The **Deleted users** page includes all the columns that are available on the **All users** page, and a few additional columns, namely:
 
 - Deletion date: The date the user was first deleted from the organization (the user is restorable).
-- Permanent deletion date: The date after which the process of permanently deleting the user from the organization automatically begins. Deletion dates are displayed in Coordinated Universal Time ‎(UTC)‎.
+- Permanent deletion date: The date after which the process of permanently deleting the user from the organization automatically begins. 
+
+> [!NOTE]
+> Deletion dates are displayed in Coordinated Universal Time ‎(UTC)‎.
 
 Some columns are displayed by default. To add other columns, select **Columns** on the page, select the column names you’d like to add, and select **OK** to save your preferences.
 
