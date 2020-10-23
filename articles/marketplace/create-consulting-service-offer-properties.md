@@ -53,4 +53,4 @@ Save the draft before continuing.
 
 ## Next steps
 
-* [Configure your offer listing details].
+* [Configure your offer listing details](create-consulting-service-offer-listing.md).

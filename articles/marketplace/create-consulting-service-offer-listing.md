@@ -1,28 +1,30 @@
 ---
 title: How to configure your consulting service offer listing details in Microsoft Partner Center
-description: Learn how to configure your consulting service offer listing details in Microsoft commercial marketplace using Partner Center. 
+description: Learn how to configure your consulting service offer listing details in the Microsoft commercial marketplace using Partner Center. 
 author:  Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
-ms.service: marketplace 
+ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 11/09/2020
 ---
+
+# How to configure your consulting service offer listing details
 
 The information you provide on the **Offer listing** page of Partner Center will be displayed in the Microsoft commercial marketplace online stores. This includes your offer name, description, media, and other marketing assets.
 
 > [!NOTE]
 > If you’ll deliver your service in a language other than English, the offer listing can be in that language, but the description must begin or end with the English phrase “This service is available in &lt;language of your offer content>”. You can also provide supporting documents in a language that's different from the one used in the offer listing details.
 
-On the **Offer listing** page, provide the information described below. To learn more about the listing details for your consulting service offer, review [Offer listing details](./plan-consulting-service-offer.md#Offer-listing-details).
+On the **Offer listing** page, provide the information described below. To learn more about the listing details for your consulting service offer, review [Offer listing details](./plan-consulting-service-offer.md#offer-listing-details).
 
 ## Offer details
 
 1.	The **Name** box is pre-filled with the name you entered earlier in the **New offer** dialog box, but you can change it at any time. This name will appear as the title of your offer listing on the online store.
 
     > [!IMPORTANT]
-    > The offer name must be in the format *Name: Duration + type*. For more information, see [offer listing details](./plan-consulting-service-offer.md#Offer-listing-details).
+    > The offer name must be in the format *Name: Duration + type*. For more information, see [offer listing details](./plan-consulting-service-offer.md#offer-listing-details).
 
 2. In the **Search results summary** box, describe the purpose or goal of your offer in 200 characters or less.
 3. In the **Description** field, describe your consulting service offer. You can use HTML tags to format your description. You can enter up to 2,000 characters of text in this box, including HTML tags and spaces. For information about HTML formatting, see [HTML tags supported in the offer descriptions](./supported-html-tags.md).
@@ -73,4 +75,4 @@ Select **Save draft** before continuing to the next tab: **Pricing and availabil
 
 ## Next steps
 
-* [Configure pricing and availability]
+* [Configure pricing and availability](create-consulting-service-pricing-availability.md)
