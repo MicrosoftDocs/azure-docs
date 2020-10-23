@@ -254,7 +254,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    For more information, see [Azure Cosmos DB indexing policies](indexing-policies.md).
+    For more information, see [Azure Cosmos DB indexing policies](/azure/cosmos-db/index-policy).
 
 ## <a id="measure-rus"></a>Throughput
 

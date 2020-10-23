@@ -134,4 +134,4 @@ In this quickstart, you created an Azure Cosmos account, a database and a contai
 
 - Read an [Overview of Azure Cosmos DB](introduction.md)
 - Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)
-- Get other [Azure Cosmos DB Resource Manager templates](resource-manager-samples.md)
+- Get other [Azure Cosmos DB Resource Manager templates](./templates-samples-sql.md)
