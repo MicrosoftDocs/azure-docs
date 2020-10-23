@@ -216,8 +216,6 @@ Next, you will set up a Time Series Insights instance to receive the data from y
 
 To begin sending data to Time Series Insights, you will need to start updating the digital twin properties in Azure Digital Twins with changing data values. Use the [az dt twin update](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext-azure-iot-az-dt-twin-update) command.
 
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
-
 If you are using the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)) to assist with environment setup, you can begin sending simulated IoT data by running the *DeviceSimulator* project from the sample. The instructions are in the [*Configure and run the simulation*](tutorial-end-to-end.md#configure-and-run-the-simulation) section of the tutorial.
 
 ## Visualize your data in Time Series Insights
