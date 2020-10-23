@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10-23-2020
+ms.date: 10/23/2020
 ms.author: jeedes
 
 ---
@@ -132,7 +132,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **CREATE USER** page, fill the required fields and click on **SAVE**.
 
-    ![CheckProof test user page](./media/checkproof-tutorial/create-user-2.png)
+    ![CheckProof test user1 page](./media/checkproof-tutorial/create-user-2.png)
 
 ## Test SSO 
 
