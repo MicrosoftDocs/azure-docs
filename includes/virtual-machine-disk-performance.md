@@ -37,7 +37,7 @@ The 10,000 IOPS requests are broken down into three different requests to the di
 - 1,000 IOPS are requested to the operating system disk.
 - 4,500 IOPS are requested to each data disk.
 
-All attached disks are E30 disks and can only handle 500 IOPS. So, they respond back with 500 IOPS each. The application's performance is capped by the attached disks, and it can only process 1,500 IOPS. The application could work at peak performance at 10,000 IOPS if better performing disks are used. Such as, Premium SSD P30 disks.
+All attached disks are E30 disks and can only handle 500 IOPS. So, they respond back with 500 IOPS each. The application's performance is capped by the attached disks, and it can only process 1,500 IOPS. The application could work at peak performance at 10,000 IOPS if better-performing disks are used, such as Premium SSD P30 disks.
 
 ## Virtual machine IO capping
 
