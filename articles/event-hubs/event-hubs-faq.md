@@ -2,7 +2,7 @@
 title: Frequently asked questions - Azure Event Hubs | Microsoft Docs
 description: This article provides a list of frequently asked questions (FAQ) for Azure Event Hubs and their answers. 
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 10/23/2020
 ---
 
 # Event Hubs frequently asked questions
@@ -184,27 +184,12 @@ On a multi-tenant offering, throughput units can grow up to 40 TUs (you can sele
 ### What are Event Hubs Dedicated clusters?
 Event Hubs Dedicated clusters offer single-tenant deployments for customers with most demanding requirements. This offering builds a capacity-based cluster that is not bound by throughput units. It means that you could use the cluster to ingest and stream your data as dictated by the CPU and memory usage of the cluster. For more information, see [Event Hubs Dedicated clusters](event-hubs-dedicated-overview.md).
 
-### How much does a single capacity unit let me achieve?
-For a dedicated cluster, how much you can ingest and stream depends on various factors such as your producers, consumers, the rate at which you're ingesting and processing, and much more. 
-
-Following table shows the benchmark results that we achieved during our testing:
-
-| Payload shape | Receivers | Ingress bandwidth| Ingress messages | Egress bandwidth | Egress messages | Total TUs | TUs per CU |
-| ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batches of 100x1KB | 2 | 400 MB/sec | 400k messages/sec | 800 MB/sec | 800k messages/sec | 400 TUs | 100 TUs | 
-| Batches of 10x10KB | 2 | 666 MB/sec | 66.6k messages/sec | 1.33 GB/sec | 133k messages/sec | 666 TUs | 166 TUs |
-| Batches of 6x32KB | 1 | 1.05 GB/sec | 34k messages / sec | 1.05 GB/sec | 34k messages/sec | 1000 TUs | 250 TUs |
-
-In the testing, the following criteria was used:
-
-- A dedicated Event Hubs cluster with four capacity units (CUs) was used. 
-- The event hub used for ingestion had 200 partitions. 
-- The data that was ingested was received by two receiver applications receiving from all partitions.
-
-The results give you an idea of what can be achieved with a dedicated Event Hubs cluster. In addition, a dedicate cluster comes with the Event Hubs Capture enabled for your micro-batch and long-term retention scenarios.
-
 ### How do I create an Event Hubs Dedicated cluster?
-You create an Event Hubs dedicated cluster by submitting a [quota increase support request](https://portal.azure.com/#create/Microsoft.Support) or by contacting the [Event Hubs team](mailto:askeventhubs@microsoft.com). It typically takes about two weeks to get the cluster deployed and handed over to be used by you. This process is temporary until a complete self-serve is made available through the Azure portal.
+For step-by-step instructions and more information on setting up an Event Hubs dedicated cluster, see the [Quickstart: Create a dedicated Event Hubs cluster using Azure portal](event-hubs-dedicated-cluster-create-portal.md). 
+
+
+[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
+
 
 ## Best practices
 

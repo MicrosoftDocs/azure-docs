@@ -34,7 +34,7 @@ In this article, you learn how to:
 
 * IntelliJ IDEA. This article uses [IntelliJ IDEA Community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
 
-* Azure Toolkit for IntelliJ.  See [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+* Azure Toolkit for IntelliJ.  See [Installing the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/).
 
 ## Install Scala plugin for IntelliJ IDEA
 
