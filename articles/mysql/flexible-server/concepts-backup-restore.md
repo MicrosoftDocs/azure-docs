@@ -19,7 +19,7 @@ Azure Database for MySQL Flexible Server, automatically creates server backups a
 
 Flexible Server takes snapshot backups of the data files and stores them in a local redundant storage. The server also performs transaction logs backup and also stores them in local redundant storage. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can optionally configure the database backup from 1 to 35 days. All backups are encrypted using AES 256-bit encryption for the data stored at rest.
 
-These backup files cannot be exported. The backups can only be used for restore operations in Flexible server. You can also use [mysqldump](../../postgresql/howto-migrate-using-dump-and-restore.md) from a MySQL client to copy a database.
+These backup files cannot be exported. The backups can only be used for restore operations in Flexible server. You can also use [mysqldump](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) from a MySQL client to copy a database.
 
 ## Backup frequency
 
