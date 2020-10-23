@@ -36,7 +36,7 @@ ___
         <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank">Modern authentication: how we got here – Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (15:47)
     :::column-end:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank"> <img src="./media/identity-videos/id-for-devs-08.jpg" alt="Video thumbnail"> </a>
+        <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank"> <img src="./media/identity-videos/id-for-devs-08.jpg" alt="Video thumbnail" class="mx-imgBorder"> </a>
     :::column-end:::
 :::row-end:::
 
