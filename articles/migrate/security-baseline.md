@@ -14,1024 +14,1301 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Azure Migrate
 
-This security baseline applies guidance from the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview) to Azure Migrate. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Migrate. **Controls** not applicable to Azure Migrate have been excluded. To see how Azure Migrate completely maps to the Azure Security Benchmark, see the [full Azure Migrate security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+This security
+baseline applies guidance from the [Azure Security Benchmark version
+1.0](../security/benchmarks/overview-v1.md) to Azure Migrate. The Azure Security Benchmark
+provides recommendations on how you can secure your cloud solutions on Azure.
+The content is grouped by the **security controls** defined by the Azure
+Security Benchmark and the related guidance applicable to Azure Migrate. **Controls** not applicable to Azure Migrate have been excluded.
+
+ 
+To see how Azure Migrate completely maps to the Azure
+Security Benchmark, see the [full Azure Migrate security baseline mapping
+file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
 
-## Network security
+## Network Security
 
-*For more information, see the [Azure Security Benchmark: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see the [Azure Security Benchmark: Network Security](/azure/security/benchmarks/security-controls-v2-network-security).*
 
-### 1.1: Protect Azure resources within virtual networks
+### NS-1: Implement security for internal traffic
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33240.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41169.).
 
-**Guidance**: None.
+**Guidance**: 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
-
-### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33241.).
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 1.3: Protect critical web applications
+### NS-2: - Connect private networks together  
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33242.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41170.).
 
-**Guidance**: None.
+**Guidance**: 
 
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 1.4: Deny communications with known malicious IP addresses
+### NS-3: Establish private network access to Azure services
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33243.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41171.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 1.5: Record network packets
+### NS-4: Protect applications and services from external network attacks
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33244.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41172.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
+### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33245.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41173.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 1.7: Manage traffic to web applications
+### NS-6: Simplify network security rules
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33246.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41174.).
+
+**Guidance**: 
+
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 1.8: Minimize complexity and administrative overhead of network security rules
+### NS-7: Secure Domain Name Service (DNS)
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33247.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41175.).
 
-**Guidance**: None.
+**Guidance**: 
 
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
-
-### 1.9: Maintain standard security configurations for network devices
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33248.).
+## Identity Management
 
-**Guidance**: None.
+*For more information, see the [Azure Security Benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+### IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
-**Responsibility**: Unset. Please provide a value in the work item.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41155.).
 
-### 1.10: Document traffic configuration rules
+**Guidance**: 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33249.).
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 1.11: Use automated tools to monitor network resource configurations and detect changes
+### IM-2: Manage application identities securely and automatically
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33250.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41156.).
+
+**Guidance**: 
+
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-## Logging and monitoring
+### IM-3: Use Azure AD single sign-on (SSO) for application access
 
-*For more information, see the [Azure Security Benchmark: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41157.).
 
-### 2.1: Use approved time synchronization sources
+**Guidance**: 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33251.).
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 2.2: Configure central security log management
+### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33252.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41158.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 2.3: Enable audit logging for Azure resources
+### IM-5: Monitor and alert on account anomalies
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33253.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41159.).
+
+**Guidance**: 
+
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 2.4: Collect security logs from operating systems
+### IM-6: Restrict Azure resource access based on conditions
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33254.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41160.).
 
-**Guidance**: None.
+**Guidance**: 
 
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 2.5: Configure security log storage retention
+### IM-7: Eliminate unintended credential exposure
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33255.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41161.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 2.6: Monitor and review Logs
+### IM-8: Secure user access to legacy applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33256.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41197.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
-
-### 2.7: Enable alerts for anomalous activities
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33257.).
+## Privileged Access
 
-**Guidance**: None.
+*For more information, see the [Azure Security Benchmark: Privileged Access](/azure/security/benchmarks/security-controls-v2-privileged-access).*
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+### PA-1: Protect and limit highly privileged users
 
-**Responsibility**: Unset. Please provide a value in the work item.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41162.).
 
-### 2.8: Centralize anti-malware logging
+**Guidance**: 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33258.).
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 2.9: Enable DNS query logging
+### PA-2: Restrict administrative access to business-critical systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33259.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41163.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 2.10: Enable command-line audit logging
+### PA-3: Review and reconcile user access regularly
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33260.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41164.).
+
+**Guidance**: 
+
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-## Identity and access control
+### PA-4: Set up emergency access in Azure AD
 
-*For more information, see the [Azure Security Benchmark: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41165.).
 
-### 3.1: Maintain an inventory of administrative accounts
+**Guidance**: 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33261.).
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 3.2: Change default passwords where applicable
+### PA-5: Automate entitlement management 
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33262.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41166.).
+
+**Guidance**: 
+
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 3.3: Use dedicated administrative accounts
+### PA-6: Use privileged access workstations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33263.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41167.).
 
-**Guidance**: None.
+**Guidance**: 
 
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 3.4: Use single sign-on (SSO) with Azure Active Directory
+### PA-7: Follow just enough administration (least privilege principle) 
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33264.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41168.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 3.5: Use multi-factor authentication for all Azure Active Directory based access
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33265.).
+## Data Protection
 
-**Guidance**: None.
+*For more information, see the [Azure Security Benchmark: Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).*
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+### DP-1: Discovery, classify and label sensitive data
 
-**Responsibility**: Unset. Please provide a value in the work item.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41176.).
 
-### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
+**Guidance**: 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33266.).
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 3.7: Log and alert on suspicious activities from administrative accounts
+### DP-2: Protect sensitive data
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33267.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41177.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 3.8: Manage Azure resources only from approved locations
+### DP-3: Monitor for unauthorized transfer of sensitive data
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33268.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41178.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 3.9: Use Azure Active Directory
+### DP-4: Encrypt sensitive information in transit
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33269.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41179.).
+
+**Guidance**: 
+
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 3.10: Regularly review and reconcile user access
+### DP-5: Encrypt sensitive data at rest
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33270.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41180.).
 
-**Guidance**: None.
+**Guidance**: 
 
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
+
+## Asset Management
 
-### 3.11: Monitor attempts to access deactivated credentials
+*For more information, see the [Azure Security Benchmark: Asset Management](/azure/security/benchmarks/security-controls-v2-asset-management).*
 
+### AM-1: Ensure security team has visibility into risks for assets
+
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33271.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41198.).
 
-**Guidance**: None.
+**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 3.12: Alert on account login behavior deviation
+### AM-2: Ensure security team has access to asset inventory and metadata
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33272.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41199.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
+### AM-3: Use only approved Azure services
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33273.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41200.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-## Data protection
+### AM-4: Ensure security of asset lifecycle management
 
-*For more information, see the [Azure Security Benchmark: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41201.).
 
-### 4.1: Maintain an inventory of sensitive Information
+**Guidance**: 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33274.).
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 4.2: Isolate systems storing or processing sensitive information
+### AM-5: Limit users' ability to interact with Azure Resource Manager
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33275.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41202.).
+
+**Guidance**: 
+
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 4.3: Monitor and block unauthorized transfer of sensitive information
+### AM-6: Use only approved applications in compute resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33276.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41203.).
 
-**Guidance**: None.
+**Guidance**: 
 
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
-
-### 4.4: Encrypt all sensitive information in transit
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33277.).
+## Logging and Threat Detection
 
-**Guidance**: None.
+*For more information, see the [Azure Security Benchmark: Logging and Threat Detection](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+### LT-1: Enable threat detection for Azure resources
 
-**Responsibility**: Unset. Please provide a value in the work item.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41181.).
 
-### 4.5: Use an active discovery tool to identify sensitive data
+**Guidance**: 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33278.).
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 4.6: Use Azure RBAC to manage access to resources
+### LT-2: Enable threat detection for Azure identity and access management
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33279.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41182.).
+
+**Guidance**: 
+
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 4.7: Use host-based data loss prevention to enforce access control
+### LT-3: Enable logging for Azure network activities
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33280.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41183.).
 
-**Guidance**: None.
+**Guidance**: 
 
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 4.8: Encrypt sensitive information at rest
+### LT-4: Enable logging for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33281.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41184.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 4.9: Log and alert on changes to critical Azure resources
+### LT-5: Centralize security log management and analysis
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33282.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41185.).
+
+**Guidance**: 
+
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-## Vulnerability management
+### LT-6: Configure log storage retention
 
-*For more information, see the [Azure Security Benchmark: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41186.).
 
-### 5.1: Run automated vulnerability scanning tools
+**Guidance**: 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33283.).
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 5.2: Deploy automated operating system patch management solution
+### LT-7: Use approved time synchronization sources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33284.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41187.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
-
-### 5.3: Deploy an automated patch management solution for third-party software titles
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33285.).
+## Incident Response
 
-**Guidance**: None.
+*For more information, see the [Azure Security Benchmark: Incident Response](/azure/security/benchmarks/security-controls-v2-incident-response).*
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+### IR-1: Preparation – update incident response process for Azure
 
-**Responsibility**: Unset. Please provide a value in the work item.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41188.).
 
-### 5.4: Compare back-to-back vulnerability scans
+**Guidance**: 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33286.).
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
+### IR-2: Preparation – setup incident notification
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33287.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41189.).
 
-**Guidance**: None.
+**Guidance**: 
 
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-## Inventory and asset management
+### IR-3: Detection and analysis – create incidents based on high quality alerts
 
-*For more information, see the [Azure Security Benchmark: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41190.).
 
-### 6.1: Use automated asset discovery solution
+**Guidance**: 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33288.).
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 6.2: Maintain asset metadata
+### IR-4: Detection and analysis – investigate an incident
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33289.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41191.).
+
+**Guidance**: 
+
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 6.3: Delete unauthorized Azure resources
+### IR-5: Detection and analysis – prioritize incidents
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33290.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41192.).
 
-**Guidance**: None.
+**Guidance**: 
 
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 6.4: Define and maintain an inventory of approved Azure resources
+### IR-6: Containment, eradication and recovery – automate the incident handling
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33291.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41193.).
+
+**Guidance**: 
+
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 6.5: Monitor for unapproved Azure resources
+## Posture and Vulnerability Management
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33292.).
+*For more information, see the [Azure Security Benchmark: Posture and Vulnerability Management](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
 
-**Guidance**: None.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+### PV-1: Establish secure configurations for Azure services 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41208.).
 
-### 6.6: Monitor for unapproved software applications within compute resources
+**Guidance**: 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33293.).
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 6.7: Remove unapproved Azure resources and software applications
+### PV-2: Sustain secure configurations for Azure services
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33294.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41209.).
 
-**Guidance**: None.
+**Guidance**: 
 
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 6.8: Use only approved applications
+### PV-3: Establish secure configurations for compute resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33295.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41210.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 6.9: Use only approved Azure services
+### PV-4: Sustain secure configurations for compute resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33296.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41211.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 6.10: Maintain an inventory of approved software titles
+### PV-5: Securely store custom operating system and container images
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33297.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41212.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 6.11: Limit users' ability to interact with Azure Resource Manager
+### PV-6: Perform software vulnerability assessments
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33298.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41213.).
+
+**Guidance**: 
+
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 6.12: Limit users' ability to execute scripts in compute resources
+### PV-7: Rapidly and automatically remediate software vulnerabilities
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33299.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41214.).
 
-**Guidance**: None.
+**Guidance**: 
 
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 6.13: Physically or logically segregate high risk applications
+### PV-8: Conduct regular attack simulation
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33300.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41215.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-## Secure configuration
+## Endpoint Security
 
-*For more information, see the [Azure Security Benchmark: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see the [Azure Security Benchmark: Endpoint Security](/azure/security/benchmarks/security-controls-v2-endpoint-security).*
 
-### 7.1: Establish secure configurations for all Azure resources
+### ES-1: Use Endpoint Detection and Response (EDR)
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33301.).
-
-**Guidance**: None.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41194.).
 
-### 7.2: Establish secure operating system configurations
+**Guidance**: 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33302.).
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 7.3: Maintain secure Azure resource configurations
+### ES-2: Use centrally managed modern anti-malware software
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33303.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41195.).
 
-**Guidance**: None.
+**Guidance**: 
 
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 7.4: Maintain secure operating system configurations
+### ES-3: Ensure anti-malware software and signatures are updated
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33304.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41196.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 7.5: Securely store configuration of Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33305.).
+## Backup and Recovery
 
-**Guidance**: None.
+*For more information, see the [Azure Security Benchmark: Backup and Recovery](/azure/security/benchmarks/security-controls-v2-backup-recovery).*
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+### BR-1: Ensure regular automated backups
 
-**Responsibility**: Unset. Please provide a value in the work item.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41204.).
 
-### 7.6: Securely store custom operating system images
+**Guidance**: 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33306.).
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-**Guidance**: None.
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 7.7: Deploy configuration management tools for Azure resources
+### BR-2: Encrypt backup data
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33307.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41205.).
+
+**Guidance**: 
 
-**Guidance**: None.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 7.8: Deploy configuration management tools for operating systems
+### BR-3: Validate all backups including customer-managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33308.).
-
-**Guidance**: None.
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41206.).
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Guidance**: 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
 
-### 7.9: Implement automated configuration monitoring for Azure resources
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33309.).
+ 
 
-**Guidance**: None.
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### 7.10: Implement automated configuration monitoring for operating systems
+### BR-4: Mitigate risk of lost keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33310.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41207.).
 
-**Guidance**: None.
+**Guidance**: 
 
+&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+
+Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
+ 
+Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
-
-### 7.11: Manage Azure secrets securely
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33311.).
+## Governance and Strategy
 
-**Guidance**: None.
+*For more information, see the [Azure Security Benchmark: Governance and Strategy](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+### GS-1: Define asset management and data protection strategy 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41216.).
 
-### 7.12: Manage identities securely and automatically
+**Guidance**: Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33312.).
+This strategy should include documented guidance, policy, and standards for the following elements: 
 
-**Guidance**: None.
+-	Data classification standard in accordance with the business risks
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+-	Security organization visibility into risks and asset inventory 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+-	Security organization approval of Azure services for use 
 
-### 7.13: Eliminate unintended credential exposure
+-	Security of assets through their lifecycle
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33313.).
+-	Required access control strategy in accordance with organizational data classification
 
-**Guidance**: None.
+-	Use of Azure native and third party data protection capabilities
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+-	Data encryption requirements for in-transit and at-rest use cases
 
-**Responsibility**: Unset. Please provide a value in the work item.
+-	Appropriate cryptographic standards
 
-## Malware defense
+For more information, see the following references:
+- [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
-*For more information, see the [Azure Security Benchmark: Malware defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+- [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
 
-### 8.1: Use centrally managed antimalware software
+- [Cloud Adoption Framework - Azure data security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33314.).
+- [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-benchmark-v2-asset-management)
 
-**Guidance**: None.
+- [Azure Security Benchmark - Data Protection](/azure/security/benchmarks/security-benchmark-v2-data-protection)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
-### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
+### GS-2: Define enterprise segmentation strategy 
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33315.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41223.).
 
-**Guidance**: None.
+**Guidance**: Establish an enterprise-wide strategy to segmenting access to assets using a combination of identity, network, application, subscription, management group, and other controls.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Carefully balance the need for security separation with the need to enable daily operation of the systems that need to communicate with each other and access data.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+Ensure that the segmentation strategy is implemented consistently across control types including network security, identity and access models, and application permission/access models, and human process controls.
 
-### 8.3: Ensure antimalware software and signatures are updated
+- [Guidance on segmentation strategy in Azure (video)](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33316.).
+- [Guidance on segmentation strategy in Azure (document)](/security/compass/governance#enterprise-segmentation-strategy)
 
-**Guidance**: None.
+- [Align network segmentation with enterprise segmentation strategy](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
-
-## Data recovery
 
-*For more information, see the [Azure Security Benchmark: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+**Responsibility**: Customer
 
-### 9.1: Ensure regular automated back ups
+### GS-3: Define security posture management strategy
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33317.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41217.).
 
-**Guidance**: None.
+**Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
+- [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
-### 9.2: Perform complete system backups and backup any customer-managed keys
+### GS-4: Align organization roles, responsibilities, and accountabilities
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33318.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41218.).
 
-**Guidance**: None.
+**Guidance**: 
+Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
+- [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](https://aka.ms/AzSec1)
+
+- [Azure Security Best Practice 2 - People: Educate Teams on Cloud Security Technology](https://aka.ms/AzSec2)
+
+- [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](https://aka.ms/AzSec3)
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
-### 9.3: Validate all backups including customer-managed keys
+### GS-5: Define network security strategy
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33319.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41219.).
 
-**Guidance**: None.
+**Guidance**: Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+This strategy should include documented guidance, policy, and standards for the following elements: 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+-	Centralized network management and security responsibility
 
-### 9.4: Ensure protection of backups and customer-managed keys
+-	Virtual network segmentation model aligned with the enterprise segmentation strategy
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33320.).
+-	Remediation strategy in different threat and attack scenarios
 
-**Guidance**: None.
+-	Internet edge and ingress and egress strategy
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+-	Hybrid cloud and on-premises interconnectivity strategy
 
-**Responsibility**: Unset. Please provide a value in the work item.
+-	Up-to-date network security artifacts (e.g. network diagrams, reference network architecture)
 
-## Incident response
+For more information, see the following references:
 
-*For more information, see the [Azure Security Benchmark: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
 
-### 10.1: Create an incident response guide
+- [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-benchmark-v2-network-security)
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33321.).
+- [Azure network security overview](../security/fundamentals/network-overview.md)
 
-**Guidance**: None.
+- [Enterprise network architecture strategy](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
-### 10.2: Create an incident scoring and prioritization procedure
+### GS-6: Define identity and privileged access strategy
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33322.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41220.).
 
-**Guidance**: None.
+**Guidance**: Establish an Azure identity and privileged access approaches as part of your organization’s overall security access control strategy.  
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+This strategy should include documented guidance, policy, and standards for the following elements: 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+-	A centralized identity and authentication system and its interconnectivity with other internal and external identity systems
 
-### 10.3: Test security response procedures
+-	Strong authentication methods in different use cases and conditions
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33327.).
+-	Protection of highly privileged users
 
-**Guidance**: None.
+-	Anomaly user activities monitoring and handling  
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+-	User identity and access review and reconciliation process
 
-**Responsibility**: Unset. Please provide a value in the work item.
+For more information, see the following references:
 
-### 10.4: Provide security incident contact details and configure alert notifications for security incidents
+- [Azure Security Benchmark - Identity management](/azure/security/benchmarks/security-benchmark-v2-identity-management)
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33323.).
+- [Azure Security Benchmark - Privileged access](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+
+- [Azure Security Best Practice 11 - Architecture. Single unified security strategy](https://aka.ms/AzSec11)
 
-**Guidance**: None.
+- [Azure identity management security overview](../security/fundamentals/identity-management-overview.md) 
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
-### 10.5: Incorporate security alerts into your incident response system
+### GS-7: Define logging and threat response strategy
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33324.).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41221.).
 
-**Guidance**: None.
+**Guidance**: Establish a logging and threat response strategy to rapidly detect and remediate threats while meeting compliance requirements. Prioritize providing analysts with high quality alerts and seamless experiences so that they can focus on threats rather than integration and manual steps. 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+This strategy should include documented guidance, policy, and standards for the following elements: 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+-	The security operations (SecOps) organization’s role and responsibilities 
 
-### 10.6: Automate the response to security alerts
+-	A well-defined incident response process aligning with NIST or another industry framework 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33325.).
+-	Log capture and retention to support threat detection, incident response, and compliance needs
 
-**Guidance**: None.
+-	Centralized visibility of and correlation information about threats, using SIEM, native Azure capabilities, and other sources 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+-	Communication and notification plan with your customers, suppliers, and public parties of interest
 
-**Responsibility**: Unset. Please provide a value in the work item.
+-	Use of Azure native and third-party platforms for incident handling, such as logging and threat detection, forensics, and attack remediation and eradication
 
-## Penetration tests and red team exercises
+-	Processes for handling incidents and post-incident activities, such as lessons learned and evidence retention
 
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+For more information, see the following references:
+- [Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
 
-### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
+- [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-benchmark-v2-incident-response)
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33326.).
+- [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](https://aka.ms/AzSec4)
 
-**Guidance**: None.
+- [Azure Adoption Framework, logging, and reporting decision guide](/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/)
 
+- [Azure enterprise scale, management, and monitoring](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
+
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
+- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
 - Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
