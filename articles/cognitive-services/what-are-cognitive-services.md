@@ -88,15 +88,6 @@ The following sections in this article provides a list of services that are part
 |[Bing Local Business Search](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "Bing Local Business Search")| Bing Local Business Search API enables your applications to find contact and location information about local businesses based on search queries.|
 |[Bing Spell Check](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Bing Spell Check")|Bing Spell Check allows you to perform contextual grammar and spell checking.|
 
-## Decision APIs
-
-|Service Name|Service Description|
-|:-----------|:------------------|
-|[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Anomaly Detector") (Preview)|Anomaly Detector allows you to monitor and detect abnormalities in your time series data.|
-|[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator provides monitoring for possible offensive, undesirable, and risky content.|
-|[Metrics Advisor](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor) (Preview) | Metrics Advisor provides customizable anomaly detection on multi-variate time series data, and a fully featured web portal to help you use the service.
-|[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer")|Personalizer allows you to choose the best experience to show to your users, learning from their real-time behavior.|
-
 ## Development options 
 
 With Azure and Cognitive Services, you have access to several development options, such as:
