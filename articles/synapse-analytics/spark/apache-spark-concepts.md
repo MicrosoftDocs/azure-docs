@@ -55,11 +55,11 @@ When you submit a second job, if there is capacity in the pool, the existing Spa
 - Another user, U2, submits a Job, J3, that uses 10 nodes, a new Spark instance, SI2, is created to process the job.
 - You now submit another job, J2, that uses 10 nodes because there's still capacity in the pool and the instance, J2, is processed by SI1.
 
-## Quota's and resource constraints in Apache Spark for Azure Synapse
+## Quotas and resource constraints in Apache Spark for Azure Synapse
 
 ### Workspace level
 
-Every Azure Synapse workspace comes with a default quota of vCores that can be used for Spark, the quota is split between the user quota and the dataflow quota so that neither usage pattern uses up all the vCores in the workspace. The quota is different depending on the type of your subscription but is symmetrical between user and dataflow. However if you request more vCores than are remaining in the workspace, then you will get the following error
+Every Azure Synapse workspace comes with a default quota of vCores that can be used for Spark. The quota is split between the user quota and the dataflow quota so that neither usage pattern uses up all the vCores in the workspace. The quota is different depending on the type of your subscription but is symmetrical between user and dataflow. However if you request more vCores than are remaining in the workspace, then you will get the following error:
 
 ```console
 Failed to start session: [User] MAXIMUM_WORKSPACE_CAPACITY_EXCEEDED
