@@ -106,7 +106,7 @@ To configure Azure AD single sign-on with Optimizely, perform the following step
 
 5. Your Optimizely application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot that shows the "User Attributes" dialog with the "Edit" icon in the top-right selected.](common/edit-attribute.png)
 
 6. In addition to above, Optimizely application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
@@ -116,7 +116,7 @@ To configure Azure AD single sign-on with Optimizely, perform the following step
 	
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![image](common/new-save-attribute.png)
+	![Screenshot that shows the "User Claims" dialog with the "Add new claim" and "Save" actions highlighted.](common/new-save-attribute.png)
 
 	![image](common/new-attribute-details.png)
 
@@ -160,7 +160,7 @@ To configure Azure AD single sign-on with Optimizely, perform the following step
 
 4. Click you account name in the top right corner and then **Account Settings**.
 
-    ![Azure AD Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_09.png)
+    ![Screenshot that shows the account name selected in the top-right corner, with "Account Settings" selected from the menu.](./media/optimizely-tutorial/tutorial_optimizely_09.png)
 
 5. In the Account tab, check the box **Enable SSO** under Single Sign On in the **Overview** section.
   
@@ -227,7 +227,7 @@ In this section, you create a user called Britta Simon in Optimizely.
 
 2. To add new collaborator to the project, click **New Collaborator**.
    
-    ![Creating an Azure AD test user](./media/optimizely-tutorial/create_aaduser_10.png)
+    ![Screenshot that shows the Optimizely home page with the "Collaborators" tab and "New Collaborator" button selected.](./media/optimizely-tutorial/create_aaduser_10.png)
 
 3. Fill in the email address and assign them a role. Click **Invite**.
 

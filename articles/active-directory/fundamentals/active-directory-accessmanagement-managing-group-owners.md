@@ -48,7 +48,7 @@ Remove an owner from a group using Azure AD.
 
 3. On the **MDM policy - West Overview** page, select **Owners**.
 
-    ![MDM policy - West Overview page with Owners option highlighted](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
+    ![MDM policy - West Overview page with Remove Owners option highlighted](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
 
 4. On the **MDM policy - West - Owners** page, select the user you want to remove as a group owner, choose **Remove** from the user's information page, and select **Yes** to confirm your decision.
 
@@ -59,10 +59,10 @@ Remove an owner from a group using Azure AD.
 ## Next steps
 - [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 
-- [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md)
+- [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md)
 
-- [Use groups to assign access to an integrated SaaS app](../users-groups-roles/groups-saasapps.md)
+- [Use groups to assign access to an integrated SaaS app](../enterprise-users/groups-saasapps.md)
 
 - [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 
-- [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-v2-cmdlets.md)

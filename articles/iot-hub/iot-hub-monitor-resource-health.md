@@ -26,7 +26,7 @@ IoT Hub also provides its own metrics that you can use to understand the state o
 
 Azure Monitor provides diagnostics information for Azure resources, which means that you can monitor operations that take place within your IoT hub.
 
-To learn more about the specific metrics and events that Azure Monitor watches, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md) and [Supported services, schemas, and categories for Azure Diagnostic Logs](../azure-monitor/platform/diagnostic-logs-schema.md).
+To learn more about the specific metrics and events that Azure Monitor watches, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md) and [Supported services, schemas, and categories for Azure Diagnostic Logs](../azure-monitor/platform/resource-logs-schema.md).
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
@@ -112,7 +112,7 @@ The device identity operations category tracks errors that occur when you attemp
 
 #### Routes
 
-The [message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) category tracks errors that occur during message route evaluation and endpoint health as perceived by IoT Hub. This category includes events such as:
+The [message routing](./iot-hub-devguide-messages-d2c.md) category tracks errors that occur during message route evaluation and endpoint health as perceived by IoT Hub. This category includes events such as:
 
 * A rule evaluates to "undefined",
 * IoT Hub marks an endpoint as dead, or

@@ -39,7 +39,7 @@ The manual QoS type feature is currently in preview. If you are using this featu
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFlexPool
     ```
-You can also use [Azure CLI commands](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` and `az feature show` to register the feature and display the registration status. 
+You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Set up a new manual QoS capacity pool 
 
@@ -92,5 +92,3 @@ If a volume is contained in a manual QoS capacity pool, you can modify the allot
 * [Create an NFS volume](azure-netapp-files-create-volumes.md)
 * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
 * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
-
-

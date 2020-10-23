@@ -39,7 +39,8 @@ To help you protect yourself against these challenges, Security Center provides 
 
 -   **Get secure faster**: In Security Center, everything is done in cloud speed. Because it is natively integrated, deployment of Security Center is easy, providing you with auto-provisioning and protection with Azure services.
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+> [!NOTE]
+> This service supports [Azure Lighthouse](../lighthouse/overview.md), which lets service providers sign in to their own tenant to manage subscriptions and resource groups that customers have delegated. For Azure Security Center scenarios, a subscription must be delegated rather than individual resource groups.
 
 ## Architecture
 
@@ -122,10 +123,6 @@ ranges or IP addresses, and for a limited amount of time.
 
 Security Center includes capabilities that help you perform automatic classification of your data in Azure SQL. You can also get assessments for potential vulnerabilities across Azure SQL and Storage services, and
 recommendations for how to mitigate them.
-
-### Protect IoT and hybrid cloud workloads
-
-Defender for IoT (Internet of Things) simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat protection and response across workloads running on edge, on-premises, in Azure, and in other clouds. For more information, see [Defender for IoT](../defender-for-iot/index.yml).
 
 ## Get secure faster
 

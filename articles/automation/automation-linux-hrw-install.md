@@ -3,9 +3,10 @@ title: Deploy a Linux Hybrid Runbook Worker in Azure Automation
 description: This article tells how to install an Azure Automation Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/15/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ---
+
 # Deploy a Linux Hybrid Runbook Worker
 
 You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine that's hosting the role and against resources in the environment to manage those local resources. The Linux Hybrid Runbook Worker executes runbooks as a special user that can be elevated for running commands that need elevation. Azure Automation stores and manages runbooks and then delivers them to one or more designated machines. This article describes how to install the Hybrid Runbook Worker on a Linux machine, how to remove the worker, and how to remove a Hybrid Runbook Worker group.
@@ -22,7 +23,7 @@ The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspa
 
 If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create the workspace.
 
-If you have a workspace, but it is not linked to your Automation account, enabling an Automation feature adds functionality for Azure Automation, including support for the Hybrid Runbook Worker. When you enable one of the Azure Automation features in your Log Analytics workspace, specifically [Update Management](update-management/update-mgmt-overview.md) or [Change Tracking and Inventory](change-tracking.md), the worker components are automatically pushed to the agent machine.
+If you have a workspace, but it is not linked to your Automation account, enabling an Automation feature adds functionality for Azure Automation, including support for the Hybrid Runbook Worker. When you enable one of the Azure Automation features in your Log Analytics workspace, specifically [Update Management](update-management/update-mgmt-overview.md) or [Change Tracking and Inventory](change-tracking/overview.md), the worker components are automatically pushed to the agent machine.
 
 To add the Update Management feature to your workspace, run the following PowerShell cmdlet:
 
@@ -39,6 +40,10 @@ To add the Change Tracking and Inventory feature to your workspace, run the foll
 ### Log Analytics agent
 
 The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md) for the supported Linux operating system.
+
+>[!NOTE]
+>After installing the Log Analytics agent for Linux, you should not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the **nxautomation** account, which is the user context the Hybrid Runbook Worker runs under. The permissions should not be removed. Restricting this to certain folders or commands may result in a breaking change.
+>
 
 ### Supported Linux operating systems
 

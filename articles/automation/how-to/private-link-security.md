@@ -123,7 +123,7 @@ Select the resource to see all the details. This creates a new private endpoint 
 
 Similarly, a unique fully qualified domain name (FQDN) is created for the State Configuration (agentsvc) and for the Hybrid Runbook Worker job runtime (jrds). Each of them are assigned a separate IP from your VNet and the **Connection status** shows as **approved**.
 
-If the service consumer has RBAC permissions on the Automation resource, they can choose the automatic approval method. In this case, when the request reaches the Automation provider resource, no action is required from the service provider and the connection is automatically approved.
+If the service consumer has Azure RBAC permissions on the Automation resource, they can choose the automatic approval method. In this case, when the request reaches the Automation provider resource, no action is required from the service provider and the connection is automatically approved.
 
 ## Set public network access flags
 

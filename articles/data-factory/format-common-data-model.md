@@ -5,7 +5,7 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/13/2020
 ms.author: daperlov
 ---
 
@@ -46,6 +46,8 @@ The below table lists the properties supported by a CDM source. You can edit the
 | Corpus folder | the root location of the corpus | yes, if using manifest | String | corpusPath |
 | Corpus entity | Path to entity reference | yes | String | entity |
 | Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
+
+If the entity definition you wish to use in your Source transformation is located in the same directory as your data folder, you can deselect "Use entity from corpus" and simply type in the entity of the entity that you wish to use as your entity reference.
 
 ### Sink settings
 

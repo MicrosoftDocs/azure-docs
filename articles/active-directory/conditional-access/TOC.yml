@@ -92,8 +92,6 @@
     href: terms-of-use.md
   - name: Sign-in frequency and browser persistence controls
     href: howto-conditional-access-session-lifetime.md
-  - name: Best practices
-    href: best-practices.md
   - name: Troubleshooting
     items:
     - name: Troubleshoot sign-in problems

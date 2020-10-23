@@ -78,6 +78,18 @@ No, installing the agent on server core is not supported.
 
 No, staging servers are not supported.
 
+**Q:  Can I synchronize Guest user accounts?**
+
+No, synchronizing guest user accounts is not supported.
+
+**Q:  If I move a user from an OU that is scoped for cloud provisioning to an OU that is scoped for Azure AD Connect, what happens?**
+
+The user will be deleted and re-created.  Moving a user from an OU that is scoped for cloud provisioning will be viewed as a delete operation.  If the user is moved to an OU that is managed by Azure AD Connect, it will be re-provisioned to Azure AD and a new user created.
+
+**Q:  If I rename or move the OU that is in scope for the cloud provisioning filter, what happens to the user that were created in Azure AD?**
+
+Nothing.  The users will not be deleted if the OU is renamed or moved.
+
 ## Next steps 
 
 - [What is provisioning?](what-is-provisioning.md)

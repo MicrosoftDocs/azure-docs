@@ -192,39 +192,39 @@ Manage compute instances.  In all the examples below, the name of the compute in
     ```azurecli-interactive
     az ml computetarget create computeinstance  -n cpu -s "STANDARD_D3_V2" -v
     ```
-    
+
     For more information, see [az ml computetarget create computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance).
 
 + Stop a computeinstance.
-    
+
     ```azurecli-interactive
     az ml computetarget stop computeinstance -n cpu -v
     ```
-    
+
     For more information, see [az ml computetarget stop computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
-    
+
 + Start a computeinstance.
-    
+
     ```azurecli-interactive
     az ml computetarget start computeinstance -n cpu -v
     ```
-    
+
     For more information, see [az ml computetarget start computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
-    
+
 + Restart a computeinstance.
-    
+
     ```azurecli-interactive
     az ml computetarget restart computeinstance -n cpu -v
     ```
-    
+
     For more information, see [az ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
-    
+
 + Delete a computeinstance.
-    
+
     ```azurecli-interactive
     az ml computetarget delete -n cpu -v
     ```
-    
+
     For more information, see [az ml computetarget delete computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-delete).
 
 

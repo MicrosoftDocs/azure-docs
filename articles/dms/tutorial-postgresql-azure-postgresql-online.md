@@ -368,8 +368,6 @@ To complete all the database objects like table schemas, indexes and stored proc
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output --query 'properties.output[].migrationState | [0]' "READY_TO_COMPLETE"
     ```
 
-## Understanding migration task status
-
 In the output file, there are several parameters that indicate progress of migration. For example, see the output file below:
 
   ```output
@@ -482,6 +480,7 @@ To ensure all data is caught up, validate row counts between the source and targ
     ```azurecli
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
     ```
+3. When the database migration status shows **Completed**, [recreate sequences](https://wiki.postgresql.org/wiki/Fixing_Sequences) (if applicable), and connect your applications to the new target instance of Azure Database for PostgreSQL.
 
 ## Service, project, task cleanup
 

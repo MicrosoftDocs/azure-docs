@@ -141,6 +141,9 @@
           displayName: secure, ssl
         - name: Security baseline
           href: security-baseline.md
+    - name: Monitoring
+      href: functions-monitoring.md
+      displayName: App Insights, Application Insights, logs, logging
     - name: Diagnostics
       href: functions-diagnostics.md
     - name: Consumption plan costs
@@ -214,6 +217,8 @@
               href: functions-create-scheduled-function.md
         - name: Add bindings
           items:
+            - name: How to add a binding
+              href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
             - name: Storage - Python
@@ -280,11 +285,18 @@
           href: functions-geo-disaster-recovery.md
     - name: Monitor
       items:
-        - name: Monitor functions
-          href: functions-monitoring.md
+        - name: Configure monitoring
+          href: configure-monitoring.md
           displayName: App Insights, Application Insights, logs, logging
-        - name: Analyze logs
+        - name: Analyze telemetry data
+          href: analyze-telemetry-data.md  
+          displayName: App Insights, Application Insights, Kusto
+        - name: Streaming logs
+          href: streaming-logs.md
+          displayName: monitoring
+        - name: Diagnostic logs
           href: functions-monitor-log-analytics.md
+          displayName: Azure Monitor, Kusto, Log Analytics, metrics
     - name: Secure
       items:
         - name: Add SSL cert
@@ -492,7 +504,16 @@
               href: functions-bindings-signalr-service-output.md
               displayName: SignalR Service
         - name: Table storage
-          href: functions-bindings-storage-table.md
+          items: 
+            - name: Overview
+              href: functions-bindings-storage-table.md
+              displayName: Table storage
+            - name: Input
+              href: functions-bindings-storage-table-input.md
+              displayName: Table storage
+            - name: Output
+              href: functions-bindings-storage-table-output.md
+              displayName: Table storage
         - name: Timer
           href: functions-bindings-timer.md
         - name: Twilio

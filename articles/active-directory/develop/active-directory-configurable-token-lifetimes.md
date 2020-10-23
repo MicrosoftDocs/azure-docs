@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1
+ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
 ---
 # Configurable token lifetimes in Microsoft identity platform (preview)
@@ -86,9 +86,9 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 | Access Token Lifetime |AccessTokenLifetime<sup>2</sup> |Access tokens, ID tokens, SAML2 tokens |1 hour |10 minutes |1 day |
 | Refresh Token Max Inactive Time |MaxInactiveTime |Refresh tokens |90 days |10 minutes |90 days |
 | Single-Factor Refresh Token Max Age |MaxAgeSingleFactor |Refresh tokens (for any users) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
-| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Refresh tokens (for any users) | 180 days |10 minutes |Until-revoked<sup>1</sup> |
+| Multi-Factor Refresh Token Max Age |MaxAgeMultiFactor |Refresh tokens (for any users) | 180 days |10 minutes |180 days<sup>1</sup> |
 | Single-Factor Session Token Max Age |MaxAgeSessionSingleFactor |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
-| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor |Session tokens (persistent and nonpersistent) | 180 days |10 minutes |Until-revoked<sup>1</sup> |
+| Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor |Session tokens (persistent and nonpersistent) | 180 days |10 minutes | 180 days<sup>1</sup> |
 
 * <sup>1</sup>365 days is the maximum explicit length that can be set for these attributes.
 * <sup>2</sup>To ensure the Microsoft Teams Web client works, it is recommended to keep AccessTokenLifetime to greater than 15 minutes for Microsoft Teams.

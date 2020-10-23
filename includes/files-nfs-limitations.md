@@ -16,7 +16,7 @@ While in preview, NFS has the following limitations:
 - Must create a new storage account in order to create an NFS share.
 - Only the management plane REST APIs are supported. Data plane REST APIs are not available, which means that tools like Storage explorer will not work with NFS shares nor will you be able to browse NFS share data in the Azure portal.
 - Only available for the premium tier.
-- Currently only available with locally redundant storage.
+- Currently only available with locally redundant storage (LRS).
 
 ### Azure Storage features not yet supported
 

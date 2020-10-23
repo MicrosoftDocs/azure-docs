@@ -3,8 +3,8 @@ title: Set up authentication
 titleSuffix: Azure Machine Learning
 description: Learn how to set up and configure authentication for various resources and workflows in Azure Machine Learning. There are multiple ways to configure and use authentication within the service, ranging from simple UI-based auth for development or testing purposes, to full Azure Active Directory service principal authentication.
 services: machine-learning
-author: larryfr
-ms.author: larryfr
+author: cjgronlund
+ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
@@ -23,7 +23,7 @@ In general, there are two types of authentication that you can use with Azure Ma
 * __Interactive__: You use your account in Azure Active Directory to either directly authenticate, or to get a token that is used for authentication. Interactive authentication is used during experimentation and iterative development. Or where you want to control access to resources (such as a web service) on a per-user basis.
 * __Service principal__: You create a service principal account in Azure Active Directory, and use it to authenticate or get a token. A service principal is used when you need an automated process to authenticate to the service without requiring user interaction. For example, a continuous integration and deployment script that trains and tests a model every time the training code changes. You might also use a service principal to retrieve a token to authenticate to a web service, if you don't want to require the end user of the service to authenticate. Or where the end-user authentication isn't performed directly using Azure Active Directory.
 
-Regardless of the authentication type used, role-based access control (RBAC) is used to scope the level of access allowed to the resources. For example, an account that is used to get the access token for a deployed model only needs read access to the workspace. For more information on RBAC, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md).
+Regardless of the authentication type used, Azure role-based access control (Azure RBAC) is used to scope the level of access allowed to the resources. For example, an account that is used to get the access token for a deployed model only needs read access to the workspace. For more information on Azure RBAC, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md).
 
 ## Prerequisites
 

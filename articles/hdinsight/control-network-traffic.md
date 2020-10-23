@@ -53,7 +53,7 @@ To see an example of the UDR setup with Azure Firewall, see [Configure outbound 
 
 ## Required ports
 
-If you plan on using a **firewall** and access the cluster from outside on certain ports, you might need to allow traffic on those ports needed for your scenario. By default, no special whitelisting of ports is needed as long as the Azure management traffic explained in the previous section is allowed to reach cluster on port 443.
+If you plan on using a **firewall** and access the cluster from outside on certain ports, you might need to allow traffic on those ports needed for your scenario. By default, no special filtering of ports is needed as long as the Azure management traffic explained in the previous section is allowed to reach cluster on port 443.
 
 For a list of ports for specific services, see the [Ports used by Apache Hadoop services on HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
 

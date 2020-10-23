@@ -153,15 +153,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. Click on the **ICON**.
 
-	![Nuclino Configuration](./media/nuclino-tutorial/configure1.png)
+	![Screenshot that shows the "Menu" icon selected next to "Azure A D S S O".](./media/nuclino-tutorial/configure1.png)
 
 5. Click on the **Azure AD SSO** and select **Team settings** from the dropdown.
 
-	![Nuclino Configuration](./media/nuclino-tutorial/configure2.png)
+	![Screenshot that shows the "Azure A D S S O" drop-down with "Team settings" selected.](./media/nuclino-tutorial/configure2.png)
 
 6. Select **Authentication** from left navigation pane.
 
-	![Nuclino Configuration](./media/nuclino-tutorial/configure3.png)
+	![Screenshot that shows "Authentication" selected.](./media/nuclino-tutorial/configure3.png)
 
 7. In the **Authentication** section, perform the following steps:
 

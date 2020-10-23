@@ -43,7 +43,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
     Select the resource and press **Apply**. For details about supported resources and metrics, see [Monitor Media Services metrics](media-services-metrics-diagnostic-logs.md).
 
-    ![Metrics](media/media-services-metrics/metrics02.png)
+    ![Screenshot that shows the selected resource and highlights the Apply button.](media/media-services-metrics/metrics02.png)
 
     > [!NOTE]
     > To switch between resources for which you want to monitor metrics, click on the **RESOURCE** box again and repeat this step.

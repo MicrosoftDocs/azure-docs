@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 10/06/2020
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
@@ -32,13 +32,13 @@ To learn how to enable blob versioning, see [Enable and manage blob versioning](
 
 A version captures the state of a blob at a given point in time. When blob versioning is enabled for a storage account, Azure Storage automatically creates a new version of a blob each time that blob is modified or deleted.
 
-When you create a blob with versioning enabled, the new blob is the current version of the blob (or the base blob). If you subsequently modify that blob, Azure Storage creates a version that captures the state of the blob before it was modified. The modified blob becomes the new current version. A new version is created each time you modify the blob.
+When you create a blob with versioning enabled, the new blob is the current version of the blob (or the base blob). If you subsequently modify that blob, Azure Storage creates a version that captures the state of the blob before it was modified. The modified blob becomes the new current version. A new version is created each time you modify the blob. A blob may have up to 1000 associated versions.
 
 When you delete a blob with versioning enabled, Azure Storage creates a version that captures the state of the blob before it was deleted. The current version of the blob is then deleted, but the blob's versions persist, so that it can be re-created if needed. 
 
 Blob versions are immutable. You cannot modify the content or metadata of an existing blob version.
 
-Blob versioning is available for general-purpose v2, block blob, and Blob storage accounts. Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not currently supported.
+Blob versioning is available for general-purpose v2, block blob, and Blob storage accounts. Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are not currently supported. 
 
 Version 2019-10-10 and higher of the Azure Storage REST API supports blob versioning.
 
@@ -171,17 +171,17 @@ The following diagram shows what happens when you take a snapshot of a versioned
 
 You can authorize access to blob versions using one of the following approaches:
 
-- By using role-based access control (RBAC) to grant permissions to an Azure Active Directory (Azure AD) security principal. Microsoft recommends using Azure AD for superior security and ease of use. For more information about using Azure AD with blob operations, see [Authorize access to blobs and queues using Azure Active Directory](../common/storage-auth-aad.md).
+- By using Azure role-based access control (Azure RBAC) to grant permissions to an Azure Active Directory (Azure AD) security principal. Microsoft recommends using Azure AD for superior security and ease of use. For more information about using Azure AD with blob operations, see [Authorize access to blobs and queues using Azure Active Directory](../common/storage-auth-aad.md).
 - By using a shared access signature (SAS) to delegate access to blob versions. Specify the version ID for the signed resource type `bv`, representing a blob version, to create a SAS token for operations on a specific version. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).
 - By using the account access keys to authorize operations against blob versions with Shared Key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key).
 
 Blob versioning is designed to protect your data from accidental or malicious deletion. To enhance protection, deleting a blob version requires special permissions. The following sections describe the permissions needed to delete a blob version.
 
-### RBAC action to delete a blob version
+### Azure RBAC action to delete a blob version
 
-The following table shows which RBAC actions support deleting a blob or a blob version.
+The following table shows which Azure RBAC actions support deleting a blob or a blob version.
 
-| Description | Blob service operation | RBAC data action required | RBAC built-in role support |
+| Description | Blob service operation | Azure RBAC data action required | Azure built-in role support |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Deleting the current version of the blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Storage Blob Data Contributor |
 | Deleting a version | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action** | Storage Blob Data Owner |

@@ -60,7 +60,7 @@ The **snapshot policy** feature is currently in preview. If you are using this f
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-You can also use [Azure CLI commands](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` and `az feature show` to register the feature and display the registration status. 
+You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ### Create a snapshot policy 
 
