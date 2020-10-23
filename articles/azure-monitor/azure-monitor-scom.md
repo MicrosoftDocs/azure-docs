@@ -10,16 +10,23 @@ ms.date: 10/10/2020
 ---
 
 # Compare Azure Monitor and Operations Manager
-Because of the similarities between 
+Both Azure Monitor and System Center Operations Manager monitor the health and availability of your applications and the resources that they depend on. Customers often question which one they should use. You might be working with a new environment with no current monitoring and determining which product would best fit your requirements, or you might be an existing Operations Manager customer wondering if you should migrate to Azure Monitor as you move your applications to the cloud. This article provides guidance for 
 
 
 You can read a complete comparison between Azure Monitor and Operations Manager in [Cloud monitoring guide: Monitoring platforms overview](/azure/cloud-adoption-framework/manage/monitor/platform-overview)
 
-## Operations Manager
-[System Center Operations Manager](https://docs.microsoft.com/system-center/scom) is an infrastructure and application monitoring tool from Microsoft that provides end-to-end service and application monitoring, including heterogenous platforms, network devices, and other application or service dependencies. 
+## Quick comparison
+The following table provides a quick comparison of the relative advantages of Azure Monitor and Operations Manager.
 
-## Azure Monitor
-Azure Monitor is a SaaS monitoring tool. It's designed to provide 
+| | Azure Monitor | Operations Manager |
+|:---|:---|:---|
+| Infrastructure requirements | No infrastructure requirements other than agents on virtual machines. | Significant infrastructure requirements including database server and one or more management servers in addition to agents on virtual machines. |
+| Deployment and onboarding | Minimal configuration requirements. Azure Policy for automated deployment of agents. | Significant configuration including deployment of management servers and tuning management packs. |
+| Maintenance requirements | Minimal maintenance requirements. New features automatically available. | Significant maintenance requirements. New features only available with upgrades to infrastructure components. Management pack updates requirement testing, deployment, and tuning. |
+| Data sources | Full monitoring of Azure resources, virtual machines, applications, and any REST API client. | Agents on virtual machines only data source although scripts can access remote resources. |
+| Health state monitoring | Minimal health state monitoring. Provided by some insights for particular Azure services. Health state monitoring for virtual machines based on limited set of performance counters currently in preview. | Health state monitoring for most critical monitored applications and components. |
+| Predefined monitoring | Minimal. 
+
 
 ## Summary
 Azure Monitor is recommended for monitoring your cloud and on-premises resources because of its distinct advantages over Operations Manager that include the following:
@@ -44,6 +51,10 @@ Reasons to use SCOM:
 
 
 ## General strategy
+
+### New user
+
+
 If you're an existing SCOM user, our recommended strategy to migrate to Azure Monitor.
 
 1. Continue to use SCOM to monitor your legacy workloads where you require management packs and state monitoring.
@@ -51,10 +62,23 @@ If you're an existing SCOM user, our recommended strategy to migrate to Azure Mo
 
 
 ## Monitor Azure resources
-Azure resources are best monitored with Azure Monitor. In fact, Azure Monitor is required to collect telemetry required for monitoring from Azure resources. Platform metrics are collected automatically, and you create 
+Azure resources actually require Azure Monitor to collect telemetry, although you can choose to have other tools collect this telemetry. 
+
+### Azure Monitor
+Platform metrics are collected automatically and can be analyzed with Metrics Explorer. Create diagnostic settings to send resource logs and platform metrics to a Log Analytics workspace so you can analyze them with Log Analytics. 
+
+
+
+
+The Azure management pack for SCOM can discover your Azure resources read platform metrics for Azure resources and create 
 
 You could choose to use the Azure management pack to monitor these resources in SCOM, but it collects metrics and resource logs from Azure Monitor.
 
+
+### Recommendations
+Use Azure Monitor to monitor Azure resources. Create diagnostic settings to collect resource logs and platform metrics into a Log Analytics workspace. This is required for some insights and allows you to analyze data using Log Analytics 
+
+where you can analyze them with Log Analytics
 
 ## Monitor virtual machines
 
@@ -63,3 +87,4 @@ You could choose to use the Azure management pack to monitor these resources in 
 The most common reason that you will require Operations Manager is monitoring of workloads in virtual machines. This may include standard management packs for applications such as SQL Server, or custom management packs that you've developed for internal applications. 
 
 Azure Monitor can collect events and performance data from virtual machines but doesn't have predefined sets of logic for analyzing and alerting on that data as in management packs. It also doesn't have a standard process for running scripts in a virtual machine which often provide core functionality in management packs.
+
