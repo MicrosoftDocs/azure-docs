@@ -16,7 +16,7 @@
 
 1. After you select Bastion from the dropdown, a side bar appears that has three tabs: RDP, SSH, and Bastion. Because Bastion was provisioned for the virtual network, the Bastion tab is active by default. Select **Use Bastion**.
 
-   :::image type="content" source="./media/bastion-vm-rdp/select-bastion.png" alt-text="Select Use Bastion":::
+   :::image type="content" source="./media/bastion-vm-rdp/select-use-bastion.png" alt-text="Select Use Bastion":::
 
 1. On the **Connect using Azure Bastion** page, enter the username and password for your virtual machine, then select **Connect**.
 
