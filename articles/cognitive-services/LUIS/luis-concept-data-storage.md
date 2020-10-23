@@ -52,7 +52,7 @@ If you are not migrated, you can delete your account and all your apps will be d
 Deleting account is available from the **Settings** page. Select your account name in the top right navigation bar to get to the **Settings** page.
 
 ## Delete an authoring resource
-If you have [migrated to an authoring resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring), deleting the resource itself from the Azure portal will delete all your applications associated with that resource, along with their example utterances and logs. The data is retained for 90 days before it is deleted permanently.    
+If you have [migrated to an authoring resource](./luis-migration-authoring.md), deleting the resource itself from the Azure portal will delete all your applications associated with that resource, along with their example utterances and logs. The data is retained for 90 days before it is deleted permanently.    
 
 To delete your resource, go to the [Azure portal](https://ms.portal.azure.com/#home) and select your LUIS authoring resource. Go to the **Overview** tab and click on the **Delete** button on the top of the page. Then confirm your resource was deleted. 
 

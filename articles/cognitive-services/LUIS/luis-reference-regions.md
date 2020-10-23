@@ -21,7 +21,7 @@ There are three LUIS authoring portals, based on region. You must author and pub
 |[au.luis.ai][au.luis.ai] |Australia| `australiaeast`|
 |[eu.luis.ai][eu.luis.ai] |Europe|`westeurope`|
 
-Authoring regions have [paired fail-over regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Authoring regions have [paired fail-over regions](../../best-practices-availability-paired-regions.md).
 
 <a name="regions-and-azure-resources"></a>
 
@@ -96,7 +96,7 @@ Learn more about the [authoring and prediction endpoints](developer-reference-re
 
 Each region has a secondary region to fail over to. Europe fails over inside Europe and Australia fails over inside Australia.
 
-Authoring regions have [paired fail-over regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Authoring regions have [paired fail-over regions](../../best-practices-availability-paired-regions.md).
 
 ## Next steps
 
