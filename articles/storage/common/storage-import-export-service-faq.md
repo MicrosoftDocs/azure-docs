@@ -127,7 +127,7 @@ No. All drives are encrypted with BitLocker.
 
 ### How can I access data that is imported by this service?
 
-Use the Azure portal or [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) to access the data under your Azure storage account.  
+Use the Azure portal or [Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) to access the data under your Azure storage account.  
 
 ### After the import is complete, what does my data look like in the storage account? Is my directory hierarchy preserved?
 
@@ -139,7 +139,7 @@ Depends. When preparing the drive, you can specify whether the destination files
 
 ### Is the WAImportExport tool compatible with 32-bit operating systems?
 
-No. The WAImportExport tool is only compatible with 64-bit Windows operating systems. For a complete list of Supported OS, go to [Supported Operating Systems](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
+No. The WAImportExport tool is only compatible with 64-bit Windows operating systems. For a complete list of Supported OS, go to [Supported Operating Systems](/azure/storage/common/storage-import-export-requirements).
 
 ### What is the maximum Block Blob and Page Blob Size supported by Azure Import/Export?
 

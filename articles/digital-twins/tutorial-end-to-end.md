@@ -49,7 +49,7 @@ To work through the scenario, you will interact with components of the pre-writt
 
 Here are the components implemented by the building scenario *AdtSampleApp* sample app:
 * Device authentication 
-* [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core) usage examples (found in *CommandLoop.cs*)
+* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * *SampleClientApp* - A sample Azure Digital Twins solution
 * *SampleFunctionsApp* - An Azure Functions app that updates your Azure Digital Twins graph as a result of telemetry from IoT Hub and Azure Digital Twins events
@@ -88,7 +88,7 @@ Query
 ```
 
 >[!TIP]
-> This simplified method is provided as part of the _**AdtE2ESample**_ project. Outside the context of this sample code, you can query for all the twins in your instance at any time, using the [Query APIs](how-to-use-apis-sdks.md) or the [CLI commands](how-to-use-cli.md).
+> This simplified method is provided as part of the _**AdtE2ESample**_ project. Outside the context of this sample code, you can query for all the twins in your instance at any time, using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](how-to-use-cli.md).
 >
 > Here is the full query body to get all digital twins in your instance:
 > 
@@ -171,6 +171,8 @@ On the *Publish* pane that opens back in the main Visual Studio window, check th
 ### Assign permissions to the function app
 
 To enable the function app to access Azure Digital Twins, the next step is to configure an app setting, assign the app a system-managed Azure AD identity, and give this identity the *Azure Digital Twins Data Owner* role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md).
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your Azure Digital Twins instance.
 

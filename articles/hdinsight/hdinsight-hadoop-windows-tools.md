@@ -53,7 +53,7 @@ Examples of tasks you can do with Visual Studio and Data Lake Tools for Visual S
 You can use Visual Studio with the .NET SDK to manage clusters and develop big data applications. You can use other IDEs for the following tasks, but examples are shown in Visual Studio.
 
 Examples of tasks you can do with the .NET SDK in Visual Studio:
-* [Azure HDInsight SDK for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
+* [Azure HDInsight SDK for .NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true).
 * [Run Apache Hive queries using the .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 * [Use C# user-defined functions with Apache Hive and Apache Pig streaming on Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
@@ -85,7 +85,7 @@ If you come across a situation where you must use a tool or technology that is o
 
 ## Cross-platform tools
 
-The Azure command-line interface (CLI) is Microsoft's cross-platform command-line experience for managing Azure resources.  For more information, see [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+The Azure command-line interface (CLI) is Microsoft's cross-platform command-line experience for managing Azure resources.  For more information, see [Azure Command-Line Interface (CLI)](/cli/azure/).
 
 ## Next steps
 

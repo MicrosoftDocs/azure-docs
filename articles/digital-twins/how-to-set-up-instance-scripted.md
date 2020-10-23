@@ -65,7 +65,7 @@ Here are the steps to run the deployment script in Cloud Shell.
     ./deploy.ps1
     ```
 
-    The script will create an Azure Digital Twins instance, and assign your Azure user the *Azure Digital Twins Owner (Preview)* role on the instance.
+    The script will create an Azure Digital Twins instance, and assign your Azure user the *Azure Digital Twins Data Owner* role on the instance.
 
     As the script runs through the automated setup steps, you will be asked to pass in the following values:
     * For the instance: the *subscription ID* of your Azure subscription to use
@@ -83,7 +83,7 @@ If the script completes successfully, the final printout will say `Deployment co
 > The script currently assigns the required management role within Azure Digital Twins (*Azure Digital Twins Data Owner*) to the same user that runs the script from Cloud Shell. If you need to assign this role to someone else who will be managing the instance, you can do this now via the Azure portal ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) or CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 >[!NOTE]
->There is currently a **known issue** with scripted setup, in which some users (especially users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account)) may find the **role assignment to _Azure Digital Twins Owner (Preview)_ was not created**.
+>There is currently a **known issue** with scripted setup, in which some users (especially users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account)) may find the **role assignment to _Azure Digital Twins Data Owner_ was not created**.
 >
 >You can verify the role assignment with the [*Verify user role assignment*](#verify-user-role-assignment) section later in this article, and—if needed—set up the role assignment manually using the [Azure portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) or [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 >
