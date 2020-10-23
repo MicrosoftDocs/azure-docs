@@ -557,11 +557,12 @@ To test your logic app, follow these steps to start a debugging session and find
 
    | Run status | Description |
    |------------|-------------|
-   | **Aborted** | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
+   | **Aborted** | The workflow run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
    | **Cancelled** | The workflow was triggered and running but received a cancellation request. |
    | **Failed** | At least one action in the workflow run failed. No subsequent actions in the workflow were set up to handle the failure. |
    | **Running** | The workflow is currently running, but this status can also appear for workflows that are throttled due to limits or the current pricing plan. For more information, see the [action limits on the pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). If you set up [diagnostics logging](monitor-logic-apps-log-analytics.md), you can get information about any throttle events that happen. |
    | **Succeeded** | The workflow run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
+   | **Timed out** | The workflow run timed out due to exceeding the [run duration limit](logic-apps-limits-and-config.md#run-duration-retention-limits). |
    | **Waiting** | The workflow run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
    |||
 
