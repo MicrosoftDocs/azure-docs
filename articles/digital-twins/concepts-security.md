@@ -70,7 +70,7 @@ For more information about how built-in roles are defined, see [*Understand role
 
 ##### Automating roles
 
-When referring to roles in automated scenarios, it's recommended to refer to them by their **IDs** rather than their names. The names may change between releases, but the IDs will not, so they're a more stable reference in automation.
+When referring to roles in automated scenarios, it's recommended to refer to them by their **IDs** rather than their names. The names may change between releases, but the IDs will not, making them a more stable reference in automation.
 
 > [!TIP]
 > If you're assiging roles with a cmdlet, such as `New-AzRoleAssignment` ([reference](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)), you can use the `-RoleDefinitionId` parameter instead of `-RoleDefinitionName` to pass an ID instead of a name for the role.
