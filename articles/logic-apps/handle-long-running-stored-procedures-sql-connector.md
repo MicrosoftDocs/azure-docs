@@ -42,9 +42,40 @@ Rather than directly call the stored procedure, you can run the procedure asynch
 
 ## Job agent for Azure SQL Database
 
-To create a job that can run the stored procedure for [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md), you can use the [Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md). Create this job agent in the Azure portal, which adds several stored procedures to a database that the agent uses, also known as the *agent database*. You can then create a job that runs your stored procedure in the target database and captures the output when finished. You need to set up permissions, groups, and targets as described by the [full documentation for the Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md). Some supporting tables and procedures also need to exist in the agent database.
+To create a job that can run the stored procedure for [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md), you can use the [Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md). Create this job agent in the Azure portal, which adds several stored procedures to a database that the agent uses, also known as the *agent database*. You can then create a job that runs your stored procedure in the target database and captures the output when finished. You need to set up permissions, groups, and targets as described by the [full documentation for the Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md).
 
-First, we will create a state table to register parameters meant to invoke the stored procedure. Unfortunately, SQL Agent Jobs do not accept input parameters, so to work around this limitation we will store the inputs in a state table in the target database. Remember that all agent job steps will execute against the target database, but job stored procedures run on the agent database.
+Also, you also need to create certain supporting tables and procedures in the agent database requires certain supporting tables and procedures that you'll create in the following steps.
+
+### Create state table for registering stored procedure parameters
+
+SQL Agent Jobs doesn't accept input parameters for calling stored procedures, so instead, create a state table 
+
+store the inputs as a state table in the target database.
+
+create a state table that registers the parameters you use for calling your stored procedure.
+
+All agent job steps run against the target database, but job stored procedures run against the agent database.
+
+```sql
+CREATE TABLE [dbo].[LongRunningState](
+   [jobid] [uniqueidentifier] NOT NULL,
+   [rowversion] [timestamp] NULL,
+   [parameters] [nvarchar](max) NULL,
+   [start] [datetimeoffset](7) NULL,
+   [complete] [datetimeoffset](7) NULL,
+   [code] [int] NULL,
+   [result] [nvarchar](max) NULL,
+   CONSTRAINT [PK_LongRunningState] PRIMARY KEY CLUSTERED
+      (   [jobid] ASC
+      )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+      ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+```
+
+Here's how the resulting table looks in [SQL Server Management Studio (SMSS)](/sql/ssms/download-sql-server-management-studio-ssms):
+
+![Screenshot that shows created state table that stores inputs for stored procedure](media/handle-long-running-stored-procedures-sql-connector/state-table-input-parameters.png)
+
+To ensure good performance and that the agent job can locate the associated record, the table uses the job execution ID as the primary key. If you want, you add individual columns for input parameters. 
 
 <a name="sql-on-premises-or-managed-instance"></a>
 
