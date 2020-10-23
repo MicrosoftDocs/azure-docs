@@ -295,7 +295,7 @@ conceptualContent:
           itemType: concept
           text:  Onboarding partners
       footerLink: 
-        url: https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices
+        url: https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices
         text: See more
 
     - title: Content delivery network
