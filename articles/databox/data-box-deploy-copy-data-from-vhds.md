@@ -33,7 +33,7 @@ Before you begin, make sure that:
 4. You've reviewed the:
 
     - Supported [managed disk sizes in Azure object size limits](data-box-limits.md#azure-object-size-limits).
-    - [Introduction to Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview). 
+    - [Introduction to Azure managed disks](../virtual-machines/managed-disks-overview.md). 
 
 5. You've maintained a copy of the source data until you've confirmed that the Data Box transferred your data into Azure Storage.
 
@@ -178,4 +178,3 @@ Advance to the next tutorial to learn how to ship your Data Box back to Microsof
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box to Microsoft](./data-box-deploy-picked-up.md)
-

@@ -62,7 +62,7 @@ For example, if you wanted to move data at your location in Canada to an Azure W
 
 ### Option 1: 
 
-Ship a [supported disk](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) containing data using the [Azure Import/Export service](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) from the source location in Canada to the Azure WestUS datacenter.
+Ship a [supported disk](../storage/common/storage-import-export-requirements.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#supported-disks) containing data using the [Azure Import/Export service](../storage/common/storage-import-export-service.md) from the source location in Canada to the Azure WestUS datacenter.
 
 ### Option 2:
 
@@ -73,7 +73,7 @@ Ship a [supported disk](https://docs.microsoft.com/azure/storage/common/storage-
 3. You can then use a tool like AzCopy to copy the data to a storage account in WestUS . This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box Disk billing.
 
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
-A. If you encounter any issues with Data Box Disks, please [contact Microsoft Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
+A. If you encounter any issues with Data Box Disks, please [contact Microsoft Support](./data-box-disk-contact-microsoft-support.md).
 
 ## Configure and connect
  
@@ -143,7 +143,7 @@ A.  To speed up the copy process:
 - Use multiple streams of data copy. For instance, with Robocopy, use the multithreaded option. For more information on the exact command used, go to [Tutorial: Copy data to Azure Data Box Disk and verify](data-box-disk-deploy-copy-data.md#copy-data-to-disks).
 - Use multiple sessions.
 - Instead of copying over network share (where you could be limited by the network speeds) ensure that you have the data residing locally on the computer to which the disks are connected.
-- Ensure that you are using USB 3.0 or later throughout the copy process. Download and use the [USBView tool](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) to identify the USB controllers and USB devices connected to the computer.
+- Ensure that you are using USB 3.0 or later throughout the copy process. Download and use the [USBView tool](/windows-hardware/drivers/debugger/usbview) to identify the USB controllers and USB devices connected to the computer.
 - Benchmark the performance of the computer used to copy the data. Download and use the [Bluestop FIO tool](https://ci.appveyor.com/project/axboe/fio) to benchmark the performance of the server hardware. Select the latest x86 or x64 build, select the **Artifacts** tab, and download the MSI.
 
 ### Q. How to speed up the data if the source data has small files (KBs or few MBs)?

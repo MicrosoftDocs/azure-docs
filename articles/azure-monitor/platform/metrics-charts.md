@@ -73,15 +73,15 @@ You can apply filters to the charts that show metrics with dimensions. For examp
 
 2. Select which dimension (property) you want to filter
 
-   ![metric image](./media/metrics-charts/00006.png)
+   ![Screenshot that shows the dimensions (properties) you can filter.](./media/metrics-charts/00006.png)
 
 3. Select which dimension values you want to include when plotting the chart (this example shows filtering out the successful storage transactions):
 
-   ![metric image](./media/metrics-charts/00007.png)
+   ![Screenshot that shows the filtering out of the successful storage transactions.](./media/metrics-charts/00007.png)
 
 4. After selecting the filter values, click away from the Filter Selector to close it. Now the chart shows how many storage transactions have failed:
 
-   ![metric image](./media/metrics-charts/00008.png)
+   ![Screenshot that shows how many storage transactions have failed](./media/metrics-charts/00008.png)
 
 5. You can repeat steps 1-4 to apply multiple filters to the same charts.
 
@@ -100,11 +100,11 @@ You can split a metric by dimension to visualize how different segments of the m
 
 2. Choose a dimension on which you want to segment your chart:
 
-   ![metric image](./media/metrics-charts/00010.png)
+   ![Screenshot that shows the selected dimension on which you segment your chart.](./media/metrics-charts/00010.png)
 
    Now the chart now shows multiple lines, one for each segment of dimension:
 
-   ![metric image](./media/metrics-charts/00012.png)
+   ![Screenshot that shows multiple lines, one for each segment of dimension.](./media/metrics-charts/00012.png)
 
 3. Click away from the **Grouping Selector** to close it.
 
@@ -121,7 +121,7 @@ Another example is a fluctuation in the available memory, where the value will t
 
 To control the y-axis range, use the “…” chart menu, and select **Edit chart** to access advanced chart settings. Modify the values in the Y-Axis Range  section, or use **Auto** button to revert to defaults.
 
-![metric image](./media/metrics-charts/00014-manually-set-granularity.png)
+![Screenshot that highlights the Edit chart option.](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
 > Locking the boundaries of y-axis for the charts that track various counts or sums over a period of time (and thus use count, sum, minimum, or maximum aggregations) usually requires specifying a fixed time granularity rather than relying on the automatic defaults. This is necessary is because the values on charts change when the time granularity is automatically modified by the user resizing browser window or going from one screen resolution to another. The resulting change in time granularity effects the look of the chart, invalidating current selection of y-axis range.
@@ -134,7 +134,7 @@ To change the color of a chart line, click on the colored bar in the legend that
 
 After the chart colors are configured, they will remain that way when you pin the chart to a dashboard. The following section shows you how to pin a chart.
 
-![metric image](./media/metrics-charts/018.png)
+![Screenshot that shows how to pin a chart.](./media/metrics-charts/018.png)
 
 ## Pin charts to dashboards
 

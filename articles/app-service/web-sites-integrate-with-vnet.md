@@ -11,7 +11,7 @@ ms.custom: seodec18
 ---
 # Integrate your app with an Azure virtual network
 
-This article describes the Azure App Service VNet Integration feature and how to set it up with apps in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). With [Azure Virtual Network][VNETOverview] (VNets), you can place many of your Azure resources in a non-internet-routable network. The VNet Integration feature enables your apps to access resources in or through a VNet. VNet Integration doesn't enable your apps to be accessed privately.
+This article describes the Azure App Service VNet Integration feature and how to set it up with apps in [Azure App Service](./overview.md). With [Azure Virtual Network][VNETOverview] (VNets), you can place many of your Azure resources in a non-internet-routable network. The VNet Integration feature enables your apps to access resources in or through a VNet. VNet Integration doesn't enable your apps to be accessed privately.
 
 Azure App Service has two variations on the VNet Integration feature:
 
@@ -144,6 +144,10 @@ Three charges are related to the use of the gateway-required VNet Integration fe
 * **VPN gateway costs**: There's a cost to the virtual network gateway that's required for the point-to-site VPN. For more information, see [VPN gateway pricing][VNETPricing].
 
 ## Troubleshooting
+
+> [!NOTE]
+> VNET integration is not supported for Docker Compose scenarios in App Service.
+>
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 

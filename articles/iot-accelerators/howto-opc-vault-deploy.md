@@ -26,7 +26,7 @@ This article explains how to deploy the OPC Vault certificate management service
 
 Currently the build and deploy operation is limited to Windows.
 The samples are all written for C# .NET Standard, which you need to build the service and samples for deployment.
-All the tools you need for .NET Standard come with the .NET Core tools. See [Get started with .NET Core](https://docs.microsoft.com/dotnet/articles/core/getting-started).
+All the tools you need for .NET Standard come with the .NET Core tools. See [Get started with .NET Core](/dotnet/articles/core/getting-started).
 
 1. [Install .NET Core 2.1+][dotnet-install].
 2. [Install Docker][docker-url] (optional, only if the local Docker build is required).

@@ -69,7 +69,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-The code first logs in to the Azure Machine Learning workspace defined in **config.json** (for an explanation, see [Tutorial: Get started creating your first ML experiment with the Python SDK](tutorial-1st-experiment-sdk-setup.md)). If there isn't already a dataset named `'titanic_ds'` registered, then it creates one. The code downloads CSV data from the Web, uses them to instantiate a `TabularDataset` and then registers the dataset with the workspace. Finally, the function `Dataset.get_by_name()` assigns the `Dataset` to `titanic_ds`. 
+The code first logs in to the Azure Machine Learning workspace defined in **config.json** (for an explanation, see [Create a workspace configuration file](how-to-configure-environment.md#workspace). If there isn't already a dataset named `'titanic_ds'` registered, then it creates one. The code downloads CSV data from the Web, uses them to instantiate a `TabularDataset` and then registers the dataset with the workspace. Finally, the function `Dataset.get_by_name()` assigns the `Dataset` to `titanic_ds`. 
 
 ### Configure your storage and compute target
 
@@ -129,7 +129,7 @@ else:
     # Add some packages relied on by data prep step
     aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
         conda_packages=['pandas','scikit-learn'], 
-        pip_packages=['azureml-sdk[automl,explain]', 'azureml-dataprep[fuse,pandas]'], 
+        pip_packages=['azureml-sdk[automl]', 'azureml-dataprep[fuse,pandas]'], 
         pin_sdk_version=False)
 ```
 

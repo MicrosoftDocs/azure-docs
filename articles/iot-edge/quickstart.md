@@ -70,11 +70,11 @@ IoT Edge device:
   Open this file with Remote Desktop Connection to connect to your Windows virtual machine using the administrator name and password you specified with the `az vm create` command.
 
 > [!NOTE]
-> Your Windows virtual machine starts with Windows version 1809 (build 17763), which is the latest [Windows long-term support build](https://docs.microsoft.com/windows/release-information/). Windows automatically checks for updates every 22 hours by default. After a check on your virtual machine, Windows pushes a version update that is incompatible with IoT Edge for Windows, which prevents further use of IoT Edge for Windows features. We recommend limiting use of your virtual machine to within 22 hours or [temporarily pausing Windows updates](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
+> Your Windows virtual machine starts with Windows version 1809 (build 17763), which is the latest [Windows long-term support build](/windows/release-information/). Windows automatically checks for updates every 22 hours by default. After a check on your virtual machine, Windows pushes a version update that is incompatible with IoT Edge for Windows, which prevents further use of IoT Edge for Windows features. We recommend limiting use of your virtual machine to within 22 hours or [temporarily pausing Windows updates](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
 >
 > This quickstart uses a Windows desktop virtual machine for simplicity. For information about which Windows operating systems are generally available for production scenarios, see [Azure IoT Edge supported systems](support.md).
 >
-> If you're ready to configure your own Windows device for IoT Edge, including devices running IoT Core, follow the steps in [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
+> If you want to configure your own Windows device for IoT Edge, including devices running IoT Core, follow the steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md).
 
 ## Create an IoT hub
 
@@ -138,9 +138,7 @@ The steps in this section all take place on your IoT Edge device, so you want to
 
 Use PowerShell to download and install the IoT Edge runtime. Use the device connection string that you retrieved from IoT Hub to configure your device.
 
-1. If you haven't already, follow the steps in [Register a new Azure IoT Edge device](how-to-register-device.md) to register your device and retrieve the device connection string.
-
-2. In the virtual machine, run PowerShell as an administrator.
+1. In the virtual machine, run PowerShell as an administrator.
 
    >[!NOTE]
    >Use an AMD64 session of PowerShell to install IoT Edge, not PowerShell (x86). If you're not sure which session type you're using, run the following command:
@@ -149,25 +147,25 @@ Use PowerShell to download and install the IoT Edge runtime. Use the device conn
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, downloads the Moby runtime, and then downloads the IoT Edge runtime.
+2. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, downloads the Moby runtime, and then downloads the IoT Edge runtime.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge -ContainerOs Windows
    ```
 
-4. Your machine may restart automatically. If you are prompted by the Deploy-IoTEdge command to reboot, do so now.
+3. Your machine may restart automatically. If you are prompted by the Deploy-IoTEdge command to reboot, do so now.
 
-5. Run PowerShell as an administrator again.
+4. Run PowerShell as an administrator again.
 
-6. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers.
+5. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -ContainerOs Windows
    ```
 
-7. When prompted for a **DeviceConnectionString**, provide the string that you copied in the previous section. Don't include quotes around the connection string.
+6. When prompted for a **DeviceConnectionString**, provide the string that you copied in the previous section. Don't include quotes around the connection string.
 
 ### View the IoT Edge runtime status
 

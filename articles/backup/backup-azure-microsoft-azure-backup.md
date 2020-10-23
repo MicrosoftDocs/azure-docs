@@ -73,9 +73,9 @@ Whether you send backup data to Azure, or keep it locally, Azure Backup Server m
 
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
-### Set Storage Replication
+### Set storage replication
 
-The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, Recovery Services vaults use geo-redundant storage. If this vault is your primary vault, leave the storage option set to geo-redundant storage. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage), [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) and [zone-redundant](../storage/common/storage-redundancy.md#zone-redundant-storage) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
+The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, Recovery Services vaults use geo-redundant storage. If this vault is your primary vault, leave the storage option set to geo-redundant storage. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage), [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage), and [zone-redundant](../storage/common/storage-redundancy.md#zone-redundant-storage) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
 
 To edit the storage replication setting:
 
@@ -195,6 +195,9 @@ Once the extraction process complete, check the box to launch the freshly extrac
     ![Provide location for installation of files](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
     The scratch location is a requirement for back up to Azure. Ensure the scratch location is at least 5% of the data planned to be backed up to the cloud. For disk protection, separate disks need to be configured once the installation completes. For more information about storage pools, see [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage).
+
+    Capacity requirements for disk storage depends primarily on the size of the protected data, the daily recovery point size, expected volume data growth rate, and retention range objectives. We recommend you make the disk storage twice size of the protected data. This assumes a daily recovery point size that's 10% of the protected data size and a 10 days retention range. To get a good estimate of size, review the [DPM Capacity Planner](https://www.microsoft.com/download/details.aspx?id=54301). 
+
 5. Provide a strong password for restricted local user accounts and select **Next**.
 
     ![Provide strong password](./media/backup-azure-microsoft-azure-backup/security-screen.png)

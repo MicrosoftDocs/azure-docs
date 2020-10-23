@@ -127,11 +127,11 @@ To configure Azure AD single sign-on with Humanity, perform the following steps:
     ![Admin](./media/shiftplanning-tutorial/iC786619.png "Admin")
 3. Under **Integration**, click **Single Sign-On**.
 
-    ![Single Sign-On](./media/shiftplanning-tutorial/iC786620.png "Single Sign-On")
+    ![Screenshot shows Single Sign-On selected from the Integration menu.](./media/shiftplanning-tutorial/iC786620.png "Single Sign-On")
 
 4. In the **Single Sign-On** section, perform the following steps:
 
-    ![Single Sign-On](./media/shiftplanning-tutorial/iC786905.png "Single Sign-On")
+    ![Screenshot shows the Single Sign-On section where you can enter the values described.](./media/shiftplanning-tutorial/iC786905.png "Single Sign-On")
 
     a. Select **SAML Enabled**.
 

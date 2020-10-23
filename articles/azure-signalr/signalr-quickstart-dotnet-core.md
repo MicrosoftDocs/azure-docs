@@ -12,7 +12,7 @@ ms.author: zhshang
 
 # Quickstart: Create a chat room by using SignalR Service
 
-Azure SignalR Service is an Azure service that helps developers easily build web applications with real-time features. This service was originally based on [SignalR for ASP.NET Core 2.1](https://docs.microsoft.com/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), but now supports later versions.
+Azure SignalR Service is an Azure service that helps developers easily build web applications with real-time features. This service was originally based on [SignalR for ASP.NET Core 2.1](/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), but now supports later versions.
 
 This article shows you how to get started with the Azure SignalR Service. In this quickstart, you'll create a chat application by using an ASP.NET Core MVC web app. This app will make a connection with your Azure SignalR Service resource to enable real-time content updates. You'll host the web application locally and connect with multiple browser clients. Each client will be able to push content updates to all other clients. 
 
@@ -37,7 +37,7 @@ The code for this tutorial is available for download in the [AzureSignalR-sample
 
 ## Create an ASP.NET Core web app
 
-In this section, you use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) to create an ASP.NET Core MVC web app project. The advantage of using the .NET Core CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms. 
+In this section, you use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to create an ASP.NET Core MVC web app project. The advantage of using the .NET Core CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms. 
 
 1. Create a folder for your project. This quickstart uses the *E:\Testing\chattest* folder.
 
@@ -51,7 +51,7 @@ In this section, you use the [.NET Core command-line interface (CLI)](https://do
 
 ## Add Secret Manager to the project
 
-In this section, you'll add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside your project tree. This approach helps prevent the accidental sharing of app secrets in source code.
+In this section, you'll add the [Secret Manager tool](/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside your project tree. This approach helps prevent the accidental sharing of app secrets in source code.
 
 1. Open your *.csproj* file. Add a `DotNetCliToolReference` element to include *Microsoft.Extensions.SecretManager.Tools*. Also add a `UserSecretsId` element as shown in the following code for *chattest.csproj*, and save the file.
 
@@ -102,12 +102,13 @@ In this section, you'll add the [Secret Manager tool](https://docs.microsoft.com
     This secret is accessed with the Configuration API. A colon (:) works in the configuration name with the Configuration API on all supported platforms. See [Configuration by environment](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider).
 
 
-4. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the `AddSignalR()` method:
+4. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the `AddSignalR()` and `AddAzureSignalR()` methods:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddAzureSignalR();
+        services.AddSignalR()
+                .AddAzureSignalR();
     }
     ```
 
@@ -320,7 +321,7 @@ If the connection is successful, that connection is passed to `bindConnectionMes
 
 ## Add a development runtime profile
 
-In this section, you'll add a development runtime environment for ASP.NET Core. For more information, see [Work with multiple environments in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments).
+In this section, you'll add a development runtime environment for ASP.NET Core. For more information, see [Work with multiple environments in ASP.NET Core](/aspnet/core/fundamentals/environments).
 
 1. Create a folder named *Properties* in your project.
 

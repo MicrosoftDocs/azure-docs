@@ -17,7 +17,7 @@ This article shows how to use Striim to migrate data from an **Oracle database**
 
 ## Prerequisites
 
-* If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 * An Oracle database running on-premises with some data in it.
 
@@ -164,7 +164,7 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
 
    * **Tables** - Target tables must have primary keys and primary keys can not be updated.
 
-   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters1.png" alt-text="Configure target properties":::
+   :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters1.png" alt-text="Screenshot that shows the configurable target properties.":::
 
    :::image type="content" source="./media/cosmosdb-cassandra-api-migrate-data-striim/configure-target-parameters2.png" alt-text="Configure target properties":::
 

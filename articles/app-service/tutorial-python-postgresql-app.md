@@ -102,7 +102,7 @@ The sample is also modified to run in a production environment like App Service:
 - Production settings are in the *azuresite/production.py* file. Development details are in *azuresite/settings.py*.
 - The app uses production settings when the `DJANGO_ENV` environment variable is set to "production". You create this environment variable later in the tutorial along with others used for the PostgreSQL database configuration.
 
-These changes are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/).
+These changes are specific to configuring Django to run in any production environment and aren't particular to App Service. For more information, see the [Django deployment checklist](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/). Also see [Production settings for Django on Azure](configure-language-python.md#production-settings-for-django-apps) for details on some of the changes.
 
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 

@@ -130,7 +130,7 @@ After you've installed and registered your gateway, you need to create a gateway
 
 # [PowerShell](#tab/azure-powershell)
 
-Use [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) to get the the gateway ResourceID. Then connect the gateway resource to an existing or new server by specifying **-GatewayResourceID** in [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) or [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver).
+Use [Get-AzResource](/powershell/module/az.resources/get-azresource) to get the the gateway ResourceID. Then connect the gateway resource to an existing or new server by specifying **-GatewayResourceID** in [Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) or [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver).
 
 To get the gateway resource ID:
 

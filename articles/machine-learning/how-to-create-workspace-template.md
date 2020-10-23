@@ -37,13 +37,6 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
     For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
-* Some scenarios require you to open a support ticket. These scenarios are:
-
-    * __Private Link enabled workspace with a customer-managed key (CMK)__
-    * __Azure Container Registry for the workspace behind your virtual network__
-
-    For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
-
 ## Workspace Resource Manager template
 
 The Azure Resource Manager template used throughout this document can be found in the [201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json) directory of the Azure quickstart templates GitHub repository.

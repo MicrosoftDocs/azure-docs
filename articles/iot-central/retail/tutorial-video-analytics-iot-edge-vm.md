@@ -88,7 +88,7 @@ The deployment configured the following five IoT Edge modules to run:
 
 The deployment created a custom IoT Edge environment with the required modules for live video analytics. The deployment updated the default **config.yaml** to ensure the IoT Edge runtime used the IoT Device Provisioning Service to connect to IoT Central. The deployment also created a file called **state.json** in the **/data/storage** folder to provide additional configuration data to the modules. For more information, see the [Create an IoT Edge instance for video analytics (Intel NUC)](./tutorial-video-analytics-iot-edge-nuc.md) tutorial.
 
-To troubleshoot the IoT Edge device, see [Troubleshoot your IoT Edge device](https://docs.microsoft.com/azure/iot-edge/troubleshoot)
+To troubleshoot the IoT Edge device, see [Troubleshoot your IoT Edge device](../../iot-edge/troubleshoot.md)
 
 ## Use the RTSP simulator
 
