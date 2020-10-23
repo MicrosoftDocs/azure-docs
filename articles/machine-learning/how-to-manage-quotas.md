@@ -153,7 +153,7 @@ When you're requesting a quota increase, select the service that you have in min
 > [!NOTE]
 > [Free trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a free trial subscription, you can upgrade to a [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure free trial to pay-as-you-go](../billing/billing-upgrade-azure-subscription.md) and [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq).
 
-## Quota increases for private endpoints and private DNS
+## Private endpoint and private DNS quote increases
 
 There are limits on the number of private endpoints and private DNS zones that you can create in a subscription.
 
@@ -167,7 +167,7 @@ Azure Machine Learning creates resources in your (customer) subscription, but so
 
 To request an allowance for these scenarios, use the following steps:
 
-1. [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) and select the following options from the __Basics__ section:
+1. [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) and select the following options in the __Basics__ section:
 
     | Field | Selection |
     | ----- | ----- |
@@ -176,7 +176,7 @@ To request an allowance for these scenarios, use the following steps:
     | Problem type | **Workspace Configuration and Security** |
     | Problem subtype | **Private Endpoint and Private DNS Zone allowance request** |
 
-2. From the __Details__ section, use the __Description__ field to provide the Azure region and the scenario that you plan to use. If you need to request quota increases for multiple subscriptions, list the subscription IDs in this field.
+2. In the __Details__ section, use the __Description__ field to provide the Azure region and the scenario that you plan to use. If you need to request quota increases for multiple subscriptions, list the subscription IDs in this field.
 
 3. Select __Create__ to create the request.
 
