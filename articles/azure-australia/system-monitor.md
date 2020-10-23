@@ -65,7 +65,7 @@ The information gathered by Azure Advisor provides administrators with:
 
 ### Azure Policy
 
-[Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) provides the ability to apply rules that govern the types of Azure resources and their allowed configuration. Policy can be used to control resource creation and configuration, or it can be used to audit configuration settings across an environment. These audit results can be used to form the basis of remediation activities. Azure Policy differs from role-based access control (RBAC); Azure Policy is used to restrict resources and their configuration, RBAC is used to restrict privileged access to Azure users.
+[Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) provides the ability to apply rules that govern the types of Azure resources and their allowed configuration. Policy can be used to control resource creation and configuration, or it can be used to audit configuration settings across an environment. These audit results can be used to form the basis of remediation activities. Azure Policy differs from Azure role-based access control (Azure RBAC); Azure Policy is used to restrict resources and their configuration, Azure RBAC is used to restrict privileged access to Azure users.
 
 Whether the specific policy is being enforced or the effect of the policy is being audited, policy compliance is continually monitored, and overall and resource-specific compliance information is provided to administrators. Azure Policy compliance data is provided to Azure Security Center and forms part of the Secure Score.
 

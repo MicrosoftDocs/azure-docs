@@ -129,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. In the menu on the top, click **Administration**.
    
-    ![Administration](./media/onit-tutorial/IC791174.png "Administration")
+    ![Screenshot that shows the menu at the top of the "M S S S O Test" page with the "Administration" action selected.](./media/onit-tutorial/IC791174.png "Administration")
 
 3. Click **Edit Corporation**.
    

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first REST API query"
 description: In this quickstart, you follow the steps to call the Resource Graph endpoint for REST API and run your first query.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ---
 # Quickstart: Run your first Resource Graph query using REST API
@@ -55,9 +55,9 @@ $restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-vers
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
-Replace `{subscriptionId}` in the **$restUri** variable above to get information about your
-subscription. The $response variable holds the result of the `Invoke-RestMethod` cmdlet, which can
-be parsed with cmdlets such as
+Replace `{subscriptionId}` in the `$restUri` variable to get information about your subscription.
+The `$response` variable holds the result of the `Invoke-RestMethod` cmdlet, which can be parsed
+with cmdlets such as
 [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). If the REST
 API service endpoint expects a **Request Body**, provide a JSON formatted variable to the `-Body`
 parameter of `Invoke-RestMethod`.

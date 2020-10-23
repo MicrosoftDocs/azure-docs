@@ -99,10 +99,9 @@ If you no longer need the role assignment you made in the Azure portal, remove i
 
 ## Next steps
 
-In this quickstart, you learned how to add to security principal to an Azure Babylon role.
+In this quickstart, you learned how to add a security principal to an Azure Babylon role.
 
-<!--
-Advance to the next article to learn how to scan data into the catalog.
+Advance to the next article to learn how to run the starter kit and scan data into the catalog.
 
 > [!div class="nextstepaction"]
-> [Scan data into the catalog](scan-data-into-the-catalog.md)
+> [Run the starter kit and scan data](starter-kit-tutorial-1.md)

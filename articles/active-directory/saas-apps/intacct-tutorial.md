@@ -185,7 +185,7 @@ To set up Azure AD users so they can sign in to Sage Intacct, they must be provi
 
 1. In the **User Information** section, perform the following steps:
 
-    ![User Information](./media/intacct-tutorial/ic790043.png "User Information")
+    ![Screenshot shows the User Information section where you can enter the information in this step.](./media/intacct-tutorial/ic790043.png "User Information")
 
     a. Enter the **User ID**, the **Last name**, **First name**, the **Email address**, the **Title**, and the **Phone** of an Azure AD account that you want to provision into the **User Information** section.
 
@@ -200,7 +200,7 @@ To set up Azure AD users so they can sign in to Sage Intacct, they must be provi
 
 1. Click **Single sign-on** tab and make sure that the **Federated SSO user ID** in below screenshot and the **Source Attribute** value which is mapped with the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` in the **User Attributes** section in the Azure portal should be same.
 
-	![User Information](./media/intacct-tutorial/ic790044.png "User Information")
+	![Screenshot shows the User Information section where you can enter the Federated S S O user i d.](./media/intacct-tutorial/ic790044.png "User Information")
 
 > [!NOTE]
 > To provision Azure AD user accounts, you can use other Sage Intacct user account creation tools or APIs that are provided by Sage Intacct.

@@ -1,79 +1,72 @@
 ---
-title: Create a Custom Classification (Preview)
-description: This article describes how you can create custom Azure Data Catalog classifications to define data types in your data estate that are unique to your organization.
+title: Create a custom classification
+description: This article describes how to create custom Azure Babylon classifications to define data types in your data estate that are unique to your organization.
 author: chandrakavya
 ms.author: kchandra
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: overview
-ms.date: 05/21/2020
+ms.date: 10/08/2020
 ---
 
 # Create a custom classification
 
-This article describes how you can create custom Babylon classifications to define data types in your data estate that are unique to your organization.
+This article describes how you can create custom Azure Babylon classifications to define data types in your data estate that are unique to your organization.
 
-## Custom classification
+## Default classifications
 
-By default, the catalog provides a large set of default classifications that represent typical personal data types that you might have in your data estate.
+By default, the catalog provides a large set of default classifications that represent typical personal data types that you might have in your data estate. In addition to these default classifications, you can define your own custom classifications to support your data estate.
 
-![alt-text](media/create-a-custom-classification/image1.png)
+To display the default classifications, select the **System** tab on the **Classifications** page.
+
+:::image type="content" source="media/create-a-custom-classification/default-classifications-in-catalog.png" alt-text="Screenshot showing the default classifications in a catalog." lightbox="media/create-a-custom-classification/default-classifications-in-catalog.png":::
 
 ## Steps to create a custom classification
 
 To create a custom classification:
 
-1.From your catalog, select the **Management Center** icon.
+1. From your Azure Babylon account page, select **Launch Babylon account**, and then select **Management Center**.
 
- ![alt-text](media/create-a-custom-classification/image2.png)
+   :::image type="content" source="media/create-a-custom-classification/select-management-center.png" alt-text="Screenshot showing how to select Management Center.":::
 
-2.Select **Classifications** under Metadata management from the left
-    navigation
+1. Under **Metadata management** in the left pane, select **Classifications**.
 
- ![alt-text](media/create-a-custom-classification/image3.png)
+   :::image type="content" source="media/create-a-custom-classification/select-classifications.png" alt-text="Screenshot showing how to select the custom classifications in a catalog.":::
 
-3.Select **New**
+1. From the **Classifications** page, select **New**.
 
-![alt-text](media/create-a-custom-classification/image4.png)
+   :::image type="content" source="media/create-a-custom-classification/create-new-classification.png" alt-text="Screenshot showing how to select New to create a new custom classification." lightbox="media/create-a-custom-classification/create-new-classification.png":::
 
-The **Add new classification** pane opens, where you can give your
-classification a name and a description. It\'s good practice to use a
-name-spacing convention, such as your company name.classification name.
-The Microsoft system classifications are grouped under the reserved
-MS.Namespace. An example
-is **MS.GOVERNMENT.US.SOCIAL\_SECURITY\_NUMBER**.
+1. On the **Add new classification** page, give your classification a **Name** and a **Description**.
 
-The system enforces that your name starts with a letter followed by a
-sequence of letters, numbers, and period (.) or underscore characters.
-No spaces are allowed. As you type, the UX automatically generates a
-friendly name. This friendly name is what users see when you apply it to
-an asset in the catalog.
+   It's a good practice to use a name-spacing convention, such as *&lt;your company name>.<classification name&gt;*. The Microsoft system classifications are grouped under the reserved MS.Namespace, for example, **MS.GOVERNMENT.US.SOCIAL\_SECURITY\_NUMBER**.
 
-To keep the name short, the system creates the friendly name based on
-the following logic:
+1. When you enter a **Name**, the system enforces that your name starts with a letter followed by a sequence of letters, numbers, period (.) or underscore (_) characters. No spaces are allowed.
 
-- All but the last two segments of the namespace are trimmed.
+   As you type, the UX automatically generates and displays the friendly name. This friendly name is what users see when you apply it to an asset in the catalog.
 
-- The casing is adjusted so that the first letter of each word is
-    capitalized. All other letters are converted to lowercase.
+   To keep the friendly name short, the system creates it based on the following logic:
 
-- All underscores (\_) are replaced with spaces.
+   - All but the last two segments of the namespace are trimmed.
 
-As an example, if you named your
-classification **CONTOSO.HR.EMPLOYEE\_ID**, the friendly name is stored
-in the system as **Hr.Employee ID**.
+   - The casing is adjusted so that the first letter of each word is capitalized.
 
-![alt-text](media/create-a-custom-classification/image5.png)
+   - All underscores (\_) are replaced with spaces.
 
-Select **OK**, and your new classification is added to your
-classification list.
+   For example, if you named your classification **CONTOSO.HR.EMPLOYEE_ID**, the friendly name is stored in the system as **Hr.Employee ID**.
 
-![alt-text](media/create-a-custom-classification/image6.png)
+   :::image type="content" source="media/create-a-custom-classification/classification-friendly-name.png" alt-text="Screenshot showing a friendly name generated for a new classification name.":::
 
-Selecting the classification in the list opens the classification
-details page. Here, you find all the details about the classification.
-These details include the count of how many instances there are, the
-formal name, associated classification rules (if any), and the owner
-name.
+1. Select **OK**.
 
-![alt-text](media/create-a-custom-classification/image7.png)
+   Your new classification is added to your classification list.
+
+1. To find your new custom classification, select the **Custom** tab on the **Classifications** page.
+
+   :::image type="content" source="media/create-a-custom-classification/new-classification-in-list.png" alt-text="Screenshot showing a new custom classification in a classification list." lightbox="media/create-a-custom-classification/new-classification-in-list.png":::
+
+1. Select the new classification in the custom classifications list.
+
+   The classification details page opens. Here, you find all the details about the classification. These details include the instances count, formal name, associated custom classification rules (if any), and the names of the owners.
+
+   :::image type="content" source="media/create-a-custom-classification/classification-details-page.png" alt-text="Screenshot showing the custom classifications details page." lightbox="media/create-a-custom-classification/classification-details-page.png":::

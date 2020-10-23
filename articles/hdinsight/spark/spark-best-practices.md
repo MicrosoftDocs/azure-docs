@@ -57,8 +57,8 @@ This article provides various guidelines for using Apache Spark on Azure HDInsig
 
 | Option | Documents |
 |---|---|
-| Data Lake Storage Gen2 | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
-| Data Lake Storage Gen1 | [Use Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-store.md) |
+| Azure Data Lake Storage Gen2 | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
+| Azure Data Lake Storage Gen1 | [Use Azure Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen1.md) |
 | Azure Blob Storage | [Use Azure storage with Azure HDInsight clusters](../hdinsight-hadoop-use-blob-storage.md) |
 
 ## Next steps

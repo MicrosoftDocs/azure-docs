@@ -1,120 +1,96 @@
 ---
-title: 'Map and Discover Insights'
-titleSuffix: Babylon
-description: This how to guide describes details of the Map and Discover insights report. 
+title: Use map and discover insights for your data
+description: Describes map and discover insights reports for scan status, asset distribution, and catalog usage. 
 author: SunetraVirdi
 ms.author: suvirdi
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: How to guide
-ms.date: 04/27/2020
+ms.topic: conceptual
+ms.date: 10/12/2020
 ---
-# Map and discover insights for your assets, scans, and glossary terms in Babylon
-**Map and Discover** Insights lets you know the data sources being managed
-by Babylon, your various scan status over time and catalog information
-that includes Babylon usage and Glossary summary.
 
-Babylon is Azure's data governance product, that
-helps you know what you have in your data map and manage the data
-map using policies. To accomplish these goals, Babylon starts with
-scanning your data estate to learn about its metadata structure. It uses
-classification technique to identify what find of data exists in these
-data sources. You can also set your own glossary and assign assets to
-glossary terms to know more about the business use of the data.
+# Use map and discover insights for your data
 
-Once you have scanned your data source(s) and classified the assets Map
-and Discover insights provides a consolidated view and relevant insights
-into your assets, scans, and glossary terms in Babylon.
+Map and discover insights lets you know the data sources that Azure Babylon manages, your scan status over time, and catalog usage. The catalog usage information includes such information as usage count and roles, and glossary access.
 
-## Lets get started
+Azure Babylon is Azure's data governance product, which helps you know what you have in your data map and manage the data map using policies. To accomplish these goals, Azure Babylon starts by scanning your data estate to learn about its metadata structure. It uses classification techniques to identify what find of data exists in these data sources. You can also set your own glossary and assign assets to glossary terms to know more about the business use of the data.
 
-Here we take you through the step by step process of using **Map and
-Discover** Insights, including, deep dive of some graphs.
+After you've scanned your data sources and classified the assets, map and discover insights provides a consolidated view and relevant insights into your assets, scans, and glossary terms in Azure Babylon.
 
-### Step 1 - Getting to Insights page
+## Get started
 
-From the Babylon site, you can see the **Insights** icon on the left
-navigation window, that will take you to all the
-reports you have access to.
+To access the map and discover insights report, follow these steps:
 
-![Navigating to Insights](../docs/media/map-discover/media/image1.png)
+1. Select **Launch Babylon account** from your Azure Bablyon account page to access your catalog from the Azure Babylon portal.
 
-### Step 2 - Looking at Map and Discover Insights page
+1. From the **Home** page of your Azure Babylon catalog, select **View insights**.
 
-Once you click on the Insights icon, you will land on **Map and Discover**
-Insights page. The report starts with a time filter, that is defaulted
-at **1 month**, indicating insights from last 30 days of activity in
-Babylon environment. You can also filter to **1 week**, indicating insights from last 7 days of activity.
+   :::image type="content" source="./media/map-discover/select-view-insights.png" alt-text="Screenshot showing how to select View insights from the Home page." lightbox="./media/map-discover/select-view-insights.png":::
 
-The first section is called Asset information. That starts with two KPIs
- called **Registered assets in catalog** and **scanned assets in catalog**.
+## The Map and discover report
 
-> **Registered assets in catalog** are assets that belong to data
-> sources which are mapped to Babylon, either through
-> Babylon site or through Atlas API integration of a data source, such
-> as Hadoop on prem data store.
->
-> **Scanned assets in catalog** are assets that were scanned by the
-> Babylon scanner. 
-[!Note] Scanning is limited to assets that were
-> registered through Babylon site, as scan activity does not take place
-> when customers ingest a data source through Atlas API.
->
-> ![Navigating to Insights](../docs/media/map-discover/media/image2.png)
+After you select **View insights**, you land on the **Map and discover** report page. The report starts with a time filter, which has a default of **1 month**, indicating insights from last 30 days of activity in
+the Azure Babylon environment. You can change the filter to **1 week**, indicating insights from the last seven days of activity.
 
-### Step 3 - Understanding your data estate
+The map and discover report has the following sections:
 
-**Managed data sources by asset count** shows count of assets across your data sources, that have been
-mapped to Babylon. The tree map includes data sources that were mapped
-through Atlas API.
+- [Asset information](#asset-information)
+- [Scan information](#scan-information)
+- [Catalog information](#catalog-information)
 
-![Navigating to Insights](../docs/media/map-discover/media/image1.1.png)
+### Asset information
 
-The graph has a drill down experience that allows you to drill down into the asset hierarchical structure for that data source. Once you are in the drilldown view of the asset hierarchy, you click on the *back* button on the top right corner of the
-graph, to go back to the original view of the graph.
+The first section is called **Asset information** and its first item is a key performance indicator (KPI) called **Discovered assets in catalog**. These discovered assets are assets that belong to data sources that are mapped to Azure Babylon, either through the Azure Babylon site or through Atlas API integration of a data source, such as a Hadoop on-premises data store.
 
-![Navigating to Insights](../docs/media/map-discover/media/image1.2.png)
+#### Understand your data estate
 
-### Step 4 -- Identifying trends and behaviors of your data sources and files extensions
+The **Managed data sources by asset count** graph shows the count of assets across your data sources that have been mapped to Azure Babylon. The tree map includes data sources that were mapped through Atlas API.
 
-**Asset type count over time** and **File extension types over time**,
-help you recognize patterns in your data sources so you can manage
-them better through policies. 
-[!Note] 
-Asset count of a data source or file extension is dependent on scan frequency.
+:::image type="content" source="./media/map-discover/data-by-asset-count.png" alt-text="Screenshot showing the Managed data sources by asset count graph.":::
 
-![Trend chart of asset count across data sources](../docs/media/map-discover/media/image5.1.PNG)
+The graph has a drill-down experience that allows you to look into the asset hierarchical structure for that data source. After you're in the expanded view of the asset hierarchy, select **Back** on the top-right corner of the graph to return to the original view
 
+:::image type="content" source="./media/map-discover/data-by-asset-count-drill-down.png" alt-text="Screenshot showing an expanded section of the Managed data sources by asset count graph.":::
 
-![Deselect data sources you dont want to see](../docs/media/map-discover/media/image5.2.PNG)
+### Identify trends and behaviors of your data sources and file extensions
 
-### Step 5 -- Learning about your scan status 
+The **Asset type count over time** and **File extension types over time** graphs help you recognize patterns in your data sources so you can manage them better through policies.
 
-This section of the report shows high level KPIs showing indicating scan counts by status. **Scan
-distribution by status** graph helps you see by week or by day, how many scans were
-successful, versus cancelled or failed.
+> [!NOTE]
+> The asset count of a data source or file extension is dependent on scan frequency.
 
-![Navigating to Insights](../docs/media/map-discover/media/image6.png)
+The **Asset type count over time** graph shows trends in your asset count.
 
-### Step 6 -- Learning about your catalog
+:::image type="content" source="./media/map-discover/asset-type-count.png" alt-text="Screenshot showing the Asset type count over time graph.":::
 
-This section helps you understand your organization's glossary usage
-summary and Babylon usage summary.
+In both graphs, all of the data sources or extensions are selected by default. Deselect the data sources or extensions you don't want to see by toggling them in the legend at the bottom. For example:
 
-The **Top glossary terms and count of assets** graph shows you the top terms that
-are used across your organization. 
+:::image type="content" source="./media/map-discover/asset-type-count-sources-deselected.png" alt-text="Screenshot showing deselected data sources on the Asset type count over time graph.":::
 
-![Navigating to Insights](../docs/media/map-discover/media/image7.1.png)
+### Scan information
 
-You can view breakdown of **Glossary terms by status**, helping data stewards to manage glossary term life
-cycle efficiently.
+Learn about your scan status in the **Scan information** section. The top section displays high-level KPIs indicating asset scan counts by status. The **Scan distribution by status** graph lets you view by week or by day, and how many scans succeeded, failed, or were canceled.
 
-![Navigating to Insights](../docs/media/map-discover/media/image7.2.png)
+Scanning is limited to assets that are registered through the Azure Babylon site. Scan activity does not take place when customers ingest a data source through Atlas API.
 
-Finally for administration purposes, the report shows **Top roles and count of users**.
+:::image type="content" source="./media/map-discover/scan-distribution-by-status.png" alt-text="Screenshot showing the Scan distribution by status graph.":::
 
-![Navigating to Insights](../docs/media/map-discover/media/image7.3.png)
+### Catalog information
+
+The **Catalog information** section enables you to learn about your catalog by understanding your organization's glossary usage and user breakdown.
+
+The **Top glossary terms and count of assets** graph shows you the top glossary terms that your organization uses.
+
+:::image type="content" source="./media/map-discover/glossary-terms-asset-count.png" alt-text="Screenshot showing the Top glossary terms and count of assets graph.":::
+
+The **Glossary terms by term status** graph helps data stewards to manage glossary term lifecycles efficiently.
+
+:::image type="content" source="./media/map-discover/glossary-terms-by-term-status.png" alt-text="Screenshot showing the Glossary terms by term status graph.":::
+
+The final graph, useful for administration purposes, is **Top roles and count of users**.
+
+:::image type="content" source="./media/map-discover/top-roles-user-count.png" alt-text="Screenshot showing the Top roles and count of users graph.":::
 
 ## Next steps
 
-To get started with Data Catalog, see [Quickstart: Create an Azure Data Catalog](create-catalog-portal.md).
+To get started with Azure Babylon accounts, see [Quickstart: Create an Azure Babylon account](create-catalog-portal.md).

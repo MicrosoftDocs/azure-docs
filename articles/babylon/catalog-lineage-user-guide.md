@@ -31,8 +31,6 @@ This section explains the configuration steps required to report lineage in Azur
 
 Lineage for the ADF Copy activity is available for on-premises SQL databases. If you're running self-hosted integration runtime for the data movement with Azure Data Factory and want to capture lineage in Azure Babylon, ensure the version is 4.8.7418.1 or later. For more information about self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
 
-To collect lineage from an [Execute SSIS Package activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity), enable its **Logging level** as **Verbose** on the **Settings** tab.
-
 ## Supported Azure Data Factory activities
 
 Azure Babylon captures runtime lineage from the following Azure Data Factory activities:

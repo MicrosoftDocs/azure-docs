@@ -132,17 +132,17 @@ To configure Azure AD single sign-on with StatusPage, perform the following step
 
 1. In the main toolbar, click **Manage Account**.
 
-    ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![Screenshot shows Manage Account selected from the StatusPage company site.](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
 1. Click the **Single Sign-on** tab.
 
-    ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_07.png)
+    ![Screenshot shows the Single Sign-on tab.](./media/statuspage-tutorial/tutorial_statuspage_07.png)
 
 1. On the SSO Setup page, perform the following steps:
 
-    ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_08.png)
+    ![Screenshot shows the S S O Setup page where you can enter the values described.](./media/statuspage-tutorial/tutorial_statuspage_08.png)
 
-    ![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_09.png)
+    ![Screenshot shows the Save Configuration button.](./media/statuspage-tutorial/tutorial_statuspage_09.png)
 
     a. In the **SSO Target URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
@@ -213,19 +213,19 @@ StatusPage supports just-in-time provisioning. You have already enabled it in [C
 
 1. In the menu on the top, click **Manage Account**.
 
-	![Configure Single Sign-On](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+	![Screenshot shows Manage Account selected from the StatusPage company site.](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
 1. Click the **Team Members** tab.
   
-    ![Creating an Azure AD test user](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
+    ![Screenshot shows the Team Members tab.](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
 
 1. Click **ADD TEAM MEMBER**.
   
-    ![Creating an Azure AD test user](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
+    ![Screenshot shows the Add Team Member button.](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
 
 1. Type the **Email Address**, **First Name**, and **Surname** of a valid user you want to provision into the related textboxes. 
 
-    ![Creating an Azure AD test user](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
+    ![Screenshot shows the Add a User dialog box where you can enter the values described.](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
 
 1. As **Role**, choose **Client Administrator**.
 
