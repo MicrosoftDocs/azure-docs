@@ -13,6 +13,7 @@ ms.topic: quickstart
 ms.date: 06/04/2020
 ms.author: jingwang
 ---
+
 # Quickstart: Create a data factory by using the Azure Data Factory UI
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
