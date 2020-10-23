@@ -62,7 +62,7 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > [!div renderon="docs"]
 > #### Step 3: Configure your Node app
 >
-> Extract the project, and open the folder *ms-identity-node*, then open the *index.js* file.
+> Extract the project, and open the folder *ms-identity-node-main*, then open the *index.js* file.
 > Set the `clientID` with the **Application (client) ID**.
 > Set the `clientSecret` with the **Value** of the **Client secret**.
 >
