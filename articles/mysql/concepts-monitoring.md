@@ -12,7 +12,7 @@ ms.date: 10/21/2020
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MySQL provides various metrics that give insight into the behavior of your server.
 
 ## Metrics
-All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../azure-monitor/platform/data-platform.md).
 
 ### List of metrics
 These metrics are available for Azure Database for MySQL:
@@ -55,6 +55,6 @@ Learn more about how to set up notifications in the [planned maintenance notific
 
 ## Next steps
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
-- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../azure-monitor/platform/data-platform.md).
 - Read our blog on [best practices for monitoring your server](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/).
 - Learn more about [planned maintenance notifications](./concepts-planned-maintenance-notification.md) in Azure Database for MySQL - Single Server
