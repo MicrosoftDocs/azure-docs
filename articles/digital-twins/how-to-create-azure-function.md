@@ -195,12 +195,12 @@ Use [Azure Cloud Shell](https://shell.azure.com) to run the commands.
 
 Use the following command to create the system-managed identity. Take note of the _principalId_ field in the output.
 
-```azurecli	
+```azurecli-interactive	
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
 ```
 Use the _principalId_ value in the following command to assign the function app's identity to the _Azure Digital Twins Data Owner_ role for your Azure Digital Twins instance.
 
-```azurecli	
+```azurecli-interactive	
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
 Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on setting an environment variables, see [*Environment variables*](/sandbox/functions-recipes/environment-variables). 
@@ -208,7 +208,7 @@ Lastly, you can make the URL of your Azure Digital Twins instance accessible to 
 > [!TIP]
 > The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the hostName, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
-```azurecli	
+```azurecli-interactive	
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 ### Option 2: Set up security access for the Azure function app using Azure portal
