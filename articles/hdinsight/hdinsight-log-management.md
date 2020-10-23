@@ -37,7 +37,7 @@ The following cluster details are useful in helping to gather information in you
 * Cluster state, including details of the last state change
 * Type and number of HDInsight instances specified for the master, core, and task nodes
 
-You can get most of this top-level information using the Azure portal.  Alternatively, you can use [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to get information about your HDInsight cluster(s):
+You can get most of this top-level information using the Azure portal.  Alternatively, you can use [Azure CLI](/cli/azure/) to get information about your HDInsight cluster(s):
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>
