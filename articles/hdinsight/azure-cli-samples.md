@@ -27,7 +27,7 @@ This article provides sample scripts for common tasks. For each example, update 
 
 ## az login
 
-[Log in to Azure](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
+[Log in to Azure](/cli/azure/reference-index#az-login).
 
 ```azurecli
 az login
@@ -38,7 +38,7 @@ az login
 
 ## az hdinsight create
 
-[Creates a new cluster](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
+[Creates a new cluster](/cli/azure/hdinsight#az-hdinsight-create).
 
 ### Create a cluster with an existing storage account
 
@@ -171,7 +171,7 @@ az hdinsight create \
 
 ## az hdinsight application create
 
-[Create an application for a HDInsight cluster](https://docs.microsoft.com/cli/azure/hdinsight/application?view=azure-cli-latest#az-hdinsight-application-create).
+[Create an application for a HDInsight cluster](/cli/azure/hdinsight/application#az-hdinsight-application-create).
 
 ### Create an application with a script URI
 
@@ -238,7 +238,7 @@ az hdinsight application create \
 
 ## az hdinsight script-action execute
 
-[Execute script actions on the specified HDInsight cluster](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).
+[Execute script actions on the specified HDInsight cluster](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute).
 
 ### Execute a script action and persist on success
 

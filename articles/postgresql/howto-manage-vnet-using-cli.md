@@ -23,7 +23,7 @@ To step through this how-to guide, you need:
 
 
 ## Configure Vnet service endpoints for Azure Database for PostgreSQL
-The [az network vnet](/cli/azure/network/vnet?view=azure-cli-latest) commands are used to configure Virtual Networks.
+The [az network vnet](/cli/azure/network/vnet) commands are used to configure Virtual Networks.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -31,12 +31,12 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. To see the version installed, run the `az --version` command. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
-If you are running the CLI locally, you need to log in to your account using the [az login](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) command. Note the **id** property from the command output for the corresponding subscription name.
+If you are running the CLI locally, you need to log in to your account using the [az login](/cli/azure/authenticate-azure-cli) command. Note the **id** property from the command output for the corresponding subscription name.
 ```azurecli-interactive
 az login
 ```
 
-If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) command. Substitute the **id** property from the **az login** output for your subscription into the subscription id placeholder.
+If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account#az-account-set) command. Substitute the **id** property from the **az login** output for your subscription into the subscription id placeholder.
 
 - The account must have the necessary permissions to create a virtual network and service endpoint.
 
