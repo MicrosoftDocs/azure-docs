@@ -5,7 +5,7 @@ author: robinsh
 ms.author: robinsh
 ms.topic: conceptual 
 ms.service: iot-hub
-ms.date: 10/13/2020
+ms.date: 10/22/2020
 ---
 
 # Monitoring Azure IoT Hub
@@ -53,9 +53,9 @@ Metrics and logs can be routed to a Log Analytics workspace, where they can be a
 
 In Azure portal, you can select **Diagnostic settings** under **Monitoring** on the left-pane of your IoT hub followed by **Add diagnostic setting** to create diagnostic settings scoped to the logs and platform metrics emitted by your IoT hub.
 
-The following screenshot shows a diagnostic setting for routing all platform metrics and Connection operations in resource logs to a Log Analytics workspace.
+The following screenshot shows a diagnostic setting for routing Connection operations in resource logs and all platform metrics to a Log Analytics workspace.
 
-:::image type="content" source="media/monitor-iot-hub/diagnostic-settings-from-portal.png" alt-text="Diagnostic Settings pane for an IoT hub.":::
+:::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Diagnostic Settings pane for an IoT hub.":::
 
 See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure IoT Hub are listed  under [Resource logs in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#resource-logs).
 

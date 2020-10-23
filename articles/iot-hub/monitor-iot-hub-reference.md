@@ -5,7 +5,7 @@ author: robinsh
 ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
-ms.date: 10/13/2020
+ms.date: 10/22/2020
 ---
 
 # Monitoring Azure IoT Hub data reference
