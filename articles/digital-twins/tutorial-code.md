@@ -122,8 +122,6 @@ Console.WriteLine($"Service client created – ready to go");
 
 Save the file. 
 
-[!INCLUDE [Azure Digital Twins: local credentials note](../../includes/digital-twins-local-credentials-short.md)] 
-
 In your command window, run the code with this command: 
 
 ```cmd/sh

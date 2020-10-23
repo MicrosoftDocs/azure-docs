@@ -395,10 +395,12 @@ Before you run the sample, do the following:
     dotnet add package Azure.identity
     ```
 
-You'll also need to set up local credentials if you want to run the sample directly.
+You'll also need to set up local credentials if you want to run the sample directly. The next section walks through this.
 [!INCLUDE [Azure Digital Twins: local credentials prereq](../../includes/digital-twins-local-credentials.md)]
 
-Then, run the sample.
+### Run the sample
+
+After completing the above steps, you can directly run the following sample code.
 
 ```csharp
 using System;
