@@ -846,8 +846,7 @@
       "sensitive-language": {
         "exclude": [
           "articles/governance/policy/**/*.md",
-	     "articles/governance/blueprints/**/*.md",
-	     "includes/policy/**/*.md"
+	  "articles/governance/blueprints/**/*.md"
         ]
       }
     }
