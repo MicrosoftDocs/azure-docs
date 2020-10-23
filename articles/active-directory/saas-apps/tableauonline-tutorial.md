@@ -161,15 +161,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In a different browser window, sign-on to your Tableau Online application. Go to **Settings** and then **Authentication**.
 
-    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
+    ![Screenshot shows Authentication selected from the Settings menu.](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
 
 2. To enable SAML, Under **Authentication types** section. Check **Enable an additional authentication method** and then check **SAML** checkbox.
 
-    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
+    ![Screenshot shows the Authentication types section where you can select the values.](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
 
 3. Scroll down up to **Import metadata file into Tableau Online** section.  Click Browse and import the metadata file, which you have downloaded from Azure AD. Then, click **Apply**.
 
-   ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
+   ![Screenshot shows the section where you can import the metadata file.](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
 
 4. In the **Match assertions** section, insert the corresponding Identity Provider assertion name for **email address**, **first name**, and **last name**. To get this information from Azure AD: 
   
@@ -177,17 +177,17 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 	b. In the **User Attributes & Claims** section, click on the edit icon.
 
-   ![Configure Single Sign-On](./media/tableauonline-tutorial/attributesection.png)
+   ![Screenshot shows the User Attributes & Claims section where you can select the edit icon.](./media/tableauonline-tutorial/attributesection.png)
 
 	c. Copy the namespace value for these attributes: givenname, email and surname by using the following steps:
 
-   ![Azure AD Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
+   ![Screenshot shows the Givenname, Surname, and Emailaddress attributes.](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
 
     d. Click **user.givenname** value
 
     e. Copy the value from the **Namespace** textbox.
 
-    ![Configure Single Sign-On](./media/tableauonline-tutorial/attributesection2.png)
+    ![Screenshot shows the Manage user claims section where you can enter the Namespace.](./media/tableauonline-tutorial/attributesection2.png)
 
     f. To copy the namespace values for the email and surname repeat the above steps.
 
@@ -199,7 +199,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     * Last name: **surname**
 
-    ![Configure Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
+    ![Screenshot shows the Match attributes section where you can enter the values.](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
 
 ### Create Tableau Online test user
 
@@ -207,11 +207,11 @@ In this section, you create a user called Britta Simon in Tableau Online.
 
 1. On **Tableau Online**, click **Settings** and then **Authentication** section. Scroll down to **Manage Users** section. Click **Add Users** and then click **Enter Email Addresses**.
   
-    ![Creating an Azure AD test user](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
+    ![Screenshot shows the Manage users section where you can select Add users.](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
 
 2. Select **Add users for (SAML) authentication**. In the **Enter email addresses** textbox add britta.simon\@contoso.com
   
-    ![Creating an Azure AD test user](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
+    ![Screenshot shows the Add Users page where you can enter an email address.](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
 
 3. Click **Add Users**.
 

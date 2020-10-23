@@ -17,7 +17,7 @@ ms.custom: devx-track-java
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -192,7 +192,7 @@ Azure Web Sites makes deploying Java applications as simple as exporting your ap
    * In the Destination box, choose a destination to save the WAR file.
    * Click **Finish**.
 
-1. Now that you have a WAR file in hand, you can simply upload it to your Azure Web Site's **webapps** directory. For instructions on uploading the file, see [Add a Java application to Azure App Service Web Apps](../app-service/web-sites-java-add-app.md). After the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
+1. Now that you have a WAR file in hand, you can simply upload it to your Azure Web Site's **webapps** directory. For instructions on uploading the file, see [Add a Java application to Azure App Service Web Apps](../app-service/quickstart-java.md). After the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
 
 1. To view your finished product, navigate to `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` and start adding your tasks!
 

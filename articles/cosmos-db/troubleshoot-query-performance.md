@@ -185,7 +185,7 @@ Updated indexing policy:
 
 **RU charge:** 2.98 RUs
 
-You can add properties to the indexing policy at any time, with no effect on write or read availability. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+You can add properties to the indexing policy at any time, with no effect on write or read availability. You can [track index transformation progress](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### Understand which system functions use the index
 
@@ -486,5 +486,5 @@ Queries are designed to pre-fetch results while the current batch of results is 
 See the following articles for information on how to measure RUs per query, get execution statistics to tune your queries, and more:
 
 * [Get SQL query execution metrics by using .NET SDK](profile-sql-api-query.md)
-* [Tuning query performance with Azure Cosmos DB](sql-api-sql-query-metrics.md)
+* [Tuning query performance with Azure Cosmos DB](./sql-api-query-metrics.md)
 * [Performance tips for .NET SDK](performance-tips.md)
