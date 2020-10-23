@@ -20,8 +20,10 @@ ms.reviewer: hirsin, jlu, annaba
 You can specify the lifetime of a token issued by Microsoft identity platform. You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. However, we currently do not support configuring the token lifetimes for [managed identity service principals](../managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> After January 30, 2021, tenants will no longer be able to configure refresh and session token lifetimes and Azure Active Directory will stop honoring existing refresh and session token configuration in policies after that date. You can still configure access token lifetimes after the deprecation.
-> We’ve implemented [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency.  
+> After January 30, 2021, tenants will no longer be able to configure refresh and session token lifetimes and Azure Active Directory will stop honoring existing refresh and session token configuration in policies after that date. You can still configure access token lifetimes after the retirement.
+> We’ve implemented [authentication session management capabilities](../conditional-access/howto-conditional-access-session-lifetime.md) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency. Conditional Access is an Azure AD Premium P1 feature and you can evaluate whether premium is right for your organzation on the [premium pricing page](https://azure.microsoft.com/en-us/pricing/details/active-directory/). 
+> 
+> For tenants that do not use authentication session management in Conditional Access after the retirement date, they can expect that Azure AD will honor the default configuration outlined in the next section.
 
 ## Configurable token lifetime properties after the retirement
 Refresh and session token configuration are affected by the following properties and their respectively set values. After the retirement of refresh and session token configuration, Azure AD will only honor the default value described below, regardless of whether policies have custom values configured configured custom values.  
