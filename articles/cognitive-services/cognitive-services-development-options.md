@@ -1,7 +1,6 @@
 ---
-title: Cognitive Services development options
-titleSuffix: Azure Cognitive Services
-description: As part of Azure, you have access to automation and integration tools  like Logic Apps and Power Automate, deployment options such as Azure Functions and the App Service, opportunities to containerize Cognitive Services for secure access in private clouds, and finally leveraging tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for Big Data scenarios.
+title: Azure Cognitive Services development options
+description: Learn how to use Azure Cognitive Services with different development and deployment options such as client libraries, REST APIs, Logic Apps, Power Automate, Azure Functions, Azure App Service, Azure Databricks, and many more.
 services: cognitive-services
 manager: nitinme
 author: erhopf
@@ -13,16 +12,25 @@ ms.date: 10/22/2020
 
 # Cognitive Services development options
 
-The Azure Cognitive Services is cloud-based AI services that allow developers to build intelligence into their applications and products without deep knowledge of Machine Learning. With the Cognitive Services, you have access to  out-of-the-box, ready to use AI capabilities or models that are built, trained, and updated by Microsoft. In many cases, you also have the option to customize the models for your business needs. The Cognitive Services is organized into four categories: Decision, Language, Speech, and Vision. A common path to access these services is through REST APIs, client libraries, and custom tools (like command-line interfaces) provided by Microsoft. However, this is only one path to success. As part of Azure, you have access to automation and integration tools  like Logic Apps and Power Automate, deployment options such as Azure Functions and the App Service, opportunities to containerize Cognitive Services for secure access in private clouds, and finally leveraging tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for Big Data scenarios. In this document, we provide a high-level overview of development and deployment options to help you get started with Cognitive Services.  
+This document provides a high-level overview of development and deployment options to help you get started with Azure Cognitive Services.
 
-Before we jump in, it's important to know that the Cognitive Services is primarily used for two distinct tasks: 
+Azure Cognitive Services are cloud-based AI services that allow developers to build intelligence into their applications and products without deep knowledge of machine learning. With Cognitive Services, you have access to AI capabilities or models that are built, trained, and updated by Microsoft - ready to be used in your applications. In many cases, you also have the option to customize the models for your business needs. 
 
-* [Prediction or analyzing content](#prediction-and-analysis)
-* [Customization and configuration of models](#customization)
+Cognitive Services are organized into four categories: Decision, Language, Speech, and Vision. Typically you would access these services through REST APIs, client libraries, and custom tools (like command-line interfaces) provided by Microsoft. However, this is only one path to success. Through Azure, you also have access to several development options, such as:
 
-## Prediction and analysis 
+* Automation and integration tools like Logic Apps and Power Automate.
+* Deployment options such as Azure Functions and the App Service. 
+* Cognitive Services Docker containers for secure access.
+* Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for Big Data scenarios. 
 
-The tools that you will use to customize and configure models are different than those that you'll use to call the Cognitive Services. Out of the box, most Cognitive Services allows you to send data and receive insights without any customization. For example: 
+Before we jump in, it's important to know that the Cognitive Services is primarily used for two distinct tasks. Based on the task you want to perform, you have different development and deployment options to choose from. 
+
+* [Development options for prediction and analysis](#development-options-for-prediction-and-analysis)
+* [Tools to customize and configure models](#tools-to-customize-and-configure-models)
+
+## Development options for prediction and analysis 
+
+The tools that you will use to customize and configure models are different than those that you'll use to call the Cognitive Services. Out of the box, most Cognitive Services allow you to send data and receive insights without any customization. For example: 
 
 * You can send an image to the Computer Vision service to detect words and phrases or count the number of people in the frame
 * You can send an audio file to the Speech service and get transcriptions and translate the speech to text at the same time
@@ -61,7 +69,7 @@ If you want to learn more about Big Data for Cognitive Services, a good place to
 * **Target user(s)**: Developers and data scientists
 * **Benefits**: Serverless compute service that lets you run event-triggered code. 
 * **UI**: Yes
-* **Subscription(s)**:
+* **Subscription(s)**: Azure account + Cognitive Services resource + Azure Functions subscription
 
 ### Azure Logic Apps 
 
@@ -99,11 +107,11 @@ You can use Azure DevOps and GitHub actions to manage your deployments. In the [
 * **UI tools**: N/A - Code only 
 * **Subscription(s)**: Azure account + Cognitive Services resource + GitHub account
 
-## Customization
+## Tools to customize and configure models
 
 As you progress on your journey building an application or workflow with the Cognitive Services, you may find that you need to customize the model to achieve the desired performance. Many of our services allow you to build on top of the pre-built models to meet your specific business needs. For all our customizable services, we provide both a UI-driven experience for walking through the process as well as APIs for code-driven training. For example:
 
-* You want to train a Custom Speech model to correctly recognizer medical terms with a word error rate (WER) below 3%
+* You want to train a Custom Speech model to correctly recognize medical terms with a word error rate (WER) below 3%
 * You want to build an image classifier with Custom Vision that can tell the difference between coniferous and deciduous trees
 * You want to build a custom neural voice with your personal voice data for an improved automated customer experience
 
@@ -132,7 +140,7 @@ Language Understanding and the Speech service offer continuous integration and c
 
 ## On-prem containers 
 
-Many of the Cognitive Services can be deployed in containers for on-prem access and use. Using these containers gives you the flexibility to bring Cognitive Services closer to your data for compliance, security or other operational reasons. For a complete list of Cognitive Services containers, see [Containers support](./cognitive-services-container-support.md).
+Many of the Cognitive Services can be deployed in containers for on-prem access and use. Using these containers gives you the flexibility to bring Cognitive Services closer to your data for compliance, security or other operational reasons. For a complete list of Cognitive Services containers, see [On-prem containers for Cognitive Services](./cognitive-services-container-support.md).
 
 ## Next steps
 <!--

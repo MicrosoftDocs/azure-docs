@@ -86,6 +86,17 @@ The current list of new documentation is available at [What's new in Cognitive S
 |[Metrics Advisor](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor) (Preview) | Metrics Advisor provides customizable anomaly detection on multi-variate time series data, and a fully featured web portal to help you use the service.
 |[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer")|Personalizer allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 
+## Development options 
+
+With Azure and Cognitive Services, you have access to several development options, such as:
+
+* Automation and integration tools like Logic Apps and Power Automate.
+* Deployment options such as Azure Functions and the App Service. 
+* Cognitive Services Docker containers for secure access.
+* Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for Big Data scenarios. 
+
+To learn more, see [Cognitive Services development options](./cognitive-services-development-options.md).
+
 ## Learn with the Quickstarts
 
 Learn about creating a Cognitive Services resource with hands-on quickstarts, using the:
