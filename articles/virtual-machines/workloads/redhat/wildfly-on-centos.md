@@ -74,7 +74,7 @@ You can deploy the template in the following three ways:
 
 <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/wildfly-standalone-centos8" target="_blank"> WildFly 18 on CentOS 8 (stand-alone VM)</a> - This is a Quickstart template that creates a standalone node of WildFly 18.0.1.Final on CentOS 8 VM in your Resource Group (RG) which includes a Private IP for the VM, Virtual Network, and Diagnostics Storage Account. It also deploys a sample Java application named JBoss-EAP on Azure on WildFly.
 
-## Resource Links:
+## Resource links
 
 * Learn more about [WildFly 18](https://wildfly.org/18)
 * Learn more about [Linux distributions on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
@@ -94,4 +94,4 @@ Clustered RHEL virtual machines with sample application:
 
 Clustered RHEL Virtual Machine Scale Set with sample application:
 
-* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/jboss-eap-clustered-vmss-rhel" target="_blank"> JBoss EAP on RHEL (clustered VMSS)</a>
+* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/jboss-eap-clustered-vmss-rhel" target="_blank"> JBoss EAP on RHEL (clustered Virtual Machine Scale Set)</a>
