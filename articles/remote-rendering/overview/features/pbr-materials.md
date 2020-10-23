@@ -81,10 +81,10 @@ Azure Remote Rendering uses the Cook-Torrance micro-facet BRDF with GGX NDF, Sch
 
 ## API documentation
 
-* [C# PbrMaterial class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
-* [C# RemoteManager.CreateMaterial()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
-* [C++ PbrMaterial class](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterial)
-* [C++ RemoteManager::CreateMaterial()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
+* [C# PbrMaterial class](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [C# RemoteManager.CreateMaterial()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C++ PbrMaterial class](/cpp/api/remote-rendering/pbrmaterial)
+* [C++ RemoteManager::CreateMaterial()](/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## Next steps
 

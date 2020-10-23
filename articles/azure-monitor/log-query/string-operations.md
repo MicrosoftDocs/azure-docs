@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/16/2018
+ms.date: 10/19/2020
 
 ---
 
@@ -70,8 +70,8 @@ Operator       |Description                         |Case-Sensitive|Example (yie
 `!startswith_cs`  |Right-hand-side isn't an initial subsequence of left-hand-side|Yes        |`"Fabrikam" !startswith_cs "fab"`
 `endswith`     |Right-hand-side is a closing subsequence of left-hand-side|No             |`"Fabrikam" endswith "Kam"`
 `!endswith`    |Right-hand-side isn't a closing subsequence of left-hand-side|No         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |Right-hand-side is a closing subsequence of left-hand-side|Yes             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |Right-hand-side isn't a closing subsequence of left-hand-side|Yes         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |Right-hand-side is a closing subsequence of left-hand-side|Yes             |`"Fabrikam" endswith_cs "kam"`
+`!endswith_cs`    |Right-hand-side isn't a closing subsequence of left-hand-side|Yes         |`"Fabrikam" !endswith_cs "brik"`
 `matches regex`|left-hand-side contains a match for Right-hand-side        |Yes           |`"Fabrikam" matches regex "b.*k"`
 `in`           |Equals to one of the elements       |Yes           |`"abc" in ("123", "345", "abc")`
 `!in`          |Not equals to any of the elements   |Yes           |`"bca" !in ("123", "345", "abc")`

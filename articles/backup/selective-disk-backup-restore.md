@@ -236,6 +236,8 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "
 
 ## Using the Azure portal
 
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
 Using the Azure portal, you can view the included and excluded disks from the VM backup details pane and the backup job details pane.  During restore, when you select the recovery point to restore from, you can view the backed-up disks in that recovery point.
 
 Here you can view the included and excluded disks for a virtual machine in the portal from the VM backup details pane:

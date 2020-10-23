@@ -38,20 +38,16 @@ landingContent:
   # Card
   - title: Get started
     linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Create a VPN gateway
-            url: create-routebased-vpn-gateway-portal.md
-          - text: Create a site-to-site connection
-            url: vpn-gateway-howto-site-to-site-resource-manager-portal.md
-          - text: Create a point-to-site connection
-            url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
       - linkListType: tutorial
         links:
           - text: Create and manage a VPN gateway
             url: vpn-gateway-tutorial-create-gateway-powershell.md
-          - text: Create and manage a site-to-site connection
-            url: vpn-gateway-tutorial-vpnconnection-powershell.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a site-to-site connection
+            url: vpn-gateway-howto-site-to-site-resource-manager-portal.md
+          - text: Create a point-to-site connection
+            url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
   # Card
   - title: VPN devices
     linkLists:

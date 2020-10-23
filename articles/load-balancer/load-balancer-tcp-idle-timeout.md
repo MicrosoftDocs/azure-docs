@@ -23,7 +23,12 @@ ms.author: allensu
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-Azure Load Balancer has an idle timeout setting of 4 minutes to 120 minutes. By default, it is set to 4 minutes. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained between the client and your cloud service. Learn more about [TCP idle timeout](load-balancer-tcp-reset.md).
+Azure Load Balancer has the following idle timeout range:
+
+4 minutes to 100 minutes for Outbound Rules
+4 minutes to 30 minutes for Load Balancer rules and Inbound NAT rules
+
+By default, it is set to 4 minutes. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained between the client and your cloud service. Learn more about [TCP idle timeout](load-balancer-tcp-reset.md).
 
 The following sections describe how to change idle timeout settings for public IP and load balancer resources.
 
@@ -36,7 +41,7 @@ $publicIP.IdleTimeoutInMinutes = "15"
 Set-AzPublicIpAddress -PublicIpAddress $publicIP
 ```
 
-`IdleTimeoutInMinutes` is optional. If it isn't set, the default timeout is 4 minutes. The acceptable timeout range is 4 to 120 minutes.
+`IdleTimeoutInMinutes` is optional. If it isn't set, the default timeout is 4 minutes. 
 
 ## Set the TCP idle timeout on rules
 

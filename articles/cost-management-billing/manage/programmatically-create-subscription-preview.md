@@ -98,7 +98,7 @@ Use the `principalName` property to identify the account that you want subscript
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) command to list all enrollment accounts you have access to.
+Use the [az billing enrollment-account list](/cli/azure/billing) command to list all enrollment accounts you have access to.
 
 ```azurecli-interactive
 az billing enrollment-account list

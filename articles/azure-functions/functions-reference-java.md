@@ -129,8 +129,6 @@ Here is the generated corresponding `function.json` by the [azure-functions-mave
 
 ## Java versions
 
-_Support for Java 11 is currently in preview_
-
 The version of Java used when creating the function app on which functions runs in Azure is specified in the pom.xml file. The Maven archetype currently generates a pom.xml for Java 8, which you can change before publishing. The Java version in pom.xml should match the version on which you have locally developed and tested your app. 
 
 ### Supported versions
@@ -139,14 +137,14 @@ The following table shows current supported Java versions for each major version
 
 | Functions version | Java versions (Windows) | Java versions (Linux) |
 | ----- | ----- | --- |
-| 3.x | 11 (preview)<br/>8 | 11 (preview)<br/>8 |
+| 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | n/a |
 
 Unless you specify a Java version for your deployment, the Maven archetype defaults to Java 8 during deployment to Azure.
 
 ### Specify the deployment version
 
-You can control the version of Java targeted by the Maven archetype by using the `-DjavaVersion` parameter. The value of this parameter can be either `8` or `11`. Java 11 support is currently in preview. 
+You can control the version of Java targeted by the Maven archetype by using the `-DjavaVersion` parameter. The value of this parameter can be either `8` or `11`. 
 
 The Maven archetype generates a pom.xml that targets the specified Java version. The following elements in pom.xml indicate the Java version to use:
 
