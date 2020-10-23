@@ -30,7 +30,7 @@ This tutorial describes the steps you need to perform in both Hootsuite and Azur
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * A user account with [Hootsuite](http://www.hootsuite.com/) that has **Manage Member** permissions on the organization.
 
 ## Step 1. Plan your provisioning deployment
@@ -44,7 +44,7 @@ Reach out to dev.support@hootsuite.com to obtain a long lasting secret token tha
 
 ## Step 3. Add Hootsuite from the Azure AD application gallery
 
-Add Hootsuite from the Azure AD application gallery to start managing provisioning to Hootsuite. If you have previously setup Hootsuite for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add Hootsuite from the Azure AD application gallery to start managing provisioning to Hootsuite. If you have previously setup Hootsuite for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
