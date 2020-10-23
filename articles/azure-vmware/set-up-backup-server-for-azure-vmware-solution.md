@@ -125,7 +125,7 @@ The VM must have .NET Framework 3.5 SP1 or higher installed.
 
 The Azure Backup Server VM must be joined to a domain. A domain user with administrator privileges on the VM must install Azure Backup Server.
 
-Though not supported at the preview time, Azure Backup Server deployed in an Azure VM can back up workloads on the VMs in Azure VMware Solution. The workloads should be in the same domain to enable the backup operation.
+Azure Backup Server deployed in an Azure VM can back up workloads on the VMs in Azure VMware Solution. The workloads should be in the same domain to enable the backup operation.
 
 ## Create a Recovery Services vault
 
