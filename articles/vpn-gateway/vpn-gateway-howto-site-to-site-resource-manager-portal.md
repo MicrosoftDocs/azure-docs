@@ -116,7 +116,7 @@ Create a connection using the following values:
 
 [!INCLUDE [Verify the connection](../../includes/vpn-gateway-verify-connection-portal-include.md)]
 
-## <a name="connectVM"></a>To connect to a virtual machine
+## <a name="connectVM"></a>How to connect to a virtual machine
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
