@@ -85,6 +85,10 @@ try
 }
 ```
 
+#### Set up local Azure credentials
+
+[!INCLUDE [Azure Digital Twins: local credentials prereq (inner)](../../includes/digital-twins-local-credentials-inner.md)]
+
 ### ManagedIdentityCredential method
 
 The [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) method works great in cases where you need [managed identities (MSI)](../active-directory/managed-identities-azure-resources/overview.md)—for example, when working with Azure Functions.
