@@ -16,11 +16,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/security/fundamentals/ddos-best-practices.md",
-      "redirect_url": "/azure/ddos-protection/fundamental-best-practices",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/virtual-machines/linux/configure-raid.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/configure-raid",
       "redirect_document_id": false
