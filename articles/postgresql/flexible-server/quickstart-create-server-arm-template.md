@@ -18,7 +18,7 @@ Flexible server is a managed service that you use to run, manage, and scale high
 
 Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
-To learn about Azure Resource Manager templates, see [Template deployment overview](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
+To learn about Azure Resource Manager templates, see [Template deployment overview](../../azure-resource-manager/templates/overview.md).
 
 ## Prerequisites
 
