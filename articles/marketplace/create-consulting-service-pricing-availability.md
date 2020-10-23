@@ -25,7 +25,7 @@ In the **Markets** section, you define the countries or regions where your consu
 2. In the dialog box that appears, select the market locations where you want to make your offer available. Select a minimum of one and maximum of 141 markets. Review the list of [supported geographic locations](./marketplace-geo-availability-currencies.md).
 3. Select **Save** to close the dialog box.
 
-## Preview Audience
+## Preview audience
 
 When you publish or update your consulting service offer, Partner Center creates a preview version of the listing. This preview is visible only to users that have a **hide key**.
 

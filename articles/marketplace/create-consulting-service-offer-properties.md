@@ -18,9 +18,7 @@ On the **Properties** tab of your offer in Partner Center, you’ll define the p
 
 ## Select the primary product
 
-In the **Primary Product** dropdown list, select the Microsoft product that will be the focus of your consulting service offer.
-
-The product you select will determine whether your offer will be published to Microsoft AppSource or Azure Marketplace.
+In the **Primary Product** dropdown list, select the Microsoft product that will be the focus of your consulting service offer. The product you select will determine whether your offer will be published to Microsoft AppSource or Azure Marketplace.
 
 * If you select Azure, the offer will be listed on Azure Marketplace. Select up to three **Solution Areas**. These will make it easier for customers to find your offer.
 * If the primary product is *not* Azure, the offer will be published on AppSource. Select at least one and up to three **Applicable products**. These will make it easier for customers to find your offer.
@@ -53,4 +51,4 @@ Save the draft before continuing.
 
 ## Next steps
 
-* [Configure your offer listing details](create-consulting-service-offer-listing.md).
+* [Configure your offer listing details](create-consulting-service-offer-listing.md)
