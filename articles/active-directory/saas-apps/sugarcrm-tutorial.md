@@ -137,11 +137,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **Administration** section, click **Password Management**.
 
-    ![Administration](./media/sugarcrm-tutorial/ic795889.png "Administration")
+    ![Screenshot shows the Administration section where you can select Password Management.](./media/sugarcrm-tutorial/ic795889.png "Administration")
 
 1. Select **Enable SAML Authentication**.
 
-    ![Administration](./media/sugarcrm-tutorial/ic795890.png "Administration")
+    ![Screenshot shows the option to select SAML Authentication.](./media/sugarcrm-tutorial/ic795890.png "Administration")
 
 1. In the **SAML Authentication** section, perform the following steps:
 
@@ -169,7 +169,7 @@ In order to enable Azure AD users to sign in to Sugar CRM, they must be provisio
 
 1. In the **Administration** section, click **User Management**.
 
-    ![Administration](./media/sugarcrm-tutorial/ic795893.png "Administration")
+    ![Screenshot shows the Administration section where you can select User Management.](./media/sugarcrm-tutorial/ic795893.png "Administration")
 
 1. Go to **Users \> Create New User**.
 
@@ -177,7 +177,7 @@ In order to enable Azure AD users to sign in to Sugar CRM, they must be provisio
 
 1. On the **User Profile** tab, perform the following steps:
 
-    ![New User](./media/sugarcrm-tutorial/ic795895.png "New User")
+    ![Screenshot shows the User Profile tab where you can where you can enter the values described.](./media/sugarcrm-tutorial/ic795895.png "New User")
 
     * Type the **user name**, **last name**, and **email address** of a valid Azure Active Directory user into the related textboxes.
   
@@ -185,7 +185,7 @@ In order to enable Azure AD users to sign in to Sugar CRM, they must be provisio
 
 1. On the Password tab, perform the following steps:
 
-    ![New User](./media/sugarcrm-tutorial/ic795896.png "New User")
+    ![Screenshot shows the Password tab where you can where you can enter the values described.](./media/sugarcrm-tutorial/ic795896.png "New User")
 
     a. Type the password into the related textbox.
 
