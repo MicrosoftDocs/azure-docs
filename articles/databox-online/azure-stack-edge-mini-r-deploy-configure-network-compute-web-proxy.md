@@ -65,7 +65,7 @@ Follow these steps to configure the network for your device.
 
     4. The new certificates should be displayed on the **Certificates** page. 
     
-        ![Local web UI "Certificates" page 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-5.png)
+        [![Local web UI "Certificates" page 4](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-5.png)](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-5.png#lightbox)
 
     5. Go back to **Get started**.
 
