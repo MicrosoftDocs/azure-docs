@@ -14,8 +14,6 @@ Azure Monitor Logs is a feature of Azure Monitor that collects and organizes log
 > [!NOTE]
 > Azure Monitor Logs is one part of the data platform supporting Azure Monitor. The other is [Azure Monitor Metrics](data-platform-metrics.md) stores numeric data in a time-series database, which makes this data more lightweight than Azure Monitor Logs and capable of supporting near real-time scenarios making them particularly useful for alerting and fast detection of issues. Metrics though can only store numeric data in a particular structure, while Logs can store a variety of different data types each with their own structure. You can also perform complex analysis on Logs data using log queries which cannot be used for analysis of Metrics data.
 
-![Azure Monitor overview](media/data-platform/overview.png)
-
 
 ## What can you do with Azure Monitor Logs?
 The following table lists some of the different ways that you can use Logs in Azure Monitor.
@@ -28,6 +26,8 @@ The following table lists some of the different ways that you can use Logs in Az
 | Visualize | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](../app/usage-workbooks.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](powerbi.md) to use different visualizations and share with users outside of Azure.<br>Export the results of a query to [Grafana](grafana-plugin.md) to leverage its dashboarding and combine with other data sources.|
 | Retrieve | Access log query results from a command line using [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Access log query results from a command line using [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Access log query results from a custom application using [REST API](https://dev.loganalytics.io/). |
 | Export | Configure [automated export of log data](logs-data-export.md) to Azure storage account or Azure Event Hubs.<br>Build a workflow to retrieve log data and copy it to an external location using [Logic Apps](logicapp-flow-connector.md). |
+
+![Logs overview](media/data-platform-logs/logs-overview.png)
 
 ## Log Analytics workspace
 Data collected by Azure Monitor Logs is stored in one more [Log Analytics workspaces](./design-logs-deployment.md). The workspace defines the geographic location of the data, access rights defining which users can access data, and configuration settings such as the pricing tier and data retention.  
@@ -49,6 +49,7 @@ Data is retrieved from a Log Analytics workspace using a log query which is a re
 
 - See [Log queries in Azure Monitor](log-query/../../log-query/log-query-overview.md) for a list of where log queries are used and references to tutorials and other documentation to get you started.
 
+![Log Analytics](media/data-platform-logs/log-analytics.png)
 
 ## Log Analytics
 Use Log Analytics, which is a tool in the Azure portal to edit and run log queries and interactively analyze their results. You can then use the queries that you create to support other features in Azure Monitor such as log query alerts and workbooks. 
