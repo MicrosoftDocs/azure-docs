@@ -189,9 +189,7 @@ Next, you might want to read up how to set up a replicator application with Azur
 
 - [Replication applications in Azure Functions](service-bus-federation-replicator-functions.md)
 - [Replicating events between Service Bus entities](service-bus-federation-service-bus.md)
-- [Routing events from and to Azure Event Hubs and IoT Hub](service-bus-federation-event-hubs.md)
-- [Routing events from and to Azure Event Grid](service-bus-federation-event-grid.md)
-- [Replicating events from and to Apache Kafka](service-bus-federation-kafka.md)
+- [Routing events to Azure Event Hubs](service-bus-federation-event-hubs.md)
  
 
 [1]: ./media/service-bus-auto-forwarding/IC628632.gif 
