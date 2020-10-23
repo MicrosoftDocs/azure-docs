@@ -235,7 +235,7 @@
           displayName: policy
     - name: Create & manage workspaces
       items: 
-        - name: Use Azure portal
+        - name: Use Azure portal or Python SDK
           href: how-to-manage-workspace.md
         - name: Use Azure CLI
           href: how-to-manage-workspace-cli.md
