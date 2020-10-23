@@ -59,7 +59,7 @@ For most metrics, all aggregation types are valid; however, for count metrics, t
 |C2D messages abandoned|c2d.commands.egress.<br>abandon.success|Count|Total|Number of cloud-to-device messages abandoned by the device|None|
 |C2D messages rejected|c2d.commands.egress.<br>reject.success|Count|Total|Number of cloud-to-device messages rejected by the device|None|
 
-For metrics with a **Unit** value of **Count** only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
+For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
 ### Cloud to device direct methods metrics
 
@@ -83,7 +83,7 @@ For metrics with a **Unit** value of **Count** only total (sum) aggregation is v
 |Successful twin reads from back end|c2d.twin.read.success|Count|Total|The count of all successful back-end-initiated twin reads.|None|
 |Successful twin updates from back end|c2d.twin.update.success|Count|Total|The count of all successful back-end-initiated twin updates.|None|
 
-For metrics with a **Unit** value of **Count** only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
+For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
 ### Configurations metrics
 
@@ -91,7 +91,7 @@ For metrics with a **Unit** value of **Count** only total (sum) aggregation is v
 |---|---|---|---|---|---|
 |Configuration Metrics|configurations|Count|Total|Number of total CRUD operations performed for device configuration and IoT Edge deployment, on a set of target devices. This also includes the number of operations that modify the device twin or module twin because of these configurations.|None|
 
-For metrics with a **Unit** value of **Count** only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
+For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
 ### Daily quota metrics
 
@@ -101,7 +101,7 @@ For metrics with a **Unit** value of **Count** only total (sum) aggregation is v
 |Total device data usage (preview)|deviceDataUsageV2|Bytes|Total|Bytes transferred to and from any devices connected to IotHub|None|
 |Total number of messages used|dailyMessageQuotaUsed|Count|Average|Number of total messages used today. This is a cumulative value that is reset to zero at 00:00 UTC every day.|None|
 
-For *Total number of messages used* only minimum, maximum, and average aggregations are supported. For more information, see [Supported aggregations](#supported-aggregations).
+For *Total number of messages used*, only minimum, maximum, and average aggregations are supported. For more information, see [Supported aggregations](#supported-aggregations).
 
 ### Device metrics
 
@@ -112,9 +112,9 @@ For *Total number of messages used* only minimum, maximum, and average aggregati
 |Total devices (preview)|totalDeviceCount|Count|Average|Number of devices registered to your IoT hub|None|
 |Connected devices (preview)|connectedDeviceCount|Count|Average|Number of devices connected to your IoT hub|None|
 
-For *Total devices (deprecated)* and *Connected devices (deprecated)* only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
+For *Total devices (deprecated)* and *Connected devices (deprecated)*, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
-For *Total devices (preview)* and *Connected devices (preview)* only minimum, maximum, and average aggregations are valid. For more information, see [Supported aggregations](#supported-aggregations).
+For *Total devices (preview)* and *Connected devices (preview)*, only minimum, maximum, and average aggregations are valid. For more information, see [Supported aggregations](#supported-aggregations).
 
 *Connected devices (preview)* and *Total devices (preview)* are not exportable via diagnostic settings.
 
@@ -126,7 +126,7 @@ For *Total devices (preview)* and *Connected devices (preview)* only minimum, ma
 |Telemetry message send attempts|d2c.telemetry.ingress.<br>allProtocol|Count|Total|Number of device-to-cloud telemetry messages attempted to be sent to your IoT hub|None|
 |Telemetry messages sent|d2c.telemetry.ingress.<br>success|Count|Total|Number of device-to-cloud telemetry messages sent successfully to your IoT hub|None|
 
-For metrics with a **Unit** value of **Count** only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
+For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
 ### Device to cloud twin operations metrics
 
@@ -139,7 +139,7 @@ For metrics with a **Unit** value of **Count** only total (sum) aggregation is v
 |Successful twin reads from devices|d2c.twin.read.success|Count|Total|The count of all successful device-initiated twin reads.|None|
 |Successful twin updates from devices|d2c.twin.update.success|Count|Total|The count of all successful device-initiated twin updates.|None|
 
-For metrics with a **Unit** value of **Count** only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
+For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
 ### Event grid metrics
 
@@ -148,7 +148,7 @@ For metrics with a **Unit** value of **Count** only total (sum) aggregation is v
 |Event Grid deliveries(preview)|EventGridDeliveries|Count|Total|The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid).|Result,<br/>EventType<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 |Event Grid latency (preview)|EventGridLatency|Milliseconds|Average|The average latency (milliseconds) from when the Iot Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event.|EventType<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 
-For metrics with a **Unit** value of **Count** only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
+For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
 ### Jobs metrics
 
@@ -167,7 +167,7 @@ For metrics with a **Unit** value of **Count** only total (sum) aggregation is v
 |Successful job cancellations|jobs.cancelJob.success|Count|Total|The count of all successful calls to cancel a job.|None|
 |Successful job queries|jobs.queryJobs.success|Count|Total|The count of all successful calls to query jobs.|None|
 
-For metrics with a **Unit** value of **Count** only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
+For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
 ### Routing metrics
 
@@ -191,10 +191,10 @@ For metrics with a **Unit** value of **Count** only total (sum) aggregation is v
 |Routing: messages delivered to storage|d2c.endpoints.egress.<br>storage|Count|Total|The number of times IoT Hub routing successfully delivered messages to storage endpoints.|None|
 |Routing: telemetry messages delivered|d2c.telemetry.egress.<br>success|Count|Total|The number of times messages were successfully delivered to all endpoints using IoT Hub routing. If a message is routed to multiple endpoints, this value increases by one for each successful delivery. If a message is delivered to the same endpoint multiple times, this value increases by one for each successful delivery.|None|
 |Routing: telemetry messages dropped |d2c.telemetry.egress.<br>dropped|Count|Total|The number of times messages were dropped by IoT Hub routing due to dead endpoints. This value does not count messages delivered to fallback route as dropped messages are not delivered there.|None|
-|Routing: telemetry messages incompatible|d2c.telemetry.egress.<br>invalid|Count|Total|The number of times IoT Hub routing failed to deliver messages due to an incompatibility with the endpoint. A message is incompatible with an endpoint when Iot Hub attempts to deliver the message to an endpoint and it fails with an non transient error. Invalid messages are not retried. This value does not include retries.|None|
+|Routing: telemetry messages incompatible|d2c.telemetry.egress.<br>invalid|Count|Total|The number of times IoT Hub routing failed to deliver messages due to an incompatibility with the endpoint. A message is incompatible with an endpoint when Iot Hub attempts to deliver the message to an endpoint and it fails with a non-transient error. Invalid messages are not retried. This value does not include retries.|None|
 |Routing: telemetry messages orphaned |d2c.telemetry.egress.<br>orphaned|Count|Total|The number of times messages were orphaned by IoT Hub routing because they didn't match any routing query, when fallback route is disabled.|None|
 
-For metrics with a **Unit** value of **Count** only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
+For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
 ### Twin query metrics
 
@@ -204,7 +204,7 @@ For metrics with a **Unit** value of **Count** only total (sum) aggregation is v
 |Successful twin queries|twinQueries.success|Count|Total|The count of all successful twin queries.|None|
 |Twin queries result size|twinQueries.resultSize|Bytes|Average|The total of the result size of all successful twin queries.|None|
 
-For metrics with a **Unit** value of **Count** only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
+For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
 ## Metric dimensions
 
