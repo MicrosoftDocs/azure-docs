@@ -147,20 +147,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. From the left navigation panel, select **User** tab.
 
-	![uniFLOW Online Configuration](./media/uniflow-online-tutorial/configure1.png)
+	![Screenshot shows User selected from the uniflow Online site.](./media/uniflow-online-tutorial/configure1.png)
 
 1. Click **Identity providers**.
 
-	![uniFLOW Online Configuration](./media/uniflow-online-tutorial/configure2.png)
+	![Screenshot shows Identity Providers selected.](./media/uniflow-online-tutorial/configure2.png)
 
 1. Click on **Add identity provider**.
 
-	![uniFLOW Online Configuration](./media/uniflow-online-tutorial/configure3.png)
+	![Screenshot shows Add identity provider selected.](./media/uniflow-online-tutorial/configure3.png)
 
 1. On the **ADD IDENTITY PROVIDER** section, perform the following steps:
 
-
-	![uniFLOW Online Configuration](./media/uniflow-online-tutorial/configure4.png)
+	![Screenshot shows the ADD IDENTITY PROVIDER section where you can enter the values described.](./media/uniflow-online-tutorial/configure4.png)
 
 	a. Enter the Display name Ex: *AzureAD SSO*.
 
@@ -172,7 +171,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the **General** tab, perform the following steps:
 
-	![uniFLOW Online Configuration](./media/uniflow-online-tutorial/configure5.png)
+	![Screenshot shows the General tab where you can enter the values described.](./media/uniflow-online-tutorial/configure5.png)
 
 	a. Enter the Display name Ex: *AzureAD SSO*.
 
