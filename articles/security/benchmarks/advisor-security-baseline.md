@@ -148,7 +148,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 *For more information, see the [Azure Security Benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
 
-### ID-1: Standardize Azure Active Directory as the central identity and authentication system
+### IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39520.).
@@ -165,7 +165,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Not applicable
 
-### ID-2: Manage application identities securely and automatically
+### IM-2: Manage application identities securely and automatically
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39521.).
@@ -182,7 +182,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Not applicable
 
-### ID-3: Use Azure AD single sign-on (SSO) for application access
+### IM-3: Use Azure AD single sign-on (SSO) for application access
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39522.).
@@ -199,7 +199,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Not applicable
 
-### ID-4: Use strong authentication controls for all Azure Active Directory based access
+### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39523.).
@@ -216,7 +216,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Not applicable
 
-### ID-5: Monitor and alert on account anomalies
+### IM-5: Monitor and alert on account anomalies
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39524.).
@@ -233,7 +233,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Not applicable
 
-### ID-6: Restrict Azure resource access based on conditions
+### IM-6: Restrict Azure resource access based on conditions
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39525.).
@@ -250,7 +250,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Not applicable
 
-### ID-7: Eliminate unintended credential exposure
+### IM-7: Eliminate unintended credential exposure
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39526.).
@@ -267,7 +267,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Not applicable
 
-### ID-8: Secure user access to legacy applications
+### IM-8: Secure user access to legacy applications
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39562.).
@@ -740,9 +740,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### IR-2: Preparation – setup incident notification
 
@@ -757,9 +757,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### IR-3: Detection and analysis – create incidents based on high quality alerts
 
@@ -774,9 +774,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### IR-4: Detection and analysis – investigate an incident
 
@@ -791,9 +791,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### IR-5: Detection and analysis – prioritize incidents
 
@@ -808,9 +808,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### IR-6: Containment, eradication and recovery – automate the incident handling
 
@@ -825,9 +825,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Posture and Vulnerability Management
 
