@@ -58,7 +58,7 @@ Azure Update Management in Azure Automation manages operating system updates for
 
 3. To enable Azure Update Management for your VMs, see [Enable Update Management from an Automation account](../automation/update-management/update-mgmt-enable-automation-account.md). In the process, you will link your Log Analytics workspace with your automation account. 
  
-4. Once you've added VMs to Azure Update Management, you can [Deploy updates on VMs and review results](../automation/update-management/update-mgmt-deploy-updates.md). 
+4. Once you've added VMs to Azure Update Management, you can [Deploy updates on VMs and review results](../automation/update-management/deploy-updates.md). 
 
 ### Enable Azure Security Center
 
