@@ -29,21 +29,21 @@ We currently support Microsoft Azure Active Directory as the identity provider.
 
 We support versions 4.0.0 and 3.0.1 on both the Azure API for FHIR (PaaS) and FHIR Server for Azure (open source).
 
-For details, see [Supported features](fhir-features-supported.md). Read about what has changed between versions in the [version history for HL7 FHIR](https://hl7.org/fhir/R4/history.html).
+For details, see [Supported features](fhir-features-supported.md). Read about what has changed between FHIR versions (i.e. STU3 to R4) in the [version history for HL7 FHIR](https://hl7.org/fhir/R4/history.html).
 
-Azure IoT Connector for FHIR (preview) currently supports only FHIR version R4, and is visible only on the R4 instances of Azure API for FHIR.
+Azure IoT Connector for FHIR (preview) currently supports only FHIR version R4, and is visible only on R4 instances of Azure API for FHIR.
 
 ### What's the difference between 'Microsoft FHIR Server for Azure' and the 'Azure API for FHIR'?
 
 The Azure API for FHIR is a hosted and managed version of the open-source Microsoft FHIR Server for Azure. In the managed service, Microsoft provides all maintenance and updates. 
 
-When you're running FHIR Server for Azure, you have direct access to the underlying services. But you're also responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
+When you run the FHIR Server for Azure, you have direct access to the underlying services, but are responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
 
-From a development standpoint, every feature is deployed to the open-source Microsoft FHIR Server for Azure first. Once it has been validated in open-source, it will be released to the PaaS Azure API for FHIR solution. The time between the release in open-source and PaaS depends on the complexity of the feature and other roadmap priorities. This is the same process for all of our services, such as Azure IoT Connector for FHIR (preview).
+For a development standpoint, every feature that doesn't apply only to the managed service is first deployed to the open-source Microsoft FHIR Server for Azure. Once it has been validated in open-source, it will be released to the PaaS Azure API for FHIR solution. The time between the release in open-source and PaaS depends on the complexity of the feature and other roadmap priorities. This is the same process for all of our services, such as Azure IoT Connector for FHIR (preview).
 
 ### Where can I see what is releasing into the Azure API for FHIR?
 
-To see some of what is releasing into the Azure API for FHIR, please refer to the [release](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. Starting in November 2020, we have worked to tag items with Azure-API-for-FHIR if they will release to the managed service and are usually available two weeks after they are on the release page in open-source. We have also included instructions on how to test the build [here](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you would like to test in your own environment. We are evaluating how to best share additional managed service updates.
+To see some of what is releasing into the Azure API for FHIR, please refer to the [release](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. Starting in November 2020, we have tagged items with Azure-API-for-FHIR if the open-source item will release to the managed service. These features are typically available two weeks after they are on the release page in open-source. We have also included instructions on how to test the build [here] (https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you would like to test in your own environment. We are evaluating how to best share additional managed service updates.
 
 ### In which regions is Azure API for FHIR Available?
 
