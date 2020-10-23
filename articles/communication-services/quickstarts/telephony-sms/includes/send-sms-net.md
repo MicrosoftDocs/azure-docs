@@ -112,3 +112,7 @@ Run the application from your application directory with the `dotnet run` comman
 ```console
 dotnet run
 ```
+
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendSMS)

@@ -149,7 +149,7 @@ The following roles can read Azure AD reports:
 
 * Report Reader
 
-Learn More About [Azure AD Administrative Roles](../users-groups-roles/directory-assign-admin-roles.md).
+Learn More About [Azure AD Administrative Roles](../roles/permissions-reference.md).
 
 *Always apply the concept of least privileges to reduce the risk of an account compromise*. Consider implementing [Privileged Identity Management](../privileged-identity-management/pim-configure.md) to further secure your organization.
 
