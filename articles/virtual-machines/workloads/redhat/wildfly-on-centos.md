@@ -1,10 +1,12 @@
+
 ---
 title: Quickstart - WildFly on CentOS
 description: Deploy Java applications to WildFly on CentOS VM
 services: virtual-machines-linux
 documentationcenter: ''
-ms.author: Theresa Nguyen
-ms.topic: articles
+author: Theresa-Nguyen
+ms.author: bicnguy
+ms.topic: article
 manager: westonh
 editor: ''
 ms.service:  virtual-machines-linux
@@ -63,7 +65,7 @@ You can deploy the template in the following three ways:
 
     `New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json`
     
-- Use Azure CLI - Deploy the template by running the following commands: (Check out [Azure Cross-Platform Command Line](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for details on installing and configuring the Azure Cross-Platform Command-Line Interface).
+- Use Azure CLI - Deploy the template by running the following commands: (Check out [Azure Cross-Platform Command Line](https://docs.microsoft.com/cli/azure/install-azure-cli) for details on installing and configuring the Azure Cross-Platform Command-Line Interface).
 
     `az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment`
 
