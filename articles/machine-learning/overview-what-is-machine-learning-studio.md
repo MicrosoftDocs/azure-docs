@@ -93,7 +93,9 @@ The following table summarizes the key differences between ML Studio (classic) a
 ## Next steps
 
 Visit the [studio](https://ml.azure.com), or explore the different authoring options with these tutorials:  
-  + [Use Python notebooks to train & deploy models](tutorial-1st-experiment-sdk-setup.md)
+
+- + [Get started in your own development environment](tutorial-1st-experiment-sdk-setup-local.md)
+  + [Use Jupyter notebooks on a compute instance to train & deploy models](tutorial-1st-experiment-sdk-setup.md)
   + [Use automated machine learning to train & deploy models](tutorial-first-experiment-automated-ml.md)  
   + [Use the designer to train & deploy models](tutorial-designer-automobile-price-train-score.md)
 

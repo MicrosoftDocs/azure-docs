@@ -1,9 +1,8 @@
 ---
 title: Connect hybrid machines to Azure from the Azure portal
 description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc enabled servers from the Azure portal.
-ms.date: 09/24/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.custom: references_regions
 ---
 
 # Connect hybrid machines to Azure from the Azure portal
@@ -12,7 +11,7 @@ You can enable Azure Arc enabled servers for one or a small number of Windows or
 
 This method requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, you are member of the Local Administrators group.
 
-Before you get started, be sure to review the [prerequisites](agent-overview.md#prerequisites) and verify that your subscription and resources meet the requirements.
+Before you get started, be sure to review the [prerequisites](agent-overview.md#prerequisites) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -20,22 +19,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The script to automate the download and installation, and to establish the connection with Azure Arc, is available from the Azure portal. To complete the process, do the following:
 
-1. From your browser, go to the [Azure portal](https://aka.ms/hybridmachineportal).
+1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
 1. On the **Servers - Azure Arc** page, select **Add** at the upper left.
 
 1. On the **Select a method** page, select the **Add servers using interactive script** tile, and then select **Generate script**.
 
-1. On the **Generate script** page, select the subscription and resource group where you want the machine to be managed within Azure. Select an Azure location where the machine metadata will be stored.
-
-    >[!NOTE]
-    >Azure Arc enabled servers supports only the following regions:
-    >- EastUS
-    >- WestUS2
-    >- WestEurope
-    >- SoutheastAsia
-    >
-    >Review additional considerations when selecting a region [here](overview.md#supported-regions) in the Overview article.
+1. On the **Generate script** page, select the subscription and resource group where you want the machine to be managed within Azure. Select an Azure location where the machine metadata will be stored. This location can be the same or different, as the resource group's location.
 
 1. On the **Prerequisites** page, review the information and then select **Next: Resource details**.
 
@@ -79,7 +69,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
     msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
     ```
 
-    If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+    If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%ProgramData%\AzureConnectedMachineAgent\log*.
 
 2. If the machine needs to communicate through a proxy server, to set the proxy server environment variable, run the following command:
 
@@ -112,7 +102,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
 
 1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.ps1` script.
 
-If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
+If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%ProgramData%\AzureConnectedMachineAgent\log*.
 
 ## Install and validate the agent on Linux
 

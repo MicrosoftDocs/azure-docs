@@ -460,7 +460,7 @@
       - name: Direct
         href: direct-tutorial.md
       - name: Directions on Microsoft
-        href: directions-microsoft-tutorial.md
+        href: ./tutorial-list.md
       - name: Discovery Benefits SSO
         href: discovery-benefits-sso-tutorial.md
       - name: Displayr
@@ -1375,7 +1375,7 @@
       - name: Recognize
         href: recognize-tutorial.md
       - name: RedBrick Health
-        href: redbrickhealth-tutorial.md
+        href: ./redbrick-health-tutorial.md
       - name: RedVector
         href: redvector-tutorial.md
       - name: Reflektive
@@ -1945,6 +1945,8 @@
       items:
       - name: Airstack
         href: airstack-provisioning-tutorial.md
+      - name: AlertMedia
+        href: alertmedia-provisioning-tutorial.md
       - name: Amazon Web Services (AWS) - Role Provisioning
         href: amazon-web-service-tutorial.md#configure-azure-ad-sso
       - name: Apple Business Manager
@@ -1956,7 +1958,7 @@
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
       - name: Azure Databricks SCIM Connector
-        href: https://docs.microsoft.com/azure/databricks/administration-guide/users-groups/scim/aad?toc=/azure/active-directory/saas-apps/toc.json&bc=/azure/active-directory/saas-apps/breadcrumb/toc.json 
+        href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%252fazure%252factive-directory%252fsaas-apps%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fsaas-apps%252ftoc.json
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: Blink
@@ -2015,6 +2017,8 @@
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
         href: github-provisioning-tutorial.md
+      - name: Global Relay Identity Sync
+        href: global-relay-identity-sync-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: Harness
@@ -2069,7 +2073,7 @@
         href: myday-provision-tutorial.md
     - name: N - Z
       items:
-      - name: Netskope Administrator Console
+      - name: Netskope User Authentication
         href: netskope-administrator-console-provisioning-tutorial.md
       - name: New Relic by Organization
         href: new-relic-by-organization-provisioning-tutorial.md
@@ -2077,6 +2081,8 @@
         href: netsuite-provisioning-tutorial.md
       - name: OfficeSpace Software
         href: officespace-software-provisioning-tutorial.md
+      - name: OpenText Directory Services
+        href: open-text-directory-services-provisioning-tutorial.md
       - name: Oracle Cloud Infrastructure Console
         href: oracle-cloud-infratstructure-console-provisioning-tutorial.md
       - name: Oracle Fusion ERP
