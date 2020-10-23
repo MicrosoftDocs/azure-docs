@@ -983,7 +983,7 @@ Examples of built-in policy definitions for AKS include:
 
 •	Authorized IP ranges should be defined on Kubernetes Services
 
-•	Based Access Control (RBAC) should be used on Kubernetes Services
+•	Role-Based Access Control (RBAC) should be used on Kubernetes Services
 
 •	Ensure only allowed container images in Kubernetes cluster
 
@@ -1331,10 +1331,9 @@ Clearly mark subscriptions (for example, production, non-production) and create 
 
 ### 10.3: Test security response procedures
 
-**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
+**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Refer to the NIST's publication to identify weak points and gaps and revise plan as needed.
 
-Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT 
-- [Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
+- [Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Azure Security Center monitoring**: Not applicable
 
