@@ -17,7 +17,7 @@ Use the Face client library for .NET to:
 
 * [Detect faces in an image](#detect-faces-in-an-image)
 * [Find similar faces](#find-similar-faces)
-* [Create and train a person group](#create-and-train-a-person-group)
+* [Create a person group](#create-a-person-group)
 * [Identify a face](#identify-a-face)
 
 [Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1) | [Samples](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
@@ -119,7 +119,7 @@ The code snippets below show you how to do the following tasks with the Face cli
 * [Authenticate the client](#authenticate-the-client)
 * [Detect faces in an image](#detect-faces-in-an-image)
 * [Find similar faces](#find-similar-faces)
-* [Create and train a person group](#create-and-train-a-person-group)
+* [Create a person group](#create-a-person-group)
 * [Identify a face](#identify-a-face)
 
 ## Authenticate the client
