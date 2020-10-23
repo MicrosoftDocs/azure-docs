@@ -103,7 +103,7 @@ To remove a scan, select one or more scans from the list, then click Remove.
 Click on any scan in the list to get to the scan history page. This page will show you whether your scan was schedule or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan and the total duration.
 
 **Run a scan manually**
-From the Scan History page, you can choose Run Scan now to launch a new scan immediately. This action will run a full scan, not an incremental scan.
+From the **Scan History** page, you can choose **Run Scan now** to launch a new scan immediately. This action will run a full scan, not an incremental scan.
 
 **Cancel scans in progress**
 Select one or more scans that are in progress by selecting the checkbox for each.
