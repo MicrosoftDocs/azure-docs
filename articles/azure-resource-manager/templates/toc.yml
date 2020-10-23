@@ -359,6 +359,8 @@
         href: deploy-to-management-group.md
       - name: Tenant
         href: deploy-to-tenant.md
+      - name: Extension resources
+        href: scope-extension-resources.md
       - name: Functions across scopes
         href: scope-functions.md
     - name: What-if deployment

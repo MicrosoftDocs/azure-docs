@@ -53,7 +53,10 @@ For templates, use:
 The schema for a parameter file is the same for all deployment scopes. For parameter files, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
 
 ## Required access

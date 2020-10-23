@@ -47,13 +47,19 @@ The schema you use for management group deployments is different than the schema
 For templates, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    ...
+}
 ```
 
 The schema for a parameter file is the same for all deployment scopes. For parameter files, use:
 
 ```json
-https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    ...
+}
 ```
 
 ## Deployment commands
