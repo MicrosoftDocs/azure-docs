@@ -24,7 +24,7 @@ Depending on your Azure subscription [support plan](https://azure.microsoft.com/
 In order to help debug certain issues, a member of the product group might ask for some of the following information:
 
 * Call ID
-* Chat ID
+* Chat message and thread IDs
 * MS-CV
 
 Below are instructions on how to collect this information.
@@ -58,7 +58,7 @@ Log.d(call.getCallId())
 ---
 
 
-## Chat ID
+## Message and Thread IDs
 
 
 ## MS-CV
