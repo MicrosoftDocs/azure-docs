@@ -5,7 +5,7 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 
 ms.author: mimart
 author: msmimart
@@ -318,4 +318,4 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 
 ## Next steps
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-- Get started with our [Azure Function quickstart samples](code-samples.md#api-connectors).
+- Get started with our [samples](code-samples.md#api-connectors).
