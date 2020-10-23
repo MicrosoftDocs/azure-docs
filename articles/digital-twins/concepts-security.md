@@ -21,7 +21,7 @@ For security, Azure Digital Twins enables precise access control over specific d
 
 Azure Digital Twins also supports encryption of data at rest.
 
-## Granting permissions with Azure RBAC
+## Roles and permissions with Azure RBAC
 
 Azure RBAC is provided to Azure Digital Twins via integration with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
@@ -48,9 +48,12 @@ With managed identities, the Azure platform manages this runtime identity. You d
 
 #### Authorization: Azure roles for Azure Digital Twins
 
-Azure provides the below Azure built-in roles for authorizing access to an Azure Digital Twins resource:
-* *Azure Digital Twins Data Owner* – Use this role to give full access over Azure Digital Twins resources.
-* *Azure Digital Twins Data Reader* – Use this role to give read-only access to Azure Digital Twins resources.
+Azure provides two Azure built-in roles for authorizing access to an Azure Digital Twins resource:
+
+| Role name | Role GUID | Description
+| --- | --- | --- |
+| *Azure Digital Twins Data Owner* | *bcd981a7-7f74-457b-83e1-cceb9e632ffe* | Use this role to give full access over Azure Digital Twins resources. |
+| *Azure Digital Twins Data Reader* | *d57506d4-4c8d-48b1-8587-93c323f6a5a3* | Use this role to give read-only access to Azure Digital Twins resources. |
 
 >[!NOTE]
 > These roles were recently renamed from their earlier names in preview:
@@ -64,6 +67,13 @@ You can assign roles in two ways:
 * via CLI commands to add or remove a role
 
 For more detailed steps on how to do this, try it out in the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md).
+
+##### Automating roles
+
+When referring to roles in automated scenarios, it's recommended to refer to them by their **GUIDS** rather than their names. The names may change between releases, but the GUIDS will not, so they're a more stable reference in automation.
+
+> [!TIP]
+> If you're assiging roles with a cmdlet, such as `New-AzRoleAssignment` ([reference](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)), you can use the `-RoleDefinitionId` parameter instead of `-RoleDefinitionName` to pass a GUID instead of a name for the role.
 
 ### Permission scopes
 
