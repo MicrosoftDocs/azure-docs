@@ -67,7 +67,7 @@ To do this in the Azure portal:
 ![Screenshot showing service principal authorization](./media/register-scan-azure-data-explorer/service-principal-auth.png)
 
 ## Create and run a scan
-After you have setup your authentication type, click Continue. 
+After you have set up your authentication type, select **Continue**.
 
 **Scope your scan**
 The next screen here is to scope the scan. Please select the folders you want to scan and click continue (by default all the folders will be selected)
