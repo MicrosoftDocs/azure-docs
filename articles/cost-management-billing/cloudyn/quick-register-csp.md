@@ -15,7 +15,9 @@ ROBOTS: NOINDEX
 
 # Register with the CSP Partner program and view cost data
 
-As a CSP partner, you can register with Cloudyn. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal.
+As a CSP partner and a registered Cloudyn user, you can view and analyze your cloud spend in Cloudyn. [Azure Cost Management is natively available for direct partners](../costs/get-started-partners.md) who have onboarded their customers to a Microsoft Customer Agreement and have purchased an Azure Plan.
+
+Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal.
 
 [!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
