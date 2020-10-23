@@ -20,7 +20,7 @@ Many of the steps in this document use the following utilities, which may need t
 
 * [cURL](https://curl.haxx.se/) - used to communicate with web-based services.
 * **jq**, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) - used to remotely manage Azure services.
+* [Azure CLI](/cli/azure/install-azure-cli) - used to remotely manage Azure services.
 * **An SSH client**. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Users
@@ -186,7 +186,7 @@ There are a various ways to access data from outside the HDInsight cluster. The 
 
 If using __Azure Blob storage__, see the following links for ways that you can access your data:
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Command-Line interface commands for working with Azure. After installing, use the `az storage` command for help on using storage, or `az storage blob` for blob-specific commands.
+* [Azure CLI](/cli/azure/install-az-cli2): Command-Line interface commands for working with Azure. After installing, use the `az storage` command for help on using storage, or `az storage blob` for blob-specific commands.
 * [blobxfer.py](https://github.com/Azure/blobxfer): A python script for working with blobs in Azure Storage.
 * Various SDKs:
 
