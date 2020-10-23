@@ -99,7 +99,7 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > ```
 >
 > > [!TIP]
-> > To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal. Go under **Certificates & Secrets** to retrieve or generate a new **Client Secret**.
+> > To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal. Go under **Certificates & secrets** to retrieve or generate a new **Client secret**.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
