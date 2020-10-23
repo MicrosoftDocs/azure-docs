@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 10/23/2020
 
 ---
 # Request Units in Azure Cosmos DB
@@ -24,16 +24,16 @@ To manage and plan capacity, Azure Cosmos DB ensures that the number of RUs for 
 
 The type of Azure Cosmos account you're using determines the way consumed RUs get charged. There are 3 modes in which you can create an account:
 
-* **Provisioned throughput mode**: In this mode, you provision the number of RUs for your application on a per-second basis in increments of 100 RUs per second. To scale the provisioned throughput for your application, you can increase or decrease the number of RUs at any time in increments or decrements of 100 RUs. You can make your changes either programmatically or by using the Azure portal. You are billed on an hourly basis for the amount of RUs per second you have provisioned. To learn more, see the [Provisioned throughput](set-throughput.md) article.
+1. **Provisioned throughput mode**: In this mode, you provision the number of RUs for your application on a per-second basis in increments of 100 RUs per second. To scale the provisioned throughput for your application, you can increase or decrease the number of RUs at any time in increments or decrements of 100 RUs. You can make your changes either programmatically or by using the Azure portal. You are billed on an hourly basis for the amount of RUs per second you have provisioned. To learn more, see the [Provisioned throughput](set-throughput.md) article.
 
   You can provision throughput at two distinct granularities:
 
   * **Containers**: For more information, see [Provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
   * **Databases**: For more information, see [Provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
 
-* **Serverless mode**: In this mode, you don't have to provision any throughput when creating resources in your Azure Cosmos account. At the end of your billing period, you get billed for the amount of Request Units that has been consumed by your database operations. To learn more, see the [Serverless throughput](serverless.md) article. 
+2. **Serverless mode**: In this mode, you don't have to provision any throughput when creating resources in your Azure Cosmos account. At the end of your billing period, you get billed for the amount of Request Units that has been consumed by your database operations. To learn more, see the [Serverless throughput](serverless.md) article. 
 
-* **Autoscale mode**: In this more, you can automatically and instantly scale the throughput (RU/s) of your database or container based on it's usage, without impacting the availability, latency, throughput, or performance of the workload. This mode is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale. To learn more, see the [autoscale throughput](provision-throughput-autoscale.md) article. 
+3. **Autoscale mode**: In this more, you can automatically and instantly scale the throughput (RU/s) of your database or container based on it's usage, without impacting the availability, latency, throughput, or performance of the workload. This mode is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale. To learn more, see the [autoscale throughput](provision-throughput-autoscale.md) article. 
 
 ## Request Unit considerations
 
@@ -78,7 +78,6 @@ Your choice of [consistency model](consistency-levels.md) also affects the throu
 - Learn more about how to [provision throughput on Azure Cosmos containers and databases](set-throughput.md).
 - Learn more about [serverless on Azure Cosmos DB](serverless.md).
 - Learn more about [logical partitions](./partitioning-overview.md).
-- Learn more about how to [globally scale provisioned throughput]().
 - Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
 - Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
 - Learn how to [find the request unit charge for an operation](find-request-unit-charge.md).
