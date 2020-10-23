@@ -90,7 +90,7 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > Modify the values in the `config` section as described here:
 >
 > - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
-> - `Enter_the_Client_Secret_Here` is the **Value** of the **Client Secret** for the application you registered.
+> - `Enter_the_Client_Secret_Here` is the **Value** of the **Client secret** for the application you registered.
 >
 > The default `authority` value represents the main (global) Azure cloud:
 >
