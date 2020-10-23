@@ -39,7 +39,7 @@ To do this in the Azure portal:
 
 1. Navigate to **portal.azure.com**
 
-2. Select **"Azure Active Directory"** from the top search bar
+2. Search for **"Azure Active Directory"** in the top search bar.
 
 3. Select **App registrations**
 
