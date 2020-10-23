@@ -54,7 +54,7 @@ landingContent:
         - text: Integrate Power BI to analyze customer sentiment
           url: tutorials/tutorial-power-bi-key-phrases.md
         - text: Use Flask to translate text, analyze sentiment, and synthesize speech
-          url: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+          url: ../translator/tutorial-build-flask-app-translation-synthesis.md?bc=https%253a%252f%252fdocs.microsoft.com%252fen-us%252fazure%252fbread%252ftoc.json&toc=https%253a%252f%252fdocs.microsoft.com%252fen-us%252fazure%252fcognitive-services%252ftext-analytics%252ftoc.json
     - linkListType: how-to-guide
       links:
         - text: Sentiment analysis
@@ -125,19 +125,19 @@ landingContent:
         - text: REST API
           url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7
         - text: .NET client library
-          url: https://docs.microsoft.com/dotnet/api/overview/azure/ai.textanalytics-readme?view=azure-dotnet
+          url: /dotnet/api/overview/azure/ai.textanalytics-readme?view=azure-dotnet
         - text: Python client library
-          url: https://docs.microsoft.com/python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+          url: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
         - text: JavaScript client library
-          url: https://docs.microsoft.com/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest
+          url: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest
         - text: Java client library
-          url: https://docs.microsoft.com/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable
+          url: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable
         - text: Go client library
           url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics
         - text: Azure PowerShell 
-          url: https://docs.microsoft.com/powershell/module/az.cognitiveservices
+          url: /powershell/module/az.cognitiveservices
         - text: Azure CLI 
-          url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+          url: /cli/azure/cognitiveservices?view=azure-cli-latest
 
 - title: Use Docker containers
   linkLists:
