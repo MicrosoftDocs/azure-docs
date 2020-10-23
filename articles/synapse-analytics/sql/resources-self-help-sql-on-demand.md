@@ -32,7 +32,7 @@ If your query fails with the error message 'This query can't be executed due to 
 
 - Make sure data types of reasonable sizes are used. Also, specify schema for Parquet files for string columns as they'll be VARCHAR(8000) by default. 
 
-- If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-sql-on-demand-preview). 
+- If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview). 
 
 - Visit [performance best practices for SQL on-demand](best-practices-sql-on-demand.md) to optimize query.  
 

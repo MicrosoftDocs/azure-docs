@@ -81,7 +81,7 @@ The following image is an example of how you can write a PySpark query using the
 
 You cannot reference data or variables directly across different languages in a Synapse Studio notebook. In Spark, a temporary table can be referenced across languages. Here is an example of how to read a `Scala` DataFrame in `PySpark` and `SparkSQL` using a Spark temp table as a workaround.
 
-1. In Cell 1, read a DataFrame from SQL pool connector using Scala and create a temporary table.
+1. In Cell 1, read a DataFrame from a SQL pool connector using Scala and create a temporary table.
 
    ```scala
    %%scala
