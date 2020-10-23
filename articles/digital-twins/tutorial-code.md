@@ -36,7 +36,7 @@ What you need to begin:
 
 [!INCLUDE [Azure Digital Twins tutorials: instance prereq](../../includes/digital-twins-tutorial-prereq-instance.md)]
 
-[!INCLUDE [Azure Digital Twins: local credentials prereq](../../includes/digital-twins-local-credentials.md)]
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
 
 ## Set up project
 

@@ -87,11 +87,7 @@ try
 
 #### Set up local Azure credentials
 
-With `DefaultAzureCredential`, the code will search for credentials within your local environment, such as an Azure login in a local [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) or in Visual Studio/Visual Studio Code. This means that you should **log into Azure locally** through one of these mechanisms to set up credentials for your app.
-
-If you're using Visual Studio or Visual Studio Code to run your code, ensure that you're logged into that editor using the same Azure credentials that you want to use to access your Azure Digital Twins instance.
-
-Otherwise, you can [install the local **Azure CLI**](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true), start a command prompt on your machine, and run the `az login` command to log into your Azure account. After this, when you run your code sample, it should log you in automatically.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (inner)](../../includes/digital-twins-local-credentials-inner.md)]
 
 ### ManagedIdentityCredential method
 

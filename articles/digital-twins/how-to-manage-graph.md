@@ -236,7 +236,7 @@ Before you run the sample, do the following:
     ```
 
 You'll also need to set up local credentials if you want to run the sample directly. The next section walks through this.
-[!INCLUDE [Azure Digital Twins: local credentials prereq](../../includes/digital-twins-local-credentials.md)]
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
 
 ### Run the sample
 

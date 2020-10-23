@@ -1,6 +1,6 @@
 ---
 author: baanders
-description: include file note for DefaultAzureCredential in Azure Digital Twins samples
+description: include file for DefaultAzureCredential in Azure Digital Twins samples - note
 ms.service: digital-twins
 ms.topic: include
 ms.date: 10/22/2020

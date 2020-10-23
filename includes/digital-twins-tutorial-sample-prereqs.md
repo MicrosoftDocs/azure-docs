@@ -19,4 +19,4 @@ This will download a *.ZIP* folder to your machine as **Azure_Digital_Twins_end_
 
 [!INCLUDE [Azure Digital Twins tutorials: instance prereq](digital-twins-tutorial-prereq-instance.md)]
 
-[!INCLUDE [Azure Digital Twins: local credentials prereq](digital-twins-local-credentials.md)]
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
