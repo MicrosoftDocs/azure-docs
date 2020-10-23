@@ -1,5 +1,5 @@
 ---
-title: Check IoT Hub service and resource health | Microsoft Docs
+title: Check Azure IoT Hub service and resource health | Microsoft Docs
 description: Use Azure Service Health and Azure Resource Health to monitor your IoT Hub
 author: robinsh
 ms.service: iot-hub
@@ -51,3 +51,7 @@ To learn how to set up alerts with Azure Service Health, see [Configure alerts f
 ## Check health of the IoT Hub service by region on Azure status page
 
 To see the status of IoT Hub and other services by region world-wide, you can use the [Azure status page](https://status.azure.com/status). For more information about the Azure status page, see [Azure status overview](../service-health/azure-status-overview.md) in the Azure Service Health documentation.
+
+## Next steps
+
+* See [Monitor Azure IoT Hub](monitor-iot-hub.md) for a description of monitoring Azure IoT Hub.
