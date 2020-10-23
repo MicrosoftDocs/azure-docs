@@ -1,6 +1,6 @@
 ---
-title: Use ARM template to publish IoT Hub, storage account, route messages
-description: Use ARM template to publish IoT Hub, storage account, route messages
+title: Use ARM template to publish Azure IoT Hub, storage account, route messages
+description: Use ARM template to publish Azure IoT Hub, storage account, route messages
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -100,7 +100,7 @@ This section provides the steps to deploy the template, create a virtual device,
 
    ![See environment variables](./media/horizontal-arm-route-messages/06-environment-variables.png)
 
-Now the environment variables are set, run the application from the same command window. Because you're using the same window, the variables will be accessible in memory when you run the application.
+    Now the environment variables are set, run the application from the same command window. Because you're using the same window, the variables will be accessible in memory when you run the application.
 
 1. To run the application, type the following command in the command window and press **Enter**.
 
