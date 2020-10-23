@@ -89,15 +89,43 @@ Check `logs/sys/master_role.*.txt`. Usually, this is in the first `master_role` 
 
 [TBD for tabular dataset]
 
-## Mini batch processing metrics
+## Mini batch processing metrics, include durations of entry script functions
+`logs/sys/job_report/processed_mini-batches.csv` (`logs/sys/report/processed_tasks.csv` in previous versions).
+This file includes the durations for calling entry script methods and the methods themselves.
 
-### logs/job_
+> [!div class="mx-imgBorder"]
+> ![Mini batch processing metrics](media/how-to-tune-performance-of-parallel-run-step/processed-mini-batches.png)
 
-## Duration of Entry Script Functions
+### Columns of the table
+Column Name       | Note
+---               |---
+Mini-batch Id      | The Id of a mini batch.
+Picked Count       | The round of processing a mini batch.
+Process            | The name of the process. It will be used in log file names.
+Process	Start Time | The start time in Utc of processing a mini batch in the term of ParallelRunStep.
+Total	           | The number of total items in the mini batch.
+Succeeded	       | The number of succeeded items in the mini batch. This is from the returned value of run().
+Failed	           | The number of failed items. Failed = Total - Succeeded.
+Elapsed Seconds    | The duration of processing a mini batch.
+Process Seconds    | The sum of the system and user CPU time of the current process. It does not include time elapsed during sleep. It is process-wide by definition. See [process_time() in Python doc](https://docs.python.org/3/library/time.html#time.process_time). If Process Seconds > Elapsed Seconds, it means more than one core is used. For CPU intensive work, the ratio `Process Seconds / Elapsed Seconds` tells if a machine's capacity is well used. Given the operating system and services running on it also need CPU, the ratio should usually be less than 70%.
+Run Method Seconds | The duration of the run() method itself, by excluding the pre-processing and pos-processing.
+Status             | The type of the metric.
+Error Category     | The classification of the exception if it failed.
+Error Message      | The error message of a failed mini batch.
+Mini-batch Detail  | The json string of the mini batch.
+
+### Analysis Using PivotTable
+
+[Add processed mini batch count/average durations over time here]
+
+### process_summary.csv
+
+### node_summary.csv
 
 
 
-## Introduction to Performance Report
+
+## Resource Usage Report
 The performance report is located in `logs/sys/perf/`. It consists of resource usage reports in several dimensions. All reports are grouped by node. Under folder of each node, the below files are included:
 
 - `node_resource_usage.csv`: This file provides an overview of resource usage of a node.
@@ -176,9 +204,6 @@ Understand ParallelRunStep flow
 1. processing
 1. agent manager
 1. entry script init(), run(), shutdown()
-1.
-1.
-1.
 
 Limits
 100 nodes,
