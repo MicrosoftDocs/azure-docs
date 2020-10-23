@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-1. From the [Azure portal](https://portal.azure.com), in **Search resources, services, and docs (G+/)** type *virtual network gateway**. Locate **Virtual network gateway** in the search results and select it.
+1. From the [Azure portal](https://portal.azure.com), in **Search resources, services, and docs (G+/)** type **virtual network gateway**. Locate **Virtual network gateway** in the search results and select it.
 
    :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/search.png" alt-text="Search field" lightbox="./media/vpn-gateway-add-gw-rm-portal-include/search-expand.png":::
 
@@ -22,8 +22,6 @@
    :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="Gateway fields":::
 
    :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="Additional gateway fields":::
-
-   **Project details**
 
    * **Subscription**: Select the subscription you want to use from the dropdown.
    * **Resource Group**: This setting is autofilled when you select your virtual network on this page.
