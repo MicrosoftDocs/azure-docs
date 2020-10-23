@@ -20,7 +20,11 @@ When a request is made to your app, the FROM address is evaluated against the IP
 
 The access restrictions capability is implemented in the App Service front-end roles, which are upstream of the worker hosts where your code runs. Therefore, access restrictions are effectively network ACLs.
 
-The ability to restrict access to your web app from an Azure Virtual Network (VNet) is called [service endpoints][serviceendpoints]. Service endpoints enable you to restrict access to a multi-tenant service from selected subnets. It must be enabled on both the networking side as well as the service that it is being enabled with. It does not work to restrict traffic to apps that are hosted in an App Service Environment. If you are in an App Service Environment, you can control access to your app with IP address rules.
+The ability to restrict access to your web app from an Azure Virtual Network (VNet) is called [service endpoints][serviceendpoints]. Service endpoints enable you to restrict access to a multi-tenant service from selected subnets. It does not work to restrict traffic to apps that are hosted in an App Service Environment. If you are in an App Service Environment, you can control access to your app with IP address rules.
+
+> [!NOTE]
+> Service endpoints must be enabled on both the networking side as well as the Azure service that it is being enabled with. Azure services that support Service Endpoints are available [here](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview)
+>
 
 ![access restrictions flow](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
