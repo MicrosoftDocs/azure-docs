@@ -5,7 +5,7 @@ author: lisaguthrie
 
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
-ms.topic: howto
+ms.topic: quickstart
 ms.date: 10/12/2020
 ms.author: lcozzens
 
