@@ -18,7 +18,7 @@ This article is one among a series of articles on Azure Cosmos DB Cassandra API 
 ## Prerequisites
 * [Provision an Azure Cosmos DB Cassandra API account.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Provision your choice of Spark environment [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Others].
+* Provision your choice of Spark environment [[Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) | Others].
 
 ## Dependencies for connectivity
 * **Spark connector for Cassandra:**

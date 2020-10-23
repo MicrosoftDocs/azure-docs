@@ -93,7 +93,7 @@ To configure Azure AD single sign-on with TAS, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![TAS Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://taseu.combtas.com/<DOMAIN>`
@@ -103,7 +103,7 @@ To configure Azure AD single sign-on with TAS, perform the following steps:
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![TAS Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://taseu.combtas.com/<DOMAIN>`
@@ -131,11 +131,11 @@ To configure Azure AD single sign-on with TAS, perform the following steps:
 
 2. On the left side of menu, click on **Settings** and navigate to **Administrator** and then click on **Manage Single sign on**.
 
-	![TAS Configuration](./media/tas-tutorial/configure01.png)
+	![Screenshot shows Manage Single sign on selected.](./media/tas-tutorial/configure01.png)
 
 3. On the **Manage Single sign on** page, perform the following steps:
 
-	![TAS Configuration](./media/tas-tutorial/configure02.png)
+	![Screenshot shows the Manage Single sign on page where you can enter the values described.](./media/tas-tutorial/configure02.png)
 
 	a. In the **Name** textbox, type your environment name.
 	

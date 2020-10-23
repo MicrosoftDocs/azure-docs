@@ -155,14 +155,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. Place any value in the **Reset Token** and click **Save Token** to enable SAML SSO.
 
-    ![Configuring single sign-on on app side][11]
+    ![Screenshot shows Application Security tab with Single Sign On Features called out where you can enter a token.][11]
 
     > [!NOTE]
     > This value is used as the on/off switch. If any value is saved, the SAML SSO is ON. If a blank value is saved the SAML SSO is OFF.
 
 4. Native to below screenshot and perform the following actions:
 
-    ![Configuring single sign-on on app side][12]
+    ![Screenshot shows the For SAML-based S S O pane where you can where you can enter the values described.][12]
   
     a. Select the **SAML v2 SSO** Radio Button
   
@@ -187,7 +187,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 5. Navigate to SAML V2, and then perform the following steps:
 
-    ![Configuring single sign-on on app side][13]
+    ![Screenshot shows the SAML v2 S P initiated logout pane where you can where you can enter the values described.][13]
 
     a. Select **Yes** as **Support SP-initiated Global Logout**.
 

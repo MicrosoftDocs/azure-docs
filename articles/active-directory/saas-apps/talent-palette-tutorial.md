@@ -94,14 +94,14 @@ To configure Azure AD single sign-on with Talent Palette, perform the following 
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Talent Palette Domain and URLs single sign-on information](common/both_replyurl.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter a Reply U R L.](common/both_replyurl.png)
 
 	In the **Reply URL** text box, type a URL using the following pattern:
     `https://talent-p.net/saml/acs/<tenantID>`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Talent Palette Domain and URLs single sign-on information](common/both_signonurl.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/both_signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://talent-p.net/saml/sso/<tenantID>`
