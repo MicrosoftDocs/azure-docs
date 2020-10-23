@@ -103,8 +103,8 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
    
    3. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
    
-   >[!NOTE]
-   >If you are updating other forest than the ADConnect part of, Please make sure connectivity over GC (TCP 3268 and TCP 3269) available to communicate
+  >[!NOTE]
+   >If you are updating a forest, other than the Azure AD Connect one, make sure connectivity to the global catalog server (TCP 3268 and TCP 3269) is available.
 
    >[!IMPORTANT]
    >Ensure that you _don't_ run the `Update-AzureADSSOForest` command more than once. Otherwise, the feature stops working until the time your users' Kerberos tickets expire and are reissued by your on-premises Active Directory.
