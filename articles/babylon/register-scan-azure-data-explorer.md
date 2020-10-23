@@ -84,7 +84,7 @@ Here are some examples of triggers that are set up on a monthly cadence below. Y
 You can also set up a trigger on a weekly cadence with an option to choose the day of the week.
 
 **Set scan rule set**
-Select a scan rule set to be used by your scan from the list of available
+Select a scan rule set to be used by your scan from the list of available scan rule sets.
 
 ![Screenshot showing scan rule set](./media/register-scan-azure-data-explorer/select-scan-rule-set.png)
 
