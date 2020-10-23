@@ -94,7 +94,7 @@ To create a Azure Stack Edge resource, take the following steps in the Azure por
 
 4. Select device type. Under **Azure Stack Edge**, choose **Azure Stack Edge Mini R** and then choose **Select**. If you see any issues or are unable to select the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
-    ![Create a resource 2](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png)
+    [![Create a resource 2](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png)](media/azure-stack-edge-mini-r-deploy-prep/create-resource-2.png#lightbox)
 
 
 6. On the **Basics** tab, enter or select the following **Project details**.
@@ -159,7 +159,7 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
     Once you have specified a key vault name, select **Generate key** to create an activation key. 
 
-    ![Get activation key](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png)
+    [![Get activation key](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png)](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-3.png#lightbox)
 
     Wait a few minutes as the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.
 

@@ -67,32 +67,33 @@ You already added the signing chain in an earlier step on this device. You can n
 
 1. To upload certificate, on the **Certificate** page, select **+ Add certificate**.
 
-    ![Local web UI "Certificates" page 4](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/add-certificate-1.png)
+    [![Local web UI "Certificates" page 4](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/add-certificate-1.png)](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/add-certificate-1.png#lightbox)
 
-2. You can upload other certificates. For example, you can upload the Azure Resource Manager and Blob storage endpoint certificates.
+
+1. You can upload other certificates. For example, you can upload the Azure Resource Manager and Blob storage endpoint certificates.
 
     ![Local web UI "Certificates" page 6](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/add-certificate-3.png)
 
-    You can also upload the local web UI certificate. After you upload this certificate, you will be required to start your browser and clear the cache. You will then need to connect to the device local web UI.  
+1. You can also upload the local web UI certificate. After you upload this certificate, you will be required to start your browser and clear the cache. You will then need to connect to the device local web UI.  
 
     ![Local web UI "Certificates" page 7](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/add-certificate-4.png)
 
-    You can also upload the node certificate.
+1. You can also upload the node certificate.
 
 
     ![Local web UI "Certificates" page 8](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/add-certificate-5.png)
 
-    Finally, you can upload the VPN certificate.
+1. Finally, you can upload the VPN certificate.
         
     ![Local web UI "Certificates" page](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/add-certificate-6.png)
 
-    At any time, you can select a certificate and view the details to ensure that these match with the certificate that you uploaded.
+1. At any time, you can select a certificate and view the details to ensure that these match with the certificate that you uploaded.
 
-    ![Local web UI "Certificates" page 9](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/add-certificate-7.png)
+    [![Local web UI "Certificates" page 9](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/add-certificate-7.png)](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/add-certificate-7.png#lightbox)
 
     The certificate page should update to reflect the newly added certificates.
 
-    ![Local web UI "Certificates" page 10](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/add-certificate-8.png)  
+    [![Local web UI "Certificates" page 10](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/add-certificate-8.png)](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/add-certificate-8.png#lightbox)  
 
     > [!NOTE]
     > Except for Azure public cloud, signing chain certificates are needed to be brought in before activation for all cloud configurations (Azure Government or Azure Stack Hub).
@@ -100,14 +101,14 @@ You already added the signing chain in an earlier step on this device. You can n
 
 ## Configure VPN
 
-13. On the **Security** tile, select **Configure** for VPN. 
-1. 
+1. On the **Security** tile, select **Configure** for VPN. 
+
     To configure VPN, you'll first need to ensure that you have all the necessary configuration done in Azure. For details, see [Configure VPN via PowerShell for your Azure Stack Edge Mini R device](azure-stack-edge-placeholder.md). Once this is complete, you can do the configuration in the local UI.
     
     1. On the VPN page, select **Configure**.
         ![Configure VPN local UI 1](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/configure-vpn-1.png)
 
-    2. In the **Configure VPN** blade:
+    1. In the **Configure VPN** blade:
 
         1. Provide the phone book as input.
         2. Provide Azure Data Center IP range JSON file as input. Download this file from: [https://www.microsoft.com/download/details.aspx?id=56519](https://www.microsoft.com/download/details.aspx?id=56519).
@@ -116,7 +117,7 @@ You already added the signing chain in an earlier step on this device. You can n
 
         ![Configure VPN local UI 2](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/configure-vpn-2.png)
     
-    3. Configure IP address ranges to be accessed using VPN only. 
+    1. Configure IP address ranges to be accessed using VPN only. 
     
         - Under **IP address ranges to be accessed using VPN only**, select **Configure**.
         - Enter the VNET IPv4 range that you had chosen for your Azure Virtual Network.
@@ -129,25 +130,25 @@ Your device is now ready to be encrypted. Configure encryption at rest.
 
 ## Enable encryption
 
-14. On the **Security** tile, select **Configure** for encryption-at-rest. This is a required setting and until this is successfully configured, you can't activate the device. 
+1. On the **Security** tile, select **Configure** for encryption-at-rest. This is a required setting and until this is successfully configured, you can't activate the device. 
 
     ![Local web UI "Encryption at rest" page 1](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/encryption-at-rest-1.png)
 
     At the factory, once the devices are imaged, the volume level BitLocker encryption is enabled. After you receive the device, you need to configure the encryption-at-rest. The storage pool and volumes are recreated and you can provide BitLocker keys to enable encryption-at-rest and thus create a second layer of encryption for your data-at-rest.
 
-    1. In the **Encryption-at-rest** pane, enter a 32 character long (AES-256 bit) Base-64 encoded key. This is a one-time configuration and this key is used to protect the actual encryption key. 
+1. In the **Encryption-at-rest** pane, enter a 32 character long (AES-256 bit) Base-64 encoded key. This is a one-time configuration and this key is used to protect the actual encryption key. 
 
-        ![Local web UI "Encryption at rest" page 2](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/encryption-at-rest-2.png)
+    ![Local web UI "Encryption at rest" page 2](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/encryption-at-rest-2.png)
 
-        You can choose to automatically generate this key as well.
+    You can choose to automatically generate this key as well.
 
-        ![Local web UI "Encryption at rest" page 3](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/encryption-at-rest-3.png)
+    ![Local web UI "Encryption at rest" page 3](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/encryption-at-rest-3.png)
 
-    2. Select **Apply**. This operation takes several minutes and the status of operation is displayed on the **Security** tile.
+1. Select **Apply**. This operation takes several minutes and the status of operation is displayed on the **Security** tile.
 
-        ![Local web UI "Encryption at rest" page 4](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/encryption-at-rest-3.png)
+    ![Local web UI "Encryption at rest" page 4](./media/azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption/encryption-at-rest-3.png)
 
-    3. After the status shows as **Completed**, go back to **Get started**.
+1. After the status shows as **Completed**, go back to **Get started**.
 
 Your device is now ready to be activated.
 

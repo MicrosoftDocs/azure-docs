@@ -49,11 +49,11 @@ Follow these steps to configure the network for your device.
 
 4. In the local web UI, go to **Get started**. On the **Security** tile, select **Certificates** and then select **Configure**. 
 
-    ![Local web UI "Certificates" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png)
+    [![Local web UI "Certificates" page](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png)](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/get-started-1.png#lightbox)
 
     1. Select **+ Add certificate**. 
     
-        ![Local web UI "Certificates" page 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-1.png)
+        [![Local web UI "Certificates" page 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-1.png)](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-cert-1.png#lightbox)
 
     2. Upload the signing chain and select **Apply**.
 
@@ -75,7 +75,7 @@ Follow these steps to configure the network for your device.
 
     On your physical device, there are five network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3 and PORT 4 are all 10-Gbps network interfaces. The fifth port is the Wi-Fi port. 
 
-    ![Local web UI "Network settings" page 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-1.png)    
+    [![Local web UI "Network settings" page 1](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-1.png)](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/configure-wifi-1.png#lightbox)    
     
     Select the Wi-Fi port and configure the port settings. 
     

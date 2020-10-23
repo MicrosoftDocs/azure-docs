@@ -81,7 +81,7 @@ Before you configure and set up your Azure Stack Edge Mini R device, make sure t
     |Field  |Description  |
     |---------|---------|
     |`Id`    | This is the ID for the device.        |
-    |`DataVolumeBitLockerExternalKeys`|These are the BitLockers keys for the data disks and are used to recover the local data on your device.|
+    |`DataVolumeBitLockerExternalKeys`|These are the BitLocker keys for the data disks and are used to recover the local data on your device.|
     |`SystemVolumeBitLockerRecoveryKey`| This is the BitLocker key for the system volume. This key helps with the recovery of the system configuration and system data for your device. |
     |`SEDEncryptionExternalKey`| This user provided or system generated key is used to protect the self-encrypting data drives that have a built in encryption. |
     |`ServiceEncryptionKey`| This key protects the data flowing through the Azure service. This key ensures that a compromise of the Azure service will not result in a compromise of stored information. |
