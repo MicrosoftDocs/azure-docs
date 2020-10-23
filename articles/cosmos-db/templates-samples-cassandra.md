@@ -46,7 +46,7 @@ This template creates an Azure Cosmos account in two regions with options for co
 
 Here are some additional resources:
 
-* [Azure Resource Manager documentation](/azure/azure-resource-manager/)
+* [Azure Resource Manager documentation](../azure-resource-manager/index.yml)
 * [Azure Cosmos DB resource provider schema](/azure/templates/microsoft.documentdb/allversions)
 * [Azure Cosmos DB Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 * [Troubleshoot common Azure Resource Manager deployment errors](../azure-resource-manager/templates/common-deployment-errors.md)
