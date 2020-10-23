@@ -92,6 +92,8 @@
         "deneha",
         "atookey",
         "chbain",
+        "Court72",
+        "denrea",
         "garycentric",
         "GitHubber17",
         "itechedit",
@@ -110,15 +112,19 @@
         "rmca14",
         "ShannonLeavitt",
         "ShawnJackson",
+        "shawnmariejones",
         "TedA-M",
         "tfosmark",
         "tiburd",
         "trishamc",
         "ttorble",
         "v-albemi",
+        "v-ccolin",
         "v-dansch",
+        "v-dihans",
         "v-rihow",
         "v-shils",
+        "v-shmck",
         "v-thepet",
         "sdwheeler",
         "meganbradley"
@@ -835,6 +841,14 @@
     "template": [
       "docs.html"
     ],
-    "dest": "azure"
+    "dest": "azure",
+    "rules": {
+      "sensitive-language": {
+        "exclude": [
+          "articles/governance/policy/**/*.md",
+	  "articles/governance/blueprints/**/*.md"
+        ]
+      }
+    }
   }
 }

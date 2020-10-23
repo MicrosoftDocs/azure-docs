@@ -67,7 +67,7 @@ Now let's clone a Gremlin API app from GitHub, set the connection string, and ru
 5. Restore the NuGet packages in the project. This should include the Gremlin.Net driver, as well as the Newtonsoft.Json package.
 
 
-6. You can also install the Gremlin.Net driver manually using the Nuget package manager, or the [nuget command-line utility](https://docs.microsoft.com/nuget/install-nuget-client-tools): 
+6. You can also install the Gremlin.Net driver manually using the Nuget package manager, or the [nuget command-line utility](/nuget/install-nuget-client-tools): 
 
     ```bash
     nuget install Gremlin.Net
@@ -159,4 +159,3 @@ In this quickstart, you've learned how to create an Azure Cosmos DB account, cre
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query-graph.md)
-

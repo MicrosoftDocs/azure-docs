@@ -32,7 +32,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 * Before you start this tutorial, complete the steps in [Part 4](tutorial-develop-mongodb-nodejs-part4.md).
 
-* This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 * This tutorial walks you through the steps to build the application step by step. If you want to download the finished project, you can get the completed application from the [angular-cosmosdb repo](https://github.com/Azure-Samples/angular-cosmosdb) on GitHub.
 
