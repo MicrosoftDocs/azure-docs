@@ -58958,7 +58958,12 @@
       "source_path": "articles/healthcare-apis/fhir-oss-powershell-quickstart.md",
       "redirect_url": "/azure/healthcare-apis/fhir-paas-powershell-quickstart",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/data-factory/copy-data-tool-troubleshoot-guide.md",
+      "redirect_url": "/azure/data-factory/copy-data-tool-troubleshoot-guide",
+      "redirect_document_id": false
+    }  
     
 
 
