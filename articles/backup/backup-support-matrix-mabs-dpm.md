@@ -55,7 +55,7 @@ DPM/MABS can be deployed as summarized in the following table.
 
 **Deployment** | **Support** | **Details**
 --- | --- | ---
-**Deployed on-premises** | Physical server<br/><br/>Hyper-V VM<br/><br/> VMware VM | If DPM/MABS is installed as a VMware VM, it only backs up VMware VMs and workloads that are running on those VMs.
+**Deployed on-premises** | Physical server<br/><br/>Hyper-V VM<br/><br/> VMware VM | Refer to the [protection matrix](backup-mabs-protection-matrix.md) for more details. 
 **Deployed as an Azure Stack VM** | MABS only | DPM can't be used to back up Azure Stack VMs.
 **Deployed as an Azure VM** | Protects Azure VMs and workloads that are running on those VMs | DPM/MABS running in Azure can't back up on-premises machines.
 

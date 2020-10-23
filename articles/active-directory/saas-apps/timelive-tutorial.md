@@ -126,11 +126,11 @@ To configure Azure AD single sign-on with TimeLive, perform the following steps:
 
 2. Select **Preferences** under **Admin Options**.
 
-	![TimeLive Configuration](./media/timelive-tutorial/configure1.png)
+	![Screenshot shows the Admin Options with Preferences selected.](./media/timelive-tutorial/configure1.png)
 
 3. In the **Application Preference** section, perform the following steps:
 	
-	![TimeLive Configuration](./media/timelive-tutorial/configure2.png)
+	![Screenshot shows the Application Preference section where you can enter the values described.](./media/timelive-tutorial/configure2.png)
 
 	a. Select **Security** tab.
 

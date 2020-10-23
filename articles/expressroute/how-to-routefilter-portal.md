@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
 
@@ -122,7 +122,7 @@ To detach a circuit from the route filter, right-click on the circuit and select
 :::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Screenshot that shows the Overview page with the Dissociate action highlighted":::
 
 
-## <a name="delete"></a>Clean up resources
+## Clean up resources
 
 You can delete a route filter by selecting the **Delete** button. Ensure the Route filter is not associate to any circuits before doing so.
 

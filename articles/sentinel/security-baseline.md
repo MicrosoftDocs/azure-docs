@@ -324,7 +324,7 @@ Log Analytics roles include Log Analytics contributor and Log Analytics reader. 
 
 Additionally, each Sentinel workbook is an Azure resource, and you can assign roles to users for managing access.
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Understand custom roles](../role-based-access-control/custom-roles.md)
 

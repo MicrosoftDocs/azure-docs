@@ -1,6 +1,6 @@
 ---
-title: How to update to dynamic regulatory compliance monitoring in your Azure Security Center regulatory compliance dashboard | Microsoft Docs
-description: Updating your regulatory compliance packages
+title: Using the regulatory compliance dashboard in Azure Security Center
+description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 10/15/2020
 ms.author: memildin
 
 ---
@@ -36,7 +36,7 @@ Microsoft also tracks the regulatory standards themselves and automatically impr
 
 You can add standards such as NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official and UK NHS, Canada Federal PBMM, and Azure CIS 1.1.0 (new) - a more complete representation of Azure CIS 1.1.0. 
 
-In addition, you can add **Azure Security Benchmark**, the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. ([Learn more about Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction).)
+In addition, you can add **Azure Security Benchmark**, the Microsoft-authored, Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. ([Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).)
 
 Additional standards will be supported in the dashboard as they become available. 
 
@@ -111,6 +111,6 @@ In this article, you learned how to **add compliance packages** to monitor your 
 
 For other related material, see the following articles: 
 
-- [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction)
+- [Azure Security Benchmark](../security/benchmarks/introduction.md)
 - [Security center regulatory compliance dashboard](security-center-compliance-dashboard.md)
 - [Working with security policies](tutorial-security-policy.md)

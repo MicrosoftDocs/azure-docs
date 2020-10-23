@@ -51,6 +51,8 @@ landingContent:
             url: quickstart-create-templates-use-the-portal.md
           - text: Create templates - VS Code
             url: quickstart-create-templates-use-visual-studio-code.md
+          - text: Create & deploy template specs
+            url: quickstart-create-template-specs.md
 
       - linkListType: tutorial
         links:
@@ -58,14 +60,22 @@ landingContent:
             url: template-tutorial-create-first-template.md
           - text: Deployment
             url: deployment-tutorial-local-template.md
-
+          - text: Template specs
+            url: template-specs-create-linked.md
+          - text: Advanced templates
+            url: template-tutorial-use-template-reference.md
+          - text: Deployment Manager
+            url: deployment-manager-tutorial.md
       - linkListType: learn
         links:
           - text: Consistent infrastructure
             url: /learn/modules/create-azure-resource-manager-template-vs-code/
           - text: Multiple environments
             url: /learn/modules/modify-azure-resource-manager-template-reuse/
-          
+          - text: Validate deployments
+            url: /learn/modules/arm-template-test/
+          - text: Deploy templates
+            url: /learn/modules/deploy-templates-command-line-github-actions/
   # Card
   - title: Develop templates
     linkLists:
@@ -105,7 +115,7 @@ landingContent:
             url: deploy-to-azure-button.md
           - text: What-if deployment
             url: template-deploy-what-if.md
-          
+
   # Card
   - title: Scoped deployments
     linkLists:

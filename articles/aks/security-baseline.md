@@ -858,7 +858,7 @@ Track the configurations of your machines to aid in pinpointing operational issu
 
 - [How to use File Integrity Monitoring](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Understand Azure Change Tracking](../automation/change-tracking.md)
+- [Understand Azure Change Tracking](../automation/change-tracking/overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -955,7 +955,7 @@ Use the Azure AD PowerShell module to perform ad hoc queries to discover account
 
 Implement namespace in Kubernetes to create a logical isolation boundary. Use Azure Policy aliases in the "Microsoft.ContainerService" namespace to create custom policies to audit or enforce the configuration of your Azure Kubernetes Service (AKS) instances. 
 
-Review and implement additional Kubernetes features and considerations for isolation and multi-tenancy include the following areas: scheduling, networking, authentication/authorization, and containers. Also use separate subscriptions and/or management groups for development, test, and production. Separate AKS clusters with virtual networks, subnets which are tagged appropriately, and secured with a Web Application Firewall (WAF).
+Review and implement additional Kubernetes features and considerations for isolation and multi-tenancy to include the following: scheduling, networking, authentication/authorization, and containers. Also use separate subscriptions and/or management groups for development, test, and production. Separate AKS clusters with virtual networks, subnets which are tagged appropriately, and secured with a Web Application Firewall (WAF).
 
 - [Learn about best practices for cluster isolation in AKS](operator-best-practices-cluster-isolation.md)
 

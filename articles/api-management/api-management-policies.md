@@ -74,7 +74,7 @@ This section provides a reference for the following API Management policies. For
     -   [Transform XML using an XSLT](api-management-transformation-policies.md#XSLTransform) - Applies an XSL transformation to XML in the request or response body.
 - [Dapr integration policies](api-management-dapr-policies.md)
     - [Send request to a service](api-management-dapr-policies.md#invoke) - uses Dapr runtime to locate and reliably communicate with a Dapr microservice.
-    -  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub) - uses Dapr runtime to publish a message to a Publish/Subscribe topic.publish-subscribe-messaging/README.md) to learn more about Publish/Subscribe messaging in Dapr.
+    -  [Send message to Pub/Sub topic](api-management-dapr-policies.md#pubsub) - uses Dapr runtime to publish a message to a Publish/Subscribe topic.
     -  [Trigger output binding](api-management-dapr-policies.md#bind) - uses Dapr runtime to invoke an external system via output binding.
 
 ## Next steps

@@ -37,7 +37,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 * If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/). Ensure you have the latest version. If necessary, run `Update-Module -Name Az`.
 
-* If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 > [!NOTE]  
 > It is recommended to place both the HDInsight cluster and the Log Analytics workspace in the same region for better performance. Azure Monitor logs is not available in all Azure regions.
@@ -100,7 +100,7 @@ Disable-AzHDInsightMonitoring -Name "<your-cluster>"
 
 ## Enable Azure Monitor using Azure CLI
 
-You can enable Azure Monitor logs using the Azure CLI `[az hdinsight monitor enable`](https://docs.microsoft.com/cli/azure/hdinsight/monitor?view=azure-cli-latest#az-hdinsight-monitor-enable) command.
+You can enable Azure Monitor logs using the Azure CLI `[az hdinsight monitor enable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-enable) command.
 
 ```azurecli
 # set variables
@@ -115,7 +115,7 @@ az hdinsight monitor enable --name $cluster --resource-group $resourceGroup --wo
 az hdinsight monitor show --name $cluster --resource-group $resourceGroup
 ```
 
-To disable, the use the [`az hdinsight monitor disable`](https://docs.microsoft.com/cli/azure/hdinsight/monitor?view=azure-cli-latest#az-hdinsight-monitor-disable) command.
+To disable, the use the [`az hdinsight monitor disable`](/cli/azure/hdinsight/monitor#az-hdinsight-monitor-disable) command.
 
 ```azurecli
 az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
