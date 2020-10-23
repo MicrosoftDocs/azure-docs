@@ -80,7 +80,7 @@ From the Scan History page, you can choose Run Scan now to launch a new scan imm
 **Cancel scans in progress**
 Select one or more scans that are in progress by selecting the checkbox for each.
 
-Then click Cancel Scan to stop all the selected scans from running.
+Then select **Cancel Scan** to stop all the selected scans from running.
 
 ## Summary
 In this tutorial, you scanned an Azure Cosmos Database (SQL API) account using the portal.
