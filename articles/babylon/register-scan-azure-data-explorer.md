@@ -51,7 +51,7 @@ To do this in the Azure portal:
 
 7. For Redirect URI select **"Web"** and enter any URL you want; it doesn't have to be real or work
 
-8. Then click on Register
+8. Then select **Register**.
 
 9. Copy down both the display name and the application ID
 
