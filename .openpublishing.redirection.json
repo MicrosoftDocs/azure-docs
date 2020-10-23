@@ -5312,6 +5312,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/key-vault/general/soft-delete-cli.md",
+      "redirect_url": "/azure/key-vault/general/key-vault-recovery?tabs=azure-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/soft-delete-powershell.md",
+      "redirect_url": "/azure/key-vault/general/key-vault-recovery?tabs=azure-powershell",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/key-vault/key-vault-network-security.md",
       "redirect_url": "/azure/key-vault/general/network-security",
       "redirect_document_id": false

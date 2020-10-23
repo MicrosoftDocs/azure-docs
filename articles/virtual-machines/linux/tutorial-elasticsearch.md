@@ -223,7 +223,7 @@ az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 
 Open up the Kibana console and select **Create** to generate a default index based on the syslog data you sent to Elasticsearch earlier. 
 
-![Browse Syslog events in Kibana](media/elasticsearch-install/kibana-index.png)
+![Screenshot that shows the Kibana console and highlights the Create button.](media/elasticsearch-install/kibana-index.png)
 
 Select **Discover** on the Kibana console to search, browse, and filter through the syslog events.
 
