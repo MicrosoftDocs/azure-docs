@@ -53,7 +53,7 @@ To do this in the Azure portal:
 
 8. Then select **Register**.
 
-9. Copy down both the display name and the application ID
+9. Copy both the values for **display name** and the **application ID**, since you will need those values later.
 
 10. Add your service principal to a role on the Azure Data Explorer account that you would like to scan. You do this in the Azure portal. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](../storage/common/storage-auth-aad-app.md?tabs=dotnet)
 
