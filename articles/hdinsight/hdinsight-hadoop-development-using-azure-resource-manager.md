@@ -228,7 +228,7 @@ Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -clusterName $clust
 * [Submit Apache Sqoop jobs](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## Migrating to the new HDInsight .NET SDK
-The Azure Service Management-based [(ASM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) is now deprecated. You are encouraged to use the Azure Resource Management-based [Resource Manager-based HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight). The following ASM-based HDInsight packages are being deprecated.
+The Azure Service Management-based [(ASM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) is now deprecated. You are encouraged to use the Azure Resource Management-based [Resource Manager-based HDInsight .NET SDK](/dotnet/api/overview/azure/hdinsight). The following ASM-based HDInsight packages are being deprecated.
 
 * `Microsoft.WindowsAzure.Management.HDInsight`
 * `Microsoft.Hadoop.Client`
@@ -237,7 +237,7 @@ This section provides pointers to more information on how to perform certain tas
 
 | How to... using the Resource Manager-based HDInsight SDK | Links |
 | --- | --- |
-| Azure HDInsight SDK for .NET|See [Azure HDInsight SDK for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet) |
+| Azure HDInsight SDK for .NET|See [Azure HDInsight SDK for .NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true) |
 | Authenticate applications interactively using Azure Active Directory with .NET SDK |See [Run Apache Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). The code snippet in this article uses the interactive authentication approach. |
 | Authenticate applications non-interactively using Azure Active Directory with .NET SDK |See [Create non-interactive applications for HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | Submit an Apache Hive job using .NET SDK |See [Submit Apache Hive jobs](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
