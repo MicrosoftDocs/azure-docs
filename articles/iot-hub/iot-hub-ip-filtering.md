@@ -70,7 +70,7 @@ To delete an IP filter rule, select the trash can icon on that row and then sele
 
 ## Retrieve and update IP filters using Azure CLI
 
-Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](/cli/azure/?view=azure-cli-latest).
+Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](/cli/azure/).
 
 To retrieve current IP filters of your IoT Hub, run:
 
