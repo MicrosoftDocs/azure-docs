@@ -36,11 +36,7 @@ Before you begin, you must have the following:
 + The [.NET Core SDK 3.1](https://www.microsoft.com/net/download)
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-+ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8. 
-
-    > [!IMPORTANT]
-    > + Functions support for Java 11 is currently in preview, and the Maven archetype creates a Java 8 deployment by default. If you want to instead run your function app on Java 11, you must manually update the pom.xml file with Java 11 values. To learn more, see [Java versions](../articles/azure-functions/functions-reference-java.md#java-versions). 
-    > + The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK to complete this quickstart.
++ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8 or 11. 
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
