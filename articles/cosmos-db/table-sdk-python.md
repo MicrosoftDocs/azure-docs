@@ -6,8 +6,8 @@ ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: reference
 ms.date: 11/20/2018
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 
 ---
 # Azure Cosmos DB Table API SDK for Python: Release notes and resources
@@ -22,7 +22,7 @@ ms.author: wmeng
 |   |   |
 |---|---|
 |**SDK download**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
-|**API documentation**|[Python API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**API documentation**|[Python API reference documentation](/python/api/overview/azure/cosmosdb?preserve-view=true&view=azure-python)|
 |**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) or [Python 3.3, 3.4, 3.5, or 3.6](https://www.python.org/downloads/)|
@@ -33,10 +33,10 @@ ms.author: wmeng
 
 ## Release notes
 
-### <a name="1.0.0"/>1.0.0
+### <a name="1.0.0"></a>1.0.0
 * General availability release
 
-### <a name="0.37.1"/>0.37.1
+### <a name="0.37.1"></a>0.37.1
 * Pre-release SDK
 
 ## Release and retirement dates
@@ -56,5 +56,4 @@ New features and functionality and optimizations are only added to the current S
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page. 
-
+To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

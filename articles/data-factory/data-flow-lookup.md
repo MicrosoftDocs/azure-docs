@@ -1,58 +1,98 @@
 ---
-title: Azure Data Factory mapping data flow Lookup Transformation
-description: Azure Data Factory mapping data flow Lookup Transformation
+title: Lookup transformation in mapping data flow
+description: Reference data from another source using the lookup transformation in mapping data flow.
 author: kromerm
+ms.reviewer: daperlov
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.custom: seo-lt-2019
+ms.date:  05/28/2020
 ---
 
-# Azure Data Factory mapping data flow Lookup Transformation
+# Lookup transformation in mapping data flow
 
-Use Lookup to add reference data from another source to your Data Flow. The Lookup transform requires a defined source that points to your reference table and matches on key fields.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+Use the lookup transformation to reference data from another source in a data flow stream. The lookup transformation appends columns from matched data to your source data.
+
+A lookup transformation is similar to a left outer join. All rows from the primary stream will exist in the output stream with additional columns from the lookup stream.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xsVT]
+
+## Configuration
 
 ![Lookup Transformation](media/data-flow/lookup1.png "Lookup")
 
-Select the key fields that you wish to match on between the incoming stream fields and the fields from the reference source. You must first have created a new source on the Data Flow design canvas to use as the right-side for the lookup.
+**Primary stream:** The incoming stream of data. This stream is equivalent to the left side of a join.
 
-When matches are found, the resulting rows and columns from the reference source will be added to your data flow. You can choose which fields of interest that you wish to include in your Sink at the end of your Data Flow. Alternatively, use a Select transformation following your Lookup to prune the field list to keep only the fields from both streams that you'd like to retain.
+**Lookup stream:** The data that is appended to the primary stream. Which data is added is determined by the lookup conditions. This stream is equivalent to the right side of a join.
 
-The Lookup transformation performs the equivalent of a left outer join. So, you'll see all rows from your left source combine with matches from your right side. If you have multiple matching values on your lookup, or if you'd like to customize the lookup expression, it is preferable to switch to a Join transformation and use a cross join. This will avoid any possible cartesian product errors on execution.
+**Match multiple rows:** If enabled, a row with multiple matches in the primary stream will return multiple rows. Otherwise, only a single row will be returned based upon the 'Match on' condition.
 
-## Match / No match
+**Match on:** Only visible if 'Match multiple rows' is not selected. Choose whether to match on any row, the first match, or the last match. Any row is recommended as it executes the fastest. If first row or last row is selected, you'll be required to specify sort conditions.
 
-After your Lookup transformation, you can use subsequent transformations to inspect the results of each match row by using the expression function `isMatch()` to make further choices in your logic based on whether or not the Lookup resulted in a row match or not.
+**Lookup conditions:** Choose which columns to match on. If the equality condition is met, then the rows will be considered a match. Hover and select 'Computed column' to extract a value using the [data flow expression language](data-flow-expression-functions.md).
+
+The lookup transformation only supports equality matches. To customize the lookup expression to include other operators such as greater than, it's recommended to use a [cross join in the join transformation](data-flow-join.md#custom-cross-join). A cross join will avoid any possible cartesian product errors on execution.
+
+All columns from both streams are included in the output data. To drop duplicate or unwanted columns, add a [select transformation](data-flow-select.md) after your lookup transformation. Columns can also be dropped or renamed in a sink transformation.
+
+### Non-equi joins
+
+To use a conditional operator such as not equals (!=) or greater than (>) in your lookup conditions, change the operator dropdown between the two columns. Non-equi joins require at least one of the two streams to be broadcasted using **Fixed** broadcasting in the **Optimize** tab.
+
+![Non-equi lookup](media/data-flow/non-equi-lookup.png "Non-equi lookup")
+
+## Analyzing matched rows
+
+After your lookup transformation, the function `isMatch()` can be used to see if the lookup matched for individual rows.
 
 ![Lookup pattern](media/data-flow/lookup111.png "Lookup pattern")
 
-After you use the Lookup transformation, you can add a Conditional Split transformation splitting on the ```isMatch()``` function. In the example above, matching rows go through the top stream and non-matching rows flow through the ```NoMatch``` stream.
+An example of this pattern is using the conditional split transformation to split on the `isMatch()` function. In the example above, matching rows go through the top stream and non-matching rows flow through the ```NoMatch``` stream.
 
-## First or last value
+## Testing lookup conditions
 
-When you have multiple matches from your Lookup, you may want to reduce the multiple matched rows by picking either the first or the last match. You can do this using an Aggregate transformation after your Lookup.
+When testing the lookup transformation with data preview in debug mode, use a small set of known data. When sampling rows from a large dataset, you can't predict which rows and keys will be read for testing. The result is non-deterministic, meaning that your join conditions may not return any matches.
 
-In this case, an Aggregate transformation called ```PickFirst``` is used to pick the first value from the lookup matches.
-
-![Lookup aggregate](media/data-flow/lookup333.png "Lookup aggregate")
-
-![Lookup first](media/data-flow/lookup444.png "Lookup first")
-
-## Optimizations
-
-In Data Factory, Data Flows execute in scaled-out Spark environments. If your dataset can fit into worker node memory space, we can optimize your Lookup performance.
+## Broadcast optimization
 
 ![Broadcast Join](media/data-flow/broadcast.png "Broadcast Join")
 
-### Broadcast join
+In joins, lookups and exists transformation, if one or both data streams fit into worker node memory, you can optimize performance by enabling **Broadcasting**. By default, the spark engine will automatically decide whether or not to broadcast one side. To manually choose which side to broadcast, select **Fixed**.
 
-Select Left and/or Right side broadcast join to request ADF to push the entire dataset from either side of the Lookup relationship into memory. For smaller datasets, this can greatly improve your lookup performance.
+It's not recommended to disable broadcasting via the **Off** option unless your joins are running into timeout errors.
 
-### Data partitioning
+## Data flow script
 
-You can also specify partitioning of your data by selecting "Set Partitioning" on the Optimize tab of the Lookup transformation to create sets of data that can fit better into memory per worker.
+### Syntax
 
-## Next steps
+```
+<leftStream>, <rightStream>
+    lookup(
+        <lookupConditionExpression>,
+        multiple: { true | false },
+        pickup: { 'first' | 'last' | 'any' },  ## Only required if false is selected for multiple
+        { desc | asc }( <sortColumn>, { true | false }), ## Only required if 'first' or 'last' is selected. true/false determines whether to put nulls first
+        broadcast: { 'auto' | 'left' | 'right' | 'both' | 'off' }
+    ) ~> <lookupTransformationName>
+```
+### Example
 
-* [Join](data-flow-join.md) and [Exists](data-flow-exists.md) transformations perform similar tasks in ADF mapping data flows. Take a look at those transformations next.
-* Use a [Conditional Split](data-flow-conditional-split.md) with ```isMatch()``` to split rows on matching and non-matching values
+![Lookup Transformation](media/data-flow/lookup-dsl-example.png "Lookup")
+
+The data flow script for the above lookup configuration is in the code snippet below.
+
+```
+SQLProducts, DimProd lookup(ProductID == ProductKey,
+    multiple: false,
+    pickup: 'first',
+    asc(ProductKey, true),
+    broadcast: 'auto')~> LookupKeys
+```
+## 
+Next steps
+
+* The [join](data-flow-join.md) and [exists](data-flow-exists.md) transformations both take in multiple stream inputs
+* Use a [conditional split transformation](data-flow-conditional-split.md) with ```isMatch()``` to split rows on matching and non-matching values

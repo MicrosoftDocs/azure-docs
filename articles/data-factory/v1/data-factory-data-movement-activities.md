@@ -1,16 +1,16 @@
 ---
-title: Move data by using Copy Activity | Microsoft Docs
+title: Move data by using Copy Activity 
 description: 'Learn about data movement in Data Factory pipelines: data migration between cloud stores, and between an on-premises store and a cloud store. Use Copy Activity.'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 
 
 ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 12/05/2017
@@ -80,7 +80,7 @@ Copy Activity also reads from and writes to files in specified formats: **Text, 
 
 For example, you can do the following copy activities:
 
-* Copy data in on-premises SQL Server and write to Azure Data Lake Store in ORC format.
+* Copy data in a SQL Server database and write to Azure Data Lake Store in ORC format.
 * Copy files in text (CSV) format from on-premises File System and write to Azure Blob in Avro format.
 * Copy zipped files from on-premises File System and decompress then land to Azure Data Lake Store.
 * Copy data in GZip compressed text (CSV) format from Azure Blob and write to Azure SQL Database.

@@ -1,7 +1,7 @@
 ---
-title: How to specify a detection model - Face API
+title: How to specify a detection model - Face
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to choose which face detection model to use with your Azure Face API application.
+description: This article will show you how to choose which face detection model to use with your Azure Face application.
 services: cognitive-services
 author: yluiu
 manager: nitinme
@@ -11,15 +11,16 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
+ms.custom: devx-track-csharp
 ---
 
 # Specify a face detection model
 
-This guide shows you how to specify a face detection model for the Azure Face API.
+This guide shows you how to specify a face detection model for the Azure Face service.
 
-The Face API uses machine learning models to perform operations on human faces in images. We continue to improve the accuracy of our models based on customer feedback and advances in research, and we deliver these improvements as model updates. Developers have the option to specify which version of the face detection model they'd like to use; they can choose the model that best fits their use case.
+The Face service uses machine learning models to perform operations on human faces in images. We continue to improve the accuracy of our models based on customer feedback and advances in research, and we deliver these improvements as model updates. Developers have the option to specify which version of the face detection model they'd like to use; they can choose the model that best fits their use case.
 
-Read on to learn how to specify the face detection model in certain face operations. The Face API uses face detection whenever it converts an image of a face into some other form of data.
+Read on to learn how to specify the face detection model in certain face operations. The Face service uses face detection whenever it converts an image of a face into some other form of data.
 
 If you aren't sure whether you should use the latest model, skip to the [Evaluate different models](#evaluate-different-models) section to evaluate the new model and compare results using your current data set.
 
@@ -47,19 +48,19 @@ If you are using the client library, you can assign the value for `detectionMode
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_02", detectionModel: "detection_02");
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_03", detectionModel: "detection_02");
 ```
 
 ## Add face to Person with specified model
 
-The Face API can extract face data from an image and associate it with a **Person** object through the [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API. In this API call, you can specify the detection model in the same way as in [Face - Detect].
+The Face service can extract face data from an image and associate it with a **Person** object through the [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API. In this API call, you can specify the detection model in the same way as in [Face - Detect].
 
 See the following code example for the .NET client library.
 
 ```csharp
 // Create a PersonGroup and add a person with face detected by "detection_02" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_03");
 
 string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
@@ -77,7 +78,7 @@ This code creates a **PersonGroup** with ID `mypersongroupid` and adds a **Perso
 You can also specify a detection model when you add a face to an existing **FaceList** object. See the following code example for the .NET client library.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
@@ -107,6 +108,7 @@ In this article, you learned how to specify the detection model to use with diff
 
 * [Face .NET SDK](../Quickstarts/csharp-sdk.md)
 * [Face Python SDK](../Quickstarts/python-sdk.md)
+* [Face Go SDK](../Quickstarts/go-sdk.md)
 
 [Face - Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

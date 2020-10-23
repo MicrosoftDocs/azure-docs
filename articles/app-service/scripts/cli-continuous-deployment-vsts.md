@@ -1,30 +1,22 @@
 ---
-title: Azure CLI Script Sample - Create app and deploy continuously from Azure Repos | Microsoft Docs
-description: Azure CLI Script Sample - Create an app with continuous deployment from Azure Repos
-services: app-service\web
-documentationcenter: 
+title: 'Continuous deployment from Azure Repos'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to set up CI/CD from Azure Repos.
 author: msangapu-msft
-manager: jeconnoc
-editor: 
 tags: azure-service-management
 
 ms.assetid: 389d3bd3-cd8e-4715-a3a1-031ec061d385
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18, devx-track-azurecli
 ---
 # Create an App Service app with continuous deployment using Azure CLI
 
 This sample script creates an app in App Service with its related resources, and then sets up continuous deployment from an Azure DevOps repository. For this sample, you need:
 
 * An Azure DevOps repository with application code, that you have administrative permissions for.
-* A [Personal Access Token (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) for your Azure DevOps organization.
+* A [Personal Access Token (PAT)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) for your Azure DevOps organization.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -52,6 +44,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional App Service CLI script samples can be found in the [Azure App Service documentation](../samples-cli.md).

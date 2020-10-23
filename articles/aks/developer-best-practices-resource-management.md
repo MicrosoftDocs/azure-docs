@@ -1,12 +1,11 @@
 ---
-title: Developer best practices - Resource management in Azure Kubernetes Services (AKS)
+title: Resource management best practices
+titleSuffix: Azure Kubernetes Service
 description: Learn the application developer best practices for resource management in Azure Kubernetes Service (AKS)
 services: container-service
 author: zr-msft
-
-ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/13/2019
 ms.author: zarhoads
 ---
 
@@ -18,7 +17,7 @@ This best practices article focuses on how to run your cluster and workloads fro
 
 > [!div class="checklist"]
 > * What are pod resource requests and limits
-> * Ways to develop and deploy applications with Dev Spaces and Visual Studio Code
+> * Ways to develop and deploy applications with Bridge to Kubernetes and Visual Studio Code
 > * How to use the `kube-advisor` tool to check for issues with deployments
 
 ## Define pod resource requests and limits
@@ -27,16 +26,24 @@ This best practices article focuses on how to run your cluster and workloads fro
 
 A primary way to manage the compute resources within an AKS cluster is to use pod requests and limits. These requests and limits let the Kubernetes scheduler know what compute resources a pod should be assigned.
 
-* **Pod requests** define a set amount of CPU and memory that the pod needs. These requests should be the amount of compute resources the pod needs to provide an acceptable level of performance.
-    * When the Kubernetes scheduler tries to place a pod on a node, the pod requests are used to determine which node has sufficient resources available.
-    * Monitor the performance of your application to adjust these requests to make sure you don't define less resources that required to maintain an acceptable level of performance.
-* **Pod limits** are the maximum amount of CPU and memory that a pod can use. These limits help prevent one or two runaway pods from taking too much CPU and memory from the node. This scenario would reduce the performance of the node and other pods that run on it.
+* **Pod CPU/Memory requests** define a set amount of CPU and memory that the pod needs on a regular basis.
+    * When the Kubernetes scheduler tries to place a pod on a node, the pod requests are used to determine which node has sufficient resources available for scheduling.
+    * Not setting a pod request will default it to the limit defined.
+    * It is very important to monitor the performance of your application to adjust these requests. If insufficient requests are made, your application may receive degraded performance due to over scheduling a node. If requests are overestimated, your application  may have increased difficulty getting scheduled.
+* **Pod CPU/Memory limits** are the maximum amount of CPU and memory that a pod can use. Memory limits help define which pods should be killed in the event of node instability due to insufficient resources. Without proper limits set pods will be killed until resource pressure is lifted. A pod may or may not be able to exceed the CPU limit for a period of time, but the pod will not be killed for exceeding the CPU limit. 
+    * Pod limits help define when a pod has lost control of resource consumption. When a limit is exceeded, the pod is prioritized for killing to maintain node health and minimize impact to pods sharing the node.
+    * Not setting a pod limit defaults it to the highest available value on a given node.
     * Don't set a pod limit higher than your nodes can support. Each AKS node reserves a set amount of CPU and memory for the core Kubernetes components. Your application may try to consume too many resources on the node for other pods to successfully run.
-    * Again, monitor the performance of your application at different times during the day or week. Determine when the peak demand is, and align the pod limits to the resources required to meet the application's needs.
+    * Again, it is very important to monitor the performance of your application at different times during the day or week. Determine when the peak demand is, and align the pod limits to the resources required to meet the application's max needs.
 
-In your pod specifications, it's best practice to define these requests and limits. If you don't include these values, the Kubernetes scheduler doesn't understand what resources are needed. The scheduler may schedule the pod on a node without sufficient resources to provide acceptable application performance. The cluster administrator may set *resource quotas* on a namespace that requires you to set resource requests and limits. For more information, see [resource quotas on AKS clusters][resource-quotas].
+In your pod specifications, it's **best practice and very important** to define these requests and limits based on the above information. If you don't include these values, the Kubernetes scheduler cannot take into account the resources your applications require to aid in scheduling decisions.
 
-When you define a CPU request or limit, the value is measured in CPU units. *1.0* CPU equates to one underlying virtual CPU core on the node. The same measurement is used for GPUs. You can also define a fractional request or limit, typically in millicpu. For example, *100m* is *0.1* of an underlying virtual CPU core.
+If the scheduler places a pod on a node with insufficient resources, application performance will be degraded. It is highly recommended for cluster administrators to set *resource quotas* on a namespace that requires you to set resource requests and limits. For more information, see [resource quotas on AKS clusters][resource-quotas].
+
+When you define a CPU request or limit, the value is measured in CPU units. 
+* *1.0* CPU equates to one underlying virtual CPU core on the node. 
+* The same measurement is used for GPUs.
+* You can define fractions measured in millicores. For example, *100m* is *0.1* of an underlying vCPU core.
 
 In the following basic example for a single NGINX pod, the pod requests *100m* of CPU time, and *128Mi* of memory. The resource limits for the pod are set to *250m* CPU and *256Mi* memory:
 
@@ -62,15 +69,13 @@ For more information about resource measurements and assignments, see [Managing 
 
 ## Develop and debug applications against an AKS cluster
 
-**Best practice guidance** - Development teams should deploy and debug against an AKS cluster using Dev Spaces. This development model makes sure that role-based access controls, network, or storage needs are implemented before the app is deployed to production.
+**Best practice guidance** - Development teams should deploy and debug against an AKS cluster using Bridge to Kubernetes.
 
-With Azure Dev Spaces, you develop, debug, and test applications directly against an AKS cluster. Developers within a team work together to build and test throughout the application lifecycle. You can continue to use existing tools such as Visual Studio or Visual Studio Code. An extension is installed for Dev Spaces that gives an option to run and debug the application in an AKS cluster:
+With Bridge to Kubernetes, you can develop, debug, and test applications directly against an AKS cluster. Developers within a team work together to build and test throughout the application lifecycle. You can continue to use existing tools such as Visual Studio or Visual Studio Code. An extension is installed for Bridge to Kubernetes that allows you to develop directly in an AKS cluster.
 
-![Debug applications in an AKS cluster with Dev Spaces](media/developer-best-practices-resource-management/dev-spaces-debug.png)
+This integrated development and test process with Bridge to Kubernetes reduces the need for local test environments, such as [minikube][minikube]. Instead, you develop and test against an AKS cluster. This cluster can be secured and isolated as noted in previous section on the use of namespaces to logically isolate a cluster.
 
-This integrated development and test process with Dev Spaces reduces the need for local test environments, such as [minikube][minikube]. Instead, you develop and test against an AKS cluster. This cluster can be secured and isolated as noted in previous section on the use of namespaces to logically isolate a cluster. When your apps are ready to deploy to production, you can confidently deploy as your development was all done against a real AKS cluster.
-
-Azure Dev Spaces is intended for use with applications that run on Linux pods and nodes.
+Bridge to Kubernetes is intended for use with applications that run on Linux pods and nodes.
 
 ## Use the Visual Studio Code extension for Kubernetes
 
@@ -96,7 +101,7 @@ This best practices article focused on how to run your cluster and workloads fro
 
 To implement some of these best practices, see the following articles:
 
-* [Develop with Dev Spaces][dev-spaces]
+* [Develop with Bridge to Kubernetes][btk]
 * [Check for issues with kube-advisor][aks-kubeadvisor]
 
 <!-- EXTERNAL LINKS -->
@@ -107,7 +112,7 @@ To implement some of these best practices, see the following articles:
 
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: ../dev-spaces/get-started-netcore.md
+[btk]: /visualstudio/containers/overview-bridge-to-kubernetes
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

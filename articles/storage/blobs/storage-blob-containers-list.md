@@ -5,32 +5,42 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
-ms.date: 10/01/2019
+ms.topic: how-to
+ms.date: 10/14/2020
 ms.author: tamram
 ms.subservice: blobs
+ms.custom: devx-track-csharp
 ---
 
 # List blob containers with .NET
 
-When you list the containers in an Azure Storage account from your code, you can specify a number of options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).  
+When you list the containers in an Azure Storage account from your code, you can specify a number of options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).  
 
 ## Understand container listing options
 
 To list containers in your storage account, call one of the following methods:
 
+# [.NET v12](#tab/dotnet)
+
+- [GetBlobContainers](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainers)
+- [GetBlobContainersAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainersasync)
+
+# [.NET v11](#tab/dotnet11)
+
 - [ListContainersSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmented)
 - [ListContainersSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmentedasync)
+
+---
 
 The overloads for these methods provide additional options for managing how containers are returned by the listing operation. These options are described in the following sections.
 
 ### Manage how many results are returned
 
-By default, a listing operation returns up to 5000 results at a time. To return a smaller set of results, provide a nonzero value for the `maxresults` parameter when calling one of the **ListContainerSegmented** methods.
+By default, a listing operation returns up to 5000 results at a time. To return a smaller set of results, provide a nonzero value for the size of the page of results to return.
 
-If your storage account contains more than 5000 containers, or if you have specified a value for `maxresults` such that the listing operation returns a subset of containers in the storage account, then Azure Storage returns a *continuation token* with the list of containers. A continuation token is an opaque value that you can use to retrieve the next set of results from Azure Storage.
+If your storage account contains more than 5000 containers, or if you have specified a page size such that the listing operation returns a subset of containers in the storage account, then Azure Storage returns a *continuation token* with the list of containers. A continuation token is an opaque value that you can use to retrieve the next set of results from Azure Storage.
 
-In your code, check the value of the continuation token to determine whether it is null. When the continuation token is null, then the set of results is complete. If the continuation token is not null, then call **ListContainersSegmented** or **ListContainersSegmentedAsync** again, passing in the continuation token to retrieve the next set of results, until the continuation token is null.
+In your code, check the value of the continuation token to determine whether it is empty (for .NET v12) or null (for .NET v11 and earlier). When the continuation token is null, then the set of results is complete. If the continuation token is not null, then call the listing method again, passing in the continuation token to retrieve the next set of results, until the continuation token is null.
 
 ### Filter results with a prefix
 
@@ -38,30 +48,39 @@ To filter the list of containers, specify a string for the `prefix` parameter. T
 
 ### Return metadata
 
-To return container metadata with the results, specify the **Metadata** value for the [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) enumeration. Azure Storage includes metadata with each container returned, so you do not need to also call one of the **FetchAttributes** methods to retrieve the container metadata.
+To return container metadata with the results, specify the **Metadata** value for the [BlobContainerTraits](/dotnet/api/azure.storage.blobs.models.blobcontainertraits) enum (for .NET v12) or [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) enum (for .NET v11 and earlier). Azure Storage includes metadata with each container returned, so you do not need to also fetch the container metadata.
 
 ## Example: List containers
 
-The following example asynchronously lists the containers in a storage account that begin with a specified prefix. The example lists containers in increments of 5 results at a time, and uses the continuation token to get the next segment of results. The example also returns container metadata with the results.
+The following example asynchronously lists the containers in a storage account that begin with a specified prefix. The example lists containers that begin with the specified prefix and returns the specified number of results per call to the listing operation. It then uses the continuation token to get the next segment of results. The example also returns container metadata with the results.
+
+# [.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="ListContainers":::
+
+# [.NET v11](#tab/dotnet11)
 
 ```csharp
-private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient, string prefix)
+private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient,
+                                                        string prefix,
+                                                        int? segmentSize)
 {
-    Console.WriteLine("List all containers beginning with prefix {0}, plus container metadata:", prefix);
+    Console.WriteLine("List containers beginning with prefix {0}, plus container metadata:", prefix);
+
+    BlobContinuationToken continuationToken = null;
+    ContainerResultSegment resultSegment;
 
     try
     {
-        ContainerResultSegment resultSegment = null;
-        BlobContinuationToken continuationToken = null;
-
         do
         {
-            // List containers beginning with the specified prefix, returning segments of 5 results each.
-            // Passing null for the maxResults parameter returns the max number of results (up to 5000).
-            // Requesting the container's metadata with the listing operation populates the metadata,
-            // so it's not necessary to also call FetchAttributes() to read the metadata.
+            // List containers beginning with the specified prefix,
+            // returning segments of 5 results each.
+            // Passing in null for the maxResults parameter returns the maximum number of results (up to 5000).
+            // Requesting the container's metadata as part of the listing operation populates the metadata,
+            // so it's not necessary to call FetchAttributes() to read the metadata.
             resultSegment = await blobClient.ListContainersSegmentedAsync(
-                prefix, ContainerListingDetails.Metadata, 5, continuationToken, null, null);
+                prefix, ContainerListingDetails.Metadata, segmentSize, continuationToken, null, null);
 
             // Enumerate the containers returned.
             foreach (var container in resultSegment.Results)
@@ -76,24 +95,27 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
                 }
             }
 
-            // Get the continuation token. If not null, get the next segment.
+            // Get the continuation token.
             continuationToken = resultSegment.ContinuationToken;
 
         } while (continuationToken != null);
+
+        Console.WriteLine();
     }
     catch (StorageException e)
     {
-        Console.WriteLine("HTTP error code {0} : {1}",
-                            e.RequestInformation.HttpStatusCode,
-                            e.RequestInformation.ErrorCode);
         Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
     }
 }
 ```
+
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
 ## See also
 
-[List Containers](/rest/api/storageservices/list-containers2)
-[Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
+- [List Containers](/rest/api/storageservices/list-containers2)
+- [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with SafetyNet | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SafetyNet.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: caa96ea2-da21-4529-8fab-0e06367beb40
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate SafetyNet with Azure Active Directory

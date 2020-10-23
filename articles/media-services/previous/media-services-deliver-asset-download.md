@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
-# How to: Deliver an asset by download  
+# How to: Deliver an asset by download
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 This article discusses options for delivering media assets uploaded to Media Services. You can deliver Media Services content in numerous application scenarios. After encoding, download the generated media assets, or access them by using a streaming locator. For improved performance and scalability, you can also deliver content by using a Content Delivery Network (CDN).
 
 This example shows how to download media assets from Media Services to your local computer. The code queries the jobs associated with the Media Services account by job ID and accesses its **OutputMediaAssets** collection (which is the set of one or more output media assets that results from running a job). This example shows how to download output media assets from a job, but you can apply the same approach to download other assets.

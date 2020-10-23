@@ -1,21 +1,11 @@
 ---
-title: Configure networking modes for Azure Service Fabric container services | Microsoft Docs
+title: Configure networking modes for container services 
 description: Learn how to set up the different networking modes that are supported by Azure Service Fabric. 
-services: service-fabric
-documentationcenter: .net
 author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-
 ---
 # Service Fabric container networking modes
 
@@ -26,7 +16,7 @@ If you have one container service with a static endpoint in your service manifes
 When a container service restarts or moves to another node in the cluster, the IP address changes. For this reason, we don't recommend using the dynamically assigned IP address to discover container services. Only the Service Fabric Naming Service or the DNS Service should be used for service discovery. 
 
 >[!WARNING]
->Azure allows a total of 65,356 IPs per virtual network. The sum of the number of nodes and the number of container service instances (that are using Open mode) can't exceed 65,356 IPs within a virtual network. For high-density scenarios, we recommend nat networking mode. In addition, other dependencies such as the load balancer will have other [limitations](https://docs.microsoft.com/azure/azure-subscription-service-limits) to consider. Currently up to 50 IPs per node have been tested and proven stable. 
+>Azure allows a total of 65,356 IPs per virtual network. The sum of the number of nodes and the number of container service instances (that are using Open mode) can't exceed 65,356 IPs within a virtual network. For high-density scenarios, we recommend nat networking mode. In addition, other dependencies such as the load balancer will have other [limitations](../azure-resource-manager/management/azure-subscription-service-limits.md) to consider. Currently up to 50 IPs per node have been tested and proven stable. 
 >
 
 ## Set up Open networking mode
@@ -196,15 +186,14 @@ When a container service restarts or moves to another node in the cluster, the I
  
 3. For Windows clusters only, set up an Azure Network Security Group (NSG) rule that opens up port UDP/53 for the virtual network with the following values:
 
-   |Setting |Value | |
-   | --- | --- | --- |
-   |Priority |2000 | |
-   |Name |Custom_Dns  | |
-   |Source |VirtualNetwork | |
-   |Destination | VirtualNetwork | |
-   |Service | DNS (UDP/53) | |
-   |Action | Allow  | |
-   | | |
+   |Setting |Value |
+   | --- | --- |
+   |Priority |2000 |
+   |Name |Custom_Dns  |
+   |Source |VirtualNetwork |
+   |Destination | VirtualNetwork |
+   |Service | DNS (UDP/53) |
+   |Action | Allow  |
 
 4. Specify the networking mode in the application manifest for each service: `<NetworkConfig NetworkType="Open">`. **Open** networking mode results in the service getting a dedicated IP address. If a mode isn't specified, the service defaults to **nat** mode. In the following manifest example, the `NodeContainerServicePackage1` and `NodeContainerServicePackage2` services can each listen on the same port (both services are listening on `Endpoint1`). When Open networking mode is specified, `PortBinding` configurations cannot be specified.
 
@@ -269,6 +258,6 @@ When a container service restarts or moves to another node in the cluster, the I
  
 ## Next steps
 * [Understand the Service Fabric application model](service-fabric-application-model.md)
-* [Learn more about the Service Fabric service manifest resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Learn more about the Service Fabric service manifest resources](./service-fabric-service-manifest-resources.md)
 * [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-get-started-containers.md)
 * [Deploy a Docker container to Service Fabric on Linux](service-fabric-get-started-containers-linux.md)

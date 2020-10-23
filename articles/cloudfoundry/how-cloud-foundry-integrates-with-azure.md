@@ -4,12 +4,10 @@ description: Describes how Cloud Foundry can use Azure services to enhance the E
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
-manager: jeconnoc
-editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
@@ -36,9 +34,9 @@ Azure Availability Zone achieves HA by placing a set of VMs into 2+ data centers
 > Azure Availability Zone is not offered to all regions yet, check the latest [announcement for the list of supported regions](https://docs.microsoft.com/azure/availability-zones/az-overview). For Open Source Cloud Foundry, check [Azure Availability Zone for open source Cloud Foundry guidance](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/availability-zone).
 
 ## 2. Network Routing
-By default, Azure basic load balancer is used for incoming CF API/apps requests, forwarding them to the Gorouters. CF components like Diego Brain, MySQL, ERT can also use the load balancer to balance the traffic for HA. Azure also provides a set of fully managed load-balancing solutions. If you're looking for TLS termination ("SSL offload") or per HTTP/HTTPS request application layer processing, consider Application Gateway. For high availability and scalability load balancing on layer 4, consider standard load balancer.
+By default, Azure basic load balancer is used for incoming CF API/apps requests, forwarding them to the Gorouters. CF components like Diego Brain, MySQL, ERT can also use the load balancer to balance the traffic for HA. Azure also provides a set of fully managed load-balancing solutions. If you're looking for TLS/SSL termination ("SSL offload") or per HTTP/HTTPS request application layer processing, consider Application Gateway. For high availability and scalability load balancing on layer 4, consider standard load balancer.
 ### Azure Application Gateway *
-[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) offers various layer 7 load balancing capabilities, including SSL offloading, end to end SSL, Web Application Firewall, cookie-based session affinity and more. You can [configure Application Gateway in Open Source Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway). For PCF, check the  [PCF 2.1 release notes](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) for POC test.
+[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) offers various layer 7 load balancing capabilities, including SSL offloading, end to end TLS, Web Application Firewall, cookie-based session affinity and more. You can [configure Application Gateway in Open Source Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway). For PCF, check the  [PCF 2.1 release notes](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) for POC test.
 
 ### Azure Standard Load Balancer *
 Azure Load Balancer is a Layer 4 load balancer. It's used to distribute the traffic among instances of services in a load-balanced set. The standard version provides [advanced features](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) on top of the basic version. For example 1. The backend pool max limit is raised from 100 to 1000 VMs.  2. The endpoints now support multiple availability sets instead of single availability set.  3. Additional features like HA ports, richer monitoring data, and so on. If you're moving to Azure Availability Zone, standard load balancer is required. For a new deployment, we recommend you to start with Azure Standard Load Balancer. 

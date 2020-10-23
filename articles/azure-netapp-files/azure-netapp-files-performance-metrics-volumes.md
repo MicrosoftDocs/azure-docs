@@ -1,20 +1,13 @@
 ---
-title: Performance benchmark test recommendations for Azure NetApp Files | Microsoft Docs
-description: Provides benchmark testing recommendations for volume performance and metrics using Azure NetApp Files.
-services: azure-netapp-files
-documentationcenter: ''
+title: Recommended performance benchmark tests - Azure NetApp Files
+description: Learn about benchmark testing recommendations for volume performance and metrics using Azure NetApp Files.
 author: b-juche
-manager: ''
-editor: ''
-
-ms.assetid:
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.author: b-juche
+
 ---
 # Performance benchmark test recommendations for Azure NetApp Files
 
@@ -26,7 +19,7 @@ To understand the performance characteristics of an Azure NetApp Files volume, y
 
 ### VM instance sizing
 
-For best results, ensure that you are using a virtual machine (VM) instance that is appropriately sized to perform the tests. The following examples use a Standard_D32s_v3 instance. For more information about VM instance sizes, see [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) for Windows-based VMs, and [Sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for Linux-based VMs.
+For best results, ensure that you are using a virtual machine (VM) instance that is appropriately sized to perform the tests. The following examples use a Standard_D32s_v3 instance. For more information about VM instance sizes, see [Sizes for Windows virtual machines in Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-network%252ftoc.json) for Windows-based VMs, and [Sizes for Linux virtual machines in Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) for Linux-based VMs.
 
 ### Azure NetApp Files volume sizing
 
@@ -115,7 +108,7 @@ You can also create a dashboard in Azure Monitor for Azure NetApp Files by going
 
 ### Azure Monitor API access
 
-You can access Azure NetApp Files counters by using REST API calls. See [Supported metrics with Azure Monitor: Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftnetappnetappaccountscapacitypoolsvolumes) for counters for capacity pools and volumes.
+You can access Azure NetApp Files counters by using REST API calls. See [Supported metrics with Azure Monitor: Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) for counters for capacity pools and volumes.
 
 The following example shows a GET URL for viewing logical volume size:
 
@@ -126,4 +119,4 @@ The following example shows a GET URL for viewing logical volume size:
 ## Next steps
 
 - [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
-- [Performance benchmarks for Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)
+- [Performance benchmarks for Linux](performance-benchmarks-linux.md)

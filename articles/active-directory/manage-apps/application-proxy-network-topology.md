@@ -1,11 +1,10 @@
 ---
-title: Network topology considerations for Azure AD Application Proxy | Microsoft Docs
+title: Network topology considerations for Azure AD Application Proxy
 description: Covers network topology considerations when using Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -37,7 +36,7 @@ When an application is published through Azure AD Application Proxy, traffic fro
 
 When you sign up for an Azure AD tenant, the region of your tenant is determined by the country/region you specify. When you enable Application Proxy, the Application Proxy service instances for your tenant are chosen or created in the same region as your Azure AD tenant, or the closest region to it.
 
-For example, if your Azure AD tenant’s country or region is the United Kingdom, all your Application Proxy connectors use service instances in EU data centers. When your users access published applications, their traffic goes through the Application Proxy service instances in this location.
+For example, if your Azure AD tenant's country or region is the United Kingdom, all your Application Proxy connectors use service instances in European data centers. When your users access published applications, their traffic goes through the Application Proxy service instances in this location.
 
 ## Considerations for reducing latency
 
@@ -158,15 +157,15 @@ The connector can be placed in the Azure datacenter. Since the connector still h
 
 ### Use case 5
 
-**Scenario:** The app is in an organization's network in the EU, with the Application Proxy instance and most users in the US.
+**Scenario:** The app is in an organization's network in Europe, with the Application Proxy instance and most users in the US.
 
 **Recommendation:** Place the connector near the app. Because US users are accessing an Application Proxy instance that happens to be in the same region, hop 1 is not too expensive. Hop 3 is optimized. Consider using ExpressRoute to optimize hop 2.
 
-![Diagram shows users and proxy in the US, connector and app in the EU](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
+![Diagram shows users and proxy in the US, connector and app in Europe](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
 
-You can also consider using one other variant in this situation. If most users in the organization are in the US, then chances are that your network extends to the US as well. Place the connector in the US, and use the dedicated internal corporate network line to the application in the EU. This way hops 2 and 3 are optimized.
+You can also consider using one other variant in this situation. If most users in the organization are in the US, then chances are that your network extends to the US as well. Place the connector in the US, and use the dedicated internal corporate network line to the application in Europe. This way hops 2 and 3 are optimized.
 
-![Diagram shows users, proxy, and connector in the US, app in the EU](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
+![Diagram shows users, proxy, and connector in the US, app in Europe](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
 
 ## Next steps
 

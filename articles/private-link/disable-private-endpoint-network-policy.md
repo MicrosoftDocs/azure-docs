@@ -2,11 +2,11 @@
 title: 'Disable network policies for private endpoints in Azure'
 description: Learn how to disable network policies for private endpoints.
 services: private-link
-author: KumudD
+author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Disable network policies for private endpoints

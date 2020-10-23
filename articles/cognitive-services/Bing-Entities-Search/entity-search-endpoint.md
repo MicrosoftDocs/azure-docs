@@ -1,7 +1,7 @@
 ---
 title: The Bing Entity Search API endpoint
 titleSuffix: Azure Cognitive Services
-description: Learn about the Bing Entity Search API endpoint and send requests to it.
+description: The Bing Entity Search API has one endpoint that returns entities from the Web based on a query. These search results are returned in JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme

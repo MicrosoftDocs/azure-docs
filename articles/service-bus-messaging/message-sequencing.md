@@ -1,20 +1,8 @@
 ---
 title: Azure Service Bus message sequencing and timestamps | Microsoft Docs
-description: Preserve Service Bus message sequence and order with timestamps
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+description: This article explains how to preserve sequencing and ordering (with timestamps) of Azure Service Bus messages.
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Message sequencing and timestamps

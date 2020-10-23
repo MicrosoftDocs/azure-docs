@@ -1,15 +1,15 @@
 ---
-title: Copy data from Office 365 using Azure Data Factory | Microsoft Docs
+title: Copy data from Office 365 using Azure Data Factory 
 description: Learn how to copy data from Office 365 to supported sink data stores by using copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 10/20/2019
@@ -17,6 +17,7 @@ ms.author: jingwang
 
 ---
 # Copy data from Office 365 into Azure using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory integrates with [Microsoft Graph data connect](https://docs.microsoft.com/graph/data-connect-concept-overview), allowing you to bring the rich organizational data in your Office 365 tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Office 365.  Please refer to [this link](https://docs.microsoft.com/graph/data-connect-concept-overview) for an overview on Microsoft Graph data connect and refer to [this link](https://docs.microsoft.com/graph/data-connect-policies#licensing) for licensing information.
 
@@ -37,10 +38,10 @@ For now, within a single copy activity you can only **copy data from Office 365 
 To copy data from Office 365 into Azure, you need to complete the following prerequisite steps:
 
 - Your Office 365 tenant admin must complete on-boarding actions as described [here](https://docs.microsoft.com/graph/data-connect-get-started).
-- Create and configure an Azure AD web application in Azure Active Directory.  For instructions, see [Create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
+- Create and configure an Azure AD web application in Azure Active Directory.  For instructions, see [Create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
 - Make note of the following values, which you will use to define the linked service for Office 365:
-    - Tenant ID. For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
-    - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    - Tenant ID. For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
+    - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 - Add the user identity who will be making the data access request as the owner of the Azure AD web application (from the Azure AD web application > Settings > Owners > Add owner). 
     - The user identity must be in the Office 365 organization you are getting data from and must not be a Guest user.
 

@@ -1,24 +1,18 @@
 ---
 title: Connect to Azure Germany by using Azure CLI | Microsoft Docs
 description: Information on managing your subscription in Azure Germany by using Azure CLI
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/13/2017
-ms.author: ralfwi
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs
 ---
 
-
 # Connect to Azure Germany by using Azure CLI
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
+
 To use the Azure command-line interface (Azure CLI), you need to connect to Azure Germany instead of global Azure. You can use Azure CLI to manage a large subscription through scripts or to access features that are not currently available in the Azure portal. If you have used Azure CLI in global Azure, it's mostly the same.  
 
 ## Azure CLI
@@ -26,30 +20,30 @@ There are multiple ways to [install the Azure CLI](https://docs.microsoft.com/cl
 
 To connect to Azure Germany, set the cloud:
 
-```
+```azurecli
 az cloud set --name AzureGermanCloud
 ```
 
 After the cloud is set, you can log in:
 
-```
+```azurecli
 az login --username your-user-name@your-tenant.onmicrosoft.de
 ```
 
 To confirm that the cloud is correctly set to AzureGermanCloud, run either of the following commands and then verify that the `isActive` flag is set to `true` for the AzureGermanCloud item:
 
-```
+```azurecli
 az cloud list
 ```
 
-```
+```azurecli
 az cloud list --output table
 ```
 
 ## Azure classic CLI
 There are multiple ways to [install Azure classic CLI](../xplat-cli-install.md). If you already have Node installed, the easiest way is to install the npm package.
 
-To install CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the azure-cli package:
+To install CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the **azure-cli** package:
 
 ```bash
 npm install -g azure-cli
@@ -67,13 +61,13 @@ sudo npm install -g azure-cli
 
 After Azure CLI is installed, log in to Azure Germany:
 
-```
+```console
 azure login --username your-user-name@your-tenant.onmicrosoft.de  --environment AzureGermanCloud
 ```
 
 After you're logged in, you can run Azure CLI commands as you normally would:
 
-```
+```console
 azure webapp list my-resource-group
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: Distributed data in Azure Database for PostgreSQL – Hyperscale (Citus)
+title: Distributed data – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Learn about distributed tables, reference tables, local tables, and shards in Azure Database for PostgreSQL.
 author: jonels-msft
 ms.author: jonels
@@ -41,8 +41,7 @@ Making the right choice is important for performance and functionality.
 ### Type 2: Reference tables
 
 A reference table is a type of distributed table whose entire
-contents are concentrated into a single shard. The shard is replicated on every worker. Queries on any worker can access the reference information locally, without the network overhead of requesting
-rows from another node. Reference tables have no distribution column
+contents are concentrated into a single shard. The shard is replicated on every worker. Queries on any worker can access the reference information locally, without the network overhead of requesting rows from another node. Reference tables have no distribution column
 because there's no need to distinguish separate shards per row.
 
 Reference tables are typically small and are used to store data that's
@@ -67,7 +66,7 @@ matches a shard ID with a range of integers in a hash space
 
 ```sql
 SELECT * from pg_dist_shard;
- logicalrelid  | shardid | shardstorage | shardminvalue | shardmaxvalue 
+ logicalrelid  | shardid | shardstorage | shardminvalue | shardmaxvalue
 ---------------+---------+--------------+---------------+---------------
  github_events |  102026 | t            | 268435456     | 402653183
  github_events |  102027 | t            | 402653184     | 536870911
@@ -106,11 +105,14 @@ JOIN pg_dist_node node
 WHERE shardid = 102027;
 ```
 
-    ┌─────────┬───────────┬──────────┐
-    │ shardid │ nodename  │ nodeport │
-    ├─────────┼───────────┼──────────┤
-    │  102027 │ localhost │     5433 │
-    └─────────┴───────────┴──────────┘
+```output
+┌─────────┬───────────┬──────────┐
+│ shardid │ nodename  │ nodeport │
+├─────────┼───────────┼──────────┤
+│  102027 │ localhost │     5433 │
+└─────────┴───────────┴──────────┘
+```
 
 ## Next steps
+
 - Learn how to [choose a distribution column](concepts-hyperscale-choose-distribution-column.md) for distributed tables.

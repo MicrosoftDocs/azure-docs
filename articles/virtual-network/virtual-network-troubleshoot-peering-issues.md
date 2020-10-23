@@ -6,7 +6,7 @@ documentationcenter: na
 author: v-miegge
 manager: dcscontentpm
 editor: ''
-
+tags: virtual-network
 ms.assetid: 1a3d1e84-f793-41b4-aa04-774a7e8f7719
 ms.service: virtual-network
 ms.devlang: na
@@ -20,7 +20,7 @@ ms.author: kaushika
 
 # Troubleshoot virtual network peering issues
 
-This troubleshooting guide provides steps to help you resolve most [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) issues.
+This troubleshooting guide provides steps to help you resolve most [virtual network peering](virtual-network-peering-overview.md) issues.
 
 ![Diagram of virtual network peering](./media/virtual-network-troubleshoot-peering-issues/4489538_en_1.png)
 
@@ -230,6 +230,15 @@ To resolve this issue, delete the peering from both virtual networks, and then r
 ### Failed to peer a Databricks virtual network
 
 To resolve this issue, configure the virtual network peering under **Azure Databricks**, and then specify the target virtual network by using **Resource ID**. For more information, see [Peer a Databricks virtual network to a remote virtual network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
+
+### The remote virtual network lacks a gateway
+
+This issue occurs when you peer virtual networks from different tenants and later want to configure `Use Remote Gateways`. A limitation of the Azure portal is that it can't validate the presence of a virtual network gateway in another tenant's virtual network.
+
+There are two ways to resolve the issue:
+
+ * Delete the peerings and activate the `Use Remote Gateways` option when you create a new peering.
+ * Use PowerShell or CLI, instead of the Azure portal, to enable `Use Remote Gateways`.
 
 ## Next steps
 

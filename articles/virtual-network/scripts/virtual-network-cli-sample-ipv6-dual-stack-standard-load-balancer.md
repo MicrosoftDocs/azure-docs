@@ -1,7 +1,7 @@
 ---
-title: Azure CLI script sample - Configure IPv6 virtual network endpoints - Standard Load Balancer (preview)
+title: Azure CLI script sample - Configure IPv6 frontend - Standard Load Balancer
 titlesuffix: Azure Virtual Network
-description: Enable IPv6 endpoints using Azure CLI in Azure Virtual Network
+description: Learn how to configure IPv6 endpoints in a virtual network script sample using Standard Load Balancer.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,7 +11,8 @@ ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurecli
 ---
 
 # Configure IPv6 endpoints in virtual network script sample using Standard Load Balancer(preview)
@@ -29,15 +30,17 @@ To use the IPv6 for Azure virtual network feature, you must configure your subsc
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
+
 It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure CLI command:
 
-```azurelci
+```azurecli
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
+
 After the registration is complete, run the following command:
 
-```azurelci
+```azurecli
 az provider register --namespace Microsoft.Network
 ```
 
@@ -274,6 +277,7 @@ az vm create \
 --availability-set dsAVset \
 --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest 
 ```
+
 ## View IPv6 dual stack virtual network in Azure portal
 You can view the IPv6 dual stack virtual network in Azure portal as follows:
 1. In the portal's search bar, enter *dsVnet*.

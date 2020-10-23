@@ -1,6 +1,6 @@
 ---
 title: LOG10 in Azure Cosmos DB query language
-description: Learn about SQL system function LOG10 in Azure Cosmos DB.
+description: Learn about the LOG10 SQL system function in Azure Cosmos DB to return the base-10 logarithm of the specified numeric expression
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -28,7 +28,7 @@ LOG10 (<numeric_expr>)
   
 ## Remarks
   
-  The LOG10 and POWER functions are inversely related to one another. For example, 10 ^ LOG10(n) = n.  
+  The LOG10 and POWER functions are inversely related to one another. For example, 10 ^ LOG10(n) = n. This system function will not utilize the index.
   
 ## Examples
   

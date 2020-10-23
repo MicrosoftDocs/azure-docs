@@ -1,18 +1,12 @@
 ---
-title: Troubleshoot an Azure site-to-site VPN connection that cannot connect| Microsoft Docs
+title: 'Troubleshoot an Azure site-to-site VPN connection that cannot connect
+titleSuffix: Azure VPN Gateway'
 description: Learn how to troubleshoot a site-to-site VPN connection that suddenly stops working and cannot be reconnected. 
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
 ---
@@ -63,11 +57,15 @@ To view the shared key for the Azure VPN connection, use one of the following me
 
 For the Azure Resource Manager deployment model:
 
-    Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
+```azurepowershell
+Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
+```
 
 For the classic deployment model:
 
-    Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
+```azurepowershell
+Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
+```
 
 ### Step 3. Verify the VPN peer IPs
 

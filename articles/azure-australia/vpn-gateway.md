@@ -1,16 +1,16 @@
 ---
 title: Azure VPN Gateway in Azure Australia
 description: Implementing VPN Gateway in Azure Australia to be compliant with the ISM and effectively protect Australian Government agencies
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: article
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: yvettep
 ---
 
 # Azure VPN Gateway in Azure Australia
 
-A critical service with any public cloud is the secure connection of cloud resources and services to existing on-premises systems. The service that provides this capability in Azure is Azure VPN Gateway. This article outlines the key points to consider when you configure a VPN gateway to comply with the Australian Signals Directorate’s (ASD) [Information Security Manual (ISM) controls](https://acsc.gov.au/infosec/ism/).
+A critical service with any public cloud is the secure connection of cloud resources and services to existing on-premises systems. The service that provides this capability in Azure is Azure VPN Gateway. This article outlines the key points to consider when you configure a VPN gateway to comply with the Australian Signals Directorate's (ASD) [Information Security Manual (ISM) controls](https://acsc.gov.au/infosec/ism/).
 
 A VPN gateway is used to send encrypted traffic between a virtual network in Azure and another network. Three scenarios are addressed by VPN gateways:
 
@@ -32,7 +32,7 @@ There are three networking options to connect Azure to Australian Government cus
 - Azure ExpressRoute
 - Public internet
 
-The Australian Cyber Security Centre’s [Consumer Guide for Azure](https://servicetrust.microsoft.com/viewpage/Australia) recommends that VPN Gateway (or an equivalent PROTECTED certified third-party service) is used in conjunction with the three networking options. This recommendation is to ensure that the connections comply with the ISM controls for encryption and integrity.
+The Australian Cyber Security Centre's [Consumer Guide for Azure](https://servicetrust.microsoft.com/viewpage/Australia) recommends that VPN Gateway (or an equivalent PROTECTED certified third-party service) is used in conjunction with the three networking options. This recommendation is to ensure that the connections comply with the ISM controls for encryption and integrity.
 
 ### Encryption and integrity
 
@@ -42,7 +42,7 @@ VPN gateways can control encryption and integrity by configuring a custom IPsec/
 
 ### Resource operations
 
-VPN gateways create a connection between Azure and non-Azure environments over the public internet. The ISM has controls that relate to the explicit authorization of connections. By default, it's possible to use VPN gateways to create unauthorized tunnels into secure environments. It's critical that organizations use Azure role-based access control (RBAC) to control who can create and modify VPN gateways and their connections. Azure has no built-in role to manage VPN gateways, so a custom role is required.
+VPN gateways create a connection between Azure and non-Azure environments over the public internet. The ISM has controls that relate to the explicit authorization of connections. By default, it's possible to use VPN gateways to create unauthorized tunnels into secure environments. It's critical that organizations use Azure role-based access control (Azure RBAC) to control who can create and modify VPN gateways and their connections. Azure has no built-in role to manage VPN gateways, so a custom role is required.
 
 Access to Owner, Contributor, and Network Contributor roles is tightly controlled. We also recommend that you use Azure Active Directory Privileged Identity Management for more granular access control.
 
@@ -70,15 +70,15 @@ VPN gateways for S2S connections configured for the Australian Government must h
 
 |Attribute | Must|
 |--- | --- |
-|gatewayType | “VPN”|
+|gatewayType | "VPN"|
 |
 
 Attribute settings required to comply with the ISM controls for PROTECTED are:
 
 |Attribute | Must|
 |--- |---|
-|vpnType |“RouteBased”|
-|vpnClientConfiguration/vpnClientProtocols | “IkeV2”|
+|vpnType |"RouteBased"|
+|vpnClientConfiguration/vpnClientProtocols | "IkeV2"|
 |
 
 Azure VPN gateways support a range of cryptographic algorithms from the IPsec and IKE protocol standards. The default policy sets maximum interoperability with a wide range of third-party VPN devices. As a result, it's possible that during the IKE handshake a noncompliant configuration might be negotiated. We highly recommend that you apply [custom IPsec/IKE policy](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell) parameters to vpnClientConfiguration in VPN gateways to ensure the connections meet the ISM controls for on-premises environment connections to Azure. The key attributes are shown in the following table.
@@ -110,7 +110,7 @@ When you design and configure an Azure VPN gateway, a number of related services
 
 ## Implementation steps using PowerShell
 
-### Role-based access control
+### Azure role-based access control
 
 1. Create a custom role. An example is virtualNetworkGateway Contributor. Create a role to be assigned to users who will be allowed to create and modify VPN gateways. The custom role should allow the following operations:
 

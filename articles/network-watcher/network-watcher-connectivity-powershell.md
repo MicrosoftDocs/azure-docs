@@ -1,19 +1,18 @@
 ---
-title: Troubleshoot connections with Azure Network Watcher - PowerShell | Microsoft Docs
+title: Troubleshoot connections - Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using PowerShell.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: 
+author: damendo
 
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 07/11/2017
-ms.author: kumud
+ms.author: damendo
 ---
 
 # Troubleshoot connections with Azure Network Watcher using PowerShell

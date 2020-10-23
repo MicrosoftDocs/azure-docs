@@ -1,14 +1,10 @@
 ---
-title: Scalability of Azure Service Fabric Mesh apps | Microsoft Docs
-description: Learn about scaling services in Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords:  
-author: dkkapur
-ms.author: dekapur
+title: Scalability of Azure Service Fabric Mesh apps 
+description: One of the advantages of deploying applications to Service Fabric Mesh is the ability to easily scale your services, either manually or with autoscaling policies.
+author: georgewallace
+ms.author: gwallace
 ms.date: 10/26/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt 
 ---
 # Scaling Service Fabric Mesh applications
 

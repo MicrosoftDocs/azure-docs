@@ -1,9 +1,9 @@
 ---
 title: Email action within Remote Monitoring - Azure | Microsoft Docs
 description: This how-to guide shows you how to add an email action to a new or existing rule.
-author: asdonald
+author: dominicbetts
 manager: hegate
-ms.author: asdonald
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
@@ -165,7 +165,7 @@ The following steps show you how to edit the HTML email template. For example, y
 
 ## Throttling
 
-The Remote Monitoring solution accelerator uses Outlook to send email notifications. Outlook limits the number of emails sent to [30 emails per 1 minute](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Email clients receiving the emails may also throttle the number of emails received per minute. Check with your specific email client on limitations. When you set up email notification for a rule, the rule should calculate average values over a period of at least one minute, and not use instant values:
+The Remote Monitoring solution accelerator uses Outlook to send email notifications. Outlook limits the number of emails sent to [30 emails per 1 minute](/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Email clients receiving the emails may also throttle the number of emails received per minute. Check with your specific email client on limitations. When you set up email notification for a rule, the rule should calculate average values over a period of at least one minute, and not use instant values:
 
 ![Average calculation](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 

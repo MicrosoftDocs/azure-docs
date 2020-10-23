@@ -23,12 +23,12 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Dedicated hosts preview
-            url: dedicated-hosts.md
-          - text: Proximity placement groups preview
+          - text: Spot VMs
+            url: ../spot-vms.md
+          - text: Dedicated hosts
+            url: ../dedicated-hosts.md
+          - text: Proximity placement groups
             url: proximity-placement-groups.md
-          - text: Ephemeral disks
-            url: ephemeral-os-disks.md
 
   # Card (optional)
   - title: Get started
@@ -36,11 +36,11 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Azure portal
-            url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-portal
+            url: ./quick-create-portal.md
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-powershell
+            url: ./quick-create-powershell.md
           - text: Azure CLI
-            url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-cli
+            url: ./quick-create-cli.md
  
 
   # Card
@@ -49,15 +49,15 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create and manage Windows VMs
-            url: /azure/virtual-machines/windows/tutorial-manage-vm
+            url: ./tutorial-manage-vm.md
           - text: VM Disks
-            url: /azure/virtual-machines/windows/tutorial-manage-data-disk
+            url: ./tutorial-manage-data-disk.md
           - text: Automate VM configuration
-            url: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
+            url: ./tutorial-automate-vm-deployment.md
           - text: Create custom VM images
-            url: /azure/virtual-machines/windows/tutorial-custom-images
+            url: ./tutorial-custom-images.md
           - text: Manage VMs with virtual networks
-            url: /azure/virtual-machines/windows/tutorial-virtual-network
+            url: ./tutorial-virtual-network.md
 
   # Card
   - title: Self-paced training
@@ -65,6 +65,4 @@ landingContent:
       - linkListType: learn
         links:
           - text:  Create a Windows virtual machine in Azure
-            url: https://docs.microsoft.com/learn/modules/create-windows-virtual-machine-in-azure/
-
-
+            url: /learn/modules/create-windows-virtual-machine-in-azure/

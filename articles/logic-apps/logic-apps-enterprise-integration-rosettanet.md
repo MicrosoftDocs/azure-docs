@@ -1,12 +1,11 @@
 ---
-title: RosettaNet messages for B2B integration - Azure Logic Apps
+title: RosettaNet messages for B2B integration
 description: Exchange RosettaNet messages in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
 ---
@@ -78,7 +77,7 @@ To add a PIP process configuration to your integration account, follow these ste
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Name** | Yes | Your PIP name |
-   | **PIP Code** | Yes | The PIP three-digit code. For more information, see [RosettaNet PIPs](https://docs.microsoft.com/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
+   | **PIP Code** | Yes | The PIP three-digit code. For more information, see [RosettaNet PIPs](/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
    | **PIP Version** | Yes | The PIP version number, which is available based on your selected PIP code |
    ||||
 
@@ -193,7 +192,7 @@ To accelerate development and recommend integration patterns, you can use logic 
 
 1. Provide the information for the action's properties:
 
-   ![Provide action details](media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png)
+   ![Screenshot that shows where you provide the information for the action's properties.](media/logic-apps-enterprise-integration-rosettanet/decode-action-details.png)
 
    | Property | Required | Description |
    |----------|----------|-------------|

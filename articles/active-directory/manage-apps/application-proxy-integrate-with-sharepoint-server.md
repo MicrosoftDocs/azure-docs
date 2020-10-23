@@ -1,19 +1,18 @@
 ---
-title: Enable remote access to SharePoint with Azure AD Application Proxy | Microsoft Docs
+title: Enable remote access to SharePoint - Azure AD Application Proxy
 description: Covers the basics about how to integrate an on-premises SharePoint server with Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/02/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -157,7 +156,7 @@ Because the Internal URL uses HTTPS protocol (`https://SharePoint/`), a certific
 1. Open the Internet Information Services Manager console.
 1. Expand the server in the tree view, expand **Sites**, select the **SharePoint - AAD Proxy** site, and select **Bindings**.
 1. Select **https binding** and then select **Edit**.
-1. In the SSL certificate field, choose **SharePoint** certificate and then select **OK**.
+1. In the TLS/SSL certificate field, choose **SharePoint** certificate and then select **OK**.
 
 You can now access the SharePoint site externally through Azure AD Application Proxy.
 

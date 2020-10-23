@@ -1,6 +1,6 @@
 ---
-title: Create custom roles for Azure resources using the REST API - Azure | Microsoft Docs
-description: Learn how to create custom roles with role-based access control (RBAC) for Azure resources using the REST API. This includes how to list, create, update, and delete custom roles.
+title: Create or update Azure custom roles using the REST API - Azure RBAC
+description: Learn how to list, create, update, or delete Azure custom roles using the REST API and Azure role-based access control (Azure RBAC).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,15 +12,20 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/18/2019
+ms.topic: how-to
+ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
 ---
-# Create custom roles for Azure resources using the REST API
+# Create or update Azure custom roles using the REST API
 
-If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to create and manage custom roles using the REST API.
+> [!IMPORTANT]
+> Adding a management group to `AssignableScopes` is currently in preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to list, create, update, or delete custom roles using the REST API.
 
 ## List custom roles
 
@@ -34,9 +39,10 @@ To list all custom roles in a directory, use the [Role Definitions - List](/rest
 
 1. Replace *{filter}* with the role type.
 
-    | Filter | Description |
-    | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | Filter based on the CustomRole type |
+    > [!div class="mx-tableFixed"]
+    > | Filter | Description |
+    > | --- | --- |
+    > | `$filter=type+eq+'CustomRole'` | Filter based on the CustomRole type |
 
 ## List custom roles at a scope
 
@@ -50,17 +56,20 @@ To list custom roles at a scope, use the [Role Definitions - List](/rest/api/aut
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the roles.
 
-    | Scope | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}/providers/Microsoft.Web/sites/{site1}` | Resource |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
 
 1. Replace *{filter}* with the role type.
 
-    | Filter | Description |
-    | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | Filter based on the CustomRole type |
+    > [!div class="mx-tableFixed"]
+    > | Filter | Description |
+    > | --- | --- |
+    > | `$filter=type+eq+'CustomRole'` | Filter based on the CustomRole type |
 
 ## List a custom role definition by name
 
@@ -74,17 +83,20 @@ To get information about a custom role by its display name, use the [Role Defini
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the roles.
 
-    | Scope | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}/providers/Microsoft.Web/sites/{site1}` | Resource |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
 
 1. Replace *{filter}* with the display name for the role.
 
-    | Filter | Description |
-    | --- | --- |
-    | `$filter=roleName%20eq%20'{roleDisplayName}'` | Use the URL encoded form of the exact display name of the role. For instance, `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
+    > [!div class="mx-tableFixed"]
+    > | Filter | Description |
+    > | --- | --- |
+    > | `$filter=roleName+eq+'{roleDisplayName}'` | Use the URL encoded form of the exact display name of the role. For instance, `$filter=roleName+eq+'Virtual%20Machine%20Contributor'` |
 
 ## List a custom role definition by ID
 
@@ -100,11 +112,13 @@ To get information about a custom role by its unique identifier, use the [Role D
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the roles.
 
-    | Scope | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}/providers/Microsoft.Web/sites/{site1}` | Resource |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the role definition.
 
@@ -140,7 +154,11 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
           }
         ],
         "assignableScopes": [
-          "/subscriptions/{subscriptionId}"
+          "/subscriptions/{subscriptionId1}",
+          "/subscriptions/{subscriptionId2}",
+          "/subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}",
+          "/subscriptions/{subscriptionId2}/resourceGroups/{resourceGroup2}",
+          "/providers/Microsoft.Management/managementGroups/{groupId1}"
         ]
       }
     }
@@ -148,23 +166,26 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 1. Within the URI, replace *{scope}* with the first `assignableScopes` of the custom role.
 
-    | Scope | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
-1. Within the request body, in the `assignableScopes` property, replace *{roleDefinitionId}* with the GUID identifier.
+1. Within the request body, replace *{roleDefinitionId}* with the GUID identifier.
 
-1. Replace *{subscriptionId}* with your subscription identifier.
+1. If `assignableScopes` is a subscription or resource group, replace the *{subscriptionId}* or *{resourceGroup}* instances with your identifiers.
+
+1. If `assignableScopes` is a management group, replace the *{groupId}* instance with your management group identifier. Adding a management group to `assignableScopes` is currently in preview.
 
 1. In the `actions` property, add the operations that the role allows to be performed.
 
 1. In the `notActions` property, add the operations that are excluded from the allowed `actions`.
 
-1. In the `roleName` and `description` properties, specify a unique role name and a description. For more information about the properties, see [Custom roles](custom-roles.md).
+1. In the `roleName` and `description` properties, specify a unique role name and a description. For more information about the properties, see [Azure custom roles](custom-roles.md).
 
     The following shows an example of a request body:
 
@@ -193,7 +214,8 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
           }
         ],
         "assignableScopes": [
-          "/subscriptions/00000000-0000-0000-0000-000000000000"
+          "/subscriptions/00000000-0000-0000-0000-000000000000",
+          "/providers/Microsoft.Management/managementGroups/marketing-group"
         ]
       }
     }
@@ -213,11 +235,12 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 1. Within the URI, replace *{scope}* with the first `assignableScopes` of the custom role.
 
-    | Scope | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
@@ -241,7 +264,11 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
           }
         ],
         "assignableScopes": [
-          "/subscriptions/{subscriptionId}"
+          "/subscriptions/{subscriptionId1}",
+          "/subscriptions/{subscriptionId2}",
+          "/subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}",
+          "/subscriptions/{subscriptionId2}/resourceGroups/{resourceGroup2}",
+          "/providers/Microsoft.Management/managementGroups/{groupId1}"
         ]
       }
     }
@@ -277,7 +304,8 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
           }
         ],
         "assignableScopes": [
-          "/subscriptions/00000000-0000-0000-0000-000000000000"
+          "/subscriptions/00000000-0000-0000-0000-000000000000",
+          "/providers/Microsoft.Management/managementGroups/marketing-group"
         ]
       }
     }
@@ -297,16 +325,17 @@ To delete a custom role, use the [Role Definitions - Delete](/rest/api/authoriza
 
 1. Within the URI, replace *{scope}* with the scope that you want to delete the custom role.
 
-    | Scope | Type |
-    | --- | --- |
-    | `subscriptions/{subscriptionId}` | Subscription |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    > [!div class="mx-tableFixed"]
+    > | Scope | Type |
+    > | --- | --- |
+    > | `subscriptions/{subscriptionId1}` | Subscription |
+    > | `subscriptions/{subscriptionId1}/resourceGroups/{resourceGroup1}` | Resource group |
+    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Management group |
 
 1. Replace *{roleDefinitionId}* with the GUID identifier of the custom role.
 
 ## Next steps
 
-- [Custom roles for Azure resources](custom-roles.md)
-- [Manage access to Azure resources using RBAC and the REST API](role-assignments-rest.md)
+- [Azure custom roles](custom-roles.md)
+- [Add or remove Azure role assignments using the REST API](role-assignments-rest.md)
 - [Azure REST API Reference](/rest/api/azure/)

@@ -1,19 +1,21 @@
 ---
-title: Troubleshoot issues on your Azure Data Box, Azure Data Box Heavy| Microsoft Docs 
+title: Troubleshoot issues on your Azure Data Box, Azure Data Box Heavy
 description: Describes how to troubleshoot issues seen in Azure Data Box and Azure Data Box Heavy when copying data to these devices.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
-ms.topic: article
-ms.date: 06/24/2019
+ms.topic: troubleshooting
+ms.date: 09/10/2020
 ms.author: alkohli
 ---
 
 # Troubleshoot issues related to Azure Data Box and Azure Data Box Heavy
 
-This article details information on how to troubleshoot issues you may see when using the Azure Data Box or Azure Data Box Heavy. The article includes the list of possible errors seen when data is copied to the Data Box or when data is uploaded from Data Box.
+This article details information on how to troubleshoot issues you may see when using the Azure Data Box or Azure Data Box Heavy for import orders. The article includes the list of possible errors seen when data is copied to the Data Box or when data is uploaded from Data Box for an import order.
+
+The information in this article does not apply to export orders created for Data Box.
 
 ## Error classes
 
@@ -50,7 +52,7 @@ These are errors related to container and share names.
     - Examples of valid names: `my-folder-1`, `my-really-extra-long-folder-111`
     - Examples of names that aren’t valid: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
 
-    For more information, see the Azure naming conventions for [container names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) and [share names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    For more information, see the Azure naming conventions for [container names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) and [share names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
 
 ### ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH
@@ -69,7 +71,7 @@ These are errors related to container and share names.
     - Examples of valid names: `my-folder-1`, `my-really-extra-long-folder-111`
     - Examples of names that aren’t valid: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
 
-    For more information, see the Azure naming conventions for [container names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) and [share names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    For more information, see the Azure naming conventions for [container names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) and [share names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
 ### ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH
 
@@ -87,7 +89,18 @@ These are errors related to container and share names.
     - Examples of valid names: `my-folder-1`, `my-really-extra-long-folder-111`
     - Examples of names that aren’t valid: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
 
-    For more information, see the Azure naming conventions for [container names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) and [share names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    For more information, see the Azure naming conventions for [container names](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) and [share names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    
+### ERROR_FILE_OR_DIRECTORY_NAME_ILLEGAL
+
+**Error description**: The directory or the container names contain illegal characters.
+
+**Suggested resolution**: The directory or the container names that you have copied contain unsupported characters.
+
+- On the Connect and copy page of the local web UI, download, and review the error files to identify the folder names with issues. 
+- Rename the directory or containers to ensure that they are compliant with Azure naming conventions.
+
+For more information, see the Azure naming conventions for [directories](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) and [containers](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names).
 
 ## Container or share size limit errors
 
@@ -95,13 +108,17 @@ These are errors related to data exceeding the size of data allowed in a contain
 
 ### ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
-**Error description:** Azure file share limits a share to 5 TB of data. This limit has exceeded for some shares.
+**Error description:** Azure file share limits a share to 5 TiB of data, and large file shares are not enabled on the storage account. This limit was exceeded for some shares.
 
 **Suggested resolution:** On the **Connect and copy** page of the local web UI, download, and review the error files.
 
-Identify the folders that have this issue from the error logs and make sure that the files in that folder are under 5 TB.
-
-
+- Identify the folders that have this issue from the error logs and make sure that the files in that folder are under 5 TiB.
+- The 5 TiB limit does not apply to a storage account that allows large file shares. However, you must have large file shares configured when you place your order. 
+  - Contact [Microsoft Support](data-box-disk-contact-microsoft-support.md) and request a new shipping label.
+  - [Enable large file shares on the storage account.](../storage/files/storage-files-how-to-create-large-file-share.md#enable-large-files-shares-on-an-existing-account)
+  - [Expand the file shares in the storage account](../storage/files/storage-files-how-to-create-large-file-share.md#expand-existing-file-shares) and set the quota to 100 TiB.
+  
+  
 ## Object or file size limit errors
 
 These are errors related to data exceeding the maximum size of object or the file that is allowed in Azure. 
@@ -169,7 +186,7 @@ All the non-critical errors related to names of blobs, files, or containers that
 On the **Connect and copy** page of the local web UI, download, and review the error files.
 Remove or rename the files to remove unsupported characters.
 
-For more information, see the Azure naming conventions for [blob names](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) and [file names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
+For more information, see the Azure naming conventions for [blob names](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) and [file names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 ### ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL
 
@@ -180,7 +197,7 @@ For more information, see the Azure naming conventions for [blob names](https://
 On the **Connect and copy** page of the local web UI, download, and review the error files.
 Remove or rename the files to remove unsupported characters.
 
-For more information, see the Azure naming conventions for [blob names](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) and [file names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
+For more information, see the Azure naming conventions for [blob names](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) and [file names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 
 ### ERROR_BLOB_OR_FILE_NAME_ENDING
@@ -192,7 +209,7 @@ For more information, see the Azure naming conventions for [blob names](https://
 On the **Connect and copy** page of the local web UI, download, and review the error files.
 Remove or rename the files to remove unsupported characters.
 
-For more information, see the Azure naming conventions for [blob names](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) and [file names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
+For more information, see the Azure naming conventions for [blob names](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) and [file names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 
 ### ERROR_BLOB_OR_FILE_NAME_SEGMENT_COUNT
@@ -202,7 +219,7 @@ For more information, see the Azure naming conventions for [blob names](https://
 **Suggested resolution:** The blobs or the files that you have copied exceed the maximum number of path segments. A path segment is the string between consecutive delimiter characters, for example, the forward slash /.
 
 - On the **Connect and copy** page of the local web UI, download, and review the error files.
-- Make sure that the [blob names](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) and [file names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) conform to Azure naming conventions.
+- Make sure that the [blob names](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) and [file names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) conform to Azure naming conventions.
 
 ### ERROR_BLOB_OR_FILE_NAME_AGGREGATE_LENGTH
 
@@ -223,7 +240,7 @@ For more information, see the Azure naming conventions for blob names and file n
 **Suggested resolution:** One of the path segments in the blob or file name exceeds the maximum numbers of characters. A path segment is the string between consecutive delimiter characters, for example, the forward slash /.
 
 - On the **Connect and copy** page of the local web UI, download, and review the error files.
-- Make sure that the [blob names](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) and [file names](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) conform to Azure naming conventions.
+- Make sure that the [blob names](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) and [file names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) conform to Azure naming conventions.
 
 
 ### ERROR_CONTAINER_OR_SHARE_NAME_DISALLOWED_FOR_TYPE

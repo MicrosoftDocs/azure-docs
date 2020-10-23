@@ -1,6 +1,6 @@
 ---
 title: Install TmaxSoft OpenFrame on Azure Virtual Machines
-description: Rehost your IBM z/OS mainframe workloads using TmaxSoft OpenFrame environment on Azure Virtual Machines (VMs).
+description: Learn how to set up an OpenFrame environment on Azure suitable for development, demos, testing, or production workloads.
 services: virtual-machines-linux
 documentationcenter:
 author: njray
@@ -1474,6 +1474,6 @@ That completes the installation of the OpenFrame components.
 
 If you are considering a mainframe migration, our expanding partner ecosystem is available to help you. For detailed guidance about choosing a partner solution, refer to the [Platform Modernization Alliance](https://datamigration.microsoft.com/).
 
--   [Get started with Azure](https://docs.microsoft.com/azure/)
--   [Host Integration Server (HIS) documentation](https://docs.microsoft.com/host-integration-server/)
--   [Azure Virtual Data Center Lift-and-Shift Guide](https://blogs.msdn.microsoft.com/azurecat/2018/03/12/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide/)
+-   [Get started with Azure](../../../../index.yml)
+-   [Host Integration Server (HIS) documentation](/host-integration-server/)
+-   [Azure Virtual Data Center Lift-and-Shift Guide](/archive/blogs/azurecat/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide)

@@ -1,18 +1,9 @@
 ---
-title: View and manage alerts for StorSimple 8000 series device | Microsoft Docs
+title: View and manage alerts for StorSimple 8000 series device
 description: Describes StorSimple alert conditions and severity, how to configure alert notifications, and how to use the StorSimple Device Manager service to manage alerts.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
 
@@ -79,7 +70,7 @@ After you enable email notification for a device, members of the notification li
 
 5. Once you have completed the configuration, click **Save**. When prompted for confirmation, click **Yes**.
 
-     ![Alerts test notification email sent](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
+     ![Alerts test notification email sent 2](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
 
 ## View and track alerts
 
@@ -124,6 +115,7 @@ The following tables list some of the Microsoft Azure StorSimple alerts that you
 * [Performance alerts](#performance-alerts)
 * [Security alerts](#security-alerts)
 * [Support package alerts](#support-package-alerts)
+* [Enclosure environment alerts](#enclosure-environment-alerts)
 
 ### Cloud connectivity alerts
 
@@ -202,8 +194,8 @@ If cloud connectivity fails on your StorSimple production device, then depending
 
 ### Performance alerts
 
-| Alert text | Event | More information / recommended actions | |
-|:--- |:--- |:--- | --- |
+| Alert text | Event | More information / recommended actions |
+|:--- |:--- |:--- |
 | The device load has exceeded <*threshold*>. |Slower than expected response times. |Your device reports utilization under a heavy input/output load. This could cause your device to not work as well as it should. Review the workloads that you have attached to the device, and determine if there are any that could be moved to another device or that are no longer necessary.|
 | Could not start StorSimple service(s). |Datapath error |If the problem persists, contact Microsoft Support. |
 
@@ -223,7 +215,12 @@ If cloud connectivity fails on your StorSimple production device, then depending
 |:--- |:--- |:--- |
 | Creation of support package failed. |StorSimple couldn't generate the package. |Retry this operation. If the issue persists, contact Microsoft Support. After you have resolved the issue, clear this alert from the alerts page. |
 
+### Enclosure environment alerts
+
+| Alert text | Event | More information / recommended actions |
+|:--- |:--- |:--- |
+| Hardware component Ambient temperature sensor reports status as failed.  | Enclosure type: Main enclosure | This alert is triggered when the ambient outside temperature around StorSimple is above an acceptable range. Check the ambient outside temperature or the airflow from the AC vent in the datacenter. When the temperature returns to normal, the alert is automatically cleared after some time has elapsed. If the issue persists, contact Microsoft support.   |
+
 ## Next steps
 
 Learn more about [StorSimple errors and troubleshooting device deployment issues](storsimple-8000-troubleshoot-deployment.md).
-

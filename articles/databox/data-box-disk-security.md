@@ -1,13 +1,13 @@
 ---
-title: Microsoft Azure Data Box Disk overview | Microsoft Docs in data 
-description: Describes Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
+title: Microsoft Azure Data Box Disk security features | Microsoft Docs in data 
+description: Describes security features implemented for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
-ms.date: 01/09/2019
+ms.topic: conceptual
+ms.date: 11/04/2019
 ms.author: alkohli
 ---
 # Azure Data Box Disk security and data protection
@@ -29,7 +29,7 @@ The following diagram indicates the flow of data through the Azure Data Box Disk
 
 ## Security features
 
-Data Box Disk provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. The security features for this solution are for the disk and for the associated service ensuring the security of the data stored on them. 
+Data Box Disk provides a secure solution for data protection by ensuring that only authorized entities can view, modify, or delete your data. The security features for this solution are for the disk and for the associated service ensuring the security of the data stored on them.
 
 ### Data Box Disk protection
 
@@ -43,7 +43,7 @@ The Data Box Disk is protected by the following features:
 
 The data that flows in and out of Data Box Disk is protected by the following features:
 
-- BitLocker encryption of data at all times. 
+- BitLocker encryption of data at all times.
 - Secure erasure of data from disk once data upload to Azure is complete. Data erasure is in accordance with NIST 800-88r1 standards.
 
 ### Data Box service protection
@@ -51,10 +51,9 @@ The data that flows in and out of Data Box Disk is protected by the following fe
 The Data Box service is protected by the following features.
 
 - Access to the Data Box Disk service requires that your organization has an Azure subscription that includes Data Box Disk. Your subscription governs the features that you can access in the Azure portal.
-- Because the Data Box service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx). 
+- Because the Data Box service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx).
 - The Data Box Disk stores disk passkey that is used to unlock the disk in the service. 
-- The Data box Disk service stores order details and status in the service. This information is deleted when the order is deleted. 
-
+- The Data box Disk service stores order details and status in the service. This information is deleted when the order is deleted.
 
 ## Managing personal data
 

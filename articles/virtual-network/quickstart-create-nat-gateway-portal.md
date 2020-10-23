@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a NAT gateway - Azure portal'
-titlesuffix: Azure NAT service
+title: 'Tutorial: Create a NAT gateway - Azure portal'
+titlesuffix: Azure Virtual Network NAT
 description: This quickstart shows how to create a NAT gateway using the Azure portal
 services: virtual-network
 documentationcenter: na
@@ -8,64 +8,54 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to create a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/04/2019
+ms.date: 02/24/2020
 ms.author: allensu
 ---
 
-# Quickstart: Create a NAT gateway using Azure portal
+# Tutorial: Create a NAT gateway using the Azure portal
 
-This quickstart shows you how to use Azure NAT service and create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
+This tutorial shows you how to use Azure Virtual Network NAT service. You'll create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
->[!NOTE] 
->Azure NAT service is available as Public preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
+If you prefer, you can do these steps using the [Azure CLI](quickstart-create-nat-gateway-cli.md), [Azure PowerShell](quickstart-create-nat-gateway-powershell.md), or deploy a [ARM Template](quickstart-create-nat-gateway-powershell.md) instead of the portal.
 
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Prerequisites
-For this quickstart, you'll need the following prerequisites:
-  * **Virtual machine**
-  * **Virtual network**
-  * **Public IP address**
-  * **Public IP prefix**
+## Virtual network and parameters
 
-### Create a virtual network
+Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network.
 
-Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network.  
+In this section you'll need to replace the following parameters in the steps with the information below:
 
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
+| Parameter                   | Value                |
+|-----------------------------|----------------------|
+| **\<resource-group-name>**  | myResourceGroupNAT |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | East US 2      |
+| **\<IPv4-address-space>**   | 192.168.0.0\16          |
+| **\<subnet-name>**          | mySubnet        |
+| **\<subnet-address-range>** | 192.168.0.0\24          |
 
-2. In **Create virtual network**, enter or select this information:
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter **myVNet**. |
-    | Address space | Enter **192.168.0.0/16**. |
-    | Subscription | Select your subscription.|
-    | Resource group | Select create new - **myResourceGroupNAT**. |
-    | Location | Select **East US 2**.|
-    | Subnet - Name | Enter **mySubnet**. |
-    | Subnet - Address range | Enter **192.168.0.0/24**. |
-
-3. Leave the rest of the defaults and select **Create**.
-
-### Create a VM to use the NAT service
+## Create a VM to use the NAT gateway
 
 We'll now create a VM to use the NAT service. This VM has a public IP to use as an instance-level Public IP to allow you to access the VM. NAT service is flow direction aware and will replace the default Internet destination in your subnet. The VM's public IP address won't be used for outbound connections.
 
-1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Ubuntu Server**. 
+1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Ubuntu Server 18.04 LTS**, or search for **Ubuntu Server 18.04 LTS** in the Marketplace search.
 
 2. In **Create a virtual machine**, type or select the following values in the **Basics** tab:
    - **Subscription** > **Resource Group**: Select **myResourceGroupNAT**.
    - **Instance Details** > **Virtual machine name**: Type **myVM**.
    - **Instance Details** > **Region** > select **East US 2**.
    - **Administrator account** > **Authentication type**: Select **Password**.
-   - **Administrator account** > Enter the **Username**, **Password, and **Confirm password** information.
+   - **Administrator account** > Enter the **Username**, **Password**, and **Confirm password** information.
    - **Inbound port rules** > **Public inbound ports**: Select **Allow selected ports**.
    - **Inbound port rules** > **Select inbound ports**: Select **SSH (22)**
    - Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
@@ -73,7 +63,7 @@ We'll now create a VM to use the NAT service. This VM has a public IP to use as 
 3. In the **Networking** tab make sure the following are selected:
    - **Virtual network**: **myVnet**
    - **Subnet**: **mySubnet**
-   - **Public IP** > Select **Create new**.  In the **Create public IP address** window, type **myPublicIPVM** in the **Name** field.  Leave the rest at the defaults and click **OK**.
+   - **Public IP** > Select **Create new**.  In the **Create public IP address** window, type **myPublicIPVM** in the **Name** field, and choose **Standard** for the **SKU**.  Click **OK**.
    - **NIC network security group**: Select **Basic**.
    - **Public inbound ports**: Select **Allow selected ports**.
    - **Select inbound ports**: Confirm **SSH** is selected.
@@ -84,9 +74,9 @@ We'll now create a VM to use the NAT service. This VM has a public IP to use as 
 
 6. Review the settings and click **Create**.
 
-## Create the NAT Gateway
+## Create the NAT gateway
 
-You can use one or more public IP address resources, public IP prefixes, or both with NAT gateway. We'll add a public IP resource, public IP prefix, and a NAT gateway resource.
+You can use one or more public IP address resources, public IP prefixes, or both. We'll add a public IP resource, public IP prefix, and a NAT gateway resource.
 
 This section details how you can create and configure the following components of the NAT service using the NAT gateway resource:
   - A public IP pool and public IP prefix to use for outbound flows translated by the NAT gateway resource.
@@ -94,7 +84,7 @@ This section details how you can create and configure the following components o
 
 ### Create a public IP address
 
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Public IP address**. 
+1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Public IP address**, or search for **Public IP address** in the Marketplace search.
 
 2. In **Create public IP address**, enter or select this information:
 
@@ -111,7 +101,7 @@ This section details how you can create and configure the following components o
 
 ### Create a public IP prefix
 
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Public IP prefix**. 
+1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Public IP prefix**, or search for **Public IP prefix** in the Marketplace search. 
 
 2. In **Create a public IP prefix**, type or select the following values in the **Basics** tab:
    - **Subscription** > **Resource Group**: Select **myResourceGroupNAT**>
@@ -126,7 +116,7 @@ This section details how you can create and configure the following components o
 
 ### Create a NAT gateway resource
 
-1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **NAT gateway**.
+1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **NAT gateway**, or search for **NAT gateway** in the Marketplace search.
 
 2. In **Create network address translation (NAT) gateway**, type or select the following values in the **Basics** tab:
    - **Subscription** > **Resource Group**: Select **myResourceGroupNAT**.
@@ -170,13 +160,19 @@ You're now ready to use the NAT service.
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, NAT gateway, and all related resources. Select the resource group (**myResourceGroupNAT**) that contains the NAT gateway, and then select **Delete**.
+When no longer needed, delete the resource group, NAT gateway, and all related resources. Select the resource group **myResourceGroupNAT** that contains the NAT gateway, and then select **Delete**.
 
 ## Next steps
 
-In this tutorial, you created a NAT gateway and a VM to use the NAT service. To learn more about Azure NAT service, continue to other tutorials for Azure NAT service.
+In this tutorial, you created a NAT gateway and a VM to use it. 
 
-You can also review metrics in Azure Monitor to see your NAT service operating. You can diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
+Review metrics in Azure Monitor to see your NAT service operating. Diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is addressed by adding additional public IP address resources or public IP prefix resources or both.
 
+
+- Learn about [Azure Virtual Network NAT](./nat-overview.md)
+- Learn about [NAT gateway resource](./nat-gateway-resource.md).
+- Quickstart for deploying [NAT gateway resource using Azure CLI](./quickstart-create-nat-gateway-cli.md).
+- Quickstart for deploying [NAT gateway resource using Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
+- Quickstart for deploying [NAT gateway resource using Azure portal](./quickstart-create-nat-gateway-portal.md).
 > [!div class="nextstepaction"]
 

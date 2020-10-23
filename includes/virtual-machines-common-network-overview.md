@@ -10,7 +10,7 @@ ms.author: cynthn
 ms.custom: include file
 ---
 
-When you create an Azure virtual machine (VM), you must create a [virtual network](../articles/virtual-network/virtual-networks-overview.md) (VNet) or use an existing VNet. You also need to decide how your VMs are intended to be accessed on the VNet. It is important to [plan before creating resources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) and make sure that you understand the [limits of networking resources](../articles/azure-subscription-service-limits.md#networking-limits).
+When you create an Azure virtual machine (VM), you must create a [virtual network](../articles/virtual-network/virtual-networks-overview.md) (VNet) or use an existing VNet. You also need to decide how your VMs are intended to be accessed on the VNet. It is important to [plan before creating resources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) and make sure that you understand the [limits of networking resources](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 In the following figure, VMs are represented as web servers and database servers. Each set of VMs are assigned to separate subnets in the VNet.
 
@@ -27,15 +27,13 @@ In addition to those basic resources, you should also consider these optional re
 - Network security groups
 - Load balancers 
 
-[!INCLUDE [updated-for-az](./updated-for-az.md)]
-
 ## Network interfaces
 
 A [network interface (NIC)](../articles/virtual-network/virtual-network-network-interface.md) is the interconnection between a VM and a virtual network (VNet). A VM must have at least one NIC, but can have more than one, depending on the size of the VM you create. Learn about how many NICs each VM size supports for [Windows](../articles/virtual-machines/windows/sizes.md) or [Linux](../articles/virtual-machines/linux/sizes.md).
 
 You can create a VM with multiple NICs, and add or remove NICs through the lifecycle of a VM. Multiple NICs allow a VM to connect to different subnets and send or receive traffic over the most appropriate interface. VMs with any number of network interfaces can exist in the same availability set, up to the number supported by the VM size. 
 
-Each NIC attached to a VM must exist in the same location and subscription as the VM. Each NIC must be connected to a VNet that exists in the same Azure location and subscription as the NIC. You can change the subnet a VM is connected to after it's created, but you cannot change the VNet. Each NIC attached to a VM is assigned a MAC address that doesn’t change until the VM is deleted.
+Each NIC attached to a VM must exist in the same location and subscription as the VM. Each NIC must be connected to a VNet that exists in the same Azure location and subscription as the NIC. You can change the subnet a VM is connected to after it's created, but you cannot change the VNet. Each NIC attached to a VM is assigned a MAC address that doesn't change until the VM is deleted.
 
 This table lists the methods that you can use to create a network interface.
 
@@ -48,7 +46,7 @@ This table lists the methods that you can use to create a network interface.
 
 ## IP addresses 
 
-You can assign these types of [IP addresses](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) to a NIC in Azure:
+You can assign these types of [IP addresses](../articles/virtual-network/public-ip-addresses.md) to a NIC in Azure:
 
 - **Public IP addresses** - Used to communicate inbound and outbound (without network address translation (NAT)) with the Internet and other Azure resources not connected to a VNet. Assigning a public IP address to a NIC is optional. Public IP addresses have a nominal charge, and there's a maximum number that can be used per subscription.
 - **Private IP addresses** - Used for communication within a VNet, your on-premises network, and the Internet (with NAT). You must assign at least one private IP address to a VM. To learn more about NAT in Azure, read [Understanding outbound connections in Azure](../articles/load-balancer/load-balancer-outbound-connections.md).
@@ -58,7 +56,7 @@ You can assign public IP addresses to VMs or internet-facing load balancers. You
 There are two methods in which an IP address is allocated to a resource - dynamic or static. The default allocation method is dynamic, where an IP address is not allocated when it's created. Instead, the IP address is allocated when you create a VM or start a stopped VM. The IP address is released when you stop or delete the VM. 
 
 To ensure the IP address for the VM remains the same, you can set the allocation method explicitly to static. In this case, an IP address is assigned immediately. It is released only when you delete the VM or change its allocation method to dynamic.
-	
+    
 This table lists the methods that you can use to create an IP address.
 
 | Method | Description |
@@ -76,11 +74,11 @@ A subnet is a range of IP addresses in the VNet. You can divide a VNet into mult
 
 When you set up a VNet, you specify the topology, including the available address spaces and subnets. If the VNet is to be connected to other VNets or on-premises networks, you must select address ranges that don't overlap. The IP addresses are private and can't be accessed from the Internet, which was true only for the non-routable IP addresses such as 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16. Now, Azure treats any address range as part of the private VNet IP address space that is only reachable within the VNet, within interconnected VNets, and from your on-premises location. 
 
-If you work within an organization in which someone else is responsible for the internal networks, you should talk to that person before selecting your address space. Make sure there is no overlap and let them know the space you want to use so they don’t try to use the same range of IP addresses. 
+If you work within an organization in which someone else is responsible for the internal networks, you should talk to that person before selecting your address space. Make sure there is no overlap and let them know the space you want to use so they don't try to use the same range of IP addresses. 
 
 By default, there is no security boundary between subnets, so VMs in each of these subnets can talk to one another. However, you can set up Network Security Groups (NSGs), which allow you to control the traffic flow to and from subnets and to and from VMs. 
 
-This table lists the methods that you can use to create a VNet and subnets.	
+This table lists the methods that you can use to create a VNet and subnets.    
 
 | Method | Description |
 | ------ | ----------- |
@@ -118,29 +116,34 @@ The load balancer maps incoming and outgoing traffic between the public IP addre
 
 When you create a load balancer, you must also consider these configuration elements:
 
-- **Front-end IP configuration** – A load balancer can include one or more front-end IP addresses, otherwise known as virtual IPs (VIPs). These IP addresses serve as ingress for the traffic.
+- **Front-end IP configuration** – A load balancer can include one or more front-end IP addresses. These IP addresses serve as ingress for the traffic.
 - **Back-end address pool** – IP addresses that are associated with the NIC to which load is distributed.
-- **NAT rules** - Defines how inbound traffic flows through the front-end IP and distributed to the back-end IP.
+- **[Port Forwarding](../articles/load-balancer/tutorial-load-balancer-port-forwarding-portal.md)** - Defines how inbound traffic flows through the front-end IP and distributed to the back-end IP utilizing inbound NAT rules.
 - **Load balancer rules** - Maps a given front-end IP and port combination to a set of back-end IP addresses and port combination. A single load balancer can have multiple load balancing rules. Each rule is a combination of a front-end IP and port and back-end IP and port associated with VMs.
 - **[Probes](../articles/load-balancer/load-balancer-custom-probe-overview.md)** - Monitors the health of VMs. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy VM. The existing connections are not affected, and new connections are sent to healthy VMs.
+- **[Outbound rules](../articles/load-balancer/load-balancer-outbound-rules-overview.md)** - An outbound rule configures outbound Network Address Translation (NAT) for all virtual machines or instances identified by the backend pool of your Standard Load Balancer to be translated to the frontend.
 
 This table lists the methods that you can use to create an internet-facing load balancer.
 
 | Method | Description |
 | ------ | ----------- |
 | Azure portal |  You can [load balance internet traffic to VMs using the Azure portal](../articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md). |
-| [Azure PowerShell](../articles/load-balancer/load-balancer-get-started-internet-arm-ps.md) | To provide the identifier of the public IP address that you previously created, use [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) with the **-PublicIpAddress** parameter. Use [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) to create the configuration of the back-end address pool. Use [New-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) to create inbound NAT rules associated with the front-end IP configuration that you created. Use [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) to create the probes that you need. Use [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) to create the load balancer configuration. Use [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) to create the load balancer.|
+| [Azure PowerShell](/azure/load-balancer/load-balancer-get-started-ilb-arm-ps) | To provide the identifier of the public IP address that you previously created, use [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) with the **-PublicIpAddress** parameter. Use [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) to create the configuration of the back-end address pool. Use [New-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) to create inbound NAT rules associated with the front-end IP configuration that you created. Use [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) to create the probes that you need. Use [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) to create the load balancer configuration. Use [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) to create the load balancer.|
 | [Azure CLI](../articles/load-balancer/load-balancer-get-started-internet-arm-cli.md) | Use [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) to create the initial load balancer configuration. Use [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip) to add the public IP address that you previously created. Use [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool) to add the configuration of the back-end address pool. Use [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) to add NAT rules. Use [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) to add the load balancer rules. Use [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) to add the probes. |
-| [Template](../articles/load-balancer/load-balancer-get-started-internet-arm-template.md) | Use [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-natrules) as a guide for deploying a load balancer using a template. |
-	
+| [Template](../articles/load-balancer/quickstart-load-balancer-standard-public-template.md) | Use [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create) as a guide for deploying a load balancer using a template. |
+    
 This table lists the methods that you can use to create an internal load balancer.
 
 | Method | Description |
 | ------ | ----------- |
-| Azure portal | You can [balance internal traffic load with a Basic load balancer in the Azure portal](../articles/load-balancer/tutorial-load-balancer-basic-internal-portal.md). |
+| Azure portal | You can [balance internal traffic load with a load balancer in the Azure portal](../articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md). |
 | [Azure PowerShell](../articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md) | To provide a private IP address in the network subnet, use [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig) with the **-PrivateIpAddress** parameter. Use [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) to create the configuration of the back-end address pool. Use [New-AzLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) to create inbound NAT rules associated with the front-end IP configuration that you created. Use [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig) to create the probes that you need. Use [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig) to create the load balancer configuration. Use [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer) to create the load balancer.|
 | [Azure CLI](../articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Use the [az network lb create](https://docs.microsoft.com/cli/azure/network/lb) command to create the initial load balancer configuration. To define the private IP address, use [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip) with the **--private-ip-address** parameter. Use [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool) to add the configuration of the back-end address pool. Use [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule) to add NAT rules. Use [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) to add the load balancer rules. Use [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe) to add the probes.|
 | [Template](../articles/load-balancer/load-balancer-get-started-ilb-arm-template.md) | Use [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) as a guide for deploying a load balancer using a template. |
+
+### Virtual machine scale sets
+
+For more information on load balancer and virtual machine scale sets, see [Networking for Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking).
 
 ## VMs
 
@@ -167,3 +170,4 @@ There are also tutorials on how to load balance VMs and create highly available 
 - Learn how to configure [user-defined routes and IP forwarding](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Learn how to configure [VNet to VNet connections](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Learn how to [Troubleshoot routes](../articles/virtual-network/diagnose-network-routing-problem.md).
+- Learn more about [Virtual machine network bandwidth](../articles/virtual-network/virtual-machine-network-throughput.md).

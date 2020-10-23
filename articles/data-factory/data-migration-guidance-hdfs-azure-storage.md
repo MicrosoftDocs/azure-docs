@@ -1,20 +1,21 @@
 ---
-title: Use Azure Data Factory to migrate data from an on-premises Hadoop cluster to Azure Storage | Microsoft Docs
+title: Migrate data from an on-premises Hadoop cluster to Azure Storage
 description: Learn how to use Azure Data Factory to migrate data from on-premises Hadoop cluster to Azure Storage.
 services: data-factory
-documentationcenter: ''
-author: dearandyxu
 ms.author: yexu
-ms.reviewer: 
-manager: 
+author: dearandyxu
+ms.reviewer: ""
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 8/30/2019
 ---
 
 # Use Azure Data Factory to migrate data from an on-premises Hadoop cluster to Azure Storage 
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Azure Data Factory provides a performant, robust, and cost-effective mechanism for migrating data at scale from on-premises HDFS to Azure Blob storage or Azure Data Lake Storage Gen2. 
 

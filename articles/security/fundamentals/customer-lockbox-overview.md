@@ -1,13 +1,13 @@
 ---
 title: Customer Lockbox for Microsoft Azure
 description: Technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft may need to access customer data.
-author: cabailey
+author: TerryLanfear
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: cabailey
-manager: barbkess
-ms.date: 06/20/2019
+ms.author: terrylan
+manager: rkarlin
+ms.date: 09/15/2020
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -20,6 +20,50 @@ Customer Lockbox for Microsoft Azure provides an interface for customers to revi
 This article covers how Customer Lockbox requests are initiated, tracked, and stored for later reviews and audits.
 
 Customer Lockbox is now generally available and currently enabled for remote desktop access to virtual machines.
+
+## Supported services and scenarios in preview
+
+The following services are now currently in preview for Customer Lockbox:
+
+- API Management
+​- Azure App Service​​
+- Cognitive Services
+- Container Registry
+- Azure Database for MySQL​
+- Azure Databricks
+- Azure Data Box
+- Azure Data Explorer
+- Azure Data Factory
+- Azure Database for PostgreSQL
+- Azure Functions
+- HDInsight
+- Azure Kubernetes Service
+- Azure Monitor
+- Azure Storage
+- Azure SQL DB
+- Azure subscription transfers
+- Azure Synapse Analytics
+- Virtual machines (now also covering access to memory dumps and managed disks)
+
+To enable Customer Lockbox for these preview offerings for your organization, sign up for [Customer Lockbox for Azure Public Preview](https://aka.ms/customerlockbox/insiderprogram).
+
+## Supported services and scenarios in general availability
+
+The following services and scenarios are currently in general availability for Customer Lockbox.
+
+### Remote desktop access to virtual machines
+
+Customer Lockbox is currently enabled for remote desktop access requests to virtual machines. The following workloads are supported:
+- Platform as a service (PaaS) - Azure Cloud Services (web role and worker role)
+- Infrastructure as a service (IaaS) - Windows and Linux (Azure Resource Manager only)
+- Virtual machine scale set - Windows and Linux
+
+> [!NOTE]
+> IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IaaS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+
+#### Detailed audit logs
+
+For scenarios that involve remote desktop access, you can use Windows event logs to review the actions taken by the Microsoft engineer. Consider using Azure Security Center to collect your event logs and copy the data to your workspace for analysis. For more information, see [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md).
 
 ## Workflow
 
@@ -37,37 +81,37 @@ The following steps outline a typical workflow for a Customer Lockbox request.
     - The scope of the resource
     - Whether the requester is an isolated identity or using multi-factor authentication
     - Permissions levels
-    
+
     Based on the JIT rule, this request may also include an approval from Internal Microsoft Approvers. For example, the approver might be the Customer support lead or the DevOps Manager.
 
 6. When the request requires direct access to customer data, a Customer Lockbox request is initiated. For example, remote desktop access to a customer's virtual machine.
-    
+
     The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.
 
-7. At the customer organization, the user who has the [Owner role](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
-    
+7. At the customer organization, the user who has the [Owner role](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
+
     Example email:
-    
+
     ![Azure Customer Lockbox - email notification](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
 8. The email notification provides a link to the **Customer Lockbox** blade in the Azure portal. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox:
-    
+
     ![Azure Customer Lockbox - landing page](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
-    
+
    The request remains in the customer queue for four days. After this time, the access request automatically expires and no access is granted to Microsoft engineers.
 
 9. To get the details of the pending request, the designated approver can select the lockbox request from **Pending Requests**:
-    
+
     ![Azure Customer Lockbox - view the pending request](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
 10. The designated approver can also select the **SERVICE REQUEST ID** to view the support ticket request that was created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem. For example:
-    
+
     ![Azure Customer Lockbox - view the support ticket request](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 
 11. After reviewing the request, the designated approver selects **Approve** or **Deny**:
-    
+
     ![Azure Customer Lockbox - select Approve or Deny](./media/customer-lockbox-overview/customer-lockbox-approval.png)
-    
+
     As a result of the selection:
     - **Approve**:  Access is granted to the Microsoft engineer. The access is granted for a default period of eight hours.
     - **Deny**: The elevated access request by the Microsoft engineer is rejected and no further action is taken.
@@ -86,23 +130,9 @@ As an example:
 
 ![Azure Customer Lockbox - activity logs](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## Supported services and scenarios
+## Customer Lockbox integration with Azure Security Benchmark
 
-The following services and scenarios are currently in general availability for Customer Lockbox.
-
-### Remote desktop access to virtual machines
-
-Customer Lockbox is currently enabled for remote desktop access requests to virtual machines. The following workloads are supported:
-- Platform as a service (PaaS) - Azure Cloud Services (web role and worker role)
-- Infrastructure as a service (IaaS) - Windows and Linux (Azure Resource Manager only)
-- Virtual machine scale set - Windows and Linux
-
-> [!NOTE]
-> IaaS Classic instances are not supported by Customer Lockbox. If you have workloads running on IaaS Classic instances, we recommend you migrate them from Classic to Resource Manager deployment models. For instructions, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
-
-#### Detailed audit logs
-
-For scenarios that involve remote desktop access, you can use Windows event logs to review the actions taken by the Microsoft engineer. Consider using Azure Security Center to collect your event logs and copy the data to your workspace for analysis. For more information, see [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md).
+We've introduced a new baseline control ([3.13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) in Azure Security Benchmark that covers Customer Lockbox applicability. Customers can now leverage benchmark to review Customer Lockbox applicability for a service.
 
 ## Exclusions
 

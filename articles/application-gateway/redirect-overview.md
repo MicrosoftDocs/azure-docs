@@ -1,20 +1,12 @@
 ---
 title: Redirect overview for Azure Application Gateway
-description: Learn about the redirect capability in Azure Application Gateway
+description: Learn about the redirect capability in Azure Application Gateway to redirect traffic received on one listener to another listener or to an external site.
 services: application-gateway
-documentationcenter: na
 author: amsriva
-manager: jpconnock
-tags: azure-resource-manager
-
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 3/19/2018
+ms.topic: conceptual
+ms.date: 11/16/2019
 ms.author: amsriva
-
 ---
 
 # Application Gateway redirect overview
@@ -40,7 +32,7 @@ Application Gateway redirection support offers the following capabilities:
    This type of redirection enables HTTP to HTTPS redirection only on a specific site area, for example a shopping cart area denoted by /cart/*.
 - **Redirect to external site**
 
-![redirect](./media/redirect-overview/redirect.png)
+![Diagram shows users and an App Gateway and connections between the two, including an unlocked H T T P red arrow, a not allowed 301 direct red arrow, and a locked H T T P S a green arrow.](./media/redirect-overview/redirect.png)
 
 With this change, customers need to create a new redirect configuration object, which specifies the target listener or external site to which redirection is desired. The configuration element also supports options to enable appending the URI path and query string to the redirected URL. You can also choose the type of redirection. Once created, this redirect configuration is attached to the source listener via a new rule. When using a basic rule, the redirect configuration is associated with a source listener and is a global redirect. When a path-based rule is used, the redirect configuration is defined on the URL path map. So it only applies to the specific path area of a site.
 

@@ -1,68 +1,48 @@
-﻿### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Government Documentation
+﻿### YamlMime:Landing
+
+title: Azure Government documentation
+summary: Azure Government is a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Public Sector entities receive a physically isolated instance of Azure.
+
 metadata:
-  document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
-  title: Azure Government Documentation -Quickstarts, Tutorials
-  meta.description:  
-  services: Azure-government
-  author: juliako
-  manager: femila
+  title: Azure Government documentation
+  description: Microsoft Azure Government delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Public Sector entities receive a physically isolated instance of Microsoft Azure that employs world-class security and compliance services critical to U.S. government for all systems and applications built on its architecture.
   ms.service: Azure-government
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/19/2018
-  ms.author: juliako
-abstract:
-  description: Microsoft Azure Government delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Public Sector entities receive a physically isolated instance of Microsoft Azure that employs world-class security and compliance services critical to U.S. government for all systems and applications built on its architecture. 
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: media/index/video.png
-      width: 250  
-    title: Start using Azure Government
-    href: https://channel9.msdn.com/Shows/Azure-Friday/Azure-Government
-    width: 250
+  author: rolyon
+  ms.author: rolyon
+  ms.date: 03/05/2020
 
-sections:
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to access and manage the Azure Government cloud:'
-  - type: list
-    style: icon48
-    items: 
-    - image:
-        src: media/index/portal.svg
-      text: Portal
-      href: documentation-government-get-started-connect-with-portal.md
-    - image:
-        src: media/index/cli.svg
-      text: CLI
-      href: documentation-government-get-started-connect-with-cli.md
-    - image:
-        src: media/index/powershell.svg
-      text: PowerShell
-      href: documentation-government-get-started-connect-with-ps.md
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to deploy and manage services with Azure Government
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/azure-government/documentation-government-howto-deploy-webandmobile">Deploy an Azure App Services app on Azure Government</a>
-    - html: <a href="/azure/azure-government/documentation-government-quickstarts-vm">Use Virtual Machines in Azure Government</a>
-- title: Reference
-  items:
-  - type: paragraph
-    text: ''
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/azure-government/documentation-government-image-gallery">Images</a>
-    - html: <a href="/azure/azure-government/documentation-government-manage-marketplace-partners">Marketplace for partners</a>
+landingContent:
+  # Card
+  - title: About Azure Government
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Government?
+            url: documentation-government-welcome.md
+          - text: Compare to global Azure
+            url: compare-azure-government-global-azure.md
 
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: video
+        links:
+          - text: Start using Azure Government
+            url: https://channel9.msdn.com/Shows/Azure-Friday/Azure-Government
+      - linkListType: quickstart
+        links:
+          - text: Connect using portal
+            url: documentation-government-get-started-connect-with-portal.md
+
+  # Card
+  - title: Deploy and manage
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy an Azure App Services app
+            url: documentation-government-howto-deploy-webandmobile.md
+          - text: Create Virtual Machines
+            url: documentation-government-quickstarts-vm.md

@@ -3,19 +3,19 @@ title: API HTTP response codes - LUIS
 titleSuffix: Azure Cognitive Services
 description:  Understand what HTTP response codes are returned from the LUIS Authoring and Endpoint APIs
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 03/04/2019
-ms.author: diberry
+
 ---
 
 # Common API response codes and their meaning
 
-The [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) and [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) APIs return HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general. 
+The [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) and [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) APIs return HTTP response codes. While response messages include information specific to a request, the HTTP response status code is general.
 
 ## Common status codes
 The following table lists some of the most common HTTP response status codes for the [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) and [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) APIs:

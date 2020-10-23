@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure Foodee for automatic user provisioning by using Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Foodee.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: fb48deae-4653-448a-ba2f-90258edab3a7
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
@@ -23,7 +18,7 @@ ms.author: Zhchia
 This article shows you how to configure Azure Active Directory (Azure AD) in Foodee and Azure AD to automatically provision or deprovision users or groups to Foodee.
 
 > [!NOTE]
-> The article describes a connector that's built on top of the Azure AD User Provisioning service. To learn what this service does and how it works, and to get answers to frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> The article describes a connector that's built on top of the Azure AD User Provisioning service. To learn what this service does and how it works, and to get answers to frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > This connector is currently in preview. For more information about the Azure terms-of-use feature for preview features, go to [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -55,7 +50,7 @@ Before you configure Foodee for automatic user provisioning by using Azure AD, y
 
 1. Sign in to [Foodee](https://www.food.ee/login/), and then select your tenant ID.
 
-	![Foodee](media/Foodee-provisioning-tutorial/tenant.png)
+	:::image type="content" source="media/Foodee-provisioning-tutorial/tenant.png" alt-text="Screenshot of the main menu of the Foodee enterprise portal. A tenant id placeholder is visible in the menu." border="false":::
 
 1. Under **Enterprise portal**, select **Single Sign On**.
 
@@ -63,7 +58,7 @@ Before you configure Foodee for automatic user provisioning by using Azure AD, y
 
 1. Copy the value in the **API Token** box for later use. You'll enter it in the **Secret Token** box in the **Provisioning** tab of your Foodee application in the Azure portal.
 
-	![Foodee](media/Foodee-provisioning-tutorial/token.png)
+	:::image type="content" source="media/Foodee-provisioning-tutorial/token.png" alt-text="Screenshot of a page in the Foodee enterprise portal. An A P I token value is highlighted." border="false":::
 
 ## Add Foodee from the gallery
 
@@ -106,11 +101,11 @@ Configure automatic user provisioning for Foodee in Azure AD by doing the follow
 
 1. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 1. In the **Provisioning Mode** drop-down list, select **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 1. Under **Admin Credentials**, do the following:
 
@@ -130,23 +125,23 @@ Configure automatic user provisioning for Foodee in Azure AD by doing the follow
 
 1. Under **Mappings**, select **Synchronize Azure Active Directory Users to Foodee**.
 
-	![Foodee user mappings](media/Foodee-provisioning-tutorial/usermapping.png)
+	:::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Azure Active Directory Users to Foodee is highlighted." border="false":::
 
 1. Under **Attribute Mappings**, review the user attributes that are synchronized from Azure AD to Foodee. The attributes that are selected as **Matching** properties are used to match the *user accounts* in Foodee for update operations. 
 
-	![Foodee user mappings](media/Foodee-provisioning-tutorial/userattribute.png)
+	:::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Screenshot of the Attribute Mappings page. A table lists Azure Active Directory and Foodee attributes and the matching precedence." border="false":::
 
 1. To commit your changes, select **Save**.
 1. Under **Mappings**, select **Synchronize Azure Active Directory Groups to Foodee**.
 
-	![Foodee user mappings](media/Foodee-provisioning-tutorial/groupmapping.png)
+	:::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Azure Active Directory Groups to Foodee is highlighted." border="false":::
 
 1. Under **Attribute Mappings**, review the user attributes that are synchronized from Azure AD to Foodee. The attributes that are selected as **Matching** properties are used to match the *group accounts* in Foodee for update operations.
 
-	![Foodee user mappings](media/Foodee-provisioning-tutorial/groupattribute.png)
+	:::image type="content" source="media/Foodee-provisioning-tutorial/groupattribute.png" alt-text="Screenshot of the Attribute Mappings page. A table lists Azure Active Directory attributes, Foodee attributes, and the matching precedence." border="false":::
 
 1. To commit your changes, select **Save**.
-1. Configure the scoping filters. To learn how, refer to the instructions in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Configure the scoping filters. To learn how, refer to the instructions in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. To enable the Azure AD provisioning service for Foodee, in the **Settings** section, change the **Provisioning Status** to **On**.
 
@@ -160,15 +155,15 @@ Configure automatic user provisioning for Foodee in Azure AD by doing the follow
 
 	![The Provisioning Configuration Save button](common/provisioning-configuration-save.png)
 
-The preceding operation starts the initial synchronization of the users or groups that you've defined in the **Scope** drop-down list. The initial sync takes longer to perform than subsequent syncs. For more information, see [How long will it take to provision users?](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+The preceding operation starts the initial synchronization of the users or groups that you've defined in the **Scope** drop-down list. The initial sync takes longer to perform than subsequent syncs. For more information, see [How long will it take to provision users?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-You can use the **Current Status** section to monitor progress and follow links to your provisioning activity report. The report describes all actions that are performed by the Azure AD provisioning service on Foodee. For more information, see [Check the status of user provisioning](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). To read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+You can use the **Current Status** section to monitor progress and follow links to your provisioning activity report. The report describes all actions that are performed by the Azure AD provisioning service on Foodee. For more information, see [Check the status of user provisioning](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). To read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
-* [Manage user account provisioning for enterprise apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Manage user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)

@@ -1,21 +1,12 @@
 ---
-title: Reliable Services communication overview | Microsoft Docs
+title: Reliable Services communication overview 
 description: Overview of the Reliable Services communication model, including opening listeners on services, resolving endpoints, and communicating between services.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: BharatNarasimman
 
-ms.assetid: 36217988-420e-409d-b0a4-e0e875b6eac8
-ms.service: service-fabric
-ms.devlang: csharp, java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-
+ms.custom: devx-track-csharp
 ---
 # How to use the Reliable Services communication APIs
 Azure Service Fabric as a platform is completely agnostic about communication between services. All protocols and stacks are acceptable, from UDP to HTTP. It's up to the service developer to choose how services should communicate. The Reliable Services application framework provides built-in communication stacks as well as APIs that you can use to build your custom communication components.
@@ -193,7 +184,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 Service Fabric provides APIs that allow clients and other services to then ask for this address by service name. This is important because the service address is not static. Services are moved around in the cluster for resource balancing and availability purposes. This is the mechanism that allow clients to resolve the listening address for a service.
 
 > [!NOTE]
-> For a complete walk-through of how to write a communication listener, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md) for C#, whereas for Java you can write your own HTTP server implementation, see EchoServer application example at https://github.com/Azure-Samples/service-fabric-java-getting-started.
+> For a complete walk-through of how to write a communication listener, see [Service Fabric Web API services with OWIN self-hosting](./service-fabric-reliable-services-communication-aspnetcore.md) for C#, whereas for Java you can write your own HTTP server implementation, see EchoServer application example at https://github.com/Azure-Samples/service-fabric-java-getting-started.
 >
 >
 

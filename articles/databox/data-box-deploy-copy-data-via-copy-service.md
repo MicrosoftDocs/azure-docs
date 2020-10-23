@@ -1,5 +1,6 @@
 ---
-title: Tutorial to copy data to Azure Data Box device via data copy service | Microsoft Docs
+title: "Tutorial: Use data copy service to copy to your device"
+titleSuffix: Azure Data Box
 description: In this tutorial, you learn how to copy data to your Azure Data Box device via the data copy service
 services: databox
 author: alkohli
@@ -23,6 +24,7 @@ Use the data copy service:
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Copy data to Data Box
 
 ## Prerequisites
@@ -38,9 +40,14 @@ Before you begin, make sure that:
 
 After you're connected to the NAS device, the next step is to copy your data. Before you begin the data copy, review the following considerations:
 
-- While copying data, make sure that the data size conforms to the size limits described in the article [Azure storage and Data Box limits](data-box-limits.md).
-- If data uploaded by Data Box is concurrently uploaded by other applications outside Data Box, upload-job failures and data corruption might result.
-- If the data is being modified as the data copy service is reading it, you might see failures or corruption of data.
+* While copying data, make sure that the data size conforms to the size limits described in the article [Azure storage and Data Box limits](data-box-limits.md).
+
+* If data uploaded by Data Box is concurrently uploaded by other applications outside Data Box, upload-job failures and data corruption might result.
+
+* If the data is being modified as the data copy service is reading it, you might see failures or corruption of data.
+
+> [!IMPORTANT]
+> Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
 
 To copy data by using the data copy service, you need to create a job:
 
@@ -60,7 +67,7 @@ To copy data by using the data copy service, you need to create a job:
     |**Destination storage account**    |Select the target storage account to upload data to from the list.         |
     |**Destination type**       |Select the target storage type from the list: **Block Blob**, **Page Blob**, or **Azure Files**.        |
     |**Destination container/share**    |Enter the name of the container or share that you want to upload data to in your destination storage account. The name can be a share name or a container name. For example, use `myshare` or `mycontainer`. You can also enter the name in the format `sharename\directory_name` or `containername\virtual_directory_name`.        |
-    |**Copy files matching pattern**    | You can enter the file-name matching pattern in the following two ways:<ul><li>**Use wildcard expressions:** Only `*` and `?` are supported in wildcard expressions. For example, the expression `*.vhd` matches all the files that have the `.vhd` extension. Similarly, `*.dl?` matches all the files with either the extension `.dl` or that start with `.dl`, such as `.dll`. Likewise, `*foo` matches all the files whose names end with `foo`.<br>You can directly enter the wildcard expression in the field. By default, the value you enter in the field is treated as a wildcard expression.</li><li>**Use regular expressions:** POSIX-based regular expressions are supported. For example, the regular expression `.*\.vhd` will match all the files that have the `.vhd` extension. For regular expressions, provide the `<pattern>` directly as `regex(<pattern>)`. For more information about regular expressions, go to [Regular expression language - a quick reference](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
+    |**Copy files matching pattern**    | You can enter the file-name matching pattern in the following two ways:<ul><li>**Use wildcard expressions:** Only `*` and `?` are supported in wildcard expressions. For example, the expression `*.vhd` matches all the files that have the `.vhd` extension. Similarly, `*.dl?` matches all the files with either the extension `.dl` or that start with `.dl`, such as `.dll`. Likewise, `*foo` matches all the files whose names end with `foo`.<br>You can directly enter the wildcard expression in the field. By default, the value you enter in the field is treated as a wildcard expression.</li><li>**Use regular expressions:** POSIX-based regular expressions are supported. For example, the regular expression `.*\.vhd` will match all the files that have the `.vhd` extension. For regular expressions, provide the `<pattern>` directly as `regex(<pattern>)`. For more information about regular expressions, go to [Regular expression language - a quick reference](/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**File optimization**              |When this feature is enabled, files smaller than 1 MB are packed during ingestion. This packing speeds up the data copy for small files. It also saves a significant amount of time when the number of files far exceeds the number of directories.        |
  
 4. Select **Start**. The inputs are validated, and if the validation succeeds, then the job starts. It might take a few minutes for the job to start.
@@ -140,4 +147,3 @@ Advance to the next tutorial to learn how to ship your Data Box device back to M
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box device to Microsoft](./data-box-deploy-picked-up.md)
-

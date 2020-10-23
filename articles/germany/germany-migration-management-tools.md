@@ -1,17 +1,17 @@
 ---
 title: Migrate Azure management tools from Azure Germany to global Azure
 description: This article provides information about migrating your Azure management tools from Azure Germany to global Azure.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 08/15/2018
-ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Migrate management tool resources to global Azure
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 This article has information that can help you migrate Azure management tools from Azure Germany to global Azure.
 
@@ -42,17 +42,17 @@ You can't migrate Azure Backup jobs and snapshots from Azure Germany to global A
 
 For more information: 
 
-- Refresh your knowledge by completing the [Backup tutorials](https://docs.microsoft.com/azure/backup/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Backup tutorials](https://docs.microsoft.com/azure/backup/).
 - Review the [Azure Backup overview](../backup/backup-introduction-to-azure-backup.md).
 
 ## Scheduler
 
-Azure Scheduler is being deprecated. Use Azure Logic Apps to create scheduling jobs.
+Azure Scheduler is being retired. To create scheduling jobs, you can use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) in global Azure instead.
 
 For more information:
 
-- Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
-- Review the [Logic Apps overview](../logic-apps/logic-apps-overview.md).
+- Learn more by completing the [Azure Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
+- Review the [Azure Logic Apps overview](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 ## Network Watcher
 

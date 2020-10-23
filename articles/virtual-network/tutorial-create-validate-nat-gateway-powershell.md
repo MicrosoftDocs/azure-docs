@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Create and test a NAT gateway - Azure PowerShell'
-titlesuffix: Azure NAT service
+title: 'Create and test a NAT gateway - Azure PowerShell'
+titlesuffix: Azure Virtual Network NAT
 description: This tutorial shows how to create a NAT gateway using the Azure PowerShell and test the NAT service
 services: virtual-network
 documentationcenter: na
@@ -8,26 +8,25 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to test a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/04/2019
+ms.date: 06/11/2020
 ms.author: allensu
 ---
 # Tutorial: Create a NAT gateway using Azure PowerShell and test the NAT service
 
-This tutorial shows you how to use Azure NAT service and create a NAT gateway. NAT gateway provides outbound connectivity for virtual machines in Azure. To test the NAT gateway, you deploy a source and destination virtual machine. You'll test the NAT gateway by making outbound connections to a public IP address. These connections will come from the source to the destination virtual machine. This tutorial deploys source and destination in two different virtual networks in the same resource group for simplicity.
-
->[!NOTE] 
->Azure NAT service is available as Public preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
+In this tutorial, you'll create a NAT gateway to provide outbound connectivity for virtual machines in Azure. To test the NAT gateway, you deploy a source and destination virtual machine. You'll test the NAT gateway by making outbound connections to a public IP address. These connections will come from the source to the destination virtual machine. This tutorial deploys source and destination in two different virtual networks in the same resource group for simplicity.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can complete this tutorial using Azure cloud shell or run the respective commands locally.  If you have never used Azure cloud shell, you should [sign in now](https://shell.azure.com).
+You can complete this tutorial using Azure Cloud Shell or run the respective commands locally.  If you have never used Azure Cloud Shell, you should [sign in now](https://shell.azure.com).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## Create a resource group
 
@@ -37,25 +36,39 @@ The following example creates a resource group named **myResourceGroupNAT** in t
 
 
 ```azurepowershell-interactive
-  New-AzResourceGroup -Name myResourceGroupNAT -Location eastus2
+$rgname = 'myResourceGroupNAT'
+$loc = 'eastus2'
+
+$rg = New-AzResourceGroup -Name $rgname -Location $loc
+
 ```
 
 ## Create the NAT gateway
 
 ### Create a public IP address
 
-To access the Internet, you need one or more public IP addresses for the NAT gateway. Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest) to create a public IP address resource named **myPublicIPsource** in **myResourceGroupNAT**. The result of this command will be stored in a variable named **$publicIP** for later use.
+To access the Internet, you need one or more public IP addresses for the NAT gateway. Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest) to create a public IP address resource named **myPublicIPsource** in **myResourceGroupNAT**. The result of this command will be stored in a variable named **$publicIPsource** for later use.
 
 ```azurepowershell-interactive
-  $publicIPsource = New-AzPublicIpAddress -Name myPublicIPsource -ResourceGroupName myResourceGroupNAT -AllocationMethod Static -Location eastus2 -Sku Standard
+$pipname = 'myPublicIPsource'
+$alm = 'Static'
+$sku = 'Standard'
+
+$publicIPsource = 
+New-AzPublicIpAddress -Name $pipname -ResourceGroupName $rg.ResourceGroupName -AllocationMethod $alm -Sku $sku -Location $rg.Location
+
 ```
 
 ### Create a public IP prefix
 
- Use [New-AzPublicIpPrefix](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipprefix?view=latest) to create a public IP prefix resource named **myPublicIPprefixsource** in **myResourceGroupNAT**.  The result of this command will be stored in a variable named **$publicIPPrefix** for later use.
+ Use [New-AzPublicIpPrefix](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipprefix?view=latest) to create a public IP prefix resource named **myPublicIPprefixsource** in **myResourceGroupNAT**.  The result of this command will be stored in a variable named **$publicIPPrefixsource** for later use.
 
 ```azurepowershell-interactive
-  $publicIPPrefixsource = New-AzPublicIpPrefix -Name myPublicIPprefixsource -ResourceGroupName myResourceGroupNAT -Location eastus2 -PrefixLength 31
+$prefixname = 'mypublicIPprefixsource'
+
+$publicIPPrefixsource = 
+New-AzPublicIpPrefix -Name $prefixname -ResourceGroupName $rg.ResourceGroupName -PrefixLength 31 -Location $rg.Location
+
 ```
 
 ### Create a NAT gateway resource
@@ -67,14 +80,19 @@ This section details how you can create and configure the following components o
 Create a global Azure NAT gateway with [New-AzNatGateway](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway). The result of this command will create a gateway resource named **myNATgateway** that uses the public IP address **myPublicIPsource** and the public IP prefix **myPublicIPprefixsource**. The idle timeout is set to 10 minutes.  The result of this command will be stored in a variable named **$natGateway** for later use.
 
 ```azurepowershell-interactive
-  $natGateway = New-AzNatGateway -Name myNATgateway -ResourceGroupName myResourceGroupNAT -PublicIpAddress $publicIPsource -PublicIpPrefix $publicIPPrefixsource -Location eastus2 -Sku Standard -IdleTimeoutInMinutes 10      
+$sku = 'Standard'
+$natname = 'myNATgateway'
+
+$natGateway = 
+New-AzNatGateway -Name $natname -ResourceGroupName $rg.ResourceGroupName -PublicIpAddress $publicIPsource -PublicIpPrefix $publicIPPrefixsource -Sku $sku -IdleTimeoutInMinutes 10 -Location $rg.Location
+
   ```
 
 At this point, the NAT gateway is functional and all that is missing is to configure which subnets of a virtual network should use it.
 
 ## Prepare the source for outbound traffic
 
-We'll guide you through setup of a full test environment. You'll set up a test using open source tools to verify the NAT gateway. We'll start with the source, which will use the NAT gateway we created previously.
+We'll guide you through setup of a full test environment. You'll set up a test using open-source tools to verify the NAT gateway. We'll start with the source, which will use the NAT gateway we created previously.
 
 ### Configure virtual network for source
 
@@ -83,9 +101,17 @@ Create the virtual network and associate the subnet to the gateway.
 Create a virtual network named **myVnetsource** with a subnet named **mySubnetsource** using [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) in the **myResourceGroupNAT** using [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest). The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.  The result of the commands will be stored in variables named **$subnetsource** and **$vnetsource** for later use.
 
 ```azurepowershell-interactive
-  $subnetsource = New-AzVirtualNetworkSubnetConfig -Name mySubnetsource -AddressPrefix "192.168.0.0/24" -NatGateway $natGateway
+$subnetname = 'mySubnetsource'
+$subnetprefix = '192.168.0.0/24'
+$vnetname = 'myVnetsource'
+$vnetprefix = '192.168.0.0/16'
 
-  $vnetsource = New-AzVirtualNetwork -Name myVnetsource -ResourceGroupName myResourceGroupNAT -Location eastus2 -AddressPrefix "192.168.0.0/16" -Subnet $subnet
+$subnetsource = 
+New-AzVirtualNetworkSubnetConfig -Name $subnetname -AddressPrefix $subnetprefix -NatGateway $natGateway
+
+$vnetsource = 
+New-AzVirtualNetwork -Name $vnetname -ResourceGroupName $rg.ResourceGroupName -AddressPrefix $vnetprefix -Subnet $subnetsource -Location $rg.Location
+
 ```
 
 All outbound traffic to Internet destinations is now using the NAT service.  It isn't necessary to configure a UDR.
@@ -99,7 +125,13 @@ You could also create this VM without a public IP and create another VM to use a
 We create a public IP to be used to access the VM.  Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest) to create a public IP address resource named **myPublicIPVM** in **myResourceGroupNAT**.  The result of this command will be stored in a variable named **$publicIpsourceVM** for later use.
 
 ```azurepowershell-interactive
-   $publicIpsourceVM = New-AzPublicIpAddress -Name myPublicIpsourceVM -ResourceGroupName myResourceGroupNAT -AllocationMethod Static -Location eastus2 -sku Standard
+$sku = 'Standard'
+$pipvmname = 'myPublicIpsourceVM'
+$alm = 'Static'
+
+$publicIpsourceVM = 
+New-AzPublicIpAddress -Name $pipvmname -ResourceGroupName $rg.ResourceGroupName -AllocationMethod $alm -sku $sku -Location $rg.Location
+
 ```
 
 ### Create an NSG and expose SSH endpoint for VM
@@ -107,9 +139,19 @@ We create a public IP to be used to access the VM.  Use [New-AzPublicIpAddress](
 Because Standard Public IP addresses are 'secure by default', we create an NSG to allow inbound access for ssh. NAT service is flow direction aware. This NSG won't be used for outbound once NAT gateway is configured on the same subnet. Use [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup?view=latest) to create an NSG resource named **myNSGsource**. Use [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) to create an NSG rule for SSH access named **ssh** in **myResourceGroupNAT**. The result of this command will be stored in variable named **$nsgsource** for later use.
 
 ```azurepowershell-interactive
-  $sshrule = New-AzNetworkSecurityRuleConfig -Name ssh -Description "SSH access" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
+$rnm = 'ssh'
+$rdsc = 'SSH access'
+$acc = 'Allow'
+$prt = 'Tcp'
+$dir = 'Inbound'
+$nsnm = 'myNSGsource'
 
-  $nsgsource = New-AzNetworkSecurityGroup -ResourceGroupName myResourceGroupNAT -Name myNSGsource -Location eastus2 -SecurityRules $sshrule 
+$sshrule = 
+New-AzNetworkSecurityRuleConfig -Name $rnm -Description $rdsc -Access $acc -Protocol $prt -Direction $dir -Priority 100 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
+
+$nsgsource = 
+New-AzNetworkSecurityGroup -ResourceGroupName $rg.ResourceGroupName -Name $nsnm -SecurityRules $sshrule -Location $rg.Location
+
 ```
 
 ### Create NIC for source VM
@@ -117,7 +159,11 @@ Because Standard Public IP addresses are 'secure by default', we create an NSG t
 Create a network interface with [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface?view=azps-2.8.0) named **myNicsource**. This command will associate the Public IP address and the network security group. The result of this command will be stored in a variable named **$nicsource** for later use.
 
 ```azurepowershell-interactive
-  $nicsource = New-AzNetworkInterface -ResourceGroupName myResourceGroupNAT -Name myNicsource -NetworkSecurityGroupID $nsgsource.Id -PublicIPAddressID $publicIPVMsource.Id -SubnetID $vnetsource.Subnets[0].Id -Location eastus2
+$nin = 'myNicsource'
+
+$nicsource = 
+New-AzNetworkInterface -ResourceGroupName $rg.ResourceGroupName -Name $nin -NetworkSecurityGroupID $nsgsource.Id -PublicIPAddressID $publicIPVMsource.Id -SubnetID $vnetsource.Subnets[0].Id -Location $rg.Location
+
 ```
 
 ### Create a source VM
@@ -130,6 +176,7 @@ Use ssh-keygen to create an SSH key pair.
 
 ```azurepowershell-interactive
 ssh-keygen -t rsa -b 2048
+
 ```
 For more detailed information on how to create SSH key pairs, including the use of PuTTy, see [How to use SSH keys with Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
 
@@ -144,16 +191,25 @@ Define the SSH credentials, OS information, and VM size. In this example, the SS
 ```azurepowershell-interactive
 # Define a credential object
 
-$securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
+$securePassword = 
+ConvertTo-SecureString ' ' -AsPlainText -Force
+$cred = 
+New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
 # Create a virtual machine configuration
+$vmn = 'myVMsource'
+$vms = 'Standard_DS1_v2'
+$pub = 'Canonical'
+$off = 'UbuntuServer'
+$skus = '18.04-LTS'
+$ver = 'latest'
 
-$vmConfigsource = New-AzVMConfig -VMName "myVMsource" -VMSize "Standard_D1"
+$vmConfigsource = 
+New-AzVMConfig -VMName $vmn -VMSize $vms
 
-Set-AzVMOperatingSystem -VM $vmConfigsource -Linux -ComputerName "myVMsource" -Credential $cred -DisablePasswordAuthentication
+Set-AzVMOperatingSystem -VM $vmConfigsource -Linux -ComputerName $vmn -Credential $cred -DisablePasswordAuthentication
 
-Set-AzVMSourceImage -VM $vmConfigsource -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS" -Version "latest"
+Set-AzVMSourceImage -VM $vmConfigsource -PublisherName $pub -Offer $off -Skus $skus -Version $ver
 
 Add-AzVMNetworkInterface -VM $vmConfigsource -Id $nicsource.Id
 
@@ -164,10 +220,11 @@ $sshPublicKey = cat ~/.ssh/id_rsa.pub
 Add-AzVMSshPublicKey -VM $vmConfigsource -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 ```
-Combine the configuration definitions to create a VM named **myVMsource** with [New-AzVM]((https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azps-2.8.0)) in **myResourceGroupNAT**.
+Combine the configuration definitions to create a VM named **myVMsource** with [New-AzVM](/powershell/module/az.compute/new-azvm?view=azps-2.8.0) in **myResourceGroupNAT**.
 
 ```azurepowershell-interactive
-New-AzVM -ResourceGroupName myResourceGroupNAT -Location eastus2 -VM $vmConfigsource
+New-AzVM -ResourceGroupName $rg.ResourceGroupName -VM $vmConfigsource -Location $rg.Location
+
 ```
 
 While the command will return immediately, it may take a few minutes for the VM to get deployed.
@@ -183,17 +240,31 @@ We need to create a virtual network where the destination virtual machine will b
 Create a virtual network named **myVnetdestination** with a subnet named **mySubnetdestination** using [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=latest) in the **myResourceGroupNAT** using [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=latest). The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.  The result of the commands will be stored in variables named **$subnetdestination** and **$vnetdestination** for later use.
 
 ```azurepowershell-interactive
-  $subnetdestination = New-AzVirtualNetworkSubnetConfig -Name mySubnetdestination -AddressPrefix "192.168.0.0/24"
+$sbdn = 'mySubnetdestination'
+$spfx = '192.168.0.0/24'
+$vdn = 'myVnetdestination'
+$vpfx = '192.168.0.0/16'
 
-  $vnetdestination = New-AzVirtualNetwork -Name myVnetdestination -ResourceGroupName myResourceGroupNAT -Location eastus2 -AddressPrefix "192.168.0.0/16" -Subnet $subnetdestination
+$subnetdestination = 
+New-AzVirtualNetworkSubnetConfig -Name $sbdn -AddressPrefix $spfx
+
+$vnetdestination = 
+New-AzVirtualNetwork -Name $vdn -ResourceGroupName $rg.ResourceGroupName -AddressPrefix $vpfx -Subnet $subnetdestination -Location $rg.Location
+
 ```
 
 ### Create public IP for destination VM
 
-We create a public IP to be used to access the source VM.  Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest) to create a public IP address resource named **myPublicIPdestinationVM** in **myResourceGroupNAT**.  The result of this command will be stored in a variable named **$publicIpdestinationVM** for later use.
+We create a public IP to be used to access the destination VM.  Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest) to create a public IP address resource named **myPublicIPdestinationVM** in **myResourceGroupNAT**.  The result of this command will be stored in a variable named **$publicIpdestinationVM** for later use.
 
 ```azurepowershell-interactive
-   $publicIpdestinationVM = New-AzPublicIpAddress -Name myPublicIpdestinationVM -ResourceGroupName myResourceGroupNAT -AllocationMethod Static -Location eastus2 -Sku Standard
+$sku = 'Standard'
+$all = 'Static'
+$pipd = 'myPublicIPdestinationVM'
+
+$publicIpdestinationVM = 
+New-AzPublicIpAddress -Name $pipd -ResourceGroupName $rg.ResourceGroupName -AllocationMethod $all -Sku $sku -Location $rg.Location
+
 ```
 
 ### Create an NSG and expose SSH and HTTP endpoint for VM
@@ -201,11 +272,24 @@ We create a public IP to be used to access the source VM.  Use [New-AzPublicIpAd
 Standard Public IP addresses are 'secure by default', we create an NSG to allow inbound access for ssh. Use [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup?view=latest) to create an NSG resource named **myNSGdestination**. Use [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) to create an NSG rule for SSH access named **ssh**.  Use [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) to create an NSG rule for HTTP access named **http**. Both rules will be created in **myResourceGroupNAT**. The result of this command will be stored in a variable named **$nsgdestination** for later use.
 
 ```azurepowershell-interactive
-  $sshrule = New-AzNetworkSecurityRuleConfig -Name ssh -Description "SSH access" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
+$snm = 'ssh'
+$sdsc = 'SSH access'
+$acc = 'Allow'
+$prt = 'Tcp'
+$dir = 'Inbound'
+$hnm = 'http'
+$hdsc = 'HTTP access'
+$nsnm = 'myNSGdestination'
 
-  $httprule = New-AzNetworkSecurityRuleConfig -Name http -Description "HTTP access" -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80
+$sshrule = 
+New-AzNetworkSecurityRuleConfig -Name $snm -Description $sdsc -Access $acc -Protocol $prt -Direction $dir -Priority 100 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
 
-  $nsgdestination = New-AzNetworkSecurityGroup -ResourceGroupName myResourceGroupNAT -Name myNSGdestination -Location eastus2 -SecurityRules $sshrule,$httprule
+$httprule = 
+New-AzNetworkSecurityRuleConfig -Name $hnm -Description $hdsc -Access $acc -Protocol $prt -Direction $dir -Priority 101 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 80
+
+$nsgdestination = 
+New-AzNetworkSecurityGroup -ResourceGroupName $rg.ResourceGroupName -Name $nsnm -SecurityRules $sshrule,$httprule -Location $rg.Location
+
 ```
 
 ### Create NIC for destination VM
@@ -213,7 +297,11 @@ Standard Public IP addresses are 'secure by default', we create an NSG to allow 
 Create a network interface with [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface?view=azps-2.8.0) named **myNicdestination**. This command will associate with the Public IP address and the network security group. The result of this command will be stored in a variable named **$nicdestination** for later use.
 
 ```azurepowershell-interactive
-  $nicdestination = New-AzNetworkInterface -ResourceGroupName myResourceGroupNAT -Name myNicdestination -NetworkSecurityGroupID $nsgdestination.Id -PublicIPAddressID $publicIPdestinationVM.Id -SubnetID $vnetdestination.Subnets[0].Id -Location eastus2
+$nnm = 'myNicdestination'
+
+$nicdestination = 
+New-AzNetworkInterface -ResourceGroupName $rg.ResourceGroupName -Name $nnm -NetworkSecurityGroupID $nsgdestination.Id -PublicIPAddressID $publicIPdestinationVM.Id -SubnetID $vnetdestination.Subnets[0].Id -Location $rg.Location
+
 ```
 
 ### Create a destination VM
@@ -227,16 +315,25 @@ Define the SSH credentials, OS information, and VM size. In this example, the SS
 ```azurepowershell-interactive
 # Define a credential object
 
-$securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
+$securePassword = 
+ConvertTo-SecureString ' ' -AsPlainText -Force
+$cred = 
+New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
 # Create a virtual machine configuration
 
-$vmConfigdestination = New-AzVMConfig -VMName "myVMdestination" -VMSize "Standard_D1"
+$vmd = 'myVMdestination'
+$vms = 'Standard_DS1_v2'
+$pub = 'Canonical'
+$off = 'UbuntuServer'
+$skus = '18.04-LTS'
+$ver = 'latest'
 
-Set-AzVMOperatingSystem -VM $vmConfigdestination -Linux -ComputerName "myVMdestination" -Credential $cred -DisablePasswordAuthentication
+$vmConfigdestination = New-AzVMConfig -VMName $vmd -VMSize $vms
 
-Set-AzVMSourceImage -VM $vmConfigdestination -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS" -Version "latest"
+Set-AzVMOperatingSystem -VM $vmConfigdestination -Linux -ComputerName $vmd -Credential $cred -DisablePasswordAuthentication
+
+Set-AzVMSourceImage -VM $vmConfigdestination -PublisherName $pub -Offer $off -Skus $skus -Version $ver
 
 Add-AzVMNetworkInterface -VM $vmConfigdestination -Id $nicdestination.Id
 
@@ -247,10 +344,12 @@ $sshPublicKey = cat ~/.ssh/id_rsa.pub
 Add-AzVMSshPublicKey -VM $vmConfigdestination -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 ```
-Combine the configuration definitions to create a VM named **myVMdestination** with [New-AzVM]((https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azps-2.8.0)) in **myResourceGroupNAT**.
+Combine the configuration definitions to create a VM named **myVMdestination** with [New-AzVM](/powershell/module/az.compute/new-azvm?view=azps-2.8.0) in **myResourceGroupNAT**.
 
 ```azurepowershell-interactive
-New-AzVM -ResourceGroupName myResourceGroupNAT -Location eastus2 -VM $vmConfigdestination
+
+New-AzVM -ResourceGroupName $rg.ResourceGroupName -VM $vmConfigdestination -Location $rg.Location
+
 ```
 
 While the command will return immediately, it may take a few minutes for the VM to get deployed.
@@ -260,7 +359,12 @@ While the command will return immediately, it may take a few minutes for the VM 
 First we need to discover the IP address of the destination VM.  To get the public IP address of the VM, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest). 
 
 ```azurepowershell-interactive
-  Get-AzPublicIpAddress -ResourceGroupName myResourceGroupNAT -Name myPublicIPdestinationVM | select IpAddress
+$pipname = 'myPublicIPdestinationVM'
+  
+$destip = Get-AzPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -Name $pipname | select IpAddress
+
+$destip
+
 ``` 
 
 >[!IMPORTANT]
@@ -268,25 +372,24 @@ First we need to discover the IP address of the destination VM.  To get the publ
 
 ### Sign in to destination VM
 
-The SSH credentials should be stored in your cloud shell from the previous operation.  Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine. 
+The SSH credentials should be stored in your Cloud Shell from the previous operation.  Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine. 
 
-```bash
-ssh azureuser@<ip-address-destination>
+```azurepowershell-interactive
+ssh azureuser@$destip
+
 ```
 
 Copy and paste the following commands once you've logged in.  
 
 ```bash
-sudo apt-get -y update && \
-sudo apt-get -y upgrade && \
-sudo apt-get -y dist-upgrade && \
-sudo apt-get -y autoremove && \
-sudo apt-get -y autoclean && \
-sudo apt-get -y install nginx && \
+sudo apt -y update && \
+sudo apt -y upgrade && \
+sudo apt -y install nginx && \
 sudo ln -sf /dev/null /var/log/nginx/access.log && \
 sudo touch /var/www/html/index.html && \
 sudo rm /var/www/html/index.nginx-debian.html && \
 sudo dd if=/dev/zero of=/var/www/html/100k bs=1024 count=100
+
 ```
 
 These commands will update your virtual machine, install nginx, and create a 100-KBytes file. This file will be retrieved from the source VM using the NAT service.
@@ -298,7 +401,12 @@ Close the SSH session with the destination VM.
 First we need to discover the IP address of the source VM.  To get the public IP address of the VM, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest). 
 
 ```azurepowershell-interactive
-  Get-AzPublicIpAddress -ResourceGroupName myResourceGroupNAT -Name myPublicIPsourceVM | select IpAddress
+$pipname = 'myPublicIPsourceVM'
+
+$srcip = Get-AzPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -Name $pipname | select IpAddress
+
+$srcip
+
 ``` 
 
 >[!IMPORTANT]
@@ -306,21 +414,19 @@ First we need to discover the IP address of the source VM.  To get the public IP
 
 ### Log into source VM
 
-Again, the SSH credentials are stored in cloud shell. Open a new tab for [Azure Cloud Shell](https://shell.azure.com) in your browser.  Use the IP address retrieved in the previous step to SSH to the virtual machine. 
+Again, the SSH credentials are stored in Cloud Shell. Open a new tab for [Azure Cloud Shell](https://shell.azure.com) in your browser.  Use the IP address retrieved in the previous step to SSH to the virtual machine. 
 
-```bash
-ssh azureuser@<ip-address-source>
+```azurepowershell-interactive
+ssh azureuser@$srcip
+
 ```
 
 Copy and paste the following commands to prepare for testing the NAT service.
 
 ```bash
-sudo apt-get -y update && \
-sudo apt-get -y upgrade && \
-sudo apt-get -y dist-upgrade && \
-sudo apt-get -y autoremove && \
-sudo apt-get -y autoclean && \
-sudo apt-get install -y nload golang && \
+sudo apt -y update && \
+sudo apt -y upgrade && \
+sudo apt install -y nload golang && \
 echo 'export GOPATH=${HOME}/go' >> .bashrc && \
 echo 'export PATH=${PATH}:${GOPATH}/bin' >> .bashrc && \
 . ~/.bashrc &&
@@ -340,12 +446,14 @@ Use curl to retrieve the 100-KBytes file.  Replace **\<ip-address-destination>**
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
+
 ```
 
 You can also generate a series of requests using **hey**. Again, replace **\<ip-address-destination>** with the destination IP address you have previously copied.
 
 ```bash
 hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k
+
 ```
 
 This command will generate 100 requests, 10 concurrently, with a timeout of 30 seconds. The TCP connection won't be reused.  Each request will retrieve 100 Kbytes.  At the end of the run, **hey** will report some statistics about how well the NAT service did.
@@ -355,13 +463,20 @@ This command will generate 100 requests, 10 concurrently, with a timeout of 30 s
 When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) command to remove the resource group and all resources contained within.
 
 ```azurepowershell-interactive 
-  Remove-AzResourceGroup -Name myResourceGroupNAT
+Remove-AzResourceGroup -Name $rg.ResourceGroupName
+
 ```
 
 ## Next steps
-In this tutorial, you created a NAT gateway. You created a source and destination VM, and tested the NAT gateway. To learn more about Azure NAT service, continue to other tutorials for Azure NAT service.
+In this tutorial, you created a NAT gateway, created a source and destination VM, and then tested the NAT gateway.
 
-You can also review metrics in Azure Monitor to see your NAT service is operating. You can diagnose issues such as resource exhaustion of available SNAT ports. Resource exhaustion of SNAT ports is addressed by adding an additional public IP address and/or public IP prefix.
+Review metrics in Azure Monitor to see your NAT service operating. Diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
+
+- Learn about [Virtual Network NAT](./nat-overview.md)
+- Learn about [NAT gateway resource](./nat-gateway-resource.md).
+- Quickstart for deploying [NAT gateway resource using Azure CLI](./quickstart-create-nat-gateway-cli.md).
+- Quickstart for deploying [NAT gateway resource using Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
+- Quickstart for deploying [NAT gateway resource using Azure portal](./quickstart-create-nat-gateway-portal.md).
 
 > [!div class="nextstepaction"]
 

@@ -1,13 +1,14 @@
 ---
 title: How to query graph data in Azure Cosmos DB?
-description: Learn to query graph data in Azure Cosmos DB
-author: luisbosquez
-ms.author: lbosq
+description: Learn how to query graph data from Azure Cosmos DB using Gremlin queries
+author: jasonwhowell
+ms.author: jasonh
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
-ms.date: 01/02/2018
+ms.date: 12/03/2018
 ms.reviewer: sngun
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Query Azure Cosmos DB Gremlin API by using Gremlin

@@ -1,7 +1,7 @@
 ---
 title: OData search.score function reference
 titleSuffix: Azure Cognitive Search
-description: OData search.score function in Azure Cognitive Search queries.
+description: Syntax and reference documentation for using the search.score function in Azure Cognitive Search queries.
 
 manager: nitinme
 author: brjohnstmsft
@@ -33,10 +33,12 @@ The syntax for `search.score` in **$orderby** is `search.score()`. The function 
 
 Sort hotels in descending order by `search.score` and `rating`, and then in ascending order by distance from the given coordinates so that between two hotels with identical ratings, the closest one is listed first:
 
+```odata-filter-expr
     search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 ## Next steps  
 
 - [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
 - [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search EST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Search Documents &#40;Azure Cognitive Search EST API&#41;](/rest/api/searchservice/Search-Documents)

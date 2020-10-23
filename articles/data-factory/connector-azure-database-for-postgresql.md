@@ -1,22 +1,21 @@
 ---
-title: Copy data to and from Azure Database for PostgreSQL using Azure Data Factory | Microsoft Docs
+title: Copy data to and from Azure Database for PostgreSQL
 description: Learn how to copy data to and from Azure Database for PostgreSQL by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/16/2019
-ms.author: jingwang
-
 ---
+
 # Copy data to and from Azure Database for PostgreSQL by using Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how to use the copy activity feature in Azure Data Factory to copy data from Azure Database for PostgreSQL. It builds on the [Copy activity in Azure Data Factory](copy-activity-overview.md) article, which presents a general overview of copy activity.
 
@@ -46,7 +45,7 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzurePostgreSql**. | Yes |
-| connectionString | An ODBC connection string to connect to Azure Database for PostgreSQL.<br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. See the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) for more details. | Yes |
+| connectionString | An ODBC connection string to connect to Azure Database for PostgreSQL.<br/>You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. See the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) for more details. | Yes |
 | connectVia | This property represents the [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 A typical connection string is `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Here are more properties you can set per your case:
@@ -64,10 +63,7 @@ A typical connection string is `Server=<server>.postgres.database.azure.com;Data
     "properties": {
         "type": "AzurePostgreSql",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
-            }
+            "connectionString": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
         }
     }
 }
@@ -83,10 +79,7 @@ A typical connection string is `Server=<server>.postgres.database.azure.com;Data
     "properties": {
         "type": "AzurePostgreSql",
         "typeProperties": {
-            "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;"
-            },
+            "connectionString": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 

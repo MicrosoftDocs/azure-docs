@@ -1,20 +1,18 @@
 ---
-title: Azure DNS metrics and alerts | Microsoft Docs
-description: Learn about Azure DNS metrics and alerts.
+title: Metrics and alerts - Azure DNS
+description: With this learning path, get started with Azure DNS metrics and alerts.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jennoc
-editor: ''
+author: rohinkoul
+manager: kumudD
 
-ms.assetid: 
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Azure DNS metrics and alerts
@@ -60,7 +58,7 @@ For example, if you have 500 Recordsets configured for your DNS zone, and the zo
 The unit of measurement is **Percentage** and the **Aggregation** type is **Maximum**. 
 To view this metric, select Metrics (preview) explorer experience from the Monitor tab in the Azure portal. Select your DNS zone from the Resource drop-down, select the Record Set Capacity Utilization metric, and select Max as the Aggregation. Below screenshot shows an example. For more information on the Metrics Explorer experience and charting, see [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md). 
 
-![Record Set Count](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
+![Screenshot that whows an example of how to view metrics.](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
 
 *Figure: Azure DNS Record Set Capacity Utilization metrics*
 

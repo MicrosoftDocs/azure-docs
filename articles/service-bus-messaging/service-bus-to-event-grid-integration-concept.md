@@ -1,22 +1,14 @@
 ---
 title: Azure Service Bus to Event Grid integration overview | Microsoft Docs
-description: Description of Service Bus messaging and Event Grid integration
-services: service-bus-messaging
+description: This article provides a description of how Azure Service Bus messaging integrates with Azure Event Grid. 
 documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
+author: spelluru
 ms.topic: conceptual
-ms.date: 09/15/2018
-ms.author: aschhab
-
+ms.date: 06/23/2020
+ms.author: spelluru 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
+
 # Azure Service Bus to Event Grid integration overview
 
 Azure Service Bus has launched a new integration to Azure Event Grid. The key scenario of this feature is that Service Bus queues or subscriptions with a low volume of messages do not need to have a receiver that polls for messages continuously. 
@@ -44,9 +36,9 @@ Service Bus today sends events for two scenarios:
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * DeadletterMessagesAvailable
 
-Additionally, Service Bus uses the standard Event Grid security and [authentication mechanisms](https://docs.microsoft.com/azure/event-grid/security-authentication).
+Additionally, Service Bus uses the standard Event Grid security and [authentication mechanisms](../event-grid/security-authentication.md).
 
-For more information, see [Azure Event Grid event schemas](https://docs.microsoft.com/azure/event-grid/event-schema).
+For more information, see [Azure Event Grid event schemas](../event-grid/event-schema.md).
 
 #### Active Messages Available event
 
@@ -135,7 +127,7 @@ To create a new Event Grid subscription, do the following:
 
 ## Azure CLI instructions
 
-First, make sure that you have Azure CLI version 2.0 or later installed. [Download the installer](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Select **Windows + X**, and then open a new PowerShell console with administrator permissions. Alternatively, you can use a command shell within the Azure portal.
+First, make sure that you have Azure CLI version 2.0 or later installed. [Download the installer](/cli/azure/install-azure-cli?view=azure-cli-latest). Select **Windows + X**, and then open a new PowerShell console with administrator permissions. Alternatively, you can use a command shell within the Azure portal.
 
 Execute the following code:
 
@@ -153,7 +145,7 @@ If you are using BASH
 
 ## PowerShell instructions
 
-Make sure you have Azure PowerShell installed. [Download the installer](https://docs.microsoft.com/powershell/azure/install-Az-ps). Select **Windows + X**, and then open a new PowerShell console with Administrator permissions. Alternatively, you can use a command shell within the Azure portal.
+Make sure you have Azure PowerShell installed. [Download the installer](/powershell/azure/install-Az-ps). Select **Windows + X**, and then open a new PowerShell console with Administrator permissions. Alternatively, you can use a command shell within the Azure portal.
 
 ```powershell-interactive
 Connect-AzAccount
@@ -174,10 +166,10 @@ From here, you can explore the other setup options or test that events are flowi
 ## Next steps
 
 * Get Service Bus and Event Grid [examples](service-bus-to-event-grid-integration-example.md).
-* Learn more about [Event Grid](https://docs.microsoft.com/azure/event-grid/).
-* Learn more about [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
-* Learn more about [Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
-* Learn more about [Service Bus](https://docs.microsoft.com/azure/service-bus/).
+* Learn more about [Event Grid](../event-grid/index.yml).
+* Learn more about [Azure Functions](../azure-functions/index.yml).
+* Learn more about [Logic Apps](../logic-apps/index.yml).
+* Learn more about [Service Bus](/azure/service-bus/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

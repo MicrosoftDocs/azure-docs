@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple Virtual Array backup tutorial | Microsoft Docs
-description: Describes how to back up StorSimple Virtual Array shares and volumes.
+description: Create scheduled and manual backups for Microsoft Azure StorSimple Virtual Array, and perform item-level recovery to restore a deleted file on your virtual array.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: e3cdcd9e-33b1-424d-82aa-b369d934067e
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
@@ -71,7 +71,7 @@ In addition to scheduled backups, you can take a manual (on-demand) backup of de
    
     An on-demand backup starts and you see that a backup job has started.
    
-    ![backup starting](./media/storsimple-virtual-array-backup/takebackup3m.png) 
+    ![backup starting 2](./media/storsimple-virtual-array-backup/takebackup3m.png) 
    
     Once the job has successfully completed, you are notified again. The backup process then starts.
    

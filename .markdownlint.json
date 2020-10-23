@@ -9,6 +9,7 @@
     "MD007": false,
     "MD009": false,
     "MD010": false,
+    "MD011": true,
     "MD012": false,
     "MD013": false,
     "MD014": false,
@@ -32,10 +33,28 @@
     "MD035": false,
     "MD036": false,
     "MD037": false,
+    "MD038": true,
+    "MD039": true,
     "MD040": false,
     "MD041": false,
     "MD042": false,
+    "MD043": true,
+    "MD044": {
+        "code_blocks": false,
+        "names": [
+            ".NET",
+            "ASP.NET",
+            "Azure",
+            "JavaScript",
+            "NuGet",
+            "PowerShell",
+            "macOS",
+            "C#",
+            "CLI"
+        ]
+    },
     "MD045": false,
     "MD046": false,
-    "MD047": false
+    "MD047": false,
+    "MD048": true
 }

@@ -1,13 +1,9 @@
 ---
-title: Configure Blockchain Data Manager - Azure portal
-description: How to create and manage Blockchain Data Manager using the Azure portal.
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
-ms.date: 11/04/2019
-ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: chroyal
+title: Configure Blockchain Data Manager using Azure portal - Azure Blockchain Service
+description: Create and manage Blockchain Data Manager for Azure Blockchain Service using the Azure portal.
+ms.date: 03/30/2020
+ms.topic: how-to
+ms.reviewer: ravastra
 #Customer intent: As a network operator, I want to use the Azure portal to configure Blockchain Data Manager.
 ---
 # Configure Blockchain Data Manager using the Azure portal
@@ -21,13 +17,13 @@ To configure a Blockchain Data Manager instance, you:
 
 ## Prerequisites
 
-* Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
+* Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md). Azure Blockchain Service *Standard* tier is recommended when using Blockchain Data Manager.
 * Create an [Event Grid Topic](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Learn about [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md)
 
 ## Create instance
 
-A Blockchain Data Manager instance connects and monitors an Azure Blockchain Service transaction node. Only users with access to the transaction node can create a connection. An instance captures all raw block and raw transaction data from the transaction node.
+A Blockchain Data Manager instance connects and monitors an Azure Blockchain Service transaction node. Only users with access to the transaction node can create a connection. An instance captures all raw block and raw transaction data from the transaction node. Blockchain Data Manager publishes a **RawBlockAndTransactionMsg** message which is a superset of information returned from web3.eth [getBlock](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#getblock) and [getTransaction](https://web3js.readthedocs.io/en/v1.2.0/web3-eth.html#gettransaction) queries.
 
 An outbound connection sends blockchain data to Azure Event Grid. You configure a single outbound connection when you create the instance. Blockchain Data Manager supports multiple Event Grid Topic outbound connections for any given Blockchain Data Manager instance. You can send blockchain data to a single destination or send blockchain data to multiple destinations. To add another destination, just add additional outbound connections to the instance.
 
@@ -48,7 +44,7 @@ An outbound connection sends blockchain data to Azure Event Grid. You configure 
 
 1. Select **OK**.
 
-    It takes less than a minute to create a Blockchain Data Manager instance. After the instance is deployed, it is automatically started. A running Blockchain Data Manager instance captures blockchain events from the transaction node and sends data to the outbound connections. If you want to also capture decoded event and property data from the transaction node, then create a blockchain application for the Blockchain Data Manager instance.
+    It takes less than a minute to create a Blockchain Data Manager instance. After the instance is deployed, it is automatically started. A running Blockchain Data Manager instance captures blockchain events from the transaction node and sends data to the outbound connections.
 
     The new instance appears in the list of Blockchain Data Manager instances for the Azure Blockchain Service member.
 
@@ -58,7 +54,10 @@ An outbound connection sends blockchain data to Azure Event Grid. You configure 
 
 If you add a blockchain application, Blockchain Data Manager decodes event and property state for the application. Otherwise, only raw block and raw transaction data is sent. Blockchain Data Manager also discovers contract addresses when the contract is deployed. You can add multiple blockchain applications to a Blockchain Data Manager instance.
 
-Blockchain Data Manager requires a smart contract ABI and bytecode file to add the application.
+> [!IMPORTANT]
+> Currently, blockchain applications that declare Solidity [array types](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) or [mapping types](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) are not fully supported. Properties declared as array or mapping types will not be decoded in *ContractPropertiesMsg* or *DecodedContractEventsMsg* messages.
+
+Blockchain Data Manager requires a smart contract ABI and deployed bytecode file to add the application.
 
 ### Get Contract ABI and bytecode
 
@@ -74,17 +73,17 @@ The contract ABI defines the smart contract interfaces. It describes how to inte
 
 1. Save the **abi** array as a JSON file. For example, *abi.json*. You use the file in a later step.
 
-The contract bytecode is the compiled smart contract executed by the Ethereum virtual machine. You can use the extension to copy the contract bytecode to the clipboard.
+Blockchain Data Manager requires the deployed bytecode for the smart contract. The deployed bytecode is different than the smart contract bytecode. You use the Azure blockchain development kit extension to copy the bytecode to the clipboard.
 
 1. In the Visual Studio Code explorer pane, expand the **build/contracts** folder of your Solidity project.
 1. Right-click the contract metadata JSON file. The file name is the smart contract name followed by the **.json** extension.
-1. Select **Copy Contract Bytecode**.
+1. Select **Copy Transaction Bytecode**.
 
-    ![Visual Studio Code pane with the Copy Contract Bytecode selection](./media/data-manager-portal/bytecode-devkit.png)
+    ![Visual Studio Code pane with the Copy Transaction Bytecode selection](./media/data-manager-portal/bytecode-devkit.png)
 
-    The contract bytecode is copied to the clipboard.
+    The bytecode is copied to the clipboard.
 
-1. Save the **bytecode** value as a JSON file. For example, *bytecode.json*. Save only the hexadecimal value. You use the file in a later step.
+1. Save the **bytecode** value as a JSON file. For example, *bytecode.json*. You use the file in a later step.
 
 The following example shows *abi.json* and *bytecode.json* files open in the VS Code editor. Your files should look similar.
 
@@ -164,4 +163,7 @@ Stop the Blockchain Manager instance when you want to stop capturing blockchain 
 
 ## Next steps
 
-Learn more about [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md).
+Try the next tutorial creating a blockchain transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
+
+> [!div class="nextstepaction"]
+> [Use Blockchain Data Manager to send data to Azure Cosmos DB](data-manager-cosmosdb.md)

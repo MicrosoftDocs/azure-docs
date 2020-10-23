@@ -4,7 +4,7 @@ description: Learn about SQL system function StringToArray in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
@@ -27,7 +27,7 @@ StringToArray(<str_expr>)
   Returns an array expression or undefined. 
   
 ## Remarks
-  Nested string values must be written with double quotes to be valid JSON. For details on the JSON format, see [json.org](https://json.org/)
+  Nested string values must be written with double quotes to be valid JSON. For details on the JSON format, see [json.org](https://json.org/). This system function will not utilize the index.
   
 ## Examples
   

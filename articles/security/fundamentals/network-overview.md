@@ -90,7 +90,7 @@ Service endpoints are another way to apply control over your traffic. You can li
 
 Learn more:
 
-* [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md#securing-azure-services-to-virtual-networks)
+* [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md#secure-azure-services-to-virtual-networks)
 
 ### Route control and forced tunneling
 
@@ -157,7 +157,7 @@ You might want to enable individual developers or operations personnel to manage
 
 The point-to-site VPN connection enables you to set up a private and secure connection between the user and the virtual network. When the VPN connection is established, the user can RDP or SSH over the VPN link into any virtual machine on the virtual network. (This assumes that the user can authenticate and is authorized.) Point-to-site VPN supports:
 
-* Secure Socket Tunneling Protocol (SSTP), a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later).
+* Secure Socket Tunneling Protocol (SSTP), a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which TLS/SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later).
 
 * IKEv2 VPN, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (OSX versions 10.11 and above).
 
@@ -229,7 +229,7 @@ Organizations that run web-based services often desire to have an HTTP-based loa
 Azure Application Gateway provides HTTP-based load balancing for your web-based services. Application Gateway supports:
 
 * Cookie-based session affinity. This capability makes sure that connections established to one of the servers behind that load balancer stays intact between the client and server. This ensures stability of transactions.
-* SSL offload. When a client connects with the load balancer, that session is encrypted by using the HTTPS (SSL) protocol. However, in order to increase performance, you can use the HTTP (unencrypted) protocol to connect between the load balancer and the web server behind the load balancer. This is referred to as "SSL offload," because the web servers behind the load balancer don't experience the processor overhead involved with encryption. The web servers can therefore service requests more quickly.
+* TLS offload. When a client connects with the load balancer, that session is encrypted by using the HTTPS (TLS) protocol. However, in order to increase performance, you can use the HTTP (unencrypted) protocol to connect between the load balancer and the web server behind the load balancer. This is referred to as "TLS offload," because the web servers behind the load balancer don't experience the processor overhead involved with encryption. The web servers can therefore service requests more quickly.
 * URL-based content routing. This feature makes it possible for the load balancer to make decisions about where to forward connections based on the target URL. This provides a lot more flexibility than solutions that make load balancing decisions based on IP addresses.
 
 Learn more:
@@ -333,7 +333,7 @@ Learn more:
 
 ## Azure Front Door
 
-Azure Front Door Service enables you to define, manage, and monitor the global routing of your web traffic. It optimizes your traffic's routing for best performance and high availability. Azure Front Door allows you to author custom web application firewall (WAF) rules for access control to protect your HTTP/HTTPS workload from exploitation based on client IP addresses, country code, and http parameters. Additionally, Front Door also enables you to create rate limiting rules to battle malicious bot traffic, it includes SSL offloading and per-HTTP/HTTPS request, application-layer processing.
+Azure Front Door Service enables you to define, manage, and monitor the global routing of your web traffic. It optimizes your traffic's routing for best performance and high availability. Azure Front Door allows you to author custom web application firewall (WAF) rules for access control to protect your HTTP/HTTPS workload from exploitation based on client IP addresses, country code, and http parameters. Additionally, Front Door also enables you to create rate limiting rules to battle malicious bot traffic, it includes TLS offloading and per-HTTP/HTTPS request, application-layer processing.
 
 Front Door platform itself is protected by Azure DDoS Protection Basic. For further protection, Azure DDoS Protection Standard may be enabled at your VNETs and safeguard resources from network layer (TCP/UDP) attacks via auto tuning and mitigation. Front Door is a layer 7 reverse proxy, it only allows web traffic to pass through to back end servers and block other types of traffic by default.
 
@@ -392,7 +392,7 @@ Learn more:
 
 Logging at a network level is a key function for any network security scenario. In Azure, you can log information obtained for NSGs to get network level logging information. With NSG logging, you get information from:
 
-* [Activity logs](../../azure-monitor/platform/activity-logs-overview.md). Use these logs to view all operations submitted to your Azure subscriptions. These logs are enabled by default, and can be used within the Azure portal. They were previously known as audit or operational logs.
+* [Activity logs](../../azure-monitor/platform/platform-logs-overview.md). Use these logs to view all operations submitted to your Azure subscriptions. These logs are enabled by default, and can be used within the Azure portal. They were previously known as audit or operational logs.
 * Event logs. These logs provide information about what NSG rules were applied.
 * Counter logs. These logs let you know how many times each NSG rule was applied to deny or allow traffic.
 

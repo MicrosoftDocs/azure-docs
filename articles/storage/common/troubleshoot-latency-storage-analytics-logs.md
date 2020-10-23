@@ -4,9 +4,12 @@ description: Identify and troubleshoot latency issues using Azure Storage Analyt
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
+manager: dcscontentpm
 ms.date: 10/21/2019
 ms.service: storage
 ms.subservice: common
+services: storage
+tags: ''
 ---
 
 # Troubleshoot latency using Storage Analytics logs
@@ -19,7 +22,7 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
 
 ## Recommended steps
 
-1. Download the [Storage Analytics logs](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
+1. Download the [Storage Analytics logs](/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
 
 2. Use the following PowerShell script to convert the raw format logs into tabular format:
 
@@ -85,11 +88,11 @@ The following steps demonstrate how to identify and troubleshoot latency issues 
 
    * Client Latency = End-to-End Latency – Server-Latency
 
-          * Example: 8453 – 391 = 8062ms
+        Example: 8453 – 391 = 8062ms
 
    The following table provides information about the high latency OperationType and RequestStatus results:
 
-   |   |RequestStatus=<br>Success|RequestStatus=<br>(SAS)NetworkError|Recommendation|
+   | Blob Type |RequestStatus=<br>Success|RequestStatus=<br>(SAS)NetworkError|Recommendation|
    |---|---|---|---|
    |GetBlob|Yes|No|[**GetBlob Operation:** RequestStatus = Success](#getblob-operation-requeststatus--success)|
    |GetBlob|No|Yes|[**GetBlob Operation:** RequestStatus = (SAS)NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|

@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,seodec18
-ms.topic: conceptual
-ms.date: 04/16/2019
+ms.topic: how-to
+ms.custom: hdinsightactive,seodec18, devx-track-java
+ms.date: 12/24/2019
 ---
 
 # Build Java applications for Apache HBase
@@ -26,11 +26,12 @@ The steps in this document use [Apache Maven](https://maven.apache.org/) to crea
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* If using PowerShell, you will need the [AZ Module](https://docs.microsoft.com/powershell/azure/overview).
+* If using PowerShell, you'll need the [AZ Module](https://docs.microsoft.com/powershell/azure/).
 
 * A text editor. This article uses Microsoft Notepad.
 
 ## Test environment
+
 The environment used for this article was a computer running Windows 10.  The commands were executed in a command prompt, and the various files were edited with Notepad. Modify accordingly for your environment.
 
 From a command prompt, enter the commands below to create a working environment:
@@ -79,7 +80,7 @@ In `pom.xml`, add the following text in the `<dependencies>` section:
 ```xml
 <dependency>
     <groupId>org.apache.hbase</groupId>
-    <artifactId>hbase-client</artifactId>
+    <artifactId>hbase-shaded-client</artifactId>
     <version>1.1.2</version>
 </dependency>
 <dependency>
@@ -123,7 +124,7 @@ Add the following code to the `pom.xml` file, and then save and close the file. 
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
         <configuration>
             <source>1.8</source>
             <target>1.8</target>
@@ -403,7 +404,7 @@ The following steps use `scp` to copy the JAR to the primary head node of your A
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
- 3. To create an HBase table using the Java application, use the following command in your open ssh connection:
+3. To create an HBase table using the Java application, use the following command in your open ssh connection:
 
     ```bash
     yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.CreateTable
@@ -419,12 +420,14 @@ The following steps use `scp` to copy the JAR to the primary head node of your A
 
     You receive the following results:
 
-        Franklin Holtz - ID: 2
-        Franklin Holtz - franklin@contoso.com - ID: 2
-        Rae Schroeder - ID: 4
-        Rae Schroeder - rae@contoso.com - ID: 4
-        Gabriela Ingram - ID: 6
-        Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```console
+    Franklin Holtz - ID: 2
+    Franklin Holtz - franklin@contoso.com - ID: 2
+    Rae Schroeder - ID: 4
+    Rae Schroeder - rae@contoso.com - ID: 4
+    Gabriela Ingram - ID: 6
+    Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```
 
 5. To delete the table, use the following command:
 
@@ -678,12 +681,14 @@ The following steps use the Azure PowerShell [AZ module](https://docs.microsoft.
 
     This command uses the `SearchByEmail` class to search for any rows where the `contactinformation` column family and the `email` column, contains the string `contoso.com`. You should receive the following results:
 
-          Franklin Holtz - ID: 2
-          Franklin Holtz - franklin@contoso.com - ID: 2
-          Rae Schroeder - ID: 4
-          Rae Schroeder - rae@contoso.com - ID: 4
-          Gabriela Ingram - ID: 6
-          Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```output
+    Franklin Holtz - ID: 2
+    Franklin Holtz - franklin@contoso.com - ID: 2
+    Rae Schroeder - ID: 4
+    Rae Schroeder - rae@contoso.com - ID: 4
+    Gabriela Ingram - ID: 6
+    Gabriela Ingram - gabriela@contoso.com - ID: 6
+    ```
 
     Using **fabrikam.com** for the `-emailRegex` value returns the users that have **fabrikam.com** in the email field. You can also use regular expressions as the search term. For example, **^r** returns email addresses that begin with the letter 'r'.
 

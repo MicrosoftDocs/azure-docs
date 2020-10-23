@@ -1,5 +1,5 @@
 ---
-title: Download large amounts of random data from Azure Storage  | Microsoft Docs 
+title: Download large amounts of random data from Azure Storage | Microsoft Docs 
 description: Learn how to use the Azure SDK to download large amounts of random data from an Azure Storage account 
 author: roygara
 ms.service: storage
@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
+ms.custom: devx-track-csharp
 ---
 
 # Download large amounts of random data from Azure storage

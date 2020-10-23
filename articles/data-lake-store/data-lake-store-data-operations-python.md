@@ -5,9 +5,10 @@ services: data-lake-store
 author: twooley
 
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
+ms.custom: devx-track-python
 
 ---
 
@@ -36,11 +37,11 @@ To work with Data Lake Storage Gen1 using Python, you need to install three modu
 
 * The `azure-mgmt-resource` module, which includes Azure modules for Active Directory, etc.
 * The `azure-mgmt-datalake-store` module, which includes the Azure Data Lake Storage Gen1 account management operations. For more information on this module, see the [azure-mgmt-datalake-store module reference](/python/api/azure-mgmt-datalake-store/).
-* The `azure-datalake-store` module, which includes the Azure Data Lake Storage Gen1 filesystem operations. For more information on this module, see the [azure-datalake-store file-system module reference](https://azure-datalake-store.readthedocs.io/en/latest/).
+* The `azure-datalake-store` module, which includes the Azure Data Lake Storage Gen1 filesystem operations. For more information on this module, see the [azure-datalake-store file-system module reference](/python/api/azure-datalake-store/azure.datalake.store.core/).
 
 Use the following commands to install the modules.
 
-```
+```console
 pip install azure-mgmt-resource
 pip install azure-mgmt-datalake-store
 pip install azure-datalake-store
@@ -52,7 +53,7 @@ pip install azure-datalake-store
 
 2. Add the following lines to import the required modules
 
-   ```
+   ```python
    ## Use this only for Azure AD service-to-service authentication
    from azure.common.credentials import ServicePrincipalCredentials
 
@@ -90,39 +91,48 @@ In this section, we talk about the different ways to authenticate with Azure AD.
 
 The following snippet first creates the Data Lake Storage Gen1 account client. It uses the client object to create a Data Lake Storage Gen1 account. Finally, the snippet creates a filesystem client object.
 
-    ## Declare variables
-    subscriptionId = 'FILL-IN-HERE'
-	adlsAccountName = 'FILL-IN-HERE'
+```python
+## Declare variables
+subscriptionId = 'FILL-IN-HERE'
+adlsAccountName = 'FILL-IN-HERE'
 
-	## Create a filesystem client object
-    adlsFileSystemClient = core.AzureDLFileSystem(adlCreds, store_name=adlsAccountName)
+## Create a filesystem client object
+adlsFileSystemClient = core.AzureDLFileSystem(adlCreds, store_name=adlsAccountName)
+```
 
 ## Create a directory
 
-	## Create a directory
-    adlsFileSystemClient.mkdir('/mysampledirectory')
+```python
+## Create a directory
+adlsFileSystemClient.mkdir('/mysampledirectory')
+```
 
 ## Upload a file
 
-
-    ## Upload a file
-    multithread.ADLUploader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
+```python
+## Upload a file
+multithread.ADLUploader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
+```
 
 
 ## Download a file
 
-    ## Download a file
-    multithread.ADLDownloader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt.out', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
+```python
+## Download a file
+multithread.ADLDownloader(adlsFileSystemClient, lpath='C:\\data\\mysamplefile.txt.out', rpath='/mysampledirectory/mysamplefile.txt', nthreads=64, overwrite=True, buffersize=4194304, blocksize=4194304)
+```
 
 ## Delete a directory
 
-	## Delete a directory
-	adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
+```python
+## Delete a directory
+adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
+```
 
 ## Next steps
 * [Account management operations on Data Lake Storage Gen1 using Python](data-lake-store-get-started-python.md).
 
 ## See also
 
-* [Azure Data Lake Storage Gen1 Python (Filesystem) Reference](https://azure-datalake-store.readthedocs.io/en/latest)
+* [Azure Data Lake Storage Gen1 Python (Filesystem) Reference](/python/api/azure-datalake-store/azure.datalake.store.core)
 * [Open Source Big Data applications compatible with Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

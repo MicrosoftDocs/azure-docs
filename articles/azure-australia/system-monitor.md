@@ -1,11 +1,11 @@
 ---
 title: System monitoring for security in Azure Australia
 description: Guidance on configuring System Monitoring within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: yvettep
 ---
 
 # System monitoring for security in Azure Australia
@@ -36,7 +36,7 @@ Azure Security Center provides Azure customers with the following features:
 
 The scope of resources monitored by Azure Security Center can be expanded to include supported on-premises resources in a hybrid-cloud environment. This includes on-premises resources currently being monitored by a supported version of System Center Operations Manager.
 
-The Security Center "Standard" tier also provides cloud-based security controls required by the [ASD Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm). These include application whitelisting and restriction of administrative privilege via just-in-time access.
+The Security Center "Standard" tier also provides cloud-based security controls required by the [ASD Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm). These include application filtering and restriction of administrative privilege via just-in-time access.
 
 ### Azure Monitor
 
@@ -65,7 +65,7 @@ The information gathered by Azure Advisor provides administrators with:
 
 ### Azure Policy
 
-[Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) provides the ability to apply rules that govern the types of Azure resources and their allowed configuration. Policy can be used to control resource creation and configuration, or it can be used to audit configuration settings across an environment. These audit results can be used to form the basis of remediation activities. Azure Policy differs from role-based access control (RBAC); Azure Policy is used to restrict resources and their configuration, RBAC is used to restrict privileged access to Azure users.
+[Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) provides the ability to apply rules that govern the types of Azure resources and their allowed configuration. Policy can be used to control resource creation and configuration, or it can be used to audit configuration settings across an environment. These audit results can be used to form the basis of remediation activities. Azure Policy differs from Azure role-based access control (Azure RBAC); Azure Policy is used to restrict resources and their configuration, Azure RBAC is used to restrict privileged access to Azure users.
 
 Whether the specific policy is being enforced or the effect of the policy is being audited, policy compliance is continually monitored, and overall and resource-specific compliance information is provided to administrators. Azure Policy compliance data is provided to Azure Security Center and forms part of the Secure Score.
 
@@ -111,7 +111,7 @@ Microsoft provides detailed information about Azure resource-specific logs and t
 
 Azure Storage Accounts used to store Azure Log events can be made geo-redundant and can be backed up using Azure Backup. Once captured by Azure Backup, any deletion of backups containing logs requires administrative approval and backups marked for deletion are still held for 14 days allowing for recovery. Azure Backup allows for 9999 copies of a protected instance, providing over 27 years of daily backups.
 
-Role-Based Access Control should be used to control access to resources used for Azure logging. Azure Monitor, Azure Storage accounts, and Azure Backups should be configured with role-based access controls to ensure the security of the data contained within the logs.
+Azure role-based access control (Azure RBAC) should be used to control access to resources used for Azure logging. Azure Monitor, Azure Storage accounts, and Azure Backups should be configured with Azure RBAC to ensure the security of the data contained within the logs.
 
 ### Log auditing
 

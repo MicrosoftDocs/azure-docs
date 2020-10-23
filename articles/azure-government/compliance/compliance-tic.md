@@ -1,14 +1,14 @@
 ---
 title: Trusted Internet Connections guidance for Azure
-description: Trusted Internet Connections guidance for Azure and SaaS services
+description: Learn about Trusted Internet Connections (TIC) guidance for Azure and software-as-a-service (SaaS) services.
 services: azure-government
-author: dlapiduz
+author: femila
 
 ms.assetid: 09511e03-a862-4443-81ac-ede815bdaf25
 ms.service: azure-government
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: dlap
+ms.author: femila
 ---
 
 # Trusted Internet Connections guidance
@@ -43,9 +43,9 @@ The medium is public because it traverses a site's standard internet connection,
 
 There are several ways to meet the TIC Appendix H (Cloud Considerations) requirements, as specified in the Department of Homeland Security's, "Trusted Internet Connections (TIC) Reference Architecture Document, Version 2.0." In this article, DHS TIC guidance is referred to as **TIC 2.0**.
 
-To enable the connection from the **Department or Agency (D/A)** to Azure or Office 365, without routing traffic through the D/A TIC, the D/A must use an encrypted tunnel or a dedicated connection to the cloud service provider (CSP). The CSP services can ensure connectivity to the D/A cloud assets isn't offered to the public internet for direct agency personnel access.
+To enable the connection from the **Department or Agency (D/A)** to Azure or Microsoft 365, without routing traffic through the D/A TIC, the D/A must use an encrypted tunnel or a dedicated connection to the cloud service provider (CSP). The CSP services can ensure connectivity to the D/A cloud assets isn't offered to the public internet for direct agency personnel access.
 
-Office 365 is compliant with TIC 2.0 Appendix H by using either ExpressRoute with [Microsoft Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) enabled or an internet connection that encrypts all traffic by using TLS 1.2. D/A end users on the D/A network can connect via their agency network and TIC infrastructure through the internet. All remote internet access to Office 365 is blocked and routes through the agency. The D/A can also connect to Office 365 over an ExpressRoute connection with Microsoft Peering (a type of public peering) enabled.  
+Microsoft 365 is compliant with TIC 2.0 Appendix H by using either ExpressRoute with [Microsoft Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) enabled or an internet connection that encrypts all traffic by using TLS 1.2. D/A end users on the D/A network can connect via their agency network and TIC infrastructure through the internet. All remote internet access to Microsoft 365 is blocked and routes through the agency. The D/A can also connect to Microsoft 365 over an ExpressRoute connection with Microsoft Peering (a type of public peering) enabled.  
 
 For Azure only, the second option (VPN) and third option (ExpressRoute) can meet these requirements when they're used in conjunction with services that limit access to the internet.
 
@@ -138,7 +138,7 @@ Services that support deployment of dedicated instances into a virtual network o
 |Azure Data Lake                | Private preview  |
 |Azure Database for PostgreSQL  | Private preview  |
 |Azure Database for MySQL       | Private preview  |
-|Azure SQL Data Warehouse       | Public preview   |
+|Azure Synapse Analytics       | Public preview   |
 |Azure SQL Database             | General availability (GA) |
 |Azure Storage                  | GA               |
 
@@ -146,7 +146,7 @@ Services that support deployment of dedicated instances into a virtual network o
 
 |Service                               |Availability      |
 |--------------------------------------|------------------|
-|Azure SQL Database Managed Instance   | Public preview   |
+|Azure SQL Managed Instance   | Public preview   |
 |Azure Kubernetes Service (AKS)        | Public preview   |
 |Azure Service Fabric                  | GA               |
 |Azure API Management                  | GA               |
@@ -204,19 +204,7 @@ Azure Policy is targeted at the subscription level. The service provides a centr
 - Enforce compliance
 - Manage exceptions
 
-Along with many built-in definitions, administrators can define their own custom definitions by using simple JSON templates. Microsoft recommends the prioritization of auditing over enforcement, where possible.
-
-The following sample policies can be used for TIC compliance scenarios:
-
-|Policy  |Sample scenario  |Template  |
-|---------|---------|---------|
-|Enforce user-defined route table. | Ensure that the default route on all virtual networks points to an approved virtual network gateway for routing to on-premises.	| Get started with this [template](../../governance/policy/samples/no-user-defined-route-table.md). |
-|Audit if Network Watcher isn't enabled for a region.  | Ensure that Network Watcher is enabled for all used regions.  | Get started with this [template](../../governance/policy/samples/network-watcher-not-enabled.md). |
-|NSG x on every subnet.  | Ensure that an NSG (or a set of approved NSGs) with internet traffic blocked is applied to all subnets in every virtual network. | Get started with this [template](../../governance/policy/samples/nsg-on-subnet.md). |
-|NSG x on every NIC. | Ensure that an NSG with internet traffic blocked is applied to all NICs on all virtual machines. | Get started with this [template](../../governance/policy/samples/nsg-on-nic.md). |
-|Use an approved virtual network for virtual machine network interfaces.  | Ensure that all NICs are on an approved virtual network. | Get started with this [template](../../governance/policy/samples/use-approved-vnet-vm-nics.md). |
-|Allowed locations. | Ensure that all resources are deployed to regions with compliant virtual networks and Network Watcher configuration.  | Get started with this [template](../../governance/policy/samples/allowed-locations.md). |
-|Not allowed resource types, such as **PublicIPs**. | Prohibit the deployment of resource types that don't have a compliance plan. Use this policy to prohibit the deployment of public IP address resources. While NSG rules can be used to effectively block inbound internet traffic, preventing the use of public IPs further reduces the attack surface.	| Get started with this [template](../../governance/policy/samples/not-allowed-resource-types.md).  |
+Along with many [built-in policy definitions](../../governance/policy/samples/built-in-policies.md), administrators can define their own custom definitions by using simple JSON templates. Microsoft recommends the prioritization of auditing over enforcement, where possible.
 
 ### Network Watcher traffic analytics
 
@@ -240,7 +228,7 @@ Networks in regions that are monitored by Network Watcher can conduct next hop t
 
 ## Conclusions
 
-You can easily configure access for Microsoft Azure, Office 365, and Dynamics 365 to help comply with TIC 2.0 Appendix H guidance, as written and defined May 2018. Microsoft recognizes that the TIC guidance is subject to change. Microsoft endeavors to help customers meet the guidance in a timely manner as new guidance is released.
+You can easily configure access for Microsoft Azure, Microsoft 365, and Dynamics 365 to help comply with TIC 2.0 Appendix H guidance, as written and defined May 2018. Microsoft recognizes that the TIC guidance is subject to change. Microsoft endeavors to help customers meet the guidance in a timely manner as new guidance is released.
 
 ## Appendix: Trusted Internet Connections patterns for common workloads
 
@@ -255,10 +243,10 @@ You can easily configure access for Microsoft Azure, Office 365, and Dynamics 36
 | Web and mobile | API applications | | App Service Environment | |
 | Containers | Azure Container Service | | | Yes |
 | Containers | Azure Kubernetes Service (AKS) \* | | | Yes |
-| Database | Azure SQL Database | | Azure SQL Database Managed Instance \* | Azure SQL |
+| Database | Azure SQL Database | | Azure SQL Managed Instance \* | Azure SQL |
 | Database | Azure Database for MySQL | | | Yes |
 | Database | Azure Database for PostgreSQL | | | Yes |
-| Database | Azure SQL Data Warehouse | | | Yes |
+| Database | Azure Synapse Analytics | | | Yes |
 | Database | Azure Cosmos DB | | | Yes |
 | Database | Azure Cache for Redis | | Yes | |
 | Storage | Azure Blob storage | Yes | | |

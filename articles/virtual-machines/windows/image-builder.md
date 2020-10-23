@@ -3,10 +3,10 @@ title: Create a Windows VM with Azure Image Builder (preview)
 description: Create a Windows VM with the Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 07/31/2019
-ms.topic: article
+ms.date: 05/05/2020
+ms.topic: how-to
 ms.service: virtual-machines-windows
-manager: gwallace
+ms.subservice: imaging
 ---
 # Preview: Create a Windows VM with Azure Image Builder
 
@@ -15,6 +15,11 @@ This article is to show you how you can create a customized Windows image using 
 - Windows Restart - restarts the VM.
 - PowerShell (inline) - run a specific command. In this example, it creates a directory on the VM using `mkdir c:\\buildActions`.
 - File - copy a file from GitHub onto the VM. This example copies [index.md](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) to `c:\buildArtifacts\index.html` on the VM.
+- buildTimeoutInMinutes - Increase a build time to allow for longer running builds, the default is 240 minutes, and you can increase a build time to allow for longer running builds.
+- vmProfile - specifying a vmSize and Network properties
+- osDiskSizeGB - you can increase the size of image
+- identity - providing an identity for Azure Image Builder to use during the build
+
 
 You can also specify a `buildTimeoutInMinutes`. The default is 240 minutes, and you can increase a build time to allow for longer running builds.
 
@@ -45,7 +50,8 @@ Check your registration.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-
+az provider show -n Microsoft.KeyVault | grep registrationState
+az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
@@ -53,9 +59,11 @@ If they do not say registered, run the following:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
-
+az provider register -n Microsoft.Compute
+az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 ```
+
 
 ## Set variables
 
@@ -88,18 +96,41 @@ This resource group is used to store the image configuration template artifact a
 az group create -n $imageResourceGroup -l $location
 ```
 
-## Set permissions on the resource group
+## Create a user-assigned identity and set permissions on the resource group
+Image Builder will use the [user-identity](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) provided to inject the image into the resource group. In this example, you will create an Azure role definition that has the granular actions to perform distributing the image. The role definition will then be assigned to the user-identity.
 
-Give Image Builder 'contributor' permission to create the image in the resource group. Without this, the image build will fail. 
+## Create user-assigned managed identity and grant permissions 
+```bash
+# create user assigned identity for image builder to access the storage account where the script is located
+idenityName=aibBuiUserId$(date +'%s')
+az identity create -g $imageResourceGroup -n $idenityName
 
-The `--assignee` value is the app registration ID for the Image Builder service. 
+# get identity id
+imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
 
-```azurecli-interactive
+# get the user identity URI, needed for the template
+imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
+
+# download preconfigured role definition example
+curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+
+imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
+
+# update the definition
+sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
+sed -i -e "s/<rgName>/$imageResourceGroup/g" aibRoleImageCreation.json
+sed -i -e "s/Azure Image Builder Service Image Creation Role/$imageRoleDefName/g" aibRoleImageCreation.json
+
+# create role definitions
+az role definition create --role-definition ./aibRoleImageCreation.json
+
+# grant role definition to the user assigned identity
 az role assignment create \
-    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role Contributor \
+    --assignee $imgBuilderCliId \
+    --role $imageRoleDefName \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
+
 
 
 ## Download the image configuration template example
@@ -114,18 +145,19 @@ sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateWin.json
 sed -i -e "s/<region>/$location/g" helloImageTemplateWin.json
 sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateWin.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateWin.json
+sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateWin.json
 
 ```
 
 You can modify this example, in the terminal using a text editor like `vi`.
 
 ```azurecli-interactive
-vi helloImageTemplateLinux.json
+vi helloImageTemplateWin.json
 ```
 
 > [!NOTE]
-> For the source image, you must always [specify a version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), you cannot use `latest`.
-> If you add or change the resource group where the image is distributed to, you must make the [permissions are set](#set-permissions-on-the-resource-group) on the resource group.
+> For the source image, you must always [specify a version](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version), you cannot use `latest`.
+> If you add or change the resource group where the image is distributed to, you must make the [permissions are set](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) on the resource group.
  
 ## Create the image
 
@@ -148,7 +180,7 @@ In the background, Image Builder will also create a staging resource group in yo
 > You must not delete the staging resource group directly. First delete the image template artifact, this will cause the staging resource group to be deleted.
 
 If the service reports a failure during the image configuration template submission:
--  Review these [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) steps. 
+-  Review these [troubleshooting](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors) steps. 
 - You will need to delete the template, using the following snippet, before you retry submission.
 
 ```azurecli-interactive
@@ -171,7 +203,7 @@ az resource invoke-action \
 
 Wait until the build is complete. This can take about 15 minutes.
 
-If you encounter any errors, please review these [troubleshooting](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) steps.
+If you encounter any errors, please review these [troubleshooting](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors) steps.
 
 
 ## Create the VM
@@ -205,6 +237,7 @@ You should see these two directories created during image customization:
 When you are done, delete the resources.
 
 ### Delete the image builder template
+
 ```azurecli-interactive
 az resource delete \
     --resource-group $imageResourceGroup \
@@ -212,7 +245,20 @@ az resource delete \
     -n helloImageTemplateWin01
 ```
 
+### Delete the role assignment, role definition and user-identity.
+```azurecli-interactive
+az role assignment delete \
+    --assignee $imgBuilderCliId \
+    --role "$imageRoleDefName" \
+    --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
+
+az role definition delete --name "$imageRoleDefName"
+
+az identity delete --ids $imgBuilderId
+```
+
 ### Delete the image resource group
+
 ```azurecli-interactive
 az group delete -n $imageResourceGroup
 ```

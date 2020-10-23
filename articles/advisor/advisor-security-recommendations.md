@@ -1,17 +1,8 @@
 ---
-title: Make resources more secure with Azure Advisor | Microsoft Docs
+title: Make resources more secure with Azure Advisor
 description: Use Azure Advisor to help improve the security of your Azure deployments.
-services: advisor
-documentationcenter: NA
-author: kasparks
-manager: 
-ms.assetid: 
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/29/2019
-ms.author: kasparks
 ---
 # Make resources more secure with Azure Advisor
 
@@ -19,7 +10,7 @@ Azure Advisor provides you with a consistent, consolidated view of recommendatio
 
 Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It periodically analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations. The recommendations guide you through the process of configuring the controls you need. 
 
-For more information about security recommendations, see [Managing security recommendations in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-recommendations/).
+For more information about security recommendations, see [Managing security recommendations in Azure Security Center](../security-center/security-center-recommendations.md).
 
 ## How to access Security recommendations in Azure Advisor
 
@@ -32,9 +23,9 @@ For more information about security recommendations, see [Managing security reco
 To learn more about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
-* [Advisor Cost recommendations](advisor-cost-recommendations.md)
-* [Advisor Performance recommendations](advisor-performance-recommendations.md)
-* [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
-
-
+* [Advisor cost recommendations](advisor-cost-recommendations.md)
+* [Advisor performance recommendations](advisor-performance-recommendations.md)
+* [Advisor reliability recommendations](advisor-high-availability-recommendations.md)
+* [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)
+* [Advisor REST API](/rest/api/advisor/)
  

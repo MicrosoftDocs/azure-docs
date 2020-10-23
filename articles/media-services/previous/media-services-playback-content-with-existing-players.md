@@ -1,6 +1,6 @@
 ---
 title: Use existing players to playback your content - Azure | Microsoft Docs
-description: This topic lists existing players that you can use to playback your content.
+description: This article lists existing players that you can use to playback your content.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -18,6 +18,9 @@ ms.author: juliako
 
 ---
 # Playing your content with existing players
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Azure Media Services supports many popular streaming formats, such as Smooth Streaming, HTTP Live Streaming, and MPEG-Dash. This topic points you to existing players that you can use to test your streams.
 
 ### The Azure portal Media Services content player
@@ -42,10 +45,6 @@ Use [Azure Media Player](https://aka.ms/azuremediaplayer) to playback your conte
 
 ### Flash Player
 
-#### AES-encrypted with Token
-
-[https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
-
 #### PlayReady with Token
 
 [https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
@@ -61,9 +60,6 @@ To test HLS URLs you can also use:
 
 * **Safari** on an iOS device or
 * **3ivx HLS Player** on Windows.
-
-## Developing video players
-For information about how to develop your own players, see [Developing video players](media-services-develop-video-players.md)
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -1,18 +1,19 @@
 ---
-title: Azure Data Factory mapping data flow Parameters
+title: Parameterizing mapping data flows
 description: Learn how to parameterize a mapping data flow from data factory pipelines
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 05/01/2020
 ---
 
-# Mapping data flow Parameters
+# Parameterizing mapping data flows
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
-
-Mapping Data Flows in Azure Data Factory support the use of parameters. You can define parameters inside of your data flow definition, which you can then use throughout your expressions. The parameter values can be set by the calling pipeline via the Execute Data Flow activity. You have three options for setting the values in the data flow activity expressions:
+Mapping data flows in Azure Data Factory support the use of parameters. Define parameters inside of your data flow definition and use them throughout your expressions. The parameter values are set by the calling pipeline via the Execute Data Flow activity. You have three options for setting the values in the data flow activity expressions:
 
 * Use the pipeline control flow expression language to set a dynamic value
 * Use the data flow expression language to set a dynamic value
@@ -20,45 +21,87 @@ Mapping Data Flows in Azure Data Factory support the use of parameters. You can 
 
 Use this capability to make your data flows general-purpose, flexible, and reusable. You can parameterize data flow settings and expressions with these parameters.
 
-> [!NOTE]
-> To use pipeline control flow expressions, your data flow parameter must be of type string.
+## Create parameters in a mapping data flow
 
-## Create parameters in mapping data flow
-
-To add parameters to your data flow, click on the blank portion of the data flow canvas to see the general properties. In the settings pane, you will see a tab called 'Parameters'. Click the 'New' button to generate a new parameter. For each parameter, you must assign a name, select a type, and optionally set a default value.
+To add parameters to your data flow, click on the blank portion of the data flow canvas to see the general properties. In the settings pane, you will see a tab called **Parameter**. Select **New** to generate a new parameter. For each parameter, you must assign a name, select a type, and optionally set a default value.
 
 ![Create Data Flow parameters](media/data-flow/create-params.png "Create Data Flow parameters")
 
-Parameters can be utilized in any data flow expression. Parameters begin with $ and are immutable. You will find the list of available parameters inside of the Expression Builder under the 'Parameters' tab.
+## Use parameters in a mapping data flow 
+
+Parameters can be referenced in any data flow expression. Parameters begin with $ and are immutable. You will find the list of available parameters inside of the Expression Builder under the **Parameters** tab.
 
 ![Data flow parameter expression](media/data-flow/parameter-expression.png "Data flow parameter expression")
 
-## Use parameters in your data flow
+You can quickly add additional parameters by selecting **New parameter** and specifying the name and type.
 
-* You can use parameter values inside of your transformation expressions. You will find the parameter list under the Parameters tab in the Expression Builder. ![Use Data Flow parameters](media/data-flow/params9.png "Use Data Flow parameters")
+![Data flow parameter expression](media/data-flow/new-parameter-expression.png "Data flow parameter expression")
 
-* Parameters are also used to configure dynamic values for your Source and Sink transformation settings. When you click inside of configurable fields, you will see the "Add dynamic contect" link appear. Clicking there will take you to an Expression Builder where you can use parameters to use dynamic values. ![Data flow dynamic content](media/data-flow/params6.png "Data flow dynamic content")
+## Assign parameter values from a pipeline
 
-## Set mapping data flow parameters from pipeline
+Once you've created a data flow with parameters, you can execute it from a pipeline with the Execute Data Flow Activity. After you add the activity to your pipeline canvas, you will be presented with the available data flow parameters in the activity's **Parameters** tab.
 
-Once you've created your data flow with parameters, you can execute it from a pipeline with the Execute Data Flow Activity. After you add the activity to your pipeline canvas, you will be presented with the available data flow parameters in the activity's 'Parameters' tab.
+When assigning parameter values, you can use either the [pipeline expression language](control-flow-expression-language-functions.md) or the [data flow expression language](data-flow-expression-functions.md) based on spark types. Each mapping data flow can have any combination of pipeline and data flow expression parameters.
 
 ![Setting a Data Flow parameter](media/data-flow/parameter-assign.png "Setting a Data Flow parameter")
 
-If your parameter data type is string, when you click the text box to set parameter values, you can choose to enter either a pipeline or a data flow expression. If you choose pipeline expression, you will be presented with the pipeline expression panel. Make sure to include pipeline functions inside string interpolation syntax using `'@{<expression>}'`, for example:
+### Pipeline expression parameters
 
-```'@{pipeline().RunId}'```
+Pipeline expression parameters allow you to reference system variables, functions, pipeline parameters, and variables similar to other pipeline activities. When you click **Pipeline expression**, a side-nav will open allowing you to enter an expression using the expression builder.
 
-If your parameter is not of type string, you will always be presented with the Data Flow Expression Builder. Here, you can enter any expression or literal values that you wish that matches the data type of the parameter. Below are examples of data flow expression and a literal string from the expression builder:
+![Setting a Data Flow parameter](media/data-flow/parameter-pipeline.png "Setting a Data Flow parameter")
 
-* ```toInteger(Role)```
-* ```'this is my static literal string'```
+When referenced, pipeline parameters are evaluated and then their value is used in the data flow expression language. The pipeline expression type doesn't need to match the data flow parameter type. 
 
-Each mapping data flow can have any combination of pipeline and data flow expression parameters. 
+#### String literals vs expressions
 
-![Data flow parameters sample](media/data-flow/parameter-example.png "Data flow parameters sample")
+When assigning a pipeline expression parameter of type string, by default quotes will be added and the value will be evaluated as a literal. To read the parameter value as a data flow expression, check the expression box next to the parameter.
+
+![Setting a Data Flow parameter](media/data-flow/string-parameter.png "Setting a Data Flow parameter")
+
+If data flow parameter `stringParam` references a pipeline parameter with value `upper(column1)`. 
+
+- If expression is checked, `$stringParam` evaluates to the value of column1 all uppercase.
+- If expression is not checked (default behavior),  `$stringParam` evaluates to `'upper(column1)'`
+
+#### Passing in timestamps
+
+In the pipeline expression language, System variables such as `pipeline().TriggerTime` and functions like `utcNow()` return timestamps as strings in format 'yyyy-MM-dd\'T\'HH:mm:ss.SSSSSSZ'. To convert these into data flow parameters of type timestamp, use string interpolation to include the desired timestamp in a `toTimestamp()` function. For example, to convert the pipeline trigger time into a data flow parameter, you can use `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')`. 
+
+![Setting a Data Flow parameter](media/data-flow/parameter-timestamp.png "Setting a Data Flow parameter")
+
+> [!NOTE]
+> Data Flows can only support up to 3 millisecond digits. The `left()` function is used trim off additional digits.
+
+#### Pipeline parameter example
+
+Say you have an integer parameter `intParam` that is referencing a pipeline parameter of type String, `@pipeline.parameters.pipelineParam`. 
+
+![Setting a Data Flow parameter](media/data-flow/parameter-pipeline-2.png "Setting a Data Flow parameter")
+
+`@pipeline.parameters.pipelineParam` is assigned a value of `abs(1)` at runtime.
+
+![Setting a Data Flow parameter](media/data-flow/parameter-pipeline-4.png "Setting a Data Flow parameter")
+
+When `$intParam` is referenced in an expression such as a derived column, it will evaluate `abs(1)` return `1`. 
+
+![Setting a Data Flow parameter](media/data-flow/parameter-pipeline-3.png "Setting a Data Flow parameter")
+
+### Data flow expression parameters
+
+Select **Data flow expression** will open up the data flow expression builder. You will be able to reference functions, other parameters and any defined schema column throughout your data flow. This expression will be evaluated as is when referenced.
+
+> [!NOTE]
+> If you pass in an invalid expression or reference a schema column that doesn't exist in that transformation, the parameter will evaluate to null.
 
 
+### Passing in a column name as a parameter
+
+A common pattern is to pass in a column name as a parameter value. If the column is defined in the data flow schema, you can reference it directly as a string expression. If the column isn't defined in the schema, use the `byName()` function. Remember to cast the column to its appropriate type with a casting function such as `toString()`.
+
+For example, if you wanted to map a string column based upon a parameter `columnName`, you can add a derived column transformation equal to `toString(byName($columnName))`.
+
+![Passing in a column name as a parameter](media/data-flow/parameterize-column-name.png "Passing in a column name as a parameter")
 
 ## Next steps
 * [Execute data flow activity](control-flow-execute-data-flow-activity.md)

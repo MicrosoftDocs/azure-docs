@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Access storage blobs using an Azure CDN custom domain over HTTPS | Microsoft Docs
-description: 
+title: Access storage blobs using an Azure CDN custom domain over HTTPS
+description: Learn how to add an Azure CDN custom domain and enable HTTPS on that domain for your custom blob storage endpoint.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/15/2018
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
 
 ---
@@ -41,11 +41,15 @@ Azure CDN ignores any restrictions added to the SAS token. For example, all SAS 
 If you create multiple SAS URLs for the same blob endpoint, consider enabling query string caching. Doing so ensures that each URL is treated as a unique entity. For more information, see [Controlling Azure CDN caching behavior with query strings](cdn-query-string.md).
 
 ## HTTP-to-HTTPS redirection
-You can elect to redirect HTTP traffic to HTTPS by creating a [URL Redirect rule](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect) with the [Azure CDN rules engine](cdn-verizon-premium-rules-engine.md). This option requires an **Azure CDN Premium from Verizon** profile.
+You can elect to redirect HTTP traffic to HTTPS by creating a URL redirect rule with the [Standard rules engine](cdn-standard-rules-engine.md) or the [Verizon Premium rules engine](cdn-verizon-premium-rules-engine.md). Standard Rules engine is available only for Azure CDN from Microsoft profiles, while Verizon premium rules engine is available only from Azure CDN Premium from Verizon profiles.
 
-![URL redirect rule](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
+![Microsoft redirect rule](./media/cdn-storage-custom-domain-https/cdn-standard-redirect-rule.png)
 
-In this rule, *Cdn-endpoint-name* refers to the name that you configured for your CDN endpoint, which you can select from the drop-down list. The value for *origin-path* refers to the path within your origin storage account where your static content resides. If you're  hosting all static content in a single container, replace *origin-path* with the name of that container.
+In the above rule, leaving Hostname, Path, Query string, and Fragment will result in the incoming values being used in the redirect. 
+
+![Verizon redirect rule](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
+
+In the above rule, *Cdn-endpoint-name* refers to the name that you configured for your CDN endpoint, which you can select from the drop-down list. The value for *origin-path* refers to the path within your origin storage account where your static content resides. If you're  hosting all static content in a single container, replace *origin-path* with the name of that container.
 
 ## Pricing and billing
 When you access blobs through Azure CDN, you pay [Blob storage prices](https://azure.microsoft.com/pricing/details/storage/blobs/) for traffic between the POP servers and the origin (Blob storage), and [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/) for data accessed from the POP servers.

@@ -3,7 +3,7 @@ title: Move Azure network security group (NSG) to another Azure region using the
 description: Use Azure Resource Manager template to move Azure network security group from one Azure region to another using the Azure portal.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
 ---
@@ -27,7 +27,7 @@ Azure security groups can't be moved from one region to another. You can however
 
 - Verify that your Azure subscription allows you to create NSGs in the target region that's used. Contact support to enable the required quota.
 
-- Make sure that your subscription has enough resources to support the addition of NSGs for this process.  See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Make sure that your subscription has enough resources to support the addition of NSGs for this process.  See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## Prepare and move

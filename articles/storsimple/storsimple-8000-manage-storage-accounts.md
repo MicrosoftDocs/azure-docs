@@ -1,5 +1,5 @@
 ---
-title: Manage your StorSimple storage account credentials for Microsoft Azure StorSimple 8000 series devices| Microsoft Docs
+title: Manage storage account credentials, StorSimple 8000 series device
 description: Explains how you can use the StorSimple Device Manager Configure page to add, edit, delete, or rotate the security keys for a storage account.
 services: storsimple
 documentationcenter: NA
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
@@ -30,14 +30,14 @@ The **Configuration** section in the StorSimple Device Manager service blade pre
 
 This tutorial explains how to add, edit, or delete storage account credentials, or rotate the security keys for a storage account.
 
- ![List of storage account credentials](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
+ ![List of storage account credentials 1](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
 
 Storage accounts contain the credentials that the StorSimple device uses to access your storage account with your cloud service provider. For Microsoft Azure storage accounts, these are credentials such as the account name and the primary access key. 
 
 On the **Storage account credentials** blade, all storage accounts that are created for the billing subscription are displayed in a tabular format containing the following information:
 
 * **Name** – The unique name assigned to the account when it was created.
-* **SSL enabled** – Whether the SSL is enabled and device-to-cloud communication is over the secure channel.
+* **SSL enabled** – Whether the TLS is enabled and device-to-cloud communication is over the secure channel.
 * **Used by** – The number of volumes using the storage account.
 
 The most common tasks related to storage accounts that can be performed are:
@@ -57,7 +57,7 @@ There are three types of storage accounts that can be used with your StorSimple 
 
 ## Add a storage account
 
-You can add a storage account by providing a unique friendly name and access credentials that are linked to the storage account (with the specified cloud service provider). You also have the option of enabling the secure sockets layer (SSL) mode to create a secure channel for network communication between your device and the cloud.
+You can add a storage account by providing a unique friendly name and access credentials that are linked to the storage account (with the specified cloud service provider). You also have the option of enabling the Transport Layer Security (TLS) mode, previously known as Secure Sockets Layer (SSL) mode, to create a secure channel for network communication between your device and the cloud.
 
 You can create multiple accounts for a given cloud service provider. Be aware, however, that after a storage account is created, you cannot change the cloud service provider.
 
@@ -83,7 +83,7 @@ Use the following procedures to add Azure storage account credentials:
    
     3. In the **Storage account access key** text box, supply the primary Access Key for your Azure storage account credential. To get this key, go to the Azure Storage service, select your storage account credential, and click **Manage account keys**. You can now copy the primary access key.
    
-    4. To enable SSL, click the **Enable** button to create a secure channel for network communication between your StorSimple Device Manager service and the cloud. Click the **Disable** button only if you are operating within a private cloud.
+    4. To enable TLS, click the **Enable** button to create a secure channel for network communication between your StorSimple Device Manager service and the cloud. Click the **Disable** button only if you are operating within a private cloud.
    
     5. Click **Add**. You are notified after the storage account credential is successfully created.
 
@@ -99,7 +99,7 @@ You can edit a storage account that is used by a volume container. If you edit a
 
 1. Go to your StorSimple Device Manager service. In the **Configuration** section, click **Storage account credentials**.
 
-    ![Storage account credentials](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
+    ![Storage account credentials 2](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
 
 2. In the **Storage account credentials** blade, from the list of storage account credentials, select and click the one you wish to edit. 
 
@@ -156,11 +156,11 @@ To inform the StorSimple Device Manager service of the change, you will need to 
 
 3. Click **...More** and then select **Sync access key to rotate**.   
 
-    ![synchronize keys](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
+    ![synchronize keys 2](./media/storsimple-8000-manage-storage-accounts/syncaccesskey2.png)
 
 4. In the StorSimple Device Manager service, you need to update the key that was previously changed in the Microsoft Azure Storage service. If the primary access key was changed (regenerated), select **primary** key. If the secondary key was changed, select **secondary** key. Click **Sync key**.
       
-      ![synchronize keys](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
+      ![synchronize keys 3](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
 
 You will be notified after the key is successfully synchronized.
 

@@ -1,5 +1,5 @@
 ---
-title: StorSimple failover, disaster recovery to a StorSimple 8000 series physical device| Microsoft Docs
+title: Failover, disaster recovery to another StorSimple 8000 device
 description: Learn how to fail over your StorSimple 8000 series physical device to another physical device.
 services: storsimple
 documentationcenter: ''
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
@@ -71,7 +71,7 @@ Perform the following steps to restore your device to a target physical device.
    
    1. Select the device that was used as the target device for the failover process.
 
-       ![Select device](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Select device 2](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
    2. Go to the **Volume Containers** blade. All the volume containers, along with the volumes from the old device, should be listed.
 

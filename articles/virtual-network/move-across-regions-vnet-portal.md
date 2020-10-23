@@ -3,7 +3,7 @@ title: Move an Azure virtual network to another Azure region using the Azure por
 description: Move an Azure virtual network from one Azure region to another by using a Resource Manager template and the Azure portal.
 author: asudbring
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
 ---
@@ -27,7 +27,7 @@ You can use an Azure Resource Manager template to complete the move of the virtu
 
 - Verify that your Azure subscription allows you to create virtual networks in the target region. To enable the required quota, contact support.
 
-- Make sure that your subscription has enough resources to support the addition of virtual networks for this process. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Make sure that your subscription has enough resources to support the addition of virtual networks for this process. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## Prepare for the move

@@ -1,6 +1,6 @@
 ---
 title: Load balancing on multiple IP configurations using Azure CLI
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Learn how to assign multiple IP addresses to a virtual machine using Azure CLI.
 services: virtual-network
 documentationcenter: na
@@ -8,7 +8,7 @@ author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018

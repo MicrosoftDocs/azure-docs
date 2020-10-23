@@ -1,12 +1,11 @@
 ---
-title: UNH 2.5 segments in EDIFACT messages - Azure Logic Apps
+title: UNH 2.5 segments in EDIFACT messages
 description: Resolve EDIFACT messages with UNH2.5 segments in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/27/2017
 ---
@@ -52,8 +51,6 @@ To encode the incoming message, configure the schema in the EDIFACT agreement se
 1. Add the schema to your integration account.
 
 1. Configure the schema in the EDIFACT agreement's send settings.
-
-1. Select EDIFACT agreement and click **Edit as JSON**.  Add UNH2.5 value in the Send Agreement **schemaReferences**
 
 1. Select the EDIFACT agreement, and select **Edit as JSON**. Add the UNH2.5 value to the Send Agreement's `schemaReferences` section:
 

@@ -1,11 +1,11 @@
 ---
 title: Azure portal how-to video series
-description: Find video demos for how to work with Azure services in the portal
+description: Find video demos for how to work with Azure services in the portal. View and link directly to the latest how-to videos.
 services: azure-portal
 keywords: 
-author: kfollis
-ms.author: kfollis
-ms.date: 10/16/2019
+author: mgblythe
+ms.author: mblythe
+ms.date: 08/17/2020
 ms.topic: conceptual
 
 ms.service: azure-portal
@@ -17,19 +17,17 @@ The Azure portal how-to video series showcases how to work with Azure services i
 
 ## Featured video
 
-In this featured video, we explore how to diagnose and solve the most common problems with Azure resources.
+In this featured video, we show you how to create and manage an App Service domain.
 
-> [!VIDEO https://www.youtube.com/embed/FgfcSdHErus]
+> [!VIDEO https://www.youtube.com/embed/b1kDT8-6a3g]
 
-[Troubleshoot common problems with Azure resources](https://www.youtube.com/watch?v=FgfcSdHErus)
+[How to create and manage an App Service domain](https://www.youtube.com/watch?v=b1kDT8-6a3g)
 
 Catch up on these recent videos you may have missed:
 
-|   |   |   |
+| [How to add and secure a custom domain on your App Service web app](https://www.youtube.com/watch?v=bXP6IvNYISw)  | [Improvements to the Linux virtual machine experience](https://www.youtube.com/watch?v=obg6Fq2T898)  | [How to use blob versioning](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
 | ------| ------ | ------ |
-| [![Image of YouTube video about cost management](https://i.ytimg.com/vi/mfxysF-kTFA/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDSzqNnsCYuKxe8kjbZFoM-FwB_vw)](http://www.youtube.com/watch?v=mfxysF-kTFA) | [![Image of YouTube video about applying budgets to subscriptions](https://i.ytimg.com/vi/UrkHiUx19Po/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAymEmnvYBmUSIJ_I7BU30ipAcsNA)](http://www.youtube.com/watch?v=UrkHiUx19Po) | [![Image of YouTube video about making the most of Azure Advisor](https://i.ytimg.com/vi/ANz3cCiFsJw/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA_2QjNx26-LIkEzo22KBUsB2zSAg)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
-| [How to use Cost Management](https://www.youtube.com/watch?v=mfxysF-kTFA) | [How to Apply Budgets to Subscriptions](https://www.youtube.com/watch?v=UrkHiUx19Po) | [How to make the most of Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
-
+| [![Image of YouTube video about how to add and secure a custom domain on your App Service web app](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=bXP6IvNYISw) | [![Image of YouTube video about improvements to the Linux virtual machine experience](https://i.ytimg.com/vi/obg6Fq2T898/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?obg6Fq2T898) | [![Image of YouTube video about how to use blob versioning](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) |
 
 ## Video playlist
 

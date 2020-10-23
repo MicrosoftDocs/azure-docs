@@ -1,19 +1,21 @@
 ---
-title: Transform data with Databricks Jar - Azure | Microsoft Docs
+title: Transform data with Databricks Jar
 description: Learn how to process or transform data by running a Databricks Jar.
 services: data-factory
 documentationcenter: ''
 ms.assetid: 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
-ms.date: 03/15/2018
-author: nabhishek
 ms.author: abnarain
-manager: craigg
+author: nabhishek
+manager: shwang
+ms.date: 03/15/2018
 ---
+
 # Transform data by running a Jar activity in Azure Databricks
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The Azure Databricks Jar Activity in a [Data Factory pipeline](concepts-pipelines-activities.md) runs a Spark Jar in your Azure Databricks cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
 

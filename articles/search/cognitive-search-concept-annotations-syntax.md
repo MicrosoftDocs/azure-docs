@@ -1,5 +1,5 @@
 ---
-title: Reference inputs and outputs in an AI enrichment pipeline
+title: Reference inputs and outputs in skillsets
 titleSuffix: Azure Cognitive Search
 description: Explains the annotation syntax and how to reference an annotation in the inputs and outputs of a skillset in an AI enrichment pipeline in Azure Cognitive Search.
 
@@ -118,5 +118,5 @@ Notice that the cardinality of `"/document/people/*/lastname"` is larger than th
 ## See also
 + [How to integrate a custom skill into an enrichment pipeline](cognitive-search-custom-skill-interface.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Create Skillset (REST)](/rest/api/searchservice/create-skillset)
 + [How to map enriched fields to an index](cognitive-search-output-field-mapping.md)

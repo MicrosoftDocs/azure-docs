@@ -1,9 +1,9 @@
 ---
 
-title: Azure DDoS Protection - Designing resilient solutions | Microsoft Docs
+title: Designing resilient solutions with Azure DDoS Protection
 description: Learn about how you can use logging data to gain deep insights about your application.
 services: security
-author: barclayn
+author: terrylanfear
 manager: RKarlin
 editor: TomSh
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
-ms.author: barclayn
+ms.author: terrylan
 
 ---
 # Azure DDoS Protection - Designing resilient solutions
@@ -46,15 +46,15 @@ Ensuring that an application is resilient enough to handle a denial of service t
 Scalability is how well a system can handle increased load. Design your applications to [scale horizontally](/azure/architecture/guide/design-principles/scale-out) to meet the demand of an amplified load, specifically in the event of a DDoS attack. If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances makes your system more resilient and more scalable.
 
 For [Azure App Service](/azure/app-service/app-service-value-prop-what-is), select an [App Service plan](/azure/app-service/overview-hosting-plans) that offers multiple instances. For Azure Cloud Services, configure each of your roles to use [multiple instances](/azure/cloud-services/cloud-services-choose-me). 
-For [Azure Virtual Machines](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), ensure that your virtual machine (VM) architecture includes more than one VM and that each VM is
-included in an [availability set](/azure/virtual-machines/virtual-machines-windows-manage-availability). We recommend using [virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)
+For [Azure Virtual Machines](../../virtual-machines/index.yml), ensure that your virtual machine (VM) architecture includes more than one VM and that each VM is
+included in an [availability set](../../virtual-machines/windows/tutorial-availability-sets.md). We recommend using [virtual machine scale sets](../../virtual-machine-scale-sets/overview.md)
 for autoscaling capabilities.
 
 ### Defense in depth
 
 The idea behind defense in depth is to manage risk by using diverse defensive strategies. Layering security defenses in an application reduces the chance of a successful attack. We recommend that you implement secure designs for your applications by using the built-in capabilities of the Azure platform.
 
-For example, the risk of attack increases with the size (*surface area*) of the application. You can reduce the surface area by using whitelisting to close down the exposed IP address space and listening ports that are not needed on the load balancers ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) and [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)). [Network security groups (NSGs)](/azure/virtual-network/security-overview) are another way to reduce the attack surface.
+For example, the risk of attack increases with the size (*surface area*) of the application. You can reduce the surface area by using an approval list to close down the exposed IP address space and listening ports that are not needed on the load balancers ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) and [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)). [Network security groups (NSGs)](/azure/virtual-network/security-overview) are another way to reduce the attack surface.
 You can use [service tags](/azure/virtual-network/security-overview#service-tags) and [application security groups](/azure/virtual-network/security-overview#application-security-groups) to minimize complexity for creating security rules and configuring network security, as a natural extension of an application’s structure.
 
 You should deploy Azure services in a [virtual network](/azure/virtual-network/virtual-networks-overview) whenever possible. This practice allows service resources to communicate through private IP addresses. Azure service traffic from a virtual network uses public IP addresses as source IP addresses by default. Using [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) will switch service traffic to use virtual network private addresses as the source IP addresses when they're accessing the Azure service from a virtual network.
@@ -272,7 +272,5 @@ documentation.
 ## Next steps
 
 * [Shared responsibility in the cloud](shared-responsibility.md)
-
 * [Azure DDoS Protection product page](https://azure.microsoft.com/services/ddos-protection/)
-
 * [Azure DDoS Protection documentation](/azure/virtual-network/ddos-protection-overview)

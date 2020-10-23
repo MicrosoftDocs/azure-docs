@@ -1,29 +1,25 @@
 ---
-title: Desktop app that calls web APIs (calling a web API) - Microsoft identity platform
-description: Learn how to build a Desktop app that calls web APIs (calling a web API)
+title: Call web APIs from a desktop app - Microsoft identity platform | Azure
+description: Learn how to build a desktop app that calls web APIs
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a Desktop app that calls web APIs using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
+#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 
-# Desktop app that calls web APIs - call a web API
+# Desktop app that calls web APIs: Call a web API
 
 Now that you have a token, you can call a protected web API.
 
-## Calling a web API
+## Call a web API
 
 # [.NET](#tab/dotnet)
 
@@ -63,9 +59,9 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 # [MacOS](#tab/macOS)
 
-## Calling a web API in MSAL for iOS and macOS
+## Call a web API in MSAL for iOS and macOS
 
-The methods to acquire tokens return an `MSALResult` object. `MSALResult` exposes an `accessToken` property which can be used to call a web API. Access token should be added to the HTTP authorization header, before making the call to access the protected Web API.
+The methods to acquire tokens return an `MSALResult` object. `MSALResult` exposes an `accessToken` property that can be used to call a web API. Add an access token to the HTTP authorization header before you make the call to access the protected web API.
 
 Objective-C:
 
@@ -93,11 +89,11 @@ let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data: D
 task.resume()
 ```
 
-## Calling several APIs - Incremental consent and Conditional Access
+## Call several APIs: Incremental consent and conditional access
 
-If you need to call several APIs for the same user, once you got a token for the first API, you can just call `AcquireTokenSilent`, and you'll get a token for the other APIs silently most of the time.
+To call several APIs for the same user, after you get a token for the first API, call `AcquireTokenSilent`. You'll get a token for the other APIs silently most of the time.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 
@@ -105,12 +101,12 @@ result = await app.AcquireTokenSilent("scopeApi2")
                   .ExecuteAsync();
 ```
 
-The cases where interaction is required is when:
+Interaction is required when:
 
-- The user consented for the first API, but now needs to consent for more scopes (incremental consent)
-- The first API didn't require multiple-factor authentication, but the next one does.
+- The user consented for the first API but now needs to consent for more scopes. This kind of consent is known as incremental consent.
+- The first API didn't require multifactor authentication, but the next one does.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 

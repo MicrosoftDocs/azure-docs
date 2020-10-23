@@ -1,16 +1,16 @@
 ---
-title: Configure containers - FACE API
+title: Configure containers - Face
 titleSuffix: Azure Cognitive Services
-description: Configuration settings for containers.
+description: The Face container runtime environment is configured using the `docker run` command arguments. There are both required and optional settings.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Configure Face Docker containers
@@ -48,7 +48,7 @@ Remember to add the _Face_ routing to the endpoint URI as shown in the example.
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](face-how-to-install-containers.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 <!-- specific to face only -->
 

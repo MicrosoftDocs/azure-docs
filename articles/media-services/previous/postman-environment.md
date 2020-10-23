@@ -17,9 +17,14 @@ ms.author: juliako
 
 ---
 
-# Import the Postman environment  
+# Import the Postman environment
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 This article contains a definition of the **Postman** environment variables that are used the [Postman collection](postman-collection.md) that contains grouped HTTP requests that call Media Services REST APIs. The environment and collection files are used by the [Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md) tutorial.
+
+> [!NOTE]
+> The value of `AzureADSTSEndpoint ` = `https://login.microsoftonline.com/{{TenantId}}/oauth2/token`. To get your Tenant ID, you can hover your mouse over your user name in the portal (in the upper right corner) and it will be in the "Directory: Microsoft ( {{TENANTID}} ) .
 
 ```
 {

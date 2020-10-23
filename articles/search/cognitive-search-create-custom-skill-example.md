@@ -1,5 +1,5 @@
 ---
-title: 'Example: Creating a custom cognitive skill with the Bing Entity Search API'
+title: 'Custom skill example using Bing Entity Search API'
 titleSuffix: Azure Cognitive Search
 description: Demonstrates using the Bing Entity Search service in a custom skill mapped to an AI-enriched indexing pipeline in Azure Cognitive Search.
 
@@ -9,6 +9,7 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.custom: devx-track-csharp
 ---
 
 # Example: Create a custom skill using the Bing Entity Search API
@@ -477,5 +478,5 @@ Congratulations! You've created your first custom skill. Now you can follow the 
 + [Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Add a custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Create Skillset (REST)](/rest/api/searchservice/create-skillset)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)

@@ -1,16 +1,10 @@
 ---
 author: paulbouwer
-ms.service: container-service
+
 ms.topic: include
-ms.date: 10/09/2019
+ms.date: 11/15/2019
 ms.author: pabouwer
 ---
-
-To delete the CRDs, run the following command:
-
-```powershell
-kubectl get crds -o name | Select-String -Pattern 'istio.io' |% { kubectl delete $_ }
-```
 
 To delete the secrets, run the following command:
 

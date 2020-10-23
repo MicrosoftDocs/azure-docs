@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure iPass SmartConnect for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to iPass SmartConnect.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: 43d6de4a-b3a2-439b-95f2-8883fffded52
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
-ms.author: zhchia 
+ms.author: zhchia
 ---
 
 # Tutorial: Configure iPass SmartConnect for automatic user provisioning
@@ -23,7 +18,7 @@ ms.author: zhchia
 The objective of this tutorial is to demonstrate the steps to be performed in iPass SmartConnect and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to iPass SmartConnect.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -96,11 +91,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://openmobile.ipass.com/moservices/scim/v1` in **Tenant URL**. Enter the bearer token retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to iPass SmartConnect. If the connection fails, ensure that your iPass SmartConnect account has Admin permissions and try again.
 
@@ -114,14 +109,14 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to iPass SmartConnect**.
 
-	![iPass SmartConnect User Mappings](media/ipass-smartconnect-provisioning-tutorial/usermapping.png)
+	:::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/usermapping.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Azure Active Directory Users to iPass SmartConnect is visible." border="false":::
 
 9. Review the user attributes that are synchronized from Azure AD to iPass SmartConnect in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in iPass SmartConnect for update operations. Select the **Save** button to commit any changes.
 
-	![iPass SmartConnect User Mappings](media/ipass-smartconnect-provisioning-tutorial/userattribute.png)
+	:::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/userattribute.png" alt-text="Screenshot of the Attribute Mappings page. A table lists Azure Active Directory and iPass SmartConnect attributes and the matching precedence." border="false":::
 
 
-10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. To enable the Azure AD provisioning service for iPass SmartConnect, change the **Provisioning Status** to **On** in the **Settings** section.
 
@@ -137,7 +132,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on iPass SmartConnect.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Connector limitations
 
@@ -145,9 +140,9 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)

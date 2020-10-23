@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure BlueJeans for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to BlueJeans.
 services: active-directory
-documentationcenter: ''
 author: zhchia
 writer: zhchia
-manager: beatrizd-msft
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: "jeedes"
-ms.collection: M365-identity-device-management
+ms.author: jeedes
 ---
 
 # Tutorial: Configure BlueJeans for automatic user provisioning
@@ -23,7 +18,7 @@ ms.collection: M365-identity-device-management
 The objective of this tutorial is to demonstrate the steps to be performed in BlueJeans and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to BlueJeans.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## Prerequisites
 
@@ -91,11 +86,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
+	![Screenshot of the BlueJeans Enterprise Application sidebar with the Provisioning option highlighted and called out.](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
+	![Screenshot of the Provisioning page with the provisioning Mode and Admin Credentials sections called out.](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
 
 5. Under the **Admin Credentials** section, input the **Admin Username**, and **Admin Password** of your BlueJeans account. Examples of these values are:
 
@@ -105,39 +100,39 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 6. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to BlueJeans. If the connection fails, ensure your BlueJeans account has Admin permissions and try again.
 
-	![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
+	![Screenshot of the Admin Credentials section with the Test Connection option called out.](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
 7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
-	![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
+	![Screenshot of the Notification Email text box.](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
 8. Click **Save**.
 
 9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to BlueJeans**.
 
-	![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
+	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Users to BlueJeans option highlighted.](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
 
 10. Review the user attributes that are synchronized from Azure AD to BlueJeans in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in BlueJeans for update operations. Select the **Save** button to commit any changes.
 
-	![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
+	![Screenshot of the Attribute Mappings section with seven mappings displayed.](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
 
-11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 12. To enable the Azure AD provisioning service for BlueJeans, change the **Provisioning Status** to **On** in the **Settings** section.
 
-	![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
+	![Screenshot of the Settings section with the Provisioning Status option set to On.](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
 
 13. Define the users and/or groups that you would like to provision to BlueJeans by choosing the desired values in **Scope** in the **Settings** section.
 
-	![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
+	![Screenshot of the Scope setting with the Sync only assigned users and groups option highlighted.](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
 
 14. When you are ready to provision, click **Save**.
 
-	![BlueJeans Provisioning](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
+	![Screenshot of the BlueJeans Enterprise Application sidebar with the Save option called out.](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
 
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on BlueJeans.
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Connector Limitations
 
@@ -145,12 +140,12 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 

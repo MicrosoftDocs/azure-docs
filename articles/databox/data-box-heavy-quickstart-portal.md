@@ -1,6 +1,6 @@
 ---
 title: Quickstart for Microsoft Azure Data Box Heavy| Microsoft Docs
-description: Learn how to quickly deploy your Azure Data Box Heavy in Azure portal
+description: In this quickstart, learn how to deploy Azure Data Box Heavy using the Azure portal, including how to cable, configure, and copy data to upload to Azure.
 services: databox
 author: alkohli
 
@@ -10,7 +10,8 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-#Customer intent: As an IT admin, I need to quickly deploy Data Box Heavy so as to import data into Azure.
+
+# Customer intent: As an IT admin, I need to quickly deploy Data Box Heavy so as to import data into Azure.
 ---
 
 ::: zone target = "docs"
@@ -36,11 +37,7 @@ Before you begin, make sure that:
 
 ### For service
 
-Before you begin, make sure that:
-
-- You have your Microsoft Azure storage account with access credentials.
-- The subscription you use for Data Box service is [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
-- You have owner or contributor access to the subscription to create a Data Box Heavy order.
+[!INCLUDE [Data Box service prerequisites](../../includes/data-box-supported-subscriptions.md)]
 
 ### For device
 
@@ -54,7 +51,6 @@ Before you begin, make sure that:
     - For the 40-Gbps cable, device end of the cable needs to be QSFP+.
     - For the 10-Gbps cable, you need an SFP+ cable that plugs into a 10-G switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.
 - The power cables are included in a tray at the back of the device.
-
 
 ## Sign in to Azure
 
@@ -75,7 +71,7 @@ Once the order is created, the device is prepared for shipment.
 
 ::: zone target = "chromeless"
 
-# Cable and connect to your device
+## Cable and connect to your device
 
 After you have reviewed the prerequisites, you'll cable and connect to your device.
 
@@ -126,7 +122,7 @@ The time to complete this operation depends upon your data size and the speed of
  
 1. Copy data to both the device nodes using both the 40-Gbps data interfaces in parallel.
 
-    - If using a Windows host, use an SMB compatible file copy tool such as [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+    - If using a Windows host, use an SMB compatible file copy tool such as [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
     - For NFS host, use `cp` command or `rsync` to copy the data.
 2. Connect to the shares on the device using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box Heavy.
 3. Make sure that the share and folder names, and the data follow guidelines described in the [Azure Storage and Data Box Heavy service limits](data-box-heavy-limits.md).

@@ -33,7 +33,7 @@ Azure VMs use the following JSON format for error response:
     "message":"Top level error message",
     "details":[
      {
-      "code":"Inner evel error code",
+      "code":"Inner level error code",
       "message":"Inner level error message"
      }
     ]
@@ -172,7 +172,7 @@ This section lists the common error messages you may encounter when managing VMs
 |  OSProvisioningClientError  |  Username specified for the VM is invalid for this Linux distribution. Error details: {0}.  |
 |  OSProvisioningInternalError  |  OS Provisioning failed for VM '{0}' due to an internal error.  |
 |  OSProvisioningTimedOut  |  OS Provisioning for VM '{0}' did not finish in the allotted time. The VM may still finish provisioning successfully. Please check provisioning state later.  |
-|  OSProvisioningTimedOut  |  OS Provisioning for VM '{0}' did not finish in the allotted time. The VM may still finish provisioning successfully. Please check provisioning state later. Also, make sure the image has been properly prepared (generalized).   <ul><li>Instructions for Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instructions for Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OSProvisioningTimedOut  |  OS Provisioning for VM '{0}' did not finish in the allotted time. The VM may still finish provisioning successfully. Please check provisioning state later. Also, make sure the image has been properly prepared (generalized).   <ul><li>Instructions for [Windows]( ../windows/upload-generalized-managed.md).</li><li> Instructions for [Linux](../linux/capture-image.md)</li></ul>  |
 |  OSProvisioningTimedOut  |  OS Provisioning for VM '{0}' did not finish in the allotted time. However, the VM guest agent was detected running. This suggests the guest OS has not been properly prepared to be used as a VM image (with CreateOption=FromImage). To resolve this issue, either use the VHD as is with CreateOption=Attach or prepare it properly for use as an image:   <ul><li>Instructions for Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instructions for Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  The required VM size is not currently available in the selected location.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  Resource cannot be updated at this time due to ongoing platform update. Please try again later.  |

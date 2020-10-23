@@ -1,12 +1,13 @@
 ---
-title: 'Generate and export certificates for Point-to-Site: Linux: CLI: Azure | Microsoft Docs'
+title: 'Generate and export certificates for Point-to-Site: Linux: CLI'
 description: Create a self-signed root certificate, export the public key, and generate client certificates using the Linux (strongSwan) CLI.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
-author: anzaman
+author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 08/14/2019
+ms.topic: how-to
+ms.date: 09/02/2020
 ms.author: alzam
 
 ---

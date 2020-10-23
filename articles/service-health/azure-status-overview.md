@@ -1,11 +1,7 @@
 ---
 title: Azure status overview | Microsoft Docs
 description: A global view into the health of Azure services
-services: Azure status
-ms.topic: article
-author: stephbaron
-ms.author: stbaron
-ms.service: service-health
+ms.topic: overview
 ms.date: 06/11/2019
 
 ---
@@ -23,9 +19,7 @@ The Azure status page gets updated in real time as the health of Azure services 
 
 ## Azure status history
 
-While the Azure status page always shows the latest health information, you can view older events using the [Azure status history page](https://status.azure.com/status/history/).
-
-There you can see events up to 90 days in the past, including a preliminary root cause, mitigation, and next steps for Azure.
+While the Azure status page always shows the latest health information, you can view older events using the [Azure status history page](https://status.azure.com/status/history/). The history page contains all RCAs for incidents that occurred on November 20th, 2019 or later and will - from that date forward - provide a 5-year RCA history. RCAs prior to November 20th, 2019 are not available.
 
 ## RSS Feed
 

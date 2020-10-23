@@ -1,12 +1,12 @@
 ---
-title: Use Azure Data Box, Azure Data Box Heavy to send data to hot, cold, archive blob tier | Microsoft Docs in data 
+title: Send data to Hot, Cold, Archive blob tier via Azure Data Box/Azure Data Box Heavy 
 description: Describes how to use Azure Data Box or Azure Data Box Heavy to send data to an appropriate block blob storage tier such as hot, cold, or archive
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
 ---
@@ -25,11 +25,11 @@ Azure storage allows three different tiers to store data in the most cost-effect
 
 Cool storage tier is for infrequently accessed data that needs to be stored for a minimum of 30 days. The storage cost for cold tier is lower than that of hot storage tier but the data access charges are high when compared to Hot tier.
 
-The Azure Archive tier is offline and offers the lowest storage costs but also the highest access costs. This tier is meant for data that remains in archival storage for a minimum of 180 days. For details of each of these tiers and the pricing model, go to [Comparison of the storage tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+The Azure Archive tier is offline and offers the lowest storage costs but also the highest access costs. This tier is meant for data that remains in archival storage for a minimum of 180 days. For details of each of these tiers and the pricing model, go to [Comparison of the storage tiers](../storage/blobs/storage-blob-storage-tiers.md).
 
 The data from the Data Box or Data Box Heavy is uploaded to a storage tier that is associated with the storage account. When you create a storage account, you can specify the access tier as Hot or Cold. Depending upon the access pattern of your workload and cost, you can move this data from the default tier to another storage tier.
 
-You may only tier your object storage data in Blob storage or General Purpose v2 (GPv2) accounts. General Purpose v1 (GPv1) accounts do not support tiering. To choose the correct storage tier for your data, review the considerations detailed in [Azure Blob storage: Premium, Hot, Cool, and Archive storage tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+You may only tier your object storage data in Blob storage or General Purpose v2 (GPv2) accounts. General Purpose v1 (GPv1) accounts do not support tiering. To choose the correct storage tier for your data, review the considerations detailed in [Azure Blob storage: Premium, Hot, Cool, and Archive storage tiers](../storage/blobs/storage-blob-storage-tiers.md).
 
 ## Set a default blob tier
 
@@ -37,13 +37,13 @@ The default blob tier is specified when the storage account is created in the Az
 
 The tiers cannot be specified if you are trying to create a new account when ordering a Data Box or Data Box Heavy. After the account is created, you can modify the account in portal to set the default access tier.
 
-Alternatively, you create a storage account first with the specified access tier attribute. When creating the Data Box or Data Box Heavy order, select the existing storage account. For more information on how to set the default blob tier during storage account creation, go to [Create a storage account in Azure portal](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal).
+Alternatively, you create a storage account first with the specified access tier attribute. When creating the Data Box or Data Box Heavy order, select the existing storage account. For more information on how to set the default blob tier during storage account creation, go to [Create a storage account in Azure portal](../storage/common/storage-account-create.md?tabs=portal).
 
 ## Move data to a non-default tier
 
 Once the data from Data Box device is uploaded to the default tier, you may want to move the data to a non-default tier. There are two ways to move this data to a non-default tier.
 
-- **Azure Blob storage lifecycle management** - You can use a policy-based approach to automatically tier data or expire at the end of its lifecycle. For more information, go to [Managing the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts).
+- **Azure Blob storage lifecycle management** - You can use a policy-based approach to automatically tier data or expire at the end of its lifecycle. For more information, go to [Managing the Azure Blob storage lifecycle](../storage/blobs/storage-lifecycle-management-concepts.md).
 - **Scripting** - You could use a scripted approach via Azure PowerShell to enable blob-level tiering. You can call the `SetBlobTier` operation to set the tier on the blob.
 
 ## Use Azure PowerShell to set the blob tier
@@ -112,5 +112,4 @@ Following steps describe how you can set the blob tier to Archive using an Azure
 
 ## Next steps
 
--  Learn how to address the [common data tiering scenarios with lifecycle policy rules](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#examples)
-
+-  Learn how to address the [common data tiering scenarios with lifecycle policy rules](../storage/blobs/storage-lifecycle-management-concepts.md#examples)

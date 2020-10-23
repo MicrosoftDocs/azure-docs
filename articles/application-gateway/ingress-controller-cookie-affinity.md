@@ -4,8 +4,8 @@ description: This article provides information on how to enable cookie-based aff
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
-ms.date: 10/23/2019
+ms.topic: how-to
+ms.date: 11/4/2019
 ms.author: caya
 ---
 

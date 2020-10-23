@@ -6,15 +6,16 @@ documentationcenter: ''
 ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
+ms.custom: devx-track-csharp
+manager: anandsub
 robots: noindex
 ---
-# Use custom activities in an Azure Data Factory pipeline
+# Use custom activities in an Azure Data Factory version 1 pipeline
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-use-custom-activities.md)
 > * [Version 2 (current version)](../transform-data-using-dotnet-custom-activity.md)
@@ -25,7 +26,7 @@ robots: noindex
 There are two types of activities that you can use in an Azure Data Factory pipeline.
 
 - [Data Movement Activities](data-factory-data-movement-activities.md) to move data between [supported source and sink data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
-- [Data Transformation Activities](data-factory-data-transformation-activities.md) to transform data using compute services such as Azure HDInsight, Azure Batch, and Azure Machine Learning.
+- [Data Transformation Activities](data-factory-data-transformation-activities.md) to transform data using compute services such as Azure HDInsight, Azure Batch, and Azure Machine Learning Studio (classic).
 
 To move data to/from a data store that Data Factory does not support, create a **custom activity** with your own data movement logic and use the activity in a pipeline. Similarly, to transform/process data in a way that isn't supported by Data Factory, create a custom activity with your own data transformation logic and use the activity in a pipeline.
 
@@ -435,7 +436,7 @@ Linked services link data stores or compute services to an Azure data factory. I
 2. Click **New data store** on the command bar and choose **Azure storage**. You should see the JSON script for creating an Azure Storage linked service in the editor.
 
 	![New data store - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Replace `<accountname>` with name of your Azure storage account and `<accountkey>` with access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-account-manage.md#access-keys).
+3. Replace `<accountname>` with name of your Azure storage account and `<accountkey>` with access key of the Azure storage account. To learn how to get your storage access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 
 	![Azure Storage liked service](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Click **Deploy** on the command bar to deploy the linked service.
@@ -716,7 +717,7 @@ Troubleshooting consists of a few basic techniques:
 If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage.
 
 ## Appdomain isolation
-See [Cross AppDomain Sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) that shows you how to create a custom activity that is not constrained to assembly versions used by the Data Factory launcher (example: WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.).
+See [Cross AppDomain Sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) that shows you how to create a custom activity that is not constrained to assembly versions used by the Data Factory launcher (example: WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.).
 
 ## Access extended properties
 You can declare extended properties in the activity JSON as shown in the following sample:
@@ -1019,14 +1020,14 @@ The [Azure Data Factory - local environment](https://github.com/gbrueckl/Azure.D
 | Sample | What custom activity does |
 | --- | --- |
 | [HTTP Data Downloader](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample). |Downloads data from an HTTP Endpoint to Azure Blob Storage using custom C# Activity in Data Factory. |
-| [Twitter Sentiment Analysis sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Invokes an Azure Machine Learning studio model and do sentiment analysis, scoring, prediction etc. |
+| [Twitter Sentiment Analysis sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Invokes an Azure Machine Learning Studio (classic) model and do sentiment analysis, scoring, prediction etc. |
 | [Run R Script](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). |Invokes R script by running RScript.exe on your HDInsight cluster that already has R Installed on it. |
 | [Cross AppDomain .NET Activity](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Uses different assembly versions from ones used by the Data Factory launcher |
 | [Reprocess a model in Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample) |  Reprocesses a model in Azure Analysis Services. |
 
 [batch-net-library]: ../../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../../batch/batch-account-create-portal.md
-[batch-technical-overview]: ../../batch/batch-technical-overview.md
+[batch-technical-overview]:../../azure-sql/database/sql-database-paas-overview.md
 [batch-get-started]: ../../batch/batch-dotnet-get-started.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md

@@ -1,7 +1,7 @@
 ---
 title: Microsoft Security Code Analysis documentation overview
-description: This article is an overview of the Microsoft Security Code Analysis extension
-author: vharindra
+description: Learn about the Microsoft Security Code Analysis extension. With this extension, you can add security code analysis to Azure DevOps CI/ID pipelines.
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -66,13 +66,9 @@ BinSkim is a Portable Executable (PE) lightweight scanner that validates compile
 
 Passwords and other secrets stored in source code are a significant problem. Credential Scanner is a proprietary static-analysis tool that helps solve this problem. The tool detects credentials, secrets, certificates, and other sensitive content in your source code and your build output.
 
-### Microsoft Security Risk Detection
-
-Microsoft Security Risk Detection (MSRD) is a cloud-based service for fuzz testing. It identifies exploitable security bugs in software. This service requires a separate subscription and activation. For more information, see the [MSRD Developer Center](https://docs.microsoft.com/security-risk-detection/).
-
 ### Roslyn Analyzers
 
-Roslyn Analyzers is Microsoft's compiler-integrated tool for statically analyzing managed C# and Visual Basic code. For more information, see [Roslyn-based analyzers](https://docs.microsoft.com/dotnet/standard/analyzers/).
+Roslyn Analyzers is Microsoft's compiler-integrated tool for statically analyzing managed C# and Visual Basic code. For more information, see [Roslyn-based analyzers](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer).
 
 ### TSLint
 
@@ -107,6 +103,6 @@ You can configure this task to break the build for issues found by specific tool
 
 For instructions on how to onboard and install Microsoft Security Code Analysis, refer to our [Onboarding and installation guide](security-code-analysis-onboard.md).
 
-For more information about configuring the build tasks, see our [Configuration guide](security-code-analysis-customize.md).
+For more information about configuring the build tasks, see our [Configuration guide](security-code-analysis-customize.md) or [YAML Configuration guide](yaml-configuration.md).
 
 If you have further questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.md).

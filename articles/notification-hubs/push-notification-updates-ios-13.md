@@ -9,6 +9,7 @@ ms.topic: article
 ms.service: notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
+ms.custom: devx-track-csharp
 
 ---
 
@@ -31,8 +32,7 @@ The following code samples show how to set this header attribute in notification
 
 ```csharp
 var hub = NotificationHubClient.CreateFromConnectionString(...);
-var headers = new Dictionary<string, string> {{"apns-push-type",
-"alert"}};
+var headers = new Dictionary<string, string> {{"apns-push-type", "alert"}};
 var tempprop = new Dictionary<string, string> {{"message", "value"}};
 var notification = new TemplateNotification(tempprop);
 notification.Headers = headers;
@@ -57,7 +57,7 @@ request.Headers.Add("ServiceBusNotification-Format", "apple");
 request.Headers.Add("apns-push-type", "alert");
 ```
 
-To help you during this transition, when Azure Notification Hubs detects a notification that doesn't have the `apns-push-type` set, the service infers the push type from the notification request and sets the value automatically. Remember that you must configure Azure Notification Hubs to use token-based authentication to set the required header; for more information, see [Token-based (HTTP/2) Authentication for APNS](notification-hubs-push-notification-http2-token-authentification.md).
+To help you during this transition, when Azure Notification Hubs detects a notification that doesn't have the `apns-push-type` set, the service infers the push type from the notification request and sets the value automatically. Remember that you must configure Azure Notification Hubs to use token-based authentication to set the required header; for more information, see [Token-based (HTTP/2) Authentication for APNS](./notification-hubs-push-notification-http2-token-authentication.md).
 
 ## APNS priority
 

@@ -62,6 +62,28 @@ az sig image-version update \
    --add publishingProfile.targetRegions  name=eastus
 ```
 
+This example shows how to use [az sig image-version update](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update) to exclude this image version from being used as the *latest* image.
+
+```azurecli-interactive
+az sig image-version update \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --set publishingProfile.excludeFromLatest=true
+```
+
+This example shows how to use [az sig image-version update](https://docs.microsoft.com/cli/azure/sig/image-definition?view=azure-cli-latest#az-sig-image-definition-update) to include this image version in being considered for *latest* image.
+
+```azurecli-interactive
+az sig image-version update \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --set publishingProfile.excludeFromLatest=false
+```
+
 ## Delete resources
 
 You have to delete resources in reverse order, by deleting the image version first. After you delete all of the image versions, you can delete the image definition. After you delete all image definitions, you can delete the gallery. 

@@ -1,13 +1,11 @@
 ---
-title: Use your own TLS certificates for ingress with Azure Kubernetes Service (AKS) cluster
+title: Use your TLS certificates for ingress
+titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller that uses your own certificates in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
-ms.date: 05/24/2019
-ms.author: mlearned
+ms.date: 08/17/2020
+
 ---
 
 # Create an HTTPS ingress controller and use your own TLS certificates on Azure Kubernetes Service (AKS)
@@ -25,7 +23,7 @@ You can also:
 
 ## Before you begin
 
-This article uses Helm to install the NGINX ingress controller and a sample web app. You need to have Helm initialized within your AKS cluster and using a service account for Tiller. Make sure that you are using the latest release of Helm. For upgrade instructions, see the [Helm install docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
+This article uses [Helm 3][helm] to install the NGINX ingress controller. Make sure that you are using the latest release of Helm and have access to the *ingress-nginx* Helm repository. For upgrade instructions, see the [Helm install docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
 
 This article also requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
@@ -33,20 +31,23 @@ This article also requires that you are running the Azure CLI version 2.0.64 or 
 
 To create the ingress controller, use `Helm` to install *nginx-ingress*. For added redundancy, two replicas of the NGINX ingress controllers are deployed with the `--set controller.replicaCount` parameter. To fully benefit from running replicas of the ingress controller, make sure there's more than one node in your AKS cluster.
 
-The ingress controller also needs to be scheduled on a Linux node. Windows Server nodes (currently in preview in AKS) shouldn't run the ingress controller. A node selector is specified using the `--set nodeSelector` parameter to tell the Kubernetes scheduler to run the NGINX ingress controller on a Linux-based node.
+The ingress controller also needs to be scheduled on a Linux node. Windows Server nodes shouldn't run the ingress controller. A node selector is specified using the `--set nodeSelector` parameter to tell the Kubernetes scheduler to run the NGINX ingress controller on a Linux-based node.
 
 > [!TIP]
 > The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic*. Specify a namespace for your own environment as needed. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the Helm commands.
 
 > [!TIP]
-> If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, SSL pass-through will not work.
+> If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, TLS pass-through will not work.
 
 ```console
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
 
+# Add the ingress-nginx repository
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
 # Use Helm to deploy an NGINX ingress controller
-helm install stable/nginx-ingress \
+helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
@@ -55,14 +56,19 @@ helm install stable/nginx-ingress \
 
 During the installation, an Azure public IP address is created for the ingress controller. This public IP address is static for the life-span of the ingress controller. If you delete the ingress controller, the public IP address assignment is lost. If you then create an additional ingress controller, a new public IP address is assigned. If you wish to retain the use of the public IP address, you can instead [create an ingress controller with a static public IP address][aks-ingress-static-tls].
 
-To get the public IP address, use the `kubectl get service` command. It takes a few minutes for the IP address to be assigned to the service.
+To get the public IP address, use the `kubectl get service` command.
+
+```console
+kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
+```
+
+It takes a few minutes for the IP address to be assigned to the service.
 
 ```
-$ kubectl get service -l app=nginx-ingress --namespace ingress-basic
+$ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
 
-NAME                                          TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)                      AGE
-virulent-seal-nginx-ingress-controller        LoadBalancer   10.0.48.240   40.87.46.190   80:31159/TCP,443:30657/TCP   7m
-virulent-seal-nginx-ingress-default-backend   ClusterIP      10.0.50.5     <none>         80/TCP                       7m
+NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
+nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
 ```
 
 Make a note of this public IP address, as it's used in the last step to test the deployment.
@@ -101,25 +107,89 @@ kubectl create secret tls aks-ingress-tls \
 
 An ingress controller and a Secret with your certificate have been configured. Now let's run two demo applications in your AKS cluster. In this example, Helm is used to deploy two instances of a simple 'Hello world' application.
 
-Before you can install the sample Helm charts, add the Azure samples repository to your Helm environment as follows:
+To see the ingress controller in action, run two demo applications in your AKS cluster. In this example, you use `kubectl apply` to deploy two instances of a simple *Hello world* application.
 
-```console
-helm repo add azure-samples https://azure-samples.github.io/helm-charts/
+Create a *aks-helloworld.yaml* file and copy in the following example YAML:
+
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-helloworld
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-helloworld
+  template:
+    metadata:
+      labels:
+        app: aks-helloworld
+    spec:
+      containers:
+      - name: aks-helloworld
+        image: neilpeterson/aks-helloworld:v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: TITLE
+          value: "Welcome to Azure Kubernetes Service (AKS)"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aks-helloworld
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: aks-helloworld
 ```
 
-Create the first demo application from a Helm chart with the following command:
+Create a *ingress-demo.yaml* file and copy in the following example YAML:
 
-```console
-helm install azure-samples/aks-helloworld --namespace ingress-basic
+```yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingress-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ingress-demo
+  template:
+    metadata:
+      labels:
+        app: ingress-demo
+    spec:
+      containers:
+      - name: ingress-demo
+        image: neilpeterson/aks-helloworld:v1
+        ports:
+        - containerPort: 80
+        env:
+        - name: TITLE
+          value: "AKS Ingress Demo"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress-demo
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: ingress-demo
 ```
 
-Now install a second instance of the demo application. For the second instance, you specify a new title so that the two applications are visually distinct. You also specify a unique service name:
+Run the two demo applications using `kubectl apply`:
 
 ```console
-helm install azure-samples/aks-helloworld \
-    --namespace ingress-basic \
-    --set title="AKS Ingress Demo" \
-    --set serviceName="ingress-demo"
+kubectl apply -f aks-helloworld.yaml --namespace ingress-basic
+kubectl apply -f ingress-demo.yaml --namespace ingress-basic
 ```
 
 ## Create an ingress route
@@ -136,13 +206,14 @@ The *tls* section tells the ingress route to use the Secret named *aks-ingress-t
 Create a file named `hello-world-ingress.yaml` and copy in the following example YAML.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
   namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   tls:
@@ -156,14 +227,24 @@ spec:
       - backend:
           serviceName: aks-helloworld
           servicePort: 80
-        path: /(.*)
+        path: /hello-world-one(/|$)(.*)
       - backend:
           serviceName: ingress-demo
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
+      - backend:
+          serviceName: aks-helloworld
+          servicePort: 80
+        path: /(.*)
 ```
 
 Create the ingress resource using the `kubectl apply -f hello-world-ingress.yaml` command.
+
+```console
+kubectl apply -f hello-world-ingress.yaml
+```
+
+The example output shows the ingress resource is created.
 
 ```
 $ kubectl apply -f hello-world-ingress.yaml
@@ -176,13 +257,13 @@ ingress.extensions/hello-world-ingress created
 To test the certificates with our fake *demo.azure.com* host, use `curl` and specify the *--resolve* parameter. This parameter lets you map the *demo.azure.com* name to the public IP address of your ingress controller. Specify the public IP address of your own ingress controller, as shown in the following example:
 
 ```
-curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
+curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com
 ```
 
 No additional path was provided with the address, so the ingress controller defaults to the */* route. The first demo application is returned, as shown in the following condensed example output:
 
 ```
-$ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
+$ curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com
 
 [...]
 <!DOCTYPE html>
@@ -209,7 +290,7 @@ The *-v* parameter in our `curl` command outputs verbose information, including 
 Now add */hello-world-two* path to the address, such as `https://demo.azure.com/hello-world-two`. The second demo application with the custom title is returned, as shown in the following condensed example output:
 
 ```
-$ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/hello-world-two
+$ curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com/hello-world-two
 
 [...]
 <!DOCTYPE html>
@@ -232,39 +313,42 @@ To delete the entire sample namespace, use the `kubectl delete` command and spec
 kubectl delete namespace ingress-basic
 ```
 
-Then, remove the Helm repo for the AKS hello world app:
-
-```console
-helm repo remove azure-samples
-```
-
 ### Delete resources individually
 
-Alternatively, a more granular approach is to delete the individual resources created. List the Helm releases with the `helm list` command. Look for charts named *nginx-ingress* and *aks-helloworld*, as shown in the following example output:
-
-```
-$ helm list
-
-NAME           	REVISION	UPDATED                 	STATUS  	CHART               	APP VERSION	NAMESPACE
-virulent-seal  	1       	Tue Oct 23 16:37:24 2018	DEPLOYED	nginx-ingress-0.22.1	0.15.0     	kube-system
-billowing-guppy	1       	Tue Oct 23 16:41:38 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
-listless-quokka	1       	Tue Oct 23 16:41:30 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
-```
-
-Delete the releases with the `helm delete` command. The following example deletes the NGINX ingress deployment and the two sample AKS hello world apps.
-
-```
-$ helm delete virulent-seal billowing-guppy listless-quokka
-
-release "virulent-seal" deleted
-release "billowing-guppy" deleted
-release "listless-quokka" deleted
-```
-
-Next, remove the Helm repo for the AKS hello world app:
+Alternatively, a more granular approach is to delete the individual resources created. List the Helm releases with the `helm list` command. 
 
 ```console
-helm repo remove azure-samples
+helm list --namespace ingress-basic
+```
+
+Look for chart named *nginx-ingress* as shown in the following example output:
+
+```
+$ helm list --namespace ingress-basic
+
+NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
+nginx-ingress           ingress-basic   1               2020-01-06 19:55:46.358275 -0600 CST    deployed        nginx-ingress-1.27.1    0.26.1 
+```
+
+Uninstall the releases with the `helm uninstall` command. 
+
+```console
+helm uninstall nginx-ingress --namespace ingress-basic
+```
+
+The following example uninstalls the NGINX ingress deployment.
+
+```
+$ helm uninstall nginx-ingress --namespace ingress-basic
+
+release "nginx-ingress" uninstalled
+```
+
+Next, remove the two sample applications:
+
+```console
+kubectl delete -f aks-helloworld.yaml --namespace ingress-basic
+kubectl delete -f ingress-demo.yaml --namespace ingress-basic
 ```
 
 Remove the ingress route that directed traffic to the sample apps:
@@ -300,8 +384,9 @@ You can also:
 - Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates [with a dynamic public IP address][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
-[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
+[helm-cli]: ./kubernetes-helm.md
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+[helm]: https://helm.sh/
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 
 <!-- LINKS - internal -->

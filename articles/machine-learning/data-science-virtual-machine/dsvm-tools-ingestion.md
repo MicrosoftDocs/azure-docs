@@ -7,10 +7,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 12/12/2019
 
 ---
 
@@ -22,7 +22,7 @@ Here are some data movement tools that are available in the DSVM.
 
 ## AdlCopy
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | A tool to copy data from Azure Blob storage into Azure Data Lake Store. It can also copy data between two Azure Data Lake Store accounts.      |
 | Supported DSVM versions      | Windows      |
@@ -33,7 +33,7 @@ Here are some data movement tools that are available in the DSVM.
 
 ## Azure CLI
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | A management tool for Azure. It also contains command verbs to move data from Azure data platforms like Azure Blob storage and Azure Data Lake Store.     |
 | Supported DSVM versions      | Windows, Linux     |
@@ -45,7 +45,7 @@ Here are some data movement tools that are available in the DSVM.
 
 ## AzCopy
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | A tool to copy data to and from local files, Azure Blob storage, files, and tables.      |
 | Supported DSVM versions      | Windows      |
@@ -57,7 +57,7 @@ Here are some data movement tools that are available in the DSVM.
 
 ## Azure Cosmos DB Data Migration tool
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | Tool to import data from various sources into Azure Cosmos DB, a NoSQL database in the cloud. These sources include JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and Azure Cosmos DB SQL API collections.      |
 | Supported DSVM versions      | Windows      |
@@ -68,7 +68,7 @@ Here are some data movement tools that are available in the DSVM.
 
 ## Azure Storage Explorer
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | Graphical User Interface for interacting with files stored in the Azure cloud. |
 | Supported DSVM versions      | Windows      |
@@ -79,7 +79,7 @@ Here are some data movement tools that are available in the DSVM.
 
 ## bcp
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | SQL Server tool to copy data between SQL Server and a data file.      |
 | Supported DSVM versions      | Windows      |
@@ -90,7 +90,7 @@ Here are some data movement tools that are available in the DSVM.
 
 ## blobfuse
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | A tool to mount an Azure Blob storage container in the Linux file system.      |
 | Supported DSVM versions      | Linux      |

@@ -1,24 +1,17 @@
 ---
 title: Connect to Azure Germany by using Visual Studio | Microsoft Docs
 description: Information on managing your subscription in Azure Germany by using Visual Studio
-services: germany
-cloud: na
-documentationcenter: na
-author: gitralf
-manager: rainerst
-
-ms.assetid: na
-ms.service: germany
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
-ms.author: ralfwi
+ms.date: 10/16/2020
+author: gitralf
+ms.author: ralfwi 
+ms.service: germany
+ms.custom: bfdocs
 ---
 
-
 # Connect to Azure Germany by using Visual Studio
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 Developers use Visual Studio to easily manage their Azure subscriptions while building solutions. Currently, in the Visual Studio user interface, you can't configure a connection to Azure Germany.
 

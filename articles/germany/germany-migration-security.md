@@ -1,17 +1,17 @@
 ---
-title: Migrate Azure security resources from Azure Germany to global Azure
+title: Migrate Azure security resources, Azure Germany to global Azure
 description: This article provides information about migrating your Azure security resources from Azure Germany to global Azure.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 08/15/2018
-ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Migrate security resources to global Azure
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 This article has information that can help you migrate Azure security resources from Azure Germany to global Azure.
 
@@ -43,7 +43,7 @@ Get-AzKeyVaultSecret -vaultname mysecrets -name Deploydefaultpw
 For more information:
 
 - Refresh your knowledge by completing the [Key Vault tutorials](https://docs.microsoft.com/azure/key-vault/).
-- Review the [Key Vault overview](../key-vault/key-vault-overview.md).
+- Review the [Key Vault overview](../key-vault/general/overview.md).
 - Review the [Key Vault PowerShell cmdlets](/powershell/module/az.keyvault/).
 
 ## VPN Gateway

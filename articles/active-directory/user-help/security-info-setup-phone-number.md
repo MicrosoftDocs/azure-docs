@@ -1,21 +1,20 @@
 ---
-title: Set up security info (preview) to use phone calls - Azure Active Directory | Microsoft Docs
-description: How to set up your security info to verify your identity using phone calls.
+title: Set up your phone number as your verification method - Azure AD
+description: How to set up your Security info (preview) page to verify your identity using your phone number and mobile device as your verification method.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2019
-ms.author: lizross
-ms.collection: M365-identity-device-management
+ms.author: curtand
 ---
 
-# Set up security info (preview) to use phone calls
+# Set up a phone number as your verification method
 
 You can follow these steps to add your two-factor verification and password reset methods. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
 
@@ -26,7 +25,20 @@ If you're prompted to set this up immediately after you sign in to your work or 
 > [!Note]
 > Security info doesn't support using phone extensions. Even if you add the proper format, +1 4255551234X12345, the extensions are removed before the call is placed.
 >
-> If you don't see a phone option, it's possible that your organization doesn't allow you to use a phone number for verification. In this case, you'll need to choose another method or contact your administrator for more help.
+> If you don't see a phone option, it's possible that your organization doesn't allow you to use this option for verification. In this case, you'll need to choose another method or contact your organization's help desk for more assistance.
+
+## Security verification versus password reset authentication
+
+Security info methods are used for both two-factor security verification and for password reset. However, not all methods can be used for both.
+
+| Method | Used for |
+| ------ | -------- |
+| Authenticator app | Two-factor verification and password reset authentication. |
+| Text messages | Two-factor verification and password reset authentication. |
+| Phone calls | Two-factor verification and password reset authentication. |
+| Security key | Two-factor verification and password reset authentication. |
+| Email account | Password reset authentication only. You'll need to choose another method for two-factor verification. |
+| Security questions | Password reset authentication only. You'll need to choose another method for two-factor verification. |
 
 ## Set up phone calls from the Security info page
 
@@ -37,7 +49,7 @@ Depending on your organization’s settings, you might be able to use phone call
 
 ### To set up phone calls
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
     ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
 

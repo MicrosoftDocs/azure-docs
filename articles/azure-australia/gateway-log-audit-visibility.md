@@ -1,11 +1,11 @@
 ---
 title: Gateway logging, auditing, and visibility in Azure Australia
 description: How to configure Logging, Auditing, and Visibility within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
-author: galey801
+author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: grgale
+ms.author: yvettep
 ---
 
 # Gateway logging, auditing, and visibility in Azure Australia
@@ -41,7 +41,7 @@ The overall security requirements for Commonwealth systems are defined in the AC
 
 7. Commonwealth entities that have on-premises or Azure-based Security Information and Event Management (SIEM) capabilities can also forward logs to those systems
 
-8. Commonwealth entities should implement Network Watcher flow logs for Network Security Groups (NSGs) and Virtual Machines. These logs should be stored in a dedicated storage account containing only security logs, and access to the storage account should be secured with Role-Based Access Controls
+8. Commonwealth entities should implement Network Watcher flow logs for Network Security Groups (NSGs) and Virtual Machines. These logs should be stored in a dedicated storage account containing only security logs, and access to the storage account should be secured with Azure role-based access control (Azure RBAC)
 
 9. Commonwealth entities must implement ACSC Consumer Guidance to ensure Azure workloads meet the intent of the ISM for logging and monitoring. Commonwealth entities must also opt in to Azure capabilities that assist the ACSC to receive real-time monitoring, alerting, and logs associated with Australian Government usage of Azure
 
@@ -86,7 +86,7 @@ When implementing the components listed in this article, the following general g
 
 * Consolidate logs and minimise the number of instances of logging tools such as storage accounts, Log Analytics workspaces and Event Hubs
 
-* Restrict administrative privileges through Role-Based Access Controls
+* Restrict administrative privileges through Azure role-based access control (Azure RBAC)
 
 * Use Multi-Factor Authentication (MFA) for accounts administering or configuring resources in Azure
 
@@ -220,7 +220,7 @@ NSGs control traffic into and out of virtual networks in Azure. NSGs apply rules
 
 ### Azure Activity Log
 
-Azure Activity Log, which is part of Azure Monitor, is a subscription log that provides insight into subscription-level events that have occurred in Azure. The Activity Log can help determine the ‘what, who, and when’ for any write operations (PUT, POST, DELETE) taken ***on*** the resources in a subscription. The Activity Log is crucial for tracking the configuration changes made within the Azure environment. Azure Activity Logs are automatically available for use in Log Analytics solutions and can be sent to Event Hubs or Azure Storage for processing or retention.
+Azure Activity Log, which is part of Azure Monitor, is a subscription log that provides insight into subscription-level events that have occurred in Azure. The Activity Log can help determine the 'what, who, and when' for any write operations (PUT, POST, DELETE) taken ***on*** the resources in a subscription. The Activity Log is crucial for tracking the configuration changes made within the Azure environment. Azure Activity Logs are automatically available for use in Log Analytics solutions and can be sent to Event Hubs or Azure Storage for processing or retention.
 
 |Resources|Link|
 |---|---|
@@ -372,7 +372,7 @@ A SIEM is a system that provides centralised storage, auditing and analysis of s
 
 ### Australian Cyber Security Centre
 
-The Australian Cyber Security Centre (ACSC) is the Australian Government’s lead on national cyber security. It brings together cyber security capabilities from across the Australian Government to improve the cyber resilience of the Australian community and support the economic and social prosperity of Australia in the digital age. The ACSC recommends that Commonwealth entities forward all mandated system-generated log files, events, and logs to the ACSC for whole of Australian Government monitoring.
+The Australian Cyber Security Centre (ACSC) is the Australian Government's lead on national cyber security. It brings together cyber security capabilities from across the Australian Government to improve the cyber resilience of the Australian community and support the economic and social prosperity of Australia in the digital age. The ACSC recommends that Commonwealth entities forward all mandated system-generated log files, events, and logs to the ACSC for whole of Australian Government monitoring.
 
 |Resources|Link|
 |---|---|

@@ -3,14 +3,14 @@ title: Performance considerations for Azure Traffic Manager | Microsoft Docs
 description: Understand performance on Traffic Manager and how to test performance of your website when using Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: allensu
+ms.author: duau
 ---
 
 # Performance considerations for Traffic Manager
@@ -45,7 +45,7 @@ The tools on these sites measure DNS latencies and display the resolved IP addre
 
     One of the simplest tools is WebSitePulse. Enter the URL to see DNS resolution time, First Byte, Last Byte, and other performance statistics. You can choose from three different test locations. In this example, you see that the first execution shows that DNS lookup takes 0.204 sec.
 
-    ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
+    ![Screenshot that shows the "WebSitePulse" tool with the "DNS" lookup result highlighted.](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse.png)
 
     Because the results are cached, the second test for the same Traffic Manager endpoint the DNS lookup takes 0.002 sec.
 

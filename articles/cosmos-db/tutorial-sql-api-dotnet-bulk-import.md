@@ -1,14 +1,15 @@
 ---
-title: Optimize throughput when bulk importing data to Azure Cosmos DB SQL API account 
-description: Learn how to build a .NET console application that optimizes provisioned throughput (RU/s) required to import data to Azure Cosmos DB. 
+title: Bulk import data to Azure Cosmos DB SQL API account by using the .NET SDK
+description: Learn how to import or ingest data to Azure Cosmos DB by building a .NET console application that optimizes provisioned throughput (RU/s) required for importing data
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 09/21/2020
 ms.reviewer: sngun
+ms.custom: devx-track-csharp
 ---
-# Optimize throughput when bulk importing data to Azure Cosmos DB SQL API account
+# Bulk import data to Azure Cosmos DB SQL API account by using the .NET SDK
 
 This tutorial shows how to build a .NET console application that optimizes provisioned throughput (RU/s) required to import data to Azure Cosmos DB. 
 In this article, you will read data from a sample data source and import it into an Azure Cosmos container.
@@ -80,7 +81,7 @@ The sample application needs to authenticate to your Azure Cosmos account. To au
 1.	Navigate to your Azure Cosmos account.
 1.	Open the **Keys** pane and copy the **URI** and **PRIMARY KEY** of your account.
 
-If you are using the Azure Cosmos DB Emulator, obtain the [emulator credentials from this article](local-emulator.md#authenticating-requests).
+If you are using the Azure Cosmos DB Emulator, obtain the [emulator credentials from this article](local-emulator.md#authenticate-requests).
 
 ## Step 5: Initialize the CosmosClient object with bulk execution support
 
@@ -90,6 +91,14 @@ Let's start by overwriting the default `Main` method and defining the global var
 
 
    ```csharp
+   using System;
+   using System.Collections.Generic;
+   using System.Diagnostics;
+   using System.IO;
+   using System.Text.Json;
+   using System.Threading.Tasks;
+   using Microsoft.Azure.Cosmos;
+
    public class Program
    {
         private const string EndpointUrl = "https://<your-account>.documents.azure.com:443/";

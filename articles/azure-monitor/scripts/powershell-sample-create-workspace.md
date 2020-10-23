@@ -1,11 +1,10 @@
 ---
-title: Azure PowerShell Script Sample -  Create a Log Analytics workspace| Microsoft Docs
+title: Create Log Analytics workspace - Azure PowerShell
 description: Azure PowerShell Script Sample -  Create a Log Analytics workspace to
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: sample
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/07/2017
 
 ---
@@ -36,5 +35,5 @@ This script uses following commands to create a new Log Analytics workspace in y
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 

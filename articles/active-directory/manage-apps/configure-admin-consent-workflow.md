@@ -2,15 +2,14 @@
 title: Configure the admin consent workflow - Azure Active Directory | Microsoft Docs
 description: Learn how to configure a way for end users to request access to applications that require admin consent. 
 services: active-directory
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ---
@@ -29,10 +28,10 @@ To approve requests, a reviewer must be a global administrator, cloud applicatio
 
 To enable the admin consent workflow and choose reviewers:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
-2. Click **All services** at the top of the left-hand navigation menu. The **Azure Active Directory Extension** opens.
-3. In the filter search box, type "**Azure Active Directory**" and select **the Azure Active Directory** item.
-4. From the navigation menu, click **Enterprise applications**. 
+1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
+2. Click **All services** at the top of the left-hand navigation menu. The **Azure Active Directory Extension** opens.
+3. In the filter search box, type "**Azure Active Directory**" and select **the Azure Active Directory** item.
+4. From the navigation menu, click **Enterprise applications**. 
 5. Under **Manage**, select **User settings**.
 6. Under **Admin consent requests (Preview)**, set **Users can request admin consent to apps they are unable to consent to** to **Yes**.
 
@@ -70,10 +69,10 @@ After the admin consent workflow is enabled, users can request admin approval fo
 
 To review the admin consent requests and take action:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as one of the registered reviewers of the admin consent workflow.
-2. Select **All services** at the top of the left-hand navigation menu. The **Azure Active Directory Extension** opens.
-3. In the filter search box, type "**Azure Active Directory**" and select the **Azure Active Directory** item.
-4. From the navigation menu, click **Enterprise applications**.
+1. Sign in to the [Azure portal](https://portal.azure.com) as one of the registered reviewers of the admin consent workflow.
+2. Select **All services** at the top of the left-hand navigation menu. The **Azure Active Directory Extension** opens.
+3. In the filter search box, type "**Azure Active Directory**" and select the **Azure Active Directory** item.
+4. From the navigation menu, click **Enterprise applications**.
 5. Under **Activity**, select **Admin consent requests (Preview)**.
 
    > [!NOTE]
@@ -116,12 +115,12 @@ The table below outlines the scenarios and audit values available for the admin 
 
 |Scenario  |Audit Service  |Audit Category  |Audit Activity  |Audit Actor  |Audit log limitations  |
 |---------|---------|---------|---------|---------|---------|
-|Admin enabling the consent request workflow        |Access Reviews           |UserManagement           |Create governance policy template          |App context            |Currently you cannot find the user context            |
-|Admin disabling the  consent request workflow       |Access Reviews           |UserManagement           |Delete governance policy template          |App context            |Currently you cannot find the user context           |
-|Admin updating the consent workflow configurations        |Access Reviews           |UserManagement           |Update governance policy template          |App context            |Currently you cannot find the user context           |
-|End user creating an admin consent request for an app       |Access Reviews           |Policy         |Create request           |App context            |Currently you cannot find the user context           |
-|Reviewers approving an admin consent request       |Access Reviews           |UserManagement           |Approve all requests in business flow          |App context            |Currently you cannot find the user context or the app ID that was granted admin consent.           |
-|Reviewers denying an admin consent request       |Access Reviews           |UserManagement           |Approve all requests in business flow          |App context            | Currently you cannot find the user context of the actor that denied an admin consent request          |
+|Admin enabling the consent request workflow        |Access Reviews           |UserManagement           |Create governance policy template          |App context            |Currently you cannot find the user context            |
+|Admin disabling the  consent request workflow       |Access Reviews           |UserManagement           |Delete governance policy template          |App context            |Currently you cannot find the user context           |
+|Admin updating the consent workflow configurations        |Access Reviews           |UserManagement           |Update governance policy template          |App context            |Currently you cannot find the user context           |
+|End user creating an admin consent request for an app       |Access Reviews           |Policy         |Create request           |App context            |Currently you cannot find the user context           |
+|Reviewers approving an admin consent request       |Access Reviews           |UserManagement           |Approve all requests in business flow          |App context            |Currently you cannot find the user context or the app ID that was granted admin consent.           |
+|Reviewers denying an admin consent request       |Access Reviews           |UserManagement           |Approve all requests in business flow          |App context            | Currently you cannot find the user context of the actor that denied an admin consent request          |
 
 ## FAQ 
 
@@ -149,8 +148,10 @@ If you're concerned about granting admin consent and allowing all users in the t
 
 For more information on consenting to applications, see [Azure Active Directory consent framework](../develop/consent-framework.md).
 
-[Consent and Integrating Apps to AzureAD](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+[Configure how end-users consent to applications](configure-user-consent.md)
 
-[Consent and Permissioning for AzureAD v2.0 converged Apps](../develop/active-directory-v2-scopes.md)
+[Grant tenant-wide admin consent to an application](grant-admin-consent.md)
 
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Permissions and consent in the Microsoft identity platform](../develop/active-directory-v2-scopes.md)
+
+[Azure AD on StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

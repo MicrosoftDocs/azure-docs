@@ -2,12 +2,9 @@
 title: Best practices for Azure Kubernetes Service (AKS)
 description: Collection of the cluster operator and developer best practices to build and manage applications in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.author: mlearned
+
 ---
 
 # Cluster operator and developer best practices to build and manage applications on Azure Kubernetes Service (AKS)
@@ -29,7 +26,7 @@ As a cluster operator, work together with application owners and developers to u
 * [Best practices for advanced scheduler features](operator-best-practices-advanced-scheduler.md)
     * Includes using taints and tolerations, node selectors and affinity, and inter-pod affinity and anti-affinity.
 * [Best practices for authentication and authorization](operator-best-practices-identity.md)
-    * Includes integration with Azure Active Directory, using role-based access controls (RBAC), and pod identities.
+    * Includes integration with Azure Active Directory, using role-based access control (RBAC), and pod identities.
 
 **Security**
 

@@ -1,17 +1,17 @@
 ---
-title: Migrate Azure network resources from Azure Germany to global Azure
+title: Migrate Azure network resource from Azure Germany to global Azure
 description: This article provides information about migrating your Azure network resources from Azure Germany to global Azure.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 08/15/2018
-ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Migrate network resources to global Azure
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 Most networking services don't support migration from Azure Germany to global Azure. However, you can connect your networks in both cloud environments by using a site-to-site VPN. 
 

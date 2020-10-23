@@ -1,17 +1,17 @@
 ---
 title: Migrate Azure media resources from Azure Germany to global Azure
 description: This article provides information about migrating your Azure media resources from Azure Germany to global Azure.
+ms.topic: article
+ms.date: 10/16/2020
 author: gitralf
-services: germany
-cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 08/15/2018
-ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Migrate media resources to global Azure
+
+[!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
 This article has information that can help you migrate Azure media resources from Azure Germany to global Azure.
 

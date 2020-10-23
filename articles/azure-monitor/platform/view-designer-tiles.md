@@ -1,7 +1,6 @@
 ---
 title: A reference guide to the View Designer tiles in Azure Monitor | Microsoft Docs
 description: By using View Designer in Azure Monitor, you can create custom views that are displayed in the Azure portal and contain a variety of visualizations on data in the Log Analytics workspace. This article is a reference guide to the settings for the tiles that are available in your custom views.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -101,7 +100,7 @@ The **Donut** tile displays a single number that summarizes a value column in a 
 ## Line chart tile
 This tile is a line chart that displays multiple series from a log query over time. 
 
-![Line chart and callout tile](media/view-designer-tiles/tile-line-chart.png)
+![Screenshot of a line chart tile in the Azure Monitor View Designer.](media/view-designer-tiles/tile-line-chart.png)
 
 | Setting | Description |
 |:--- |:--- |
@@ -122,7 +121,7 @@ This tile is a line chart that displays multiple series from a log query over ti
 ## Line chart and callout tile
 This tile has both a line chart that displays multiple series from a log query over time and a callout with a summarized value. 
 
-![Line chart and callout tile](media/view-designer-tiles/tile-line-chart-callout.png)
+![Screenshot of a line chart and callout tile in the Azure Monitor View Designer.The callout augments the line chart by showing a summarized value.](media/view-designer-tiles/tile-line-chart-callout.png)
 
 | Setting | Description |
 |:--- |:--- |

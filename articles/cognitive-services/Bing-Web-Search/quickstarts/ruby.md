@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Ruby.
@@ -16,7 +16,7 @@ ms.custom: seodec2018
 
 # Quickstart: Use Ruby to call the Bing Web Search API  
 
-Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Ruby application sends a search request to the API, and shows the response. While this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to make your first call to the Bing Web Search API. This Ruby application sends a search request to the API, and shows the JSON response. Although this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ Here are a few things that you'll need before running this quickstart:
 
 ## Create a project and declare required modules
 
-Create a new Ruby project in your favorite IDE or editor. Then require `net/https` for requests, `uri` for URI handling, and `json` to parse the response.
+Create a new Ruby project in your favorite IDE or editor. Then, require `net/https` for requests, `uri` for URI handling, and `json` to parse the response.
 
 ```ruby
 require 'net/https'
@@ -39,7 +39,13 @@ require 'json'
 
 ## Define variables
 
-A few variables must be set before we can continue. Confirm that the `$uri` and `path` are valid and replace the `accessKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `term`.
+A few variables must be set before we can continue:
+
+1. For the `uri` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+
+2. Confirm that the `uri` and `path` values are valid and replace the `accessKey` value with a subscription key from your Azure account. 
+
+3. Optionally, customize the search query by replacing the value for `term`.
 
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"
@@ -56,7 +62,7 @@ end
 
 ## Make a request
 
-Use this code to make a request and handle the response.
+Use this code to make a request and handle the response:
 
 ```ruby
 # Construct the endpoint uri.
@@ -92,7 +98,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## Put it all together
 
-The last step is to validate your code and run it! If you'd like to compare your code with ours, here's the complete program:
+The last step is to validate your code and run it. If you'd like to compare your code with ours, here's the complete program:
 
 ```ruby
 require 'net/https'
@@ -131,7 +137,7 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## Sample response
+## Example JSON response
 
 Responses from the Bing Web Search API are returned as JSON. This sample response has been truncated to show a single result.
 
@@ -153,9 +159,9 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
         "snippet": "Knock down barriers between you and your ideas. Enable natural and contextual interaction with tools that augment users' experiences via the power of machine-based AI. Plug them in and bring your ideas to life.",
         "deepLinks": [
           {
-            "name": "Face API",
+            "name": "Face",
             "url": "https://azure.microsoft.com/services/cognitive-services/face/",
-            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face API from Microsoft Azure. ... Cognitive Services; Face API;"
+            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using the Face service from Microsoft Azure. ... Cognitive Services; Face service;"
           },
           {
             "name": "Text Analytics",
@@ -260,6 +266,6 @@ Responses from the Bing Web Search API are returned as JSON. This sample respons
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
+> [Bing Web Search API single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

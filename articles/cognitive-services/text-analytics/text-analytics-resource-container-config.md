@@ -3,19 +3,19 @@ title: Configure containers - Text Analytics
 titleSuffix: Azure Cognitive Services
 description: Text Analytics provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Configure Text Analytics docker containers
 
-Text Analytics provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
+Text Analytics provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers. Several [example docker run commands](how-tos/text-analytics-how-to-install-containers.md#run-the-container-with-docker-run) are also available.
 
 ## Configuration settings
 
@@ -46,7 +46,7 @@ This setting can be found in the following place:
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | The required billing endpoint URI |
+|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 
@@ -76,38 +76,6 @@ The exact syntax of the host mount location varies depending on the host operati
 |-------|------|-----------|-------------|
 |Not allowed| `Input` | String | Text Analytics containers do not use this.|
 |Optional| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
-
-## Example docker run commands 
-
-The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](how-tos/text-analytics-how-to-install-containers.md#stop-the-container) it.
-
-* **Line-continuation character**: The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
-* **Argument order**: Do not change the order of the arguments unless you are very familiar with docker containers.
-
-Replace {_argument_name_} with your own values:
-
-| Placeholder | Value | Format or example |
-|-------------|-------|---|
-| **{API_KEY}** | The endpoint key of the `Text Analytics` resource available on the Azure `Text Analytics` Keys page. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Text Analytics` Overview page.| See [gathering required parameters](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) for explicit examples. |
-
-> [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](how-tos/text-analytics-how-to-install-containers.md#billing).
-> The ApiKey value is the **Key** from the Azure `Text Analytics` Resource keys page. 
-
-#### [Key Phrase Extraction](#tab/keyphrase)
-
-[!INCLUDE [key-phrase-extraction-docker-examples](includes/key-phrase-extraction-docker-examples.md)]
-
-#### [Language Detection](#tab/language)
-
-[!INCLUDE [language-detection-docker-examples](includes/language-detection-docker-examples.md)]
-
-#### [Sentiment Analysis](#tab/sentiment)
-
-[!INCLUDE [sentiment-analysis-docker-examples](includes/sentiment-analysis-docker-examples.md)]
-
-***
 
 ## Next steps
 

@@ -1,12 +1,12 @@
 ---
-title: Troubleshooting devices using the dsregcmd command - Azure Active Directory
+title: Troubleshoot using the dsregcmd command - Azure Active Directory
 description: Using the output from dsregcmd to understand the state of devices in Azure AD 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -83,6 +83,9 @@ Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not
 Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not Azure AD registered). This section lists the common tenant details when a device is joined to Azure AD.
 
 > [!NOTE]
+> If the MDM URLs in this section are empty, it indicates that the MDM was either not configured or current user is not in scope of MDM enrollment. Check the Mobility settings in Azure AD to review your MDM configuration.
+
+> [!NOTE]
 > Even if you see MDM URLs this does not mean that the device is managed by an MDM. The information is displayed if the tenant has MDM configuration for auto-enrollment even if the device itself is not managed. 
 
 ### Sample tenant details output
@@ -128,7 +131,7 @@ This section lists the status of various attributes for the user currently logge
 - **CanReset:** - Denotes if the Windows Hello key can be reset by the user. 
 - **Possible values:** - DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive, or Unknown if error. 
 - **WorkplaceJoined:** - Set to “YES” if Azure AD registered accounts have been added to the device in the current NTUSER context.
-- **WamDefaultSet:** - Set to “YES” if a WAM default WebAccount is created for the logged in user. This field could display an error if dsreg /status is run in admin context. 
+- **WamDefaultSet:** - Set to “YES” if a WAM default WebAccount is created for the logged in user. This field could display an error if dsreg /status is run from an elevated command prompt. 
 - **WamDefaultAuthority:** - Set to “organizations” for Azure AD.
 - **WamDefaultId:** - Always “https://login.microsoft.com” for Azure AD.
 - **WamDefaultGUID:** - The WAM provider’s (Azure AD/Microsoft account) GUID for the default WAM WebAccount. 
@@ -205,8 +208,16 @@ This section performs various tests to help diagnose join failures. This section
 - **AD Configuration Test:** - Test reads and verifies whether the SCP object is configured properly in the on-premises AD forest. Errors in this test would likely result in Join errors in the discover phase with the error code 0x801c001d.
 - **DRS Discovery Test:** - Test gets the DRS endpoints from discovery metadata endpoint and performs a user realm request. Errors in this test would likely result in Join errors in the discover phase.
 - **DRS Connectivity Test:** - Test performs basic connectivity test to the DRS endpoint.
-- **Token acquisition Test:** - Test tries to get an Azure AD authentication token if the user tenant is federated. Errors in this test would likely result in Join errors in the auth phase. If auth fails sync join will be attempted as fallback, unless fallback is explicitly disabled with a registry key.
-- **Fallback to Sync-Join:** - Set to “Enabled” if the registry key, to prevent the fallback to sync join with auth failures, is NOT present. This option is available from Windows 10 1803 and later.
+- **Token acquisition Test:** - Test tries to get an Azure AD authentication token if the user tenant is federated. Errors in this test would likely result in Join errors in the auth phase. If auth fails sync join will be attempted as fallback, unless fallback is explicitly disabled with the below registry key settings.
+```
+    Keyname: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
+    Value: FallbackToSyncJoin
+    Type:  REG_DWORD
+    Value: 0x0 -> Disabled
+    Value: 0x1 -> Enabled
+    Default (No Key): Enabled
+ ```
+- **Fallback to Sync-Join:** - Set to “Enabled” if the above registry key, to prevent the fallback to sync join with auth failures, is NOT present. This option is available from Windows 10 1803 and later.
 - **Previous Registration:** - Time the previous Join attempt occurred. Only failed Join attempts are logged.
 - **Error Phase:** - The stage of the join in which it was aborted. Possible values are pre-check, discover, auth, join.
 - **Client ErrorCode:** - Client error code returned (HRESULT).
@@ -291,10 +302,22 @@ This section displays the output of sanity checks performed on a device joined t
 
 ## NGC prerequisite check
 
-This section performs the perquisite checks for the provisioning of an NGC key. 
+This section performs the perquisite checks for the provisioning of Windows Hello for Business (WHFB). 
 
 > [!NOTE]
-> You may not see NGC pre-requisite check details in dsregcmd /status if the user already successfully configured NGC credentials.
+> You may not see NGC pre-requisite check details in dsregcmd /status if the user already successfully configured WHFB.
+
+- **IsDeviceJoined:** - Set to “YES” if the device is joined to Azure AD.
+- **IsUserAzureAD:** - Set to “YES” if the logged in user is present in Azure AD .
+- **PolicyEnabled:** - Set to "YES" if the WHFB policy is enabled on the device.
+- **PostLogonEnabled:** - Set to "YES" if WHFB enrollment is triggered natively by the platform. If it's set to "NO", it indicates that Windows Hello for Business enrollment is triggered by a custom mechanism
+- **DeviceEligible:** - Set to “YES” if the device meets the hardware requirement for enrolling with WHFB.
+- **SessionIsNotRemote:** - Set to “YES” if the current user is logged in directly to the device and not remotely.
+- **CertEnrollment:** - Specific to WHFB Certificate Trust deployment, indicating the certificate enrollment authority for WHFB. Set to “enrollment authority” if source of WHFB policy is Group Policy, “mobile device management” if source is MDM. “none” otherwise
+- **AdfsRefreshToken:** - Specific to WHFB Certificate Trust deployment. Only present if CertEnrollment is “enrollment authority”. Indicates if the device has an enterprise PRT for the user.
+- **AdfsRaIsReady:** - Specific to WHFB Certificate Trust deployment.  Only present if CertEnrollment is “enrollment authority”. Set to “YES” if ADFS indicated in discovery metadata that it supports WHFB *and* if logon certificate template is available.
+- **LogonCertTemplateReady:** - Specific to WHFB Certificate Trust deployment. Only present if CertEnrollment is “enrollment authority”. Set to “YES” if state of logon certificate template is valid and helps troubleshoot ADFS RA.
+- **PreReqResult:** - Provides result of all WHFB prerequisite evaluation. Set to “Will Provision” if WHFB enrollment would be launched as a post-logon task when user signs in next time.
 
 ### Sample NGC prerequisite check output
 

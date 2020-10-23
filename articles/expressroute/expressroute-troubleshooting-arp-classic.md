@@ -1,14 +1,13 @@
 ---
-title: 'Get ARP tables- Troubleshooting ExpressRoute: classic: Azure| Microsoft Docs'
+title: 'Azure ExpressRoute: ARP tables - Troubleshooting: classic'
 description: This page provides instructions for getting the ARP tables for an ExpressRoute circuit - classic deployment model.
 services: expressroute
-author: ganesr
+author: duongau
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/30/2017
-ms.author: ganesr
-ms.custom: seodec18
+ms.author: duau
 
 ---
 # Getting ARP tables in the classic deployment model
@@ -38,10 +37,12 @@ ARP tables can help with validating Layer 2 configuration and with troubleshooti
 
 Following is an example of an ARP table:
 
-        Age InterfaceProperty IpAddress  MacAddress    
-        --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1 ffff.eeee.dddd
-          0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+ 10 On-Prem           10.0.0.1   ffff.eeee.dddd
+  0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
+```
 
 
 The following section provides information about how to view the ARP tables that are seen by the ExpressRoute edge routers.
@@ -60,67 +61,81 @@ This section provides instructions about how to view the ARP tables for each typ
 ### ARP tables for Azure private peering
 The following cmdlet provides the ARP tables for Azure private peering:
 
-        # Required variables
-        $ckt = "<your Service Key here>
+```azurepowershell
+# Required variables
+$ckt = "<your Service Key here>
 
-        # ARP table for Azure private peering--primary path
-        Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Private -Path Primary
+# ARP table for Azure private peering--primary path
+Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Private -Path Primary
 
-        # ARP table for Azure private peering--secondary path
-        Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Private -Path Secondary
+# ARP table for Azure private peering--secondary path
+Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Private -Path Secondary
+```
 
 Following is sample output for one of the paths:
 
-        Age InterfaceProperty IpAddress  MacAddress    
-        --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1 ffff.eeee.dddd
-          0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+ 10 On-Prem           10.0.0.1   ffff.eeee.dddd
+  0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
+```
 
 
 ### ARP tables for Azure public peering:
 The following cmdlet provides the ARP tables for Azure public peering:
 
-        # Required variables
-        $ckt = "<your Service Key here>
+```azurepowershell
+# Required variables
+$ckt = "<your Service Key here>
 
-        # ARP table for Azure public peering--primary path
-        Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Public -Path Primary
+# ARP table for Azure public peering--primary path
+Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Public -Path Primary
 
-        # ARP table for Azure public peering--secondary path
-        Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Public -Path Secondary
-
-Following is sample output for one of the paths:
-
-        Age InterfaceProperty IpAddress  MacAddress    
-        --- ----------------- ---------  ----------    
-         10 On-Prem           10.0.0.1 ffff.eeee.dddd
-          0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
-
+# ARP table for Azure public peering--secondary path
+Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Public -Path Secondary
+```
 
 Following is sample output for one of the paths:
 
-        Age InterfaceProperty IpAddress  MacAddress    
-        --- ----------------- ---------  ----------    
-         10 On-Prem           64.0.0.1 ffff.eeee.dddd
-          0 Microsoft         64.0.0.2 aaaa.bbbb.cccc
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+ 10 On-Prem           10.0.0.1   ffff.eeee.dddd
+  0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
+```
+
+
+Following is sample output for one of the paths:
+
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+ 10 On-Prem           64.0.0.1   ffff.eeee.dddd
+  0 Microsoft         64.0.0.2   aaaa.bbbb.cccc
+```
 
 
 ### ARP tables for Microsoft peering
 The following cmdlet provides the ARP tables for Microsoft peering:
 
-    # ARP table for Microsoft peering--primary path
-    Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Microsoft -Path Primary
+```azurepowershell
+# ARP table for Microsoft peering--primary path
+Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Microsoft -Path Primary
 
-    # ARP table for Microsoft peering--secondary path
-    Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Microsoft -Path Secondary
+# ARP table for Microsoft peering--secondary path
+Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Microsoft -Path Secondary
+```
 
 
 Sample output is shown below for one of the paths:
 
-        Age InterfaceProperty IpAddress  MacAddress    
-        --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1 ffff.eeee.dddd
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+ 10 On-Prem           65.0.0.1   ffff.eeee.dddd
+  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+```
 
 
 ## How to use this information
@@ -132,17 +147,21 @@ The ARP table of a peering can be used to validate Layer 2 configuration and con
 * The last octet of the Microsoft IP address is always an even number.
 * The same MAC address appears on the Microsoft side for all three peerings (primary/secondary).
 
-        Age InterfaceProperty IpAddress  MacAddress    
-        --- ----------------- ---------  ----------    
-         10 On-Prem           65.0.0.1 ffff.eeee.dddd
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+ 10 On-Prem           65.0.0.1   ffff.eeee.dddd
+  0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
+```
 
 ### ARP table when it's on-premises or when the connectivity-provider side has problems
  Only one entry appears in the ARP table. It shows the mapping between the MAC address and the IP address that's used on the Microsoft side.
 
-        Age InterfaceProperty IpAddress  MacAddress    
-        --- ----------------- ---------  ----------    
-          0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
+```output
+Age InterfaceProperty IpAddress  MacAddress    
+--- ----------------- ---------  ----------    
+   0 Microsoft         65.0.0.2  aaaa.bbbb.cccc
+```
 
 > [!NOTE]
 > If you experience an issue like this, open a support request with your connectivity provider to resolve it.

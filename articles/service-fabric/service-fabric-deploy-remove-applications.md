@@ -1,21 +1,9 @@
 ---
-title: Azure Service Fabric application deployment | Microsoft Docs
-description: How to deploy and remove applications in Service Fabric using PowerShell.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
+title: Azure Service Fabric deployment with PowerShell
+description: Learn about removing and deploying applications in Azure Service Fabric and how to perform these actions in Powershell.
 
-ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/19/2018
-ms.author: atsenthi
-
 ---
 # Deploy and remove applications using PowerShell
 
@@ -107,7 +95,7 @@ C:\USERS\USER\DOCUMENTS\VISUAL STUDIO 2015\PROJECTS\MYAPPLICATION\MYAPPLICATION\
 ```
 
 If the application package is large and/or has many files, you can [compress it](service-fabric-package-apps.md#compress-a-package). The compression reduces the size and the number of files.
-The side effect is that registering and un-registering the application type are faster. Upload time may be slower currently, especially if you include the time to compress the package. 
+This results in faster registering and unregistering of the application type. Upload time may be slower currently, especially if you include the time to compress the package. 
 
 To compress a package, use the same [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) command. Compression can be done separate from upload,
 by using the `SkipCopy` flag, or together with the upload operation. Applying compression on a compressed package is no-op.
@@ -144,7 +132,7 @@ For example, here is compression statistics for some packages, which show the in
 |2048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-Once a package is compressed, it can be uploaded to one or multiple Service Fabric clusters as needed. The deployment mechanism is same for compressed and uncompressed packages. Compressed packages are stored as such in the cluster image store. The packages are uncompressed on the node, before the application is run.
+Once a package is compressed, it can be uploaded to one or multiple Service Fabric clusters as needed. The deployment mechanism is the same for compressed and uncompressed packages. Compressed packages are stored as such in the cluster image store. The packages are uncompressed on the node, before the application is run.
 
 
 The following example uploads the package to the image store, into a folder named "MyApplicationV1":

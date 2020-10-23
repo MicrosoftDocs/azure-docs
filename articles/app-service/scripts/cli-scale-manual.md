@@ -1,23 +1,15 @@
 ---
-title: Azure CLI Script Sample - Scale an app manually using Azure CLI | Microsoft Docs
-description: Azure CLI Script Sample - Scale an App Service manually using Azure CLI 
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'CLI: Scale an app manually'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to scale an app manually. 
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: 251d9074-8fff-4121-ad16-9eca9556ac96
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18, devx-track-azurecli
 ---
 
 # Scale an App Service app manually using Azure CLI
@@ -49,6 +41,6 @@ This script uses the following commands to create a resource group, App Service 
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional App Service CLI script samples can be found in the [Azure App Service documentation](../samples-cli.md).

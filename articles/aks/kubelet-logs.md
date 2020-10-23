@@ -2,12 +2,9 @@
 title: View kubelet logs in Azure Kubernetes Service (AKS)
 description: Learn how to view troubleshooting information in the kubelet logs from Azure Kubernetes Service (AKS) nodes
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 03/05/2019
-ms.author: mlearned
+
 
 #Customer intent: As a cluster operator, I want to view the logs for the kubelet that runs on each node in an AKS cluster to troubleshoot problems.
 ---
@@ -33,6 +30,12 @@ Once you have connected to the node, run the following command to pull the *kube
 ```console
 sudo journalctl -u kubelet -o cat
 ```
+
+> [!NOTE]
+> For Windows nodes, the log data is in `C:\k` and can be viewed using the *more* command:
+> ```
+> more C:\k\kubelet.log
+> ```
 
 The following sample output shows the *kubelet* log data:
 

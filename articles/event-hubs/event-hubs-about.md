@@ -1,18 +1,8 @@
 ---
 title: What is Azure Event Hubs? - a Big Data ingestion service | Microsoft Docs
 description: Learn about Azure Event Hubs, a Big Data streaming service that ingests millions of events per second.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-
-ms.service: event-hubs
 ms.topic: overview
-ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-#Customer intent: As a developer, I want to understand how Event Hubs can help me load and stream large volumes of data into Azure for real-time and batch business scenarios.
-
+ms.date: 06/23/2020
 ---
 
 # Azure Event Hubs — A big data streaming platform and event ingestion service
@@ -49,7 +39,7 @@ Ingest, buffer, store, and process your stream in real time to get actionable in
 
 [Capture](event-hubs-capture-overview.md) your data in near-real time in an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) for long-term retention or micro-batch processing. You can achieve this behavior on the same stream you use for deriving real-time analytics. Setting up capture of event data is fast. There are no administrative costs to run it, and it scales automatically with Event Hubs [throughput units](event-hubs-scalability.md#throughput-units). Event Hubs enables you to focus on data processing rather than on data capture.
 
-Azure Event Hubs also integrates with [Azure Functions](/azure/azure-functions/) for a serverless architecture.
+Azure Event Hubs also integrates with [Azure Functions](../azure-functions/index.yml) for a serverless architecture.
 
 ## Scalable
 
@@ -59,7 +49,7 @@ With Event Hubs, you can start with data streams in megabytes, and grow to gigab
 
 [Event Hubs for Apache Kafka ecosystems](event-hubs-for-kafka-ecosystem-overview.md) enables [Apache Kafka (1.0 and later)](https://kafka.apache.org/) clients and applications to talk to Event Hubs. You do not need to set up, configure, and manage your own Kafka clusters.
 
-With a broad ecosystem available in various [languages (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), you can easily start processing your streams from Event Hubs. All supported client languages provide low-level integration. The ecosystem also provides you with seamless integration with Azure services like Azure Stream Analytics and Azure Functions and thus enables you to build serverless architectures.
+With a broad ecosystem available in various languages [.NET](https://github.com/Azure/azure-sdk-for-net/), [Java](https://github.com/Azure/azure-sdk-for-java/), [Python](https://github.com/Azure/azure-sdk-for-python/), [JavaScript](https://github.com/Azure/azure-sdk-for-js/), you can easily start processing your streams from Event Hubs. All supported client languages provide low-level integration. The ecosystem also provides you with seamless integration with Azure services like Azure Stream Analytics and Azure Functions and thus enables you to build serverless architectures.
 
 ## Key architecture components
 Event Hubs contains the following [key components](event-hubs-features.md):
@@ -74,16 +64,22 @@ The following figure shows the Event Hubs stream processing architecture:
 
 ![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
 
+## Event Hubs on Azure Stack Hub
+Event Hubs on Azure Stack Hub allows you to realize hybrid cloud scenarios. Streaming and event-based solutions are supported, for both on-premises and Azure cloud processing. Whether your scenario is hybrid (connected), or disconnected, your solution can support processing of events/streams at large scale. Your scenario is only bound by the Event Hubs cluster size, which you can provision according to your needs. 
+
+The Event Hubs editions (on Azure Stack Hub and on Azure) offer a high degree of feature parity. This parity means SDKs, samples, PowerShell, CLI, and portals offer a similar experience, with few differences. 
+
+Event Hubs on Stack is free during public preview. For more information, see [Event Hubs on Azure Stack Hub overview](/azure-stack/user/event-hubs-overview).
+
 
 ## Next steps
 
 To get started using Event Hubs, see the **Send and receive events** tutorials:
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 - [Java](event-hubs-java-get-started-send.md)
 - [Python](event-hubs-python-get-started-send.md)
-- [Node.js](event-hubs-node-get-started-send.md)
+- [JavaScript](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (send only)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)
@@ -93,5 +89,3 @@ To learn more about Event Hubs, see the following articles:
 
 - [Event Hubs features overview](event-hubs-features.md)
 - [Frequently asked questions](event-hubs-faq.md).
-
-

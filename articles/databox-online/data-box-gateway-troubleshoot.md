@@ -1,25 +1,25 @@
 ---
 title: Use the Azure portal to troubleshoot Azure Data Box Gateway | Microsoft Docs 
-description: Describes how to troubleshoot Azure Data Box Gateway issues.
+description: Learn how to troubleshoot issues on your Azure Data Box Gateway. You can run diagnostics, collect information for Support, and use logs to troubleshoot.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 03/20/2019
 ms.author: alkohli
 ---
-# Troubleshoot your Azure Data Box Gateway issues 
+# Troubleshoot your Azure Data Box Gateway issues
 
-This article describes how to troubleshoot issues on your Azure Data Box Gateway. 
+This article describes how to troubleshoot issues on your Azure Data Box Gateway.
 In this article, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Run diagnostics
 > * Collect Support package
 > * Use logs to troubleshoot
-
 
 ## Run diagnostics
 
@@ -31,22 +31,22 @@ To diagnose and troubleshoot any device errors, you can run the diagnostics test
  
 2. After the tests have completed, the results are displayed. If a test fails, then a URL for recommended action is presented. You can click the URL to view the recommended action. 
  
-    ![Click add user](media/data-box-gateway-troubleshoot/run-diag-2.png)
+    ![Click add user 2](media/data-box-gateway-troubleshoot/run-diag-2.png)
 
 
 ## Collect Support package
 
-A log package is composed of all the relevant logs that can help Microsoft Support troubleshoot any device issues. You can generate a log package via the local web UI.
+A log package is composed of all the relevant logs that can help Microsoft Support troubleshoot any device issues. You can generate a log package via the local web UI. 
 
 Do the following steps to collect a Support package. 
 
 1. In the local web UI, go to **Troubleshooting > Support**. Click **Create support package**. The system starts collecting support package. The package collection may take several minutes.
 
-    ![Click add user](media/data-box-gateway-troubleshoot/collect-logs-1.png)
+    ![Click add user 3](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
 2. After the Support package is created, click **Download Support package**. A zipped package is downloaded on the path you chose. You can unzip the package.
 
-    ![Click add user](media/data-box-gateway-troubleshoot/collect-logs-2.png)
+    ![Click add user 4](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 
 ## Use logs to troubleshoot
 
@@ -54,7 +54,7 @@ Any errors experienced during the upload and refresh processes are included in t
 
 1. To view the error files, go to your share and click the share to view the contents. 
 
-      ![Click add user](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
+      ![Click add user 5](media/data-box-gateway-troubleshoot/troubleshoot-logs-1.png)
 
 2. Click the _Microsoft Data Box Gateway folder_. This folder has two subfolders:
 

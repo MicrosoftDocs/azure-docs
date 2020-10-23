@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Gremlin API with PHP - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Gremlin API to create a console application with the Azure portal and PHP
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
-ms.author: lbosq
+ms.author: jasonh
 
 ---
 # Quickstart: Create a graph database in Azure Cosmos DB using PHP and the Azure portal
@@ -101,7 +101,8 @@ Now go back to the Azure portal to get your connection information and copy it i
 
     Copy the first portion of the URI value.
 
-    ![View and copy an access key in the Azure portal, Keys page](./media/create-graph-php/keys.png)
+    :::image type="content" source="./media/create-graph-php/keys.png" alt-text="View and copy an access key in the Azure portal, Keys page":::
+
 2. Open the `connect.php` file and in line 8 paste the URI value over `your_server_address`.
 
     The connection object initialization should now look similar to the following code:
@@ -187,15 +188,15 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
 1. Click **Data Explorer**, expand **sample-graph**, click **Graph**, and then click **Apply Filter**. 
 
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png)
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="Create new documents in Data Explorer in the Azure portal":::
 
 2. In the **Results** list, notice the new users added to the graph. Select **ben** and notice that they're connected to robin. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
 
-   ![New vertices in the graph in Data Explorer in the Azure portal](./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png)
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png" alt-text="New vertices in the graph in Data Explorer in the Azure portal":::
 
 3. Let's add a few new users. Click the **New Vertex** button to add data to your graph.
 
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png)
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Create new documents in Data Explorer in the Azure portal":::
 
 4. Enter a label of *person*.
 
@@ -232,15 +233,15 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
 12. Now you can connect rakesh and ashley. Ensure **ashley** is selected in the **Results** list, then click the edit button next to **Targets** on lower right side. You may need to widen your window to see the **Properties** area.
 
-    ![Change the target of a vertex in a graph](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Change the target of a vertex in a graph":::
 
 13. In the **Target** box type *rakesh*, and in the **Edge label** box type *knows*, and then click the check.
 
-    ![Add a connection between ashley and rakesh in Data Explorer](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png" alt-text="Add a connection between ashley and rakesh in Data Explorer":::
 
 14. Now select **rakesh** from the results list and see that ashley and rakesh are connected. 
 
-    ![Two vertices connected in Data Explorer](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer.png" alt-text="Two vertices connected in Data Explorer":::
 
     That completes the resource creation part of this quickstart. You can continue to add vertexes to your graph, modify the existing vertexes, or change the queries. Now let's review the metrics Azure Cosmos DB provides, and then clean up the resources. 
 

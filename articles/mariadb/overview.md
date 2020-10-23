@@ -1,12 +1,12 @@
 ---
-title: Overview of the Azure Database for MariaDB relational database service
+title: Overview - Azure Database for MariaDB
 description: Learn about the Azure Database for MariaDB service, a relational database service in the Microsoft cloud based on the MySQL community edition.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 08/13/2019
+ms.date: 3/18/2020
 ---
 
 # What is Azure Database for MariaDB?
@@ -48,11 +48,7 @@ Azure's industry-leading 99.99% availability SLA is powered by a global network 
 
 ## Secure your data
 
-Azure database services have a tradition of data security that Azure Database for MariaDB upholds. Azure Database for MariaDB offers features that limit access, protect data at rest and in motion, and help you monitor activity. Visit the [Azure Trust Center](https://www.microsoft.com/en-us/trustcenter/security) for information about Azure's platform security.
-
-The Azure Database for MariaDB service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, are encrypted on disk with the exception of temporary files created while running queries. The service uses AES 256-bit cipher, which is included in Azure Storage encryption. The keys are system managed. Storage encryption is always on and can't be disabled.
-
-By default, the Azure Database for MariaDB service is configured to require [SSL connection security](./concepts-ssl-connection-security.md) for data in motion across the network. Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application. Optionally, you can disable the SSL requirement for connecting to your database service if your client application doesn't support SSL connectivity.
+Azure database services have a tradition of data security that Azure Database for MariaDB upholds. Azure Database for MariaDB offers features that limit access, protect data at rest and in motion, and help you monitor activity. Visit the [Azure Trust Center](https://www.microsoft.com/trustcenter/security) for information about Azure's platform security. For more information about Azure Database for MariaDB security features, see the [security overview](concepts-security.md).
 
 ## Contacts
 

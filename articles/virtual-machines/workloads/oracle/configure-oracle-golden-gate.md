@@ -1,21 +1,13 @@
 ---
 title: Implement Oracle Golden Gate on an Azure Linux VM | Microsoft Docs
 description: Quickly get an Oracle Golden Gate up and running in your Azure environment.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: romitgirdhar
-manager: gwallace
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
+author: dbakevlar
 ms.service: virtual-machines-linux
-
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogirdh
+ms.author: kegorman
+ms.reviewer: cynthn
+
 ---
 
 # Implement Oracle Golden Gate on an Azure Linux VM 
@@ -24,7 +16,7 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 This document shows you step-by-step how to create, install, and configure Oracle Golden Gate on an Azure VM. In this tutorial, two virtual machines are setup in an availability set in a single region. The same tutorial can be used to setup OracleGolden Gate for VMs in different Availability Zones in a single Azure region or for VMs setup in two different regions.
 
-Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](/cli/azure/install-azure-cli).
 
 ## Prepare the environment
 
@@ -65,7 +57,7 @@ az group create --name myResourceGroup --location westus
 
 ### Create an availability set
 
-The following step is optional but recommended. For more information, see [Azure availability sets guide](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+The following step is optional but recommended. For more information, see [Azure availability sets guide](/previous-versions/azure/virtual-machines/windows/infrastructure-example).
 
 ```azurecli
 az vm availability-set create \
@@ -82,6 +74,7 @@ Create a VM with the [az vm create](/cli/azure/vm) command.
 The following example creates two VMs named `myVM1` and `myVM2`. Create SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.
 
 #### Create myVM1 (primary):
+
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -94,7 +87,7 @@ az vm create \
 
 After the VM has been created, the Azure CLI shows information similar to the following example. (Take note of the `publicIpAddress`. This address is used to access the VM.)
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -108,6 +101,7 @@ After the VM has been created, the Azure CLI shows information similar to the fo
 ```
 
 #### Create myVM2 (replicate):
+
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -136,7 +130,7 @@ az network nsg rule create --resource-group myResourceGroup\
 
 The results should look similar to the following response:
 
-```bash
+```output
 {
   "access": "Allow",
   "description": null,
@@ -169,7 +163,7 @@ az network nsg rule create --resource-group myResourceGroup\
 
 Use the following command to create an SSH session with the virtual machine. Replace the IP address with the `publicIpAddress` of your virtual machine.
 
-```bash 
+```bash
 ssh <publicIpAddress>
 ```
 
@@ -204,9 +198,10 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
+
 Outputs should look similar to the following response:
 
-```bash
+```output
 Copying database files
 1% complete
 2% complete
@@ -256,6 +251,7 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
 
 ### Start Oracle listener
+
 ```bash
 $ lsnrctl start
 ```
@@ -265,6 +261,7 @@ $ lsnrctl start
 ```bash
 sudo su - oracle
 ```
+
 Create the database:
 
 ```bash
@@ -286,6 +283,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
+
 Set the ORACLE_SID and ORACLE_HOME variables.
 
 ```bash
@@ -306,6 +304,7 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 ```
 
 ### Start Oracle listener
+
 ```bash
 $ sudo su - oracle
 $ lsnrctl start
@@ -423,11 +422,12 @@ This is an optional step. You can skip this step if you are using a Linux client
 To install Oracle Golden Gate, complete the following steps:
 
 1. Sign in as oracle. (You should be able to sign in without being prompted for a password.) Make sure that Xming is running before you begin the installation.
- 
+
    ```bash
    $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
    $ ./runInstaller
    ```
+
 2. Select 'Oracle GoldenGate for Oracle Database 12c'. Then select **Next** to continue.
 
    ![Screenshot of the installer Select Installation page](./media/oracle-golden-gate/golden_gate_install_01.png)
@@ -533,6 +533,7 @@ To install Oracle Golden Gate, complete the following steps:
 
    GGSCI> EDIT PARAMS EXTORA
    ```
+
 5. Add the following to the EXTRACT parameter file (by using vi commands). Press Esc key, ':wq!' to save file. 
 
    ```bash
@@ -547,6 +548,7 @@ To install Oracle Golden Gate, complete the following steps:
    TABLE pdb1.test.TCUSTMER;
    TABLE pdb1.test.TCUSTORD;
    ```
+
 6. Register extract--integrated extract:
 
    ```bash
@@ -562,6 +564,7 @@ To install Oracle Golden Gate, complete the following steps:
 
    GGSCI> exit
    ```
+
 7. Set up extract checkpoints and start real-time extract:
 
    ```bash
@@ -584,6 +587,7 @@ To install Oracle Golden Gate, complete the following steps:
    MANAGER     RUNNING
    EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
    ```
+
    In this step, you find the starting SCN, which will be used later, in a different section:
 
    ```bash
@@ -681,6 +685,7 @@ To install Oracle Golden Gate, complete the following steps:
    $ ./ggsci
    GGSCI> EDIT PARAMS REPORA  
    ```
+
    Content of REPORA parameter file:
 
    ```bash
@@ -723,12 +728,14 @@ To install Oracle Golden Gate, complete the following steps:
   $ ./ggsci
   GGSCI> EDIT PARAMS MGR
   ```
+
 Update the file with the following:
 
   ```bash
   PORT 7809
   ACCESSRULE, PROG *, IPADDR *, ALLOW
   ```
+
 Then restart the Manager service:
 
   ```bash
@@ -747,6 +754,7 @@ $ ./ggsci
 GGSCI> START EXTRACT INITEXT
 GGSCI> VIEW REPORT INITEXT
 ```
+
 #### 3. Set up the replication on myVM2 (replicate)
 
 Change the SCN number with the number you obtained before:
@@ -756,6 +764,7 @@ Change the SCN number with the number you obtained before:
   $ ./ggsci
   START REPLICAT REPORA, AFTERCSN 1857887
   ```
+
 The replication has begun, and you can test it by inserting new records to TEST tables.
 
 

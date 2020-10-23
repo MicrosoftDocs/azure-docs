@@ -1,17 +1,17 @@
 ---
-title: Complete an access review of Azure resource roles in Privileged Identity Management - Azure Active Directory | Microsoft Docs
-description: Learn how to complete an access review of Azure resource roles in Azure AD Privileged Identity Management (PIM).
+title: Finish access review of Azure resource roles in PIM - Azure AD | Microsoft Docs
+description: Learn how to complete an access review of Azure resource roles Privileged Identity Management in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -45,7 +45,7 @@ All access reviews have an end date. Select **Stop** to finish it early. Any use
 
 ### Reset
 
-You can reset an access review to remove all decisions that are made on it. After you've reset an access review, all users are marked as unreviewed again.
+You can reset an access review to remove all decisions that are made on it. After you've reset an access review, all users are marked as not reviewed again.
 
 ### Apply
 

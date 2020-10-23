@@ -1,11 +1,10 @@
 ---
-title: High availability and load balancing for Azure AD Application Proxy | Microsoft Docs
+title: High availability and load balancing - Azure AD Application Proxy
 description: How traffic distribution works with your Application Proxy deployment. Includes tips for how to optimize connector performance and use load balancing for back-end servers.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -36,16 +35,12 @@ Connectors establish their connections based on principles for high availability
 1. A user on a client device tries to access an on-premises application published through Application Proxy.
 2. The request goes through an Azure Load Balancer to determine which Application Proxy service instance should take the request. Per region, there are tens of instances available to accept the request. This method helps to evenly distribute the traffic across the service instances.
 3. The request is sent to [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/).
-4. Service Bus checks if the connection previously used an existing connector in the connector group. If so, it reuses the connection. If no connector is paired with the connection yet, it chooses an available connector at random to signal to. The connector then picks up the request from Service Bus.
-
+4. Service Bus signals to an available connector. The connector then picks up the request from Service Bus.
    - In step 2, requests go to different Application Proxy service instances, so connections are more likely to be made with different connectors. As a result, connectors are almost evenly used within the group.
-
-   - A connection is only reestablished if the connection is broken or an idle period of 10 minutes occurs. For example, the connection may be broken when a machine or connector service restarts or there's a network disruption.
-
 5. The connector passes the request to the application’s back-end server. Then the application sends the response back to the connector.
 6. The connector completes the response by opening an outbound connection to the service instance from where the request came. Then this connection is immediately closed. By default, each connector is limited to 200 concurrent outbound connections.
 7. The response is then passed back to the client from the service instance.
-8. Subsequent requests from the same connection repeat the steps above until this connection is broken or is idle for 10 minutes.
+8. Subsequent requests from the same connection repeat the steps above.
 
 An application often has many resources and opens multiple connections when it's loaded. Each connection goes through the steps above to become allocated to a service instance, select a new available connector if the connection has not yet previously paired with a connector.
 
@@ -85,9 +80,9 @@ In this scenario, the back-end web application requires session stickiness (sess
 This scenario can be more complicated because the client usually establishes multiple connections to the Application Proxy service. Requests over different connections might arrive at different connectors and servers in the farm. Because each connector uses its own IP address for this communication, the load balancer can't ensure session stickiness based on the IP address of the connectors. Source IP Affinity can't be used either.
 Here are some options for scenario 2:
 
-- Option 1: Base the session persistence on a session cookie set by the load balancer. This option is recommended because it allows the load to be spread more evenly among the back-end servers. It requires a layer 7 load balancer with this capability and that can handle the HTTP traffic and terminate the SSL connection. You can use Azure Application Gateway (Session Affinity) or a load balancer from another vendor.
+- Option 1: Base the session persistence on a session cookie set by the load balancer. This option is recommended because it allows the load to be spread more evenly among the back-end servers. It requires a layer 7 load balancer with this capability and that can handle the HTTP traffic and terminate the TLS connection. You can use Azure Application Gateway (Session Affinity) or a load balancer from another vendor.
 
-- Option 2: Base the session persistence on the X-Forwarded-For header field. This option requires a layer 7 load balancer with this capability and that can handle the HTTP traffic and terminate the SSL connection.  
+- Option 2: Base the session persistence on the X-Forwarded-For header field. This option requires a layer 7 load balancer with this capability and that can handle the HTTP traffic and terminate the TLS connection.  
 
 - Option 3: Configure the back-end application to not require session persistence.
 

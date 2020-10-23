@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with TargetProcess | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and TargetProcess.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7cb91628-e758-480d-a233-7a3caaaff50d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with TargetProcess
 
@@ -27,7 +21,7 @@ Integrating TargetProcess with Azure AD provides you with the following benefits
 * You can enable your users to be automatically signed-in to TargetProcess (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -66,7 +60,7 @@ To configure the integration of TargetProcess into Azure AD, you need to add Tar
 
 	 ![TargetProcess in the results list](common/search-new-app.png)
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD SSO
 
 In this section, you configure and test Azure AD single sign-on with TargetProcess based on a test user called **Britta Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in TargetProcess needs to be established.
@@ -131,25 +125,27 @@ To configure Azure AD single sign-on with TargetProcess, perform the following s
 
 	![image](./media/target-process-tutorial/install_extension.png)
 
-2. After adding extension to the browser, click on **setup TargetProcess** will direct you to the TargetProcess application. From there, provide the admin credentials to sign into TargetProcess. The browser extension will automatically configure the application for you and automate steps 3-7.
+1. After adding extension to the browser, click on **setup TargetProcess** will direct you to the TargetProcess application. From there, provide the admin credentials to sign into TargetProcess. The browser extension will automatically configure the application for you and automate steps 3-7.
+
+	![Setup configuration](common/setup-sso.png)
 
 	**If you want to configure the application manually perform the following steps:**
 
-3. Sign-on to your TargetProcess application as an administrator.
+1. Sign-on to your TargetProcess application as an administrator.
 
-4. In the menu on the top, click **Setup**.
+1. In the menu on the top, click **Setup**.
 
     ![Setup](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-5. Click **Settings** tab.
+1. Click **Settings** tab.
 
     ![Settings](./media/target-process-tutorial/tutorial_target_process_06.png)
 
-6. Click **Single Sign-on** tab.
+1. Click **Single Sign-on** tab.
 
     ![click Single Sign-On](./media/target-process-tutorial/tutorial_target_process_07.png)
 
-7. On the Single Sign-on settings dialog, perform the following steps:
+1. On the Single Sign-on settings dialog, perform the following steps:
 
     ![Configure Single Sign-On](./media/target-process-tutorial/tutorial_target_process_08.png)
 
@@ -225,12 +221,12 @@ In this section, a user called Britta Simon is created in TargetProcess. TargetP
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the TargetProcess tile in the Access Panel, you should be automatically signed in to the TargetProcess for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the TargetProcess tile in the Access Panel, you should be automatically signed in to the TargetProcess for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

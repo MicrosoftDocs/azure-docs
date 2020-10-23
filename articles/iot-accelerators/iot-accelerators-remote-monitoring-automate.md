@@ -1,5 +1,5 @@
 ---
-title: Detect device issues in a remote monitoring solution tutorial - Azure | Microsoft Docs
+title: Use the Remote Monitoring solution to detect device issues - Azure | Microsoft Docs
 description: This tutorial shows you how to use rules and actions to automatically detect threshold-based device issues in the Remote Monitoring solution.
 author: dominicbetts
 manager: timlt
@@ -119,7 +119,7 @@ You can enable and disable multiple rules at the same time by selecting multiple
 
 To permanently delete a rule, you can delete it in the list of rules. Select the rule to delete, and then choose **Delete**.
 
-[![Delete rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+[![Screenshot that shows the "Rules" page with the "Delete Rule" window highlighted.](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
 
 After you confirm that you want to delete the rule, you are given the opportunity to delete any alerts associated with the rule from the **Maintenance** page.
 

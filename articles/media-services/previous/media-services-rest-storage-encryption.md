@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
-# Encrypting your content with storage encryption 
+# Encrypting your content with storage encryption
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 	> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
-> 	
-
-It is highly recommended to encrypt your content locally using AES-256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest.
+> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 	> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+>
 
 This article gives an overview of AMS storage encryption and shows you how to upload the storage encrypted content:
 
@@ -45,8 +46,8 @@ When accessing entities in Media Services, you must set specific header fields a
 |Encryption option|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services Storage Encryption|AES-256 encryption, key managed by Media Services|Supported<sup>(1)</sup>|Not supported<sup>(2)</sup>|
-|[Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Server-side encryption offered by Azure Storage, key managed by Azure or by customer|Supported|Supported|
-|[Storage Client-Side Encryption](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Client-side encryption offered by Azure storage, key managed by customer in Key Vault|Not supported|Not supported|
+|[Storage Service Encryption for Data at Rest](../../storage/common/storage-service-encryption.md)|Server-side encryption offered by Azure Storage, key managed by Azure or by customer|Supported|Supported|
+|[Storage Client-Side Encryption](../../storage/common/storage-client-side-encryption.md)|Client-side encryption offered by Azure storage, key managed by customer in Key Vault|Not supported|Not supported|
 
 <sup>1</sup> While Media Services does support handling of content in the clear/without any form of encryption, doing so is not recommended.
 
@@ -71,38 +72,38 @@ The following are general steps for generating content keys that you associate w
 1. For storage encryption, randomly generate a 32-byte AES key. 
    
     The 32-byte AES Key is the content key for your asset, which means all files associated with that asset need to use the same content key during decryption. 
-2. Call the [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) and [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methods to get the correct X.509 Certificate that must be used to encrypt your content key.
+2. Call the [GetProtectionKeyId](/rest/api/media/operations/rest-api-functions#getprotectionkeyid) and [GetProtectionKey](/rest/api/media/operations/rest-api-functions#getprotectionkey) methods to get the correct X.509 Certificate that must be used to encrypt your content key.
 3. Encrypt your content key with the public key of the X.509 Certificate. 
    
    Media Services .NET SDK uses RSA with OAEP when doing the encryption.  You can see a .NET example in the [EncryptSymmetricKeyData function](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Create a checksum value calculated using the key identifier and content key. The following .NET example calculates the checksum using the GUID part of the key identifier and the clear content key.
 
     ```csharp
-            public static string CalculateChecksum(byte[] contentKey, Guid keyId)
-            {
-                const int ChecksumLength = 8;
-                const int KeyIdLength = 16;
+    public static string CalculateChecksum(byte[] contentKey, Guid keyId)
+    {
+        const int ChecksumLength = 8;
+        const int KeyIdLength = 16;
 
-                byte[] encryptedKeyId = null;
+        byte[] encryptedKeyId = null;
 
-                // Checksum is computed by AES-ECB encrypting the KID
-                // with the content key.
-                using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
-                {
-                    rijndael.Mode = CipherMode.ECB;
-                    rijndael.Key = contentKey;
-                    rijndael.Padding = PaddingMode.None;
+        // Checksum is computed by AES-ECB encrypting the KID
+        // with the content key.
+        using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
+        {
+            rijndael.Mode = CipherMode.ECB;
+            rijndael.Key = contentKey;
+            rijndael.Padding = PaddingMode.None;
 
-                    ICryptoTransform encryptor = rijndael.CreateEncryptor();
-                    encryptedKeyId = new byte[KeyIdLength];
-                    encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
-                }
+            ICryptoTransform encryptor = rijndael.CreateEncryptor();
+            encryptedKeyId = new byte[KeyIdLength];
+            encryptor.TransformBlock(keyId.ToByteArray(), 0, KeyIdLength, encryptedKeyId, 0);
+        }
 
-                byte[] retVal = new byte[ChecksumLength];
-                Array.Copy(encryptedKeyId, retVal, ChecksumLength);
+        byte[] retVal = new byte[ChecksumLength];
+        Array.Copy(encryptedKeyId, retVal, ChecksumLength);
 
-                return Convert.ToBase64String(retVal);
-            }
+        return Convert.ToBase64String(retVal);
+    }
     ```
 
 5. Create the Content key with the **EncryptedContentKey** (converted to base64-encoded string), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**, and **Checksum** values you have received in previous steps.
@@ -124,65 +125,73 @@ The following example shows how to retrieve the ProtectionKeyId, a certificate t
 
 Request:
 
-    GET https://media.windows.net/api/GetProtectionKeyId?contentKeyType=0 HTTP/1.1
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    User-Agent: Microsoft ADO.NET Data Services
-    Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
-    Host: media.windows.net
+```console
+GET https://media.windows.net/api/GetProtectionKeyId?contentKeyType=0 HTTP/1.1
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+User-Agent: Microsoft ADO.NET Data Services
+Authorization: Bearer <ENCODED JWT TOKEN>
+x-ms-version: 2.19
+Host: media.windows.net
+```
 
 Response:
 
-    HTTP/1.1 200 OK
-    Cache-Control: no-cache
-    Content-Length: 139
-    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-    Server: Microsoft-IIS/8.5
-    request-id: 2b6aa7a4-3a09-4b08-b581-26b55667f817
-    x-ms-request-id: 2b6aa7a4-3a09-4b08-b581-26b55667f817
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 3.0;
-    X-Powered-By: ASP.NET
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Wed, 04 Feb 2015 02:42:52 GMT
+```console
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Length: 139
+Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+Server: Microsoft-IIS/8.5
+request-id: 2b6aa7a4-3a09-4b08-b581-26b55667f817
+x-ms-request-id: 2b6aa7a4-3a09-4b08-b581-26b55667f817
+X-Content-Type-Options: nosniff
+DataServiceVersion: 3.0;
+X-Powered-By: ASP.NET
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Date: Wed, 04 Feb 2015 02:42:52 GMT
 
-    {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
+{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
+```
 
 ### Retrieve the ProtectionKey for the ProtectionKeyId
 The following example shows how to retrieve the X.509 certificate using the ProtectionKeyId you received in the previous step.
 
 Request:
 
-    GET https://media.windows.net/api/GetProtectionKey?ProtectionKeyId='7D9BB04D9D0A4A24800CADBFEF232689E048F69C' HTTP/1.1
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    User-Agent: Microsoft ADO.NET Data Services
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
-    x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
-    Host: media.windows.net
+```console
+GET https://media.windows.net/api/GetProtectionKey?ProtectionKeyId='7D9BB04D9D0A4A24800CADBFEF232689E048F69C' HTTP/1.1
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+User-Agent: Microsoft ADO.NET Data Services
+Authorization: Bearer <ENCODED JWT TOKEN> 
+x-ms-version: 2.19
+x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
+Host: media.windows.net
+```
 
 Response:
 
-    HTTP/1.1 200 OK
-    Cache-Control: no-cache
-    Content-Length: 1227
-    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-    Server: Microsoft-IIS/8.5
-    x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
-    request-id: 1523e8f3-8ed2-40fe-8a9a-5d81eb572cc8
-    x-ms-request-id: 1523e8f3-8ed2-40fe-8a9a-5d81eb572cc8
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 3.0;
-    X-Powered-By: ASP.NET
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Thu, 05 Feb 2015 07:52:30 GMT
+```console
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Length: 1227
+Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+Server: Microsoft-IIS/8.5
+x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
+request-id: 1523e8f3-8ed2-40fe-8a9a-5d81eb572cc8
+x-ms-request-id: 1523e8f3-8ed2-40fe-8a9a-5d81eb572cc8
+X-Content-Type-Options: nosniff
+DataServiceVersion: 3.0;
+X-Powered-By: ASP.NET
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Date: Thu, 05 Feb 2015 07:52:30 GMT
 
-    {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String",
-    "value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
+{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String",
+"value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
+```
 
 ### Create the content key
 After you have retrieved the X.509 certificate and used its public key to encrypt your content key, create a **ContentKey** entity and set its property values accordingly.
@@ -193,121 +202,133 @@ The following example shows how to create a **ContentKey** with a **ContentKeyTy
 
 Request
 
-    POST https://media.windows.net/api/ContentKeys HTTP/1.1
-    Content-Type: application/json
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    User-Agent: Microsoft ADO.NET Data Services
-    Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
-    Host: media.windows.net
-    {
-    "Name":"ContentKey",
-    "ProtectionKeyId":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C", 
-    "ContentKeyType":"1", 
-    "ProtectionKeyType":"0",
-    "EncryptedContentKey":"your encrypted content key",
-    "Checksum":"calculated checksum"
-    }
+```console
+POST https://media.windows.net/api/ContentKeys HTTP/1.1
+Content-Type: application/json
+DataServiceVersion: 1.0;NetFx
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+User-Agent: Microsoft ADO.NET Data Services
+Authorization: Bearer <ENCODED JWT TOKEN>
+x-ms-version: 2.19
+Host: media.windows.net
+{
+"Name":"ContentKey",
+"ProtectionKeyId":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C", 
+"ContentKeyType":"1", 
+"ProtectionKeyType":"0",
+"EncryptedContentKey":"your encrypted content key",
+"Checksum":"calculated checksum"
+}
+```
 
 Response:
 
-    HTTP/1.1 201 Created
-    Cache-Control: no-cache
-    Content-Length: 777
-    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-    Location: https://media.windows.net/api/ContentKeys('nb%3Akid%3AUUID%3A9c8ea9c6-52bd-4232-8a43-8e43d8564a99')
-    Server: Microsoft-IIS/8.5
-    request-id: 76e85e0f-5cf1-44cb-b689-b3455888682c
-    x-ms-request-id: 76e85e0f-5cf1-44cb-b689-b3455888682c
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 3.0;
-    X-Powered-By: ASP.NET
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Wed, 04 Feb 2015 02:37:46 GMT
+```console
+HTTP/1.1 201 Created
+Cache-Control: no-cache
+Content-Length: 777
+Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+Location: https://media.windows.net/api/ContentKeys('nb%3Akid%3AUUID%3A9c8ea9c6-52bd-4232-8a43-8e43d8564a99')
+Server: Microsoft-IIS/8.5
+request-id: 76e85e0f-5cf1-44cb-b689-b3455888682c
+x-ms-request-id: 76e85e0f-5cf1-44cb-b689-b3455888682c
+X-Content-Type-Options: nosniff
+DataServiceVersion: 3.0;
+X-Powered-By: ASP.NET
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Date: Wed, 04 Feb 2015 02:37:46 GMT
 
-    {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeys/@Element",
-    "Id":"nb:kid:UUID:9c8ea9c6-52bd-4232-8a43-8e43d8564a99","Created":"2015-02-04T02:37:46.9684379Z",
-    "LastModified":"2015-02-04T02:37:46.9684379Z",
-    "ContentKeyType":1,
-    "EncryptedContentKey":"your encrypted content key",
-    "Name":"ContentKey",
-    "ProtectionKeyId":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C",
-    "ProtectionKeyType":0,
-    "Checksum":"calculated checksum"}
+{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeys/@Element",
+"Id":"nb:kid:UUID:9c8ea9c6-52bd-4232-8a43-8e43d8564a99","Created":"2015-02-04T02:37:46.9684379Z",
+"LastModified":"2015-02-04T02:37:46.9684379Z",
+"ContentKeyType":1,
+"EncryptedContentKey":"your encrypted content key",
+"Name":"ContentKey",
+"ProtectionKeyId":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C",
+"ProtectionKeyType":0,
+"Checksum":"calculated checksum"}
+```
 
 ## Create an asset
 The following example shows how to create an asset.
 
 **HTTP Request**
 
-    POST https://media.windows.net/api/Assets HTTP/1.1
-    Content-Type: application/json
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
-    Host: media.windows.net
+```console
+POST https://media.windows.net/api/Assets HTTP/1.1
+Content-Type: application/json
+DataServiceVersion: 1.0;NetFx
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+Authorization: Bearer <ENCODED JWT TOKEN>
+x-ms-version: 2.19
+Host: media.windows.net
 
-    {"Name":"BigBuckBunny" "Options":1}
+{"Name":"BigBuckBunny" "Options":1}
+```
 
 **HTTP Response**
 
 If successful, the following response is returned:
 
-    HTP/1.1 201 Created
-    Cache-Control: no-cache
-    Content-Length: 452
-    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-    Location: https://wamsbayclus001rest-hs.cloudapp.net/api/Assets('nb%3Acid%3AUUID%3A9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1')
-    Server: Microsoft-IIS/8.5
-    x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
-    request-id: e98be122-ae09-473a-8072-0ccd234a0657
-    x-ms-request-id: e98be122-ae09-473a-8072-0ccd234a0657
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 3.0;
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Sun, 18 Jan 2015 22:06:40 GMT
-    {  
-       "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Assets/@Element",
-       "Id":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
-       "State":0,
-       "Created":"2015-01-18T22:06:40.6010903Z",
-       "LastModified":"2015-01-18T22:06:40.6010903Z",
-       "AlternateId":null,
-       "Name":"BigBuckBunny.mp4",
-       "Options":1,
-       "Uri":"https://storagetestaccount001.blob.core.windows.net/asset-9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
-       "StorageAccountName":"storagetestaccount001"
-    }
+```console
+HTP/1.1 201 Created
+Cache-Control: no-cache
+Content-Length: 452
+Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+Location: https://wamsbayclus001rest-hs.cloudapp.net/api/Assets('nb%3Acid%3AUUID%3A9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1')
+Server: Microsoft-IIS/8.5
+x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
+request-id: e98be122-ae09-473a-8072-0ccd234a0657
+x-ms-request-id: e98be122-ae09-473a-8072-0ccd234a0657
+X-Content-Type-Options: nosniff
+DataServiceVersion: 3.0;
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Date: Sun, 18 Jan 2015 22:06:40 GMT
+{  
+   "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Assets/@Element",
+   "Id":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
+   "State":0,
+   "Created":"2015-01-18T22:06:40.6010903Z",
+   "LastModified":"2015-01-18T22:06:40.6010903Z",
+   "AlternateId":null,
+   "Name":"BigBuckBunny.mp4",
+   "Options":1,
+   "Uri":"https://storagetestaccount001.blob.core.windows.net/asset-9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
+   "StorageAccountName":"storagetestaccount001"
+}
+```
 
 ## Associate the ContentKey with an Asset
 After creating the ContentKey, associate it with your Asset using the $links operation, as shown in the following example:
 
 Request:
 
-    POST https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Afbd7ce05-1087-401b-aaae-29f16383c801')/$links/ContentKeys HTTP/1.1
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    Content-Type: application/json
-    Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
-    Host: media.windows.net
+```console
+POST https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Afbd7ce05-1087-401b-aaae-29f16383c801')/$links/ContentKeys HTTP/1.1
+DataServiceVersion: 1.0;NetFx
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+Content-Type: application/json
+Authorization: Bearer <ENCODED JWT TOKEN>
+x-ms-version: 2.19
+Host: media.windows.net
 
-    {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
+{"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
+```
 
 Response:
 
-    HTTP/1.1 204 No Content 
+```console
+HTTP/1.1 204 No Content 
+```
 
 ## Create an AssetFile
-The [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many asset files. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
+The [AssetFile](/rest/api/media/operations/assetfile) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many asset files. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
 
 The **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
 
@@ -315,60 +336,64 @@ After you upload your digital media file into a blob container, you will use the
 
 **HTTP Request**
 
-    POST https://media.windows.net/api/Files HTTP/1.1
-    Content-Type: application/json
-    DataServiceVersion: 1.0;NetFx
-    MaxDataServiceVersion: 3.0;NetFx
-    Accept: application/json
-    Accept-Charset: UTF-8
-    Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
-    Host: media.windows.net
-    Content-Length: 164
+```console
+POST https://media.windows.net/api/Files HTTP/1.1
+Content-Type: application/json
+DataServiceVersion: 1.0;NetFx
+MaxDataServiceVersion: 3.0;NetFx
+Accept: application/json
+Accept-Charset: UTF-8
+Authorization: Bearer <ENCODED JWT TOKEN>
+x-ms-version: 2.19
+Host: media.windows.net
+Content-Length: 164
 
-    {  
-       "IsEncrypted":"true",
-       "EncryptionScheme" : "StorageEncryption", 
-       "EncryptionVersion" : "1.0",       
-       "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510",
-       "InitializationVector" : "397304628502661816</d:InitializationVector",
-       "Options":0,
-       "IsPrimary":"false",
-       "MimeType":"video/mp4",
-       "Name":"BigBuckBunny.mp4",
-       "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1"
-    }
+{  
+   "IsEncrypted":"true",
+   "EncryptionScheme" : "StorageEncryption", 
+   "EncryptionVersion" : "1.0",       
+   "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510",
+   "InitializationVector" : "397304628502661816</d:InitializationVector",
+   "Options":0,
+   "IsPrimary":"false",
+   "MimeType":"video/mp4",
+   "Name":"BigBuckBunny.mp4",
+   "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1"
+}
+```
 
 **HTTP Response**
 
-    HTTP/1.1 201 Created
-    Cache-Control: no-cache
-    Content-Length: 535
-    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-    Location: https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5')
-    Server: Microsoft-IIS/8.5
-    request-id: 98a30e2d-f379-4495-988e-0b79edc9b80e
-    x-ms-request-id: 98a30e2d-f379-4495-988e-0b79edc9b80e
-    X-Content-Type-Options: nosniff
-    DataServiceVersion: 3.0;
-    X-Powered-By: ASP.NET
-    Strict-Transport-Security: max-age=31536000; includeSubDomains
-    Date: Mon, 19 Jan 2015 00:34:07 GMT
+```console
+HTTP/1.1 201 Created
+Cache-Control: no-cache
+Content-Length: 535
+Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+Location: https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5')
+Server: Microsoft-IIS/8.5
+request-id: 98a30e2d-f379-4495-988e-0b79edc9b80e
+x-ms-request-id: 98a30e2d-f379-4495-988e-0b79edc9b80e
+X-Content-Type-Options: nosniff
+DataServiceVersion: 3.0;
+X-Powered-By: ASP.NET
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Date: Mon, 19 Jan 2015 00:34:07 GMT
 
-    {  
-       "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Files/@Element",
-       "Id":"nb:cid:UUID:f13a0137-0a62-9d4c-b3b9-ca944b5142c5",
-       "Name":"BigBuckBunny.mp4",
-       "ContentFileSize":"0",
-       "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
-       "EncryptionVersion": "1.0",
-       "EncryptionScheme": "StorageEncryption",
-       "IsEncrypted":true,
-       "EncryptionKeyId":"nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510",
-       "InitializationVector":"397304628502661816</d:InitializationVector",
-       "IsPrimary":false,
-       "LastModified":"2015-01-19T00:34:08.1934137Z",
-       "Created":"2015-01-19T00:34:08.1934137Z",
-       "MimeType":"video/mp4",
-       "ContentChecksum":null
-    }
+{  
+   "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Files/@Element",
+   "Id":"nb:cid:UUID:f13a0137-0a62-9d4c-b3b9-ca944b5142c5",
+   "Name":"BigBuckBunny.mp4",
+   "ContentFileSize":"0",
+   "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
+   "EncryptionVersion": "1.0",
+   "EncryptionScheme": "StorageEncryption",
+   "IsEncrypted":true,
+   "EncryptionKeyId":"nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510",
+   "InitializationVector":"397304628502661816</d:InitializationVector",
+   "IsPrimary":false,
+   "LastModified":"2015-01-19T00:34:08.1934137Z",
+   "Created":"2015-01-19T00:34:08.1934137Z",
+   "MimeType":"video/mp4",
+   "ContentChecksum":null
+}
+```

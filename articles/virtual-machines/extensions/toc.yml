@@ -12,7 +12,7 @@
   expanded: true
   items:
     - name: Use the Custom Script Extension
-      href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
+      href: ../windows/tutorial-automate-vm-deployment.md
       maintainContext: true
 - name: Concepts
   items:
@@ -52,30 +52,52 @@
       href: vmsnapshot-linux.md
     - name: Windows
       href: vmsnapshot-windows.md
-  - name: Network Watcher Agent
+  - name: Network Watcher Extension
     items:
     - name: Linux
       href: network-watcher-linux.md
     - name: Windows
       href: network-watcher-windows.md
+    - name: Update to latest version
+      href: network-watcher-update.md
+  - name: InfiniBand Drivers
+    items:
+    - name: Linux
+      href: hpc-compute-infiniband-linux.md
+    - name: Windows
+      href: hpc-compute-infiniband-windows.md
   - name: NVIDIA GPU Drivers
     items:
     - name: Linux
       href: hpccompute-gpu-linux.md
     - name: Windows
       href: hpccompute-gpu-windows.md
-  - name: Log Analytics
+  - name: AMD GPU Drivers
     items:
-    - name: Linux
-      href: oms-linux.md
     - name: Windows
-      href: oms-windows.md
-  - name: Azure Monitor for VMs
+      href: hpccompute-amd-gpu-windows.md
+  - name: Azure Monitor
     items:
-    - name: Linux Dependency agent
-      href: agent-dependency-linux.md
-    - name: Windows Dependency agent
-      href: agent-dependency-windows.md
+    - name: Azure Monitor agent
+      href: ../../azure-monitor/platform/azure-monitor-agent-overview.md?#install-the-azure-monitor-agent
+    - name: Diagnostics extension
+      items:
+      - name: Linux
+        href: diagnostics-linux.md
+      - name: Windows
+        href: ../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/extensions/toc.json
+    - name: Log Analytics
+      items:
+      - name: Linux
+        href: oms-linux.md
+      - name: Windows
+        href: oms-windows.md
+    - name: Azure Monitor for VMs
+      items:
+      - name: Linux Dependency agent
+        href: agent-dependency-linux.md
+      - name: Windows Dependency agent
+        href: agent-dependency-windows.md
   - name: PowerShell DSC
     href: dsc-overview.md
     items:
@@ -89,14 +111,6 @@
       href: dsc-template.md
   - name: Virtual machine access
     href: vmaccess.md
-  - name: Virtual machine diagnostics
-    items:
-    - name: Linux
-      href: diagnostics-linux.md
-    - name: Windows
-      href: diagnostics-windows.md
-    - name: Use templates
-      href: diagnostics-template.md
   - name: Third-party extensions
     items:
     - name: Chef
@@ -125,3 +139,5 @@
     href: export-templates.md
   - name: Troubleshoot
     href: troubleshoot.md
+  - name: Issues with Python 3-enabled Linux systems
+    href: issues-using-vm-extensions-python-3.md

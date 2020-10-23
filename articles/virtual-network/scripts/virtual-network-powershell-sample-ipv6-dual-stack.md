@@ -1,7 +1,7 @@
 ---
-title: Azure PowerShell script sample - Configure IPv6 virtual network endpoints (preview)
+title: Azure PowerShell script sample - Configure IPv6 endpoints
 titlesuffix: Azure Virtual Network
-description: Enable IPv6 endpoints using Powershell in Azure Virtual Network
+description: Configure IPv6 endpoints in virtual network with an Azure PowerShell script and find links to command-specific documentation to help with the PowerShell sample.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,10 +11,11 @@ ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Configure IPv6 endpoints in virtual network script sample (preview)
+# Configure IPv6 endpoints in virtual network with Azure PowerShell script sample (preview)
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application in Azure that includes a dual stack virtual network with a dual stack subnet, a load balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, dual network security group rules, and dual public IPs.
 
@@ -265,6 +266,6 @@ This script uses the following commands to create a resource group, virtual mach
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/).
 
 Additional networking PowerShell script samples can be found in the [Azure Networking Overview documentation](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

@@ -55,7 +55,7 @@
          href: get-body-tracking-results.md
        - name: Access data in body frame
          href: access-data-body-frame.md  
-   - name: Add Azure Kinect library to a project
+   - name: Add Azure Kinect library to a VS project
      href: add-library-to-project.md
    - name: Update Azure Kinect firmware
      href: update-device-firmware.md
@@ -79,17 +79,25 @@
      href: system-requirements.md
    - name: Hardware specification
      href: hardware-specification.md
+   - name: Synchronize multiple devices
+     href: multi-camera-sync.md   
    - name: Compare to Kinect for Windows
      href: windows-comparison.md
+   - name: Reset Azure Kinect DK
+     href: reset-azure-kinect-dk.md
    - name: Azure Kinect support
      href: support.md
    - name: Azure Kinect troubleshooting
      href: troubleshooting.md
+   - name: Warranties, extended service plans, and Terms & Conditions
+     href: https://support.microsoft.com/help/4493926/warranties-extended-service-plans-and-terms-conditions-for-your-device
+   - name: Safety information
+     href: https://support.microsoft.com/help/4023454/safety-information
 - name: References
   items:  
    - name: Sensor API
      href: https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html
    - name: Body tracking API
-     href: https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/index.html
+     href: https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/index.html
    - name: Record file format
-     href: record-file-format.md 
+     href: record-file-format.md

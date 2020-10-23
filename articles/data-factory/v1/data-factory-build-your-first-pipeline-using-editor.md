@@ -1,5 +1,5 @@
 ---
-title: Build your first data factory (Azure portal) | Microsoft Docs
+title: Build your first data factory (Azure portal) 
 description: In this tutorial, you create a sample Azure Data Factory pipeline by using the Data Factory Editor in the Azure portal.
 services: data-factory
 documentationcenter: ''
@@ -105,7 +105,7 @@ In this step, you link your storage account to your data factory. In this tutori
 
    ![Storage linked service](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see how to view, copy, and regenerate storage access keys in [Manage your storage account](../../storage/common/storage-account-manage.md#access-keys).
+1. Replace **account name** with the name of your storage account. Replace **account key** with the access key of the storage account. To learn how to get your storage access key, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 
 1. Select **Deploy** on the command bar to deploy the linked service.
 
@@ -166,7 +166,7 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
 
 1. Confirm that you see both **AzureStorageLinkedService** and **HDInsightOnDemandLinkedService** in the tree view on the left.
 
-    ![Tree view with linked services](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
+    ![Screenshot that shows that AzureStorageLinkedService and HDInsightOnDemandLinkedService are linked together.](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## Create datasets
 In this step, you create datasets to represent the input and output data for Hive processing. These datasets refer to AzureStorageLinkedService that you created previously in this tutorial. The linked service points to a storage account. Datasets specify the container, folder, and file name in the storage that holds input and output data.   
@@ -427,7 +427,7 @@ In this tutorial, you created a data factory to process data by running a Hive s
 * Create a pipeline with an HDInsight Hive activity.
 
 ## Next steps
-In this article, you created a pipeline with a transformation activity (HDInsight activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy activity to copy data from blob storage to a SQL database, see [Tutorial: Copy data from Blob storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+In this article, you created a pipeline with a transformation activity (HDInsight activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy activity to copy data from blob storage to Azure SQL Database, see [Tutorial: Copy data from Blob storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## See also
 | Topic | Description |

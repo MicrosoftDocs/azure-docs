@@ -29,7 +29,10 @@ org.apache.commons.lang3.time.FastDateFormat; local class incompatible: stream c
 
 ## Cause
 
-This error can be caused by adding an additional jar to the `spark.yarn.jars` config, which is a “shaded” jar that includes a different version of `commons-lang3` package and introduces a class mismatch. By default, Spark 2.1/2/3 uses version 3.5 of `commons-lang3`.
+This error can be caused by adding an additional jar to the `spark.yarn.jars` config, specifically a shaded jar that includes a different version of the `commons-lang3` package and introduces a class mismatch. By default, Spark 2.1/2/3 uses version 3.5 of `commons-lang3`.
+
+> [!TIP]
+> To shade a library is to put its contents into your own jar, changing its package. This differs from packaging the library, which is putting the library into your own jar without repackaging.
 
 ## Resolution
 
@@ -43,4 +46,4 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

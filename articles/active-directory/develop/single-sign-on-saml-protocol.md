@@ -1,33 +1,32 @@
 ---
-title: Azure Single Sign On SAML Protocol | Microsoft Docs
-description: This article describes the Single Sign On SAML protocol in Azure Active Directory
+title: Azure Single Sign On SAML Protocol
+titleSuffix: Microsoft identity platform
+description: This article describes the Single Sign-On (SSO) SAML protocol in Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: rwike77
+author: kenwith
 manager: CelesteDG
-editor: ''
 
-ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/19/2017
-ms.author: ryanwi
+ms.date: 05/18/2020
+ms.author: kenwith
 ms.custom: aaddev
-ms.reviewer: hirsin
-ms.collection: M365-identity-device-management
+ms.reviewer: paulgarn
 ---
 
 # Single Sign-On SAML protocol
 
-This article covers the SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports for Single Sign-On.
+This article covers the SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports for Single Sign-On (SSO).
 
 The protocol diagram below describes the single sign-on sequence. The cloud service (the service provider) uses an HTTP Redirect binding to pass an `AuthnRequest` (authentication request) element to Azure AD (the identity provider). Azure AD then uses an HTTP post binding to post a `Response` element to the cloud service.
 
-![Single Sign On Workflow](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
+![Single Sign-On (SSO) Workflow](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
+
+> [!NOTE]
+> This article discusses using SAML for single sign-on. For more information on other ways to handle single sign-on (for example, by using OpenID Connect or Integrated Windows Authentication), see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## AuthnRequest
 
@@ -43,12 +42,12 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| Parameter |  | Description |
+| Parameter | Type | Description |
 | --- | --- | --- |
 | ID | Required | Azure AD uses this attribute to populate the `InResponseTo` attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "id" to the string representation of a GUID. For example, `id6c1c178c166d486687be4aaf5e482730` is a valid ID. |
 | Version | Required | This parameter should be set to **2.0**. |
-| IssueInstant | Required | This is a DateTime string with a UTC value and [round-trip format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD expects a DateTime value of this type, but doesn't evaluate or use the value. |
-| AssertionConsumerServiceUrl | Optional | If provided, this parameter must match the `RedirectUri` of the cloud service in Azure AD. |
+| IssueInstant | Required | This is a DateTime string with a UTC value and [round-trip format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD expects a DateTime value of this type, but doesn't evaluate or use the value. |
+| AssertionConsumerServiceURL | Optional | If provided, this parameter must match the `RedirectUri` of the cloud service in Azure AD. |
 | ForceAuthn | Optional | This is a boolean value. If true, it means that the user will be forced to re-authenticate, even if they have a valid session with Azure AD. |
 | IsPassive | Optional | This is a boolean value that specifies whether Azure AD should authenticate the user silently, without user interaction, using the session cookie if one exists. If this is true, Azure AD will attempt to authenticate the user using  the session cookie. |
 
@@ -83,6 +82,8 @@ If `NameIDPolicy` is provided, you can include its optional `Format` attribute. 
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: This value permits Azure Active Directory to select the claim format. Azure Active Directory issues the NameID as a pairwise identifier.
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory issues the NameID claim as a randomly generated value that is unique to the current SSO operation. This means that the value is temporary and cannot be used to identify the authenticating user.
 
+If `SPNameQualifier` is specified, Azure AD will include the same `SPNameQualifier` in the response.
+
 Azure AD ignores the `AllowCreate` attribute.
 
 ### RequestAuthnContext
@@ -94,10 +95,10 @@ The `Scoping` element, which includes a list of identity providers, is optional 
 If provided, don't include the `ProxyCount` attribute, `IDPListOption` or `RequesterID` element, as they aren't supported.
 
 ### Signature
-Don't include a `Signature` element in `AuthnRequest` elements, as Azure AD does not support signed authentication requests.
+A `Signature` element in `AuthnRequest` elements is optional. Azure AD does not validate signed authentication requests if a signature is present. Requestor verification is provided for by only responding to registered Assertion Consumer Service URLs.
 
 ### Subject
-Azure AD ignores the `Subject` element of `AuthnRequest` elements.
+Don't include a `Subject` element. Azure AD doesn't support specifying a subject for a request and will return an error if one is provided.
 
 ## Response
 When a requested sign-on completes successfully, Azure AD posts a response to the cloud service. A response to a successful sign-on attempt looks like the following sample:
@@ -154,12 +155,12 @@ The `Response` element includes the result of the authorization request. Azure A
 
 ### Issuer
 
-Azure AD sets the `Issuer` element to `https://login.microsoftonline.com/<TenantIDGUID>/` where \<TenantIDGUID> is the tenant ID of the Azure AD tenant.
+Azure AD sets the `Issuer` element to `https://sts.windows.net/<TenantIDGUID>/` where \<TenantIDGUID> is the tenant ID of the Azure AD tenant.
 
 For example, a response with Issuer element could look like the following sample:
 
 ```
-<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 ### Status
@@ -192,7 +193,7 @@ In addition to the `ID`, `IssueInstant` and `Version`, Azure AD sets the followi
 This is set to `https://sts.windows.net/<TenantIDGUID>/`where \<TenantIDGUID> is the Tenant ID of the Azure AD tenant.
 
 ```
-<Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 #### Signature

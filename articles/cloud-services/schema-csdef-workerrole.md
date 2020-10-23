@@ -1,5 +1,6 @@
 ---
 title: "Azure Cloud Services Def. WorkerRole Schema | Microsoft Docs"
+description: The Azure worker role is used for generalized development and may perform background processing for a web role. Learn about the Azure worker role schema.
 services: cloud-services
 ms.custom: ""
 ms.date: "04/14/2015"
@@ -10,9 +11,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
 caps.latest.revision: 55
-author: georgewallace
-ms.author: gwallace
-manager: gwallace
+author: tgore03
+ms.author: tagore
+
 ---
 
 # Azure Cloud Services Definition WorkerRole Schema
@@ -413,3 +414,6 @@ The following table describes the attributes of the `SourceDirectory` element.
 
 ## See Also
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md)
+
+
+

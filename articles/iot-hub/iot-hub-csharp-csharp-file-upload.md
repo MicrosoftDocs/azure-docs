@@ -9,6 +9,7 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
+ms.custom: "mqtt, devx-track-csharp"
 ---
 
 # Upload files from your device to the cloud with IoT Hub (.NET)
@@ -42,11 +43,15 @@ At the end of this tutorial you run two .NET console apps:
 > [!NOTE]
 > IoT Hub supports many device platforms and languages, including C, Java, Python, and Javascript, through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) for step-by-step instructions on how to connect your device to Azure IoT Hub.
 
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
+
 ## Prerequisites
 
 * Visual Studio
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
@@ -190,4 +195,4 @@ In this tutorial, you learned how to use the file upload capabilities of IoT Hub
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)

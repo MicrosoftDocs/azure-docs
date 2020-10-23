@@ -3,13 +3,13 @@ title: Container limitations - LUIS
 titleSuffix: Azure Cognitive Services
 description: The LUIS container languages that are supported.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Language Understanding (LUIS) container limitations
@@ -18,7 +18,7 @@ The LUIS containers have a few notable limitations. From unsupported dependencie
 
 ## Supported dependencies for `latest` container
 
-The latest LUIS container, released at [//build/ 2019](https://news.microsoft.com/build2019/), will support:
+The latest LUIS container supports:
 
 * [New prebuilt domains](luis-reference-prebuilt-domains.md): these enterprise-focused domains include entities, example utterances, and patterns. Extend these domains for your own use.
 
@@ -30,7 +30,7 @@ You can use a LUIS application if it **doesn't include** any of the following de
 
 Unsupported app configurations|Details|
 |--|--|
-|Unsupported container cultures| Dutch (`nl-NL`)<br>Japanese (`ja-JP`)<br>German is only supported with the [1.0.2 tokenizer](luis-language-support.md#custom-tokenizer-versions).|
+|Unsupported container cultures| The Dutch (`nl-NL`), Japanese (`ja-JP`) and German (`de-DE`) languages are only supported with the [1.0.2 tokenizer](luis-language-support.md#custom-tokenizer-versions).|
 |Unsupported entities for all cultures|[KeyPhrase](luis-reference-prebuilt-keyphrase.md) prebuilt entity for all cultures|
 |Unsupported entities for English (`en-US`) culture|[GeographyV2](luis-reference-prebuilt-geographyV2.md) prebuilt entities|
 |Speech priming|External dependencies are not supported in the container.|
@@ -43,7 +43,8 @@ LUIS containers support a subset of the [languages supported](luis-language-supp
 
 | Language | Locale | Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](../text-analytics/language-support.md)<br>(Sentiment and<br>Keywords)|
 |--|--|:--:|:--:|:--:|:--:|
-| American English | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
+| English (United States) | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
+| Arabic (preview - modern standard Arabic) |`ar-AR`|❌|❌|❌|❌|
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
 | French (France) |`fr-FR` | ✔️ | ✔️ | ✔️ | ✔️ |
 | French (Canada) |`fr-CA` | ❌ | ❌ | ❌ | ✔️ |
@@ -51,9 +52,12 @@ LUIS containers support a subset of the [languages supported](luis-language-supp
 | Hindi | `hi-IN`| ❌ | ❌ | ❌ | ❌ |
 | Italian |`it-IT` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Korean |`ko-KR` | ✔️ | ❌ | ❌ | *Key phrase* only |
+| Marathi | `mr-IN`|❌|❌|❌|❌|
 | Portuguese (Brazil) |`pt-BR` | ✔️ | ✔️ | ✔️ | not all sub-cultures |
 | Spanish (Spain) |`es-ES` | ✔️ | ✔️ |✔️|✔️|
 | Spanish (Mexico)|`es-MX` | ❌ | ❌ |✔️|✔️|
+| Tamil | `ta-IN`|❌|❌|❌|❌|
+| Telugu | `te-IN`|❌|❌|❌|❌|
 | Turkish | `tr-TR` |✔️| ❌ | ❌ | *Sentiment* only |
 
 [!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]

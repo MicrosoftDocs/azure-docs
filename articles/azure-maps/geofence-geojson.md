@@ -1,8 +1,8 @@
 ---
-title: Geofence GeoJSON data format in Azure Maps | Microsoft Docs
-description: Learn about Geofence GeoJSON data format in Azure Maps 
-author: walsehgal
-ms.author: v-musehg
+title: GeoJSON data format for geofence | Microsoft Azure Maps
+description: Learn about Azure Maps geofence data. See how to use the GET Geofence and POST Geofence APIs when retrieving the position of coordinates relative to a geofence.
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps

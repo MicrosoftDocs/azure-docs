@@ -1,8 +1,6 @@
 ---
-title: Analyze user navigation patterns with User Flows in Azure Application Insights | Microsoft docs
+title: Azure Application Insights User Flows analyzes navigation flows
 description: Analyze how users navigate between the pages and features of your web app.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
@@ -13,7 +11,7 @@ ms.reviewer: mbullwin
 
 # Analyze user navigation patterns with User Flows in Application Insights
 
-![Application Insights User Flows tool](./media/usage-flows/00001-flows.png)
+![Application Insights User Flows tool](./media/usage-flows/flows.png)
 
 The User Flows tool visualizes how users navigate between the pages and features of your site. It's great for answering questions like:
 
@@ -25,13 +23,13 @@ The User Flows tool visualizes how users navigate between the pages and features
 The User Flows tool starts from an initial page view, custom event, or exception that you specify. Given this initial event, User Flows shows the events that happened before and afterwards during user sessions. Lines of varying thickness show how many times each path was followed by users. Special **Session Started** nodes show where the subsequent nodes began a session. **Session Ended** nodes show how many users sent no page views or custom events after the preceding node, highlighting where users probably left your site.
 
 > [!NOTE]
-> Your Application Insights resource must contain page views or custom events to use the User Flows tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md).
+> Your Application Insights resource must contain page views or custom events to use the User Flows tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](./javascript.md).
 >
 >
 
 ## Start by choosing an initial event
 
-![Choose an initial event for User Flows](./media/usage-flows/00002-flows-initial-event.png)
+![Choose an initial event for User Flows](./media/usage-flows/initial-event.png)
 
 To begin answering questions with the User Flows tool, choose an initial page view, custom event, or exception to serve as the starting point for the visualization:
 
@@ -50,13 +48,13 @@ If page views or custom events are missing that you expect to see on the visuali
 * Check the **Excluded events** section in the **Edit** menu.
 * Use the plus buttons on **Others** nodes to include less-frequent events in the visualization.
 * If the page view or custom event you expect is sent infrequently by users, try increasing the time range of the visualization in the **Edit** menu.
-* Make sure the page view, custom event, or exception you expect is set up to be collected by the Application Insights SDK in the source code of your site. [Learn more about collecting custom events.](../../azure-monitor/app/api-custom-events-metrics.md)
+* Make sure the page view, custom event, or exception you expect is set up to be collected by the Application Insights SDK in the source code of your site. [Learn more about collecting custom events.](./api-custom-events-metrics.md)
 
 If you want to see more steps in the visualization, use the **Previous steps** and **Next steps** dropdowns above the visualization.
 
 ## After visiting a page or feature, where do users go and what do they click?
 
-![Use User Flows to understand where users click](./media/usage-flows/00003-flows-one-step.png)
+![Use User Flows to understand where users click](./media/usage-flows/one-step.png)
 
 If your initial event is a page view, the first column ("Step 1") of the visualization is a quick way to understand what users did immediately after visiting the page. Try opening your site in a window next to the User Flows visualization. Compare your expectations of how users interact with the page to the list of events in the "Step 1" column. Often, a UI element on the page that seems insignificant to your team can be among the most-used on the page. It can be a great starting point for design improvements to your site.
 
@@ -90,4 +88,5 @@ Use the **Split by** options in the **Edit** menu:
 * [Usage overview](usage-overview.md)
 * [Users, Sessions, and Events](usage-segmentation.md)
 * [Retention](usage-retention.md)
-* [Adding custom events to your app](../../azure-monitor/app/api-custom-events-metrics.md)
+* [Adding custom events to your app](./api-custom-events-metrics.md)
+

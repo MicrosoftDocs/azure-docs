@@ -3,7 +3,7 @@ title: Troubleshooting Azure Monitor metric charts
 description: Troubleshoot the issues with creating, customizing, or interpreting metric charts
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
@@ -32,13 +32,13 @@ Sometimes the charts might show no data after selecting correct resources and me
 
 ### Microsoft.Insights resource provider isn't registered for your subscription
 
-Exploring metrics requires *Microsoft.Insights* resource provider registered in your subscription. In many cases, it is registered automatically (that is, after you configure an alert rule, customize diagnostic settings for any resource, or configure an autoscale rule). If the Microsoft.Insights resource provider is not registered, you must manually register it by  following steps described in [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md).
+Exploring metrics requires *Microsoft.Insights* resource provider registered in your subscription. In many cases, it is registered automatically (that is, after you configure an alert rule, customize diagnostic settings for any resource, or configure an autoscale rule). If the Microsoft.Insights resource provider is not registered, you must manually register it by  following steps described in [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 **Solution:** Open **Subscriptions**, **Resource providers** tab, and verify that *Microsoft.Insights* is registered for your subscription.
 
 ### You don't have sufficient access rights to your resource
 
-In Azure, access to metrics is controlled by [role-based access control (RBAC)](../../role-based-access-control/overview.md). You must be a member of [monitoring reader](../../role-based-access-control/built-in-roles.md#monitoring-reader), [monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor), or [contributor](../../role-based-access-control/built-in-roles.md#contributor) to explore metrics for any resource.
+In Azure, access to metrics is controlled by [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). You must be a member of [monitoring reader](../../role-based-access-control/built-in-roles.md#monitoring-reader), [monitoring contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor), or [contributor](../../role-based-access-control/built-in-roles.md#contributor) to explore metrics for any resource.
 
 **Solution:** Ensure that you have sufficient permissions for the resource from which you are exploring metrics.
 
@@ -64,7 +64,7 @@ By [locking the boundaries of chart y-axis](metrics-charts.md#lock-boundaries-of
 
 Collection of **Guest OS** metrics requires configuring the Azure Diagnostics Extension or enabling it using the **Diagnostic Settings** panel for your resource.
 
-**Solution:** If Azure Diagnostics Extension is enabled but you are still unable to see your metrics, follow steps outlined in [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). See also the troubleshooting steps for [Cannot pick Guest OS namespace and metrics](metrics-troubleshoot.md#cannot-pick-guest-os-namespace-and-metrics)
+**Solution:** If Azure Diagnostics Extension is enabled but you are still unable to see your metrics, follow steps outlined in [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). See also the troubleshooting steps for [Cannot pick Guest OS namespace and metrics](#cannot-pick-guest-os-namespace-and-metrics)
 
 ## “Error retrieving data” message on dashboard
 
@@ -75,10 +75,10 @@ This problem may happen when your dashboard was created with a metric that was l
 ## Chart shows dashed line
 
 Azure metrics charts use dashed line style to indicate that there is a missing value (also known as “null value”) between two known time grain data points. For example, if in the time selector you picked “1 minute” time granularity but the metric was reported at 07:26, 07:27, 07:29, and 07:30 (note a minute gap between second and third data points), then a dashed line will connect 07:27 and 07:29 and a solid line will connect all other data points. The dashed line drops down to zero when the metric uses **count** and **sum** aggregation. For the **avg**, **min** or **max** aggregations, the dashed line connects two nearest known data points. Also, when the data is missing on the rightmost or leftmost side of the chart, the dashed line expands to the direction of the missing data point.
-  ![metric image](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
+  ![Screenshot that shows how when the data is missing on the rightmost or leftmost side of the chart, the dashed line expands to the direction of the missing data point.](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
 
 **Solution:** This behavior is by design. It is useful for identifying missing data points. The line chart is a superior choice for visualizing trends of high-density metrics but may be difficult to interpret for the metrics with sparse values, especially when corelating values with time grain is important. The dashed line makes reading of these charts easier but if your chart is still unclear, consider viewing your metrics with a different chart type. For example, a scattered plot chart for the same metric clearly shows each time grain by only visualizing a dot when there is a value and skipping the data point altogether when the value is missing:
-  ![metric image](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
+  ![Screenshot that highlights the Scatter chart menu option.](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
 
    > [!NOTE]
    > If you still prefer a line chart for your metric, moving mouse over the chart may help to assess the time granularity by highlighting the data point at the location of the mouse pointer.
@@ -86,7 +86,7 @@ Azure metrics charts use dashed line style to indicate that there is a missing v
 ## Chart shows unexpected drop in values
 
 In many cases, the perceived drop in the metric values is a misunderstanding of the data shown on the chart. You can be misled by a drop in sums or counts when the chart shows the most-recent minutes because the last metric data points haven’t been received or processed by Azure yet. Depending on the service, the latency of processing metrics can be within a couple minutes range. For charts showing a recent time range with a 1- or 5- minute granularity, a drop of the value over the last few minutes becomes more noticeable:
-    ![metric image](./media/metrics-troubleshoot/drop-in-values.png)
+    ![Screenshot that shows a drop of the value over the last few minutes.](./media/metrics-troubleshoot/drop-in-values.png)
 
 **Solution:** This behavior is by design. We believe that showing data as soon as we receive it is beneficial even when the data is *partial* or *incomplete*. Doing so allows you to make important conclusion sooner and start investigation right away. For example, for a metric that shows the number of failures, seeing a partial value X tells you that there were at least X failures on a given minute. You can start investigating the problem right away, rather than wait to see the exact count of failures that happened on this minute, which might not be as important. The chart will update once we receive the entire set of data, but at that time it may also show new incomplete data points from more recent minutes.
 
@@ -104,11 +104,11 @@ By default, Guest OS metrics are stored in Azure Storage account, which you pick
     > [!WARNING]
     > You cannot use [Log Analytics agent](agents-overview.md#log-analytics-agent) (also referred to as the Microsoft Monitoring Agent, or "MMA") to send **Guest OS** into a storage account.
 
-1. Ensure that **Microsoft.Insights** resource provider is [registered for your subscription](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
+1. Ensure that **Microsoft.Insights** resource provider is [registered for your subscription](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 
 1. Verify that storage account isn't protected by the firewall. Azure portal needs access to storage account in order to retrieve metrics data and plot the charts.
 
-1. Use the [Azure storage explorer](https://azure.microsoft.com/features/storage-explorer/) to validate that metrics are flowing into the storage account. If metrics aren't collected, follow the [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+1. Use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to validate that metrics are flowing into the storage account. If metrics aren't collected, follow the [Azure Diagnostics Extension troubleshooting guide](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
 ## Next steps
 

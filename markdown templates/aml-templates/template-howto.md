@@ -1,5 +1,5 @@
 ---
-title: Verb action for Azure Machine Learning service in 59 chars or less. Include the name Azure Machine Learning. Test title here https://moz.com/learn/seo/title-tag  (EXAMPLE - Deploying web services in Python with Azure Machine Learning service)
+title: Verb action for Azure Machine Learning in 59 chars or less. Include the name Azure Machine Learning. Test title here https://moz.com/learn/seo/title-tag  (EXAMPLE - Deploying web services in Python with Azure Machine Learning)
 description: Learn how to do this and that using customer words in Azure Machine Learning. This string describes the article in 115 to 145 characters. Use SEO kind of action verbs here. This info is displayed on the search page inline with the article date stamp. If your intro para describes your article's intent, you can use it here edited for length.
 services: machine-learning
 ms.service: machine-learning
