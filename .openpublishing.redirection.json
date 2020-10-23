@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/security/azure-ddos-best-practices.md",
+      "redirect_url": "articles/security/fundamentals/ddos-best-practices.md",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-network/ddos-protection-overview.md",
       "redirect_url": "/azure/ddos-protection/ddos-protection-overview-2",
       "redirect_document_id": false
@@ -18,11 +23,6 @@
     {
       "source_path": "articles/security/fundamentals/ddos-best-practices.md",
       "redirect_url": "/azure/ddos-protection/fundamental-best-practices",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/security/fundamentals/ddos-protection-security-baseline.md",
-      "redirect_url": "/azure/ddos-protection/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -32870,11 +32870,6 @@
     {
       "source_path": "articles/security/azure-database-security-overview.md",
       "redirect_url": "/azure/security/fundamentals/database-security-overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/security/azure-ddos-best-practices.md",
-      "redirect_url": "/azure/ddos-protection/fundamental-best-practices",
       "redirect_document_id": true
     },
     {
