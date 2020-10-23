@@ -29,7 +29,7 @@ If you don't already have an Azure account, [sign up for a free account](https:/
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-- If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](overview.md). To learn about  system-assigned and user-assigned managed identity types, see [Managed identity types](overview.md#managed-identity-types).
+- If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](overview.md). To learn about system-assigned and user-assigned managed identity types, see [Managed identity types](overview.md#managed-identity-types).
 
 ## Use Azure RBAC to assign a managed identity access to another resource
 
