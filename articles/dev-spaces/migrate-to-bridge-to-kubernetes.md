@@ -10,11 +10,11 @@ keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure K
 # Migrating to Bridge to Kubernetes
 
 > [!IMPORTANT]
-> Azure Dev Spaces will be retired on October 31, 2023. Developers should move to using Bridge to Kubernetes, a client developer tool.
+> Azure Dev Spaces will be retired on October 31, 2023. Customers should move to using Bridge to Kubernetes, a client developer tool.
 >
-> The purpose of Azure Dev Spaces was about easing developers into developing on Kubernetes. A significant tradeoff in the approach of Azure Dev Spaces was putting extra burden on developers to understand Docker and Kubernetes configurations as well as Kubernetes deployment concepts. Over time, it also became clear that the approach of Azure Dev Spaces did not effectively decrease the speed of inner loop development on Kubernetes. Bridge to Kubernetes effectively decreases the speed of inner loop development and avoids unnecessary burden on developers.
+> The purpose of Azure Dev Spaces was about easing users into developing on Kubernetes. A significant tradeoff in the approach of Azure Dev Spaces was putting extra burden on users to understand Docker and Kubernetes configurations as well as Kubernetes deployment concepts. Over time, it also became clear that the approach of Azure Dev Spaces did not effectively decrease the speed of inner loop development on Kubernetes. Bridge to Kubernetes effectively decreases the speed of inner loop development and avoids unnecessary burden on users.
 >
-> The core mission remains unchanged: Build the best developer experiences to develop, test, and debug microservice code in the context of the larger application.
+> The core mission remains unchanged: Build the best experiences to develop, test, and debug microservice code in the context of the larger application.
 
 Bridge to Kubernetes provides a lighter weight alternative to many of the development scenarios that work with Azure Dev Spaces. Bridge to Kubernetes is a client-side only experience using extensions in [Visual Studio][vs] and [Visual Studio Code][vsc].  
 
