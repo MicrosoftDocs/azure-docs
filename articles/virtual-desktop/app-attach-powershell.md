@@ -3,7 +3,7 @@ title: Windows Virtual Desktop MSIX app attach preview PowerShell - Azure
 description: How to set up MSIX app attach for Windows Virtual Desktop using PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 11/16/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -16,23 +16,23 @@ manager: lizross
 
 In addition to the Azure portal, you can also set up MSIX app attach (preview) manually with PowerShell. This article will walk you through how to use PowerShell to set up MSIX app attach.
 
-## Prerequisites
+## Requirements
 
-In order to set up MSIX app attach with PowerShell, you'll need the following things:
+Before you get started, here's what you need to configure MSIX app attach:
 
-- A host pool in Windows Virtual Desktop with at least one active session host.
-
-- A Desktop remote app group
-
-- An MSIX-packaged application expanded into an MSIX image, then uploaded to a file share that's accessible by all virtual machines (VMs) with read-only permissions in your host pool.
-
+- A functioning Windows Virtual Desktop deployment. To learn how to deploy Windows Virtual Desktop (classic), see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Windows Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
+- A Windows Virtual Desktop host pool with at least one active session host.
+- A Desktop remote app group.
+- The MSIX packaging tool.
+- An MSIX-packaged application expanded into an MSIX image that's uploaded into a file share.
+- A file share in your Windows Virtual Desktop deployment where the MSIX package will be stored.
+- The file share where you uploaded the MSIX image must also be accessible to all virtual machines (VMs) in the host pool. Users will need read-only permissions to access the image.
 - Download and install PowerShell Core.
-
 - Download the public preview Azure PowerShell module and expand it to a local folder.
 
 ## Sign in to Azure and import the module
 
-Open PowerShell core in an elevated command prompt and run this cmdlet:
+Once you've got all the requirements ready, open PowerShell core in an elevated command prompt and run this cmdlet:
 
 ```powershell
 Connect-AzAccount
