@@ -90,7 +90,7 @@ To configure Azure AD single sign-on with Uberflip, take the following steps:
 
 1. On the **Set up Single Sign-On with SAML** pane, select **Edit** (the pencil icon) to open the **Basic SAML Configuration** pane.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows the Basic SAML Configuration, where you can enter a Reply U R L.](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** pane, do one of the following steps, depending on which SSO mode you want to configure:
 
@@ -107,7 +107,7 @@ To configure Azure AD single sign-on with Uberflip, take the following steps:
 
      `https://app.uberflip.com/users/login`
 
-     ![Uberflip domain and URLs single sign-on information](common/both-signonurl.png)
+     ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/both-signonurl.png)
 
 1. On the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, select **Download** to download the **Federation Metadata XML** from the given options and save it on your computer.
 

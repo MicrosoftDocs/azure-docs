@@ -92,7 +92,7 @@ This code does the following action:
 1. Fetches an OAuth token from Azure AD.
 1. Shows how to make a request to Kafka REST proxy.
 
-For more information on getting OAuth tokens in python, see [Python AuthenticationContext class](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python). You might see a delay while `topics` that aren't created or deleted through the Kafka REST proxy are reflected there. This delay is because of cache refresh.
+For more information on getting OAuth tokens in python, see [Python AuthenticationContext class](/python/api/adal/adal.authentication_context.authenticationcontext). You might see a delay while `topics` that aren't created or deleted through the Kafka REST proxy are reflected there. This delay is because of cache refresh.
 
 ```python
 #Required python packages

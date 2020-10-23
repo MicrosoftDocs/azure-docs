@@ -80,10 +80,10 @@
       href: redirect-overview.md
     - name: Rewrite HTTP headers and URL
       href: rewrite-http-headers-url.md
-    - name: Security
-      items:
-      - name: Security baseline
-        href: security-baseline.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: SSL
     items:
     - name: SSL termination and end to end SSL

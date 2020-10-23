@@ -7,6 +7,8 @@
       href: what-is-application-management.md
     - name: What is single sign-on (SSO)?
       href: what-is-single-sign-on.md
+    - name: What's new in docs?
+      href: whats-new-docs.md
   - name: Quickstarts
     expanded: true
     items:
@@ -220,6 +222,8 @@
         href: troubleshoot-password-based-sso.md
       - name: Troubleshoot SAML-based single sign-on
         href: troubleshoot-saml-based-sso.md
+      - name: Debug SAML-based single sign-on
+        href: debug-saml-sso-issues.md
       - name: Troubleshoot user sign-in
         items:
         - name: Unexpected consent prompt

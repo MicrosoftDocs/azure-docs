@@ -125,11 +125,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. In the menu on the top, click **Settings**.
 
-    ![Settings](./media/thousandeyes-tutorial/ic790066.png "Settings")
+    ![Screenshot shows the ThousandEyes site with Settings selected.](./media/thousandeyes-tutorial/ic790066.png "Settings")
 
 3. Click **Account**
 
-    ![Account](./media/thousandeyes-tutorial/ic790067.png "Account")
+    ![Screenshot shows Account selected from the Settings menu.](./media/thousandeyes-tutorial/ic790067.png "Account")
 
 4. Click the **Security & Authentication** tab.
 
@@ -161,11 +161,11 @@ The objective of this section is to create a user called Britta Simon in Thousan
 
 2. Click **Settings**.
 
-    ![Settings](./media/thousandeyes-tutorial/IC790066.png "Settings")
+    ![Screenshot shows the ThousandEyes site with Settings selected.](./media/thousandeyes-tutorial/ic790066.png "Settings")
 
 3. Click **Account**.
 
-    ![Account](./media/thousandeyes-tutorial/IC790067.png "Account")
+    ![Screenshot shows Account selected from the Settings menu.](./media/thousandeyes-tutorial/ic790067.png "Account")
 
 4. Click the **Accounts & Users** tab.
 
