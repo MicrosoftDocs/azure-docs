@@ -79,9 +79,9 @@ func init LocalFunctionProj --powershell
 ::: zone pivot="programming-language-java"  
 In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). 
 
-    > [!IMPORTANT]
-    > + Use `-DjavaVersion=11` if you want to your functions to run on Java 11. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
-    > + The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK to complete this quickstart.
+> [!IMPORTANT]
+> + Use `-DjavaVersion=11` if you want to your functions to run on Java 11. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
+> + The `JAVA_HOME` environment variable must be set to the install location of the correct version of the JDK to complete this article.
 
 # [bash](#tab/bash)
 ```bash
