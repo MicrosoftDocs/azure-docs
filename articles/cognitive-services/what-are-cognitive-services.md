@@ -123,19 +123,17 @@ Looking for a region we don't support yet? Let us know by filing a feature reque
 
 ## Supported cultural languages
 
- Cognitive Services supports a wide range of cultural languages at the service level. You can find the language availability for each API in the [supported languages list](language-support.md "supported languages list").
+Cognitive Services supports a wide range of cultural languages at the service level. You can find the language availability for each API in the [supported languages list](language-support.md "supported languages list").
 
 ## Certifications and compliance
 
-Cognitive Services has been awarded certifications such as CSA STAR Certification, FedRAMP Moderate, and HIPAA BAA.
-
-You can [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 "download") certifications for your own audits and security reviews.
+Cognitive Services has been awarded certifications such as CSA STAR Certification, FedRAMP Moderate, and HIPAA BAA. You can [download](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 "download") certifications for your own audits and security reviews.
 
 To understand privacy and data management, go to the [Trust Center](https://servicetrust.microsoft.com/ "Trust Center").
 
 ## Support
 
-Cognitive Services provides several [support options](cognitive-services-support-options.md "support options").
+Cognitive Services provides several support options to help you move forward with creating intelligent applications. Cognitive Services also has a strong community of developers that can help answer your specific questions. For a full list of options available to you, see [Cognitive Services support and help options](cognitive-services-support-options.md "Cognitive Services support and help options").
 
 ## Next steps
 
