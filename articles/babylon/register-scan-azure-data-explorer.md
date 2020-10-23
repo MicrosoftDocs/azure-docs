@@ -37,7 +37,7 @@ To use a service principal, you must first create one
 
 To do this in the Azure portal: 
 
-1. Navigate to **portal.azure.com**
+1. Browse to the [Azure portal](https://portal.azure.com).
 
 2. Search for **"Azure Active Directory"** in the top search bar.
 
