@@ -73,7 +73,7 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure Relay** | Microsoft.Relay/namespaces | namespace |
 |**Azure Event Grid** | Microsoft.EventGrid/topics    | topic |
 |**Azure Event Grid** | Microsoft.EventGrid/domains    | domain |
-|**Azure WebApps** | Microsoft.Web/sites    | sites |
+|**Azure App Service** | Microsoft.Web/sites    | sites |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | workspace |
 |**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
 |**Azure Monitor** | Microsoft.Insights/privateLinkScopes    | azuremonitor |
@@ -129,15 +129,16 @@ The following table includes a list of known limitations when using private endp
 
 
 ## Next steps
-- [Create a Private Endpoint for SQL Database using Portal ](create-private-endpoint-portal.md)
-- [Create a Private Endpoint for SQL Database using PowerShell ](create-private-endpoint-powershell.md)
-- [Create a Private Endpoint for SQL Database using CLI ](create-private-endpoint-cli.md)
-- [Create a Private Endpoint for Storage account using Portal ](create-private-endpoint-storage-portal.md)
-- [Create a Private Endpoint for Azure Cosmos account using Portal ](../cosmos-db/how-to-configure-private-endpoints.md)
+- [Create a Private Endpoint for SQL Database using the portal](create-private-endpoint-portal.md)
+- [Create a Private Endpoint for SQL Database using PowerShell](create-private-endpoint-powershell.md)
+- [Create a Private Endpoint for SQL Database using CLI](create-private-endpoint-cli.md)
+- [Create a Private Endpoint for Storage account using the portal](create-private-endpoint-storage-portal.md)
+- [Create a Private Endpoint for Azure Cosmos account using the portal](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)
-- [Create your own Private Link for Azure Database for PostgreSQL - Single server using Portal](../postgresql/howto-configure-privatelink-portal.md)
+- [Create your own Private Link for Azure Database for PostgreSQL - Single server using the portal](../postgresql/howto-configure-privatelink-portal.md)
 - [Create your own Private Link for Azure Database for PostgreSQL - Single server using CLI](../postgresql/howto-configure-privatelink-cli.md)
-- [Create your own Private Link for Azure Database for MySQL using Portal](../mysql/howto-configure-privatelink-portal.md)
+- [Create your own Private Link for Azure Database for MySQL using the portal](../mysql/howto-configure-privatelink-portal.md)
 - [Create your own Private Link for Azure Database for MySQL using CLI](../mysql/howto-configure-privatelink-cli.md)
-- [Create your own Private Link for Azure Database for MariaDB using Portal](../mariadb/howto-configure-privatelink-portal.md)
+- [Create your own Private Link for Azure Database for MariaDB using the portal](../mariadb/howto-configure-privatelink-portal.md)
 - [Create your own Private Link for Azure Database for MariaDB using CLI](../mariadb/howto-configure-privatelink-cli.md)
+- [Create your own Private Link for Azure Key Vault using the portal and CLI](../key-vault/general/private-link-service.md)

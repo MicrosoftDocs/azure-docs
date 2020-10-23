@@ -105,6 +105,16 @@ When a compute instance is running, you can also use code completion, powered by
 
 You can also launch Jupyter or JupyterLab from the Notebook toolbar.  Azure Machine Learning does not provide updates and fix bugs from Jupyter or JupyterLab as they are Open Source products outside of the boundary of Microsoft Support.
 
+### Focus mode
+
+Use focus mode to expand your current view so you can focus on your active tabs. Focus mode hides the Notebooks file explorer.
+
+1. In the terminal window toolbar, select **Focus mode** to turn on focus mode. Depending on your window width, this may be located under the **...** menu item in your toolbar.
+1. While in focus mode, return to the standard view by selecting **Standard view**.
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Toggle focus mode / standard view":::
+
+
 ### Use IntelliSense
 
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) is a code-completion aid that includes a number of features: List Members, Parameter Info, Quick Info, and Complete Word. These features help you to learn more about the code you're using, keep track of the parameters you're typing, and add calls to properties and methods with only a few keystrokes.  

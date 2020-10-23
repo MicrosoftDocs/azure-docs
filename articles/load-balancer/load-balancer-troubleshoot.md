@@ -26,6 +26,12 @@ When the Load Balancer connectivity is unavailable, the most common symptoms are
 
 When the external clients to the backend VMs go through the load balancer, the IP address of the clients will be used for the communication. Make sure the IP address of the clients are added into the NSG allow list. 
 
+## Symptom: No outbound connectivity from Standard internal Load Balancers (ILB)
+
+**Validation and resolution**
+
+Standard ILBs are **secure by default**. Basic ILBs allowed connecting to the internet via a *hidden* Public IP address. This is not recommened for production workloads as the IP address is neither static nor locked down via NSGs that you own. If you recently moved from a Basic ILB to a Standard ILB, you should create a Public IP explicitly via [Outbound only](egress-only.md) configuration which locks down the IP via NSGs. 
+
 ## Symptom: VMs behind the Load Balancer are not responding to health probes
 For the backend servers to participate in the load balancer set, they must pass the probe check. For more information about health probes, see [Understanding Load Balancer Probes](load-balancer-custom-probe-overview.md). 
 
@@ -151,6 +157,17 @@ If you decide to open a support case, collect the following information for a qu
 - Use Psping from one of the backend VMs within the VNet to test the probe port response (example: psping 10.0.0.4:3389) and record results. 
 - If no response is received in these ping tests, run a simultaneous Netsh trace on the backend VM and the VNet test VM while you run PsPing then stop the Netsh trace. 
  
+## Symptom: Load Balancer in failed state 
+
+**Resolution**
+
+- Once you identify the resource that is in a failed state, go to [Azure Resource Explorer](https://resources.azure.com/) and identify the resource in this state. 
+- Update the toggle on the right hand top corner to Read/Write.
+- Click on Edit for the resource in failed state.
+- Click on PUT followed by GET to ensure the provisioning state was updated to Succeeded.
+- You can then proceed continue with other actions as the resource is out of failed state.
+
+
 ## Next steps
 
 If the preceding steps do not resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).

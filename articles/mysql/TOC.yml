@@ -85,6 +85,9 @@
          href: connect-cpp.md
        - name: Go
          href: connect-go.md
+       - name: GitHub Actions
+         href: quickstart-mysql-github-actions.md
+
   - name: Tutorials
     items:
     - name: Design a database
@@ -153,6 +156,8 @@
          href: concepts-infrastructure-double-encryption.md
        - name: Security baseline
          href: security-baseline.md
+     - name: Planned maintenance
+       href: concepts-planned-maintenance-notification.md
      - name: Business continuity
        items:
        - name: Business continuity intro
@@ -512,6 +517,14 @@
         items:
         - name: Connect using TLS/SSL
           href: flexible-server/how-to-connect-tls-ssl.md
+    - name: Configure server parameters
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-configure-server-parameters-portal.md
+        displayName: server parameters
+      - name: Azure CLI
+        href: flexible-server/how-to-configure-server-parameters-cli.md
+        displayName: server parameters, cli
     - name: Monitoring & Logs
       items:
       - name: Create alerts on metrics
