@@ -33,14 +33,14 @@ Below are instructions on how to collect this information.
 
 When filing a support request through the Azure portal, you'll be asked to provide your call ID. This can be accessed through the calling client library:
 
-# [JavaScript](#tab/javascript)
+[JavaScript](#tab/javascript)
 
 ```javascript
 // `call` is an instance of a call created by `callAgent.call` or `callAgent.join` methods 
 console.log(call.id)
 ```
 
-# [iOS](#tab/ios)
+[iOS](#tab/ios)
 
 ```objc
 // The `call id` property can be retrieved by calling the `call.getCallId()` method on a call object after a call ends 
@@ -48,7 +48,7 @@ console.log(call.id)
 print(call.callId) 
 ```
 
-# [Android](#tab/android)
+[Android](#tab/android)
 
 ```java
 // The `call id` property can be retrieved by calling the `call.getCallId()` method on a call object after a call ends
@@ -67,7 +67,8 @@ If you need to log more details (i.e include the MS-CV header in the logs), the 
 **Note:**
 The same applies for any of the Azure SDK clients (i.e Azure.Communication.Administration.CommunicationIdentityClient)
 
-``` [C#](#tab/csharp)
+[C#](#tab/csharp)
+``` 
 //1. Import Azure.Core.Diagnostics
 using Azure.Core.Diagnostics;
 //2. Initialize an event source listener instance
@@ -93,7 +94,8 @@ ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential, cl
 ChatThreadClient chatThreadClient = await chatClient.CreateChatThreadAsync("Thread Topic - css presentation", new[] { new ChatThreadMember(communicationUser) });
 ```
 
-``` [Python](#tab/python)
+[Python](#tab/python)
+``` 
 from azure.communication.chat import ChatClient, CommunicationUserCredential
 endpoint = "https://communication-services-sdk-live-tests-for-python.communication.azure.com"
 chat_client = ChatClient(
