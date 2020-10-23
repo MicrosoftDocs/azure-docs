@@ -32,15 +32,31 @@ To see how Azure Bastion completely maps to the Azure Security Benchmark, see th
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+For the network security groups (NSGs) associated with your Azure Bastion subnets, you must allow
+
+Ingress Traffic : 
+
+a) Ingress Traffic from public internet: The Azure Bastion will create a public IP that needs port 443 enabled on the public IP for ingress traffic. Port 3389/22 are NOT required to be opened on the AzureBastionSubnet. 
+
+b) Ingress Traffic from Azure Bastion control plane: For control plane connectivity, enable port 443 inbound from GatewayManager service tag. This enables the control plane, that is, Gateway Manager to be able to communicate with Azure Bastion.
+
+Egress Traffic:
+
+a) Egress Traffic to target VMs: Azure Bastion will reach the target VMs over private IP. The NSGs need to allow egress traffic to other target VM subnets for port 3389 and 22.
+
+b) Egress Traffic to other public endpoints in Azure: Azure Bastion needs to be able to connect to various public endpoints within Azure (for example, for storing diagnostics logs and metering logs). For this reason, Azure Bastion needs outbound to 443 to AzureCloud service tag.
+
+Connectivity to Gateway Manager and Azure service tag is protected (locked down) by Azure certificates. External entities, including the consumers of those resources, can't communicate on these endpoints. You can learn more about Bastion NSG requirement here 
+
+../../bastion/bastion-nsg.md
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### NS-2: Connect private networks together
 
@@ -49,15 +65,15 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Azure Bastion does not expose any endpoints that can be accessed via a private network. This control is intended for describing how private networks can be connected together to provide access to the offering or its resources.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-3: Establish private network access to Azure services
 
@@ -66,15 +82,19 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Azure Bastion is a fully managed PaaS service that provides secure and seamless RDP and SSH access to your virtual machines directly through the Azure Portal
+
+Azure Bastion does not not allow for its management endpoints to be secure to a private network with the Private Link service.
+
+Azure Bastion does not not provide the capability to configure Service Endpoints.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-4: Protect applications and services from external network attacks
 
@@ -83,15 +103,17 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Protect your Azure Bastion resources against attacks from external networks, including distributed denial of service (DDoS) Attacks, application specific attacks, and unsolicited and potentially malicious internet traffic. Protect your assets against DDoS attacks by enabling DDoS standard protection on your Azure virtual networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
+
+Azure Bastion is a fully managed PaaS service that provides secure and seamless RDP and SSH access to your virtual machines and is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
 
@@ -100,15 +122,15 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable; Azure Bastion is PaaS service and cannot be configured with an IDS or IPS solution for detecting or preventing threats on the network.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-6: Simplify network security rules
 
@@ -117,15 +139,15 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable; this recommendation is intended for offerings that can be deployed into Azure Virtual Networks, or have the capability to define groupings of allowed IP ranges for efficient management. Azure Bastion does not currently support service tags.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-7: Secure Domain Name Service (DNS)
 
@@ -134,72 +156,72 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable; Azure Bastion does not expose its underlying DNS configurations, these settings are maintained by Microsoft.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Identity Management
 
 *For more information, see the [Azure Security Benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
 
-### ID-1: Standardize Azure Active Directory as the central identity and authentication system
+### IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39730.).
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable; Azure Bastion doesn't allow access to virtual machine over RDP/SSH using AAD credentials. User can access Azure portal using AAD authentication to launch Azure Bastion service to connect to  virtual machine over RDP/SSH. 
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
-### ID-2: Manage application identities securely and automatically
+### IM-2: Manage application identities securely and automatically
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39731.).
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable; Azure Bastion doesn't use any identities or manage any secrets for identities.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
-### ID-3: Use Azure AD single sign-on (SSO) for application access
+### IM-3: Use Azure AD single sign-on (SSO) for application access
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39732.).
 
 **Guidance**: 
 
-&lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+Not applicable; Azure Bastion doesn't support SSO for authentication to its resources.
 
 Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
-### ID-4: Use strong authentication controls for all Azure Active Directory based access
+### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39733.).
@@ -216,7 +238,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### ID-5: Monitor and alert on account anomalies
+### IM-5: Monitor and alert on account anomalies
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39734.).
@@ -233,7 +255,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### ID-6: Restrict Azure resource access based on conditions
+### IM-6: Restrict Azure resource access based on conditions
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39735.).
@@ -250,7 +272,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### ID-7: Eliminate unintended credential exposure
+### IM-7: Eliminate unintended credential exposure
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39736.).
@@ -267,7 +289,7 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-### ID-8: Secure user access to legacy applications
+### IM-8: Secure user access to legacy applications
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/39772.).
