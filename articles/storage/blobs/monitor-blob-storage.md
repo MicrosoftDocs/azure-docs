@@ -49,10 +49,6 @@ You can continue using classic metrics and logs if you want to. In fact, classic
 
 Platform metrics and the Activity log are collected automatically, but can be routed to other locations by using a diagnostic setting. You must create a diagnostic setting to collect resource logs. 
 
-To create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md). 
-
-To see an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
-
 When you create a diagnostic setting, choose the type of storage that you want to enable logs for, such as a blob, queue, table, or file. For Blob storage, choose **blob**. Data Lake Storage Gen2 doesn't appear as a storage type. That's because Data Lake Storage Gen2 is a set of capabilities available to Blob storage. 
 
 If you create the diagnostic setting in the Azure portal, you can select the resource from a list. If you use PowerShell or the Azure CLI, you need to use the resource ID of the Blob storage endpoint. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
@@ -64,6 +60,192 @@ You also have to specify one of the following categories of operations for which
 | StorageRead | Read operations on objects. |
 | StorageWrite | Write operations on objects. |
 | StorageDelete | Delete operations on objects. |
+
+## Creating a diagnostic setting
+
+To create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md). 
+
+To see an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+
+
+### [Portal](#tab/azure-portal)
+
+Logging is not enabled by default for your storage account. You can enable logs by using the Azure portal, PowerShell, or Azure CLI. 
+
+<a id="enable-logs-portal" />
+
+### Enable logs by using the Azure portal
+
+1. Sign in to the Azure portal.
+
+2. Navigate to your storage account.
+
+3. In the **Monitoring** section, click **Diagnostic settings (preview)**.
+
+   ![portal - Diagnostics logs](media/monitor-blob-storage/diagnostic-logs-settings-pane.png)
+
+4. Choose the type of storage that you want to enable logs for by clicking **blob**, **queue**, **table**, or **file**.
+
+5. Click **Add diagnostic setting**.
+
+   ![portal - Resource logs - add diagnostic setting](media/monitor-blob-storage/diagnostic-logs-settings-pane-2.png)
+
+   The **Diagnostic settings** page appears.
+
+   ![Resource logs page](media/monitor-blob-storage/diagnostic-logs-page.png)
+
+6. In the **Name** field of the page, enter a name for this Resource log setting. Then, select which operations you want logged (read, write, and delete operations), and where you want the logs to be sent.
+
+#### Archive logs to a storage account
+
+1. Select the **Archive to a storage account** checkbox, and then click the **Configure** button.
+
+   ![Diagnostic settings page](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
+
+2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, click the **OK** button, and then click the **Save** button.
+
+   > [!NOTE]
+   > Before you choose a storage account as the export destination, see [Archive Azure resource logs](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage) to understand prerequisites on the storage account.
+
+#### Stream logs to Azure Event Hubs
+
+1. Select the **Stream to an event hub** checkbox, and then click the **Configure** button.
+
+2. In the **Select an event hub** pane, choose the namespace, name, and policy name of the event hub that you want to stream your logs to. 
+
+   ![Diagnostic settings page](media/monitor-blob-storage/diagnostic-logs-settings-pane-event-hub.png)
+
+3. Click the **OK** button, and then click the **Save** button.
+
+#### Send logs to Azure Log Analytics
+
+1. Select the **Send to Log Analytics** checkbox, select a log analytics workspace, and then click the and then click the **Save** button.
+
+   ![Diagnostic settings page](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
+
+
+### [PowerShell](#tab/azure-powershell)
+
+1. Open a Windows PowerShell command window, and sign in to your Azure subscription by using the `Connect-AzAccount` command. Then, follow the on-screen directions.
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+2. Set your active subscription to subscription of the storage account that you want to enable logging for.
+
+   ```powershell
+   Set-AzContext -SubscriptionId <subscription-id>
+   ```
+
+#### Archive logs to a storage account
+
+Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-2.4.0) PowerShell cmdlet along with the `StorageAccountId` parameter.
+
+ ```powershell
+ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+ ```
+
+Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the storage service that you want to enable logging for (blob, file, table, queue). See [Resource ID for the storage services](https://docs.microsoft.com/azure/storage/common/storage-metrics-in-azure-monitor?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#resource-id-for-the-storage-services).
+
+You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the **Category** parameter.
+
+ Here's an example:
+
+ `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
+
+ For a description of each parameter, see the [Archive Azure Resource logs via Azure PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell).
+
+#### Stream logs to an event hub
+
+Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-2.4.0) PowerShell cmdlet with the `EventHubAuthorizationRuleId` parameter.
+
+ ```powershell
+ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+ ```
+
+ Here's an example:
+
+ `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
+
+ For a description of each parameter, see the [Stream Data to Event Hubs via PowerShell cmdlets](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets).
+
+#### Send logs to Log Analytics
+
+Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-2.4.0) PowerShell cmdlet with the `WorkspaceId` parameter.
+
+ ```powershell
+ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+ ```
+
+ Here's an example:
+
+ `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
+
+ For more information, see [Stream Azure Resource Logs to Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+
+### [Azure CLI](#tab/azure-cli)
+
+You can enable Resource logging by using the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+
+1. First, open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
+
+2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want to enable logs for.
+
+   ```azurecli-interactive
+   az account set --subscription <subscription-id>
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+#### Archive logs to a storage account
+
+Enable logs by using the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command.
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the storage service that you want to enable logging for (blob, file, table, queue). See [Resource ID for the storage services](https://docs.microsoft.com/azure/storage/common/storage-metrics-in-azure-monitor?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#resource-id-for-the-storage-services).
+
+You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the **category** parameter.
+
+Here's an example:
+
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/blobServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+
+For a description of each parameter, see the [Archive Resource logs via the Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-the-azure-cli).
+
+#### Stream logs to an event hub
+
+Enable logs by using the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command.
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
+```
+
+Here's an example:
+
+`az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/blobServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
+
+For a description of each parameter, see the [Stream data to Event Hubs via Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-azure-cli).
+
+#### Send logs to Log Analytics
+
+Enable logs by using the [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command.
+
+```azurecli-interactive
+az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
+```
+
+Here's an example:
+
+`az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/blobServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
+
+ For more information, see [Stream Azure Resource Logs to Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+
+---
+
 
 ## Analyzing metrics
 
