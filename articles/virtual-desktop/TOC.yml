@@ -96,7 +96,7 @@
     items:
         - name: Set up MSIX app attach with the Azure portal
           href: app-attach-azure-portal.md
-        - name: Configure with PowerShell scripts
+        - name: Configure PowerShell scripts
           href: app-attach.md
   - name: Use Microsoft Teams
     href: teams-on-wvd.md
