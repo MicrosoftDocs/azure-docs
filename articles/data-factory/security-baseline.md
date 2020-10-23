@@ -147,7 +147,7 @@ You may also send NSG flow logs to a Log Analytics workspace and use Traffic Ana
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](../governance/policy/samples/index.md) 
+* [Azure Policy samples for networking](../governance/policy/samples/built-in-policies#network.md) 
 
 * [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
