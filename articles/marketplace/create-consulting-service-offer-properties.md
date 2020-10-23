@@ -29,9 +29,9 @@ In the **Consulting service type** dropdown, select the type of consulting servi
 
 * **Assessment**: An evaluation of a customer's environment to determine the applicability of a solution and to estimate the cost and timeline of its implementation.
 * **Briefing**: An introduction to a solution or a service using frameworks, demos, and customer examples.
-* **Implementation**: A complete installation that results in a fully working solution. Limit to solutions that can be implemented in two weeks or less.
-* **Proof of concept**: A limited-scope implementation to determine whether a solution meets customer requirements.
-* **Workshop**: An interactive engagement conducted on a customer's premises. It can involve training, briefings, assessments, or demos built on the customer's data or environment.
+* **Implementation**: A complete installation that results in a fully working solution.
+* **Proof of concept**: A limited-scope implementation to determine whether a solution meets the customer's requirements.
+* **Workshop**: An interactive engagement conducted on the customer's premises. It can involve training, briefings, assessments, or demos built on the customer's data or environment.
 
 ## Select relevant industries
 
@@ -45,7 +45,7 @@ The information in this section helps us categorize your offer so that customers
 Select up to three competencies that are relevant to the service area of your offer. Your selection will be displayed to customers in the offer listing.
 
 > [!IMPORTANT]
-> Having at least one competency may be a requirement to publish your offer, depending on its primary product. See the [certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies.md#800-consulting-services) for details.
+> Having at least one competency may be a requirement to publish your offer, depending on its primary product. See the [certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services) for details.
 
 Save the draft before continuing.
 

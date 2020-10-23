@@ -19,11 +19,9 @@ This article explains how to define the market and pricing details for your cons
 
 ## Markets
 
-In the **Markets** section, you define the countries or regions where your consulting service will be available.  
+In the **Markets** drop-down list, select the country or region where your consulting service will be available.
 
-1. Under Markets, select the **Edit markets** link.
-2. In the dialog box that appears, select the market locations where you want to make your offer available. Select a minimum of one and maximum of 141 markets. Review the list of [supported geographic locations](./marketplace-geo-availability-currencies.md).
-3. Select **Save** to close the dialog box.
+For the United States or Canada, select **Edit states** or **Edit provinces** to specify the states, provinces, and territories you want to provide your services in.
 
 ## Preview audience
 

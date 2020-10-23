@@ -40,11 +40,11 @@ To demonstrate to customers your expertise in a field, you must meet a set of el
 
 The commercial marketplace supports five types of consulting service:
 
-* **Assessment**: an evaluation of the customer’s environment to determine the applicability of a solution and to estimate the cost and timeline of the solution implementation.
+* **Assessment**: an evaluation of a customer’s environment to determine the applicability of a solution and to estimate the cost and timeline of its implementation.
 * **Briefing**: an introduction to a solution or a service using frameworks, demos, and customer examples.
 * **Implementation**: a complete installation that results in a fully working solution.
-* **Proof of concept**: a limited scope implementation to determine if a solution meets the customer’s requirements.
-* **Workshop**: an interactive engagement conducted on the customer’s premises that could involve training, briefings, assessments, or demos built on the customer’s data or environment.
+* **Proof of concept**: a limited-scope implementation to determine whether a solution meets the customer’s requirements.
+* **Workshop**: an interactive engagement conducted on the customer’s premises. It can involve training, briefings, assessments, or demos built on the customer’s data or environment.
 
 Your service should have a fixed and predetermined duration of up to 10 weeks. The service duration must be made explicit in the offer listing.
 
@@ -104,10 +104,8 @@ When writing the description, follow these criteria, according to your service t
 Here are some tips for writing your description:
 
 * Clearly describe the value of your offer in the first few sentences, including:
-  
     * The type of user who benefits from the offer.
     * Customer needs or issues that the offer addresses.
-
 * Remember that the first few sentences might be displayed in search results.
 * If the price of your offer is estimated, explain what variables will determine the final price.
 * Use industry-specific vocabulary.
