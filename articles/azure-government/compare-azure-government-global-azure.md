@@ -80,6 +80,7 @@ Azure Government services operate the same way as the corresponding services in 
 |**Web**|API Management Gateway|\*.azure-api.net|\*.azure-api.us||
 ||API Management Portal|\*.portal.azure-api.net|\*.portal.azure-api.us||
 ||API Management management|\*.management.azure-api.net|\*.management.azure-api.us||
+||App Configuration|\*.azconfig.io|\*.azconfig.azure.us|Endpoint|
 ||App Service|\*.azurewebsites.net|\*.azurewebsites.us|Endpoint|
 |||abfa0a7c-a6b6-4736-8310-5855508787cd|6a02c803-dafd-4136-b4c3-5a6f318b4714|Service Principal ID|
 ||Azure Cognitive Search|\*.search.windows.net|\*.search.windows.us||
@@ -195,8 +196,7 @@ The following Virtual Machines **features are not currently available** in Azure
     - Ubuntu Advantage support plan
 
 ### [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)
-The following Azure Functions **features are not currently available** in Azure Government:
-- [Monitoring via Application Insights](https://docs.microsoft.com/azure/azure-functions/functions-monitoring).
+When connecting your function app to Application Insights in Azure Government, make sure you use [`APPLICATIONINSIGHTS_CONNECTION_STRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#applicationinsights_connection_string), which lets you customize the Application Insights endpoint.
 
 ## Databases
 This section outlines variations and considerations when using Databases services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir,data-factory,sql-server-stretch-database,redis-cache,database-migration,synapse-analytics,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.

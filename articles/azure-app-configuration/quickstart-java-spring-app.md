@@ -21,7 +21,7 @@ In this quickstart, you incorporate Azure App Configuration into a Java Spring a
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- A supported [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) with version 8.
+- A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 8.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
 ## Create an App Configuration store
@@ -184,7 +184,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it with a Java Spring app. For more information, see [Spring on Azure](https://docs.microsoft.com/java/azure/spring-framework/). To learn how to enable your Java Spring app to dynamically refresh configuration settings, continue to the next tutorial.
+In this quickstart, you created a new App Configuration store and used it with a Java Spring app. For more information, see [Spring on Azure](/java/azure/spring-framework/). To learn how to enable your Java Spring app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./enable-dynamic-configuration-java-spring-app.md)

@@ -49,7 +49,7 @@ To work through the scenario, you will interact with components of the pre-writt
 
 Here are the components implemented by the building scenario *AdtSampleApp* sample app:
 * Device authentication 
-* [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) usage examples (found in *CommandLoop.cs*)
+* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * *SampleClientApp* - A sample Azure Digital Twins solution
 * *SampleFunctionsApp* - An Azure Functions app that updates your Azure Digital Twins graph as a result of telemetry from IoT Hub and Azure Digital Twins events
@@ -88,7 +88,7 @@ Query
 ```
 
 >[!TIP]
-> This simplified method is provided as part of the _**AdtE2ESample**_ project. Outside the context of this sample code, you can query for all the twins in your instance at any time, using the [Query APIs](how-to-use-apis-sdks.md) or the [CLI commands](how-to-use-cli.md).
+> This simplified method is provided as part of the _**AdtE2ESample**_ project. Outside the context of this sample code, you can query for all the twins in your instance at any time, using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](how-to-use-cli.md).
 >
 > Here is the full query body to get all digital twins in your instance:
 > 
@@ -170,7 +170,9 @@ On the *Publish* pane that opens back in the main Visual Studio window, check th
 
 ### Assign permissions to the function app
 
-To enable the function app to access Azure Digital Twins, the next step is to configure an app setting, assign the app a system-managed Azure AD identity, and give this identity the *Azure Digital Twins Owner (Preview)* role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md).
+To enable the function app to access Azure Digital Twins, the next step is to configure an app setting, assign the app a system-managed Azure AD identity, and give this identity the *Azure Digital Twins Data Owner* role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md).
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your Azure Digital Twins instance.
 
@@ -184,10 +186,10 @@ Use the following command to create the system-managed identity. Take note of th
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Use the *principalId* value from the output in the following command, to assign the function app's identity to the *Azure Digital Twins Owner (Preview)* role for your Azure Digital Twins instance:
+Use the *principalId* value from the output in the following command, to assign the function app's identity to the *Azure Digital Twins Data Owner* role for your Azure Digital Twins instance:
 
 ```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
 
 The result of this command is outputted information about the role assignment you've created. The function app now has permissions to access your Azure Digital Twins instance.
@@ -449,19 +451,13 @@ Here is a review of the scenario that you built out in this tutorial.
 
 If you no longer need the resources created in this tutorial, follow these steps to delete them. 
 
-Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure resources in a resource group with the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) command. This removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; and the Azure Functions app, including both functions and associated resources like storage.
+Using the [Azure Cloud Shell](https://shell.azure.com), you can delete all Azure resources in a resource group with the [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete) command. This removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; and the Azure Functions app, including both functions and associated resources like storage.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-Next, delete the Azure AD app registration you created for your client app with this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
 
 Finally, delete the project sample folder you downloaded to your local machine.

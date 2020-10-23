@@ -227,6 +227,6 @@ When they're no longer needed, delete the resource group, load balancer, and all
 
 ## Next steps
 
-Advance to the next article to learn how to load balancer VMs across availability zones..
+Advance to the next article to learn how to load balance VMs across availability zones..
 > [!div class="nextstepaction"]
 > [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

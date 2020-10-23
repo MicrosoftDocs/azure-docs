@@ -91,7 +91,7 @@ To configure Azure AD single sign-on with Springer Link, perform the following s
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Springer Link Domain and URLs single sign-on information](common/idp-relay.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-relay.png)
 
     a. In the **Identifier** text box, type a URL:
     `https://fsso.springer.com`
@@ -106,7 +106,7 @@ To configure Azure AD single sign-on with Springer Link, perform the following s
 
 5. If you wish to configure the application in **SP** initiated mode, perform the following step:
 
-    ![Springer Link Domain and URLs single sign-on information](common/both-signonurl.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/both-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://fsso.springer.com/saml/login?idp=<entityID>&targetUrl=https://link.springer.com`

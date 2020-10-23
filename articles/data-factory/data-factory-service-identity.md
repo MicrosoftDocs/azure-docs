@@ -54,7 +54,7 @@ If you find your data factory doesn't have a managed identity associated followi
 
 ### Generate managed identity using PowerShell
 
-Call **Set-AzDataFactoryV2** command again, then you see "Identity" fields being newly generated:
+Call **Set-AzDataFactoryV2** command, then you see "Identity" fields being newly generated:
 
 ```powershell
 PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>

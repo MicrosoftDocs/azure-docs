@@ -50,7 +50,7 @@ In order for the parent subscription with the virtual hub to modify and access t
 1. Next, add the remote tenant subscription and the parent tenant subscription to the current session of PowerShell. Run the following command. If you are signed into the parent, you only need to run the command for the remote tenant.
 
    ```azurepowershell-interactive
-   Add-AzAccount “xxxxx-b34a-4df9-9451-4402dcaecc5b”
+   Add-AzAccount "xxxxx-b34a-4df9-9451-4402dcaecc5b"
    ```
 
 1. Verify that the role assignment is successful by logging into Azure PowerShell using the parent credentials, and running the following command:
@@ -68,25 +68,25 @@ In the following steps, you will switch between the context of the two subscript
 1. Make sure you are in the context of your remote account by running the following command:
 
    ```azurepowershell-interactive
-   Select-AzSubscription -SubscriptionId “[remote ID]”
+   Select-AzSubscription -SubscriptionId "[remote ID]"
    ```
 
 1. Create a local variable to store the metadata of the virtual network that you want to connect to the hub.
 
    ```azurepowershell-interactive
-   $remote = Get-AzVirtualNetwork -Name "[v-net name]" -ResourceGroupName "[resource group name]"
+   $remote = Get-AzVirtualNetwork -Name "[vnet name]" -ResourceGroupName "[resource group name]"
    ```
 
 1. Switch back over to the parent account.
 
    ```azurepowershell-interactive
-   Select-AzSubscription -SubscriptionId “[parent ID]”
+   Select-AzSubscription -SubscriptionId "[parent ID]"
    ```
 
 1. Connect the VNet to the hub.
 
    ```azurepowershell-interactive
-   New-AzVirtualHubVnetConnection -ResourceGroupName "[Parent Resource Group Name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
+   New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $[local variable name]
    ```
 
 1. You can view the new connection in either PowerShell, or the Azure portal.

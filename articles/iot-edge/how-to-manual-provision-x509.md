@@ -87,12 +87,12 @@ All the edge-enabled devices that connect to your IoT hub are listed on the **Io
 ### Prerequisites for the Azure CLI
 
 * An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.70 or above. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.
+* [Azure CLI](/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.70 or above. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.
 * The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ### Create an IoT Edge device with the Azure CLI
 
-Use the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) command to create a new device identity in your IoT hub. For example:
+Use the [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) command to create a new device identity in your IoT hub. For example:
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled --auth-method x509_thumbprint --primary-thumbprint [SHA thumbprint] --secondary-thumbprint [SHA thumbprint]
@@ -109,7 +109,7 @@ This command includes several parameters:
 
 ### View IoT Edge devices with the Azure CLI
 
-Use the [az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) command to view all devices in your IoT hub. For example:
+Use the [az iot hub device-identity list](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) command to view all devices in your IoT hub. For example:
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]

@@ -72,8 +72,8 @@ For the offer types supported in Partner Center, all offers were moved regardles
 
 | Offer type <img src="" width=150px>| Moved to Partner Center? <img src="" width=100px>| Next steps |
 | --- | --- | --- |
-| SaaS | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a new SaaS offer in the commercial marketplace](partner-center-portal/create-new-saas-offer.md). |
-| Virtual Machine | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create an Azure virtual machine offer on Azure Marketplace](partner-center-portal/azure-vm-create-offer.md). |
+| SaaS | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md). |
+| Virtual Machine | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Plan a virtual machine offer](marketplace-virtual-machines.md). |
 | Azure application | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create an Azure application offer](partner-center-portal/create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 for Customer Engagement & PowerApps | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 for Customer Engagement & PowerApps offer](partner-center-portal/create-new-customer-engagement-offer.md). |
@@ -150,16 +150,16 @@ You'll notice some branding changes. For example, *SKUs* are branded as *Plans* 
 
 Also, the information you previously provided in the **Marketplace** or **Storefront Details**  (Consulting Service, Power BI app) pages in the Cloud Partner Portal is now collected on the **Offer listing** page in Partner Center:
 
-[![Screenshot shows the Partner Center Offer listing page.](media/cpp-pc-faq/offer-listing.png "Shows the Partner Center Offer listing page")](media/cpp-pc-faq/offer-listing.png#lightbox)
+[![Screenshot shows the Partner Center Offer listing page.](media/cpp-pc-faq/offer-listing.png](media/cpp-pc-faq/offer-listing.png#lightbox)
 
 The information you previously provided for SKUs in a single page in the Cloud Partner Portal may now be collected throughout several pages in Partner Center:
 
-- Plan set up page
+- Plan setup page
 - Plan listing page
 - Plan availability page
 - Plan technical configuration page, as shown here:
 
-![![Screenshot shows the Partner Center technical configuration page.](media/cpp-pc-faq/technical-configuration.png "Shows the Partner Center technical configuration page")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+[![Shows the Partner Center technical configuration page.](media/cpp-pc-faq/technical-configuration.png)](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 Your offer ID is now shown on the left-navigation bar of the offer:
 

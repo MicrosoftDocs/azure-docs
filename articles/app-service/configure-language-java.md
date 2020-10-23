@@ -687,6 +687,10 @@ App Service allows users to choose the major version of the JVM, such as Java 8 
 
 If you choose to pin the minor version, you will need to periodically update the JVM minor version on the site. To ensure that your application runs on the newer minor version, create a staging slot and increment the minor version on the staging site. Once you have confirmed the application runs correctly on the new minor version, you can swap the staging and production slots.
 
+## JBoss EAP hardware options
+
+JBoss EAP is only available on the Premium and Isolated hardware options. Customers that created a JBoss EAP site on a Free, Shared, Basic, or Standard tier during the public preview should scale up to Premium or Isolated hardware tier to avoid unexpected behavior.
+
 ## Java runtime statement of support
 
 ### JDK versions and maintenance
