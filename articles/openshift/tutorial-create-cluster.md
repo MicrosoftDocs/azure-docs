@@ -62,7 +62,7 @@ A Red Hat pull secret enables your cluster to access Red Hat container registrie
 
    You will need to log in to your Red Hat account or create a new Red Hat account with your business email and accept the terms and conditions.
 
-2. Click **Download pull secret** and download a pull secret to be used with your ARO cluster.
+1. Click **Download pull secret** and download a pull secret to be used with your ARO cluster.
 
 Keep the saved `pull-secret.txt` file somewhere safe. The file will be used in each cluster creation if you need to create a cluster that includes samples or operators for Red Hat or certified partners.
 
@@ -97,100 +97,100 @@ Next, you will create a virtual network containing two empty subnets.
    CLUSTER=cluster                 # the name of your cluster
    ```
 
-2. **Create a resource group.**
+1. **Create a resource group.**
 
-An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, and it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command.
+   An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, and it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command.
     
-> [!NOTE] 
-> Azure Red Hat OpenShift is not available in all regions where an Azure resource group can be created. See [Available regions](https://azure.microsoft.com/en-gb/global-infrastructure/services/?products=openshift) for information on where Azure Red Hat OpenShift is supported.
+   > [!NOTE] 
+   > Azure Red Hat OpenShift is not available in all regions where an Azure resource group can be created. See [Available regions](https://azure.microsoft.com/en-gb/global-infrastructure/services/?products=openshift) for information on where Azure Red Hat OpenShift is supported.
 
-```azurecli-interactive
-az group create \
-  --name $RESOURCEGROUP \
-  --location $LOCATION
-```
+   ```azurecli-interactive
+   az group create \
+     --name $RESOURCEGROUP \
+     --location $LOCATION
+   ```
 
-The following example output shows the resource group created successfully:
+   The following example output shows the resource group created successfully:
 
-```json
-{
-  "id": "/subscriptions/<guid>/resourceGroups/aro-rg",
-  "location": "eastus",
-  "name": "aro-rg",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "type": "Microsoft.Resources/resourceGroups"
-}
-```
+   ```json
+   {
+     "id": "/subscriptions/<guid>/resourceGroups/aro-rg",
+     "location": "eastus",
+     "name": "aro-rg",
+     "properties": {
+       "provisioningState": "Succeeded"
+     },
+     "type": "Microsoft.Resources/resourceGroups"
+   }
+   ```
 
-3. **Create a virtual network.**
+1. **Create a virtual network.**
 
-Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes.
+   Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes.
 
-Create a new virtual network in the same resource group you created earlier:
+   Create a new virtual network in the same resource group you created earlier:
 
-```azurecli-interactive
-az network vnet create \
-   --resource-group $RESOURCEGROUP \
-   --name aro-vnet \
-   --address-prefixes 10.0.0.0/22
-```
+   ```azurecli-interactive
+   az network vnet create \
+      --resource-group $RESOURCEGROUP \
+      --name aro-vnet \
+      --address-prefixes 10.0.0.0/22
+   ```
 
-The following example output shows the virtual network created successfully:
+   The following example output shows the virtual network created successfully:
 
-```json
-{
-  "newVNet": {
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/22"
-      ]
-    },
-    "dhcpOptions": {
-      "dnsServers": []
-    },
-    "id": "/subscriptions/<guid>/resourceGroups/aro-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet",
-    "location": "eastus",
-    "name": "aro-vnet",
-    "provisioningState": "Succeeded",
-    "resourceGroup": "aro-rg",
-    "type": "Microsoft.Network/virtualNetworks"
-  }
-}
-```
+   ```json
+   {
+     "newVNet": {
+       "addressSpace": {
+         "addressPrefixes": [
+           "10.0.0.0/22"
+         ]
+       },
+       "dhcpOptions": {
+         "dnsServers": []
+       },
+       "id": "/subscriptions/<guid>/resourceGroups/aro-rg/providers/Microsoft.Network/virtualNetworks/aro-vnet",
+       "location": "eastus",
+       "name": "aro-vnet",
+       "provisioningState": "Succeeded",
+       "resourceGroup": "aro-rg",
+       "type": "Microsoft.Network/virtualNetworks"
+     }
+   }
+   ```
 
-4. **Add an empty subnet for the master nodes.**
+1. **Add an empty subnet for the master nodes.**
 
-```azurecli-interactive
-az network vnet subnet create \
-  --resource-group $RESOURCEGROUP \
-  --vnet-name aro-vnet \
-  --name master-subnet \
-  --address-prefixes 10.0.0.0/23 \
-  --service-endpoints Microsoft.ContainerRegistry
-```
+   ```azurecli-interactive
+   az network vnet subnet create \
+     --resource-group $RESOURCEGROUP \
+     --vnet-name aro-vnet \
+     --name master-subnet \
+     --address-prefixes 10.0.0.0/23 \
+     --service-endpoints Microsoft.ContainerRegistry
+   ```
 
-5. **Add an empty subnet for the worker nodes.**
+1. **Add an empty subnet for the worker nodes.**
 
-```azurecli-interactive
-az network vnet subnet create \
-  --resource-group $RESOURCEGROUP \
-  --vnet-name aro-vnet \
-  --name worker-subnet \
-  --address-prefixes 10.0.2.0/23 \
-  --service-endpoints Microsoft.ContainerRegistry
-```
+   ```azurecli-interactive
+   az network vnet subnet create \
+     --resource-group $RESOURCEGROUP \
+     --vnet-name aro-vnet \
+     --name worker-subnet \
+     --address-prefixes 10.0.2.0/23 \
+     --service-endpoints Microsoft.ContainerRegistry
+   ```
 
-6. **[Disable subnet private endpoint policies](../private-link/disable-private-link-service-network-policy.md) on the master subnet.** This is required for the service to be able to connect to and manage the cluster.
+1. **[Disable subnet private endpoint policies](../private-link/disable-private-link-service-network-policy.md) on the master subnet.** This is required for the service to be able to connect to and manage the cluster.
 
-```azurecli-interactive
-az network vnet subnet update \
-  --name master-subnet \
-  --resource-group $RESOURCEGROUP \
-  --vnet-name aro-vnet \
-  --disable-private-link-service-network-policies true
-```
+   ```azurecli-interactive
+   az network vnet subnet update \
+     --name master-subnet \
+     --resource-group $RESOURCEGROUP \
+     --vnet-name aro-vnet \
+     --disable-private-link-service-network-policies true
+   ```
 
 ## Create the cluster
 
