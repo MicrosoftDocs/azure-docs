@@ -58,7 +58,7 @@ We'll configure OpenShift to use the `email` claim and fall back to `upn` to set
 
 Navigate to **Token configuration (preview)** and click on **Add optional claim**. Select **ID** then check the **email** and **upn** claims.
 
-![Create a secret](media/aro4-ad-tokens.png)
+![Screenshot that shows the email and upn claims that were added.](media/aro4-ad-tokens.png)
 
 ## Assign users and groups to the cluster (optional)
 
