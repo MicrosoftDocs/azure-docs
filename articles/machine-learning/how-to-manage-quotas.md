@@ -153,7 +153,7 @@ When you're requesting a quota increase, select the service that you have in min
 > [!NOTE]
 > [Free trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a free trial subscription, you can upgrade to a [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure free trial to pay-as-you-go](../billing/billing-upgrade-azure-subscription.md) and [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq).
 
-## Private endpoint and private DNS quote increases
+## Private endpoint and private DNS quota increases
 
 There are limits on the number of private endpoints and private DNS zones that you can create in a subscription.
 
