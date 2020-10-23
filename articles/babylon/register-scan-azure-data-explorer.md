@@ -58,7 +58,7 @@ To do this in the Azure portal:
 10. Add your service principal to a role on the Azure Data Explorer account that you would like to scan. You do this in the Azure portal. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?tabs=dotnet)
 
 
-11. Once service principal is created, add the same to the AllDatabasesViewer role in Permissions tab on Azure portal as shown in below screenshot
+11. Once the service principal is created, add the same to the **AllDatabasesViewer** role in the **Permissions** tab on the Azure portal, as shown in the following screenshot.
 
 ![Screenshot to add service principal in permissions](./media/register-scan-azure-data-explorer/permissions-auth.png)
 
