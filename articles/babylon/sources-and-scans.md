@@ -12,7 +12,7 @@ ms.date: 10/23/2020
 # Introduction
 This article covers details regarding sources and scanning.
 
-# Supported sources
+## Supported sources
 
 Azure Babylon supports the following sources:
 
@@ -29,12 +29,12 @@ Azure Babylon supports the following sources:
 | Cosmos DB                                 | Account Key                                    | UX/Managed Scanning PowerShell            |
 | Azure File Storage                       | Account Key                                    | UX/PowerShell
 
-# File types supported for scanning
+## File types supported for scanning
 Structured file formats supported by extension: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML
 Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 We also support custom file extensions and custom parsers.
 
-## Sampling within a file
+### Sampling within a file
 For all structured file formats (AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML)
 - Scanner samples 128 rows in each column or 1 MB, whichever is lower.
 For document file formats (DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT)
@@ -43,21 +43,21 @@ For document file formats (DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, P
 
 * CosmosDB collection sampling *
 
-# Resource set file sampling
+## Resource set file sampling
 If we detect a folder or partition file group to be considered a resource set (it matched with a system resource set policy or a customer defined resource set policy), then we subject each folder to sampling
-## Delimited files (CSV, PSV, SSV, TSV)
+### Delimited files (CSV, PSV, SSV, TSV)
 1 in 100 files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
 
-## Data lake file types (Parquet, Avro, Orc)
+### Data lake file types (Parquet, Avro, Orc)
 1 in 18446744073709551615 (long max) files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
 
-## Other structured file types (JSON, XML, TXT)
+### Other structured file types (JSON, XML, TXT)
 1 in 100 files are sampled (L3 scan) within a folder or group of partition files that are considered a 'Resource set'
 
-## SQL objects and CosmosDB entities
+### SQL objects and CosmosDB entities
 Each file is L3 scanned.
 
-## Document file types
+### Document file types
  Each file is L3 scanned. Resource set patterns don't apply to these file types.
 
 ## Classification
