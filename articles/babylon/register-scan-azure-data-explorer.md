@@ -97,7 +97,7 @@ When you select **Continue**, you will be presented with scan summary page, wher
 Select a scan and select **Edit** to edit the selected scan. You can only edit one scan at a time.
 
 **Remove a scan**
-To remove a scan, select one or more scans from the list, then click Remove.
+To remove a scan, select one or more scans from the list, then select **Remove**.
 
 **Scan history**
 Click on any scan in the list to get to the scan history page. This page will show you whether your scan was schedule or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan and the total duration.
