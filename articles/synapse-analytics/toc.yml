@@ -44,8 +44,6 @@
     href: quickstart-create-workspace-powershell.md
   - name: Deploy with a template
     href: quickstart-deployment-template-workspaces.md
-  - name: Use Synapse Studio
-    href: quickstart-synapse-studio.md
   - name: Link a Power BI workspace
     href: quickstart-power-bi.md
   - name: Create pools
@@ -406,7 +404,7 @@
       items:
       - name: Model scoring wizard for SQL pools
         href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
-      - name: Run a regression experiment using Azure AutoML (Scoring in DW)
+      - name: Run a regression experiment using Azure AutoML
         href: ./spark/apache-spark-azure-machine-learning-tutorial.md
 
 

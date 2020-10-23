@@ -155,9 +155,7 @@ landingContent:
 
   - title: Help and feedback
     linkLists:
-      - linkListType: reference
-        links:
-          - text: UserVoice
-            url: https://go.microsoft.com/fwlink/?linkid=2090535
-          - text: Stack Overflow
-            url: https://go.microsoft.com/fwlink/?linkid=2087186
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context

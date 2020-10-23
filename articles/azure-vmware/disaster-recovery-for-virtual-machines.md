@@ -15,7 +15,7 @@ VMware HCX provides various operations that provide fine control and granularity
 
 - **Pause** – Pause the current replication policy associated with the VM selected.
 
-- **Resume** - Pause the current replication policy associated with the VM selected.
+- **Resume** - Resume the current replication policy associated with the VM selected.
 
 - **Remove** - Remove the current replication policy associated with the VM selected.
 

@@ -211,7 +211,7 @@ In this scenario, it outputs `Model Id: dtmi:com:example:Thermostat;1`.
     node twin.js
     ```
 
-1. In the **service** terminal output, in the ¬reported` properties section, you see the updated target temperature reported. It might take a while for the device to finish the update. Repeat this step until the device has processed the property update:
+1. In the **service** terminal output, in the `reported` properties section, you see the updated target temperature reported. It might take a while for the device to finish the update. Repeat this step until the device has processed the property update:
 
     ```json
     "reported": {

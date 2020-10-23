@@ -26,6 +26,50 @@ This page provides you with information about:
 - Deprecated functionality
 
 
+## April 2020
+
+Updates in April include:
+- [Dynamic compliance packages are now generally available](#dynamic-compliance-packages-are-now-generally-available)
+- [Identity recommendations now included in Azure Security Center free tier](#identity-recommendations-now-included-in-azure-security-center-free-tier)
+
+
+### Dynamic compliance packages are now generally available
+
+The Azure Security Center regulatory compliance dashboard now includes **dynamic compliance packages** (now generally available) to track additional industry and regulatory standards.
+
+Dynamic compliance packages can be added to your subscription or management group from the Security Center security policy page. When you've onboarded a standard or benchmark, the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. A summary report for any of the standards that have been onboarded will be available to download.
+
+Now, you can add standards such as:
+
+- **NIST SP 800-53 R4**
+- **SWIFT CSP CSCF-v2020**
+- **UK Official and UK NHS**
+- **Canada Federal PBMM**
+- **Azure CIS 1.1.0 (new)** (which is a more complete representation of Azure CIS 1.1.0)
+
+In addition, we've recently added the **Azure Security Benchmark**, the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.  
+ 
+Learn more about [customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
+
+
+### Identity recommendations now included in Azure Security Center free tier
+
+Security recommendations for identity and access on the Azure Security Center free tier are now generally available. This is part of the effort to make the cloud security posture management (CSPM) features free. Until now, these recommendations were only available on the standard pricing tier.
+
+Examples of identity and access recommendations include:
+
+- "Multifactor authentication should be enabled on accounts with owner permissions on your subscription."
+- "A maximum of three owners should be designated for your subscription."
+- "Deprecated accounts should be removed from your subscription."
+
+If you have subscriptions on the free pricing tier, their secure scores will be impacted by this change because they were never assessed for their identity and access security.
+
+Learn more about [identity and access recommendations](recommendations-reference.md#recs-identity).
+
+Learn more about [monitoring identity and access](security-center-identity-access.md).
+
+
+
 ## March 2020
 
 Updates in March include:
@@ -45,7 +89,7 @@ Every security program includes multiple workflows for incident response. These 
 
 For more information about the automatic and manual Security Center capabilities for running your workflows, see [workflow automation](workflow-automation.md).
 
-Learn more about [creating Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Learn more about [creating Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ### Integration of Azure Security Center with Windows Admin Center
@@ -166,7 +210,7 @@ Today we are introducing a new capability in Security Center that allows custome
 
 For more information about the automatic and manual Security Center capabilities for running your workflows, see [workflow automation](workflow-automation.md).
 
-To learn about creating Logic Apps, see [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+To learn about creating Logic Apps, see [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ### Quick Fix for bulk resources generally available
@@ -222,9 +266,9 @@ Applications that are installed in virtual machines could often have vulnerabili
 
 Azure Security Center’s support for threat protection and vulnerability assessment for SQL DBs running on IaaS VMs is now in preview.
 
-[Vulnerability assessment](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security posture as part of Azure secure score and includes the steps to resolve security issues and enhance your database fortifications.
+[Vulnerability assessment](../azure-sql/database/sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security posture as part of Azure secure score and includes the steps to resolve security issues and enhance your database fortifications.
 
-[Advanced threat protection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your SQL server. It continuously monitors your database for suspicious activities and provides action-oriented security alerts on anomalous database access patterns. These alerts provide the suspicious activity details and recommended actions to investigate and mitigate the threat.
+[Advanced threat protection](../azure-sql/database/threat-detection-overview.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your SQL server. It continuously monitors your database for suspicious activities and provides action-oriented security alerts on anomalous database access patterns. These alerts provide the suspicious activity details and recommended actions to investigate and mitigate the threat.
 
 
 ### Support for custom policies (preview)
@@ -298,7 +342,7 @@ When you enable JIT for your VMs, you create a policy that determines the ports 
 
 Requests are logged in the Azure Activity Log, so you can easily monitor and audit access. The just-in-time page also helps you quickly identify existing VMs that have JIT enabled and VMs where JIT is recommended.
 
-[Learn more about Azure Firewall](https://docs.microsoft.com/azure/firewall/overview).
+[Learn more about Azure Firewall](../firewall/overview.md).
 
 
 ### Single click remediation to boost your security posture (preview)

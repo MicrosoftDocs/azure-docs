@@ -124,19 +124,19 @@ To configure Azure AD single sign-on with UserEcho, perform the following steps:
 
 2. In the toolbar on the top, click your user name to expand the menu, and then click **Setup**.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_06.png) 
+    ![Screenshot shows Setup selected from the UserEcho site.](./media/userecho-tutorial/tutorial_userecho_06.png) 
 
 3. Click **Integrations**.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_07.png) 
+    ![Screenshot shows Integrations selected from the Settings menu.](./media/userecho-tutorial/tutorial_userecho_07.png) 
 
 4. Click **Website**, and then click **Single sign-on (SAML2)**.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_08.png) 
+    ![Screenshot shows Single sign-on SAML2 selected from the Integrations menu.](./media/userecho-tutorial/tutorial_userecho_08.png) 
 
 5. On the **Single sign-on (SAML)** page, perform the following steps:
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_09.png)
+    ![Screenshot shows the Single Sign-on SAML page where you can enter the values described.](./media/userecho-tutorial/tutorial_userecho_09.png)
 	
 	a. As **SAML-enabled**, select **Yes**.
 	
@@ -208,23 +208,23 @@ The objective of this section is to create a user called Britta Simon in UserEch
 
 2. In the toolbar on the top, click your user name to expand the menu, and then click **Setup**.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_06.png)
+    ![Screenshot shows Setup selected from the UserEcho site.](./media/userecho-tutorial/tutorial_userecho_06.png)
 
 3. Click **Users**, to expand the **Users** section.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_10.png)
+    ![Screenshot shows Users selected from the Settings menu.](./media/userecho-tutorial/tutorial_userecho_10.png)
 
 4. Click **Users**.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_11.png)
+    ![Screenshot shows Users selected.](./media/userecho-tutorial/tutorial_userecho_11.png)
 
 5. Click **Invite a new user**.
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_12.png)
+    ![Screenshot shows the Invite a new user control.](./media/userecho-tutorial/tutorial_userecho_12.png)
 
 6. On the **Invite a new user** dialog, perform the following steps:
    
-    ![Configure Single Sign-On](./media/userecho-tutorial/tutorial_userecho_13.png)
+    ![Screenshot shows the Invite a new user dialog box where you can enter user information.](./media/userecho-tutorial/tutorial_userecho_13.png)
 
 	a. In the **Name** textbox, type name of the user like Britta Simon.
 	

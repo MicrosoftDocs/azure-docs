@@ -20,7 +20,7 @@ You can use the OAuth 2.0 authorization code grant in apps installed on a device
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). You can use it for authentication and authorization in most [application types](application-types.md), including web applications, single-page applications, and natively installed applications. You can use the OAuth 2.0 authorization code flow to securely acquire access tokens and refresh tokens for your applications, which can be used to access resources that are secured by an [authorization server](protocols-overview.md).  The refresh token allows the client to acquire new access (and refresh) tokens once the access token expires, typically after one hour.
 
-<!-- This article focuses on the **public clients** OAuth 2.0 authorization code flow. A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password. This includes single-page applications, mobile apps, desktop applications, and essentially any application that runs on a device and needs to get access tokens. -->
+This article focuses on the **public clients** OAuth 2.0 authorization code flow. A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password. This includes single-page applications, mobile apps, desktop applications, and essentially any application that doesn't run on a server.
 
 > [!NOTE]
 > To add identity management to a web app by using Azure AD B2C, use [OpenID Connect](openid-connect.md) instead of OAuth 2.0.
@@ -35,15 +35,9 @@ To try the HTTP requests in this article:
 
 ## Redirect URI setup required for single-page apps
 
-The authorization code flow for single page applications requires some additional setup.  Follow the instructions for [creating your single-page application](tutorial-register-spa.md) to correctly mark your redirect URI as enabled for CORS. To update an existing redirect URI to enable CORS, open the manifest editor and set the `type` field for your redirect URI to `spa` in the `replyUrlsWithType` section. You can also click on the redirect URI in the "Web" section of the Authentication tab, and select the URIs you want to migrate to using the authorization code flow.
+The authorization code flow for single page applications requires some additional setup.  Follow the instructions for [creating your single-page application](tutorial-register-spa.md) to correctly mark your redirect URI as enabled for CORS. To update an existing redirect URI to enable CORS,  you can click on the migrate prompt in the "Web" section of the **App registration**'s **Authentication** tab. Alternatively, you can open the **App registrations manifest editor** and set the `type` field for your redirect URI to `spa` in the `replyUrlsWithType` section.
 
 The `spa` redirect type is backwards compatible with the implicit flow. Apps currently using the implicit flow to get tokens can move to the `spa` redirect URI type without issues and continue using the implicit flow.
-
-If you attempt to use the authorization code flow and see this error:
-
-`access to XMLHttpRequest at 'https://login.microsoftonline.com/common/v2.0/oauth2/token' from origin 'yourApp.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`
-
-Then you need to visit your app registration and update the redirect URI for your app to type `spa`.
 
 ## 1. Get an authorization code
 The authorization code flow begins with the client directing the user to the `/authorize` endpoint. This is the interactive part of the flow, where the user takes action. In this request, the client indicates in the `scope` parameter the permissions that it needs to acquire from the user. The following three examples (with line breaks for readability) each use a different user flow.

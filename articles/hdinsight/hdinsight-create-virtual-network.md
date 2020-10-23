@@ -23,7 +23,7 @@ Before executing any of the code samples in this article, have an understanding 
 Other prerequisites for the samples in this article include the following items:
 
 * If you're using PowerShell, you'll need to install the [AZ Module](https://docs.microsoft.com/powershell/azure/).
-* If you want to use Azure CLI and haven't yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* If you want to use Azure CLI and haven't yet installed it, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  
 > If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see the [Connect HDInsight to your on-premises network](connect-on-premises-network.md) document.
