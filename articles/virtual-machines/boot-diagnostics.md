@@ -34,9 +34,9 @@ Located in the virtual machine blade, the boot diagnostics option is under the *
 - Boot diagnostics is only available for Azure Resource Manager VMs. 
 - Boot diagnostics does not support premium storage accounts, if a premium storage account is used for boot diagnostics users will receive an `StorageAccountTypeNotSupported` error when starting the VM. 
 - Managed storage accounts are supported in Resource Manager API version "2020-06-01" and later.
-- Azure Serial Console is currently incompatible with a managed storage account for Boot Diagnostics. Learn more about [Azure Serial Console](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview).
+- Azure Serial Console is currently incompatible with a managed storage account for Boot Diagnostics. Learn more about [Azure Serial Console](./troubleshooting/serial-console-overview.md).
 - Boot diagnostics using a manage storage account can currently only be applied through the Azure portal. 
 
 ## Next steps
 
-Learn more about the [Azure Serial Console](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview) and how to use boot diagnostics to [troubleshoot virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics).
+Learn more about the [Azure Serial Console](./troubleshooting/serial-console-overview.md) and how to use boot diagnostics to [troubleshoot virtual machines in Azure](./troubleshooting/boot-diagnostics.md).

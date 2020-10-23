@@ -12,7 +12,7 @@ ms.date: 10/08/2020
 
 # Azure Monitor Frequently Asked Questions
 
-This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any additional questions, go to the [discussion forum](https://docs.microsoft.com/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any additional questions, go to the [discussion forum](/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 
 ## General
@@ -397,7 +397,7 @@ Each item that is transmitted carries an `itemCount` property that shows how man
 
 Moving existing Application Insights resources from one region to another is **currently not supported**. Historical data that you have collected **cannot be migrated** to a new region. The only partial workaround is to:
 
-1. Create a brand new Application Insights resource ([classic](app/create-new-resource.md) or [workspace-based](/app/create-workspace-resource.md)) in the new region.
+1. Create a brand new Application Insights resource ([classic](app/create-new-resource.md) or [workspace-based](/azure/azure-monitor/app/create-workspace-resource)) in the new region.
 2. Recreate all unique customizations specific to the original resource in the new resource.
 3. Modify your application to use the new region resource's [instrumentation key](app/create-new-resource.md#copy-the-instrumentation-key) or [connection string](app/sdk-connection-string.md).  
 4. Test to confirm that everything is continuing to work as expected with your new Application Insights resource. 
@@ -410,7 +410,7 @@ Unique customizations that commonly need to be manually recreated or updated for
 - Recreate availability alerts.
 - Recreate any custom Role-Based Access Control (RBAC) settings that are required for your users to access the new resource. 
 - Replicate settings involving ingestion sampling, data retention, daily cap, and custom metrics enablement. These settings are controlled via the **Usage and estimated costs** pane.
-- Any integration that relies on API keys such as [release annotations](/app/annotations.md), [live metrics secure control channel](app/live-stream.md#secure-the-control-channel) etc. You will need to generate new API keys and update the associated integration. 
+- Any integration that relies on API keys such as [release annotations](/azure/azure-monitor/app/annotations), [live metrics secure control channel](app/live-stream.md#secure-the-control-channel) etc. You will need to generate new API keys and update the associated integration. 
 - Continuous export in classic resources would need to be configured again.
 - Diagnostic settings in workspace-based resources would need to be configured again.
 

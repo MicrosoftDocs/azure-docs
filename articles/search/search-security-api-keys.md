@@ -91,6 +91,6 @@ Members of the following roles can view and regenerate keys: Owner, Contributor,
 
 ## See also
 
-+ [Role-based access control in Azure Cognitive Search](search-security-rbac.md)
++ [Azure role-based access control in Azure Cognitive Search](search-security-rbac.md)
 + [Manage using PowerShell](search-manage-powershell.md) 
 + [Performance and optimization article](search-performance-optimization.md)

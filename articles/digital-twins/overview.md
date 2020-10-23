@@ -39,13 +39,13 @@ Models are defined in a JSON-like language called [Digital Twins Definition Lang
 * Models define semantic **relationships** between your entities so that you can connect your twins into a knowledge graph that reflects their interactions. You can think of the models as nouns in a description of your world, and the relationships as verbs.
 * You can also specialize twins using model inheritance. One model can inherit from another.
 
-DTDL is used for data models throughout other Azure IoT services, including [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) and [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md). This helps you keep your Azure Digital Twins solution connected and compatible with other parts of the Azure ecosystem.
+DTDL is used for data models throughout other Azure IoT services, including [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) and [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md). This helps you keep your Azure Digital Twins solution connected and compatible with other parts of the Azure ecosystem.
 
 ### Live execution environment
 
 Digital models in Azure Digital Twins are live, up-to-date representations of the real world. Using the relationships in your custom DTDL models, you'll connect twins into a **live graph** representing your environment.
 
-You can view a visualization of your Azure Digital Twins graph through the help of a sample application, [**Azure Digital Twins explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
+You can view a visualization of your Azure Digital Twins graph through the help of a sample application, [**Azure Digital Twins explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 Here's a view of what the sample visualization looks like:
 

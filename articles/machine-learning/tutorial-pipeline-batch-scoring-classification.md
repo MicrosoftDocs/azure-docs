@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: lobrien
 ms.author: laobri
 ms.reviewer: laobri
-ms.date: 03/11/2020
+ms.date: 10/13/2020
 ms.custom: contperfq4, devx-track-python
 ---
 
@@ -96,7 +96,7 @@ output_dir = PipelineData(name="scores",
                           output_path_on_compute="batchscoring/results")
 ```
 
-Next, register the datasets to the workspace.
+Register the datasets to the workspace if you want to reuse it later. This step is optional.
 
 ```python
 

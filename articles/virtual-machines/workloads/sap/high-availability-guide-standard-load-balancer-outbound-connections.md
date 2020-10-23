@@ -64,12 +64,12 @@ Read the following papers first:
   * [Azure Firewall Overview](../../../firewall/overview.md)- overview of Azure Firewall
   * [Tutorial: Deploy and configure Azure Firewall](../../../firewall/tutorial-firewall-deploy-portal.md) - instructions on how to configure Azure Firewall via Azure portal
 * [Virtual Networks -User defined rules](../../../virtual-network/virtual-networks-udr-overview.md#user-defined) - Azure routing concepts and rules  
-* [Security Groups Service Tags](../../../virtual-network/security-overview.md#service-tags) - how to simplify your Network Security Groups and Firewall configuration with service tags
+* [Security Groups Service Tags](../../../virtual-network/network-security-groups-overview.md#service-tags) - how to simplify your Network Security Groups and Firewall configuration with service tags
 
 ## Additional external Azure Standard Load Balancer for outbound connections to internet
 
 One option to achieve outbound connectivity to public end points, without allowing inbound connectivity to the VM from public end point, is to create a second load balancer with public IP address, add the VMs to the backend pool of the second load balancer and define only [outbound rules](../../../load-balancer/load-balancer-outbound-connections.md#outboundrules).  
-Use [Network Security Groups](../../../virtual-network/security-overview.md) to control the public end points, that are accessible for outbound calls from the VM.  
+Use [Network Security Groups](../../../virtual-network/network-security-groups-overview.md) to control the public end points, that are accessible for outbound calls from the VM.  
 For more information, see Scenario 2 in document [Outbound connections](../../../load-balancer/load-balancer-outbound-connections.md#scenarios).  
 The configuration would look like:  
 
@@ -78,11 +78,11 @@ The configuration would look like:
 ### Important considerations
 
 - You can use one additional Public Load Balancer for multiple VMs in the same subnet to achieve outbound connectivity to public end point and optimize cost  
-- Use [Network Security Groups](../../../virtual-network/security-overview.md) to control which public end points are accessible from the VMs. You can assign the Network Security Group either to the subnet, or to each VM. Where possible, use [Service tags](../../../virtual-network/security-overview.md#service-tags) to reduce the complexity of the security rules.  
+- Use [Network Security Groups](../../../virtual-network/network-security-groups-overview.md) to control which public end points are accessible from the VMs. You can assign the Network Security Group either to the subnet, or to each VM. Where possible, use [Service tags](../../../virtual-network/network-security-groups-overview.md#service-tags) to reduce the complexity of the security rules.  
 - Azure standard Load balancer with public IP address and outbound rules allows direct access to public end point. If you have corporate security requirements to have all outbound traffic pass via centralized corporate solution for auditing and logging, you may not be able to fulfill the requirement with this scenario.  
 
 >[!TIP]
->Where possible, use [Service tags](../../../virtual-network/security-overview.md#service-tags) to reduce the complexity of the Network Security Group . 
+>Where possible, use [Service tags](../../../virtual-network/network-security-groups-overview.md#service-tags) to reduce the complexity of the Network Security Group . 
 
 ### Deployment steps
 
@@ -114,7 +114,7 @@ The configuration would look like:
 
    ![Outbound connection with Second Load Balancer with public IP](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-network-security-groups.png)
 
-   For more information on Azure Network security groups, see [Security Groups ](../../../virtual-network/security-overview.md). 
+   For more information on Azure Network security groups, see [Security Groups ](../../../virtual-network/network-security-groups-overview.md). 
 
 ## Azure Firewall for outbound connections to internet
 
@@ -134,7 +134,7 @@ The architecture would look like:
 - If the corporate Firewall solution is not Azure Firewall, and you have security requirements to have all outbound traffic pass though centralized corporate solution, this solution may not be practical.  
 
 >[!TIP]
->Where possible, use [Service tags](../../../virtual-network/security-overview.md#service-tags) to reduce the complexity of the Azure Firewall rules.  
+>Where possible, use [Service tags](../../../virtual-network/network-security-groups-overview.md#service-tags) to reduce the complexity of the Azure Firewall rules.  
 
 ### Deployment steps
 

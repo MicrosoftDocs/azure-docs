@@ -4,6 +4,7 @@ description: Synapse SQL support connections from SQL Server Management Studio (
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic

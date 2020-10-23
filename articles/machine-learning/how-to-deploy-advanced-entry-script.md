@@ -9,6 +9,8 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: gopalv
+ms.reviewer: larryfr
+ms.custom: deploy
 ---
 
 # Advanced entry script authoring

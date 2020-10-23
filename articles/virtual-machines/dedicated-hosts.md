@@ -121,7 +121,7 @@ The infrastructure supporting your virtual machines may occasionally be updated 
 
 **Maintenance Control** provides customers with an option to skip regular platform updates scheduled on their dedicated hosts, then apply it at the time of their choice within a 35-day rolling window.
 
-For more information, see [Managing platform updates with Maintenance Control](https://docs.microsoft.com/azure/virtual-machines/maintenance-control).
+For more information, see [Managing platform updates with Maintenance Control](./maintenance-control.md).
 
 ## Capacity considerations
 
@@ -141,7 +141,7 @@ Provisioning a dedicated host will consume both dedicated host vCPU and the VM f
 
 ![Screenshot of the usage and quotas page in the portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
-For more information, see [Virtual machine vCPU quotas](/azure/virtual-machines/windows/quotas).
+For more information, see [Virtual machine vCPU quotas](./windows/quotas.md).
 
 Free trial and MSDN subscriptions do not have quota for Azure Dedicated Hosts.
 
@@ -181,7 +181,7 @@ Azure monitors and manages the health status of your hosts. The following states
 
 ## Next steps
 
-- You can deploy a dedicated host using [Azure PowerShell](./windows/dedicated-hosts-powershell.md), the [portal](./windows/dedicated-hosts-portal.md), and [Azure CLI](./linux/dedicated-hosts-cli.md).
+- You can deploy a dedicated host using [Azure PowerShell](./windows/dedicated-hosts-powershell.md), the [portal](./dedicated-hosts-portal.md), and [Azure CLI](./linux/dedicated-hosts-cli.md).
 
 - There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
 

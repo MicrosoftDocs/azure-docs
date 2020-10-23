@@ -2,17 +2,19 @@
 title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template for working with objects.
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 10/12/2020
 ---
 # Object functions for ARM templates
 
 Resource Manager provides several functions for working with objects in your Azure Resource Manager (ARM) template.
 
 * [contains](#contains)
+* [createObject](#createobject)
 * [empty](#empty)
 * [intersection](#intersection)
 * [json](#json)
 * [length](#length)
+* [null](#null)
 * [union](#union)
 
 ## contains
@@ -95,6 +97,58 @@ The output from the preceding example with the default values is:
 | objectFalse | Bool | False |
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
+
+## createObject
+
+`createObject(key1, value1, key2, value2, ...)`
+
+Creates an object from the keys and values.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| key1 |No |string |The name of the key. |
+| value1 |No |int, boolean, string, object, or array |The value for the key. |
+| additional keys |No |string |Additional names of the keys. |
+| additional values |No |int, boolean, string, object, or array |Additional values for the keys. |
+
+The function only accepts an even number of parameters. Each key must have a matching value.
+
+### Return value
+
+An object with each key and value pair.
+
+### Example
+
+The following example creates an object from different types of values.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+    ],
+    "outputs": {
+        "newObject": {
+            "type": "object",
+            "value": "[createObject('intProp', 1, 'stringProp', 'abc', 'boolProp', true(), 'arrayProp', createArray('a', 'b', 'c'), 'objectProp', createObject('key1', 'value1'))]"
+        }
+    }
+}
+```
+
+The output from the preceding example with the default values is an object named `newObject` with the following value:
+
+```json
+{
+  "intProp": 1,
+  "stringProp": "abc",
+  "boolProp": true,
+  "arrayProp": ["a", "b", "c"],
+  "objectProp": {"key1": "value1"}
+}
+```
 
 ## empty
 
@@ -246,6 +300,8 @@ The JSON data type from the specified string, or an empty value when **null** is
 ### Remarks
 
 If you need to include a parameter value or variable in the JSON object, use the [concat](template-functions-string.md#concat) function to create the string that you pass to the function.
+
+You can also use [null()](#null) to get a null value.
 
 ### Example
 
@@ -407,6 +463,44 @@ The output from the preceding example with the default values is:
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
 | objectLength | Int | 4 |
+
+## null
+
+`null()`
+
+Returns null.
+
+### Parameters
+
+The null function doesn't accept any parameters.
+
+### Return value
+
+A value that is always null.
+
+### Example
+
+The following example uses the null function.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "emptyOutput": {
+            "type": "bool",
+            "value": "[empty(null())]"
+        },
+    }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| emptyOutput | Bool | True |
 
 ## union
 
