@@ -46,16 +46,6 @@ In this tutorial, you learn how to:
     az provider register --namespace Microsoft.ContainerService
     ```
 
- - Install or update the aks-preview extension for this tutorial. Use the following Azure CLI commands:
-    ```azurecli-interactive
-    az extension add --name aks-preview
-    az extension list
-    ```
-    ```azurecli-interactive
-    az extension update --name aks-preview
-    az extension list
-    ```
-
 ## Create a resource group
 
 In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroup* in the *canadacentral* location (region): 
