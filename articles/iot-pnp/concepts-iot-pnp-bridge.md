@@ -64,7 +64,7 @@ To build, extend, and develop the IoT Plug and Play bridge you'll need:
 
 ### Azure IoT Products and Tools
 
-- **Azure IoT Hub** - You'll need an [Azure IoT hub](https://docs.microsoft.com/azure/iot-hub/) in your Azure subscription to connect your device to. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. If you don't have an IoT hub, [follow these instructions to create one](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-using-cli).
+- **Azure IoT Hub** - You'll need an [Azure IoT hub](../iot-hub/index.yml) in your Azure subscription to connect your device to. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. If you don't have an IoT hub, [follow these instructions to create one](../iot-hub/iot-hub-create-using-cli.md).
 
 > [!Note]
 > IoT Plug and Play is currently available on IoT hubs created in the Central US, North Europe, and East Japan regions. IoT Plug and Play support is not included in basic-tier IoT hubs. To interact with the your IoT Plug and Play device, you can use the Azure IoT explorer tool. [Download and install the latest release of Azure IoT explorer](./howto-use-iot-explorer.md) for your operating system.

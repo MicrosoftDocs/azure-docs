@@ -82,13 +82,13 @@ This tutorial teaches the development steps for Visual Studio 2019. If you are u
 
 1. Prepare Visual Studio 2019 on your development machine.
 
-   * If you don't already have Visual Studio on your development machine, [Install Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) with the following workloads:
+   * If you don't already have Visual Studio on your development machine, [Install Visual Studio 2019](/visualstudio/install/install-visual-studio) with the following workloads:
 
       * Azure development
       * Desktop development with C++
       * .NET Core cross-platform development
 
-   * If you do already have Visual Studio 2019 on your development machine, follow the steps in [Modify Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) to add the required workloads.
+   * If you do already have Visual Studio 2019 on your development machine, follow the steps in [Modify Visual Studio](/visualstudio/install/modify-visual-studio) to add the required workloads.
 
 2. Download and install the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extension for Visual Studio 2019.
 

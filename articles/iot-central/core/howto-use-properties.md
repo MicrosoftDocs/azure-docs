@@ -148,7 +148,7 @@ The following code shows the definition of an Object property type. This object 
 
 By default, properties are read-only. Read-only properties mean that the device reports property value updates to your Azure IoT Central application. Your Azure IoT Central application can't set the value of a read-only property.
 
-Azure IoT Central uses device twins to synchronize property values between the device and the Azure IoT Central application. Device property values use device twin reported properties. For more information, see [device twins](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
+Azure IoT Central uses device twins to synchronize property values between the device and the Azure IoT Central application. Device property values use device twin reported properties. For more information, see [device twins](../../iot-hub/tutorial-device-twins.md).
 
 The following snippet from a device capability model shows the definition of a read-only property type:
 
@@ -246,7 +246,7 @@ The response message should include the `ac` and `av` fields. The `ad` field is 
 | `'ac': 5xx` | Error | The device experienced an unexpected error when processing the requested change. |
 
 
-For more information on device twins, see [Configure your devices from a back-end service](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
+For more information on device twins, see [Configure your devices from a back-end service](../../iot-hub/tutorial-device-twins.md).
 
 When the operator sets a writeable property in the Azure IoT Central application, the application uses a device twin desired property to send the value to the device. The device then responds by using a device twin reported property. When Azure IoT Central receives the reported property value, it updates the property view with a status of **Accepted**.
 

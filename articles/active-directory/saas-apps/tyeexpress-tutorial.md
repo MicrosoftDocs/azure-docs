@@ -124,11 +124,11 @@ To configure Azure AD single sign-on with T&E Express, perform the following ste
 
 1. Under the **Admin** Tab, Click on **SAML domain** to Open the SAML settings page.
 
-	![Configure Single Sign-On](./media/tyeexpress-tutorial/tye-SAML.png)
+	![Screenshot shows SAML Domain selected from the Admin menu.](./media/tyeexpress-tutorial/tye-SAML.png)
 
 1. Select the **Activar(Activate)** option from **No** to **SI(Yes)**. In the **Identity Provider Metadata** textbox, paste the metadata XML which you have downloaded from the Azure portal.
 
-	![Configure Single Sign-On](./media/tyeexpress-tutorial/tyeAdmin.png)
+	![Screenshot shows the Dominio SAML page where you can enter the metadata.](./media/tyeexpress-tutorial/tyeAdmin.png)
 
 1. Click on the **Guardar(Save)** button to save the settings.
 
@@ -193,17 +193,17 @@ In order to enable Azure AD users to log into T&E Express, they must be provisio
 
 1. Under Admin tag, click on Users to open the Users master page.
 
-    ![Add Employee](./media/tyeexpress-tutorial/tye-adminusers.png)
+    ![Screenshot shows Users selected from the Admin menu.](./media/tyeexpress-tutorial/tye-adminusers.png)
 
 1. On the home page, click on **+** to add the users.
 
-	![Add Employee](./media/tyeexpress-tutorial/tye-usershome.png)
+	![Screenshot shows the plus icon to add users.](./media/tyeexpress-tutorial/tye-usershome.png)
 
 1. Enter all the mandatory details as asked in the form and click the save button to save the details.
 
-	![Add Employee](./media/tyeexpress-tutorial/tye-usersadd.png)
+	![Screenshot shows the User information section where you can enter appropriate values.](./media/tyeexpress-tutorial/tye-usersadd.png)
 
-	![Add Employee](./media/tyeexpress-tutorial/tye-userssave.png)
+	![Screenshot shows the Approvers and Assistant sections where you can enter appropriate values.](./media/tyeexpress-tutorial/tye-userssave.png)
 
 ### Test single sign-on
 

@@ -117,7 +117,7 @@ Let's take a closer look at each pattern.
  
 ### Lift and shift pattern
 
-This is the simplest pattern.
+This is the simplest pattern. 
 
 1. Stop all writes to Gen1.
 
@@ -126,6 +126,8 @@ This is the simplest pattern.
 3. Point ingest operations and workloads to Gen2.
 
 4. Decommission Gen1.
+
+Check out our sample code for the lift and shift pattern in our [Lift and Shift migration sample](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Lift%20and%20Shift/README.md).
 
 > [!div class="mx-imgBorder"]
 > ![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
@@ -148,6 +150,9 @@ This is the simplest pattern.
 
 4. Decommission Gen1.
 
+Check out our sample code for the incremental copy pattern in our [Incremental copy migration sample](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Incremental/README.md).
+
+
 > [!div class="mx-imgBorder"]
 > ![Incremental copy pattern](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
@@ -169,6 +174,8 @@ This is the simplest pattern.
 
 4. Stop all writes to Gen1 and then decommission Gen1.
 
+Check out our sample code for the dual pipeline pattern in our [Dual Pipeline migration sample](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Dual%20pipeline/README.md).
+
 > [!div class="mx-imgBorder"]
 > ![Dual pipeline pattern](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
@@ -187,6 +194,8 @@ This is the simplest pattern.
 3. When all moves are complete, stop all writes to Gen1 and turn off bidirectional replication.
 
 4. Decommission Gen1.
+
+Check out our sample code for the bidirectional sync pattern in our [Bidirectional Sync migration sample](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Bi-directional/README.md).
 
 > [!div class="mx-imgBorder"]
 > ![Bidirectional pattern](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)

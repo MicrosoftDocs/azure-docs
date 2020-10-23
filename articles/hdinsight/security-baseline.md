@@ -138,12 +138,11 @@ https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
 
 **Guidance**: Define and implement standard security configurations for network resources related to your Azure HDInsight cluster. Use Azure Policy aliases in the "Microsoft.HDInsight" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure HDInsight cluster.
 
-You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 How to view available Azure Policy aliases:
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 How to configure and manage Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
@@ -345,11 +344,11 @@ In addition, you may use Azure Security Center Identity and Access Management re
 
 How to get a directory role in Azure AD with PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
 How to get members of a directory role in Azure AD with PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 How to monitor identity and access with Azure Security Center:
 
@@ -779,7 +778,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 How to view your Azure Subscriptions:
 
-https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Understand Azure RBAC:
 
@@ -941,7 +940,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 How to view available Azure Policy aliases:
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 How to configure and manage Azure Policy:
 
@@ -989,13 +988,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-How to store code in Azure DevOps:
+[How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
-Azure Repos Documentation:
-
-https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+[Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1033,13 +1028,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.HDInsight" namespace to create custom policies to audit or enforce the  configuration of your HDInsight cluster.
 
-How to view available Azure Policy aliases:
+[How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias)
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-How to configure and manage Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+[How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1173,7 +1164,7 @@ https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
 How to backup Key Vault keys in Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1189,7 +1180,7 @@ https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
 
 How to restore key vault keys in Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1233,7 +1224,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 ### 10.3: Test security response procedures
 
-**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+**Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.Refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1289,7 +1280,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
-You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here:
+You can find more information on Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here:
  https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Azure Security Center monitoring**: Not applicable

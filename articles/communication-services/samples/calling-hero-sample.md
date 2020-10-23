@@ -22,12 +22,12 @@ ms.service: azure-communication-services
 > Add links to our Hero Sample repo when the sample is publicly available.
 ---->
 
+> [!IMPORTANT]
+> [This sample is available on GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+
 The Azure Communication Services **Group Calling Hero Sample** demonstrates how the Communication Services Calling Web client library can be used to build a group calling experience.
 
 In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
-
-> [!IMPORTANT]
-> [Download the sample from GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
 
 ## Overview
 
@@ -100,12 +100,11 @@ If you want to clean up and remove a Communication Services subscription, you ca
 ## Next steps
 
 >[!div class="nextstepaction"] 
->[Download the sample from GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
+>[Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 For more information, see the following articles:
 
 - Familiarize yourself with [using the calling client library](../quickstarts/voice-video-calling/calling-client-samples.md)
-- Learn about [calling client library capabilities](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Learn more about [how calling works](../concepts/voice-video-calling/about-call-types.md)
 
 ## Additional reading

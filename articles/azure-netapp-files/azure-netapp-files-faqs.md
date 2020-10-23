@@ -75,9 +75,9 @@ Yes, you can configure up to five rules in a single NFS export policy.
 
 No, currently you cannot apply Network Security Groups to the delegated subnet of Azure NetApp Files or the network interfaces created by the service.
 
-### Can I use Azure IAM with Azure NetApp Files?
+### Can I use Azure RBAC with Azure NetApp Files?
 
-Yes, Azure NetApp Files supports RBAC features with Azure IAM.
+Yes, Azure NetApp Files supports Azure RBAC features.
 
 ## Performance FAQs
 

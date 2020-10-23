@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: aahi
 ---
 
@@ -31,7 +31,7 @@ Sentiment Analysis supports a wide range of languages, with more in preview. For
 | Linux-based [Docker container](text-analytics-how-to-install-containers.md) | X  |  |
 | Opinion mining                            |                       | X                                 |
 
-### Sentiment scoring and labeling
+## Sentiment scoring and labeling
 
 Sentiment Analysis in v3 applies sentiment labels to text, which are returned at a sentence and document level, with a confidence score for each. 
 
@@ -46,7 +46,7 @@ The labels are *positive*, *negative*, and *neutral*. At the document level, the
 
 Confidence scores range from 1 to 0. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. For each document or each sentence, the predicted scores associated with the labels (positive, negative and neutral) add up to 1.
 
-### Opinion mining
+## Opinion mining
 
 Opinion mining is a feature of Sentiment Analysis, starting in version 3.1-preview.1. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to aspects (such as the attributes of products or services) in text.
 

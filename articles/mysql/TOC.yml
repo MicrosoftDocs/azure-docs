@@ -85,6 +85,9 @@
          href: connect-cpp.md
        - name: Go
          href: connect-go.md
+       - name: GitHub Actions
+         href: quickstart-mysql-github-actions.md
+
   - name: Tutorials
     items:
     - name: Design a database
@@ -153,6 +156,8 @@
          href: concepts-infrastructure-double-encryption.md
        - name: Security baseline
          href: security-baseline.md
+     - name: Planned maintenance
+       href: concepts-planned-maintenance-notification.md
      - name: Business continuity
        items:
        - name: Business continuity intro

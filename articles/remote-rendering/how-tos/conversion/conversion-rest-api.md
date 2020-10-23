@@ -49,7 +49,7 @@ Returns the ID of the ongoing conversion, wrapped in a JSON document. The field 
 #### Request body
 
 > [!NOTE]
-> Everything under `input.folderPath` will get retrieved to perform the conversion on Azure. If `input.folderPath` is not specified, the whole contents of the container will get retrieved. All blobs and folders which get retrieved must have [valid Windows file names](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
+> Everything under `input.folderPath` will get retrieved to perform the conversion on Azure. If `input.folderPath` is not specified, the whole contents of the container will get retrieved. All blobs and folders which get retrieved must have [valid Windows file names](/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {
@@ -87,7 +87,7 @@ These tokens provide access to the storage account for reading the input and wri
 > These SAS URI tokens are the query strings and not the full URI. 
 
 > [!NOTE]
-> Everything under `input.folderPath` will get retrieved to perform the conversion on Azure. If `input.folderPath` is not specified, the whole contents of the container will get retrieved. All blobs and folders which get retrieved must have [valid Windows file names](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
+> Everything under `input.folderPath` will get retrieved to perform the conversion on Azure. If `input.folderPath` is not specified, the whole contents of the container will get retrieved. All blobs and folders which get retrieved must have [valid Windows file names](/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {
