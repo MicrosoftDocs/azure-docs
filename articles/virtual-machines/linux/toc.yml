@@ -337,8 +337,6 @@
       href: ../security-controls-policy.md
     - name: Security baseline for Azure Security Benchmark
       href: security-baseline.md
-    - name: Built-in security controls
-      href: virtual-machines-linux-security-controls.md
     - name: Bastion
       href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: States and lifecycle
@@ -1009,8 +1007,6 @@
         href: disks-benchmarks.md
       - name: Optimizing performance
         href: optimization.md
-      - name: Configure software RAID
-        href: configure-raid.md
       - name: Configure LVM
         href: configure-lvm.md
     - name: Find unattached disks - CLI

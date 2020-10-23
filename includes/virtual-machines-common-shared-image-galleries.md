@@ -51,10 +51,11 @@ There are three parameters for each image definition that are used in combinatio
 
 All three of these have unique sets of values. The format is similar to how you can currently specify publisher, offer, and SKU for [Azure Marketplace images](../articles/virtual-machines/windows/cli-ps-findimage.md) in Azure PowerShell to get the latest version of a Marketplace image. Each image definition needs to have a unique set of these values.
 
-Image definitions must define the following parameters that determine which types of image versions they can contain:
--	Operating system state - You can set the OS state to [generalized or specialized](#generalized-and-specialized-images).
-- Operating system - can be either Windows or Linux.
+The following parameters determine which types of image versions they can contain:
 
+- Operating system state - You can set the OS state to [generalized or specialized](#generalized-and-specialized-images). This field is required.
+- Operating system - can be either Windows or Linux. This field is required.
+-	Hyper-V generation - specify whether the image was created from a generation 1 or [generation 2](../articles/virtual-machines/generation-2.md) Hyper-V VHD. Default is generation 1.
 
 
 The following are other parameters that can be set on your image definition so that you can more easily track your resources:
@@ -66,7 +67,6 @@ The following are other parameters that can be set on your image definition so t
 - Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../articles/azure-resource-manager/management/tag-resources.md)
 - Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
 - Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
--	Hyper-V generation - specify whether the image was created from a generation 1 or [generation 2](../articles/virtual-machines/generation-2.md) Hyper-V VHD. Default is generation 1.
 - Purchase plan information for Marketplace images - `-PurchasePlanPublisher`, `-PurchasePlanName`, and `-PurchasePlanProduct`. For more information about purchase plan information, see [Find images in the Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) and [Supply Azure Marketplace purchase plan information when creating images](../articles/virtual-machines/marketplace-images.md).
 
 

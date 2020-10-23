@@ -102,6 +102,10 @@ Once you have prepped your ITSM tools, follow the steps below to create a connec
 ## Using the solution
    By using the ITSM Connector solution, you can create work items from Azure alerts, Log Analytics alerts  and  Log Analytics log records.
 
+## Template definitions
+   There are types of Work Items that can use templates that are defined by the ITSM tool.
+   Using templates enable the customer to define fields that will be auto populated according to fixed values that are defined as a part of the action group. The definition of the templates is done in the ITSM tool.
+      
 ## Create ITSM work items from Azure alerts
 
 Once you have your ITSM connection created, you can create work item(s) in your ITSM tool based on Azure alerts, by using the **ITSM Action** in **Action Groups**.
@@ -129,8 +133,10 @@ Use the following procedure:
     ![ITSM Action details](media/itsmc-overview/itsm-action-details.png)
 
 6. Select **Work Item** type from the drop-down menu.
-   Choose to use an existing template or fill the fields required by your ITSM product.
-7. Click **OK**.
+
+7. If you want to fill out of the box fields with fixed values you should select the checkbox of "Use Custom Template" otherwise choose to use an existing [template](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) from the dropdown and fill the template fields with fixed values.
+
+8. Click **OK**.
 
 When creating/editing an Azure alert rule, use an Action group, which has an ITSM Action. When the alert triggers, work item is created/updated in the ITSM tool.
 

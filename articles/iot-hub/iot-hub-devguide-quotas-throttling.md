@@ -51,7 +51,7 @@ The following table shows the enforced throttles. Values refer to an individual 
 | Maximum number of concurrently connected device streams<sup>1</sup> | 50 | 50 | 50 |
 | Maximum device stream data transfer<sup>1</sup> (aggregate volume per day) | 300 MB | 300 MB | 300 MB |
 
-<sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 4 KB.
+<sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 4 KB. Throttling is based on request payload size only.
 
 ### Throttling details
 

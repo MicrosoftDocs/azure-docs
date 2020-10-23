@@ -6,9 +6,18 @@ ms.date: 04/24/2020
 
 ---
 
-# How to stop monitoring your Azure Red Hat OpenShift v3 cluster 
+# How to stop monitoring your Azure Red Hat OpenShift v3 cluster
 
-After you enable monitoring of your Azure Red Hat OpenShift version 3.x cluster, you can stop monitoring the cluster with Azure Monitor for containers if you decide you no longer want to monitor it. This article shows how to accomplish this using the Azure Resource Manager template provided. 
+>[!IMPORTANT]
+> Azure Red Hat OpenShift 3.11 will be retired June 2022.
+>
+> As of October 2020 you will no longer be able to create new 3.11 clusters.
+> Existing 3.11 clusters will continue to operate until June 2022 but will no be longer supported after that date.
+>
+> Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](../../openshift/tutorial-create-cluster.md).
+> If you have specific questions, [please contact us](mailto:aro-feedback@microsoft.com).
+
+After you enable monitoring of your Azure Red Hat OpenShift version 3.x cluster, you can stop monitoring the cluster with Azure Monitor for containers if you decide you no longer want to monitor it. This article shows how to accomplish this using the Azure Resource Manager template provided.  
 
 ## Azure Resource Manager template
 

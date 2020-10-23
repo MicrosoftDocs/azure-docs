@@ -21,6 +21,10 @@
         href: quick-create-simulated-device-symm-key.md
       - name: Java
         href: quick-create-simulated-device-symmetric-key-java.md
+      - name: C#
+        href: quick-create-device-symmetric-key-csharp.md
+      - name: Node.js
+        href: quick-create-device-symmetric-key-node.md
       - name: Python
         href: quick-create-device-symmetric-key-python.md
   - name: Provision a X.509 certificate device

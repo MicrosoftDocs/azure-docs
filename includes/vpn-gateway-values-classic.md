@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-When you create classic VNets in the Azure portal, the name that you view is not the full name that you use for PowerShell. For example, a VNet that appears to be named **TestVNet1** in the portal, may have a much longer name in the network configuration file. The name might look something like: **Group ClassicRG TestVNet1**. When you create your connections, it's important to use the values that you see in the network configuration file.
+When you create classic VNets in the Azure portal, the name that you view is not the full name that you use for PowerShell. For example, a VNet that appears to be named **TestVNet1** in the portal, may have a much longer name in the network configuration file. For a VNet in the resource group "ClassicRG" name might look something like: **Group ClassicRG TestVNet1**. When you create your connections, it's important to use the values that you see in the network configuration file.
 
 In the following steps, you will connect to your Azure account and download and view the network configuration file to obtain the values that are required for your connections.
 
@@ -31,9 +31,10 @@ In the following steps, you will connect to your Azure account and download and 
    ```powershell
    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
    ```
-1. Export and view the network configuration file. Create a directory on your computer and then export the network configuration file to the directory. In this example, the network configuration file is exported to **C:\AzureNet**.
+1. Create a directory on your computer. For example, C:\AzureVNet
+1. Export the network configuration file to the directory. In this example, the network configuration file is exported to **C:\AzureNet**.
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-1. Open the file with a text editor and view the names for your VNets and sites. These names will be the names you use when you create your connections.<br>VNet names are listed as **VirtualNetworkSite name =**<br>Site names are listed as **LocalNetworkSiteRef name =**
+1. Open the file with a text editor and view the names for your VNets and sites. These names will be the names you use when you create your connections.<br>**VNet** names are listed as **VirtualNetworkSite name =**<br>**Site** names are listed as **LocalNetworkSiteRef name =**

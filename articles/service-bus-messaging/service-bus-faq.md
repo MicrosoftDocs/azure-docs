@@ -78,7 +78,7 @@ If you use the **zone redundancy** for your namespace, you need to do a few addi
     > The IP address returned by the `nslookup` command isn't a static IP address. However, it remains constant until the underlying deployment is deleted or moved to a different cluster.
 
 ### Where can I find the IP address of the client sending/receiving messages to/from a namespace? 
-We don't log the IP addresses of clients sending or receiving messages to/from your namespace. Regenerate keys so that all existing clients will fail to authenticate and review role-based access control ([RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) settings to ensure that only allowed users or applications have access to the namespace. 
+We don't log the IP addresses of clients sending or receiving messages to/from your namespace. Regenerate keys so that all existing clients will fail to authenticate and review [Azure role-based access control (Azure RBAC)](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) settings to ensure that only allowed users or applications have access to the namespace. 
 
 If you're using a **premium** namespace, use [IP filtering](service-bus-ip-filtering.md), [virtual network service endpoints](service-bus-service-endpoints.md), and [private endpoints](private-link-service.md) to limit access to the namespace. 
 

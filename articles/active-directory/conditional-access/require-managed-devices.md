@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 10/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -124,4 +124,4 @@ On Windows 7, iOS, Android, macOS, and some third-party web browsers Azure AD id
 
 ## Next steps
 
-Before configuring a device-based Conditional Access policy in your environment, you should take a look at the [best practices for Conditional Access in Azure Active Directory](best-practices.md).
+[Evaluate the impact of Conditional Access policies before enabling widely with report-only mode](concept-conditional-access-report-only.md).

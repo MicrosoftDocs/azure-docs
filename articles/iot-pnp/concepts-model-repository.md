@@ -1,6 +1,6 @@
 ---
-title: Understand concepts of the Device Model Repository | Microsoft Docs
-description: As a solution developer or an IT professional, learn about the basic concepts of the Device Model Repository.
+title: Understand concepts of the device model repository | Microsoft Docs
+description: As a solution developer or an IT professional, learn about the basic concepts of the device model repository.
 author: rido-min
 ms.author: rmpablos
 ms.date: 09/30/2020
@@ -19,20 +19,20 @@ The DMR defines a pattern to store DTDL interfaces in a folder structure based o
 
 Microsoft hosts a public DMR with these characteristics:
 
-- Curated models. Microsoft reviews and approves all available interfaces using an open GitHub PR validation workflow.
+- Curated models. Microsoft reviews and approves all available interfaces using a GitHub pull request (PR) validation workflow.
 - Immutability.  After it's published, an interface can't be updated.
-- Hyper-scale. Microsoft provides all the required infrastructure to create a secure and highly scalable endpoint.
+- Hyper-scale. Microsoft provides the required infrastructure to create a secure, scalable endpoint where you can publish and consume device models.
 
 ## Custom device model repository
 
-You can use the same DMR pattern in any storage medium, such as local file system or custom HTTP web servers, to create a custom DMR. You can retrieve models from the custom DMR in the same way as from the public DRM simply by changing the base URL used to access the DMR.
+You can use the same DMR pattern in any storage medium, such as local file system or custom HTTP web servers, to create a custom DMR. You can retrieve device models from the custom DMR in the same way as from the public DMR simply by changing the base URL used to access the DMR.
 
 > [!NOTE]
-> The tools used to validate the models in the public DMR can be reused in custom repositories.
+> Microsoft provides tools to validate device models in the public DMR. You can reuse these tools in custom repositories.
 
 ## Public models
 
-The public digital twin models stored in the model repository are available to everyone to consume and integrate in their applications. Public models enable an open eco-system for device builders and solution developers to share and reuse their IoT Plug and Play device models.
+The public device models stored in the model repository are available for everyone to consume and integrate in their applications. Public device models enable an open eco-system for device builders and solution developers to share and reuse their IoT Plug and Play device models.
 
 Refer to the [Publish a model](#publish-a-model) section for instructions on how to publish a model in the model repository to make it public.
 
@@ -42,7 +42,7 @@ All interfaces in the `dtmi` folders are also available from the public endpoint
 
 ### Resolve models
 
-To programmatically access these interfaces, you need to convert a dtmi to a relative path that you can use to query the public endpoint. The following code sample shows you how to do this:
+To programmatically access these interfaces, you need to convert a DTMI to a relative path that you can use to query the public endpoint. The following code sample shows you how to do this:
 
 To convert a DTMI to an absolute path we use the `DtmiToPath` function, with `IsValidDtmi`:
 
@@ -83,14 +83,14 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 1. Fork the public GitHub repo: [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models).
 1. Clone the forked repo. Optionally create a new branch to keep your changes isolated from the `main` branch.
 1. Add the new interfaces to the `dtmi` folder using the folder/filename convention. See the [add-model](#add-model) tool.
-1. Validate the models locally using the [scripts to validate changes](#validate-files) section.
+1. Validate the device models locally using the [scripts to validate changes](#validate-files) section.
 1. Commit the changes locally and push to your fork.
-1. From your fork, create a PR that targets the `main` branch. See [Creating an issue or pull request](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) docs.
-1. Review the [PR requirements](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
+1. From your fork, create a pull request that targets the `main` branch. See [Creating an issue or pull request](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) docs.
+1. Review the [pull request requirements](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
 
-The PR triggers a series of GitHub actions that will validate the new submitted interfaces, and make sure your PR satisfies all the checks.
+The pull request triggers a series of GitHub actions that will validate the new submitted interfaces, and make sure your pull request satisfies all the checks.
 
-Microsoft will respond to a PR with all checks in three business days.
+Microsoft will respond to a pull request with all checks in three business days.
 
 ### add-model
 
@@ -104,7 +104,7 @@ Watch the console output for any error messages.
 
 ### Local validation
 
-You can run the same validation checks locally before submitting the PR to help diagnosing issues in advance.
+You can run the same validation checks locally before submitting the pull request to help diagnose issues in advance.
 
 #### validate-files
 
@@ -120,7 +120,7 @@ You can run the same validation checks locally before submitting the PR to help 
 
 #### validate-models
 
-You can run the [DTDL Validation Sample](https://github.com/Azure-Samples/DTDL-Validator) to validate your models locally.
+You can run the [DTDL Validation Sample](https://github.com/Azure-Samples/DTDL-Validator) to validate your device models locally.
 
 ## Next steps
 
