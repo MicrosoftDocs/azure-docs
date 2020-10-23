@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/12/2020
+ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1
 
 ---
@@ -119,7 +119,7 @@ There are two approaches to isolate traffic to and from the AKS cluster to the v
 * __Internal AKS load balancer__: This approach configures the endpoint for your deployments to AKS to use a private IP within the virtual network.
 
 > [!WARNING]
-> Private AKS cluster does not currently work with internal load balancer. For information on using Azure Container Networking Interface for the IP address of a private AKS cluster, see [Use kubenet networking with your own IP address](../aks/configure-kubenet.md).
+> Internal load balancer does not work with an AKS cluster that uses kubenet. If you want to use an internal load balancer and a private AKS cluster at the same time, configure your private AKS cluster with Azure Container Networking Interface (CNI). For more information, see [Configure Azure CNI networking in Azure Kubernetes Service](../aks/configure-azure-cni.md).
 
 ### Private AKS cluster
 
