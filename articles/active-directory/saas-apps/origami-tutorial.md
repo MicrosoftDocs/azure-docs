@@ -121,11 +121,11 @@ To configure Azure AD single sign-on with Origami, perform the following steps:
 
 2. In the menu on the top, click **Admin**.
    
-    ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_51.png)
+    ![Screenshot that shows the Origami home page with "Admin" selected.](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. On the Single Sign On Setup dialog page, perform the following steps:
    
-    ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_531.png)
+    ![Screenshot that shows the "Single Sign On Setup" page with "Enable Single Sign-on" selected, and the text boxes highlighted.](./media/origami-tutorial/tutorial_origami_531.png)
 
     a. Select **Enable Single Sign On**.
 
@@ -196,19 +196,19 @@ In this section, you create a user called Britta Simon in Origami.
 
 2. In the menu on the top, click **Admin**.
    
-    ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_51.png)
+    ![Screenshot that shows the Origami account home page with "Admin" selected.](./media/origami-tutorial/tutorial_origami_51.png)
 
 3. On the **Users and Security** dialog, click **Users**.
    
-    ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_54.png)
+    ![Screenshot that shows the "Users and Security" dialog with "Users" selected.](./media/origami-tutorial/tutorial_origami_54.png)
 
 4. Click **Add New User**.
    
-    ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_55.png)
+    ![Screenshot that shows the "Add New User" button selected.](./media/origami-tutorial/tutorial_origami_55.png)
 
 5. On the Add New User dialog, perform the following steps:
    
-    ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_56.png)
+    ![Screenshot that shows the "Add New User" dialog with the "User Name", "First Name", and "Last Name" text boxes highlighted.](./media/origami-tutorial/tutorial_origami_56.png)
 
     a. In the **User Name** textbox, enter the email of user like **brittasimon\@contoso.com**.
 
@@ -222,7 +222,7 @@ In this section, you create a user called Britta Simon in Origami.
 
     f. Click **Save**.
    
-    ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_57.png)
+    ![Screenshot that shows the the "Save" button selected.](./media/origami-tutorial/tutorial_origami_57.png)
 
 6. Assign **User Roles** and **Client Access** to the user. 
    

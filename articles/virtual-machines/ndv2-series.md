@@ -22,7 +22,7 @@ Critically, the NDv2 is built for both computationally intense scale-up (harness
 > [!IMPORTANT]
 > When [enabling InfiniBand](./workloads/hpc/enable-infiniband.md) on the ND40rs_v2 VM, please use the 4.7-1.0.0.1 Mellanox OFED driver.
 >
-> Due to increased GPU memory, the new ND40rs_v2 VM requires the use of [Generation 2 VMs](./windows/generation-2.md) and marketplace images. 
+> Due to increased GPU memory, the new ND40rs_v2 VM requires the use of [Generation 2 VMs](./generation-2.md) and marketplace images. 
 >
 > Please note: The ND40s_v2 featuring 16 GB of per-GPU memory is no longer available for preview and has been superceded by the updated ND40rs_v2.
 

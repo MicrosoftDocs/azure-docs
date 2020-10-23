@@ -130,7 +130,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. In the menu on the top, click **Account Settings**.
    
-    ![Account Settings](./media/new-relic-tutorial/ic797036.png "Account Settings")
+    ![Screenshot shows the Welcome page with Account settings selected.](./media/new-relic-tutorial/ic797036.png "Account Settings")
 
 3. Click the **Security and authentication** tab, and then click the **Single sign on** tab.
    
@@ -154,11 +154,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. In the menu on the top, click **Account Settings**.
    
-    ![Account Settings](./media/new-relic-tutorial/ic797040.png "Account Settings")
+    ![Screenshot shows Account settings selected from the Welcome page.](./media/new-relic-tutorial/ic797040.png "Account Settings")
 
 3. In the **Account** pane on the left side, click **Summary**, and then click **Add user**.
    
-    ![Account Settings](./media/new-relic-tutorial/ic797041.png "Account Settings")
+    ![Screenshot shows the Summary pane where you can select Add user.](./media/new-relic-tutorial/ic797041.png "Account Settings")
 
 4. On the **Active users** dialog, perform the following steps:
    

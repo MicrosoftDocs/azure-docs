@@ -2,8 +2,6 @@
 title: IP addresses used by Application Insights and Log Analytics | Microsoft Docs
 description: Server firewall exceptions required by Application Insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/15/2020
 
 ---

@@ -27,7 +27,7 @@ AKS-managed Azure Active Directory integration is available in public regions wh
 ## Limitations 
 
 * AKS-managed Azure AD integration can't be disabled
-* non-RBAC enabled clusters aren't supported for AKS-managed Azue AD integration
+* non-RBAC enabled clusters aren't supported for AKS-managed Azure AD integration
 * Changing the Azure AD tenant associated with AKS-managed Azure AD integration isn't supported
 
 ## Prerequisites

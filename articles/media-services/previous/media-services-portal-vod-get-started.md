@@ -123,7 +123,7 @@ A shared access signature URL has the following format:
 > 
 > 
 
-To update an expiration date on a locator, you can use a [REST API](/rest/api/media/operations/locator#update_a_locator) or a [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259). 
+To update an expiration date on a locator, you can use a [REST API](/rest/api/media/operations/locator#update_a_locator) or a [.NET API](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator). 
 
 > [!NOTE]
 > When you update the expiration date of a shared access signature locator, the URL changes.

@@ -2,17 +2,18 @@
 title: Planning the Azure VMware Solution deployment
 description: This article outlines an Azure VMware Solution deployment workflow.  The final result is an environment ready for virtual machine (VM) creation and migration.
 ms.topic: tutorial
-ms.date: 10/02/2020
+ms.date: 10/16/2020
 ---
 
 # Planning the Azure VMware Solution deployment
 
-In this article, we provide you the planning process to identify and collect data used during the deployment. [Use the pre-deployment checklist](pre-deployment-checklist.md) to document the information and for easy reference during the deployment.  
+In this article, we provide you the planning process to identify and collect data used during the deployment. As you plan your deployment, make sure to document the information you gather for easy reference during the deployment.
 
 The processes of this quick start results in a production-ready environment for creating virtual machines (VMs) and migration. 
 
 >[!IMPORTANT]
->Before you create your Azure VMware Solution resource, you'll need to submit a support ticket to have your nodes allocated. Once the support team receives your request, it takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process. For more information, see [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md). 
+>Before you create your Azure VMware Solution resource, follow the [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md) article to submit a support ticket to have your nodes allocated. Once the support team receives your request, it takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process. 
+
 
 ## Subscription
 
@@ -99,7 +100,7 @@ To access your Azure VMware Solution private cloud, the ExpressRoute circuit, wh
 The ExpressRoute circuit from Azure VMware Solution connects to an ExpressRoute gateway in the Azure Virtual Network that you define in this step.  
 
 >[!IMPORTANT]
->If you choose an existing virtual network, you must select one that does not have a pre-existing gateway subnet.  
+>You can use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it does not exceed the limit of four ExpressRoute circuits per virtual network.  However, to access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute gateway does not provide transitive routing between its connected circuits.  
 
 If you want to connect the ExpressRoute circuit from Azure VMware Solution to an existing ExpressRoute gateway, you can do it after deployment.  
 

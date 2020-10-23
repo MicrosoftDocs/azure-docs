@@ -151,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 5. On the Administration panel page from the left side of menu click **Integrations** and then enable **Single Sign-On**.
 
-	![Kanbanize integrations](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+	![Screenshot shows the Administration panel with Integration selected.](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
 
 6. Under Integrations section, click on **CONFIGURE** to open **Single Sign-On Integration** page.
 
@@ -159,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 7. On the **Single Sign-On Integration** page under **Configurations**, perform the following steps:
 
-	![Kanbanize integrations](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+	![Screenshot shows the Single Sign-On Integration page where you enter the values in this step.](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
 
 	a. In the **Idp Entity ID** textbox, paste the value of **Azure AD Identifier**, which you have copied from the Azure portal.
 

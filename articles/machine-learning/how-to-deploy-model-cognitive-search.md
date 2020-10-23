@@ -10,6 +10,7 @@ ms.author: cgronlun
 author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 06/11/2020
+ms.custom: deploy
 ---
 
 # Deploy a model for use with Cognitive Search

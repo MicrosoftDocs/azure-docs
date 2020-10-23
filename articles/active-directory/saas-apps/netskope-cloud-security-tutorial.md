@@ -146,19 +146,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Settings** tab from the left navigation pane.
 
-    ![Netskope Administrator Console Configuration](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![Screenshot shows Setting selected in the navigation pane.](./media/netskope-cloud-security-tutorial/config-settings.png)
 
 1. Click **Administration** tab.
 
-    ![Netskope Administrator Console Configuration](./media/netskope-cloud-security-tutorial/config-administration.png)
+    ![Screenshot shows Administration selected from Settings.](./media/netskope-cloud-security-tutorial/config-administration.png)
 
 1. Click **SSO** tab.
 
-    ![Netskope Administrator Console Configuration](./media/netskope-cloud-security-tutorial/config-sso.png)
+    ![Screenshot shows S S O selected in Administration.](./media/netskope-cloud-security-tutorial/config-sso.png)
 
 1. On the **Network Settings** section, perform the following steps:
     
-    ![Netskope Administrator Console Configuration](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
+    ![Screenshot shows Network Settings where you can enter the values described.](./media/netskope-cloud-security-tutorial/config-pasteurls.png)
 
     a. Copy **Assertion Consumer Service URL** value and paste it into the **Reply URL** textbox in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -166,11 +166,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **EDIT SETTINGS** under the **SSO/SLO Settings** section.
 
-    ![Netskope Administrator Console Configuration](./media/netskope-cloud-security-tutorial/config-editsettings.png)
+    ![Screenshot shows S S O / S L O Settings where you can select EDIT SETTINGS.](./media/netskope-cloud-security-tutorial/config-editsettings.png)
 
 1. On the **Settings** popup window, perform the following steps;
 
-    ![Netskope Administrator Console Configuration](./media/netskope-cloud-security-tutorial/configuration.png)
+    ![Screenshot shows the Settings dialog box where you can enter the values described.](./media/netskope-cloud-security-tutorial/configuration.png)
 
     a. Select **Enable SSO**.
 
@@ -192,23 +192,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Settings** tab from the left navigation pane.
 
-    ![Netskope Administrator Console User Creation](./media/netskope-cloud-security-tutorial/config-settings.png)
+    ![Screenshot shows Settings selected.](./media/netskope-cloud-security-tutorial/config-settings.png)
 
 1. Click **Active Platform** tab.
 
-    ![Netskope Administrator Console User Creation](./media/netskope-cloud-security-tutorial/user1.png)
+    ![Screenshot shows Active Platform selected from Settings.](./media/netskope-cloud-security-tutorial/user1.png)
 
 1. Click **Users** tab.
 
-    ![Netskope Administrator Console User Creation](./media/netskope-cloud-security-tutorial/add-user.png)
+    ![Screenshot shows Users selected from Active Platform.](./media/netskope-cloud-security-tutorial/add-user.png)
 
 1. Click **ADD USERS**.
 
-    ![Netskope Administrator Console User Creation](./media/netskope-cloud-security-tutorial/user-add.png)
+    ![Screenshot shows the Users dialog box where you can select ADD USERS.](./media/netskope-cloud-security-tutorial/user-add.png)
 
 1. Enter the email address of the user you want to add and click **ADD**.
 
-    ![Netskope Administrator Console User Creation](./media/netskope-cloud-security-tutorial/add-user-popup.png)
+    ![Screenshot shows Add Users where you can enter a list of users.](./media/netskope-cloud-security-tutorial/add-user-popup.png)
 
 ## Test SSO
 

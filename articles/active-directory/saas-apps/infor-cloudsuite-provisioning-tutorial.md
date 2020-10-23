@@ -63,11 +63,11 @@ Before configuring and enabling automatic user provisioning, you should decide w
 	
 	![Infor CloudSuite password](media/infor-cloudsuite-provisioning-tutorial/password.png)
 
-	![Infor CloudSuite identifier](media/infor-cloudsuite-provisioning-tutorial/identifier.png)
+	:::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/identifier.png" alt-text="Screenshot of the Infor CloudSuite admin console showing a highlighted table row. That row contains a user identifier, passwords, and a time stamp." border="false":::
 
 5. To generate the bearer token, copy the **User Identifier** and **SCIM Password**. Paste them in notepad++ separated by a colon. Encode the string value by navigating to **Plugins > MIME Tools > Basic64 Encode**. 
 
-	![Infor CloudSuite identifier](media/infor-cloudsuite-provisioning-tutorial/token.png)
+	:::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Screenshot of a Notepad++ document. In the Plugins menu, MIME tools is highlighted. In the MIME tools menu, Base64 encode is highlighted." border="false":::
 
 3.	Copy the bearer token. This value will be entered in the Secret Token field in the Provisioning tab of your Infor CloudSuite application in the Azure portal.
 

@@ -125,11 +125,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Security** from the left navigation panel.
 
-    ![Litmus Configuration](./media/litmus-tutorial/security-img.png)
+    ![Screenshot shows the Security item selected.](./media/litmus-tutorial/security-img.png)
 
 1. On the **Configure SAML Authentication** section, perform the following steps:
 
-    ![Litmus Configuration](./media/litmus-tutorial/configure1.png)
+    ![Screenshot shows the Configure SAML Authentication section where you can enter the values described.](./media/litmus-tutorial/configure1.png)
 
     a. Switch on the **Enable SAML** toggle.
 
@@ -139,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform the following steps:
 
-	![Litmus Configuration](./media/litmus-tutorial/configure3.png)
+	![Screenshot shows the section where you can enter the values described.](./media/litmus-tutorial/configure3.png)
 
     a. In the **SAML 2.0 Endpoint(HTTP)** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
@@ -153,15 +153,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Accounts** from the left navigation panel.
 
-    ![Litmus Configuration](./media/litmus-tutorial/accounts-img.png)
+    ![Screenshot shows the Accounts item selected.](./media/litmus-tutorial/accounts-img.png)
 
 1. Click **Add New User** tab.
 
-    ![Litmus Configuration](./media/litmus-tutorial/add-new-user.png)
+    ![Screenshot shows the Add New User item selected.](./media/litmus-tutorial/add-new-user.png)
 
 1. On the **Add User** section, perform the following steps:
 
-    ![Litmus Configuration](./media/litmus-tutorial/user-profile.png)
+    ![Screenshot shows the Add User section where you can enter the values described.](./media/litmus-tutorial/user-profile.png)
 
     a. In the **Email** textbox, enter the email address of the user like **B.Simon\@contoso.com**
 

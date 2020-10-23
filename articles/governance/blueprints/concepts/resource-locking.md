@@ -48,7 +48,7 @@ designed to create from accidental or programmatic deletion or alteration.
 
 ### Assign at management group
 
-An additional option to prevent subscription owners from removing a blueprint assignment is to
+The only option to prevent subscription owners from removing a blueprint assignment is to
 assign the blueprint to a management group. In this scenario, only **Owners** of the management
 group have the permissions needed to remove the blueprint assignment.
 

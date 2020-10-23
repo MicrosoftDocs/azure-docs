@@ -17,7 +17,7 @@ ms.custom: "devx-track-csharp"
 
 A key advantage of using Azure Active Directory (Azure AD) with Azure Blob storage or Queue storage is that your credentials no longer need to be stored in your code. Instead, you can request an OAuth 2.0 access token from the Microsoft identity platform. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Blob storage or Queue storage.
 
-This article shows how to configure your native application or web application for authentication with Microsoft identity platform 2.0 using a sample application that is available for download. The sample application features .NET, but other languages use a similar approach. For more information about Microsoft identity platform 2.0, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
+This article shows how to configure your native application or web application for authentication with the Microsoft identity platform using a sample application that is available for download. The sample application features .NET, but other languages use a similar approach. For more information about the Microsoft identity platform, see [Microsoft identity platform overview](../../active-directory/develop/v2-overview.md).
 
 For an overview of the OAuth 2.0 code grant flow, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
@@ -243,7 +243,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Consent is the process of a user granting authorization to an application to access protected resources on their behalf. The Microsoft identity platform 2.0 supports incremental consent, meaning that a security principal can request a minimum set of permissions initially and add permissions over time as needed. When your code requests an access token, specify the scope of permissions that your app needs. For more information about incremental consent, see [Incremental and dynamic consent](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+Consent is the process of a user granting authorization to an application to access protected resources on their behalf. The Microsoft identity platform supports incremental consent, meaning that a security principal can request a minimum set of permissions initially and add permissions over time as needed. When your code requests an access token, specify the scope of permissions that your app needs. For more information about incremental consent, see [Incremental and dynamic consent](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
 ## View and run the completed sample
 
