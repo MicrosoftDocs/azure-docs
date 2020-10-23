@@ -19,7 +19,7 @@ Azure uses limits and quotas to prevent budget overruns due to fraud, and to hon
 
 > [!div class="checklist"]
 > + Default limits on Azure resources related to [Azure Machine Learning](overview-what-is-azure-ml.md).
-> + Creating workspace level quotas.
+> + Creating workspace-level quotas.
 > + Viewing your quotas and limits.
 > + Requesting quota increases.
 > + Private endpoint and DNS quotas.
@@ -54,38 +54,38 @@ Each Azure subscription has a limit on the number of virtual machines across all
 
 For example, consider a subscription with a US East total VM core limit of 30, an A series core limit of 30, and a D series core limit of 30. This subscription would be allowed to deploy 30 A1 VMs, or 30 D1 VMs, or a combination of the two that does not exceed a total of 30 cores.
 
-Limits for virtual machines can't be raised above the value shown in the following table.
+You can't raise limits for virtual machines above the values shown in the following table.
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-### Azure Machine Learning Compute
-[Azure Machine Learning Compute](concept-compute-target.md#azure-machine-learning-compute-managed) has a default quota limit on both the number of cores and number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota from the previous section.
+### Azure Machine Learning compute
+[Azure Machine Learning compute](concept-compute-target.md#azure-machine-learning-compute-managed) has a default quota limit on both the number of cores and the number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota from the previous section.
 
-[Request a quota increase](#request-quota-increases) to raise the limits in this section up to the **Maximum limit** shown in the table.
+[Request a quota increase](#request-quota-increases) to raise the limits in this section up to the maximum limit shown in the table.
 
 Available resources:
-+ **Dedicated cores per region** have a default limit of 24 - 300 depending on your subscription offer type.  The number of dedicated cores per subscription can be increased for each VM family. Specialized VM families like NCv2, NCv3, or ND series start with a default of zero cores.
++ **Dedicated cores per region** have a default limit of 24 to 300, depending on your subscription offer type. You can increase the number of dedicated cores per subscription for each VM family. Specialized VM families like NCv2, NCv3, or ND series start with a default of zero cores.
 
-+ **Low-priority cores per region** have a default limit of 100 - 3000 depending on your subscription offer type. The number of low-priority cores per subscription can be increased and is a single value across VM families.
++ **Low-priority cores per region** have a default limit of 100 to 3,000, depending on your subscription offer type. The number of low-priority cores per subscription can be increased and is a single value across VM families.
 
-+ **Clusters per region** have a default limit of 200. These are shared between a training cluster and a compute instance (which is considered as a single node cluster for quota purposes).
++ **Clusters per region** have a default limit of 200. These are shared between a training cluster and a compute instance. (A compute instance is considered a single-node cluster for quota purposes.)
 
-The following table shows additional limits that cannot be exceeded.
+The following table shows additional limits that you can't exceed.
 
 | **Resource** | **Maximum limit** |
 | --- | --- |
 | Workspaces per resource group | 800 |
-| Nodes in a single Azure Machine Learning Compute (AmlCompute) resource | 100 nodes |
+| Nodes in a single Azure Machine Learning compute (AmlCompute) resource | 100 nodes |
 | GPU MPI processes per node | 1-4 |
 | GPU workers per node | 1-4 |
 | Job lifetime | 21 days<sup>1</sup> |
 | Job lifetime on a low-priority node | 7 days<sup>2</sup> |
 | Parameter servers per node | 1 |
 
-<sup>1</sup> Maximum lifetime refers to the duration between when a run starts and finishes. Completed runs persist indefinitely. Data for runs not completed within the maximum lifetime is not accessible.
+<sup>1</sup> Maximum lifetime is the duration between when a run starts and when it finishes. Completed runs persist indefinitely. Data for runs not completed within the maximum lifetime is not accessible.
 <sup>2</sup> Jobs on a low-priority node can be preempted whenever there's a capacity constraint. We recommend that you implement checkpoints in your job.
 
-### Azure Machine Learning Pipelines
+### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
 
 | **Resource** | **Limit** |
@@ -98,16 +98,16 @@ The following table shows additional limits that cannot be exceeded.
 For more information, see [Container Instances limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
 
 ### Storage
-Azure storage accounts have a limit of 250 storage accounts per region, per subscription. This includes both Standard and Premium Storage accounts.
+Azure Storage has a limit of 250 storage accounts per region, per subscription. This limit includes both Standard and Premium storage accounts.
 
-To increase the limit, make a request through [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). The Azure Storage team will review your case and may approve up to 250 storage accounts for a region.
+To increase the limit, make a request through [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). The Azure Storage team will review your case and can approve up to 250 storage accounts for a region.
 
 
-## Workspace-level quota
+## Workspace-level quotas
 
 Use workspace-level quotas to manage Azure Machine Learning compute target allocation between multiple [workspaces](concept-workspace.md) in the same subscription.
 
-By default, all workspaces share the same quota as the subscription level quota for VM families. However, you can set a maximum quota for individual VM families on workspaces in a subscription. This lets you share capacity and avoid resource contention issues.
+By default, all workspaces share the same quota as the subscription-level quota for VM families. However, you can set a maximum quota for individual VM families on workspaces in a subscription. This lets you share capacity and avoid resource contention issues.
 
 1. Go to any workspace in your subscription.
 1. In the left pane, select **Usages + quotas**.
@@ -117,7 +117,7 @@ By default, all workspaces share the same quota as the subscription level quota 
 
 You can't set a negative value or a value higher than the subscription-level quota.
 
-[![Screenshout that shows an Azure Machine Learning workspace-level quota.](./media/how-to-manage-quotas/azure-machine-learning-workspace-quota.png)](./media/how-to-manage-quotas/azure-machine-learning-workspace-quota.png)
+[![Screenshot that shows an Azure Machine Learning workspace-level quota.](./media/how-to-manage-quotas/azure-machine-learning-workspace-quota.png)](./media/how-to-manage-quotas/azure-machine-learning-workspace-quota.png)
 
 > [!NOTE]
 > You need subscription-level permissions to set a quota at the workspace level.
@@ -132,38 +132,38 @@ To view your quota for various Azure resources like virtual machines, storage, o
 
 3. Select **Usage + quotas** to view your current quota limits and usage. Use the filters to select the provider and locations. 
 
-The Azure Machine Learning compute quota on your subscription is managed separately from other Azure quotas: 
+You manage the Azure Machine Learning compute quota on your subscription separately from other Azure quotas: 
 
 1. Go to your **Azure Machine Learning** workspace in the Azure portal.
 
-2. In the left pane, under the **Support + troubleshooting** section, select **Usage + quotas** to view your current quota limits and usage.
+2. On the left pane, in the **Support + troubleshooting** section, select **Usage + quotas** to view your current quota limits and usage.
 
-3. Select a subscription to view the quota limits. Remember to filter to the region you're interested in.
+3. Select a subscription to view the quota limits. Filter to the region you're interested in.
 
-4. You can toggle between a subscription-level view and a workspace-level view.
+4. You can switch between a subscription-level view and a workspace-level view.
 
 ## Request quota increases
 
 To raise the limit or quota above the default limit, [open an online customer support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) at no charge.
 
-Limits can't be raised above the maximum limit value shown in the tables above. If there's no maximum limit, then you cannot adjust the limit for the resource.
+You can't raise limits above the maximum values shown in the preceding tables. If there's no maximum limit, you can't adjust the limit for the resource.
 
-When you're requesting a quota increase, select the service you are requesting to raise the quota against. For example, Azure Machine Learning, Container Instances, Storage, etc. For Azure Machine Learning Compute, you can select the **Request Quota** button while viewing the quota following the preceding steps.
+When you're requesting a quota increase, select the service that you have in mind. For example, select Azure Machine Learning, Container Instances, or Storage. For Azure Machine Learning compute, you can select the **Request Quota** button while viewing the quota in the preceding steps.
 
 > [!NOTE]
-> [Free Trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a [Free Trial subscription](https://azure.microsoft.com/offers/ms-azr-0044p), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure Free Trial to Pay-As-You-Go](../billing/billing-upgrade-azure-subscription.md) and  [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq).
+> [Free trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a free trial subscription, you can upgrade to a [pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure free trial to pay-as-you-go](../billing/billing-upgrade-azure-subscription.md) and [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq).
 
-## Private endpoint and private DNS quota increases
+## Quota increases for private endpoints and private DNS
 
-There are limitations on the number of private endpoints and private DNS zones that can be created in a subscription.
+There are limits on the number of private endpoints and private DNS zones that you can create in a subscription.
 
-While Azure Machine Learning creates resources in your (customer) subscription, there are some scenarios that create resources in a Microsoft-owned subscription.
+Azure Machine Learning creates resources in your (customer) subscription, but some scenarios create resources in a Microsoft-owned subscription.
 
  In the following scenarios, you might need to request a quota allowance in the Microsoft-owned subscription:
 
-* __Private Link enabled workspace with a customer-managed key (CMK)__
-* __Azure Container Registry for the workspace behind your virtual network__
-* __Attaching a Private Link enabled Azure Kubernetes Service cluster to your workspace__.
+* Azure Private Link enabled workspace with a customer-managed key (CMK)
+* Azure Container Registry for the workspace behind your virtual network
+* Attaching a Private Link enabled Azure Kubernetes Service cluster to your workspace
 
 To request an allowance for these scenarios, use the following steps:
 
@@ -171,17 +171,17 @@ To request an allowance for these scenarios, use the following steps:
 
     | Field | Selection |
     | ----- | ----- |
-    | Issue type | Technical |
-    | Service | My services. Select __Machine Learning__ in the dropdown list. |
-    | Problem type | Workspace Configuration and Security |
-    | Problem subtype | Private Endpoint and Private DNS Zone allowance request |
+    | Issue type | **Technical** |
+    | Service | **My services**. Then select __Machine Learning__ in the drop-down list. |
+    | Problem type | **Workspace Configuration and Security** |
+    | Problem subtype | **Private Endpoint and Private DNS Zone allowance request** |
 
-2. From the __Details__ section, use the __Description__ field to provide the Azure region you want to use and the scenario that you plan to use. If you need to request quota increases for multiple subscriptions, list the subscription IDs in this field also.
+2. From the __Details__ section, use the __Description__ field to provide the Azure region and the scenario that you plan to use. If you need to request quota increases for multiple subscriptions, list the subscription IDs in this field.
 
 3. Select __Create__ to create the request.
 
-:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Screenshot of a private endpoint and private DNS quota increase request":::
+:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Screenshot of a private endpoint and private DNS quota increase request.":::
 
 ## Next steps
 
-+ [Plan & manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
++ [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
