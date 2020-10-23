@@ -62,5 +62,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 3. You can view top glossary terms with assets attached to them, count of catalog users and terms by status.
 
-## View classifications
+## Next steps
+
+Learn more about asset, scan and glossary insights through the documentation.
 
