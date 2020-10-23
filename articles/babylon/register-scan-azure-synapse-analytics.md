@@ -19,29 +19,32 @@ Azure Synapse Analytics supports the following:<br />
 * You need to be a Catalog Admin or Data Source Admin
 
 ## Register an Azure Synapse Analytics server
-1. Navigate to your Babylon catalog.<br />
-2. Click on **Management Center** on the left navigation pane.<br />
+Navigate to your Babylon catalog.
+
+Click on **Management Center** on the left navigation pane.
 
 <!---![Screenshot showing how to go to Management Center]--->
 
-3. Under **Sources and Scanning** pane, go to **Data sources** and hit the + sign on the right pane.
+Under **Sources and Scanning** pane, go to **Data sources** and hit the + sign on the right pane.
 
-4. You can see **Register sources** pane open up on the right side of your screen. From the tiles of data sources, select **Azure Synapse Analytics** and hit **continue**
+You can see **Register sources** pane open up on the right side of your screen. From the tiles of data sources, select **Azure Synapse Analytics** and hit **continue**
 
-5. **Register sources** appears. Select a source name of your choice.
+**Register sources** appears. Select a source name of your choice.
+
+![Screenshot showing registration of source](media/register-scan-azure-synapse-analytics/register1.png)
 
 ## Set up authentication for a scan
-Set up authentication for Azure Synapse Analytics using Azure subscription or manually<br />
+Set up authentication for Azure Synapse Analytics using Azure subscription or manually.
 
-1. Select authentication method as **Enter Manually**
+Select authentication method as **Enter Manually**
 
-2. Pick the server name
+Pick the server name
 
-3. Click "Finish"
+Click "Finish"
 
 ## Create and run a scan
 
-4. Go to the data source name that you picked in step 5 and click **+ New scan** to set up a scan. You can enter the database name along with user name and pass word and test the connection.
+Go to the data source name that you picked in step 5 and click **+ New scan** to set up a scan. You can enter the database name along with user name and pass word and test the connection.
 
 <!---![screenshot to register data source]--->
 
