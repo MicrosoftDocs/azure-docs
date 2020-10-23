@@ -48,7 +48,7 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a min
 
 ## How to onboard
 
-The self-serve experience to [create an Event Hubs cluster](event-hubs-dedicated-cluster-create-portal.md) through the [Azure Portal](https://aka.ms/eventhubsclusterquickstart) is now in Preview. If you have any questions or need help onboarding to Event Hubs Dedicated, please contact the [Event Hubs team](mailto:askeventhubs@microsoft.com).
+The self-serve experience to [create an Event Hubs cluster](event-hubs-dedicated-cluster-create-portal.md) through the [Azure portal](https://aka.ms/eventhubsclusterquickstart) is now in Preview. If you have any questions or need help onboarding to Event Hubs Dedicated, please contact the [Event Hubs team](mailto:askeventhubs@microsoft.com).
 
 ## FAQs
 
@@ -58,6 +58,6 @@ The self-serve experience to [create an Event Hubs cluster](event-hubs-dedicated
 
 Contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated. You can also create a cluster or learn more about Event Hubs pricing tiers by visiting the following links:
 
-- [Create an Event Hubs cluster through the Azure Portal](https://aka.ms/eventhubsclusterquickstart) 
+- [Create an Event Hubs cluster through the Azure portal](https://aka.ms/eventhubsclusterquickstart) 
 - [Event Hubs Dedicated pricing](https://azure.microsoft.com/pricing/details/event-hubs/). You can also contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated capacity.
 - The [Event Hubs FAQ](event-hubs-faq.md) contains pricing information and answers some frequently asked questions about Event Hubs.
