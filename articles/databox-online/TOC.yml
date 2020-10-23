@@ -50,6 +50,89 @@
         href: azure-stack-edge-gpu-technical-specifications-compliance.md
       - name: Power cord specifications
         href: azure-stack-edge-technical-specifications-power-cords-regional.md
+
+- name: Azure Stack Edge Pro R
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure Stack Edge Pro R?
+      href: azure-stack-edge-j-series-overview.md
+  - name: Concepts
+    items:
+    - name: Ready safety
+      href: azure-stack-edge-pro-r-safety.md
+    - name: Review requirements
+      href: azure-stack-edge-pro-r-system-requirements.md 
+    - name: Understand limits
+      href: azure-stack-edge-pro-r-limits.md 
+    - name: Security overview
+      href: azure-stack-edge-pro-r-security.md 
+    - name: Review specifications
+      href: azure-stack-edge-pro-r-technical-specifications-compliance.md
+  - name: Tutorials
+    items:
+    - name: 0 - Get checklist
+      href: azure-stack-edge-pro-r-deploy-checklist.md     
+    - name: 1 - Order, prepare 
+      href: azure-stack-edge-pro-r-deploy-prep.md
+    - name: 2 - Install
+      href: azure-stack-edge-pro-r-deploy-install.md
+    - name: 3 - Connect
+      href: azure-stack-edge-pro-r-deploy-connect.md
+    - name: 4 - Configure network
+      href: azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy.md
+    - name: 5 - Configure device 
+      href: azure-stack-edge-pro-r-deploy-set-up-device-update-time.md
+    - name: 6 - Configure security
+      href: azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md
+    - name: 7 - Activate
+      href: azure-stack-edge-pro-r-deploy-activate.md 
+    - name: 8 - Configure compute
+      href: azure-stack-edge-gpu-deploy-configure-compute.md
+
+- name: Azure Stack Edge Mini R
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure Stack Edge Mini R?
+      href: azure-stack-edge-k-series-overview.md
+  - name: Concepts
+    items:
+    - name: Ready safety
+      href: azure-stack-edge-mini-r-safety.md
+    - name: Review requirements
+      href: azure-stack-edge-mini-r-system-requirements.md 
+    - name: Understand limits
+      href: azure-stack-edge-mini-r-limits.md 
+    - name: Security overview
+      href: azure-stack-edge-pro-r-security.md 
+    - name: Review specifications
+      href: azure-stack-edge-mini-r-technical-specifications-compliance.md
+  - name: Tutorials
+    items:
+    - name: 0 - Get checklist
+      href: azure-stack-edge-mini-r-deploy-checklist.md     
+    - name: 1 - Order, prepare 
+      href: azure-stack-edge-mini-r-deploy-prep.md
+    - name: 2 - Install
+      href: azure-stack-edge-mini-r-deploy-install.md
+    - name: 3 - Connect
+      href: azure-stack-edge-mini-r-deploy-connect.md
+    - name: 4 - Configure network
+      href: azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy.md
+    - name: 5 - Configure device 
+      href: azure-stack-edge-mini-r-deploy-set-up-device-update-time.md
+    - name: 6 - Configure security
+      href: azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption.md
+    - name: 7 - Activate
+      href: azure-stack-edge-mini-r-deploy-activate.md 
+    - name: 8 - Configure compute
+      href: azure-stack-edge-gpu-deploy-configure-compute.md 
+
+- name: Shared Pro GPU, Pro R, Mini R
+  items:
+  - name: Shared concepts
+    items:
     - name: Understand Kubernetes (Preview)
       items:
       - name: What is Kubernetes?
@@ -64,8 +147,7 @@
         href: azure-stack-edge-gpu-kubernetes-workload-management.md 
     - name: View Key Vault integration 
       href: azure-stack-edge-gpu-activation-key-vault.md
-  
-  - name: How to
+  - name: Shared how-tos
     items:
     - name: Deploy IoT Edge samples
       items:
@@ -177,15 +259,14 @@
         href: azure-stack-edge-gpu-troubleshoot-activation.md    
       - name: Contact Microsoft Support
         href: azure-stack-edge-contact-microsoft-support.md 
-  
-  - name: Release notes
+  - name: Shared release notes
     items:
-    - name: 2009 - GA
+    - name: 2010 - GA
       href: azure-stack-edge-gpu-2009-release-notes.md 
     - name: 2008 - Preview
       href: azure-stack-edge-gpu-2008-release-notes.md 
-
-  - name: Reference
+  
+  - name: Shared reference
     items:
     - name: Azure PowerShell
       href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
@@ -193,6 +274,7 @@
       href: https://docs.microsoft.com/rest/api/databoxedgegateway
     - name: .NET SDK
       href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet 
+
 
 - name: Azure Stack Edge Pro - FPGA
   items:
@@ -283,126 +365,6 @@
     - name: .NET SDK
       href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet   
 
-- name: Azure Stack Edge Pro R
-  items:
-  - name: Overview
-    items:
-    - name: What is Azure Stack Edge Pro R?
-      href: azure-stack-edge-j-series-overview.md
-  - name: Concepts
-    items:
-    - name: Ready safety
-      href: azure-stack-edge-pro-r-safety.md
-    - name: Review requirements
-      href: azure-stack-edge-pro-r-system-requirements.md 
-    - name: Understand limits
-      href: azure-stack-edge-pro-r-limits.md 
-    - name: Security overview
-      href: azure-stack-edge-pro-r-security.md 
-    - name: Review specifications
-      href: azure-stack-edge-pro-r-technical-specifications-compliance.md
-  - name: Tutorials
-    items:
-    - name: 0 - Get checklist
-      href: azure-stack-edge-pro-r-deploy-checklist.md     
-    - name: 1 - Order, prepare 
-      href: azure-stack-edge-pro-r-deploy-prep.md
-    - name: 2 - Install
-      href: azure-stack-edge-pro-r-deploy-install.md
-    - name: 3 - Connect
-      href: azure-stack-edge-pro-r-deploy-connect.md
-    - name: 4 - Configure network
-      href: azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy.md
-    - name: 5 - Configure device 
-      href: azure-stack-edge-pro-r-deploy-set-up-device-update-time.md
-    - name: 6 - Configure security
-      href: azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md
-    - name: 7 - Activate
-      href: azure-stack-edge-pro-r-deploy-activate.md 
-    - name: 8 - Configure compute
-      href: azure-stack-edge-placeholder.md
-
-- name: Azure Stack Edge Mini R
-  items:
-  - name: Overview
-    items:
-    - name: What is Azure Stack Edge Mini R?
-      href: azure-stack-edge-k-series-overview.md
-  - name: Concepts
-    items:
-    - name: Ready safety
-      href: azure-stack-edge-mini-r-safety.md
-    - name: Review requirements
-      href: azure-stack-edge-mini-r-system-requirements.md 
-    - name: Understand limits
-      href: azure-stack-edge-mini-r-limits.md 
-    - name: Security overview
-      href: azure-stack-edge-pro-r-security.md 
-    - name: Review specifications
-      href: azure-stack-edge-mini-r-technical-specifications-compliance.md
-
-- name: Data Box Gateway
-  items:
-  - name: Overview
-    items:
-    - name: What is Data Box Gateway?
-      href: data-box-gateway-overview.md
-  - name: Tutorials
-    items:
-    - name: 1 - Prepare 
-      href: data-box-gateway-deploy-prep.md
-    - name: 2A - Provision in Hyper-V
-      href: data-box-gateway-deploy-provision-hyperv.md
-    - name: 2B - Provision in VMware
-      href: data-box-gateway-deploy-provision-vmware.md
-    - name: 3 - Connect, set up, activate
-      href: data-box-gateway-deploy-connect-setup-activate.md
-    - name: 4 - Add, connect to share
-      href: data-box-gateway-deploy-add-shares.md
-  - name: Concepts
-    items:
-    - name: Review requirements
-      href: data-box-gateway-system-requirements.md
-    - name: Understand limits
-      href: data-box-gateway-limits.md
-    - name: Security overview
-      href: data-box-gateway-security.md
-    - name: View use cases
-      href: data-box-gateway-use-cases.md
-  - name: How to
-    items:
-    - name: Update
-      href: data-box-gateway-apply-updates.md
-    - name: Manage
-      items:
-        - name: Shares
-          href: data-box-gateway-manage-shares.md
-        - name: Users
-          href: data-box-gateway-manage-users.md
-        - name: Bandwidth schedules
-          href: data-box-gateway-manage-bandwidth-schedules.md
-        - name: Access, power, connectivity
-          href: data-box-gateway-manage-access-power-connectivity-mode.md
-        - name: Via PowerShell 
-          href: data-box-gateway-connect-powershell-interface.md
-    - name: Monitor
-      href: data-box-gateway-monitor.md
-    - name: Troubleshoot
-      href: data-box-gateway-troubleshoot.md
-    - name: Contact Microsoft Support
-      href: azure-stack-edge-contact-microsoft-support.md
-  - name: Release notes
-    items:
-      - name: 2007 - Current
-        href: data-box-gateway-2007-release-notes.md
-      - name: 1911
-        href: data-box-gateway-1911-release-notes.md
-      - name: 1906
-        href: data-box-gateway-1906-release-notes.md
-      - name: 1905
-        href: data-box-gateway-1905-release-notes.md
-      - name: General availability (GA)
-        href: data-box-gateway-release-notes.md
 - name: Resources
   items:
   - name: Azure Stack Edge Pro C# module samples (.NET)

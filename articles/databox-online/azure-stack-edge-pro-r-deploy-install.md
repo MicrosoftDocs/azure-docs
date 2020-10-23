@@ -13,7 +13,7 @@ Customer intent: As an IT admin, I need to understand how to install Azure Stack
 ---
 # Tutorial: Install Azure Stack Edge Pro R
 
-This tutorial describes how to install a Azure Stack Edge Pro R physical device. The installation procedure involves cabling the device.
+This tutorial describes how to install an Azure Stack Edge Pro R physical device. The installation procedure involves cabling the device.
 
 The installation can take around 30 minutes to complete.
 
