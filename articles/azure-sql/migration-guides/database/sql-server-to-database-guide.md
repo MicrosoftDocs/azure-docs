@@ -30,10 +30,11 @@ For more migration information, see the [migration overview](sql-server-to-datab
 
 ## Prerequisites 
 
-To migrate your SQL Server to Azure SQL Managed Instance, make sure: 
+To migrate your SQL Server to Azure SQL Database, make sure you check the following pre-requisites: 
 
-- You've chosen a [migration method](sql-server-to-database-overview.md#migration-options). 
-- You've created a [performance baseline](sql-server-to-database-performance-baseline.md), if necessary. 
+- Choose a [migration method](sql-server-to-database-overview.md#migration-options) and the corresponding tools that are required for the chosen method
+- Install [Data Migration Assistant (DMA)](https://www.microsoft.com/en-us/download/details.aspx?id=53595) on a machine that can connect to your source SQL Server
+- Create a target [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal)
 
 
 ## Pre-migration
@@ -52,7 +53,7 @@ For more information about tools available to use for the Discover phase, see [S
 
 ### Assess 
 
-After data sources have been discovered, assess any on-premises SQL Server instance(s) that can be migrated to Azure SQL Database to identify migration blockers or compatibility issues. 
+After data sources have been discovered, assess any on-premises SQL Server database(s) that can be migrated to Azure SQL Database to identify migration blockers or compatibility issues. 
 
 You can use the Data Migration Assistant (version 4.1 and later) to assess databases to get: 
 
@@ -75,15 +76,19 @@ To assess your environment using the Database Migration Assessment, follow these
 
 To learn more, see [Perform a SQL Server migration assessment with Data Migration Assistant](/sql/dma/dma-assesssqlonprem).
 
+ > [!NOTE]
+   >After running the assessment, if you encounter multiple blockers and confirm that your SQL Server database is not ready for migration to Azure SQL Database, then:
+>- Identify if there are instance scoped dependencies that are required for your workload and choose [Azure SQL Managed Instance](/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-overview) as a target for your database migration.
+>- If both Azure SQL Database and Azure SQL Managed Instance are not suitable as a target for your database migration, choose [SQL Server on Azure Virtual Machines](/azure/azure-sql/migration-guides/virtual-machines/sql-server/to-sql-server-on-azure-vm-overview) for your database migration.
 
-### Create a performance baseline
+#### Scaled Assessments and Analysis
+Data Migration Assistant supports performing scaled assessments and consolidation of the assessment reports for analysis. If you have multiple servers and databases that need to be assessed and analysed at scale to provide a wider view of the data estate, click on the following links to learn more.
 
-If you need to compare the performance of your workload on a SQL Database with your original workload running on SQL Server, create a performance baseline to use for comparison. See [performance baseline](sql-server-to-managed-instance-performance-baseline.md) to learn more. 
+- [Performing scaled assessments using Powershell](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=sqlallproducts-allversions)
+- [Analyzing assessment reports using Power BI](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=sqlallproducts-allversions#dma-reports)
 
-### Create SQL Managed Instance 
-
-Based on the information in the discover and assess phase, create your target SQL Database. You can do so by using the [Azure portal](../../managed-instance/instance-create-quickstart.md), [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md), or an [ARM Template](/../../managed-instance/create-template-quickstart.md). 
-
+> [!IMPORTANT]
+>Running assessments at scale for multiple databases especially large ones can also be automated using [DMA's Command Line Utility](https://docs.microsoft.com/sql/dma/dma-commandline?view=sqlallproducts-allversions) which also allows the results to be uploaded to [Azure Migrate](https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?view=sqlallproducts-allversions#view-target-readiness-assessment-results) for further analysis and target readiness.
 
 ## Migrate
 
@@ -98,10 +103,10 @@ During offline migrations, the data on the source and target is static so skip d
 
 However, when using online migration options (DMS, transactional replication, etc.), the source data and schema continues to change and drift from the target. During data sync, ensure that all changes on the source are captured and applied to the target during the online migration process. 
 
-After you verify that data is the same at both source and target, you can cutover from the source to the target environment. It is important to plan the cutover process with business / application teams to ensure minimal interruption during cutover does not affect business continuity. 
+After you verify that data is the same at both source and target, you can cutover from the source to the target environment. It is important to plan the cutover process with business / application teams to ensure there is minimal interruption during cutover and that it does not affect your business continuity. 
 
 > [!IMPORTANT]
-> For details on the specific steps associated with performing a cutover as part of online migrations using DMS, see [Performing migration cutover](../../../dms/tutorial-sql-server-managed-instance-online.md#performing-migration-cutover).
+> For details on the specific steps associated with performing a cutover as part of online migrations using DMS, see [Performing migration cutover](/azure/dms/tutorial-sql-server-azure-sql-online#perform-migration-cutover).
 
 
 ## Post-migration
@@ -135,13 +140,15 @@ Be sure to take advantage of the advanced cloud-based features offered by SQL Da
 
 Some SQL Server features are only available once the [database compatibility level](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 
 
+To learn more, see [managing Azure SQL Database after migration](/azure/azure-sql/database/manage-data-after-migrating-to-database)
+
 
 ## Next steps
 
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 
 - To learn more about Azure SQL Database see:
-
+	- [Deployment models, purchasing models and service tiers in Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
 
    - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
 
