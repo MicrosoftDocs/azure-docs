@@ -54,4 +54,5 @@ To see the status of IoT Hub and other services by region world-wide, you can us
 
 ## Next steps
 
+* See [Azure Service Health service](../service-health/overview.md) for details on Azure Service Health, Azure Resource Health, and Azure status page.
 * See [Monitor Azure IoT Hub](monitor-iot-hub.md) for a description of monitoring Azure IoT Hub.
