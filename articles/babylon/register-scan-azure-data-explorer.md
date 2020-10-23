@@ -45,7 +45,7 @@ To do this in the Azure portal:
 
 4. Select **"+ New application registration"**
 
-5. Enter a name for the **"application"** (the service principal name)
+5. Enter a name for the **application** (the service principal name)
 
 6. Select **"Accounts in this organizational directory only (Microsoft only -- Single Tenant)"**
 
