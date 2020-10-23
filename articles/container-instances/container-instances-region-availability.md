@@ -25,7 +25,7 @@ The following regions and maximum resources are available to container groups wi
 
 | Region | Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | GPU SKUs (preview) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
-| Australia East | 2 | 8 | 4 | 16 | 50 | N/A |
+| Australia East | 4 | 16 | 4 | 16 | 50 | N/A |
 | Brazil South | 4 | 16 | N/A | N/A | 50 | N/A |
 | Canada Central | 4 | 16 | 4 | 16 | 50 | N/A |
 | Central India | 4 | 16 | N/A | N/A | 50 | V100 |
