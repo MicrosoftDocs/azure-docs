@@ -28,7 +28,7 @@ HDInsight has full access to data in the Azure Blob storage accounts associated 
 
 * If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/).
 
-* If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 * If using [Python](https://www.python.org/downloads/), version 2.7 or higher.
 
