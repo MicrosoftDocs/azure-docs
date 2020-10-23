@@ -187,9 +187,9 @@ Specifies a character that will be used as the quote character in the CSV file. 
 
 DATA_COMPRESSION = 'data_compression_method'
 
-Specifies compression method. Following compression method is supported:
+Specifies compression method. Supported in PARSER_VERSION='1.0' only. Following compression method is supported:
 
-- org.apache.hadoop.io.compress.GzipCodec
+- GZIP
 
 PARSER_VERSION = 'parser_version'
 
