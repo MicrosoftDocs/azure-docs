@@ -1,7 +1,7 @@
 ---
 
 title: Register using CSP Partner information with Cloudyn in Azure
-description: Learn details about the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal.
+description: Learn details about the registration process used by partners to onboard their customers to the Cloudyn portal.
 author: bandersmsft
 ms.author: banders
 ms.date: 10/23/2020
@@ -13,17 +13,11 @@ ms.reviewer: benshy
 ROBOTS: NOINDEX
 ---
 
-
 # Register with the CSP Partner program and view cost data
 
 As a CSP partner, you can register with Cloudyn. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal.
 
-
 [!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
-
-## Sign in to Azure
-
-- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Configure indirect CSP access in Cloudyn
 
