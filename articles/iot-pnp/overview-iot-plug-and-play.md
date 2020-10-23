@@ -4,7 +4,7 @@ description: Learn about IoT Plug and Play. IoT Plug and Play is based on an ope
 author: rido-min
 ms.author: rmpablos
 ms.date: 07/06/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
