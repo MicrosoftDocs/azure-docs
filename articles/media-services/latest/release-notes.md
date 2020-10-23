@@ -48,7 +48,7 @@ For more information about the Basic Audio Analyzer mode, see [Analyzing Video a
 `vanityUrl` is now `useStaticHostName` and `hostnamePrefix` is should be set when `useStaticHostName` is set to true.
 Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in StandBy state. When `useStaticHostname` is set to true, the `hostnamePrefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
 
-Live events now have a Standby mode.  See [Live Events and Live Outputs in Media Services](https://docs.microsoft.com/en-us/azure/media-services/latest/live-events-outputs-concept).
+Live events now have a Standby mode.  See [Live Events and Live Outputs in Media Services](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept).
 
 A live event output now has Stretch Mode which includes None, AutoSize, and AutoFit.
 
