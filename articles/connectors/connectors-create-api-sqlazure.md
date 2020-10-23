@@ -222,11 +222,13 @@ Sometimes, you have to work with result sets so large that the connector doesn't
   To organize the results in the way that you want, you can create a stored procedure that runs in your SQL instance and uses the **SELECT - ORDER BY** statement. This solution gives you more control over the size and structure of your results. Your logic app calls the stored procedure by using the SQL Server connector's **Execute stored procedure** action. For more information, see [SELECT - ORDER BY Clause](/sql/t-sql/queries/select-order-by-clause-transact-sql).
 
   > [!NOTE]
-  > With this connector, a stored procedure execution is limited to a [less than 2-minute timeout limit](/connectors/sql/#known-issues-and-limitations). 
-  > Some stored procedures might take longer than this limit to process and completely finish, which generates a `504 TIMEOUT` error. Actually, some 
-  > long-running processes are coded as stored procedures explicitly for this purpose. Calling these procedures from Azure Logic Apps might create 
-  > problems due to this timeout limit. Although the SQL connector doesn't natively support an asynchronous mode, you can simulate this mode by using a SQL 
-  > completion trigger, native SQL pass-through query, a state table, and server-side jobs by using the [Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md).
+  > The SQL connector has a stored procedure timeout limit that's [less than 2-minutes](/connectors/sql/#known-issues-and-limitations). 
+  > Some stored procedures might take longer than this limit to run and finish, generating a `504 TIMEOUT` error. Actually, some long-running 
+  > processes are coded as stored procedures explicitly for this purpose. Calling these procedures from Azure Logic Apps might create problems 
+  > due to this timeout limit. Although the SQL connector doesn't natively support an asynchronous mode, you can simulate this mode by using a 
+  > SQL completion trigger, native SQL pass-through query, a state table, and server-side jobs by using the [Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md) 
+  > for [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). For [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) 
+  > and [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 
 ### Handle dynamic bulk data
 
