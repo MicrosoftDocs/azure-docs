@@ -22,7 +22,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* Azure CLI - at least version 2.2.0. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Azure CLI - at least version 2.2.0. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 * jq, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 

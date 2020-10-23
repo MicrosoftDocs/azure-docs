@@ -30,7 +30,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * An Azure AD security group with your registered application as a member. This security group will be used to control which applications are allowed to interact with the REST proxy. For more information on creating Azure AD groups, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-* Azure CLI. Ensure you have at least version 2.0.79. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Azure CLI. Ensure you have at least version 2.0.79. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create an Apache Kafka cluster
 

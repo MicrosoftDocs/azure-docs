@@ -256,7 +256,7 @@ NodeTypes       : {HeadNode, WorkerNode}
 
 ### Apply a script action to a running cluster from the Azure CLI
 
-Before you start, make sure you install and configure the Azure CLI. Ensure you have the latest version. For more information, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Before you start, make sure you install and configure the Azure CLI. Ensure you have the latest version. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 1. Authenticate to your Azure subscription:
 

@@ -21,7 +21,7 @@ This article provides sample scripts for common tasks. For each example, update 
 
 ## Prerequisites
 
-* Azure CLI. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for steps.
+* Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli) for steps.
 
 * Optional: Bash. The examples in this article use the Bash shell on Windows 10. See [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) for installation steps.  The examples will work from a Windows Command prompt with some slight modifications.
 
