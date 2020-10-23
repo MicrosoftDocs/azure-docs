@@ -106,8 +106,8 @@ To import from a BACPAC file to Azure SQL Database using the Azure portal , foll
 4. Click OK on the Import Database blade to start the import process.
 5. After the BACPAC file is imported (which can be verified under **Settings** -> **Import/Export history**), select **SQL databases** and verify the new database is **Online**.
 	> [!NOTE]
-	>To maximize import speed by providing more and faster resources, scale your database to a higher service tier and compute size during the import process. You can then scale down after the import is successful.
-	>The imported database's compatibility level is based on the source database's compatibility level.
+	>-To maximize import speed by providing more and faster resources, scale your database to a higher service tier and compute size during the import process. You can then scale down after the import is successful.</br>
+	>-The imported database's compatibility level is based on the source database's compatibility level.
 
 For a detailed tutorial of this migration option, see [Import a BACPAC file to a database in Azure SQL Database](/azure/azure-sql/database/database-import). 
 
