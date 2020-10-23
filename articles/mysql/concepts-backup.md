@@ -33,9 +33,11 @@ Transaction log backups occur every five minutes.
 The General purpose storage is the backend storage supporting [General Purpose](concepts-pricing-tiers.md) and [Memory Optimized tier](concepts-pricing-tiers.md) server. For servers with general purpose storage up to 4 TB, full backups occur once every week. Differential backups occur twice a day. Transaction log backups occur every five minutes. The backups on general purpose storage up to 4-TB storage are not snapshot-based and consumes IO bandwidth at the time of backup. For large databases (> 1 TB) on 4-TB storage, we recommend you consider
 
 - Provisioning more IOPs to account for backup IOs  OR
-- Alternatively, migrate to general purpose storage that supports up to 16-TB storage if the underlying storage infrastructure is available in your preferred [Azure regions](concepts-pricing-tiers.md#storage). There is no additional cost for general purpose storage that supports up to 16-TB storage. For assistance with migration to 16-TB storage, open a support ticket from Azure portal.
+- Alternatively, migrate to general purpose storage that supports up to 16-TB storage if the underlying storage infrastructure is available in your preferred [Azure regions](./concepts-pricing-tiers.md#storage). There is no additional cost for general purpose storage that supports up to 16-TB storage. For assistance with migration to 16-TB storage, please open a support ticket from Azure portal.
 
 #### General purpose storage servers with up to 16-TB storage
+
+In a subset of [Azure regions](./concepts-pricing-tiers.md#storage), all newly provisioned servers can support general purpose storage up to 16-TB storage. In other words, storage up to 16-TB storage is the default general purpose storage for all the [regions](./concepts-pricing-tiers.md#storage) where it is supported. Backups on these 16-TB storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only.
 
 In a subset of [Azure regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), all newly provisioned servers can support general purpose storage up to 16-TB storage. In other words, storage up to 16-TB storage is the default general purpose storage for all the [regions](/concepts-pricing-tiers.md#storage) where it is supported. Backups on these 16-TB storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only.
 
@@ -45,7 +47,7 @@ Transaction log backups occur every five minutes.
 
 ### Backup retention
 
-Backups are retained based on the backup retention period setting on the server. You can select a retention period of 7 to 35 days. The default retention period is 7 days. You can set the retention period during server creation or later by updating the backup configuration using [Azure portal](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal#set-backup-configuration) or [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-restore-server-cli#set-backup-configuration).
+Backups are retained based on the backup retention period setting on the server. You can select a retention period of 7 to 35 days. The default retention period is 7 days. You can set the retention period during server creation or later by updating the backup configuration using [Azure portal](./howto-restore-server-portal.md#set-backup-configuration) or [Azure CLI](./howto-restore-server-cli.md#set-backup-configuration).
 
 The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it's based on backups available. The backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time restore within the backup retention period are retained in backup storage. For example, if the backup retention period is set to 7 days, the recovery window is considered last 7 days. In this scenario, all the backups required to restore the server in last 7 days are retained. With a backup retention window of seven days:
 
@@ -58,7 +60,7 @@ Long-term retention of backups beyond 35 days is currently not natively supporte
 
 ### Backup redundancy options
 
-Azure Database for MySQL provides the flexibility to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a [paired data center](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). This geo-redundancy provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
+Azure Database for MySQL provides the flexibility to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a [paired data center](../best-practices-availability-paired-regions.md). This geo-redundancy provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
 
 #### Moving from locally redundant to geo-redundant backup storage
 
@@ -84,7 +86,7 @@ There are two types of restore available:
 The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time is usually less than 12 hours.
 
 > [!IMPORTANT]
-> Deleted servers can be restored only within **five days** of deletion after which the backups are deleted. The database backup can be accessed and restored only from the Azure subscription hosting the server. To restore a dropped server, refer [documented steps](howto-restore-dropped-server.md). To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Deleted servers can be restored only within **five days** of deletion after which the backups are deleted. The database backup can be accessed and restored only from the Azure subscription hosting the server. To restore a dropped server, refer [documented steps](howto-restore-dropped-server.md). To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../azure-resource-manager/management/lock-resources.md).
 
 ### Point-in-time restore
 

@@ -18,7 +18,7 @@ The following document includes links to examples showing how to connect and que
 | Quickstart | Description |
 |---|---|
 |[MySQL workbench](connect-workbench.md)|This quickstart demonstrates how to use MySQL Workbench Client to connect to a database. You can then use MySQL statements to query, insert, update, and delete data in the database.|
-|[Azure Cloud Shell](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#connect-to-azure-database-for-mysql-server-using-mysql-command-line-client)|This article shows how to run **mysql.exe** in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to connect to your server and then run statements to query, insert, update, and delete data in the database.|
+|[Azure Cloud Shell](./quickstart-create-mysql-server-database-using-azure-cli.md#connect-to-azure-database-for-mysql-server-using-mysql-command-line-client)|This article shows how to run **mysql.exe** in [Azure Cloud Shell](../cloud-shell/overview.md) to connect to your server and then run statements to query, insert, update, and delete data in the database.|
 |[MySQL with Visual Studio](https://www.mysql.com/why-mysql/windows/visualstudio)|You can use MySQL for Visual Studio for connecting to your MySQL server. MySQL for Visual Studio integrates directly into Server Explorer making it easy to setup new connections and working with database objects.|
 |[PHP](connect-php.md)|This quickstart demonstrates how to use PHP to create a program to connect to a database and use MySQL statements to query data.|
 |[Java](connect-java.md)|This quickstart demonstrates how to use Java to connect to a database and then use MySQL statements to query data.|
