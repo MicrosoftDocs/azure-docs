@@ -41,10 +41,10 @@ The .NET SDK targets version [`2019-05-06` of the Azure Cognitive Search REST AP
 
 This SDK does not support [Management Operations](/rest/api/searchmanagement/) such as creating and scaling Search services and managing API keys. If you need to manage your Search resources from a .NET application, you can use the [Azure Cognitive Search .NET Management SDK](/dotnet/api/overview/azure/search/management).
 
-## Upgrading to the latest version of the SDK
+## Upgrade to v10
 If you're already using an older version of the Azure Cognitive Search .NET SDK and you'd like to upgrade to the latest generally available version, [this article](search-dotnet-sdk-migration-version-9.md) explains how.
 
-## Requirements for the SDK
+## SDK requirements
 1. Visual Studio 2017 or later.
 2. Your own Azure Cognitive Search service. In order to use the SDK, you will need the name of your service and one or more API keys. [Create a service in the portal](search-create-service-portal.md) will help you through these steps.
 3. Download the Azure Cognitive Search .NET SDK [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Search) by using "Manage NuGet Packages" in Visual Studio. Just search for the package name `Microsoft.Azure.Search` on NuGet.org (or one of the other package names above if you only need a subset of the functionality).
