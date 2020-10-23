@@ -47,7 +47,7 @@ When you create a public load balancer, you create a new public IP address that 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **Create new** and enter **CreateStdLBQS-rg** in the text box.|
+    | Resource group         | Select **Create new** and enter **CreatePubLBQS-rg** in the text box.|
     | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Public**.                                        |
@@ -159,7 +159,7 @@ In this section, you'll create a virtual network and subnet.
     |------------------|-----------------------------------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **CreateStdLBQS-rg** |
+    | Resource Group   | Select **CreatePubLBQS-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
     | Region           | Select **West Europe** |
@@ -212,7 +212,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **CreateStdLBQS-rg** |
+    | Resource Group | Select **CreatePubLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
     | Region | Select **West Europe** |
@@ -328,7 +328,7 @@ When you create a public load balancer, you create a new public IP address that 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **Create new** and type **CreateBasLBQS-rg** in the text box.|
+    | Resource group         | Select **Create new** and type **CreatePubLBQS-rg** in the text box.|
     | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Public**.                                        |
@@ -365,7 +365,7 @@ In this section, you'll create a virtual network and subnet.
     |------------------|-----------------------------------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **CreateBasLBQS-rg** |
+    | Resource Group   | Select **CreatePubLBQS-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
     | Region           | Select **West Europe** |
@@ -499,7 +499,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **CreateBasLBQS-rg** |
+    | Resource Group | Select **CreatePubLBQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
     | Region | Select **West Europe** |
@@ -614,7 +614,7 @@ To see the load balancer distribute traffic across all three VMs, you can custom
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load Balancer, and all related resources. To do so, select the resource group **CreateStdLBQS-rg** that contains the resources and then select **Delete**.
+When no longer needed, delete the resource group, load Balancer, and all related resources. To do so, select the resource group **CreatePubLBQS-rg** that contains the resources and then select **Delete**.
 
 ## Next steps
 
