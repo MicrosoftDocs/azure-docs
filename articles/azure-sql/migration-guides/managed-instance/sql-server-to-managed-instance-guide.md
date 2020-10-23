@@ -30,7 +30,7 @@ For more migration information, see the [migration overview](sql-server-to-manag
 
 ## Prerequisites 
 
-To migrate your SQL Server to Azure SQL Managed Instance, make sure: 
+To migrate your SQL Server to Azure SQL Managed Instance, make sure to go through the following pre-requisites: 
 
 - You've chosen a [migration method](sql-server-to-managed-instance-overview.md#migration-options). 
 - You've created a [performance baseline](sql-server-to-managed-instance-performance-baseline.md), if necessary.  
@@ -112,6 +112,12 @@ To perform migrations using DMS with minimal downtime via an online sync and cut
 
 For a detailed step-by-step tutorial of this migration option, see [Migrate SQL Server to an Azure SQL Managed Instance online using DMS](https://docs.microsoft.com/azure/dms/tutorial-sql-server-managed-instance-online). 
 #### Migration with native backup and restore (Offline size of data operation)
+RESTORE of native backups (.bak files) taken from a SQL Server instance, available on [Azure Storage](https://azure.microsoft.com/services/storage/), is one of the key capabilities of SQL Managed Instance that enables quick and easy offline database migration.
+
+The following diagram provides a high-level overview of the process:
+
+![Diagram shows SQL Server with an arrow labeled BACKUP / Upload to URL flowing to Azure Storage and a second arrow labeled RESTORE from URL flowing from Azure Storage to a Managed Instance of SQL.](./media/sql-server-to-managed-instance-overview/migration-restore.png)
+
 To perform migrations using native backup and restore which is an offline / asynchronous operation based on the size of your database, follow the steps below:
 1. You can backup database(s) to Azure Blob storage service natively with SQL Server 2012 SP1 CU2 and above. Manage your backups to Azure Blob storage (also referred to as SQL Server Backup to URL) by following the instructions to [Backup with SSMS](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sqlallproducts-allversions#BackupTaskSSMS).
 	> [!NOTE]
