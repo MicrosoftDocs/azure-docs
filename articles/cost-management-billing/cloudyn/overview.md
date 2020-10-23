@@ -3,7 +3,7 @@ title: Overview of Cloudyn in Azure
 description: Cloudyn is a multi-cloud cost management solution that helps you use Azure and other cloud resources.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2020
+ms.date: 10/23/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: cloudyn
@@ -51,6 +51,4 @@ If you provisioned AWS Reserved Instances, you can improve your reserved instanc
 
 ## Next steps
 
-Now that you're familiar with Cloudyn, the next step is to register your cloud environment and start exploring your data.
-
-- [Register with the CSP Partner program and view cost data](quick-register-csp.md)
+- [Review usage and costs](tutorial-review-usage.md)

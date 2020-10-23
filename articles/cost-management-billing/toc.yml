@@ -440,10 +440,6 @@
       href: cloudyn/overview.md
   - name: Quickstarts
     items:
-    - name: View cost data
-      href: cloudyn/quick-register-azure-sub.md
-    - name: View cost data - EA
-      href: cloudyn/quick-register-ea.md
     - name: View cost data - CSP
       href: cloudyn/quick-register-csp.md
   - name: Tutorials
