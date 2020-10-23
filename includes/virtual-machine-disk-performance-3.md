@@ -11,9 +11,9 @@
 ---
 ![Screenshot of f i o output showing r=22.8k highlighted.](media/vm-disk-performance/utilization-metrics-example/fio-output.jpg)
 
-The Standard_D8s_v3 can achieve a total of 28,600 IOPS. Using the metrics, let's investigate what's going on and identify our storage IO bottleneck. On the left side pane, select **Metrics**:
+The Standard_D8s_v3 can achieve a total of 28,600 IOPS. Using the metrics, let's investigate what's going on and identify our storage IO bottleneck. On the left pane, select **Metrics**:
 
-![Screenshot showing Metrics highlighted on the left side pane.](media/vm-disk-performance/utilization-metrics-example/metrics-menu.jpg)
+![Screenshot showing Metrics highlighted on the left pane.](media/vm-disk-performance/utilization-metrics-example/metrics-menu.jpg)
 
 Let's first take a look at our **VM Cached IOPS Consumed Percentage** metric:
 
@@ -35,6 +35,6 @@ This metric tells us that the average IOPS consumed percentage across all the di
 
 ![Screenshot showing Data Disk I O P S Consumed Percentage with splitting.](media/vm-disk-performance/utilization-metrics-example/data-disks-splitting.jpg)
 
-This metric tells us the data disks attached on LUN 3 and 2 are using around 85% of their provisioned IOPS. Here is a diagram of what the IO looks like from the VM and Disks architecture:
+This metric tells us the data disks attached on LUN 3 and 2 are using around 85% of their provisioned IOPS. Here is a diagram of what the IO looks like from the VM and disks architecture:
 
 ![Diagram of Storage I O metrics example.](media/vm-disk-performance/utilization-metrics-example/metrics-diagram.jpg)
