@@ -25,9 +25,9 @@ The Speech Devices SDK can help you:
 
 The Speech Devices SDK consumes the [Speech SDK](speech-sdk.md). Using our advanced audio processing algorithms with the device's microphone array to send the audio to the [Speech service](overview.md). It provides accurate far-field [speech recognition](speech-to-text.md) via noise suppression, echo cancellation, beamforming, and dereverberation.
 
-You can also use the Speech Devices SDK to build ambient devices that have your own [customized keyword](speech-devices-sdk-create-kws.md). A Custom Keyword provides a cue that starts a user interaction which is unique to your brand.
+You can also use the Speech Devices SDK to build ambient devices that have your own [customized keyword](./custom-keyword-basics.md). A Custom Keyword provides a cue that starts a user interaction which is unique to your brand.
 
-The Speech Devices SDK enables a variety of voice-enabled scenarios, such as [voice assistants](https://aka.ms/bots/speech/va), drive-thru ordering systems, [conversation transcription](conversation-transcription-service.md), and smart speakers. You can respond to users with text, speak back to them in a default or [custom voice](how-to-customize-voice-font.md), provide search results, [translate](speech-translation.md) to other languages, and more. We look forward to seeing what you build!
+The Speech Devices SDK enables a variety of voice-enabled scenarios, such as [voice assistants](./voice-assistants.md), drive-thru ordering systems, [conversation transcription](./conversation-transcription.md), and smart speakers. You can respond to users with text, speak back to them in a default or [custom voice](./how-to-custom-voice-create-voice.md), provide search results, [translate](speech-translation.md) to other languages, and more. We look forward to seeing what you build!
 
 ## Get the Speech Devices SDK
 

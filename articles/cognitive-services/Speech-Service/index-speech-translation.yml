@@ -21,7 +21,7 @@ landingContent:
       - text: What is speech translation?
         url: speech-translation.md
       - text: Speech translation basics
-        url: speech-translation-basics.md
+        url: ./get-started-speech-translation.md
       - text: Use the Speech CLI to translate speech with no code
         url: spx-overview.md
     - linkListType: quickstart
@@ -33,7 +33,7 @@ landingContent:
     - linkListType: learn
       links:
       - text: Translate speech in real time
-        url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
+        url: /learn/modules/convert-speech-to-text
     - linkListType: tutorial
       links:
         - text: Translate and synthesize text with REST APIs
