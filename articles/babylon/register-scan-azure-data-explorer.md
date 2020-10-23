@@ -94,7 +94,7 @@ When you select **Continue**, you will be presented with scan summary page, wher
 ![Screenshot showing review your scan](./media/register-scan-azure-data-explorer/review-save-run.png)
 
 **Edit a scan**
-Select a scan and click Edit to edit the selected scan. You can only edit one scan at a time.
+Select a scan and select **Edit** to edit the selected scan. You can only edit one scan at a time.
 
 **Remove a scan**
 To remove a scan, select one or more scans from the list, then click Remove.
