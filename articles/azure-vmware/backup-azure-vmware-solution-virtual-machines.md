@@ -235,7 +235,7 @@ Protection groups gather multiple VMs and apply the same data retention and back
 
    ![Specify online backup schedule](../backup/media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
-1. On the **Specify Online Retention Policy** page, indicate how long you want to keep the recovery points that get created from the backups to Azure.
+1. On the **Specify Online Retention Policy** page, indicate how long you want to keep the recovery points created from the backups to Azure.
 
    - There's no time limit for how long you can keep data in Azure.
    - The only limit is that you can't have more than 9,999 recovery points per protected instance. In this example, the protected instance is the VMware server.
@@ -250,8 +250,9 @@ Protection groups gather multiple VMs and apply the same data retention and back
 
 After you configure the protection group to back up Azure VMware Solution VMs, you can monitor the status of the backup job and alert by using the Azure Backup Server console. Here's what you can monitor.
 
-- On the **Alerts** tab in the **Monitoring** pane, you can monitor errors, warnings, and general information for a protection group, for a specific protected computer, or by message severity. You can view active and inactive alerts and set up email notifications.
-- On the **Jobs** tab in the **Monitoring** pane, you can view jobs initiated by Azure Backup Server for a specific protected data source or protection group. You can follow job progress or check resources consumed by jobs.
+- In the **Monitoring** task area:
+   - Under **Alerts**, you can monitor errors, warnings, and general information.  You can view active and inactive alerts and set up email notifications.
+   - Under **Jobs**, you can view jobs started by Azure Backup Server for a specific protected data source or protection group. You can follow job progress or check resources consumed by jobs.
 - In the **Protection** task area, you can check the status of volumes and shares in the protection group. You can also check configuration settings such as recovery settings, disk allocation, and the backup schedule.
 - In the **Management** task area, you can view the **Disks, Online**, and **Agents** tabs to check the status of disks in the storage pool, registration to Azure, and deployed DPM agent status.
 
@@ -262,7 +263,7 @@ After you configure the protection group to back up Azure VMware Solution VMs, y
 In the Azure Backup Server Administrator Console, there are two ways to find recoverable data. You can search or browse. When you recover data, you might or might not want to restore data or a VM to the same location. For this reason, Azure Backup Server supports three recovery options for VMware VM backups:
 
 - **Original location recovery (OLR)**: Use OLR to restore a protected VM to its original location. You can restore a VM to its original location only if no disks were added or deleted since the backup occurred. If disks were added or deleted, you must use alternate location recovery.
-- **Alternate location recovery (ALR)**: When the original VM is missing, or you don't want to disturb the original VM, recover the VM to an alternate location. To recover a VM to an alternate location, you must provide the location of an ESXi host, resource pool, folder, and the storage datastore and path. To help differentiate the restored VM from the original VM, Azure Backup Server appends "-Recovered" to the name of the VM.
+- **Alternate location recovery (ALR)**: Use when the original VM is missing, or you don't want to disturb the original VM. Provide the location of an ESXi host, resource pool, folder, and the storage datastore and path. To help differentiate the restored VM from the original VM, Azure Backup Server appends *"-Recovered"* to the name of the VM.
 - **Individual file location recovery (ILR)**: If the protected VM is a Windows Server VM, individual files or folders inside the VM can be recovered by using the ILR capability of Azure Backup Server. To recover individual files, see the procedure later in this article. Restoring an individual file from a VM is available only for Windows VM and disk recovery points.
 
 ### Restore a recovery point
@@ -273,7 +274,7 @@ In the Azure Backup Server Administrator Console, there are two ways to find rec
 
    ![Available recovery points](../backup/media/restore-azure-backup-server-vmware/recovery-points.png)
 
-1. In the **Recovery points for** pane, use the calendar and drop-down menus to select a date when a recovery point was taken. Calendar dates in bold have available recovery points. Alternately, you can right-click the VM and select **Show all recovery points** and then select the recovery point from the list.
+1. In the **Recovery points for** pane, select a date when a recovery point was taken. Calendar dates in bold have available recovery points. Alternately, you can right-click the VM and select **Show all recovery points** and then select the recovery point from the list.
 
    > [!NOTE] 
    > For short-term protection, select a disk-based recovery point for faster recovery. After short-term recovery points expire, you see only **Online** recovery points to recover.
@@ -291,7 +292,7 @@ In the Azure Backup Server Administrator Console, there are two ways to find rec
    > [!NOTE]
    > VMware workloads don't support enabling network bandwidth throttling.
 
-1. On the **Select Recovery Type** page, choose whether to recover to the original instance or a new location, and then select **Next**.
+1. On the **Select Recovery Type** page, either recover to the original instance or a new location.
 
    - If you choose **Recover to original instance**, you don't need to make any more choices in the wizard. The data for the original instance is used.
    - If you choose **Recover as virtual machine on any host**, then on the **Specify Destination** screen, provide the information for **ESXi Host**, **Resource Pool**, **Folder**, and **Path**.
@@ -333,14 +334,14 @@ You can restore individual files from a protected VM recovery point. This featur
 
 1. When you've selected the items for recovery, in the Administrator Console tool ribbon, select **Recover** to open the **Recovery Wizard**. In the **Recovery Wizard**, the **Review Recovery Selection** screen shows the selected items to be recovered.
 
-1. On the **Specify Recovery Options** screen, do one of the following:
+1. On the **Specify Recovery Options** screen, do one of the following steps:
 
    - Select **Modify** to enable network bandwidth throttling. In the **Throttle** dialog box, select **Enable network bandwidth usage throttling** to turn it on. Once enabled, configure the **Settings** and **Work Schedule**.
    - Select **Next** to leave network throttling disabled.
 
 1. On the **Select Recovery Type** screen, select **Next**. You can only recover your files or folders to a network folder.
 
-1. On the **Specify Destination** screen, select **Browse** to find a network location for your files or folders. Azure Backup Server creates a folder where all recovered items are copied. The folder name has the prefix MABS_day-month-year. When you select a location for the recovered files or folder, the details for that location, such as **Destination**, **Destination path**, and **Space available**, are provided.
+1. On the **Specify Destination** screen, select **Browse** to find a network location for your files or folders. Azure Backup Server creates a folder where all recovered items are copied. The folder name has the prefix MABS_day-month-year. When you select a location for the recovered files or folder, the details for that location are provided.
 
    ![Specify location to recover files](../backup/media/restore-azure-backup-server-vmware/specify-destination.png)
 
