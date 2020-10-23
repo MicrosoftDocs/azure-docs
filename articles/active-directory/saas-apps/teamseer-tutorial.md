@@ -121,7 +121,7 @@ To configure Azure AD single sign-on with TeamSeer, perform the following steps:
 
 1. Go to **HR Admin**.
 
-    ![HR Admin](./media/teamseer-tutorial/ic789634.png "HR Admin")
+    ![Screenshot shows the H R Admin selected from the TeamSeer window.](./media/teamseer-tutorial/ic789634.png "HR Admin")
 
 1. Click **Setup**.
 
@@ -129,11 +129,11 @@ To configure Azure AD single sign-on with TeamSeer, perform the following steps:
 
 1. Click **Set up SAML provider details**.
 
-    ![SAML Settings](./media/teamseer-tutorial/ic789636.png "SAML Settings")
+    ![Screenshot shows Set up SAML provider details selected.](./media/teamseer-tutorial/ic789636.png "SAML Settings")
 
 1. In the SAML provider details section, perform the following steps:
 
-    ![SAML Settings](./media/teamseer-tutorial/ic789637.png "SAML Settings")
+    ![Screenshot shows the SAML provider details where you can enter the values described.](./media/teamseer-tutorial/ic789637.png "SAML Settings")
 
     a. In the **URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
@@ -141,7 +141,7 @@ To configure Azure AD single sign-on with TeamSeer, perform the following steps:
 
 1. To complete the SAML provider configuration, perform the following steps:
 
-    ![SAML Settings](./media/teamseer-tutorial/ic789638.png "SAML Settings")
+    ![Screenshot shows the SAML provider configuration where you can enter the values described.](./media/teamseer-tutorial/ic789638.png "SAML Settings")
 
     a. In the **Test Email Addresses**, type the test user’s email address.
   
@@ -210,7 +210,7 @@ To enable Azure AD users to sign in to TeamSeer, they must be provisioned in to 
 
 1. Go to **HR Admin \> Users** and then click **Run the New User wizard**.
 
-    ![HR Admin](./media/teamseer-tutorial/ic789640.png "HR Admin")
+    ![Screenshot shows the H R Admin tab where you can select a wizard to run.](./media/teamseer-tutorial/ic789640.png "HR Admin")
 
 1. In the **User Details** section, perform the following steps:
 
