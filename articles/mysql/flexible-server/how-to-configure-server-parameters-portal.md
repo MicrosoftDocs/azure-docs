@@ -21,15 +21,15 @@ This article describes how to view and configure server parameters by using the 
 
 1. Sign in to the [Azure portal](https://portal.azure.com), then locate your Azure Database for MySQL flexible server.
 2. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL flexible server.
-:::image type="content" source="./media/how-to-server-parameters/azure-portal-server-parameters.png" alt-text="Azure portal server parameters page":::
+[:::image type="content" source="./media/how-to-server-parameters/azure-portal-server-parameters.png" alt-text="Azure portal server parameters page":::](./media/how-to-server-parameters/azure-portal-server-parameters.png#lightbox)
 3. Locate any server parameter you need to adjust. Review the **Description** column to understand the purpose and allowed values.
-:::image type="content" source="./media/how-to-server-parameters/3-toggle_parameter.png" alt-text="Enumerate drop down":::
+[:::image type="content" source="./media/how-to-server-parameters/3-toggle-parameter.png" alt-text="Enumerate drop down":::](./media/how-to-server-parameters/3-toggle-parameter.png#lightbox)
 4. Click  **Save** to save your changes.
-:::image type="content" source="./media/how-to-server-parameters/4-save_parameters.png" alt-text="Save or Discard changes":::
+[:::image type="content" source="./media/how-to-server-parameters/4-save-parameters.png" alt-text="Save or Discard changes":::](./media/how-to-server-parameters/4-save-parameters.png#lightbox)
 5. The static parameters are the one which require server reboot to take in effect. If you are modifying the static parameter, you will be prompted to **Restart now** or **Restart later**.
-:::image type="content" source="./media/how-to-server-parameters/5-save_parameter.png" alt-text="Restart on static parameter save":::
+[:::image type="content" source="./media/how-to-server-parameters/5-save-parameter.png" alt-text="Restart on static parameter save":::](./media/how-to-server-parameters/5-save-parameter.png#lightbox)
 6. If you have saved new values for the parameters, you can always revert everything back to the default values by selecting **Reset all to default**.
-:::image type="content" source="./media/how-to-server-parameters/6-reset_parameters.png" alt-text="Reset all to default":::
+[:::image type="content" source="./media/how-to-server-parameters/6-reset-parameters.png" alt-text="Reset all to default":::](./media/how-to-server-parameters/6-reset-parameters.png#lightbox)
 
 ## Setting non-modifiable server parameters
 
@@ -71,7 +71,7 @@ SELECT name FROM mysql.time_zone_name;
 
 The global level time zone can be set from the **Server parameters** page in the Azure portal. The below sets the global time zone to the value "US/Pacific".
 
-:::image type="content" source="./media/how-to-server-parameters/timezone.png" alt-text="Set time zone parameter":::
+[:::image type="content" source="./media/how-to-server-parameters/timezone.png" alt-text="Set time zone parameter":::](./media/how-to-server-parameters/timezone.png#lightbox)
 
 ### Setting the session level time zone
 
