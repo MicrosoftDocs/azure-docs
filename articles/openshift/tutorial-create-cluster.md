@@ -24,9 +24,9 @@ Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an Open
 
 ### Verify your permissions
 
-During this tutorial, you will create a resource group which will contain the virtual network for the cluster.  You must have either Contributor + User Access Administrator permissions, or Owner permissions, either directly on the virtual network, or on the resource group or subscription containing it.
+During this tutorial, you will create a resource group which will contain the virtual network for the cluster.  You must have either Contributor and User Access Administrator permissions, or Owner permissions, either directly on the virtual network, or on the resource group or subscription containing it.
 
-You will also need sufficient Azure Active Directory permissions for the tooling to create a service principal on your behalf for the cluster.
+You will also need sufficient Azure Active Directory permissions for the tooling to create an application and service principal on your behalf for the cluster.
 
 ### Register the resource providers
 
