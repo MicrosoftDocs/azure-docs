@@ -18,7 +18,7 @@ ms.reviewer: aragra, lenalepa, sureshja
 
 # Quickstart: Modify the accounts supported by an application
 
-When you first registered your application with the Microsoft identity platform, you specified who can access it. For example, you might've specified accounts only in your organization, which is a *single-tenant* app. Or, you might've specified accounts in *any* organizational directory (including yours), which is a multi-tenant app.
+When you registered your application with the Microsoft identity platform, you specified who--which account types--can access it. For example, you might've specified accounts only in your organization, which is a *single-tenant* app. Or, you might've specified accounts in any organization (including yours), which is a *multi-tenant* app.
 
 In this quickstart, you learn how to modify your application's configuration to change who, or what types of accounts, can access the application.
 
