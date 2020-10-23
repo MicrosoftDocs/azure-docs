@@ -29,7 +29,7 @@ As a CSP partner, you can register with Cloudyn. Your registration provides acce
 
 By default, the Partner Center API is only accessible to direct CSPs. However, a direct CSP provider can configure access for their indirect CSP customers or partners using entity groups in Cloudyn.
 
-To enable access for indirect CSP customers or partners, follow the steps in [Register with Cloudyn](#register-with-cloudyn) to set up a trial registration. Next, complete the following steps to segment indirect CSP data by using Cloudyn entity groups. Then, assign the appropriate user permissions to the entity groups.
+To enable access for indirect CSP customers or partners, complete the following steps to segment indirect CSP data by using Cloudyn entity groups. Then, assign the appropriate user permissions to the entity groups.
 
 1. Create an entity group with the information at [Create entities](tutorial-user-access.md#create-and-manage-entities).
 2. Follow the steps at [Assigning subscriptions to Cost Entities](https://www.youtube.com/watch?v=d9uTWSdoQYo). Associate the indirect CSP customer's account and their Azure subscriptions to the entity that you create previously.
