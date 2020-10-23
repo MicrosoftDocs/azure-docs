@@ -706,6 +706,7 @@ Full access to manage devices in Azure AD.
 | microsoft.directory/devices/delete | Delete devices in Azure Active Directory. |
 | microsoft.directory/devices/disable | Disable devices in Azure Active Directory. |
 | microsoft.directory/devices/enable | Enable devices in Azure Active Directory. |
+| microsoft.directory/devices/extensionAttributes/update | Update all values for devices.extensionAttributes property in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Microsoft 365 Service Health. |
@@ -1273,6 +1274,7 @@ Can manage all aspects of the Intune product.
 | microsoft.directory/devices/delete | Delete devices in Azure Active Directory. |
 | microsoft.directory/devices/disable | Disable devices in Azure Active Directory. |
 | microsoft.directory/devices/enable | Enable devices in Azure Active Directory. |
+| microsoft.directory/devices/extensionAttributes/update | Update all values for devices.extensionAttributes property in Azure Active Directory. |
 | microsoft.directory/devices/registeredOwners/update | Update devices.registeredOwners property in Azure Active Directory. |
 | microsoft.directory/devices/registeredUsers/update | Update devices.registeredUsers property in Azure Active Directory. |
 | microsoft.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
