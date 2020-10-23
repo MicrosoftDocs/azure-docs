@@ -50,11 +50,11 @@ After July 31, 2018:
 
 - You can no longer create any version of Windows-based HDInsight clusters by using an on-demand HDInsight linked service in Data Factory version 1. 
 
-### Recommended actions 
+### Recommended actions
 
 - To ensure that you can use the latest Hadoop ecosystem components and fixes, update the [**osType** and **Version** properties](#azure-hdinsight-on-demand-linked-service) of affected Data Factory version 1 on-demand HDInsight linked service definitions to newer Linux-based HDInsight versions (HDInsight 3.6). 
 - Before December 15, 2017, test Data Factory version 1 Hive, Pig, MapReduce, and Hadoop streaming activities that reference the affected linked service. Ensure that they are compatible with the new **osType** and **Version** default values (**Version=3.6**, **osType=Linux**) or the explicit HDInsight version and OS type that you are upgrading to. 
-  To learn more about compatibility, see [Migrate from a Windows-based HDInsight cluster to a Linux-based cluster](../../hdinsight/index.yml) and [What are the Hadoop components and versions available with HDInsight?](../../hdinsight/hdinsight-component-versioning.md#hortonworks-release-notes-associated-with-hdinsight-versions). 
+  To learn more about compatibility, see [Migrate from a Windows-based HDInsight cluster to a Linux-based cluster](../../hdinsight/index.yml) and [What are the Hadoop components and versions available with HDInsight?](../../hdinsight/hdinsight-component-versioning.md). 
 - To continue using a Data Factory version 1 on-demand HDInsight linked service to create Windows-based HDInsight clusters, explicitly set **osType** to **Windows** before December 15, 2017. We recommend that you migrate to Linux-based HDInsight clusters before July 31, 2018. 
 - If you are using an on-demand HDInsight linked service to execute Data Factory version 1 DotNet Custom Activity, update the DotNet Custom Activity JSON definition to instead use an Azure Batch linked service. For more information, see [Use custom activities in a Data Factory pipeline](./data-factory-use-custom-activities.md). 
 
