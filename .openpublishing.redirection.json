@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-network/ddos-protection-overview.md",
+      "redirect_url": "articles/ddos-protection/ddos-protection-overview-2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/manage-ddos-protection.md",
+      "redirect_url": "articles/ddos-protection/manage-ddos-protection-2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/ddos-protection-partner-onboarding.md",
+      "redirect_url": "articles/ddos-protection/ddos-protection-partner-onboarding-2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/ddos-best-practices.md",
+      "redirect_url": "articles/ddos-protection/fundamental-best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/ddos-protection-security-baseline.md",
+      "redirect_url": "articles/ddos-protection/security-baseline",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/configure-raid.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/configure-raid",
       "redirect_document_id": false
