@@ -231,7 +231,7 @@ The extending interface cannot change any of the definitions of the parent inter
 
 ## Next steps
 
-See how to manage models with the DigitalTwinsModels APIs:
+See how to manage models with the DigitalTwinModels APIs:
 * [*How-to: Manage custom models*](how-to-manage-model.md)
 
 Or, learn about how digital twins are created based on models:

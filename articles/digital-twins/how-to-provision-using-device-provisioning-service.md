@@ -506,12 +506,6 @@ Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resourc
 ```azurecli
 az group delete --name <your-resource-group>
 ```
-<!-- 
-Next, delete the Azure AD app registration you created for your client app with this command:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-``` -->
 
 Then, delete the project sample folder you downloaded from your local machine.
 

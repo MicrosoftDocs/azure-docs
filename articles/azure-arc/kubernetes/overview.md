@@ -33,6 +33,7 @@ Azure Arc enabled Kubernetes features have been tested by the Arc team on follow
 * Canonical Charmed Kubernetes 1.18
 * AKS Engine
 * AKS Engine on Azure Stack Hub
+* AKS on Azure Stack HCI
 * Cluster API Provider Azure
 
 ## Supported scenarios 

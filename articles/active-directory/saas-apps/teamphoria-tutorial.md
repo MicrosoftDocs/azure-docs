@@ -130,15 +130,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. Go to **ADMIN SETTINGS** option in the left toolbar and under the Configure Tab click on **SINGLE SIGN-ON** to open the SSO configuration window.
 
-	![Configure Single Sign-On](./media/teamphoria-tutorial/admin_sso_configure.png)
+	![Screenshot shows ADMIN SETTINGS where you can select SINGLE SIGN-ON.](./media/teamphoria-tutorial/admin_sso_configure.png)
 
 5. Click on **ADD NEW IDENTITY PROVIDER** option in the top right corner to open the form for adding the settings for SSO.
 
-	![Configure Single Sign-On](./media/teamphoria-tutorial/add_new_identity_provider.png)
+	![Screenshot shows where you can select ADD NEW IDENTITY PROVIDER.](./media/teamphoria-tutorial/add_new_identity_provider.png)
 
 6. Enter the details in the fields as described below-
 
-	![Configure Single Sign-On](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
+	![Screenshot shows the page where you can enter the values described.](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
 	a. **DISPLAY NAME**: Enter the display name of the plugin on the admin page.
 
@@ -164,11 +164,11 @@ In order to enable Azure AD users to sign in to Teamphoria, they must be provisi
 
 1. Click on the **MANUAL INVITE** option.
 
-	![Invite People](./media/teamphoria-tutorial/admin_manage_add_users.png)
+	![Screenshot shows the MANUAL INVITE option.](./media/teamphoria-tutorial/admin_manage_add_users.png)
 
 1. On this page, perform following action.
 
-	![Invite People](./media/teamphoria-tutorial/manual_user_invite.png)
+	![Screenshot shows the MANUAL USER INVITE page where you can enter name and email address.](./media/teamphoria-tutorial/manual_user_invite.png)
 
     a. In the **EMAIL ADDRESS** textbox, enter the **email address** of the user like B.Simon.
 

@@ -60,7 +60,7 @@ Users with particular job requirements may need to be assigned additional roles 
 
 - Guest users assigning incidents
 
-    If a guest user needs to be able to assign incidents, then in addition to the Azure Sentinel Responder role, the user will also need to be assigned the role of [Directory Reader](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers). Note that this role is *not* an Azure RBAC role but an **Azure Active Directory** role, and that regular (non-guest) users have this role assigned by default. 
+    If a guest user needs to be able to assign incidents, then in addition to the Azure Sentinel Responder role, the user will also need to be assigned the role of [Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers). Note that this role is *not* an Azure RBAC role but an **Azure Active Directory** role, and that regular (non-guest) users have this role assigned by default. 
 
 For a side-by-side comparison, see the [table below](#roles-and-allowed-actions).
 
