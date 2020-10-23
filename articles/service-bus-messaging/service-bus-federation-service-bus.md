@@ -7,11 +7,11 @@ ms.date: 09/15/2020
 
 # Message replication to and from Azure Service Bus
 
-This article explains how to replicate data between Service Bus entities, covering several of the patterns explained in the [federation overview](event-hubs-federation-overview.md) article. 
+This article explains how to replicate data between Service Bus entities, covering several of the patterns explained in the [federation overview](service-bus-federation-overview.md) article. 
 
-Replication applications and tasks use the Azure Functions runtime and all the fundamentals for how to create such tasks are covered in the [Event replication tasks and applications](event-hubs-federation-replicator-functions.md) article.
+Replication applications and tasks use the Azure Functions runtime and all the fundamentals for how to create such tasks are covered in the [Event replication tasks and applications](service-bus-federation-replicator-functions.md) article.
 
-In this article we lean on the concept of [configured tasks](event-hubs-federation-replicator-functions.md#configured-replication-tasks), which do not require you to write code, but rather leverage code that is already available. "Custom tasks" are explained in the sample application repositories linked below in [next steps](#next-steps) 
+In this article we lean on the concept of [configured tasks](service-bus-federation-replicator-functions.md#configured-replication-tasks), which do not require you to write code, but rather leverage code that is already available. "Custom tasks" are explained in the sample application repositories linked below in [next steps](#next-steps) 
 
 ### Start a new replication project 
 
