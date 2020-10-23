@@ -43,8 +43,8 @@ The backup retention period governs how far back in time a point-in-time restore
 
 Azure Database for MariaDB provides the flexibility to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a [paired data center](../best-practices-availability-paired-regions.md). This provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
 
-> [!IMPORTANT]
-> Configuring locally redundant or geo-redundant storage for backup is only allowed during server create. Once the server is provisioned, you cannot change the backup storage redundancy option.
+#### Moving from locally redundant to geo-redundant backup storage
+Configuring locally redundant or geo-redundant storage for backup is only allowed during server create. Once the server is provisioned, you cannot change the backup storage redundancy option. In order to move your backup storage from locally redudant storage to geo-redundant storage, creating a new server and migrating the data using [dump and restore](concepts-migrate-dump-restore.md) is the only supported option.
 
 ### Backup storage cost
 
