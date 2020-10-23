@@ -70,7 +70,7 @@ If you want to receive messages from a Service Bus queue, add configuration info
         {
             "direction": "in",
             "type": "serviceBusTrigger",
-            "connection": "QueueAToQueueB-source-connection",
+            "connection": "QueueAToEventHubB-source-connection",
             "queueName": "queue-a",
             "name": "input" 
         }
@@ -92,7 +92,7 @@ If you want to receive messages from a Service Bus topic, add configuration info
         {
             "direction": "in",
             "type": "serviceBusTrigger",
-            "connection": "TopicXSubYToQueueB-source-connection",
+            "connection": "TopicXSubYToEventHubB-source-connection",
             "topicName": "topic-x",
             "subscriptionName" : "sub-y",
             "name": "input" 
