@@ -51,7 +51,7 @@ If you have been using the previous version of the .NET SDK and you'd like to up
 
 + Download the [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents) using **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution** in Visual Studio. Search for the package name `Azure.Search.Documents`.
 
-The Azure SDK for .NET supports applications targeting the .NET Framework 4.5.2 and higher, as well as .NET Core 2.0 and higher.
+Azure SDK for .NET conforms to [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support), which means .NET Framework 4.6.1 and .NET Core 2.0 as minimum requirements.
 
 ## Example application
 
