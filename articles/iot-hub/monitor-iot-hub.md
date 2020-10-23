@@ -51,7 +51,7 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 
 Metrics and logs can be routed to a Log Analytics workspace, where they can be analyzed using Azure Monitor Logs; to Azure Storage for archiving and offline analysis; or to an Event Hubs endpoint where they can be read by external applications, for example, third-party SIEM tools.
 
-In Azure portal, you can select **Diagnostic settings** under **Monitoring** on the left-pane of your IoT hub to create diagnostic settings scoped to the logs and platform metrics emitted by your IoT hub.
+In Azure portal, you can select **Diagnostic settings** under **Monitoring** on the left-pane of your IoT hub followed by **Add diagnostic setting** to create diagnostic settings scoped to the logs and platform metrics emitted by your IoT hub.
 
 The following screenshot shows a diagnostic setting for routing all platform metrics and Connection operations in resource logs to a Log Analytics workspace.
 
