@@ -20,7 +20,7 @@ This example was initially shared in a talk at Strata 2016 by Mario Inchiosa and
 
 The code was originally written for ML Server running on Spark in an HDInsight cluster on Azure. But the concept of mixing the use of SparkR and ScaleR in one script is also valid in the context of on-premises environments.
 
-The steps in this document assume that you have an intermediate level of knowledge of R and R the [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) library of ML Server. You're introduced to [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) while walking through this scenario.
+The steps in this document assume that you have an intermediate level of knowledge of R and R the [ScaleR](/machine-learning-server/r/concept-what-is-revoscaler) library of ML Server. You're introduced to [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) while walking through this scenario.
 
 ## The airline and weather datasets
 
@@ -530,7 +530,7 @@ In this article, we've shown how it's possible to combine use of SparkR for data
 
 ## Next steps and more information
 
-- For more information on use of ML Server on Apache Spark, see the [Getting started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+- For more information on use of ML Server on Apache Spark, see the [Getting started guide](/machine-learning-server/r/how-to-revoscaler-spark).
 
 - For information on ML Services on HDInsight, see [Overview of ML Services on HDInsight](r-server/r-server-overview.md).
 
