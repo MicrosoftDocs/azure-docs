@@ -8,7 +8,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article 
-ms.date: 10/0821/2020
+ms.date: 10/21/2020
 ms.author: juliako
 ---
  
@@ -25,11 +25,9 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
 * An Azure subscription.
 
     If you don't have an Azure subscription yet, sign up for [Azure Free Trial](https://azure.microsoft.com/free/).
-
 * An Azure Active Directory (Azure AD) domain.
 
     If you don't have an Azure AD domain, create this domain with your Azure subscription. For more information, see [Managing custom domain names in your Azure AD](../../active-directory/enterprise-users/domains-manage.md)
-
 * A user in your Azure AD domain with an **Application administrator** role. You'll use this member when connecting your Video Indexer account to Azure.
 
     This user should be an Azure AD user with a work or school account. Don't use a personal account, such as outlook.com, live.com, or hotmail.com.
@@ -64,7 +62,7 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
 1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
 1. Select the **Create new account** button:
 
-    ![Create new Video Indexer account](./media/create-account/connect-to-azure.png)
+    ![Create new Video Indexer account](./media/create-account/create-unlimited-account.png)
 
     If later you want to delete the account, you have two options:
 
@@ -80,14 +78,13 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
 
     * To create a new Media Services account, select **Create new resource group**. Provide a name for your resource group.
 
-        Azure will create your new account in your subscription, including a new Azure Storage account. Your new Media Services account has a default initial configuration with a streaming endpoint and 10 S3 reserved units.
+        Azure will create your new account in your subscription, including a new Azure Storage account.  
     * To use an existing Media Services account, select **Use existing resource**. From the accounts list, select your account.
 
         Your Media Services account must have the same region as your Video Indexer account.
 
         > [!NOTE]
-        > To minimize indexing duration and low throughput, it's highly recommended to adjust the type and number of [Reserved Units](../previous/media-services-scale-media-processing-overview.md ) in your Media Services account to **10 S3 Reserved Units**. See [Use portal to change reserved units](../previous/media-services-portal-scale-media-processing.md).
-
+        > To minimize indexing duration and low throughput, it's highly recommended to adjust the type and number of [Reserved Units](../previous/media-services-scale-media-processing-overview.md ) in your Media Services account to **10 S3 Reserved Units**. See [Use portal to change reserved units](../previous/media-services-portal-scale-media-processing.md). The reserved units are charged to your account, view [pricing details](https://azure.microsoft.com/pricing/details/media-services/#analytics).
     * To manually configure your connection, select the **Switch to manual configuration** link.
 
         For detailed information, see the [Connect to Azure manually](#connect-to-azure-manually-advanced-option) (advanced option) section that follows.
@@ -111,7 +108,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
 1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](../previous/media-services-portal-create-account.md).
 
-    When creating a storage account for your Media Services account, select **StorageV2** for account kind and **Geo-redundant (GRS)** for replication fields.
+    When creating a storage account for your Media Services account, select **StorageV2** for account kind and **Geo-redundant (GRS** for replication fields.
 
     ![New AMS account](./media/create-account/create-ams-account1.png)
 
@@ -123,8 +120,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
     In the new Media Services account, select **Streaming endpoints**. Then select the streaming endpoint and press start.
 
-    ![New AMS account](./media/create-account/create-ams-account2.png)
-
+    ![Streaming endpoints](./media/create-account/create-ams-account2.png)
 4. For Video Indexer to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](../previous/media-services-portal-get-started-with-aad.md):
 
     1. In the new Media Services account, select **API access**.
@@ -171,17 +167,14 @@ The following Azure Media Services related considerations apply:
 * If you connect automatically, Video Indexer sets the media **Reserved Units** to 10 S3 units:
 
     ![Media Services reserved units](./media/create-account/ams-reserved-units.png)
-
 * If you connect to an existing Media Services account, Video Indexer doesn't change the existing media **Reserved Units** configuration.
 
    You might need to adjust the type and number of Media Reserved Units according to your planned load. Keep in mind that if your load is high and you don't have enough units or speed, videos processing can result in timeout failures.
-
 * If you connect to a new Media Services account, Video Indexer automatically starts the default **Streaming Endpoint** in it:
 
     ![Media Services streaming endpoint](./media/create-account/ams-streaming-endpoint.png)
 
     Streaming endpoints have a considerable startup time. Therefore, it may take several minutes from the time you connected your account to Azure until your videos can be streamed and watched in the Video Indexer web app.
-
 * If you connect to an existing Media Services account, Video Indexer doesn't change the default Streaming Endpoint configuration. If there's no running **Streaming Endpoint**, you can't watch videos from this Media Services account or in Video Indexer.
 
 ## Next steps
