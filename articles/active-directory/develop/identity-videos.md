@@ -280,7 +280,7 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank">What are the different AAD app types and how do they compare? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+        <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank">What are the different Azure Active Directory app types and how do they compare? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank"> <img src="./media/identity-videos/aad-basics-13.jpg" alt="Video thumbnail"> </a>
