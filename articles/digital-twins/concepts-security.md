@@ -48,25 +48,25 @@ With managed identities, the Azure platform manages this runtime identity. You d
 
 #### Authorization: Azure roles for Azure Digital Twins
 
-Azure provides two Azure built-in roles for authorizing access to an Azure Digital Twins resource:
+Azure provides **two Azure built-in roles** for authorizing access to an Azure Digital Twins resource. You can refer to the roles either by name or by GUID:
 
 | Role name | Role GUID | Description
 | --- | --- | --- |
-| *Azure Digital Twins Data Owner* | *bcd981a7-7f74-457b-83e1-cceb9e632ffe* | Use this role to give full access over Azure Digital Twins resources. |
-| *Azure Digital Twins Data Reader* | *d57506d4-4c8d-48b1-8587-93c323f6a5a3* | Use this role to give read-only access to Azure Digital Twins resources. |
+| _**Azure Digital Twins Data Owner**_ | *bcd981a7-7f74-457b-83e1-cceb9e632ffe* | Use this role to give full access over Azure Digital Twins resources. |
+| _**Azure Digital Twins Data Reader**_ | *d57506d4-4c8d-48b1-8587-93c323f6a5a3* | Use this role to give read-only access to Azure Digital Twins resources. |
 
 >[!NOTE]
 > These roles were recently renamed from their earlier names in preview:
 > * *Azure Digital Twins Data Owner* was formerly *Azure Digital Twins Owner (Preview)*.
 > * *Azure Digital Twins Data Reader* was formerly *Azure Digital Twins Reader (Preview)*.
 
-For more information about how built-in roles are defined, see [*Understand role definitions*](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating Azure custom roles, see [*Azure custom roles*](../role-based-access-control/custom-roles.md).
-
 You can assign roles in two ways:
 * via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [*Add or remove Azure role assignments using the Azure portal*](../role-based-access-control/role-assignments-portal.md))
 * via CLI commands to add or remove a role
 
 For more detailed steps on how to do this, try it out in the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md).
+
+For more information about how built-in roles are defined, see [*Understand role definitions*](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating Azure custom roles, see [*Azure custom roles*](../role-based-access-control/custom-roles.md).
 
 ##### Automating roles
 
