@@ -103,18 +103,30 @@ This section guides you through the steps to configure the Azure AD provisioning
    |displayName|String|
    |preferredLanguage|String|
    |timezone|String|
-   |urn:ietf:params:scim:schemas:extension:Hootsuite:2.0:User:organizationIds|String|
-   |urn:ietf:params:scim:schemas:extension:Hootsuite:2.0:User:teamIds|String|
+   |name.givenName|String|
+   |name.familyName|String|
 
-10. To enable the Azure AD provisioning service for Hootsuite, change the **Provisioning Status** to **On** in the **Settings** section.
+10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups**.
+
+11. Review the group attributes that are synchronized from Azure AD to Hootsuite in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Hootsuite for update operations. Select the **Save** button to commit any changes.
+
+      |Attribute|Type|
+      |---|---|
+      |displayName|String|
+      |externalId|String|
+      |members|Reference|
+
+12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. To enable the Azure AD provisioning service for Hootsuite, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-11. Define the users and/or groups that you would like to provision to Hootsuite by choosing the desired values in **Scope** in the **Settings** section.
+14. Define the users and/or groups that you would like to provision to Hootsuite by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-12. When you are ready to provision, click **Save**.
+15. When you are ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
@@ -127,6 +139,10 @@ Once you've configured provisioning, use the following resources to monitor your
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
+## Change log
+
+* 10/22/2020 - Added support for User attributes "name.givenName" and "name.familyName". Custom extension attributes "organizationIds" and "teamIds" have been removed for Users.
+Added support for Group attributes "displayName", "members" and "externalId".
 
 ## Additional resources
 
