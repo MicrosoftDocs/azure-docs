@@ -492,7 +492,7 @@
         "articles/governance/management-groups/**/*.md": "rithorn",
         "articles/governance/resource-graph/**/*.md": "dacoulte",
         "articles/azure-functions/**/*.md": "glenga",
-        "articles/azure-monitor/app/*.md": "mbullwin",
+        "articles/azure-monitor/app/*.md": "lagayhar",
         "articles/azure-monitor/log-query/*.md": "robb",
         "articles/azure-monitor/platform/*.md": "robb",
         "articles/azure-monitor/insights/container-insights*.md": "magoedte",
@@ -841,6 +841,14 @@
     "template": [
       "docs.html"
     ],
-    "dest": "azure"
+    "dest": "azure",
+    "rules": {
+      "sensitive-language": {
+        "exclude": [
+          "articles/governance/policy/**/*.md",
+	  "articles/governance/blueprints/**/*.md"
+        ]
+      }
+    }
   }
 }
