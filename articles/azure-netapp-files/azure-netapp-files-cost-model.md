@@ -35,10 +35,10 @@ The total used capacity in a capacity pool against its provisioned amount is the
 The following diagram illustrates these concepts. 
 
 * Assume a capacity pool with 40 TiB of provisioned capacity. The pool contains three volumes:    
-    * Volume 1 is assigned a quota of 20 TiB and has 13 TiB (12TiB active, 1TiB snapshots) of consumption.
+    * Volume 1 is assigned a quota of 20 TiB and has 13 TiB (12 TiB active, 1 TiB snapshots) of consumption.
     * Volume 2 is assigned a quota of 1 TiB and has 450 GiB of consumption.
-    * Volume 3 is assigned a quota of 14TiB but has 8,8TiB (8TiB active, 800GiB) of consumption.   
-* The capacity pool is metered for 4 TiB of capacity (the provisioned amount). 3.8 TiB of capacity is consumed (2 TiB and 1 TiB of quota from Volumes 1 and 2, and 800 GiB of actual consumption for Volume 3). And 200 GiB of capacity is remaining.
+    * Volume 3 is assigned a quota of 14TiB but has 8.8 TiB (8 TiB active, 800 GiB snapshots) of consumption.   
+* The capacity pool is metered for 40 TiB of capacity (the provisioned amount). 22.25 TiB of capacity is consumed (13 TiB, 450 GiB and 8.8 TiB of quota from Volumes 1, 2 and 3). The capacity consumption that is counted towards the volume quota for the active filesystem and snapshot would be 510 GiB, not 1000 GiB.
 
 ![Diagram showing capacity pool with three volumes.](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
 
