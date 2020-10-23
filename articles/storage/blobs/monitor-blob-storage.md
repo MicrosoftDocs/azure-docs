@@ -49,7 +49,7 @@ You can continue using classic metrics and logs if you want to. In fact, classic
 
 Platform metrics and the Activity log are collected automatically, but can be routed to other locations by using a diagnostic setting. You must create a diagnostic setting to collect resource logs. 
 
-When you create a diagnostic setting, choose the type of storage that you want to enable logs for, such as a blob, queue, table, or file. For Blob storage, choose **blob**. Data Lake Storage Gen2 doesn't appear as a storage type. That's because Data Lake Storage Gen2 is a set of capabilities available to Blob storage. 
+When you create a diagnostic setting, choose **blob** as the type of storage that you want to enable logs for. Data Lake Storage Gen2 doesn't appear as a storage type. That's because Data Lake Storage Gen2 is a set of capabilities available to Blob storage. 
 
 If you create the diagnostic setting in the Azure portal, you can select the resource from a list. If you use PowerShell or the Azure CLI, you need to use the resource ID of the Blob storage endpoint. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
 
@@ -63,11 +63,12 @@ You also have to specify one of the following categories of operations for which
 
 ## Creating a diagnostic setting
 
-To create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md). 
+To create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell. The following sections show you how to create a diagnostic setting. 
 
-To see an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Logging is not enabled by default for your storage account. You can enable logs by using the Azure portal, PowerShell, or Azure CLI. 
+> [!NOTE]
+> To see an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
 ### [Portal](#tab/azure-portal)
 
@@ -79,7 +80,7 @@ Logging is not enabled by default for your storage account. You can enable logs 
 
    ![portal - Diagnostics logs](media/monitor-blob-storage/diagnostic-logs-settings-pane.png)
 
-4. Choose the type of storage that you want to enable logs for by clicking **blob**, **queue**, **table**, or **file**.
+4. Choose **blob** as the type of storage that you want to enable logs for.
 
 5. Click **Add diagnostic setting**.
 
@@ -136,47 +137,47 @@ Logging is not enabled by default for your storage account. You can enable logs 
 
 Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet along with the `StorageAccountId` parameter.
 
- ```powershell
- Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
- ```
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
 
-Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the storage service that you want to enable logging for (blob, file, table, queue). See [Resource ID for the storage services](https://docs.microsoft.com/azure/storage/common/storage-metrics-in-azure-monitor?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#resource-id-for-the-storage-services).
+Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the blob service. See [Resource ID for the storage services](https://docs.microsoft.com/azure/storage/common/storage-metrics-in-azure-monitor?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#resource-id-for-the-storage-services).
 
 You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the **Category** parameter.
 
- Here's an example:
+Here's an example:
 
- `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
- For a description of each parameter, see the [Archive Azure Resource logs via Azure PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell).
+For a description of each parameter, see the [Archive Azure Resource logs via Azure PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell).
 
 #### Stream logs to an event hub
 
 Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `EventHubAuthorizationRuleId` parameter.
 
- ```powershell
- Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
- ```
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
 
- Here's an example:
+Here's an example:
 
- `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
- For a description of each parameter, see the [Stream Data to Event Hubs via PowerShell cmdlets](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets).
+For a description of each parameter, see the [Stream Data to Event Hubs via PowerShell cmdlets](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets).
 
 #### Send logs to Log Analytics
 
 Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet with the `WorkspaceId` parameter.
 
- ```powershell
- Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
- ```
+```powershell
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+```
 
- Here's an example:
+Here's an example:
 
- `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
+`Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
- For more information, see [Stream Azure Resource Logs to Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+For more information, see [Stream Azure Resource Logs to Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -198,7 +199,7 @@ Enable logs by using the [az monitor diagnostic-settings create](https://docs.mi
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
 ```
 
-Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the storage service that you want to enable logging for (blob, file, table, queue). See [Resource ID for the storage services](https://docs.microsoft.com/azure/storage/common/storage-metrics-in-azure-monitor?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#resource-id-for-the-storage-services).
+Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID Blob storage service. See [Resource ID for the storage services](https://docs.microsoft.com/azure/storage/common/storage-metrics-in-azure-monitor?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#resource-id-for-the-storage-services).
 
 You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the **category** parameter.
 
