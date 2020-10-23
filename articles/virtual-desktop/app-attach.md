@@ -3,7 +3,7 @@ title: Configure Windows Virtual Desktop MSIX app attach PowerShell - Azure
 description: How to configure MSIX app attach for Windows Virtual Desktop with PowerShell scripts.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 11/16/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -14,134 +14,7 @@ manager: lizross
 > This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This topic will walk you through how to set up MSIX app attach in a Windows Virtual Desktop environment.
-
-## Get the OS image
-
-First, you need to get the OS image. You can get the OS image through the Azure portal. However, if you're a member of the Windows Insider program, you have the option to use the Windows Insider portal instead.
-
-<!--Delete?-->
-
-### Get the OS image from the Azure portal
-
-To get the OS image from the Azure portal:
-
-1. Open the [Azure portal](https://portal.azure.com) and sign in.
-
-2. Go to **Create a virtual machine**.
-
-3. In the **Basic** tab, select **Windows 10 enterprise multi-session, version 2004**.
-
-4. Follow the rest of the instructions to finish creating the virtual machine.
-
-     >[!NOTE]
-     >You can use this VM to directly test MSIX app attach. To learn more, skip ahead to [Generate a VHD or VHDX package for MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Otherwise, keep reading this section.
-
-<!--Delete?-->
-
-### Get the OS image from the Windows Insider portal
-
-To get the OS image from the Windows Insider Portal:
-
-1. Open the [Windows Insider portal](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) and sign in.
-
-     >[!NOTE]
-     >You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](/windows-insider/at-home/).
-
-2. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build 19041** or later.
-
-3. Select **Confirm**, then select the language you wish to use, and then select **Confirm** again.
-
-     >[!NOTE]
-     >At the moment, English is the only language that has been tested with the feature. You can select other languages, but they may not display as intended.
-
-4. When the download link is generated, select the **64-bit Download** and save it to your local hard disk.
-
-## Generate a VHD or VHDX package for MSIX
-
-Packages are in VHD or VHDX format to optimize performance. MSIX requires VHD or VHDX packages to work properly.
-
-To generate a VHD or VHDX package for MSIX:
-
-1. [Download the msixmgr tool](https://aka.ms/msixmgr) and save the .zip folder to a folder within a session host VM.
-
-2. Unzip the msixmgr tool .zip folder.
-
-3. Put the source MSIX package into the same folder where you unzipped the msixmgr tool.
-
-4. Run the following cmdlet in PowerShell to create a VHD:
-
-    ```powershell
-    New-VHD -SizeBytes <size>MB -Path c:\temp\<name>.vhd -Dynamic -Confirm:$false
-    ```
-
-    >[!NOTE]
-    >Make sure the size of VHD is large enough to hold the expanded MSIX.*
-
-5. Run the following cmdlet to mount the newly created VHD:
-
-    ```powershell
-    $vhdObject = Mount-VHD c:\temp\<name>.vhd -Passthru
-    ```
-
-6. Run this cmdlet to initialize the VHD:
-
-    ```powershell
-    $disk = Initialize-Disk -Passthru -Number $vhdObject.Number
-    ```
-
-7. Run this cmdlet to create a new partition:
-
-    ```powershell
-    $partition = New-Partition -AssignDriveLetter -UseMaximumSize -DiskNumber $disk.Number
-    ```
-
-8. Run this cmdlet to format the partition:
-
-    ```powershell
-    Format-Volume -FileSystem NTFS -Confirm:$false -DriveLetter $partition.DriveLetter -Force
-    ```
-
-9. Create a parent folder on the mounted VHD. This step is mandatory as the MSIX app attach requires a parent folder. You can name the parent folder whatever you like.
-
-### Expand MSIX
-
-After that, you'll need to "expand" the MSIX image by unpacking it. To unpack the MSIX image:
-
-1. Open a command prompt as Administrator and navigate to the folder where you downloaded and unzipped the msixmgr tool.
-
-2. Run the following cmdlet to unpack the MSIX into the VHD you created and mounted in the previous section.
-
-    ```powershell
-    msixmgr.exe -Unpack -packagePath <package>.msix -destination "f:\<name of folder you created earlier>" -applyacls
-    ```
-
-    The following message should appear once unpacking is done:
-
-    `Successfully unpacked and applied ACLs for package: <package name>.msix`
-
-    >[!NOTE]
-    > If using packages from the Microsoft Store for Business (or Education) within your network, or on devices that are not connected to the internet, you will need to obtain the package licenses from the Store and install them to run the app successfully. See [Use packages offline](#use-packages-offline).
-
-3. Navigate to the mounted VHD and open the app folder and confirm package content is present.
-
-4. Unmount the VHD.
-
-## Configure Windows Virtual Desktop infrastructure
-
-By design, a single MSIX expanded package (the VHD you created in the previous section) can be shared between multiple session host VMs as the VHDs are attached in read-only mode.
-
-Before you start, make sure your network share meets these requirements:
-
-- The share is SMB compatible.
-- The VMs that are part of the session host pool have NTFS permissions to the share.
-
-### Set up an MSIX app attach share
-
-In your Windows Virtual Desktop environment, create a network share and move the package there.
-
->[!NOTE]
-> The best practice for creating MSIX network shares is to set up the network share with NTFS read-only permissions.
+This topic will walk you through how to set up PowerShell scripts for MSIX app attach.
 
 ## Install certificates
 
