@@ -54,22 +54,24 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## Connect to Azure
+## Create a new account
 
 > [!NOTE]
 > If your Azure subscription uses certificate-based multi-factor authentication, it's crucial that you perform the following steps on a device that has the required certificates installed.
 
 1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
-1. Select the **Create new account** button:
+1. Select the **Create unlimited account** button:
 
     ![Create new Video Indexer account](./media/create-account/create-unlimited-account.png)
 
     If later you want to delete the account, you have two options:
 
     * Delete from the Video Indexer website. Select the account -> **Settings** -> **Delete this account** (if must be the owner). 
-    * Via the API, call (delete account).
 
-    It takes 90 (IIRC) days if you delete from portal. If you do that from the API,n you have parameter that you can specify to delete immediately.
+         It takes 90 (IIRC) days if you delete from portal.
+    * Via the delete account API call.
+
+        The API enables you to specify parameters to delete the account immediately.
 1. When the subscriptions list appears, select the subscription you want to use.
 
     ![Connect Video Indexer to Azure](./media/create-account/new-account-on-azure-subscription.png)
@@ -93,6 +95,7 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
     After you're connected to Azure, your new Video Indexer account appears in the account list:
 
     ![new account](./media/create-account/new-account.png)
+1. Make sure the Streaming Endpoint of the Media Services account is running before you can play your videos in the Video Indexer web app (press start if it is the stopped state).
 
 > [!TIP]
 > To give a friendly display hame to your account go to **Settings**.
@@ -108,15 +111,16 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
 1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](../previous/media-services-portal-create-account.md).
 
-    When creating a storage account for your Media Services account, select **StorageV2** for account kind and **Geo-redundant (GRS** for replication fields.
+    When creating a storage account for your Media Services account, select **StorageV2** for account kind and **Geo-redundant** (GRS) for replication fields.
 
     ![New AMS account](./media/create-account/create-ams-account1.png)
 
     > [!NOTE]
     > Make sure to write down the Media Services resource and account names. You'll need them for the steps in the next section.
+1. Adjust the type and number of [reserved units](../previous/media-services-scale-media-processing-overview.md ) to **10 S3 Reserved Units** in the Media Services account you created. See [Use portal to change reserved units](../previous/media-services-portal-scale-media-processing.md).
 
-2. Adjust the type and number of [reserved units](../previous/media-services-scale-media-processing-overview.md ) to **10 S3 Reserved Units** in the Media Services account you created. See [Use portal to change reserved units](../previous/media-services-portal-scale-media-processing.md).
-3. Before you can play your videos in the Video Indexer web app, you must start the default **Streaming Endpoint** of the new Media Services account.
+    The reserved units are charged to your account, view [pricing details](https://azure.microsoft.com/pricing/details/media-services/#analytics).s
+1. Before you can play your videos in the Video Indexer web app, you must start the default **Streaming Endpoint** of the new Media Services account.
 
     In the new Media Services account, select **Streaming endpoints**. Then select the streaming endpoint and press start.
 
@@ -163,10 +167,7 @@ The ability to import the content is valid for both automated and manual approac
 
 The following Azure Media Services related considerations apply:
 
-* If you connect automatically, you see a new Resource Group, Media Services account, and a Storage account in your Azure subscription.
-* If you connect automatically, Video Indexer sets the media **Reserved Units** to 10 S3 units:
-
-    ![Media Services reserved units](./media/create-account/ams-reserved-units.png)
+* If you connect automatically, you see a new resource group, Media Services account, and a Storage account in your Azure subscription.
 * If you connect to an existing Media Services account, Video Indexer doesn't change the existing media **Reserved Units** configuration.
 
    You might need to adjust the type and number of Media Reserved Units according to your planned load. Keep in mind that if your load is high and you don't have enough units or speed, videos processing can result in timeout failures.
@@ -176,7 +177,10 @@ The following Azure Media Services related considerations apply:
 
     Streaming endpoints have a considerable startup time. Therefore, it may take several minutes from the time you connected your account to Azure until your videos can be streamed and watched in the Video Indexer web app.
 * If you connect to an existing Media Services account, Video Indexer doesn't change the default Streaming Endpoint configuration. If there's no running **Streaming Endpoint**, you can't watch videos from this Media Services account or in Video Indexer.
+<!--* If you connect automatically, Video Indexer sets the media **Reserved Units** to 10 S3 units:
 
+    ![Media Services reserved units](./media/create-account/ams-reserved-units.png)
+-->
 ## Next steps
 
 You can programmatically interact with your trial account and/or with your Video Indexer accounts that are connected to Azure by following the instructions in: [Use APIs](video-indexer-use-apis.md).
