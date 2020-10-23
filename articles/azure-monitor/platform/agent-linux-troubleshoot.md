@@ -19,7 +19,38 @@ If none of these steps work for you, the following support channels are also ava
 * Customers with Azure support agreements can open a support request [in the Azure portal](https://manage.windowsazure.com/?getsupport=true).
 * Diagnose OMI Problems with the [OMI troubleshooting guide](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * File a [GitHub Issue](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Visit the Log Analytics Feedback page to review submitted ideas and bugs [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) or file a new one.  
+* Visit the Log Analytics Feedback page to review submitted ideas and bugs [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) or file a new one. 
+
+## Log Analytics Troubleshooting Tool
+
+The Log Analytics Agent Linux Troubleshooting Tool is a script designed to help find and diagnose issues with the Log Analytics Agent. It is automatically included with the agent upon installation. Running the tool should be the first step in diagnosing an issue.
+
+### How to Use
+The Troubleshooting Tool can be run by pasting the following command into a terminal window on a machine with the Log Analytics agent:
+`sudo /opt/microsoft/omsagent/bin/troubleshooter`
+
+### Manual Installation
+The Troubleshooting Tool is automatically included upon installation of the Log Analytics Agent. However, if installation fails in any way, it can also be installed manually by following the steps below.
+
+1. Copy the troubleshooter bundle onto your machine: `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
+2. Unpack the bundle: `tar -xzvf omsagent_tst.tar.gz`
+3. Run the manual installation: `sudo ./install_tst`
+
+### Scenarios Covered
+Below is a list of scenarios checked by the Troubleshooting Tool:
+
+1. Agent is unhealthy, heartbeat doesn't work properly
+2. Agent doesn't start, can't connect to Log Analytic Services
+3. Agent syslog isn't working
+4. Agent has high CPU / memory usage
+5. Agent having installation issues
+6. Agent custom logs aren't working
+7. Collect Agent logs
+
+For more details, please check out our [Github documentation](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md).
+
+ >[!NOTE]
+ >Please run the Log Collector tool when you experience an issue. Having the logs initially will greatly help our support team troubleshoot your issue quicker.
 
 ## Important log locations and Log Collector tool
 

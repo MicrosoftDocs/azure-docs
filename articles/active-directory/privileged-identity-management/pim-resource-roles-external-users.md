@@ -62,7 +62,7 @@ To make sure you can invite guests into your organization, you should check your
 
 Using Privileged Identity Management, you can invite a guest and make them eligible for an Azure resource role.
 
-1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) or [User Administrator](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) role.
+1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) or [User Administrator](../roles/permissions-reference.md#user-administrator) role.
 
 1. Open **Azure AD Privileged Identity Management**.
 
