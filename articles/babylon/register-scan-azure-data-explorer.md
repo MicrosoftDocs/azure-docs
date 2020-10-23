@@ -70,7 +70,7 @@ To do this in the Azure portal:
 After you have set up your authentication type, select **Continue**.
 
 **Scope your scan**
-The next screen here is to scope the scan. Please select the folders you want to scan and click continue (by default all the folders will be selected)
+The next screen here is to scope the scan. Please select the folders you want to scan and select **continue** (by default all the folders will be selected).
 
 ![Screenshot scope scans](./media/register-scan-azure-data-explorer/scope-scan.png)
 
