@@ -61,5 +61,5 @@ You can manage Azure Database for MySQL servers by using the Azure portal or the
 ## Next steps
 
 - For an overview of the service, see [Azure Database for MySQL Overview](./overview.md)
-- For information about specific resource quotas and limitations based on your **service tier**, see [Service tiers](./concepts-pricing-tiers.md)
+- For information about specific resource quotas and limitations based on your **pricing tier**, see [Pricing tiers](./concepts-pricing-tiers.md)
 - For information about connecting to the service, see [Connection libraries for Azure Database for MySQL](./concepts-connection-libraries.md).
