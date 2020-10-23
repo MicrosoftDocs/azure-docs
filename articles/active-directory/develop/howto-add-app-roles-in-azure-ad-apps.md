@@ -30,17 +30,17 @@ You define app roles by using the [Azure portal](https://portal.azure.com). When
 
 There are two ways to declare app roles by using the the Azure portal:
 
-* [App roles UI](#app-roles-preview-ui) | Preview
+* [App roles UI](#app-roles-ui--preview) | Preview
 * [App manifest editor](#app-manifest-editor)
 
 The number of roles you add counts toward limits defined for an application manifest. For information about these limits, see the  [Manifest limits](./reference-app-manifest.md#manifest-limits) section of [Azure Active Directory app manifest reference](reference-app-manifest.md).
 
 ### App roles UI | Preview
 
-> [!NOTE]
+> [!IMPORTANT]
 > This preview feature is provided without a service level agreement and is not recommended for production workloads. Certain functionality might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To create an app role by using the portal's user interface:
+To create an app role by using the Azure portal's user interface:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in top menu, and then choose the Azure Active Directory tenant that contains the app registration to which you want to add an app role.
