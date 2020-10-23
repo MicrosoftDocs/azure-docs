@@ -67,14 +67,9 @@ To create a diagnostic setting by using the Azure portal, the Azure CLI, or Powe
 
 To see an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
-
-### [Portal](#tab/azure-portal)
-
 Logging is not enabled by default for your storage account. You can enable logs by using the Azure portal, PowerShell, or Azure CLI. 
 
-<a id="enable-logs-portal" />
-
-### Enable logs by using the Azure portal
+### [Portal](#tab/azure-portal)
 
 1. Sign in to the Azure portal.
 
@@ -122,7 +117,6 @@ Logging is not enabled by default for your storage account. You can enable logs 
 1. Select the **Send to Log Analytics** checkbox, select a log analytics workspace, and then click the and then click the **Save** button.
 
    ![Diagnostic settings page log analytics](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
-
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -186,8 +180,6 @@ Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/po
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can enable Resource logging by using the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/).
-
 1. First, open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
 2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want to enable logs for.
@@ -245,7 +237,6 @@ Here's an example:
  For more information, see [Stream Azure Resource Logs to Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
 
 ---
-
 
 ## Analyzing metrics
 
