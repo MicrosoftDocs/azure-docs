@@ -22,42 +22,48 @@ The following image shows the high-level idea of RUs:
 
 To manage and plan capacity, Azure Cosmos DB ensures that the number of RUs for a given database operation over a given dataset is deterministic. You can examine the response header to track the number of RUs that are consumed by any database operation. When you understand the [factors that affect RU charges](request-units.md#request-unit-considerations) and your application's throughput requirements, you can run your application cost effectively.
 
-The type of Azure Cosmos account you're using determines the way consumed RUs get charged:
+The type of Azure Cosmos account you're using determines the way consumed RUs get charged. There are 3 modes in which you can create an account:
 
-- In [provisioned throughput](set-throughput.md) mode, you provision the number of RUs for your application on a per-second basis in increments of 100 RUs per second. To scale the provisioned throughput for your application, you can increase or decrease the number of RUs at any time in increments or decrements of 100 RUs. You can make your changes either programmatically or by using the Azure portal. You are billed on an hourly basis for the amount of RUs per second you have provisioned. You can provision throughput at two distinct granularities:
-  - **Containers**: For more information, see [Provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
-  - **Databases**: For more information, see [Provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
-- In [serverless](serverless.md) mode, you don't have to provision any throughput when creating resources in your Azure Cosmos account. At the end of your billing period, you get billed for the amount of Request Units that has been consumed by your database operations.
+* **Provisioned throughput mode**: In this mode, you provision the number of RUs for your application on a per-second basis in increments of 100 RUs per second. To scale the provisioned throughput for your application, you can increase or decrease the number of RUs at any time in increments or decrements of 100 RUs. You can make your changes either programmatically or by using the Azure portal. You are billed on an hourly basis for the amount of RUs per second you have provisioned. To learn more, see the [Provisioned throughput](set-throughput.md) article.
+
+  You can provision throughput at two distinct granularities:
+
+  * **Containers**: For more information, see [Provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
+  * **Databases**: For more information, see [Provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
+
+* **Serverless mode**: In this mode, you don't have to provision any throughput when creating resources in your Azure Cosmos account. At the end of your billing period, you get billed for the amount of Request Units that has been consumed by your database operations. To learn more, see the [Serverless throughput](serverless.md) article. 
+
+* **Autoscale mode**: In this more, you can automatically and instantly scale the throughput (RU/s) of your database or container based on it's usage, without impacting the availability, latency, throughput, or performance of the workload. This mode is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale. To learn more, see the [autoscale throughput](provision-throughput-autoscale.md) article. 
 
 ## Request Unit considerations
 
 While you estimate the number of RUs consumed by your workload, consider the following factors:
 
-- **Item size**: As the size of an item increases, the number of RUs consumed to read or write the item also increases.
+* **Item size**: As the size of an item increases, the number of RUs consumed to read or write the item also increases.
 
-- **Item indexing**: By default, each item is automatically indexed. Fewer RUs are consumed if you choose not to index some of your items in a container.
+* **Item indexing**: By default, each item is automatically indexed. Fewer RUs are consumed if you choose not to index some of your items in a container.
 
-- **Item property count**: Assuming the default indexing is on all properties, the number of RUs consumed to write an item increases as the item property count increases.
+* **Item property count**: Assuming the default indexing is on all properties, the number of RUs consumed to write an item increases as the item property count increases.
 
-- **Indexed properties**: An index policy on each container determines which properties are indexed by default. To reduce the RU consumption for write operations, limit the number of indexed properties.
+* **Indexed properties**: An index policy on each container determines which properties are indexed by default. To reduce the RU consumption for write operations, limit the number of indexed properties.
 
-- **Data consistency**: The strong and bounded staleness consistency levels consume approximately two times more RUs while performing read operations when compared to that of other relaxed consistency levels.
+* **Data consistency**: The strong and bounded staleness consistency levels consume approximately two times more RUs while performing read operations when compared to that of other relaxed consistency levels.
 
-- **Type of reads**: Point reads cost significantly fewer RUs than queries.
+* **Type of reads**: Point reads cost significantly fewer RUs than queries.
 
-- **Query patterns**: The complexity of a query affects how many RUs are consumed for an operation. Factors that affect the cost of query operations include: 
-
-  - The number of query results
-  - The number of predicates
-  - The nature of the predicates
-  - The number of user-defined functions
-  - The size of the source data
-  - The size of the result set
-  - Projections
+* **Query patterns**: The complexity of a query affects how many RUs are consumed for an operation. Factors that affect the cost of query operations include: 
+ 
+  * The number of query results
+  * The number of predicates
+  * The nature of the predicates
+  * The number of user-defined functions
+  * The size of the source data
+  * The size of the result set
+  * Projections
 
   The same query on the same data will always costs the same number of RUs on repeated executions.
 
-- **Script usage**: As with queries, stored procedures and triggers consume RUs based on the complexity of the operations that are performed. As you develop your application, inspect the [request charge header](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request) to better understand how much RU capacity each operation consumes.
+* **Script usage**: As with queries, stored procedures and triggers consume RUs based on the complexity of the operations that are performed. As you develop your application, inspect the [request charge header](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request) to better understand how much RU capacity each operation consumes.
 
 ## Request units and multiple regions
 
