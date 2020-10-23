@@ -19,3 +19,25 @@ We encourage developers to submit questions, suggest features, and report proble
 * [Microsoft Q&A](https://docs.microsoft.com/answers/questions/topics/single/101418.html)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/azure+communication)
 Depending on your Azure subscription [support plan](https://azure.microsoft.com/support/plans/) you can access support directly in the [Azure portal](https://azure.microsoft.com/support/create-ticket/).
+
+
+In order to help debug certain issues, a member of the product group might ask for some of the following information:
+
+* Call ID
+* Chat ID
+* MS-CV
+
+Below are instructions on how to collect this information.
+
+## Call ID
+
+
+## Chat ID
+
+
+## MS-CV
+
+
+## Related information
+- [Logs and diagnostics](logging-and-diagnostics.md)
+- [Metrics](metrics.md)
