@@ -97,8 +97,8 @@ When writing the description, follow these criteria, according to your service t
 |---|---|
 |Assessment |Include a detailed agenda for assessments longer than a day, and articulate what deliverable the customer can expect. |
 |Briefing |Explain what deliverable the customer can expect.|
-|Implementation |Include a detailed agenda for implementations longer than a day, and articulate what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement. |
-|Proof of concept |Articulate what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement. |
+|Implementation |Include a detailed agenda for implementations longer than a day, and describe what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement. |
+|Proof of concept |Describe what engineering changes, technical artifacts, or other artifacts a customer can expect as outcomes of the engagement. |
 |Workshop |Include a detailed daily, weekly, or monthly agenda depending on the duration of your offer. Articulate the learning goals or other deliverables of your workshop. |
 
 Here are some tips for writing your description:
@@ -115,13 +115,13 @@ You can use HTML tags to format your description. You can enter up to 2,000 char
 
 **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the online stores. You don't need to include the offer **Name** and **Description**.
 
-**Duration**: your consulting service offer must have a predetermined duration of up to ten weeks.
+**Duration**: your consulting service offer must have a predetermined duration of up to 10 weeks.
 
-**Contact information**: in Partner Center, you’ll be asked to provide name, email address, and phone number of two people in your company (you can be one of the two contacts). We'll use this information to communicate with you regarding your offer. This information isn’t shown to customers but may be provided to Cloud Solution Provider (CSP) partners.
+**Contact information**: in Partner Center, you’ll be asked to provide name, email address, and phone number of two people in your company (you can be one of the two contacts). We'll use this information to communicate with you about your offer. This information isn’t shown to customers but may be provided to Cloud Solution Provider (CSP) partners.
 
-**Supporting documents**: you must upload at least one and up to three customer-facing PDF documents that provide information about your offer. For example, they could be white papers or brochures.
+**Supporting documents**: upload at least one and up to three customer-facing PDF documents that provide information about your offer. For example, they could be white papers or brochures.
 
-**Marketplace media – logos**: Provide a PNG file for the large size logo. Partner Center will use this to create a small logo. You can optionally replace the small logo with a different image later.
+**Marketplace media – logos**: Provide a PNG file for the large-size logo. Partner Center will use it to create a small logo. You can optionally replace the small logo with a different image later.
 
 * Large (from 216 x 216 to 350 x 350 px, required)
 * Small (48 x 48 px, optional)
@@ -142,4 +142,4 @@ Follow these guidelines for your logos:
 ## Next steps
 
 * [Create a consulting service offer in the commercial marketplace]
-* [Offer listing best practices](./gtm-offer-listing-best-practices)
+* [Offer listing best practices](./gtm-offer-listing-best-practices.md)
