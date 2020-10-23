@@ -15,11 +15,13 @@ ms.date: 09/15/2020
 
 # ParallelRunStep Performance Tuning Guide
 This guide helps users to measure and tune parameters in term of performance when using ParallelRunStep. It includes how to:
-1. Select virtual machine. Decide virtual machine type, priority, size and node count.
-1. Choose the number of worker processes in a node.
+1. Select virtual machine. Decide virtual machine type, priority and size.
+1. Choose node count and the number of worker processes per node.
 1. Choose mini batch size.
-1. Check different kinds of performance metrics.
+1. Check performance metrics.
 
+>[!NOTE]
+>Note that we're continuously improving log and metrics. The content here may not match the actual prod exactly at a given time. We'll align them with on-going releases.
 
 # Select Virtual Machine
 1. Choose CPU or GPU virtual machine.
@@ -30,13 +32,13 @@ This guide helps users to measure and tune parameters in term of performance whe
 > [!div class="mx-imgBorder"]
 > ![New Compute Cluster](media/how-to-tune-performance-of-parallel-run-step/new-compute-cluster.png)
 
-# Decide node_count and process_count_per_node
+# Choose node_count and process_count_per_node
 The max number of worker processes running in parallel is `node_count * process_count_per_node`.
 In dev phase, you have tested out the duration per mini batch
 `node_count * process_count_per_node = total mini batches / duration per mini batch`
 
 
-# Decide mini batch size
+# Choose mini batch size
 
 Pipeline lifecycle
 1. provision nodes. before ParallelTask, a run will start after all required nodes provisioned.
@@ -49,11 +51,51 @@ Pipeline lifecycle
 1. the master role collect the progress.
 1. the master role concatenate the temp files.
 
+# Check performance metrics
 
-parallel requirement estimation
+## Progress overview
+The file is `logs/job_progress_overview.yyyymmddhh.txt`. It is `logs/overview.txt` in old versions.
+It has scheduling progress, mini batch processing progress and file concatenating progress for append_row. It provides a user readable text as the job is running.
 
-run duration *
-bound by storage (check metrics)
+## Mini batch scheduling performance
+
+### The duration to create the first task
+This matters for if there is a folder with a large number of files, it will take time to load the list and then pick up the first set of files. For example, given a folder with 1m files in blob in the same region as the run, it will take about 5 minutes to pick up the first one. If the folder is in other region than the run, it will take much longer time.
+
+To reduce the waiting time, we suggest to keep a single folder up to 1m files.
+If you want to have more files to process, for example, 20m files. You can create 20 folders with each has 1m files. Then pass 20 inputs like:
+```python
+step = ParallelRunStep(
+    ...
+    inputs=[input0, input1, input2, ..., input19]
+    ...
+)
+```
+In this way, it will pick up files from one folder and then move to next. It won't list a single folder will 20m files.
+To reduce the costing of progress tracking, increase mini_batch_size, such as to 100 or 1000. If 1000 is used, there will be total of 200k mini batches.
+
+
+Check `logs/sys/master_role.*.txt`. Usually, this is in the first `master_role` file if there are more than one. One round of master role failover will create a `master_role` log file.
+```html
+2020-10-09 01:38:51,269|INFO|356|140501711763200|Start scheduling.
+2020-10-09 01:38:51,288|INFO|356|140501711763200|The task provider type is FileDatasetProvider.
+2020-10-09 01:38:51,830|INFO|356|140501711763200|Input folders ['/mnt/batch/tasks/shared/LS_root/jobs/[workspace]/azureml/e01a2bf3-8fa7-4231-a904-3eeba3345e97/mounts/stress_data_datastore_small_files/input_1m'], from index 0.
+2020-10-09 01:38:51,830|INFO|356|140501711763200|Scheduling tasks for input 0: /mnt/batch/tasks/shared/LS_root/jobs/[workspace]/azureml/e01a2bf3-8fa7-4231-a904-3eeba3345e97/mounts/stress_data_datastore_small_files/input_1m.
+[There are five minute between next line and prior line.]
+2020-10-09 01:43:13,674|INFO|356|140501711763200|Save checkpoint for folder 0, offset 0, task_id 0, total_items 1, finished=False.
+2020-10-09 01:43:16,124|INFO|356|140501711763200|10.0.0.6: setting job stage to FIRST_TASK_SCHEDULED, reason: The first task created at 2020-10-09 01:43:16.124027.
+2020-10-09 01:43:16,124|INFO|356|140501711763200|Setting job stage to FIRST_TASK_SCHEDULED.
+```
+
+[TBD for tabular dataset]
+
+## Mini batch processing metrics
+
+### logs/job_
+
+## Duration of Entry Script Functions
+
+
 
 ## Introduction to Performance Report
 The performance report is located in `logs/sys/perf/`. It consists of resource usage reports in several dimensions. All reports are grouped by node. Under folder of each node, the below files are included:
