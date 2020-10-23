@@ -79,6 +79,7 @@ When deploying to a resource group, you can deploy resources to:
 * the target resource group from the operation
 * other resource groups in the same subscription or other subscriptions
 * the tenant for the resource group
+* [extension resources](scope-extension-resources.md) can be applied to resources
 
 The user deploying the template must have access to the specified scope.
 

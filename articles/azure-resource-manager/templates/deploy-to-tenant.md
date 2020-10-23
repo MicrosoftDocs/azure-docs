@@ -124,6 +124,7 @@ When deploying to a management group, you can deploy resources to:
 * management groups within the tenant
 * subscriptions
 * resource groups (through two nested deployments)
+* [extension resources](scope-extension-resources.md) can be applied to resources
 
 The user deploying the template must have access to the specified scope.
 

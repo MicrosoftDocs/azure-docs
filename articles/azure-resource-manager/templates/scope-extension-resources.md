@@ -73,7 +73,7 @@ To apply an extension resource to a resource, use the `scope` property. Set the 
 
 The following example creates a storage account and applies a role to it.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/roletargetscope.json" highlight="56":::
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/storageandrole.json" highlight="56":::
 
 ## Next steps
 

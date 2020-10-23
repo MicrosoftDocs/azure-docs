@@ -128,6 +128,7 @@ When deploying to a subscription, you can deploy resources to:
 * the target subscription from the operation
 * resource groups within the subscription
 * the tenant for the subscription
+* [extension resources](scope-extension-resources.md) can be applied to resources
 
 You can't deploy to a subscription that is different than the target subscription. The user deploying the template must have access to the specified scope.
 
