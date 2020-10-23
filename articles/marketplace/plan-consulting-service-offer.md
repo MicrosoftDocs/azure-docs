@@ -75,7 +75,7 @@ When you create your consulting service offer in Partner Center, you’ll enter 
 11. Supporting documents
 
 > [!NOTE]
-> If you’ll deliver your service in a language other than English, the offer listing can be in that language, but the description must begin or end with the English phrase “This service is available in &lt;language of your offer content.>” You can also provide supporting documents in a language that's different from the one used in the offer listing details.
+> If you’ll deliver your service in a language other than English, the offer listing can be in that language, but the description must begin or end with the English phrase “This service is available in &lt;language of your offer content>”. You can also provide supporting documents in a language that's different from the one used in the offer listing details.
 
 To help create your offer more easily, prepare some of these items ahead of time. The following items are required unless otherwise noted.
 
@@ -104,9 +104,10 @@ When writing the description, follow these criteria, according to your service t
 Here are some tips for writing your description:
 
 * Clearly describe the value of your offer in the first few sentences, including:
-  * Description of the offer.
-  * The type of user who benefits from the offer.
-  * Customer needs or issues that the offer addresses.
+  
+    * The type of user who benefits from the offer.
+    * Customer needs or issues that the offer addresses.
+
 * Remember that the first few sentences might be displayed in search results.
 * If the price of your offer is estimated, explain what variables will determine the final price.
 * Use industry-specific vocabulary.
@@ -141,5 +142,5 @@ Follow these guidelines for your logos:
 
 ## Next steps
 
-* [Create a consulting service offer in the commercial marketplace]
+* [Create a consulting service offer in the commercial marketplace](./create-consulting-service-offer.md)
 * [Offer listing best practices](./gtm-offer-listing-best-practices.md)

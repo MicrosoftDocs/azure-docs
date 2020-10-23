@@ -63,4 +63,4 @@ After you submit your offer for publication in Partner Center, we'll validate th
 
 ## Next steps
 
-* [How to configure your consulting service offer properties]()
+* [How to configure your consulting service offer properties](./create-consulting-service-offer-properties.md)
