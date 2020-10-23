@@ -51,7 +51,7 @@ The Azure portal can provide this information:
 
 ![HDInsight Azure portal Information](./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png)
 
-You can also use [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+You can also use [Azure CLI](/cli/azure/):
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>
