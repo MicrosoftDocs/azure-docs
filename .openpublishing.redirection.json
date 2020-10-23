@@ -58961,7 +58961,7 @@
     },
     {
       "source_path": "articles/data-factory/copy-data-tool-troubleshoot-guide.md",
-      "redirect_url": "/azure/data-factory/copy-data-tool-troubleshoot-guide",
+      "redirect_url": "/azure/data-factory/v1/data-factory-azure-copy-wizard.md",
       "redirect_document_id": false
     }  
     
