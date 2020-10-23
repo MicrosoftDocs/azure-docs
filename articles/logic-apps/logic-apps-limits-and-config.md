@@ -62,8 +62,8 @@ The same setting controls the maximum number of days that a workflow can run and
 For example, suppose that you reduce the retention limit from 90 days to 30 days. A 60-day-old run is removed from the runs history. If you increase the retention period from 30 days to 60 days, a 20-day-old run stays in the runs history for another 40 days.
 
 > [!IMPORTANT]
-> To avoid losing run history, make sure that the retention limit is *always* 
-> more than the run's longest possible duration. Otherwise, run history is lost.
+> If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. 
+> To avoid losing run history, make sure that the retention limit is *always* more than the run's longest possible duration.
 
 1. In the [Azure portal](https://portal.azure.com) search box, find and select **Logic apps**.
 
