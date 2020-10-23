@@ -43,7 +43,7 @@ To do this in the Azure portal:
 
 3. Select **App registrations**
 
-4. Select **"+ New application registration"**
+4. Select **+ New application registration**
 
 5. Enter a name for the **application** (the service principal name)
 
