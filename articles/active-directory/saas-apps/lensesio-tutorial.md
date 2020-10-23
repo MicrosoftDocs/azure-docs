@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate the [Lenses.io](https://lenses.i
 * Enable your users to be automatically signed-in to Lenses with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure AD](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ In this tutorial, you'll configure and test Azure AD SSO in a test environment.
 
 * Lenses.io supports service provider (SP) initiated SSO.
 
-* You can enforce session control after you configure Lenses.io. Session control protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* You can enforce session control after you configure Lenses.io. Session control protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Add Lenses.io from the gallery
 
@@ -159,20 +159,20 @@ For more information, see [Azure - Lenses group mapping](https://docs.lenses.io/
 
 In this section, test your Azure AD SSO configuration by using the Access Panel.
 
-When you select the Lenses.io tile on the Access Panel, you should be automatically signed in to your Lenses.io portal. For more information, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Lenses.io tile on the Access Panel, you should be automatically signed in to your Lenses.io portal. For more information, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
 - [Set up SSO in your Lenses.io instance](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0)
 
-- [List of tutorials on how to integrate SaaS apps with Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of tutorials on how to integrate SaaS apps with Azure AD](./tutorial-list.md)
 
-- [What is application access and SSO with Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and SSO with Azure AD?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure AD?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure AD?](../conditional-access/overview.md)
 
 - [Try Lenses.io with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect Lenses.io with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect Lenses.io with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

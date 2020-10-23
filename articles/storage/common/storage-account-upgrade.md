@@ -36,7 +36,7 @@ Upgrading to a general-purpose v2 storage account from your general-purpose v1 o
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-To upgrade a general-purpose v1 account to a general-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) for information about installing PowerShell.
+To upgrade a general-purpose v1 account to a general-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps) for information about installing PowerShell.
 
 Next, call the following command to upgrade the account, substituting your resource group name, storage account name, and desired account access tier.
 
@@ -45,7 +45,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 ```
 # [Azure CLI](#tab/azure-cli)
 
-To upgrade a general-purpose v1 account to a general-purpose v2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) for information about installing the CLI.
+To upgrade a general-purpose v1 account to a general-purpose v2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI 2.0](/cli/azure/install-azure-cli) for information about installing the CLI.
 
 Next, call the following command to upgrade the account, substituting your resource group name, storage account name, and desired account access tier.
 
