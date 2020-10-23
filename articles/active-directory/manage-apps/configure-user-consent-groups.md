@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
+ms.custom: contperfq2
 ---
 
 # Configure group owner consent to apps accessing group data
@@ -25,7 +26,7 @@ You can configure which users are allowed to consent to apps accessing their gro
 
 Follow these steps to manage group owner consent to apps accessing group data:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
+1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator--company-administrator).
 2. Select **Azure Active Directory** > **Enterprise applications** > **Consent and permissions** > **User consent settings**.
 3. Under **Group owner consent for apps accessing data** select the option you'd like to enable.
 4. Select **Save** to save your settings.

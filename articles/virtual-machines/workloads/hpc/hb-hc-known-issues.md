@@ -38,7 +38,7 @@ This 'duplicate MAC with cloud-init on Ubuntu" is a known issue. The workaround 
       ethernets:
         eth0:
           dhcp4: true
-        version: 2
+      version: 2
     EOF
     ```
 
