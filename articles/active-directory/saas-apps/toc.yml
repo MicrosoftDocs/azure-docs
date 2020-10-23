@@ -173,6 +173,8 @@
         href: bambubysproutsocial-tutorial.md
       - name: BC in the Cloud
         href: bcinthecloud-tutorial.md
+      - name: Beautiful.ai
+        href: beautiful.ai-tutorial.md
       - name: Beekeeper Azure AD Data Connector
         href: beekeeper-azure-ad-data-connector-tutorial.md
       - name: BeeLine
@@ -1945,8 +1947,6 @@
       items:
       - name: Airstack
         href: airstack-provisioning-tutorial.md
-      - name: AlertMedia
-        href: alertmedia-provisioning-tutorial.md
       - name: Amazon Web Services (AWS) - Role Provisioning
         href: amazon-web-service-tutorial.md#configure-azure-ad-sso
       - name: Apple Business Manager
@@ -2017,8 +2017,6 @@
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
         href: github-provisioning-tutorial.md
-      - name: Global Relay Identity Sync
-        href: global-relay-identity-sync-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: Harness
@@ -2073,7 +2071,7 @@
         href: myday-provision-tutorial.md
     - name: N - Z
       items:
-      - name: Netskope User Authentication
+      - name: Netskope Administrator Console
         href: netskope-administrator-console-provisioning-tutorial.md
       - name: New Relic by Organization
         href: new-relic-by-organization-provisioning-tutorial.md
@@ -2081,8 +2079,6 @@
         href: netsuite-provisioning-tutorial.md
       - name: OfficeSpace Software
         href: officespace-software-provisioning-tutorial.md
-      - name: OpenText Directory Services
-        href: open-text-directory-services-provisioning-tutorial.md
       - name: Oracle Cloud Infrastructure Console
         href: oracle-cloud-infratstructure-console-provisioning-tutorial.md
       - name: Oracle Fusion ERP
