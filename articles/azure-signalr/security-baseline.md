@@ -29,9 +29,9 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
 
-## Network security
+## Network Security
 
-*For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
+*For more information, see the [Azure Security Benchmark: Network Security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
@@ -46,7 +46,7 @@ You can also use network access control to allow or deny certain types of reques
 
 - [How to configure network access control for Azure SignalR Service](howto-network-access-control.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -57,7 +57,7 @@ You can also use network access control to allow or deny certain types of reques
 
 **Guidance**: If your client/server side of Azure SignalR Service is deployed in an Azure Virtual Network, you can follow above instructions to monitor and log network traffic.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -68,7 +68,7 @@ You can also use network access control to allow or deny certain types of reques
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -79,7 +79,7 @@ You can also use network access control to allow or deny certain types of reques
 
 **Guidance**: Azure SignalR Service has basic DDoS Protection. If your client/server side of Azure SignalR Service is deployed in an Azure Virtual Network, you can follow above instructions to guard you endpoint.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -90,7 +90,7 @@ You can also use network access control to allow or deny certain types of reques
 
 **Guidance**: If your client/server side of Azure SignalR Service is deployed in an Azure Virtual Network, you can follow above instructions to record network packets.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -101,7 +101,7 @@ You can also use network access control to allow or deny certain types of reques
 
 **Guidance**: If your client/server side of Azure SignalR Service is deployed in an Azure Virtual Network, you can follow above instructions to guard you endpoint.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -112,7 +112,7 @@ You can also use network access control to allow or deny certain types of reques
 
 **Guidance**: Not applicable; this recommendation is intended for offerings that can host web applications such as App Service and Azure Virtual Machines. Azure SignalR Service is not intended to host web applications, so there is no need to describe managing traffic to those applications.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Not applicable
 
@@ -125,7 +125,7 @@ You can also use network access control to allow or deny certain types of reques
 Use Virtual Network Service Tags to define network access controls on Network Security Groups or Azure Firewall to control access to your Azure SignalR Service resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name "AzureSignalR" in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 - [How to use service tags for Azure SignalR Service](howto-service-tags.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -144,7 +144,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 - [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -157,7 +157,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags) 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -168,13 +168,13 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Guidance**: 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-## Logging and monitoring
+## Logging and Monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
+*For more information, see the [Azure Security Benchmark: Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -183,7 +183,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Guidance**: Azure SignalR Service does not support configuring your own time synchronization sources. Azure SignalR Service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Microsoft
 
@@ -286,9 +286,9 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-## Identity and access control
+## Identity and Access Control
 
-*For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
+*For more information, see the [Azure Security Benchmark: Identity and Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -433,9 +433,9 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-## Data protection
+## Data Protection
 
-*For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
+*For more information, see the [Azure Security Benchmark: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -536,9 +536,9 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-## Vulnerability management
+## Vulnerability Management
 
-*For more information, see the [Azure Security Benchmark: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
+*For more information, see the [Azure Security Benchmark: Vulnerability Management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -595,9 +595,9 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-## Inventory and asset management
+## Inventory and Asset Management
 
-*For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
+*For more information, see the [Azure Security Benchmark: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -742,9 +742,9 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-## Secure configuration
+## Secure Configuration
 
-*For more information, see the [Azure Security Benchmark: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
+*For more information, see the [Azure Security Benchmark: Secure Configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -889,9 +889,9 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-## Malware defense
+## Malware Defense
 
-*For more information, see the [Azure Security Benchmark: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
+*For more information, see the [Azure Security Benchmark: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally managed antimalware software
 
@@ -926,9 +926,9 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-## Data recovery
+## Data Recovery
 
-*For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
+*For more information, see the [Azure Security Benchmark: Data Recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -974,9 +974,9 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-## Incident response
+## Incident Response
 
-*For more information, see the [Azure Security Benchmark: Incident response](../security/benchmarks/security-control-incident-response.md).*
+*For more information, see the [Azure Security Benchmark: Incident Response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -1044,9 +1044,9 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Responsibility**: Unset. Please provide a value in the work item.
 
-## Penetration tests and red team exercises
+## Penetration Tests and Red Team Exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+*For more information, see the [Azure Security Benchmark: Penetration Tests and Red Team Exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
@@ -1061,5 +1061,5 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
+- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
 - Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
