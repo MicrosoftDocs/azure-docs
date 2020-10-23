@@ -41,8 +41,8 @@ HDInsight Spark cluster is created with Anaconda installation. There are two Pyt
 |Setting |Python 2.7|Python 3.5|
 |----|----|----|
 |Path|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark version|Default set to 2.7|N/A|
-|Livy version|Default set to 2.7|N/A|
+|Spark version|Default set to 2.7|Can change config to 3.5|
+|Livy version|Default set to 2.7|Can change config to 3.5|
 |Jupyter|PySpark kernel|PySpark3 kernel|
 
 ## Safely install external Python packages

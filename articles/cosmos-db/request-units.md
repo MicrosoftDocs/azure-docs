@@ -57,7 +57,7 @@ While you estimate the number of RUs consumed by your workload, consider the fol
 
   The same query on the same data will always costs the same number of RUs on repeated executions.
 
-- **Script usage**: As with queries, stored procedures and triggers consume RUs based on the complexity of the operations that are performed. As you develop your application, inspect the [request charge header](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) to better understand how much RU capacity each operation consumes.
+- **Script usage**: As with queries, stored procedures and triggers consume RUs based on the complexity of the operations that are performed. As you develop your application, inspect the [request charge header](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request) to better understand how much RU capacity each operation consumes.
 
 ## Request units and multiple regions
 
@@ -71,12 +71,12 @@ Your choice of [consistency model](consistency-levels.md) also affects the throu
 
 - Learn more about how to [provision throughput on Azure Cosmos containers and databases](set-throughput.md).
 - Learn more about [serverless on Azure Cosmos DB](serverless.md).
-- Learn more about [logical partitions](partition-data.md).
-- Learn more about how to [globally scale provisioned throughput](scaling-throughput.md).
+- Learn more about [logical partitions](./partitioning-overview.md).
+- Learn more about how to [globally scale provisioned throughput]().
 - Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
 - Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
 - Learn how to [find the request unit charge for an operation](find-request-unit-charge.md).
 - Learn how to [optimize provisioned throughput cost in Azure Cosmos DB](optimize-cost-throughput.md).
 - Learn how to [optimize reads and writes cost in Azure Cosmos DB](optimize-cost-reads-writes.md).
-- Learn how to [optimize query cost in Azure Cosmos DB](optimize-cost-queries.md).
+- Learn how to [optimize query cost in Azure Cosmos DB](./optimize-cost-reads-writes.md).
 - Learn how to [use metrics to monitor throughput](use-metrics.md).

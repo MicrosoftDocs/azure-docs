@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 ms.author: radeltch
 
 ---
@@ -673,11 +673,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 6. **[A]** Configure Keep Alive
 
-   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile and change the Linux system settings. Read [SAP Note 1410736][1410736] for more information.
+   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile, if using ENSA1, and change the Linux system `keepalive` settings on all SAP servers for both ENSA1/ENSA2. Read [SAP Note 1410736][1410736] for more information.
 
    <pre><code>
    # Change the Linux system configuration
-   sudo sysctl net.ipv4.tcp_keepalive_time=120
+   sudo sysctl net.ipv4.tcp_keepalive_time=300
    </code></pre>
 
 7. **[A]** Configure the SAP users after the installation
