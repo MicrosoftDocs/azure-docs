@@ -26,7 +26,7 @@ This article describes how to use the user management enhancements preview in th
 Changes in the preview include:
 
 - More visible user properties including object ID, directory sync status, creation type, and identity issuer
-- Search now allows combined search of names, emails, and object IDs
+- Search now allows substring search and combined search of names, emails, and object IDs
 - Enhanced filtering by user type (member, guest, none), directory sync status, creation type, company name, and domain name
 - New sorting capabilities on properties like name and user principal name
 - A new total users count that updates with searches or filters
@@ -86,7 +86,7 @@ Select an entry in the **Identity issuer** column for any user to view additiona
 
 ## User list search
 
-When you enter a search string, the search uses "starts with" search that can now match names, emails, or object IDs in a single search. You can enter any of these attributes into search box, and the search will automatically look across all these properties to return any matching results. You can perform the same search on both the **All users** and **Deleted users** pages.
+When you enter a search string, the search now uses "starts with" and substring search to match names, emails, or object IDs in a single search. You can enter any of these attributes into the search box, and the search automatically looks across all these properties to return any matching results. The substring search is performed only on whole words. You can perform the same search on both the **All users** and **Deleted users** pages.
 
 ## User list filtering
 
@@ -135,7 +135,6 @@ Why is the deleted user still displayed when the permanent deletion date has pas
 What happen to the bulk capabilities for users and guests? | The bulk operations are all still available for users and guests, including bulk create, bulk invite, bulk delete, and download users. We’ve just merged them into a menu called **Bulk operations**. You can find the **Bulk operations** options at the top of the **All users** page.
 What happened to the Source column? | The **Source** column has been replaced with other columns that provide similar information, while allowing you to filter on those values independently. Examples include **Creation type**, **Directory synced** and **Identity issuer**.
 What happened to the User Name column? | The **User Name** column is still there, but it’s been renamed to **User Principal Name**. This  better reflects the information contained in that column. You’ll also notice that the full User Principal Name is now displayed for B2B guests. This matches what you’d get in MS Graph.  
-Why can I only perform a "starts with" search and not a "contains" search? | There are some limitations that prevent us from allowing you to perform a "contains" search. We’ve heard the feedback, so stay tuned.
 
 ## Next steps
 
