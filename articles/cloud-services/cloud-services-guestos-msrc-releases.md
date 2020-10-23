@@ -10,12 +10,67 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2020
+ms.date: 10/19/2020
 ms.author: yohaddad
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## October 2020 Guest OS
+>[!NOTE] 
+
+>The October Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the October Guest OS. This list is subject to change. 
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 20-10 |  [4577010]  |  IE Cumulative Update | 2.103, 3.90, 4.83 | Sep 8, 2020 |
+|  Rel 20-10 |  [4580325]  |  Flash Update | 3.90, 4.83, 5.48, 6.24 | Oct 13, 2020 |
+|  Rel 20-10 |  [4577668]  |  Latest Cumulative Update | 6.24 | Oct 13, 2020 |
+|  Rel 20-10 |  [4580346]  |  Latest Cumulative Update | 5.48 | Oct 13, 2020 |
+|  Rel 20-10 |  [4580970]  |  Servicing Stack update | 2.103 | Oct 13, 2020 |
+|  Rel 20-10 |  [4580345]  |  Monthly Rollup | 2.103 | Oct 13, 2020 |
+|  Rel 20-10 |  [4578952]  |  .NET Framework 3.5.1 Security and Quality Rollup | 2.103 | Oct 13, 2020 |
+|  Rel 20-10 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup | 2.103 | Oct 13, 2020 |
+|  Rel 20-10 |  [4566426]  |  Servicing Stack update | 3.90 | Jul 14, 2020 |
+|  Rel 20-10 |  [4580382]  |  Monthly Rollup | 3.90 | Oct 13, 2020 |
+|  Rel 20-10 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup | 3.90 | Oct 13, 2020 |
+|  Rel 20-10 |  [4578954]  |  .NET Framework 4.5.2 Security and Quality Rollup | 3.90 | Oct 13, 2020 |
+|  Rel 20-10 |  [4566425]  |  Servicing Stack update | 4.83 | Jul 14, 2020 |
+|  Rel 20-10 |  [4580347]  |  Monthly Rollup | 4.83 | Oct 13, 2020 |
+|  Rel 20-10 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup | 4.83 | Oct 13, 2020 |
+|  Rel 20-10 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup | 4.83 | Oct 13, 2020 |
+|  Rel 20-10 |  [4578013]  |  Standalone Security Update | 4.83 | Aug 19, 2020 |
+|  Rel 20-10 |  [4576750]  |  Servicing Stack update | 5.48 | Sep 8, 2020 |
+|  Rel 20-10 |  [4494175]  |  Microcode | 5.48 | Sep 1, 2020 |
+|  Rel 20-10 |  [4577667]  |  Servicing Stack Update | 6.24 | Oct 13, 2020 |
+|  Rel 20-10 |  [4578966]  |  .NET Framework 3.5 and 4.7.2 Cumulative Update | 6.24 | Oct 13, 2020 |
+|  Rel 20-10 |  [4494174]  |  Microcode | 6.24 | Sep 3, 2020 |
+
+
+[4577010]: https://support.microsoft.com/kb/4577010
+[4580325]: https://support.microsoft.com/kb/4580325
+[4577668]: https://support.microsoft.com/kb/4577668
+[4580346]: https://support.microsoft.com/kb/4580346
+[4580970]: https://support.microsoft.com/kb/4580970
+[4580345]: https://support.microsoft.com/kb/4580345
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4566426]: https://support.microsoft.com/kb/4566426
+[4580382]: https://support.microsoft.com/kb/4580382
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4566425]: https://support.microsoft.com/kb/4566425
+[4580347]: https://support.microsoft.com/kb/4580347
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4494175]: https://support.microsoft.com/kb/4494175
+[4577667]: https://support.microsoft.com/kb/4577667
+[4578966]: https://support.microsoft.com/kb/4578966
+[4494174]: https://support.microsoft.com/kb/4494174
+
 
 ## September 2020 Guest OS
 

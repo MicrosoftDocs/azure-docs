@@ -32,7 +32,7 @@ In your browser, go to the [Azure portal](https://portal.azure.com/). Enter your
 
 ## Create an Azure Database for MariaDB server
 
-You create an Azure Database for MariaDB server with a defined set of [compute and storage resources](concepts-pricing-tiers.md). The server is created in an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+You create an Azure Database for MariaDB server with a defined set of [compute and storage resources](concepts-pricing-tiers.md). The server is created in an [Azure resource group](../azure-resource-manager/management/overview.md).
 
 1. Select the **Create a resource** button (+) in the upper left corner of the portal.
 
@@ -189,4 +189,4 @@ In this tutorial, you use the Azure portal to learned how to:
 > * Restore data
 
 > [!div class="nextstepaction"]
-> [How to connect applications to Azure Database for MariaDB](./howto-connection-string.md)
+> [How to connect applications to Azure Database for MariaDB](howto-connection-string.md)

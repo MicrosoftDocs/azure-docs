@@ -32,13 +32,14 @@ When you enable Azure Defender from the **Pricing and settings** area of Azure S
 - [Azure Defender for App Service](defender-for-app-service-introduction.md)
 - [Azure Defender for Storage](defender-for-storage-introduction.md)
 - [Azure Defender for SQL](defender-for-sql-introduction.md)
-- [Azure Defender for IoT](defender-for-iot-introduction.md)
 - [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender for container registries](defender-for-container-registries-introduction.md)
 - [Azure Defender for Key Vault](defender-for-key-vault-introduction.md)
 
 Each of these plans is explained separately in the Security Center documentation.
 
+> [!TIP]
+> Azure Defender for IoT (preview) is a separate product. You'll find all the details in [Introducing Azure Defender for IoT (Preview)](../defender-for-iot/overview.md). 
 
 ## Hybrid cloud protection
 
@@ -46,7 +47,6 @@ As well as defending your Azure environment, you can add Azure Defender capabili
 
 - Protect your non-Azure servers
 - Protect your virtual machines in other clouds (such as AWS and GCP)
-- Protect your IoT devices
 
 You'll get customized threat intelligence and prioritized alerts according to your specific environment so that you can focus on what matters the most​.
 

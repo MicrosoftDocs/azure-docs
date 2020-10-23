@@ -22,7 +22,7 @@ In this tutorial, you learn:
 > * Prerequisites for Kafka REST proxy
 > * Create an Apache Kafka cluster using Azure CLI
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * An Azure AD security group with your registered application as a member. This security group will be used to control which applications are allowed to interact with the REST proxy. For more information on creating Azure AD groups, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-* Azure CLI. Ensure you have at least version 2.0.79. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Azure CLI. Ensure you have at least version 2.0.79. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create an Apache Kafka cluster
 
@@ -80,7 +80,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
     export componentVersion=kafka=2.1
     ```
 
-1. [Create the resource group](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) by entering the command below:
+1. [Create the resource group](/cli/azure/group#az-group-create) by entering the command below:
 
     ```azurecli
      az group create \
@@ -88,7 +88,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
         --name $resourceGroupName
     ```
 
-1. [Create an Azure Storage account](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) by entering the command below:
+1. [Create an Azure Storage account](/cli/azure/storage/account#az-storage-account-create) by entering the command below:
 
     ```azurecli
     # Note: kind BlobStorage is not available as the default storage account.
@@ -101,7 +101,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
         --sku Standard_LRS
     ```
 
-1. [Extract the primary key](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) from the Azure Storage account and store it in a variable by entering the command below:
+1. [Extract the primary key](/cli/azure/storage/account/keys#az-storage-account-keys-list) from the Azure Storage account and store it in a variable by entering the command below:
 
     ```azurecli
     export storageAccountKey=$(az storage account keys list \
@@ -110,7 +110,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
         --query [0].value -o tsv)
     ```
 
-1. [Create an Azure Storage container](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) by entering the command below:
+1. [Create an Azure Storage container](/cli/azure/storage/container#az-storage-container-create) by entering the command below:
 
     ```azurecli
     az storage container create \
@@ -119,7 +119,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
         --account-name $storageAccount
     ```
 
-1. [Create the HDInsight cluster](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create). Before entering the command, note the following parameters:
+1. [Create the HDInsight cluster](/cli/azure/hdinsight#az-hdinsight-create). Before entering the command, note the following parameters:
 
     1. Required parameters for Kafka clusters:
 

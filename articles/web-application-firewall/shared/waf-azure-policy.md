@@ -39,7 +39,7 @@ There are several built-in Azure Policies to manage WAF resources. A breakdown o
 3.	On the Assignments page, select the **Assign policy** icon at the top.
 
 [!div class="mx-imgBorder"]
-![Azure web application firewall](../media/waf-azure-policy/assign-policy.png)
+![Screenshot that shows the Basics tab on the Assign policy page.](../media/waf-azure-policy/assign-policy.png)
 
 4.	On the Assign Policy page basics tab, update the following fields:
     1.	**Scope**: Select what Azure subscriptions and resource groups should be impacted by the Azure Policy.
@@ -47,7 +47,7 @@ There are several built-in Azure Policies to manage WAF resources. A breakdown o
     3.	**Policy Definition**: Select the Azure Policy to apply to the scope with exclusions. Type “Web Application Firewall” in the search bar to choose the relevant Web Application Firewall Azure Policy.
 
 [!div class="mx-imgBorder"]
-![Azure web application firewall](../media/waf-azure-policy/policy-listing.png)
+![Screenshot that shows the available policy definitions.](../media/waf-azure-policy/policy-listing.png)
 
 
 5.	Select the **Parameters** tab and update the policies parameters. To further clarify what the parameter does, hover over the info icon next to the parameter name for further clarification.
