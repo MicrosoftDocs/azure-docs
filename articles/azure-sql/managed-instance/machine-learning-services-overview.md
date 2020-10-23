@@ -48,7 +48,9 @@ Base distributions of Python and R are included in Machine Learning Services. Yo
 This limited public preview is subject to the [Azure preview terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 If you're interested in joining the preview program and accept these terms, then you can request enrollment by creating an Azure support ticket at [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/). 
-On the new page, the **Create an Incident** button will redirect you to the Microsoft Azure Portal, where you can create a ticket by pressing **New support request** button.
+
+1. On the "Create a support ticket" page, click **Create an Incident**.
+1. On the "Help + support" page, click **New support request** to create a new ticket.
 
 1. Select the following options:
    - Issue type - **Technical**
