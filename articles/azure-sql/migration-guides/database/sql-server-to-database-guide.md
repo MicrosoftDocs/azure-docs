@@ -94,7 +94,7 @@ Data Migration Assistant supports performing scaled assessments and consolidatio
 
 After you have completed tasks associated with the Pre-migration stage, you are ready to perform the schema and data migration. 
 
-Migrate your data using your chosen [migration method](sql-server-to-database-overview.md#migration-options). The two recommended options for migrating to Azure SQL Managed Instance are described below.
+Migrate your data using your chosen [migration method](sql-server-to-database-overview.md#migration-options). The popular options for migrating to Azure SQL Database are described below.
 
 #### Import a BACPAC file to migrate a database (requires downtime during the migration)
 To import from a BACPAC file to Azure SQL Database using the Azure portal , follow the steps below:
