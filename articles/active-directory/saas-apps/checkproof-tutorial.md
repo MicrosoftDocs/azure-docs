@@ -116,7 +116,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign into CheckProof website as an administrator.
 
-1. Go to the **Settings > Company Settings > SAML SETTINGS** page and download the **Metadata XML**.
+1. Go to the **Settings > Company Settings > SAML SETTINGS** page and Upload the **Federation Metadata XML** in **Federation XML** textbox.
 
     ![saml settings page](./media/checkproof-tutorial/saml-settings.png)
 
