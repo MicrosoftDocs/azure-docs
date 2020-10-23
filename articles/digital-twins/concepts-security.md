@@ -52,8 +52,8 @@ Azure provides **two Azure built-in roles** for authorizing access to an Azure D
 
 | Role name | Role GUID | Description
 | --- | --- | --- |
-| _**Azure Digital Twins Data Owner**_ | *bcd981a7-7f74-457b-83e1-cceb9e632ffe* | Use this role to give full access over Azure Digital Twins resources. |
-| _**Azure Digital Twins Data Reader**_ | *d57506d4-4c8d-48b1-8587-93c323f6a5a3* | Use this role to give read-only access to Azure Digital Twins resources. |
+| _**Azure Digital Twins Data Owner**_ | *bcd981a7-7f74-457b-83e1-cceb9e632ffe* | Gives full access over Azure Digital Twins resources |
+| _**Azure Digital Twins Data Reader**_ | *d57506d4-4c8d-48b1-8587-93c323f6a5a3* | Gives read-only access to Azure Digital Twins resources |
 
 >[!NOTE]
 > These roles were recently renamed from their earlier names in preview:
