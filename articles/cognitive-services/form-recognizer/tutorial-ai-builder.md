@@ -65,7 +65,7 @@ On the **Add documents** page, you need to provide sample documents to train you
 > After you upload these documents, you can still remove some of the documents or upload additional ones.
 
 > [!div class="mx-imgBorder"]
-> ![add documents page](./media/tutorial-ai-builder/add-documents-page.png)
+> ![Screenshot that highlights the Add documents button.](./media/tutorial-ai-builder/add-documents-page.png)
 
 ### Analyze your documents
 
@@ -89,7 +89,7 @@ On the field selection page, you choose the fields that matter to you:
     - **Field value**: The value for the detected field.
 
 > [!div class="mx-imgBorder"]
-> ![add documents page](./media/tutorial-ai-builder/select-fields-page.png)
+> ![Screenshot that shows how to select your form fields.](./media/tutorial-ai-builder/select-fields-page.png)
 
 ### Label undetected fields
 
@@ -100,7 +100,7 @@ If the field you want to label wasn't detected automatically by the model, you c
 1. Select **Next** to check your selected form fields. If everything looks good, select **Train** to train your model.
 
     > [!div class="mx-imgBorder"]
-    > ![add documents page](./media/tutorial-ai-builder/summary-train-page.png)
+    > ![Screenshot that highlights the Train button.](./media/tutorial-ai-builder/summary-train-page.png)
 1. When training completes,  select **Go to Details page** in the **Training complete** screen.
 ## Quick-test your model
 
