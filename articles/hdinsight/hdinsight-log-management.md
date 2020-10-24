@@ -145,7 +145,7 @@ The YARN ResourceManager UI runs on the cluster head node, and is accessed throu
 
 After completing the previous steps, you have an understanding of the types and volumes of log files that your HDInsight cluster(s) are producing.
 
-Next, analyze the volume of log data in key log storage locations over a period of time. For example, you can analyze volume and growth over 30-60-90 day periods.  Record this information in a spreadsheet or use other tools such as Visual Studio, the Azure Storage Explorer, or Power Query for Excel. For more information, see [Analyze HDInsight logs](./hdinsight-troubleshoot-guide.md).  
+Next, analyze the volume of log data in key log storage locations over a period of time. For example, you can analyze volume and growth over 30-60-90 day periods.  Record this information in a spreadsheet or use other tools such as Visual Studio, the Azure Storage Explorer, or Power Query for Excel. ```
 
 You now have enough information to create a log management strategy for the key logs.  Use your spreadsheet (or tool of choice) to forecast both log size growth and log storage Azure service costs going forward.  Consider also any log retention requirements for the set of logs that you're examining.  Now you can reforecast future log storage costs, after determining which log files can be deleted (if any) and which logs should be retained and archived to less expensive Azure Storage.
 

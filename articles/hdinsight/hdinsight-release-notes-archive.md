@@ -55,7 +55,7 @@ HDInsight today doesn't support changing Zookeeper SKU for Spark, Hadoop, and ML
 HDInsight continues to make cluster reliability and performance improvements. 
 
 ### Component version change
-No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).
+No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
 
 ## Release date: 08/09/2020
 
@@ -105,7 +105,7 @@ Below JIRAs are back ported for HBase:
 * [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
 
 ### Component version change
-No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).
+No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
 
 ### Known issues
 
@@ -150,7 +150,7 @@ There was an issue for Hive Warehouse connector usability in previous release. T
 Zeppelin was incorrectly truncating leading zeros in the table output for String format. We've fixed this issue in this release.
 
 ### Component version change
-No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).
+No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
 
 ## Release date: 06/11/2020
 
@@ -208,7 +208,7 @@ Spark version is upgraded from version 2.4.0 to 2.4.4.
 #### Kafka 2.1.0 to 2.1.1
 Kafka version is upgraded from version 2.1.0 to 2.1.1.
  
-You can find the current component versions for HDInsight 4.0 ad HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)
+You can find the current component versions for HDInsight 4.0 ad HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md)
 
 ### Known issues
 
@@ -322,7 +322,7 @@ No component version change for HDInsight 4.0.
 
 Apache Zeppelin on HDInsight 3.6: 0.7.0-->0.7.3. 
 
-You can find the most up-to-date component versions from [this doc](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).
+You can find the most up-to-date component versions from [this doc](./hdinsight-component-versioning.md).
 
 ### New Regions
 

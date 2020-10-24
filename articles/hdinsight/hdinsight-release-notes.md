@@ -45,4 +45,4 @@ HDInsight today doesn't support customizing Zookeeper node size for Spark, Hadoo
 HDInsight continues to make cluster reliability and performance improvements. 
 
 ## Component version change
-No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).
+No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).

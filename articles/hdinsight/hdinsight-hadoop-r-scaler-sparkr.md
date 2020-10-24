@@ -538,4 +538,4 @@ For more information on use of SparkR, see:
 
 - [Apache SparkR document](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [SparkR Overview](https://docs.databricks.com/spark/latest/sparkr/overview.html) from Databricks.
+- [SparkR Overview](/azure/databricks/spark/latest/sparkr/overview)

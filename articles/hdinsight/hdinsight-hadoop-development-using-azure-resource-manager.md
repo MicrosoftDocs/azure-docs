@@ -84,7 +84,7 @@ The Azure PowerShell Resource Manager cmdlets can be installed side by side with
 Before you can use the HDInsight cmdlets, you must connect to your Azure account, and create a new resource group:
 
 * [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
-* [New-AzResourceGroup](/previous-versions/azure/mt603739(v=azure.100))
+* [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
 
 ### Renamed cmdlets
 To list the HDInsight ASM cmdlets in Windows PowerShell console:
