@@ -32,23 +32,23 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 ## Prerequisites
 
-- Register a service principal with the appropriate permissions.
-- Install [Postman](https://www.postman.com).
-- Download the Postman collection for this tutorial at [Azure Samples: media-services-customer-managed-keys-byok](https://github.com/Azure-Samples/media-services-customer-managed-keys-byok).
+1. Register a service principal with the appropriate permissions.
+1. Install [Postman](https://www.postman.com).
+1. Download the Postman collection for this tutorial at [Azure Samples: media-services-customer-managed-keys-byok](https://github.com/Azure-Samples/media-services-customer-managed-keys-byok).
 
 ### Register a service principal with the needed permissions
 
-[Create a service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Get the service principal secret at: [Option Two](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#authentication-two-options).
+1. [Create a service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+1. Go to [Option 2: Create a new application secret](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#authentication-two-options) to get the service principal secret.
 
-> [!IMPORTANT]
->Copy and save the secret for later use. You can't access the secret after you leave the secret page in the portal.
+   > [!IMPORTANT]
+   >Copy and save the secret for later use. You can't access the secret after you leave the secret page in the portal.
 
-The service principal needs the following permissions to perform the tasks in this tutorial:
+1. Assign permissions to the service principal, as shown in the following screenshot:
 
-:::image type="complex" source="./media/tutorial-byok/service-principal-permissions-1.png" alt-text="Screenshot showing the permissions needed for the service principal.":::
-   Permissions are listed by service. Azure Key Vault: user impersonation, delegated, full access to Azure Key Vault. Azure Service Management: user impersonation, delegated, access Azure Service Management as organization user. Azure Storage: user impersonation, delegated, access Azure Storage. Media services: user impersonation, delegated, access media services. Microsoft Graph: user.read, delegated, sign in and read user profile.
-
-:::image-end:::
+   :::image type="complex" source="./media/tutorial-byok/service-principal-permissions-1.png" alt-text="Screenshot showing the permissions needed for the service principal.":::
+   Permissions are listed by service, permission name, type, and then description. Azure Key Vault: user impersonation, delegated, full access to Azure Key Vault. Azure Service Management: user impersonation, delegated, access Azure Service Management as organization user. Azure Storage: user impersonation, delegated, access Azure Storage. Media services: user impersonation, delegated, access media services. Microsoft Graph: user.read, delegated, sign in and read user profile.
+   :::image-end:::
 
 ### Install Postman
 
@@ -71,7 +71,13 @@ The collection now shows in your Collections as BYOK. Also, the environment vari
 
 ### Understand the REST API requests in the collection
 
-The collection provides the following REST API requests. The requests must be sent in the sequence provided. Most requests have test scripts that dynamically create global variables for the next request in the sequence. You don't need to manually create global variables.
+The collection provides the following REST API requests.
+
+> [!NOTE]
+>
+>- The requests must be sent in the sequence provided.
+>- Most requests have test scripts that dynamically create global variables for the next request in the sequence.
+>- You don't need to manually create global variables.
 
 In Postman, you'll see these variables contained within brackets. For example, `{{bearerToken}}`.
 
