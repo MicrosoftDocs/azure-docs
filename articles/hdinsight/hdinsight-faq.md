@@ -57,7 +57,7 @@ Yes. To install additional components or customize cluster configuration, use:
 
 - [HDInsight Application Platform](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) to install applications.
 
-For a list of supported components see [What are the Apache Hadoop components and versions available with HDInsight?](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)
+For a list of supported components see [What are the Apache Hadoop components and versions available with HDInsight?](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
 
 ### Can I upgrade the individual components that are pre-installed on the cluster?
 
@@ -124,7 +124,7 @@ If you block ports 22 and port 23, you won't have SSH access to the cluster. The
 
 For more information, see the following documents:
 
-- [Controlling Network traffic](./hdinsight-plan-virtual-network-deployment.md#networktraffic)
+- [Ports used by Apache Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md)
 
 - [Secure incoming traffic to HDInsight clusters in a virtual network with private endpoint](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
 
