@@ -1,7 +1,7 @@
 ---
 title: How to work with your management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ---
 # Manage your resources with management groups
@@ -128,8 +128,8 @@ You can view any management group you have a direct or inherited Azure role on.
 1. Select **All services** > **Management groups**.
 
 1. The management group hierarchy page will load. This page is where you can explore all the
-   management groups and subscriptions you have access to. Selecting the group name takes you down a
-   level in the hierarchy. The navigation works the same as a file explorer does.
+   management groups and subscriptions you have access to. Selecting the group name takes you to a
+   lower level in the hierarchy. The navigation works the same as a file explorer does.
 
 1. To see the details of the management group, select the **(details)** link next to the title of
    the management group. If this link isn't available, you don't have permissions to view that
@@ -236,10 +236,9 @@ item.
 
 If the Owner role on the subscription is inherited from the current management group, your move
 targets are limited. You can only move the subscription to another management group where you have
-the Owner role. You can't move it to a management group where you're a contributor because you would
-lose ownership of the subscription. If you're directly assigned to the Owner role for the
-subscription (not inherited from the management group), you're able to move it to any management
-group where you're a contributor.
+the Owner role. You can't move the subscription to a management group where you're only a
+contributor because you would lose ownership of the subscription. If you're directly assigned to the
+Owner role for the subscription, you can move it to any management group where you're a contributor.
 
 To see what permissions you have in the Azure portal, select the management group and then select
 **IAM**. To learn more on Azure roles, see

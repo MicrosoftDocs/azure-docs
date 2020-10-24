@@ -22,7 +22,7 @@ For more information, see [Azure Security Baselines overview](../security/benchm
 
 ## Network security
 
-*For more information, see the [Azure Security Benchmark: Network security](/azure/security/benchmarks/security-control-network-security).*
+*For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
@@ -100,7 +100,7 @@ Use Azure Security Center Adaptive Network Hardening to recommend NSG configurat
 
 - [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Understand Azure Security Center Integrated Threat Intelligence](/azure/security-center/security-center-alerts-service-layer)
+- [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 - [Understand Azure Security Center Adaptive Network Hardening](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -180,7 +180,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 - DDoS Protection Standard should be enabled
 
-You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -198,13 +198,13 @@ Use any of the built-in Azure Policy definitions related to tagging, such as "Re
 
 You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their Tags.
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 - [How to create a Virtual Network](../virtual-network/quick-create-portal.md)
 
 - [How to create an NSG with a Security Config](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [List of Azure Policy definitions for Logic Apps](/azure/logic-apps/policy-samples)
+- [List of Azure Policy definitions for Logic Apps](./policy-reference.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -214,7 +214,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use the Azure Activity log to monitor network resource configurations and detect changes for network resources related to your Azure Logic Apps instances. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -224,7 +224,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 ## Logging and monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -240,7 +240,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
 - [How to set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](monitor-logic-apps-log-analytics.md)
 
@@ -256,7 +256,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
 - [How to set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](monitor-logic-apps-log-analytics.md)
 
@@ -298,9 +298,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 - [How to set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](monitor-logic-apps-log-analytics.md)
 
-- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
-- [How to collect and analyze Azure activity logs in Log Analytics in Azure Monitor](/azure/azure-monitor/platform/activity-log-collect)
+- [How to collect and analyze Azure activity logs in Log Analytics in Azure Monitor](../azure-monitor/platform/activity-log.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
@@ -350,7 +350,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 ## Identity and access control
 
-*For more information, see the [Azure Security Benchmark: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -360,11 +360,11 @@ To easily access other resources that are protected by Azure Active Directory (A
 
 Every request endpoint on a logic app has a Shared Access Signature (SAS) in the endpoint's URL. If you share the endpoint URL for a request-based trigger with other parties, you can generate callback URLs that use specific keys and have expiration dates. That way, you can seamlessly roll keys or restrict access to triggering your logic app based on a specific timespan.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
 - [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](create-managed-service-identity.md)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 - [How to secure access and data in Azure Logic Apps using SAS](logic-apps-securing-a-logic-app.md#sas)
 
@@ -458,7 +458,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 - [How to deploy Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Understand Azure AD risk detections](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Understand Azure AD risk detections](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -506,7 +506,7 @@ Azure Logic Apps supports both system-assigned and user-assigned managed identit
 
 **Guidance**: Azure Active Directory (AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access. 
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -522,7 +522,7 @@ You have access to Azure AD sign-in activity, audit and risk event log sources, 
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired log alerts within Log Analytics.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [How to on-board Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -534,7 +534,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure AD Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation. 
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -556,13 +556,13 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ## Data protection
 
-*For more information, see the [Azure Security Benchmark: Data protection](/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -576,17 +576,17 @@ For logic apps that need direct access to resources in an Azure virtual network,
 
 When you create your ISE, you can choose to use either internal or external access endpoints. Your selection determines whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network.
 
-Additionally, implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure Active Directory role-based access control.
+Additionally, implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure role-based access control (Azure RBAC).
 
 - [Understand connectors for Logic Apps](../connectors/apis-list.md)
 
 - [Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)](connect-virtual-network-vnet-isolated-environment-overview.md)
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription) 
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md) 
 
-- [How to create Management Groups](/azure/governance/management-groups/create) 
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md) 
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -642,9 +642,9 @@ Microsoft manages the underlying infrastructure for Azure Logic Apps and has imp
 
 **Responsibility**: Shared
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: You can permit only specific users or groups to run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, use Azure Role-Based Access Control (RBAC) so that you can assign customized or built-in roles to the members in your Azure subscription:
+**Guidance**: You can permit only specific users or groups to run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, use Azure role-based access control (Azure RBAC) so that you can assign customized or built-in roles to the members in your Azure subscription:
 
 - Logic App Contributor: Lets you manage logic apps, but you can't change access to them.
 - Logic App Operator: Lets you read, enable, and disable logic apps, but you can't edit or update them.
@@ -691,7 +691,7 @@ When you create an integration service environment (ISE) for hosting your logic 
 
 ## Vulnerability management
 
-*For more information, see the [Azure Security Benchmark: Vulnerability management](/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see the [Azure Security Benchmark: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -735,7 +735,7 @@ When you create an integration service environment (ISE) for hosting your logic 
 
 ## Inventory and asset management
 
-*For more information, see the [Azure Security Benchmark: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -745,7 +745,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -757,7 +757,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -772,11 +772,11 @@ In addition, use Azure Policy to put restrictions on the type of resources that 
 - Not allowed resource types
 - Allowed resource types
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -845,7 +845,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -881,15 +881,15 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Resources related to your Logic Apps that are required for business operations, but may incur higher risk for the organization, should be isolated within its own virtual machine and/or virtual network and sufficiently secured with either an Azure Firewall or Network Security Group.
 
-Logic Apps that are required for business operations, but may incur higher risk for the organization, should be isolated wherever possible via separate resource groups with specific permissions and RBAC boundaries.
+Logic Apps that are required for business operations, but may incur higher risk for the organization, should be isolated wherever possible via separate resource groups with specific permissions and Azure RBAC boundaries.
 
 - [How to create a virtual network](../virtual-network/quick-create-portal.md) 
 
 - [How to create an NSG with a security config](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [How to create Management Groups](/azure/governance/management-groups/create) 
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md) 
 
-- [How to secure access to Logic Apps via RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+- [How to secure access to Logic Apps via Azure RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -897,7 +897,7 @@ Logic Apps that are required for business operations, but may incur higher risk 
 
 ## Secure configuration
 
-*For more information, see the [Azure Security Benchmark: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see the [Azure Security Benchmark: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -907,7 +907,7 @@ Additionally, Azure Resource Manager has the ability to export the template in J
 
 Also, use secured parameters to protect sensitive data and secrets.
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -977,9 +977,9 @@ Also, ensure that you secure data in run history by using obfuscation.
 
 Additionally, Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet / exceed the security requirements for your organization.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
 
 - [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1091,7 +1091,7 @@ You can also implement Credential Scanner to identify credentials within code. C
 
 ## Malware defense
 
-*For more information, see the [Azure Security Benchmark: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see the [Azure Security Benchmark: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally-managed anti-malware software
 
@@ -1111,7 +1111,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 - [Understand Microsoft Anti-malware for Azure Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md)
 
-- [Understand Azure Security Center's Threat detection for data services](/azure/security-center/security-center-alerts-data-services)
+- [Understand Azure Security Center's Threat detection for data services](../security-center/azure-defender.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1127,7 +1127,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 ## Data recovery
 
-*For more information, see the [Azure Security Benchmark: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back-ups
 
@@ -1177,7 +1177,7 @@ Test restoration of backed up customer-managed keys. Note that this applies to L
 
 - [Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps](customer-managed-keys-integration-service-environment.md)
 
-- [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1195,7 +1195,7 @@ Enable Soft-Delete and purge protection in Key Vault to protect keys against acc
 
 - [Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps](customer-managed-keys-integration-service-environment.md)
 
-- [How to enable Soft-Delete and Purge protection in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [How to enable Soft-Delete and Purge protection in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1203,7 +1203,7 @@ Enable Soft-Delete and purge protection in Key Vault to protect keys against acc
 
 ## Incident response
 
-*For more information, see the [Azure Security Benchmark: Incident response](/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -1227,7 +1227,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1277,7 +1277,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ## Penetration tests and red team exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
@@ -1293,5 +1293,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

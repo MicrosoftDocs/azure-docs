@@ -56,7 +56,7 @@ To learn more about the libraries and SDKs, see [Microsoft SDKs for IoT Plug and
 
 ## REST APIs
 
-REST API [2020-09-30](https://docs.microsoft.com/rest/api/iothub).
+REST API [2020-09-30](/rest/api/iothub).
 
 To learn more, see [IoT Plug and Play developer guide](concepts-developer-guide-service.md).
 

@@ -63,10 +63,10 @@ void ChangeStageSpace(ApiHandle<AzureSession> session)
 
 ## API documentation
 
-* [C# CameraSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.camerasettings)
-* [C++ CameraSettings](https://docs.microsoft.com/cpp/api/remote-rendering/camerasettings)
-* [C# GraphicsBindingSimD3d11.Update function](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbindingsimd3d11.update)
-* [C++ GraphicsBindingSimD3d11::Update function](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingsimd3d11#update)
+* [C# CameraSettings](/dotnet/api/microsoft.azure.remoterendering.camerasettings)
+* [C++ CameraSettings](/cpp/api/remote-rendering/camerasettings)
+* [C# GraphicsBindingSimD3d11.Update function](/dotnet/api/microsoft.azure.remoterendering.graphicsbindingsimd3d11.update)
+* [C++ GraphicsBindingSimD3d11::Update function](/cpp/api/remote-rendering/graphicsbindingsimd3d11#update)
 
 ## Next steps
 

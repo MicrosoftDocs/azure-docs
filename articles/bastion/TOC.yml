@@ -70,7 +70,7 @@
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/en-us/answers/topics/azure-virtual-network.html
+    href: /answers/topics/azure-virtual-network.html
   - name: Preview SLA
     href: https://azure.microsoft.com/support/legal/preview-supplemental-terms
   - name: SLA

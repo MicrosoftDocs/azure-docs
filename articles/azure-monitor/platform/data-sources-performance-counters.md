@@ -1,21 +1,24 @@
 ---
-title: Collect and analyze performance counters in Azure Monitor | Microsoft Docs
+title: Collect Windows and Linux performance data sources with Log Analytics agent in Azure Monitor
 description: Performance counters are collected by Azure Monitor to analyze performance on Windows and Linux agents.  This article describes how to configure collection of Performance counters for both Windows and Linux agents, details of they are stored in the workspace, and how to analyze them in the Azure portal.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
+ms.date: 10/21/2020
 
 ---
 
-# Windows and Linux performance data sources in Azure Monitor
-Performance counters in Windows and Linux provide insight into the performance of hardware components, operating systems, and applications.  Azure Monitor can collect performance counters at frequent intervals for Near Real Time (NRT) analysis in addition to aggregating performance data for longer term analysis and reporting.
+# Collect Windows and Linux performance data sources with Log Analytics agent
+Performance counters in Windows and Linux provide insight into the performance of hardware components, operating systems, and applications.  Azure Monitor can collect performance counters from Log Analytics agents at frequent intervals for Near Real Time (NRT) analysis in addition to aggregating performance data for longer term analysis and reporting.
+
+> [!IMPORTANT]
+> This article covers collecting performance data with the [Log Analytics agent](log-analytics-agent.md) which is one of the agents used by Azure Monitor. Other agents collect different data and are configured differently. See [Overview of Azure Monitor agents](agents-overview.md) for a list of the available agents and the data they can collect.
 
 ![Performance counters](media/data-sources-performance-counters/overview.png)
 
 ## Configuring Performance counters
-Configure Performance counters from the [Data menu in Advanced Settings](agent-data-sources.md#configuring-data-sources).
+Configure Performance counters from the [Data menu in Advanced Settings](agent-data-sources.md#configuring-data-sources) for the Log Analytics workspace.
 
 When you first configure Windows or Linux Performance counters for a new workspace, you are given the option to quickly create several common counters.  They are listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
 
@@ -152,7 +155,7 @@ Following is the default configuration for performance metrics.
 <source>
 	type oms_omi
 	object_name "Logical Disk"
-	instance_regex ".*
+	instance_regex ".*"
 	counter_name_regex ".*"
 	interval 5m
 </source>
@@ -160,7 +163,7 @@ Following is the default configuration for performance metrics.
 <source>
     type oms_omi
 	object_name "Processor"
-	instance_regex ".*
+	instance_regex ".*"
 	counter_name_regex ".*"
 	interval 30s
 </source>

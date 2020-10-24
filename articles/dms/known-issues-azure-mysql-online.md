@@ -25,7 +25,7 @@ Known issues and limitations associated with online migrations from MySQL to Azu
 - Azure Database for MySQL supports:
   - MySQL community edition
   - InnoDB engine
-- Same version migration. Migrating MySQL 5.6 to Azure Database for MySQL 5.7 isn't supported.
+- Same version migration. Migrating MySQL 5.6 to Azure Database for MySQL 5.7 isn't supported. Migrations to or from MySQL 8.0 are not supported.
 - Enable binary logging in my.ini (Windows) or my.cnf (Unix)
   - Set Server_id to any number larger or equals to 1, for example, Server_id=1 (only for MySQL 5.6)
   - Set log-bin = \<path> (only for MySQL 5.6)

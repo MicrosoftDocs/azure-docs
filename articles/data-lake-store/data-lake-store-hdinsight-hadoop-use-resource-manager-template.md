@@ -80,7 +80,7 @@ After you have configured an HDInsight cluster, you can run test jobs on the clu
 
 In this section, you SSH into an HDInsight Linux cluster and run the sample Hive query. If you are using a Windows client, we recommend using **PuTTY**, which can be downloaded from [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Once connected, start the Hive CLI by using the following command:
 
@@ -116,7 +116,7 @@ Once you have configured the HDInsight cluster to use Data Lake Storage Gen1, yo
 
 In this section, you SSH into an HDInsight Linux cluster and run the HDFS commands. If you are using a Windows client, we recommend using **PuTTY**, which can be downloaded from [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Once connected, use the following HDFS filesystem command to list the files in the storage account with Data Lake Storage Gen1.
 

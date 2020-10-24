@@ -86,8 +86,8 @@ You can also perform the following workspace management tasks:
 
 There are multiple ways to create a workspace:  
 
-* Use the [Azure portal](how-to-manage-workspace.md) for a point-and-click interface to walk you through each step.
-* Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true#&preserve-view=trueworkspace) to create a workspace on the fly from Python scripts or Jupiter notebooks
+* Use the [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface to walk you through each step.
+* Use the [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) to create a workspace on the fly from Python scripts or Jupiter notebooks
 * Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
 * If you work in Visual Studio Code, use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace).
 
@@ -113,7 +113,7 @@ When you create a new workspace, it automatically creates several Azure resource
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Stores secrets that are used by compute targets and other sensitive information that's needed by the workspace.
 
 > [!NOTE]
-> In addition to creating new versions, you can also use existing Azure services.
+> You can instead use existing Azure resource instances when you create the workspace with the [Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace), [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/create_workspace.html), or the Azure Machine Learning CLI [using an ARM template](how-to-create-workspace-template.md).
 
 <a name="wheres-enterprise"></a>
 
@@ -131,9 +131,9 @@ In either editions, customers are responsible for the costs of Azure resources c
 To get started with Azure Machine Learning, see:
 
 + [Azure Machine Learning overview](overview-what-is-azure-ml.md)
-+ [Create a workspace](how-to-manage-workspace.md)
-+ [Manage a workspace](how-to-manage-workspace.md)
-+ [Tutorial: Get started creating your first ML experiment with the Python SDK](tutorial-1st-experiment-sdk-setup.md)
++ [Create and manage a workspace](how-to-manage-workspace.md)
++ [Tutorial: Get started with Azure Machine Learning in your development environment](tutorial-1st-experiment-sdk-setup-local.md)
++ [Tutorial: Get started creating your first ML experiment on a compute instance](tutorial-1st-experiment-sdk-setup.md)
 + [Tutorial: Get started with Azure Machine Learning with the R SDK](tutorial-1st-r-experiment.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) 
 + [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)

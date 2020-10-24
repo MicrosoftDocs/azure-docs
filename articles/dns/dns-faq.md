@@ -19,7 +19,7 @@ The Domain Name System (DNS) translates, or resolves, a website or service name 
 
 DNS domains in Azure DNS are hosted on the Azure global network of DNS name servers. This system uses Anycast networking so that each DNS query is answered by the closest available DNS server. Azure DNS provides fast performance and high availability for your domain.
 
-Azure DNS is based on Azure Resource Manager. Azure DNS benefits from Resource Manager features such as role-based access control, audit logs, and resource locking. You can manage domains and records via the Azure portal, Azure PowerShell cmdlets, and the cross-platform Azure CLI. Applications that require automatic DNS management can integrate with the service via the REST API and SDKs.
+Azure DNS is based on Azure Resource Manager. Azure DNS benefits from Resource Manager features such as Azure role-based access control, audit logs, and resource locking. You can manage domains and records via the Azure portal, Azure PowerShell cmdlets, and the cross-platform Azure CLI. Applications that require automatic DNS management can integrate with the service via the REST API and SDKs.
 
 ### How much does Azure DNS cost?
 
@@ -172,7 +172,7 @@ Changes to existing DNS records can take a little longer. They typically appear 
 
 ### How can I protect my DNS zones against accidental deletion?
 
-Azure DNS is managed by using Azure Resource Manager. Azure DNS benefits from the access control features that Azure Resource Manager provides. Role-based access control controls which users have read or write access to DNS zones and record sets. Resource locks prevent accidental modification or deletion of DNS zones and record sets.
+Azure DNS is managed by using Azure Resource Manager. Azure DNS benefits from the access control features that Azure Resource Manager provides. Azure role-based access control can be used to control which users have read or write access to DNS zones and record sets. Resource locks prevent accidental modification or deletion of DNS zones and record sets.
 
 For more information, see [Protect DNS zones and records](dns-protect-zones-recordsets.md).
 

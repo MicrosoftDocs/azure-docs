@@ -85,7 +85,7 @@ Cloning a device model lets you create a copy of an existing device model. You c
 
 To clone a device model, check the box next to the model and then click **Clone** in the action bar:
 
-![Delete device model](media/iot-accelerators-device-simulation-create-custom-device/clonedevice.png)
+![Screenshot that highlights the selected model and the Clone button.](media/iot-accelerators-device-simulation-create-custom-device/clonedevice.png)
 
 ## Delete a device model
 
