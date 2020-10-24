@@ -25,8 +25,6 @@ Use the following actions to create your own configuration for validating the st
 non-Azure machine.
 
 > [!IMPORTANT]
-> Custom policies with Guest Configuration is a Preview feature.
->
 > The Guest Configuration extension is required to perform audits in Azure virtual machines. To
 > deploy the extension at scale across all Linux machines, assign the following policy definition:
 > `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
