@@ -38,4 +38,4 @@ Enabling Hiveserver2 SSL is not recommended for either standard or ESP clusters.
 * [Overview of HiveServer2 Authentication](https://cwiki.apache.org/confluence/display/Hive/Setting+up+HiveServer2#SettingUpHiveServer2-Authentication/SecurityConfiguration)
 * [Overview of HiveServer2 Authorization](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization#:~:text=%20Overview%20of%20Authorization%20Modes%20%201%201,and%20Apache%20Sentry%20are%20apache%20projects...%20More%20)
 * [Enabling SQL Standards Based Hive Authorization](https://community.cloudera.com/t5/Community-Articles/Getting-started-with-SQLStdAuth/ta-p/244263)
-* [Apache Ranger with Hive](../domain-joined/apache-domain-joined-run-hive.md#:~:text=Create%20Hive%20ODBC%20data%20source%20%20%20,Enter%20hiveuser1%40contoso158.onmicrosoft.c%20...%20%205%20more%20rows%20)
+* [Apache Ranger with Hive](../domain-joined/apache-domain-joined-run-hive.md)
