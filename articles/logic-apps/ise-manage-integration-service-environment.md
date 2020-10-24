@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 10/25/2020
 ---
 
 # Manage your integration service environment (ISE) in Azure Logic Apps
@@ -37,6 +37,16 @@ This article shows how to perform management tasks for your [integration service
 On your ISE menu, under **Settings**, select **Network health**. This pane shows the health status for your subnets and outbound dependencies on other services.
 
 ![Check network health](./media/ise-manage-integration-service-environment/ise-check-network-health.png)
+
+> [!CAUTION]
+> If the internal App Service Environment that's used by your ISE becomes unhealthy and remains in that state for 7 days, the ASE becomes suspended, 
+> although all your data is preserved. To resolve this state, check your virtual network setup for problems that you can fix and then restart your ISE. 
+> Otherwise, after 90 days, the App Service Environment is deleted, and your ISE becomes unusable.
+> 
+> For more information, see these topics:
+>
+> * [Azure App Service diagnostics overview](../app-service/overview-diagnostics.md)
+> * [Message logging for Azure App Service Environment](../app-service/environment/using-an-ase.md#logging)
 
 <a name="find-logic-apps"></a>
 
