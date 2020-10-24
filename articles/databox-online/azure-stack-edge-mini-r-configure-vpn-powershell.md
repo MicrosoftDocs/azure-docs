@@ -379,4 +379,4 @@ Get-AzResourceGroupDeploymentOperation -ResourceGroupName $ResourceGroupName -De
 
 ## Next steps
 
-[Configure VPN via the local UI on your Azure Stack Edge device](azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption#configure-vpn.md).
+[Configure VPN via the local UI on your Azure Stack Edge device](azure-stack-edge-mini-r-deploy-configure-certificates-vpn-encryption.md#configure-vpn).
