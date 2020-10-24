@@ -89,6 +89,14 @@
       href: azure-stack-edge-pro-r-deploy-activate.md 
     - name: 8 - Configure compute
       href: azure-stack-edge-gpu-deploy-configure-compute.md
+  - name: How to
+    items:
+    - name: Configure VPN (Preview)
+      items:
+      - name: Configure via Azure PowerShell
+        href: azure-stack-edge-pro-r-connect-vpn-powershell.md 
+      - name: Configure for BCDR
+        href: azure-stack-edge-pro-r-configure-vpn-bcdr.md 
 
 - name: Azure Stack Edge Mini R
   items:
@@ -128,6 +136,14 @@
       href: azure-stack-edge-mini-r-deploy-activate.md 
     - name: 8 - Configure compute
       href: azure-stack-edge-gpu-deploy-configure-compute.md 
+  - name: How to
+    items:
+    - name: Configure VPN (Preview)
+      items:
+      - name: Configure via Azure PowerShell
+        href: azure-stack-edge-mini-r-connect-vpn-powershell.md 
+      - name: Configure for BCDR
+        href: azure-stack-edge-pro-r-configure-vpn-bcdr.md 
 
 - name: Shared Pro GPU, Pro R, Mini R
   items:
