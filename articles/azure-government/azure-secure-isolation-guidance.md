@@ -266,13 +266,13 @@ More information is available from the [third-party certification report](https:
 
 The critical Hypervisor isolation is provided through:
 - Strongly defined security boundaries enforced by the Hypervisor
-- Defense-in-depth exploits mitigation
+- Defense-in-depth exploit mitigations
 - Strong security assurance processes
 
-These technologies are described in the rest of this section.
+These technologies are described in the rest of this section.  **They enable Azure Hypervisor to offer strong security assurances for tenant separation in a multi-tenant cloud.**
 
 ##### *Strongly defined security boundaries*
-Customer code executes in a Hypervisor VM and benefits from Hypervisor enforced security boundaries, as shown in Figure 7.  Azure Hypervisor is based on Microsoft Hyper-V technology.  It divides an Azure node into a variable number of Guest VMs that have separate address spaces where they can load an operating system (OS) and applications operating in parallel to the Host OS that executes in the Root partition of the node.
+Customer code executes in a Hypervisor VM and benefits from Hypervisor enforced security boundaries, as shown in Figure 7.  Azure Hypervisor is based on [Microsoft Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-architecture) technology.  It divides an Azure node into a variable number of Guest VMs that have separate address spaces where they can load an operating system (OS) and applications operating in parallel to the Host OS that executes in the Root partition of the node.
 
 :::image type="content" source="./media/secure-isolation-fig7.png" alt-text="Compute isolation with Azure Hypervisor":::
 **Figure 7.**  Compute isolation with Azure Hypervisor (see online [glossary of terms](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-architecture#glossary))
@@ -311,7 +311,9 @@ The Azure Hypervisor meets the security objectives shown in Table 2.
 |**Audit**|Azure provides audit capability to capture and protect system data so that it can later be inspected.|
 
 ##### *Defense-in-depth exploit mitigations*
-To further mitigate the risk of a security compromise, Microsoft has invested in numerous [defense-in-depth](https://gallery.technet.microsoft.com/Azure-Defense-In-Depth-17a27b50) mitigations in Azure systems software, hardware, and firmware to provide strong real-world isolation guarantees to Azure customers.  As mentioned previously, Azure Hypervisor isolation is based on [Microsoft Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) technology, which enables Azure Hypervisor to benefit from decades of Microsoft experience in operating system security and investments in Hyper-V technology for virtual machine isolation.  Listed below are some key design principles adopted by Microsoft to mitigate isolation exploits in Hyper-V.
+To further mitigate the risk of a security compromise, Microsoft has invested in numerous defense-in-depth mitigations in Azure systems software, hardware, and firmware to provide strong real-world isolation guarantees to Azure customers.  As mentioned previously, Azure Hypervisor isolation is based on [Microsoft Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-architecture) technology, which enables Azure Hypervisor to benefit from decades of Microsoft experience in operating system security and investments in Hyper-V technology for virtual machine isolation.
+
+Listed below are some key design principles adopted by Microsoft to secure Hyper-V:
 
 - Prevent design level issues from affecting the product
    - Every change going into Hyper-V is subject to design review.
@@ -335,21 +337,24 @@ To further mitigate the risk of a security compromise, Microsoft has invested in
       - NoLowImages / NoRemoteImages – The worker process cannot load DLL’s over the network or DLL’s that were written to disk by a sandboxed process.
       - NoWin32k – The worker process cannot communicate with Win32k which makes sandbox escapes more difficult.
       - Heap randomization – Windows ships with one of the most secure heap implementations of any operating system.
+      - [Address Space Layout Randomization (ASLR)](https://en.wikipedia.org/wiki/Address_space_layout_randomization) – Randomizes the layout of heaps, stacks, binaries, and other data structures in the address space to make exploitation less reliable.
+      - [Data Execution Prevention (DEP/NX)](https://docs.microsoft.com/windows/win32/win7appqual/dep-nx-protection) – Only pages of memory intended to contain code are executable.
    - The kernel has the following mitigations applied:
       - Heap randomization – Windows ships with one of the most secure heap implementations of any operating system.
+      - [Address Space Layout Randomization (ASLR)](https://en.wikipedia.org/wiki/Address_space_layout_randomization) – Randomizes the layout of heaps, stacks, binaries, and other data structures in the address space to make exploitation less reliable.
+      - [Data Execution Prevention (DEP/NX)](https://docs.microsoft.com/windows/win32/win7appqual/dep-nx-protection) – Only pages of memory intended to contain code are executable.
 
-The goal of defense-in-depth mitigations is to make weaponized exploitation of a vulnerability as expensive as possible for an attacker, limiting their impact and maximizing the window for detection.  All exploit mitigations are evaluated for effectiveness by a thorough security review of the Azure Hypervisor attack surface using methods that adversaries may employ.  Table 3 outlines some of the mitigations intended to protect the Hypervisor isolation boundaries and hardware host integrity.
+Microsoft investments in Hyper-V security benefit Azure Hypervisor directly.  The goal of defense-in-depth mitigations is to make weaponized exploitation of a vulnerability as expensive as possible for an attacker, limiting their impact and maximizing the window for detection.  All exploit mitigations are evaluated for effectiveness by a thorough security review of the Azure Hypervisor attack surface using methods that adversaries may employ.  Table 3 outlines some of the mitigations intended to protect the Hypervisor isolation boundaries and hardware host integrity.
 
 **Table 3.**  Azure Hypervisor defense-in-depth
 
 |Mitigation|Security Impact|Mitigation Details|
 |----------|---------------|------------------|
 |**Control flow Integrity**|Increases cost to perform control flow integrity attacks (e.g., return-oriented—programming exploits)|[Control Flow Guard](https://www.blackhat.com/docs/us-16/materials/us-16-Weston-Windows-10-Mitigation-Improvements.pdf) (CFG) ensures indirect control flow transfers are instrumented at compile time and enforced by the kernel (user-mode) or secure kernel (kernel-mode), mitigating stack return vulnerabilities.|
-|**User-mode code integrity**|Protects against malicious and unwanted binary execution in user mode|Address Space Layout Randomization (ASLR) forced on all binaries in host partition, all code compiled with SDL security checks (e.g. strict_gs), [arbitrary code generation restrictions](https://blogs.windows.com/msedgedev/2017/02/23/mitigating-arbitrary-native-code-execution/) in place on host processes prevent injection of runtime-generated code.|
+|**User-mode code integrity**|Protects against malicious and unwanted binary execution in user mode|Address Space Layout Randomization (ASLR) forced on all binaries in host partition, all code compiled with SDL security checks (e.g., `strict_gs`), [arbitrary code generation restrictions](https://blogs.windows.com/msedgedev/2017/02/23/mitigating-arbitrary-native-code-execution/) in place on host processes prevent injection of runtime-generated code.|
 |**Hypervisor enforced user and kernel mode code integrity**|No code loaded into code pages marked for execution until authenticity of code is verified|[Virtualization-based Security](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-vbs) (VBS) leverages memory isolation to create a secure world to enforce policy and store sensitive code and secrets.  With Hypervisor enforced Code Integrity (HVCI), the secure world is used to prevent unsigned code from being injected into the normal world kernel.|
 |**Hardware root-of-trust with platform secure boot**|Ensures host only boots exact firmware and OS image required|Windows [secure boot](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot) validates that Azure Hypervisor infrastructure is only bootable in a known good configuration, aligned to Azure firmware, hardware, and kernel production versions.|
-|**Reduced attack surface VMM**|Protects against escalation of privileges in VMM user functions|The Azure Hypervisor Virtual Machine Manager (VMM) contains both user and kernel mode components.  User mode components are isolated with a sandbox to prevent break-out into kernel mode functions in addition to numerous layered mitigations.
-|
+|**Reduced attack surface VMM**|Protects against escalation of privileges in VMM user functions|The Azure Hypervisor Virtual Machine Manager (VMM) contains both user and kernel mode components.  User mode components are isolated to prevent break-out into kernel mode functions in addition to numerous layered mitigations.|
 
 Moreover, Azure has adopted an assume-breach security strategy implemented via [Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e).  This approach relies on a dedicated team of security researchers and engineers who conduct continuous ongoing testing of Azure systems and operations using the same tactics, techniques, and procedures as real adversaries against live production infrastructure, without the foreknowledge of the Azure infrastructure and platform engineering or operations teams.  This approach tests security detection and response capabilities and helps identify production vulnerabilities in Azure Hypervisor and other systems, including configuration errors, invalid assumptions, or other security issues in a controlled manner.  Microsoft invests heavily in these innovative security measures for continuous Azure threat mitigation.
 
@@ -365,6 +370,9 @@ The attack surface in Hyper-V is [well understood](https://msrc-blog.microsoft.c
 |**Host partition user-mode components**|Worker process in user mode: limited compromise with ability to attack Host and elevate privileges|- Virtual devices (VDEVs)|
 
 To protect these attack surfaces, Microsoft has established industry-leading processes and tooling that provides high confidence in the Azure isolation guarantee.  As described in *[Security assurance processes and practices](#security-assurance-processes-and-practices)* section later in this article, the approach includes purpose-built fuzzing, penetration testing, security development lifecycle, mandatory security training, security reviews, security intrusion detection based on Guest – Host threat indicators, and automated build alerting of changes to the attack surface area.  This mature multi-dimensional assurance process helps augment the isolation guarantees provided by the Azure Hypervisor by mitigating the risk of security vulnerabilities.
+
+> [!NOTE]
+> Azure has adopted an industry leading approach to ensure Hypervisor-based tenant separation that has been strengthened and improved over two decades of Microsoft investments in Hyper-V technology for virtual machine isolation.  The outcome of this approach is a robust Hypervisor that helps ensure tenant separation via 1) strongly defined security boundaries, 2) defense-in-depth exploit mitigations, and 3) strong security assurances processes.
 
 #### Drawbridge isolation
 For services that provide small units of processing using customer code, requests from multiple tenants are executed within a single VM and isolated using Microsoft [Drawbridge](https://www.microsoft.com/research/project/drawbridge/) technology.  To provide security isolation, Drawbridge runs a user process together with a light-weight version of the Windows kernel (Library OS) inside a *pico-process*.  A pico-process is a lightweight, secure isolation container with minimal kernel API surface and no direct access to services or resources of the Host system.  The only external calls the pico-process can make are to the Drawbridge Security Monitor through the Drawbridge Application Binary Interface (ABI), as shown in Figure 8.
