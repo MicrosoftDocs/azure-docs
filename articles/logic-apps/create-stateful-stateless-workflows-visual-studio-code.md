@@ -310,7 +310,7 @@ Before you can create your logic app, create a local project so that you can man
    }
    ```
 
-   Make sure that you expliclitly add that **global.json** file to your project at the root location from inside Visual Studio Code. Otherwise, the designer won't open.
+   Make sure that you explicitly add that **global.json** file to your project at the root location from inside Visual Studio Code. Otherwise, the designer won't open.
 
 1. If Visual Studio Code is running on Windows or Linux, make sure that the Azure Storage Emulator is running. For more information, review the [Prerequisites](#prerequisites).
 
