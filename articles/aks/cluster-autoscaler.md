@@ -127,7 +127,14 @@ You can also configure more granular details of the cluster autoscaler by changi
 | scale-down-unready-time          | How long an unready node should be unneeded before it is eligible for scale down         | 20 minutes    |
 | scale-down-utilization-threshold | Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down | 0.5 |
 | max-graceful-termination-sec     | Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. | 600 seconds   |
-| balance-similar-node-groups | Detect similar node pools and balance the number of nodes between them | false |
+| balance-similar-node-groups      | Detects similar node pools and balances the number of nodes between them                 | false         |
+| expander                         | Type of node pool [expander](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) to be used in scale up. Possible values: `most-pods`, `random`, `least-waste` | random | 
+| skip-nodes-with-local-storage    | If true cluster autoscaler will never delete nodes with pods with local storage, e.g. EmptyDir or HostPath | true |
+| skip-nodes-with-system-pods      | If true cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods) | true | 
+| max-empty-bulk-delete            | Maximum number of empty nodes that can be deleted at the same time.                      | 10 nodes      |
+| new-pod-scale-up-delay           | For scenarios like burst/batch scale where you don't want CA to take action before the kubernetes scheduler has been able to schedule all the pods, you can tell CA to ignore unscheduled pods before they are a certain "age".                                                                                                                | 10 seconds    |
+| max-total-unready-percentage     | Maximum percentage of unready nodes in the cluster. After this is exceeded, CA halts operations | 45 nodes | 
+| ok-total-unready-count           | Number of allowed unready nodes, irrespective of max-total-unready-percentage            | 3 nodes       |
 
 > [!IMPORTANT]
 > The cluster autoscaler profile affects all node pools that use the cluster autoscaler. You can't set an autoscaler profile per node pool.
