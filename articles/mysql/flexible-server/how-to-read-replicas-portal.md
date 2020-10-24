@@ -31,11 +31,11 @@ A read replica server can be created using the following steps:
 
 4. Select **Add Replica**.
 
-   :::image type="content" source="./media/howto-read-replica-portal/add-replica.png" alt-text="Azure Database for MySQL - Replication":::
+   :::image type="content" source="./media/how-to-read-replica-portal/add-replica.png" alt-text="Azure Database for MySQL - Replication":::
 
 5. Enter a name for the replica server.
 
-    :::image type="content" source="./media/howto-read-replica-portal/replica-name.png" alt-text="Azure Database for MySQL - Replica name":::
+    :::image type="content" source="./media/how-to-read-replica-portal/replica-name.png" alt-text="Azure Database for MySQL - Replica name":::
 
 6. Select **OK** to confirm creation of the replica.
 
@@ -44,7 +44,7 @@ A read replica server can be created using the following steps:
 
 Once the replica server has been created, it can be viewed from the **Replication** blade.
 
-   :::image type="content" source="./media/howto-read-replica-portal/list-replica.png" alt-text="Azure Database for MySQL - List replicas":::
+   :::image type="content" source="./media/how-to-read-replica-portal/list-replica.png" alt-text="Azure Database for MySQL - List replicas":::
 
 ## Stop replication to a replica server
 
@@ -59,15 +59,15 @@ To stop replication between a source and a replica server from the Azure portal,
 
 3. Select the replica server you wish to stop replication for.
 
-   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-select.png" alt-text="Azure Database for MySQL - Stop replication select server":::
+   :::image type="content" source="./media/how-to-read-replica-portal/stop-replication-select.png" alt-text="Azure Database for MySQL - Stop replication select server":::
 
 4. Select **Stop replication**.
 
-   :::image type="content" source="./media/howto-read-replica-portal/stop-replication.png" alt-text="Azure Database for MySQL - Stop replication":::
+   :::image type="content" source="./media/how-to-read-replica-portal/stop-replication.png" alt-text="Azure Database for MySQL - Stop replication":::
 
 5. Confirm you want to stop replication by clicking **OK**.
 
-   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-confirm.png" alt-text="Azure Database for MySQL - Stop replication confirm":::
+   :::image type="content" source="./media/how-to-read-replica-portal/stop-replication-confirm.png" alt-text="Azure Database for MySQL - Stop replication confirm":::
 
 ## Delete a replica server
 
@@ -79,15 +79,15 @@ To delete a read replica server from the Azure portal, use the following steps:
 
 3. Select the replica server you wish to delete.
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-select.png" alt-text="Azure Database for MySQL - Delete replica select server":::
+   :::image type="content" source="./media/how-to-read-replica-portal/delete-replica-select.png" alt-text="Azure Database for MySQL - Delete replica select server":::
 
 4. Select **Delete replica**
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-replica.png" alt-text="Azure Database for MySQL - Delete replica":::
+   :::image type="content" source="./media/how-to-read-replica-portal/delete-replica.png" alt-text="Azure Database for MySQL - Delete replica":::
 
 5. Type the name of the replica and click **Delete** to confirm deletion of the replica.  
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-confirm.png" alt-text="Azure Database for MySQL - Delete replica confirm":::
+   :::image type="content" source="./media/how-to-read-replica-portal/delete-replica-confirm.png" alt-text="Azure Database for MySQL - Delete replica confirm":::
 
 ## Delete a source server
 
@@ -100,11 +100,11 @@ To delete a source server from the Azure portal, use the following steps:
 
 2. From the **Overview**, select **Delete**.
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-master-overview.png" alt-text="Azure Database for MySQL - Delete master":::
+   :::image type="content" source="./media/how-to-read-replica-portal/delete-master-overview.png" alt-text="Azure Database for MySQL - Delete master":::
 
 3. Type the name of the source server and click **Delete** to confirm deletion of the source server.  
 
-   :::image type="content" source="./media/howto-read-replica-portal/delete-master-confirm.png" alt-text="Azure Database for MySQL - Delete master confirm":::
+   :::image type="content" source="./media/how-to-read-replica-portal/delete-master-confirm.png" alt-text="Azure Database for MySQL - Delete master confirm":::
 
 ## Monitor replication
 
@@ -114,15 +114,15 @@ To delete a source server from the Azure portal, use the following steps:
 
 3. Select **Replication lag in seconds** from the dropdown list of available metrics.
 
-   :::image type="content" source="./media/howto-read-replica-portal/monitor-select-replication-lag.png" alt-text="Select Replication lag":::
+   :::image type="content" source="./media/how-to-read-replica-portal/monitor-select-replication-lag.png" alt-text="Select Replication lag":::
 
 4. Select the time range you wish to view. The image below selects a 30 minute time range.
 
-   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range.png" alt-text="Select time range":::
+   :::image type="content" source="./media/how-to-read-replica-portal/monitor-replication-lag-time-range.png" alt-text="Select time range":::
 
 5. View the replication lag for the selected time range. The image below displays the last 30 minutes.
 
-   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png" alt-text="Select time range 30 minutes":::
+   :::image type="content" source="./media/how-to-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png" alt-text="Select time range 30 minutes":::
 
 ## Next steps
 
