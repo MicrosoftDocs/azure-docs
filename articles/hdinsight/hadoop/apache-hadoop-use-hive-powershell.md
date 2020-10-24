@@ -79,7 +79,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
    >
    > `Invoke-AzHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
-   > For more information about **Here-Strings**, see <a href="/previous-versions/windows/it-pro/windows-powershell-1.0/ee692792(v=technet.10)" target="_blank">Using Windows PowerShell Here-Strings</a>.
+   > For more information about **Here-Strings**, see [HERE-STRINGS](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#here-strings).
 
 ## Troubleshooting
 
