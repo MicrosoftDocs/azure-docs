@@ -226,8 +226,7 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-The next step is to publish the file to Azure Blob Storage. The script below contains a function you can
-use to automate this task. The commands used in the `Publish-GuestConfigurationPackage` function require the `Az.Storage`
+The next step is to publish the file to Azure Blob Storage.  The command `Publish-GuestConfigurationPackage` requires the `Az.Storage`
 module.
 
 ```azurepowershell-interactive
