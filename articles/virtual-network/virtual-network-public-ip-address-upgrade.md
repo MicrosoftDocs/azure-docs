@@ -29,7 +29,7 @@ The following scenarios are reviewed in this article:
 ## Upgrade public IP address from Basic to Standard SKU
 
 >[!NOTE]
->The ability to upgrade public IPs from Basic to Standard is not available in all regions.  Please see [**Limitations**](#Limitations) for more details.
+>The ability to upgrade public IPs from Basic to Standard is not available in all regions.  Please see [**Limitations**](#limitations) for more details.
 
 In order to upgrade a public IP, it must not be associated with any resource (see [this page](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) for more information about how to disassociate public IPs).
 
