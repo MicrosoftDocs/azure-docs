@@ -16,8 +16,6 @@ Microsoft Azure Media Services allows for content to be served up with DASH, Smo
 
 To request new features, provide ideas or feedback, please submit to [UserVoice for Azure Media Player](https://aka.ms/ampuservoice). If you have and specific issues, questions or find any bugs, drop us a line at ampinfo@microsoft.com.
 
-[Sign up](https://aka.ms/ampsignup) to never miss a release and to stay up to date with the latest that Azure Media Player has to offer.
-
 > [!NOTE]
 > Please note that Azure Media Player only supports media streams from Azure Media Services.
 
