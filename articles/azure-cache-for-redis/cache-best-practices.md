@@ -33,7 +33,7 @@ By following these best practices, you can help maximize the performance and cos
  
  * **Avoid expensive operations** - Some Redis operations, like the [KEYS](https://redis.io/commands/keys) command, are *very* expensive and should be avoided.  For more information, see some considerations around [long-running commands](cache-troubleshoot-server.md#long-running-commands)
 
- * **Use TLS encryption** - Azure Cache for Redis requires TLS encrypted communications by default.  TLS versions 1.0, 1.1 and 1.2 are currently supported.  However, TLS 1.0 and 1.1 are on a path to deprecation industry-wide, so use TLS 1.2 if at all possible.  If your client library or tool doesn't support TLS, then enabling unencrypted connections can be done [through the Azure portal](cache-configure.md#access-ports) or [management APIs](https://docs.microsoft.com/rest/api/redis/redis/update).  In such cases where encrypted connections aren't possible, placing your cache and client application into a virtual network would be recommended.  For more information about which ports are used in the virtual network cache scenario, see this [table](cache-how-to-premium-vnet.md#outbound-port-requirements).
+ * **Use TLS encryption** - Azure Cache for Redis requires TLS encrypted communications by default.  TLS versions 1.0, 1.1 and 1.2 are currently supported.  However, TLS 1.0 and 1.1 are on a path to deprecation industry-wide, so use TLS 1.2 if at all possible.  If your client library or tool doesn't support TLS, then enabling unencrypted connections can be done [through the Azure portal](cache-configure.md#access-ports) or [management APIs](/rest/api/redis/redis/update).  In such cases where encrypted connections aren't possible, placing your cache and client application into a virtual network would be recommended.  For more information about which ports are used in the virtual network cache scenario, see this [table](cache-how-to-premium-vnet.md#outbound-port-requirements).
  
  * **Idle Timeout** - Azure Redis currently has 10 minute idle timeout for connections, so this should be set to less than 10 minutes.
  
@@ -69,7 +69,7 @@ If you would like to test how your code works under error conditions, consider u
  * The client VM used for testing should be **in the same region** as your Redis cache instance.
  * **We recommend using Dv2 VM Series** for your client as they have better hardware and will give the best results.
  * Make sure the client VM you use has **at least as much compute and bandwidth* as the cache being tested. 
- * **Enable VRSS** on the client machine if you are on Windows.  [See here for details](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Example PowerShell script:
+ * **Enable VRSS** on the client machine if you are on Windows.  [See here for details](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).  Example PowerShell script:
      >PowerShell -ExecutionPolicy Unrestricted Enable-NetAdapterRSS -Name (    Get-NetAdapter).Name 
      
  * **Consider using Premium tier Redis instances**.  These cache sizes will have better network latency and throughput because they're running on better hardware for both CPU and Network.
