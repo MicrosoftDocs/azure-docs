@@ -285,28 +285,17 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 
 1. To check the network health for your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md#check-network-health).
 
+   > [!CAUTION]
+   > If the internal App Service Environment that's used by your ISE becomes unhealthy and remains in that state for 7 days, the ASE becomes suspended, 
+   > although all your data is preserved. To resolve this state, check your virtual network setup for problems that you can fix and then restart your ISE. 
+   > Otherwise, after 90 days, the App Service Environment is deleted, and your ISE becomes unusable.
+   > 
+   > For more information, see these topics:
+   >
+   > * [Azure App Service diagnostics overview](../app-service/overview-diagnostics.md)
+   > * [Message logging for Azure App Service Environment](../app-service/environment/using-an-ase.md#logging)
+
 1. To start creating logic apps and other artifacts in your ISE, see [Add resources to integration service environments](../logic-apps/add-artifacts-integration-service-environment-ise.md).
-
-   > [!IMPORTANT]
-   > Managed ISE connectors that become available after you create your ISE don't automatically appear in the 
-   > connector picker on the Logic App Designer. Before you can use these ISE connectors, you have to manually 
-   > [add those connectors to your ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) 
-   > so that they appear in the Logic App Designer.
-
-   > [!IMPORTANT]
-   > Managed ISE connectors currently do not support [tags](../azure-resource-manager/management/tag-support.md). If you set up a policy that enforces tagging, trying to add ISE connectors  
-   > might fail with an error similar to this example: 
-   > 
-   > ```json
-   > {
-   >    "error": { 
-   >       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
-   >       "message": "The tags are not supported in the managed API 'azureblob'."
-   >    }
-   > }
-   > ```
-   > To add ISE connectors, you have to either disable or remove your policy.
-   > 
 
 ## Next steps
 
