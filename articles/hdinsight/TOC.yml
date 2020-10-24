@@ -433,8 +433,6 @@
           href: ./spark/apache-spark-use-with-data-lake-store.md
         - name: Connect to Azure SQL Database
           href: ./spark/apache-spark-connect-to-sql-database.md
-        - name: Implement a lambda architecture using Apache Spark and Cosmos DB
-          href: ../cosmos-db/synapse-link.md
         - name: Run Azure ML workloads with AutoML
           href: ./spark/apache-spark-run-machine-learning-automl.md
     - name: Troubleshoot
