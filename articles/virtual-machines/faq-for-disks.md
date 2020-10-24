@@ -132,7 +132,7 @@ For managed disks you cannot rename them. However, you may rename an unmanaged d
 
 Generation 1 images can only use GPT partitioning on data disks, not OS disks. OS disks must use the MBR partition style.
 
-[Generation 2 images](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2) can use GPT partitioning on the OS disk as well as the data disks.
+[Generation 2 images](./generation-2.md) can use GPT partitioning on the OS disk as well as the data disks.
 
 **What disk types support snapshots?**
 
@@ -237,7 +237,7 @@ No, upload can only be used during the creation of a new empty disk with the **R
 
 **How do I upload to a managed disk?**
 
-Create a managed disk with the [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) property of [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) set to "Upload", then you can upload data to it.
+Create a managed disk with the [createOption](/rest/api/compute/disks/createorupdate#diskcreateoption) property of [creationData](/rest/api/compute/disks/createorupdate#creationdata) set to "Upload", then you can upload data to it.
 
 **Can I attach a disk to a VM while it is in an upload state?**
 
@@ -392,13 +392,19 @@ No, it is only supported on premium SSD managed disks.
 
 No, standard SSD managed disks of any size cannot be used with unmanaged disks or page blobs.
 
-**What is the largest Managed disk size supported for operating system and data disks?**
+**What is the largest Managed disk size supported for operating system and data disks on Gen1 VMs?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 2 TiB. Azure supports up to 32 TiB for managed data disks.
+The partition type that Azure supports for Gen1 operating system disks is the master boot record (MBR). Although Gen1 OS disks only support MBR the data disks support GPT. While you can allocate up to a 4 TiB OS disk, the MBR partition type can only use up to 2 TiB of this disk space for the operating system. Azure supports up to 32 TiB for managed data disks.
+
+**What is the largest Managed disk size supported for operating system and data disks on Gen2 VMs?**
+
+The partition type that Azure supports for Gen2 operating system disks is GUID Partition Table (GPT). Gen2 VMs support up to a 4 TiB OS disk. Azure supports up to 32 TiB for managed data disks.
+
 
 **What is the largest Unmanaged Disk size supported for operating system and data disks?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system Unmanaged disk is 2 TiB. Azure supports up to 4 TiB for data Unmanaged disks.
+The partition type that Azure supports for an operating system disk using unmanaged disks is the master boot record (MBR).  While you can allocate up to a 4 TiB OS disk, the MBR partition type can only use up to 2 TiB of this disk space for the operating system. Azure supports up to 4 TiB for Unmanaged data disks.
+
 
 **What is the largest page blob size that's supported?**
 
@@ -417,7 +423,7 @@ You don't need to upgrade your existing Azure tools to create, attach, or resize
 
 **Are P4 and P6 disk sizes supported for unmanaged disks or page blobs?**
 
-P4 (32 GiB) and P6 (64 GiB) disk sizes are not supported as the default disk tiers for unmanaged disks and page blobs. You need to explicitly [set the Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) to P4 and P6 to have your disk mapped to these tiers. If you deploy a unmanaged disk or page blob with the disk size or content length less than 32 GiB or between 32 GiB to 64 GiB without setting the Blob Tier, you will continue to land on P10 with 500 IOPS and 100 MiB/s and the mapped pricing tier.
+P4 (32 GiB) and P6 (64 GiB) disk sizes are not supported as the default disk tiers for unmanaged disks and page blobs. You need to explicitly [set the Blob Tier](/rest/api/storageservices/set-blob-tier) to P4 and P6 to have your disk mapped to these tiers. If you deploy a unmanaged disk or page blob with the disk size or content length less than 32 GiB or between 32 GiB to 64 GiB without setting the Blob Tier, you will continue to land on P10 with 500 IOPS and 100 MiB/s and the mapped pricing tier.
 
 **If my existing premium managed disk less than 64 GiB was created before the small disk was enabled (around June 15, 2017), how is it billed?**
 
@@ -487,6 +493,6 @@ No.
 
 ## What if my question isn't answered here?
 
-If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the MSDN [Microsoft Q&A question page for Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
+If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the [Microsoft Q&A question page for Azure Storage](/answers/products/azure?product=storage).
 
 To request features, submit your requests and ideas to the [Azure Storage feedback forum](https://feedback.azure.com/forums/217298-storage).

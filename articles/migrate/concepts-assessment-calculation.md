@@ -49,7 +49,7 @@ If you're deploying an Azure Migrate appliance to discover on-premises servers, 
 
 After the appliance begins machine discovery, you can gather machines you want to assess into a group and run an assessment for the group with assessment type **Azure VM**.
 
-Follow our tutorials for [VMware](tutorial-prepare-vmware.md), [Hyper-V](tutorial-prepare-hyper-v.md), or [physical servers](tutorial-prepare-physical.md) to try out these steps.
+Follow our tutorials for [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md), or [physical servers](./tutorial-discover-physical.md) to try out these steps.
 
 ## How do I assess with imported data?
 
@@ -75,7 +75,7 @@ If you use the appliance for discovery, it collects performance data for compute
     - **Hyper-V VMs**: A sample point is collected every 30 seconds.
     - **Physical servers**: A sample point is collected every five minutes.
 
-1. The appliance combines the sample points to create a single data point every 10 minutes. To create the data point, the appliance selects the peak values from all samples. It then sends the data point to Azure.
+1. The appliance combines the sample points to create a single data point every 10 minutes for VMware and Hyper-V servers, and every 5 minutes for physical servers. To create the data point, the appliance selects the peak values from all samples. It then sends the data point to Azure.
 1. Server Assessment stores all the 10-minute data points for the last month.
 1. When you create an assessment, Server Assessment identifies the appropriate data point to use for rightsizing. Identification is based on the percentile values for *performance history* and *percentile utilization*.
 
@@ -168,7 +168,7 @@ Windows Server 2012 R2 and all SPs | Azure provides full support. | Ready for Az
 Windows Server 2012 and all SPs | Azure provides full support. | Ready for Azure.
 Windows Server 2008 R2 with all SPs | Azure provides full support.| Ready for Azure.
 Windows Server 2008 (32-bit and 64-bit) | Azure provides full support. | Ready for Azure.
-Windows Server 2003 and Windows Server 2003 R2 | These operating systems have passed their end-of-support dates and need a [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) for support in Azure. | Conditionally ready for Azure. Consider upgrading the OS before migrating to Azure.
+Windows Server 2003 and Windows Server 2003 R2 | These operating systems have passed their end-of-support dates and need a [Custom Support Agreement (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) for support in Azure. | Conditionally ready for Azure. Consider upgrading the OS before migrating to Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3.1, and MS-DOS | These operating systems have passed their end-of-support dates. The machine might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you upgrade the OS before migrating to Azure.
 Windows 7, Windows 8, and Windows 10 | Azure provides support with a [Visual Studio subscription only.](../virtual-machines/windows/client-images.md) | Conditionally ready for Azure.
 Windows 10 Pro | Azure provides support with [Multitenant Hosting Rights.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Conditionally ready for Azure.
@@ -292,6 +292,6 @@ Costs are displayed in the currency specified in the assessment settings.
 
 [Review](best-practices-assessment.md) best practices for creating assessments. 
 
-- Learn about running assessments for [VMware VMs](tutorial-prepare-vmware.md), [Hyper-V VMs](tutorial-prepare-hyper-v.md), and [physical servers](tutorial-prepare-physical.md).
-- Learn about assessing servers [imported with a CSV file](tutorial-assess-import.md).
+- Learn about running assessments for [VMware VMs](./tutorial-discover-vmware.md), [Hyper-V VMs](./tutorial-discover-hyper-v.md), and [physical servers](./tutorial-discover-physical.md).
+- Learn about assessing servers [imported with a CSV file](./tutorial-discover-import.md).
 - Learn about setting up [dependency visualization](concepts-dependency-visualization.md).

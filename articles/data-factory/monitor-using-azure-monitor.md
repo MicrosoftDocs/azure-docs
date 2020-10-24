@@ -35,7 +35,7 @@ Data Factory stores pipeline-run data for only 45 days. Use Azure Monitor if you
   * You want to write complex queries on a rich set of metrics that are published by Data Factory to Monitor. You can create custom alerts on these queries via Monitor.
   * You want to monitor across data factories. You can route data from multiple data factories to a single Monitor workspace.
 
-You can also use a storage account or event-hub namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate role-based access control (RBAC) access to both subscriptions.
+You can also use a storage account or event-hub namespace that isn't in the subscription of the resource that emits logs. The user who configures the setting must have appropriate Azure role-based access control (Azure RBAC) access to both subscriptions.
 
 ## Configure diagnostic settings and workspace
 

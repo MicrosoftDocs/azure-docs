@@ -1,22 +1,23 @@
 ---
-title: "Quickstart: Computer Vision client library | Microsoft Docs"
+title: "Quickstart: Computer Vision client library"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to connect your applications to the Computer Vision API from Azure Cognitive Services.
+description: Learn how to use Azure Computer Vision in your application through a native client library in the language of your choice.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 06/29/2020
+ms.date: 08/31/2020
 ms.author: pafarley
-ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp"
+ms.custom: [devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020]
 zone_pivot_groups: programming-languages-set-one
+keywords: computer vision, computer vision service
 ---
 
 # Quickstart: Use the Computer Vision client library
 
-Get started with the Computer Vision client library. Follow these steps to install the package and try out the example code for basic tasks. Computer Vision provides you with access to advanced algorithms for processing images and returning information.
+Get started with the Computer Vision client library. The Computer Vision service provides you with AI algorithms for processing images and returning information on their visual features. Follow these steps to install a package to your application and try out the sample code for basic tasks.
 
 Use the Computer Vision client library to:
 

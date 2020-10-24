@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2018
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -39,7 +39,7 @@ This procedure demonstrates how to view the service principal of a VM with syste
 
 1. Click **Azure Active Directory** and then click **Enterprise applications**.
 2. Under **Application Type**, choose **All Applications** and then click **Apply**.
-3. In the search filter box, type the name of the VM or application that has managed identity enabled or choose it from the list presented.
+3. In the search filter box, type the name of the Azure resource that has managed identity enabled or choose it from the list presented.
 
    ![View managed identity service principal in portal](./media/how-to-view-managed-identity-service-principal-portal/view-managed-identity-service-principal-portal.png)
 

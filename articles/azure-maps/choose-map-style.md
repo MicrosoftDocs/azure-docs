@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Change the style of the map
@@ -78,7 +78,7 @@ The base map style can be updated by using the `setStyle` function and setting t
 map.setStyle({ style: 'satellite' });
 ```
 
-In the following code, after a map instance is loaded, the map style is updated from `grayscale_dark` to `satellite` using the [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setstyle-styleoptions-) function.
+In the following code, after a map instance is loaded, the map style is updated from `grayscale_dark` to `satellite` using the [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-) function.
 
 <br/>
 
@@ -93,14 +93,14 @@ The style picker has two different layout options: `icon` and `list`. Also, the 
 
 The image below shows the style picker control displayed in `icon` layout.
 
-:::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="Style picker list layout":::
+:::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="Style picker icon layout":::
 
 The image below shows the style picker control displayed in `list` layout.
 
 :::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Style picker list layout":::
 
 > [!IMPORTANT]
->By default the style picker control lists all the styles available under the S0 pricing tier of Azure Maps. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using S1 and want to show all the available styles, set the `mapStyles` option of the style picker to `"all"`.
+> By default the style picker control lists all the styles available under the S0 pricing tier of Azure Maps. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using S1 and want to show all the available styles, set the `mapStyles` option of the style picker to `"all"`.
 
 The following code shows you how to override the default `mapStyles` base style list. In this example, we're setting the `mapStyles` option to list which base styles we want to be displayed by the style picker control.
 

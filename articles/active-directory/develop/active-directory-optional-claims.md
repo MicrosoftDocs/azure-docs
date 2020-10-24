@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/25/2020
+ms.date: 09/03/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
@@ -126,7 +126,7 @@ You can configure optional claims for your application through the UI or applica
 
 **Configuring optional claims through the UI:**
 
-[![Shows how to configure optional claims using the UI](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
+[![Configure optional claims in the UI](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. From the **Manage** section, select **Token configuration**.
 1. Select **Add optional claim**.
@@ -234,7 +234,7 @@ This section covers the configuration options under optional claims for changing
 1. Select the application you want to configure optional claims for in the list
 1. Under the **Manage** section, select **Token configuration**
 1. Select **Add groups claim**
-1. Select the group types to return (**All Groups**, **SecurityGroup**, or **DirectoryRole**). The **All Groups** option includes **SecurityGroup**, **DirectoryRole**, and **DistributionList**
+1. Select the group types to return (**Security groups**, or **Directory roles**, **All groups**, and/or **Groups assigned to the application**). The **Groups assigned to the application** option includes only groups assigned to the application. The **All Groups** option includes **SecurityGroup**, **DirectoryRole**, and **DistributionList**, but not **Groups assigned to the application**. 
 1. Optional: select the specific token type properties to modify the groups claim value to contain on premises group attributes or to change the claim type to a role
 1. Select **Save**
 
@@ -252,6 +252,7 @@ This section covers the configuration options under optional claims for changing
    - "All" (this option includes SecurityGroup, DirectoryRole, and DistributionList)
    - "SecurityGroup"
    - "DirectoryRole"
+   - "ApplicationGroup" (this option includes only groups that are assigned to the application)
 
    For example:
 
@@ -303,7 +304,7 @@ This section covers the configuration options under optional claims for changing
 
     **UI configuration:**
 
-    [![Shows how to configure optional claims using the UI](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
+    [![Configure optional claims](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
 
     **Application manifest entry:**
 
@@ -324,7 +325,7 @@ This section covers the configuration options under optional claims for changing
 
     **UI configuration:**
 
-    [![Shows how to configure optional claims using the UI](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
+    [![Optional claims in manifest](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
 
     **Application manifest entry:**
 
@@ -390,7 +391,7 @@ In the example below, you will use the **Token configuration** UI and **Manifest
 
 1. Select **Add optional claim**, select the **SAML** token type, select **extn.skypeID** from the list of claims (only applicable if you've created an Azure AD user object called skypeID), and then select **Add**.
 
-    [![Shows how to configure optional claims using the UI](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
+    [![Optional claims for SAML token](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
 **Manifest configuration:**
 

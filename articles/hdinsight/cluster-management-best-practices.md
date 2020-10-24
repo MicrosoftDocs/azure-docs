@@ -25,7 +25,7 @@ Learn best practices for managing HDInsight clusters.
 | Azure CLI | [Create HDInsight clusters using the Azure CLI](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Create Linux-based clusters in HDInsight using Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Create Apache Hadoop clusters using the Azure REST API](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
-| SDKs (.NET, Python, Java) | [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable), [Go](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |
+| SDKs (.NET, Python, Java) | [.NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true), [Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python&preserve-view=true), [Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable&preserve-view=true), [Go](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |
 
 > [!Note]
 > If you are creating a cluster and re-using the cluster name from a previously created cluster, wait until the previous cluster deletion is completed before creating your cluster.
@@ -56,6 +56,8 @@ Learn best practices for managing HDInsight clusters.
 | Manual scaling | [Scale Azure HDInsight clusters](./hdinsight-scaling-best-practices.md) |
 | Monitoring with Ambari| [Monitor cluster performance in Azure HDInsight](./hdinsight-key-scenarios-to-monitor.md) |
 | Monitoring with Azure Monitor logs | [Use Azure Monitor logs to monitor HDInsight clusters](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
+| Service issues, planned maintenance, health & security advisories | [Subscribe to subscription specific service health alerts](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal) |
+
 
 ## How do I check on deleted HDInsight clusters?
 

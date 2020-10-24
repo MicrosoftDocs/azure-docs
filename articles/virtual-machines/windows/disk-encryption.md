@@ -2,7 +2,7 @@
 title: Server-side encryption of Azure Managed Disks - PowerShell
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
@@ -43,6 +43,10 @@ For now, customer-managed keys have the following restrictions:
     If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
+#### Supported regions
+
+Customer-managed keys are available in all regions that managed disks are available.
+
 ## Encryption at host - End-to-end encryption for your VM data
 
 End-to-end encryption starts from the VM host, the Azure server that your VM is allocated to. Data on your temp disks, ephemeral OS disks and persisted OS/data disk caches are stored on that VM host. When you enable end-to-end encryption, all this data is encrypted at rest and flows encrypted to the Storage service, where it is persisted. End-to-end encryption does not use your VM's CPU and does not impact your VM's performance. 
@@ -67,7 +71,7 @@ High security sensitive customers who are concerned of the risk associated with 
 
 ### Supported regions
 
-[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
+Double encryption is available in all regions that managed disks are available.
 
 ## Server-side encryption versus Azure disk encryption
 

@@ -1,13 +1,12 @@
 ---
 title: "What is Azure SQL?"
-titleSuffix: " "
 description: "Learn about the different options within the Azure SQL family of services: Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VM." 
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=4
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: overview
 keywords: SQL Server cloud, SQL Server in the cloud, PaaS database, cloud SQL Server, DBaaS, IaaS
 author: stevestein
 ms.author: sstein
@@ -26,6 +25,11 @@ Azure SQL is a family of managed, secure, and intelligent products that use the 
 Azure SQL is built upon the familiar SQL Server engine, so you can migrate applications with ease and continue to use the tools, languages, and resources you're familiar with. Your skills and experience transfer to the cloud, so you can do even more with what you already have. 
 
 Learn how each product fits into Microsoft's Azure SQL data platform to match the right option for your business requirements. Whether you prioritize cost savings or minimal administration, this article can help you decide which approach delivers against the business requirements you care about most.
+
+
+If you're new to Azure SQL, check out the *What is Azure SQL* video from our in-depth [Azure SQL video series](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
+
 
 
 ## Overview

@@ -30,10 +30,11 @@ Read on to learn how to specify a selected model in different Face operations wh
 
 ## Prerequisites
 
-You should be familiar with the concepts of AI face detection and identification. If you aren't, see these how-to guides first:
+You should be familiar with the concepts of AI face detection and identification. If you aren't, see these guides first:
 
+* [Face detection concepts](../concepts/face-detection.md)
+* [Face recognition concepts](../concepts/face-recognition.md)
 * [How to detect faces in an image](HowtoDetectFacesinImage.md)
-* [How to identify faces in an image](HowtoIdentifyFacesinImage.md)
 
 ## Detect faces with specified model
 

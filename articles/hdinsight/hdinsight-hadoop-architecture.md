@@ -1,8 +1,8 @@
 ---
 title: Apache Hadoop architecture - Azure HDInsight 
 description: Describes Apache Hadoop storage and processing on Azure HDInsight clusters.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual

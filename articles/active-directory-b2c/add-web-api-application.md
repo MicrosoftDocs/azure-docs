@@ -30,7 +30,7 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 1. Select **Register**.
 1. Record the **Application (client) ID** for use in your web API's code.
 
-If you have an application that implements the implicit grant flow, for example a JavaScript-based single-page application (SPA), you can enable the flow by following these steps:
+If you have an application that implements the implicit grant flow, for example a [JavaScript-based single-page application (SPA)](tutorial-register-spa.md), you can enable the flow by following these steps:
 
 1. Under **Manage**, select **Authentication**.
 1. Under **Implicit grant**, select both the **Access tokens** and **ID tokens** check boxes.

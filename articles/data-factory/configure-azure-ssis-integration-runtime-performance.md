@@ -116,8 +116,7 @@ The y-axis is the number of packages that completed execution in one hour. Pleas
 
 ## AzureSSISMaxParallelExecutionsPerNode
 
-When you're already using a powerful worker node to run packages, increasing **AzureSSISMaxParallelExecutionsPerNode** may increase the overall throughput of the integration runtime. For Standard_D1_v2 nodes, 1-4 parallel executions per node are supported. For all other types of nodes, 1-max(2 x number of cores, 8) parallel executions per node are supported. If you want **AzureSSISMaxParallelExecutionsPerNode** beyond the max value we supported, you can open a support ticket and we can increase max value for you and after that you need use Azure Powershell to update **AzureSSISMaxParallelExecutionsPerNode**.
-You can estimate the appropriate value based on the cost of your package and the following configurations for the worker nodes. For more information, see [General-purpose virtual machine sizes](../virtual-machines/windows/sizes-general.md).
+When you're already using a powerful worker node to run packages, increasing **AzureSSISMaxParallelExecutionsPerNode** may increase the overall throughput of the integration runtime. If you want to increase max value, you need use Azure PowerShell to update **AzureSSISMaxParallelExecutionsPerNode**. You can estimate the appropriate value based on the cost of your package and the following configurations for the worker nodes. For more information, see [General-purpose virtual machine sizes](../virtual-machines/windows/sizes-general.md).
 
 | Size             | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network performance (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|

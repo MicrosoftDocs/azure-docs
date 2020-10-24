@@ -1,6 +1,6 @@
 ---
 title: Benchmarking your application on Azure Disk Storage
-description: Learn about the process of benchmarking your application on Azure.
+description: Review these examples of benchmarking a Standard DS14 VM provisioned with Azure Premium Storage disks.
 author: roygara
 ms.author: rogarana
 ms.date: 01/11/2019

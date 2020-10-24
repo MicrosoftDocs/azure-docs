@@ -110,7 +110,7 @@ This is critical for performance and resource usage of your application. Wheneve
 ### Correctly manage the actor's life-cycle
 You should have clear policy about managing the size of state in each partition of an actor service. Your actor service should have a fixed number of actors and reuse them as much as possible. If you continuously create new actors, you must delete them once they are done with their work. The actor framework stores some metadata about each actor that exists. Deleting all the state of an actor does not remove metadata about that actor. You must delete the actor (see [deleting actors and their state](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) to remove all the information about it stored in the system. As an extra check, you should query the actor service (see [enumerating actors](service-fabric-reliable-actors-enumerate.md)) once in a while to make sure the number of actors are within the expected range.
  
-If you ever see that database file size of an Actor Service is increasing beyond the expected size, make sure that you are following the preceding guidelines. If you are following these guidelines and are still database file size issues, you should [open a support ticket](service-fabric-support.md) with the product team to get help.
+If you ever see that database file size of an Actor Service is increasing beyond the expected size, make sure that you are following the preceding guidelines. If you are following these guidelines and are still experiencing database file size issues, you should [open a support ticket](service-fabric-support.md) with the product team to get help.
 
 ## Next steps
 

@@ -12,7 +12,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: "devx-track-csharp, mvc"
 
@@ -25,7 +25,7 @@ The .NET Core Feature Management libraries provide idiomatic support for impleme
 
 The Feature Management libraries also manage feature flag lifecycles behind the scenes. For example, the libraries refresh and cache flag states, or guarantee a flag state to be immutable during a request call. In addition, the ASP.NET Core library offers out-of-the-box integrations, including MVC controller actions, views, routes, and middleware.
 
-The [Add feature flags to an ASP.NET Core app Quickstart](./quickstart-feature-flag-aspnet-core.md) shows several ways to add feature flags in an ASP.NET Core application. This tutorial explains these methods in more detail. For a complete reference, see the [ASP.NET Core feature management documentation](https://go.microsoft.com/fwlink/?linkid=2091410).
+The [Add feature flags to an ASP.NET Core app Quickstart](./quickstart-feature-flag-aspnet-core.md) shows several ways to add feature flags in an ASP.NET Core application. This tutorial explains these methods in more detail. For a complete reference, see the [ASP.NET Core feature management documentation](/dotnet/api/microsoft.featuremanagement).
 
 In this tutorial, you will learn how to:
 
@@ -229,6 +229,12 @@ When an MVC controller or action is blocked because the controlling feature flag
 
 ## MVC views
 
+Open *_ViewImports.cshtml* in the *Views* directory, and add the feature manager tag helper:
+
+```html
+@addTagHelper *, Microsoft.FeatureManagement.AspNetCore
+```
+
 In MVC views, you can use a `<feature>` tag to render content based on whether a feature flag is enabled:
 
 ```html
@@ -293,6 +299,6 @@ app.UseForFeature(featureName, appBuilder => {
 
 In this tutorial, you learned how to implement feature flags in your ASP.NET Core application by using the `Microsoft.FeatureManagement` libraries. For more information about feature management support in ASP.NET Core and App Configuration, see the following resources:
 
-* [ASP.NET Core feature flag sample code](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core)
-* [Microsoft.FeatureManagement documentation](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)
+* [ASP.NET Core feature flag sample code](./quickstart-feature-flag-aspnet-core.md)
+* [Microsoft.FeatureManagement documentation](/dotnet/api/microsoft.featuremanagement)
 * [Manage feature flags](./manage-feature-flags.md)

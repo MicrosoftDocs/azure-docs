@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 04/12/2017
+ms.date: 09/02/2020
 ms.author: yushwang 
 ms.custom: devx-track-azurepowershell
 
@@ -210,7 +210,7 @@ The connection is established after a few minutes, and the BGP peering session s
 
 This section adds a VNet-to-VNet connection with BGP, as shown in the following diagram:
 
-![BGP for VNet-to-VNet](./media/vpn-gateway-bgp-resource-manager-ps/bgp-vnet2vnet.png)
+![Diagram that shows a V Net to V Net connection.](./media/vpn-gateway-bgp-resource-manager-ps/bgp-vnet2vnet.png)
 
 The following instructions continue from the previous steps. You must complete [Part I](#enablebgp) to create and configure TestVNet1 and the VPN Gateway with BGP. 
 

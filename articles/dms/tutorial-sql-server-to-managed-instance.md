@@ -10,7 +10,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019,fasttrack-edit"
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/08/2020
 ---
 

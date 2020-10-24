@@ -7,7 +7,7 @@ manager: rkarlin
 tags: 'rotation'
 
 ms.service: key-vault
-ms.subservice: general
+ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
@@ -16,11 +16,11 @@ ms.custom: devx-track-csharp
 ---
 # Automate the rotation of a secret for resources that use one set of authentication credentials
 
-The best way to authenticate to Azure services is by using a [managed identity](../general/managed-identity.md), but there are some scenarios where that isn't an option. In those cases, access keys or secrets are used. You should periodically rotate access keys or secrets.
+The best way to authenticate to Azure services is by using a [managed identity](../general/authentication.md), but there are some scenarios where that isn't an option. In those cases, access keys or secrets are used. You should periodically rotate access keys or secrets.
 
 This tutorial shows how to automate the periodic rotation of secrets for databases and services that use one set of authentication credentials. Specifically, this tutorial rotates SQL Server passwords stored in Azure Key Vault by using a function triggered by Azure Event Grid notification:
 
-![Diagram of rotation solution](../media/rotate1.png)
+![Diagram of rotation solution](../media/rotate-1.png)
 
 1. Thirty days before the expiration date of a secret, Key Vault publishes the "near expiry" event to Event Grid.
 1. Event Grid checks the event subscriptions and uses HTTP POST to call the function app endpoint subscribed to the event.
@@ -46,7 +46,7 @@ Below deployment link can be used, if you don't have existing Key Vault and SQL 
 1. Select **Review + create**.
 1. Select **Create**
 
-    ![Create a resource group](../media/rotate2.png)
+    ![Create a resource group](../media/rotate-2.png)
 
 You'll now have a Key Vault, and a SQL Server instance. You can verify this setup in the Azure CLI by running the following command:
 
@@ -65,6 +65,8 @@ akvrotation-sql/master  akvrotation      eastus      Microsoft.Sql/servers/datab
 ```
 
 ## Create and deploy sql server password rotation function
+> [!IMPORTANT]
+> Below template requires Key Vault, SQL server and Azure Function to be in the same resource group
 
 Next, create a function app with a system-managed identity, in addition to the other required components, and deploy sql server password rotation functions
 
@@ -88,7 +90,7 @@ The function app requires these components:
 1. Select **Review + create**.
 1. Select **Create**.
 
-   ![Select Review+create](../media/rotate3.png)
+   ![Select Review+create](../media/rotate-3.png)
 
 After you complete the preceding steps, you'll have a storage account, a server farm, and a function app. You can verify this setup in the Azure CLI by running the following command:
 
@@ -110,7 +112,7 @@ akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/sites
 akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/components
 ```
 
-For information on how to create a function app and use managed identity to access Key Vault, see [Create a function app from the Azure portal](../../azure-functions/functions-create-function-app-portal.md) and [Provide Key Vault authentication with a managed identity](../general/managed-identity.md).
+For information on how to create a function app and use managed identity to access Key Vault, see [Create a function app from the Azure portal](/azure/azure-functions/functions-create-function-app-portal), [How to use managed identity for App Service and Azure Functions](/azure/app-service/overview-managed-identity), and [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md).
 
 ### Rotation function
 Deployed in previous step function uses an event to trigger the rotation of a secret by updating Key Vault and the SQL database. 
@@ -204,11 +206,11 @@ Creating a secret with a short expiration date will publish a `SecretNearExpiry`
 
 To verify that the secret has rotated, go to **Key Vault** > **Secrets**:
 
-![Go to Secrets](../media/rotate8.png)
+![Go to Secrets](../media/rotate-8.png)
 
 Open the **sqlPassword** secret and view the original and rotated versions:
 
-![Open the sqluser secret](../media/rotate9.png)
+![Open the sqluser secret](../media/rotate-9.png)
 
 ### Create a web app
 
@@ -242,6 +244,6 @@ When the application opens in the browser, you will see the **Generated Secret V
 ## Learn more
 
 - Tutorial: [Rotation for resources with two sets of credentials](tutorial-rotation-dual.md)
-- Overview: [Monitoring Key Vault with Azure Event Grid (preview)](../general/event-grid-overview.md)
+- Overview: [Monitoring Key Vault with Azure Event Grid](../general/event-grid-overview.md)
 - How to: [Receive email when a key vault secret changes](../general/event-grid-logicapps.md)
-- [Azure Event Grid event schema for Azure Key Vault (preview)](../../event-grid/event-schema-key-vault.md)
+- [Azure Event Grid event schema for Azure Key Vault](../../event-grid/event-schema-key-vault.md)

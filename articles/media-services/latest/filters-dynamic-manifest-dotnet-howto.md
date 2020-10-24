@@ -1,9 +1,9 @@
 ---
 title: Creating filters with Azure Media Services v3 .NET SDK
-description: This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming.
+description: This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services v3 .NET SDK creates dynamic manifests to achieve this selective streaming.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -12,12 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/11/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
 
 ---
 # Create filters with Media Services .NET SDK
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
 

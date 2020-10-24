@@ -5,13 +5,13 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  quickstart
-ms.date: 08/13/2020
+ms.date: 09/03/2020
 ms.author: cshoe
 ---
 
 # Quickstart: Building your first static web app in the Azure portal
 
-Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this quickstart, you deploy a web application to Azure Static Web apps using the portal.
+Azure Static Web Apps publishes a website to a production environment by building apps from a GitHub repository. In this quickstart, you deploy a web application to Azure Static Web apps using the Azure portal.
 
 If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
@@ -32,9 +32,9 @@ Now that the repository is created, you can create a static web app from the Azu
 1. Select **Static Web Apps (Preview)**
 1. Select **Create**
 
-In the _Basics_ tab, begin by configuring your new app and linking it to a GitHub repository.
+In the _Basics_ section, begin by configuring your new app and linking it to a GitHub repository.
 
-:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Basics tab":::
+:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Basics section":::
 
 1. Select your _Azure subscription_
 1. Select or create a new _Resource Group_
@@ -51,38 +51,39 @@ After you sign in with GitHub, enter the repository information.
 1. Select your preferred _Organization_
 1. Select **my-first-web-static-app** from the _Repository_ drop-down
 1. Select **master** from the _Branch_ drop-down
-1. Select the **Next: Build >** button to edit the build configuration
-
-:::image type="content" source="media/getting-started-portal/next-build-button.png" alt-text="Next Build button":::
 
 > [!NOTE]
 > If you don't see any repositories, you may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
 
-1. In the _Build_ tab, add configuration details specific to your preferred front-end framework.
+1. In the _Build Details_ section, add configuration details specific to your preferred front-end framework.
 
     # [No Framework](#tab/vanilla-javascript)
 
-    - Clear the default value in the _App location_ box
-    - Clear the default value from the _Api location_ box
-    - Clear the default value from _App artifact location_ box
+    1. Select **Custom** from the _Build Presets_ dropdown
+    1. Keep the the default value in the _App location_ box
+    1. Clear the default value from the _Api location_ box
+    1. Leave the _App artifact location_ box empty
 
     # [Angular](#tab/angular)
 
-    - Clear the default value in the _App location_ box
-    - Clear the default value from the _Api location_ box
-    - Type **dist/angular-basic** in the _App artifact location_ box
+    1. Select **Angular** from the _Build Presets_ dropdown
+    1. Keep the the default value in the _App location_ box
+    1. Clear the default value from the _Api location_ box
+    1. Type **dist/angular-basic** in the _App artifact location_ box
 
     # [React](#tab/react)
 
-    - Clear the default value the _App location_ box
-    - Clear the default value from the _Api location_ box
-    - Type **build** in the _App artifact location_ box
+    1. Select **React** from the _Build Presets_ dropdown
+    1. Keep the the default value in the _App location_ box
+    1. Clear the default value from the _Api location_ box
+    1. Type **build** in the _App artifact location_ box
 
     # [Vue](#tab/vue)
 
-    - Clear the default value the _App location_ box
-    - Clear the default value from the _Api location_ box
-    - Type **dist** in the _App artifact location_ box
+    1. Select **Vue.js** from the _Build Presets_ dropdown
+    1. Keep the the default value in the _App location_ box
+    1. Clear the default value from the _Api location_ box
+    1. Keep the default value in the _App artifact location_ box
 
     ---
 

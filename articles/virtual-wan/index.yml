@@ -27,6 +27,8 @@ landingContent:
             url: virtual-wan-about.md
       - linkListType: concept
         links:
+          - text: Migrate to Virtual WAN
+            url: migrate-from-hub-spoke-topology.md
           - text: Working with locations and partners
             url: virtual-wan-locations-partners.md
           - text: FAQ

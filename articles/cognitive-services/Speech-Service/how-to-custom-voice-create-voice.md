@@ -1,7 +1,7 @@
 ---
 title: "Create a Custom Voice - Speech service"
 titleSuffix: Azure Cognitive Services
-description: "When you're ready to upload your data, go to the Custom Voice portal. Create or select a Custom Voice project. The project must share the right language/locale and the gender properties as the data you intent to use for your voice training."
+description: "When you're ready to upload your data, go to the Custom Voice portal. Create or select a Custom Voice project. The project must share the right language/locale and the gender properties as the data you intend to use for your voice training."
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -23,7 +23,7 @@ Check the languages supported for custom voice: [language for customization](lan
 
 ## Upload your datasets
 
-When you're ready to upload your data, go to the [Custom Voice portal](https://aka.ms/custom-voice-portal). Create or select a Custom Voice project. The project must share the right language/locale and the gender properties as the data you intent to use for your voice training. For example, select `en-GB` if the audio recordings you have is done in English with a UK accent.
+When you're ready to upload your data, go to the [Custom Voice portal](https://aka.ms/custom-voice-portal). Create or select a Custom Voice project. The project must share the right language/locale and the gender properties as the data you intend to use for your voice training. For example, select `en-GB` if the audio recordings you have is done in English with a UK accent.
 
 Go to the **Data** tab and click **Upload data**. In the wizard, select the correct data type that matches what you have prepared.
 

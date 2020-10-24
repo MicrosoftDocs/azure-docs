@@ -21,14 +21,14 @@ Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves t
  - performance gains on export and import to Azure AD
  
 > [!NOTE]
-> Currently, the new endpoint does not have a configured  group size limit for O365 groups that are written back. This may have an effect on your Active Directory and sync cycle latencies.  It is recommended to increase your group sizes incrementally.  
+> Currently, the new endpoint does not have a configured group size limit for Microsoft 365 groups that are written back. This may have an effect on your Active Directory and sync cycle latencies. It is recommended to increase your group sizes incrementally.  
 
 
 ## Pre-requisites  
 In order to use the new V2 endpoint, you will need to use [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) or later and follow the deployment steps provided below to enable the V2 endpoint for your Azure AD Connect server.   
 
 >[!NOTE]
->Currently, this public preview is only available in the Azure global cloud and not available for [national clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+>Currently, this public preview is only available in the Azure global cloud and not available for [national clouds](../develop/authentication-national-cloud.md).
 
 ### Public preview limitations  
 While this release has undergone extensive testing, you may still encounter issues. One of the goals of this public preview release is to find and fix any such issues.  
@@ -39,14 +39,14 @@ While this release has undergone extensive testing, you may still encounter issu
 ## Deployment guidance 
 You will need to deploy [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) or later to use the V2 endpoint. Use the link provided to download. 
 
-It is recommended that you follow the [swing migration](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration) method for rolling out the new endpoint in your environment. This will provide a clear contingency plan in the event, that a major rollback is necessary. The following example illustrates how a swing migration can be used in this scenario. For more information on the swing migration deployment method, refer to the link provided. 
+It is recommended that you follow the [swing migration](./how-to-upgrade-previous-version.md#swing-migration) method for rolling out the new endpoint in your environment. This will provide a clear contingency plan in the event, that a major rollback is necessary. The following example illustrates how a swing migration can be used in this scenario. For more information on the swing migration deployment method, refer to the link provided. 
 
 ### Swing migration for deploying V2 endpoint
 The following steps will guide you through deploying the v2 endpoint using the swing method.
 
 1. Deploy the V2 endpoint on the current staging server. This server will be known as the **V2 server** in the steps below. The current active server will continue to process the production workload using the V1 endpoint, which will be called the **V1 server** below.
 1. Validate that the **V2 server** is still processing imports as expected. At this stage, large groups will not be provisioned to Azure AD or on-prem AD, but you will be able to verify that the upgrade did not result in any other unexpected impact to the existing synchronization process. 
-2. Once validation is complete, switch the **V2 server** to be the active server and the **V1 server** to be the staging server. At this time, large groups that are in scope to be synced will be provisioned to Azure AD, as well as large O365 unified groups will be provisioned to AD, if group writeback is enabled.
+2. Once validation is complete, switch the **V2 server** to be the active server and the **V1 server** to be the staging server. At this time, large groups that are in scope to be synced will be provisioned to Azure AD, as well as large Microsoft 365 unified groups will be provisioned to AD, if group writeback is enabled.
 3. Validate that the **V2 server** is performing and processing large groups successfully. You may choose to stay at this step and monitor the synchronization process for a period.
   >[!NOTE]
   > If you need to transition back to your previous configuration, you can perform a swing migration from the **V2 server** back to the **V1 server**. Since the V1 endpoint does not support groups with over 50k members, any large group that was provisioned by Azure AD Connect, in either Azure AD or on-prem AD, will be subsequently deleted. 
@@ -113,13 +113,13 @@ The following steps can be used to increase the membership limit:
 2. In the editor, choose **Outbound** for Direction 
 3. Click on the **Out to AAD – Group Join** sync rule 
 4. Click the **Edit** button 
- ![Edit synch rule](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
+ ![Screenshot that shows the "View and manage your synchronization rules" with "Out to AAD - Group Join" selected.](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
 
 6. Click the **Yes** button to disable the default rule and create an editable copy.
- ![Edit synch rule](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
+ ![Screenshot that shows the "Edit Reserved Rule Confirmation" window with the "Yes" button selected.](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
 
 7. In the pop-up window on the **Description** page, set the precedence to an available value between 1 and 99
-![Edit synch rule](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
+![Screenshot that shows the "Edit outbound synchronization rule" window with "Precedence" highlighted.](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
 
 8. On the **Transformations** page, update the **Source** value for the **member** transformation, replacing ‘50000’ with a value between 50001 and 250000. This replacement will increase the maximum membership size of groups that will sync to Azure AD. We suggest starting with a number of 100k, to understand the impact that syncing large groups will have on your sync performance. 
  
@@ -151,7 +151,7 @@ During subsequent increases to the group member limit in the **Out to AAD – Gr
  `Set-ADSyncSchedulerConnectorOverride -FullSyncRequired $false -ConnectorName "<AAD Connector Name>" `
  
 >[!NOTE]
-> If you have O365 unified groups that have more than 50k members, the groups will be read into Azure AD Connect, and if group writeback is enabled, they will be written to your on-premises AD. 
+> If you have Microsoft 365 unified groups that have more than 50k members, the groups will be read into Azure AD Connect, and if group writeback is enabled, they will be written to your on-premises AD. 
 
 ## Rollback 
 If you have enabled the v2 endpoint and need to rollback, follow these steps: 
@@ -180,7 +180,7 @@ If you have enabled the v2 endpoint and need to rollback, follow these steps:
  `Set-ADSyncScheduler -SyncCycleEnabled $true`
  
 >[!NOTE]
-> When switching back from the V2 to V1 endpoints, groups synced with more than 50k members will be deleted after a full sync is run, for both AD groups provisioned to Azure AD and O365 unified groups provisioned to AD. 
+> When switching back from the V2 to V1 endpoints, groups synced with more than 50k members will be deleted after a full sync is run, for both AD groups provisioned to Azure AD and Microsoft 365 unified groups provisioned to AD. 
 
 ## Frequently asked questions  
 **Q: Can a customer use this feature in production?**  

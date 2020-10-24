@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 06/29/2020
+  ms.date: 10/20/2020
 
 highlightedContent:
   items:
@@ -25,9 +25,9 @@ highlightedContent:
     - title: Governance in the Cloud Adoption Framework
       itemType: architecture
       url: /azure/architecture/cloud-adoption/governance
-    - title: Apply and monitor infrastructure standards with Azure Policy
+    - title: Build a cloud governance strategy on Azure
       itemType: learn
-      url: /learn/modules/intro-to-governance/
+      url: /learn/modules/build-cloud-governance-strategy-azure/
 
 productDirectory:
   title: Components and Services
@@ -141,6 +141,9 @@ additionalContent:
             - text: REST
               url: /rest/api/resources/policydefinitions
               note: (Definitions)
+            - text: REST
+              url: /rest/api/resources/policyexemptions
+              note: (Exemptions)
             - text: REST
               url: /rest/api/resources/policysetdefinitions
               note: (Initiatives)

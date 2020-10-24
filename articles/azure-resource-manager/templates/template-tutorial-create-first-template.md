@@ -2,10 +2,10 @@
 title: Tutorial - Create & deploy template
 description: Create your first Azure Resource Manager template. In the tutorial, you learn about the template file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 06/10/2020
+ms.date: 09/28/2020
 ms.topic: tutorial
 ms.author: jgao 
-ms.custom: devx-track-azurecli
+ms.custom:
 
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # Tutorial: Create and deploy your first ARM template
 
-This tutorial introduces you to Azure Resource Manager (ARM) templates. It shows you how to create a starter template and deploy it to Azure. You'll learn about the structure of the template and the tools you'll need for working with templates. It takes about **12 minutes** to complete this tutorial, but the actual time will vary based on how many tools you need to install.
+This tutorial introduces you to Azure Resource Manager templates (ARM templates). It shows you how to create a starter template and deploy it to Azure. You'll learn about the structure of the template and the tools you'll need for working with templates. It takes about **12 minutes** to complete this tutorial, but the actual time will vary based on how many tools you need to install.
 
 This tutorial is the first of a series. As you progress through the series, you modify the starting template step by step until you've explored all of the core parts of an ARM template. These elements are the building blocks for much more complex templates. We hope by the end of the series you're confident creating your own templates and ready to automate your deployments with templates.
 
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Get tools
 
-Let's start by making sure you have the tools you need to create and deploy templates.
+Let's start by making sure you have the tools you need to create and deploy templates. Install these tools on your local machine.
 
 ### Editor
 
@@ -176,7 +176,7 @@ The deployment command returns results. Look for `ProvisioningState` to see whet
 ---
 
 > [!NOTE]
-> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
+> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
 
 ## Verify deployment
 

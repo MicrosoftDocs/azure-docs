@@ -25,11 +25,15 @@ Unless the steps described in this article are followed, ILB ASEs are not automa
 
 Zonal ILB ASEs can be created in any of the following regions:
 
+- Australia East
+- Brazil South
+- Canada Central
 - Central US
 - East US
 - East US 2
 - East US 2 (EUAP)
 - France Central 
+- Germany West Central
 - Japan East
 - North Europe
 - West Europe

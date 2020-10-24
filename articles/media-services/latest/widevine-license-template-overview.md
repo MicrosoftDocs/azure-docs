@@ -1,7 +1,7 @@
 ---
 title: Azure Media Services v3 with Widevine license template overview
-description: This topic gives an overview of a Widevine license template that is used to configure Widevine licenses.
-author: juliako
+description: Learn about Azure Media Services with the Widevine license template and how it is used to configure Widevine licenses.
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,9 +11,9 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2020
-ms.author: juliako
+ms.author: inhenkel
 ms.custom: devx-track-csharp
 
 ---
@@ -21,10 +21,11 @@ ms.custom: devx-track-csharp
 
 Azure Media Services enables you to encrypt your content with **Google Widevine**. Media Services also provides a service for delivering Widevine licenses. You can use Azure Media Services APIs to configure Widevine licenses. When a player tries to play your Widevine-protected content, a request is sent to the license delivery service to obtain the license. If the license service approves the request, the service issues the license. It's sent to the client and is used to decrypt and play the specified content.
 
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
+
 A Widevine license request is formatted as a JSON message.  
 
->[!NOTE]
-> You can create an empty message with no values, just "{}." Then a license template is created with defaults. The default works for most cases. Microsoft-based license-delivery scenarios should always use the defaults. If you need to set the "provider" and "content_id" values, a provider must match Widevine credentials.
+
 
 ```json
 {  
@@ -56,6 +57,9 @@ A Widevine license request is formatted as a JSON message.
     }
 }
 ```
+
+>[!NOTE]
+> You can create an empty message with no values, just "{}." Then a license template is created with defaults. The default works for most cases. Microsoft-based license-delivery scenarios should always use the defaults. If you need to set the "provider" and "content_id" values, a provider must match Widevine credentials.
 
 ## JSON message
 

@@ -64,7 +64,7 @@ Click **Get Power BI Template** on the **Add cognitive skills** page to retrieve
 
 1. Click the icon with opposing arrows at the upper right side of the table to expand the *Content*. When the list of columns appears, select all columns, and then deselect columns that start with 'metadata'. Click **OK** to show the selected columns.
 
-   ![Edit tables](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Expand content")
+   ![Expand content](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Expand content")
 
 1. Change the data type for the following columns by clicking the  ABC-123 icon at the top left of the column.
 

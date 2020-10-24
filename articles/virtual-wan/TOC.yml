@@ -1,20 +1,11 @@
-- name: Virtual WAN Documentation
+- name: Virtual WAN documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Virtual WAN?
     href: virtual-wan-about.md
-  - name: Architecture
-    items: 
-    - name: Migrate to Virtual WAN
-      href: migrate-from-hub-spoke-topology.md
-    - name: Global transit network architecture
-      href: virtual-wan-global-transit-network-architecture.md
-    - name: SD-WAN connectivity architecture
-      href: sd-wan-connectivity-architecture.md
-    - name: Interconnect with China
-      href: interconnect-china.md
 - name: Tutorials
+  expanded: true
   items:
   - name: Create a site-to-site connection
     href: virtual-wan-site-to-site-portal.md
@@ -36,11 +27,21 @@
       href: virtual-wan-locations-partners.md
     - name: Automation guidelines for partners
       href: virtual-wan-configure-automation-providers.md
+  - name: Architecture
+    items: 
+    - name: Migrate to Virtual WAN
+      href: migrate-from-hub-spoke-topology.md
+    - name: Global transit network architecture
+      href: virtual-wan-global-transit-network-architecture.md
+    - name: SD-WAN connectivity architecture
+      href: sd-wan-connectivity-architecture.md
+    - name: Interconnect with China
+      href: interconnect-china.md
   - name: Routing
     items:
     - name: About virtual hub routing
       href: about-virtual-hub-routing.md
-    - name: Scenarios
+    - name: Routing scenarios
       items:
       - name: Any-to-any
         href: scenario-any-to-any.md
@@ -76,6 +77,8 @@
     href: upgrade-virtual-wan.md
   - name: Create an NVA in a virtual hub
     href: How-to-nva-hub.md
+  - name: Create a cross-tenant VNet connection
+    href: cross-tenant-vnet.md
   - name: ExpressRoute
     items:
     - name: Create an ExpressRoute connection
@@ -132,14 +135,12 @@
     items:
     - name: Install Azure Firewall in a hub
       href: howto-firewall.md
+    - name: Configure Private Link connectivity
+      href: howto-private-link.md
   - name: Monitoring
     items:
     - name: Logs and metrics
       href: logs-metrics.md
-  - name: Private Link
-    items: 
-    - name: Configure Private Link connectivity
-      href: howto-private-link.md
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -154,8 +155,6 @@
   items:
   - name: FAQ
     href: virtual-wan-faq.md
-  - name: Update announcements
-    href: https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-wan
   - name: Subscription and service limits

@@ -21,8 +21,6 @@ You can also complete this quickstart using [Azure PowerShell](quick-create-powe
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -49,6 +47,9 @@ You'll create the application gateway using the tabs on the **Create an applicat
      ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
 2. For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
+
+    > [!NOTE]
+    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
 
     Under **Configure virtual network**, create a new virtual network by selecting **Create new**. In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
 
@@ -166,7 +167,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 2. Run the following command to install IIS on the virtual machine. Change the *Location* parameter if necessary: 
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
@@ -191,7 +192,6 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 4. Under **Backend targets**, **Target type**, select **Virtual machine** from the drop-down list.
 
 5. Under **Target**, select the **myVM** and **myVM2** virtual machines and their associated network interfaces from the drop-down lists.
-
 
    > [!div class="mx-imgBorder"]
    > ![Add backend servers](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)

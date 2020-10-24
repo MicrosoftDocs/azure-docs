@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
 ---
 # Azure SQL Database and Azure Synapse Analytics connectivity architecture
@@ -25,7 +25,7 @@ This article explains architecture of various components that direct network tra
 
 The following diagram provides a high-level overview of the connectivity architecture.
 
-![architecture overview](./media/connectivity-architecture/connectivity-overview.png)
+![Diagram that shows a high-level overview of the connectivity architecture.](./media/connectivity-architecture/connectivity-overview.png)
 
 The following steps describe how a connection is established to Azure SQL Database:
 
@@ -57,7 +57,7 @@ If you are connecting from within Azure your connections have a connection polic
 
 If you are connecting from outside Azure, your connections have a connection policy of `Proxy` by default. A policy of `Proxy` means that the TCP session is established via the Azure SQL Database gateway and all subsequent packets flow via the gateway. The following diagram illustrates this traffic flow.
 
-![architecture overview](./media/connectivity-architecture/connectivity-onprem.png)
+![Diagram that shows how the TCP session is established via the Azure SQL Database gateway and all subsequent packets flow via the gateway.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
 > Additionally open TCP ports 1434 and 14000-14999 to enable [Connecting with DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
@@ -88,6 +88,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | France Central       | 40.79.137.0, 40.79.129.1 |
 | Germany Central      | 51.4.144.100       |
 | Germany North East   | 51.5.144.179       |
+| Germany West Central | 51.116.240.0, 51.116.248.0, 51.116.152.0 |
 | India Central        | 104.211.96.159     |
 | India South          | 104.211.224.146    |
 | India West           | 104.211.160.80     |

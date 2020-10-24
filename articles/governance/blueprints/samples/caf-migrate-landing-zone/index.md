@@ -1,7 +1,7 @@
 ---
 title: CAF Migration landing zone blueprint sample overview
 description: Overview and architecture of the Cloud Adoption Framework (CAF) for Azure Migration landing zone blueprint sample.
-ms.date: 04/15/2020
+ms.date: 09/14/2020
 ms.topic: sample
 ---
 # Overview of the Microsoft Cloud Adoption Framework for Azure Migration landing zone blueprint sample
@@ -20,7 +20,9 @@ to. It also helps put in place the governance controls necessary to manage their
 sample will deploy and enforce resources, policies, and templates that will allow an organization to
 confidently get started with Azure.
 
-:::image type="content" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="CAF Migration landing zone, image describes what gets installed as part of CAF guidance for initial landing zone" border="false":::
+:::image type="complex" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="C A F Migration landing zone, image describes what gets installed as part of C A F guidance for initial landing zone." border="false":::
+   Describes an Azure architecture which is achieved by deploying the C A F migration blueprint.  It's applicable to a subscription with resource groups which consists of an Azure virtual network, storage account for storing logs, Log analytics configured to store in the storage account.  It also depicts Azure Key Vault configured and Azure Migrate initial setup created.  All these core infrastructures are accessed using Azure Active directory.     
+:::image-end:::
 
 This environment is composed of several Azure services used to provide a secure, fully monitored,
 enterprise-ready governance. This environment is composed of:

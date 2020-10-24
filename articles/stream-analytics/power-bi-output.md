@@ -15,7 +15,7 @@ You can use [Power BI](https://powerbi.microsoft.com/) as an output for a Stream
 
 Power BI output from Stream Analytics is currently not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions.
 
-## Ouput configuration
+## Output configuration
 
 The following table lists property names and their descriptions to configure your Power BI output.
 
@@ -38,6 +38,9 @@ For a walkthrough of configuring a Power BI output and dashboard, see the [Azure
 Azure Stream Analytics creates a Power BI dataset and table schema for the user if they don't already exist. In all other cases, the table is updated with new values. Currently, only one table can exist within a dataset. 
 
 Power BI uses the first-in, first-out (FIFO) retention policy. Data will collect in a table until it hits 200,000 rows.
+
+> [!NOTE]
+> We do not recommend using multiple outputs to write to the same dataset because it can cause several issues. Each output tries to create the Power BI dataset independently which can result in multiple datasets with the same name. Additionally, if the outputs don't have consistent schemas, the dataset changes the schema on each write, which leads to too many schema change requests. Even if these issues are avoided, multiple outputs will be less performant than a single merged output.
 
 ### Convert a data type from Stream Analytics to Power BI
 
@@ -77,4 +80,4 @@ For output batch size, see [Power BI Rest API limits](https://msdn.microsoft.com
 * [Quickstart: Create an Azure Stream Analytics job by using an ARM template](quick-create-azure-resource-manager.md)
 * [Quickstart: Create a Stream Analytics job using Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Quickstart: Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code.md)
+* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-visual-studio-code.md)

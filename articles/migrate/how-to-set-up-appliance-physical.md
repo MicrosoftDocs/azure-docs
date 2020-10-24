@@ -55,7 +55,7 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
     - Example usage for government cloud: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Verify the latest version of the appliance, and hash values [settings](./tutorial-assess-physical.md#verify-security).
+3.  Verify the latest version of the appliance, and [hash values](tutorial-discover-physical.md#verify-security) settings.
  
 
 ## Run the Azure Migrate installer script
@@ -118,7 +118,7 @@ Set up the appliance for the first time.
    
    Sign-in with a PIN isn't supported.
 3. After you successfully logged in, go back to the web app. 
-4. If the Azure user account used for logging has the right [permissions](tutorial-prepare-physical.md) on the Azure resources created during key generation, the appliance registration will be initiated.
+4. If the Azure user account used for logging has the right [permissions](./tutorial-discover-physical.md) on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
 
 

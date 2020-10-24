@@ -165,7 +165,7 @@ To add users to your Partner Center account that already exist in your company's
 
 ### Create new users
 
-To create brand new user accounts, you must have an account with [**Global administrator**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) permissions.
+To create brand new user accounts, you must have an account with [**Global administrator**](../../active-directory/roles/permissions-reference.md) permissions.
 
 1. Go to **Users** (under **Account settings**), select **Add users**, then choose **Create new users**.
 1. Enter a first name, last name, and username for each new user. 
@@ -179,7 +179,7 @@ Creating a new user in Partner Center will also create an account for that user 
 
 ### Invite new users by email
 
-To invite users that are not currently a part of your company work account (Azure AD tenant) via email, you must have an account with [**Global administrator**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) permissions.
+To invite users that are not currently a part of your company work account (Azure AD tenant) via email, you must have an account with [**Global administrator**](../../active-directory/roles/permissions-reference.md) permissions.
 
 1. Go to **Users** (under **Account settings**), select **Add users**, then choose **Invite users by email**.
 2. Enter one or more email addresses (up to 10), separated by commas or semicolons.
@@ -199,7 +199,7 @@ To remove a user from your work account (Azure AD tenant), go to **Users** (unde
 
 ### Change a user password
 
-If one of your users needs to change their password, they can do so themselves if you provided a **Password recovery email** when creating the user account. You can also update a user's password by following the steps below. To change a user's password in your company work account (Azure AD tenant), you must be signed in on an account with [**Global administrator**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) permissions. This will change the user's password in your Azure AD tenant, along with the password they use to access Partner Center.
+If one of your users needs to change their password, they can do so themselves if you provided a **Password recovery email** when creating the user account. You can also update a user's password by following the steps below. To change a user's password in your company work account (Azure AD tenant), you must be signed in on an account with [**Global administrator**](../../active-directory/roles/permissions-reference.md) permissions. This will change the user's password in your Azure AD tenant, along with the password they use to access Partner Center.
 
 1. From the **Users** page (under **Account settings**), select the name of the user account that you want to edit.
 2. Select the **Reset password** button at the bottom of the page.
@@ -301,7 +301,7 @@ For more information about managing roles and permissions in other areas of Part
 
 ## Manage tenants
 
-An Azure Active Directory (AD) tenant, also referred to as your "work account" throughout this documentation, is a representation of your organization set up in the Azure portal and helps you to manage a specific instance of Microsoft cloud services for your internal and external users. If your organization subscribed to a Microsoft cloud service, such as Azure, Microsoft Intune, or Office 365, an Azure AD tenant was established for you.
+An Azure Active Directory (AD) tenant, also referred to as your "work account" throughout this documentation, is a representation of your organization set up in the Azure portal and helps you to manage a specific instance of Microsoft cloud services for your internal and external users. If your organization subscribed to a Microsoft cloud service, such as Azure, Microsoft Intune, or Microsoft 365, an Azure AD tenant was established for you.
 
 You can set up multiple tenants to use with Partner Center. Any user with the **Manager** role in the Partner Center account will have the option to add and remove Azure AD tenants from the account.  
 

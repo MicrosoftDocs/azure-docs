@@ -111,17 +111,23 @@ You can always return to Autoscale by clicking **Enable autoscale** and then **S
 
 When you are scaled out to multiple instances, App Service can perform health checks on your instances to route traffic only to the healthy instances. To do so, open the Portal to your App Service, then select **Health check** under **Monitoring**. Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`. Click **Save**.
 
+To enable the feature with ARM templates, set the `healthcheckpath` property of the `Microsoft.Web/sites` resource to the health check path on your site, for example: `"/api/health/"`. To disable the feature, set the property back to the empty string, `""`.
+
 ### Health check path
 
-The path must respond within two minutes with a status code between 200 and 299 (inclusive). If the path does not respond within two minutes, or returns a status code outside the range, then the instance is considered "unhealthy". Health Check integrates with App Service's authentication and authorization features, the system will reach the endpoint even if these secuity features are enabled. If you are using your own authentication system, the health check path must allow anonymous access. If the site has HTTP**S** enabled, then the healthcheck will honor HTTP**S** and send the request using that protocol.
+The path must respond within one minute with a status code between 200 and 299 (inclusive). If the path does not respond within one minute, or returns a status code outside the range, then the instance is considered "unhealthy". App Service does not follow 302 redirects on the health check path. Health Check integrates with App Service's authentication and authorization features, the system will reach the endpoint even if these secuity features are enabled. If you are using your own authentication system, the health check path must allow anonymous access. If the site has HTTP**S**-Only  enabled, the healthcheck request will be sent via HTTP**S**.
 
 The health check path should check the critical components of your application. For example, if your application depends on a database and a messaging system, the health check endpoint should connect to those components. If the application cannot connect to a critical component, then the path should return a 500-level response code to indicate that the app is unhealthy.
+
+#### Security 
+
+Development teams at large enterprises often need to adhere to security requirements for their exposed APIs. To secure the healthcheck endpoint, you should first use features such as [IP restrictions](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), [client certificates](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), or a Virtual Network to restrict access to the application. You can secure the healthcheck endpoint itself by requiring that the `User-Agent` of the incoming request matches `ReadyForRequest/1.0`. The User-Agent cannot be spoofed since the request was already secured by the prior security features.
 
 ### Behavior
 
 When the health check path is provided, App Service will ping the path on all instances. If a successful response code is not received after 5 pings, that instance is considered "unhealthy". Unhealthy instance(s) will be excluded from the load balancer rotation. Furthermore, when you are scaling up or out, App Service will ping the health check path to ensure that the new instances are ready for requests.
 
-The remaining healthy instances may experience increased load. To avoid overwhelming the remaining instances, no more than half of your instances will be excluded. For example, if an App Service Plan is scaled out to 4 instances and 3 of which are unhealthy, at most 2 will be excluded from the loadbalancer rotation. The other 2 instances (1 healthy and 1 unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded.
+The remaining healthy instances may experience increased load. To avoid overwhelming the remaining instances, no more than half of your instances will be excluded. For example, if an App Service Plan is scaled out to 4 instances and 3 of which are unhealthy, at most 2 will be excluded from the loadbalancer rotation. The other 2 instances (1 healthy and 1 unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded.If you would like to override this behavior, you can set the `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` app setting to a value between `0` and `100`. Setting this to a higher value means more unhealthy instances will be removed (the default value is 50).
 
 If an instance remains unhealthy for one hour, it will be replaced with new instance. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
 

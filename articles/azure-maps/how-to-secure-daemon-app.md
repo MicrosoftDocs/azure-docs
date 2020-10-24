@@ -5,7 +5,7 @@ description: Use the Azure portal to manage authentication to configure a truste
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
@@ -115,14 +115,14 @@ You grant *Azure role-based access control (Azure RBAC)* by assigning either the
     > ![Grant access using Azure RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. On the **Role assignments** tab, **Add** a role assignment. 
-    
+
     > [!div class="mx-imgBorder"]
-    > ![Add role assignment](./media/how-to-manage-authentication/add-role-assignment.png)
+    > ![Screenshot shows the roll assignments with Add selected.](./media/how-to-manage-authentication/add-role-assignment.png)
 
 3. Select a built-in Azure Maps role definition such as **Azure Maps Data Reader** or **Azure Maps Data Contributor**. Under **Assign access to**, select **Azure AD user, group, or service principal** or Managed Identity with **User assigned managed identity** / **System assigned Managed identity**. Select the principal. Then select **Save**.
 
     > [!div class="mx-imgBorder"]
-    > ![Add role assignment](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
+    > ![How to add role assignment](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
 
 4. You can confirm the role assignment was applied on the role assignment tab.
 

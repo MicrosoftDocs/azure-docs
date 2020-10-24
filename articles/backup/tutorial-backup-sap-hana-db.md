@@ -60,7 +60,7 @@ Private endpoints allow you to connect securely from servers inside a virtual ne
 
 ### NSG tags
 
-If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/security-overview.md#service-tags) for *Azure AD* and *Azure Storage*.  The following steps describe the process to create a rule for the Azure Backup tag:
+If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*). The following steps describe the process to create a rule for the Azure Backup tag:
 
 1. In **All Services**, go to **Network security groups** and select the network security group.
 
@@ -68,9 +68,9 @@ If you use Network Security Groups (NSG), use the *AzureBackup* service tag to a
 
 1. Select **Add**. Enter all the required details for creating a new rule as described in [security rule settings](../virtual-network/manage-network-security-group.md#security-rule-settings). Ensure the option **Destination** is set to *Service Tag* and **Destination service tag** is set to *AzureBackup*.
 
-1. Click **Add**  to save the newly created outbound security rule.
+1. Select **Add**  to save the newly created outbound security rule.
 
-You can similarly create NSG outbound security rules for Azure Storage and Azure AD. For more information on service tags, see [this article](../virtual-network/service-tags-overview.md).
+You can similarly create [NSG outbound security rules](../virtual-network/network-security-groups-overview.md#service-tags) for Azure Storage and Azure AD. For more information on service tags, see [this article](../virtual-network/service-tags-overview.md).
 
 ### Azure Firewall tags
 
@@ -160,11 +160,11 @@ The Recovery Services vault is now created.
 
 ## Discover the databases
 
-1. In the vault, in **Getting Started**, click **Backup**. In **Where is your workload running?**, select **SAP HANA in Azure VM**.
-2. Click **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region. You'll see the Azure VM that you want to protect.
-3. In **Select Virtual Machines**, click the link to download the script that provides permissions for the Azure Backup service to access the SAP HANA VMs for database discovery.
+1. In the vault, in **Getting Started**, select **Backup**. In **Where is your workload running?**, select **SAP HANA in Azure VM**.
+2. Select **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region. You'll see the Azure VM that you want to protect.
+3. In **Select Virtual Machines**, select the link to download the script that provides permissions for the Azure Backup service to access the SAP HANA VMs for database discovery.
 4. Run the script on the VM hosting SAP HANA database(s) that you want to back up.
-5. After running the script on the VM, in **Select Virtual Machines**, select the VM. Then click **Discover DBs**.
+5. After running the script on the VM, in **Select Virtual Machines**, select the VM. Then select **Discover DBs**.
 6. Azure Backup discovers all SAP HANA databases on the VM. During discovery, Azure Backup registers the VM with the vault, and installs an extension on the VM. No agent is installed on the database.
 
    ![Discover the databases](./media/tutorial-backup-sap-hana-db/database-discovery.png)
@@ -173,11 +173,11 @@ The Recovery Services vault is now created.
 
 Now that the databases we want to back up are discovered, let's enable backup.
 
-1. Click **Configure Backup**.
+1. Select **Configure Backup**.
 
    ![Configure backup](./media/tutorial-backup-sap-hana-db/configure-backup.png)
 
-2. In **Select items to back up**, select one or more databases that you want to protect, and then click **OK**.
+2. In **Select items to back up**, select one or more databases that you want to protect, and then select **OK**.
 
    ![Select items to back up](./media/tutorial-backup-sap-hana-db/select-items-to-backup.png)
 
@@ -185,9 +185,9 @@ Now that the databases we want to back up are discovered, let's enable backup.
 
    ![Choose backup policy](./media/tutorial-backup-sap-hana-db/backup-policy.png)
 
-4. After creating the policy, on the **Backup menu**, click **Enable backup**.
+4. After creating the policy, on the **Backup menu**, select **Enable backup**.
 
-   ![Click Enable backup](./media/tutorial-backup-sap-hana-db/enable-backup.png)
+   ![Select Enable backup](./media/tutorial-backup-sap-hana-db/enable-backup.png)
 
 5. Track the backup configuration progress in the **Notifications** area of the portal.
 
@@ -214,7 +214,7 @@ Specify the policy settings as follows:
    * Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered each day.
    * The backup for a specific day is tagged and retained based on the weekly retention range and setting.
    * The monthly and yearly retention ranges behave in a similar way.
-4. In the **Full Backup policy** menu, click **OK** to accept the settings.
+4. In the **Full Backup policy** menu, select **OK** to accept the settings.
 5. Then select **Differential Backup** to add a differential policy.
 6. In **Differential Backup policy**, select **Enable** to open the frequency and retention controls. We've enabled a differential backup every **Sunday** at **2:00 AM**, which is retained for **30 days**.
 
@@ -224,7 +224,7 @@ Specify the policy settings as follows:
    >Incremental backups aren't currently supported.
    >
 
-7. Click **OK** to save the policy and return to the main **Backup policy** menu.
+7. Select **OK** to save the policy and return to the main **Backup policy** menu.
 8. Select **Log Backup** to add a transactional log backup policy,
    * **Log Backup** is by default set to **Enable**. This can't be disabled as SAP HANA manages all log backups.
    * We've set **2 hours** as the Backup schedule and **15 days** of retention period.
@@ -235,8 +235,8 @@ Specify the policy settings as follows:
    > Log backups only begin to flow after one successful full backup is completed.
    >
 
-9. Click **OK** to save the policy and return to the main **Backup policy** menu.
-10. After you finish defining the backup policy, click **OK**.
+9. Select **OK** to save the policy and return to the main **Backup policy** menu.
+10. After you finish defining the backup policy, select **OK**.
 
 You've now successfully configured backup(s) for your SAP HANA database(s).
 

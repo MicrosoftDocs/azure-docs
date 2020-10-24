@@ -1,8 +1,8 @@
 ---
 title: Use different attestation mechanisms with the Azure IoT Hub Device Provisioning Service Client SDK
 description: Azure How to - How to use different attestation mechanisms with the Device Provisioning Service (DPS) Client SDK in Azure
-author: robinsh
-ms.author: robinsh
+author: wesmc7777
+ms.author: wesmc
 ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: iot-dps
@@ -11,7 +11,7 @@ ms.custom:  [mvc, amqp]
 ---
 # How to use different attestation mechanisms with Device Provisioning Service Client SDK for C
 
-This article shows you how to use different [attestation mechanisms](concepts-security.md#attestation-mechanism) with the Device Provisioning Service Client SDK for C. You can use either a physical device or a simulator. The provisioning service supports authentication for two types of attestation mechanisms: X.509 and Trusted Platform Module (TPM).
+This article shows you how to use different [attestation mechanisms](concepts-service.md#attestation-mechanism) with the Device Provisioning Service Client SDK for C. You can use either a physical device or a simulator. The provisioning service supports authentication for two types of attestation mechanisms: X.509 and Trusted Platform Module (TPM).
 
 ## Prerequisites
 
@@ -21,11 +21,11 @@ Prepare your development environment according to the section titled "Prepare th
 
 As a device manufacturer, you first need to choose an attestation mechanism based on one of the supported types. Currently, the [Device Provisioning Service client SDK for C](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) provides support for the following attestation mechanisms: 
 
-- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM is an established standard for most Windows-based device platforms, as well as a few Linux/Ubuntu based devices. As a device manufacturer, you may choose this attestation mechanism if you have either of these OSes running on your devices, and you are looking for an established standard. With TPM chips, you can only enroll each device individually to the Device Provisioning Service. For development purposes, you can use the TPM simulator on your Windows or Linux development machine.
+- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM is an established standard for most Windows-based device platforms, as well as a few Linux/Ubuntu based devices. As a device manufacturer, you may choose this attestation mechanism if you have either of these operating systems running on your devices, and you are looking for an established standard. With TPM chips, you can only enroll each device individually to the Device Provisioning Service. For development purposes, you can use the TPM simulator on your Windows or Linux development machine.
 
-- [X.509](https://cryptography.io/en/latest/x509/): X.509 certificates can be stored in relatively newer chips called [Hardware Security Modules (HSM)](concepts-security.md#hardware-security-module). Work is also progressing within Microsoft, on RIoT or DICE chips, which implement the X.509 certificates. With X.509 chips, you can do bulk device enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the Device Provisioning Service client SDK supports an X.509 device simulator. 
+- [X.509](https://cryptography.io/en/latest/x509/): X.509 certificates can be stored in relatively newer chips called [Hardware Security Modules (HSM)](concepts-service.md#hardware-security-module). Work is also progressing within Microsoft, on RIoT or DICE chips, which implement the X.509 certificates. With X.509 chips, you can do bulk device enrollment in the portal. It also supports certain non-Windows OSes like embedOS. For development purpose, the Device Provisioning Service client SDK supports an X.509 device simulator. 
 
-For more information, see IoT Hub Device Provisioning Service [security concepts](concepts-security.md) and [auto-provisioning concepts](/azure/iot-dps/concepts-auto-provisioning).
+For more information, see IoT Hub Device Provisioning Service [attestation mechanisms](concepts-service.md#attestation-mechanism).
 
 ## Enable authentication for supported attestation mechanisms
 

@@ -13,7 +13,7 @@ ms.date: 05/26/2020
 ---
 # Apply Image Transformation 
 
-This article describes how to use the Apply Image Transformation module in Azure Machine Learning designer (preview), to modify an input image directory based on a previously specified image transformation.  
+This article describes how to use the Apply Image Transformation module in Azure Machine Learning designer, to modify an input image directory based on a previously specified image transformation.  
 
 You need to connect an [Init Image Transformation](init-image-transformation.md) module to specify the transformation, and then you can apply such transformation to the input image directory of the Apply Image Transformation module.
 

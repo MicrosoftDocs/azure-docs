@@ -7,12 +7,15 @@ ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 08/14/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
 # Customer intent: As a data analyst or developer, I want to learn how to create an Azure Time Series Insights environment so that I can use Azure Time Series Insights queries to understand device behavior.
 ---
 
 # Tutorial: Create an Azure Time Series Insights Gen1 environment
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 This tutorial guides you through the process of creating an Azure Time Series Insights environment that's populated with data from simulated devices. In this tutorial, you learn how to:
 
@@ -29,7 +32,7 @@ This tutorial guides you through the process of creating an Azure Time Series In
 
 ## Prerequisites
 
-* Your Azure sign-in account also must be a member of the subscription's **Owner** role. For more information, read [Manage access by using role-based access control and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+* Your Azure sign-in account also must be a member of the subscription's **Owner** role. For more information, read [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Review video
 

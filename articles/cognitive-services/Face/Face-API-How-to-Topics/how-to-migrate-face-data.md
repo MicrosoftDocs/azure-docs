@@ -233,4 +233,3 @@ Next, see the relevant API reference documentation, explore a sample app that us
 - [Face snapshot sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Add faces](how-to-add-faces.md)
 - [Detect faces in an image](HowtoDetectFacesinImage.md)
-- [Identify faces in an image](HowtoIdentifyFacesinImage.md)

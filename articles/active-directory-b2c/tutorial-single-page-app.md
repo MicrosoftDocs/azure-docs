@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.author: mimart
 ms.date: 04/04/2020
-ms.custom: mvc, seo-javascript-september2019, devx-track-javascript
+ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Enable authentication in a single-page application with Azure AD B2C
 
-This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign up and sign in users in a single-page application (SPA).
+This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign up and sign in users in a single-page application (SPA) using the OAuth 2.0 implicit grant flow.
 
 In this tutorial, the first in a two-part series:
 
@@ -35,7 +35,7 @@ The [next tutorial](tutorial-single-page-app-webapi.md) in the series enables th
 You need the following Azure AD B2C resources in place before continuing with the steps in this tutorial:
 
 * [Azure AD B2C tenant](tutorial-create-tenant.md)
-* [Application registered](tutorial-register-applications.md) in your tenant
+* [Application registered](tutorial-register-spa.md) in your tenant (use implicit flow options)
 * [User flows created](tutorial-create-user-flows.md) in your tenant
 
 Additionally, you need the following in your local development environment:
@@ -56,7 +56,7 @@ To update an application in your Azure AD B2C tenant, you can use our new unifie
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **App registrations**, select the **Owned applications** tab, and then select the *webapp1* application.
 1. Under **Web**, select the **Add URI** link, enter `http://localhost:6420`.
-1. Under **Implicit Grant**, select the checkboxes for **Access Tokens** and **ID Tokens** and then select **Save**.
+1. Under **Implicit Grant**, select the checkboxes for **Access Tokens** and **ID Tokens** if not already selected and then select **Save**.
 1. Select **Overview**.
 1. Record the **Application (client) ID** for use in a later step when you update the code in the single-page web application.
 

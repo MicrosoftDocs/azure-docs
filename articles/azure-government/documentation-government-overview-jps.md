@@ -1,6 +1,6 @@
 ---
 title: Azure Government JPS Overview | Microsoft Docs
-description: This provides a comparison of features and guidance on developing applications for Azure Government
+description: Learn about features and guidance on developing applications for Justice and Public Safety (JPS) in Azure Government.
 services: azure-government
 cloud: gov
 documentationcenter: ''

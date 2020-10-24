@@ -17,16 +17,16 @@ Consulting service offers are customer-specific engagements. Publishers have the
 
 ## Compare consulting services
 
-The commercial marketplace online stores, Microsoft AppSource and Azure Marketplace, are aligned with audiences and cloud products to help customers find what they need. Each online store has specialized publishing options to help you maximize your publishing investment. To learn more about the difference between the two online stores, see [Comparing Microsoft AppSource and Azure Marketplace](comparing-appsource-azure-marketplace.md).
+The commercial marketplace online stores, Microsoft AppSource and Azure Marketplace, are aligned with solution types and cloud products to help customers find what they need. Each online store has specialized publishing options to help you maximize your publishing investment. To learn more about the differences between the AppSource and Azure Marketplace, see [Commercial marketplace online stores](overview.md#commercial-marketplace-online-stores).
 
 Consulting services offers that are based on Dynamics 365, Power Apps, and Power BI are eligible to be listed on AppSource. For more information, download the [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) PDF file.
 
 Consulting services and managed services offers that are based on Microsoft Azure are eligible to be listed on Azure Marketplace. For more information, see [Publish an Azure consulting service offer](./partner-center-portal/create-consulting-service-offer.md) and [Publish a managed services offer to Azure Marketplace](../lighthouse/how-to/publish-managed-services-offers.md).
 
 > [!Note]
-> Consulting services in Azure Marketplace should focus on offers for a technical audience and emphasize Azure technical solutions and services.
+> Consulting services in Azure Marketplace should focus on Azure technical solutions and services.
 >
-> Consulting services in AppSource should focus on offers for users with expertise in delivering quality solutions for Dynamics 365, Power BI, or Power Apps.
+> Consulting services in AppSource should focus on business solutions for Dynamics 365, Power BI, or Power Apps.
  
 > [!TIP]
 > To publish to Azure Marketplace, in the Partner Center **Primary Product** drop-down list, select **Azure**.
@@ -126,7 +126,7 @@ Offers must be of least one of the following five service types:
 > * **In person** – Onsite at a customer's location or a partner's facility.
 > * **Virtually** – Via teleconferencing, web conferencing, or remote implementation.
 
-After you've configured the previously listed required elements, the content review team will validate that your offer description is informative and complete for your target audience. 
+After you've configured the previously listed required elements, the content review team will validate that your offer description is informative and complete. 
 
 ### The listing title
 
@@ -166,9 +166,5 @@ Here are some Markdown tips:
 
 ## Next steps
 
-If you haven't already done so, learn how to [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-
-To register for and start working in Partner Center:
-
-* [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-* See [Create a consulting service offer](./partner-center-portal/create-consulting-service-offer.md) for more information.
+- [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+- [Create a consulting service offer](./partner-center-portal/create-consulting-service-offer.md)

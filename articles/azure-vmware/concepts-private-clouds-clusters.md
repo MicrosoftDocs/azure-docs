@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ---
 
-# Azure VMware Solution Preview private cloud and cluster concepts
+#  Azure VMware Solution private cloud and cluster concepts
 
 The Azure VMware Solution delivers VMware-based private clouds in Azure. The private clouds are built from clusters of dedicated bare-metal hosts and are deployed and managed through the Azure portal. Clusters in private clouds are provisioned with VMware vSphere, vCenter, vSAN, and NSX software. Azure VMware Solution private cloud hardware and software deployments are fully integrated and automated in Azure.
 
-There's a logical relationship between Azure subscriptions, Azure VMware Solution private clouds, vSAN clusters, and hosts. In the diagram, two private clouds in a single Azure subscription are shown. Private clouds represent a development and a production environment, each with their own private cloud. In each of those private clouds there are two clusters. To show the lower potential needs of a development environment, smaller clusters with lower capacity hosts are used. All of these concepts are described in the sections below.
+There's a logical relationship between Azure subscriptions, Azure VMware Solution private clouds, vSAN clusters, and hosts. In the diagram, two private clouds in a single Azure subscription are shown. Private clouds represent a development and a production environment, each with their own private cloud. In each of those private clouds, there are two clusters. To show the lower potential needs of a development environment, smaller clusters with lower capacity hosts are used. All of these concepts are described in the sections below.
 
 ![Image of two private clouds in a customer subscription](./media/hosts-clusters-private-clouds-final.png)
 
@@ -56,7 +56,7 @@ The general upgrade policies and processes for the Azure VMware Solution platfor
 
 Host maintenance and lifecycle management are done without impact on the capacity or performance of private cloud clusters. Examples of automated host maintenance include firmware upgrades and hardware repair or replacement.
 
-Microsoft is responsible for lifecycle management of NSX-T appliances such as NSX-T Manager and NSX-T Edge. Microsoft is also responsible for bootstrapping network config, such as creating the Tier-0 gateway and enabling North-South Routing. As an administrator to your Azure VMware Solution private cloud, you are responsible for NSX-T SDN configuration like network segments, distributed firewall rules, Tier 1 gateways, and load balancers.
+Microsoft is responsible for lifecycle management of NSX-T appliances such as NSX-T Manager and NSX-T Edge. Microsoft is also responsible for bootstrapping network config, such as creating the Tier-0 gateway and enabling North-South Routing. As an administrator to your Azure VMware Solution private cloud, you are responsible for NSX-T SDN configuration. For example, network segments, distributed firewall rules, Tier 1 gateways, and load balancers.
 
 > [!IMPORTANT]
 > An Azure VMware Solution admin must not modify the configuration of NSX-T Edge or Tier-0 Gateway. This may result in a loss of service.

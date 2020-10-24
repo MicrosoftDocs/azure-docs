@@ -74,7 +74,19 @@ For line charts, bar charts, and pie charts, you can customize the color of the 
 
 For tiles that show string properties or telemetry values, you can choose how to display the text. For example, if the device stores a URL in a string property, you can display it as a clickable link. If the URL references an image, you can render the image in a last known value or property tile. To change how a string displays, in the tile configuration select the gear icon next to the telemetry type or property:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Chane how a string displays on a tile":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Change how a string displays on a tile":::
+
+For numeric **KPI**, **Last Known Value**, and **Property** tiles you can use conditional formatting to customize the color of the tile based on its current value. To add conditional formatting, select **Configure** on the tile and then select the **Conditional formatting** icon next to the value to customize:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Screenshot showing how to find the configure option for a tile and then the conditional formatting icon":::
+
+Add your conditional formatting rules:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot showing conditional formatting rules for average flow. There are three rules - less tha 20 is green, less than 50 is yellow, and anything over 50 is red":::
+
+The following screenshot shows the effect of the conditional formatting rule:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot showing the yellow background color on the Average water flow tile. The number on the tile is 40.84":::
 
 ## Next steps
 

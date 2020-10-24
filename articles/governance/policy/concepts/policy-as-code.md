@@ -1,10 +1,10 @@
 ---
-title: Design Policy as Code workflows
+title: Design Azure Policy as Code workflows
 description: Learn to design workflows to deploy your Azure Policy definitions as code and automatically validate resources.
-ms.date: 08/27/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
 ---
-# Design Policy as Code workflows
+# Design Azure Policy as Code workflows
 
 As you progress on your journey with Cloud Governance, you'll want to shift from manually managing
 each policy definition in the Azure portal or through the various SDKs to something more manageable
@@ -17,7 +17,7 @@ in the cloud are:
 - DevOps: The union of people, process, and products to enable continuous delivery of value to our
   end users.
 
-Policy as Code is the combination of these ideas. Essentially, keep your policy definitions in
+Azure Policy as Code is the combination of these ideas. Essentially, keep your policy definitions in
 source control and whenever a change is made, test, and validate that change. However, that
 shouldn't be the extent of policies involvement with Infrastructure as Code or DevOps.
 
@@ -29,8 +29,8 @@ before it's too late and they're attempting to deploy in production.
 
 ## Definitions and foundational information
 
-Before getting into the details of Policy as Code workflow, review the following definitions and
-examples:
+Before getting into the details of Azure Policy as Code workflow, review the following definitions
+and examples:
 
 - [Policy definition](./definition-structure.md)
 - [Initiative definition](./initiative-definition-structure.md)
@@ -47,11 +47,17 @@ Examples of these file formats are available in the
 - Policy definition: [Add a tag to resources](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Initiative definition: [Billing Tags](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
 
+Also, review [Export Azure Policy resources](../how-to/export-resources.md) to get your existing
+definitions and assignments into the source code management environment
+[GitHub](https://www.github.com).
+
 ## Workflow overview
 
-The recommended general workflow of Policy as Code looks like this diagram:
+The recommended general workflow of Azure Policy as Code looks like this diagram:
 
-:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Policy as Code workflow overview" border="false":::
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagram showing Azure Policy as Code workflow boxes from Create to Test to Deploy." border="false":::
+   The diagram showing the Azure Policy as Code workflow boxes. Create covers creation of the policy and initiative definitions. Test covers assignment with enforcement mode disabled. A gateway check for the compliance status is followed by granting the assignments M S I permissions and remediating resources.  Deploy covers updating the assignment with enforcement mode enabled.
+:::image-end:::
 
 ### Create and update policy definitions
 
@@ -63,22 +69,19 @@ in source control.
 ```text
 .
 |
-|- policies/  ________________________ # Root folder for policies
+|- policies/  ________________________ # Root folder for policy resources
 |  |- policy1/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
-|
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |  |- policy2/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |
 ```
 
@@ -101,17 +104,15 @@ definitions in source control:
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 |  |- init2/ _________________________ # Subfolder for an initiative
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 ```
 
@@ -138,8 +139,10 @@ specifically for validating policies.
 > REST API calls, compliant and non-compliant resources, and edge cases like a property missing from
 > the resource.
 
-After the assignment is deployed, use the Policy SDK or the
-[Azure Policy Compliance Scan GitHub Action](https://github.com/marketplace/actions/azure-policy-compliance-scan)
+After the assignment is deployed, use the Azure Policy SDK, the
+[Azure Policy Compliance Scan GitHub Action](https://github.com/marketplace/actions/azure-policy-compliance-scan),
+or the
+[Azure Pipelines Security and Compliance Assessment task](/azure/devops/pipelines/tasks/deploy/azure-policy)
 to [get compliance data](../how-to/get-compliance-data.md) for the new assignment. The environment
 used to test the policies and assignments should have both compliant and non-compliant resources.
 Like a good unit test for code, you want to test that resources are as expected and that you also
@@ -181,10 +184,10 @@ resources.
 
 ## Process integrated evaluations
 
-The general workflow for Policy as Code is for developing and deploying policies and initiatives to
-an environment at scale. However, policy evaluation should be part of the deployment process for any
-workflow that deploys or creates resources in Azure, such as deploying applications or running ARM
-templates to create infrastructure.
+The general workflow for Azure Policy as Code is for developing and deploying policies and
+initiatives to an environment at scale. However, policy evaluation should be part of the deployment
+process for any workflow that deploys or creates resources in Azure, such as deploying applications
+or running ARM templates to create infrastructure.
 
 In these cases, after the application or infrastructure deployment is done to a test subscription or
 resource group, policy evaluation should be done for that scope checking validation of all existing
@@ -195,9 +198,11 @@ workflows, and fail deployments that create non-compliant resources.
 
 ## Review
 
-This article covers the general workflow for Policy as Code and also where policy evaluation should
-be part of other deployment workflows. This workflow can be used in any environment that supports
-scripted steps and automation based on triggers.
+This article covers the general workflow for Azure Policy as Code and also where policy evaluation
+should be part of other deployment workflows. This workflow can be used in any environment that
+supports scripted steps and automation based on triggers. For a tutorial on using this workflow on
+GitHub, see
+[Tutorial: Implement Azure Policy as Code with GitHub](../tutorials/policy-as-code-github.md).
 
 ## Next steps
 

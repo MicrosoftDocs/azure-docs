@@ -110,7 +110,7 @@ You can now seamlessly upgrade to the SQL pool Compute Optimized Gen2 tier in th
 
    > [!NOTE]
    > If you do not see the **Upgrade to Gen2** card under the Tasks tab, your subscription type is limited in the current region.
-   > [Submit a support ticket](sql-data-warehouse-get-started-create-support-ticket.md) to get your subscription whitelisted.
+   > [Submit a support ticket](sql-data-warehouse-get-started-create-support-ticket.md) to get your subscription approved.
 
 3. Ensure your workload has completed running and quiesced before upgrading. You'll experience downtime for a few minutes before your SQL pool is back online as a Compute Optimized Gen2 tier SQL pool. **Select Upgrade**:
 

@@ -21,6 +21,14 @@ Customers will be notified via email and in the Azure portal well in advance of 
 ## Status updates
 
 # [In progress](#tab/in-progress-ip)
+### October 2020
+
+New SQL Gateways are being added to the following regions:
+
+- Germany West Central : 51.116.240.0, 51.116.248.0
+
+These SQL Gateways shall start accepting customer traffic on 12 October 2020. 
+
 ### September 2020
 New SQL Gateways are being added to the following regions. These SQL Gateways shall start accepting customer traffic on **15 September 2020**:
 
@@ -94,7 +102,8 @@ You may be impacted if you:
 
 - Hard coded the IP address for any particular gateway in your on-premises firewall
 - Have any subnets using Microsoft.SQL as a Service Endpoint but cannot communicate with the gateway IP addresses
-- Use the [zone redundant configuration](high-availability-sla.md#zone-redundant-configuration) for your database
+- Use the [zone redundant configuration for general purpose tier](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+- Use the [zone redundant configuration for premium & business critical tiers](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
 
 You will not be impacted if you have:
  

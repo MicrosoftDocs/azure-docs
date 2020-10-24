@@ -3,11 +3,11 @@ title: Connectivity settings for Azure SQL Database and Data Warehouse
 description: This document explains Transport Layer Security (TLS) version choice and Proxy vs. Redirect setting for Azure SQL Database and Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
-titleSuffix: Azure SQL Database and SQL Data Warehouse
-ms.topic: conceptual
+titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)
+ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
 ---
 
@@ -17,7 +17,7 @@ ms.date: 07/06/2020
 This article introduces settings that control connectivity to the server for Azure SQL Database and Azure Synapse Analytics. These settings apply to **all** SQL Database and Azure Synapse databases associated with the server.
 
 > [!IMPORTANT]
-> This article does *not* apply to **Azure SQL Managed Instance**
+> This article does *not* apply to **Azure SQL Managed Instance**.
 
 The connectivity settings are accessible from the **Firewalls and virtual networks** screen as shown in the following screenshot:
 
@@ -33,6 +33,9 @@ When **Deny public network access** setting is set to **Yes**, only connections 
  ![Screenshot of connectivity with deny public network access][2]
 
 Any attempts to set **Deny public network access** setting to **Yes** without any existing private endpoints at the logical server will fail with an error message similar to:  
+
+> [!NOTE]
+> To define virtual network firewall rules on a logical server that's already configured with private endpoints, set **Deny public network access** to **No**.
 
 ```output
 Error 42102
@@ -71,7 +74,7 @@ The following PowerShell script shows how to `Get` and `Set` the **Public Networ
 # Update Public Network Access to Disabled
 $SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
 
-Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Enabled"
+Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Disabled"
 ```
 
 ## Change Public Network Access via CLI

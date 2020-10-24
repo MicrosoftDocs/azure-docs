@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Deploy ML models with the designer (preview)'
+title: 'Tutorial: Deploy ML models with the designer'
 titleSuffix: Azure Machine Learning
-description: This tutorial shows you how to build a predictive analytics solution in Azure Machine Learning designer (preview). Train, score, and deploy a machine learning model by using drag-and-drop modules.
+description: This tutorial shows you how to build a predictive analytics solution in Azure Machine Learning designer. Train, score, and deploy a machine learning model by using drag-and-drop modules.
 
 author: peterclu
 ms.author: peterlu
@@ -13,8 +13,8 @@ ms.date: 06/28/2020
 ms.custom: designer
 ---
 
-# Tutorial: Deploy a machine learning model with the designer (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# Tutorial: Deploy a machine learning model with the designer
+
 
 You can deploy the predictive model developed in [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to give others a chance to use it. In part one, you trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you will:
 
@@ -57,7 +57,7 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
 
 1. Select **Submit**, and use the same compute target and experiment that you used in part one.
 
-    If is the first run, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each module to further improve efficiency.
+    If this is the first run, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each module to further improve efficiency.
 
 1. Select **Deploy**.
 
@@ -99,21 +99,17 @@ After your AKS service has finished provisioning, return to the real-time infere
 
     A success notification above the canvas appears after deployment finishes. It might take a few minutes.
 
-## Test the real-time endpoint
+## View the real-time endpoint
 
-After deployment finishes, you can test your real-time endpoint by going to the **Endpoints** page.
+After deployment finishes, you can view your real-time endpoint by going to the **Endpoints** page.
 
 1. On the **Endpoints** page, select the endpoint you deployed.
 
-    ![Screenshot showing the real-time endpoints tab with the recently created endpoint highlighted](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
+1. In the **Details** tab, you can see more information such as the REST URI, status, and tags.
 
-1. Select **Test**.
+1. In the **Consume** tab, you can find security keys and set authentication methods.
 
-1. You can manually input testing data or use the autofilled sample data, and select **Test**.
-
-    The portal submits a test request to the endpoint and shows the results. Although a price value is generated for the input data, it isn't used to generate the prediction value.
-
-    ![Screenshot showing how to test the real-time endpoint with the scored label for price highlighted](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
+For more information on consuming your web service, see [Consume a model deployed as a webservice](how-to-consume-web-service.md)
 
 ## Clean up resources
 

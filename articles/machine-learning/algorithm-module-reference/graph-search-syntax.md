@@ -44,7 +44,7 @@ Graph search uses Lucene simple query as full-text search syntax on node "name" 
  
 - Wildcard matching: 
     - `machi?e learning`
-    -   `mach*ing`
+    - `mach*ing`
  
 >[!NOTE]
 > You cannot start a Lucene query with a "*" character.
@@ -54,7 +54,7 @@ Graph search uses Lucene simple query as full-text search syntax on node "name" 
  
 Filter queries use the following pattern:
  
-    **[key1] [operator1] [value1]; [key2] [operator1] [value2];**
+`**[key1] [operator1] [value1]; [key2] [operator1] [value2];**`
 
  
 You can use the following node properties as keys:

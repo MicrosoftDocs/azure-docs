@@ -38,7 +38,7 @@ There are a number of benefits to the Hybrid Connections capability, including:
 - It normally does not require firewall holes. The connections are all outbound over standard web ports.
 - Because the feature is network level, it is agnostic to the language used by your app and the technology used by the endpoint.
 - It can be used to provide access in multiple networks from a single app. 
-- It is supported in GA for Windows apps and is in preview for Linux apps.
+- It is supported in GA for Windows native apps and is in preview for Linux apps. It is not supported for Windows container apps.
 
 ### Things you cannot do with Hybrid Connections ###
 

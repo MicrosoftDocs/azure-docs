@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -34,7 +34,7 @@ The following steps will help create a Conditional Access policy to block legacy
 1. Under **Cloud apps or actions**, select **All cloud apps**.
    1. Select **Done**.
 1. Under **Conditions** > **Client apps**, set **Configure** to **Yes**.
-   1. Check only the boxes **Exchange ActiveSync clients** and **Other clients**. To deploy Exchange ActiveSync Conditional Access policy in Azure, the user must also be a Global Administrator.
+   1. Check only the boxes **Exchange ActiveSync clients** and **Other clients**.
    1. Select **Done**.
 1. Under **Access controls** > **Grant**, select **Block access**.
    1. Select **Select**.
@@ -49,4 +49,4 @@ The following steps will help create a Conditional Access policy to block legacy
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 
-[How to set up a multifunction device or application to send email using Office 365 and Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+[How to set up a multifunction device or application to send email using Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

@@ -3,20 +3,22 @@ title: Signal descriptive audio tracks with Azure Media Services v3 | Microsoft 
 description: Follow the steps of this tutorial to upload a file, encode the video, add descriptive audio tracks, and stream your content with Media Services v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.date: 09/25/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 
 ---
 
 # Signal descriptive audio tracks
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 You can add a  narration track to your video to help visually impaired clients to follow the video recording by listening to the narration. In Media Services v3, you signal descriptive audio tracks by annotating the audio track in the manifest file.
 

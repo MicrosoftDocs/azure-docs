@@ -19,7 +19,7 @@ See the following examples:
 | [Resource Manager template: Create an Event Grid custom topic and send events to an event hub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
 
 ## Message properties
-If you use an **event hub** as an event handler for events from Event Grid, set the following message headers: 
+If you use an **event hub** as an event handler for events from Event Grid, these are the properties you receive in the message headers: 
 
 | Property name | Description |
 | ------------- | ----------- | 

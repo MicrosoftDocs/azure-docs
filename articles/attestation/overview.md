@@ -60,10 +60,11 @@ Azure Attestation customers have expressed a requirement for Microsoft to be ope
 
 Azure Attestation is the preferred choice for attesting TEEs as it offers the following benefits: 
 
-- Free Azure service with high availability
-- Leverages Azure Active Directory for authenticating client requests. This enables Azure Attestation to perform attestation based on identity and ownership
-- Supports policies which allow tenant owners to restrict token generation
-- Offers protection of its data while in use with implementation in an SGX enclave
+- Unified framework for attesting multiple TEEs such as SGX enclaves and VBS enclaves
+- Multi-tenant service which allows configuration of custom attestation providers and policies to restrict token generation
+- Offers default providers which can attest with no configuration from users
+- Protects its data while-in use with implementation in an SGX enclave
+- Highly available service which will offer Service Level Agreement (SLA)
 
 ## Business Continuity and Disaster Recovery (BCDR) support
 
@@ -79,7 +80,7 @@ Clusters deployed in two regions will operate independently under normal circums
 - The [Azure Traffic Manager](../traffic-manager/index.yml) for the region will detect the health probe is degraded and switch the endpoint to paired region
 - Existing connections will not work and will receive internal server error or timeout issues
 - All control plane operations will be blocked. Customers will not be able to create attestation providers and update policies in the primary region
-- All data plane operations, including attest, calls will continue to work in primary region
+- All data plane operations, including attest calls, will continue to work in primary region
 
 ## Next steps
 - Learn about [Azure Attestation basic concepts](basic-concepts.md)

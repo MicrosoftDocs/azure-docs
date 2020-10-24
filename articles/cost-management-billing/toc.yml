@@ -40,12 +40,14 @@
       href: costs/understand-work-scopes.md
     - name: Group and filter options
       href: costs/group-filter.md
+    - name: Plan to manage costs
+      href: understand/plan-manage-costs.md
+    - name: Prevent unexpected costs
+      href: understand/analyze-unexpected-charges.md
     - name: Manage costs with automation
       href: costs/manage-automation.md
     - name: Cost Management for partners
       href: costs/get-started-partners.md
-    - name: Choose between Cost Management and Cloudyn
-      href: costs/choose-between-azure-cost-management-cloudyn.md
   - name: Reservations
     items:
     - name: What are Azure Reservations?
@@ -114,6 +116,10 @@
       href: understand/mca-overview.md
     - name: Billing accounts for Microsoft Partner Agreement
       href: understand/mpa-overview.md
+    - name: About transferring subscriptions
+      href: understand/subscription-transfer.md 
+    - name: Transfer subscriptions between partners (Preview)
+      href: manage/azure-plan-subscription-transfer-partners.md 
 - name: How-to guides
   items:
   - name: Configure Cost Management + Billing
@@ -122,7 +128,7 @@
       items:
       - name: Account administrator tasks
         href: manage/account-admin-tasks.md
-      - name: Edit profile
+      - name: Edit billing contact information
         href: manage/change-azure-account-profile.md
       - name: Resolve past due balance
         href: manage/resolve-past-due-balance.md
@@ -172,12 +178,16 @@
         href: manage/pay-by-invoice.md
       - name: Create additional subscriptions
         href: manage/create-subscription.md
-      - name: Create subscriptions programmatically
+      - name: Create subscriptions programmatically with latest API
         href: manage/programmatically-create-subscription.md
+      - name: Create subscriptions programmatically with preview API
+        href: manage/programmatically-create-subscription-preview.md
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
       - name: Export subscription information
         href: manage/export-subscriptions.md
+      - name: Delete an Azure billing payment method
+        href: manage/delete-azure-payment-method.md
       - name: Change credit card
         href: manage/change-credit-card.md
       - name: Change administrator
@@ -242,8 +252,6 @@
         href: manage/upgrade-azure-subscription.md
   - name: Perform key cost management tasks
     items:
-    - name: Prevent unexpected costs
-      href: manage/getting-started.md
     - name: Calculate pricing
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Use cost analysis for common tasks
@@ -303,7 +311,7 @@
       - name: SAP HANA Large Instances
         href: reservations/prepay-hana-large-instances-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - name: SQL Database
-        href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+        href: ../azure-sql/database/reserved-capacity-overview.md?toc=%252fazure%252fcost-management-billing%252ftoc.json
       - name: Azure Synapse Analytics
         href: reservations/prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/toc.json
       - name: Virtual machines
@@ -330,6 +338,12 @@
         href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
   - name: Troubleshoot
     items:
+    - name: EA billing issues with usage files
+      href: manage/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
+    - name: MCA billing issues with usage files
+      href: manage/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables.md
+    - name: CSP billing issues with usage files
+      href: manage/troubleshoot-csp-billing-issues-usage-file-pivot-tables.md
     - name: No subscriptions found
       href: manage/no-subscriptions-found.md
     - name: Payment issues
@@ -349,9 +363,9 @@
 - name: Reference
   items:
   - name: Azure Cost Management REST API
-    href: https://docs.microsoft.com/rest/api/cost-management
+    href: /rest/api/cost-management
   - name: Azure Consumption REST API
-    href: https://docs.microsoft.com/rest/api/consumption
+    href: /rest/api/consumption
   - name: Resource Manager template
     href: /azure/templates/microsoft.consumption/budgets
   - name: Cost Management REST API Samples
@@ -361,19 +375,19 @@
   - name: Azure Billing API overview
     href: manage/usage-rate-card-overview.md
   - name: Azure Billing REST API
-    href: https://docs.microsoft.com/rest/api/billing
+    href: /rest/api/billing
   - name: Azure Consumption API overview
     href: manage/consumption-api-overview.md
   - name: Azure Consumption REST API
-    href: https://docs.microsoft.com/rest/api/consumption
+    href: /rest/api/consumption
   - name: RateCard REST API
-    href: https://msdn.microsoft.com/library/azure/mt219005.aspx
+    href: /previous-versions/azure/reference/mt219005(v=azure.100)
   - name: Usage REST API
-    href: https://msdn.microsoft.com/library/azure/mt219003.aspx
+    href: /previous-versions/azure/reference/mt219003(v=azure.100)
   - name: Enterprise reporting overview
     href: manage/enterprise-api.md
   - name: Enterprise reporting REST API
-    href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
+    href: /rest/api/billing/enterprise/billing-enterprise-api-balance-summary
   - name: Reservations
     items:
     - name: Reservations REST API
@@ -424,10 +438,6 @@
       href: cloudyn/overview.md
   - name: Quickstarts
     items:
-    - name: View cost data
-      href: cloudyn/quick-register-azure-sub.md
-    - name: View cost data - EA
-      href: cloudyn/quick-register-ea.md
     - name: View cost data - CSP
       href: cloudyn/quick-register-csp.md
   - name: Tutorials
@@ -452,8 +462,6 @@
       href: cloudyn/activate-subs-accounts.md
     - name: Add extended metrics for VMs
       href: cloudyn/azure-vm-extended-metrics.md
-    - name: Connect a Google account
-      href: cloudyn/connect-google-account.md
     - name: Connect an AWS account
       href: cloudyn/connect-aws-account.md
     - name: Configure storage accounts
@@ -477,4 +485,4 @@
     - name: Cloudyn FAQ
       href: cloudyn/cost-mgt-faq.md
     - name: Contact Cloudyn support
-      href: https://docs.microsoft.com/azure/cost-management-billing/costs/open-support-request
+      href: ./costs/open-support-request.md

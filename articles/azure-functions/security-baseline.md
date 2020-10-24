@@ -86,7 +86,7 @@ In addition, configure a front-end gateway, such as Azure Web Application Firewa
 
 - [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Understand Azure Security Center Integrated Threat Intelligence](../security-center/threat-protection.md)
+- [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 - [Understand Azure Security Center Adaptive Network Hardening](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -311,7 +311,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 - [How to enable diagnostic settings for Azure Functions](./functions-monitor-log-analytics.md)
 
-- [How to enable Application Insights for Azure Functions](./functions-monitoring.md#enable-application-insights-integration)
+- [How to enable Application Insights for Azure Functions](./configure-monitoring.md#enable-application-insights-integration)
 
 - [How to create alerts within Azure](../azure-monitor/learn/tutorial-response.md)
 
@@ -365,7 +365,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 **Guidance**: Control plane access to Azure Functions is controlled through Azure Active Directory (AD). Azure AD does not have the concept of default passwords.
 
-Data plane access can be controlled through several means, including authorization keys, network restrictions, and validating an AAD identity. Authorization keys are used by the clients connecting to your Azure Functions HTTP endpoints and can be regenerated at any time. These keys are generated for new HTTP endpoints by default.
+Data plane access can be controlled through several means, including authorization keys, network restrictions, and validating an Azure AD identity. Authorization keys are used by the clients connecting to your Azure Functions HTTP endpoints and can be regenerated at any time. These keys are generated for new HTTP endpoints by default.
 
 Multiple deployment methods are available to function apps, some of which may leverage a set of generated credentials. Review the deployment methods that will be used for your application.
 
@@ -462,7 +462,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 - [How to configure your Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md)
 
-- [How to create and configure an AAD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -544,7 +544,7 @@ You may also use Private Endpoints to perform network isolation. An Azure Privat
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -648,7 +648,7 @@ In addition, follow recommendations from Azure Security Center to help secure yo
 
 - [How to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
 
-- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -728,7 +728,7 @@ Allowed resource types
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 - [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -963,7 +963,9 @@ How to create an internal ASE:
 
 - [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md)
 
-- [How to provide Key Vault authentication with a managed identity](../key-vault/general/managed-identity.md)
+* [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+
+* [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 - [Use Key Vault references for App Service and Azure Functions](../app-service/app-service-key-vault-references.md)
 
@@ -1088,7 +1090,7 @@ If you are using customer-managed-keys, ensure Soft-Delete in Key Vault is enabl
 
 - [Azure Storage encryption at rest](../storage/common/storage-service-encryption.md)
 
-- [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Yes
 

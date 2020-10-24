@@ -4,12 +4,12 @@ description: Create a single database in Azure SQL Database using an Azure Resou
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: subject-armqs sqldbrb=1, devx-track-azurecli
+ms.custom: subject-armqs sqldbrb=1
 ms.devlang:
 ms.topic: quickstart
 author: mumian
 ms.author: jgao
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 06/24/2020
 ---
 

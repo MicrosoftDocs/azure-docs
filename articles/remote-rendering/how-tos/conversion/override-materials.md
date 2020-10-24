@@ -11,14 +11,14 @@ ms.topic: how-to
 
 The material settings in the source model are used to define the [PBR materials](../../overview/features/pbr-materials.md) used by the renderer.
 Sometimes the [default conversion](../../reference/material-mapping.md) doesn't give the desired results and you need to make changes.
-When a model is converted for use in Azure Remote Rendering, you can provide a material-override file to customize how material conversion is done on a per-material basis.
-The section on [configuring model conversion](configure-model-conversion.md) has instructions for declaring the material override filename.
+When a model is converted for use in Azure Remote Rendering, you can provide a material override file to customize how material conversion is done on a per-material basis.
+If a file called `<modelName>.MaterialOverrides.json` is found in the input container beside the input model `<modelName>.<ext>`, then it will be used as the material override file.
 
 ## The override file used during conversion
 
 As a simple example, let's say that a box model has a single material, called "Default".
 Additionally, let's say its albedo color needs to be adjusted for use in ARR.
-In this case, a `box_materials_override.json` file can be created as follows:
+In this case, a `box.MaterialOverrides.json` file can be created as follows:
 
 ```json
 [
@@ -34,15 +34,7 @@ In this case, a `box_materials_override.json` file can be created as follows:
 ]
 ```
 
-The `box_materials_override.json` file is placed in the input container, and a `box.ConversionSettings.json` is added beside `box.fbx`, which tells conversion where to find the override file (see [Configuring the model conversion](configure-model-conversion.md)):
-
-```json
-{
-    "material-override" : "box_materials_override.json"
-}
-```
-
-When the model is converted, the new settings will apply.
+The `box.MaterialOverrides.json` file is placed in the input container beside `box.fbx`, which tells the conversion service to apply the new settings.
 
 ### Color materials
 
@@ -79,6 +71,37 @@ The principle is simple. Just add a property called `ignoreTextureMaps` and add 
 ```
 
 For the full list of texture maps you can ignore, see the JSON schema below.
+
+### Applying the same overrides to multiple materials
+
+By default, an entry in the material overrides file applies when its name matches the material name exactly.
+Since it's quite common that the same override should apply to multiple materials, you can optionally provide a regular expression as the entry name.
+The field `nameMatching` has a default value `exact`, but it can be set to `regex` to state that the entry should apply to every matching material.
+The syntax used is the same as that used for JavaScript. 
+The following example shows an override which applies to materials with names like "Material2", "Material01" and "Material999".
+
+```json
+[
+    {
+        "name": "Material[0-9]+",
+        "nameMatching": "regex",
+        "albedoColor": {
+            "r": 0.0,
+            "g": 0.0,
+            "b": 1.0,
+            "a": 1.0
+        }
+    }
+]
+```
+
+At most one entry in a material override file applies to a single material.
+If there is an exact match (i.e. `nameMatching` is absent or equals `exact`) for the material name, then that entry is chosen.
+Otherwise, the first regex entry in the file that matches the material name is chosen.
+
+### Getting information about which entries applied
+
+The [info file](get-information.md#information-about-a-converted-model-the-info-file) written to the output container carries information about the number of overrides provided, and the number of materials that were overridden.
 
 ## JSON schema
 
@@ -149,6 +172,7 @@ The full JSON schema for materials files is given here. With the exception of `u
         "properties":
         {
             "name": { "type" : "string"},
+            "nameMatching" : { "type" : "string", "enum" : ["exact", "regex"] },
             "unlit": { "type" : "boolean" },
             "albedoColor": { "$ref": "#/definitions/colorOrAlpha" },
             "roughness": { "type": "number" },

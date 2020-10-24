@@ -5,20 +5,22 @@ titleSuffix: Azure Media Services
 description: Learn about filtering, ordering, and paging of Azure Media Services v3 entities. 
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 01/21/2020
-ms.author: juliako
+ms.topic: overview
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: "seodec18, devx-track-csharp"
 
 ---
 
 # Filtering, ordering, and paging of Media Services entities
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This topic discusses the OData query options and pagination support available when you're listing Azure Media Services v3 entities.
 

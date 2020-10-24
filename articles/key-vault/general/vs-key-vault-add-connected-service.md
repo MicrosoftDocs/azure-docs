@@ -184,6 +184,9 @@ Affects the project file .NET references and `packages.config` (NuGet references
 | .NET; NuGet | Azure.Security.KeyVault.Keys |
 | .NET; NuGet | Azure.Security.KeyVault.Secrets |
 
+> [!IMPORTANT] 
+> By default Azure.Identity 1.1.1 is installed, which does not support Visual Studio Credential. You can update package reference manually to 1.2+ use Visual Studio Credential.
+
 ### Added files for ASP.NET Framework
 
 - `ConnectedService.json` added, which records some information about the Connected Service provider, version, and a link to the documentation.
@@ -195,6 +198,6 @@ Affects the project file .NET references and `packages.config` (NuGet references
 
 ## Next steps
 
-If you followed this tutorial, your Key Vault permissions are set up to run with your own Azure subscription, but that might not be desirable for a production scenario. You can create a managed identity to manage Key Vault access for your app. See [Provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity).
+If you followed this tutorial, your Key Vault permissions are set up to run with your own Azure subscription, but that might not be desirable for a production scenario. You can create a managed identity to manage Key Vault access for your app. See [How to Authenticate to Key Vault](/azure/key-vault/general/authentication) and [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal).
 
 Learn more about Key Vault development by reading the [Key Vault Developer's Guide](developers-guide.md).

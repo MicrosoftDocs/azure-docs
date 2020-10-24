@@ -7,6 +7,7 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 07/27/2020 
 ---
@@ -46,5 +47,4 @@ Open Synapse Studio and navigate to the **Monitor** hub. Here, you can see a his
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Synapse Analytics (workspaces preview)](overview-what-is.md)
-
+> [Explore the Knowledge Center](get-started-knowledge-center.md)

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/31/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
@@ -32,7 +32,7 @@ To give your users the right balance of security and ease of use by asking them 
     * Enable single sign-on (SSO) across applications using [managed devices](../devices/overview.md) or [Seamless SSO](../hybrid/how-to-connect-sso.md).
     * If reauthentication is required, use a Conditional Access [sign-in Frequency policy](../conditional-access/howto-conditional-access-session-lifetime.md).
     * For users that sign in from non-managed devices or mobile device scenarios, use Conditional Access to enable persistent browser sessions and sign-in frequency policies.
-* If you have Office 365 apps licenses or the free Azure AD tier:
+* If you have Microsoft 365 apps licenses or the free Azure AD tier:
     * Enable single sign-on (SSO) across applications using [managed devices](../devices/overview.md) or [Seamless SSO](../hybrid/how-to-connect-sso.md).
     * Keep the *Remain signed-in* option enabled and guide your users to accept it.
 * For mobile devices scenarios, make sure your users use the Microsoft Authenticator app. This app is used as a broker to other Azure AD federated apps, and reduces authentication prompts on the device.
@@ -117,15 +117,15 @@ To configure Conditional Access policies for sign-in frequency and persistent br
 1. Select **Security**, then **Conditional Access**.
 1. Configure a policy using the recommended session management options detailed in this article.
 
-To review token lifetimes, [use Azure AD PowerShell to query any Azure AD policies](../develop/active-directory-configurable-token-lifetimes.md#prerequisites). Disable any policies that you have in place.
+To review token lifetimes, [use Azure AD PowerShell to query any Azure AD policies](../develop/configure-token-lifetimes.md#prerequisites). Disable any policies that you have in place.
 
-If more than one setting is enabled in your tenant, we recommend updating your settings based on the licensing available for you. For example, if you have Azure AD premium licenses you should only use the Conditional Access policy of *Sign-in Frequency* and *Persistent browser session*. If you have Office 365 apps or Azure AD free licenses, you should use the *Remain signed-in?* configuration.
+If more than one setting is enabled in your tenant, we recommend updating your settings based on the licensing available for you. For example, if you have Azure AD premium licenses you should only use the Conditional Access policy of *Sign-in Frequency* and *Persistent browser session*. If you have Microsoft 365 apps or Azure AD free licenses, you should use the *Remain signed-in?* configuration.
 
 If you have enabled configurable token lifetimes, this capability will be removed soon. Plan a migration to a Conditional Access policy.
 
 The following table summarizes the recommendations based on licenses:
 
-|              | Azure AD Free and Office 365 apps | Azure AD Premium |
+|              | Azure AD Free and Microsoft 365 apps | Azure AD Premium |
 |------------------------------|-----------------------------------|------------------|
 | **SSO**                      | [Azure AD join](../devices/concept-azure-ad-join.md) or [Hybrid Azure AD join](../devices/concept-azure-ad-join-hybrid.md), or [Seamless SSO](../hybrid/how-to-connect-sso.md) for unmanaged devices. | Azure AD join<br />Hybrid Azure AD join |
 | **Reauthentication settings** | Remain signed-in                  | Use Conditional Access policies for sign-in frequency and persistent browser session |

@@ -7,7 +7,7 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 01/13/2019
+ms.date: 10/08/2020
 ---
 
 # Connect to on-premises file systems with Azure Logic Apps
@@ -17,6 +17,9 @@ With Azure Logic Apps and the File System connector, you can create automated ta
 - Create, get, append, update, and delete files.
 - List files in folders or root folders.
 - Get file content and metadata.
+
+  > [!IMPORTANT]
+  > The File System connector currently supports only Windows file systems on Windows operating systems.  
 
 This article shows how you can connect to an on-premises file system as described by this example scenario: copy a file that's uploaded to Dropbox to a file share, and then send an email. To securely connect and access on-premises systems, logic apps use the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md). For connector-specific technical information, see the [File System connector reference](/connectors/filesystem/).
 
@@ -30,7 +33,7 @@ This article shows how you can connect to an on-premises file system as describe
 
 * Access to the computer that has the file system you want to use. For example, if you install the data gateway on the same computer as your file system, you need the account credentials for that computer.
 
-* An email account from a provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/). This logic app uses an Office 365 Outlook account. If you use another email account, the overall steps are the same, but your UI might slightly differ.
+* An email account from a provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/). This logic app uses a work or school account. If you use another email account, the overall steps are the same, but your UI might slightly differ.
 
   > [!IMPORTANT]
   > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 

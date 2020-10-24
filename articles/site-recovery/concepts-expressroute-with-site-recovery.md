@@ -12,7 +12,7 @@ ms.author: mayg
 ---
 # Azure ExpressRoute with Azure Site Recovery
 
-Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365.
+Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Microsoft 365, and Dynamics 365.
 
 This article describes how you can use Azure ExpressRoute with Azure Site Recovery for disaster recovery and migration.
 
@@ -32,7 +32,7 @@ Ensure that the [Networking Requirements](vmware-azure-configuration-server-requ
 
 In case you use proxy at on-premises and wish to use ExpressRoute for replication traffic, you need to configure the Proxy bypass list on the Configuration Server and Process Servers. Follow the steps below:
 
-- Download PsExec tool from [here](https://aka.ms/PsExec) to access System user context.
+- Download PsExec tool from [here](/sysinternals/downloads/psexec) to access System user context.
 - Open Internet Explorer in system user context by running the following command line
     psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 - Add proxy settings in IE

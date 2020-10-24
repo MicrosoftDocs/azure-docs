@@ -213,7 +213,7 @@ You are responsible for ensuring the integrity of the scripts that are reference
 
 ## Use supporting scripts
 
-You can separate complicated logics into one or more supporting script files. The `supportingScriptURI` property allows you to provide an array of URIs to the supporting script files if needed:
+You can separate complicated logics into one or more supporting script files. The `supportingScriptUris` property allows you to provide an array of URIs to the supporting script files if needed:
 
 ```json
 "scriptContent": "

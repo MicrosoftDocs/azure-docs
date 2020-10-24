@@ -342,7 +342,7 @@ The next sections discuss how to achieve high availability for all three critica
 
 > This section applies to:
 >
-> ![Windows][Logo_Windows] Windows and ![Linux][Logo_Linux] Linux
+> ![Windows logo.][Logo_Windows] Windows and ![Linux logo.][Logo_Linux] Linux
 >
 
 You usually don't need a specific high-availability solution for the SAP application server and dialog instances. You achieve high availability by redundancy, and you configure multiple dialog instances in various instances of Azure virtual machines. You should have at least two SAP application instances installed in two instances of Azure virtual machines.
@@ -380,7 +380,7 @@ For more information, see the [Azure availability sets][planning-guide-3.2.3] se
 
 ### High-availability architecture for an SAP ASCS/SCS instance on Windows
 
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 
 You can use a WSFC solution to protect the SAP ASCS/SCS instance. The solution has two variants:
@@ -393,7 +393,7 @@ You can use a WSFC solution to protect the SAP ASCS/SCS instance. The solution h
 
 ### High-availability architecture for an SAP ASCS/SCS instance on Linux
 
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 > 
 > For more information about clustering the SAP ASCS/SCS instance by using the SLES cluster framework, see [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications][sap-suse-ascs-ha]. For alternative HA architecture on SLES, which doesn't require highly available NFS see [High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications][sap-suse-ascs-ha-anf].
 
@@ -402,7 +402,7 @@ For more information about clustering the SAP ASCS/SCS instance by using the Red
 
 ### SAP NetWeaver multi-SID configuration for a clustered SAP ASCS/SCS instance
 
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 > 
 > Multi-SID is supported with WSFC, using file share and shared disk.
 > 
@@ -412,7 +412,7 @@ For more information about clustering the SAP ASCS/SCS instance by using the Red
 
 * [SAP ASCS/SCS instance multi-SID high availability for Windows Server Failover Clustering and shared disk][sap-ascs-ha-multi-sid-wsfc-shared-disk]
 
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 > 
 > Multi-SID clustering is supported on Linux Pacemaker clusters for SAP ASCS/ERS, limited to **five** SAP SIDs on the same cluster.
 > For more information about multi-SID high-availability architecture on Linux, see:
