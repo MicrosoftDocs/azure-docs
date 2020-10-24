@@ -1,6 +1,6 @@
 ---
 title: REST API to query Apache HBase in Azure HDInsight
-description: 
+description: This article describes troubleshooting steps when interacting with Apache HBase components on Azure HDInsight clusters.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
