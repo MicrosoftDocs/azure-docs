@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 10/25/2020
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -296,6 +296,12 @@ If you don't permit access for these dependencies, your ISE deployment fails and
    > * [Message logging for Azure App Service Environment](../app-service/environment/using-an-ase.md#logging)
 
 1. To start creating logic apps and other artifacts in your ISE, see [Add resources to integration service environments](../logic-apps/add-artifacts-integration-service-environment-ise.md).
+
+   > [!IMPORTANT]
+   > After you create your ISE, managed ISE connectors become available for you to use, but they don't automatically appear 
+   > in the connector picker on the Logic App Designer. Before you can use these ISE connectors, you have to manually 
+   > [add and deploy these connectors to your ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) 
+   > so that they appear in the Logic App Designer.
 
 ## Next steps
 
