@@ -1,7 +1,7 @@
 ---
-title: Develop with AutoML & Azure Databricks
+title: Develop with autoML & Azure Databricks
 titleSuffix: Azure Machine Learning
-description: Learn to set up a development environment for Azure Machine Learning and Azure Databricks. Use the Azure ML SDKs for Databricks and Databricks with AutoML.
+description: Learn to set up a development environment for Azure Machine Learning and Azure Databricks. Use the Azure ML SDKs for Databricks and Databricks with autoML.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -10,28 +10,32 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperfq1
+ms.custom: how-to, devx-track-python
 ---
 
-# Set up a development environment with Azure Databricks for Azure Machine Learning and AutoML
+# Set up a development environment with Azure Databricks for Azure Machine Learning and autoML
 
 Learn how to configure a development environment for Azure Machine Learning that uses Azure Databricks and automated ML.
 
 [Azure Databricks](#aml-databricks) is ideal for running large-scale intensive machine learning workflows on the scalable Apache Spark platform in the Azure cloud. It provides a collaborative Notebook-based environment with a CPU or GPU-based compute cluster.
 
+For information on other machine learning development environments, see [Set up Python development environment](how-to-configure-environment.md).
 
-## Prerequisites
+
+## Prerequisite
 
 * Azure Machine Learning workspace. If you don't have one you can create an Azure Machine Learning workspace through the [Azure portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace), and [Azure Resource Manager templates](how-to-create-workspace-template.md).
 
 
-## Azure Databricks with Azure Machine Learning
+## Azure Databricks with Azure Machine Learning and autoML
 
 With Azure Machine Learning, you can use Azure Databricks:
 
 + To train a model using Spark MLlib and deploy the model to ACI/AKS.
 + With [automated machine learning](concept-automated-ml.md) capabilities.
 + As a compute target from an [Azure Machine Learning pipeline](concept-ml-pipelines.md).
+
+You can also use the Azure ML SDK for Data
 
 ## Set up your Databricks cluster
 
@@ -55,7 +59,10 @@ Wait until the cluster is running before proceeding further.
 
 Once the cluster is running, [create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) to attach the appropriate Azure Machine Learning SDK package to your cluster. For automated ML skip to the [SDK for Databricks with automated machine learning section](#sdk-for-databricks-with-automated-machine-learning).
 
+
 1. Right-click the current Workspace folder where you want to store the library. Select **Create** > **Library**.
+    > [Tip]
+    > If you have an old SDK version, deselect it from cluster's installed libs and move to trash. Install the new SDK version and restart the cluster. If there is an issue after the restart, detach and reattach your cluster.
 
 1. Choose the following option (no other SDK installation are supported)
 
@@ -76,11 +83,12 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
    1. In the table, select your cluster name.
    1. On the **Libraries** tab, select **Restart**.
 
-   Also consider:
-   + In AutoML config, when using Azure Databricks add the following parameters:
-       1. ```max_concurrent_iterations``` is based on number of worker nodes in your cluster.
-        2. ```spark_context=sc``` is based on the default spark context.
-   + Or, if you have an old SDK version, deselect it from cluster's installed libs and move to trash. Install the new SDK version and restart the cluster. If there is an issue after the restart, detach and reattach your cluster.
+### AutoML config with Azure Databricks
+
+In AutoML config, when using Azure Databricks add the following parameters:
+    1. ```max_concurrent_iterations``` is based on number of worker nodes in your cluster.
+    2. ```spark_context=sc``` is based on the default spark context.
+
 
 If install was successful, the imported library should look like one of these:
 
