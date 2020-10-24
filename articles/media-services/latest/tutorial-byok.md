@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 - Register a service principal with the appropriate permissions.
 - Install [Postman](https://www.postman.com).
-- Download the Postman collection for this tutorial at [Azure Samples: media-services-customer-managed-keys-byok](https://github.com/Azure-Samples/media-services-customer-managed-keys-byok)
+- Download the Postman collection for this tutorial at [Azure Samples: media-services-customer-managed-keys-byok](https://github.com/Azure-Samples/media-services-customer-managed-keys-byok).
 
 ### Register a service principal with the needed permissions
 
@@ -120,7 +120,7 @@ Media Services automatically detects when the key is changed. Create another key
 
 ## Clean up resources
 
-If you're not going to continue to use the resources that you created and **you don't want to continue to be billed**, delete them.
+If you're not going to continue to use the resources that you created and *you don't want to continue to be billed*, delete them.
 
 ## Next steps
 
