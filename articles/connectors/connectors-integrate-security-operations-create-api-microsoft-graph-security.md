@@ -142,20 +142,20 @@ To filter, sort, or get the most recent results, provide *only* the [ODATA query
 
 `Filter threat intelligence indicator value as threatType eq 'DDoS'`
 
-For more information about the queries that you can use with this connector, see ["Optional Query Parameters" in the Microsoft Graph Security threat intelligence indicator reference documentation](/graph/api/tiindicators-list?tabs=http&view=graph-rest-beta). To build enhanced experiences with this connector, learn more about the 
+For more information about the queries that you can use with this connector, see ["Optional Query Parameters" in the Microsoft Graph Security threat intelligence indicator reference documentation](/graph/api/tiindicators-list). To build enhanced experiences with this connector, learn more about the 
 [schema properties threat intelligence indicator](/graph/api/resources/tiindicator?view=graph-rest-beta) that the connector supports.
 
 | Action | Description |
 |--------|-------------|
 | **Get threat intelligence indicators** | Get tiIndicators filtered based on one or more [tiIndicator properties](/graph/api/resources/tiindicator?view=graph-rest-beta), for example, `threatType eq 'MaliciousUrl' or 'DDoS'` |
 | **Get threat intelligence indicator by ID** | Get a specific tiIndicator based on the tiIndicator ID. | 
-| **Create threat intelligence indicator** | Create a new tiIndicator by posting to the tiIndicators collection. To make sure that you pass the required properties in your request, refer to the [required properties for creating tiIndicator](/graph/api/tiindicators-post?tabs=http&view=graph-rest-beta). |
-| **Submit multiple threat intelligence indicators** | Create multiple new tiIndicators by posting a tiIndicators collection. To make sure that you pass the required properties in your request, refer to the [required properties for submitting multiple tiIndicators](/graph/api/tiindicator-submittiindicators?tabs=http&view=graph-rest-beta). |
-| **Update threat intelligence indicator** | Update a specific tiIndicator based on the tiIndicator ID. To make sure you pass the required and editable properties in your request, see the [editable properties for tiIndicator](/graph/api/tiindicator-update?tabs=http&view=graph-rest-beta). For example, to update the action to apply if the indicator is matched from within the targetProduct security tool, you can update the tiIndicator's **action** property. |
-| **Update multiple threat intelligence indicators** | Update multiple tiIndicators. To make sure you pass the required properties in your request, refer to the [required properties for updating multiple tiIndicators](/graph/api/tiindicator-updatetiindicators?tabs=http&view=graph-rest-beta). |
+| **Create threat intelligence indicator** | Create a new tiIndicator by posting to the tiIndicators collection. To make sure that you pass the required properties in your request, refer to the [required properties for creating tiIndicator](/graph/api/tiindicators-post). |
+| **Submit multiple threat intelligence indicators** | Create multiple new tiIndicators by posting a tiIndicators collection. To make sure that you pass the required properties in your request, refer to the [required properties for submitting multiple tiIndicators](/graph/api/tiindicator-submittiindicators). |
+| **Update threat intelligence indicator** | Update a specific tiIndicator based on the tiIndicator ID. To make sure you pass the required and editable properties in your request, see the [editable properties for tiIndicator](/graph/api/tiindicator-update). For example, to update the action to apply if the indicator is matched from within the targetProduct security tool, you can update the tiIndicator's **action** property. |
+| **Update multiple threat intelligence indicators** | Update multiple tiIndicators. To make sure you pass the required properties in your request, refer to the [required properties for updating multiple tiIndicators](/graph/api/tiindicator-updatetiindicators). |
 | **Delete threat intelligence indicator by ID** | Delete a specific tiIndicator based on the tiIndicator ID. |
-| **Delete multiple threat intelligence indicators by IDs** | Delete multiple tiIndicators by their IDs. To make sure that you pass the required properties in your request, refer to the [required properties for deleting multiple tiIndicators by IDs](/graph/api/tiindicator-deletetiindicators?tabs=http&view=graph-rest-beta). |
-| **Delete multiple threat intelligence indicators by external IDs** | Delete multiple tiIndicators by the external IDs. To make sure that you pass the required properties in your request, refer to the [required properties for deleting multiple tiIndicators by external IDs](/graph/api/tiindicator-deletetiindicatorsbyexternalid?tabs=http&view=graph-rest-beta). |
+| **Delete multiple threat intelligence indicators by IDs** | Delete multiple tiIndicators by their IDs. To make sure that you pass the required properties in your request, refer to the [required properties for deleting multiple tiIndicators by IDs](/graph/api/tiindicator-deletetiindicators). |
+| **Delete multiple threat intelligence indicators by external IDs** | Delete multiple tiIndicators by the external IDs. To make sure that you pass the required properties in your request, refer to the [required properties for deleting multiple tiIndicators by external IDs](/graph/api/tiindicator-deletetiindicatorsbyexternalid). |
 |||
 
 ## Connector reference
