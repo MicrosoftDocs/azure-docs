@@ -39,7 +39,7 @@ Using any of these methods, you can scale your HDInsight cluster up or down with
 
 > [!IMPORTANT]  
 > * The Azure classic CLI is deprecated and should only be used with the classic deployment model. For all other deployments, use the [Azure CLI](/cli/azure/).
-> * The PowerShell AzureRM module is deprecated.  Please use the [Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) whenever possible.
+> * The PowerShell AzureRM module is deprecated.  Please use the [Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) whenever possible.
 
 ## Impact of scaling operations
 

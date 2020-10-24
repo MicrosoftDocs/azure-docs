@@ -60,7 +60,7 @@ Before you get started, make sure you have the following requirements in place:
 - Both [.NET Core 3.1](https://www.microsoft.com/net/download) and [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 ::: zone-end
 ::: zone pivot="programming-language-java"
-- The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8.
+- The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 or 11.
 
 - [Apache Maven](https://maven.apache.org), version 3.0 or above.
 ::: zone-end
@@ -116,7 +116,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     ::: zone pivot="programming-language-java"
     - **Select a language for your function project**: Choose `Java`.
 
-    - **Select a version of Java**: Choose `Java 8` or `Java 11 (preview)`, on which your functions run in Azure. Choose a Java version that you've verified locally.
+    - **Select a version of Java**: Choose `Java 8` or `Java 11`, on which your functions run in Azure. Choose a Java version that you've verified locally.
 
     - **Provide a group ID**: Choose `com.function`.
 
