@@ -223,15 +223,15 @@ In this step, you will download the VPN profile for your device.
 
 2. Go to **Settings > Point-to-site configuration**. Select **Download VPN client**.
 
-    ![Enable P2S configuration](media/azure-stack-edge-mini-r-configure-vpn-powershell/download-vpn-client.png)
+    ![Enable P2S configuration 1](media/azure-stack-edge-mini-r-configure-vpn-powershell/download-vpn-client.png)
 
 2. Save the zipped profile and extract on your Windows client.
 
-    ![Enable P2S configuration](media/azure-stack-edge-mini-r-configure-vpn-powershell/save-extract-profile.png)
+    ![Enable P2S configuration 2](media/azure-stack-edge-mini-r-configure-vpn-powershell/save-extract-profile.png)
 
 3. Go to *WindowsAmd64* folder and then extract the `.exe`: *VpnClientSetupAmd64.exe*.
 
-    ![Enable P2S configuration](media/azure-stack-edge-mini-r-configure-vpn-powershell/extract-exe.png)
+    ![Enable P2S configuration 3](media/azure-stack-edge-mini-r-configure-vpn-powershell/extract-exe.png)
 
 3. Create a temporary path. For example:
 
@@ -277,7 +277,7 @@ Follow these steps on the local UI of your Azure Stack Edge device.
 
 1. In the local UI, go to **VPN** page. Under VPN state, select **Configure**.
 
-    ![Configure VPN](media/azure-stack-edge-mini-r-configure-vpn-powershell/configure-vpn-1.png)
+    ![Configure VPN 1](media/azure-stack-edge-mini-r-configure-vpn-powershell/configure-vpn-1.png)
 
 2. In the **Configure VPN** blade:
     
@@ -285,11 +285,11 @@ Follow these steps on the local UI of your Azure Stack Edge device.
     2. In the Upload public IP list config file, provide Azure Data Center IP range JSON file as input. You downloaded this file in an earlier step from: [https://www.microsoft.com/download/details.aspx?id=56519](https://www.microsoft.com/download/details.aspx?id=56519).
     3. Select **eastus** as the region and select **Apply**.
 
-    ![Configure VPN](media/azure-stack-edge-mini-r-configure-vpn-powershell/configure-vpn-2.png)
+    ![Configure VPN 2](media/azure-stack-edge-mini-r-configure-vpn-powershell/configure-vpn-2.png)
 
 3. In the **IP address ranges to be accessed using VPN only** section, enter the Vnet IPv4 range that you had chosen for your Azure Virtual Network.
 
-    ![Configure VPN](media/azure-stack-edge-mini-r-configure-vpn-powershell/configure-vpn-3.png)
+    ![Configure VPN 3](media/azure-stack-edge-mini-r-configure-vpn-powershell/configure-vpn-3.png)
 
 ## Verify client connection
 
