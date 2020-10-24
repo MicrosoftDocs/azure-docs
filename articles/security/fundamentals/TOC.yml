@@ -76,6 +76,8 @@
   items:
   - name: Microsoft Antimalware
     href: antimalware.md
+  - name: Microsoft Antimalware code samples
+    href: antimalware-code-samples.md
   - name: Virtual machine security overview
     href: virtual-machines-overview.md
   - name: Best practices - IaaS workloads
