@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/05/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -33,8 +33,8 @@ If you're assigned the *Authentication Administrator* role, you can require user
       > The user's currently registered authentication methods aren't deleted when an admin requires re-registration for MFA. After a user re-registers for MFA, we recommend they review their security info and delete any previously registered authentication methods that are no longer usable.
    
    - **Revoke MFA Sessions** clears the user's remembered MFA sessions and requires them to perform MFA the next time it's required by the policy on the device.
-
-   ![Manage authentication methods from the Azure portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
+   
+    :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Manage authentication methods from the Azure portal":::
 
 ## Delete users existing app passwords
 

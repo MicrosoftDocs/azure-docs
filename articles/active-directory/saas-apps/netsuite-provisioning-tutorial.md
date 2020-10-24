@@ -22,6 +22,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   An Azure Active directory tenant.
 *   A Netsuite OneWorld subscription. Note that automatic user provisioning is presently only supported with NetSuite OneWorld.
 *   A user account in Netsuite with administrator permissions.
+*   Integration with Azure AD requires a 2FA exemption. Please contact Netsuite support team for this exception.
 
 ## Assigning users to Netsuite OneWorld
 
@@ -29,7 +30,7 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Azure AD represent the users who need access to your Netsuite app. Once decided, you can assign these users to your Netsuite app by following the instructions here:
 
-[Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to Netsuite OneWorld
 

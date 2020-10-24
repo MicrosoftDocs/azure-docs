@@ -95,7 +95,7 @@ The output is a JSON object of all endpoints that your hub's device and service 
 ```
 
 > [!NOTE]
-> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) page.
+> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) page.
 >
 
 ## Allow outbound connectivity to the device streaming endpoints
@@ -112,7 +112,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) page.
+> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) page.
 >
 
 ## Troubleshoot via Device Streams Activity Logs
@@ -149,7 +149,7 @@ Two sides of each stream (on the device and service side) use the IoT Hub SDK to
 
 ## IoT Hub device stream samples
 
-There are two [quickstart samples](/azure/iot-hub) available on the IoT Hub page. These demonstrate the use of device streams by applications.
+There are two [quickstart samples](./index.yml) available on the IoT Hub page. These demonstrate the use of device streams by applications.
 
 * The *echo* sample demonstrates programmatic use of device streams (by calling the SDK API's directly).
 
