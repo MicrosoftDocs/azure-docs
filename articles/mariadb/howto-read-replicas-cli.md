@@ -18,7 +18,7 @@ You can create and manage read replicas using the Azure CLI.
 
 ### Prerequisites
 
-- [Install Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Install Azure CLI 2.0](/cli/azure/install-azure-cli)
 - An [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-portal.md) that will be used as the source server. 
 
 > [!IMPORTANT]
