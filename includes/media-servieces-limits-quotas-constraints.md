@@ -13,7 +13,7 @@ ms.author: juliako
 
 | Resource | Default Limit | 
 | --- | --- | 
-| Media Services accounts in a single subscription | 25 (fixed) |
+| Media Services accounts in a single subscription | 100 |
 
 ### Asset limits
 
