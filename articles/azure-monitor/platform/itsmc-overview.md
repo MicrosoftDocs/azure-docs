@@ -155,7 +155,7 @@ Based on your configuration when setting up a connection, ITSM connector can syn
 
 The incident and change request data can be visualized using the ITSM Connector dashboard in the solution.
 
-![Log Analytics screen](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
+![Screenshot that shows the ITSM Connector dashboard.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 The dashboard also provides information on connector status which can be used as a starting point to analyze any issues with the connections.
 
