@@ -275,7 +275,7 @@ module.exports = df.orchestrator(function*(context) {
     // get a list of the Azure subscriptions that I have access to
     const restartResponse = yield context.df.callHttp(
         "POST",
-        `https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroup}/providers/Microsoft.Compute/virtualMachines/${vmName}/restart?api-version=${apiVersion}`,
+        `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}/restart?api-version={apiVersion}`,
         undefined, // no request content
         undefined, // no request headers (besides auth which is handled by the token source)
         tokenSource);
