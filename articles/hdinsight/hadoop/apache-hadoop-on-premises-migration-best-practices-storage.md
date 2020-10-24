@@ -192,9 +192,9 @@ For more information, see [Use Azure Storage Shared Access Signatures to restric
 
 All data written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md). The data in the Azure Storage account is always replicated for high availability. When you create a storage account, you can choose one of the following replication options:
 
-- [Locally redundant storage (LRS)](../../storage/common/storage-redundancy.md)
-- [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md)
-- [Geo-redundant storage (GRS)](../../storage/common/storage-redundancy.md)
+- [Locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage)
+- [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage)
+- [Geo-redundant storage (GRS)](../../storage/common/storage-redundancy.md#geo-redundant-storage)
 - [Read-access geo-redundant storage (RA-GRS)](../../storage/common/storage-redundancy.md)
 
 Azure Storage provides locally redundant storage (LRS) but you should also copy critical data to another Azure Storage account in another region with a frequency aligned to the needs of the disaster recovery plan. There are different methods to copy data including [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), or [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). It's also recommended to enforce access policies for Azure Storage account to prevent accidental deletion.
