@@ -14,7 +14,7 @@ ms.author: alkohli
 
 # Configure VPN on your Azure Stack Edge Pro R device via Azure PowerShell
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-j-series-sku.md)]
+[!INCLUDE [applies-to-r-skus](../../includes/azure-stack-edge-applies-to-r-sku.md)]
 
 The VPN option provides a second layer of encryption for the data-in-motion over *TLS* from your Azure Stack Edge Pro R device to Azure. You can configure VPN on your Azure Stack Edge Pro R device via the Azure portal or via Azure PowerShell.
 
@@ -37,7 +37,7 @@ The detailed steps are provided in the following sections.
 
 ## Configure prerequisites
 
-1. You should have access to an Azure Stack Edge Pro R device that is installed as per the instructions in [Install your Azure Stack Edge Pro R device](azure-stack-edge-j-series-deploy-install.md). This device will serve as the on-premises VPN device to create the VPN connection with Azure. 
+1. You should have access to an Azure Stack Edge Pro R device that is installed as per the instructions in [Install your Azure Stack Edge Pro R device](azure-stack-edge-pro-r-deploy-install.md). This device will serve as the on-premises VPN device to create the VPN connection with Azure. 
 
 2. Your VPN device should have a static Public IP address (external). This address shouldn't be NAT.
 
