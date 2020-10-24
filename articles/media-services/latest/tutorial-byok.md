@@ -1,6 +1,6 @@
 ---
-title: Using customer-managed keys or BYOK
-description: This is a tutorial for using customer managed keys or bring your own key (BYOK) with an Azure Media Services storage account.
+title: Use customer-managed keys or BYOK
+description: In this tutorial, use customer-managed keys or bring your own key (BYOK) with an Azure Media Services storage account.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
@@ -8,22 +8,22 @@ ms.topic: tutorial
 ms.date: 10/18/2020
 ---
 
-# Tutorial: Use customer-managed keys or bring your own key (BYOK) with Media Services
+# Tutorial: Use customer-managed keys or BYOK with Media Services
 
-With the 2020-05-01 API, you can use a customer managed RSA key with an Azure Media Services account that has a system managed identity. This tutorial includes a Postman collection and environment to send REST requests to Azure services. The services used are:
+With the 2020-05-01 API, you can use a customer-managed RSA key with an Azure Media Services account that has a system-managed identity. This tutorial includes a Postman collection and environment to send REST requests to Azure services. The services used are:
 
 - Azure Active Directory (Azure AD) application registration for Postman
 - Microsoft Graph API
 - Azure Storage
 - Azure Key Vault
-- Media Services
+- Azure Media Services
 
 In this tutorial, you'll learn to use Postman to:
 
 > [!div class="checklist"]
 > - Get tokens for use with Azure services.
 > - Create a resource group and a storage account.
-> - Create a Media Services account with a system managed identity.
+> - Create a Media Services account with a system-managed identity.
 > - Create a Key Vault for storing a customer-managed RSA key.
 > - Update the Media Services account to use the RSA key with the storage account.
 > - Use variables in Postman.
@@ -41,11 +41,14 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 [Create a service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Get the service principal secret at: [Option Two](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#authentication-two-options).
 
 > [!IMPORTANT]
-    >Save the secret somewhere. The secret can't be accessed after you leave the secret page in the portal.
+>Copy and save the secret for later use. You can't access the secret after you leave the secret page in the portal.
 
 The service principal needs the following permissions to perform the tasks in this tutorial:
 
-![Screenshot showing the permissions needed for the service principal.](./media/tutorial-byok/service-principal-permissions-1.png)
+:::image type="complex" source="./media/tutorial-byok/service-principal-permissions-1.png" alt-text="Screenshot showing the permissions needed for the service principal.":::
+   Permissions are listed by service. Azure Key Vault: user impersonation, delegated, full access to Azure Key Vault. Azure Service Management: user impersonation, delegated, access Azure Service Management as organization user. Azure Storage: user impersonation, delegated, access Azure Storage. Media services: user impersonation, delegated, access media services. Microsoft Graph: user.read, delegated, sign in and read user profile.
+
+:::image-end:::
 
 ### Install Postman
 
@@ -62,13 +65,13 @@ Download the Postman collection for this tutorial at [Azure Samples: media-servi
 1. Select **Upload files**.
 1. Go to where you saved the collection and environment files.
 1. Select the collection and environment files.
-1. Select **Open**. A warning appears that says the files won't be imported as an API, but as collections. This is expected.
+1. Select **Open**. A warning appears that says the files won't be imported as an API, but as collections. This warning is expected.
 
-The collection now shows in your Collections as BYOK. Also, the environment variables now appear in your Environments.
+The collection now shows in your Collections as BYOK. Also, the environment variables appear in your Environments.
 
 ### Understand the REST API requests in the collection
 
-The collection provides the following REST API requests. The requests must be sent in the sequence provided. Most requests have test scripts that dynamically create global variables for the next request in the sequence. It isn't necessary to manually create the global variables.
+The collection provides the following REST API requests. The requests must be sent in the sequence provided. Most requests have test scripts that dynamically create global variables for the next request in the sequence. You don't need to manually create global variables.
 
 In Postman, you'll see these variables contained within brackets. For example, `{{bearerToken}}`.
 
@@ -76,11 +79,11 @@ In Postman, you'll see these variables contained within brackets. For example, `
 2. Get a Graph token: The test sets the global variable **graphToken**.
 3. Get Service Principal Details: The test sets the global variable **servicePrincipalObjectId**.
 4. Create a storage account: The test sets the global variable **storageAccountId**.
-5. Create a Media Services Account with a system managed identity: The test sets the global variable **principalId**.
+5. Create a Media Services Account with a system-managed identity: The test sets the global variable **principalId**.
 6. Create a Key Vault to grant access to the service principal: The test sets the global variable **keyVaultId**.
 7. Get a Key Vault token: The test sets global variable **keyVaultToken**.
 8. Create the RSA key in the key vault: The test sets global variable **keyId**.
-9. Update the Media Services account to use the key with the storage account: There is no test script for this request.
+9. Update the Media Services account to use the key with the storage account: There's no test script for this request.
 
 ## Define environment variables
 
@@ -113,7 +116,7 @@ Once you define your environment variables, you can run the requests one at a ti
 
 ## Change the key
 
-Media Services automatically detects when the key is changed. Create another key version for the same key to test this. Media Services should detect this key in less than 15 minutes.
+Media Services automatically detects when the key is changed. Create another key version for the same key to test this process. Media Services should detect the key in less than 15 minutes.
 
 ## Clean up resources
 
