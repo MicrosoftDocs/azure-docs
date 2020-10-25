@@ -6,7 +6,7 @@ ms.author: suvirdi
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 10/25/2020
 ---
 
 # Tutorial: Use Catalog insights
@@ -61,6 +61,26 @@ Sign in to the [Azure portal](https://portal.azure.com).
 2. In Glossary insights you can view total terms in your account.
 
 3. You can view top glossary terms with assets attached to them, count of catalog users and terms by status.
+
+## View classification and labeling insights
+
+1. On the left, select **Classification and labeling** to view insights about the classifications and sensitivity labels found in your content.
+
+    - Adjust the time selector as needed to show updated results found over different time periods.
+    
+    - Use the tiles at the top of the page to view the number of classified files, percentage of data that is secret, as well as the total amount of data scanned.
+    
+    - Use the **Top classifications** and **Top labels** graphs to view the most commonly used classifications and labels found in your content. For example, top classifications might include credit card numbers or national identification numbers, and top labels might include **Secret**, **All Employees**, or another specific group of internal users.
+    
+1. Click **View all classifications** or **View all labels** to drill down further.
+
+    On the detailed classification or labeling reports, use any of the following steps to modify the data displayed or find more information:
+
+    - Use the **Classification**, **Subscription**, and **Asset Type** filters to filter the graphs to show data for specific content only.
+    
+    - Select **Edit Columns** to change the column data shown in the table below your graphs.
+
+    - In the table below your graphs, select a specific classification or label to view additional information about the data sources, such as: asset types, subscription details, and numbers of labeled or classified files for the selected classification or label.
 
 ## Next steps
 
