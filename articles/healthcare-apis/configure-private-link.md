@@ -1,5 +1,5 @@
 ---
-title: Private Link for Azure API for FHIR
+title: Private link for Azure API for FHIR
 description: This article describes how to set up a private endpoint for Azure API for FHIR services
 services: healthcare-apis
 author: matjazl
@@ -10,7 +10,7 @@ ms.date: 10/12/2020
 ms.author: matjazl
 ---
 
-# Configure Private Link
+# Configure private link
 
 > [!IMPORTANT]
 > This capability is in public preview, is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
