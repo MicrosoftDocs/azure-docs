@@ -13,7 +13,9 @@ ms.date: 10/25/2020
 This article shows how to perform management tasks for your [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), for example:
 
 * Manage the resources such as logic apps, connections, integration accounts, and connectors in your ISE.
+
 * Check your ISE's network health.
+
 * Add capacity, restart your ISE, or delete your ISE, follow the steps in this topic. To add these artifacts to your ISE, see [Add artifacts to your integration service environment](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
 ## View your ISE
@@ -39,9 +41,9 @@ On your ISE menu, under **Settings**, select **Network health**. This pane shows
 ![Check network health](./media/ise-manage-integration-service-environment/ise-check-network-health.png)
 
 > [!CAUTION]
-> If the internal App Service Environment that's used by your ISE becomes unhealthy and remains in that state for 7 days, the ASE becomes suspended, 
-> although all your data is preserved. To resolve this state, check your virtual network setup for problems that you can fix and then restart your ISE. 
-> Otherwise, after 90 days, the App Service Environment is deleted, and your ISE becomes unusable.
+> If the internal App Service Environment (ASE) that's used for your ISE is unhealthy for seven days, the ASE is suspended. 
+> To resolve this state, check your virtual network setup. Resolve any problems that you find, and then restart your ISE. 
+> Otherwise, after 90 days, the suspended ASE is deleted, and your ISE becomes unusable.
 > 
 > For more information, see these topics:
 >
