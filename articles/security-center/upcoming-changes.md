@@ -31,7 +31,7 @@ This page is updated frequently, so revisit it often.
 | Aspect | Details |
 |---------|---------|
 |Announcement date | 26 October 2020  |
-|Timeframe  |  1 month from this announcement       |
+|Date for this change  |  November 2020 |
 |Impact     | Potentially, more recommendations to review.<br>No immediate impact on secure score - Preview recommendations don't affect your secure score.<br>No immediate impact on health status of your resources - Preview recommendations don't render a resource "Unhealthy".|
 |  |  |
 
