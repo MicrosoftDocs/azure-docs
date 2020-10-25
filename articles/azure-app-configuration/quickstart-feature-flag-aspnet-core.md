@@ -179,9 +179,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     The preceding code allows the `<feature>` Tag Helper to be used in the project's *.cshtml* files.
 
-1. Open *_Layout.cshtml* in the *Views*\\*Shared* directory. Locate the `<nav>` bar code under `<body>` > `<header>`. Insert a new `<feature>` tag as shown in the highlighted lines below.
+1. Open *_Layout.cshtml* in the *Views*\\*Shared* directory. Locate the `<nav>` bar code under `<body>` > `<header>`. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
 
-    :::code language="html" source="quickstart-feature-flag-navbar-code.md" range="17-40" highlight="14-18":::
+    :::code language="html" source="quickstart-feature-flag-navbar-code.md" range="17-40" highlight="13-17":::
 
 1. Create a *Views/Beta* directory and an *Index.cshtml* file containing the following markup:
 
@@ -217,7 +217,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
-1. Select **Feature manager**, and change the state of the *Beta* key to **On**.
+1. Select **Feature manager**. 
+
+1. Enable the *Beta* flag by selecting the checkbox under **Enabled**.
 
 1. Return to the command shell. Cancel the running `dotnet` process by pressing <kbd>Ctrl+C</kbd>. Restart your app using `dotnet run`.
 

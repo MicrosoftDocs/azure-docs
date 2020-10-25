@@ -133,53 +133,32 @@ The entire *ConfigureServices* method will look like this:
     > [!div class="mx-imgBorder"]
     > ![Edit Beta feature flag](./media/edit-beta-feature-flag.png)
 
-1. In the **Edit** screen, select the **On** radio button if it isn't already selected. Then select the **Add Filter** button. (The **On** radio button's label will change to read **Conditional**.)
+1. In the **Edit** screen, select the **Enable feature flag** checkbox if it isn't already selected. Then select the **Use feature filter** checkbox.
 
-1. In the **Key** field, enter *Microsoft.Targeting*.
+1. Select the following options:
 
-    > [!div class="mx-imgBorder"]
-    > ![Add feature filter](./media/feature-flag-add-targetingfilter.png)
+    - **Default percentage**: 0
+    - **Groups**: Enter a **Name** of _contoso.com_ and a **Percentage** of _50_
+    - **Users**: _test@contoso.com_
 
-1. Select the context menu next to the feature filter key. Select **Edit Parameters**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Edit feature filter parameters](./media/feature-flag-edit-targetingfilter-parameters.png)
-
-1. Hover under the **Name** header so that text boxes appear in the grid. Enter a **Name** of *Audience*
-
-1. In the **Value** field, enter the following JSON:
-
-    ```json
-    {
-      "Users": [
-        "test@contoso.com"
-      ],
-      "Groups": [
-        {
-          "Name": "contoso.com",
-          "RolloutPercentage": 50
-        }
-      ],
-      "DefaultRolloutPercentage": 0
-    }
-    ```
-
-    This *Audience* value results in the following behavior:
-
-    - The feature flag is always enabled for user `test@contoso.com`, because `test@contoso.com` is listed in the `Users` section.
-    - The feature flag is enabled for 50% of other users in the `contoso.com` group, because `contoso.com` is listed in the `Groups` section with a `RolloutPercentage` of 50.
-    - The feature is always disabled for all other users, because `DefaultRolloutPercentage` is set to 0.
-
-1. Select **Apply** to return to the **Edit feature flag** screen. Then select **Apply** again to save the feature flag settings.
-
-1. The **State** of the feature flag now appears as *Conditional*. This state indicates that the feature flag will be enabled or disabled on a per-request basis, based on the criteria enforced by the feature filter.
+    The feature filter screen will look like this:
 
     > [!div class="mx-imgBorder"]
     > ![Conditional feature flag](./media/feature-flag-filter-enabled.png)
 
+    These settings result in the following behavior:
+
+    - The feature flag is always enabled for user _test@contoso.com_, because _test@contoso.com_ is listed in the _Users_ section.
+    - The feature flag is enabled for 50% of other users in the _contoso.com_ group, because _contoso.com_ is listed in the _Groups_ section with a _Percentage_ of _50_.
+    - The feature is always disabled for all other users, because the _Default percentage_ is set to _0_.
+
+1. Select **Apply** to save these settings and return to the **Feature manager** screen.
+
+1. The **Feature filter** for the feature flag now appears as *Targeting*. This state indicates that the feature flag will be enabled or disabled on a per-request basis, based on the criteria enforced by the *Targeting* feature filter.
+
 ## TargetingFilter in action
 
-To see the effects of this feature flag, build and run the application. Initially, the *Beta* item doesn't appear on the toolbar, because the `DefaultRolloutPercentage` option is set to 0.
+To see the effects of this feature flag, build and run the application. Initially, the *Beta* item doesn't appear on the toolbar, because the _Default percentage_ option is set to 0.
 
 Now sign in as `test@contoso.com`, using the password you set when registering. The *Beta* item now appears on the toolbar, because `test@contoso.com` is specified as a targeted user.
 
@@ -187,3 +166,10 @@ The following video shows this behavior in action.
 
 > [!div class="mx-imgBorder"]
 > ![TargetingFilter in action](./media/feature-flags-targetingfilter.gif)
+
+You can create additional users with `@contoso.com` email addresses to see the behavior of the group settings. 50% of these users will see the *Beta* item, and the other 50% will not.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Feature management overview](./concept-feature-management.md)
