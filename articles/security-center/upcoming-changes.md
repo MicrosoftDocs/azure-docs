@@ -28,7 +28,7 @@ This page is updated frequently, so revisit it often.
 
 ### Recommendations related to Azure Security Benchmark to be added (preview)
 
-|  |  |
+| Aspect | Details |
 |---------|---------|
 |Announcement date | 26 October 2020  |
 |Timeframe  |  1 month from this announcement       |
