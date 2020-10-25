@@ -16,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: blehr
+ms.custom: references_regions 
 ---
 
 # Upgrade public IP addresses
@@ -24,7 +25,7 @@ Azure public IP addresses are created with a SKU--either Basic or Standard--whic
 
 The following scenarios are reviewed in this article:
 * How to upgrade a Basic SKU public IP to a Standard SKU public IP (using Portal, PowerShell, or CLI)
-* How to migrate a Classic Azure Reserved IP to an Azure Resource Manager (ARM) Basic SKU public IP
+* How to migrate a Classic Azure Reserved IP to an Azure Resource Manager Basic SKU public IP
 
 ## Upgrade public IP address from Basic to Standard SKU
 
@@ -37,7 +38,7 @@ In order to upgrade a public IP, it must not be associated with any resource (se
 >Public IPs upgraded from Basic to Standard SKU continue to have no [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  This means they cannot be associated with an Azure resource that is either zone-redundant or tied to a pre-specified zone in regions where this is offered.
 
 ---
-# [**Basic to Standard - Powershell**](#tab/option-upgrade-powershell)
+# [**Basic to Standard - PowerShell**](#tab/option-upgrade-powershell)
 
 The following example assumes previous creation of a Basic SKU public IP, using the example given on [this page](https://docs.microsoft.com/azure/virtual-network/create-public-ip-powershell?tabs=option-create-public-ip-basic) with a Basic public IP **myBasicPublicIP** in **myResourceGroup**.
 
@@ -84,9 +85,9 @@ az network public-ip update \
 ```
 ---
 
-## Upgrade (migrate) a classic Azure Reserved IP to an Azure Resource Manager (ARM) Basic SKU public IP
+## Upgrade (migrate) a classic Reserved IP to an Azure Resource Manager public IP
 
-To benefit from the new capabilities in Azure Resource Manager, you can migrate existing public static IP address--called Reserved IPs--from the Classic model to the modern Azure Resource Manager (ARM) model.
+To benefit from the new capabilities in Azure Resource Manager, you can migrate existing public static IP address--called Reserved IPs--from the Classic model to the modern Azure Resource Manager model.  The migrated public IP will be a Basic SKU type.
 
 ---
 

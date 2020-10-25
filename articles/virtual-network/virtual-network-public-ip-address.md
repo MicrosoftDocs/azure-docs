@@ -72,7 +72,7 @@ For additional detail on the specific attributes of a Public IP address during c
 ## View, modify settings for, or delete a public IP address
 
    - **View/List**: To review settings for a Public IP, including the SKU, address, any applicable association (e.g. Virtual Machine NIC, Load Balancer Frontend).
-   - **Modify**: To modify settings using the information in step 4 of [create a public IP address](#create-a-public-ip-address), such as the idle timeout, DNS name label, or assignment method.  (For the full process of upgrading a Public IP SKU from Basic to Standard, see [Upgrade Azure public IP addresses](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-upgrade).)
+   - **Modify**: To modify settings using the information in step 4 of [create a public IP address](#create-a-public-ip-address), such as the idle timeout, DNS name label, or assignment method.  (For the full process of upgrading a Public IP SKU from Basic to Standard, see [Upgrade Azure public IP addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address-upgrade).)
    >[!WARNING]
    >To change the assignment for a Public IP address from static to dynamic, you must first dissociate the address from any applicable IP configurations (see **Delete** section).  Also note, when you change the assignment method from static to dynamic, you lose the IP address that was assigned to the public IP address. While the Azure public DNS servers maintain a mapping between static or dynamic addresses and any DNS name label (if you defined one), a dynamic IP address can change when the virtual machine is started after being in the stopped (deallocated) state. To prevent the address from changing, assign a static IP address.
    
