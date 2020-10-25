@@ -286,9 +286,9 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 1. To check the network health for your ISE, see [Manage your integration service environment](../logic-apps/ise-manage-integration-service-environment.md#check-network-health).
 
    > [!CAUTION]
-   > If the internal App Service Environment that's used by your ISE becomes unhealthy and remains in that state for 7 days, the ASE becomes suspended, 
-   > although all your data is preserved. To resolve this state, check your virtual network setup for problems that you can fix and then restart your ISE. 
-   > Otherwise, after 90 days, the App Service Environment is deleted, and your ISE becomes unusable.
+   > If the internal App Service Environment (ASE) that's used for your ISE is unhealthy for seven days, the ASE is suspended. 
+   > To resolve this state, check your virtual network setup. Resolve any problems that you find, and then restart your ISE. 
+   > Otherwise, after 90 days, the suspended ASE is deleted, and your ISE becomes unusable.
    > 
    > For more information, see these topics:
    >
