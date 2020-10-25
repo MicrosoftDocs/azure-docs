@@ -44838,6 +44838,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-hub/iot-hub-metrics.md",
+      "redirect_url": "/azure/iot-hub/monitor-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-monitor-resource-health.md",
+      "redirect_url": "/azure/iot-hub/monitor-iot-hub",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/key-vault/policy-samples.md",
       "redirect_url": "/azure/key-vault/policy-reference",
       "redirect_document_id": false
@@ -57542,6 +57552,26 @@
       "source_path": "articles/azure-resource-manager/management/grant-access-to-create-subscription.md",
       "redirect_url": "/azure/cost-management-billing/manage/grant-access-to-create-subscription",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/quick-register-azure-sub.md",
+      "redirect_url": "/azure/cost-management-billing/cloudyn/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/quick-register-ea.md",
+      "redirect_url": "/azure/cost-management-billing/cloudyn/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/connect-google-account.md",
+      "redirect_url": "/azure/cost-management-billing/cloudyn/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/costs/choose-between-azure-cost-management-cloudyn.md",
+      "redirect_url": "/azure/cost-management-billing/cost-management-billing-overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/manage-apps/add-gallery-app.md",

@@ -204,5 +204,4 @@ To create a private endpoint, follow these steps.
 
 ## Next steps
 
-To learn more about Azure Private Link, see the [Azure Private Link documentation](https://docs.microsoft.com/azure/private-link/private-link-overview). 
-
+To learn more about Azure Private Link, see the [Azure Private Link documentation](../private-link/private-link-overview.md).
