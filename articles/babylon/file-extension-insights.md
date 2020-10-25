@@ -26,12 +26,9 @@ In this how-to guide, you'll learn how to:
 
 Before getting started with Babylon insights, make sure that you've completed the following steps:
 
-
 - Followed explanations about setting up Azure resources and populating the relevant accounts with your test data
 
 - Set up and completed a scan on the test data in each data source.
-
-For more information, see [Tutorial: Use Azure Babylon to scan Azure data sources](scan-azure-data-sources-portal.md).
  
 After making sure your Azure Blob Storage is created, contains test data, and scanning test data succeeded, let's get started.  
 
