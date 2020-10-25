@@ -43,15 +43,14 @@ Be aware that it may take about 20 minutes until your logs start to appear in **
     sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
     ```
 
-   - <a name="mapping-command"></a>You may get a message about the **incorrect or missing mapping of the *Computer* field**. If that happens, run the following command (applying the Workspace ID in place of the placeholder), which ensures the correct mapping and restarts the agent.
-        ```bash
-        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
-        ```
+   - You may get a message directing you to run a command to correct an issue with the **mapping of the *Computer* field**. See the explanation in the appropriate validation script for details:
+       - [Validation script for rsyslog](#mapping-command-rs)
+       - [Validation script for syslog-ng](#mapping-command-ng)
 
-    - <a name="parsing-command"></a>You may get a message about the **incorrect parsing of Cisco ASA firewall logs**. If that happens, run the following command (applying the Workspace ID in place of the placeholder), which corrects the parsing and restarts the agent.
-        ```bash
-        sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
-        ```
+    - You may get a message directing you to run a command to correct an issue with the **parsing of Cisco ASA firewall logs**. See the explanation in the appropriate validation script for details:
+       - [Validation script for rsyslog](#parsing-command-rs)
+       - [Validation script for syslog-ng](#parsing-command-ng)
+
 
 ## Validation script explained
 
@@ -83,19 +82,31 @@ The validation script performs the following checks:
     </filter>
     ```
 
-1. Checks that the Cisco ASA parsing for Firewall events is configured as expected. If it isn't, the script will produce an error message directing you to run [the command mentioned above](#parsing-command) to fix the parsing.
+1. Checks that the parsing for Cisco ASA Firewall events is configured as expected, using the following command: 
 
     ```bash
-    # (This is the command the script uses to check the parsing, not the command to fix the parsing!)
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-1. Checks that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent. If it isn't, the script will produce an error message directing you to run [the command mentioned above](#mapping-command) to fix the mapping.
+    - <a name="parsing-command-rs"></a>If there is an issue with the parsing, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct parsing and restart the agent.
+    
+        ```bash
+        # Cisco ASA parsing fix
+        sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
+
+1. Checks that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent, using the following command: 
 
     ```bash
-    # (This is the command the script uses to check the mapping, not the command to fix the mapping!)
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
+
+    - <a name="mapping-command-rs"></a>If there is an issue with the mapping, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct mapping and restart the agent.
+
+        ```bash
+        # Computer field mapping fix
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 1. Checks if there are any security enhancements on the machine that might be blocking network traffic (such as a host firewall).
 
@@ -164,19 +175,31 @@ The validation script performs the following checks:
     </filter>
     ```
 
-1. Checks that the Cisco ASA parsing for Firewall events is configured as expected. If it isn't, the script will produce an error message directing you to run [the command mentioned above](#parsing-command) to fix the parsing.
+1. Checks that the parsing for Cisco ASA Firewall events is configured as expected, using the following command: 
 
     ```bash
-    # (This is the command the script uses to check the parsing, not the command to fix the parsing!)
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-1. Checks that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent. If it isn't, the script will produce an error message directing you to run [the command mentioned above](#mapping-command) to fix the mapping.
+    - <a name="parsing-command-ng"></a>If there is an issue with the parsing, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct parsing and restart the agent.
+    
+        ```bash
+        # Cisco ASA parsing fix
+        sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
+
+1. Checks that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent, using the following command: 
 
     ```bash
-    # (This is the command the script uses to check the mapping, not the command to fix the mapping!)
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
+
+    - <a name="mapping-command-ng"></a>If there is an issue with the mapping, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct mapping and restart the agent.
+
+        ```bash
+        # Computer field mapping fix
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 1. Checks if there are any security enhancements on the machine that might be blocking network traffic (such as a host firewall).
 

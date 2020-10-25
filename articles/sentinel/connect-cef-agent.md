@@ -51,7 +51,9 @@ In this step, you will designate and configure the Linux machine that will forwa
     ```
 
 1. While the script is running, check to make sure you don't get any error or warning messages.
-    - You may get a message that will direct you to run a command to correct an issue with the mapping of the *Computer* field. See [this explanation](#mapping-command) for details.
+    - You may get a message directing you to run a command to correct an issue with the mapping of the *Computer* field. See the explanation in the appropriate deployment script for details:
+       - [Deployment script for rsyslog](#mapping-command-rs)
+       - [Deployment script for syslog-ng](#mapping-command-ng)
 
 > [!NOTE]
 > **Using the same machine to forward both plain Syslog *and* CEF messages**
@@ -131,7 +133,7 @@ Choose a syslog daemon to see the appropriate description.
         ```bash
         grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
         ```
-    - <a name="mapping-command"></a>If there is an issue with the mapping, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct mapping and restart the agent.
+    - <a name="mapping-command-rs"></a>If there is an issue with the mapping, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct mapping and restart the agent.
     
         ```bash
         sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
@@ -199,7 +201,7 @@ Choose a syslog daemon to see the appropriate description.
         ```bash
         grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
         ```
-    - If there is an issue with the mapping, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct mapping and restart the agent.
+    - <a name="mapping-command-ng"></a>If there is an issue with the mapping, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct mapping and restart the agent.
     
         ```bash
         sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
