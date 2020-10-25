@@ -329,7 +329,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterConnectionEndpoint `
 Write-Host "Connected to cluster"
 
 
-$nodeType = "nt1vm" # specify the name of node type
+$nodeType = "nt0vm" # specify the name of node type
 $nodes = Get-ServiceFabricNode 
 
 Write-Host "Disabling nodes..."
