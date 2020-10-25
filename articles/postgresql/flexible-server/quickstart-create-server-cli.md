@@ -12,7 +12,7 @@ ms.custom: mvc
 
 # Quickstart: Create an Azure Database for PostgreSQL Flexible Server using Azure CLI
 
-This quickstart shows how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for PostgreSQL Flexible Server in five minutes. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for PostgreSQL Flexible Server in five minutes. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 > [!IMPORTANT] 
 > Azure Database for PostgreSQL Flexible Server is currently in preview.
@@ -41,7 +41,7 @@ az account set --subscription <subscription id>
 
 ## Create a flexible server
 
-Create an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) using the `az group create` command and then create your PostgreSQL flexible server inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
+Create an [Azure resource group](../../azure-resource-manager/management/overview.md) using the `az group create` command and then create your PostgreSQL flexible server inside this resource group. You should provide a unique name. The following example creates a resource group named `myresourcegroup` in the `westus` location.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
