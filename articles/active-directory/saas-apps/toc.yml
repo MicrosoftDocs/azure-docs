@@ -299,6 +299,8 @@
         href: chatwork-tutorial.md
       - name: Chargebee
         href: chargebee-tutorial.md
+      - name: CheckProof
+        href: checkproof-tutorial.md
       - name: Cherwell
         href: cherwell-tutorial.md
       - name: Chromeriver
