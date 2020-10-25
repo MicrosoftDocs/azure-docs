@@ -25,7 +25,7 @@ To roll out features based on users and groups, you'll need a web application th
    dotnet new mvc --auth Individual -o TestFeatureFlags
    ```
 
-1. Build and run, then select the **Register** link in the upper right corner to create a new user account. Use an email address of **test@contoso.com**
+1. Build and run, then select the **Register** link in the upper right corner to create a new user account. Use an email address of _test@contoso.com_. On the **Register Confirmation** screen, select **Click here to confirm your account**.
 
 1. Follow the instructions in [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) to add a feature flag to your new web application.
 

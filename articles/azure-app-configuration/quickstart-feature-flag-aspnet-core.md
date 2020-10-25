@@ -181,7 +181,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 1. Open *_Layout.cshtml* in the *Views*\\*Shared* directory. Locate the `<nav>` bar code under `<body>` > `<header>`. Insert a new `<feature>` tag as shown in the highlighted lines below.
 
-    :::code language="html" source="quickstart-feature-flag-navbar-code.md" range="17-40" highlight="29-33":::
+    :::code language="html" source="quickstart-feature-flag-navbar-code.md" range="17-40" highlight="14-18":::
 
 1. Create a *Views/Beta* directory and an *Index.cshtml* file containing the following markup:
 
