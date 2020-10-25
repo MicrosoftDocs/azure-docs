@@ -85,9 +85,10 @@ az network public-ip update \
 ```
 ---
 
-## Upgrade (migrate) a classic Reserved IP to an Azure Resource Manager public IP
+## Upgrade (migrate) a classic Reserved IP to a static public IP
 
 To benefit from the new capabilities in Azure Resource Manager, you can migrate existing public static IP address--called Reserved IPs--from the Classic model to the modern Azure Resource Manager model.  The migrated public IP will be a Basic SKU type.
+
 
 ---
 
