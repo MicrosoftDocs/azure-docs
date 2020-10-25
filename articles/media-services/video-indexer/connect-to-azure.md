@@ -63,8 +63,6 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
 1. Select the **Create unlimited account** button:
 
     ![Create new Video Indexer account](./media/create-account/create-unlimited-account.png)
-
-    If later you want to delete the account, you can delete the account from the Video Indexer website. Select the account -> **Settings** -> **Delete this account** (to delete the account, you must be the owner). The account will be permanently deleted in 90 days.
 1. When the subscriptions list appears, select the subscription you want to use.
 
     ![Connect Video Indexer to Azure](./media/create-account/new-account-on-azure-subscription.png)
@@ -156,6 +154,14 @@ The ability to import the content is valid for both automated and manual approac
 > [!NOTE]
 > The content can only be imported once from each account.
 
+## Delete the account
+
+If later you want to delete the account, you can delete the account from the Video Indexer website. To delete the account, you must be the owner.
+
+Select the account -> **Settings** -> **Delete this account**. 
+
+The account will be permanently deleted in 90 days.
+
 ## Considerations
 
 The following Azure Media Services related considerations apply:
@@ -170,10 +176,10 @@ The following Azure Media Services related considerations apply:
 
     Streaming endpoints have a considerable startup time. Therefore, it may take several minutes from the time you connected your account to Azure until your videos can be streamed and watched in the Video Indexer web app.
 * If you connect to an existing Media Services account, Video Indexer doesn't change the default Streaming Endpoint configuration. If there's no running **Streaming Endpoint**, you can't watch videos from this Media Services account or in Video Indexer.
-<!--* If you connect automatically, Video Indexer sets the media **Reserved Units** to 10 S3 units:
+* If you connect automatically, Video Indexer sets the media **Reserved Units** to 10 S3 units:
 
     ![Media Services reserved units](./media/create-account/ams-reserved-units.png)
--->
+
 ## Next steps
 
 You can programmatically interact with your trial account and/or with your Video Indexer accounts that are connected to Azure by following the instructions in: [Use APIs](video-indexer-use-apis.md).
