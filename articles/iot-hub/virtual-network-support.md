@@ -166,7 +166,7 @@ Trusted Microsoft first party services exception feature is free of charge. Char
 
 ### Egress connectivity to storage account endpoints for routing
 
-IoT Hub can route messages to a customer-owned storage account. To allow the routing functionality to access a storage account while firewall restrictions are in place, your IoT Hub needs to have a [managed identity](#turn-on-managed-identity-for-iot-hub). Once a managed identity is provisioned, follow the steps below to give RBAC permission to your hub's resource identity to access your storage account.
+IoT Hub can route messages to a customer-owned storage account. To allow the routing functionality to access a storage account while firewall restrictions are in place, your IoT Hub needs to have a [managed identity](#turn-on-managed-identity-for-iot-hub). Once a managed identity is provisioned, follow the steps below to give Azure RBAC permission to your hub's resource identity to access your storage account.
 
 1. In the Azure portal, navigate to your storage account's **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 
@@ -184,7 +184,7 @@ Now your custom storage endpoint is set up to use your hub's system assigned ide
 
 ### Egress connectivity to event hubs endpoints for routing
 
-IoT Hub can be configured to route messages to a customer-owned event hubs namespace. To allow the routing functionality to access an event hubs resource while firewall restrictions are in place, your IoT Hub needs to have a managed identity. Once a managed identity is created, follow the steps below to give RBAC permission to your hub's resource identity to access your event hubs.
+IoT Hub can be configured to route messages to a customer-owned event hubs namespace. To allow the routing functionality to access an event hubs resource while firewall restrictions are in place, your IoT Hub needs to have a managed identity. Once a managed identity is created, follow the steps below to give Azure RBAC permission to your hub's resource identity to access your event hubs.
 
 1. In the Azure portal, navigate to your event hubs **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 
@@ -202,7 +202,7 @@ Now your custom event hubs endpoint is set up to use your hub's system assigned 
 
 ### Egress connectivity to service bus endpoints for routing
 
-IoT Hub can be configured to route messages to a customer-owned service bus namespace. To allow the routing functionality to access a service bus resource while firewall restrictions are in place, your IoT Hub needs to have a managed identity. Once a managed identity is provisioned, follow the steps below to give RBAC permission to your hub's resource identity to access your service bus.
+IoT Hub can be configured to route messages to a customer-owned service bus namespace. To allow the routing functionality to access a service bus resource while firewall restrictions are in place, your IoT Hub needs to have a managed identity. Once a managed identity is provisioned, follow the steps below to give Azure RBAC permission to your hub's resource identity to access your service bus.
 
 1. In the Azure portal, navigate to your service bus' **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 
@@ -220,7 +220,7 @@ Now your custom service bus endpoint is set up to use your hub's system assigned
 
 ### Egress connectivity to storage accounts for file upload
 
-IoT Hub's file upload feature allows devices to upload files to a customer-owned storage account. To allow the file upload to function, both devices and IoT Hub need to have connectivity to the storage account. If firewall restrictions are in place on the storage account, your devices need to use any of the supported storage account's mechanism (including [private endpoints](../private-link/create-private-endpoint-storage-portal.md), [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), or [direct firewall configuration](../storage/common/storage-network-security.md)) to gain connectivity. Similarly, if firewall restrictions are in place on the storage account, IoT Hub needs to be configured to access the storage resource via the trusted Microsoft services exception. For this purpose, your IoT Hub must have a managed identity. Once a managed identity is provisioned, follow the steps below to give RBAC permission to your hub's resource identity to access your storage account.
+IoT Hub's file upload feature allows devices to upload files to a customer-owned storage account. To allow the file upload to function, both devices and IoT Hub need to have connectivity to the storage account. If firewall restrictions are in place on the storage account, your devices need to use any of the supported storage account's mechanism (including [private endpoints](../private-link/tutorial-private-endpoint-storage-portal.md), [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), or [direct firewall configuration](../storage/common/storage-network-security.md)) to gain connectivity. Similarly, if firewall restrictions are in place on the storage account, IoT Hub needs to be configured to access the storage resource via the trusted Microsoft services exception. For this purpose, your IoT Hub must have a managed identity. Once a managed identity is provisioned, follow the steps below to give Azure RBAC permission to your hub's resource identity to access your storage account.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -240,7 +240,7 @@ Now your storage endpoint for file upload is set up to use your hub's system ass
 
 IoT Hub supports the functionality to [import/export](./iot-hub-bulk-identity-mgmt.md) devices' information in bulk from/to a customer-provided storage blob. To allow bulk import/export feature to function, both devices and IoT Hub need to have connectivity to the storage account.
 
-This functionality requires connectivity from IoT Hub to the storage account. To access a service bus resource while firewall restrictions are in place, your IoT Hub needs to have a managed identity. Once a managed identity is provisioned, follow the steps below to give RBAC permission to your hub's resource identity to access your service bus.
+This functionality requires connectivity from IoT Hub to the storage account. To access a service bus resource while firewall restrictions are in place, your IoT Hub needs to have a managed identity. Once a managed identity is provisioned, follow the steps below to give Azure RBAC permission to your hub's resource identity to access your service bus.
 
 1. In the Azure portal, navigate to your storage account's **Access control (IAM)** tab and click **Add** under the **Add a role assignment** section.
 
@@ -248,7 +248,7 @@ This functionality requires connectivity from IoT Hub to the storage account. To
 
 3. Navigate to the **Firewalls and virtual networks** tab in your storage account and enable **Allow access from selected networks** option. Under the **Exceptions** list, check the box for **Allow trusted Microsoft services to access this storage account**. Click the **Save** button.
 
-You can now use the Azure IoT REST APIs for [creating import export jobs](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) for information on how to use the bulk import/export functionality. You will need to provide the `storageAuthenticationType="identityBased"` in your request body and use `inputBlobContainerUri="https://..."` and `outputBlobContainerUri="https://..."` as the input and output URLs of your storage account, respectively.
+You can now use the Azure IoT REST APIs for [creating import export jobs](/rest/api/iothub/service/jobs/getimportexportjobs) for information on how to use the bulk import/export functionality. You will need to provide the `storageAuthenticationType="identityBased"` in your request body and use `inputBlobContainerUri="https://..."` and `outputBlobContainerUri="https://..."` as the input and output URLs of your storage account, respectively.
 
 Azure IoT Hub SDKs also support this functionality in the service client's registry manager. The following code snippet shows how to initiate an import job or export job in using the C# SDK.
 
@@ -291,4 +291,4 @@ Use the links below to learn more about IoT Hub features:
 
 * [Message routing](./iot-hub-devguide-messages-d2c.md)
 * [File upload](./iot-hub-devguide-file-upload.md)
-* [Bulk device import/export](./iot-hub-bulk-identity-mgmt.md) 
+* [Bulk device import/export](./iot-hub-bulk-identity-mgmt.md)

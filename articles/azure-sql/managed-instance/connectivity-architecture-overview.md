@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
-ms.date: 03/17/2020
+ms.date: 10/22/2020
 ---
 
 # Connectivity architecture for Azure SQL Managed Instance
@@ -307,7 +307,7 @@ If the virtual network includes a custom DNS, the custom DNS server must be able
 The following virtual network features are currently not supported with SQL Managed Instance:
 
 - **Microsoft peering**: Enabling [Microsoft peering](../../expressroute/expressroute-faqs.md#microsoft-peering) on ExpressRoute circuits peered directly or transitively with a virtual network where SQL Managed Instance resides affects traffic flow between SQL Managed Instance components inside the virtual network and services it depends on, causing availability issues. SQL Managed Instance deployments to virtual network with Microsoft peering already enabled are expected to fail.
-- **Global virtual network peering**: [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md) connectivity across Azure regions doesn't work for SQL Managed Instance due to [documented load balancer constraints](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+- **Global virtual network peering**: [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md) connectivity across Azure regions doesn't work for SQL Managed Instances placed in subnets created before 9/22/2020.
 - **AzurePlatformDNS**: Using the AzurePlatformDNS [service tag](../../virtual-network/service-tags-overview.md) to block platform DNS resolution would render SQL Managed Instance unavailable. Although SQL Managed Instance supports customer-defined DNS for DNS resolution inside the engine, there is a dependency on platform DNS for platform operations.
 - **NAT gateway**: Using [Azure Virtual Network NAT](../../virtual-network/nat-overview.md) to control outbound connectivity with a specific public IP address would render SQL Managed Instance unavailable. The SQL Managed Instance service is currently limited to use of basic load balancer that doesn't provide coexistence of inbound and outbound flows with Virtual Network NAT.
 

@@ -38,7 +38,7 @@ For more information about authentication to Key Vault, see [Authenticate to Azu
 
 ## Key Vault authentication options
 
-When you create a key vault in an Azure subscription, it's automatically associated with the Azure AD tenant of the subscription. All callers in both planes must register in this tenant and authenticate to access the key vault. In both cases, applications can access Key Vault in two ways:
+When you create a key vault in an Azure subscription, it's automatically associated with the Azure AD tenant of the subscription. All callers in both planes must register in this tenant and authenticate to access the key vault. In both cases, applications can access Key Vault in three ways:
 
 - **Application-only**: The application represents a service principal or managed identity. This identity is the most common scenario for applications that periodically need to access certificates, keys, or secrets from the key vault. For this scenario to work, the `objectId` of the application must be specified in the access policy and the `applicationId` must _not_ be specified or must be `null`.
 - **User-only**: The user accesses the key vault from any application registered in the tenant. Examples of this type of access include Azure PowerShell and the Azure portal. For this scenario to work, the `objectId` of the user must be specified in the access policy and the `applicationId` must _not_ be specified or must be `null`.
@@ -67,7 +67,7 @@ The following table shows the endpoints for the management and data planes.
 
 In the management plane, you use [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) to authorize the operations a caller can execute. In the Azure RBAC model, each Azure subscription has an instance of Azure AD. You grant access to users, groups, and applications from this directory. Access is granted to manage resources in the Azure subscription that use the Azure Resource Manager deployment model.
 
-You create a key vault in a resource group and manage access by using Azure AD. You grant users or groups the ability to manage the key vaults in a resource group. You grant the access at a specific scope level by assigning appropriate Azure roles. To grant access to a user to manage key vaults, you assign a predefined `key vault Contributor` role to the user at a specific scope. The following scopes levels can be assigned to an Azure role:
+You create a key vault in a resource group and manage access by using Azure AD. You grant users or groups the ability to manage the key vaults in a resource group. You grant the access at a specific scope level by assigning appropriate Azure roles. To grant access to a user to manage key vaults, you assign a predefined [Key Vault Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) role to the user at a specific scope. The following scopes levels can be assigned to an Azure role:
 
 - **Subscription**: An Azure role assigned at the subscription level applies to all resource groups and resources within that subscription.
 - **Resource group**: An Azure role assigned at the resource group level applies to all resources in that resource group.
@@ -75,7 +75,7 @@ You create a key vault in a resource group and manage access by using Azure AD. 
 
 There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md). 
 
-You need to have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner)
+You need to have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 > [!IMPORTANT]
 > If a user has `Contributor` permissions to a key vault management plane, the user can grant themselves access to the data plane by setting a Key Vault access policy. You should tightly control who has `Contributor` role access to your key vaults. Ensure that only authorized persons can access and manage your key vaults, keys, secrets, and certificates.
@@ -127,7 +127,7 @@ For more information about Key Vault firewall and virtual networks, see [Configu
 
 ## Private endpoint connection
 
-In case of a need of to completely block Key Vault exposure to public, an Azure Private Endpoint can be used. An Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
+In case of a need of to completely block Key Vault exposure to public, an [Azure Private Endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) can be used. An Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
 Common scenarios for using Private Link for Azure services:
 
@@ -181,11 +181,11 @@ The following table summarizes the access permissions for our roles and applicat
 
 | Role | Management plane permissions | Data plane permissions - vault access policies | Data plane permissions -Azure RBAC (preview)  |
 | --- | --- | --- | --- |
-| Security team | Key Vault Contributor | Certificates: all operations <br> Keys: all operations <br> Secrets: all operations | Key Vault Administrator (preview) |
+| Security team | [Key Vault Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor) | Certificates: all operations <br> Keys: all operations <br> Secrets: all operations | [Key Vault Administrator (preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) |
 | Developers and&nbsp;operators | Key Vault deploy permission<br><br> **Note**: This permission allows deployed VMs to fetch secrets from a key vault. | None | None |
-| Auditors | None | Certificates: list <br> Keys: list<br>Secrets: list<br><br> **Note**: This permission enables auditors to inspect attributes (tags, activation dates, expiration dates) for keys and secrets not emitted in the logs. | Key Vault Reader (preview) |
-| Azure Storage Account | None | Keys: get, list, wrapKey, unwrapKey <br> | Key Vault Crypto Service Encryption |
-| Application | None | Secrets: get, list <br> Certificates: get, list | Key Vault Reader (preview), Key Vault Secret User (preview) |
+| Auditors | None | Certificates: list <br> Keys: list<br>Secrets: list<br><br> **Note**: This permission enables auditors to inspect attributes (tags, activation dates, expiration dates) for keys and secrets not emitted in the logs. | [Key Vault Reader (preview)]https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview |
+| Azure Storage Account | None | Keys: get, list, wrapKey, unwrapKey <br> | [Key Vault Crypto Service Encryption](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-preview) |
+| Application | None | Secrets: get, list <br> Certificates: get, list | [Key Vault Reader (preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-reader-preview), [Key Vault Secret User (preview)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-secrets-user-preview) |
 
 The three team roles need access to other resources along with Key Vault permissions. To deploy VMs (or the Web Apps feature of Azure App Service), developers and operators need deploy access. Auditors need read access to the Storage account where the Key Vault logs are stored.
 
@@ -196,7 +196,11 @@ Our example describes a simple scenario. Real-life scenarios can be more complex
 
 ## Resources
 
-* [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+- [About Azure Key Vault](overview.md)
+- [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+- [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+- [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 ## Next steps
 

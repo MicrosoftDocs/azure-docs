@@ -12,7 +12,7 @@ Azure Backup and Azure Database Services have come together to build an enterpri
 
 Besides long-term retention, the solution also has many other capabilities as listed below:
 
-- RBAC-based access to the database using Azure Active Directory and Managed Service Identity (MSI) authentication.
+- Azure role-based access control (Azure RBAC) to the database using Azure Active Directory and Managed Service Identity (MSI) authentication.
 - Customer controlled scheduled and on-demand backup at the individual database level.
 - Database-level restores to any Postgres server or directly to blob storage.
 - Long-term retention.
@@ -239,7 +239,7 @@ This section provides troubleshooting information for backing up Azure PostgreSQ
 
 Give Backup Vault MSI **Read** access on the PG server you want to back up or restore:
 
-To establish secure connection to the PostgreSQL database, Azure Backup uses the [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) authentication model. This means that the backup vault will have access to only those resources that have been explicitly granted permission by the user.
+To establish secure connection to the PostgreSQL database, Azure Backup uses the [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) authentication model. This means that the backup vault will have access to only those resources that have been explicitly granted permission by the user.
 
 A system MSI is automatically assigned to the vault at the time of creation. You need to give this vault MSI the access to the PostgreSQL servers you intend to back up databases from.
 
@@ -303,7 +303,7 @@ Establish network line of sight by enabling the **Allow access to Azure services
 
     ![Assign Storage Blob Data Contributor role](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)
 
-1. Alternatively, give granular permissions to the specific container you're restoring to by using the Azure CLI [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment) command.
+1. Alternatively, give granular permissions to the specific container you're restoring to by using the Azure CLI [az role assignment create](/cli/azure/role/assignment) command.
 
     ```azurecli
     az role assignment create --assignee $VaultMSI_AppId  --role "Storage Blob Data Contributor"   --scope $id

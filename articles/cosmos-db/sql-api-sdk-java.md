@@ -27,7 +27,7 @@ ms.custom: devx-track-java
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](./sql-query-getting-started.md)
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -42,7 +42,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 |**SDK Download**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**API documentation**|[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Get started**|[Get started with the Java SDK](sql-api-java-get-started.md)|
+|**Get started**|[Get started with the Java SDK](./create-sql-api-java.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-java-application.md)|
 |**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
@@ -227,7 +227,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 * Added time to live (TTL) support for documents.
 
 ### <a name="1.6.0"></a>1.6.0
-* Implemented [partitioned collections](partition-data.md) and [user-defined performance levels](performance-levels.md).
+* Implemented [partitioned collections](partitioning-overview.md) and [user-defined performance levels](performance-levels.md).
 
 ### <a name="1.5.1"></a>1.5.1
 * Fixed a bug in HashPartitionResolver to generate hash values in little-endian to be consistent with other SDKs.
@@ -326,4 +326,3 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 ## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
-

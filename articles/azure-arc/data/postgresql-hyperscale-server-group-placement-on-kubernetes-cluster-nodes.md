@@ -63,8 +63,8 @@ postgres01-2         3/3     Running   0          9h
 Each of those pods host a PostgreSQL instance. Together they form the Azure Arc enabled PostgreSQL Hyperscale server group:
 
 ```output
-Pod name	Role in the server group
-postgres01-0         	Coordinator
+Pod name	    Role in the server group
+postgres01-0  Coordinator
 postgres01-1	Worker
 postgres01-2	Worker
 ```

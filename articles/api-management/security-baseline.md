@@ -96,7 +96,7 @@ Use Azure Security Center Integrated Threat Intelligence to deny communications 
 
 * [How to configure Azure DDoS Protection Standard](../virtual-network/manage-ddos-protection.md)
 
-* [Understand Azure Security Center Integrated Threat Intelligence](../security-center/threat-protection.md)
+* [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -584,7 +584,7 @@ Configure advanced monitoring with API Management by using the `log-to-eventhub`
 
 * [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../governance/management-groups/create.md)
+* [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -770,7 +770,7 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 * [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../governance/management-groups/create.md)
+* [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -834,7 +834,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1110,7 +1110,7 @@ Managed identities can be used to obtain certificates from Azure Key Vault for A
 
 Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.
 
-* [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Not applicable
 

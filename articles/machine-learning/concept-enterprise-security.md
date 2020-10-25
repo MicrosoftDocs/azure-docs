@@ -178,6 +178,7 @@ To use your own (customer-managed) keys to encrypt your Azure Container Registry
 For an example of creating a workspace using an existing Azure Container Registry, see the following articles:
 
 * [Create a workspace for Azure Machine Learning with Azure CLI](how-to-manage-workspace-cli.md).
+* [Create a workspace with Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace).
 * [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md)
 
 #### Azure Container Instance
@@ -371,6 +372,10 @@ Here are the details:
 For more information on Azure Policy, see the [Azure Policy documentation](/azure/governance/policy/overview).
 
 For more information on the policies specific to Azure Machine Learning, see [Audit and manage compliance with Azure Policy](how-to-integrate-azure-policy.md).
+
+## Resource locks
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## Next steps
 

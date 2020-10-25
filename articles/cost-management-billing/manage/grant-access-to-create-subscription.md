@@ -79,7 +79,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
 
     # [Azure CLI](#tab/azure-cli)
 
-    Use the [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) command to list all enrollment accounts you have access to. Select **Try it** to open [Azure Cloud Shell](https://shell.azure.com/). To paste the code, right-click the shell windows, and the select **Paste**.
+    Use the [az billing enrollment-account list](/cli/azure/billing) command to list all enrollment accounts you have access to. Select **Try it** to open [Azure Cloud Shell](https://shell.azure.com/). To paste the code, right-click the shell windows, and the select **Paste**.
 
     ```azurecli-interactive
     az billing enrollment-account list

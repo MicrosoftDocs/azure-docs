@@ -72,7 +72,7 @@ Read more about [version import errors](luis-how-to-manage-versions.md#import-er
 
 ## Collaborating and contributing
 
-### How do I give collaborators access to LUIS with Azure Active Directory (Azure AD) or Role-based access control (RBAC)?
+### How do I give collaborators access to LUIS with Azure Active Directory (Azure AD) or Azure role-based access control (Azure RBAC)?
 
 See [Azure Active Directory resources](luis-how-to-collaborate.md#azure-active-directory-resources)  and [Azure Active Directory tenant user](luis-how-to-collaborate.md#azure-active-directory-tenant-user) to learn how to give collaborators access.
 
