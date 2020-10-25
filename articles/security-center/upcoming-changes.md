@@ -17,12 +17,13 @@ ms.author: memildin
 
 # Important upcoming changes to Azure Security Center
 
-On this page, you'll find important changes that are planned for Security Center. It describes planned modifications to the product that might impact things like your secure score or workflows.
+> [!IMPORTANT]
+> The information on this page relates to pre-release products or features, which may be substantially modified before they are commercially released, if ever. Microsoft makes no commitments or warranties, express or implied, with respect to the information provided here.
 
-This page is updated frequently, so revisit it often. 
+On this page, you'll learn about changes that are planned for Security Center. It describes planned modifications to the product that might impact things like your secure score or workflows.
 
-> [!TIP]
-> If you're looking for the latest release notes, you'll find them in the [What's new in Azure Security Center](release-notes.md).
+If you're looking for the latest release notes, you'll find them in the [What's new in Azure Security Center](release-notes.md).
+
 
 ## Planned changes
 
@@ -35,7 +36,7 @@ This page is updated frequently, so revisit it often.
 |Impact     | Potentially, more recommendations to review.<br>No immediate impact on secure score - Preview recommendations don't affect your secure score.<br>No immediate impact on health status of your resources - Preview recommendations don't render a resource "Unhealthy".|
 |  |  |
 
-**Azure Security Benchmark** is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
+Azure Security Benchmark is the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
 
 The following 29 new recommendations will be added to Security Center to increase the coverage of the benchmark.
 
