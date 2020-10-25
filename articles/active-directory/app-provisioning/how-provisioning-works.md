@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
+ms.custom: contperfq2
 ---
 
 # How provisioning works

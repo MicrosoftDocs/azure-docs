@@ -99,7 +99,7 @@ For on-premises AD DS authentication, you must set up your AD domain controllers
 
 The following diagram depicts on-premises AD DS authentication to Azure file shares over SMB. The on-prem AD DS must be synced to Azure AD using Azure AD Connect sync. Only hybrid users that exist in both on-premises AD DS and Azure AD can be authenticated and authorized for Azure file share access. This is because the share level permission is configured against the identity represented in Azure AD where the directory/file level permission is enforced with that in AD DS. Make sure that you configure the permissions correctly against the same hybrid user.
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagram":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagram that depicts on-premises AD DS authentication to Azure file shares over SMB.":::
 
 ### Azure AD DS
 
