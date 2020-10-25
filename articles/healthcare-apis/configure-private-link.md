@@ -17,45 +17,45 @@ ms.author: matjazl
 
 Private link enables you to access Azure API for FHIR over a private endpoint, a network interface that connects you privately and securely using a private IP address from your virtual network. With private link, you can access our services securely from your Vnet as a first party service without having to go through a public DNS. This article walks you through how to create, test, and manage your private endpoint for Azure API for FHIR.
 
-## Pre-requisites
+## Prerequisites
 
 Before creating a private endpoint, there are some Azure resources that you will need to create first:
 
-1. Resource Group – The Azure resource group that will contain the virtual network and private endpoint.
-2. Azure API for FHIR – The FHIR resource you would like to put behind a private endpoint.
-3. Virtual Network – The VNet to which your client services and Private Endpoint will be connected.
+- Resource Group – The Azure resource group that will contain the virtual network and private endpoint.
+- Azure API for FHIR – The FHIR resource you would like to put behind a private endpoint.
+- Virtual Network – The VNet to which your client services and Private Endpoint will be connected.
 
 For more information, check out the [Private Link Documentation](https://docs.microsoft.com/azure/private-link/).
 
-## Disabling Public Network Access
+## Disable public network access
 
 Creating a private endpoint for your FHIR resource does not automatically disable public traffic to it. In order to do that you will have to update your FHIR resource to set a new “Public access” property from “Enabled” to “Disabled”. Be careful when disabling public network access as all requests to your FHIR service that are not coming from a properly configured private endpoint will be denied. Only traffic from your private endpoints will be allowed.
 
 ![Disable Public Network Access](media/private-link/private-link-disable.png)
 
-## Creating a Private Endpoint
+## Create private endpoint
 
-To create a private endpoint, a developer with RBAC permissions on the FHIR resource can use Portal, [Powershell](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell), or [CLI](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli). This article walks you through the steps on using Portal. It is recommended to use Portal as it automates the creation and configuration of the Private DNS Zone. You can reference the [Private Link Quick Start Guides](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal) for more details.
+To create a private endpoint, a developer with RBAC permissions on the FHIR resource can use Azure Portal, [Azure PowerShell](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell), or [Azure CLI](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli). This article walks you through the steps on using Azure Portal. It is recommended to use Azure Portal as it automates the creation and configuration of the Private DNS Zone. You can reference the [Private Link Quick Start Guides](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal) for more details.
 
 There are two ways to create a private endpoint. Auto Approval flow allows a user that has RBAC permissions on the FHIR resource to create a private endpoint without a need for approval. Manual Approval flow allows a user without permissions on the FHIR resource to request a private endpoint to be approved by owners of the FHIR resource.
 
-1. Auto approval
+### Auto approval
 
 Make sure the region for the new private endpoint is the same as the region for your Virtual Network. The region for your FHIR resource can be different.
 
-![Portal Basics Tab](media/private-link/private-link-portal2.png)
+![Azure Portal Basics Tab](media/private-link/private-link-portal2.png)
 
 For Resource Type, search and select "Microsoft.HealthcareApis/services". For Resource, select the FHIR resource. For target sub-resource, select "fhir".
 
-![Portal Resource Tab](media/private-link/private-link-portal1.png)
+![Azure Portal Resource Tab](media/private-link/private-link-portal1.png)
 
 If you do not have an existing Private DNS Zone set up, select "(New)privatelink.azurehealthcareapis.com". If you already have your Private DNS Zone configured, you can select it from the list. It must be in the format of "privatelink.azurehealthcareapis.com".
 
-![Portal Configuration Tab](media/private-link/private-link-portal3.png)
+![Azure Portal Configuration Tab](media/private-link/private-link-portal3.png)
 
 After the deployment is complete, you can go back to "Private endpoint connections" tab, on which you will see "Approved" as the connection state.
 
-2. Manual Approval
+### Manual Approval
 
 For manual approval, select the second option under Resource, "Connect to an Azure resource by resource ID or alias". For Target sub resource, enter "fhir" as in Auto Approval.
 
@@ -65,7 +65,7 @@ After the deployment is complete, you can go back to "Private endpoint connectio
 
 ![Options](media/private-link/private-link-options.png)
 
-## Testing Private Endpoint
+## Test private endpoint
 
 To make sure that your FHIR server is not receiving public traffic after disabling public network access, try hitting the /metadata endpoint for your server from your computer. You should receive a 403 Forbidden. Note that it can take up to 5 minutes after updating the public network access flag before public traffic is blocked.
 
@@ -75,16 +75,16 @@ To make sure your private endpoint can send traffic to your server:
 2. RDP into the VM.
 3. Try hitting your FHIR server’s /metadata endpoint from the VM, you should receive the capability statement as a response.
 
-## Managing Private Endpoint
+## Manage private endpoint
 
 ### View
 
-Private Endpoints and the associated NIC are visible in the portal from the resource group they were created in.
+Private Endpoints and the associated NIC are visible in Azure Portal from the resource group they were created in.
 
 ![View in resources](media/private-link/private-link-view.png)
 
 ### Delete
 
-Private endpoints can only be deleted from the portal via the Overview blade (as below) or via the Delete option under Networking (preview)'s "Private endpoint connections" tab. Clicking the delete button will delete the private endpoint and the associated NIC. If you delete all private endpoints to the FHIR resource and the public network access is disabled, no requests will be able to make it to your FHIR server. All private endpoints must be deleted from the FHIR resource before the FHIR resource can be deleted or moved.
+Private endpoints can only be deleted from Azure Portal via the Overview blade (as below) or via the Delete option under Networking (preview)'s "Private endpoint connections" tab. Clicking the delete button will delete the private endpoint and the associated NIC. If you delete all private endpoints to the FHIR resource and the public network access is disabled, no requests will be able to make it to your FHIR server. All private endpoints must be deleted from the FHIR resource before the FHIR resource can be deleted or moved.
 
 ![Delete Private Endpoint](media/private-link/private-link-delete.png)
