@@ -57,7 +57,7 @@ After the deployment is complete, you can go back to "Private endpoint connectio
 
 2. Manual Approval
 
-For manual approval, select the second option under Resource, "Connect to an Azure resource by resource ID or alias". For Target sub resource, enter "fhir" just as in Auto Approval.
+For manual approval, select the second option under Resource, "Connect to an Azure resource by resource ID or alias". For Target sub resource, enter "fhir" as in Auto Approval.
 
 ![Manual Approval](media/private-link/private-link-manual.png)
 
@@ -71,7 +71,7 @@ To make sure that your FHIR server is not receiving public traffic after disabli
 
 To make sure your private endpoint can send traffic to your server:
 
-1. Create a VM that is connected to the virtual network and subnet your private endpoint is configured on. To ensure your traffic from the VM is only using the private network you can disable outbound internet traffic via NSG rule.
+1. Create a VM that is connected to the virtual network and subnet your private endpoint is configured on. To ensure your traffic from the VM is only using the private network, you can disable outbound internet traffic via NSG rule.
 2. RDP into the VM.
 3. Try hitting your FHIR server’s /metadata endpoint from the VM, you should receive the capability statement as a response.
 
@@ -85,6 +85,6 @@ Private Endpoints and the associated NIC are visible in the portal from the reso
 
 ### Delete
 
-Private endpoints can only be deleted from the portal via the Overview blade (as below) or via the Delete option under Networking (preview)'s "Private endpoint connections" tab. Clicking the delete button will delete the private endpoint and the associated NIC. Note that if you delete all private endpoints to a FHIR resource and the public network access is disabled, no requests will be able to make it to your FHIR server. All private endpoints must be deleted from a FHIR resource before the FHIR resource can be deleted or moved.
+Private endpoints can only be deleted from the portal via the Overview blade (as below) or via the Delete option under Networking (preview)'s "Private endpoint connections" tab. Clicking the delete button will delete the private endpoint and the associated NIC. If you delete all private endpoints to the FHIR resource and the public network access is disabled, no requests will be able to make it to your FHIR server. All private endpoints must be deleted from the FHIR resource before the FHIR resource can be deleted or moved.
 
 ![Delete Private Endpoint](media/private-link/private-link-delete.png)
