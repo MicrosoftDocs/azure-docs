@@ -187,4 +187,4 @@ When your Azure MySQL database and repository are no longer needed, clean up the
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about Azure and GitHub integration](https://docs.microsoft.com/azure/developer/github/)
+> [Learn about Azure and GitHub integration](/azure/developer/github/)

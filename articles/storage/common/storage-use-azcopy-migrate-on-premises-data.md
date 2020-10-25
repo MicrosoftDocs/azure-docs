@@ -42,7 +42,7 @@ Follow these steps to create a container:
 1. Select the **Storage accounts** button from the main page, and select the storage account that you created.
 2. Select **Blobs** under **Services**, and then select **Container**.
 
-   ![Create a container](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
+   ![Screenshot showing container creation](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
 Container names must start with a letter or number. They can contain only letters, numbers, and the hyphen character (-). For more rules about naming blobs and containers, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
@@ -58,7 +58,7 @@ Place the AzCopy file anywhere on your computer. Add the location of the file to
 
 ## Authenticate with Azure AD
 
-First, assign the [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) role to your identity. See [Use the Azure portal to assign an Azure role for access to blob and queue data](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
+First, assign the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) role to your identity. See [Use the Azure portal to assign an Azure role for access to blob and queue data](/azure/storage/common/storage-auth-aad-rbac-portal).
 
 Then, open a command prompt, type the following command, and press the ENTER key.
 
@@ -68,13 +68,13 @@ azcopy login
 
 This command returns an authentication code and the URL of a website. Open the website, provide the code, and then choose the **Next** button.
 
-![Create a container](media/storage-use-azcopy-v10/azcopy-login.png)
+![Screenshot showing the login prompt](media/storage-use-azcopy-v10/azcopy-login.png)
 
 A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
 
 ## Upload contents of a folder to Blob storage
 
-You can use AzCopy to upload all files in a folder to Blob storage on [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) or [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux). To upload all blobs in a folder, enter the following AzCopy command:
+You can use AzCopy to upload all files in a folder to Blob storage on [Windows](/azure/storage/common/storage-use-azcopy) or [Linux](/azure/storage/common/storage-use-azcopy-linux). To upload all blobs in a folder, enter the following AzCopy command:
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
@@ -173,7 +173,7 @@ To validate that the scheduled task/cron job runs correctly, create new files in
 
 To learn more about ways to move on-premises data to Azure Storage and vice versa, follow this link:
 
-* [Move data to and from Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
+* [Move data to and from Azure Storage](/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 For more information about AzCopy, see any of these articles:
 
