@@ -13,7 +13,7 @@
     href: invite-users.md
 - name: Tutorials
   items:
-  - name: Connect to Azure
+  - name: Create a new account connected to Azure
     href: connect-to-azure.md
   - name: Use Video Indexer API
     href: video-indexer-use-apis.md
