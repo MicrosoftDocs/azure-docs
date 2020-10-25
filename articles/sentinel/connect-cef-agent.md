@@ -51,10 +51,7 @@ In this step, you will designate and configure the Linux machine that will forwa
     ```
 
 1. While the script is running, check to make sure you don't get any error or warning messages.
-    - <a name="mapping-command"></a>You may get a message about the incorrect or missing mapping of the *Computer* field. If that happens, run the following command (applying the Workspace ID in place of the placeholder), which ensures the correct mapping and restarts the agent.
-        ```bash
-        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
-        ```
+    - You may get a message that will direct you to run a command to correct an issue with the mapping of the *Computer* field. See [this explanation](#mapping-command) for details.
 
 > [!NOTE]
 > **Using the same machine to forward both plain Syslog *and* CEF messages**
@@ -129,11 +126,15 @@ Choose a syslog daemon to see the appropriate description.
 
 1. **Verifying the mapping of the *Computer* field as expected:**
 
-    - Ensures that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent. If it isn't, the script will produce an error message directing you to run [the command mentioned above](#mapping-command) to fix the mapping.
+    - Ensures that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent, using the following command: 
 
         ```bash
-        # (This is the command the script uses to check the mapping, not the command to fix the mapping!)
         grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
+        ```
+    - <a name="mapping-command"></a>If there is an issue with the mapping, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct mapping and restart the agent.
+    
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
 # [syslog-ng daemon](#tab/syslogng)
@@ -193,11 +194,15 @@ Choose a syslog daemon to see the appropriate description.
 
 1. **Verifying the mapping of the *Computer* field as expected:**
 
-    - Ensures that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent. If it isn't, the script will produce an error message directing you to run [the command mentioned above](#mapping-command) to fix the mapping.
+    - Ensures that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent, using the following command: 
 
         ```bash
-        # (This is the command the script uses to check the mapping, not the command to fix the mapping!)
         grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
+        ```
+    - If there is an issue with the mapping, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct mapping and restart the agent.
+    
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
 ## Next steps
