@@ -64,14 +64,7 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
 
     ![Create new Video Indexer account](./media/create-account/create-unlimited-account.png)
 
-    If later you want to delete the account, you have two options:
-
-    * Delete from the Video Indexer website. Select the account -> **Settings** -> **Delete this account** (if must be the owner). 
-
-         It takes 90 (IIRC) days if you delete from portal.
-    * Via the delete account API call.
-
-        The API enables you to specify parameters to delete the account immediately.
+    If later you want to delete the account, you can delete the account from the Video Indexer website. Select the account -> **Settings** -> **Delete this account** (to delete the account, you must be the owner). The account will be permanently deleted in 90 days.
 1. When the subscriptions list appears, select the subscription you want to use.
 
     ![Connect Video Indexer to Azure](./media/create-account/new-account-on-azure-subscription.png)
