@@ -43,14 +43,9 @@ Be aware that it may take about 20 minutes until your logs start to appear in **
     sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
     ```
 
-   - You may get a message directing you to run a command to correct an issue with the **mapping of the *Computer* field**. See the explanation in the appropriate validation script for details:
-       - [Validation script for rsyslog](#mapping-command-rs)
-       - [Validation script for syslog-ng](#mapping-command-ng)
+   - You may get a message directing you to run a command to correct an issue with the **mapping of the *Computer* field**. See the [explanation in the validation script](#mapping-command) for details.
 
-    - You may get a message directing you to run a command to correct an issue with the **parsing of Cisco ASA firewall logs**. See the explanation in the appropriate validation script for details:
-       - [Validation script for rsyslog](#parsing-command-rs)
-       - [Validation script for syslog-ng](#parsing-command-ng)
-
+    - You may get a message directing you to run a command to correct an issue with the **parsing of Cisco ASA firewall logs**. See the [explanation in the validation script](#parsing-command) for details.
 
 ## Validation script explained
 
@@ -88,7 +83,7 @@ The validation script performs the following checks:
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-    - <a name="parsing-command-rs"></a>If there is an issue with the parsing, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct parsing and restart the agent.
+    - <a name="parsing-command"></a>If there is an issue with the parsing, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct parsing and restart the agent.
     
         ```bash
         # Cisco ASA parsing fix
@@ -101,7 +96,7 @@ The validation script performs the following checks:
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
 
-    - <a name="mapping-command-rs"></a>If there is an issue with the mapping, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct mapping and restart the agent.
+    - <a name="mapping-command"></a>If there is an issue with the mapping, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct mapping and restart the agent.
 
         ```bash
         # Computer field mapping fix
@@ -181,7 +176,7 @@ The validation script performs the following checks:
     grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-    - <a name="parsing-command-ng"></a>If there is an issue with the parsing, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct parsing and restart the agent.
+    - <a name="parsing-command"></a>If there is an issue with the parsing, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct parsing and restart the agent.
     
         ```bash
         # Cisco ASA parsing fix
@@ -194,7 +189,7 @@ The validation script performs the following checks:
     grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
 
-    - <a name="mapping-command-ng"></a>If there is an issue with the mapping, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct mapping and restart the agent.
+    - <a name="mapping-command"></a>If there is an issue with the mapping, the script will produce an error message directing you to **manually run the following command** (applying the Workspace ID in place of the placeholder). The command will ensure the correct mapping and restart the agent.
 
         ```bash
         # Computer field mapping fix
