@@ -149,7 +149,7 @@ In the dialog, provide the following information:
 
 ## Import your content from the *trial* account
 
-When [creating a new account](#connect-to-azure), you have an option to import your content from the *trial* account into the new account. If you check the *import* option in the **Create a new account on an Azure subscription** dialog, all media and content model customizations will be copied from the *trial* account into the new account.
+When creating a new account, you have an option to import your content from the *trial* account into the new account. If you check the *import* option in the **Create a new account on an Azure subscription** dialog, all media and content model customizations will be copied from the *trial* account into the new account.
 
 The ability to import the content is valid for both automated and manual approaches described above.
 
