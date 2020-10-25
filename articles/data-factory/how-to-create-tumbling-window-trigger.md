@@ -163,14 +163,14 @@ If you want to make sure that a tumbling window trigger is executed only after t
 
 You can cancel runs for a tumbling window trigger, if the specific window is in _Waiting_, _Waiting on Dependency_, or _Running_ state
 
-* If the window is in **Running** state, cancel the associated _Pipeline Run_, and the trigger run will be marked as _Cancelled_ afterwards
+* If the window is in **Running** state, cancel the associated _Pipeline Run_, and the trigger run will be marked as _Canceled_ afterwards
 * If the window is in **Waiting** or **Waiting on Dependency** state, you can cancel the window from Monitoring:
 
 ![Cancel a tumbling window trigger from Monitoring page](media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png)
 
-You can also rerun a cancelled window. The rerun will take the _latest_ published definitions of the trigger, and dependencies for the specified window will be _re-evaluated_ upon rerun
+You can also rerun a canceled window. The rerun will take the _latest_ published definitions of the trigger, and dependencies for the specified window will be _re-evaluated_ upon rerun
 
-![Rerun a tumbling window trigger for previously cancelled runs](media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png)
+![Rerun a tumbling window trigger for previously canceled runs](media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png)
 
 ## Sample for Azure PowerShell
 
