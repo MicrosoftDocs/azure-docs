@@ -93,6 +93,8 @@ Learn about the [latest architecture for Azure Machine Learning](concept-azure-m
 For an overview of the service, read [What is Azure Machine Learning?](overview-what-is-azure-ml.md).
 
 Create your first experiment with your preferred method:
+
+  + [Use your own environment](tutorial-1st-experiment-sdk-setup-local.md)
   + [Use Python notebooks](tutorial-1st-experiment-sdk-setup.md)
   + [Use R Markdown](tutorial-1st-r-experiment.md) 
   + [Use automated machine learning](tutorial-designer-automobile-price-train-score.md) 

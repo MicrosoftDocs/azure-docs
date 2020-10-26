@@ -869,6 +869,17 @@ groups:
     title: Azure Arc
   - id: azure-portal
     title: Security Center's portal pages
+# Owner: mikeray
+- id: client-operating-system-macos-and-linux-windows-powershell
+  title: Operating system / Console
+  prompt: Choose an operating system and console
+  pivots:
+  - id: client-operating-system-macos-and-linux
+    title: macOS & Linux
+  - id: client-operating-system-windows-command
+    title: Windows command shell
+  - id: client-operating-system-powershell
+    title: PowerShell
 # Owner: erhopf
 - id: ad-quickstart-one
   title: Programming languages
