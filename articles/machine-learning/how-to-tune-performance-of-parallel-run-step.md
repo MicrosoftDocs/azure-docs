@@ -59,6 +59,37 @@ It has scheduling progress, mini batch processing progress and file concatenatin
 
 ## Mini batch scheduling performance
 
+
+To make good use of all nodes, ensure:
+> [!div class="mx-imgBorder"]
+> ![Mini batch processing metrics](media/how-to-tune-performance-of-parallel-run-step/node-count-formula1.png)
+
+task_created_per_second: by average, it will schedule 400 mini batches per second. This is a constant unless there is any storage issue or connectivity issue.
+E.g, 10 seconds per mini batch, a task producer can serve about 4000 agents (processes). If process_count_per_node = 4, node_count can be 1000 to achieve max throughput.
+
+So far, AmlCompute support up to 100 nodes for non-ParallelTask mode.
+Task_overhead_time is ~0.05 second/task. This is from it took 2hours to process 1m tasks with 8 processes. Overhead = 7200 seconds * 8 / 1m
+
+> [!div class="mx-imgBorder"]
+> ![Mini batch processing metrics](media/how-to-tune-performance-of-parallel-run-step/node-count-formula2.png)
+
+
+A reasonable mini_batch_size is to keep the mini batch take 10+ seconds
+This will keep the overhead below 0.5%.
+Excluding the overhead part, the run_invocation_time is linear to the mini_batch_size.
+
+>[!NOTE]
+>A small mini_batch_size help us to know the progress in fine grain. So it’s not the large size the better.
+Based on talking to multiple customer, we should clearly mention in our document that user should avoid setting mini_batch_size > 1 and add for loop inside run method. We ourselves do it in file dataset notebook which we should remove.
+
+Having for loop inside run method is not helpful because if other worker is free then they can process that file.
+
+Max mini batch size
+1. A queue message can be up to 64 KB in size.
+1. The path is long, base name is not. Share the path.
+1. Compress before sending. Support ~40k files like the below pattern.
+
+
 ### The duration to create the first task
 This matters for if there is a folder with a large number of files, it will take time to load the list and then pick up the first set of files. For example, given a folder with 1m files in blob in the same region as the run, it will take about 5 minutes to pick up the first one. If the folder is in other region than the run, it will take much longer time.
 
@@ -89,7 +120,7 @@ Check `logs/sys/master_role.*.txt`. Usually, this is in the first `master_role` 
 
 [TBD for tabular dataset]
 
-## Mini batch processing metrics, include durations of entry script functions
+## Mini batch processing metrics, including durations of entry script functions
 `logs/sys/job_report/processed_mini-batches.csv` (`logs/sys/report/processed_tasks.csv` in previous versions).
 This file includes the durations for calling entry script methods and the methods themselves.
 
@@ -116,11 +147,37 @@ Mini-batch Detail  | The json string of the mini batch.
 
 ### Analysis Using PivotTable
 
-[Add processed mini batch count/average durations over time here]
+You can use Excel PivotTable to arrange and summarize mini batch processing data easily. For example, you can check:
+1. The number of processed tasks over minute/hour and status. This is a way to check if there is performance degradation.
+1. Mini batch distribution over processes/nodes and status.
+1. The distribution of entry script function call status. Such as LOAD_DONE, LOAD_TIMEOUT, RUN_DONE, RUN_TIMEOUT, RUN_EXCEPTION, etc.
+1. Retried mini batch, where Picked Count > 1, over time and status.
+
+One common operation is to convert start_time in the UTC time string into Excel Date/Time.
+Assume E2 has value "2020-10-24T02:59:04.227237", the formulas can be:
+```VBScript
+=DATEVALUE(LEFT(E2,10))+TIMEVALUE(MID(E2,12,8)) 'This truncates to second.
+```
+
+Below is a pivot table shows the number of processed mini batches over time and node. `StartSecond` is converted from `Start Time` using above formula. In this table you can drill down and up to the granularity you care.
+
+> [!div class="mx-imgBorder"]
+> ![Processed mini batches over time and node](media/how-to-tune-performance-of-parallel-run-step/processed-mini-batches-over-time-node.png)
+
+Assume the durations of processing a mini batch among all the mini batches are similar, the count over time and node should be similar.
+1. If the count decreases over time, there is a performance degradation. This may come from run() method itself or the piling up of external storage accessing.
+
+    1. `Run Method Seconds` (run() method duration) doesn't increase over time. This shows run() function in your entry script doesn't have performance degradation. Skip to **item d**.
+    1. `Run Method Seconds` increases over time. The indicts there is performance degradation in run() function. You need to check your entry script to see if there is anything related. If you're using GPU, check if GPU is always well used over time. There is knowns issue that a GPU cannot be reused in some cases. After GPU became unavailable, the `Process Seconds` will increase significantly and the number of mini batches per time unit will decrease significantly. If you cannot find, you can check section **How to Do Profiling** to profile you code.
+    1. `Elapsed Seconds` doesn't increase over time. This should not happen as the job does have performance degradation.
+    1. `Elapsed Seconds` increases over time. This is usually from storage. Check **Storage Metrics** to narrow down the cause.
+1. If there are a number of mini batches with RUN_TIMEOUT and the number should not be ignored, you should check the expected duration to process a mini batch and increase `--run_invocation_timeout` if needed.
 
 ### process_summary.csv
+This is a view of processed_mini-batches.csv. It summarizes by process.
 
 ### node_summary.csv
+This is a view of processed_mini-batches.csv. It summarizes by node.
 
 
 
@@ -129,14 +186,59 @@ Mini-batch Detail  | The json string of the mini batch.
 The performance report is located in `logs/sys/perf/`. It consists of resource usage reports in several dimensions. All reports are grouped by node. Under folder of each node, the below files are included:
 
 - `node_resource_usage.csv`: This file provides an overview of resource usage of a node.
+
+> [!div class="mx-imgBorder"]
+> ![Node Resource Usage](media/how-to-tune-performance-of-parallel-run-step/node-resource-usage.png)
+
+
 - `node_disk_usage.csv`: This file provides detailed disk usage of a node.
+
+> [!div class="mx-imgBorder"]
+> ![Node Disk Usage](media/how-to-tune-performance-of-parallel-run-step/node-disk-usage.png)
+
+
 - `processes_resource_usage.csv`: This file provides an overview of resource usage of each worker process in a node.
 
+> [!div class="mx-imgBorder"]
+> ![Process Resource Usage](media/how-to-tune-performance-of-parallel-run-step/process-resource-usage.png)
 
-## Understanding ParallelRunStep Resource Requirements
+
+### Node resource usage
+> [!div class="mx-imgBorder"]
+> ![Node resource usage](media/how-to-tune-performance-of-parallel-run-step/node-resource-usage.png)
+
+### Columns of the table
+Column Name       | Note
+---               |---
+Utc Time	      | The UTC time of writing the row.
+Cpu Percent | The percentage of CPU usage.
+Memory Total (MB) | The total physical memory (exclusive swap). See [Memory in psutil doc](https://psutil.readthedocs.io/en/latest/#memory).
+Memory Available (MB) | The memory that can be given instantly to processes without the system going into swap. This is calculated by summing different memory values depending on the platform and it is supposed to be used to monitor actual memory usage in a cross platform fashion.
+Memory Used (MB)	| The memory used, calculated differently depending on the platform and designed for informational purposes only. total - free does not necessarily match used.
+Memory Used Percent    | The memory used in term of percentage.
+Disk Io Read Count | The number of reads. See [Disks in psutil doc](https://psutil.readthedocs.io/en/latest/#disks).
+Disk Io Write Count	| The number of writes.
+Disk Io Read (MB)	| The number of MB read.
+Disk Io Write (MB)	| The number of MB writes.
+Network Sent (MB)	| The number of MB sent. See [Network in psutil doc](https://psutil.readthedocs.io/en/latest/#network)
+Network Recv (MB)	| The number of MB received.
+# of TCP Connections	| The number of TCP connections.
+# of UDP Connections | The number of UDP connections.
+
 
 ### CPU and Memory
 The internal scripts of ParallelRunStep requires minor CPU and memory. In common, users only need to take care of CPU and memory usage of their own scripts.
+
+The monitor dumps CPU and memory usage every minute, grouped by hour. The folder is `logs/sys/perf/<node>/processes_cpu_memory_usage/`
+
+CPU Memory Usage Sorted by CPU Usage Percent Descending
+> [!div class="mx-imgBorder"]
+> ![Storage Metrics](media/how-to-tune-performance-of-parallel-run-step/node-cpu-usage-all-processes.png)
+
+
+CPU Memory Usage Sorted by Memory Usage Percent Descending
+> [!div class="mx-imgBorder"]
+> ![Storage Metrics](media/how-to-tune-performance-of-parallel-run-step/node-memory-usage-all-processes.png)
 
 ### Network
 ParallelRunStep requires a lot of network I/O operation to support dataset processing, mini-batch scheduling and processing. Bandwidth and latency are the primary concerns of network.
@@ -220,4 +322,12 @@ Tune PRS parameters
 Tune nodes
 
 > [!div class="mx-imgBorder"]
-> ![Overall Architecture](media/how-to-tune-performance-of-parallel-run-step/overall-architecture.png)
+> ![Overall Architecture](media/how-to-tune-performance-of-parallel-run-step/architecture.png)
+
+
+
+## append_row
+
+## Beyond mini batch processing
+job preparation
+job release
