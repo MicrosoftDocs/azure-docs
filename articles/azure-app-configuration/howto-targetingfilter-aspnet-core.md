@@ -11,7 +11,7 @@ ms.date: 8/7/2020
 
 # Enable staged rollout of features for targeted audiences
 
-Feature flags allow you to dynamically activate or deactivate functionality in your application. Feature filters determine the state of a feature flag each time it's evaluated. The `Microsoft.FeatureManagement` library includes `TargetingFilter`, which enables a feature flag for a specified list of users and groups, or for a specified percentage of users. `TargetingFilter` is "sticky," meaning that once an individual user receives a feature, they will continue to see that feature on subsequent requests. You can use `TargetingFilter` to enable a feature for a specific account during a demo, to progressively roll out new features to users in different groups or "rings," and much more.
+Feature flags allow you to dynamically activate or deactivate functionality in your application. Feature filters determine the state of a feature flag each time it's evaluated. The `Microsoft.FeatureManagement` library includes `TargetingFilter`, which enables a feature flag for a specified list of users and groups, or for a specified percentage of users. `TargetingFilter` is "sticky." This means that once an individual user receives a feature, they'll continue to see that feature on all future requests. You can use `TargetingFilter` to enable a feature for a specific account during a demo, to progressively roll out new features to users in different groups or "rings," and much more.
 
 In this article, you'll learn how to roll out a new feature in an ASP.NET Core web application to specified users and groups, using `TargetingFilter` with Azure App Configuration.
 
@@ -25,11 +25,11 @@ To roll out features based on users and groups, you'll need a web application th
    dotnet new mvc --auth Individual -o TestFeatureFlags
    ```
 
-1. Build and run, then select the **Register** link in the upper right corner to create a new user account. Use an email address of _test@contoso.com_. On the **Register Confirmation** screen, select **Click here to confirm your account**.
+1. Build and run, then select the **Register** link in the upper right corner to create a new user account. Use an email address of `test@contoso.com`. On the **Register Confirmation** screen, select **Click here to confirm your account**.
 
 1. Follow the instructions in [Quickstart: Add feature flags to an ASP.NET Core app](./quickstart-feature-flag-aspnet-core.md) to add a feature flag to your new web application.
 
-1. Validate that you can control the visibility of the **Beta** item on the navigation bar by toggling the feature flag in App Configuration.
+1. Toggle the feature flag in App Configuration. Validate that this action controls the visibility of the **Beta** item on the navigation bar.
 
 ## Update the web application code to use TargetingFilter
 
@@ -135,11 +135,13 @@ The entire *ConfigureServices* method will look like this:
 
 1. In the **Edit** screen, select the **Enable feature flag** checkbox if it isn't already selected. Then select the **Use feature filter** checkbox.
 
+1. Select the **Targeting** radio button.
+
 1. Select the following options:
 
     - **Default percentage**: 0
     - **Groups**: Enter a **Name** of _contoso.com_ and a **Percentage** of _50_
-    - **Users**: _test@contoso.com_
+    - **Users**: `test@contoso.com`
 
     The feature filter screen will look like this:
 
@@ -148,7 +150,7 @@ The entire *ConfigureServices* method will look like this:
 
     These settings result in the following behavior:
 
-    - The feature flag is always enabled for user _test@contoso.com_, because _test@contoso.com_ is listed in the _Users_ section.
+    - The feature flag is always enabled for user `test@contoso.com`, because `test@contoso.com` is listed in the _Users_ section.
     - The feature flag is enabled for 50% of other users in the _contoso.com_ group, because _contoso.com_ is listed in the _Groups_ section with a _Percentage_ of _50_.
     - The feature is always disabled for all other users, because the _Default percentage_ is set to _0_.
 
@@ -167,7 +169,7 @@ The following video shows this behavior in action.
 > [!div class="mx-imgBorder"]
 > ![TargetingFilter in action](./media/feature-flags-targetingfilter.gif)
 
-You can create additional users with `@contoso.com` email addresses to see the behavior of the group settings. 50% of these users will see the *Beta* item, and the other 50% will not.
+You can create additional users with `@contoso.com` email addresses to see the behavior of the group settings. 50% of these users will see the *Beta* item. The other 50% won't see the *Beta* item.
 
 ## Next steps
 
