@@ -46,6 +46,9 @@
   - name: Implement Azure Policy as Code with GitHub
     displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
     href: ./tutorials/policy-as-code-github.md
+  - name: "Learn: Control and audit your resources by using Azure Policy"
+    displayName: governance, module
+    href: /learn/modules/build-cloud-governance-strategy-azure/8-control-audit-resources-azure-policy
 - name: Samples
   items:
   - name: Index

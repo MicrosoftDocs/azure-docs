@@ -174,8 +174,8 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 If you want to read and write with MSAL.NET Azure Active Directory using the Microsoft Graph API (https://graph.microsoft.com/), you would create a list of scopes like in the following snippet:
 
 ```csharp
-ResourceId = "https://graph.microsoft.com/";
-var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
+string ResourceId = "https://graph.microsoft.com/"; 
+string[] scopes = { ResourceId + "Directory.Read", ResourceId + "Directory.Write" }
 ```
 
 #### Warning: Should you have one or two slashes in the scope corresponding to a v1.0 web API

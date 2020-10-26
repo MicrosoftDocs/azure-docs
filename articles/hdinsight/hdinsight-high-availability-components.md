@@ -11,12 +11,9 @@ ms.date: 10/07/2020
 # High availability services supported by Azure HDInsight
 
 In order to provide you with optimal levels of availability for your analytics components, HDInsight was developed with a unique architecture for ensuring high availability (HA) of critical services. Some components of this architecture were developed by Microsoft to provide automatic failover. Other components are standard Apache components that are deployed to support specific services. This article explains the architecture of the HA service model in HDInsight, how HDInsight supports failover for HA services, and best practices to recover from other service interruptions.
- 
+
 > [!NOTE]
-> Bias-free communication
->
-> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
->
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## High availability infrastructure
 
@@ -133,5 +130,5 @@ HDInsight HBase clusters support HBase Master high availability. Unlike other HA
 
 ## Next steps
 
-- [Availability and reliability of Apache Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md)
+- [Availability and reliability of Apache Hadoop clusters in HDInsight](./hdinsight-business-continuity.md)
 - [Azure HDInsight virtual network architecture](hdinsight-virtual-network-architecture.md)

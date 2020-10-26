@@ -173,11 +173,11 @@ Here is performance monitoring and tuning references for some of the supported d
 
 * Azure Blob storage: [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md) and [Performance and scalability checklist for Blob storage](../storage/blobs/storage-performance-checklist.md).
 * Azure Table storage: [Scalability and performance targets for Table storage](../storage/tables/scalability-targets.md) and [Performance and scalability checklist for Table storage](../storage/tables/storage-performance-checklist.md).
-* Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-single-database-monitor.md) and check the Database Transaction Unit (DTU) percentage.
+* Azure SQL Database: You can [monitor the performance](../azure-sql/database/monitor-tune-overview.md) and check the Database Transaction Unit (DTU) percentage.
 * Azure Synapse Analytics (formerly SQL Data Warehouse): Its capability is measured in Data Warehouse Units (DWUs). See [Manage compute power in Azure Synapse Analytics (Overview)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* SQL Server: [Monitor and tune for performance](https://msdn.microsoft.com/library/ms189081.aspx).
-* On-premises file server: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx).
+* SQL Server: [Monitor and tune for performance](/sql/relational-databases/performance/monitor-and-tune-for-performance).
+* On-premises file server: [Performance tuning for file servers](/previous-versions//dn567661(v=vs.85)).
 
 ## Next steps
 See the other copy activity articles:
