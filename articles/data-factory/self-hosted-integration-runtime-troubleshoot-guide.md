@@ -5,7 +5,7 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/22/2020
+ms.date: 10/26/2020
 ms.author: lle
 ---
 
@@ -661,6 +661,45 @@ You may notice other data factories (on different tenants) while attempting to s
 
 The Self-hosted IR cannot be shared cross tenants.
 
+### Could not establish trust relationship for the SSLTLS secure channel 
+
+#### Symptoms
+
+The self-hosted IR couldn't connect to ADF service.
+
+By checking SHIR event log, or client notification logs in CustomLogEvent table, the following error message will be found:
+
+`The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.The remote certificate is invalid according to the validation procedure.`
+
+How to check the server certificate of ADF service:
+
+The simplest way is to open ADF service URL in browser, for example, open https://eu.frontend.clouddatahub.net/ on the machine where SHIR is installed, and then view the server certificate information:
+
+  ![Check server certificate of ADF service](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
+
+  ![Check server certificate path](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-path.png)
+
+#### Cause
+
+Two possible reasons for this issue:
+
+1.	The Root CA of ADF service server certificate is not trusted on the machine where the SHIR is installed. 
+2.	You are using proxy in your environment and the server certificate of ADF service is replaced by the proxy, while the replaced server certificate is not trusted by the machine where the SHIR is installed.
+
+#### Solution
+
+1.	For case 1, make sure the ADF server certificate and its certificate chain is trusted by the machine where the SHIR is installed.
+2.	For case 2, either trust the replaced root CA on SHIR machine, or configure the proxy not to replace ADF server certificate.
+
+Refer to [this article](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) for details to trust a certificate on Windows.
+
+
+#### Additional info
+We are rolling out a new SSL certificate, which is signed from DigiCert, please check whether the DigiCert Global Root G2 is in the trusted root CA.
+
+  ![DigiCert Global Root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
+
+If not, download it from [here](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
 
 ## Next steps
 
