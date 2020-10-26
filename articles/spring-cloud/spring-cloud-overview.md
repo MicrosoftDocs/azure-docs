@@ -17,9 +17,9 @@ Azure Spring Cloud makes it easy to deploy Spring Boot-based microservice applic
 ## Why use Azure Spring Cloud?
 
 Deployment of applications to Azure Spring Cloud supports many benefits.  You can:
-* Efficiently migrate existing Spring apps to manage cloud scaling and economics.
+* Efficiently migrate existing Spring apps and manage cloud scaling and economics.
 * Modernize apps with Spring Cloud patterns to improve agility and speed of delivery.
-* Run Java at cloud scale and drive higher usage without managing infrastructure.
+* Run Java at cloud scale and drive higher usage without complicated infrastructure.
 * Develop and deploy rapidly without containerization dependencies.
 * Monitor production workloads efficiently and effortlessly.
 
