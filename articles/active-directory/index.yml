@@ -13,7 +13,7 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 05/29/2020
+  ms.date: 10/22/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -40,6 +40,18 @@ highlightedContent:
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
+    - title: Partner application support
+      links:
+        - url: ./saas-apps/tutorial-list.md
+          itemType: tutorial
+          text: Follow these tutorials to integrate your cloud-enabled SaaS apps with Azure AD
+        - url: https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx
+          itemType: get-started
+          text: Submit your app request to get integrated into the Azure AD Gallery
+      footerLink:
+        url: ./manage-apps/index.yml
+        text: See more
+
     - title: Application management
       links:
         - url: ./manage-apps/what-is-application-management.md

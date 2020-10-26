@@ -215,4 +215,5 @@ Now you've done every step of the object detection process in code. This sample 
 > [Test and retrain a model](../../test-your-model.md)
 
 * [What is Custom Vision?](../../overview.md)
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/CustomVision/ObjectDetection/Program.cs)
 * [SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)
