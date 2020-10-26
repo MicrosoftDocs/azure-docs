@@ -77,10 +77,10 @@ To add or delete signing and encryption keys:
 
 ### Replace a key
 
-The keys in a keyset are not replaceable, or removable. In case you need to make a change to an existing key:
+The keys in a keyset are not replaceable or removable. If you need to change an existing key:
 
-- We recomand to add a new key with **activation date** set to the current date and time. Azure AD B2C will activate the new key and stop using the prior active key.
-- Aternativily, can create new keyset with the correct keys. Update your policy to use the new keyset, and then remove the old keyset. 
+- We recommend adding a new key with the **activation date** set to the current date and time. Azure AD B2C will activate the new key and stop using the prior active key.
+- Alternatively, you can create a new keyset with the correct keys. Update your policy to use the new keyset, and then remove the old keyset. 
 
 ## Next steps
 
