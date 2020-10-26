@@ -53,7 +53,7 @@ In this sample, you use the .NET Core CLI to build your application but you can 
     dotnet add package Microsoft.ML.OnnxTransformer
     ```
 
-    These packages contain the dependencies required to use an ONNX model in a .NET application. ML.NET provides an API that uses the [OnnxRuntime](https://github.com/Microsoft/onnxruntime) for predictions.
+    These packages contain the dependencies required to use an ONNX model in a .NET application. ML.NET provides an API that uses the [ONNX runtime](https://github.com/Microsoft/onnxruntime) for predictions.
 
 1. Open the *Program.cs* file and add the following `using` statements at the top to reference the appropriate packages.
 
