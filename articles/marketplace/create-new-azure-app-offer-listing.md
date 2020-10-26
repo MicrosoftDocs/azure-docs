@@ -19,7 +19,7 @@ The information you provide on the **Offer listing** page for your Azure Applica
 
 ## Marketplace details
 
-On the **Offer listing** page, under **Marketplace details**, complete the following steps. To learn more about these required details, see [Offer listing details](plan-azure-application-offer.md#Offer-listing-details).
+On the **Offer listing** page, under **Marketplace details**, complete the following steps. To learn more about these required details, see [Offer listing details](plan-azure-application-offer.md#offer-listing-details).
 
 1. The **Name** box is prefilled with the name you entered earlier in the **New offer** dialog box. You can change the name at any time. The name you enter here will be shown to customers as the title of your offer listing.
 1. In the **Search results summary** box, enter up to 100 characters of text. This summary is used in the marketplace listing search results.

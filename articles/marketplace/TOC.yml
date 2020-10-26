@@ -90,7 +90,8 @@
     - name: Plan a managed application offer
       href: plan-azure-app-managed-app.md
     - name: Create and publish an Azure application offer
-      -name:  Create an Azure application offer
+      items:
+      - name: Create an Azure application offer
         href: create-new-azure-apps-offer.md
       - name: Configure Azure application offer properties
         href: create-new-azure-apps-offer-properties.md
