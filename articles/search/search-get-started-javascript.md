@@ -25,7 +25,7 @@ ms.custom: devx-track-js
 
 Use the [Javascript/Typscript SDK for Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest) to create a Node.js application in JavaScript that creates, loads, and queries a search index.
 
-This article demonstrates how to create the application step-by-step. Alternatively, you can [download the source code and data](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) and run the application from the command line.
+This article demonstrates how to create the application step by step. Alternatively, you can [download the source code and data](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) and run the application from the command line.
 
 ## Prerequisites
 
@@ -71,18 +71,18 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
 
 2. Initialize an empty project with NPM by running `npm init`. Accept the default values, except for the License, which you should set to "MIT". 
 
-3. Install `@azure/search-documents` which is the [Javascript/Typscript SDK for Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest).
+3. Install `@azure/search-documents`, the [Javascript/Typscript SDK for Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest).
 
     ```cmd
     npm install @azure/search-documents
     ```
 
-4. Install `dotenv` which we will use to import the environment variables such as our service name and api key.
+4. Install `dotenv`, which is used to import the environment variables such as our service name and api key.
     ```cmd
     npm install dotenv
     ```
 
-5. Confirm that you've configured the projects and its dependencies by checking that your  **package.json** file looks similar to the following:
+5. Confirm that you've configured the projects and its dependencies by checking that your  **package.json** file looks similar to the following json:
 
     ```json
     {
@@ -117,7 +117,7 @@ Replace the `<search-service-name>` value with the name of your search service. 
 
 ### Create index.js file
 
-Next we create an **index.js** file which is the main file that will host our code.
+Next we create an **index.js** file, which is the main file that will host our code.
 
 At the top of this file, we import the `@azure/search-documents` library:
 
@@ -302,7 +302,7 @@ With our index definition in place, we want to import  **hotels_quickstart_index
 const indexDefinition = require('./hotels_quickstart_index.json');
 ```
 
-Within the main function, we then create a `SearchIndexClient` which is used to create and manage indexes for Azure Cognitive Search. 
+Within the main function, we then create a `SearchIndexClient`, which is used to create and manage indexes for Azure Cognitive Search. 
 
 ```javascript
 const indexClient = new SearchIndexClient(endpoint, new AzureKeyCredential(apiKey));
@@ -362,7 +362,7 @@ In the next step, you'll add data to index.
 ## 2 - Load Documents 
 
 
-In Azure Cognitive Search, documents are data structures that are both inputs to indexing and outputs from queries. You can push such data to the index or use an [indexer](). In this case we'll programatically push the documents to the index.
+In Azure Cognitive Search, documents are data structures that are both inputs to indexing and outputs from queries. You can push such data to the index or use an [indexer](). In this case, we'll programatically push the documents to the index.
 
 Document inputs might be rows in a database, blobs in Blob storage, or, as in this sample, JSON documents on disk. You can either download [hotels.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels.json) or create your own **hotels.json** file with the following content:
 
@@ -462,7 +462,7 @@ Alternatively, you can use the `getSearchClient()` method of the `SearchIndexCli
 const searchClient = indexClient.getSearchClient(indexName);
 ```
 
-Now that the client is defined, upload the documents into the search index. In this case, we use the `mergeOrUploadDocuments()` method which will upload the documents or merge them with an existing document if a document with the same key already exists.
+Now that the client is defined, upload the documents into the search index. In this case, we use the `mergeOrUploadDocuments()` method, which will upload the documents or merge them with an existing document if a document with the same key already exists.
 
 ```javascript
 console.log('Uploading documents...');
@@ -473,7 +473,7 @@ console.log(`Index operations succeeded: ${JSON.stringify(indexDocumentsResult.r
 
 Run the program again with `node index.js`. You should see a slightly different set of messages from those you saw in Step 1. This time, the index *does* exist, and you should see a message about deleting it before the app creates the new index and posts data to it. 
 
-Before we run the queries in the next step, define a simple function to have the program wait for one second. This is done just for test/demo purposes to ensure the indexing finishes and that the documents are available in the index for our queries.
+Before we run the queries in the next step, define a function to have the program wait for one second. This is done just for test/demo purposes to ensure the indexing finishes and that the documents are available in the index for our queries.
 
 ```javascript
 function sleep(ms) {
@@ -503,9 +503,9 @@ await sendQueries(searchClient);
 
 Queries are sent using the `search()` method of `searchClient`. The first parameter is the search text and the second parameter is any additional search options.
 
-The first query searches `*` which is equivalent to searching everything and selects three of the fields in the index. It's a best practice to only `select` the fields you need because pulling back a lot of data can add latency to your queries.
+The first query searches `*`, which is equivalent to searching everything and selects three of the fields in the index. It's a best practice to only `select` the fields you need because pulling back unnecessary data can add latency to your queries.
 
-The `searchOptions` for this query also has `includeTotalCount` set to `true` which will return the number of matching results found.
+The `searchOptions` for this query also has `includeTotalCount` set to `true`, which will return the number of matching results found.
 
 ```javascript
 async function sendQueries(searchClient) {
@@ -544,7 +544,7 @@ for await (const result of searchResults.results) {
 }
 ```
 
-Next, the search is limited to a single searchable fields using the `searchFields` parameter. This is a great option to make your query more efficient if you know you're only interested in matches in certain fields. 
+Next, the search is limited to a single searchable field using the `searchFields` parameter. This is a great option to make your query more efficient if you know you're only interested in matches in certain fields. 
 
 ```javascript
 console.log('Query #3 - Limit searchFields:');
@@ -598,7 +598,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-In this Javascript quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. 
+In this JavaScript quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. 
 
 If you already have some background in Azure Cognitive Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. If you're new to Azure Cognitive Search, we recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. 
 
