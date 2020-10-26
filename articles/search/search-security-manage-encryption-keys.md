@@ -140,22 +140,6 @@ Skip this step if you already have a key in Azure Key Vault.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-application-secret.png" alt-text="Application secret":::
 
-<!-- ## 3 - Create a service identity
-
-Assigning an identity to your search service enables you to grant Key Vault access permissions to your search service. Your search service will use its identity to authenticate with Azure Key vault.
-
-Azure Cognitive Search supports two ways for assigning identity: a managed identity or an externally-managed Azure Active Directory application. 
-
-If possible, use a managed identity. It is the simplest way of assigning an identity to your search service and should work in most scenarios. If you are using multiple keys for indexes and synonym maps, or if your solution is in a distributed architecture that disqualifies identity-based authentication, use the advanced [externally-managed Azure Active Directory approach](#aad-app) described at the end of this article.
-
- In general, a managed identity enables your search service to authenticate to Azure Key Vault without storing credentials in code. The lifecycle of this type of managed identity is tied to the lifecycle of your search service, which can only have one managed identity. [Learn more about Managed identities](../active-directory/managed-identities-azure-resources/overview.md).
-
-1. [Sign in to Azure portal](https://portal.azure.com) and open your search service overview page. 
-
-1. Click **Identity** in the left navigation pane, change its status to **On**, and click **Save**.
-
-![Enable a managed identity](./media/search-enable-msi/enable-identity-portal.png "Enable a manged identity") -->
-
 ## 4 - Grant key access permissions
 
 In this step, you will create an access policy in Key Vault. This policy gives the application you registered with Active Directory permission to use your customer-managed key.
@@ -196,7 +180,7 @@ This example uses the REST API, with values for Azure Key Vault and Azure Active
     "keyVaultUri": "https://demokeyvault.vault.azure.net",
     "keyVaultKeyName": "myEncryptionKey",
     "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
-    "activeDirectoryAccessCredentials": {
+    "accessCredentials": {
       "applicationId": "00000000-0000-0000-0000-000000000000",
       "applicationSecret": "myApplicationSecret"
     }
@@ -204,12 +188,12 @@ This example uses the REST API, with values for Azure Key Vault and Azure Active
 }
 ```
 
-> [!Note] 
+> [!Note]
 > None of these key vault details are considered secret and could be easily retrieved by browsing to the relevant Azure Key Vault key page in Azure portal.
 
 ## REST example: Index encryption
 
-The details of creating a new index via the REST API could be found at [Create Index (Azure Cognitive Search REST API)](/rest/api/searchservice/create-index), where the only difference here is specifying the encryption key details as part of the index definition: 
+The details of creating a new index via the REST API could be found at [Create Index (Azure Cognitive Search REST API)](/rest/api/searchservice/create-index), where the only difference here is specifying the encryption key details as part of the index definition:
 
 ```json
 {
@@ -230,7 +214,7 @@ The details of creating a new index via the REST API could be found at [Create I
     "keyVaultUri": "https://demokeyvault.vault.azure.net",
     "keyVaultKeyName": "myEncryptionKey",
     "keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
-    "activeDirectoryAccessCredentials": {
+    "accessCredentials": {
       "applicationId": "00000000-0000-0000-0000-000000000000",
       "applicationSecret": "myApplicationSecret"
     }
@@ -264,22 +248,24 @@ The details of creating a new synonym map via the REST API can be found at [Crea
 
 You can now send the synonym map creation request, and then start using it normally.
 
->[!Important] 
+>[!Important]
 > While 1encryptionKey1 cannot be added to existing search indexes or synonym maps, it may be updated by providing different values for any of the three key vault details (for example, updating the key version). 
 > When changing to a new Key Vault key or a new key version, any search index or synonym map that uses the key must first be updated to use the new key\version **before** deleting the previous key\version. 
 > Failing to do so will render the index or synonym map unusable, as it won't be able to decrypt the content once key access is lost. Although restoring Key vault access permissions at a later time will restore content access.
 
 ## Simplified approach: Use a trusted search service without app registration
 
-If tenant configuration is less restrictive, you can substitute using a trusted search service, omitting the steps for application registration and application secrets.
+If tenant configuration is less restrictive, you can substitute using a managed identity (or trusted search service), omitting the steps for application registration and application secrets.
+
+In general, a managed identity enables your search service to authenticate to Azure Key Vault without storing credentials (ApplicationID or ApplicationSecret) in code. The lifecycle of this type of managed identity is tied to the lifecycle of your search service, which can only have one managed identity. For more information about how managed identities work, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 1. Make your search service a trusted service.
 
    ![Turn on system assigned managed identity](./media/search-managed-identities/turn-on-system-assigned-identity.png "Turn on system assigned managed identity")
 
-1. When setting up an access policy in Azure Key Vault, choose the trusted search service as the principle (instead of the AD-registered application).
+1. When setting up an access policy in Azure Key Vault, choose the trusted search service as the principle (instead of the AD-registered application). Assign the same permissions (multiple GETs, WRAP, UNWRAP) as instructed in the grant access key permissions step.
 
-1. Use a simplified construction of the `encryptionKey` that omits the Active Directory properties:
+1. Use a simplified construction of the `encryptionKey` that omits the Active Directory properties.
 
     ```json
     {
@@ -295,7 +281,7 @@ Conditions that will prevent you from adopting this simplified approach include:
 
 + You cannot directly grant your search service access permissions to the Key vault (for example, if the search service is in a different Active Directory tenant than the Azure Key Vault).
 
-+ A single search service is required to host multiple encrypted indexes\synonym maps, each using a different key from a different Key vault, where each key vault must use **a different identity** for authentication. If using a different identity to manage different Key vaults is not a requirement, consider using the managed identity option above.  
++ A single search service is required to host multiple encrypted indexes\synonym maps, each using a different key from a different Key vault, where each key vault must use **a different identity** for authentication. Because a search service can only have one managed identity, a requirements for multiple identities disqualifies the simplified approach for your scenario.  
 
 ## Work with encrypted content
 
