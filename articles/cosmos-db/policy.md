@@ -130,4 +130,4 @@ To remediate the non-compliant resources, see [how to remediate resources with A
 
 - [Review sample custom policy definitions for Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB), including for the multiple write location and VNet filtering policies shown above.
 - [Create a policy assignment in the Azure portal](../governance/policy/assign-policy-portal.md)
-- [Review Azure Policy built-in policy definitions for Azure Cosmos DB](./policy-samples.md)
+- [Review Azure Policy built-in policy definitions for Azure Cosmos DB](./policy-reference.md)

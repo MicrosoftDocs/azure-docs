@@ -33,8 +33,10 @@ ___
         <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank"> <img src="./media/identity-videos/id-for-devs-07.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
+        <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank">Modern authentication: how we got here – Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (15:47)
     :::column-end:::
     :::column:::
+        <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank"> <img src="./media/identity-videos/id-for-devs-08.jpg" alt="Video thumbnail" class="mx-imgBorder"> </a>
     :::column-end:::
 :::row-end:::
 
@@ -278,7 +280,7 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank">What are the different AAD app types and how do they compare? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+        <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank">What are the different Azure Active Directory app types and how do they compare? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=NrydwrckYaw" target="_blank"> <img src="./media/identity-videos/aad-basics-13.jpg" alt="Video thumbnail"> </a>

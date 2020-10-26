@@ -704,7 +704,7 @@
         href: how-to-data-flow-error-rows.md
       - name: Azure SQL DB to Azure Cosmos DB
         href: how-to-sqldb-to-cosmosdb.md
-      - name: Dedupe and NULL check with snippets
+      - name: Dedupe and null check with snippets
         href: how-to-data-flow-dedupe-nulls-snippets.md
     - name: SSIS migration from on-premises
       items:
@@ -748,8 +748,6 @@
       href: connector-troubleshoot-guide.md
     - name: Data Flows
       href: data-flow-troubleshoot-guide.md
-    - name: Copy Data tool
-      href: copy-data-tool-troubleshoot-guide.md
     - name: Self-hosted Integration Runtimes
       href: self-hosted-integration-runtime-troubleshoot-guide.md
     - name: Azure-SSIS Integration Runtime
