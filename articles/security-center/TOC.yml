@@ -18,13 +18,13 @@
   - name: What's new?
     items:
     - name: Release notes
-      displayName: changelog
+      displayName: changelog, news
       href: release-notes.md
     - name: Important upcoming changes
-      displayName: release notes, changelog
+      displayName: release notes, changelog, news
       href: upcoming-changes.md
     - name: Archived release notes (older than six months)
-      displayName: changelog
+      displayName: changelog, news
       href: release-notes-archive.md
   - name: Security Center fundamentals
     items:
