@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -284,7 +284,7 @@ For SAML apps, there are several properties you need to configure in the applica
 
 #### identifierUris
 
-The `identifierUris` is a string collection containing user-defined URI(s) that uniquely identify a Web app within its Azure AD B2C tenant. The URI must match the SAML request's `Issuer` name. This is normaly the same value as the sevice provider metadata `entityID`.
+The `identifierUris` is a string collection containing user-defined URI(s) that uniquely identify a Web app within its Azure AD B2C tenant. The URI must match the SAML request's `Issuer` name. This is typically the same value as the service provider metadata `entityID`.
 
 #### samlMetadataUrl
 
@@ -331,12 +331,12 @@ For this tutorial, which uses the SAML test application, leave `logoutUrl` set t
 
 The last step is to enable Azure AD B2C as a SAML IdP in your SAML relying party application. Each application is different and the steps to do so vary. Consult your app's documentation for details.
 
-The metadata can be configured in your sevice profvider as "Static Metadata" or "Dynamic Metadata". In static mode, you copy the entire, or parts of metadata from Azure AD B2C policy metadata. In dynamic mode, you set the URL to the metadata let our application read the metadata dynamically.
+The metadata can be configured in your service provider as "Static Metadata" or "Dynamic Metadata". In static mode, you copy all or part of the metadata from the Azure AD B2C policy metadata. In dynamic mode, you set the URL to the metadata and let our application read the metadata dynamically.
 
 Some or all the following are typically required:
 
 * **Metadata**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Issuer**:  The SAML request `issuer` value must match one of the URI configured in `identifierUris` element of the application registration manifest. If the SAML request `issuer` name doesn't exist in the `identifierUris` element, then [add it to the application registration manifest](#identifierUris). For example `https://contoso.onmicrosoft.com/app-name`. 
+* **Issuer**:  The SAML request `issuer` value must match one of the URIs configured in the `identifierUris` element of the application registration manifest. If the SAML request `issuer` name doesn't exist in the `identifierUris` element, [add it to the application registration manifest](#identifierUris). For example, `https://contoso.onmicrosoft.com/app-name`. 
 * **Login Url/SAML endpoint/SAML Url**: Check the value in the Azure AD B2C SAML policy metadata file for the `<SingleSignOnService>` XML element
 * **Certificate**: This is *B2C_1A_SamlIdpCert*, but without the private key. To get the public key of the certificate:
 
@@ -351,7 +351,7 @@ To complete this tutorial using our [SAML Test Application][samltest]:
 
 * Update the tenant name
 * Update policy name, for example *B2C_1A_signup_signin_saml*
-* Specify this issuer URI: Use one of the URI found in `identifierUris` element in the application registration manifest, for example `https://contoso.onmicrosoft.com/app-name`
+* Specify this issuer URI. Use one of the URIs found in the `identifierUris` element in the application registration manifest, for example `https://contoso.onmicrosoft.com/app-name`.
 
 Select **Login** and you should be presented with a user sign-in screen. Upon sign-in, a SAML assertion is issued back to the sample application.
 
@@ -389,7 +389,7 @@ To enable Azure AD B2C to send encrypted assertions, set the **WantsEncryptedAss
 
 ## Enable identity provider initiated flow (Optional)
 
-In identity provider initiated flow, the sign-in process is initiated by the identity provider (Azure AD B2C), which sends an unsolicited SAML response to the service provider (your relying party application). The scenario where the identity provider initiated is an external identity provider, for example [AD-FS](identity-provider-adfs2016-custom.md), or [Salesforce](identity-provider-salesforce-custom.md), is unsupported currently.
+In identity provider initiated flow, the sign-in process is initiated by the identity provider (Azure AD B2C), which sends an unsolicited SAML response to the service provider (your relying party application). We don't currently support scenarios where the initiating identity provider is an external identity provider, for example [AD-FS](identity-provider-adfs2016-custom.md), or [Salesforce](identity-provider-salesforce-custom.md).
 
 To enable identity provider (Azure AD B2C) initiated flow, set the **IdpInitiatedProfileEnabled** metadata item to `true` in the [relying party technical profile](relyingparty.md#technicalprofile).
 
@@ -417,7 +417,7 @@ Replace the following values:
 
 * **tenant-name** with your tenant name
 * **policy-name** with your SAML relying party policy name
-* **app-identifier-uri** Use the `identifierUris` in the metadata file, such as `https://contoso.onmicrosoft.com/app-name`
+* **app-identifier-uri** with the `identifierUris` in the metadata file, such as `https://contoso.onmicrosoft.com/app-name`
 ## Sample policy
 
 We provide a complete sample policy that you can use for testing with the SAML Test App.
