@@ -12,7 +12,7 @@ ms.date: 10/30/2020
 
 # Configure a solution template plan
 
-This article applies only to solution template plans. If you are configuring a managed application plan, go to [Configure a managed application plan](create-new-azure-app-offer-managed.md).
+This article applies only to solution template plans. If you are configuring a managed application plan, go to [Configure a managed application plan](create-new-azure-apps-offer-managed.md).
 
 ## Choose who can see your plan
 
@@ -86,9 +86,9 @@ The actions that are available in the **Action** column of the **Plan overview**
 
 - If the plan status is **Draft**, the link in the **Action** column will say **Delete draft**.
 - If the plan status is **Live**, the link in the **Action** column will be either **Stop selling plan** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
-- To create another plan for this offer, at the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in [How to create plans for your Azure application offer](create-new-azure-app-plans.md). Otherwise, if you're done creating plans, go to the next section: Next steps.
+- To create another plan for this offer, at the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in [How to create plans for your Azure application offer](create-new-azure-apps-offer-plans.md). Otherwise, if you're done creating plans, go to the next section: Next steps.
 
 ## Next steps
 
-- [How to test and publish your Azure Application offer](create-new-azure-app-offer-test-publish.md).
-- Learn [How to market your Azure Application offer](create-new-azure-app-offer-marketing.md) through the Co-sell with Microsoft and Resell through CSPs programs.
+- [How to test and publish your Azure Application offer](create-new-azure-apps-offer-test-publish.md).
+- Learn [How to market your Azure Application offer](create-new-azure-apps-offer-marketing.md) through the Co-sell with Microsoft and Resell through CSPs programs.

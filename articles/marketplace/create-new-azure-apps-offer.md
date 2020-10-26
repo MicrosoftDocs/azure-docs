@@ -78,4 +78,4 @@ Connect your customer relationship management (CRM) system with your commercial 
 
 ## Next steps
 
-- [How to configure your Azure Application offer properties](create-new-azure-app-offer-properties.md)
+- [How to configure your Azure Application offer properties](create-new-azure-apps-offer-properties.md)

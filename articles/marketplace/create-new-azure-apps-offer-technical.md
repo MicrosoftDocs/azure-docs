@@ -28,4 +28,4 @@ For more information about these fields, see [Plan an Azure Application offer fo
 
 ## Next steps
 
-- [How to create plans for your Azure Application offer](create-new-azure-app-plans.md)
+- [How to create plans for your Azure Application offer](create-new-azure-apps-offer-plans.md)
