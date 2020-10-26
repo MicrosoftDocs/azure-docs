@@ -65,7 +65,7 @@ Development values for dataset parameters can be configured in [debug settings](
 
 **Test connection**: Test whether or not the data flow's Spark service can successfully connect to the linked service used in your source dataset. Debug mode must be on for this feature to be enabled.
 
-**Schema drift**: [Schema drift](concepts-data-flow-schema-drift.md) is Data Factory's ability to natively handle flexible schemas in your data flows without needing to explicitly define column changes.
+**Schema drift**: [Schema drift](concepts-data-flow-schema-drift.md) is the ability of Data Factory to natively handle flexible schemas in your data flows without needing to explicitly define column changes.
 
 * Select the **Allow schema drift** check box if the source columns will change often. This setting allows all incoming source fields to flow through the transformations to the sink.
 
@@ -88,7 +88,7 @@ The **Source options** tab contains settings specific to the connector and forma
 
 ## Projection
 
-Like schemas in datasets, the projection in a source defines the data columns, types, and formats from the source data. For most dataset types, such as SQL and Parquet, the projection in a source is fixed to reflect the schema defined in a dataset. When your source files aren't strongly typed (for example, flat csv files rather than Parquet files), you can define the data types for each field in the source transformation.
+Like schemas in datasets, the projection in a source defines the data columns, types, and formats from the source data. For most dataset types, such as SQL and Parquet, the projection in a source is fixed to reflect the schema defined in a dataset. When your source files aren't strongly typed (for example, flat .csv files rather than Parquet files), you can define the data types for each field in the source transformation.
 
 ![Screenshot that shows settings on the Projection tab.](media/data-flow/source3.png "Screenshot that shows settings on the Projection tab.")
 
