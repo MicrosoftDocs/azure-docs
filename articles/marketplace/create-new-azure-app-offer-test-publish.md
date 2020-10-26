@@ -1,6 +1,6 @@
 ---
 title: How to test and publish an Azure Application offer 
-description: Use Partner Center to submit your SaaS offer to preview, preview your offer, test, and then publish it to the Microsoft commercial marketplace. 
+description: Use Partner Center to submit your Azure application offer to preview, preview your offer, test, and then publish it to the Microsoft commercial marketplace. 
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers

@@ -19,7 +19,7 @@ The information you provide on the **Offer listing** page for your software as a
 
 ## Marketplace details
 
-On the **Offer listing** page, under **Marketplace details**, complete the following steps. To learn more about these required details, see [Offer listing details](plan-saas-offer.md#offer-listing-details).
+On the **Offer listing** page, under **Marketplace details**, complete the following steps. To learn more about these required details, see [Offer listing details](plan-azure-application-offer.md#offer-listing-details).
 
 1. The **Name** box is prefilled with the name you entered earlier in the  **New offer** dialog box. You can change the name at any time.
 1. In the **Search results summary** box, enter up to 50 characters of text. This summary is used in the marketplace listing search results.
