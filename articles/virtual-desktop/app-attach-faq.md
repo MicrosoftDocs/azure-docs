@@ -70,4 +70,4 @@ Yes, MSIX app attach supports self-signed certificates. You'll need to make sure
 
 ## Next steps
 
-If you want to learn more about MSIX app attach, check out our [overview](what-is-app-attach.md) [glossary](app-attach-glossary.md). Otherwise, get started with [Set up app attach](app-attach.md).
+If you want to learn more about MSIX app attach, check out our [overview](what-is-app-attach.md) and [glossary](app-attach-glossary.md). Otherwise, get started with [Set up app attach](app-attach.md).
