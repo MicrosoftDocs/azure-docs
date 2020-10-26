@@ -101,11 +101,15 @@ The model used in this sample uses data from the NYC TLC Taxi Trip dataset. A sa
 
 ### Inspect the ONNX model (optional)
 
-Use tool like Netron to inspect your model metadata, inputs, and outputs. For example, the structure of the *automl-model.onnx* model looks like the following:
+Use tool like Netron to inspect your model metadata, inputs, and outputs.
+
+1. Open Netron.
+1. In the top menu bar, select **File > Open** and use the file browser to select your model.
+1. Your model opens. For example, the structure of the *automl-model.onnx* model looks like the following:
 
 :::image type="content" source="media/how-to-use-automl-onnx-model-dotnet/netron-automl-onnx-model.png" alt-text="Netron AutoML ONNX Model":::
 
-The inputs and outputs on the sidebar show you the name of the input and output columns as well as their data types. Use this information to define the input and output schema of your model.
+1. Select the last node at the bottom of the graph (`variable_out1` in this case) to display the model's metadata. The inputs and outputs on the sidebar show you the model's expected names and data types. Use this information to define the input and output schema of your model.
 
 ### Input data schema
 
