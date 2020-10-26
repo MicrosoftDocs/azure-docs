@@ -16,7 +16,7 @@ ms.date: 09/21/2020
 # An overview of Azure SQL Database and SQL Managed Instance security capabilities
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-This article outlines the basics of securing the data tier of an application using [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). The security strategy described follows the layered defense-in-depth approach as shown in the picture below, and moves from the outside in:
+This article outlines the basics of securing the data tier of an application using [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). The security strategy described follows the layered defense-in-depth approach as shown in the picture below, and moves from the outside in:
 
 ![Diagram of layered defense-in-depth. Customer data is encased in layers of network security, access management and threat and information protections.](./media/security-overview/sql-security-layer.png)
 
