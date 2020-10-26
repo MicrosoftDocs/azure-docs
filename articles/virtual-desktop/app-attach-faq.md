@@ -15,7 +15,7 @@ manager: lizross
 
 This article answers frequently asked questions about MSIX app attach for Windows Virtual Desktop.
 
-## What is the difference between MSIX and MSIX app attach?
+## What's the difference between MSIX and MSIX app attach?
 
 MSIX is a packaging format. MSIX app attach is a mechanism for dynamically delivering MSIX packages.
 
