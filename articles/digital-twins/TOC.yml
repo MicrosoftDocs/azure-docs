@@ -148,7 +148,7 @@
         - name: Java SDK - reference
           href: /java/api/overview/azure/digitaltwins/management?view=azure-java-preview
         - name: Java SDK - source
-          href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins
+          href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31
         - name: JavaScript SDK
           href: https://www.npmjs.com/package/@azure/arm-digitaltwins
         - name: JavaScript SDK - source
@@ -156,9 +156,11 @@
         - name: Python SDK
           href: https://pypi.org/project/azure-mgmt-digitaltwins/
         - name: Python SDK - source
-          href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins
+          href: https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins
         - name: Go SDK
           href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins
+        - name: Go - source
+          href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins
       - name: Data plane
         items:
         - name: Swagger
