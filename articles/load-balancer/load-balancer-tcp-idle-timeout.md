@@ -105,8 +105,8 @@ To set the idle timeout and tcp reset, use the following parameters for [az netw
 Validate your environment before you begin:
 
 * Sign in to the Azure portal and check that your subscription is active by running `az login`.
-* Check your version of the Azure CLI in a terminal or command window by running `az --version`. For the latest version, see the [latest release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli&view=azure-cli-latest).
-  * If you don't have the latest version, update your installation by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Check your version of the Azure CLI in a terminal or command window by running `az --version`. For the latest version, see the [latest release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
+  * If you don't have the latest version, update your installation by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
 
 ```azurecli
 az network lb rule update \
@@ -116,8 +116,6 @@ az network lb rule update \
     --idle-timeout 15 \
     --enable-tcp-reset true
 ```
-
-
 ---
 ## Next steps
 
