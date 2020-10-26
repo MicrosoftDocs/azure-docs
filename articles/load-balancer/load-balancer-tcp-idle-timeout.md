@@ -31,8 +31,6 @@ The following sections describe how to change idle timeout and tcp reset setting
 ---
 # [**Portal**](#tab/tcp-reset-idle-portal)
 
-## Set the TCP reset and idle timeout
-
 To set the idle timeout and tcp reset for a load balancer, edit the load-balanced rule. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
