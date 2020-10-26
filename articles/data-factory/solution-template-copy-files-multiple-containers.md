@@ -17,7 +17,7 @@ ms.date: 11/1/2018
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article describes a solution template that you can use multiple copy activities to copy containers or folders between file based stores, where each copy activity is supposed to copy single container or folder. 
+This article describes a solution template that you can use multiple copy activities to copy containers or folders between file-based stores, where each copy activity is supposed to copy single container or folder. 
 
 > [!NOTE]
 > If you want to copy files from a single container, it's more efficient to use the [Copy Data Tool](copy-data-tool.md) to create a pipeline with a single copy activity. The template in this article is more than you need for that simple scenario.
