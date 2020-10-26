@@ -32,7 +32,7 @@ An MSIX share is a network share that holds expanded MSIX packages. MSIX shares 
 
 ## MSIX image
 
-An MSIX image is a VHD/VHDx or a CIM file that contains one or more MSIX packaged applications. Each applications is delivered in the MSIX image via the MSIXMGR tool.
+An MSIX image is a VHD, VHDx, or CIM file that contains one or more MSIX packaged applications. Each application is delivered in the MSIX image using the MSIXMGR tool.
 
 ## Repackage
 
