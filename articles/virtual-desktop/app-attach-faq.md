@@ -61,7 +61,7 @@ All VMs that are part of a host pool that uses MSIX app attach must have read pe
 
 ## Can I restage the same MSIX application?
 
-No, restaging a staged application is an operation that is allowed and triggers no errors.
+Yes. You can restage applications you've already restaged, and this shouldn't cause any errors.
 
 ## Does MSIX app attach support self-signed certificates?
 
