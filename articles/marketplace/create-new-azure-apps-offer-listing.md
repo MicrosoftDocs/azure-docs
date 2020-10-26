@@ -89,4 +89,4 @@ Select **Save draft** before continuing to the next tab: Preview audience.
 
 ## Next steps
 
-- [How to add a preview audience for your Azure Application offer](create-new-azure-app-offer-preview.md)
+- [How to add a preview audience for your Azure Application offer](create-new-azure-apps-offer-preview.md)
