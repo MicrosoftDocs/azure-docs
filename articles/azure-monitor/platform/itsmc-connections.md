@@ -350,7 +350,7 @@ Use the following procedure to create a Provance connection:
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, ITSMC creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled.|
 
-![Provance connection](media/itsmc-connections/itsm-connections-provance-latest.png)
+![Screenshot that highlights the Connection Name and Partner Type lists.](media/itsmc-connections/itsm-connections-provance-latest.png)
 
 **When successfully connected, and synced**:
 
