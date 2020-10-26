@@ -41,8 +41,7 @@ For more information about the file upload capabilities of IoT Hub, see [Upload 
 Follow these links to learn more about managing Azure IoT Hub:
 
 * [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub metrics](iot-hub-metrics.md)
-* [Operations monitoring](iot-hub-operations-monitoring.md)
+* [Monitor your IoT hub](monitor-iot-hub.md)
 
 To further explore the capabilities of IoT Hub, see:
 
