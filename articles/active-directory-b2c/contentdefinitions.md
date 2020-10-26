@@ -122,7 +122,7 @@ The format of the value must contain the word `contract`: _urn:com:microsoft:aad
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 | `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
 
-The following example shows the content definition identifier and **DataUri** value with page contract:
+The following example shows the content definition identifiers and the corresponding **DataUri** with page contract: 
 
 ```xml
 <ContentDefinitions>
