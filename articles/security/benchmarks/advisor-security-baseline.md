@@ -986,9 +986,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ES-2: Use centrally managed modern anti-malware software
 
@@ -1003,9 +1003,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ES-3: Ensure anti-malware software and signatures are updated
 
@@ -1020,9 +1020,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Backup and Recovery
 
@@ -1041,9 +1041,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### BR-2: Encrypt backup data
 
@@ -1058,9 +1058,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### BR-3: Validate all backups including customer-managed keys
 
@@ -1077,9 +1077,9 @@ Please provide customer guidance for this control specific to your offering. Mor
 
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### BR-4: Mitigate risk of lost keys
 
@@ -1094,9 +1094,9 @@ Please provide customer guidance for this control specific to your offering. Mor
  
 Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Governance and Strategy
 
