@@ -19,6 +19,8 @@ ms.reviewer: willzhan; johndeu
 
 # Use Azure AD authentication to access the Media Services API with REST
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
 > No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 

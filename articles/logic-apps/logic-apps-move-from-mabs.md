@@ -174,7 +174,7 @@ as well as XPath using the xpath workflow definition language expression.
 
 BizTalk Services lets you [run custom code](/previous-versions/azure/dn232389(v=azure.100)) 
 that is uploaded in your own assemblies. This functionality is implemented by the 
-[IMessageInspector](/azure/logic-apps/logic-apps-move-from-mabs) interface. 
+[IMessageInspector]() interface. 
 Each stage in the bridge includes two properties (On Enter Inspector, and On Exit Inspector) 
 that provide the .NET type you created that implements this interface. 
 Custom code lets you perform more complex processing on data and lets you 

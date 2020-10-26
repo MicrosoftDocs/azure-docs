@@ -1,6 +1,6 @@
 ---
-title: 'Visualize data in the Gen2 Explorer - Azure Time Series Insights Gen2| Microsoft Docs'
-description:  Learn about features and options available in the Azure Time Series Insights Gen2 Explorer.
+title: 'Visualize data in the Time Series Insights Explorer - Azure Time Series Insights Gen2| Microsoft Docs'
+description:  Learn about features and options available in the Azure Time Series Insights Explorer.
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -8,29 +8,29 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
 ---
 
-# Azure Time Series Insights Gen2 Explorer
+# Azure Time Series Insights Explorer
 
 This article describes the various features and options available within the Azure Time Series Insights Gen2 [Demo environment](https://insights.timeseries.azure.com/preview/demo).
 
 ## Prerequisites
 
-To get started with the Azure Time Series Insights Gen2 Explorer, you must:
+To get started with the Azure Time Series Insights Explorer, you must:
 
 * Have an Azure Time Series Insights Gen2 environment provisioned. Learn more about provisioning an instance by reading the [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) tutorial.
 * [Provide data access](./time-series-insights-data-access.md) to the Azure Time Series Insights Gen2 environment that you created for the account. You can provide access to others as well as to yourself.
 * Add an event source to the Azure Time Series Insights Gen2 environment to push data to the environment:
-  * Learn [how to connect to an event hub](./time-series-insights-how-to-add-an-event-source-eventhub.md) 
+  * Learn [how to connect to an event hub](./time-series-insights-how-to-add-an-event-source-eventhub.md)
   * Learn [how to connect to an IoT hub](./time-series-insights-how-to-add-an-event-source-iothub.md)
 
-## Explore the Azure Time Series Insights Gen2 Explorer
+## Explore the Azure Time Series Insights Explorer
 
-The Azure Time Series Insights Gen2 Explorer consists of the following seven elements:
+The Azure Time Series Insights Explorer consists of the following seven elements:
 
-[![Azure Time Series Insights Gen2 Explorer overview](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
+[![Azure Time Series Insights Explorer overview](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
 
 1. [Environment panel](#1-environment-panel): Displays all your Azure Time Series Insights Gen2 environments.
 1. [Navigation bar](#2-navigation-bar): Lets you switch between the **Analyze** and **Model** pages.
@@ -40,10 +40,9 @@ The Azure Time Series Insights Gen2 Explorer consists of the following seven ele
 1. [Timeline](#6-time-editor-panel): Lets you modify your working time span.
 1. [App bar](#7-app-bar): Contains your user management options (such as current tenant), and allows you to change them and language settings.
 
-
 ## 1. Environment panel
 
-The environment panel displays all the Azure Time Series Insights Gen2 environments you have access to. The list includes Gen2 environments as well as Gen 1 environments. Simply select the environment you want to use to immediately be taken there.
+The environment panel displays all the Azure Time Series Insights Gen2 environments you have access to. The list includes Gen2 environments as well as Gen1 environments. Simply select the environment you want to use to immediately be taken there.
 
 1. Select the drop-down arrow next to your displayed environment.
 
@@ -74,19 +73,19 @@ To learn more about the Time Series Model, read [Times Series Models](./concepts
 
 ## 3. Hierarchy tree and search panel
 
-The hierarchy tree and search panel allow you to easily search and navigate your [Time Series Model](./concepts-model-overview.md) hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are not only added to the current chart but are also added to the data well. 
+The hierarchy tree and search panel allow you to easily search and navigate your [Time Series Model](./concepts-model-overview.md) hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are not only added to the current chart but are also added to the data well.
 
 [![Hierarchy tree and search panel](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
 The search results pane also lets you view your results in a hierarchy view or a list view making it easy to find the instances you want to display.
- 
+
 ## 4. Time series well
 
-The well displays instance fields and other metadata associated with selected Time Series Model instances. By selecting the check boxes on the right side, you can hide or display specific instances from the current chart. 
+The well displays instance fields and other metadata associated with selected Time Series Model instances. By selecting the check boxes on the right side, you can hide or display specific instances from the current chart.
 
   [![The Gen2 well](media/v2-update-explorer/tsi-preview-ui-explorer-well.png)](media/v2-update-explorer/tsi-preview-ui-explorer-well.png#lightbox)
 
-You may remove specific data elements from your current data well by selecting the red **Delete** (trash can) control on the left side of the element. The well also lets you control how each element is displayed in the chart. You can choose to add min/max shadows, data points, shift the element in time and visualize the instance a stepped manner. 
+You may remove specific data elements from your current data well by selecting the red **Delete** (trash can) control on the left side of the element. The well also lets you control how each element is displayed in the chart. You can choose to add min/max shadows, data points, shift the element in time and visualize the instance a stepped manner.
 
 Additionally, The explorations control lets you create time shifts and scatter plots easily.  
 
@@ -99,7 +98,7 @@ Additionally, The explorations control lets you create time shifts and scatter p
 
 ## 5. Chart panel
 
-The chart enables you to display time series instances as lines. You can collapse the environment panel, data model, and time span control panel by clicking the web controls to make the chart larger. 
+The chart enables you to display time series instances as lines. You can collapse the environment panel, data model, and time span control panel by clicking the web controls to make the chart larger.
 
   [![Gen2 chart overview](media/v2-update-explorer/tsi-preview-chart-overview.png)](media/v2-update-explorer/tsi-preview-chart-overview.png#lightbox)
 
@@ -144,7 +143,7 @@ When working with Azure Time Series Insights Gen2 you first will select a time s
 > [!TIP]
 > A portion of the timeline is highlighted in an amber or orange color to indicate the span of data that is available in warm store.
 
-The following web controls are available in Azure Time Series Insights Gen2 for selecting your working time span. 
+The following web controls are available in Azure Time Series Insights Gen2 for selecting your working time span.
 
   [![Exploration well control](media/v2-update-explorer/exploration-well-control.png)](media/v2-update-explorer/exploration-well-control.png#lightbox)
 
@@ -189,18 +188,18 @@ To select a new theme, select your profile icon located in the upper-right corne
 > [!TIP]
 > Language selection is also available by selecting your profile icon.
 
-Azure Time Series Insights Gen2 Explorer supports two themes:
+Azure Time Series Insights Explorer supports two themes:
 
 * **Light theme**: The default theme shown throughout this document.
 * **Dark theme**: Renders the Explorer as shown here:
 
   [![Selected dark theme](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
-## Gen 1 environment controls
+## Gen1 environment controls
 
 ### Gen2 terms panel
 
-This section applies only to existing Gen 1 environments that attempt to use the Explorer in the updated UI. You might want to use the Gen 1 product and Gen2 product in combination. We've added some functionality from the existing UI to the updated Explorer, but you can get the full UI experience for a Gen 1 environment in the new Azure Time Series Insights Gen2 Explorer. 
+This section applies only to existing Gen1 environments that attempt to use the Explorer in the updated UI. You might want to use the Gen1 product and Gen2 product in combination. We've added some functionality from the existing UI to the updated Explorer, but you can get the full UI experience for a Gen1 environment in the new Azure Time Series Insights Explorer.
 
 Instead of the hierarchy, the Azure Time Series Insights Gen2 terms panel is displayed. The terms panel allows you to define queries in your environment. Use it to also filter data based on a predicate.
 
@@ -217,7 +216,7 @@ The Azure Time Series Insights Gen2 terms editor panel takes the following param
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | All operands should be of the same type or be NULL constant. |
 | `HAS` | String | Only constant string literals are allowed on the right side. Empty string and NULL aren't allowed. |
 
-To learn more about supported query operations and data types, read [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+To learn more about supported query operations and data types, read [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 ### Examples of where clauses
 
@@ -235,10 +234,10 @@ You can show and hide elements in the chart panel by selecting the visible icon,
 
 ## Next steps
 
-- Learn about [ingesting data](./concepts-ingestion-overview.md) into your environment.
+* Learn about [ingesting data](./concepts-ingestion-overview.md) into your environment.
 
-- Check out the article on [storage](concepts-storage.md).
+* Check out the article on [storage](concepts-storage.md).
 
-- Read about [data modeling](./concepts-model-overview.md) in Azure Time Series Insights Gen2.
+* Read about [data modeling](./concepts-model-overview.md) in Azure Time Series Insights Gen2.
 
-- Learn [how to diagnose and troubleshoot](./time-series-insights-update-how-to-troubleshoot.md) your environment.
+* Learn [how to diagnose and troubleshoot](./time-series-insights-update-how-to-troubleshoot.md) your environment.

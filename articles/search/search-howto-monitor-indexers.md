@@ -10,6 +10,7 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
+ms.custom: devx-track-csharp
 ---
 
 # How to monitor Azure Cognitive Search indexer status and results
@@ -76,7 +77,7 @@ For more information about investigating indexer errors and warnings, see [Troub
 
 ## Monitor using REST APIs
 
-You can retrieve the status and execution history of an indexer using the [Get Indexer Status command](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
+You can retrieve the status and execution history of an indexer using the [Get Indexer Status command](/rest/api/searchservice/get-indexer-status):
 
 ```http
 GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30
@@ -121,7 +122,7 @@ Each run of the indexer also has its own status that indicates whether that spec
 
 When an indexer is reset to refresh its change tracking state, a separate execution history entry is added with a **Reset** status.
 
-For more details about status codes and indexer monitoring data, see [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+For more details about status codes and indexer monitoring data, see [GetIndexerStatus](/rest/api/searchservice/get-indexer-status).
 
 <a name="dotnetsdk"></a>
 
@@ -180,8 +181,8 @@ Each run of the indexer also has its own status for whether that specific execut
 
 When an indexer is reset to refresh its change tracking state, a separate history entry is added with a **Reset** status.
 
-For more details about status codes and indexer monitoring information, see [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) in the REST API.
+For more details about status codes and indexer monitoring information, see [GetIndexerStatus](/rest/api/searchservice/get-indexer-status) in the REST API.
 
 Details about document-specific errors or warnings can be retrieved by enumerating the lists `IndexerExecutionResult.Errors` and `IndexerExecutionResult.Warnings`.
 
-For more information about the .NET SDK classes used to monitor indexers, see [IndexerExecutionInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) and [IndexerExecutionResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).
+For more information about the .NET SDK classes used to monitor indexers, see [IndexerExecutionInfo](/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo) and [IndexerExecutionResult](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult).

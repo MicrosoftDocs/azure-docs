@@ -7,11 +7,11 @@ ms.custom: references_regions
 ---
 # Recover files from Azure virtual machine backup
 
-Azure Backup provides the capability to restore [Azure virtual machines (VMs) and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups, also known as recovery points. This article explains how to recover files and folders from an Azure VM backup. Restoring files and folders is available only for Azure VMs deployed using the Resource Manager model and protected to a Recovery services vault.
+Azure Backup provides the capability to restore [Azure virtual machines (VMs) and disks](./backup-azure-arm-restore-vms.md) from Azure VM backups, also known as recovery points. This article explains how to recover files and folders from an Azure VM backup. Restoring files and folders is available only for Azure VMs deployed using the Resource Manager model and protected to a Recovery Services vault.
 
 > [!NOTE]
 > This feature is available for Azure VMs deployed using the Resource Manager model and protected to a Recovery Services vault.
-> File recovery from an encrypted VM backup is not supported.
+> File recovery from an encrypted VM backup isn't supported.
 >
 
 ## Mount the volume and copy files
@@ -26,7 +26,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 3. In the Backup dashboard menu, select **File Recovery**.
 
-    ![File recovery button](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+    ![Select File Recovery](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
     The **File Recovery** menu opens.
 
@@ -36,7 +36,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 5. To download the software used to copy files from the recovery point, select **Download Executable** (for Windows Azure VMs) or **Download Script** (for Linux Azure VMs, a python script is generated).
 
-    ![Generated password](./media/backup-azure-restore-files-from-vm/download-executable.png)
+    ![Download Executable](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
     Azure downloads the executable or script to the local computer.
 
@@ -50,7 +50,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 7. Make sure [you have the right machine](#selecting-the-right-machine-to-run-the-script) to execute the script. If the right machine is the same machine where you downloaded the script, then you can continue to the download section. From the download location (usually the *Downloads* folder), right-click the executable or script and run it with Administrator credentials. When prompted, type the password or paste the password from memory, and press **Enter**. Once the valid password is entered, the script connects to the recovery point.
 
-    ![File recovery menu](./media/backup-azure-restore-files-from-vm/executable-output.png)
+    ![Executable output](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
 8. For Linux machines, a python script is generated. One needs to download the script and copy it to the relevant/compatible Linux server. You may have to modify the permissions to execute it with ```chmod +x <python file name>```. Then run the python file with ```./<python file name>```.
 
@@ -62,7 +62,7 @@ Refer to the [Access requirements](#access-requirements) section to make sure th
 
 When you run the executable, the operating system mounts the new volumes and assigns drive letters. You can use Windows Explorer or File Explorer to browse those drives. The drive letters assigned to the volumes may not be the same letters as the original virtual machine. However, the volume name is preserved. For example, if the volume on the original virtual machine was "Data Disk (E:`\`)", that volume can be attached on the local computer as "Data Disk ('Any letter':`\`). Browse through all volumes mentioned in the script output until you find your files or folder.  
 
-   ![File recovery menu](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
+   ![Recovery volumes attached](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
 #### For Linux
 
@@ -79,6 +79,9 @@ After identifying the files and copying them to a local storage location, remove
 Once the disks have been unmounted, you receive a message. It may take a few minutes for the connection to refresh so that you can remove the disks.
 
 In Linux, after the connection to the recovery point is severed, the OS doesn't remove the corresponding mount paths automatically. The mount paths exist as "orphan" volumes and are visible, but throw an error when you access/write the files. They can be manually removed. The script, when run, identifies any such volumes existing from any previous recovery points and cleans them up upon consent.
+
+> [!NOTE]
+> Make sure that the connection is closed after the required files are restored. This is important, especially in the scenario where the machine in which the script is executed is also configured for backup. If the connection is still open, the subsequent backup might fail with the error "UserErrorUnableToOpenMount". This happens because the mounted drives/volumes are assumed to be available and when accessed they might fail because the underlying storage, that is, the iSCSI target server may not available. Cleaning up the connection will remove these drives/volumes and so they won't be available during backup.
 
 ## Selecting the right machine to run the script
 
@@ -160,7 +163,7 @@ The first column (PV) shows the physical volume, the subsequent columns show the
 
 ###### Duplicate Volume groups
 
-There are scenarios where volume group names can have 2 UUIDs after running the script. It means that the volume group names in the machine where the script is executed and in the backed-up VM are same. Then we need to rename the backed-up VMs volume groups. Take a look at the below example.
+There are scenarios where volume group names can have 2 UUIDs after running the script. It means that the volume group names in the machine where the script is executed and in the backed-up VM are the same. Then we need to rename the backed-up VMs volume groups. Take a look at the example below.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -191,13 +194,13 @@ Now we have all VG names with unique IDs.
 
 ###### Active volume groups
 
-Make sure that the Volume groups corresponding to script's volumes are active. The below command is used to display active volume groups. Check whether the script's related volume groups are present in this list.
+Make sure that the Volume groups corresponding to script's volumes are active. The following command is used to display active volume groups. Check whether the script's related volume groups are present in this list.
 
 ```bash
 vgdisplay -a
 ```  
 
-Otherwise, activate the volume group by using the below command.
+Otherwise, activate the volume group by using the following command.
 
 ```bash
 #!/bin/bash
@@ -206,7 +209,7 @@ vgchange –a y  <volume-group-name>
 
 ##### Listing logical volumes within Volume groups
 
-Once we get the unique, active list of VGs related to the script, then the logical volumes present in those volume groups can be listed using the below command.
+Once we get the unique, active list of VGs related to the script, then the logical volumes present in those volume groups can be listed using the following command.
 
 ```bash
 #!/bin/bash
@@ -225,7 +228,7 @@ mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 > [!WARNING]
-> Do not use 'mount -a'. This command mounts all devices described in '/etc/fstab'. This might mean duplicate devices can get mounted. Data can be redirected to devices created by script, which do not persist the data, and hence might result in data loss.
+> Don't use 'mount -a'. This command mounts all devices described in '/etc/fstab'. This might mean duplicate devices can get mounted. Data can be redirected to devices created by a script, which don't persist the data, and so might result in data loss.
 
 #### For RAID arrays
 
@@ -276,7 +279,7 @@ In Linux, the OS of the computer used to restore files must support the file sys
 | openSUSE | 42.2 and above |
 
 > [!NOTE]
-> We have found some issues in running the file recovery script on machines with SLES 12 SP4 OS and we are investigating with the SLES team.
+> We've found some issues in running the file recovery script on machines with SLES 12 SP4 OS and we're investigating with the SLES team.
 > Currently, running the file recovery script is working on machines with SLES 12 SP2 and SP3 OS versions.
 >
 
@@ -293,17 +296,17 @@ The script also requires Python and bash components to execute and connect secur
 If you run the script on a computer with restricted access, ensure there's access to:
 
 - `download.microsoft.com`
-- Recovery Service URLs (geo-name refers to the region where the recovery service vault resides)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (For Azure public regions)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (For Azure China 21Vianet)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (For Azure US Government)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (For Azure Germany)
+- Recovery Service URLs (GEO-NAME refers to the region where the Recovery Services vault resides)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (For Azure public regions)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (For Azure China 21Vianet)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (For Azure US Government)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (For Azure Germany)
 - Outbound ports 53 (DNS), 443, 3260
 
 > [!NOTE]
 >
-> - The downloaded script file name will have the **geo-name** to be filled in the URL. For example: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like *ContosoVM_wcus_12345678*
-> - The URL would be <https://pod01-rec2.wcus.backup.windowsazure.com>"
+> The script file you downloaded in step 5 [above](#mount-the-volume-and-copy-files) will have the **geo-name** in the name of the file. Use that **geo-name** to fill in the URL. The downloaded script name will begin with: \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
+> So for example, if the script filename is *ContosoVM_wcus_12345678*, the **geo-name** is *wcus* and the URL would be:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
 >
 
 For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to the recovery point. If the components don't exist on the computer where the script is run, the script asks for permission to install the components. Provide consent to install the necessary components.
@@ -323,7 +326,7 @@ Since file recovery process attaches all disks from the backup, when large numbe
     - Ensure that the OS is WS 2012 or higher.
     - Ensure the registry keys are set as suggested below in the restore server and make sure to reboot the server. The number beside the GUID can range from 0001-0005. In the following example, it's 0004. Navigate through the registry key path until the parameters section.
 
-    ![iscsi-reg-key-changes.png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+    ![Registry key changes](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
 - HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
@@ -334,7 +337,7 @@ Since file recovery process attaches all disks from the backup, when large numbe
 
 - If the restore server is a Linux VM:
   - In the file /etc/iscsi/iscsid.conf, change the setting from:
-    - node.conn[0].timeo.noop_out_timeout = 5  to node.conn[0].timeo.noop_out_timeout = 30
+    - `node.conn[0].timeo.noop_out_timeout = 5`  to `node.conn[0].timeo.noop_out_timeout = 30`
 - After making the change above, run the script again. With these changes, it's highly probable that the file recovery will succeed.
 - Each time user downloads a script, Azure Backup initiates the process of preparing the recovery point for download. With large disks, this process will take considerable time. If there are successive bursts of requests, the target preparation will go into a download spiral. Therefore, it's recommended to download a script from Portal/PowerShell/CLI, wait for 20-30 minutes (a heuristic) and then run it. By this time, the target is expected to be ready for connection from script.
 - After file recovery, make sure you go back to the portal and select **Unmount disks** for recovery points where you weren't able to mount volumes. Essentially, this step will clean any existing processes/sessions and increase the chance of recovery.
@@ -346,7 +349,7 @@ If you have problems while recovering files from the virtual machines, check the
 | Error Message / Scenario | Probable Cause | Recommended action |
 | ------------------------ | -------------- | ------------------ |
 | Exe output: *Exception caught while connecting to target* | The script isn't able to access the recovery point    | Check whether the machine fulfills the [previous access requirements](#access-requirements). |  
-| Exe output: *The target has already been logged in via an iSCSI session.* | The script was already executed on the same machine and the drives have been attached | The volumes of the recovery point have already been attached. They may NOT be mounted with the same drive letters of the original VM. Browse through all the available volumes in the file explorer for your file. |
+| Exe output: *The target has already been logged in via an iSCSI session.* | The script was already executed on the same machine and the drives have been attached | The volumes of the recovery point have already been attached. They may not be mounted with the same drive letters of the original VM. Browse through all the available volumes in the file explorer for your file. |
 | Exe output: *This script is invalid because the disks have been dismounted via portal/exceeded the 12-hr limit. Download a new script from the portal.* |    The disks have been dismounted from the portal or the 12-hour limit was exceeded | This particular exe is now invalid and can't be run. If you want to access the files of that recovery point-in-time, visit the portal for a new exe.|
 | On the machine where the exe is run: The new volumes aren't dismounted after the dismount button is clicked | The iSCSI initiator on the machine isn't responding/refreshing its connection to the target and maintaining the cache. |  After clicking **Dismount**, wait a few minutes. If the new volumes aren't dismounted, browse through all volumes. Browsing all volumes forces the initiator to refresh the connection, and the volume is dismounted with an error message that the disk isn't available.|
 | Exe output: The script is run successfully but "New volumes attached" is not displayed on the script output |    This is a transient error    | The volumes will have been already attached. Open Explorer to browse. If you're using the same machine for running scripts every time, consider restarting the machine and the list should be displayed in the subsequent exe runs. |
@@ -367,7 +370,7 @@ This feature was built to access the VM data without the need to restore the ent
 
 #### Select Recovery point (who can generate script)
 
-The script provides access to VM data, so it's important to regulate who can generate it in the first place. You need to sign in into the Azure portal and be [RBAC authorized](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) to generate the script.
+The script provides access to VM data, so it's important to regulate who can generate it in the first place. You need to sign in into the Azure portal and be [Azure RBAC authorized](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) to generate the script.
 
 File recovery needs the same level of authorization as required for VM restore and disks restore. In other words, only authorized users can view the VM data can generate the script.
 
@@ -377,11 +380,11 @@ The generated script is signed with the official Microsoft certificate for the A
 
 Only an Admin can run the script and it should run in elevated mode. The script only runs a pre-generated set of steps and doesn't accept input from any external source.
 
-To run the script, a password is required that is only shown to the authorized user at the time of generation of script in the Azure portal or PowerShell/CLI. This is to ensure the authorized user who downloads the script is also responsible for running the script.
+To run the script, a password is required that's only shown to the authorized user at the time of generation of script in the Azure portal or PowerShell/CLI. This is to ensure the authorized user who downloads the script is also responsible for running the script.
 
 #### Browse files and folders
 
-To browse files and folders, the script uses the iSCSI initiator in the machine and connects to the recovery point that is configured as an iSCSI target. Here you can imagine scenarios where one is trying to imitate/spoof either/all components.
+To browse files and folders, the script uses the iSCSI initiator in the machine and connects to the recovery point that's configured as an iSCSI target. Here you can imagine scenarios where one is trying to imitate/spoof either/all components.
 
 We use a mutual CHAP authentication mechanism so that each component authenticates the other. This means it's extremely difficult for a fake initiator to connect to the iSCSI target and for a fake target to be connected to the machine where the script is run.
 
@@ -389,7 +392,7 @@ The data flow between the recovery service and the machine is protected by build
 
 Any file Access Control List (ACL) present in the parent/backed up VM is preserved in the mounted file system as well.
 
-The script gives read-only access to a recovery point and is valid for only 12 hours. If you wish to remove the access earlier, then sign into Azure Portal/PowerShell/CLI and perform **unmount disks** for that particular recovery point. The script will be invalidated immediately.
+The script gives read-only access to a recovery point and is valid for only 12 hours. If you wish to remove the access earlier, then sign into Azure portal/PowerShell/CLI and perform **unmount disks** for that particular recovery point. The script will be invalidated immediately.
 
 ## Next steps
 

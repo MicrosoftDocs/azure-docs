@@ -140,7 +140,7 @@ Data Box can transfer data based on the region in which service is deployed, cou
 
 - **Service availability** - When using Data Box for import or export orders, to get information on region availability, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). The export feature on Data Box is currently in preview. 
 
-    For import orders, Data Box can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). 
+    For import orders, Data Box can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](../azure-government/documentation-government-welcome.md). 
 
 - **Destination storage accounts** - The storage accounts that store the data are available in all Azure regions where the service is available.
 
@@ -150,7 +150,3 @@ Data Box can transfer data based on the region in which service is deployed, cou
 - Review the [Data Box system requirements](data-box-system-requirements.md).
 - Understand the [Data Box limits](data-box-limits.md).
 - Quickly deploy [Azure Data Box](data-box-quickstart-portal.md) in Azure portal.
-
-
-
-

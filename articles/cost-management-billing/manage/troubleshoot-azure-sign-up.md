@@ -6,8 +6,9 @@ author: v-miegge
 manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 06/05/2020
+ms.date: 08/20/2020
 ms.author: v-miegge
 ---
 
@@ -16,7 +17,7 @@ ms.author: v-miegge
 You may experience an issue when you try to sign up for a new account in the Microsoft Azure portal or Azure account center. This short guide will walk you through the sign-up process and discuss some common issues at each step.
 
 > [!NOTE]
-> If you already have an existing account and are looking for guidance to troubleshoot sign-in issues, see [Troubleshoot Azure subscription sign-in issues](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue).
+> If you already have an existing account and are looking for guidance to troubleshoot sign-in issues, see [Troubleshoot Azure subscription sign-in issues](./troubleshoot-sign-in-issue.md).
 
 ## Before you begin
 
@@ -70,8 +71,8 @@ To resolve this issue, double-check whether the following items are true:
 
 #### You see the message 'Your current account type is not supported'
 
-This issue can occur if the account is registered in an [unmanaged Azure AD directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup), and it is not in your organization's Azure AD directory.
-To resolve this issue, sign up the Azure account by using another account, or take over the unmanaged AD directory. For more information, see [Take over an unmanaged directory as administrator in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover).
+This issue can occur if the account is registered in an [unmanaged Azure AD directory](../../active-directory/users-groups-roles/directory-self-service-signup.md), and it is not in your organization's Azure AD directory.
+To resolve this issue, sign up the Azure account by using another account, or take over the unmanaged AD directory. For more information, see [Take over an unmanaged directory as administrator in Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md).
 
 ## Identity verification by phone
 
@@ -101,7 +102,7 @@ Here are some additional tips:
 
 #### Credit card declined or not accepted
 
-Virtual or pre-paid credit or debit cards aren't accepted as payment for Azure subscriptions. To see what else may cause your card to be declined, see [Troubleshoot a declined card at Azure sign-up](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card).
+Virtual or pre-paid credit or debit cards aren't accepted as payment for Azure subscriptions. To see what else may cause your card to be declined, see [Troubleshoot a declined card at Azure sign-up](./troubleshoot-declined-card.md).
 
 #### Credit card form doesn't support my billing address
 
@@ -125,7 +126,7 @@ Use the following steps to update your browser's cookie settings.
 
 ### I saw a charge on my free trial account
 
-You may see a small, temporary verification hold on your credit card account after you sign up. This hold is removed within three to five days. If you are worried about managing costs, read more about [preventing unexpected costs](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started).
+You may see a small, temporary verification hold on your credit card account after you sign up. This hold is removed within three to five days. If you are worried about managing costs, read more about [Analyzing unexpected charges](../understand/analyze-unexpected-charges.md).
 
 ## Agreement
 
@@ -138,7 +139,7 @@ Complete the Agreement.
 Check that you're using the correct sign-in credentials. Then, check the benefit program and verify that you're eligible.
 - MSDN
   - Verify your eligibility status on your [MSDN account page](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
-  - If you can't verify your status, contact the [MSDN Subscriptions Customer Service Centers](https://msdn.microsoft.com/library/aa493452.aspx).
+  - If you can't verify your status, contact the [MSDN Subscriptions Customer Service Centers](/previous-versions/mappoint/aa493452(v=msdn.10)).
 - Microsoft for Startups
   - Sign in to the [Microsoft for Startups portal](https://startups.microsoft.com/#start-two) to verify your eligibility status for Microsoft for Startups.
   - If you can't verify your status, you can get help on the [Microsoft for Startups forums](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
@@ -155,10 +156,10 @@ To create an Azure In Open subscription, you must have a valid Online Service Ac
 
 Other troubleshooting articles for Azure Billing and Subscriptions
 
-- [Declined card](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [Subscription sign-in issues](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)
-- [No subscriptions found](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Enterprise cost view disabled](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
+- [Declined card](./troubleshoot-declined-card.md)
+- [Subscription sign-in issues](./troubleshoot-sign-in-issue.md)
+- [No subscriptions found](./no-subscriptions-found.md)
+- [Enterprise cost view disabled](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## Contact us for help
 
@@ -166,4 +167,4 @@ If you have questions or need help, [create a support request](https://ms.portal
 
 ## Find out more about Azure Cost Management
 
-- [Azure Cost Management and Billing documentation](https://docs.microsoft.com/azure/cost-management-billing)
+- [Azure Cost Management and Billing documentation](../index.yml)

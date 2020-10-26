@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell script sample - Create a fully configured Windows VM 
-description: Azure PowerShell Script Sample - Create a Windows VM
+description: Azure PowerShell Script Sample - Create a fully configured Windows VM.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Create a fully configured virtual machine with PowerShell

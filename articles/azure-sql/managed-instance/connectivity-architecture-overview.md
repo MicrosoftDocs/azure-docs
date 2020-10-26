@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
-ms.date: 03/17/2020
+ms.reviewer: sstein, bonova
+ms.date: 10/22/2020
 ---
 
 # Connectivity architecture for Azure SQL Managed Instance
@@ -84,7 +84,12 @@ To address customer security and manageability requirements, SQL Managed Instanc
 
 With service-aided subnet configuration, the user is in full control of data (TDS) traffic, while SQL Managed Instance takes responsibility to ensure uninterrupted flow of management traffic in order to fulfill an SLA.
 
-Service-aided subnet configuration builds on top of the virtual network [subnet delegation](../../virtual-network/subnet-delegation-overview.md) feature to provide automatic network configuration management and enable service endpoints. Service endpoints could be used to configure virtual network firewall rules on storage accounts that keep backups and audit logs.
+Service-aided subnet configuration builds on top of the virtual network [subnet delegation](../../virtual-network/subnet-delegation-overview.md) feature to provide automatic network configuration management and enable service endpoints. 
+
+Service endpoints could be used to configure virtual network firewall rules on storage accounts that keep backups and audit logs. Even with service endpoints enabled, customers are encouraged to use [private link](../../private-link/private-link-overview.md) that provides additional security over service endpoints.
+
+> [!IMPORTANT]
+> Due to control plane configuration specificities, service-aided subnet configuration would not enable service endpoints in national clouds. 
 
 ### Network requirements
 
@@ -302,7 +307,7 @@ If the virtual network includes a custom DNS, the custom DNS server must be able
 The following virtual network features are currently not supported with SQL Managed Instance:
 
 - **Microsoft peering**: Enabling [Microsoft peering](../../expressroute/expressroute-faqs.md#microsoft-peering) on ExpressRoute circuits peered directly or transitively with a virtual network where SQL Managed Instance resides affects traffic flow between SQL Managed Instance components inside the virtual network and services it depends on, causing availability issues. SQL Managed Instance deployments to virtual network with Microsoft peering already enabled are expected to fail.
-- **Global virtual network peering**: [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md) connectivity across Azure regions doesn't work for SQL Managed Instance due to [documented load balancer constraints](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+- **Global virtual network peering**: [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md) connectivity across Azure regions doesn't work for SQL Managed Instances placed in subnets created before 9/22/2020.
 - **AzurePlatformDNS**: Using the AzurePlatformDNS [service tag](../../virtual-network/service-tags-overview.md) to block platform DNS resolution would render SQL Managed Instance unavailable. Although SQL Managed Instance supports customer-defined DNS for DNS resolution inside the engine, there is a dependency on platform DNS for platform operations.
 - **NAT gateway**: Using [Azure Virtual Network NAT](../../virtual-network/nat-overview.md) to control outbound connectivity with a specific public IP address would render SQL Managed Instance unavailable. The SQL Managed Instance service is currently limited to use of basic load balancer that doesn't provide coexistence of inbound and outbound flows with Virtual Network NAT.
 

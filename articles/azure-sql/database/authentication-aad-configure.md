@@ -7,18 +7,18 @@ ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
-ms.date: 07/27/2020
+ms.reviewer: vanto, sstein
+ms.date: 08/17/2020
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-This article shows you how to create and populate an Azure Active Directory (Azure AD) instance, and then use Azure AD with [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics (formerly Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview, see [Azure Active Directory authentication](authentication-aad-overview.md).
+This article shows you how to create and populate an Azure Active Directory (Azure AD) instance, and then use Azure AD with [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics (formerly SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview, see [Azure Active Directory authentication](authentication-aad-overview.md).
 
 ## Azure AD authentication methods
 
@@ -66,7 +66,9 @@ When using Azure Active Directory with geo-replication, the Azure Active Directo
 ## Provision Azure AD admin (SQL Managed Instance)
 
 > [!IMPORTANT]
-> Only follow these steps if you are provisioning an Azure SQL Managed Instance. This operation can only be executed by Global/Company administrator or a Privileged Role Administrator in Azure AD. Following steps describe the process of granting permissions for users with different privileges in directory.
+> Only follow these steps if you are provisioning an Azure SQL Managed Instance. This operation can only be executed by Global/Company administrator or a Privileged Role Administrator in Azure AD.
+>
+> In **public preview**, you can assign the **Directory Readers** role to a group in Azure AD. The group owners can then add the managed instance identity as a member of this group, which would allow you to provision an Azure AD admin for the SQL Managed Instance. For more information on this feature, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
 Your SQL Managed Instance needs permissions to read Azure AD to successfully accomplish tasks such as authentication of users through security group membership or creation of new users. For this to work, you need to grant the SQL Managed Instance permission to read Azure AD. You can do this using the Azure portal or PowerShell.
 
@@ -82,19 +84,19 @@ To grant your SQL Managed Instance Azure AD read permission using the Azure port
 
 3. Navigate to the SQL Managed Instance you want to use for Azure AD integration.
 
-   ![aad](./media/authentication-aad-configure/aad.png)
+   ![Screenshot of the Azure portal showing the Active Directory admin page open for the selected SQL managed instance.](./media/authentication-aad-configure/aad.png)
 
 4. Select the banner on top of the Active Directory admin page and grant permission to the current user.
 
-    ![grant permissions-portal](./media/authentication-aad-configure/grant-permissions.png)
+    ![Screenshot of the dialog for granting permissions to a SQL managed instance for accessing Active Directory. The Grant permissions button is selected.](./media/authentication-aad-configure/grant-permissions.png)
 
 5. After the operation succeeds, the following notification will show up in the top-right corner:
 
-    ![success](./media/authentication-aad-configure/success.png)
+    ![Screenshot of a notification confirming that active directory read permissions have been successfully updated for the managed instance.](./media/authentication-aad-configure/success.png)
 
 6. Now you can choose your Azure AD admin for your SQL Managed Instance. For that, on the Active Directory admin page, select **Set admin** command.
 
-    ![set-admin](./media/authentication-aad-configure/set-admin.png)
+    ![Screenshot showing the Set admin command highlighted on the Active Directory admin page for the selected SQL managed instance.](./media/authentication-aad-configure/set-admin.png)
 
 7. On the Azure AD admin page, search for a user, select the user or group to be an administrator, and then select **Select**.
 
@@ -104,7 +106,7 @@ To grant your SQL Managed Instance Azure AD read permission using the Azure port
 
 8. At the top of the Active Directory admin page, select **Save**.
 
-    ![save](./media/authentication-aad-configure/save.png)
+    ![Screenshot of the Active Directory admin page with the Save button in the top row next to the Set admin and Remove admin buttons.](./media/authentication-aad-configure/save.png)
 
     The process of changing the administrator may take several minutes. Then the new administrator appears in the Active Directory admin box.
 

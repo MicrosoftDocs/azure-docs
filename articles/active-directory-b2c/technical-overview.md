@@ -211,7 +211,7 @@ You can assign roles to control who can perform certain administrative actions i
 * Create and manage trust framework policies in the Identity Experience Framework (custom policies)
 * Manage secrets for federation and encryption in the Identity Experience Framework (custom policies)
 
-For more information about Azure AD roles, including Azure AD B2C administration role support, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+For more information about Azure AD roles, including Azure AD B2C administration role support, see [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ### Multi-factor authentication (MFA)
 
@@ -258,7 +258,4 @@ Find out more about usage analytics in [Track user behavior in Azure Active Dire
 
 ## Next steps
 
-Now that you have deeper view into the features and technical aspects of Azure Active Directory B2C, get started with the service by creating a B2C tenant:
-
-> [!div class="nextstepaction"]
-> [Tutorial: Create an Azure Active Directory B2C tenant >](tutorial-create-tenant.md)
+Now that you have deeper view into the features and technical aspects of Azure Active Directory B2C, get started with our [tutorial for creating an Azure Active Directory B2C tenant](tutorial-create-tenant.md).

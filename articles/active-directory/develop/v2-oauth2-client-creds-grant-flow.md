@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/27/2020
+ms.date: 10/2/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -48,8 +48,11 @@ A common use case is to use an ACL to run tests for a web application or for a w
 
 This type of authorization is common for daemons and service accounts that need to access data owned by consumer users who have personal Microsoft accounts. For data owned by organizations, we recommend that you get the necessary authorization through application permissions.
 
-> [!NOTE]
-> In order to enable this ACL-based authorization pattern, Azure AD does not require that applications be authorized to get tokens for another application - so app-only tokens can be issued without a `roles` claim. Applications that expose APIs must implement permission checks in order to accept tokens.
+#### Controlling tokens without the `roles` claim
+
+In order to enable this ACL-based authorization pattern, Azure AD doesn't require that applications be authorized to get tokens for another application. Thus, app-only tokens can be issued without a `roles` claim. Applications that expose APIs must implement permission checks in order to accept tokens.
+
+If you'd like to prevent applications from getting role-less app-only access tokens for your application, [ensure that user assignment requirements are enabled for your app](../manage-apps/assign-user-or-group-access-portal.md#configure-an-application-to-require-user-assignment). This will block users and applications without assigned roles from being able to get a token for this application. 
 
 ### Application permissions
 
@@ -60,19 +63,11 @@ Instead of using ACLs, you can use APIs to expose a set of **application permiss
 * Send mail as any user
 * Read directory data
 
-For more information about application permissions, review the [consent and permissions documentation](v2-permissions-and-consent.md#permission-types).
+To use application permissions with your own API (as opposed to Microsoft Graph), you must first [expose the API](quickstart-configure-app-expose-web-apis.md) by defining scopes in the API's app registration in the Azure portal. Then, [configure access to the API](quickstart-configure-app-access-web-apis.md) by selecting those permissions in your client application's app registration. If you haven't exposed any scopes in your API's app registration, you won't be able to specify application permissions to that API in your client application's app registration in the Azure portal.
 
-To use application permissions in your app, follow the steps discussed in the next sections.
+When authenticating as an application (as opposed to with a user), you can't use *delegated permissions* - scopes that are granted by a user. You must use application permissions, also known as roles, that are granted by an admin for the application or via pre-authorization by the web API.
 
-> [!NOTE]
-> When authenticating as an application, as opposed to with a user, you cannot use "delegated permissions" (scopes that are granted by a user).  You must use "application permissions", also known as "roles", that are granted by an admin for the application (or via pre-authorization by the web API).
-
-#### Request the permissions in the app registration portal
-
-1. Register and create an app through the new [App registrations (Preview) experience](quickstart-register-app.md).
-2. Go to your application in the App registrations (Preview) experience. Navigate to the **Certificates & secrets** section, and add a **new client secret**, because you'll need at least one client secret to request a token.
-3. Locate the **API permissions** section, and then add the **application permissions** that your app requires.
-4. **Save** the app registration.
+For more information about application permissions, see [Permissions and consent](v2-permissions-and-consent.md#permission-types).
 
 #### Recommended: Sign the user into your app
 

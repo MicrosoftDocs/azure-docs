@@ -5,7 +5,6 @@ description: Learn how to integrate Azure AD B2C authentication with Onfido for 
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -34,7 +33,7 @@ To get started, you'll need:
 
 The Onfido integration includes the following components:
 
-- Azure AD B2C tenant – The authorization server, responsible for verifying the user’s credentials based on custom policies defined in the tenant. It's also known as the identity provider. It hosts the Onfido client app, which collects the user documents and transmits it to the Onfido API service.
+- Azure AD B2C tenant – The authorization server, responsible for verifying the user's credentials based on custom policies defined in the tenant. It's also known as the identity provider. It hosts the Onfido client app, which collects the user documents and transmits it to the Onfido API service.
 
 - Onfido client – A configurable JavaScript client document collection utility deployed within other webpages. Collects the documents and does preliminary checks like document size and quality.
 
@@ -90,7 +89,7 @@ Application settings can be configured in the [App service in Azure](https://doc
 
 1. Set up a [blob storage container in your storage account](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
 
-2. Store the UI files from the UI folder to your blob container.
+2. Store the UI files from the [UI folder](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) to your blob container.
 
 3. Allow CORS access to storage container you created by following these instructions:
 
@@ -120,11 +119,11 @@ Application settings can be configured in the [App service in Azure](https://doc
 
 #### Replace the configuration values
 
-In the provided custom policies, find the following placeholders and replace with the corresponding values from your instance.
+In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/Policies), find the following placeholders and replace with the corresponding values from your instance.
 
 | Placeholder | Replace with value | Example  |
 |:---------------|:----------------|:-------------------|
-| {your_tenant_name}  | Your tenant short name |  “yourtenant” from yourtenant.onmicrosoft.com |
+| {your_tenant_name}  | Your tenant short name |  "yourtenant" from yourtenant.onmicrosoft.com |
 | {your_tenantID} | TenantID of your Azure AD B2C tenant | 01234567-89ab-cdef-0123-456789abcdef           |
 | {your_tenant_IdentityExperienceFramework_appid}        | App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant      | 01234567-89ab-cdef-0123-456789abcdef         |
 | {your_tenant_ ProxyIdentityExperienceFramework _appid} | App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant | 01234567-89ab-cdef-0123-456789abcdef         |
@@ -132,7 +131,7 @@ In the provided custom policies, find the following placeholders and replace wit
 | {your_tenant_extensions_app_objectid}                  | Object ID of your tenant's storage application                                   | 01234567-89ab-cdef-0123-456789abcdef         |
 | {your_app_insights_instrumentation_key} | Instrumentation key of your app insights instance*| 01234567-89ab-cdef-0123-456789abcdef|
 |{your_ui_file_base_url}| URL of the location where your UI **ocean_blue**, **dist**, and **assets** folders are located | https://yourstorage.blob.core.windows.net/UI/|
-| {your_app_service_URL}                                 | URL of the app service you've set up                                             | <https://yourapp.azurewebsites.net>          |
+| {your_app_service_URL}                                 | URL of the app service you've set up                                             | `https://yourapp.azurewebsites.net`          |
 
 *App insights can be in a different tenant. This step is optional. Remove the corresponding TechnicalProfiles and OrchestrationSteps if not needed.
 

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Integrate with Time Series Insights
+title: Integrate with Azure Time Series Insights
 titleSuffix: Azure Digital Twins
 description: See how to set up event routes from Azure Digital Twins to Azure Time Series Insights.
 author: alexkarcher-msft
@@ -59,22 +59,27 @@ The Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-
     az eventhubs eventhub create --name <name for your Twins event hub> --resource-group <resource group name> --namespace-name <Event Hubs namespace from above>
     ```
 
-3. Create an [authorization rule](https://docs.microsoft.com/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions.
+3. Create an [authorization rule](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions.
 
     ```azurecli-interactive
     # Create an authorization rule. Specify a name for the rule.
     az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from above> --eventhub-name <Twins event hub name from above> --name <name for your Twins auth rule>
     ```
 
-4. Create an Azure Digital Twins [endpoint](concepts-route-events.md#create-an-endpoint) that links your event grid topic to your Azure Digital Twins instance.
+4. Create an Azure Digital Twins [endpoint](concepts-route-events.md#create-an-endpoint) that links your event hub to your Azure Digital Twins instance.
 
-    ```azurecli
+    ```azurecli-interactive
     az dt endpoint create eventhub --endpoint-name <name for your Event Hubs endpoint> --eventhub-resource-group <resource group name> --eventhub-namespace <Event Hubs namespace from above> --eventhub <Twins event hub name from above> --eventhub-policy <Twins auth rule from above> -n <your Azure Digital Twins instance name>
     ```
 
 5. Create a [route](concepts-route-events.md#create-an-event-route) in Azure Digital Twins to send twin update events to your endpoint. The filter in this route will only allow twin update messages to be passed to your endpoint.
 
-    ```azurecli
+    >[!NOTE]
+    >There is currently a **known issue** in Cloud Shell affecting these command groups: `az dt route`, `az dt model`, `az dt twin`.
+    >
+    >To resolve, either run `az login` in Cloud Shell prior to running the command, or use the [local CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) instead of Cloud Shell. For more detail on this, see [*Troubleshooting: Known issues in Azure Digital Twins*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+
+    ```azurecli-interactive
     az dt route create -n <your Azure Digital Twins instance name> --endpoint-name <Event Hub endpoint from above> --route-name <name for your route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
@@ -117,12 +122,14 @@ namespace SampleFunctionsApp
             Dictionary<string, object> tsiUpdate = new Dictionary<string, object>();
             foreach (var operation in message["patch"]) {
                 if (operation["op"].ToString() == "replace" || operation["op"].ToString() == "add")
+                {
                     //Convert from JSON patch path to a flattened property for TSI
                     //Example input: /Front/Temperature
                     //        output: Front.Temperature
                     string path = operation["path"].ToString().Substring(1);                    
                     path = path.Replace("/", ".");                    
                     tsiUpdate.Add(path, operation["value"]);
+                }
             }
             //Send an update if updates exist
             if (tsiUpdate.Count>0){
@@ -153,7 +160,7 @@ To create the second event hub, you can either use the Azure CLI instructions be
     # Create an event hub. Specify a name for the event hub. 
     az eventhubs eventhub create --name <name for your TSI event hub> --resource-group <resource group name from earlier> --namespace-name <Event Hubs namespace from earlier>
     ```
-3. Create an [authorization rule](https://docs.microsoft.com/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions
+3. Create an [authorization rule](/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest&preserve-view=true#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions
     ```azurecli-interactive
     # Create an authorization rule. Specify a name for the rule.
     az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace from earlier> --eventhub-name <TSI event hub name from above> --name <name for your TSI auth rule>
@@ -174,7 +181,7 @@ Next, you'll need to set environment variables in your function app from earlier
 2. Use the connection string you get as a result to create an app setting in your function app that contains your connection string:
 
     ```azurecli-interactive
-    az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string> -g <resource group> -n <your App Service (function app) name>"
+    az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string>" -g <resource group> -n <your App Service (function app) name>
     ```
 
 ### Set the Time Series Insights event hub connection string
@@ -188,7 +195,7 @@ Next, you'll need to set environment variables in your function app from earlier
 2. In your function app, create an app setting containing your connection string:
 
     ```azurecli-interactive
-    az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string> -g <resource group> -n <your App Service (function app) name>"
+    az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string>" -g <resource group> -n <your App Service (function app) name>
     ```
 
 ## Create and connect a Time Series Insights instance
@@ -197,7 +204,7 @@ Next, you will set up a Time Series Insights instance to receive the data from y
 
 1. In the Azure portal, begin creating a Time Series Insights resource. 
     1. Select the **PAYG(Preview)** pricing tier.
-    2. You will need to choose a **time series ID** for this environment. Your time series ID can be up to three values that you will use to search for your data in Time Series Insights. For this tutorial, you can use **$dtId**. Read more about selecting an ID value in [*Best practices for choosing a Time Series ID*](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid).
+    2. You will need to choose a **time series ID** for this environment. Your time series ID can be up to three values that you will use to search for your data in Time Series Insights. For this tutorial, you can use **$dtId**. Read more about selecting an ID value in [*Best practices for choosing a Time Series ID*](../time-series-insights/how-to-select-tsid.md).
     
         :::image type="content" source="media/how-to-integrate-time-series-insights/create-twin-id.png" alt-text="The creation portal UX for a Time Series Insights environment. The PAYG(Preview) pricing tier is selected and the time series ID property name is $dtId":::
 
@@ -207,7 +214,7 @@ Next, you will set up a Time Series Insights instance to receive the data from y
 
 ## Begin sending IoT data to Azure Digital Twins
 
-To begin sending data to Time Series Insights, you will need to start updating the digital twin properties in Azure Digital Twins with changing data values. Use the [az dt twin update](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext-azure-iot-az-dt-twin-update) command.
+To begin sending data to Time Series Insights, you will need to start updating the digital twin properties in Azure Digital Twins with changing data values. Use the [az dt twin update](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext-azure-iot-az-dt-twin-update) command.
 
 If you are using the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)) to assist with environment setup, you can begin sending simulated IoT data by running the *DeviceSimulator* project from the sample. The instructions are in the [*Configure and run the simulation*](tutorial-end-to-end.md#configure-and-run-the-simulation) section of the tutorial.
 

@@ -2,7 +2,7 @@
 title: Network planning and connections for Azure AD Domain Services | Microsoft Docs
 description: Learn about some of the virtual network design considerations and resources used for connectivity when you run Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
+ms.author: joflore
 
 ---
 # Virtual network design considerations and configuration options for Azure Active Directory Domain Services
@@ -90,7 +90,7 @@ A managed domain creates some networking resources during deployment. These reso
 | Azure resource                          | Description |
 |:----------------------------------------|:---|
 | Network interface card                  | Azure AD DS hosts the managed domain on two domain controllers (DCs) that run on Windows Server as Azure VMs. Each VM has a virtual network interface that connects to your virtual network subnet. |
-| Dynamic standard public IP address      | Azure AD DS communicates with the synchronization and management service using a standard SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
+| Dynamic standard public IP address      | Azure AD DS communicates with the synchronization and management service using a standard SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/public-ip-addresses.md). |
 | Azure standard load balancer            | Azure AD DS uses a standard SKU load balancer for network address translation (NAT) and load balancing (when used with secure LDAP). For more information about Azure load balancers, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Network address translation (NAT) rules | Azure AD DS creates and uses three NAT rules on the load balancer - one rule for secure HTTP traffic, and two rules for secure PowerShell remoting. |
 | Load balancer rules                     | When a managed domain is configured for secure LDAP on TCP port 636, three rules are created and used on a load balancer to distribute the traffic. |
@@ -100,7 +100,7 @@ A managed domain creates some networking resources during deployment. These reso
 
 ## Network security groups and required ports
 
-A [network security group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. A network security group is created when you deploy a managed domain that contains a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your managed domain is deployed into.
+A [network security group (NSG)](../virtual-network/security-overview.md) contains a list of rules that allow or deny network traffic to traffic in an Azure virtual network. A network security group is created when you deploy a managed domain that contains a set of rules that let the service provide authentication and management functions. This default network security group is associated with the virtual network subnet your managed domain is deployed into.
 
 The following network security group rules are required for the managed domain to provide authentication and management services. Don't edit or delete these network security group rules for the virtual network subnet your managed domain is deployed into.
 
@@ -111,6 +111,8 @@ The following network security group rules are required for the managed domain t
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Management of your domain. |
 
 An Azure standard load balancer is created that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly. Don't delete this network security group. The load balancer won't work correctly without it.
+
+If needed, you can [create the required network security group and rules using Azure PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
 > [!WARNING]
 > Don't manually edit these network resources and configurations. When you associate a misconfigured network security group or a user defined route table with the subnet in which the managed domain is deployed, you may disrupt Microsoft's ability to service and manage the domain. Synchronization between your Azure AD tenant and your managed domain is also disrupted.
@@ -138,6 +140,10 @@ An Azure standard load balancer is created that requires these rules to be place
 
 > [!NOTE]
 > You can't manually select the *CorpNetSaw* service tag from the portal if you try to edit this network security group rule. You must use Azure PowerShell or the Azure CLI to manually configure a rule that uses the *CorpNetSaw* service tag.
+>
+> For example, you can use the following script to create a rule allowing RDP: 
+>
+> `Get-AzureRmNetworkSecurityGroup -Name "nsg-name" -ResourceGroupName "resource-group-name" | Add-AzureRmNetworkSecurityRuleConfig -Name "new-rule-name" -Access "Allow" -Protocol "TCP" -Direction "Inbound" -Priority "priority-number" -SourceAddressPrefix "CorpNetSaw" -SourcePortRange "" -DestinationPortRange "3389" -DestinationAddressPrefix "" | Set-AzureRmNetworkSecurityGroup`
 
 ### Port 5986 - management using PowerShell remoting
 

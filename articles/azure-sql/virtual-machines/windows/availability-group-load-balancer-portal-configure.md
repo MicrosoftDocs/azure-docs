@@ -9,7 +9,7 @@ editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
@@ -37,7 +37,7 @@ View related articles:
 
 By walking through this article, you create and configure a load balancer in the Azure portal. After the process is complete, you configure the cluster to use the IP address from the load balancer for the availability group listener.
 
-## Create and configure the load balancer in the Azure portal
+## Create & configure load balancer 
 
 In this portion of the task, do the following steps:
 
@@ -68,6 +68,7 @@ First, create the load balancer.
    | --- | --- |
    | **Name** |A text name representing the load balancer. For example, **sqlLB**. |
    | **Type** |**Internal**: Most implementations use an internal load balancer, which allows applications within the same virtual network to connect to the availability group.  </br> **External**: Allows applications to connect to the availability group through a public Internet connection. |
+   | **SKU** |**Basic**: Default option. Only valid if SQL Server instances are in the same availability set. </br> **Standard**: Preferred. Valid if SQL Server instances are in the same availability set. Required if your SQL Server instances are in different availability zones. |
    | **Virtual network** |Select the virtual network that the SQL Server instances are in. |
    | **Subnet** |Select the subnet that the SQL Server instances are in. |
    | **IP address assignment** |**Static** |

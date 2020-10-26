@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/05/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable and use Azure Multi-Factor Authentication with legacy applications using app passwords
 
-Some applications, like Office 2010 or earlier and Apple Mail before iOS 11, don't support multi-factor authentication. The apps aren't configured to accept a secondary form of authentication or prompt. To use these applications in a secure way with Azure Multi-Factor Authentication enabled for user accounts, you can use app passwords. These app passwords replaced your traditional password to allow an app to bypass multi-factor authentication and work correctly.
+Some older, non-browser apps like Office 2010 or earlier and Apple Mail before iOS 11 don't understand pauses or breaks in the authentication process. If a user is enabled for Azure Multi-Factor Authentication and attempts to use one of these older, non-browser apps, they can't successfully authenticate. To use these applications in a secure way with Azure Multi-Factor Authentication enabled for user accounts, you can use app passwords. These app passwords replaced your traditional password to allow an app to bypass multi-factor authentication and work correctly.
 
 Modern authentication is supported for the Microsoft Office 2013 clients and later. Office 2013 clients, including Outlook, support modern authentication protocols and can be enabled to work with two-step verification. After the client is enabled, app passwords aren't required for the client.
 
@@ -38,6 +38,8 @@ When you use app passwords, the following considerations apply:
 * Applications that cache passwords and use them in on-premises scenarios can fail because the app password isn't known outside the work or school account. An example of this scenario is Exchange emails that are on-premises, but the archived mail is in the cloud. In this scenario, the same password doesn't work.
 * After Azure Multi-Factor Authentication is enabled on a user's account, app passwords can be used with most non-browser clients like Outlook and Microsoft Skype for Business. However, administrative actions can't be performed by using app passwords through non-browser applications, such as Windows PowerShell. The actions can't be performed even when the user has an administrative account.
     * To run PowerShell scripts, create a service account with a strong password and don't enable the account for two-step verification.
+* If you suspect that a user account is compromised and revoke / reset the account password, app passwords should also be updated. App passwords aren't automatically revoked when a user account password is revoked / reset. The user should delete existing app passwords and create new ones.
+   * For more information, see [Create and delete app passwords from the Additional security verification page](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
 
 >[!WARNING]
 > App passwords don't work in hybrid environments where clients communicate with both on-premises and cloud auto-discover endpoints. Domain passwords are required to authenticate on-premises. App passwords are required to authenticate with the cloud.

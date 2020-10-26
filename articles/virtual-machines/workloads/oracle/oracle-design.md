@@ -1,20 +1,13 @@
 ---
 title: Design and implement an Oracle database on Azure | Microsoft Docs
 description: Design and implement an Oracle database in your Azure environment.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: rgardler
-manager: 
-editor: 
-tags: azure-resource-manager
-ms.assetid: 
+author: dbakevlar
 ms.service: virtual-machines-linux
-
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
+ms.author: kegorman
+ms.reviewer: cynthn
+
 ---
 
 # Design and implement an Oracle database in Azure
@@ -45,7 +38,7 @@ The following table lists some of the differences between an on-premises impleme
 | **Networking** |LAN/WAN  |SDN (software-defined networking)|
 | **Security group** |IP/port restriction tools |[Network Security Group (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
 | **Resilience** |MTBF (mean time between failures) |MTTR (mean time to recovery)|
-| **Planned maintenance** |Patching/upgrades|[Availability sets](../../windows/infrastructure-example.md) (patching/upgrades managed by Azure) |
+| **Planned maintenance** |Patching/upgrades|[Availability sets](/previous-versions/azure/virtual-machines/windows/infrastructure-example) (patching/upgrades managed by Azure) |
 | **Resource** |Dedicated  |Shared with other clients|
 | **Regions** |Datacenters |[Region pairs](../../regions.md#region-pairs)|
 | **Storage** |SAN/physical disks |[Azure-managed storage](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
@@ -104,11 +97,11 @@ One thing you might look at is the top five timed foreground events that indicat
 
 For example, in the following diagram, the log file sync is at the top. It indicates the number of waits that are required before the LGWR writes the log buffer to the redo log file. These results indicate that better performing storage or disks are required. In addition, the diagram also shows the number of CPU (cores) and the amount of memory.
 
-![Screenshot of the AWR report page](./media/oracle-design/cpu_memory_info.png)
+![Screenshot that shows the log file sync at the top of the table.](./media/oracle-design/cpu_memory_info.png)
 
 The following diagram shows the total I/O of read and write. There were 59 GB read and 247.3 GB written during the time of the report.
 
-![Screenshot of the AWR report page](./media/oracle-design/io_info.png)
+![Screenshot that shows the total I/O of read and write.](./media/oracle-design/io_info.png)
 
 #### 2. Choose a VM
 
@@ -184,7 +177,7 @@ After you have a clear picture of the I/O requirements, you can choose a combina
 - Use data compression to reduce I/O (for both data and indexes).
 - Separate redo logs, system, and temps, and undo TS on separate data disks.
 - Don't put any application files on default OS disks (/dev/sda). These disks aren't optimized for fast VM boot times, and they might not provide good performance for your application.
-- When using M-Series VMs on Premium storage, enable [Write Accelerator](../../linux/how-to-enable-write-accelerator.md) on redo logs disk.
+- When using M-Series VMs on Premium storage, enable [Write Accelerator](../../how-to-enable-write-accelerator.md) on redo logs disk.
 
 ### Disk cache settings
 
@@ -200,7 +193,7 @@ There are three options for host caching:
 
 To maximize the throughput, we recommend that you start with **None** for host caching. For Premium Storage, keep in mind that you must disable the "barriers" when you mount the file system with the **ReadOnly** or **None** options. Update the /etc/fstab file with the UUID to the disks.
 
-![Screenshot of the managed disk page](./media/oracle-design/premium_disk02.png)
+![Screenshot of the managed disk page that shows the ReadOnly and None options.](./media/oracle-design/premium_disk02.png)
 
 - For OS disks, use default **Read/Write** caching.
 - For SYSTEM, TEMP, and UNDO use **None** for caching.
@@ -227,7 +220,7 @@ After you have set up and configured your Azure environment, the next step is to
 - [Configure Oracle ASM](configure-oracle-asm.md)
 - [Configure Oracle Data Guard](configure-oracle-dataguard.md)
 - [Configure Oracle Golden Gate](configure-oracle-golden-gate.md)
-- [Oracle backup and recovery](oracle-backup-recovery.md)
+- [Oracle backup and recovery](./oracle-overview.md)
 
 ## Next steps
 

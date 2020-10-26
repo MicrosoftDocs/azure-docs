@@ -34,7 +34,7 @@ To complete this tutorial, make sure you have:
 
 * Read through the [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) article. 
 * An Azure subscription. If you do not have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
+* [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support)
     * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive
@@ -95,6 +95,9 @@ sasl.mechanism=PLAIN
 security.protocol=SASL_SSL
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
+
+> [!IMPORTANT]
+> Replace `{YOUR.EVENTHUBS.CONNECTION.STRING}` with the connection string for your Event Hubs namespace. For instructions on getting the connection string, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). Here's an example configuration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
 ## Run Kafka MirrorMaker
 

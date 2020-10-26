@@ -2,8 +2,8 @@
 title: Azure Application Insights for JavaScript web apps
 description: Get page view and session counts, web client data, Single Page Applications (SPA), and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.custom: devx-track-javascript
+ms.date: 08/06/2020
+ms.custom: devx-track-js
 ---
 
 # Application Insights for web pages
@@ -102,11 +102,11 @@ The available configuration options are
 | Name | Type | Description
 |------|------|----------------
 | src | string **[required]** | The full URL for where to load the SDK from. This value is used for the "src" attribute of a dynamically added &lt;script /&gt; tag. You can use the public CDN location or your own privately hosted one.
-| name | string *[optional]* | The global name for the initialized SDK, defaults to appInsights. So ```window.appInsights``` will be a reference to the initialized instance. Note: if you provide a name value or a previous instance appears to be assigned (via the global name appInsightsSDK) then this name value will also be defined in the global namespace as ```window.appInsightsSDK=<name value>```, this is required by the SDK initialization code to ensure it's initializing and updating the correct snippet skeleton and proxy methods.
+| name | string *[optional]* | The global name for the initialized SDK, defaults to `appInsights`. So ```window.appInsights``` will be a reference to the initialized instance. Note: if you provide a name value or a previous instance appears to be assigned (via the global name appInsightsSDK) then this name value will also be defined in the global namespace as ```window.appInsightsSDK=<name value>```, this is required by the SDK initialization code to ensure it's initializing and updating the correct snippet skeleton and proxy methods.
 | ld | number in ms *[optional]* | Defines the load delay to wait before attempting to load the SDK. Default value is 0ms and any negative value will immediately add a script tag to the &lt;head&gt; region of the page, which will then block the page load event until to script is loaded (or fails).
 | useXhr | boolean *[optional]* | This setting is used only for reporting SDK load failures. Reporting will first attempt to use fetch() if available and then fallback to XHR, setting this value to true just bypasses the fetch check. Use of this value is only be required if your application is being used in an environment where fetch would fail to send the failure events.
-| crossOrigin | string *[optional]* | By including this setting, the script tag added to download the SDK will include the crossOrigin attribute with this string value. When not defined (the default) no crossOrigin attribute is added. Recommended values are not defined (the default); ""; or "anonymous" (For all valid values see [HTML attribute: crossorigin](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) documentation)
-| cfg | object **[required]** | THe configuration passed to the Application Insights SDK during initialization.
+| crossOrigin | string *[optional]* | By including this setting, the script tag added to download the SDK will include the crossOrigin attribute with this string value. When not defined (the default) no crossOrigin attribute is added. Recommended values are not defined (the default); ""; or "anonymous" (For all valid values see [HTML attribute: `crossorigin`](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin) documentation)
+| cfg | object **[required]** | The configuration passed to the Application Insights SDK during initialization.
 
 ### Sending telemetry to the Azure portal
 
@@ -190,30 +190,61 @@ Most configuration fields are named such that they can be defaulted to false. Al
 | enableResponseHeaderTracking | false | If true, AJAX & Fetch request's response headers is tracked, default is false.
 | distributedTracingMode | `DistributedTracingModes.AI` | Sets the distributed tracing mode. If AI_AND_W3C mode or W3C mode is set, W3C trace context headers (traceparent/tracestate) will be generated and included in all outgoing requests. AI_AND_W3C is provided for back-compatibility with any legacy Application Insights instrumented services. See example [here](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 | enableAjaxErrorStatusText | false | Default false. If true, include response error data text in dependency event on failed AJAX requests.
-| enableAjaxPerfTracking | false | Default false. Flag to enable looking up and including additional browser window.performance timings in the reported ajax (XHR and fetch) reported metrics.
+| enableAjaxPerfTracking | false | Default false. Flag to enable looking up and including additional browser window.performance timings in the reported `ajax` (XHR and fetch) reported metrics.
 | maxAjaxPerfLookupAttempts | 3 | Defaults to 3. The maximum number of times to look for the window.performance timings (if available), this is required as not all browsers populate the window.performance before reporting the end of the XHR request and for fetch requests this is added after its complete.
-| ajaxPerfLookupDelay | 25 | Defaults to 25 ms. The amount of time to wait before re-attempting to find the windows.performance timings for an ajax request, time is in milliseconds and is passed directly to setTimeout().
+| ajaxPerfLookupDelay | 25 | Defaults to 25 ms. The amount of time to wait before re-attempting to find the windows.performance timings for an `ajax` request, time is in milliseconds and is passed directly to setTimeout().
 | enableUnhandledPromiseRejectionTracking | false | If true, unhandled promise rejections will be autocollected and reported as a JavaScript error. When disableExceptionTracking is true (don't track exceptions), the config value will be ignored and unhandled promise rejections will not be reported.
+
+## Enable time-on-page tracking
+
+By setting `autoTrackPageVisitTime: true`, the time a user spends on each page is tracked. On each new PageView, the duration the user spent on the *previous* page is sent as a [custom metric](../platform/metrics-custom-overview.md) named `PageVisitTime`. This custom metric is viewable in the [Metrics Explorer](../platform/metrics-getting-started.md) as a "log-based metric".
+
+## Enable Correlation
+
+Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
+
+The following example shows all possible configurations required to enable correlation, with scenario-specific notes below:
+
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    disableFetchTracking: false,
+    enableCorsCorrelation: true,
+    enableRequestHeaderTracking: true,
+    enableResponseHeaderTracking: true,
+    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+    /* ...Other Configuration Options... */
+}});
+</script>
+
+``` 
+
+If any of your third-party servers that the client communicates with cannot accept the `Request-Id` and `Request-Context` headers, and you cannot update their configuration, then you'll need to put them into an exclude list via the `correlationHeaderExcludeDomains` configuration property. This property supports wildcards.
+
+The server-side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server-side it is often necessary to extend the server-side list by manually adding `Request-Id` and `Request-Context`.
+
+Access-Control-Allow-Headers: `Request-Id`, `Request-Context`, `<your header>`
+
+> [!NOTE]
+> If you are using OpenTelemtry or Application Insights SDKs released in 2020 or later, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 
 ## Single Page Applications
 
 By default, this SDK will **not** handle state-based route changing that occurs in single page applications. To enable automatic route change tracking for your single page application, you can add `enableAutoRouteTracking: true` to your setup configuration.
 
-Currently, we offer a separate [React plugin](#react-extensions), which you can initialize with this SDK. It will also accomplish route change tracking for you, as well as collect [other React specific telemetry](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
-
+Currently, we offer a separate [React plugin](javascript-react-plugin.md), which you can initialize with this SDK. It will also accomplish route change tracking for you, as well as collect other React specific telemetry.
 > [!NOTE]
 > Use `enableAutoRouteTracking: true` only if you are **not** using the React plugin. Both are capable of sending new PageViews when the route changes. If both are enabled, duplicate PageViews may be sent.
 
-## Configuration: autoTrackPageVisitTime
-
-By setting `autoTrackPageVisitTime: true`, the time a user spends on each page is tracked. On each new PageView, the duration the user spent on the *previous* page is sent as a [custom metric](../platform/metrics-custom-overview.md) named `PageVisitTime`. This custom metric is viewable in the [Metrics Explorer](../platform/metrics-getting-started.md) as a "log-based metric".
-
-## React extensions
+## Extensions
 
 | Extensions |
 |---------------|
-| [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
-| [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+| [React](javascript-react-plugin.md)|
+| [React Native](javascript-react-native-plugin.md)|
+| [Angular](javascript-angular-plugin.md) |
 
 ## Explore browser/client-side data
 
@@ -279,7 +310,7 @@ This version comes with the bare minimum number of features and functionalities 
 
 ## Examples
 
-For runnable examples, see [Application Insights JavaScript SDK Samples](https://github.com/topics/applicationinsights-js-demo)
+For runnable examples, see [Application Insights JavaScript SDK Samples](https://github.com/Azure-Samples?q=applicationinsights-js-demo).
 
 ## Upgrading from the old version of Application Insights
 

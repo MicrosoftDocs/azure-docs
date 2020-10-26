@@ -9,6 +9,7 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys 
 ms.reviewer: jrasnick
+ms.custom: devx-track-csharp
 ---
 
 # Azure Synapse Analytics shared database
@@ -17,7 +18,7 @@ Azure Synapse Analytics allows the different computational workspace engines to 
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-A database created with a Spark job will become visible with that same name to all current and future Spark pools (preview) in the workspace as well as the SQL on-demand engine.
+A database created with a Spark job will become visible with that same name to all current and future Spark pools (preview) in the workspace, including the SQL on-demand engine.
 
 The Spark default database, called `default`, will also be visible in the SQL on-demand context as a database called `default`.
 

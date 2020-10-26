@@ -7,8 +7,8 @@ manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
-ms.date: 08/12/2019
+ms.topic: how-to
+ms.date: 10/22/2020
 ms.author: sudbalas
 #Customer intent: As an Azure Key Vault administrator, I want to back up a secret, key, or certificate in my key vault.
 ---
@@ -25,6 +25,9 @@ Key Vault maintains availability in disaster scenarios and will automatically fa
 If you want protection against accidental or malicious deletion of your secrets, configure soft-delete and purge protection features on your key vault. For more information, see [Azure Key Vault soft-delete overview](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
 
 ## Limitations
+
+> [!IMPORTANT]
+> Key Vault does not support the ability to backup more than 500 past versions of a key, secret, or certificate object. Attempting to backup a key, secret, or certificate object may result in an error. It is not possible to delete previous versions of a key, secret, or certificate.
 
 Key Vault doesn't currently provide a way to back up an entire key vault in a single operation. Any attempt to use the commands listed in this document to do an automated backup of a key vault may result in errors and won't be supported by Microsoft or the Azure Key Vault team. 
 

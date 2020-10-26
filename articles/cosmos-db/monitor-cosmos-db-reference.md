@@ -2,13 +2,12 @@
 title: Azure Cosmos DB monitoring data reference | Microsoft Docs
 description: Log and metrics reference for monitoring data from Azure Cosmos DB.
 author: bwren
-services: azure-monitor
-ms.service: azure-monitor
+services: cosmos-db
+ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring 
-ms.subservice: logs
 ---
 
 # Azure Cosmos DB monitoring data reference
@@ -37,10 +36,10 @@ The following table lists the properties of resource logs in Azure Cosmos DB. Th
 | **duration** | **duration_d** | The duration of the operation, in milliseconds. |
 | **requestLength** | **requestLength_s** | The length of the request, in bytes. |
 | **responseLength** | **responseLength_s** | The length of the response, in bytes.|
-| **resourceTokenUserRid** | **resourceTokenUserRid_s** | This value is non-empty when [resource tokens](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) are used for authentication. The value points to the resource ID of the user. |
+| **resourceTokenUserRid** | **resourceTokenUserRid_s** | This value is non-empty when [resource tokens](./secure-access-to-data.md#resource-tokens) are used for authentication. The value points to the resource ID of the user. |
 | **responseLength** | **responseLength_s** | The length of the response, in bytes.|
 
-For a list of all Azure Monitor log categories and links to associated schemas, see [Azure Monitor Logs categories and schemas](../azure-monitor/platform/diagnostic-logs-schema.md). 
+For a list of all Azure Monitor log categories and links to associated schemas, see [Azure Monitor Logs categories and schemas](../azure-monitor/platform/resource-logs-schema.md). 
 
 ## Metrics
 The following tables list the platform metrics collected for Azure CosmOS DB. All metrics are stored in the namespace **Cosmos DB standard metrics**.

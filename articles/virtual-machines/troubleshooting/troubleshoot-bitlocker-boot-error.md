@@ -39,7 +39,7 @@ This problem may occur if the VM cannot locate the BitLocker Recovery Key (BEK) 
 
 ## Solution
 
-To resolve this problem, stop and deallocate the VM, and then restart it. This operation forces the VM to retrieve the BEK file from the Azure Key Vault, and then put it on the encrypted disk. 
+To resolve this problem, stop and deallocate the VM, and then start it. This operation forces the VM to retrieve the BEK file from the Azure Key Vault, and then put it on the encrypted disk. 
 
 If this method does not the resolve the problem, follow these steps to restore the BEK file manually:
 

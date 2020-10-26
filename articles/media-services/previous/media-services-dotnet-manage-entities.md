@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Managing Assets and Related Entities with Media Services .NET SDK
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-manage-entities.md)
 > * [REST](media-services-rest-manage-entities.md)

@@ -1,20 +1,11 @@
-- name: Virtual WAN Documentation
+- name: Virtual WAN documentation
   href: index.yml
 - name: Overview
   items:
-  - name: About Virtual WAN
+  - name: What is Virtual WAN?
     href: virtual-wan-about.md
-  - name: Architecture
-    items: 
-    - name: Migrate to Virtual WAN
-      href: migrate-from-hub-spoke-topology.md
-    - name: Global transit network architecture
-      href: virtual-wan-global-transit-network-architecture.md
-    - name: SD-WAN connectivity architecture
-      href: sd-wan-connectivity-architecture.md
-    - name: Interconnect with China
-      href: interconnect-china.md
 - name: Tutorials
+  expanded: true
   items:
   - name: Create a site-to-site connection
     href: virtual-wan-site-to-site-portal.md
@@ -36,33 +27,39 @@
       href: virtual-wan-locations-partners.md
     - name: Automation guidelines for partners
       href: virtual-wan-configure-automation-providers.md
-  - name: Pricing concepts
-    href: pricing-concepts.md
-  - name: About NVA in a virtual hub
-    href: about-nva-hub.md
+  - name: Architecture
+    items: 
+    - name: Migrate to Virtual WAN
+      href: migrate-from-hub-spoke-topology.md
+    - name: Global transit network architecture
+      href: virtual-wan-global-transit-network-architecture.md
+    - name: SD-WAN connectivity architecture
+      href: sd-wan-connectivity-architecture.md
+    - name: Interconnect with China
+      href: interconnect-china.md
   - name: Routing
     items:
     - name: About virtual hub routing
       href: about-virtual-hub-routing.md
-    - name: Scenarios
+    - name: Routing scenarios
       items:
       - name: Any-to-any
         href: scenario-any-to-any.md
-      - name: Isolate VNets
+      - name: Isolating VNets
         href: scenario-isolate-vnets.md
-      - name: Isolate VNets - custom
+      - name: Isolating VNets - custom
         href: scenario-isolate-vnets-custom.md
       - name: Shared Services VNets
         href: scenario-shared-services-vnet.md
-      - name: Route through NVA
+      - name: Route through an NVA
         href: scenario-route-through-nva.md
-      - name: Route through NVA - custom (Preview)
+      - name: Route through an NVA - custom
         href: scenario-route-through-nvas-custom.md
       - name: Azure Firewall - custom
         href: scenario-route-between-vnets-firewall.md
   - name: Monitoring
     items:
-    - name: About Azure Monitor Insights for Virtual WAN (Preview)
+    - name: About Azure Monitor Insights for Virtual WAN
       href: azure-monitor-insights.md
   - name: Site-to-site
     items:
@@ -70,12 +67,18 @@
       href: virtual-wan-ipsec.md
     - name: Multiple ISP links - Azure path selection
       href: path-selection-multiple-links.md
+  - name: Pricing concepts
+    href: pricing-concepts.md
+  - name: About NVA in a virtual hub
+    href: about-nva-hub.md
 - name: How-to guides
   items:
   - name: Upgrade a virtual WAN SKU
     href: upgrade-virtual-wan.md
-  - name: Create NVA in a virtual hub (Preview)
+  - name: Create an NVA in a virtual hub
     href: How-to-nva-hub.md
+  - name: Create a cross-tenant VNet connection
+    href: cross-tenant-vnet.md
   - name: ExpressRoute
     items:
     - name: Create an ExpressRoute connection
@@ -132,6 +135,8 @@
     items:
     - name: Install Azure Firewall in a hub
       href: howto-firewall.md
+    - name: Configure Private Link connectivity
+      href: howto-private-link.md
   - name: Monitoring
     items:
     - name: Logs and metrics
@@ -150,14 +155,16 @@
   items:
   - name: FAQ
     href: virtual-wan-faq.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
-  - name: Blog
-    href: https://azure.microsoft.com/blog/topics/networking
-  - name: Subscription and service limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/virtual-wan
+  - name: Subscription and service limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+  - name: Networking Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Networking blog
+    href: https://azure.microsoft.com/blog/topics/networking
+  - name: Networking update announcements
+    href: https://azure.microsoft.com/updates/?category=networking 
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: SLA

@@ -1,7 +1,7 @@
 ---
 title: Azure Management Overview - Azure Governance
 description: Overview of the areas of management for Azure applications and resources with links to content on Azure management tools.
-ms.date: 07/06/2020
+ms.date: 09/09/2020
 ms.topic: overview
 ---
 # What are the Azure Management areas?
@@ -20,7 +20,9 @@ any application or resource. These different areas can be thought of as a lifecy
 required in continuous succession over the lifespan of a resource. This resource lifecycle starts
 with the initial deployment, through continued operation, and finally when retired.
 
-:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Disciplines of Management in Azure" border="false":::
+:::image type="complex" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Diagram of the disciplines of Management in Azure." border="false":::
+   Diagram that shows the Migrate, Secure, Protect, Monitor, Configure, and Govern elements of the wheel of services that support Management and Governance in Azure. Secure has Security management and Threat protection as sub items. Protect has Backup and Disaster recovery as sub items. Monitor has App, Infra and network monitoring, and Log Analytics and Diagnostics as sub items. Configure has Configuration, Update management, Automation, and Scripting as sub items. And Govern has Policy management and Cost management as sub items.
+:::image-end:::
 
 No single Azure service completely fills the requirements of a particular management area. Instead,
 each is realized by several services working together. Some services, such as Application Insights,
@@ -62,7 +64,7 @@ to track cloud usage and expenditures for your Azure resources and other cloud p
 Manage the security of your resources and data. A security program involves assessing threats,
 collecting and analyzing data, and compliance of your applications and resources. Security
 monitoring and threat analysis are provided by [Azure Security
-Center](../security-center/security-center-intro.md), which includes unified security management and
+Center](../security-center/security-center-introduction.md), which includes unified security management and
 advanced threat protection across hybrid cloud workloads. See [Introduction to Azure
 Security](../security/fundamentals/overview.md) for comprehensive information and guidance on
 securing Azure resources.

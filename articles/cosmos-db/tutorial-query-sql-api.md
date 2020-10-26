@@ -12,7 +12,7 @@ ms.reviewer: sngun
 
 # Tutorial: Query Azure Cosmos DB by using the SQL API
 
-The Azure Cosmos DB [SQL API](documentdb-introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
+The Azure Cosmos DB [SQL API](./introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
 
 This article covers the following tasks: 
 
@@ -108,7 +108,7 @@ Given the sample family document above, following SQL query returns the document
 
 ## Example query 2
 
-The next query returns all the given names of children in the family whose ID matches `WakefieldFamily` ordered by their grade.
+The next query returns all the given names of children in the family whose ID matches `WakefieldFamily`.
 
 **Query**
 
@@ -144,4 +144,3 @@ You can now proceed to the next tutorial to learn how to distribute your data gl
 
 > [!div class="nextstepaction"]
 > [Distribute your data globally](tutorial-global-distribution-sql-api.md)
-

@@ -1,24 +1,26 @@
 ---
-title: Azure Quickstart - Run Batch job - .NET 
-description: Quickly run an Azure Batch sample job and tasks from a C# application with the Batch .NET client library.
+title: Quickstart - Run your first Azure Batch job with the .NET API 
+description: In this quickstart, you run an Azure Batch sample job and tasks from a C# application with the Batch .NET client library.
 ms.topic: quickstart
-ms.date: 11/29/2018
-ms.custom: mvc
+ms.date: 08/17/2020
+ms.custom: "mvc, devx-track-csharp"
 ---
 
 # Quickstart: Run your first Azure Batch job with the .NET API
 
-This quickstart runs an Azure Batch job from a C# application built on the Azure Batch .NET API. The app uploads several input data files to Azure storage and then creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool using a basic command. After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
+Get started with Azure Batch by running a job from a C# application built on the Azure Batch .NET API. The app uploads several input data files to Azure storage and then creates a pool of Batch compute nodes (virtual machines). Then, it creates a sample job that runs tasks to process each input file on the pool using a basic command.
 
-![Quickstart app workflow](./media/quick-run-dotnet/sampleapp.png)
+After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+![Diagram showing an overview of the Azure Batch app workflow.](./media/quick-run-dotnet/sampleapp.png)
 
 ## Prerequisites
 
-* [Visual Studio 2017 or later](https://www.visualstudio.com/vs), or [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) for Linux, macOS, or Windows. 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
+- A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
+
+- [Visual Studio 2017 or later](https://www.visualstudio.com/vs), or [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) for Linux, macOS, or Windows. 
 
 ## Sign in to Azure
 
@@ -55,11 +57,11 @@ private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfw
 
 To see the Batch workflow in action, build and run the application in Visual Studio, or at the command line with the `dotnet build` and `dotnet run` commands. After running the application, review the code to learn what each part of the application does. For example, in Visual Studio:
 
-* Right-click the solution in Solution Explorer, and click **Build Solution**. 
+- Right-click the solution in Solution Explorer, and click **Build Solution**. 
 
-* Confirm the restoration of any NuGet packages, if you're prompted. If you need to download missing packages, ensure the [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) is installed.
+- Confirm the restoration of any NuGet packages, if you're prompted. If you need to download missing packages, ensure the [NuGet Package Manager](https://docs.nuget.org/consume/installing-nuget) is installed.
 
-Then run it. When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started. Tasks are queued to run as soon as the first compute node is running. Go to your Batch account in the [Azure portal](https://portal.azure.com) to monitor the pool, compute nodes, job, and tasks.
+When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started. Tasks are queued to run as soon as the first compute node is running. Go to your Batch account in the [Azure portal](https://portal.azure.com) to monitor the pool, compute nodes, job, and tasks.
 
 ```
 Sample start: 11/16/2018 4:02:54 PM
@@ -88,17 +90,16 @@ stderr:
 
 Typical execution time is approximately 5 minutes when you run the application in its default configuration. Initial pool setup takes the most time. To run the job again, delete the job from the previous run and do not delete the pool. On a preconfigured pool, the job completes in a few seconds.
 
-
 ## Review the code
 
 The .NET app in this quickstart does the following:
 
-* Uploads three small text files to a blob container in your Azure storage account. These files are inputs for processing by Batch.
-* Creates a pool of compute nodes running Windows Server.
-* Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a Windows command line. 
-* Displays files returned by the tasks.
+- Uploads three small text files to a blob container in your Azure storage account. These files are inputs for processing by Batch.
+- Creates a pool of compute nodes running Windows Server.
+- Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a Windows command line. 
+- Displays files returned by the tasks.
 
-See the file `Program.cs` and the following sections for details. 
+See the file `Program.cs` and the following sections for details.
 
 ### Preliminaries
 
@@ -240,7 +241,6 @@ When no longer needed, delete the resource group, Batch account, and storage acc
 ## Next steps
 
 In this quickstart, you ran a small app built using the Batch .NET API to create a Batch pool and a Batch job. The job ran sample tasks, and downloaded output created on the nodes. Now that you understand the key concepts of the Batch service, you are ready to try Batch with more realistic workloads at larger scale. To learn more about Azure Batch, and walk through a parallel workload with a real-world application, continue to the Batch .NET tutorial.
-
 
 > [!div class="nextstepaction"]
 > [Process a parallel workload with .NET](tutorial-parallel-dotnet.md)

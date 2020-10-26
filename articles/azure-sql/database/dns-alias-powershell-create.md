@@ -7,7 +7,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: operations
 ms.devlang: PowerShell
-ms.topic: conceptual
+ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, amagarwa, maboja, jrasnick, vanto

@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create user flows - Azure Active Directory B2C
-description: Learn how to create user flows in the Azure portal to enable sign up, sign in, and user profile editing for your applications in Azure Active Directory B2C.
+description: Follow this tutorial to learn how to create user flows in the Azure portal to enable sign up, sign in, and user profile editing for your applications in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -77,6 +77,9 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 1. Enter a new password and confirm the password.
 1. Select your country and region, enter the name that you want displayed, enter a postal code, and then click **Create**. The token is returned to `https://jwt.ms` and should be displayed to you.
 1. You can now run the user flow again and you should be able to sign in with the account that you created. The returned token includes the claims that you selected of country/region, name, and postal code.
+
+> [!NOTE]
+> The "Run user flow" experience is not currently compatible with the SPA reply URL type using authorization code flow. To use the "Run user flow" experience with these kinds of apps, register a reply URL of type "Web" and enable the implicit flow as described [here](tutorial-register-spa.md).
 
 ## Create a profile editing user flow
 

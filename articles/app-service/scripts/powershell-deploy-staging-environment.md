@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'PowerShell: Deploy code to staging slot'
 description: Learn how to use Azure PowerShell to automate deployment and management of App Service. This sample shows how to deploy code to a staging environment.
 tags: azure-service-management
@@ -6,7 +6,7 @@ tags: azure-service-management
 ms.assetid: 27cf0680-c3a9-4a58-9f71-6dec09f6b874
 ms.topic: sample
 ms.date: 03/20/2017
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Create a web app and deploy code to a staging environment

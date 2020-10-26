@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: ninarn, carlrab
+ms.reviewer: ninarn, sstein
 ms.date: 07/28/2020
 ---
 # Elastic pools help you manage and scale multiple databases in Azure SQL Database
@@ -50,7 +50,7 @@ The following figure shows an example of a database that spends much time idle, 
 
    ![a single database suitable for a pool](./media/elastic-pool-overview/one-database.png)
 
-For the five-minute period illustrated, DB1 peaks up to 90 DTUs, but its overall average usage is less than five DTUs. An S3 compute size is required to run this workload in a single database, but this leaves most of the resources unused during periods of low activity.
+The chart illustrates DTU usage over a 1 hour time period from 12:00 to 1:00 where each data point has 1 minute granularity. At 12:10 DB1 peaks up to 90 DTUs, but its overall average usage is less than five DTUs. An S3 compute size is required to run this workload in a single database, but this leaves most of the resources unused during periods of low activity.
 
 A pool allows these unused DTUs to be shared across multiple databases, and so reduces the DTUs needed and overall cost.
 
@@ -110,11 +110,11 @@ The following steps can help you estimate whether a pool is more cost-effective 
 
 For DTU-based purchasing model:
 
-MAX(<*Total number of DBs* X *average DTU utilization per DB*>, <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*)
+MAX(<*Total number of DBs* X *average DTU utilization per DB*>, <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*>)
 
 For vCore-based purchasing model:
 
-MAX(<*Total number of DBs* X *average vCore utilization per DB*>, <*Number of concurrently peaking DBs* X *Peak vCore utilization per DB*)
+MAX(<*Total number of DBs* X *average vCore utilization per DB*>, <*Number of concurrently peaking DBs* X *Peak vCore utilization per DB*>)
 
 2. Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool. Then determine the eDTU pool size that provides this amount of storage.
 3. For the DTU-based purchasing model, take the larger of the eDTU estimates from Step 1 and Step 2. For the vCore-based purchasing model, take the vCore estimate from Step 1.

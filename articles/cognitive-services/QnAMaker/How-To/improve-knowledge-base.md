@@ -1,9 +1,11 @@
 ---
 title: Active Learning suggested questions - QnA Maker
 description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.custom: devx-track-javascript
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 

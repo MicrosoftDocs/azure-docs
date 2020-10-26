@@ -46,6 +46,7 @@ The documentation for each element contains a UI sample, schema, remarks on the 
 
 - [Microsoft.Common.CheckBox](microsoft-common-checkbox.md)
 - [Microsoft.Common.DropDown](microsoft-common-dropdown.md)
+- [Microsoft.Common.EditableGrid](microsoft-common-editablegrid.md)
 - [Microsoft.Common.FileUpload](microsoft-common-fileupload.md)
 - [Microsoft.Common.InfoBox](microsoft-common-infobox.md)
 - [Microsoft.Common.OptionsGroup](microsoft-common-optionsgroup.md)

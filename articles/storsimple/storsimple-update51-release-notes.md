@@ -1,12 +1,12 @@
 ---
 title: StorSimple 8000 Series Update 5.1 release notes
 description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 5.1.
-author: priestlg
+author: alkohli
 ms.assetid: 
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.author: v-grpr
+ms.author: alkohli
 
 ---
 # StorSimple 8000 Series Update 5.1 release notes

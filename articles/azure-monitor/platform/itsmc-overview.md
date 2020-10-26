@@ -102,11 +102,19 @@ Once you have prepped your ITSM tools, follow the steps below to create a connec
 ## Using the solution
    By using the ITSM Connector solution, you can create work items from Azure alerts, Log Analytics alerts  and  Log Analytics log records.
 
+## Template definitions
+   There are types of Work Items that can use templates that are defined by the ITSM tool.
+   Using templates enable the customer to define fields that will be auto populated according to fixed values that are defined as a part of the action group. The definition of the templates is done in the ITSM tool.
+      
 ## Create ITSM work items from Azure alerts
 
 Once you have your ITSM connection created, you can create work item(s) in your ITSM tool based on Azure alerts, by using the **ITSM Action** in **Action Groups**.
 
 Action Groups provide a modular and reusable way of triggering actions for your Azure Alerts. You can use Action Groups with metric alerts, Activity Log alerts and Azure Log Analytics alerts in Azure portal.
+
+> [!NOTE]
+> Once ITSM connection created there is a need to wait for 30 min after connector created to the sync process will finish
+> 
 
 Use the following procedure:
 
@@ -125,14 +133,23 @@ Use the following procedure:
     ![ITSM Action details](media/itsmc-overview/itsm-action-details.png)
 
 6. Select **Work Item** type from the drop-down menu.
-   Choose to use an existing template or fill the fields required by your ITSM product.
-7. Click **OK**.
+
+7. If you want to fill out of the box fields with fixed values you should select the checkbox of "Use Custom Template" otherwise choose to use an existing [template](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) from the dropdown and fill the template fields with fixed values.
+
+8. By selecting the checkbox **Create individual work items for each Configuration Item** every configuration item will have its own work item. Meaning there will be one work item per configuration item and it will be updated according to the alerts that will be created.
+If you de-select the checkbox **Create individual work items for each Configuration Item** every alert will create a new work item, meaning there can be more than 1 alert per configuration item.
+
+9. Click **OK**.
 
 When creating/editing an Azure alert rule, use an Action group, which has an ITSM Action. When the alert triggers, work item is created/updated in the ITSM tool.
 
 > [!NOTE]
 >
 > For information on pricing of ITSM Action, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for Action Groups.
+
+> [!NOTE]
+>
+> Short description field in the alert rule definition is limited to 40 characters when it is sent using ITSM action.
 
 
 ## Visualize and analyze the incident and change request data

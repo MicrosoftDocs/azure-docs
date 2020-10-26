@@ -44,12 +44,20 @@
     href: vm-do-ten-things.md
   - name: Use a Linux Data Science Virtual Machine
     href: linux-dsvm-walkthrough.md
-  - name: Create an autoscaled Data Science Virtual Machine pool 
-    href: dsvm-pools.md
-  - name: Integrate with Active Directory
-    href: dsvm-common-identity.md
-  - name: Secure resource access credentials
-    href: dsvm-secure-access-keys.md            
+  - name: Integrate with Azure Machine Learning
+    items:
+        - name: Track Experiments
+          href: how-to-track-experiments.md
+  - name: Enterprise guidance
+    items:
+      - name: Create an autoscaled Data Science Virtual Machine pool 
+        href: dsvm-pools.md
+      - name: Integrate with Active Directory
+        href: dsvm-common-identity.md
+      - name: Secure resource access credentials
+        href: dsvm-secure-access-keys.md            
+  - name: Upgrade your Data Science Virtual Machine to Ubuntu 18.04 
+    href: ubuntu-upgrade.md
 - name: Resources
   items:
   - name: Microsoft Q&A question page
@@ -66,5 +74,3 @@
     href: release-notes.md
   - name: Known issues
     href: reference-known-issues.md
-  - name: Deprecation Announcements
-    href: reference-deprecation.md

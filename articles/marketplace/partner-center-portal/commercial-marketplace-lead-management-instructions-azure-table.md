@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 03/30/2020
+ms.date: 08/25/2020
 ---
 
 # Use Azure Table storage to manage commercial marketplace leads
@@ -23,19 +23,19 @@ If your customer relationship management (CRM) system isn't explicitly supported
     1. Select **Storage** in the **New** pane. A **Featured** list appears to the right.
     1. Select **Storage account** to begin account creation. Follow the instructions in [Create a storage account](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
-        ![Steps to create an Azure storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
+        :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png" alt-text="Steps to create an Azure storage account.":::
 
         For more information about storage accounts, see [Quickstart tutorial](../../storage/index.yml). For more information about storage pricing, see [Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-1. Wait until your storage account is provisioned. This process typically takes a few minutes. 
+1. Wait until your storage account is provisioned. This process typically takes a few minutes.
 
 ## Create a table in your storage account
 
-1. From the **Home** page of the Azure portal, selecting **See all your resources** to access your storage account. You can also select **All resources** from the left menu bar of the Azure portal.
+1. From the **Home** page of the Azure portal, select **See all your resources** to access your storage account. You can also select **All resources** from the left menu bar of the Azure portal.
 
-    ![Access your Azure storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png" alt-text="Access your Azure storage account.":::
 
-1. From your storage account pane, select **Access keys** and copy the **Connection string** value for the key. Save this value because it's the **Storage Account Connection String** value that you'll need to provide in the publishing portal to receive leads for your Azure Marketplace offer. 
+1. From your storage account pane, select **Access keys** and copy the **Connection string** value for the key. Save this value because it's the **Storage Account Connection String** value that you'll need to provide in the publishing portal to receive leads for your Azure Marketplace offer.
 
     Here's an example of a connection string.
 
@@ -43,13 +43,14 @@ If your customer relationship management (CRM) system isn't explicitly supported
     DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.screens.net
     ```
 
-    ![Azure storage key](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png)
+    :::image type="content" source="media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png" alt-text="Azure storage key.":::
+
 
 1. From your storage account pane, select **Tables**, and select **+ Table** to create a table. Enter a name for your table, and select **OK**. Save this value because you'll need it if you want to configure a flow to receive email notifications when leads are received.
 
     ![Azure tables](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
-    You can use [Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) or any other tool to see the data in your storage table. You can also export the data in the Azure table. 
+    You can use [Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) or any other tool to see the data in your storage table. You can also export the data in the Azure table.
 
 ## (Optional) Use Power Automate to get lead notifications
 
@@ -61,7 +62,7 @@ The example creates a flow that automatically sends an email notification when a
 
 1. Sign in to your Power Automate account.
 1. On the left bar, select **My flows**.
-1. On the top bar, select **+ New**. 
+1. On the top bar, select **+ New**.
 1. In the drop-down list, select **+ Scheduled--from blank**.
 
    ![My flows + Scheduled--from blank](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
@@ -85,7 +86,7 @@ The example creates a flow that automatically sends an email notification when a
 
     ![Set Get past time interval](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-getpast-time.png)
 
-   >[!TIP] 
+   >[!TIP]
    >You can check your flow at any time to verify each step is configured correctly. To check your flow, select **Flow checker** from the **Flow** menu bar.
 
    In the next set of steps, you'll connect to your table and set up the processing logic to handle new leads.
@@ -118,7 +119,7 @@ The example creates a flow that automatically sends an email notification when a
 
 1. In the **Condition** window, select **Choose a value**. Then select **Expression** in the pop-up window.
 
-1. Paste `length(body('Get_entities')?['value'])` into the **fx** box. Select **OK** to add this function. 
+1. Paste `length(body('Get_entities')?['value'])` into the **fx** box. Select **OK** to add this function.
 
 1. To finish setting up the condition:
     1. Select **is greater than** from the drop-down list.
@@ -129,7 +130,7 @@ The example creates a flow that automatically sends an email notification when a
    In the next few steps, you set up the action to take based on the result of the condition:
 
    * If the condition resolves to **If no**, don't do anything.
-   * If the condition resolves to **If yes**, trigger an action that connects your Office 365 account to send an email. 
+   * If the condition resolves to **If yes**, trigger an action that connects your work or school account to send an email. 
 
 1. Select **Add an action** under **If yes**.
 

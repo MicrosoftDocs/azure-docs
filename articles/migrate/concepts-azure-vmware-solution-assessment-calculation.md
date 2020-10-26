@@ -8,7 +8,7 @@ ms.date: 06/25/2020
 ms.author: mahain
 ---
 
-# AVS assessments in Azure Migrate: Server Assessment
+# Server Assessment overview (migrate to Azure VMware Solution)
 
 [Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads. It also tracks your private and public cloud instances to Azure. The hub offers Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
@@ -251,7 +251,7 @@ Note that as Azure VMware Solution (AVS) is in Preview, the node prices in the a
 ## Migration Tool Guidance
 
 In the Azure readiness report for Azure VMware Solution (AVS) assessment, you can see the following suggested tools: 
-- **VMware HCX or Enterprise**: For VMware machines, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/hybrid-cloud-extension-installation.md).
+- **VMware HCX or Enterprise**: For VMware machines, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 - **Unknown**: For machines imported via a CSV file, the default migration tool is unknown. Though for VMware machines, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution.
 
 ## Next steps

@@ -10,7 +10,8 @@ ms.subservice: blobs
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 12/04/2019
-ms.author: tamram
+ms.author: tamram 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Rotate storage account access keys with PowerShell

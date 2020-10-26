@@ -7,7 +7,7 @@ author: reyandap
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: reyandap
 ms.custom: references_pricing
 

@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.custom: mvc, tracking-python
+ms.custom: mvc, devx-track-python
 ---
 
 # Create a CI/CD pipeline for Python with Azure DevOps Starter
@@ -124,4 +124,4 @@ You can delete Azure App Service and related resources when you don't need them 
 When you configured your CI/CD process, build and release pipelines were automatically created. You can modify these build and release pipelines to meet the needs of your team. To learn more about the CI/CD pipeline, see:
 
 > [!div class="nextstepaction"]
-> [Customize CD process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Customize CD process](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

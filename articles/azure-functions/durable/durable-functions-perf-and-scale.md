@@ -1,6 +1,6 @@
 ---
 title: Performance and scale in Durable Functions - Azure
-description: Introduction to the Durable Functions extension for Azure Functions.
+description: Learn about the unique scaling characteristics of the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
@@ -219,6 +219,10 @@ There are two potential downsides of this setting to be aware of:
 As an example, if `durableTask/extendedSessionIdleTimeoutInSeconds` is set to 30 seconds, then a short-lived orchestrator or entity function episode that executes in less than 1 second still occupies memory for 30 seconds. It also counts against the `durableTask/maxConcurrentOrchestratorFunctions` quota mentioned previously, potentially preventing other orchestrator or entity functions from running.
 
 The specific effects of extended sessions on orchestrator and entity functions are described in the next sections.
+
+> [!NOTE]
+> Extended sessions are currently only supported in .NET languages, like C# or F#. Setting `extendedSessionsEnabled` to `true` for other platforms can lead to runtime issues, such as silently failing to execute activity and orchestration-triggered functions.
+
 
 ### Orchestrator function replay
 

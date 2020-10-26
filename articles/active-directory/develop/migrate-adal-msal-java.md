@@ -34,16 +34,16 @@ MSAL for Java is the auth library we recommend you use with the Microsoft identi
 
 ## Differences
 
-If you have been working with the Azure AD for developers (v1.0) endpoint (and ADAL4J), you might want to read [What's different about the Microsoft identity platform (v2.0) endpoint?](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison).
+If you have been working with the Azure AD for developers (v1.0) endpoint (and ADAL4J), you might want to read [What's different about the Microsoft identity platform (v2.0) endpoint?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## Scopes not resources
 
-ADAL4J acquires tokens for resources whereas MSAL for Java acquires tokens for scopes. A number of MSAL for Java classes require a scopes parameter. This parameter is a list of strings that declare the desired permissions and resources that are requested. See [Microsoft Graph's scopes](https://docs.microsoft.com/graph/permissions-reference) to see example scopes.
+ADAL4J acquires tokens for resources whereas MSAL for Java acquires tokens for scopes. A number of MSAL for Java classes require a scopes parameter. This parameter is a list of strings that declare the desired permissions and resources that are requested. See [Microsoft Graph's scopes](/graph/permissions-reference) to see example scopes.
 
 You can add the `/.default` scope suffix to the resource to help migrate your apps from the v1.0 endpoint (ADAL) to the Microsoft identity platform endpoint (MSAL). For example, for the resource value of `https://graph.microsoft.com`, the equivalent scope value is `https://graph.microsoft.com/.default`.  If the resource is not in the URL form, but a resource ID of the form `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, you can still use the scope value as `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
 
 For more details about the different types of scopes, refer
-[Permissions and consent in the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) and the [Scopes for a Web API accepting v1.0 tokens](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes) articles.
+[Permissions and consent in the Microsoft identity platform](./v2-permissions-and-consent.md) and the [Scopes for a Web API accepting v1.0 tokens](./msal-v1-app-scopes.md) articles.
 
 ## Core classes
 
@@ -84,9 +84,9 @@ If you use the `https://login.microsoftonline.com/common` authority in v2.0, use
 
 The v1.0 endpoint (used by ADAL) only emits v1.0 tokens.
 
-The v2.0 endpoint (used by MSAL) can emit v1.0 and v2.0 tokens. A property of the application manifest of the web API enables developers to choose which version of token is accepted. See `accessTokenAcceptedVersion` in the [application manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) reference documentation.
+The v2.0 endpoint (used by MSAL) can emit v1.0 and v2.0 tokens. A property of the application manifest of the web API enables developers to choose which version of token is accepted. See `accessTokenAcceptedVersion` in the [application manifest](./reference-app-manifest.md) reference documentation.
 
-For more information about v1.0 and v2.0 tokens, see [Azure Active Directory access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).
+For more information about v1.0 and v2.0 tokens, see [Azure Active Directory access tokens](./access-tokens.md).
 
 ## ADAL to MSAL migration
 
@@ -99,7 +99,7 @@ MSAL for Java has an API that allows you to migrate refresh tokens you acquired 
 The following code snippet shows some migration code in a confidential client application:
 
 ```java
-String rt = GetCachedRefreshTokenForSIgnedInUser(); // Get refresh token from where you have them stored
+String rt = GetCachedRefreshTokenForSignedInUser(); // Get refresh token from where you have them stored
 Set<String> scopes = Collections.singleton("SCOPE_FOR_REFRESH_TOKEN");
 
 RefreshTokenParameters parameters = RefreshTokenParameters.builder(scopes, rt).build();

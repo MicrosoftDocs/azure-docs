@@ -1,12 +1,12 @@
 ---
 title: Document formats and naming conventions - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: This is a guide on document formats and naming convention in Custom Translator. This concept helps to manage documents names better abd avoid naming conflicts.
+description: This is a guide on document formats and naming convention in Custom Translator. This concept helps to manage documents names better and avoid naming conflicts.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 05/26/2020
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to format and name my documents.
@@ -45,7 +45,7 @@ Each document in the zip file with the extension TXT, HTML, HTM, PDF, DOCX, ALIG
 where {document name} is the name of your document, {language code} is the ISO LanguageID (two characters), indicating that the document contains sentences in that language. There must be an underscore (_) before the language code.
 
 For example, to upload two parallel documents within a zip for an English to
-Spanish system, the files should be named "data_en" and "data_es".
+Spanish system, the files should be named “data_en” and “data_es”.
 
 Translation Memory files (TMX, XLF, XLIFF, LCL, XLSX) are not required to follow the specific language naming convention.  
 

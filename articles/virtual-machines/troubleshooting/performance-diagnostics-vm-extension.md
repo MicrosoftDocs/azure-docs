@@ -19,14 +19,22 @@ ms.author: genli
 ---
 # Azure Performance Diagnostics VM Extension for Windows
 
-Azure Performance Diagnostics VM Extension helps collect performance diagnostic data from Windows VMs. The extension performs analysis, and provides a report of findings and recommendations to identify and resolve performance issues on the virtual machine. This extension installs a troubleshooting tool called [PerfInsights](https://aka.ms/perfinsights).
+Azure Performance Diagnostics VM Extension helps collect performance diagnostic data from Windows VMs. The extension performs analysis, and provides a report of findings and recommendations to identify and resolve performance issues on the virtual machine. This extension installs a troubleshooting tool called [PerfInsights](./how-to-use-perfinsights.md).
 
 > [!NOTE]
 > If you want to run diagnostics on your VM from the Azure portal for non-classic VMs, it is recommended to use the new experience. For more information, see [Performance Diagnostics for Azure virtual machines](performance-diagnostics.md) 
 
 ## Prerequisites
 
-This extension can be installed on Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016. It can also be installed on Windows 8.1 and Windows 10.
+This extension can be installed on
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ## Extension schema
 The following JSON shows the schema for Azure Performance Diagnostics VM Extension. This extension requires the name and key for a storage account to store the diagnostics output and report. These values are sensitive. Storage account key should be stored inside a protected setting configuration. Azure VM extension protected setting data is encrypted, and it is only decrypted on the target virtual machine. Note that **storageAccountName** and **storageAccountKey** are case-sensitive. Other required parameters are listed in the following section.
@@ -226,7 +234,7 @@ Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ```
 
 ## Information on the data captured
-The PerfInsights tool collects various logs, configuration, and diagnostic data, depending on the selected scenario. For more information, see the [PerfInsights documentation](https://aka.ms/perfinsights).
+The PerfInsights tool collects various logs, configuration, and diagnostic data, depending on the selected scenario. For more information, see the [PerfInsights documentation](./how-to-use-perfinsights.md).
 
 ## View and share the results
 

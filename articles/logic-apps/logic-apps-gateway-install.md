@@ -28,7 +28,7 @@ This article shows how to download, install, and set up your on-premises data ga
   * Your Azure account needs to be either a work account or school account, which looks like `username@contoso.com`. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as @hotmail.com or @outlook.com.
 
     > [!NOTE]
-    > If you signed up for an Office 365 offering and didn't provide your work email address, 
+    > If you signed up for a Microsoft 365 offering and didn't provide your work email address, 
     > your address might look like `username@domain.onmicrosoft.com`. Your account is stored 
     > in an Azure AD tenant. In most cases, the User Principal Name (UPN) for your Azure account 
     > is the same as your email address.
@@ -39,7 +39,7 @@ This article shows how to download, install, and set up your on-premises data ga
 
   * When you install the gateway, you sign in with your Azure account, which links your gateway installation to your Azure account and only that account. You can't link the same gateway installation across multiple Azure accounts or Azure AD tenants.
 
-  * Later in the Azure portal, you need to use the same Azure account to create an Azure gateway resource that links to your gateway installation. You can link only one gateway installation and one Azure gateway resource to each other. However, your Azure account can link to different gateway installations that are each associated with a Azure gateway resource. Your logic apps can then use this gateway resource in triggers and actions that can access on-premises data sources.
+  * Later in the Azure portal, you need to use the same Azure account to create an Azure gateway resource that links to your gateway installation. You can link only one gateway installation and one Azure gateway resource to each other. However, your Azure account can link to different gateway installations that are each associated with an Azure gateway resource. Your logic apps can then use this gateway resource in triggers and actions that can access on-premises data sources.
 
 * Here are requirements for your local computer:
 
@@ -116,7 +116,7 @@ This article shows how to download, install, and set up your on-premises data ga
 
    Note the option to **Add to an existing gateway cluster**, which you select when you install additional gateways for [high-availability scenarios](#high-availability).
 
-1. Check the region for the gateway cloud service and [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) that's used by your gateway installation. By default, this region is the same location as the Azure AD tenant for your Azure account.
+1. Check the region for the gateway cloud service and [Azure Service Bus Messaging instance](../service-bus-messaging/service-bus-messaging-overview.md) that's used by your gateway installation. By default, this region is the same location as the Azure AD tenant for your Azure account.
 
    ![Confirm region for gateway service and service bus](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
@@ -142,7 +142,7 @@ This article shows how to download, install, and set up your on-premises data ga
 
 ## Check or adjust communication settings
 
-The on-premises data gateway depends on [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) for cloud connectivity and establishes the corresponding outbound connections to the gateway's associated Azure region. If your work environment requires that traffic goes through a proxy or firewall to access the internet, this restriction might prevent the on-premises data gateway from connecting to the gateway cloud service and Azure Service Bus. The gateway has several communication settings, which you can adjust. For more information, see these topics:
+The on-premises data gateway depends on [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md) for cloud connectivity and establishes the corresponding outbound connections to the gateway's associated Azure region. If your work environment requires that traffic goes through a proxy or firewall to access the internet, this restriction might prevent the on-premises data gateway from connecting to the gateway cloud service and Azure Service Bus Messaging. The gateway has several communication settings, which you can adjust. For more information, see these topics:
 
 * [Adjust communication settings for the on-premises data gateway](/data-integration/gateway/service-gateway-communication)
 * [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)
@@ -210,7 +210,7 @@ Users in your organization can access on-premises data for which they already ha
 
 The gateway helps facilitate faster and more secure behind-the-scenes communication. This communication flows between a user in the cloud, the gateway cloud service, and your on-premises data source. The gateway cloud service encrypts and stores your data source credentials and gateway details. The service also routes queries and their results between the user, the gateway, and your on-premises data source.
 
-The gateway works with firewalls and uses only outbound connections. All traffic originates as secured outbound traffic from the gateway agent. The gateway relays data from on-premises sources on encrypted channels through [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). This service bus creates a channel between the gateway and the calling service, but doesn't store any data. All data that travels through the gateway is encrypted.
+The gateway works with firewalls and uses only outbound connections. All traffic originates as secured outbound traffic from the gateway agent. The gateway sends the data from on-premises sources on encrypted channels through [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md). This service bus creates a channel between the gateway and the calling service, but doesn't store any data. All data that travels through the gateway is encrypted.
 
 ![Architecture for on-premises data gateway](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -221,9 +221,9 @@ These steps describe what happens when you interact with an element that's conne
 
 1. The cloud service creates a query, along with the encrypted credentials for the data source. The service then sends the query and credentials to the gateway queue for processing.
 
-1. The gateway cloud service analyzes the query and pushes the request to Azure Service Bus.
+1. The gateway cloud service analyzes the query and pushes the request to Azure Service Bus Messaging.
 
-1. Azure Service Bus sends the pending requests to the gateway.
+1. Azure Service Bus Messaging sends the pending requests to the gateway.
 
 1. The gateway gets the query, decrypts the credentials, and connects to one or more data sources with those credentials.
 

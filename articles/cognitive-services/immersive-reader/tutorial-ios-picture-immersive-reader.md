@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
-ms.author: metan
+ms.author: metang
 #Customer intent: As a developer, I want to integrate two Cognitive Services, the Immersive Reader and the Read API into my iOS application so that I can view any text from a photo in the Immersive Reader.
 ---
 
@@ -21,7 +21,7 @@ The [Computer Vision Cognitive Services Read API](https://docs.microsoft.com/azu
 
 In this tutorial, you will build an iOS app from scratch and integrate the Read API, and the Immersive Reader by using the Immersive Reader SDK. A full working sample of this tutorial is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 

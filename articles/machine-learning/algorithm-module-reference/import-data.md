@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 ---
 # Import Data module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to load data into a machine learning pipeline from existing cloud data services. 
 
@@ -40,7 +40,7 @@ After you define the data you want and connect to the source, **[Import Data](./
 If your source data changes, you can refresh the dataset and add new data by rerunning [Import Data](./import-data.md).
 
 > [!WARNING]
-> If your workspace is in a virtual network, you must configure your datastores to use the designer's data visualization features. For more information on how to use datastores and datasets in a virtual network, see [Network isolation during training & inference with private virtual networks](../how-to-enable-virtual-network.md#machine-learning-studio).
+> If your workspace is in a virtual network, you must configure your datastores to use the designer's data visualization features. For more information on how to use datastores and datasets in a virtual network, see [Use Azure Machine Learning studio in an Azure virtual network](../how-to-enable-studio-virtual-network.md).
 
 
 ## How to configure Import Data
@@ -52,7 +52,7 @@ If your source data changes, you can refresh the dataset and add new data by rer
 1. Select **Data source**, and choose the data source type. It could be HTTP or datastore.
 
     If you choose datastore, you can select existing datastores that already registered to your Azure Machine Learning workspace or create a new datastore. Then define the path of data to import in the datastore. You can easily browse the path by click **Browse Path**
-    ![import-data-path](media/module/import-data-path.png)
+    ![Screenshot shows the Browse path link which opens the Path selection dialog box.](media/module/import-data-path.png)
 
 1. Select the preview schema to filter the columns you want to include. You can also define advanced settings like Delimiter in Parsing options.
 

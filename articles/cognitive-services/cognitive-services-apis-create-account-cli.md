@@ -6,15 +6,19 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/14/2020
 ms.author: aahi
 ---
 
-# Create a Cognitive Services resource using the Azure Command-Line Interface(CLI)
+# Quickstart: Create a Cognitive Services resource using the Azure Command-Line Interface(CLI)
 
-Use this quickstart to get started with Azure Cognitive Services using the [Azure Command Line Interface(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Cognitive Services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) that you create in your Azure subscription. After creating the resource, Use the keys and endpoint generated for you to authenticate your applications. 
+Use this quickstart to get started with Azure Cognitive Services using the [Azure Command Line Interface(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
+Azure Cognitive Services are cloud-base services with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
+
+Cognitive Services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) that you create in your Azure subscription. After creating the resource, Use the keys and endpoint generated for you to authenticate your applications.
 
 In this quickstart, you'll learn how to sign up for Azure Cognitive Services and create an account that has a single-service or multi-service subscription, Using the [Azure Command Line Interface(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). These services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), which enable you to connect to one or more of the Azure Cognitive Services APIs.
 
@@ -22,10 +26,10 @@ In this quickstart, you'll learn how to sign up for Azure Cognitive Services and
 
 ## Prerequisites
 
-* A valid Azure subscription - [Create one](https://azure.microsoft.com/free/) for free.
+* A valid Azure subscription - [Create one](https://azure.microsoft.com/free/cognitive-services) for free.
 * The [Azure Command Line Interface(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-## Install the Azure CLI and sign in 
+## Install the Azure CLI and sign in
 
 Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). To sign into your local installation of the CLI, run the [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) command:
 
@@ -34,7 +38,7 @@ az login
 ```
 
 You can also use the green **Try It** button to run these commands in your browser.
- 
+
 ## Create a new Azure Cognitive Services resource group
 
 Before creating a Cognitive Services resource, you must have an Azure resource group to contain the resource. When you create a new resource, you have the option to either create a new resource group, or use an existing one. This article shows how to create a new resource group.
@@ -45,7 +49,7 @@ To create a resource, you'll need one of the Azure locations available for your 
 
 > [!IMPORTANT]
 > * Remember your Azure location, as you will need it when calling the Azure Cognitive Services.
-> * The availability of some Cognitive Services can vary by region. For more information, see [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).  
+> * The availability of some Cognitive Services can vary by region. For more information, see [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).
 
 ```azurecli-interactive
 az account list-locations \

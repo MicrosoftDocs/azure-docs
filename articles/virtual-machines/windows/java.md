@@ -28,7 +28,7 @@ It takes about 20 minutes to do these steps.
 
 ## Create a Maven project
 
-1. If you haven't already done so, install [Java](https://aka.ms/azure-jdks).
+1. If you haven't already done so, install [Java](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 2. Install [Maven](https://maven.apache.org/download.cgi).
 3. Create a new folder and the project:
     
@@ -408,7 +408,7 @@ input.nextLine();
 
 ### Resize the VM
 
-Many aspects of deployment should be considered when deciding on a size for your virtual machine. For more information, see [VM sizes](sizes.md).  
+Many aspects of deployment should be considered when deciding on a size for your virtual machine. For more information, see [VM sizes](../sizes.md).  
 
 To change size of the virtual machine, add this code to the try block in the main method:
 

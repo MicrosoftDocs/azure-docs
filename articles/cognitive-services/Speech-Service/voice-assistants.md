@@ -76,7 +76,7 @@ Voice assistants built using Azure Speech services can use the full range of cus
 
 ## Next steps
 
-* [Get a Speech service subscription key for free](get-started.md)
+* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
 * [Learn more about Custom Commands](custom-commands.md)
 * [Learn more about Direct Line Speech](direct-line-speech.md)
 * [Get the Speech SDK](speech-sdk.md)

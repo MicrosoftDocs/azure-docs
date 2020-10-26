@@ -2,21 +2,14 @@
 title: 'Tutorial: Configure DocuSign for automatic user provisioning with Azure Active Directory| Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and DocuSign.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-
-ms.assetid: 294cd6b8-74d7-44bc-92bc-020ccd13ff12
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 10/21/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure DocuSign for automatic user provisioning
 
@@ -36,7 +29,7 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling the provisioning service, you need to decide what users and/or groups in Azure AD represent the users who need access to your DocuSign app. Once decided, you can assign these users to your DocuSign app by following the instructions here:
 
-[Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### Important tips for assigning users to DocuSign
 
@@ -66,7 +59,7 @@ The objective of this section is to outline how to enable user provisioning of A
 
 1. Set the **Provisioning Mode** to **Automatic**. 
 
-    ![provisioning](./media/docusign-provisioning-tutorial/provisioning.png)
+    ![Screenshot of the Provisioning tab for DocuSign in Azure portal. Provisioning Mode is set to Automatic and Admin Username, Password and Test Connection are highlighted.](./media/docusign-provisioning-tutorial/provisioning.png)
 
 1. Under the **Admin Credentials** section, provide the following configuration settings:
    
@@ -94,6 +87,12 @@ The objective of this section is to outline how to enable user provisioning of A
 It starts the initial synchronization of any users assigned to DocuSign in the Users and Groups section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs, which describe all actions performed by the provisioning service on your DocuSign app.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+
+## Troubleshooting Tips
+* Provisioning a role or permission profile for a user in Docusign can be accomplished by using an expression in your attribute mappings using the [switch](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#switch) and [singleAppRoleAssignment](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#singleapproleassignment) functions. For example, the expression below will provision the ID "8032066" when a user has the "DS Admin" role assigned in Azure AD. It will not provision any permission profile if the user isn't assigned a role on the Azure AD side. The ID can be retrieved from the DocuSign [portal](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles).
+
+Switch(SingleAppRoleAssignment([appRoleAssignments])," ", "8032066", "DS Admin")
+
 
 ## Additional resources
 

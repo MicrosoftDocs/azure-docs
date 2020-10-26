@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Mimecast Personal Portal | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Mimecast Personal Portal.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 345b22be-d87e-45a4-b4c0-70a67eaf9bfd
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Mimecast Personal Portal
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate Mimecast Personal Portal with Az
 * Enable your users to be automatically signed-in to Mimecast Personal Portal with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -41,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Mimecast Personal Portal supports **SP and IDP** initiated SSO
-* Once you configure Mimecast Personal Portal you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Mimecast Personal Portal you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Mimecast Personal Portal from the gallery
 
@@ -156,23 +150,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Navigate to **Administration** > **Services** > **Applications**.
 
-    ![Mimecast Personal Portal Configuration](./media/mimecast-personal-portal-tutorial/services.png)
+    ![Screenshot shows Mimecast window with Applications selected.](./media/mimecast-personal-portal-tutorial/services.png)
 
 1. Click **Authentication Profiles** tab.
     
-    ![Mimecast Personal Portal Configuration](./media/mimecast-personal-portal-tutorial/authentication-profiles.png)
+    ![Screenshot shows the Application tab with Authentication Profiles selected.](./media/mimecast-personal-portal-tutorial/authentication-profiles.png)
 
 1. Click **New Authentication Profile** tab.
 
-	![Mimecast Personal Portal Configuration](./media/mimecast-personal-portal-tutorial/new-authenticatio-profile.png)
+	![Screenshot shows new Authentication Profile selected.](./media/mimecast-personal-portal-tutorial/new-authenticatio-profile.png)
 
 1. Provide a valid description in the **Description** textbox and select **Enforce SAML Authentication for Mimecast Personal Portal** checkbox.
 
-    ![Mimecast Personal Portal Configuration](./media/mimecast-personal-portal-tutorial/selecting-personal-portal.png)
+    ![Screenshot shows New Authentication Profile selected.](./media/mimecast-personal-portal-tutorial/selecting-personal-portal.png)
 
 1. On the **SAML Configuration for Mimecast Personal Portal** page, perform the following steps:
 
-    ![Mimecast Personal Portal Configuration](./media/mimecast-personal-portal-tutorial/sso-settings.png)
+    ![Screenshot shows where to select Enforce SAML Authentication for Administration Console.](./media/mimecast-personal-portal-tutorial/sso-settings.png)
 
 	a. For **Provider**, select **Azure Active Directory** from the Dropdown.
 
@@ -190,19 +184,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Navigate to **Administration** > **Directories** > **Internal Directories**.
 
-    ![Mimecast Personal Portal Configuration](./media/mimecast-personal-portal-tutorial/internal-directories.png)
+    ![Screenshot shows the SAML Configuration for Mimecast Personal Portal where you can enter the values described.](./media/mimecast-personal-portal-tutorial/internal-directories.png)
 
 1. Select on your domain, if the domain is mentioned below, otherwise please create a new domain by clicking on the **New Domain**.
 
-    ![Mimecast Personal Portal Configuration](./media/mimecast-personal-portal-tutorial/domain-name.png)
+    ![Screenshot shows Mimecast window with Internal Directories selected.](./media/mimecast-personal-portal-tutorial/domain-name.png)
 
 1. Click **New Address** tab.
 
-    ![Mimecast Personal Portal Configuration](./media/mimecast-personal-portal-tutorial/new-address.png)
+    ![Screenshot shows the domain selected.](./media/mimecast-personal-portal-tutorial/new-address.png)
 
 1. Provide the required user information on the following page:
 
-    ![Mimecast Personal Portal Configuration](./media/mimecast-personal-portal-tutorial/user-information.png)
+    ![Screenshot shows the page where you can enter the values described.](./media/mimecast-personal-portal-tutorial/user-information.png)
 
 	a. In the **Email Address** textbox, enter the email address of the user like `B.Simon@yourdomainname.com`.
 
@@ -216,25 +210,25 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	f. To assign roles to the user, click on **Role Edit** and assign the required role to user as per your organization requirement.
 
-    ![Mimecast Personal Portal Configuration](./media/mimecast-personal-portal-tutorial/assign-role.png)
+    ![Screenshot shows Address Settings where you can select Role Edit.](./media/mimecast-personal-portal-tutorial/assign-role.png)
 
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Mimecast Personal Portal tile in the Access Panel, you should be automatically signed in to the Mimecast Personal Portal for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Mimecast Personal Portal tile in the Access Panel, you should be automatically signed in to the Mimecast Personal Portal for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Mimecast Personal Portal with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect Mimecast Personal Portal with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect Mimecast Personal Portal with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

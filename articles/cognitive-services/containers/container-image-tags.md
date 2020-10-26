@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
 ---
 
@@ -30,13 +30,29 @@ This container image has the following tags available:
 
 ## Computer Vision
 
-The [Computer Vision][cv-containers] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-read`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-read`.
+The [Computer Vision][cv-containers] Read OCR container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-read`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-read`.
 
 This container image has the following tags available:
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
-| `latest`                      |       |
+| `latest ( (2.0.013250001-amd64-preview)` | • Further decrease memory usage for container. |
+|                                          | • External cache is required for multi-pods setup. For example, set-up Redis for caching. |
+|                                          | • Fix results missing issue when Redis cache is set-up and ResultExpirationPeriod=0.  |
+|                                          | • Remove request body size limitation of 26MB. Container can now accept >26MB files.  |
+|                                          | • Add time stamp and build version to console logging.  |
+| `1.1.013050001-amd64-preview`            | * Added ReadEngineConfig:ResultExpirationPeriod container initialization configuration to specify when the system should clean up recognition results. |
+|                                          | The setting is in hours, and default value is 48hr.   |
+|                                          |   The setting can reduce memory usage for result storing, especially when container in-memory storage is used.  |
+|                                          |    * Example 1. ReadEngineConfig:ResultExpirationPeriod=1, the system will clear the recognition result 1hr after the process.   |
+|                                          |    * Example 2. ReadEngineConfig:ResultExpirationPeriod=0, the system will clear the recognition result after result retrieval.  |
+|                                          | Fixed an 500 Internal Server Error when invalid image format is passed into the system. It will now return a 400 error:   |
+|                                          | `{`  |
+|                                          | `"error": {`  |
+|                                          |      `"code": "InvalidImageSize",`  |
+|                                          |      `"message": "Image must be between 1024 and 209715200 bytes."`  |
+|                                          |          `}`  |
+|                                          | `}`  |
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |
 | `1.1.009910003-amd64-preview` |       |
@@ -99,6 +115,10 @@ This container image has the following tags available:
 | Image Tags            | Notes |
 |-----------------------|:------|
 | `latest`              |       |
+| `2.5.0-amd64`         |       |
+| `2.4.0-amd64-preview` |       |
+| `2.3.1-amd64-preview` |       | 
+| `2.3.0-amd64-preview` |       |
 | `2.2.0-amd64-preview` |       |
 | `2.1.1-amd64-preview` |       |
 | `2.1.0-amd64-preview` |       |
@@ -114,17 +134,179 @@ This container image has the following tags available:
 | Image Tags            | Notes |
 |-----------------------|:------|
 | `latest`              |       |
+| `1.7.0-amd64`         |       |
+| `1.6.0-amd64-preview` |       |
+| `1.6.0-amd64-preview` |       |
+| `1.5.0-amd64-preview` |       |
+| `1.4.0-amd64-preview` |       |
 | `1.3.0-amd64-preview` |       |
 
 ## Speech-to-text
 
 The [Speech-to-text][sp-stt] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-speech-to-text`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text`.
+Speech-to-text v2.5.0 images are supported in *US Government Virginia*. Please use *US Government Virginia* billing endpoint and api keys to try.
 
 This container image has the following tags available:
 
 | Image Tags                  | Notes                                    |
 |-----------------------------|:-----------------------------------------|
 | `latest`                    | Container image with the `en-US` locale. |
+| `2.5.0-amd64-ar-ae`         | Container image with the `ar-AE` locale. |
+| `2.5.0-amd64-ar-eg`         | Container image with the `ar-EG` locale. |
+| `2.5.0-amd64-ar-kw`         | Container image with the `ar-KW` locale. |
+| `2.5.0-amd64-ar-qa`         | Container image with the `ar-QA` locale. |
+| `2.5.0-amd64-ar-sa`         | Container image with the `ar-SA` locale. |
+| `2.5.0-amd64-ca-es`         | Container image with the `ca-ES` locale. |
+| `2.5.0-amd64-da-dk`         | Container image with the `da-DK` locale. |
+| `2.5.0-amd64-de-de`         | Container image with the `de-DE` locale. |
+| `2.5.0-amd64-en-au`         | Container image with the `en-AU` locale. |
+| `2.5.0-amd64-en-ca`         | Container image with the `en-CA` locale. |
+| `2.5.0-amd64-en-gb`         | Container image with the `en-GB` locale. |
+| `2.5.0-amd64-en-in`         | Container image with the `en-IN` locale. |
+| `2.5.0-amd64-en-nz`         | Container image with the `en-NZ` locale. |
+| `2.5.0-amd64-en-us`         | Container image with the `en-US` locale. |
+| `2.5.0-amd64-es-es`         | Container image with the `es-ES` locale. |
+| `2.5.0-amd64-es-mx`         | Container image with the `es-MX` locale. |
+| `2.5.0-amd64-fi-fi`         | Container image with the `fi-FI` locale. |
+| `2.5.0-amd64-fr-ca`         | Container image with the `fr-CA` locale. |
+| `2.5.0-amd64-fr-fr`         | Container image with the `fr-FR` locale. |
+| `2.5.0-amd64-gu-in`         | Container image with the `gu-IN` locale. |
+| `2.5.0-amd64-hi-in`         | Container image with the `hi-IN` locale. |
+| `2.5.0-amd64-it-it`         | Container image with the `it-IT` locale. |
+| `2.5.0-amd64-ja-jp`         | Container image with the `ja-JP` locale. |
+| `2.5.0-amd64-ko-kr`         | Container image with the `ko-KR` locale. |
+| `2.5.0-amd64-mr-in`         | Container image with the `mr-IN` locale. |
+| `2.5.0-amd64-nb-no`         | Container image with the `nb-NO` locale. |
+| `2.5.0-amd64-nl-nl`         | Container image with the `nl-NL` locale. |
+| `2.5.0-amd64-pl-pl`         | Container image with the `pl-PL` locale. |
+| `2.5.0-amd64-pt-br`         | Container image with the `pt-BR` locale. |
+| `2.5.0-amd64-pt-pt`         | Container image with the `pt-PT` locale. |
+| `2.5.0-amd64-ru-ru`         | Container image with the `ru-RU` locale. |
+| `2.5.0-amd64-sv-se`         | Container image with the `sv-SE` locale. |
+| `2.5.0-amd64-ta-in`         | Container image with the `ta-IN` locale. |
+| `2.5.0-amd64-te-in`         | Container image with the `te-IN` locale. |
+| `2.5.0-amd64-th-th`         | Container image with the `th-TH` locale. |
+| `2.5.0-amd64-tr-tr`         | Container image with the `tr-TR` locale. |
+| `2.5.0-amd64-zh-cn`         | Container image with the `zh-CN` locale. |
+| `2.5.0-amd64-zh-hk`         | Container image with the `zh-HK` locale. |
+| `2.5.0-amd64-zh-tw`         | Container image with the `zh-TW` locale. |
+| `2.4.0-amd64-ar-ae-preview` | Container image with the `ar-AE` locale. |
+| `2.4.0-amd64-ar-eg-preview` | Container image with the `ar-EG` locale. |
+| `2.4.0-amd64-ar-kw-preview` | Container image with the `ar-KW` locale. |
+| `2.4.0-amd64-ar-qa-preview` | Container image with the `ar-QA` locale. |
+| `2.4.0-amd64-ar-sa-preview` | Container image with the `ar-SA` locale. |
+| `2.4.0-amd64-ca-es-preview` | Container image with the `ca-ES` locale. |
+| `2.4.0-amd64-da-dk-preview` | Container image with the `da-DK` locale. |
+| `2.4.0-amd64-de-de-preview` | Container image with the `de-DE` locale. |
+| `2.4.0-amd64-en-au-preview` | Container image with the `en-AU` locale. |
+| `2.4.0-amd64-en-ca-preview` | Container image with the `en-CA` locale. |
+| `2.4.0-amd64-en-gb-preview` | Container image with the `en-GB` locale. |
+| `2.4.0-amd64-en-in-preview` | Container image with the `en-IN` locale. |
+| `2.4.0-amd64-en-nz-preview` | Container image with the `en-NZ` locale. |
+| `2.4.0-amd64-en-us-preview` | Container image with the `en-US` locale. |
+| `2.4.0-amd64-es-es-preview` | Container image with the `es-ES` locale. |
+| `2.4.0-amd64-es-mx-preview` | Container image with the `es-MX` locale. |
+| `2.4.0-amd64-fi-fi-preview` | Container image with the `fi-FI` locale. |
+| `2.4.0-amd64-fr-ca-preview` | Container image with the `fr-CA` locale. |
+| `2.4.0-amd64-fr-fr-preview` | Container image with the `fr-FR` locale. |
+| `2.4.0-amd64-gu-in-preview` | Container image with the `gu-IN` locale. |
+| `2.4.0-amd64-hi-in-preview` | Container image with the `hi-IN` locale. |
+| `2.4.0-amd64-it-it-preview` | Container image with the `it-IT` locale. |
+| `2.4.0-amd64-ja-jp-preview` | Container image with the `ja-JP` locale. |
+| `2.4.0-amd64-ko-kr-preview` | Container image with the `ko-KR` locale. |
+| `2.4.0-amd64-mr-in-preview` | Container image with the `mr-IN` locale. |
+| `2.4.0-amd64-nb-no-preview` | Container image with the `nb-NO` locale. |
+| `2.4.0-amd64-nl-nl-preview` | Container image with the `nl-NL` locale. |
+| `2.4.0-amd64-pl-pl-preview` | Container image with the `pl-PL` locale. |
+| `2.4.0-amd64-pt-br-preview` | Container image with the `pt-BR` locale. |
+| `2.4.0-amd64-pt-pt-preview` | Container image with the `pt-PT` locale. |
+| `2.4.0-amd64-ru-ru-preview` | Container image with the `ru-RU` locale. |
+| `2.4.0-amd64-sv-se-preview` | Container image with the `sv-SE` locale. |
+| `2.4.0-amd64-ta-in-preview` | Container image with the `ta-IN` locale. |
+| `2.4.0-amd64-te-in-preview` | Container image with the `te-IN` locale. |
+| `2.4.0-amd64-th-th-preview` | Container image with the `th-TH` locale. |
+| `2.4.0-amd64-tr-tr-preview` | Container image with the `tr-TR` locale. |
+| `2.4.0-amd64-zh-cn-preview` | Container image with the `zh-CN` locale. |
+| `2.4.0-amd64-zh-hk-preview` | Container image with the `zh-HK` locale. |
+| `2.4.0-amd64-zh-tw-preview` | Container image with the `zh-TW` locale. |
+| `2.3.1-amd64-ar-ae-preview` | Container image with the `ar-AE` locale. |
+| `2.3.1-amd64-ar-eg-preview` | Container image with the `ar-EG` locale. |
+| `2.3.1-amd64-ar-kw-preview` | Container image with the `ar-KW` locale. |
+| `2.3.1-amd64-ar-qa-preview` | Container image with the `ar-QA` locale. |
+| `2.3.1-amd64-ar-sa-preview` | Container image with the `ar-SA` locale. |
+| `2.3.1-amd64-ca-es-preview` | Container image with the `ca-ES` locale. |
+| `2.3.1-amd64-da-dk-preview` | Container image with the `da-DK` locale. |
+| `2.3.1-amd64-de-de-preview` | Container image with the `de-DE` locale. |
+| `2.3.1-amd64-en-au-preview` | Container image with the `en-AU` locale. |
+| `2.3.1-amd64-en-ca-preview` | Container image with the `en-CA` locale. |
+| `2.3.1-amd64-en-gb-preview` | Container image with the `en-GB` locale. |
+| `2.3.1-amd64-en-in-preview` | Container image with the `en-IN` locale. |
+| `2.3.1-amd64-en-nz-preview` | Container image with the `en-NZ` locale. |
+| `2.3.1-amd64-en-us-preview` | Container image with the `en-US` locale. |
+| `2.3.1-amd64-es-es-preview` | Container image with the `es-ES` locale. |
+| `2.3.1-amd64-es-mx-preview` | Container image with the `es-MX` locale. |
+| `2.3.1-amd64-fi-fi-preview` | Container image with the `fi-FI` locale. |
+| `2.3.1-amd64-fr-ca-preview` | Container image with the `fr-CA` locale. |
+| `2.3.1-amd64-fr-fr-preview` | Container image with the `fr-FR` locale. |
+| `2.3.1-amd64-gu-in-preview` | Container image with the `gu-IN` locale. |
+| `2.3.1-amd64-hi-in-preview` | Container image with the `hi-IN` locale. |
+| `2.3.1-amd64-it-it-preview` | Container image with the `it-IT` locale. |
+| `2.3.1-amd64-ja-jp-preview` | Container image with the `ja-JP` locale. |
+| `2.3.1-amd64-ko-kr-preview` | Container image with the `ko-KR` locale. |
+| `2.3.1-amd64-mr-in-preview` | Container image with the `mr-IN` locale. |
+| `2.3.1-amd64-nb-no-preview` | Container image with the `nb-NO` locale. |
+| `2.3.1-amd64-nl-nl-preview` | Container image with the `nl-NL` locale. |
+| `2.3.1-amd64-pl-pl-preview` | Container image with the `pl-PL` locale. |
+| `2.3.1-amd64-pt-br-preview` | Container image with the `pt-BR` locale. |
+| `2.3.1-amd64-pt-pt-preview` | Container image with the `pt-PT` locale. |
+| `2.3.1-amd64-ru-ru-preview` | Container image with the `ru-RU` locale. |
+| `2.3.1-amd64-sv-se-preview` | Container image with the `sv-SE` locale. |
+| `2.3.1-amd64-ta-in-preview` | Container image with the `ta-IN` locale. |
+| `2.3.1-amd64-te-in-preview` | Container image with the `te-IN` locale. |
+| `2.3.1-amd64-th-th-preview` | Container image with the `th-TH` locale. |
+| `2.3.1-amd64-tr-tr-preview` | Container image with the `tr-TR` locale. |
+| `2.3.1-amd64-zh-cn-preview` | Container image with the `zh-CN` locale. |
+| `2.3.1-amd64-zh-hk-preview` | Container image with the `zh-HK` locale. |
+| `2.3.1-amd64-zh-tw-preview` | Container image with the `zh-TW` locale. |
+| `2.3.0-amd64-ar-ae-preview` | Container image with the `ar-AE` locale. |
+| `2.3.0-amd64-ar-eg-preview` | Container image with the `ar-EG` locale. |
+| `2.3.0-amd64-ar-kw-preview` | Container image with the `ar-KW` locale. |
+| `2.3.0-amd64-ar-qa-preview` | Container image with the `ar-QA` locale. |
+| `2.3.0-amd64-ar-sa-preview` | Container image with the `ar-SA` locale. |
+| `2.3.0-amd64-ca-es-preview` | Container image with the `ca-ES` locale. |
+| `2.3.0-amd64-da-dk-preview` | Container image with the `da-DK` locale. |
+| `2.3.0-amd64-de-de-preview` | Container image with the `de-DE` locale. |
+| `2.3.0-amd64-en-au-preview` | Container image with the `en-AU` locale. |
+| `2.3.0-amd64-en-ca-preview` | Container image with the `en-CA` locale. |
+| `2.3.0-amd64-en-gb-preview` | Container image with the `en-GB` locale. |
+| `2.3.0-amd64-en-in-preview` | Container image with the `en-IN` locale. |
+| `2.3.0-amd64-en-nz-preview` | Container image with the `en-NZ` locale. |
+| `2.3.0-amd64-en-us-preview` | Container image with the `en-US` locale. |
+| `2.3.0-amd64-es-es-preview` | Container image with the `es-ES` locale. |
+| `2.3.0-amd64-es-mx-preview` | Container image with the `es-MX` locale. |
+| `2.3.0-amd64-fi-fi-preview` | Container image with the `fi-FI` locale. |
+| `2.3.0-amd64-fr-ca-preview` | Container image with the `fr-CA` locale. |
+| `2.3.0-amd64-fr-fr-preview` | Container image with the `fr-FR` locale. |
+| `2.3.0-amd64-gu-in-preview` | Container image with the `gu-IN` locale. |
+| `2.3.0-amd64-hi-in-preview` | Container image with the `hi-IN` locale. |
+| `2.3.0-amd64-it-it-preview` | Container image with the `it-IT` locale. |
+| `2.3.0-amd64-ja-jp-preview` | Container image with the `ja-JP` locale. |
+| `2.3.0-amd64-ko-kr-preview` | Container image with the `ko-KR` locale. |
+| `2.3.0-amd64-mr-in-preview` | Container image with the `mr-IN` locale. |
+| `2.3.0-amd64-nb-no-preview` | Container image with the `nb-NO` locale. |
+| `2.3.0-amd64-nl-nl-preview` | Container image with the `nl-NL` locale. |
+| `2.3.0-amd64-pl-pl-preview` | Container image with the `pl-PL` locale. |
+| `2.3.0-amd64-pt-br-preview` | Container image with the `pt-BR` locale. |
+| `2.3.0-amd64-pt-pt-preview` | Container image with the `pt-PT` locale. |
+| `2.3.0-amd64-ru-ru-preview` | Container image with the `ru-RU` locale. |
+| `2.3.0-amd64-sv-se-preview` | Container image with the `sv-SE` locale. |
+| `2.3.0-amd64-ta-in-preview` | Container image with the `ta-IN` locale. |
+| `2.3.0-amd64-te-in-preview` | Container image with the `te-IN` locale. |
+| `2.3.0-amd64-th-th-preview` | Container image with the `th-TH` locale. |
+| `2.3.0-amd64-tr-tr-preview` | Container image with the `tr-TR` locale. |
+| `2.3.0-amd64-zh-cn-preview` | Container image with the `zh-CN` locale. |
+| `2.3.0-amd64-zh-hk-preview` | Container image with the `zh-HK` locale. |
+| `2.3.0-amd64-zh-tw-preview` | Container image with the `zh-TW` locale. |
 | `2.2.0-amd64-ar-ae-preview` | Container image with the `ar-AE` locale. |
 | `2.2.0-amd64-ar-eg-preview` | Container image with the `ar-EG` locale. |
 | `2.2.0-amd64-ar-kw-preview` | Container image with the `ar-KW` locale. |
@@ -446,7 +628,331 @@ This container image has the following tags available:
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
-| `latest`                                    | Container image with the `en-US` locale and `en-US-JessaRUS` voice.        |
+| `latest`                                    | Container image with the `en-US` locale and `en-US-AriaRUS` voice.         |
+| `1.7.0-amd64-ar-eg-hoda`                    | Container image with the `ar-EG` locale and `ar-EG-Hoda` voice.            |
+| `1.7.0-amd64-ar-sa-naayf`                   | Container image with the `ar-SA` locale and `ar-SA-Naayf` voice.           |
+| `1.7.0-amd64-bg-bg-ivan`                    | Container image with the `bg-BG` locale and `bg-BG-Ivan` voice.            |
+| `1.7.0-amd64-ca-es-herenarus`               | Container image with the `ca-ES` locale and `ca-ES-HerenaRUS` voice.       |
+| `1.7.0-amd64-cs-cz-jakub`                   | Container image with the `cs-CZ` locale and `cs-CZ-Jakub` voice.           |
+| `1.7.0-amd64-da-dk-hellerus`                | Container image with the `da-DK` locale and `da-DK-HelleRUS` voice.        |
+| `1.7.0-amd64-de-at-michael`                 | Container image with the `de-AT` locale and `de-AT-Michael` voice.         |
+| `1.7.0-amd64-de-ch-karsten`                 | Container image with the `de-CH` locale and `de-CH-Karsten` voice.         |
+| `1.7.0-amd64-de-de-hedda`                   | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
+| `1.7.0-amd64-de-de-heddarus`                | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
+| `1.7.0-amd64-de-de-stefan-apollo`           | Container image with the `de-DE` locale and `de-DE-Stefan-Apollo` voice.   |
+| `1.7.0-amd64-el-gr-stefanos`                | Container image with the `el-GR` locale and `el-GR-Stefanos` voice.        |
+| `1.7.0-amd64-en-au-catherine`               | Container image with the `en-AU` locale and `en-AU-Catherine` voice.       |
+| `1.7.0-amd64-en-au-hayleyrus`               | Container image with the `en-AU` locale and `en-AU-HayleyRUS` voice.       |
+| `1.7.0-amd64-en-ca-heatherrus`              | Container image with the `en-CA` locale and `en-CA-HeatherRUS` voice.      |
+| `1.7.0-amd64-en-ca-linda`                   | Container image with the `en-CA` locale and `en-CA-Linda` voice.           |
+| `1.7.0-amd64-en-gb-george-apollo`           | Container image with the `en-GB` locale and `en-GB-George-Apollo` voice.   |
+| `1.7.0-amd64-en-gb-hazelrus`                | Container image with the `en-GB` locale and `en-GB-HazelRUS` voice.        |
+| `1.7.0-amd64-en-gb-susan-apollo`            | Container image with the `en-GB` locale and `en-GB-Susan-Apollo` voice.    |
+| `1.7.0-amd64-en-ie-sean`                    | Container image with the `en-IE` locale and `en-IE-Sean` voice.            |
+| `1.7.0-amd64-en-in-heera-apollo`            | Container image with the `en-IN` locale and `en-IN-Heera-Apollo` voice.    |
+| `1.7.0-amd64-en-in-priyarus`                | Container image with the `en-IN` locale and `en-IN-PriyaRUS` voice.        |
+| `1.7.0-amd64-en-in-ravi-apollo`             | Container image with the `en-IN` locale and `en-IN-Ravi-Apollo` voice.     |
+| `1.7.0-amd64-en-us-benjaminrus`             | Container image with the `en-US` locale and `en-US-BenjaminRUS` voice.     |
+| `1.7.0-amd64-en-us-guy24krus`               | Container image with the `en-US` locale and `en-US-Guy24kRUS` voice.       |
+| `1.7.0-amd64-en-us-aria24krus`              | Container image with the `en-US` locale and `en-US-Aria24kRUS` voice.      |
+| `1.7.0-amd64-en-us-ariarus`                 | Container image with the `en-US` locale and `en-US-AriaRUS` voice.         |
+| `1.7.0-amd64-en-us-zirarus`                 | Container image with the `en-US` locale and `en-US-ZiraRUS` voice.         |
+| `1.7.0-amd64-es-es-helenarus`               | Container image with the `es-ES` locale and `es-ES-HelenaRUS` voice.       |
+| `1.7.0-amd64-es-es-laura-apollo`            | Container image with the `es-ES` locale and `es-ES-Laura-Apollo` voice.    |
+| `1.7.0-amd64-es-es-pablo-apollo`            | Container image with the `es-ES` locale and `es-ES-Pablo-Apollo` voice.    |
+| `1.7.0-amd64-es-mx-hildarus`                | Container image with the `es-MX` locale and `es-MX-HildaRUS` voice.        |
+| `1.7.0-amd64-es-mx-raul-apollo`             | Container image with the `es-MX` locale and `es-MX-Raul-Apollo` voice.     |
+| `1.7.0-amd64-fi-fi-heidirus`                | Container image with the `fi-FI` locale and `fi-FI-HeidiRUS` voice.        |
+| `1.7.0-amd64-fr-ca-caroline`                | Container image with the `fr-CA` locale and `fr-CA-Caroline` voice.        |
+| `1.7.0-amd64-fr-ca-harmonierus`             | Container image with the `fr-CA` locale and `fr-CA-HarmonieRUS` voice.     |
+| `1.7.0-amd64-fr-ch-guillaume`               | Container image with the `fr-CH` locale and `fr-CH-Guillaume` voice.       |
+| `1.7.0-amd64-fr-fr-hortenserus`             | Container image with the `fr-FR` locale and `fr-FR-HortenseRUS` voice.     |
+| `1.7.0-amd64-fr-fr-julie-apollo`            | Container image with the `fr-FR` locale and `fr-FR-Julie-Apollo` voice.    |
+| `1.7.0-amd64-fr-fr-paul-apollo`             | Container image with the `fr-FR` locale and `fr-FR-Paul-Apollo` voice.     |
+| `1.7.0-amd64-he-il-asaf`                    | Container image with the `he-IL` locale and `he-IL-Asaf` voice.            |
+| `1.7.0-amd64-hi-in-hemant`                  | Container image with the `hi-IN` locale and `hi-IN-Hemant` voice.          |
+| `1.7.0-amd64-hi-in-kalpana-apollo`          | Container image with the `hi-IN` locale and `hi-IN-Kalpana-Apollo` voice.  |
+| `1.7.0-amd64-hi-in-kalpana`                 | Container image with the `hi-IN` locale and `hi-IN-Kalpana` voice.         |
+| `1.7.0-amd64-hr-hr-matej`                   | Container image with the `hr-HR` locale and `hr-HR-Matej` voice.           |
+| `1.7.0-amd64-hu-hu-szabolcs`                | Container image with the `hu-HU` locale and `hu-HU-Szabolcs` voice.        |
+| `1.7.0-amd64-id-id-andika`                  | Container image with the `id-ID` locale and `id-ID-Andika` voice.          |
+| `1.7.0-amd64-it-it-cosimo-apollo`           | Container image with the `it-IT` locale and `it-IT-Cosimo-Apollo` voice.   |
+| `1.7.0-amd64-it-it-luciarus`                | Container image with the `it-IT` locale and `it-IT-LuciaRUS` voice.        |
+| `1.7.0-amd64-ja-jp-ayumi-apollo`            | Container image with the `ja-JP` locale and `ja-JP-Ayumi-Apollo` voice.    |
+| `1.7.0-amd64-ja-jp-harukarus`               | Container image with the `ja-JP` locale and `ja-JP-HarukaRUS` voice.       |
+| `1.7.0-amd64-ja-jp-ichiro-apollo`           | Container image with the `ja-JP` locale and `ja-JP-Ichiro-Apollo` voice.   |
+| `1.7.0-amd64-ko-kr-heamirus`                | Container image with the `ko-KR` locale and `ko-KR-HeamiRUS` voice.        |
+| `1.7.0-amd64-ms-my-rizwan`                  | Container image with the `ms-MY` locale and `ms-MY-Rizwan` voice.          |
+| `1.7.0-amd64-nb-no-huldarus`                | Container image with the `nb-NO` locale and `nb-NO-HuldaRUS` voice.        |
+| `1.7.0-amd64-nl-nl-hannarus`                | Container image with the `nl-NL` locale and `nl-NL-HannaRUS` voice.        |
+| `1.7.0-amd64-pl-pl-paulinarus`              | Container image with the `pl-PL` locale and `pl-PL-PaulinaRUS` voice.      |
+| `1.7.0-amd64-pt-br-daniel-apollo`           | Container image with the `pt-BR` locale and `pt-BR-Daniel-Apollo` voice.   |
+| `1.7.0-amd64-pt-br-heloisarus`              | Container image with the `pt-BR` locale and `pt-BR-HeloisaRUS` voice.      |
+| `1.7.0-amd64-pt-pt-heliarus`                | Container image with the `pt-PT` locale and `pt-PT-HeliaRUS` voice.        |
+| `1.7.0-amd64-ro-ro-andrei`                  | Container image with the `ro-RO` locale and `ro-RO-Andrei` voice.          |
+| `1.7.0-amd64-ru-ru-ekaterinarus`            | Container image with the `ru-RU` locale and `ru-RU-EkaterinaRUS` voice.    |
+| `1.7.0-amd64-ru-ru-irina-apollo`            | Container image with the `ru-RU` locale and `ru-RU-Irina-Apollo` voice.    |
+| `1.7.0-amd64-ru-ru-pavel-apollo`            | Container image with the `ru-RU` locale and `ru-RU-Pavel-Apollo` voice.    |
+| `1.7.0-amd64-sk-sk-filip`                   | Container image with the `sk-SK` locale and `sk-SK-Filip` voice.           |
+| `1.7.0-amd64-sl-si-lado`                    | Container image with the `sl-SI` locale and `sl-SI-Lado` voice.            |
+| `1.7.0-amd64-sv-se-hedvigrus`               | Container image with the `sv-SE` locale and `sv-SE-HedvigRUS` voice.       |
+| `1.7.0-amd64-ta-in-valluvar`                | Container image with the `ta-IN` locale and `ta-IN-Valluvar` voice.        |
+| `1.7.0-amd64-te-in-chitra`                  | Container image with the `te-IN` locale and `te-IN-Chitra` voice.          |
+| `1.7.0-amd64-th-th-pattara`                 | Container image with the `th-TH` locale and `th-TH-Pattara` voice.         |
+| `1.7.0-amd64-tr-tr-sedarus`                 | Container image with the `tr-TR` locale and `tr-TR-SedaRUS` voice.         |
+| `1.7.0-amd64-vi-vn-an`                      | Container image with the `vi-VN` locale and `vi-VN-An` voice.              |
+| `1.7.0-amd64-zh-cn-huihuirus`               | Container image with the `zh-CN` locale and `zh-CN-HuihuiRUS` voice.       |
+| `1.7.0-amd64-zh-cn-kangkang-apollo`         | Container image with the `zh-CN` locale and `zh-CN-Kangkang-Apollo` voice. |
+| `1.7.0-amd64-zh-cn-yaoyao-apollo`           | Container image with the `zh-CN` locale and `zh-CN-Yaoyao-Apollo` voice.   |
+| `1.7.0-amd64-zh-hk-danny-apollo`            | Container image with the `zh-HK` locale and `zh-HK-Danny-Apollo` voice.    |
+| `1.7.0-amd64-zh-hk-tracy-apollo`            | Container image with the `zh-HK` locale and `zh-HK-Tracy-Apollo` voice.    |
+| `1.7.0-amd64-zh-hk-tracyrus`                | Container image with the `zh-HK` locale and `zh-HK-TracyRUS` voice.        |
+| `1.7.0-amd64-zh-tw-hanhanrus`               | Container image with the `zh-TW` locale and `zh-TW-HanHanRUS` voice.       |
+| `1.7.0-amd64-zh-tw-yating-apollo`           | Container image with the `zh-TW` locale and `zh-TW-Yating-Apollo` voice.   |
+| `1.7.0-amd64-zh-tw-zhiwei-apollo`           | Container image with the `zh-TW` locale and `zh-TW-Zhiwei-Apollo` voice.   |
+| `1.6.0-amd64-ar-eg-hoda-preview`            | Container image with the `ar-EG` locale and `ar-EG-Hoda` voice.            |
+| `1.6.0-amd64-ar-sa-naayf-preview`           | Container image with the `ar-SA` locale and `ar-SA-Naayf` voice.           |
+| `1.6.0-amd64-bg-bg-ivan-preview`            | Container image with the `bg-BG` locale and `bg-BG-Ivan` voice.            |
+| `1.6.0-amd64-ca-es-herenarus-preview`       | Container image with the `ca-ES` locale and `ca-ES-HerenaRUS` voice.       |
+| `1.6.0-amd64-cs-cz-jakub-preview`           | Container image with the `cs-CZ` locale and `cs-CZ-Jakub` voice.           |
+| `1.6.0-amd64-da-dk-hellerus-preview`        | Container image with the `da-DK` locale and `da-DK-HelleRUS` voice.        |
+| `1.6.0-amd64-de-at-michael-preview`         | Container image with the `de-AT` locale and `de-AT-Michael` voice.         |
+| `1.6.0-amd64-de-ch-karsten-preview`         | Container image with the `de-CH` locale and `de-CH-Karsten` voice.         |
+| `1.6.0-amd64-de-de-hedda-preview`           | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
+| `1.6.0-amd64-de-de-heddarus-preview`        | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
+| `1.6.0-amd64-de-de-stefan-apollo-preview`   | Container image with the `de-DE` locale and `de-DE-Stefan-Apollo` voice.   |
+| `1.6.0-amd64-el-gr-stefanos-preview`        | Container image with the `el-GR` locale and `el-GR-Stefanos` voice.        |
+| `1.6.0-amd64-en-au-catherine-preview`       | Container image with the `en-AU` locale and `en-AU-Catherine` voice.       |
+| `1.6.0-amd64-en-au-hayleyrus-preview`       | Container image with the `en-AU` locale and `en-AU-HayleyRUS` voice.       |
+| `1.6.0-amd64-en-ca-heatherrus-preview`      | Container image with the `en-CA` locale and `en-CA-HeatherRUS` voice.      |
+| `1.6.0-amd64-en-ca-linda-preview`           | Container image with the `en-CA` locale and `en-CA-Linda` voice.           |
+| `1.6.0-amd64-en-gb-george-apollo-preview`   | Container image with the `en-GB` locale and `en-GB-George-Apollo` voice.   |
+| `1.6.0-amd64-en-gb-hazelrus-preview`        | Container image with the `en-GB` locale and `en-GB-HazelRUS` voice.        |
+| `1.6.0-amd64-en-gb-susan-apollo-preview`    | Container image with the `en-GB` locale and `en-GB-Susan-Apollo` voice.    |
+| `1.6.0-amd64-en-ie-sean-preview`            | Container image with the `en-IE` locale and `en-IE-Sean` voice.            |
+| `1.6.0-amd64-en-in-heera-apollo-preview`    | Container image with the `en-IN` locale and `en-IN-Heera-Apollo` voice.    |
+| `1.6.0-amd64-en-in-priyarus-preview`        | Container image with the `en-IN` locale and `en-IN-PriyaRUS` voice.        |
+| `1.6.0-amd64-en-in-ravi-apollo-preview`     | Container image with the `en-IN` locale and `en-IN-Ravi-Apollo` voice.     |
+| `1.6.0-amd64-en-us-benjaminrus-preview`     | Container image with the `en-US` locale and `en-US-BenjaminRUS` voice.     |
+| `1.6.0-amd64-en-us-guy24krus-preview`       | Container image with the `en-US` locale and `en-US-Guy24kRUS` voice.       |
+| `1.6.0-amd64-en-us-aria24krus-preview`      | Container image with the `en-US` locale and `en-US-Aria24kRUS` voice.      |
+| `1.6.0-amd64-en-us-ariarus-preview`         | Container image with the `en-US` locale and `en-US-AriaRUS` voice.         |
+| `1.6.0-amd64-en-us-zirarus-preview`         | Container image with the `en-US` locale and `en-US-ZiraRUS` voice.         |
+| `1.6.0-amd64-es-es-helenarus-preview`       | Container image with the `es-ES` locale and `es-ES-HelenaRUS` voice.       |
+| `1.6.0-amd64-es-es-laura-apollo-preview`    | Container image with the `es-ES` locale and `es-ES-Laura-Apollo` voice.    |
+| `1.6.0-amd64-es-es-pablo-apollo-preview`    | Container image with the `es-ES` locale and `es-ES-Pablo-Apollo` voice.    |
+| `1.6.0-amd64-es-mx-hildarus-preview`        | Container image with the `es-MX` locale and `es-MX-HildaRUS` voice.        |
+| `1.6.0-amd64-es-mx-raul-apollo-preview`     | Container image with the `es-MX` locale and `es-MX-Raul-Apollo` voice.     |
+| `1.6.0-amd64-fi-fi-heidirus-preview`        | Container image with the `fi-FI` locale and `fi-FI-HeidiRUS` voice.        |
+| `1.6.0-amd64-fr-ca-caroline-preview`        | Container image with the `fr-CA` locale and `fr-CA-Caroline` voice.        |
+| `1.6.0-amd64-fr-ca-harmonierus-preview`     | Container image with the `fr-CA` locale and `fr-CA-HarmonieRUS` voice.     |
+| `1.6.0-amd64-fr-ch-guillaume-preview`       | Container image with the `fr-CH` locale and `fr-CH-Guillaume` voice.       |
+| `1.6.0-amd64-fr-fr-hortenserus-preview`     | Container image with the `fr-FR` locale and `fr-FR-HortenseRUS` voice.     |
+| `1.6.0-amd64-fr-fr-julie-apollo-preview`    | Container image with the `fr-FR` locale and `fr-FR-Julie-Apollo` voice.    |
+| `1.6.0-amd64-fr-fr-paul-apollo-preview`     | Container image with the `fr-FR` locale and `fr-FR-Paul-Apollo` voice.     |
+| `1.6.0-amd64-he-il-asaf-preview`            | Container image with the `he-IL` locale and `he-IL-Asaf` voice.            |
+| `1.6.0-amd64-hi-in-hemant-preview`          | Container image with the `hi-IN` locale and `hi-IN-Hemant` voice.          |
+| `1.6.0-amd64-hi-in-kalpana-apollo-preview`  | Container image with the `hi-IN` locale and `hi-IN-Kalpana-Apollo` voice.  |
+| `1.6.0-amd64-hi-in-kalpana-preview`         | Container image with the `hi-IN` locale and `hi-IN-Kalpana` voice.         |
+| `1.6.0-amd64-hr-hr-matej-preview`           | Container image with the `hr-HR` locale and `hr-HR-Matej` voice.           |
+| `1.6.0-amd64-hu-hu-szabolcs-preview`        | Container image with the `hu-HU` locale and `hu-HU-Szabolcs` voice.        |
+| `1.6.0-amd64-id-id-andika-preview`          | Container image with the `id-ID` locale and `id-ID-Andika` voice.          |
+| `1.6.0-amd64-it-it-cosimo-apollo-preview`   | Container image with the `it-IT` locale and `it-IT-Cosimo-Apollo` voice.   |
+| `1.6.0-amd64-it-it-luciarus-preview`        | Container image with the `it-IT` locale and `it-IT-LuciaRUS` voice.        |
+| `1.6.0-amd64-ja-jp-ayumi-apollo-preview`    | Container image with the `ja-JP` locale and `ja-JP-Ayumi-Apollo` voice.    |
+| `1.6.0-amd64-ja-jp-harukarus-preview`       | Container image with the `ja-JP` locale and `ja-JP-HarukaRUS` voice.       |
+| `1.6.0-amd64-ja-jp-ichiro-apollo-preview`   | Container image with the `ja-JP` locale and `ja-JP-Ichiro-Apollo` voice.   |
+| `1.6.0-amd64-ko-kr-heamirus-preview`        | Container image with the `ko-KR` locale and `ko-KR-HeamiRUS` voice.        |
+| `1.6.0-amd64-ms-my-rizwan-preview`          | Container image with the `ms-MY` locale and `ms-MY-Rizwan` voice.          |
+| `1.6.0-amd64-nb-no-huldarus-preview`        | Container image with the `nb-NO` locale and `nb-NO-HuldaRUS` voice.        |
+| `1.6.0-amd64-nl-nl-hannarus-preview`        | Container image with the `nl-NL` locale and `nl-NL-HannaRUS` voice.        |
+| `1.6.0-amd64-pl-pl-paulinarus-preview`      | Container image with the `pl-PL` locale and `pl-PL-PaulinaRUS` voice.      |
+| `1.6.0-amd64-pt-br-daniel-apollo-preview`   | Container image with the `pt-BR` locale and `pt-BR-Daniel-Apollo` voice.   |
+| `1.6.0-amd64-pt-br-heloisarus-preview`      | Container image with the `pt-BR` locale and `pt-BR-HeloisaRUS` voice.      |
+| `1.6.0-amd64-pt-pt-heliarus-preview`        | Container image with the `pt-PT` locale and `pt-PT-HeliaRUS` voice.        |
+| `1.6.0-amd64-ro-ro-andrei-preview`          | Container image with the `ro-RO` locale and `ro-RO-Andrei` voice.          |
+| `1.6.0-amd64-ru-ru-ekaterinarus-preview`    | Container image with the `ru-RU` locale and `ru-RU-EkaterinaRUS` voice.    |
+| `1.6.0-amd64-ru-ru-irina-apollo-preview`    | Container image with the `ru-RU` locale and `ru-RU-Irina-Apollo` voice.    |
+| `1.6.0-amd64-ru-ru-pavel-apollo-preview`    | Container image with the `ru-RU` locale and `ru-RU-Pavel-Apollo` voice.    |
+| `1.6.0-amd64-sk-sk-filip-preview`           | Container image with the `sk-SK` locale and `sk-SK-Filip` voice.           |
+| `1.6.0-amd64-sl-si-lado-preview`            | Container image with the `sl-SI` locale and `sl-SI-Lado` voice.            |
+| `1.6.0-amd64-sv-se-hedvigrus-preview`       | Container image with the `sv-SE` locale and `sv-SE-HedvigRUS` voice.       |
+| `1.6.0-amd64-ta-in-valluvar-preview`        | Container image with the `ta-IN` locale and `ta-IN-Valluvar` voice.        |
+| `1.6.0-amd64-te-in-chitra-preview`          | Container image with the `te-IN` locale and `te-IN-Chitra` voice.          |
+| `1.6.0-amd64-th-th-pattara-preview`         | Container image with the `th-TH` locale and `th-TH-Pattara` voice.         |
+| `1.6.0-amd64-tr-tr-sedarus-preview`         | Container image with the `tr-TR` locale and `tr-TR-SedaRUS` voice.         |
+| `1.6.0-amd64-vi-vn-an-preview`              | Container image with the `vi-VN` locale and `vi-VN-An` voice.              |
+| `1.6.0-amd64-zh-cn-huihuirus-preview`       | Container image with the `zh-CN` locale and `zh-CN-HuihuiRUS` voice.       |
+| `1.6.0-amd64-zh-cn-kangkang-apollo-preview` | Container image with the `zh-CN` locale and `zh-CN-Kangkang-Apollo` voice. |
+| `1.6.0-amd64-zh-cn-yaoyao-apollo-preview`   | Container image with the `zh-CN` locale and `zh-CN-Yaoyao-Apollo` voice.   |
+| `1.6.0-amd64-zh-hk-danny-apollo-preview`    | Container image with the `zh-HK` locale and `zh-HK-Danny-Apollo` voice.    |
+| `1.6.0-amd64-zh-hk-tracy-apollo-preview`    | Container image with the `zh-HK` locale and `zh-HK-Tracy-Apollo` voice.    |
+| `1.6.0-amd64-zh-hk-tracyrus-preview`        | Container image with the `zh-HK` locale and `zh-HK-TracyRUS` voice.        |
+| `1.6.0-amd64-zh-tw-hanhanrus-preview`       | Container image with the `zh-TW` locale and `zh-TW-HanHanRUS` voice.       |
+| `1.6.0-amd64-zh-tw-yating-apollo-preview`   | Container image with the `zh-TW` locale and `zh-TW-Yating-Apollo` voice.   |
+| `1.6.0-amd64-zh-tw-zhiwei-apollo-preview`   | Container image with the `zh-TW` locale and `zh-TW-Zhiwei-Apollo` voice.   |
+| `1.5.0-amd64-ar-eg-hoda-preview`            | Container image with the `ar-EG` locale and `ar-EG-Hoda` voice.            |
+| `1.5.0-amd64-ar-sa-naayf-preview`           | Container image with the `ar-SA` locale and `ar-SA-Naayf` voice.           |
+| `1.5.0-amd64-bg-bg-ivan-preview`            | Container image with the `bg-BG` locale and `bg-BG-Ivan` voice.            |
+| `1.5.0-amd64-ca-es-herenarus-preview`       | Container image with the `ca-ES` locale and `ca-ES-HerenaRUS` voice.       |
+| `1.5.0-amd64-cs-cz-jakub-preview`           | Container image with the `cs-CZ` locale and `cs-CZ-Jakub` voice.           |
+| `1.5.0-amd64-da-dk-hellerus-preview`        | Container image with the `da-DK` locale and `da-DK-HelleRUS` voice.        |
+| `1.5.0-amd64-de-at-michael-preview`         | Container image with the `de-AT` locale and `de-AT-Michael` voice.         |
+| `1.5.0-amd64-de-ch-karsten-preview`         | Container image with the `de-CH` locale and `de-CH-Karsten` voice.         |
+| `1.5.0-amd64-de-de-hedda-preview`           | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
+| `1.5.0-amd64-de-de-heddarus-preview`        | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
+| `1.5.0-amd64-de-de-stefan-apollo-preview`   | Container image with the `de-DE` locale and `de-DE-Stefan-Apollo` voice.   |
+| `1.5.0-amd64-el-gr-stefanos-preview`        | Container image with the `el-GR` locale and `el-GR-Stefanos` voice.        |
+| `1.5.0-amd64-en-au-catherine-preview`       | Container image with the `en-AU` locale and `en-AU-Catherine` voice.       |
+| `1.5.0-amd64-en-au-hayleyrus-preview`       | Container image with the `en-AU` locale and `en-AU-HayleyRUS` voice.       |
+| `1.5.0-amd64-en-ca-heatherrus-preview`      | Container image with the `en-CA` locale and `en-CA-HeatherRUS` voice.      |
+| `1.5.0-amd64-en-ca-linda-preview`           | Container image with the `en-CA` locale and `en-CA-Linda` voice.           |
+| `1.5.0-amd64-en-gb-george-apollo-preview`   | Container image with the `en-GB` locale and `en-GB-George-Apollo` voice.   |
+| `1.5.0-amd64-en-gb-hazelrus-preview`        | Container image with the `en-GB` locale and `en-GB-HazelRUS` voice.        |
+| `1.5.0-amd64-en-gb-susan-apollo-preview`    | Container image with the `en-GB` locale and `en-GB-Susan-Apollo` voice.    |
+| `1.5.0-amd64-en-ie-sean-preview`            | Container image with the `en-IE` locale and `en-IE-Sean` voice.            |
+| `1.5.0-amd64-en-in-heera-apollo-preview`    | Container image with the `en-IN` locale and `en-IN-Heera-Apollo` voice.    |
+| `1.5.0-amd64-en-in-priyarus-preview`        | Container image with the `en-IN` locale and `en-IN-PriyaRUS` voice.        |
+| `1.5.0-amd64-en-in-ravi-apollo-preview`     | Container image with the `en-IN` locale and `en-IN-Ravi-Apollo` voice.     |
+| `1.5.0-amd64-en-us-benjaminrus-preview`     | Container image with the `en-US` locale and `en-US-BenjaminRUS` voice.     |
+| `1.5.0-amd64-en-us-guy24krus-preview`       | Container image with the `en-US` locale and `en-US-Guy24kRUS` voice.       |
+| `1.5.0-amd64-en-us-aria24krus-preview`      | Container image with the `en-US` locale and `en-US-Aria24kRUS` voice.     |
+| `1.5.0-amd64-en-us-ariarus-preview`         | Container image with the `en-US` locale and `en-US-AriaRUS` voice.        |
+| `1.5.0-amd64-en-us-zirarus-preview`         | Container image with the `en-US` locale and `en-US-ZiraRUS` voice.         |
+| `1.5.0-amd64-es-es-helenarus-preview`       | Container image with the `es-ES` locale and `es-ES-HelenaRUS` voice.       |
+| `1.5.0-amd64-es-es-laura-apollo-preview`    | Container image with the `es-ES` locale and `es-ES-Laura-Apollo` voice.    |
+| `1.5.0-amd64-es-es-pablo-apollo-preview`    | Container image with the `es-ES` locale and `es-ES-Pablo-Apollo` voice.    |
+| `1.5.0-amd64-es-mx-hildarus-preview`        | Container image with the `es-MX` locale and `es-MX-HildaRUS` voice.        |
+| `1.5.0-amd64-es-mx-raul-apollo-preview`     | Container image with the `es-MX` locale and `es-MX-Raul-Apollo` voice.     |
+| `1.5.0-amd64-fi-fi-heidirus-preview`        | Container image with the `fi-FI` locale and `fi-FI-HeidiRUS` voice.        |
+| `1.5.0-amd64-fr-ca-caroline-preview`        | Container image with the `fr-CA` locale and `fr-CA-Caroline` voice.        |
+| `1.5.0-amd64-fr-ca-harmonierus-preview`     | Container image with the `fr-CA` locale and `fr-CA-HarmonieRUS` voice.     |
+| `1.5.0-amd64-fr-ch-guillaume-preview`       | Container image with the `fr-CH` locale and `fr-CH-Guillaume` voice.       |
+| `1.5.0-amd64-fr-fr-hortenserus-preview`     | Container image with the `fr-FR` locale and `fr-FR-HortenseRUS` voice.     |
+| `1.5.0-amd64-fr-fr-julie-apollo-preview`    | Container image with the `fr-FR` locale and `fr-FR-Julie-Apollo` voice.    |
+| `1.5.0-amd64-fr-fr-paul-apollo-preview`     | Container image with the `fr-FR` locale and `fr-FR-Paul-Apollo` voice.     |
+| `1.5.0-amd64-he-il-asaf-preview`            | Container image with the `he-IL` locale and `he-IL-Asaf` voice.            |
+| `1.5.0-amd64-hi-in-hemant-preview`          | Container image with the `hi-IN` locale and `hi-IN-Hemant` voice.          |
+| `1.5.0-amd64-hi-in-kalpana-apollo-preview`  | Container image with the `hi-IN` locale and `hi-IN-Kalpana-Apollo` voice.  |
+| `1.5.0-amd64-hi-in-kalpana-preview`         | Container image with the `hi-IN` locale and `hi-IN-Kalpana` voice.         |
+| `1.5.0-amd64-hr-hr-matej-preview`           | Container image with the `hr-HR` locale and `hr-HR-Matej` voice.           |
+| `1.5.0-amd64-hu-hu-szabolcs-preview`        | Container image with the `hu-HU` locale and `hu-HU-Szabolcs` voice.        |
+| `1.5.0-amd64-id-id-andika-preview`          | Container image with the `id-ID` locale and `id-ID-Andika` voice.          |
+| `1.5.0-amd64-it-it-cosimo-apollo-preview`   | Container image with the `it-IT` locale and `it-IT-Cosimo-Apollo` voice.   |
+| `1.5.0-amd64-it-it-luciarus-preview`        | Container image with the `it-IT` locale and `it-IT-LuciaRUS` voice.        |
+| `1.5.0-amd64-ja-jp-ayumi-apollo-preview`    | Container image with the `ja-JP` locale and `ja-JP-Ayumi-Apollo` voice.    |
+| `1.5.0-amd64-ja-jp-harukarus-preview`       | Container image with the `ja-JP` locale and `ja-JP-HarukaRUS` voice.       |
+| `1.5.0-amd64-ja-jp-ichiro-apollo-preview`   | Container image with the `ja-JP` locale and `ja-JP-Ichiro-Apollo` voice.   |
+| `1.5.0-amd64-ko-kr-heamirus-preview`        | Container image with the `ko-KR` locale and `ko-KR-HeamiRUS` voice.        |
+| `1.5.0-amd64-ms-my-rizwan-preview`          | Container image with the `ms-MY` locale and `ms-MY-Rizwan` voice.          |
+| `1.5.0-amd64-nb-no-huldarus-preview`        | Container image with the `nb-NO` locale and `nb-NO-HuldaRUS` voice.        |
+| `1.5.0-amd64-nl-nl-hannarus-preview`        | Container image with the `nl-NL` locale and `nl-NL-HannaRUS` voice.        |
+| `1.5.0-amd64-pl-pl-paulinarus-preview`      | Container image with the `pl-PL` locale and `pl-PL-PaulinaRUS` voice.      |
+| `1.5.0-amd64-pt-br-daniel-apollo-preview`   | Container image with the `pt-BR` locale and `pt-BR-Daniel-Apollo` voice.   |
+| `1.5.0-amd64-pt-br-heloisarus-preview`      | Container image with the `pt-BR` locale and `pt-BR-HeloisaRUS` voice.      |
+| `1.5.0-amd64-pt-pt-heliarus-preview`        | Container image with the `pt-PT` locale and `pt-PT-HeliaRUS` voice.        |
+| `1.5.0-amd64-ro-ro-andrei-preview`          | Container image with the `ro-RO` locale and `ro-RO-Andrei` voice.          |
+| `1.5.0-amd64-ru-ru-ekaterinarus-preview`    | Container image with the `ru-RU` locale and `ru-RU-EkaterinaRUS` voice.    |
+| `1.5.0-amd64-ru-ru-irina-apollo-preview`    | Container image with the `ru-RU` locale and `ru-RU-Irina-Apollo` voice.    |
+| `1.5.0-amd64-ru-ru-pavel-apollo-preview`    | Container image with the `ru-RU` locale and `ru-RU-Pavel-Apollo` voice.    |
+| `1.5.0-amd64-sk-sk-filip-preview`           | Container image with the `sk-SK` locale and `sk-SK-Filip` voice.           |
+| `1.5.0-amd64-sl-si-lado-preview`            | Container image with the `sl-SI` locale and `sl-SI-Lado` voice.            |
+| `1.5.0-amd64-sv-se-hedvigrus-preview`       | Container image with the `sv-SE` locale and `sv-SE-HedvigRUS` voice.       |
+| `1.5.0-amd64-ta-in-valluvar-preview`        | Container image with the `ta-IN` locale and `ta-IN-Valluvar` voice.        |
+| `1.5.0-amd64-te-in-chitra-preview`          | Container image with the `te-IN` locale and `te-IN-Chitra` voice.          |
+| `1.5.0-amd64-th-th-pattara-preview`         | Container image with the `th-TH` locale and `th-TH-Pattara` voice.         |
+| `1.5.0-amd64-tr-tr-sedarus-preview`         | Container image with the `tr-TR` locale and `tr-TR-SedaRUS` voice.         |
+| `1.5.0-amd64-vi-vn-an-preview`              | Container image with the `vi-VN` locale and `vi-VN-An` voice.              |
+| `1.5.0-amd64-zh-cn-huihuirus-preview`       | Container image with the `zh-CN` locale and `zh-CN-HuihuiRUS` voice.       |
+| `1.5.0-amd64-zh-cn-kangkang-apollo-preview` | Container image with the `zh-CN` locale and `zh-CN-Kangkang-Apollo` voice. |
+| `1.5.0-amd64-zh-cn-yaoyao-apollo-preview`   | Container image with the `zh-CN` locale and `zh-CN-Yaoyao-Apollo` voice.   |
+| `1.5.0-amd64-zh-hk-danny-apollo-preview`    | Container image with the `zh-HK` locale and `zh-HK-Danny-Apollo` voice.    |
+| `1.5.0-amd64-zh-hk-tracy-apollo-preview`    | Container image with the `zh-HK` locale and `zh-HK-Tracy-Apollo` voice.    |
+| `1.5.0-amd64-zh-hk-tracyrus-preview`        | Container image with the `zh-HK` locale and `zh-HK-TracyRUS` voice.        |
+| `1.5.0-amd64-zh-tw-hanhanrus-preview`       | Container image with the `zh-TW` locale and `zh-TW-HanHanRUS` voice.       |
+| `1.5.0-amd64-zh-tw-yating-apollo-preview`   | Container image with the `zh-TW` locale and `zh-TW-Yating-Apollo` voice.   |
+| `1.5.0-amd64-zh-tw-zhiwei-apollo-preview`   | Container image with the `zh-TW` locale and `zh-TW-Zhiwei-Apollo` voice.   |
+| `1.4.0-amd64-ar-eg-hoda-preview`            | Container image with the `ar-EG` locale and `ar-EG-Hoda` voice.            |
+| `1.4.0-amd64-ar-sa-naayf-preview`           | Container image with the `ar-SA` locale and `ar-SA-Naayf` voice.           |
+| `1.4.0-amd64-bg-bg-ivan-preview`            | Container image with the `bg-BG` locale and `bg-BG-Ivan` voice.            |
+| `1.4.0-amd64-ca-es-herenarus-preview`       | Container image with the `ca-ES` locale and `ca-ES-HerenaRUS` voice.       |
+| `1.4.0-amd64-cs-cz-jakub-preview`           | Container image with the `cs-CZ` locale and `cs-CZ-Jakub` voice.           |
+| `1.4.0-amd64-da-dk-hellerus-preview`        | Container image with the `da-DK` locale and `da-DK-HelleRUS` voice.        |
+| `1.4.0-amd64-de-at-michael-preview`         | Container image with the `de-AT` locale and `de-AT-Michael` voice.         |
+| `1.4.0-amd64-de-ch-karsten-preview`         | Container image with the `de-CH` locale and `de-CH-Karsten` voice.         |
+| `1.4.0-amd64-de-de-hedda-preview`           | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
+| `1.4.0-amd64-de-de-heddarus-preview`        | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
+| `1.4.0-amd64-de-de-stefan-apollo-preview`   | Container image with the `de-DE` locale and `de-DE-Stefan-Apollo` voice.   |
+| `1.4.0-amd64-el-gr-stefanos-preview`        | Container image with the `el-GR` locale and `el-GR-Stefanos` voice.        |
+| `1.4.0-amd64-en-au-catherine-preview`       | Container image with the `en-AU` locale and `en-AU-Catherine` voice.       |
+| `1.4.0-amd64-en-au-hayleyrus-preview`       | Container image with the `en-AU` locale and `en-AU-HayleyRUS` voice.       |
+| `1.4.0-amd64-en-ca-heatherrus-preview`      | Container image with the `en-CA` locale and `en-CA-HeatherRUS` voice.      |
+| `1.4.0-amd64-en-ca-linda-preview`           | Container image with the `en-CA` locale and `en-CA-Linda` voice.           |
+| `1.4.0-amd64-en-gb-george-apollo-preview`   | Container image with the `en-GB` locale and `en-GB-George-Apollo` voice.   |
+| `1.4.0-amd64-en-gb-hazelrus-preview`        | Container image with the `en-GB` locale and `en-GB-HazelRUS` voice.        |
+| `1.4.0-amd64-en-gb-susan-apollo-preview`    | Container image with the `en-GB` locale and `en-GB-Susan-Apollo` voice.    |
+| `1.4.0-amd64-en-ie-sean-preview`            | Container image with the `en-IE` locale and `en-IE-Sean` voice.            |
+| `1.4.0-amd64-en-in-heera-apollo-preview`    | Container image with the `en-IN` locale and `en-IN-Heera-Apollo` voice.    |
+| `1.4.0-amd64-en-in-priyarus-preview`        | Container image with the `en-IN` locale and `en-IN-PriyaRUS` voice.        |
+| `1.4.0-amd64-en-in-ravi-apollo-preview`     | Container image with the `en-IN` locale and `en-IN-Ravi-Apollo` voice.     |
+| `1.4.0-amd64-en-us-benjaminrus-preview`     | Container image with the `en-US` locale and `en-US-BenjaminRUS` voice.     |
+| `1.4.0-amd64-en-us-guy24krus-preview`       | Container image with the `en-US` locale and `en-US-Guy24kRUS` voice.       |
+| `1.4.0-amd64-en-us-aria24krus-preview`      | Container image with the `en-US` locale and `en-US-Aria24kRUS` voice.     |
+| `1.4.0-amd64-en-us-ariarus-preview`         | Container image with the `en-US` locale and `en-US-AriaRUS` voice.        |
+| `1.4.0-amd64-en-us-zirarus-preview`         | Container image with the `en-US` locale and `en-US-ZiraRUS` voice.         |
+| `1.4.0-amd64-es-es-helenarus-preview`       | Container image with the `es-ES` locale and `es-ES-HelenaRUS` voice.       |
+| `1.4.0-amd64-es-es-laura-apollo-preview`    | Container image with the `es-ES` locale and `es-ES-Laura-Apollo` voice.    |
+| `1.4.0-amd64-es-es-pablo-apollo-preview`    | Container image with the `es-ES` locale and `es-ES-Pablo-Apollo` voice.    |
+| `1.4.0-amd64-es-mx-hildarus-preview`        | Container image with the `es-MX` locale and `es-MX-HildaRUS` voice.        |
+| `1.4.0-amd64-es-mx-raul-apollo-preview`     | Container image with the `es-MX` locale and `es-MX-Raul-Apollo` voice.     |
+| `1.4.0-amd64-fi-fi-heidirus-preview`        | Container image with the `fi-FI` locale and `fi-FI-HeidiRUS` voice.        |
+| `1.4.0-amd64-fr-ca-caroline-preview`        | Container image with the `fr-CA` locale and `fr-CA-Caroline` voice.        |
+| `1.4.0-amd64-fr-ca-harmonierus-preview`     | Container image with the `fr-CA` locale and `fr-CA-HarmonieRUS` voice.     |
+| `1.4.0-amd64-fr-ch-guillaume-preview`       | Container image with the `fr-CH` locale and `fr-CH-Guillaume` voice.       |
+| `1.4.0-amd64-fr-fr-hortenserus-preview`     | Container image with the `fr-FR` locale and `fr-FR-HortenseRUS` voice.     |
+| `1.4.0-amd64-fr-fr-julie-apollo-preview`    | Container image with the `fr-FR` locale and `fr-FR-Julie-Apollo` voice.    |
+| `1.4.0-amd64-fr-fr-paul-apollo-preview`     | Container image with the `fr-FR` locale and `fr-FR-Paul-Apollo` voice.     |
+| `1.4.0-amd64-he-il-asaf-preview`            | Container image with the `he-IL` locale and `he-IL-Asaf` voice.            |
+| `1.4.0-amd64-hi-in-hemant-preview`          | Container image with the `hi-IN` locale and `hi-IN-Hemant` voice.          |
+| `1.4.0-amd64-hi-in-kalpana-apollo-preview`  | Container image with the `hi-IN` locale and `hi-IN-Kalpana-Apollo` voice.  |
+| `1.4.0-amd64-hi-in-kalpana-preview`         | Container image with the `hi-IN` locale and `hi-IN-Kalpana` voice.         |
+| `1.4.0-amd64-hr-hr-matej-preview`           | Container image with the `hr-HR` locale and `hr-HR-Matej` voice.           |
+| `1.4.0-amd64-hu-hu-szabolcs-preview`        | Container image with the `hu-HU` locale and `hu-HU-Szabolcs` voice.        |
+| `1.4.0-amd64-id-id-andika-preview`          | Container image with the `id-ID` locale and `id-ID-Andika` voice.          |
+| `1.4.0-amd64-it-it-cosimo-apollo-preview`   | Container image with the `it-IT` locale and `it-IT-Cosimo-Apollo` voice.   |
+| `1.4.0-amd64-it-it-luciarus-preview`        | Container image with the `it-IT` locale and `it-IT-LuciaRUS` voice.        |
+| `1.4.0-amd64-ja-jp-ayumi-apollo-preview`    | Container image with the `ja-JP` locale and `ja-JP-Ayumi-Apollo` voice.    |
+| `1.4.0-amd64-ja-jp-harukarus-preview`       | Container image with the `ja-JP` locale and `ja-JP-HarukaRUS` voice.       |
+| `1.4.0-amd64-ja-jp-ichiro-apollo-preview`   | Container image with the `ja-JP` locale and `ja-JP-Ichiro-Apollo` voice.   |
+| `1.4.0-amd64-ko-kr-heamirus-preview`        | Container image with the `ko-KR` locale and `ko-KR-HeamiRUS` voice.        |
+| `1.4.0-amd64-ms-my-rizwan-preview`          | Container image with the `ms-MY` locale and `ms-MY-Rizwan` voice.          |
+| `1.4.0-amd64-nb-no-huldarus-preview`        | Container image with the `nb-NO` locale and `nb-NO-HuldaRUS` voice.        |
+| `1.4.0-amd64-nl-nl-hannarus-preview`        | Container image with the `nl-NL` locale and `nl-NL-HannaRUS` voice.        |
+| `1.4.0-amd64-pl-pl-paulinarus-preview`      | Container image with the `pl-PL` locale and `pl-PL-PaulinaRUS` voice.      |
+| `1.4.0-amd64-pt-br-daniel-apollo-preview`   | Container image with the `pt-BR` locale and `pt-BR-Daniel-Apollo` voice.   |
+| `1.4.0-amd64-pt-br-heloisarus-preview`      | Container image with the `pt-BR` locale and `pt-BR-HeloisaRUS` voice.      |
+| `1.4.0-amd64-pt-pt-heliarus-preview`        | Container image with the `pt-PT` locale and `pt-PT-HeliaRUS` voice.        |
+| `1.4.0-amd64-ro-ro-andrei-preview`          | Container image with the `ro-RO` locale and `ro-RO-Andrei` voice.          |
+| `1.4.0-amd64-ru-ru-ekaterinarus-preview`    | Container image with the `ru-RU` locale and `ru-RU-EkaterinaRUS` voice.    |
+| `1.4.0-amd64-ru-ru-irina-apollo-preview`    | Container image with the `ru-RU` locale and `ru-RU-Irina-Apollo` voice.    |
+| `1.4.0-amd64-ru-ru-pavel-apollo-preview`    | Container image with the `ru-RU` locale and `ru-RU-Pavel-Apollo` voice.    |
+| `1.4.0-amd64-sk-sk-filip-preview`           | Container image with the `sk-SK` locale and `sk-SK-Filip` voice.           |
+| `1.4.0-amd64-sl-si-lado-preview`            | Container image with the `sl-SI` locale and `sl-SI-Lado` voice.            |
+| `1.4.0-amd64-sv-se-hedvigrus-preview`       | Container image with the `sv-SE` locale and `sv-SE-HedvigRUS` voice.       |
+| `1.4.0-amd64-ta-in-valluvar-preview`        | Container image with the `ta-IN` locale and `ta-IN-Valluvar` voice.        |
+| `1.4.0-amd64-te-in-chitra-preview`          | Container image with the `te-IN` locale and `te-IN-Chitra` voice.          |
+| `1.4.0-amd64-th-th-pattara-preview`         | Container image with the `th-TH` locale and `th-TH-Pattara` voice.         |
+| `1.4.0-amd64-tr-tr-sedarus-preview`         | Container image with the `tr-TR` locale and `tr-TR-SedaRUS` voice.         |
+| `1.4.0-amd64-vi-vn-an-preview`              | Container image with the `vi-VN` locale and `vi-VN-An` voice.              |
+| `1.4.0-amd64-zh-cn-huihuirus-preview`       | Container image with the `zh-CN` locale and `zh-CN-HuihuiRUS` voice.       |
+| `1.4.0-amd64-zh-cn-kangkang-apollo-preview` | Container image with the `zh-CN` locale and `zh-CN-Kangkang-Apollo` voice. |
+| `1.4.0-amd64-zh-cn-yaoyao-apollo-preview`   | Container image with the `zh-CN` locale and `zh-CN-Yaoyao-Apollo` voice.   |
+| `1.4.0-amd64-zh-hk-danny-apollo-preview`    | Container image with the `zh-HK` locale and `zh-HK-Danny-Apollo` voice.    |
+| `1.4.0-amd64-zh-hk-tracy-apollo-preview`    | Container image with the `zh-HK` locale and `zh-HK-Tracy-Apollo` voice.    |
+| `1.4.0-amd64-zh-hk-tracyrus-preview`        | Container image with the `zh-HK` locale and `zh-HK-TracyRUS` voice.        |
+| `1.4.0-amd64-zh-tw-hanhanrus-preview`       | Container image with the `zh-TW` locale and `zh-TW-HanHanRUS` voice.       |
+| `1.4.0-amd64-zh-tw-yating-apollo-preview`   | Container image with the `zh-TW` locale and `zh-TW-Yating-Apollo` voice.   |
+| `1.4.0-amd64-zh-tw-zhiwei-apollo-preview`   | Container image with the `zh-TW` locale and `zh-TW-Zhiwei-Apollo` voice.   |
 | `1.3.0-amd64-ar-eg-hoda-preview`            | Container image with the `ar-EG` locale and `ar-EG-Hoda` voice.            |
 | `1.3.0-amd64-ar-sa-naayf-preview`           | Container image with the `ar-SA` locale and `ar-SA-Naayf` voice.           |
 | `1.3.0-amd64-bg-bg-ivan-preview`            | Container image with the `bg-BG` locale and `bg-BG-Ivan` voice.            |
@@ -456,7 +962,6 @@ This container image has the following tags available:
 | `1.3.0-amd64-de-at-michael-preview`         | Container image with the `de-AT` locale and `de-AT-Michael` voice.         |
 | `1.3.0-amd64-de-ch-karsten-preview`         | Container image with the `de-CH` locale and `de-CH-Karsten` voice.         |
 | `1.3.0-amd64-de-de-hedda-preview`           | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
-| `1.3.0-amd64-de-de-heddarus-preview`        | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
 | `1.3.0-amd64-de-de-heddarus-preview`        | Container image with the `de-DE` locale and `de-DE-HeddaRUS` voice.        |
 | `1.3.0-amd64-de-de-stefan-apollo-preview`   | Container image with the `de-DE` locale and `de-DE-Stefan-Apollo` voice.   |
 | `1.3.0-amd64-el-gr-stefanos-preview`        | Container image with the `el-GR` locale and `el-GR-Stefanos` voice.        |
@@ -490,8 +995,7 @@ This container image has the following tags available:
 | `1.3.0-amd64-fr-fr-paul-apollo-preview`     | Container image with the `fr-FR` locale and `fr-FR-Paul-Apollo` voice.     |
 | `1.3.0-amd64-he-il-asaf-preview`            | Container image with the `he-IL` locale and `he-IL-Asaf` voice.            |
 | `1.3.0-amd64-hi-in-hemant-preview`          | Container image with the `hi-IN` locale and `hi-IN-Hemant` voice.          |
-| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Container image with the `hi-IN` locale and `hi-IN-Kalpana-Apollo` voice.  |
-| `1.3.0-amd64-hi-in-kalpana-apollo-preview`  | Container image with the `hi-IN` locale and `hi-IN-Kalpana` voice.         |
+| `1.3.0-amd64-hi-in-kalpana-preview`         | Container image with the `hi-IN` locale and `hi-IN-Kalpana` voice.         |
 | `1.3.0-amd64-hi-in-kalpana-preview`         | Container image with the `hi-IN` locale and `hi-IN-Kalpana` voice.         |
 | `1.3.0-amd64-hr-hr-matej-preview`           | Container image with the `hr-HR` locale and `hr-HR-Matej` voice.           |
 | `1.3.0-amd64-hu-hu-szabolcs-preview`        | Container image with the `hu-HU` locale and `hu-HU-Szabolcs` voice.        |
@@ -530,7 +1034,7 @@ This container image has the following tags available:
 | `1.3.0-amd64-zh-tw-hanhanrus-preview`       | Container image with the `zh-TW` locale and `zh-TW-HanHanRUS` voice.       |
 | `1.3.0-amd64-zh-tw-yating-apollo-preview`   | Container image with the `zh-TW` locale and `zh-TW-Yating-Apollo` voice.   |
 | `1.3.0-amd64-zh-tw-zhiwei-apollo-preview`   | Container image with the `zh-TW` locale and `zh-TW-Zhiwei-Apollo` voice.   |
-| `1.2.0-amd64-de-de-heddarus-preview`        | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
+| `1.2.0-amd64-de-de-hedda-preview`           | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
 | `1.2.0-amd64-de-de-heddarus-preview`        | Container image with the `de-DE` locale and `de-DE-HeddaRUS` voice.        |
 | `1.2.0-amd64-de-de-stefan-apollo-preview`   | Container image with the `de-DE` locale and `de-DE-Stefan-Apollo` voice.   |
 | `1.2.0-amd64-en-au-catherine-preview`       | Container image with the `en-AU` locale and `en-AU-Catherine` voice.       |
@@ -568,7 +1072,6 @@ This container image has the following tags available:
 | `1.2.0-amd64-zh-cn-kangkang-apollo-preview` | Container image with the `zh-CN` locale and `zh-CN-Kangkang-Apollo` voice. |
 | `1.2.0-amd64-zh-cn-yaoyao-apollo-preview`   | Container image with the `zh-CN` locale and `zh-CN-Yaoyao-Apollo` voice.   |
 | `1.1.0-amd64-de-de-hedda-preview`           | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
-| `1.1.0-amd64-de-de-heddarus-preview`        | Container image with the `de-DE` locale and `de-DE-Hedda` voice.           |
 | `1.1.0-amd64-de-de-heddarus-preview`        | Container image with the `de-DE` locale and `de-DE-HeddaRUS` voice.        |
 | `1.1.0-amd64-de-de-stefan-apollo-preview`   | Container image with the `de-DE` locale and `de-DE-Stefan-Apollo` voice.   |
 | `1.1.0-amd64-en-au-catherine-preview`       | Container image with the `en-AU` locale and `en-AU-Catherine` voice.       |
@@ -613,6 +1116,32 @@ This container image has the following tags available:
 | `1.0.0-amd64-zh-cn-huihuirus-preview`       | Container image with the `zh-CN` locale and `zh-CN-HuihuiRUS` voice.       |
 | `1.0.0-amd64-zh-cn-kangkang-apollo-preview` | Container image with the `zh-CN` locale and `zh-CN-Kangkang-Apollo` voice. |
 | `1.0.0-amd64-zh-cn-yaoyao-apollo-preview`   | Container image with the `zh-CN` locale and `zh-CN-Yaoyao-Apollo` voice.   |
+
+## Neural Text-to-speech
+
+The [Neural Text-to-speech][sp-ntts] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-neural-text-to-speech`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech`.
+
+This container image has the following tags available:
+
+| Image Tags                                  | Notes                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                                    | Container image with the `en-US` locale and `en-US-AriaNeural` voice.      |
+| `1.2.0-amd64-de-de-katjaneural-preview`     | Container image with the `de-DE` locale and `de-DE-KatjaNeural` voice.     |
+| `1.2.0-amd64-en-au-natashaneural-preview`   | Container image with the `en-AU` locale and `en-AU-NatashaNeural` voice.   |
+| `1.2.0-amd64-en-ca-claraneural-preview`     | Container image with the `en-CA` locale and `en-CA-ClaraNeural` voice.     |
+| `1.2.0-amd64-en-gb-libbyneural-preview`     | Container image with the `en-GB` locale and `en-GB-LibbyNeural` voice.     |
+| `1.2.0-amd64-en-gb-mianeural-preview`       | Container image with the `en-GB` locale and `en-GB-MiaNeural` voice.       |
+| `1.2.0-amd64-en-us-arianeural-preview`      | Container image with the `en-US` locale and `en-US-AriaNeural` voice.      |
+| `1.2.0-amd64-en-us-guyneural-preview`       | Container image with the `en-US` locale and `en-US-GuyNeural` voice.       |
+| `1.2.0-amd64-es-es-elviraneural-preview`    | Container image with the `es-ES` locale and `es-ES-ElviraNeural` voice.    |
+| `1.2.0-amd64-es-mx-dalianeural-preview`     | Container image with the `es-MX` locale and `es-MX-DaliaNeural` voice.     |
+| `1.2.0-amd64-fr-ca-sylvieneural-preview`    | Container image with the `fr-CA` locale and `fr-CA-SylvieNeural` voice.    |
+| `1.2.0-amd64-fr-fr-deniseneural-preview`    | Container image with the `fr-FR` locale and `fr-FR-DeniseNeural` voice.    |
+| `1.2.0-amd64-it-it-elsaneural-preview`      | Container image with the `it-IT` locale and `it-IT-ElsaNeural` voice.      |
+| `1.2.0-amd64-ja-jp-nanamineural-preview`    | Container image with the `ja-JP` locale and `ja-JP-NanamiNeural` voice.    |
+| `1.2.0-amd64-ko-kr-sunhineural-preview`     | Container image with the `ko-KR` locale and `ko-KR-SunHiNeural` voice.     |
+| `1.2.0-amd64-pt-br-franciscaneural-preview` | Container image with the `pt-BR` locale and `pt-BR-FranciscaNeural` voice. |
+| `1.2.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Container image with the `zh-CN` locale and `zh-CN-XiaoxiaoNeural` voice.  |
 
 ## Key Phrase Extraction
 

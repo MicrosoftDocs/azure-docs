@@ -2,16 +2,15 @@
 title: PowerShell sample - Move Application Proxy apps to another group
 description: Azure Active Directory (Azure AD) Application Proxy PowerShell example used to move all applications currently assigned to a connector group to a different connector group.
 services: active-directory
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
 ---
 
 # Move all apps assigned to a connector group to another connector group

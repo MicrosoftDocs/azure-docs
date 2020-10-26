@@ -1,6 +1,6 @@
 ---
-title: What is Azure SQL Edge (Preview)? 
-description: Learn about Azure SQL Edge (Preview)
+title: What is Azure SQL Edge? 
+description: Learn about Azure SQL Edge
 keywords: introduction to SQL Edge,what is SQL Edge, SQL Edge overview
 services: sql-edge
 ms.service: sql-edge
@@ -11,20 +11,24 @@ ms.reviewer: sstein
 ms.date: 05/19/2020
 ---
 
-# What is Azure SQL Edge (Preview)?
+# What is Azure SQL Edge?
 
-Azure SQL Edge (Preview) is an optimized relational database engine geared for IoT and IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. Azure SQL Edge provides capabilities to stream, process, and analyze relational and non-relational such as JSON, graph and time-series data, which makes it the right choice for a variety of modern IoT applications.
+Azure SQL Edge is an optimized relational database engine geared for IoT and IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. Azure SQL Edge provides capabilities to stream, process, and analyze relational and non-relational such as JSON, graph and time-series data, which makes it the right choice for a variety of modern IoT applications.
 
-Azure SQL Edge is built on the latest versions of the [Microsoft SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json), which provides industry-leading performance, security and query processing capabilities. Since, Azure SQL Edge is built on the same engine as SQL Server and Azure SQL Database, it provides the same T-SQL programming surface area that makes development of applications or solutions easier and faster, and at the same time makes application portability between IoT Edge devices, data centers and the cloud straight forward.
+Azure SQL Edge is built on the latest versions of the [SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation), which provides industry-leading performance, security and query processing capabilities. Since Azure SQL Edge is built on the same engine as [SQL Server](/sql/sql-server/sql-server-technical-documentation) and [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), it provides the same Transact-SQL (T-SQL) programming surface area that makes development of applications or solutions easier and faster, and makes application portability between IoT Edge devices, data centers and the cloud straight forward.
 
-> [!NOTE]
-> Azure SQL Edge is currently in preview and as such should NOT be used in production environments.
+What is Azure SQL Edge video on Channel 9:
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/What-is-Azure-SQL-Edge/player]
 
 ## Deployment Models
 
-Azure SQL Edge is available on the Azure Marketplace and can be deployed as a module for [Azure IoT Edge](../iot-edge/about-iot-edge.md). For more information, see [Deploy Azure SQL Edge](deploy-portal.md).<br>
+Azure SQL Edge supports two deployment modes.
+
+- Connected deployment through Azure IoT Edge: Azure SQL Edge is available on the Azure Marketplace and can be deployed as a module for [Azure IoT Edge](../iot-edge/about-iot-edge.md). For more information, see [Deploy Azure SQL Edge](deploy-portal.md).<br>
 
 ![SQL Edge overview diagram](media/overview/overview.png)
+
+- Disconnected deployment: Azure SQL Edge container images can be pulled from docker hub and deployed either as a standalone docker container or on a kubernetes cluster. For more information, see [Deploy Azure SQL Edge with Docker](disconnected-deployment.md) and [Deploy an Azure SQL Edge container in Kubernetes](deploy-kubernetes.md).
 
 ## Editions of SQL Edge
 
@@ -33,11 +37,11 @@ SQL Edge is available with two different editions or software plans. These editi
    |**Plan**  |**Description**  |
    |---------|---------|
    |Azure SQL Edge Developer  |  Development only sku, each SQL Edge container is limited to upto 4 cores and 32 GB Memory  |
-   |Azure SQL Edge    |  Production sku,  each SQL Edge container is limited to upto 8 cores and 64 GB Memory . |
+   |Azure SQL Edge    |  Production sku,  each SQL Edge container is limited to upto 8 cores and 64 GB Memory. |
 
 ## Pricing and Availability
 
-Azure SQL Edge is currently in preview. For more information on the pricing and availability, see [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
+Azure SQL Edge is now generally available. For more information on the pricing and availability in specific regions, see [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
 
 > [!IMPORTANT]
 > To understand the feature differences between Azure SQL Edge and SQL Server, as well as the differences among different Azure SQL Edge options, see [Supported features of Azure SQL Edge](features.md).
@@ -62,7 +66,7 @@ Azure SQL Edge makes developing and maintaining applications easier and more pro
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) - A free, downloadable client application for managing any SQL infrastructure, from SQL Server to SQL Database.
 - [SQL Server Data Tools in Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt/) - A free, downloadable client application for developing SQL Server relational databases, SQL databases, Integration Services packages, Analysis Services data models, and Reporting Services reports.
 - [Azure Data Studio](/sql/azure-data-studio/what-is/) - A free, downloadable, cross platform database tool for data professional using the Microsoft family of on-premises and cloud data platforms on Windows, macOS, and Linux.
-- [Visual Studio Code](https://code.visualstudio.com/docs) - A free, downloadable, open-source code editor for Windows, macOS, and Linux. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and Azure SQL Data Warehouse.
+- [Visual Studio Code](https://code.visualstudio.com/docs) - A free, downloadable, open-source code editor for Windows, macOS, and Linux. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and Azure Synapse Analytics.
 
 
 ## Next steps

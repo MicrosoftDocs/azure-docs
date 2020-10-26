@@ -27,8 +27,22 @@
     href: roles.md
   - name: Advanced multistage attack detection
     href: fusion.md
+  - name: Bring your own machine learning platform
+    href: bring-your-own-ml.md
   - name: Extend Azure Sentinel across workspaces and tenants
     href: extend-sentinel-across-workspaces-tenants.md
+  - name: Identify advanced threats with UEBA
+    href: identify-threats-with-entity-behavior-analytics.md
+  - name: Import threat intelligence into Azure Sentinel
+    href: import-threat-intelligence.md
+  - name: Use external data with watchlists
+    href: watchlists.md
+  - name: Normalize your data across tables
+    href: normalization.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Connect data sources
@@ -40,7 +54,7 @@
         href: connect-aws.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
-      - name: Office 365
+      - name: Office 365 (now with Teams!)
         href: connect-office-365.md
       - name: Cloud App Security
         href: connect-cloud-app-security.md
@@ -50,18 +64,26 @@
         href: connect-azure-ad-identity-protection.md
       - name: Azure Information Protection
         href: connect-azure-information-protection.md
-      - name: Microsoft Defender ATP
+      - name: Microsoft 365 Defender
+        href: connect-microsoft-365-defender.md      
+      - name: Microsoft Defender for Endpoint (formerly MDATP)
         href: connect-microsoft-defender-advanced-threat-protection.md
-      - name: Azure ATP
+      - name: Microsoft Defender for Identity (formerly Azure ATP)
         href: connect-azure-atp.md
-      - name: Azure Security Center
+      - name: Microsoft Defender for Office 365 (formerly Office 365 ATP)
+        href: connect-office-365-advanced-threat-protection.md
+      - name: Azure DDoS Protection
+        href: connect-azure-ddos-protection.md
+      - name: Azure Firewall
+        href: connect-azure-firewall.md
+      - name: Azure Defender alerts from ASC
         href: connect-azure-security-center.md
-      - name: Azure Security Center for IoT
+      - name: Azure Defender (formerly ASC) for IoT
         href: connect-asc-iot.md
+      - name: Azure Web Application Firewall (WAF)
+        href: connect-azure-waf.md
       - name: Domain name server
         href: connect-dns.md
-      - name: Microsoft web application firewall
-        href: connect-microsoft-waf.md
       - name: Windows firewall
         href: connect-windows-firewall.md
       - name: Windows security events
@@ -110,6 +132,8 @@
         href: connect-vmware-carbon-black.md
       - name: Zimperium Mobile Threat Defense
         href: connect-zimperium-mtd.md
+      - name: Connect using Logstash
+        href: connect-logstash.md
       - name: CEF-based solutions
         href: connect-common-event-format.md
         items:  
@@ -148,7 +172,9 @@
       href: connect-threat-intelligence.md  
     - name: Connect Azure Stack VMs
       href: connect-azure-stack.md  
-  - name: Work with multiple tenants (MSSP)
+  - name: Enable User and Entity Behavior Analytics
+    href: enable-entity-behavior-analytics.md
+  - name: Manage multiple tenants (MSSP)
     href: multiple-tenants-service-providers.md
   - name: Work with incidents in multiple workspaces
     href: multiple-workspace-view.md
@@ -169,6 +195,12 @@
       href: livestream.md
   - name: Remove Azure Sentinel
     href: offboard.md
+- name: Reference (New!)
+  items:
+  - name: REST APIs
+    href: https://docs.microsoft.com/rest/api/securityinsights/
+  - name: Network normalization schema
+    href: normalization-schema.md
 - name: Resources
   items:
   - name: Useful resources
@@ -176,7 +208,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel
   - name: Azure Security, Privacy, & Compliance blog
-    href: https://blogs.msdn.com/b/azuresecurity/
+    href: https://docs.microsoft.com/archive/blogs/azuresecurity/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing

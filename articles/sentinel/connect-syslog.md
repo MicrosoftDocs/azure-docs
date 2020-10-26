@@ -82,6 +82,8 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 1. You can use the query parameters described in [Using functions in Azure Monitor log queries](../azure-monitor/log-query/functions.md) to parse your Syslog messages. You can then save the query as a new Log Analytics function and use it as a new data type.
 
 > [!NOTE]
+> **Using the same machine to forward both plain Syslog *and* CEF messages**
+>
 >
 > You can use your existing [CEF log forwarder machine](connect-cef-agent.md) to collect and forward logs from plain Syslog sources as well. However, you must perform the following steps to avoid sending events in both formats to Azure Sentinel, as that will result in duplication of events.
 >

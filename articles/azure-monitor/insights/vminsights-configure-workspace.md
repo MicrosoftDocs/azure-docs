@@ -36,8 +36,8 @@ You can create a new Log Analytics workspace using any of the following methods.
 
 * [Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
-* [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
+* [PowerShell](../platform/powershell-workspace-configuration.md)
+* [Azure Resource Manager](../samples/resource-manager-workspace.md)
 
 ## Supported regions
 

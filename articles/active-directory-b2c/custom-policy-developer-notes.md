@@ -62,7 +62,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Feature | Development | Preview | GA | Notes |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [OAuth2 authorization code](authorization-code-flow.md) |  |  | X |  |
-| OAuth2 authorization code with PKCE |  |  | X | Mobile applications only  |
+| OAuth2 authorization code with PKCE |  |  | X | [Public clients and single-page applications](authorization-code-flow.md)  |
 | [OAuth2 implicit flow](implicit-flow-single-page-application.md) |  |  | X |  |
 | [OAuth2 resource owner password credentials](ropc-custom.md) |  | X |  |  |
 | [OIDC Connect](openid-connect.md) |  |  | X |  |
@@ -108,10 +108,10 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| [2.0.0](page-layout.md#200) |  | X |  |  |
-| [1.2.0](page-layout.md#120) |  | X |  |  |
-| [1.1.0](page-layout.md#110) |  |  | X |  |
-| [1.0.0](page-layout.md#100) |  |  | X |  |
+| [2.0.0](page-layout.md) |  | X |  |  |
+| [1.2.0](page-layout.md) |  | X |  |  |
+| [1.1.0](page-layout.md) |  |  | X |  |
+| [1.0.0](page-layout.md) |  |  | X |  |
 | [JavaScript support](javascript-samples.md) |  | X |  |  |
 
 ### App-IEF integration

@@ -10,7 +10,7 @@ ms.devlang: python
 ms.topic: quickstart
 author: garyericson
 ms.author: garye
-ms.reviewer: davidph, carlrab
+ms.reviewer: davidph, sstein
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX

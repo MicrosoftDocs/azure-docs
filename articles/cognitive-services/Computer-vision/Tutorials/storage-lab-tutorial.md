@@ -9,14 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial 
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
+ms.custom: devx-track-csharp
 #Customer intent: As a developer of an image-intensive web app, I want to be able to automatically generate captions and search keywords for each of my images.
 ---
 
 # Tutorial: Use Computer Vision to generate image metadata in Azure Storage
 
-In this tutorial, you'll learn how to integrate the Azure Computer Vision service into a web app to generate metadata for uploaded images. This is useful for [digital asset management (DAM)](../Home.md#computer-vision-for-digital-asset-management) scenarios, such as if a company wants to quickly generate descriptive captions or searchable keywords for all of its images.
+In this tutorial, you'll learn how to integrate the Azure Computer Vision service into a web app to generate metadata for uploaded images. This is useful for [digital asset management (DAM)](../overview.md#computer-vision-for-digital-asset-management) scenarios, such as if a company wants to quickly generate descriptive captions or searchable keywords for all of its images.
 
 A full app guide can be found in the [Azure Storage and Cognitive Services Lab](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) on GitHub, and this tutorial essentially covers Exercise 5 of the lab. You may want to create the full application by following every step, but if you only want to learn how to integrate Computer Vision into an existing web app, read along here.
 
@@ -28,7 +29,7 @@ This tutorial shows you how to:
 > * Attach metadata to Azure Storage images
 > * Check image metadata using Azure Storage Explorer
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin. 
 
 ## Prerequisites
 
@@ -56,7 +57,7 @@ You'll need to create a Computer Vision resource for your Azure account; this re
 
 ## Add Computer Vision credentials
 
-Next, you'll add the required credentials to your app so that it can access Computer Vision resources
+Next, you'll add the required credentials to your app so that it can access Computer Vision resources.
 
 Open your ASP.NET web application in Visual Studio and navigate to the **Web.config** file at the root of the project. Add the following statements to the `<appSettings>` section of the file, replacing `VISION_KEY` with the key you copied in the previous step, and `VISION_ENDPOINT` with the URL you saved in the step before.
 

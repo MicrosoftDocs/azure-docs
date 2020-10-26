@@ -30,7 +30,7 @@ If you don't have an active Azure subscription, you can create a
 The template used in this quickstart is from
 [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-recovery-services-vault-create/).
 
-:::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json" range="1-66" highlight="41-65":::
+:::code language="json" source="~/quickstart-templates/101-recovery-services-vault-create/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 

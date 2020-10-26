@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with PowerShell"
 description: In this quickstart, you use Azure PowerShell to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 05/20/2020
+ms.date: 08/17/2020
 ms.topic: quickstart
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources using Azure PowerShell

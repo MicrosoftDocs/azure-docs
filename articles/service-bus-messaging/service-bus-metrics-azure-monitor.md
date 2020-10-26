@@ -2,14 +2,14 @@
 title: Azure Service Bus metrics in Azure Monitor| Microsoft Docs
 description: This article explains how to use Azure Monitor to monitor Service Bus entities (queues, topics, and subscriptions).
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 09/30/2020
 ---
 
 # Azure Service Bus metrics in Azure Monitor
 
 Service Bus metrics give you the state of resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your Service Bus resources, not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of Service Bus. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
 
-Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) and the [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) sample on GitHub.
+Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](../azure-monitor/overview.md) and the [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) sample on GitHub.
 
 > [!IMPORTANT]
 > When there has not been any interaction with an entity for 2 hours, the metrics will start showing "0" as a value until the entity is no longer idle.
@@ -88,7 +88,7 @@ The following two types of errors are classified as user errors:
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-|Active Connections|The number of active connections on a namespace as well as on an entity.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
+|Active Connections|The number of active connections on a namespace as well as on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
 |Connections Opened |The number of open connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
 |Connections Closed |The number of closed connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
 
@@ -142,7 +142,7 @@ Azure Service Bus supports the following dimensions for metrics in Azure Monitor
     2. Enter a **description** for the alert.
     3. Select **severity** for the alert. 
 
-        ![Alert details](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![Screenshot of the Create rule page. Define alert details is expanded and the fields for Alert rule name, Description, and Severity are highlighted.](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. On the **Create rule** page, expand **Define action group**, select **New action group**, and do the following actions on the **Add action group page**. 
     1. Enter a name for the action group.
     2. Enter a short name for the action group. 
@@ -156,7 +156,7 @@ Azure Service Bus supports the following dimensions for metrics in Azure Monitor
         2. Type the **email address**. 
         3. Select **OK**.
 
-            ![Alert details](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+            ![Screenshot of the Add action group page. An Action named "Send email" with the Action type Email/SMS/Push/Voice is being added to the group.](./media/service-bus-metrics-azure-monitor/add-action-group.png)
         4. On the **Add action group** page, select **OK**. 
 1. On the **Create rule** page, select **Create alert rule**. 
 
@@ -164,9 +164,7 @@ Azure Service Bus supports the following dimensions for metrics in Azure Monitor
 
 ## Next steps
 
-See the [Azure Monitor overview](../monitoring-and-diagnostics/monitoring-overview.md).
+See the [Azure Monitor overview](../azure-monitor/overview.md).
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png
-
-

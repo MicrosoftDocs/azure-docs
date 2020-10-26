@@ -43,9 +43,9 @@ To get started, you'll need:
 
 The Experian integration includes the following components:
 
-- Azure AD B2C – The authorization server, responsible for verifying the user’s credentials, also known as the identity provider
+- Azure AD B2C – The authorization server, responsible for verifying the user's credentials, also known as the identity provider
 
-- Experian – The Experian service takes inputs provided by the user and verifies the user’s identity
+- Experian – The Experian service takes inputs provided by the user and verifies the user's identity
 
 - Custom Rest API – This API implements the integration between Azure AD B2C and the Experian service.
 
@@ -72,7 +72,7 @@ The following architecture diagram shows the implementation.
 
 ### Part 1 - Deploy the API
 
-Deploy the provided API code to an Azure service. The code can be published from Visual Studio, following these [instructions](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) to an Azure service. The code can be published from Visual Studio, following these [instructions](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >You'll need the URL of the deployed service to configure Azure AD with the required settings.
@@ -112,11 +112,11 @@ Refer to this [document](https://docs.microsoft.com/azure/active-directory-b2c/s
 
 ### Part 5 - Replace the configuration values
 
-In the provided custom policies, find the following placeholders and replace with the corresponding values from your instance
+In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Experian/policy), find the following placeholders and replace with the corresponding values from your instance
 
 |                      Placeholder                       |                                   Replace with value                                 |                   Example                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |
-| {your_tenant_name}                                     | Your tenant short name                                                           | “yourtenant” from yourtenant.onmicrosoft.com |
+| {your_tenant_name}                                     | Your tenant short name                                                           | "yourtenant" from yourtenant.onmicrosoft.com |
 | {your_trustframeworkbase_policy}                       | Azure AD B2C name of your TrustFrameworkBase policy                  | B2C_1A_experian_TrustFrameworkBase           |
 | {your_tenant_IdentityExperienceFramework_appid}        | App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant      | 01234567-89ab-cdef-0123-456789abcdef         |
 | {your_tenant_ ProxyIdentityExperienceFramework _appid} | App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant | 01234567-89ab-cdef-0123-456789abcdef         |
@@ -124,7 +124,7 @@ In the provided custom policies, find the following placeholders and replace wit
 | {your_tenant_extensions_app_objectid}                  | Object ID of your tenant's storage application                                   | 01234567-89ab-cdef-0123-456789abcdef         |
 | {your_api_username_key_name}                           | Name of the username key you created [here](#part-4---create-api-policy-keys)             | B2C\_1A\_RestApiUsername                     |
 | {your_api_password_key_name}                           | Name of the password key you created [here](#part-4---create-api-policy-keys)             | B2C\_1A\_RestApiPassword                     |
-| {your_app_service_URL}                                 | URL of the app service you've set up                                             | <https://yourapp.azurewebsites.net>          |
+| {your_app_service_URL}                                 | URL of the app service you've set up                                             | `https://yourapp.azurewebsites.net`          |
 
 ### Part 6 - Configure the Azure AD B2C policy
 

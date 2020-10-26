@@ -10,10 +10,11 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/03/2020
+ms.date: 09/01/2020
 ---
 
 # Copy data from an SAP table by using Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the copy activity in Azure Data Factory to copy data from an SAP table. For more information, see [Copy activity overview](copy-activity-overview.md).
@@ -43,6 +44,12 @@ Specifically, this SAP table connector supports:
 - Copying data by using basic authentication or Secure Network Communications (SNC), if SNC is configured.
 - Connecting to an SAP application server or SAP message server.
 - Retrieving data via default or custom RFC.
+
+The version 7.01 or later refers to SAP NetWeaver version instead of SAP ECC version. For example, SAP ECC 6.0 EHP 7 in general has NetWeaver version >=7.4. In case you are unsure about your environment, here are the steps to confirm the version from your SAP system:
+1.	Use SAP GUI to connect to the SAP System. 
+2.	Go to **System** -> **Status**. 
+3.	Check the release of the SAP_BASIS, ensure it is equal to or larger than 701.  
+      ![Check SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
 ## Prerequisites
 

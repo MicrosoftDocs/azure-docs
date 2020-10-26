@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: elastic-pools
 ms.custom: seo-lt-2019 sqldbrb=1 references_regions
 ms.devlang:
-ms.topic: conceptual
+ms.topic: reference
 author: sachinpMSFT
 ms.author: sachinp
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/28/2020
 ---
 # Resources limits for elastic pools using the DTU purchasing model
@@ -17,7 +17,7 @@ ms.date: 07/28/2020
 
 This article provides the detailed resource limits for databases in Azure SQL Database that are within an elastic pool using the DTU purchasing model.
 
-* For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits - Azure SQL Database](resource-limits-vcore-elastic-pools.md).
+* For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits - Azure SQL Database](resource-limits-dtu-single-databases.md).
 * For vCore resource limits, see [vCore resource limits - Azure SQL Database](resource-limits-vcore-single-databases.md) and [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
 
 ## Elastic pool: Storage sizes and compute sizes

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/17/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
@@ -84,6 +84,9 @@ The on-premises Azure AD Password Protection components work as follows:
 Deployment of Azure AD Password Protection in an AD DS forest requires registration of that forest with Azure AD. Each proxy service that's deployed must also be registered with Azure AD. These forest and proxy registrations are associated with a specific Azure AD tenant, which is identified implicitly by the credentials that are used during registration.
 
 The AD DS forest and all deployed proxy services within a forest must be registered with the same tenant. It's not supported to have an AD DS forest or any proxy services in that forest being registered to different Azure AD tenants. Symptoms of such a mis-configured deployment include the inability to download password policies.
+
+> [!NOTE]
+> Customers that have multiple Azure AD tenants must therefore choose one distinguished tenant to register each forest for Azure AD Password Protection purposes.
 
 ## Download
 

@@ -9,25 +9,28 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.custom: seodec18
+ms.date: 09/29/2020
+ms.custom: "seodec18, devx-track-csharp"
 ---
 
-# Manage reference data for an Azure Time Series Insights Gen 1 environment using C#
+# Manage reference data for an Azure Time Series Insights Gen 1 environment using C Sharp
 
-This article demonstrates how to combine C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet), and Azure Active Directory to make programmatic API requests to the Azure Time Series Insights Gen 1 [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
+> [!CAUTION]
+> This is a Gen1 article.
+
+This article demonstrates how to combine C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet), and Azure Active Directory to make programmatic API requests to the Azure Time Series Insights Gen 1 [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api).
 
 > [!TIP]
-> View GA C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> View GA C# code samples at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample).
 
 ## Summary
 
 The sample code below demonstrates the following features:
 
 * Acquiring an access token using [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
-* Sequential CREATE, READ, UPDATE, and DELETE operations against the Gen 1 [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
-* Common response codes including [common error codes](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
-    
+* Sequential CREATE, READ, UPDATE, and DELETE operations against the Gen 1 [Reference Data Management API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api).
+* Common response codes including [common error codes](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling).
+
     The Reference Data Management API processes each item individually and an error with one item does not prevent the others from successfully completing. For example, if your request has 100 items and one item has an error, then 99 items are written and one is rejected.
 
 ## Prerequisites and setup
@@ -41,7 +44,7 @@ Complete the following steps before you compile and run the sample code:
 
    | Key name | Type |
    | --- | --- |
-   | uuid | String | 
+   | uuid | String |
 
 1. Configure your Azure Time Series Insights environment for Azure Active Directory as described in [Authentication and authorization](time-series-insights-authentication-and-authorization.md). Use `http://localhost:8080/` as the **Redirect URI**.
 
@@ -49,7 +52,7 @@ Complete the following steps before you compile and run the sample code:
 
 1. Edit the sample code below by replacing each **#PLACEHOLDER#** with the appropriate environment identifier.
 
-1. Run `dotnet run` within the root directory of your project. When prompted, use your user profile to sign in to Azure. 
+1. Run `dotnet run` within the root directory of your project. When prompted, use your user profile to sign in to Azure.
 
 ## Project dependencies
 
@@ -87,6 +90,7 @@ Or:
       </ItemGroup>
     </Project>
     ```
+
 1. Then run `dotnet restore`.
 
 ## C# sample code
@@ -109,7 +113,7 @@ namespace CsharpTsiMsalGaSample
     {
         /**
          * Review the product documentation for detailed configuration steps or skip ahead and configure your environment settings.
-         * 
+         *
          * https://docs.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization
          */
 
@@ -133,7 +137,7 @@ namespace CsharpTsiMsalGaSample
 
             /**
              * MSAL.NET configuration. Review the product documentation for more information about MSAL.NET authentication options.
-             * 
+             *
              * https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/
              */
 
@@ -169,7 +173,7 @@ namespace CsharpTsiMsalGaSample
                 Path = $"referencedatasets/{EnvironmentReferenceDataSetName}/$batch",
                 Query = "api-version=2016-12-12"
              }.Uri;
-                
+
              Console.WriteLine("Making HTTP POST to URI: {0}", uri);
              Console.WriteLine("");
 
@@ -197,7 +201,7 @@ namespace CsharpTsiMsalGaSample
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
 
-            {   
+            {
                 // CREATE reference data
                 Console.WriteLine("CREATE reference data example...");
                 Console.WriteLine("");
@@ -304,4 +308,4 @@ namespace CsharpTsiMsalGaSample
 
 ## Next steps
 
-- Read the Gen 1 [Reference Data  Management API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) reference documentation.
+* Read the Gen 1 [Reference Data  Management API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) reference documentation.

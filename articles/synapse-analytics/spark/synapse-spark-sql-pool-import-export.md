@@ -24,9 +24,9 @@ The Azure Synapse Apache Spark pool to Synapse SQL connector is a data source im
 
 ## Authentication in Azure Synapse Analytics
 
-Authentication between systems is made seamless in Azure Synapse Analytics. There is a Token Service that connects with Azure Active Directory to obtain security tokens for use when accessing the storage account or the data warehouse server.
+Authentication between systems is made seamless in Azure Synapse Analytics. The Token Service connects with Azure Active Directory to obtain security tokens for use when accessing the storage account or the data warehouse server.
 
-For this reason, there is no need to create credentials or specify them in the connector API as long as AAD-Auth is configured at the storage account and the data warehouse server. If not, SQL Auth can be specified. Find more details in the [Usage](#usage) section.
+For this reason, there's no need to create credentials or specify them in the connector API as long as AAD-Auth is configured at the storage account and the data warehouse server. If not, SQL Auth can be specified. Find more details in the [Usage](#usage) section.
 
 ## Constraints
 
@@ -59,7 +59,7 @@ EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 
 ## Usage
 
-The import statements are not required, they are pre-imported for the notebook experience.
+The import statements aren't required, they're pre-imported for the notebook experience.
 
 ### Transfer data to or from a SQL pool attached with the workspace
 
@@ -85,14 +85,14 @@ The above API will work for both Internal (Managed) as well as External Tables i
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-The write API creates the table in SQL pool and then invokes Polybase to load the data.  The table must not exist in SQL pool or and error will be returned stating that "There is already and object named.."
+The write API creates the table in SQL pool and then invokes Polybase to load the data.  The table must not exist in SQL pool or and error will be returned stating that "There is already an object named..."
 
 TableType values
 
 - Constants.INTERNAL - Managed table in SQL pool
 - Constants.EXTERNAL - External table in SQL pool
 
-SQL pool managed table
+SQL pool-managed table
 
 ```scala
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
@@ -100,7 +100,7 @@ df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 SQL pool external table
 
-To write to a SQL pool external table, an EXTERNAL DATA SOURCE and an EXTERNAL FILE FORMAT must exist on the SQL pool.  For more information, read [creating an external data source](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) and [external file formats](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) in SQL pool.  Below are examples for creating an external data source and external file formats in SQL pool.
+To write to a SQL pool external table, an EXTERNAL DATA SOURCE and an EXTERNAL FILE FORMAT must exist on the SQL pool.  For more information, read [creating an external data source](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) and [external file formats](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) in SQL pool.  Below are examples for creating an external data source and external file formats in SQL pool.
 
 ```sql
 --For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:
@@ -197,7 +197,7 @@ Run a Scala cell in the PySpark notebook using magics:
 %%spark
 val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 
-pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
+scala_df.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
 ```
 
 Similarly, in the read scenario, read the data using Scala and write it into a temp table, and use Spark SQL in PySpark to query the temp table into a dataframe.

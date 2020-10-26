@@ -60,14 +60,39 @@ landingContent:
             url: security-recommendations.md
           - text: Security baseline
             url: security-baseline.md
+      - linkListType: how-to-guide
+        links:
+          - text: Authenticate to Key Vault
+            url: authentication.md
+          - text: Assign access policy (CLI)
+            url: assign-access-policy-CLI.md
+          - text: Assign access policy (PowerShell)
+            url: assign-access-policy-powershell.md
+          - text: Assign access policy (Portal)
+            url: assign-access-policy-portal.md
       - linkListType: tutorial
         links:
           - text: Use private link
             url: private-link-service.md
-          - text: Use a managed identity
-            url: managed-identity.md
-          - text: Use an access policy
-            url: group-permissions-for-apps.md
+  # Card
+  - title: Client libraries
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Client libraries for Azure Key Vault
+            url: client-libraries.md
+          - text: .NET Client library
+            url: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+          - text: Python Client library
+            url: /python/api/overview/azure/key-vault-index?view=azure-python
+          - text: Java Client library
+            url: https://azure.github.io/azure-sdk-for-java/keyvault.html
+          - text: Node.js Client library
+            url: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+
+
+
+
 
   # Card
   - title: Microsoft Learn

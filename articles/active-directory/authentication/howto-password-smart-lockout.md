@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 
@@ -21,7 +21,7 @@ Smart lockout helps lock out bad actors that try to guess your users' passwords 
 
 ## How smart lockout works
 
-By default, smart lockout locks the account from sign-in attempts for one minute after 10 failed attempts. The account locks again after each subsequent failed sign-in attempt, for one minute at first and longer in subsequent attempts.
+By default, smart lockout locks the account from sign-in attempts for one minute after 10 failed attempts. The account locks again after each subsequent failed sign-in attempt, for one minute at first and longer in subsequent attempts. To minimize the ways an attacker could work around this behavior, we don't disclose the rate at which the lockout period grows over additional unsuccessful sign-in attempts.
 
 Smart lockout tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior won't cause the account to lock out.
 

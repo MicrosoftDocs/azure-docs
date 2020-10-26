@@ -405,7 +405,7 @@ To add the logic to your logic app design, select **Code view**:
     * Select the **Dwell Time 1** field, and then select **See more** next to **Parse Telemetry**. Then select **DwellTime1**.
     * Select the **Dwell Time 2** field, and then select **See more** next to **Parse Telemetry**. Then select **DwellTime2**.
     * Select **Save** to save your changes. The **Dwell Time interface** action looks like the following screenshot:
-    ![Occupancy action](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    ![Screenshot that shows the "Dwell Time interface" action.](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
 1. Select the **People Count interface** action, and select **Add an action**.
 1. In **Search connectors and actions**, enter **Power BI**, and then press **Enter**.
 1. Select the **Add rows to a dataset (preview)** action.
@@ -481,7 +481,7 @@ Add four card tiles to show the queue length and dwell time for the two checkout
 
 Resize and rearrange the tiles on your dashboard to look like the following screenshot:
 
-![Power BI dashboard](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
+![Screenshot that shows the Power B I dashboard with resized and rearranged tiles.](./media/tutorial-in-store-analytics-visualize-insights/pbi-dashboard.png)
 
 You could add some addition graphics resources to further customize the dashboard:
 

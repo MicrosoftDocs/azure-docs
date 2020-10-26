@@ -8,6 +8,7 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 06/05/2020
 ms.reviewer: sngun
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Query Azure Cosmos DB by using the Table API

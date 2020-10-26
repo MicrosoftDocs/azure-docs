@@ -10,8 +10,8 @@ metadata:
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: landing-page
-  author: iainfoulds
-  ms.author: iainfou
+  author: MicrosoftGuyJFlo
+  ms.author: joflore
   ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
 
@@ -88,7 +88,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Configure the banned password list
-            url: howto-password-ban-bad-configure.md
+            url: ./tutorial-configure-custom-password-protection.md
       - linkListType: how-to-guide
         links:
           - text: Deploy Azure AD password protection

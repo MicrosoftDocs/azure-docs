@@ -57,7 +57,7 @@ To create an Apache Kafka cluster on HDInsight, use the following steps:
 
     Each Azure region (location) provides _fault domains_. A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. The virtual machines and managed disks that implement the nodes within an HDInsight cluster are distributed across these fault domains. This architecture limits the potential impact of physical hardware failures.
 
-    For high availability of data, select a region (location) that contains __three fault domains__. For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
+    For high availability of data, select a region (location) that contains __three fault domains__. For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
 
     Select the **Next: Storage >>** tab to advance to the storage settings.
 
@@ -84,7 +84,7 @@ To create an Apache Kafka cluster on HDInsight, use the following steps:
 
 1. To guarantee availability of Apache Kafka on HDInsight, the __number of nodes__ entry for **Worker node** must be set to 3 or greater. The default value is 4.
 
-    The **Standard disks per worker node** entry configures the scalability of Apache Kafka on HDInsight. Apache Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Apache Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). The type of disk depends on the VM size used by the worker nodes (Apache Kafka brokers). Premium disks are used automatically with DS and GS series VMs. All other VM types use standard.
+    The **Standard disks per worker node** entry configures the scalability of Apache Kafka on HDInsight. Apache Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Apache Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/managed-disks-overview.md) are used to provide high throughput and more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). The type of disk depends on the VM size used by the worker nodes (Apache Kafka brokers). Premium disks are used automatically with DS and GS series VMs. All other VM types use standard.
 
    ![Set the Apache Kafka cluster size](./media/apache-kafka-get-started/azure-portal-cluster-configuration-pricing-kafka.png)
 
@@ -214,7 +214,7 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
         
         * In regions with three fault domains, a replication factor of 3 allows replicas to be spread across the fault domains. In regions with two fault domains, a replication factor of four spreads the replicas evenly across the domains.
         
-        * For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
+        * For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
 
         * Apache Kafka is not aware of Azure fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability.
 

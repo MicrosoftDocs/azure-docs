@@ -2,7 +2,7 @@
 title: Enable Azure DS Domain Services using a template | Microsoft Docs
 description: Learn how to configure and enable Azure Active Directory Domain Services using an Azure Resource Manager template
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
-ms.author: iainfou
+ms.author: joflore
 
 ---
 # Create an Azure Active Directory Domain Services managed domain using an Azure Resource Manager template
@@ -354,6 +354,6 @@ To see the managed domain in action, you can [domain-join a Windows VM][windows-
 [Register-AzResourceProvider]: /powershell/module/Az.Resources/Register-AzResourceProvider
 [New-AzResourceGroup]: /powershell/module/Az.Resources/New-AzResourceGroup
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
-[cloud-shell]: /azure/cloud-shell/cloud-shell-windows-users
+[cloud-shell]: ../cloud-shell/cloud-shell-windows-users.md
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain
 [New-AzResourceGroupDeployment]: /powershell/module/Az.Resources/New-AzResourceGroupDeployment

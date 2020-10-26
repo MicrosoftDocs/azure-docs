@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: cpp
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer:

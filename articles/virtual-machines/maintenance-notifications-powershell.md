@@ -24,6 +24,18 @@ Maintenance information is returned only if there is maintenance planned. If no 
 Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
 ```
 
+Output
+
+```
+MaintenanceRedeployStatus               : 
+  IsCustomerInitiatedMaintenanceAllowed : True
+  PreMaintenanceWindowStartTime         : 5/14/2018 12:30:00 PM
+  PreMaintenanceWindowEndTime           : 5/19/2018 12:30:00 PM
+  MaintenanceWindowStartTime            : 5/21/2018 4:30:00 PM
+  MaintenanceWindowEndTime              : 6/4/2018 4:30
+  LastOperationResultCode               : None 
+```
+
 The following properties are returned under MaintenanceRedeployStatus: 
 
 | Value	| Description	|

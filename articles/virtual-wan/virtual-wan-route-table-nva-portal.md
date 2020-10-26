@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
 ---

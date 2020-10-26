@@ -324,7 +324,7 @@ Consider the following.
 
 ```json
 Author documents:
-{"id": "a1", "name": "Thomas Andersen", "books": ["b1, "b2", "b3"]}
+{"id": "a1", "name": "Thomas Andersen", "books": ["b1", "b2", "b3"]}
 {"id": "a2", "name": "William Wakefield", "books": ["b1", "b4"]}
 
 Book documents:
@@ -435,7 +435,7 @@ Just as there is no single way to represent a piece of data on a screen, there i
 
 To learn more about Azure Cosmos DB, refer to the service's [documentation](https://azure.microsoft.com/documentation/services/cosmos-db/) page.
 
-To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](sql-api-partition-data.md).
+To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](partitioning-overview.md).
 
 To learn how to model and partition data on Azure Cosmos DB using a real-world example, refer to [
 Data Modeling and Partitioning - a Real-World Example](how-to-model-partition-example.md).

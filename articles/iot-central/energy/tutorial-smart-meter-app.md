@@ -99,8 +99,12 @@ If you decide to not continue using this application, delete your application wi
     > [!div class="mx-imgBorder"]
     > ![Delete application](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png)
 
-
 ## Next steps
-* Learn about smart meter app architecture refer to [the concept article](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
-* Create smart meter application templates for free: [smart meter app](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/)
+
+Learn about smart meter app architecture refer to 
+> [!div class="nextstepaction"]
+> [the concept article](./concept-iot-central-smart-meter-app.md)
+* Create smart meter application templates for free: 
+[smart meter app](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
+* Learn more about IoT Central, see 
+[IoT Central overview](../index.yml)

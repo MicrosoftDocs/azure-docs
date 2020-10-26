@@ -3,7 +3,7 @@ title: "Quickstart: QnA Maker client library for Node.js"
 description: This quickstart shows how to get started with the QnA Maker client library for Node.js.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 Use the QnA Maker client library for Node.js to:
 
@@ -22,7 +22,7 @@ Use the QnA Maker client library for Node.js to:
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org).
 * Once you have your Azure subscription, create a [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) in the Azure portal to get your authoring key and resource. After it deploys, select **Go to resource**.
     * You will need the key and resource name from the resource you create to connect your application to the QnA Maker API. You'll paste your key and resource name into the code below later in the quickstart.

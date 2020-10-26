@@ -10,7 +10,7 @@ ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Create an Azure Database for MariaDB server by using the Azure CLI
+# Quickstart: Create an Azure Database for MariaDB server by using the Azure CLI
 
 You can use the Azure CLI to create and manage Azure resources from the command line or in scripts. This quickstart describes how to use the Azure CLI to create an Azure Database for MariaDB server in an Azure resource group in about five minutes.
 
@@ -28,7 +28,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 ## Create a resource group
 
-Create an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) by using the [az group create](/cli/azure/group#az-group-create) command. A resource group is a logical container in which Azure resources are deployed and managed as a group.
+Create an [Azure resource group](../azure-resource-manager/management/overview.md) by using the [az group create](/cli/azure/group#az-group-create) command. A resource group is a logical container in which Azure resources are deployed and managed as a group.
 
 The following example creates a resource group named `myresourcegroup` in the `westus` location:
 
@@ -235,4 +235,4 @@ az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Design a MariaDB Database with Azure CLI](./tutorial-design-database-cli.md)
+> [Design a MariaDB Database with Azure CLI](tutorial-design-database-cli.md)

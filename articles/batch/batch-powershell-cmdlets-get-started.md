@@ -3,7 +3,7 @@ title: Get started with PowerShell
 description: A quick introduction to the Azure PowerShell cmdlets you can use to manage Batch resources.
 ms.topic: how-to
 ms.date: 01/15/2019
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 ---
 
 # Manage Batch resources with PowerShell cmdlets

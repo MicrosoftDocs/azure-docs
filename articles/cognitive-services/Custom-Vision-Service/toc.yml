@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: What is Custom Vision?
-    href: home.md
+    href: overview.md
   - name: What's new
     href: whats-new.md
 - name: Quickstarts
@@ -39,6 +39,8 @@
     href: use-prediction-api.md
   - name: Use Smart Labeler
     href: suggested-tags.md
+  - name: Azure role-based access control
+    href: role-based-access-control.md
   - name: Export models
     items:
     - name: Export your model to mobile
@@ -47,7 +49,11 @@
       href: custom-vision-onnx-windows-ml.md
     - name: Run TensorFlow model in Python
       href: export-model-python.md
-  - name: Export or delete account data
+  - name: Integrate storage notifications
+    href: storage-integration.md
+  - name: Copy and move projects
+    href: copy-move-projects.md
+  - name: View or delete account data
     href: ./export-delete-data.md
   - name: Update your app to the 3.0 API
     href: ./update-application-to-3.0-sdk.md
@@ -75,6 +81,8 @@
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction
 - name: Resources
   items:
+  - name: Support & help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context
   - name: Samples
     href: https://docs.microsoft.com/samples/browse/?products=azure&term=vision
   - name: Limits and quotas

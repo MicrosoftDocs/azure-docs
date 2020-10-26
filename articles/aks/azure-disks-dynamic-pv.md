@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure disks in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 09/21/2020
 
 
 #Customer intent: As a developer, I want to learn how to dynamically create and attach storage to pods in AKS.
@@ -15,7 +15,7 @@ ms.date: 07/10/2020
 A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This article shows you how to dynamically create persistent volumes with Azure disks for use by a single pod in an Azure Kubernetes Service (AKS) cluster.
 
 > [!NOTE]
-> An Azure disk can only be mounted with *Access mode* type *ReadWriteOnce*, which makes it available to only a single pod in AKS. If you need to share a persistent volume across multiple pods, use [Azure Files][azure-files-pvc].
+> An Azure disk can only be mounted with *Access mode* type *ReadWriteOnce*, which makes it available to one node in AKS. If you need to share a persistent volume across multiple nodes, use [Azure Files][azure-files-pvc].
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
@@ -38,7 +38,7 @@ Each AKS cluster includes four pre-created storage classes, two of them configur
     
 If you use one of the default storage classes, you can't update the volume size after the storage class is created. To be able to update the volume size after a storage class is created, add the line `allowVolumeExpansion: true` to one of the default storage classes, or you can create you own custom storage class. Note that it's not supported to reduce the size of a PVC (to prevent data loss). You can edit an existing storage class by using the `kubectl edit sc` command. 
 
-For example, if you want to use a disk of size 4 TiB, you must create a storage class that defines `cachingmode: None` because [disk caching isn't supported for disks 4 TiB and larger](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
+For example, if you want to use a disk of size 4 TiB, you must create a storage class that defines `cachingmode: None` because [disk caching isn't supported for disks 4 TiB and larger](../virtual-machines/premium-storage-performance.md#disk-caching).
 
 For more information about storage classes and creating your own storage class, see [Storage options for applications in AKS][storage-class-concepts].
 
@@ -274,7 +274,7 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/windows/disks-types.md
+[premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az-disk-list
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create

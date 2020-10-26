@@ -1,20 +1,17 @@
 ---
-title: Azure AD Application Proxy frequently asked questions | Microsoft Docs
+title: Azure Active Directory Application Proxy frequently asked questions
 description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid:
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
+ms.custom: contperfq2
 ---
 
 # Active Directory (Azure AD) Application Proxy frequently asked questions
@@ -26,6 +23,9 @@ This page answers frequently asked questions about Azure Active Directory (Azure
 ### What license is required to use Azure AD Application Proxy?
 
 To use Azure AD Application Proxy, you must have an Azure AD Premium P1 or P2 license. For more information about licensing, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
+
+### What happens to Azure AD Application Proxy in my tenant, if my license expires?
+If your license expires, Application Proxy will automatically be disabled. Your application information will be saved for up to one year.
 
 ### Why is the "Enable Application Proxy button grayed out?
 
@@ -39,6 +39,10 @@ No, this scenario isn't supported. The default settings are:
 
 - Microsoft AAD Application Proxy Connector - WAPCSvc - Network Service
 - Microsoft AAD Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
+
+### Can a guest user with the Global Administrator or the Application Administrator role register the connector for the (guest) tenant?
+
+No, currently, this isn't possible. The registration attempt is always made on the user's home tenant.
 
 ### My back-end application is hosted on multiple web servers and requires user session persistence (stickiness). How can I achieve session persistence? 
 
@@ -76,8 +80,16 @@ Application Proxy requires Windows Server 2012 R2 or later. There is currently a
 	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
 	```
 
-
 ## Application configuration
+
+### I am receiving an error about an invalid certificate or possible wrong password
+
+After you uploaded the SSL certificate, you receive the message "Invalid certificate, possible wrong password" on the portal.
+
+Here are some tips for troubleshooting this error:
+- Check for problems with the certificate. Install it on your local computer. If you don't experience any issues then the certificate is good.
+- Ensure that the password does not contain any special characters. For testing, the password should only contain the characters 0-9, A-Z, and a-z.
+- If the certificate was created with Microsoft Software Key Storage Provider, the RSA algorithm must be used.
 
 ### What is the length of the default and "long" back-end timeout? Can the timeout be extended?
 
@@ -107,6 +119,12 @@ For more information, see the whitepaper [Understanding Kerberos Constrained Del
 ### Does NTLM authentication work with Azure AD Application Proxy?
 
 NTLM authentication can’t be used as a pre-authentication or single sign-on method. NTLM authentication can be used only when it can be negotiated directly between the client and the published web application. Using NTLM authentication usually causes a sign-in prompt to appear in the browser.
+
+### Can I use the logon identity “On-premises user principal name” or “On-premises SAM account name” in a B2B IWA single sign-on scenario?
+
+No, this won’t work, because a guest user in Azure AD doesn't have the attribute that is required by any of the logon identities mentioned above.
+
+In this case there will be a fallback to “User principal name”. For more details on the B2B scenario please read [Grant B2B users in Azure AD access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).
 
 ## Pass-through authentication
 
@@ -181,5 +199,5 @@ This scenario isn't supported directly. Your options for this scenario are:
 1. Publish both the HTTP and HTTPS URLs as separate applications with a wildcard, but give each of them a different custom domain. This configuration will work since they have different external URLS.
 
 2. Publish the HTTPS URL through a wildcard application. Publish the HTTP applications separately using these Application Proxy PowerShell cmdlets:
-   - [Application Proxy Application Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
-   - [Application Proxy Connector Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)
+   - [Application Proxy Application Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
+   - [Application Proxy Connector Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)

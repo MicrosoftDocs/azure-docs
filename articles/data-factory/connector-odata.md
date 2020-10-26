@@ -6,13 +6,10 @@ documentationcenter: ''
 author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-
-
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 10/14/2020
 ms.author: jingwang
 
 ---
@@ -57,7 +54,8 @@ The following properties are supported for an OData linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **OData**. |Yes |
 | url | The root URL of the OData service. |Yes |
-| authenticationType | The type of authentication used to connect to the OData source. Allowed values are **Anonymous**, **Basic**, **Windows**, and **AadServicePrincipal**. User-based OAuth isn't supported. | Yes |
+| authenticationType | The type of authentication used to connect to the OData source. Allowed values are **Anonymous**, **Basic**, **Windows**, and **AadServicePrincipal**. User-based OAuth isn't supported. You can additionally configure authentication headers in `authHeader` property.| Yes |
+| authHeaders | Additional HTTP request headers for authentication.<br/> For example, to use API key authentication, you can select authentication type as “Anonymous” and specify API key in the header. | No |
 | userName | Specify **userName** if you use Basic or Windows authentication. | No |
 | password | Specify **password** for the user account you specified for **userName**. Mark this field as a **SecureString** type to store it securely in Data Factory. You also can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | servicePrincipalId | Specify the Azure Active Directory application's client ID. | No |
@@ -67,6 +65,7 @@ The following properties are supported for an OData linked service:
 | servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).  | No|
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | No |
 | aadResourceId | Specify the AAD resource you are requesting for authorization.| No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your AAD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
 **Example 1: Using Anonymous authentication**
@@ -190,6 +189,31 @@ The following properties are supported for an OData linked service:
     "connectVia": {
         "referenceName": "<name of Integration Runtime>",
         "type": "IntegrationRuntimeReference"
+    }
+}
+```
+
+**Example 6: Using API key authentication**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of OData source>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "APIKey": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
     }
 }
 ```

@@ -62,7 +62,7 @@ To learn more about related Azure AD Connect GDPR requirements, see [this articl
 
 ### Delete Authentication Agent event logs
 
-This product may also create **Windows Event Logs**. To learn more, please read [this article](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx).
+This product may also create **Windows Event Logs**. To learn more, please read [this article](/windows/win32/wes/windows-event-log).
 
 To view logs related to the Pass-through Authentication Agent, open the **Event Viewer** application on the server and check under **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
@@ -98,7 +98,7 @@ To schedule this script to run every 48 hours follow these steps:
  
 ### Note about Domain controller logs
 
-If audit logging is enabled, this product may generate security logs for your Domain Controllers. To learn more about configuring audit policies, read this [article](https://technet.microsoft.com/library/dd277403.aspx).
+If audit logging is enabled, this product may generate security logs for your Domain Controllers. To learn more about configuring audit policies, read this [article](/previous-versions/tn-archive/dd277403(v=technet.10)).
 
 ## Next steps
 * [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)

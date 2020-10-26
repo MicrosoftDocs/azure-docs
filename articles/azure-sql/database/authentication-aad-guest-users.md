@@ -4,7 +4,7 @@ description: How to create Azure AD guest users and set them as Azure AD admin w
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse
-ms.topic: conceptual
+ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
@@ -129,9 +129,9 @@ Follow these steps to set an Azure AD guest user as the Azure AD admin for the S
 
 ## Limitations
 
-There is a limitation on the Azure portal that prevents selecting an Azure AD guest user as the Azure AD admin for SQL Database, SQL Managed Instance, and Azure Synapse. For guest accounts outside of your Azure AD like *\@outlook.com*, *\@hotmail.com*, *\@live.com*, or *\@gmail.com*, the AD admin selector shows these accounts, but they are grayed out and cannot be selected. Use the above listed [PowerShell or CLI commands](#setting-a-guest-user-as-an-azure-ad-admin) to set the Azure AD admin. Alternatively, an Azure AD group containing the guest user can be set as the Azure AD admin for the SQL logical server.
+There is a limitation on the Azure portal that prevents selecting an Azure AD guest user as the Azure AD admin for SQL Managed Instance. For guest accounts outside of your Azure AD like *\@outlook.com*, *\@hotmail.com*, *\@live.com*, or *\@gmail.com*, the AD admin selector shows these accounts, but they are grayed out and cannot be selected. Use the above listed [PowerShell or CLI commands](#setting-a-guest-user-as-an-azure-ad-admin) to set the Azure AD admin. Alternatively, an Azure AD group containing the guest user can be set as the Azure AD admin for the SQL Managed Instance.
 
-This functionality will be enabled for SQL Database and Azure Synapse prior to General Availability of this feature.
+This functionality will be enabled for SQL Managed Instance prior to General Availability of this feature.
 
 ## Next steps
 

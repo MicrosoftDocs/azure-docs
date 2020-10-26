@@ -190,4 +190,4 @@ In this tutorial, you configured and viewed performance of your VM. You learned 
 Advance to the next tutorial to learn about Azure Security Center.
 
 > [!div class="nextstepaction"]
-> [Manage VM security](../../security/fundamentals/overview.md)
+> [Manage VM security](tutorial-azure-security.md)

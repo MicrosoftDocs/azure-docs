@@ -11,12 +11,14 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 5/28/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: references_regions
 ---
 
 # Clouds and regions in which Azure Media Services v3 exists
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services v3 is available via Azure Resource Manager manifest in global Azure, Azure Government, Azure Germany, Azure China 21Vianet. However, not all Media Services features are available in all the Azure clouds. This document outlines availabilities of main Media Services v3 components.
 
@@ -90,6 +92,8 @@ The following endpoints are important to know when connecting to Media Services 
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
 | Authentication | `https://login.microsoftonline.us/` |
 | Token audience | `https://management.core.usgovcloudapi.net/` |
+
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
 ### Azure Germany
 

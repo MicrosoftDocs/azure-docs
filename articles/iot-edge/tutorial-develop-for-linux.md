@@ -147,6 +147,9 @@ Once your new solution loads in the Visual Studio Code window, take a moment to 
 
 The environment file stores the credentials for your container registry and shares them with the IoT Edge runtime. The runtime needs these credentials to pull your container images onto the IoT Edge device.
 
+>[!NOTE]
+>If you didn't replace the **localhost:5000** value with the login server value from your Azure container registry, in the [**Create a project template**](#create-a-project-template) step, the **.env** file and the registryCredentials section of the deployment manifest will be missing. 
+
 The IoT Edge extension tries to pull your container registry credentials from Azure and populate them in the environment file. Check to see if your credentials are already included. If not, add them now:
 
 1. Open the **.env** file in your module solution.
@@ -169,19 +172,19 @@ The solution template that you created includes sample code for an IoT Edge modu
 
 Each module can have multiple *input* and *output* queues declared in their code. The IoT Edge hub running on the device routes messages from the output of one module into the input of one or more modules. The specific code for declaring inputs and outputs varies between languages, but the concept is the same across all modules. For more information about routing between modules, see [Declare routes](module-composition.md#declare-routes).
 
-The sample C# code that comes with the project template uses the [ModuleClient Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) from the IoT Hub SDK for .NET.
+The sample C# code that comes with the project template uses the [ModuleClient Class](/dotnet/api/microsoft.azure.devices.client.moduleclient) from the IoT Hub SDK for .NET.
 
 1. Open the **Program.cs** file, which is inside the **modules/SampleModule/** folder.
 
 2. In program.cs, find the **SetInputMessageHandlerAsync** method.
 
-3. The [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) method sets up an input queue to receive incoming messages. Review this method and see how it initializes an input queue called **input1**.
+3. The [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) method sets up an input queue to receive incoming messages. Review this method and see how it initializes an input queue called **input1**.
 
    ![Find the input name in SetInputMessageCallback constructor](./media/tutorial-develop-for-linux/declare-input-queue.png)
 
 4. Next, find the **SendEventAsync** method.
 
-5. The [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) method processes received messages and sets up an output queue to pass them along. Review this method and see that it initializes an output queue called **output1**.
+5. The [SendEventAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync) method processes received messages and sets up an output queue to pass them along. Review this method and see that it initializes an output queue called **output1**.
 
    ![Find the output name in SendEventToOutputAsync](./media/tutorial-develop-for-linux/declare-output-queue.png)
 

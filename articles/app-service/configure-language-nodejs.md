@@ -1,25 +1,28 @@
 ---
-title: Configure Windows Node.js apps
-description: Learn how to configure a Node.js app in the native Windows instances of App Service. This article shows the most common configuration tasks. 
-ms.custom: devx-track-javascript
+title: Configure Node.js apps
+description: Learn how to configure a Node.js app in the native Windows instances, or in a pre-built Linux container, in Azure App Service. This article shows the most common configuration tasks. 
+ms.custom: devx-track-js
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
+zone_pivot_groups: app-service-platform-windows-linux
 
 ---
 
-# Configure a Windows Node.js app for Azure App Service
+# Configure a Node.js app for Azure App Service
 
-Node.js apps must be deployed with all the required NPM dependencies. The App Service deployment engine automatically runs `npm install --production` for you when you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) with build automation enabled. If you deploy your files using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually. For information about Linux apps, see [Configure a Linux PHP app for Azure App Service](containers/configure-language-nodejs.md).
+Node.js apps must be deployed with all the required NPM dependencies. The App Service deployment engine automatically runs `npm install --production` for you when you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) with build automation enabled. If you deploy your files using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually.
 
-This guide provides key concepts and instructions for Node.js developers who deploy to App Service. If you've never used Azure App Service, follow the [Node.js quickstart](app-service-web-get-started-nodejs.md) and [Node.js with MongoDB tutorial](app-service-web-tutorial-nodejs-mongodb-app.md) first.
+This guide provides key concepts and instructions for Node.js developers who deploy to App Service. If you've never used Azure App Service, follow the [Node.js quickstart](quickstart-nodejs.md) and [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
 
 ## Show Node.js version
+
+::: zone pivot="platform-windows"  
 
 To show the current Node.js version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION'].value"
+az webapp config appsettings list --name <app-name> --resource-group <resource-group-name> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION'].value"
 ```
 
 To show all supported Node.js versions, run the following command in the [Cloud Shell](https://shell.azure.com):
@@ -28,7 +31,27 @@ To show all supported Node.js versions, run the following command in the [Cloud 
 az webapp list-runtimes | grep node
 ```
 
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+To show the current Node.js version, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
+```
+
+To show all supported Node.js versions, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp list-runtimes --linux | grep NODE
+```
+
+::: zone-end
+
 ## Set Node.js version
+
+::: zone pivot="platform-windows"  
 
 To set your app to a [supported Node.js version](#show-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com) to set `WEBSITE_NODE_DEFAULT_VERSION` to a supported version:
 
@@ -41,6 +64,135 @@ This setting specifies the Node.js version to use, both at runtime and during au
 > [!NOTE]
 > You should set the Node.js version in your project's `package.json`. The deployment engine runs in a separate process that contains all the supported Node.js versions.
 
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+To set your app to a [supported Node.js version](#show-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "NODE|10.14"
+```
+
+This setting specifies the Node.js version to use, both at runtime and during automated package restore in Kudu.
+
+> [!NOTE]
+> You should set the Node.js version in your project's `package.json`. The deployment engine runs in a separate container that contains all the supported Node.js versions.
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+## Customize build automation
+
+If you deploy your app using Git or zip packages with build automation turned on, the App Service build automation steps through the following sequence:
+
+1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
+1. Run `npm install` without any flags, which includes npm `preinstall` and `postinstall` scripts and also installs `devDependencies`.
+1. Run `npm run build` if a build script is specified in your *package.json*.
+1. Run `npm run build:azure` if a build:azure script is specified in your *package.json*.
+1. Run custom script if specified by `POST_BUILD_SCRIPT_PATH`.
+
+> [!NOTE]
+> As described in [npm docs](https://docs.npmjs.com/misc/scripts), scripts named `prebuild` and `postbuild` run before and after `build`, respectively, if specified. `preinstall` and `postinstall` run before and after `install`, respectively.
+
+`PRE_BUILD_COMMAND` and `POST_BUILD_COMMAND` are environment variables that are empty by default. To run pre-build commands, define `PRE_BUILD_COMMAND`. To run post-build commands, define `POST_BUILD_COMMAND`.
+
+The following example specifies the two variables to a series of commands, separated by commas.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+For additional environment variables to customize build automation, see [Oryx configuration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+For more information on how App Service runs and builds Node.js apps in Linux, see [Oryx documentation: How Node.js apps are detected and built](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/nodejs.md).
+
+## Configure Node.js server
+
+The Node.js containers come with [PM2](https://pm2.keymetrics.io/), a production process manager. You can configure your app to start with PM2, or with NPM, or with a custom command.
+
+- [Run custom command](#run-custom-command)
+- [Run npm start](#run-npm-start)
+- [Run with PM2](#run-with-pm2)
+
+### Run custom command
+
+App Service can start your app using a custom command, such as an executable like *run.sh*. For example, to run `npm run start:prod`, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
+```
+
+### Run npm start
+
+To start your app using `npm start`, just make sure a `start` script is in the *package.json* file. For example:
+
+```json
+{
+  ...
+  "scripts": {
+    "start": "gulp",
+    ...
+  },
+  ...
+}
+```
+
+To use a custom *package.json* in your project, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename>.json"
+```
+
+### Run with PM2
+
+The container automatically starts your app with PM2 when one of the common Node.js files is found in your project:
+
+- *bin/www*
+- *server.js*
+- *app.js*
+- *index.js*
+- *hostingstart.js*
+- One of the following [PM2 files](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* and *ecosystem.config.js*
+
+You can also configure a custom start file with the following extensions:
+
+- A *.js* file
+- A [PM2 file](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) with the extension *.json*, *.config.js*, *.yaml*, or *.yml*
+
+To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
+```
+
+## Debug remotely
+
+> [!NOTE]
+> Remote debugging is currently in Preview.
+
+You can debug your Node.js app remotely in [Visual Studio Code](https://code.visualstudio.com/) if you configure it to [run with PM2](#run-with-pm2), except when you run it using a *.config.js, *.yml, or *.yaml*.
+
+In most cases, no extra configuration is required for your app. If your app is run with a *process.json* file (default or custom), it must have a `script` property in the JSON root. For example:
+
+```json
+{
+  "name"        : "worker",
+  "script"      : "./index.js",
+  ...
+}
+```
+
+To set up Visual Studio Code for remote debugging, install the [App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Follow the instructions on the extension page and sign in to Azure in Visual Studio Code.
+
+In the Azure explorer, find the app you want to debug, right-click it and select **Start Remote Debugging**. Click **Yes** to enable it for your app. App Service starts a tunnel proxy for you and attaches the debugger. You can then make requests to the app and see the debugger pausing at break points.
+
+Once finished with debugging, stop the debugger by selecting **Disconnect**. When prompted, you should click **Yes** to disable remote debugging. To disable it later, right-click your app again in the Azure explorer and select **Disable Remote Debugging**.
+
+::: zone-end
+
 ## Access environment variables
 
 In App Service, you can [set app settings](configure-common.md) outside of your app code. Then you can access them using the standard Node.js pattern. For example, to access an app setting called `NODE_ENV`, use the following code:
@@ -51,7 +203,7 @@ process.env.NODE_ENV
 
 ## Run Grunt/Bower/Gulp
 
-By default, App Service build automation runs `npm install --production` when it recognizes a Node.js app is deployed through Git (or Zip deployment with build automation enabled). If your app requires any of the popular automation tools, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) to run it.
+By default, App Service build automation runs `npm install --production` when it recognizes a Node.js app is deployed through Git or Zip deployment with build automation enabled. If your app requires any of the popular automation tools, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) to run it.
 
 To enable your repository to run these tools, you need to add them to the dependencies in *package.json.* For example:
 
@@ -144,7 +296,17 @@ if (req.secure) {
 
 ## Access diagnostic logs
 
+::: zone pivot="platform-windows"  
+
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+[!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
+
+::: zone-end
 
 ## Troubleshooting
 
@@ -157,8 +319,21 @@ When a working Node.js app behaves differently in App Service or has errors, try
     - Certain web frameworks may use custom startup scripts when running in production mode.
 - Run your app in App Service in development mode. For example, in [MEAN.js](https://meanjs.org/), you can set your app to development mode in runtime by [setting the `NODE_ENV` app setting](configure-common.md).
 
+::: zone pivot="platform-linux"
+
+[!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
+
+::: zone-end
+
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Node.js app with MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
+> [Tutorial: Node.js app with MongoDB](tutorial-nodejs-mongodb-app.md)
+
+::: zone pivot="platform-linux"
+
+> [!div class="nextstepaction"]
+> [App Service Linux FAQ](faq-app-service-linux.md)
+
+::: zone-end
 

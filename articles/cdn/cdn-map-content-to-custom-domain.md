@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Add a custom domain to your Azure CDN endpoint | Microsoft Docs
-description: In this tutorial, you map Azure CDN endpoint content to a custom domain.
+description: Use this tutorial to add a custom domain to an Azure Content Delivery Network endpoint so that your domain name is visible in your URL.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -87,7 +87,7 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
 
 5. Complete the following fields of the CNAME entry:
 
-    ![CNAME entry](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
+    ![Screenshot shows C NAME entry with Type, Host, Points to, and T T L values for a temporary cdnverify subdomain.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-cname-entry.png)
 
     - Type: Leave *CNAME* selected.
 
@@ -101,7 +101,7 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
  
     The CNAME entry is added to the DNS records table.
 
-    ![DNS records table](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
+    ![Screenshot shows that the C NAME entry has been added to the D N S records table for a temporary cdnverify subdomain.](./media/cdn-map-content-to-custom-domain/cdn-cdnverify-dns-table.png)
 
 
 ## Associate the custom domain with your CDN endpoint
@@ -185,7 +185,7 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
 
 5. Complete the fields of the CNAME entry:
 
-    ![CNAME entry](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
+    ![Screenshot shows C NAME entry with Type, Host, Points to, and T T L values for a permanent custom domain.](./media/cdn-map-content-to-custom-domain/cdn-cname-entry.png)
 
     - Type: Leave *CNAME* selected.
 
@@ -199,7 +199,7 @@ For example, the procedure for the GoDaddy domain registrar is as follows:
  
     The CNAME entry is added to the DNS records table.
 
-    ![DNS records table](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
+    ![Screenshot shows that the C NAME entry has been added to the D N S records table for a permanent custom domain.](./media/cdn-map-content-to-custom-domain/cdn-dns-table.png)
 
 7. If you have a cdnverify CNAME record, select the pencil icon next to it, then select the trash can icon.
 

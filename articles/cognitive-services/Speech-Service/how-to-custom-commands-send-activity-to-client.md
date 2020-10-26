@@ -25,7 +25,7 @@ You complete the following tasks:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) or higher. This guide uses Visual Studio 2019
 > * An Azure subscription key for Speech service:
-[Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+[Get one for free](overview.md#try-the-speech-service-for-free) or create it on the [Azure portal](https://portal.azure.com)
 > * A previously [created Custom Commands app](quickstart-custom-commands-application.md)
 > * A Speech SDK enabled client app:
 [How-to: Integrate with a client application using Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)
@@ -151,7 +151,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. Say `turn on the tv`
 1. The visual state of the tv should change to "on"
    > [!div class="mx-imgBorder"]
-   > ![Send Activity payload](media/custom-commands/send-activity-to-client-turn-on-tv.png)
+   > ![Screenshot that shows that the visual state of the T V is now on.](media/custom-commands/send-activity-to-client-turn-on-tv.png)
 
 ## Next steps
 

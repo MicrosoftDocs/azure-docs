@@ -55,7 +55,7 @@ When you create and run logic apps in an ISE, you get the same user experiences 
   * Azure Automation, Azure Key Vault, Azure Event Grid, and Azure Monitor Logs
   * FTP, SFTP-SSH, File System, and SMTP
   * SAP, IBM MQ, IBM DB2, and IBM 3270
-  * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
+  * SQL Server, Azure Synapse Analytics, Azure Cosmos DB
   * AS2, X12, and EDIFACT
 
   With rare exceptions, if an ISE connector is available for an on-premises system or data source, you can connect directly without using the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). For more information, see [Access to on-premises systems](#on-premises) later in this topic.
@@ -112,7 +112,16 @@ When you create your ISE, you can choose to use either internal or external acce
 > [!IMPORTANT]
 > You can select the access endpoint only during ISE creation and can't change this option later.
 
-* **Internal**: Private endpoints permit calls to logic apps in your ISE where you can view and access inputs and outputs from logic apps' runs history *only from inside your virtual network*. Make sure that you have network connectivity between the private endpoints and the computer from where you want to access runs history. For example, your client computer can exist inside the ISE's virtual network or inside a virtual network that's connected to the ISE's virtual network, for example, through peering or a virtual private network.
+* **Internal**: Private endpoints permit calls to logic apps in your ISE where you can view and access inputs and outputs from logic apps' runs history *only from inside your virtual network*.
+
+  > [!IMPORTANT]
+  > Make sure that you have network connectivity between the private endpoints and the computer from 
+  > where you want to access the run history. Otherwise, when you try to view your logic app's run history, 
+  > you get an error that says "Unexpected error. Failed to fetch".
+  >
+  > ![Azure Storage action error resulting from inability to send traffic through firewall](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
+  >
+  > For example, your client computer can exist inside the ISE's virtual network or inside a virtual network that's connected to the ISE's virtual network through peering or a virtual private network. 
 
 * **External**: Public endpoints permit calls to logic apps in your ISE where you can view and access inputs and outputs from logic apps' runs history *from outside your virtual network*. If you use network security groups (NSGs), make sure they're set up with inbound rules to allow access to the run history's inputs and outputs. For more information, see [Enable access for ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 
@@ -130,7 +139,7 @@ Logic apps, built-in triggers, built-in actions, and connectors that run in your
 
 ## Integration accounts with ISE
 
-You can use integration accounts with logic apps inside an integration service environment (ISE). However, those integration accounts must use the *same ISE* as the linked logic apps. Logic apps in an ISE can reference only those integration accounts that are in the same ISE. When you create an integration account, you can select your ISE as the location for your integration account. To learn how pricing and billing work for integration accounts with an ISE, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+You can use integration accounts with logic apps inside an integration service environment (ISE). However, those integration accounts must use the *same ISE* as the linked logic apps. Logic apps in an ISE can reference only those integration accounts that are in the same ISE. When you create an integration account, you can select your ISE as the location for your integration account. To learn how pricing and billing work for integration accounts with an ISE, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). For limits information, see [Integration account limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 ## Next steps
 

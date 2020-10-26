@@ -144,7 +144,7 @@ az aks nodepool add \
 ## Upgrade a node pool
 
 > [!NOTE]
-> Upgrade and scale operations on a cluster or node pool cannot occur simultaneously, if attempted an error is returned. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](https://aka.ms/aks-pending-upgrade).
+> Upgrade and scale operations on a cluster or node pool cannot occur simultaneously, if attempted an error is returned. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](./troubleshooting.md#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade).
 
 The commands in this section explain how to upgrade a single specific node pool. The relationship between upgrading the Kubernetes version of the control plane and the node pool are explained in the [section below](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
@@ -855,7 +855,7 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [supported-versions]: supported-kubernetes-versions.md
 [tag-limitation]: ../azure-resource-manager/management/tag-resources.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
-[vm-sizes]: ../virtual-machines/linux/sizes.md
+[vm-sizes]: ../virtual-machines/sizes.md
 [use-system-pool]: use-system-pools.md
 [ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

@@ -2,12 +2,13 @@
 title: How to get V3 prediction endpoint
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
 ms.date: 05/05/2020
-ms.author: diberry
+
 ---
 
 

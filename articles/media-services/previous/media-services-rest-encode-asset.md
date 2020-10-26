@@ -18,6 +18,9 @@ ms.author: juliako
 
 ---
 # How to encode an asset by using Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 > * [REST](media-services-rest-encode-asset.md)
@@ -29,7 +32,7 @@ ms.author: juliako
 
 To deliver digital video over the Internet, you must compress the media. Digital video files are large and may be too large to deliver over the Internet, or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media.
 
-Encoding jobs are one of the most common processing operations in Azure Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in encoder (Media Encoder Standard). You can also use an encoder provided by a Media Services partner. Third-party encoders are available through the Azure Marketplace. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. To see the types of presets that are available, see [Task Presets for Media Encoder Standard](/azure/media-services/previous/media-services-mes-presets-overview).
+Encoding jobs are one of the most common processing operations in Azure Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in encoder (Media Encoder Standard). You can also use an encoder provided by a Media Services partner. Third-party encoders are available through the Azure Marketplace. You can specify the details of encoding tasks by using preset strings defined for your encoder, or by using preset configuration files. To see the types of presets that are available, see [Task Presets for Media Encoder Standard](./media-services-mes-presets-overview.md).
 
 Each job can have one or more tasks depending on the type of processing that you want to accomplish. Through the REST API, you can create jobs and their related tasks in one of two ways:
 
@@ -61,7 +64,7 @@ For information on how to connect to the AMS API, see [Access the Azure Media Se
 >
 >
 
-The following example shows you how to create and post a job with one task set to encode a video at a specific resolution and quality. When you encode with Media Encoder Standard, you can use task configuration presets specified [here](/azure/media-services/previous/media-services-mes-presets-overview).
+The following example shows you how to create and post a job with one task set to encode a video at a specific resolution and quality. When you encode with Media Encoder Standard, you can use task configuration presets specified [here](./media-services-mes-presets-overview.md).
 
 Request:
 
@@ -94,7 +97,7 @@ The following example shows how to set the assetName attribute:
 { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}`
 ```
 
-## Considerations
+### Considerations
 * TaskBody properties must use literal XML to define the number of input, or output assets that are used by the task. The task article contains the XML Schema Definition for the XML.
 * In the TaskBody definition, each inner value for `<inputAsset>` and `<outputAsset>` must be set as JobInputAsset(value) or JobOutputAsset(value).
 * A task can have multiple output assets. One JobOutputAsset(x) can only be used once as an output of a task in a job.

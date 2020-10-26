@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/11/2018
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
@@ -22,7 +22,11 @@ The Microsoft Authenticator app offers an additional out-of-band verification op
 Using a mobile app for two-step verification is preferred when phone reception is unreliable. If you use the app as an OATH token generator, it doesn't require any network or internet connection.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure Multi-Factor Authentication.
+>
+> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual.
 
 > [!IMPORTANT]
 > If you have installed Azure Multi-Factor Authentication Server v8.x or higher, most of the steps below are not required. Mobile app authentication can be set up by following the steps under [Configure the mobile app](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server).

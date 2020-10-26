@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 03/30/2020
 ---
 # Automatic tuning in Azure SQL Database and Azure SQL Managed Instance

@@ -31,7 +31,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 ## Enable Service Map
 
 1. Enable the Service Map solution from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) or by using the process described in [Add monitoring solutions from the Solutions Gallery](solutions.md).
-1. [Install the Dependency agent on Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) or [Install the Dependency agent on Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) on each computer where you want to get data. The Dependency Agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
+1. [Install the Dependency agent on Windows](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-windows) or [Install the Dependency agent on Linux](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-linux) on each computer where you want to get data. The Dependency Agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
 
 You access Service Map in the Azure portal from your Log Analytics workspace, and select the option **Solutions** from the left pane.<br><br> ![Select Solutions option in workspace](./media/service-map/select-solution-from-workspace.png).<br> From the list of solutions, select **ServiceMap(workspaceName)** and in the Service Map solution overview page click on the Service Map summary tile.<br><br> ![Service Map summary tile](./media/service-map/service-map-summary-tile.png).
 
@@ -166,7 +166,7 @@ Certain processes serve particular roles on machines: web servers, application s
 
 Failed connections are shown in Service Map maps for processes and computers, with a dashed red line indicating that a client system is failing to reach a process or port. Failed connections are reported from any system with a deployed Service Map agent if that system is the one attempting the failed connection. Service Map measures this process by observing TCP sockets that fail to establish a connection. This failure could result from a firewall, a misconfiguration in the client or server, or a remote service being unavailable.
 
-![Failed connections](media/service-map/failed-connections.png)
+![Screenshot of one part of a Service Map highlighting a dashed red line that indicates a failed connection between the backup.pl process and Port 4475.](media/service-map/failed-connections.png)
 
 Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding. Failed connections are sometimes harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, or two application tiers being unable to talk after a cloud migration.
 
@@ -190,7 +190,7 @@ Server Port Groups are boxes that represent server ports on servers that do not 
 
 Clicking the ellipsis (...) at the top right of any server displays the context menu for that server.
 
-![Failed connections](media/service-map/context-menu.png)
+![Screenshot showing the opened context menu for a server in Service Map. The menu has the options Load Server Map and Show Self-Links.](media/service-map/context-menu.png)
 
 ### Load server map
 
@@ -255,7 +255,7 @@ Service Map integration with Change Tracking is automatic when both solutions ar
 
 The **Machine Change Tracking** pane lists all changes, with the most recent first, along with a link to drill down to Log Search for additional details.
 
-![Machine Change Tracking pane](media/service-map/change-tracking.png)
+![Screenshot of the Machine Change Tracking pane in Service Map.](media/service-map/change-tracking.png)
 
 The following image is a detailed view of a ConfigurationChange event that you might see after you select **Show in Log Analytics**.
 
@@ -297,7 +297,7 @@ Service Map integration with Update Management is automatic when both solutions 
 
 The **Machine Updates** pane displays data from the Update Management solution for the selected server. The pane lists a summary of any missing updates for the server during the selected time range.
 
-![Machine Change Tracking pane](media/service-map/machine-updates.png)
+![Screenshot of the Machine Updates pane in Service Map.](media/service-map/machine-updates.png)
 
 ## Log Analytics records
 
@@ -600,4 +600,3 @@ Check the `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (W
 ## Suggestions
 
 Do you have any feedback for us about Service Map or this documentation?  Visit our [User Voice page](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), where you can suggest features or vote up existing suggestions.
-

@@ -1,10 +1,7 @@
 ---
 title: PowerShell module Windows Virtual Desktop - Azure
 description: How to install and set up the PowerShell module for Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
@@ -37,6 +34,13 @@ Next, run the following cmdlet to connect to Azure:
 ```powershell
 Connect-AzAccount
 ```
+
+>[!IMPORTANT]
+>If you're connecting to the US Gov portal, run this cmdlet instead:
+> 
+> ```powershell
+> Connect-AzAccount -EnvironmentName AzureUSGovernment
+> ```
 
 Signing into your Azure account requires a code that's generated when you run the Connect cmdlet. To sign in, go to <https://microsoft.com/devicelogin>, enter the code, then sign in using your Azure admin credentials.
 

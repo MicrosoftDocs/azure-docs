@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Designing for disaster recovery'
 description: This page provides architectural recommendations for disaster recovery while using Azure ExpressRoute.
 services: expressroute
-author: rambk
+author: duongau
 
 ms.service: expressroute
 ms.topic: article
 ms.date: 05/25/2019
-ms.author: rambala
+ms.author: duau
 
 ---
 
@@ -148,13 +148,8 @@ In this article, we discussed how to design for disaster recovery of an ExpressR
 [10]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol2.png "active-active ExpressRoute circuits solution 2"
 
 <!--Link References-->
-[HA]: https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute
+[HA]: ./designing-for-high-availability-with-expressroute.md
 [Enterprise DR]: https://azure.microsoft.com/solutions/architecture/disaster-recovery-enterprise-scale-dr/
 [SMB DR]: https://azure.microsoft.com/solutions/architecture/disaster-recovery-smb-azure-site-recovery/
-[con wgt]: https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection
-[AS Path Pre]: https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending
-
-
-
-
-
+[con wgt]: ./expressroute-optimize-routing.md#solution-assign-a-high-weight-to-local-connection
+[AS Path Pre]: ./expressroute-optimize-routing.md#solution-use-as-path-prepending

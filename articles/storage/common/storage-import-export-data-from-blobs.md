@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -26,10 +26,12 @@ You must:
   - Generate a tracking number for the export job.
   - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
   - If you do not have a carrier account, go to:
-    - [Create a FedEX account](https://www.fedex.com/en-us/create-account.html), or
+    - [Create a FedEx account](https://www.fedex.com/en-us/create-account.html), or
     - [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## Step 1: Create an export job
+
+### [Portal](#tab/azure-portal)
 
 Perform the following steps to create an export job in the Azure portal.
 
@@ -79,7 +81,7 @@ Perform the following steps to create an export job in the Azure portal.
 
     - Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
     - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your export job is complete.
-    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
+    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province, and country/region.
 
         > [!TIP]
         > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
@@ -93,6 +95,83 @@ Perform the following steps to create an export job in the Azure portal.
         > Always send the disks to the datacenter noted in the Azure portal. If the disks are shipped to the wrong datacenter, the job will not be processed.
 
     - Click **OK** to complete export job creation.
+
+### [Azure CLI](#tab/azure-cli)
+
+Use the following steps to create an export job in the Azure portal.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### Create a job
+
+1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/ext/import-export/import-export) extension:
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. To get a list of the locations from which you can receive disks, use the [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) command:
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. Run the following [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) command to create an export job that uses your existing storage account:
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name Myexportjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --export blob-path=/ \
+        --type Export \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --storage-account myssdocsstorage
+    ```
+
+    > [!TIP]
+    > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+
+   This job exports all the blobs in your storage account. You can specify a blob for export by replacing this value for **--export**:
+
+    ```azurecli
+    --export blob-path=$root/logo.bmp
+    ```
+
+   This parameter value exports the blob named *logo.bmp* in the root container.
+
+   You also have the option of selecting all the blobs in a container by using a prefix. Replace this value for **--export**:
+
+    ```azurecli
+    blob-path-prefix=/myiecontainer
+    ```
+
+   For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths).
+
+   > [!NOTE]
+   > If the blob to be exported is in use during data copy, Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
+
+1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for the resource group myierg:
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. To update your job or cancel your job, run the [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) command:
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
 
 <!--## (Optional) Step 2: -->
 
@@ -113,7 +192,7 @@ When the dashboard reports the job is complete, the disks are shipped to you and
 1. After you receive the drives with exported data, you need to get the BitLocker keys to unlock the drives. Go to the export job in the Azure portal. Click **Import/Export** tab.
 2. Select and click your export job from the list. Go to **Encryption** and copy the keys.
 
-   ![View BitLocker keys for export job](./media/storage-import-export-service/export-job-bitlocker-keys-02.png)
+   ![View BitLocker keys for export job](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
 3. Use the BitLocker keys to unlock the disks.
 
@@ -121,15 +200,13 @@ The export is complete.
 
 ## Step 5: Unlock the disks
 
-If using version 1.4.0.300 of the WAImportExport tool, use the following command to unlock the drive:
+Use the following command to unlock the drive:
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`  
 
 Here is an example of the sample input.
 
    `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
-
-If using earlier versions of the tool, use the BitLocker dialog to unlock the drive.
 
 At this time, you can delete the job or leave it. Jobs automatically get deleted after 90 days.
 

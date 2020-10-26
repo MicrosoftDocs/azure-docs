@@ -92,7 +92,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | No | Yes, but only within the instance. If you are using remote Service Broker routes, try to consolidate databases from several distributed SQL Server instances into one SQL Managed Instance during migration and use only local routes. See [Service Broker differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#service-broker) |
 | [Server configuration settings](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | No | Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Set statements](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | Most - see individual statements | Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md)|
-| [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No - see [Elastic jobs](elastic-jobs-overview.md) | Yes - see [SQL Server Agent differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) |
+| [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | No - see [Elastic jobs (preview)](elastic-jobs-overview.md) | Yes - see [SQL Server Agent differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent) |
 | [SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No - see [SQL Database auditing](auditing-overview.md) | Yes - see [Auditing differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#auditing) |
 | [System stored functions](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Most - see individual functions | Yes - see [Stored procedures, functions, triggers differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
 | [System stored procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Some - see individual stored procedures | Yes - see [Stored procedures, functions, triggers differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
@@ -179,7 +179,7 @@ You can use different migration methods to move your data between SQL Server, Az
 Microsoft continues to add features to Azure SQL Database. Visit the Service Updates webpage for Azure for the newest updates using these filters:
 
 - Filtered to [Azure SQL Database](https://azure.microsoft.com/updates/?service=sql-database).
-- Filtered to General Availability [(GA) announcements](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
+- Filtered to [General Availability \(GA\) announcements](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
 
 For more information about Azure SQL Database and Azure SQL Managed Instance, see:
 

@@ -5,6 +5,7 @@ ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
+ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
 ---
 
@@ -47,7 +48,7 @@ Insert this code in the `RecognizeIntentAsync()` method. Make sure you update th
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
 
-This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true).
 
 The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
 

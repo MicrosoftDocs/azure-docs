@@ -43,9 +43,9 @@ The medium is public because it traverses a site's standard internet connection,
 
 There are several ways to meet the TIC Appendix H (Cloud Considerations) requirements, as specified in the Department of Homeland Security's, "Trusted Internet Connections (TIC) Reference Architecture Document, Version 2.0." In this article, DHS TIC guidance is referred to as **TIC 2.0**.
 
-To enable the connection from the **Department or Agency (D/A)** to Azure or Office 365, without routing traffic through the D/A TIC, the D/A must use an encrypted tunnel or a dedicated connection to the cloud service provider (CSP). The CSP services can ensure connectivity to the D/A cloud assets isn't offered to the public internet for direct agency personnel access.
+To enable the connection from the **Department or Agency (D/A)** to Azure or Microsoft 365, without routing traffic through the D/A TIC, the D/A must use an encrypted tunnel or a dedicated connection to the cloud service provider (CSP). The CSP services can ensure connectivity to the D/A cloud assets isn't offered to the public internet for direct agency personnel access.
 
-Office 365 is compliant with TIC 2.0 Appendix H by using either ExpressRoute with [Microsoft Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) enabled or an internet connection that encrypts all traffic by using TLS 1.2. D/A end users on the D/A network can connect via their agency network and TIC infrastructure through the internet. All remote internet access to Office 365 is blocked and routes through the agency. The D/A can also connect to Office 365 over an ExpressRoute connection with Microsoft Peering (a type of public peering) enabled.  
+Microsoft 365 is compliant with TIC 2.0 Appendix H by using either ExpressRoute with [Microsoft Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) enabled or an internet connection that encrypts all traffic by using TLS 1.2. D/A end users on the D/A network can connect via their agency network and TIC infrastructure through the internet. All remote internet access to Microsoft 365 is blocked and routes through the agency. The D/A can also connect to Microsoft 365 over an ExpressRoute connection with Microsoft Peering (a type of public peering) enabled.  
 
 For Azure only, the second option (VPN) and third option (ExpressRoute) can meet these requirements when they're used in conjunction with services that limit access to the internet.
 
@@ -138,7 +138,7 @@ Services that support deployment of dedicated instances into a virtual network o
 |Azure Data Lake                | Private preview  |
 |Azure Database for PostgreSQL  | Private preview  |
 |Azure Database for MySQL       | Private preview  |
-|Azure SQL Data Warehouse       | Public preview   |
+|Azure Synapse Analytics       | Public preview   |
 |Azure SQL Database             | General availability (GA) |
 |Azure Storage                  | GA               |
 
@@ -228,7 +228,7 @@ Networks in regions that are monitored by Network Watcher can conduct next hop t
 
 ## Conclusions
 
-You can easily configure access for Microsoft Azure, Office 365, and Dynamics 365 to help comply with TIC 2.0 Appendix H guidance, as written and defined May 2018. Microsoft recognizes that the TIC guidance is subject to change. Microsoft endeavors to help customers meet the guidance in a timely manner as new guidance is released.
+You can easily configure access for Microsoft Azure, Microsoft 365, and Dynamics 365 to help comply with TIC 2.0 Appendix H guidance, as written and defined May 2018. Microsoft recognizes that the TIC guidance is subject to change. Microsoft endeavors to help customers meet the guidance in a timely manner as new guidance is released.
 
 ## Appendix: Trusted Internet Connections patterns for common workloads
 
@@ -246,7 +246,7 @@ You can easily configure access for Microsoft Azure, Office 365, and Dynamics 36
 | Database | Azure SQL Database | | Azure SQL Managed Instance \* | Azure SQL |
 | Database | Azure Database for MySQL | | | Yes |
 | Database | Azure Database for PostgreSQL | | | Yes |
-| Database | Azure SQL Data Warehouse | | | Yes |
+| Database | Azure Synapse Analytics | | | Yes |
 | Database | Azure Cosmos DB | | | Yes |
 | Database | Azure Cache for Redis | | Yes | |
 | Storage | Azure Blob storage | Yes | | |

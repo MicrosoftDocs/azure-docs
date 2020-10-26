@@ -2,14 +2,14 @@
 title: ARM template test toolkit
 description: Describes how to run the ARM template test toolkit on your template. The toolkit lets you see if you have implemented recommended practices.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
 ---
 
 # Use ARM template test toolkit
 
-The [ARM template test toolkit](https://aka.ms/arm-ttk) checks whether your template uses recommended practices. When your template isn't compliant with recommended practices, it returns a list of warnings with the suggested changes. By using the test toolkit, you can learn how to avoid common problems in template development.
+The [Azure Resource Manager (ARM) template test toolkit](https://aka.ms/arm-ttk) checks whether your template uses recommended practices. When your template isn't compliant with recommended practices, it returns a list of warnings with the suggested changes. By using the test toolkit, you can learn how to avoid common problems in template development.
 
 The test toolkit provides a [set of default tests](test-cases.md). These tests are recommendations but not requirements. You can decide which tests are relevant to your goals and customize which tests are run.
 
@@ -17,53 +17,103 @@ This article describes how to run the test toolkit and how to add or remove test
 
 The toolkit is a set of PowerShell scripts that can be run from a command in PowerShell or CLI.
 
-## Download test toolkit
+## Install on Windows
 
-To use the test toolkit, you can either fork and clone the [repository](https://aka.ms/arm-ttk) containing the scripts or [download the latest .zip file](https://aka.ms/arm-ttk-latest).
+1. If you don't already have PowerShell, [install PowerShell on Windows](/powershell/scripting/install/installing-powershell-core-on-windows).
 
-Depending on the execution policy of the computer where you run the script, you may get an error about running scripts from the Internet. You have to either change the [execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies) or [unblock the script files](/powershell/module/microsoft.powershell.utility/unblock-file).
+1. [Download the latest .zip file](https://aka.ms/arm-ttk-latest) for the test toolkit and extract it.
 
-## Run on PowerShell
+1. Start PowerShell.
 
-Before running the tests, import the module.
+1. Navigate to the folder where you extracted the test toolkit. Within that folder, navigate to **arm-ttk** folder.
 
-```powershell
-Import-Module .\arm-ttk.psd1 # from the same directory as .\arm-ttk.psd1
-```
+1. If your [execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies) blocks scripts from the Internet, you need to unblock the script files. Make sure you're in the **arm-ttk** folder.
 
-To run the tests in **PowerShell**, use the following command:
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
 
-```powershell
-Test-AzTemplate -TemplatePath $TemplateFolder
-```
+1. Import the module.
 
-## Run on Linux
+   ```powershell
+   Import-Module .\arm-ttk.psd1
+   ```
 
-Before running the tests, install [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-linux).
+1. To run the tests, use the following command:
 
-To run the tests on **Linux** in Bash, use the following command:
+   ```powershell
+   Test-AzTemplate -TemplatePath \path\to\template
+   ```
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+## Install on Linux
 
-You can also run the test on pwsh.exe.
+1. If you don't already have PowerShell, [install PowerShell on Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
-## Run on macOS
+1. [Download the latest .zip file](https://aka.ms/arm-ttk-latest) for the test toolkit and extract it.
 
-Before running the tests, install [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-macos). 
+1. Start PowerShell.
 
-Install `coreutils`:
+   ```bash
+   pwsh
+   ```
 
-```bash
-brew install coreutils
-```
+1. Navigate to the folder where you extracted the test toolkit. Within that folder, navigate to **arm-ttk** folder.
 
-To run the tests on **macOS**, use the following command:
+1. If your [execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies) blocks scripts from the Internet, you need to unblock the script files. Make sure you're in the **arm-ttk** folder.
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
+
+1. Import the module.
+
+   ```powershell
+   Import-Module ./arm-ttk.psd1
+   ```
+
+1. To run the tests, use the following command:
+
+   ```powershell
+   Test-AzTemplate -TemplatePath /path/to/template
+   ```
+
+## Install on macOS
+
+1. If you don't already have PowerShell, [install PowerShell on macOS](/powershell/scripting/install/installing-powershell-core-on-macos).
+
+1. Install `coreutils`:
+
+   ```bash
+   brew install coreutils
+   ```
+
+1. [Download the latest .zip file](https://aka.ms/arm-ttk-latest) for the test toolkit and extract it.
+
+1. Start PowerShell.
+
+   ```bash
+   pwsh
+   ```
+
+1. Navigate to the folder where you extracted the test toolkit. Within that folder, navigate to **arm-ttk** folder.
+
+1. If your [execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies) blocks scripts from the Internet, you need to unblock the script files. Make sure you're in the **arm-ttk** folder.
+
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
+
+1. Import the module.
+
+   ```powershell
+   Import-Module ./arm-ttk.psd1
+   ```
+
+1. To run the tests, use the following command:
+
+   ```powershell
+   Test-AzTemplate -TemplatePath /path/to/template
+   ```
 
 ## Result format
 

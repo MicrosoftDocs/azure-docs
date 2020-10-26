@@ -1,7 +1,7 @@
 ---
 title: Azure Key Vault managed storage account - PowerShell version
 description: The managed storage account feature provides a seamless integration, between Azure Key Vault and an Azure storage account.
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: key-vault
 ms.subservice: secrets
 author: msmbaldwin
@@ -22,7 +22,6 @@ When you use the managed storage account key feature, consider the following poi
 - Key values are never returned in response to a caller.
 - Only Key Vault should manage your storage account keys. Don't manage the keys yourself and avoid interfering with Key Vault processes.
 - Only a single Key Vault object should manage storage account keys. Don't allow key management from multiple objects.
-- You can request Key Vault to manage your storage account with a user principal, but not with a service principal.
 - Regenerate keys by using Key Vault only. Don't manually regenerate your storage account keys.
 
 We recommend using Azure Storage integration with Azure Active Directory (Azure AD), Microsoft's cloud-based identity and access management service. Azure AD integration is available for [Azure blobs and queues](../../storage/common/storage-auth-aad.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault).
@@ -71,7 +70,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### Set variables
 
-First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the <YourResourceGroupName>, <YourStorageAccountName>, and <YourKeyVaultName> placeholders, and set $keyVaultSpAppId to `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (as specified in [Service principal application ID](#service-principal-application-id), above).
+First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the "YourResourceGroupName", "YourStorageAccountName", and "YourKeyVaultName" placeholders, and set $keyVaultSpAppId to `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (as specified in [Service principal application ID](#service-principal-application-id), above).
 
 We will also use the Azure PowerShell [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) and [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) cmdlets to get your user ID and the context of your Azure storage account.
 

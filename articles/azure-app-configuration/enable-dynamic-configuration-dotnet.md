@@ -5,6 +5,7 @@ services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
@@ -34,7 +35,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
+7. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
@@ -42,7 +43,7 @@ In this tutorial, you learn how to:
 
     Leave **Label** and **Content Type** empty for now.
 
-7. Select **Apply**.
+8. Select **Apply**.
 
 ## Create a .NET Framework console app
 

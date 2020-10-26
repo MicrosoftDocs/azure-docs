@@ -1,7 +1,7 @@
 ---
 title: Manage storage account keys with Azure Key Vault and the Azure CLI
 description: Storage account keys provide seamless integration between Azure Key Vault and key-based access to an Azure storage account.
-ms.topic: conceptual
+ms.topic: tutorial
 services: key-vault
 ms.service: key-vault
 ms.subservice: secrets
@@ -24,7 +24,6 @@ When you use the managed storage account key feature, consider the following poi
 - Key values are never returned in response to a caller.
 - Only Key Vault should manage your storage account keys. Don't manage the keys yourself and avoid interfering with Key Vault processes.
 - Only a single Key Vault object should manage storage account keys. Don't allow key management from multiple objects.
-- You can request Key Vault to manage your storage account with a user principal, but not with a service principal.
 - Regenerate keys by using Key Vault only. Don't manually regenerate your storage account keys.
 
 We recommend using Azure Storage integration with Azure Active Directory (Azure AD), Microsoft's cloud-based identity and access management service. Azure AD integration is available for [Azure blobs and queues](../../storage/common/storage-auth-aad.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault).

@@ -93,7 +93,7 @@ There are three elements necessary for this to work.
 
 First, the application needs to request the Cosmos DB endpoint and key in the `Startup` class in the ASP.NET MVC web application. The [Cosmos DB To Do Sample](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) can run locally where you can enter the connection information into appsettings.json. However, when deployed, this file does deploy with the app. If these lines in red cannot access the settings from appsettings.json, it will try from Application Settings in Azure App Service.
 
-:::image type="content" source="./media/create-website/startup.png" alt-text="Startup":::
+:::image type="content" source="./media/create-website/startup.png" alt-text="Screenshot shows a method with several string variables marked in red, including databaseName, containerName, account, and key.":::
 
 ### Using special Azure Resource Management functions
 

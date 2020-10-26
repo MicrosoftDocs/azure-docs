@@ -8,7 +8,7 @@ ms.date: 04/30/2020
 
 Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect backup data even after deletion.
 
-One such feature is soft delete. With soft delete, even if a malicious actor deletes a backup (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days of retention for backup data in the "soft delete" state don't incur any cost to the customer.
+One such feature is soft delete. With soft delete, even if a malicious actor deletes a backup (or backup data is accidentally deleted), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days of retention for backup data in the "soft delete" state don't incur any cost to you.
 
 Soft delete protection is available for these services:
 
@@ -23,7 +23,7 @@ This flow chart shows the different steps and states of a backup item when Soft 
 
 Soft delete is enabled by default on newly created vaults to protect backup data from accidental or malicious deletes.  Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment.) Only the vault owner can disable this feature. If you disable this feature, all future deletions of protected items will result in immediate removal, without the ability to restore. Backup data that exists in soft deleted state before disabling this feature, will remain in soft deleted state for the period of 14 days. If you wish to permanently delete these immediately, then you need to undelete and delete them again to get permanently deleted.
 
- It's important to remember that once soft delete is disabled, the feature is disabled for all the types of workloads, including SQL server and SAP HANA workloads. For example, once the [SQL Server/ SAP HANA preview](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) is enabled for a subscription it is not possible to disable soft delete only for SQL server or SAP HANA DBs while keeping it enabled for virtual machines in the same vault. You can create separate vaults for granular control.
+It's important to remember that once soft delete is disabled, the feature is disabled for all the types of workloads. For example, it's not possible to disable soft delete only for SQL server or SAP HANA DBs while keeping it enabled for virtual machines in the same vault. You can create separate vaults for granular control.
 
 ### Disabling soft delete using Azure portal
 
@@ -38,9 +38,9 @@ To disable soft delete, follow these steps:
 ### Disabling soft delete using Azure PowerShell
 
 > [!IMPORTANT]
-> The Az.RecoveryServices version required to use soft-delete using Azure PS is min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` to get the latest version.
+> The Az.RecoveryServices version required to use soft-delete using Azure PowerShell is minimum 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` to get the latest version.
 
-To disable, use the [Set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) PS cmdlet.
+To disable, use the [Set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) PowerShell cmdlet.
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -91,7 +91,7 @@ Follow these steps:
 
 ### Using Azure PowerShell
 
-If items were deleted before soft-delete was disabled, then they will be in a soft-deleted state. To immediately delete them, the deletion operation needs to reversed and then performed again.
+If items were deleted before soft-delete was disabled, then they'll be in a soft-deleted state. To immediately delete them, the deletion operation needs to reversed and then performed again.
 
 Identify the items that are in soft-deleted state.
 
@@ -128,9 +128,9 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 ### Using REST API
 
-If items were deleted before soft-delete was disabled, then they will be in a soft-deleted state. To immediately delete them, the deletion operation needs to reversed and then performed again.
+If items were deleted before soft-delete was disabled, then they'll be in a soft-deleted state. To immediately delete them, the deletion operation needs to reversed and then performed again.
 
-1. First, undo the delete operations with the steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+1. First, undo the delete operations with the steps mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 2. Then disable the soft-delete functionality using REST API using the steps mentioned [here](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 3. Then delete the backups using REST API as mentioned [here](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 
@@ -138,7 +138,7 @@ If items were deleted before soft-delete was disabled, then they will be in a so
 
 ### Do I need to enable the soft-delete feature on every vault?
 
-No, it's built-in and enabled by default for all the recovery services vaults.
+No, it's built-in and enabled by default for all the Recovery Services vaults.
 
 ### Can I configure the number of days for which my data will be retained in soft-deleted state after the delete operation is complete?
 
@@ -158,7 +158,7 @@ Yes.
 
 ### How can I trigger the scheduled backups again for a soft-deleted resource?
 
-Undelete followed by a resume operation will protect the resource again. The resume operation associates a backup policy to trigger the scheduled backups with the selected retention period. Also, the garbage collector runs as soon as the resume operation completes. If you wish to perform a restore from a recovery point that is past its expiration date, you're advised to do it before triggering the resume operation.
+Undelete followed by a resume operation will protect the resource again. The resume operation associates a backup policy to trigger the scheduled backups with the selected retention period. Also, the garbage collector runs as soon as the resume operation completes. If you wish to perform a restore from a recovery point that's past its expiration date, you're advised to do it before triggering the resume operation.
 
 ### Can I delete my vault if there are soft deleted items in the vault?
 
@@ -170,7 +170,7 @@ No. You can't force delete the soft-deleted items. They're automatically deleted
 
 ### Can soft delete operations be performed in PowerShell or CLI?
 
-Soft delete operations can be performed using PowerShell. Currently, CLI is not supported.
+Soft delete operations can be performed using PowerShell. Currently, CLI isn't supported.
 
 ## Next steps
 

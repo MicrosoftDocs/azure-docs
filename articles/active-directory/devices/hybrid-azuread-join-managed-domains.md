@@ -72,9 +72,9 @@ Hybrid Azure AD join requires devices to have access to the following Microsoft 
 > [!WARNING]
 > If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to 'https://device.login.microsoftonline.com' is excluded from TLS break-and-inspect. Failure to exclude 'https://device.login.microsoftonline.com' may cause interference with client certificate authentication, causing issues with device registration and device-based Conditional Access.
 
-If your organization requires access to the internet via an outbound proxy, you can use [implementing Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) to enable Windows 10 computers for device registration with Azure AD. To address issues configuring and managing WPAD, see [Troubleshooting Automatic Detection](/previous-versions/tn-archive/cc302643(v=technet.10)). In Windows 10 devices prior to 1709 update, WPAD is the only available option to configure a proxy to work with Hybrid Azure AD join. 
+If your organization requires access to the internet via an outbound proxy, you can use [implementing Web Proxy Auto-Discovery (WPAD)](/previous-versions/tn-archive/cc995261(v=technet.10)) to enable Windows 10 computers for device registration with Azure AD. To address issues configuring and managing WPAD, see [Troubleshooting Automatic Detection](/previous-versions/tn-archive/cc302643(v=technet.10)). In Windows 10 devices prior to 1709 update, WPAD is the only available option to configure a proxy to work with Hybrid Azure AD join. 
 
-If you don't use WPAD, you can configure WinHTTP proxy settings on your computer beginning with Windows 10 1709. For more information, see [WinHTTP Proxy Settings deployed by GPO](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+If you don't use WPAD, you can configure WinHTTP proxy settings on your computer beginning with Windows 10 1709. For more information, see [WinHTTP Proxy Settings deployed by GPO](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
 
 > [!NOTE]
 > If you configure proxy settings on your computer by using WinHTTP settings, any computers that can't connect to the configured proxy will fail to connect to the internet.
@@ -173,7 +173,7 @@ Here are 3 ways to locate and verify the device state:
 ### Using the Azure portal
 
 1. Go to the devices page using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Information on how to locate a device can be found in [How to manage device identities using the Azure portal](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+2. Information on how to locate a device can be found in [How to manage device identities using the Azure portal](./device-management-azure-portal.md).
 3. If the **Registered** column says **Pending**, then Hybrid Azure AD Join has not completed.
 4. If the **Registered** column contains a **date/time**, then Hybrid Azure AD Join has completed.
 
@@ -223,7 +223,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 If you experience issues completing hybrid Azure AD join for domain-joined Windows devices, see:
 
-- [Troubleshooting devices using dsregcmd command](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Troubleshooting devices using dsregcmd command](./troubleshoot-device-dsregcmd.md)
 - [Troubleshooting hybrid Azure Active Directory joined devices](troubleshoot-hybrid-join-windows-current.md)
 - [Troubleshooting hybrid Azure Active Directory joined down-level devices](troubleshoot-hybrid-join-windows-legacy.md)
 

@@ -24,7 +24,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-eventhubs-create-namespace-and-eventhub/).
 
-:::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json" range="1-61" highlight="32-59":::
+:::code language="json" source="~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json":::
 
 The resources defined in the template include:
 
@@ -87,10 +87,10 @@ Write-Host "Press [ENTER] to continue ..."
 
 In this article, you created an Event Hubs namespace, and an event hub in the namespace. For step-by-step instructions to send events to (or) receive events from an event hub, see the **Send and receive events** tutorials:
 
-- [.NET Core](get-started-dotnet-standard-send-v2.md)
-- [Java](get-started-java-send-v2.md)
-- [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-node-send-v2.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [JavaScript](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (send only)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)

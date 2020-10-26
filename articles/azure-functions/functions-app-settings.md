@@ -18,7 +18,7 @@ There are other global configuration options in the [host.json](functions-host-j
 
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
-The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING`. For more information, see [Monitor Azure Functions](functions-monitoring.md). 
+The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING`. When Application Insights runs in a sovereign cloud, use `APPLICATIONINSIGHTS_CONNECTION_STRING`. For more information, see [How to configure monitoring for Azure Functions](configure-monitoring.md). 
 
 |Key|Sample value|
 |---|------------|
@@ -26,7 +26,12 @@ The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_I
 
 ## APPLICATIONINSIGHTS_CONNECTION_STRING
 
-The connection string for Application Insights. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` instead of `APPINSIGHTS_INSTRUMENTATIONKEY` when your function app requires the added customizations supported by using the connection string. For more information, see [Connection strings](../azure-monitor/app/sdk-connection-string.md). 
+The connection string for Application Insights. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` instead of `APPINSIGHTS_INSTRUMENTATIONKEY` in the following cases:
+
++ When your function app requires the added customizations supported by using the connection string. 
++ When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint.
+
+For more information, see [Connection strings](../azure-monitor/app/sdk-connection-string.md). 
 
 |Key|Sample value|
 |---|------------|
@@ -199,7 +204,7 @@ To learn more, see [Custom dependencies](functions-reference-python.md#remote-bu
 
 _This setting is currently in preview._  
 
-This setting controls logging from the Azure Functions scale controller. For more information, see [Scale controller logs](functions-monitoring.md#scale-controller-logs-preview).
+This setting controls logging from the Azure Functions scale controller. For more information, see [Scale controller logs](functions-monitoring.md#scale-controller-logs).
 
 |Key|Sample value|
 |-|-|
@@ -229,8 +234,8 @@ For Consumption & Premium plans only. The file path to the function app code and
 
 The maximum number of instances that the function app can scale out to. Default is no limit.
 
-> [!NOTE]
-> This setting is a preview feature - and only reliable if set to a value <= 5
+> [!IMPORTANT]
+> This setting is in preview.  An [app property for function max scale out](./functions-scale.md#limit-scale-out) has been added and is the recommended way to limit scale out.
 
 |Key|Sample value|
 |---|------------|

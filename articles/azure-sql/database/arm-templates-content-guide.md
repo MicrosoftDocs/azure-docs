@@ -6,7 +6,7 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: 
-ms.topic: sample
+ms.topic: guide
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein

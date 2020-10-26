@@ -1,15 +1,15 @@
 ---
 title: Migrate Azure AD Domain Services from a Classic virtual network | Microsoft Docs
 description: Learn how to migrate an existing Azure AD Domain Services managed domain from the Classic virtual network model to a Resource Manager-based virtual network.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/09/2020
-ms.author: iainfou
+ms.date: 09/24/2020
+ms.author: joflore
 
 ---
 
@@ -136,6 +136,14 @@ There are some restrictions on the virtual networks that a managed domain can be
 
 For more information on virtual network requirements, see [Virtual network design considerations and configuration options][network-considerations].
 
+You must also create a network security group to restrict traffic in the virtual network for the managed domain. An Azure standard load balancer is created during the migration process that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly.
+
+For more information on what rules are required, see [Azure AD DS network security groups and required ports](network-considerations.md#network-security-groups-and-required-ports).
+
+### LDAPS and TLS/SSL certificate expiration
+
+If your managed domain is configured for LDAPS, confirm that your current TLS/SSL certificate is valid for more than 30 days. A certificate that expires within the next 30 days causes the migration processes to fail. If needed, renew the certificate and apply it to your managed domain, then begin the migration process.
+
 ## Migration steps
 
 The migration to the Resource Manager deployment model and virtual network is split into 5 main steps:
@@ -163,7 +171,9 @@ Before you begin the migration process, complete the following initial checks an
 
     Make sure that network settings don't block necessary ports required for Azure AD DS. Ports must be open on both the Classic virtual network and the Resource Manager virtual network. These settings include route tables (although it's not recommended to use route tables) and network security groups.
 
-    To view the ports required, see [Network security groups and required ports][network-ports]. To minimize network communication problems, it's recommended to wait and apply a network security group or route table to the Resource Manager virtual network after the migration successfully completed.
+    Azure AD DS needs a network security group to secure the ports needed for the managed domain and block all other incoming traffic. This network security group acts as an extra layer of protection to lock down access to the managed domain. To view the ports required, see [Network security groups and required ports][network-ports].
+
+    If you use secure LDAP, add a rule to the network security group to allow incoming traffic for *TCP* port *636*. For more information, see [Lock down secure LDAP access over the internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 
     Make a note of this target resource group, target virtual network, and target virtual network subnet. These resource names are used during the migration process.
 
@@ -194,6 +204,12 @@ To prepare the managed domain for migration, complete the following steps:
     ```powershell
     $creds = Get-Credential
     ```
+    
+1. Define a variable for your Azure subscription ID. If needed, you can use the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet to list and view your subscription IDs. Provide your own subscription ID in the following command:
+
+   ```powershell
+   $subscriptionId = 'yourSubscriptionId'
+   ```
 
 1. Now run the `Migrate-Aadds` cmdlet using the *-Prepare* parameter. Provide the *-ManagedDomainFqdn* for your own managed domain, such as *aaddscontoso.com*:
 
@@ -201,7 +217,8 @@ To prepare the managed domain for migration, complete the following steps:
     Migrate-Aadds `
         -Prepare `
         -ManagedDomainFqdn aaddscontoso.com `
-        -Credentials $creds​
+        -Credentials $creds `
+        -SubscriptionId $subscriptionId
     ```
 
 ## Migrate the managed domain
@@ -221,7 +238,8 @@ Migrate-Aadds `
     -VirtualNetworkResourceGroupName myResourceGroup `
     -VirtualNetworkName myVnet `
     -VirtualSubnetName DomainServices `
-    -Credentials $creds​
+    -Credentials $creds `
+    -SubscriptionId $subscriptionId
 ```
 
 After the script validates the managed domain is prepared for migration, enter *Y* to start the migration process.
@@ -285,13 +303,6 @@ If needed, you can update the fine-grained password policy to be less restrictiv
 1. Use a network trace on the VM to locate the source of the attacks and block those IP addresses from being able to attempt sign-ins.
 1. When there are minimal lockout issues, update the fine-grained password policy to be as restrictive as necessary.
 
-### Creating a network security group
-
-Azure AD DS needs a network security group to secure the ports needed for the managed domain and block all other incoming traffic. This network security group acts as an extra layer of protection to lock down access to the managed domain, and isn't automatically created. To create the network security group and open the required ports, review the following steps:
-
-1. In the Azure portal, select your Azure AD DS resource. On the overview page, a button is displayed to create a network security group if there's none associated with Azure AD Domain Services.
-1. If you use secure LDAP, add a rule to the network security group to allow incoming traffic for *TCP* port *636*. For more information, see [Configure secure LDAP][secure-ldap].
-
 ## Roll back and restore from migration
 
 Up to a certain point in the migration process, you can choose to roll back or restore the managed domain.
@@ -307,7 +318,8 @@ Migrate-Aadds `
     -Abort `
     -ManagedDomainFqdn aaddscontoso.com `
     -ClassicVirtualNetworkName myClassicVnet `
-    -Credentials $creds
+    -Credentials $creds `
+    -SubscriptionId $subscriptionId
 ```
 
 ### Restore

@@ -26,7 +26,7 @@ The following sample adds a log query to a Log Analytics workspace.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -39,7 +39,7 @@ The following sample adds a log query to a Log Analytics workspace.
   "resources": [
     {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2020-03-01-preview",
+      "apiVersion": "2020-08-01",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
@@ -69,7 +69,7 @@ The following sample adds a log query to a Log Analytics workspace.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -89,7 +89,7 @@ The following sample adds a log query as a function to a Log Analytics workspace
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -108,7 +108,7 @@ The following sample adds a log query as a function to a Log Analytics workspace
       "resources": [
         {
           "type": "savedSearches",
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "name": "Cross workspace query",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -138,7 +138,7 @@ The following sample adds a log query as a function to a Log Analytics workspace
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -161,7 +161,7 @@ The following sample adds a log query as a function that uses a parameter to a L
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -174,13 +174,13 @@ The following sample adds a log query as a function that uses a parameter to a L
   "resources": [
     {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2017-03-15-preview",
+      "apiVersion": "2020-08-01",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
         {
           "type": "savedSearches",
-          "apiVersion": "2017-04-26-preview",
+          "apiVersion": "2020-08-01",
           "name": "Parameterized function",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -196,7 +196,7 @@ The following sample adds a log query as a function that uses a parameter to a L
         },
         {
           "type": "savedSearches",
-          "apiVersion": "2017-04-26-preview",
+          "apiVersion": "2020-08-01",
           "name": "Query using function",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -219,7 +219,7 @@ The following sample adds a log query as a function that uses a parameter to a L
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
