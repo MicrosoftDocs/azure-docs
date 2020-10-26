@@ -2,7 +2,7 @@
 title: Template functions - arrays
 description: Describes the functions to use in an Azure Resource Manager template for working with arrays.
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 10/12/2020
 ---
 # Array functions for ARM templates
 
@@ -272,12 +272,11 @@ Creates an array from the parameters.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |String, Integer, Array, or Object |The first value in the array. |
-| additional arguments |No |String, Integer, Array, or Object |Additional values in the array. |
+| args |No |String, Integer, Array, or Object |The values in the array. |
 
 ### Return value
 
-An array.
+An array. When no parameters are provided, it returns an empty array.
 
 ### Example
 
@@ -315,6 +314,10 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         "arrayArray": {
             "type": "array",
             "value": "[createArray(parameters('arrayToTest'))]"
+        },
+        "emptyArray": {
+            "type": "array",
+            "value": "[createArray()]"
         }
     }
 }
@@ -328,6 +331,7 @@ The output from the preceding example with the default values is:
 | intArray | Array | [1, 2, 3] |
 | objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
 | arrayArray | Array | [["one", "two", "three"]] |
+| emptyArray | Array | [] |
 
 ## empty
 

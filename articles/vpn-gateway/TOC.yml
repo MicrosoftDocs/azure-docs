@@ -1,15 +1,18 @@
-- name: VPN Gateway Documentation
+- name: VPN Gateway documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is VPN Gateway?
     href: vpn-gateway-about-vpngateways.md
 - name: Tutorials
+  expanded: true
   items:
   - name: Create and manage a VPN gateway
-    href: vpn-gateway-tutorial-create-gateway-powershell.md
-  - name: Create and manage S2S VPN connections
-    href: vpn-gateway-tutorial-vpnconnection-powershell.md
+    items:
+    - name: Azure portal
+      href: tutorial-create-gateway-portal.md
+    - name: Azure PowerShell
+      href: vpn-gateway-tutorial-create-gateway-powershell.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -63,7 +66,7 @@
     - name: Create a route-based VPN gateway
       items:
       - name: Azure portal
-        href: create-routebased-vpn-gateway-portal.md
+        href: tutorial-create-gateway-portal.md
       - name: Azure PowerShell
         href: create-routebased-vpn-gateway-powershell.md
       - name: Azure CLI
@@ -71,7 +74,7 @@
     - name: Verify a VPN gateway connection
       href: vpn-gateway-verify-connection-resource-manager.md
     - name: Reset a VPN gateway
-      href: vpn-gateway-resetgw-classic.md
+      href: reset-gateway.md
     - name: Delete a VPN gateway
       items:
       - name: Azure portal

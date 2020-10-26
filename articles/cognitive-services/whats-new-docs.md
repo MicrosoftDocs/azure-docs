@@ -37,51 +37,51 @@ Welcome to what's new in the Cognitive Services docs from September 1, 2020 thro
 
 ### New articles
 
-- [Install and run the spatial analysis container (preview)](/azure/cognitive-services/computer-vision/spatial-analysis-container.md)
+- [Install and run the spatial analysis container (preview)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container?tabs=azure-stack-edge)
 
 ### Updated articles
 
-- [Azure Cognitive Services container image tags](/azure/cognitive-services/containers/container-image-tags.md)
+- [Azure Cognitive Services container image tags](https://docs.microsoft.com/azure/cognitive-services/containers/container-image-tags)
 
 ## Form Recognizer
 
 ### Updated articles
 
-- [Language support for Form Recognizer](/azure/cognitive-services/form-recognizer/language-support.md)
-- [Build a training data set for a custom model](/azure/cognitive-services/form-recognizer/build-training-data-set.md)
-- [Receipt concepts](/azure/cognitive-services/form-recognizer/concept-receipts.md)
-- [Form Recognizer encryption of data at rest](/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest.md)
-- [What's new in Form Recognizer?](/azure/cognitive-services/form-recognizer/whats-new.md)
-- [Business card concepts](/azure/cognitive-services/form-recognizer/concept-business-cards.md)
-- [What is Form Recognizer?](/azure/cognitive-services/form-recognizer/overview.md)
-- [Quickstart: Use the Form Recognizer client library](/azure/cognitive-services/form-recognizer/quickstarts/client-library.md)
+- [Language support for Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/language-support)
+- [Build a training data set for a custom model](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/build-training-data-set)
+- [Receipt concepts](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/concept-receipts)
+- [Form Recognizer encryption of data at rest](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest)
+- [What's new in Form Recognizer?](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/whats-new)
+- [Business card concepts](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/concept-business-cards)
+- [What is Form Recognizer?](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/overview)
+- [Quickstart: Use the Form Recognizer client library](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/client-library)
 
 ## Immersive Reader
 
 ### Updated articles
 
-- [Language support for Immersive Reader](/azure/cognitive-services/immersive-reader/language-support.md)
-- [Immersive Reader JavaScript SDK Reference (v1.1)](/azure/cognitive-services/immersive-reader/reference.md)
-- [Quickstart: Get started with Immersive Reader](/azure/cognitive-services/immersive-reader/quickstarts/client-libraries.md)
-- [Tutorial: Start the Immersive Reader using the Python sample project](/azure/cognitive-services/immersive-reader/tutorial-python.md)
-- [Create an Immersive Reader resource and configure Azure Active Directory authentication](/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader.md)
+- [Language support for Immersive Reader](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/language-support)
+- [Immersive Reader JavaScript SDK Reference (v1.1)](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference)
+- [Quickstart: Get started with Immersive Reader](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/quickstarts/client-libraries)
+- [Tutorial: Start the Immersive Reader using the Python sample project](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/tutorial-python)
+- [Create an Immersive Reader resource and configure Azure Active Directory authentication](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader)
 
 ## Metrics Advisor
 
 ### New articles
 
-- [How to: Configure metrics and fine tune detecting configuration](/azure/cognitive-services/metrics-advisor/how-tos/configure-metrics.md)
-- [Add data feeds from different data sources to Metrics Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources.md)
-- [Quickstart: Use the REST APIs to customize your solution](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api.md)
-- [How-to: Configure alerts and get notifications using a hook](/azure/cognitive-services/metrics-advisor/how-tos/alerts.md)
+- [How to: Configure metrics and fine tune detecting configuration](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/how-tos/configure-metrics)
+- [Add data feeds from different data sources to Metrics Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources)
+- [Quickstart: Use the REST APIs to customize your solution](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/rest-api)
+- [How-to: Configure alerts and get notifications using a hook](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/how-tos/alerts)
 
 ## Text Analytics
 
 ### Updated articles
 
-- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [Model versioning in the Text Analytics API](/azure/cognitive-services/text-analytics/concepts/model-versioning.md)
-- [Quickstart: Use the Text Analytics client library](/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk.md)
+- [How to use Named Entity Recognition in Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
+- [Model versioning in the Text Analytics API](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/model-versioning)
+- [Quickstart: Use the Text Analytics client library](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk)
 
 ## Community contributors
 

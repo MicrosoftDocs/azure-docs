@@ -110,7 +110,7 @@ When you design and configure an Azure VPN gateway, a number of related services
 
 ## Implementation steps using PowerShell
 
-### Role-based access control
+### Azure role-based access control
 
 1. Create a custom role. An example is virtualNetworkGateway Contributor. Create a role to be assigned to users who will be allowed to create and modify VPN gateways. The custom role should allow the following operations:
 

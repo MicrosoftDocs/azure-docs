@@ -10,6 +10,8 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
+ms.reviewer: larryfr
+ms.custom: deploy
 ---
 
 # Profile your model to determine resource utilization

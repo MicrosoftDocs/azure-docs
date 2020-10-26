@@ -65,7 +65,7 @@ The next step is for you to install the second SAP HANA instance on the HANA Lar
 - Stop the newly installed SAP HANA instance on the HANA Large Instance unit in the DR Azure region.
 - Unmount these PRD volumes and contact SAP HANA on Azure Service Management. The volumes can't stay mounted to the unit because they can't be accessible while functioning as storage replication target.  
 
-![DR setup step before establishing replication](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
+![Diagram that shows the replication relationship between the PRD volumes in the production Azure region and the PRD volumes in the DR Azure region.](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
 
 The operations team establishes the replication relationship between the PRD volumes in the production Azure region and the PRD volumes in the DR Azure region.
 

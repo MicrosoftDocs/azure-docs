@@ -54,7 +54,7 @@ If you find your data factory doesn't have a managed identity associated followi
 
 ### Generate managed identity using PowerShell
 
-Call **Set-AzDataFactoryV2** command again, then you see "Identity" fields being newly generated:
+Call **Set-AzDataFactoryV2** command, then you see "Identity" fields being newly generated:
 
 ```powershell
 PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
@@ -249,4 +249,4 @@ See the following topics that introduce when and how to use data factory managed
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copy data from/to Azure Data Lake Store using managed identities for Azure resources authentication](connector-azure-data-lake-store.md)
 
-See [Managed Identities for Azure Resources Overview](/azure/active-directory/managed-identities-azure-resources/overview) for more background on managed identities for Azure resources, which data factory managed identity is based upon. 
+See [Managed Identities for Azure Resources Overview](../active-directory/managed-identities-azure-resources/overview.md) for more background on managed identities for Azure resources, which data factory managed identity is based upon.

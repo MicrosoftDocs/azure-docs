@@ -32,9 +32,9 @@ You can use any code editor to do the steps in this tutorial. [Visual Studio Cod
 
 ### Prerequisites
 
-If you build locally, download and install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven’t already.
+If you build locally, download and install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven’t already.
 
-To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) is installed in your build system.
+To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) is installed in your build system.
 
 ### Export an App Configuration store
 
@@ -104,4 +104,4 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](ht
 In this tutorial, you exported Azure App Configuration data to be used in a deployment pipeline. To learn more about how to use App Configuration, continue to the Azure CLI samples.
 
 > [!div class="nextstepaction"]
-> [Azure CLI](https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest)
+> [Azure CLI](/cli/azure/appconfig?view=azure-cli-latest)

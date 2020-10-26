@@ -214,6 +214,8 @@
       href: log-query/scope.md
     - name: Simple logs experience
       href: log-query/simple-logs.md
+    - name: Query with Azure Data Explorer
+      href: platform/azure-data-explorer-monitor-proxy.md
     - name: Log queries
       items:
       - name: Standard columns
@@ -290,8 +292,8 @@
           href: learn/quick-create-workspace-cli.md
         - name: PowerShell
           href: platform/powershell-workspace-configuration.md
-        - name: Resource Manager template
-          href: platform/template-workspace-configuration.md
+      - name: Monitor a workspace
+        href: platform/monitor-workspace.md
       - name: Delete and recover a workspace
         href: platform/delete-workspace.md
       - name: Manage access
@@ -303,6 +305,14 @@
         href: platform/service-providers.md
       - name: Dedicated clusters
         href: log-query/logs-dedicated-clusters.md
+    - name: Data export
+      items:
+      - name: Workspace data export
+        href: platform/logs-data-export.md
+      - name: Export with Logic Apps
+        href: platform/logs-export-logic-app.md
+      - name: Query exported data with Data Explorer
+        href: platform/azure-data-explorer-query-storage.md
   - name: Metrics explorer
     items:
     - name: Getting started with Metrics Explorer
@@ -1012,8 +1022,12 @@
       href: insights/container-insights-analyze.md
     - name: Monitor GPU performance
       href: insights/container-insights-gpu-monitoring.md
+    - name: Monitor network configuration
+      href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
     - name: Monitor Deployments & HPAs
       href: insights/container-insights-deployment-hpa-metrics.md
+    - name: Monitor Persistent Volumes (PVs)
+      href: insights/container-insights-persistent-volumes.md
     - name: View live data
       items:
       - name: Live Data (preview) overview

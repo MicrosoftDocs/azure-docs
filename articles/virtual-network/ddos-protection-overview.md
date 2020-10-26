@@ -21,7 +21,7 @@ Azure DDoS protection, combined with application design best practices, provide 
 
 DDoS Protection Standard is simple to enable, and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms. Policies are applied to public IP addresses associated to resources deployed in virtual networks, such as Azure Load Balancer, Azure Application Gateway, and Azure Service Fabric instances, but this protection does not apply to App Service Environments. Real-time telemetry is available through Azure Monitor views during an attack, and for history. Rich attack mitigation analytics are available via diagnostic settings. Application layer protection can be added through the [Azure Application Gateway Web Application Firewall](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or by installing a 3rd party firewall from Azure Marketplace. Protection is provided for IPv4 and IPv6 Azure [public IP addresses](virtual-network-public-ip-address.md).
 
-![DDoS Protection Basic vs Standard](./media/ddos-protection-overview/ddoscomparison.png)
+![DDoS Protection Basic vs Standard](./media/ddos-protection-overview/ddosfeatures.png)
 
 Azure DDoS protection does not store customer data.
 
@@ -36,8 +36,6 @@ DDoS Protection Standard can mitigate the following types of attacks:
 DDoS Protection Standard protects resources in a virtual network including public IP addresses associated with virtual machines, load balancers, and application gateways. When coupled with the Application Gateway web application firewall, or a third-party web application firewall deployed in a virtual network with a public IP, DDoS Protection Standard can provide full layer 3 to layer 7 mitigation capability.
 
 ## DDoS Protection Standard features
-
-![DDoS functionality](./media/ddos-protection-overview/ddosfeatures.png)
 
 DDoS Protection Standard features include:
 

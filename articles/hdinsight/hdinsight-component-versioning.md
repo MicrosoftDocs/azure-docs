@@ -92,7 +92,7 @@ This table lists the versions of HDInsight that are available in the Azure porta
 | HDInsight 3.6  ML Services      | 9.3               | Dec 31, 2020                      | Dec 31, 2020                |
 
 > [!NOTE]
-> After support for a cluster version expires, it might not be available through the Azure portal. In some cases, cluster versions continue to be available by using the **Version** parameter in the Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) command and the .NET SDK until the version retirement date.
+> After support for a cluster version expires, it might not be available through the Azure portal. In some cases, cluster versions continue to be available by using the **Version** parameter in the Windows PowerShell [New-AzHDInsightCluster](/powershell/module/az.hdinsight/new-azhdinsightcluster) command and the .NET SDK until the version retirement date.
 
 ### Retired versions
 
