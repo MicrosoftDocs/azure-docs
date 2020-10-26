@@ -20,7 +20,7 @@ Use the Custom Vision client library for .NET to:
 * Publish the current iteration
 * Test the prediction endpoint
 
-Reference documentation [(training)](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest) [(prediction)](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest) | Library source code [(training)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-training) [(prediction)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-prediction) | Package (npm) [(training)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [(prediction)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction) | [Samples](https://docs.microsoft.com/en-us/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
+Reference documentation [(training)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest) [(prediction)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest) | Library source code [(training)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-training) [(prediction)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-prediction) | Package (npm) [(training)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [(prediction)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction) | [Samples](https://docs.microsoft.com/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
 
 
 ## Prerequisites
@@ -82,9 +82,9 @@ Also add fields for your project name and a timeout parameter for asynchronous c
 
 |Name|Description|
 |---|---|
-|[TrainingAPIClient](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient?view=azure-node-latest) | This class handles the creation, training, and publishing of your models. |
-|[PredictionAPIClient](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient?view=azure-node-latest)| This class handles the querying of your models for object detection predictions.|
-|[Prediction](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-customvision-prediction/prediction?view=azure-node-latest)| This interface defines a single prediction on a single image. It includes properties for the object ID and name, and a confidence score.|
+|[TrainingAPIClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient?view=azure-node-latest) | This class handles the creation, training, and publishing of your models. |
+|[PredictionAPIClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient?view=azure-node-latest)| This class handles the querying of your models for object detection predictions.|
+|[Prediction](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/prediction?view=azure-node-latest)| This interface defines a single prediction on a single image. It includes properties for the object ID and name, and a confidence score.|
 
 ## Code examples
 
@@ -100,7 +100,7 @@ These code snippets show you how to do the following tasks with the Custom Visio
 
 ## Authenticate the client
 
-Instantiate client objects with your endpoint and key. Create an **ApiKeyCredentials** object with your key, and use it with your endpoint to create a [TrainingAPIClient](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient?view=azure-node-latest) and [PredictionAPIClient](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient?view=azure-node-latest) object.
+Instantiate client objects with your endpoint and key. Create an **ApiKeyCredentials** object with your key, and use it with your endpoint to create a [TrainingAPIClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/trainingapiclient?view=azure-node-latest) and [PredictionAPIClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/predictionapiclient?view=azure-node-latest) object.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/CustomVision/ObjectDetection/CustomVisionQuickstart.js?name=snippet_auth)]
 
