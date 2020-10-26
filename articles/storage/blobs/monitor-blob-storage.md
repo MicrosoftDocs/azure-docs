@@ -66,6 +66,9 @@ You can create a diagnostic setting by using the Azure portal, PowerShell, the A
 
 For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
+> [!NOTE]
+> Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues,and tables. This feature is available for all storage accounts that are created with the Azure Resource Manager deployment model. See [Storage account overview](../common/storage-account-overview.md).
+
 ### [Azure portal](#tab/azure-portal)
 
 1. Sign in to the Azure portal.
@@ -239,7 +242,7 @@ Here's an example:
 
  For more information, see [Stream Azure Resource Logs to Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
 
-# [Template](#tab/template)
+### [Template](#tab/template)
 
 To view an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
@@ -453,7 +456,7 @@ You can read the metric values of your storage account or the Blob storage servi
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
-# [Template](#tab/template)
+### [Template](#tab/template)
 
 N/A.
 

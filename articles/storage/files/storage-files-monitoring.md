@@ -237,7 +237,7 @@ Here's an example:
 
  For more information, see [Stream Azure Resource Logs to Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
 
-# [Template](#tab/template)
+### [Template](#tab/template)
 
 To view an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
