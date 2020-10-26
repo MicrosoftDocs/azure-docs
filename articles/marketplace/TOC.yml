@@ -85,9 +85,9 @@
     items:
     - name: Plan an Azure application offer
       href: plan-azure-application-offer.md
-    - name: Plan a solution template offer
+    - name: Plan a solution template
       href: plan-azure-app-solution-template.md
-    - name: Plan a managed application offer
+    - name: Plan a managed application
       href: plan-azure-app-managed-app.md
     - name: Create and publish an Azure application offer
       items:
