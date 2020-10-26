@@ -31,8 +31,12 @@ You can assign users to administrative units individually or as a bulk operation
 - Assign individual users from a user profile:
 
    1. Sign in to the [Azure AD admin center](https://portal.azure.com) with Privileged Role Administrator permissions.
+
    1. Select **Users** and then, to open the user's profile, select the user to be assigned to an administrative unit.
-   1. Select **Administrative units**. You can assign the user to one or more administrative units by selecting **Assign to administrative unit** and then, on the right pane, selecting the administrative units to which you want to assign the user.
+   
+   1. Select **Administrative units**. 
+   
+   1. To assign the user to one or more administrative units, select **Assign to administrative unit** and then, on the right pane, select the administrative units to which you want to assign the user.
 
        ![Screenshot of the "Administrative units" pane for assigning a user to an administrative unit.](./media/admin-units-add-manage-users/assign-users-individually.png)
 
@@ -52,7 +56,7 @@ You can assign users to administrative units individually or as a bulk operation
 
    1. Select the administrative unit to which you want to add users.
 
-   1. Open **All users** > **Add members from .csv file**. You can then download the comma-separated values (CSV) template and edit the file. The format is simple and needs a single User Principal Name to be added in each line. After the file is ready, save it to an appropriate location, and then upload it as part of this step.
+   1. Select **All users** > **Add members from .csv file**. You can then download the comma-separated values (CSV) template and edit the file. The format is simple and needs a single user principal name to be added on each line. After the file is ready, save it to an appropriate location, and then upload it as part of this step.
 
       ![Screenshot of the "Users" pane for assigning users to an administrative unit as a bulk operation.](./media/admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 
