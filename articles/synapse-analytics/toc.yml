@@ -42,7 +42,8 @@
     href: quickstart-create-workspace-cli.md
   - name: Create a Synapse workspace using Azure PowerShell
     href: quickstart-create-workspace-powershell.md
-  - name: Deploy with a template
+  - name: Deploy with an ARM template
+    displayName: Resource Manager
     href: quickstart-deployment-template-workspaces.md
   - name: Link a Power BI workspace
     href: quickstart-power-bi.md
