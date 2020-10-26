@@ -54,4 +54,4 @@ In an internal deployment, APIs get exposed to the same API Management instance.
 * External traffic enters Azure through Application Gateway, which uses the external protection layer for API Management.
 
 
-:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Internal deployment - API Management for Azure VMware Solution":::
+:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Internal deployment - API Management for Azure VMware Solution" lightbox="media/api-management/internal-deployment.png":::
