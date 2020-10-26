@@ -14,7 +14,7 @@ To maintain the performance and availability of your Log Analytics workspace in 
 
 ## _LogOperation function
 
-Azure Monitor Logs sends details on any issues to the [Operation](/azure-monitor/reference/tables/operation) table in the workspace where the issue occurred. The **_LogOperation** system function is based on the **Operation** table and provides a simplified set of information for analysis and alerting.
+Azure Monitor Logs sends details on any issues to the [Operation](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) table in the workspace where the issue occurred. The **_LogOperation** system function is based on the **Operation** table and provides a simplified set of information for analysis and alerting.
 
 ## Columns
 
