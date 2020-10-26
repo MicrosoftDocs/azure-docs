@@ -24,7 +24,7 @@ In this tutorial, you'll learn to use Postman to:
 > - Get tokens for use with Azure services.
 > - Create a resource group and a storage account.
 > - Create a Media Services account with a system-managed identity.
-> - Create a Key Vault for storing a customer-managed RSA key.
+> - Create a key vault for storing a customer-managed RSA key.
 > - Update the Media Services account to use the RSA key with the storage account.
 > - Use variables in Postman.
 
@@ -67,7 +67,7 @@ Download the Postman collection for this tutorial at [Azure Samples: media-servi
 1. Select the collection and environment files.
 1. Select **Open**. A warning appears that says the files won't be imported as an API, but as collections. This warning is fine. It's what you want.
 
-The collection now shows in your Collections as BYOK. Also, the environment variables appear in your Environments.
+The collection now shows in your collections as BYOK. Also, the environment variables appear in your environments.
 
 ### Understand the REST API requests in the collection
 
@@ -82,13 +82,13 @@ The collection provides the following REST API requests.
 In Postman, you'll see these variables contained within brackets. For example, `{{bearerToken}}`.
 
 1. Get an Azure AD token: The test sets the global variable **bearerToken**.
-2. Get a Graph token: The test sets the global variable **graphToken**.
-3. Get Service Principal Details: The test sets the global variable **servicePrincipalObjectId**.
+2. Get a Microsoft Graph token: The test sets the global variable **graphToken**.
+3. Get service principal details: The test sets the global variable **servicePrincipalObjectId**.
 4. Create a storage account: The test sets the global variable **storageAccountId**.
-5. Create a Media Services Account with a system-managed identity: The test sets the global variable **principalId**.
-6. Create a Key Vault to grant access to the service principal: The test sets the global variable **keyVaultId**.
-7. Get a Key Vault token: The test sets global variable **keyVaultToken**.
-8. Create the RSA key in the key vault: The test sets global variable **keyId**.
+5. Create a Media Services account with a system-managed identity: The test sets the global variable **principalId**.
+6. Create a key vault to grant access to the service principal: The test sets the global variable **keyVaultId**.
+7. Get a Key Vault token: The test sets the global variable **keyVaultToken**.
+8. Create the RSA key in the key vault: The test sets the global variable **keyId**.
 9. Update the Media Services account to use the key with the storage account: There's no test script for this request.
 
 ## Define environment variables
@@ -97,12 +97,12 @@ In Postman, you'll see these variables contained within brackets. For example, `
 1. Establish your environment variables in Postman. They're also used as variables contained within brackets. For example, `{{tenantId}}`.
 
     - **tenantId**: Your tenant ID.
-    - **servicePrincipalId**: The ID of the service principal you establish with your favorite method. Such as, portal, CLI, and so on.
+    - **servicePrincipalId**: The ID of the service principal you establish with your favorite method, such as portal or CLI.
     - **servicePrincipalSecret**: The secret created for the service principal.
     - **subscription**: Your subscription ID.
     - **storageName**: The name you want to give to your storage.
-    - **accountName**: The Media Service account name you want to use.
-    - **keyVaultName**: The Key Vault name you want to use.
+    - **accountName**: The Media Services account name you want to use.
+    - **keyVaultName**: The key vault name you want to use.
     - **resourceLocation**: The location **CentralUs** or where you want to put your resources. This collection has only been tested with **CentralUs**.
     - **resourceGroup**: The resource group name.
 
@@ -118,7 +118,7 @@ In Postman, you'll see these variables contained within brackets. For example, `
 
 ## Send the requests
 
-Once you define your environment variables, you can run the requests one at a time in the previous sequence. Or, you can use Postman's runner to run the collection.
+After you define your environment variables, you can run the requests one at a time in the previous sequence. Or, you can use Postman's runner to run the collection.
 
 ## Change the key
 
