@@ -25,8 +25,7 @@ This article details the specifics of using a SQL Server virtual machine (VM) wi
 
 ## Limitations
 
-- Virtual machine scale sets are not currently supported on dedicated hosts.
-- The following VM series are supported: DSv3 and ESv3. 
+- Not all VM series are supported on dedicated hosts, and VM series availability varies by region. For more information, see [Overview of Azure Dedicated Hosts](../../../virtual-machines/dedicated-hosts.md).
 
 ## Licensing
 
