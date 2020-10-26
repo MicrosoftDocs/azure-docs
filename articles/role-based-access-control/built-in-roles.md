@@ -9220,12 +9220,12 @@ Full access role for Digital Twins data-plane [Learn more](../digital-twins/conc
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.DigitalTwins/eventroutes/* |  |
-> | Microsoft.DigitalTwins/digitaltwins/* |  |
-> | Microsoft.DigitalTwins/digitaltwins/commands/* |  |
-> | Microsoft.DigitalTwins/digitaltwins/relationships/* |  |
-> | Microsoft.DigitalTwins/models/* |  |
-> | Microsoft.DigitalTwins/query/* |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/commands/* |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/* |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/* |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -9269,11 +9269,11 @@ Read-only role for Digital Twins data-plane properties [Learn more](../digital-t
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.DigitalTwins/digitaltwins/read | Read any Digital Twin |
-> | Microsoft.DigitalTwins/digitaltwins/relationships/read | Read any Digital Twin Relationship |
-> | Microsoft.DigitalTwins/eventroutes/read | Read any Event Route |
-> | Microsoft.DigitalTwins/models/read | Read any Model |
-> | Microsoft.DigitalTwins/query/action | Query any Digital Twins Graph |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/read | Read any Digital Twin |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/read | Read any Digital Twin Relationship |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/read | Read any Event Route |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/read | Read any Model |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/action | Query any Digital Twins Graph |
 > | **NotDataActions** |  |
 > | *none* |  |
 

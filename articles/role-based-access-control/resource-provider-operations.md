@@ -153,6 +153,7 @@ Click the resource provider name in the following table to see the list of opera
 | [Microsoft.Intune](#microsoftintune) |
 | **Other** |
 | [Microsoft.BingMaps](#microsoftbingmaps) |
+| [Microsoft.DigitalTwins](#microsoftdigitaltwins) |
 
 
 ## General
@@ -9658,6 +9659,45 @@ Azure service: [Bing Maps](https://docs.microsoft.com/BingMaps/)
 > | Microsoft.BingMaps/mapApis/listSecrets/action | List the secrets for Microsoft.BingMaps/mapApis |
 > | Microsoft.BingMaps/mapApis/listUsageMetrics/action | List the metrics for Microsoft.BingMaps/mapApis |
 > | Microsoft.BingMaps/Operations/read | List the operations for Microsoft.BingMaps |
+
+### Microsoft.DigitalTwins
+
+Azure service: [Azure Digital Twins](../digital-twins/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.DigitalTwins/register/action | Register the Subscription for the Digital Twins resource provider and enable the creation of Digital Twins instances. |
+> | Microsoft.DigitalTwins/unregister/action | Unregister the subscription for the Digital Twins Resource Provider |
+> | Microsoft.DigitalTwins/digitalTwinsInstances/read | Read any Microsoft.DigitalTwins/digitalTwinsInstances resource |
+> | Microsoft.DigitalTwins/digitalTwinsInstances/write | Create or update any Microsoft.DigitalTwins/digitalTwinsInstances resource |
+> | Microsoft.DigitalTwins/digitalTwinsInstances/delete | Delete an Microsoft.DigitalTwins/digitalTwinsInstances resource |
+> | Microsoft.DigitalTwins/digitalTwinsInstances/diagnosticSettings/read | Gets the diagnostic settings for the resource |
+> | Microsoft.DigitalTwins/digitalTwinsInstances/diagnosticSettings/write | Sets the diagnostic settings for the resource |
+> | Microsoft.DigitalTwins/digitalTwinsInstances/endpoints/delete | Delete any Endpoint of a Digital Twins resource |
+> | Microsoft.DigitalTwins/digitalTwinsInstances/endpoints/read | Read any Endpoint of a Digital Twins resource |
+> | Microsoft.DigitalTwins/digitalTwinsInstances/endpoints/write | Create or Update any Endpoint of a Digital Twins resource |
+> | Microsoft.DigitalTwins/digitalTwinsInstances/logDefinitions/read | Gets the log settings for the resource's Azure Monitor |
+> | Microsoft.DigitalTwins/digitalTwinsInstances/metricDefinitions/read | Gets the metric settings for the resource's Azure Monitor |
+> | Microsoft.DigitalTwins/digitalTwinsInstances/operationsResults/read | Read any Operation Result |
+> | Microsoft.DigitalTwins/locations/checkNameAvailability/action | Check Name Availability of a resource in the Digital Twins Resource Provider |
+> | Microsoft.DigitalTwins/locations/operationsResults/read | Read any Operation Result |
+> | Microsoft.DigitalTwins/operations/read | Read all Operations |
+> | **DataAction** | **Description** |
+> | Microsoft.DigitalTwins/query/action | Query any Digital Twins Graph |
+> | Microsoft.DigitalTwins/digitaltwins/read | Read any Digital Twin |
+> | Microsoft.DigitalTwins/digitaltwins/write | Create or Update any Digital Twin |
+> | Microsoft.DigitalTwins/digitaltwins/delete | Delete any Digital Twin |
+> | Microsoft.DigitalTwins/digitaltwins/commands/action | Invoke any Command on a Digital Twin |
+> | Microsoft.DigitalTwins/digitaltwins/relationships/read | Read any Digital Twin Relationship |
+> | Microsoft.DigitalTwins/digitaltwins/relationships/write | Create or Update any Digital Twin Relationship |
+> | Microsoft.DigitalTwins/digitaltwins/relationships/delete | Delete any Digital Twin Relationship |
+> | Microsoft.DigitalTwins/eventroutes/read | Read any Event Route |
+> | Microsoft.DigitalTwins/eventroutes/delete | Delete any Event Route |
+> | Microsoft.DigitalTwins/eventroutes/write | Create or Update any Event Route |
+> | Microsoft.DigitalTwins/models/read | Read any Model |
+> | Microsoft.DigitalTwins/models/write | Create or Update any Model |
+> | Microsoft.DigitalTwins/models/delete | Delete any Model |
 
 ## Next steps
 
