@@ -38,27 +38,39 @@ Returns **True** if all values are true; otherwise, **False**.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) shows how to use logical functions.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [ ],
-    "outputs": {
-        "andExampleOutput": {
-            "value": "[and(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "orExampleOutput": {
-            "value": "[or(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "notExampleOutput": {
-            "value": "[not(bool('true'))]",
-            "type": "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "andExampleOutput": {
+      "type": "bool",
+      "value": "[and(bool('true'), bool('false'))]"
+    },
+    "orExampleOutput": {
+      "type": "bool",
+      "value": "[or(bool('true'), bool('false'))]"
+    },
+    "notExampleOutput": {
+      "type": "bool",
+      "value": "[not(bool('true'))]"
     }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+output andExampleOutput bool = and(bool('true'), bool('false'))
+output orExampleOutput bool = or(bool('true'), bool('false'))
+output notExampleOutput bool = not(bool('true'))
+```
+
+---
 
 The output from the preceding example is:
 
@@ -92,32 +104,44 @@ You can also use [true()](#true) and [false()](#false) to get boolean values.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json) shows how to use bool with a string or integer.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "trueString": {
-            "value": "[bool('true')]",
-            "type" : "bool"
-        },
-        "falseString": {
-            "value": "[bool('false')]",
-            "type" : "bool"
-        },
-        "trueInt": {
-            "value": "[bool(1)]",
-            "type" : "bool"
-        },
-        "falseInt": {
-            "value": "[bool(0)]",
-            "type" : "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "trueString": {
+      "type": "bool",
+      "value": "[bool('true')]",
+    },
+    "falseString": {
+      "type": "bool",
+      "value": "[bool('false')]"
+    },
+    "trueInt": {
+      "type": "bool",
+      "value": "[bool(1)]"
+    },
+    "falseInt": {
+      "type": "bool",
+      "value": "[bool(0)]"
     }
+  }
 }
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+output trueString bool = bool('true')
+output falseString bool = bool('false')
+output trueInt bool = bool(1)
+output falseInt bool = bool(0)
+```
+
+---
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -145,19 +169,32 @@ A boolean that is always false.
 
 The following example returns a false output value.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "falseOutput": {
-            "value": "[false()]",
-            "type" : "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "falseOutput": {
+      "type": "bool",
+      "value": "[false()]"
     }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+
+> [!NOTE]
+> JGAO - false() is not resolving in bicep.
+
+```
+
+---
 
 The output from the preceding example is:
 
@@ -191,29 +228,42 @@ When the condition is **True**, only the true value is evaluated. When the condi
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) shows how to use the `if` function.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-    ],
-    "outputs": {
-        "yesOutput": {
-            "type": "string",
-            "value": "[if(equals('a', 'a'), 'yes', 'no')]"
-        },
-        "noOutput": {
-            "type": "string",
-            "value": "[if(equals('a', 'b'), 'yes', 'no')]"
-        },
-        "objectOutput": {
-            "type": "object",
-            "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+  ],
+  "outputs": {
+    "yesOutput": {
+      "type": "string",
+      "value": "[if(equals('a', 'a'), 'yes', 'no')]"
+    },
+    "noOutput": {
+      "type": "string",
+      "value": "[if(equals('a', 'b'), 'yes', 'no')]"
+    },
+    "objectOutput": {
+      "type": "object",
+      "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
     }
+  }
 }
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+output yesOutput string = equals('a', 'a') ? 'yes' : 'no'
+output noOutput string = equals('a', 'b') ? 'yes' : 'no'
+output objectOutput object = equals('a', 'a') ? json('{\'test\': \'value1\'}') : json('null')
+```
+
+> [!NOTE]
+> JGAO - verify the escape character.
+---
 The output from the preceding example is:
 
 | Name | Type | Value |
@@ -224,51 +274,83 @@ The output from the preceding example is:
 
 The following [example template](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) shows how to use this function with expressions that are only conditionally valid.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "vmName": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string"
-        },
-        "logAnalytics": {
-            "type": "string",
-            "defaultValue": ""
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string"
     },
-    "resources": [
-        {
-            "condition": "[not(empty(parameters('logAnalytics')))]",
-            "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "location": "[parameters('location')]",
-            "apiVersion": "2017-03-30",
-            "properties": {
-                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
-                "type": "MicrosoftMonitoringAgent",
-                "typeHandlerVersion": "1.0",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
-                },
-                "protectedSettings": {
-                    "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
-                }
-            }
-        }
-    ],
-    "outputs": {
-        "mgmtStatus": {
-            "type": "string",
-            "value": "[if(not(empty(parameters('logAnalytics'))), 'Enabled monitoring for VM!', 'Nothing to enable')]"
-        }
+    "location": {
+      "type": "string"
+    },
+    "logAnalytics": {
+      "type": "string",
+      "defaultValue": ""
     }
+  },
+  "resources": [
+    {
+      "condition": "[not(empty(parameters('logAnalytics')))]",
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "apiVersion": "2017-03-30",
+      "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "type": "MicrosoftMonitoringAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "workspaceId": "[if(not(empty(parameters('logAnalytics'))), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
+        },
+        "protectedSettings": {
+          "workspaceKey": "[if(not(empty(parameters('logAnalytics'))), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "mgmtStatus": {
+      "type": "string",
+      "value": "[if(not(empty(parameters('logAnalytics'))), 'Enabled monitoring for VM!', 'Nothing to enable')]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param vmName string
+param location string
+param logAnalytics string
+
+resource myVmExt 'Microsoft.Compute/virtualMachines/extensions@2017-03-30' = {
+  name: concat(vmName, '/omsnBoarding')
+  location: location
+  properties: {
+    publisher: 'Microsoft.EnterpriseCloud.Monitoring'
+    type: 'MicrosoftMonitoringAgent'
+    typeHandlerVersion: '1.0'
+    autoUpgradeMinorVersion: true
+    settings: {
+      workspaceId: not(empty('logAnalytics')) ? reference('logAnalytics', '2015-11-01-preview').customerId : json('null')
+    }
+    protectedSettings: {
+      workspaceKey: not(empty('logAnalytics')) ? listKeys('logAnalytics', '2015-11-01-preview').primarySharedKey : json('null')
+    }
+  }
+}
+```
+
+> [!NOTE]
+> jgao - the output is not as expected
+
+---
 
 ## not
 
@@ -290,27 +372,39 @@ Returns **True** when parameter is **False**. Returns **False** when parameter i
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) shows how to use logical functions.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [ ],
-    "outputs": {
-        "andExampleOutput": {
-            "value": "[and(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "orExampleOutput": {
-            "value": "[or(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "notExampleOutput": {
-            "value": "[not(bool('true'))]",
-            "type": "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "andExampleOutput": {
+      "type": "bool",
+      "value": "[and(bool('true'), bool('false'))]",
+    },
+    "orExampleOutput": {
+      "type": "bool",
+      "value": "[or(bool('true'), bool('false'))]"
+    },
+    "notExampleOutput": {
+      "type": "bool",
+      "value": "[not(bool('true'))]"
     }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+output andExampleOutput bool = and(bool('true'), bool('false'))
+output orExampleOutput bool = or(bool('true'), bool('false'))
+output notExampleOutput bool = not(bool('true'))
+```
+
+---
 
 The output from the preceding example is:
 
@@ -322,20 +416,30 @@ The output from the preceding example is:
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) uses **not** with [equals](template-functions-comparison.md#equals).
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-    ],
-    "outputs": {
-        "checkNotEquals": {
-            "type": "bool",
-            "value": "[not(equals(1, 2))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+  ],
+  "outputs": {
+    "checkNotEquals": {
+      "type": "bool",
+      "value": "[not(equals(1, 2))]"
     }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+output checkNotEquals bool = not(equals(1,2))
+```
+
+---
 
 The output from the preceding example is:
 
@@ -365,27 +469,39 @@ Returns **True** if any value is true; otherwise, **False**.
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json) shows how to use logical functions.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [ ],
-    "outputs": {
-        "andExampleOutput": {
-            "value": "[and(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "orExampleOutput": {
-            "value": "[or(bool('true'), bool('false'))]",
-            "type": "bool"
-        },
-        "notExampleOutput": {
-            "value": "[not(bool('true'))]",
-            "type": "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "andExampleOutput": {
+      "value": "[and(bool('true'), bool('false'))]",
+      "type": "bool"
+    },
+    "orExampleOutput": {
+      "value": "[or(bool('true'), bool('false'))]",
+      "type": "bool"
+    },
+    "notExampleOutput": {
+      "value": "[not(bool('true'))]",
+      "type": "bool"
     }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+output andExampleOutput bool = and(bool('true'), bool('false'))
+output orExampleOutput bool = or(bool('true'), bool('false'))
+output notExampleOutput bool = not(bool('true'))
+```
+
+---
 
 The output from the preceding example is:
 
@@ -413,19 +529,31 @@ A boolean that is always true.
 
 The following example returns a true output value.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [],
-    "outputs": {
-        "trueOutput": {
-            "value": "[true()]",
-            "type" : "bool"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "trueOutput": {
+      "type": "bool",
+      "value": "[true()]"
     }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+
+> [!NOTE]
+> jgao - true() doesn't resolve.
+```
+
+---
 
 The output from the preceding example is:
 

@@ -36,49 +36,76 @@ The value of the first non-null parameters, which can be a string, int, array, o
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) shows the output from different uses of coalesce.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {
-                "null1": null,
-                "null2": null,
-                "string": "default",
-                "int": 1,
-                "object": {"first": "default"},
-                "array": [1]
-            }
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "stringOutput": {
-            "type": "string",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
-        },
-        "objectOutput": {
-            "type": "object",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
-        },
-        "emptyOutput": {
-            "type": "bool",
-            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "null1": null,
+        "null2": null,
+        "string": "default",
+        "int": 1,
+        "object": { "first": "default" },
+        "array": [ 1 ]
+      }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "stringOutput": {
+      "type": "string",
+      "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
+    },
+    "objectOutput": {
+      "type": "object",
+      "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
+    },
+    "emptyOutput": {
+      "type": "bool",
+      "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param objectToTest object = {
+  'null1': null
+  'null2': null
+  'string': 'default'
+  'int': 1
+  'object': {
+    'first': 'default'
+  }
+  'array': [
+    1
+  ]
+}
+
+output stringOutput string = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.string)
+output intOutput int = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.int)
+output objectOutput object = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.object)
+output arrayOutput array = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.array)
+output emptyOutput bool =empty(coalesce(objectToTest.null1, objectToTest.null2))
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -111,85 +138,129 @@ Returns **True** if the values are equal; otherwise, **False**.
 
 The equals function is often used with the `condition` element to test whether a resource is deployed.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
+  "condition": "[equals(parameters('newOrExisting'),'new')]",
+  "type": "Microsoft.Storage/storageAccounts",
+  "name": "[variables('storageAccountName')]",
+  "apiVersion": "2017-06-01",
+  "location": "[resourceGroup().location]",
+  "sku": {
+    "name": "[variables('storageAccountType')]"
+  },
+  "kind": "Storage",
+  "properties": {}
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+
+> [!NOTE]
+> Conditions are not yet implemented. https://github.com/Azure/bicep/issues/186
+```
+
+---
 
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json) checks different types of values for equality. All the default values return True.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "a"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        },
-        "firstArray": {
-            "type": "array",
-            "defaultValue": ["a", "b"]
-        },
-        "secondArray": {
-            "type": "array",
-            "defaultValue": ["a", "b"]
-        },
-        "firstObject": {
-            "type": "object",
-            "defaultValue": {"a": "b"}
-        },
-        "secondObject": {
-            "type": "object",
-            "defaultValue": {"a": "b"}
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstInt": {
+      "type": "int",
+      "defaultValue": 1
     },
-    "resources": [
-    ],
-    "outputs": {
-        "checkInts": {
-            "type": "bool",
-            "value": "[equals(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[equals(parameters('firstString'), parameters('secondString'))]"
-        },
-        "checkArrays": {
-            "type": "bool",
-            "value": "[equals(parameters('firstArray'), parameters('secondArray'))]"
-        },
-        "checkObjects": {
-            "type": "bool",
-            "value": "[equals(parameters('firstObject'), parameters('secondObject'))]"
-        }
+    "secondInt": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "firstString": {
+      "type": "string",
+      "defaultValue": "a"
+    },
+    "secondString": {
+      "type": "string",
+      "defaultValue": "a"
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [ "a", "b" ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [ "a", "b" ]
+    },
+    "firstObject": {
+      "type": "object",
+      "defaultValue": { "a": "b" }
+    },
+    "secondObject": {
+      "type": "object",
+      "defaultValue": { "a": "b" }
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "checkInts": {
+      "type": "bool",
+      "value": "[equals(parameters('firstInt'), parameters('secondInt') )]"
+    },
+    "checkStrings": {
+      "type": "bool",
+      "value": "[equals(parameters('firstString'), parameters('secondString'))]"
+    },
+    "checkArrays": {
+      "type": "bool",
+      "value": "[equals(parameters('firstArray'), parameters('secondArray'))]"
+    },
+    "checkObjects": {
+      "type": "bool",
+      "value": "[equals(parameters('firstObject'), parameters('secondObject'))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param firstInt int = 1
+param secondInt int = 1
+param firstString string = 'a'
+param secondString string = 'a'
+param firstArray array = [
+  'a'
+  'b'
+]
+param secondArray array = [
+  'a'
+  'b'
+]
+param firstObject object = {
+  'a': 'b'
+}
+param secondObject object = {
+  'a': 'b'
+}
+
+output checInts bool = equals(firstInt, secondInt)
+output checkStrings bool = equals(firstString, secondString)
+output checkArrays bool = equals(firstArray, secondArray)
+output checkObjects bool = equals(firstObject, secondObject)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -202,20 +273,30 @@ The output from the preceding example with the default values is:
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) uses [not](template-functions-logical.md#not) with **equals**.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-    ],
-    "outputs": {
-        "checkNotEquals": {
-            "type": "bool",
-            "value": "[not(equals(1, 2))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+  ],
+  "outputs": {
+    "checkNotEquals": {
+      "type": "bool",
+      "value": "[not(equals(1, 2))]"
     }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+output checkNotEquals bool = not(equals(1,2))
+```
+
+---
 
 The output from the preceding example is:
 
@@ -244,42 +325,58 @@ Returns **True** if the first value is greater than the second value; otherwise,
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json) checks whether the one value is greater than the other.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "A"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstInt": {
+      "type": "int",
+      "defaultValue": 1
     },
-    "resources": [
-    ],
-    "outputs": {
-        "checkInts": {
-            "type": "bool",
-            "value": "[greater(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[greater(parameters('firstString'), parameters('secondString'))]"
-        }
+    "secondInt": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "firstString": {
+      "type": "string",
+      "defaultValue": "A"
+    },
+    "secondString": {
+      "type": "string",
+      "defaultValue": "a"
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "checkInts": {
+      "type": "bool",
+      "value": "[greater(parameters('firstInt'), parameters('secondInt') )]"
+    },
+    "checkStrings": {
+      "type": "bool",
+      "value": "[greater(parameters('firstString'), parameters('secondString'))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param firstInt int = 1
+param secondInt int = 2
+param firstString string = 'A'
+param secondString string = 'a'
+
+output checkInts bool = greater(firstInt, secondInt)
+output checkStrings bool = greater(firstString, secondString)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -309,42 +406,59 @@ Returns **True** if the first value is greater than or equal to the second value
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json) checks whether the one value is greater than or equal to the other.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "A"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstInt": {
+      "type": "int",
+      "defaultValue": 1
     },
-    "resources": [
-    ],
-    "outputs": {
-        "checkInts": {
-            "type": "bool",
-            "value": "[greaterOrEquals(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[greaterOrEquals(parameters('firstString'), parameters('secondString'))]"
-        }
+    "secondInt": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "firstString": {
+      "type": "string",
+      "defaultValue": "A"
+    },
+    "secondString": {
+      "type": "string",
+      "defaultValue": "a"
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "checkInts": {
+      "type": "bool",
+      "value": "[greaterOrEquals(parameters('firstInt'), parameters('secondInt') )]"
+    },
+    "checkStrings": {
+      "type": "bool",
+      "value": "[greaterOrEquals(parameters('firstString'), parameters('secondString'))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+
+```bicep
+param firstInt int = 1
+param secondInt int = 2
+param firstString string = 'A'
+param secondString string = 'a'
+
+output checkInts bool = greaterOrEquals(firstInt, secondInt)
+output checkStrings bool = greaterOrEquals(firstString, secondString)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -374,42 +488,58 @@ Returns **True** if the first value is less than the second value; otherwise, **
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json) checks whether the one value is less than the other.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "A"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstInt": {
+      "type": "int",
+      "defaultValue": 1
     },
-    "resources": [
-    ],
-    "outputs": {
-        "checkInts": {
-            "type": "bool",
-            "value": "[less(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[less(parameters('firstString'), parameters('secondString'))]"
-        }
+    "secondInt": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "firstString": {
+      "type": "string",
+      "defaultValue": "A"
+    },
+    "secondString": {
+      "type": "string",
+      "defaultValue": "a"
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "checkInts": {
+      "type": "bool",
+      "value": "[less(parameters('firstInt'), parameters('secondInt') )]"
+    },
+    "checkStrings": {
+      "type": "bool",
+      "value": "[less(parameters('firstString'), parameters('secondString'))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param firstInt int = 1
+param secondInt int = 2
+param firstString string = 'A'
+param secondString string = 'a'
+
+output checkInts bool = less(firstInt, secondInt)
+output checkStrings bool = less(firstString, secondString)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
@@ -439,42 +569,58 @@ Returns **True** if the first value is less than or equal to the second value; o
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json) checks whether the one value is less than or equal to the other.
 
+# [JSON](#tab/json)
+
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "firstInt": {
-            "type": "int",
-            "defaultValue": 1
-        },
-        "secondInt": {
-            "type": "int",
-            "defaultValue": 2
-        },
-        "firstString": {
-            "type": "string",
-            "defaultValue": "A"
-        },
-        "secondString": {
-            "type": "string",
-            "defaultValue": "a"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstInt": {
+      "type": "int",
+      "defaultValue": 1
     },
-    "resources": [
-    ],
-    "outputs": {
-        "checkInts": {
-            "type": "bool",
-            "value": "[lessOrEquals(parameters('firstInt'), parameters('secondInt') )]"
-        },
-        "checkStrings": {
-            "type": "bool",
-            "value": "[lessOrEquals(parameters('firstString'), parameters('secondString'))]"
-        }
+    "secondInt": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "firstString": {
+      "type": "string",
+      "defaultValue": "A"
+    },
+    "secondString": {
+      "type": "string",
+      "defaultValue": "a"
     }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "checkInts": {
+      "type": "bool",
+      "value": "[lessOrEquals(parameters('firstInt'), parameters('secondInt') )]"
+    },
+    "checkStrings": {
+      "type": "bool",
+      "value": "[lessOrEquals(parameters('firstString'), parameters('secondString'))]"
+    }
+  }
 }
 ```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param firstInt int = 1
+param secondInt int = 2
+param firstString string = 'A'
+param secondString string = 'a'
+
+output checkInts bool = lessOrEquals(firstInt, secondInt)
+output checkStrings bool = lessOrEquals(firstString, secondString)
+```
+
+---
 
 The output from the preceding example with the default values is:
 
