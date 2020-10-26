@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 10/26/2020
 ms.author: alkohli
 ---
 
@@ -38,7 +38,9 @@ The following hazard icons are to be observed when setting up and running your A
 | ![Heavy Weight Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png)  | Heavy Weight Hazard|
 | ![Electrical Shock Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | Electric Shock Hazard |
 | ![No User Serviceable Parts Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-do-not-access.png) | No User Serviceable Parts. Do not access unless properly trained. |
-| ![Multiple Power Sources](./media/azure-stack-edge-pro-r-safety/icon-safety-disconnect-all-power.png)  | Multiple power sources. Disconnect all power cords to remove all power from the equipment. |
+| ![Multiple Power Sources Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-disconnect-all-power.png)  | Multiple power sources. Disconnect all power cords to remove all power from the equipment. |
+| ![Pinching Points Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-disconnect-all-power.png)  | Pinching points are present. |
+| ![Hot Components or Surfaces Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-disconnect-all-power.png)  | Indicates hot components or surfaces. |
 |
 
 ## Handling precautions and site selection
@@ -67,7 +69,8 @@ The following hazard icons are to be observed when setting up and running your A
 
 ![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) ![Heavy Weight Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png) **WARNING:**
 
-* Do not try to lift an Azure Stack Edge Pro R Edge device by yourself. An enclosure can weigh up between 35 kg and 88 kg (78 lbs and 193 lbs); use mechanical assistance or other suitable assistance when moving and lifting equipment. Conform to local occupational health and safety requirements when moving and lifting equipment.
+* Removing the power supply module of the UPS exposes energized parts within the UPS. Do not insert foreign objects inside the power supply module compartment.
+* Do not try to lift an Azure Stack Edge Pro R Edge device by yourself. An enclosure can weigh up between 52 kg and 93 kg (115 lbs and 205 lbs); use mechanical assistance or other suitable assistance when moving and lifting equipment. Conform to local occupational health and safety requirements when moving and lifting equipment.
 * Do not attempt lifting the equipment without proper mechanical aid. Be aware that attempting to lift this weight can cause severe injuries.
 
 ![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)  **WARNING:**
@@ -84,6 +87,15 @@ The following hazard icons are to be observed when setting up and running your A
 * Keep the equipment away from sources of liquid and excessively humid environments.
 * Do not allow any liquid or any foreign object to enter the system. Do not place beverages or any other liquid containers on or near the system.
 
+## Heater precautions
+
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) ![Hot Components or Surfaces Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **WARNING:** 
+
+* Automatic heater operation while the system is powered on may create a touch hazard due to high surface temperatures on the heater assembly cover. Do not touch this surface while the system is powered on. Allow a 10-minute cool down period after the system is powered off.
+
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) ![Pinching points Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **WARNING:** 
+
+* When the system is powered on, automatic actuation of the rear plenum door may create a pinch-point hazard. Keep hands clear of this area when the system is powered on.
 
 ## Electrical precautions
 
@@ -127,6 +139,7 @@ The following hazard icons are to be observed when setting up and running your A
 ![No User Serviceable Parts Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-do-not-access.png) **CAUTION:**
 
 * This equipment contains lithium coin cell and/or lithium iron phosphate batteries. Do not attempt servicing the equipment. Batteries in this equipment are not user serviceable. Risk of explosion if battery is replaced by an incorrect type.
+* Removing the battery module of the UPS exposes energized parts within the UPS. Do not insert foreign objects inside the battery module compartment.
 
 ## Regulatory information
 
@@ -134,14 +147,15 @@ This section contains regulatory information for Azure Stack Edge Pro R device, 
 
 The Azure Stack Edge Pro R Edge device is designed for use with NRTL Listed (UL, CSA, ETL, etc.), and IEC/EN 60950-1 or IEC/EN 62368-1 compliant (CE marked) Information Technology equipment.
 
-A device that does not have UPS installed is designed to operate in the following environments:
+The device is designed to operate in the following environments:
 
 | Environment | Specifications |
 |:--- |:--- |
-|Temperature specifications | <ul><li>Storage temperature: –40&deg;C–70&deg;C (–40&deg;F-158&deg;F) per Mil-Std 810G Method 501.5, Proc 1</li><li>Continuous operation (for altitude less than 950 m or 3117 ft): 5&deg;C–45&deg;C (41&deg;F–113&deg;F), with no direct sunlight on the equipment</li><li>Excursion temperature: 55&deg;C per Mil-Std 810G</li><li>Maximum temperature gradient (operating and storage): 20&deg;C/h (68&deg;F/h)</li></ul> |
+|Temperature specifications | <ul><li>Storage temperature: –33&deg;C–63&deg;C (–28&deg;F-145&deg;F) </li><li>Continuous operation: 5&deg;C–43&deg;C (41&deg;F–110&deg;F)</li><li>Maximum temperature gradient (operating and storage): 20&deg;C/h (68&deg;F/h)</li></ul> |
 |Relative humidity specifications | <ul><li>Storage: 5% to 95% RH with 33&deg;C (91&deg;F) maximum dew point. Atmosphere must be non-condensing at all times.</li><li>Operating: 5% to 85% relative humidity with 29&deg;C (84.2&deg;F) maximum dew point</li></ul> |
-| Maximum altitude specifications | <ul><li>Storage: Mil-Std 810G method 500.5, Proc. I, 40,000 ft for 1 hour after stabilization</li><li>Operating: Mil-Std 810G method 500.5, Proc. II, air carriage, 15,000 ft for 1 hour after stabilization</li></ul> |
-|Standard operating temperature specifications | <ul>Continuous operation (for altitude less than 950 m or 3117 ft): +5&deg;C–45&deg;C (41&deg;F–113&deg;F) with no direct sunlight on the equipment</ui>
+| Maximum altitude specifications | <ul><li>Operating (Without UPS): 15,000 ft (4,572 meters)</li><li>Operating (With UPS): 6.561 ft (2,000 meters)</li><li>Storage: 40,000 ft (12,192 meters)</li></ul> |
+
+<!--|Standard operating temperature specifications | <ul>Continuous operation (for altitude less than 950 m or 3117 ft): +5&deg;C–45&deg;C (41&deg;F–113&deg;F) with no direct sunlight on the equipment</ui>
 |Expanded operating temperature specifications | <ul><li>Continuous operation: 5&deg;C to 45&deg;C at 5% to 85% RH with 29&deg;C dew point.</li><li></= 1% of annual operating hours: –5&deg;C to 55&deg;C at 5% to 90% RH with 29&deg;C dew point. |
 | Expanded operating temperature restrictions | <ul><li>Do not perform cold start below -15&deg;C according to IEC 60945.</li><li>The operating temperature specified is for a maximum altitude of 950 meters.</li></ul> |
 | Gaseous contamination specifications | <ul><li>Copper coupon corrosion rate: < 300 &Aring;/month per Class G1 as defined by ANSI/ISA71.04-1985.</li><li>Silver coupon corrosion rate: < 200 &Aring;/month as defined by AHSRAE TC9.9.</li></ul>|
@@ -168,8 +182,9 @@ A device that has a UPS installed is designed to operate in the following enviro
 |Standard operating temperature specifications |<ul><li>Continuous operation (for altitude less than 950 m or 3117 ft)</li><li>+5&deg;C–45&deg;C (41&deg;F–113&deg;F) with no direct sunlight on the equipment</li></ul>|
 |Expanded operating temperature specifications | <ul><li>Continuous operation: 5&deg;C to 45&deg;C at 5% to 85% RH with 29&deg;C dew point.</li><li>&lt;/= 1% of annual operating hours: 0&deg;C to 50&deg;C at 5% to 90% RH with 29&deg;C dew point.</li></ul>|
 |Expanded operating temperature restrictions | <ul><li>Do not perform cold start below -15C Per IEC 60945</li><li>The operating temperature specified is for a maximum altitude of 950 meters</li></ul> |
-|Gaseous contamination specifications | <ul><li>Copper coupon corrosion rate: < 300 &Aring;/month per Class G1 as defined by ANSI/ISA71.04-1985.</li><li>Silver coupon corrosion rate: < 200 &Aring;/month as defined by AHSRAE TC9.9.|
+|Gaseous contamination specifications | <ul><li>Copper coupon corrosion rate: < 300 &Aring;/month per Class G1 as defined by ANSI/ISA71.04-1985.</li><li>Silver coupon corrosion rate: < 200 &Aring;/month as defined by AHSRAE TC9.9.|-->
 
+<!--
 > [!NOTE]
 > Outside the standard operating temperature (10&deg;C to 35&deg;C):
 > - The system can operate continuously in temperatures as low as 5&deg;C and as high as 45&deg;C. For temperatures between 35&deg;C and 45&deg;C, de-rate maximum allowable temperature by 1&deg;C per 175 m above 950 m (1&deg;F per 319 ft).
@@ -179,11 +194,46 @@ A device that has a UPS installed is designed to operate in the following enviro
 > - System performance may be impacted.
 > - Ambient temperature warnings may be reported in the System Event Log.
 >
-> Maximum corrosive contaminant levels measured at &lt;/= 50% relative humidity. 
+> Maximum corrosive contaminant levels measured at &lt;/= 50% relative humidity. --> 
 
 
 > ![Notice Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **NOTICE:** &nbsp;Changes or modifications made to the equipment not expressly approved by Microsoft may void the user's authority to operate the equipment.
 
+CANADA and USA:
+
+NOTICE: This equipment  has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
+
+This device complies with part 15 of the FCC Rules and Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation of the device.
+
+![Regulatory information warning 1](./media/azure-stack-edge-mini-r-safety/regulatory-information-1.png)
+
+
+CAN ICES-3(A)/NMB-3(A)
+Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
+United States: (800) 426-9400
+Canada: (800) 933-4750
+
+EUROPEAN UNION:
+Request a copy of the EU Declaration of Conformity. 
+
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
+
+This is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
+
+Disposal of waste batteries and electrical and electronic equipment:
+
+![Warning Icon 14](./media/azure-stack-edge-mini-r-safety/icon-ewaste-disposal.png)
+
+This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand this over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling will help to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, please contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact erecycle@microsoft.com for additional information on WEEE.
+
+This product contains coin cell battery(ies).
+
+Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
+Telephone number: +353 1 295 3826
+Fax number: +353 1 706 4110
+
+
+
 ## Next steps
 
--[Prepare to deploy Azure Stack Edge Pro R Edge](azure-stack-edge-placeholder.md)
+-[Prepare to deploy Azure Stack Edge Pro R Edge](azure-stack-edge-pro-r-deploy-prep.md)

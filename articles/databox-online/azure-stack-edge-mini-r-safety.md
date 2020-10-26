@@ -172,4 +172,4 @@ Fax number: +353 1 706 4110
 
 ## Next steps
 
-- [Prepare to deploy Azure Stack Edge Mini R](azure-stack-edge-placeholder.md)
+- [Prepare to deploy Azure Stack Edge Mini R](azure-stack-edge-mini-r-deploy-prep.md)
