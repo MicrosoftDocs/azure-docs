@@ -27,11 +27,11 @@ When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of
 
 ## Cause
 
-There could be multiple reasons a virtual machine is stuck waiting for the Local Session Manager. If this is a persistent issue, you will need to collect a memory dump for analysis.
+There could be multiple reasons a virtual machine is stuck waiting for the Local Session Manager. If this is a persistent issue, you'll need to collect a memory dump for analysis.
 
 ## Solution
 
-In some cases, simply waiting long enough for the process to complete will resolve your issue. If your VM has been hung on this screen for over an hour, you should proceed to collect a memory dump and then contact Microsoft support.
+In some cases, simply waiting long enough for the process to complete will resolve your issue. If your VM has been hung on the screen for over an hour, you should then collect a memory dump and then contact Microsoft support.
 
 ### Collect the Memory Dump File
 
@@ -46,7 +46,9 @@ To resolve this problem, you first need to gather the memory dump file for the c
 
 1. On the repair VM, go to the Windows folder in the attached OS disk. If the driver letter that is assigned to the attached OS disk is labeled as *F*, then you need to go to `F:\Windows`.
 2. Locate the **memory.dmp** file, and then [submit a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) with the memory dump file.
-3. If you are having trouble locating the **memory.dmp** file, then use [non-maskable interrupt (NMI) calls in serial console](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) instead. To generate the dump file, follow the guide to [generate a crash dump file using NMI calls](/windows/client-management/generate-kernel-or-complete-crash-dump).
+3. If you're having trouble locating the **memory.dmp** file, then follow the guide to [generate a crash dump file using non-maskable interrupt (NMI) calls](/windows/client-management/generate-kernel-or-complete-crash-dump).
+
+For further information about NMI calls, see the [non-maskable interrupt (NMI) calls in serial console](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) user guide.
 
 ## Next Steps
 
