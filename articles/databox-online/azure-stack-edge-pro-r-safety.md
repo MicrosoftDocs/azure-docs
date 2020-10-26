@@ -236,4 +236,4 @@ Fax number: +353 1 706 4110
 
 ## Next steps
 
--[Prepare to deploy Azure Stack Edge Pro R Edge](azure-stack-edge-pro-r-deploy-prep.md)
+- [Prepare to deploy Azure Stack Edge Pro R Edge](azure-stack-edge-pro-r-deploy-prep.md)
