@@ -2,7 +2,7 @@
 title: Deploy resources to resource groups
 description: Describes how to deploy resources in an Azure Resource Manager template. It shows how to target more than one resource group.
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 10/26/2020
 ---
 
 # Resource group deployments with ARM templates
@@ -78,7 +78,6 @@ When deploying to a resource group, you can deploy resources to:
 
 * the target resource group from the operation
 * other resource groups in the same subscription or other subscriptions
-* the tenant for the resource group
 * [extension resources](scope-extension-resources.md) can be applied to resources
 
 The user deploying the template must have access to the specified scope.
@@ -104,12 +103,6 @@ In the following example, the nested deployment targets a resource group named `
 To deploy resources to a resource group in a different subscription, add a nested deployment and include the `subscriptionId` and `resourceGroup` properties. In the following example, the nested deployment targets a resource group named `demoResourceGroup`.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/different-sub-to-resource-group.json" highlight="9,10,14":::
-
-### Scope to tenant
-
-You can create resources at the tenant by adding a nested deployment with the `scope` set to `/`. In the following example, the nested deployment is scoped to `/`.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,13":::
 
 ## Cross resource groups
 
