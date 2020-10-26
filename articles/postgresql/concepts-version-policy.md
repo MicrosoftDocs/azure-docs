@@ -12,9 +12,10 @@ ms.custom: fasttrack-edit
 
 This page describes the Azure Database for PostgreSQL versioning policy. This is applicable to both Single Server and Flexible Server (Preview) deployment modes.
 
-## Supported  PostgreSQL versions
+### Supported  PostgreSQL versions
 
 Azure Database for PostgreSQL supports the following database versions.
+
 | Version | Single Server | Flexible Server (Preview) |
 | ----- | ------ | ---- |
 | PostgreSQL 12 |  | X | 
@@ -23,13 +24,13 @@ Azure Database for PostgreSQL supports the following database versions.
 | PostgreSQL 9.6 | X |  |
 | PostgreSQL 9.5 | X |  |
 
-## Major version support
+### Major version support
 Each major version of PostgreSQL will be supported by Azure for PostgreSQL from the date on which Azure begins supporting the version until the version is retired by the PostgreSQL community, as provided in the PostgreSQL community versioning policy.
 
-## Minor version support
+### Minor version support
 Azure for PostgreSQL automatically performs minor version upgrades to the Azure preferred PostgreSQL version as part of periodic maintenance. 
 
-## Major version retirement policy
+### Major version retirement policy
 The table below provides the retirement details for PostgreSQL major versions. The dates follow the PostgreSQL community versioning policy. See Retired PostgreSQL versions section for more details.
 
 | Version	| Azure support start date	| Retirement date|
@@ -40,7 +41,7 @@ The table below provides the retirement details for PostgreSQL major versions. T
 | PostgreSQL 11 |	July 24, 2019	| November 9, 2023
 | PostgreSQL 12 |	Sept 22, 2020 	| November 14, 2024
 
-## Retired PostgreSQL versions not supported    
+### Retired PostgreSQL versions not supported    
 
 After the retirement date for each PostgreSQL database version, if you continue running the retired version, note the following:
 - As the community will not be releasing any further bug fixes or security fixes, Azure for PostgreSQL will not patch the retired database engine for any bugs or security issues.
@@ -49,10 +50,10 @@ After the retirement date for each PostgreSQL database version, if you continue 
 - New platform capabilities developed by Azure for PostgreSQL may only be available to supported database server versions.
 - Uptime SLAs will apply solely to Azure for PostgreSQL service-related issues and not to any downtime caused by database engine related bugs.  
 
-## Version syntax
+### PostgreSQL version syntax
 Before PostgreSQL version 10, the [PostgreSQL versioning policy](https://www.postgresql.org/support/versioning/) considered a _major version_ upgrade to be an increase in the first _or_ second number. For example, 9.5 to 9.6 was considered a _major_ version upgrade. As of version 10, only a change in the first number is considered a major version upgrade. For example, 10.0 to 10.1 is a _minor_ release upgrade. Version 10 to 11 is a _major_ version upgrade.
 
-## Next steps
+### Next steps
 - For more details on Azure Database for PostgreSQL - Single Server, see [supported versions](./concepts-supported-versions.md)
 - For more details on Azure Database for PostgreSQL - Flexible Server (Preview), see [supported versions](flexible-server/concepts-supported-versions.md)
 - For information on supported PostgreSQL extensions, see [the extensions document](concepts-extensions.md).
