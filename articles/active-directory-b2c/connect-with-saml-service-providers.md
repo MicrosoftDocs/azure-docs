@@ -47,7 +47,7 @@ Summarizing the two non-exclusive core scenarios with SAML:
 
 There are three main components required for this scenario:
 
-* SAML **service provider** with the ability to send SAML requests, and receive, decode, and respond to SAML assertions from Azure AD B2C. This is also known as the relying party.
+* SAML **service provider** with the ability to send SAML requests, and receive, decode, and respond to SAML assertions from Azure AD B2C. Service provider is also known as the relying party application.
 * Publicly available SAML **metadata endpoint** for your service provider.
 * [Azure AD B2C tenant](tutorial-create-tenant.md)
 
@@ -204,7 +204,7 @@ Now that your tenant can issue SAML assertions, you need to create the SAML rely
 
 1. Update `tenant-name` with the name of your Azure AD B2C tenant.
 
-Your final relying party policy file should look like the following:
+Your final relying party policy file should look like the following XML code:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -284,7 +284,7 @@ For SAML apps, there are several properties you need to configure in the applica
 
 #### identifierUris
 
-The `identifierUris` is a string collection containing user-defined URI(s) that uniquely identify a Web app within its Azure AD B2C tenant. The URI must match the SAML request's `Issuer` name. This is typically the same value as the service provider metadata `entityID`.
+The `identifierUris` is a string collection containing user-defined URI(s) that uniquely identify a Web app within its Azure AD B2C tenant. The URI must match the SAML request's `Issuer` name. The user-defined URI is typically the same value as the service provider metadata `entityID`.
 
 #### samlMetadataUrl
 
@@ -336,7 +336,7 @@ The metadata can be configured in your service provider as "Static Metadata" or 
 Some or all the following are typically required:
 
 * **Metadata**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Issuer**:  The SAML request `issuer` value must match one of the URIs configured in the `identifierUris` element of the application registration manifest. If the SAML request `issuer` name doesn't exist in the `identifierUris` element, [add it to the application registration manifest](#identifierUris). For example, `https://contoso.onmicrosoft.com/app-name`. 
+* **Issuer**:  The SAML request `issuer` value must match one of the URIs configured in the `identifierUris` element of the application registration manifest. If the SAML request `issuer` name doesn't exist in the `identifierUris` element, [add it to the application registration manifest](#identifieruris). For example, `https://contoso.onmicrosoft.com/app-name`. 
 * **Login Url/SAML endpoint/SAML Url**: Check the value in the Azure AD B2C SAML policy metadata file for the `<SingleSignOnService>` XML element
 * **Certificate**: This is *B2C_1A_SamlIdpCert*, but without the private key. To get the public key of the certificate:
 
@@ -359,7 +359,7 @@ Select **Login** and you should be presented with a user sign-in screen. Upon si
 
 To Encrypt SAML Assertions sent back to the Service Provider, Azure AD B2C will use the Service providers public key certificate. The public key must exist in the SAML Metadata outlined in the above ["samlMetadataUrl"](#samlmetadataurl) as a KeyDescriptor with a use of 'Encryption'.
 
-The following is an example of the SAML metadata KeyDescriptor with a use set to Encryption:
+The following XML code is an example of the SAML metadata KeyDescriptor with a use set to Encryption:
 
 ```xml
 <KeyDescriptor use="encryption">
