@@ -74,7 +74,7 @@ Preview recommendations don't render a resource unhealthy, and they aren't inclu
 
 Related links:
 
-- [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md).
+- [Learn more about Azure Security Benchmark](../security/benchmarks/introduction.md)
 - [Learn more about Azure API apps](../app-service/app-service-web-tutorial-rest-api.md)
 - [Learn more about Azure function apps](../azure-functions/functions-overview.md)
 - [Learn more about Azure web apps](../app-service/overview.md)
@@ -84,4 +84,4 @@ Related links:
 
 ## Next steps
 
-For all recent changes to the product, see [What's new in Azure Security Center](release-notes.md).
+For all recent changes to the product, see [What's new in Azure Security Center?](release-notes.md).
