@@ -76,7 +76,7 @@ Add a reference to your ONNX model file in your application
     ```xml
     <ItemGroup>
         <None Include="automl-model.onnx">
-            <CopyToOutputDirectory>PreseveNewest</CopyToOutputDirectory>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
     ```
@@ -88,6 +88,16 @@ Add a reference to your ONNX model file in your application
     ```csharp
     static string ONNX_MODEL_PATH = "automl-model.onnx";
     ```
+
+## Initialize MLContext
+
+Inside the `Main` method of your `Program` class, create a new instance of [`MLContext`](xref:Microsoft.ML.MLContext).
+
+```csharp
+MLContext mlContext = new MLContext();
+```
+
+The [`MLContext`](xref:Microsoft.ML.MLContext) class is a starting point for all ML.NET operations, and initializing `mlContext` creates a new ML.NET environment that can be shared across the model lifecycle. It's similar, conceptually, to DbContext in Entity Framework.
 
 ## Define the model data schema
 
