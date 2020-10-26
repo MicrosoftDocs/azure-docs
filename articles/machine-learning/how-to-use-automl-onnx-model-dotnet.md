@@ -103,7 +103,7 @@ The model used in this sample uses data from the NYC TLC Taxi Trip dataset. A sa
 
 ### Inspect the ONNX model (optional)
 
-Use tool like Netron to inspect your model metadata, inputs, and outputs.
+Use a tool like Netron to inspect your model's inputs and outputs.
 
 1. Open Netron.
 1. In the top menu bar, select **File > Open** and use the file browser to select your model.
@@ -111,9 +111,9 @@ Use tool like Netron to inspect your model metadata, inputs, and outputs.
 
     :::image type="content" source="media/how-to-use-automl-onnx-model-dotnet/netron-automl-onnx-model.png" alt-text="Netron AutoML ONNX Model":::
 
-1. Select the last node at the bottom of the graph (`variable_out1` in this case) to display the model's metadata. The inputs and outputs on the sidebar show you the model's expected names and data types. Use this information to define the input and output schema of your model.
+1. Select the last node at the bottom of the graph (`variable_out1` in this case) to display the model's metadata. The inputs and outputs on the sidebar show you the model's expected inputs, outputs and data types. Use this information to define the input and output schema of your model.
 
-### Input data schema
+### Define model input schema
 
 Create a new class called `OnnxInput` with the following properties inside the *Program.cs* file.
 
@@ -148,7 +148,7 @@ For numerical values, ML.NET only operates on [`Single`](xref:System.Single) val
 
 To learn more about data attributes, see the [ML.NET load data guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/load-data-ml-net).
 
-### Output data schema
+### Define model output schema
 
 Once the data is processed, it produces an output of a certain format. Define your data output schema. Create a new class called `OnnxOutput` with the following properties inside the *Program.cs* file.
 
@@ -162,9 +162,9 @@ public class OnnxOutput
 
 Similar to `OnnxInput`, use the [`ColumnName`](xref:Microsoft.ML.Data.ColumnNameAttribute) attribute to map the `variable_out1` output to a more descriptive name `PredictedFare`.
 
-## Define prediction pipeline
+## Define a prediction pipeline
 
-A pipeline in ML.NET is typically a series of chained transformations that operate on the input data to produce an output. To learn more about data transforms, see the [ML.NET data transformation guide](https://docs.microsoft.com/dotnet/machine-learning/resources/transforms).
+A pipeline in ML.NET is typically a series of chained transformations that operate on the input data to produce an output. To learn more about data transformations, see the [ML.NET data transformation guide](https://docs.microsoft.com/dotnet/machine-learning/resources/transforms).
 
 1. Create a new method called `GetPredictionPipeline` inside the `Program` class
 
