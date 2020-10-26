@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/configure-lvm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/configure-lvm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/configure-raid.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/configure-raid",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/healthcare-apis/bring-your-own-key.md",
       "redirect_url": "/azure/healthcare-apis/customer-managed-key",
       "redirect_document_id": false
@@ -5314,6 +5324,16 @@
     {
       "source_path": "articles/key-vault/key-vault-manage-with-cli2.md",
       "redirect_url": "/azure/key-vault/general/manage-with-cli2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/soft-delete-cli.md",
+      "redirect_url": "/azure/key-vault/general/key-vault-recovery?tabs=azure-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/soft-delete-powershell.md",
+      "redirect_url": "/azure/key-vault/general/key-vault-recovery?tabs=azure-powershell",
       "redirect_document_id": false
     },
     {
@@ -44828,6 +44848,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-hub/iot-hub-metrics.md",
+      "redirect_url": "/azure/iot-hub/monitor-iot-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-monitor-resource-health.md",
+      "redirect_url": "/azure/iot-hub/monitor-iot-hub",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/key-vault/policy-samples.md",
       "redirect_url": "/azure/key-vault/policy-reference",
       "redirect_document_id": false
@@ -57534,6 +57564,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cost-management-billing/cloudyn/quick-register-azure-sub.md",
+      "redirect_url": "/azure/cost-management-billing/cloudyn/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/quick-register-ea.md",
+      "redirect_url": "/azure/cost-management-billing/cloudyn/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/connect-google-account.md",
+      "redirect_url": "/azure/cost-management-billing/cloudyn/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/costs/choose-between-azure-cost-management-cloudyn.md",
+      "redirect_url": "/azure/cost-management-billing/cost-management-billing-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/manage-apps/add-gallery-app.md",
       "redirect_url": "/azure/active-directory/manage-apps/add-application-portal",
       "redirect_document_id": false
@@ -58449,9 +58499,14 @@
       "redirect_document_id": false
     },
     {
-    "source_path": "articles/cosmos-db/optimize-cost-queries.md",
-    "redirect_url": "/azure/cosmos-db/optimize-cost-reads-writes",
-    "redirect_document_id": false
+      "source_path": "articles/storsimple/storsimple-5000-7000-afs-migration.md",
+      "redirect_url": "/azure/storage/files/storage-files-migration-storsimple-8000",
+      "redirect_document_id": false
+    },
+    {    
+      "source_path": "articles/cosmos-db/optimize-cost-queries.md",
+      "redirect_url": "/azure/cosmos-db/optimize-cost-reads-writes",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Concepts/design-language-culture.md",
@@ -58913,7 +58968,12 @@
       "source_path": "articles/healthcare-apis/fhir-oss-powershell-quickstart.md",
       "redirect_url": "/azure/healthcare-apis/fhir-paas-powershell-quickstart",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/data-factory/copy-data-tool-troubleshoot-guide.md",
+      "redirect_url": "/azure/data-factory/v1/data-factory-azure-copy-wizard#troubleshooting",
+      "redirect_document_id": false
+    }  
     
 
 
