@@ -23,7 +23,7 @@ You can enable Update Management for VMs in the following ways:
 > [!NOTE]
 > Update Management requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](../how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
 
-An [Azure Resource Manager template](enable-from-template.md) is available to help you deploy Update Management to a new or existing Automation account and Log Analytics workspace in your subscription.
+An [Azure Resource Manager template](enable-from-template.md) is available to help you enable the Update Management feature in a new or existing Automation account and Log Analytics workspace in your subscription. It does not enable Azure or non-Azure VMs with the feature, that step is performed afterwards using one of the methods listed earlier.
 
 > [!NOTE]
 > You can't use a machine configured with Update Management to run custom scripts from Azure Automation. This machine can only run the Microsoft-signed update script.
