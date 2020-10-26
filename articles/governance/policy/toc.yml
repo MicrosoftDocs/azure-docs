@@ -32,6 +32,9 @@
   - name: Assign a policy - ARM template
     displayName: assign, compliance, resource manager
     href: ./assign-policy-template.md
+  - name: Assign a policy - Terraform
+    displayName: assign, compliance, hcl, provider
+    href: ./assign-policy-terraform.md
 - name: Tutorials
   items:
   - name: Create and manage Azure Policy
@@ -264,6 +267,16 @@
       href: /azure/templates/microsoft.authorization/policydefinitions
     - name: Initiatives Definitions
       href: /azure/templates/microsoft.authorization/policysetdefinitions
+  - name: Terraform resources
+    items:
+    - name: Assignment
+      href: https://www.terraform.io/docs/providers/azurerm/r/policy_assignment.html
+    - name: Definition
+      href: https://www.terraform.io/docs/providers/azurerm/r/policy_definition.html
+    - name: Initiative (Set Definition)
+      href: https://www.terraform.io/docs/providers/azurerm/r/policy_set_definition.html
+    - name: Remediation
+      href: https://www.terraform.io/docs/providers/azurerm/r/policy_remediation.html
 - name: Resources
   items:
   - name: GitHub - Azure Policy samples
