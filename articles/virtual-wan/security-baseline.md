@@ -171,7 +171,11 @@ Virtual WAN's Point to Site VPN is integrated with Microsoft Azure Active Direct
 - Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machines (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
 - Your organization's resources, such as applications on Azure or your corporate network resources.
 
-Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides a secure score to help you assess identity security posture relative to Microsoft’s best practice recommendations. Use the security score to gauge how closely your configuration matches best practice recommendations, and offers improvements in your security posture.
+ Secure Azure AD as a high priority
+in your organization’s cloud security practice. Assess your identity and
+security posture with the security score feature to gauge how closely your
+configuration matches best practice recommendations. Implement Microsoft’s
+best practice recommendations for improvements to your security posture.
 
 Note: Azure AD supports external identities, which allow users without a Microsoft account to sign-in to their applications and resources with their external identity. Review information on using Azure AD in Point to Site VPN scenarios at the referenced links.
 
@@ -263,7 +267,7 @@ Virtual WAN's Point to Site VPN supports Azure AD conditional access for a more 
 
 - [Virtual Wan P2S VPN Conditional Access](openvpn-azure-ad-mfa.md#conditional)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -651,9 +655,9 @@ Activity logs, which are automatically available, contain all write operations (
 
 However, Virtual Wan currently does not produce Azure resource logs.
 
-**Azure Security Center monitoring**: Currently not available
+**Azure Security Center monitoring**: Yes
 
-**Responsibility**: Microsoft
+**Responsibility**: Shared
 
 ### LT-5: Centralize security log management and analysis
 
