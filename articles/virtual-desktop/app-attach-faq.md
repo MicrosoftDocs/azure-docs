@@ -17,7 +17,7 @@ This article answers frequently asked questions about MSIX app attach for Window
 
 ## What's the difference between MSIX and MSIX app attach?
 
-MSIX is a packaging format. MSIX app attach is a mechanism for dynamically delivering MSIX packages.
+MSIX is a packaging format for apps, while MSIX app attach is the feature that delivers MSIX packages to your deployment.
 
 ## Does MSIX app attach use FSLogix?
 
