@@ -137,6 +137,9 @@ Finally, create a configuration, import the **PSDesiredStateConfiguration** reso
 compile the configuration.
 
 ```powershell
+# import PSDesiredStateConfiguration module
+import-module PSDesiredStateConfiguration
+
 # Define the configuration and import GuestConfiguration
 Configuration AuditFilePathExists
 {
@@ -152,7 +155,6 @@ Configuration AuditFilePathExists
 }
 
 # Compile the configuration to create the MOF files
-import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
@@ -170,7 +172,7 @@ You should now have a project structure as below:
     / Config
         AuditFilePathExists.mof
     / linux-path
-        linux-path.yml
+        inspec.yml
         / controls
             linux-path.rb 
 ```
@@ -333,7 +335,7 @@ role is **Resource Policy Contributor**.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy `
-  -Path '.\policyDefinitions'
+  -Path './policies'
 ```
 
  The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This
