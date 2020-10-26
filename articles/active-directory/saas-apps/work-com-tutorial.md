@@ -21,7 +21,7 @@ Integrating Work.com with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed-in to Work.com (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -124,11 +124,11 @@ To configure Azure AD single sign-on with Work.com, perform the following steps:
 
 2. Go to **Setup**.
    
-    ![Setup](./media/work-com-tutorial/ic794108.png "Setup")
+    ![Screenshot shows Setup selected from the user menu.](./media/work-com-tutorial/ic794108.png "Setup")
 
 3. On the left navigation pane, in the **Administer** section, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
    
-    ![My Domain](./media/work-com-tutorial/ic767825.png "My Domain")
+    ![Screenshot shows My Domain selected Domain Management in the Administer pane.](./media/work-com-tutorial/ic767825.png "My Domain")
 
 4. To verify that your domain has been set up correctly, make sure that it is in “**Step 4 Deployed to Users**” and review your “**My Domain Settings**”.
    
@@ -138,7 +138,7 @@ To configure Azure AD single sign-on with Work.com, perform the following steps:
 
 6. Go to **Setup**.
     
-    ![Setup](./media/work-com-tutorial/ic794108.png "Setup")
+    ![Screenshot shows Setup selected from the user menu.](./media/work-com-tutorial/ic794108.png "Setup")
 
 7. Expand the **Security Controls** menu, and then click **Single Sign-On Settings**.
     
@@ -181,15 +181,15 @@ To configure Azure AD single sign-on with Work.com, perform the following steps:
 
 10. In your Work.com classic portal, on the left navigation pane, click **Domain Management** to expand the related section, and then click **My Domain** to open the **My Domain** page. 
     
-    ![My Domain](./media/work-com-tutorial/ic794115.png "My Domain")
+    ![Screenshot shows My Domain selected from Domain Management.](./media/work-com-tutorial/ic794115.png "My Domain")
 
 11. On the **My Domain** page, in the **Login Page Branding** section, click **Edit**.
     
-    ![Login Page Branding](./media/work-com-tutorial/ic767826.png "Login Page Branding")
+    ![Screenshot shows the Login Page Branding section where you can select edit.](./media/work-com-tutorial/ic767826.png "Login Page Branding")
 
 12. On the **Login Page Branding** page, in the **Authentication Service** section, the name of your **SAML SSO Settings** is displayed. Select it, and then click **Save**.
     
-    ![Login Page Branding](./media/work-com-tutorial/ic784366.png "Login Page Branding")
+    ![Screenshot shows Login Page Branding where you can select the name of your setting, which is P P E.](./media/work-com-tutorial/ic784366.png "Login Page Branding")
 
 ### Create an Azure AD test user 
 
@@ -251,7 +251,7 @@ For Azure Active Directory users to be able to sign in, they must be provisioned
 
 2. Go to **Setup**.
    
-    ![Setup](./media/work-com-tutorial/IC794108.png "Setup")
+    ![Screenshot shows Setup selected from the user menu.](./media/work-com-tutorial/ic794108.png "Setup")
 
 3. Go to **Manage Users \> Users**.
    
@@ -289,13 +289,12 @@ For Azure Active Directory users to be able to sign in, they must be provisioned
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Work.com tile in the Access Panel, you should be automatically signed in to the Work.com for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Work.com tile in the Access Panel, you should be automatically signed in to the Work.com for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
