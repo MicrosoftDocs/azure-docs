@@ -135,7 +135,7 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
 
 Your resulting code should look similar to following:
 
-#### [auth code flow sample](#tab/config-auth/)
+#### [auth code flow sample](#tab/review-auth/)
 
 *authConfig.js*:
 
@@ -194,7 +194,7 @@ const apiConfig = {
 };
 ```
 
-#### [auth code flow sample](#tab/config-auth/)
+#### [implicit flow sample](#tab/review-implicit/)
 
 *authConfig.js*:
 
