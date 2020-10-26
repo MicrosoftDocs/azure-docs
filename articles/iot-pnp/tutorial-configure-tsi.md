@@ -108,10 +108,38 @@ You can begin ingesting data into Azure Time Series Insights Gen2 without having
 * When defining the variable Time Series Expression (TSX), refer to the telemetry's name on the wire, and it's data type.
 
 > [!NOTE]
-> This example shows just one aggregate variable, but each Type can have numerous variables. Different variables can reference the same telemetry value to perform different calucaultions as needed. To view the full list of filters, aggregates, and scalar functions view the [Time Series Insights Gen2 Time Series Expression syntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) documentation.
+> This example shows only two variables--an aggregate and numeric, but each Type can have up to 100. Different variables can reference the same telemetry value to perform different calucaultions as needed. For the full list of filters, aggregates, and scalar functions view the [Time Series Insights Gen2 Time Series Expression syntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) documentation.
 
 Open your text editor of choice and save the JSON below to your local drive:
 
+```JSON
+{
+  "put": [
+    {
+      "id": "dtmi:com:example:Thermostat;1",
+      "name": "Thermostat",
+      "description": "Reports current temperature and provides desired temperature control.",
+      "variables": {
+        "EventCount": {
+          "kind": "aggregate",
+          "aggregation": {
+            "tsx": "count()"
+          }
+        },
+        "Temperature": {
+          "kind": "numeric",
+          "value": {
+            "tsx": "$event.temperature.Double"
+          },
+          "aggregation": {
+            "tsx": "avg($value)"
+          }
+        }
+      }
+    }
+  ]
+}
+```
 
 In your Time Series Insights Explorer navigate to the Model tab by clicking on the model icon on the left. Click on **Types** and the click on **Upload JSON**:
 
