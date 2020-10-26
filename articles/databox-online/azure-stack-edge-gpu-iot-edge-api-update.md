@@ -19,7 +19,7 @@ The January 2021 update is available only for Azure Stack Edge Pro - GPU, Azure 
 
 ## IoT Edge Role management changes
 
-After you install the optional January 2021 device software version on your Azure Stack Edge device, you are required to use the latest version of the API, SDK and PowerShell cmdlets for IoT Edge role management.
+After you install the optional January 2021 device software version on your Azure Stack Edge device, you are required to use the latest version of the API, SDK, and PowerShell cmdlets for IoT Edge role management.
 
 - If you are using role management API with version 2019-08-01, upgrade to API version releasing in January 2021. 
 - If you are using role management via SDK version 1.0.0, upgrade to version releasing in January 2021.
@@ -82,7 +82,7 @@ If you were performing IoT Edge Role management via API, you should use the new 
 
 #### Upcoming http request 
 
-- The API calls for Kubernetes role are made at  at the following URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1?api-version=2020-12-01)
+- The API calls for Kubernetes role are made at the following URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1?api-version=2020-12-01)
 
     The request body looks like this:
 
@@ -233,7 +233,7 @@ The API calls are made at the following URI: [https://management.azure.com/subsc
 
 ## SDK usage
 
-If you are using the SDK and have installed the January 2021 device update, then you must change the way you set up IoT Edge role as shown in the following table. You should then download and install the upcoming nuget package to move to the new SDK as shown in the following sample.
+If you are using the SDK and have installed the January 2021 device update, then you must change the way you set up IoT Edge role as shown in the following table. You should then download and install the upcoming NuGet package to move to the new SDK as shown in the following sample.
 
 ### Current SDK sample
 
