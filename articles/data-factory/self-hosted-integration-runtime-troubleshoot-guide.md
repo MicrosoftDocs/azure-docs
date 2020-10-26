@@ -629,7 +629,7 @@ This notification impacts the following scenarios:
 ##### Scenario 1: Outbound communication from Self-hosted Integration Runtime running on premises behind the corporate firewall
 How to determine if you are impacted:
 - You are not impacted if you are defining firewall rules based on FQDN names using the approach described in this document: [firewall configuration and allow list setting up for ip address](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway).
-- You are impacted however if you are explicitly whitelisting outbound IPs on your corporate firewall.
+- You are impacted however if you are explicitly enabling the allow list for outbound IPs on your corporate firewall.
 
 Action to take if you are impacted: notify your network infrastructure team to update your network configuration to use the latest Data Factory IP addresses by November 8, 2020.  To download the latest IP addresses, go to [service tags IP range download link](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
@@ -638,14 +638,14 @@ How to determine if you are impacted:
 - Check if you have any outbound NSG rules in your private network which contains Self-hosted Integration Runtime. If there are no outbound restrictions, then there is no impact.
 - If you have outbound rule restrictions, check if you use service tag or not. If you use service tag, then no need to change or add anything as the new IP ranges is under existing service tag. 
  ![Destination check](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
-- You are impacted however if you are explicitly whitelisting outbound IP addresses on your NSG rules setting on the Azure virtual network.
+- You are impacted however if you are explicitly enabling the allow list for outbound IP addresses on your NSG rules setting on the Azure virtual network.
 
 Action to take if you are impacted: notify your network infrastructure team to update NSG rules on your Azure virtual network configuration to use the latest Data Factory IP addresses by November 8, 2020.  To download the latest IP addresses, go to [service tags IP range download link](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
 ##### Scenario 3: Outbound communication from SSIS Integration Runtime in customer managed Azure virtual network
 - Check if you have any outbound NSG rules in your private network which contains SSIS Integration Runtime. If there are no outbound restrictions, then there is no impact.
 - If you have outbound rule restrictions, check if you use service tag or not. If you use service tag, then no need to change or add anything as the new IP ranges is under existing service tag.
-- You are impacted however if you are explicitly whitelisting outbound IP address on your NSG rules setting on the Azure virtual network.
+- You are impacted however if you are explicitly enabling the allow list for outbound IP address on your NSG rules setting on the Azure virtual network.
 
 Action to take if you are impacted: notify your network infrastructure team to update NSG rules on your Azure virtual network configuration to use the latest Data Factory IP addresses by November 8, 2020.  To download the latest IP addresses, go to [service tags IP range download link](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
