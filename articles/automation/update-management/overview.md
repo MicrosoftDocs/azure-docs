@@ -238,7 +238,7 @@ Here are the ways that you can enable Update Management and select machines to b
 
 - From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc enabled servers.
 
-- For a [selected Azure VM](enable-from-vm) from the Virtual machine page in the Azure portal. This scenario is available for Linux and Windows VMs.
+- For a [selected Azure VM](enable-from-vm.md) from the Virtual machine page in the Azure portal. This scenario is available for Linux and Windows VMs.
 
 - For [multiple Azure VMs](enable-from-portal.md) by selecting them from the Virtual machines page in the Azure portal.
 
