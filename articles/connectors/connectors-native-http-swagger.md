@@ -23,7 +23,7 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in H
 
   * The Swagger file must be hosted on an HTTPS URL that's publicly accessible.
   
-  * The Swagger file must contain an operationID for each operation in the definition. If not, the connnector will only show the last operation in the Swagger file. 
+  * The Swagger file must contain an `operationID` for each operation in the definition. If not, the connector only shows the last operation in the Swagger file. 
 
   * The Swagger file must have [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) enabled.
 
@@ -163,4 +163,3 @@ Here is more information about the outputs from an HTTP + Swagger trigger or act
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
-
