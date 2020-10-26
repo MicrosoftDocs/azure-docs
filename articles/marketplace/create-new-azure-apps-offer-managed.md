@@ -125,7 +125,7 @@ The **Previously published packages** sub-tab enables you to view all published 
 
 ### Enable just-in-time (JIT) access (optional)
 
-To enable JIT access for this plan, select the **Enable just-in-time (JIT) access** check box. To require that consumers of your managed application grant your account permanent access, leave this option unchecked. To learn more about this option, see [Just in time (JIT) access](plan-azure-app-managed-app.md#just-in-time-(jit)-access).
+To enable JIT access for this plan, select the **Enable just-in-time (JIT) access** check box. To require that consumers of your managed application grant your account permanent access, leave this option unchecked. To learn more about this option, see [Just in time (JIT) access](plan-azure-app-managed-app.md#just-in-time-jit-access).
 
 ### Select a deployment mode
 
