@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, if you wish to configure in **IDP**-initiated mode, perform the following steps:
 
-    ![SAP Cloud Platform Identity Authentication Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot that shows the "Basic S A M L Configuration" section with the "Identifier" and "Reply U R L" text boxes highlighted, and the "Save" button selected.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 	`<IAS-tenant-id>.accounts.ondemand.com`

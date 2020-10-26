@@ -83,13 +83,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. SAP Cloud for Customer application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot that shows the "User Attributes" dialog with the "Edit" icon selected.](common/edit-attribute.png)
 
 1. In the **User Attributes** section on the **User Attributes & Claims** dialog, perform the following steps:
 
 	a. Click **Edit icon** to open the **Manage user claims** dialog.
 
-	![image](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
+	![Screenshot that shows the "User Attributes & Claims" with the "Edit" icon selected.](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
 
 	![image](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
 
@@ -146,11 +146,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. From the left side of menu, click on **Identity Providers** > **Corporate Identity Providers** > **Add** and on the pop-up add the Identity provider name like **Azure AD**, click **Save** then click on **SAML 2.0 Configuration**.
 
-	![SAP configuration](./media/sap-customer-cloud-tutorial/configure01.png)
+	![Screenshot that shows the "Identity Providers" page with the "Add Identity Provider" dialog text box highlighted and the "Save" button selected.](./media/sap-customer-cloud-tutorial/configure01.png)
 
 3. On the **SAML 2.0 Configuration** section, perform the following steps:
 
-	![SAP configuration](./media/sap-customer-cloud-tutorial/configure02.png)
+	![Screenshot that shows the "S A M L 2.0 Configuration" with the "Browse" button selected.](./media/sap-customer-cloud-tutorial/configure02.png)
 
 	a. Click **Browse** to upload the Federation Metadata XML file, which you have downloaded from Azure portal.
 
@@ -166,7 +166,7 @@ To enable Azure AD users to sign in to SAP Cloud for Customer, they must be prov
 
 2. From the left side of the menu, click on **Users & Authorizations** > **User Management** > **Add User**.
 
-	![SAP configuration](./media/sap-customer-cloud-tutorial/configure03.png)
+	![Screenshot that shows the "User Management" page with the "Add User" button selected.](./media/sap-customer-cloud-tutorial/configure03.png)
 
 3. On the **Add New User** section, perform the following steps:
 
