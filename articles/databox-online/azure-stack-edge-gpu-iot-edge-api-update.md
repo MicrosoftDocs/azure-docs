@@ -13,7 +13,7 @@ ms.author: alkohli
 ---
 # IoT Edge Role management changes for your Azure Stack Edge
 
-The Azure Stack Edge update due to release in January 2021 will require you to make changes when using IoT Edge role management. This article describes in detail the changes required when you use the latest version of the API, SDK, and PowerShell cmdlets for IoT Edge role management on your Azure Stack Edge.
+For IoT Edge Role management for your Azure Stack Edge device, use the latest version of API, SDK, and Azure PowerShell due to release in January 2021. This article describes in detail the changes required when you use the latest version of the API, SDK, and PowerShell cmdlets for IoT Edge role management on your Azure Stack Edge.
 
 The January 2021 update is available only for Azure Stack Edge Pro - GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices and the information in this article applies to only these devices. 
 
@@ -21,9 +21,9 @@ The January 2021 update is available only for Azure Stack Edge Pro - GPU, Azure 
 
 After you install the optional January 2021 device software version on your Azure Stack Edge device, you are required to use the latest version of the API, SDK and PowerShell cmdlets for IoT Edge role management.
 
-- Role management API with version 2019-08-01 won’t be supported. You have to upgrade to API version releasing in January 2021. 
-- Role management using SDK version 1.0.0 won’t be supported. You have to upgrade to version releasing in January 2021.
-- Role management with Azure PowerShell Cmdlets (Preview) such as `Get-AzStackEdgeRole`, `New-AzStackEdgeRole`, `Set-AzStackEdgeRole`, or `Remove-AzStackEdgeRole`, won’t be supported. You have to wait for the new cmdlets that will be released in Feb 2021.
+- If you are using role management API with version 2019-08-01, upgrade to API version releasing in January 2021. 
+- If you are using role management via SDK version 1.0.0, upgrade to version releasing in January 2021.
+- If you are using role management with Azure PowerShell Cmdlets (Preview) such as `Get-AzStackEdgeRole`, `New-AzStackEdgeRole`, `Set-AzStackEdgeRole`, or `Remove-AzStackEdgeRole`, you'll have to wait for the new cmdlets that will be released in Feb 2021.
 
 The above changes are only required if you apply January 2021 update. If you remain on the existing device software version, there is no impact on IoT Edge role management. However, we recommend that you update your device for new features and security enhancements. 
 
@@ -300,7 +300,7 @@ DataBoxEdgeManagementClient.AddOns.CreateOrUpdate(deviceName, k8sRoleName, addon
 
 ## Cmdlet usage
 
-If you are using `Get-AzStackEdgeRole`, `New-AzStackEdgeRole`, `Set-AzStackEdgeRole`, or `Remove-AzStackEdgeRole`, then you have to wait for the new version planned in February 2021.
+If you are using `Get-AzStackEdgeRole`, `New-AzStackEdgeRole`, `Set-AzStackEdgeRole`, or `Remove-AzStackEdgeRole` cmdlets, then you have to wait for the new version planned in February 2021.
 
 ## Frequently asked questions (FAQ)
 
