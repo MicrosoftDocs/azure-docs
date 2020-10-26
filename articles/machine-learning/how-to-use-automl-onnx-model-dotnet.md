@@ -170,7 +170,7 @@ A pipeline in ML.NET is typically a series of chained transformations that opera
     ```csharp
     public ITransformer GetPredictionPipeline(MLContext mlContext)
     {
-    
+
     }
     ```
 
@@ -194,7 +194,7 @@ A pipeline in ML.NET is typically a series of chained transformations that opera
             .ApplyOnnxModel(
                 outputColumnNames: outputColumns,
                 inputColumnNames: inputColumns,
-                onnxModelFilePath);
+                ONNX_MODEL_PATH);
     ```
 
     In this case, [`ApplyOnnxModel`](xref:Microsoft.ML.OnnxCatalog.ApplyOnnxModel%2A) is the only transform in the pipeline, which takes in the names of the input and output columns as well as the path to the ONNX model file.
