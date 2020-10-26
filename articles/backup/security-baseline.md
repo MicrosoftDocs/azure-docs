@@ -435,7 +435,7 @@ Supporting documentation:
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 - [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -613,7 +613,7 @@ Allowed resource types
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 - [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -821,9 +821,9 @@ Allowed resource types
 
 - [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [How to authenticate to Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+* [How to authenticate to Key Vault](../key-vault/general/authentication.md)
 
-* [How to assign a Key Vault access policy](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+* [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -871,7 +871,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 - [Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md)
 
-- [Understand Azure Security Center's Threat detection for data services](../security-center/threat-protection.md)
+- [Understand Azure Security Center's Threat detection for data services](../security-center/azure-defender.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -927,7 +927,7 @@ Backup customer managed keys within Azure Key Vault.
 
 **Guidance**: For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure. For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE). You may enable soft-delete in Key Vault to protect keys against accidental or malicious deletion.
 
-- [How to enable soft-delete in Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [How to enable soft-delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Yes
 

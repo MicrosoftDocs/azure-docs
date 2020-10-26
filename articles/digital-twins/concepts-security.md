@@ -17,15 +17,15 @@ ms.service: digital-twins
 
 # Secure Azure Digital Twins
 
-For security, Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called **role-based access control (RBAC)**. You can read about the general principles of RBAC for Azure [here](../role-based-access-control/overview.md).
+For security, Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called **Azure role-based access control (Azure RBAC)**. You can read about the general principles of Azure RBAC [here](../role-based-access-control/overview.md).
 
 Azure Digital Twins also supports encryption of data at rest.
 
-## Granting permissions with RBAC
+## Roles and permissions with Azure RBAC
 
-RBAC is provided to Azure Digital Twins via integration with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
+Azure RBAC is provided to Azure Digital Twins via integration with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
-You can use RBAC to grant permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD, and receives an OAuth 2.0 token in return. This token can be used to authorize an access request to an Azure Digital Twins instance.
+You can use Azure RBAC to grant permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD, and receives an OAuth 2.0 token in return. This token can be used to authorize an access request to an Azure Digital Twins instance.
 
 ### Authentication and authorization
 
@@ -48,20 +48,32 @@ With managed identities, the Azure platform manages this runtime identity. You d
 
 #### Authorization: Azure roles for Azure Digital Twins
 
-Azure provides the below Azure built-in roles for authorizing access to an Azure Digital Twins resource:
-* *Azure Digital Twins Owner (Preview)* – Use this role to give full access over Azure Digital Twins resources.
-* *Azure Digital Twins Reader (Preview)* – Use this role to give read-only access to Azure Digital Twins resources.
+Azure provides **two Azure built-in roles** for authorizing access to the Azure Digital Twins [data plane APIs](how-to-use-apis-sdks.md#overview-data-plane-apis). You can refer to the roles either by name or by ID:
 
-> [!TIP]
-> The *Azure Digital Twins Reader (Preview)* role now also supports browsing relationships.
+| Built-in role | Description | ID | 
+| --- | --- | --- |
+| Azure Digital Twins Data Owner | Gives full access over Azure Digital Twins resources | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+| Azure Digital Twins Data Reader | Gives read-only access to Azure Digital Twins resources | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
-For more information about how built-in roles are defined, see [*Understand role definitions*](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating Azure custom roles, see [*Azure custom roles*](../role-based-access-control/custom-roles.md).
+>[!NOTE]
+> These roles were recently renamed from their earlier names in preview:
+> * *Azure Digital Twins Data Owner* was formerly *Azure Digital Twins Owner (Preview)*.
+> * *Azure Digital Twins Data Reader* was formerly *Azure Digital Twins Reader (Preview)*.
 
 You can assign roles in two ways:
-* via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [*Add or remove role assignments using Azure RBAC and the Azure portal*](../role-based-access-control/role-assignments-portal.md))
+* via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [*Add or remove Azure role assignments using the Azure portal*](../role-based-access-control/role-assignments-portal.md))
 * via CLI commands to add or remove a role
 
 For more detailed steps on how to do this, try it out in the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md).
+
+For more information about how built-in roles are defined, see [*Understand role definitions*](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating Azure custom roles, see [*Azure custom roles*](../role-based-access-control/custom-roles.md).
+
+##### Automating roles
+
+When referring to roles in automated scenarios, it's recommended to refer to them by their **IDs** rather than their names. The names may change between releases, but the IDs will not, making them a more stable reference in automation.
+
+> [!TIP]
+> If you're assiging roles with a cmdlet, such as `New-AzRoleAssignment` ([reference](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)), you can use the `-RoleDefinitionId` parameter instead of `-RoleDefinitionName` to pass an ID instead of a name for the role.
 
 ### Permission scopes
 
@@ -96,4 +108,4 @@ To resolve this error, you can do one of the following:
 
 * See how to interact with these concepts from client application code in [*How-to: Write app authentication code*](how-to-authenticate-client.md).
 
-* Read more about [RBAC for Azure](../role-based-access-control/overview.md).
+* Read more about [Azure RBAC](../role-based-access-control/overview.md).
