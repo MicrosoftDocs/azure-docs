@@ -271,16 +271,23 @@ The result of this query will return types and values formatted as JSON text:
 | date_rep | cases | geo_id |
 | --- | --- | --- |
 | {"date":"2020-08-13"} | {"int32":"254"} | {"string":"RS"} |
-| {"date":"2020-08-12"} | {"int64":"235"}| {"string":"RS"} |
-| {"string":"2020-08-11"} | {"int32":"316"} | {"string":"RS"} |
+| {"date":"2020-08-12"} | {"float64":"235.0"}| {"string":"RS"} |
+| {"string":"2020/08/11"} | {"int32":"316"} | {"string":"RS"} |
 | {"date":"2020-08-10"} | {"int32":"281"} | {"string":"RS"} |
 | {"date":"2020-08-09"} | {"int32":"295"} | {"string":"RS"} |
 | {"date":"2020-08-08"} | {"int32":"312"} | {"string":"RS"} |
 | {"date":"2020-08-07"} | {"int32":"339"} | {"string":"RS"} |
 
-In the results, you can see types identified in Cosmos DB container items and values. For querying Azure Cosmos DB accounts of Mongo DB API kind, you can learn more about the full fidelity schema representation in the analytical store and the extended property names to be used [here](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
+In the results, you can see types identified in Cosmos DB container items and values. Most of the values for `date_rep` contain `date` values, but some of them are incorrectly stored as strings in Cosmos DB. Full fidelity schema will return both correctly typed `date` values and incorrectly formated `string` values.
+Number of cases are stored as `int64` values, but there is one value that is entered as decimal number. This values is has `float64` type. If there are some values that exceed the largest `int32` number, they would be stored as `int64` type. All `geo_id` values in this example are stored as `string` types.
 
-While querying full fidelity schema, you need to explicitly specify SQL type and Cosmos DB property type in `WITH` clause:
+> [!IMPORTANT]
+> Full fidelity schema exposes both values with expected types and the values with incorrectly entered types.
+> You should clean-up the values that have incorrect types in Azure Cosmos DB container in order to apply corection in full fidelity analytical store. 
+
+For querying Azure Cosmos DB accounts of Mongo DB API kind, you can learn more about the full fidelity schema representation in the analytical store and the extended property names to be used [here](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
+
+While querying full fidelity schema, you need to explicitly specify SQL type and expected Cosmos DB property type in `WITH` clause. In the following example, we will assume that `string` is correct type for `geo_id` property and `int32` correct type for `cases` property:
 
 ```sql
 SELECT geo_id, cases = SUM(cases)
@@ -294,7 +301,7 @@ FROM OPENROWSET(
 GROUP BY geo_id
 ```
 
-Note that this query will reference only the `cases` with the specified type in the expression (`cases.int32`). If you have values with other types (`cases.int64`, `cases.int64`), you would need to explicitly reference them in `WITH` clause and combine the results:
+Values with other types will not be returned in `geo_id` and `cases` columns. This query will reference only the `cases` with the specified type in the expression (`cases.int32`). If you have values with other types (`cases.int64`, `cases.float64`) that represent some incorrectly entered values in cosmos DB container, you would need to clean them in transactional store or explicitly reference them in `WITH` clause and combine the results:
 
 ```sql
 SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
@@ -309,6 +316,8 @@ FROM OPENROWSET(
     ) as rows
 GROUP BY geo_id
 ```
+
+In this example, number of cases is stored either as `int32`, `int64`, `float64` types an all values must be extracted in order to calculate number of cases per year. 
 
 ## Known issues
 
