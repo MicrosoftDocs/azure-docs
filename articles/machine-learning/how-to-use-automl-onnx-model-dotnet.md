@@ -228,7 +228,7 @@ A pipeline in ML.NET is typically a series of chained transformations that opera
 1. Inside the `Main` method, call the `GetPredictionPipeline` method with the required parameters.
 
     ```csharp
-    var onnxPredictionPipeline = GetPredictionPipeline(mlContext,ONNX_MODEL_PATH);
+    var onnxPredictionPipeline = GetPredictionPipeline(mlContext);
     ```
 
 ## Use the model to make predictions
