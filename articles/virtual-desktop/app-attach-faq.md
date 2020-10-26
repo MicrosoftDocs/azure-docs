@@ -37,7 +37,7 @@ Windows 10 Enterprise and Windows 10 Enterprise Multi-session release 2004 or la
 
 ## Is MSIX app attach GA?
 
-MSIX app attach is part of Windows 10 Enterprise and Windows 10 Enterprise Multi-session release 2004 or later. Both those OS are available GA. 
+MSIX app attach is part of Windows 10 Enterprise and Windows 10 Enterprise Multi-session, version 2004 or later. Both operating systems are currently generally available. 
 
 ## Can I use MSIX app attach outside of Windows Virtual Desktop?
 
