@@ -19,6 +19,9 @@ For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transa
 
 In this article, you'll learn how to write a query with serverless SQL pool that will query data from Azure Cosmos DB containers that are Synapse Link enabled. You can then learn more about building serverless SQL pool views over Azure Cosmos DB containers and connecting them to Power BI models in [this](./tutorial-data-analyst.md) tutorial. 
 
+> [!IMPORTANT]
+> This tutorial uses container with [Azure Cosmos DB well-defined schema](../../cosmos-db/analytical-store-introduction.md#schema-representation) that provides query experience that will be supported uin future. The query experience that serverless SQL pool provides for [Azure Cosmos DB full fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation) is temporary behaviour that will be changed based on preview feedback. Do not rely on the schema that `OPENROWSET` function provides during public preview because the query experinece might be aligned with well-defined schema. Contact [Synapse link product team](mailto:cosmosdbsynapselink@microsoft.com) to provide feedback.
+
 ## Overview
 
 To support querying and analyzing data in Azure Cosmos DB analytical store, serverless SQL pool uses the following `OPENROWSET` syntax:
@@ -257,7 +260,7 @@ For querying Azure Cosmos DB accounts of Mongo DB API kind, you can learn more a
 ## Known issues
 
 - Alias **MUST** be specified after `OPENROWSET` function (for example, `OPENROWSET (...) AS function_alias`). Omitting alias might cause connection issue and Synapse serverless SQL endpoint might be temporarily unavailable. This issue will be resolved in Nov 2020.
-- Serverless SQL pool currently doesn't support [Azure Cosmos DB full fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). Use serverless SQL pool only to access Cosmos DB well-defined schema.
+- The query experience that serverless SQL pool provides for [Azure Cosmos DB full fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation) is temporary behaviour that will be changed based on preview feedback. Do not rely on the schema that `OPENROWSET` function provides during public preview because the query experinece might be aligned with well-defined schema. Contact [Synapse link product team](mailto:cosmosdbsynapselink@microsoft.com) to provide feedback.
 
 Possible errors and troubleshooting actions are listed in the following table:
 
