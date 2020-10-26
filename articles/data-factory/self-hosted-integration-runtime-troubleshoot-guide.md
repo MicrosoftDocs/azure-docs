@@ -649,18 +649,6 @@ Action to take if you are impacted: notify your network infrastructure team to u
 
 Action to take if you are impacted: notify your network infrastructure team to update NSG rules on your Azure virtual network configuration to use the latest Data Factory IP addresses by November 8, 2020.  To download the latest IP addresses, go to [service tags IP range download link](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
-## Self-hosted IR sharing
-
-### Share Self-hosted IR from a different tenant is not supported 
-
-#### Symptoms
-
-You may notice other data factories (on different tenants) while attempting to share the Self-hosted IR from Azure Data Factory UI, but cannot share the Self-hosted IR across data factories that are on different tenants.
-
-#### Cause
-
-The Self-hosted IR cannot be shared cross tenants.
-
 ### Could not establish trust relationship for the SSLTLS secure channel 
 
 #### Symptoms
@@ -693,13 +681,25 @@ Two possible reasons for this issue:
 
 Refer to [this article](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) for details to trust a certificate on Windows.
 
-
 #### Additional info
 We are rolling out a new SSL certificate, which is signed from DigiCert, please check whether the DigiCert Global Root G2 is in the trusted root CA.
 
   ![DigiCert Global Root G2](media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png)
 
 If not, download it from [here](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt ). 
+
+## Self-hosted IR sharing
+
+### Share Self-hosted IR from a different tenant is not supported 
+
+#### Symptoms
+
+You may notice other data factories (on different tenants) while attempting to share the Self-hosted IR from Azure Data Factory UI, but cannot share the Self-hosted IR across data factories that are on different tenants.
+
+#### Cause
+
+The Self-hosted IR cannot be shared cross tenants.
+
 
 ## Next steps
 
