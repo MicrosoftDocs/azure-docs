@@ -247,7 +247,7 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 
 ## Run the app locally
 
-By default, the project is configured to host the app locally in [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) for testing and debugging.
+By default, the project is configured to host the app locally in [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) for testing and debugging.
 
 ### To run the app locally
 1. In Visual Studio, select **Debug** > **Start Debugging** to build and start the app locally for testing and debugging.
