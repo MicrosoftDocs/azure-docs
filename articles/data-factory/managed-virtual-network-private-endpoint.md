@@ -88,6 +88,7 @@ Below data sources are supported to connect through private link from ADF Manage
 - East US
 - East US 2
 - West Central US
+- West US
 - West US 2
 - South Central US
 - Central US
@@ -96,6 +97,7 @@ Below data sources are supported to connect through private link from ADF Manage
 - UK South
 - Southeast Asia
 - Australia East
+- Australia Southeast
 
 ### Outbound communications through public endpoint from ADF Managed Virtual Network
 - Only port 443 is opened for outbound communications.

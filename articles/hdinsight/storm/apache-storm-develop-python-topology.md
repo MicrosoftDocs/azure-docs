@@ -25,7 +25,7 @@ Learn how to create an [Apache Storm](https://storm.apache.org/) topology that u
 
 * [Python 2.7 or higher](https://www.python.org/downloads/).
 
-* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks).
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * [Apache Maven](https://maven.apache.org/download.cgi) properly [installed](https://maven.apache.org/install.html) according to Apache.  Maven is a project build system for Java projects.
 
