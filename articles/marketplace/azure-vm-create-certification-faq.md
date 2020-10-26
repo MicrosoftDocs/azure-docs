@@ -340,12 +340,13 @@ e) Please enter 2048 as “First Sector” value and you can leave “last Secto
 Please find the below screenshot for your reference.
 ![Erased data](./media/create-vm/vm-certification-issues-solutions-22.png)
 
-f) Type w to confirm the creation of partition.
+f) Type w to confirm the creation of partition. 
+
 ![Creation of partition](./media/create-vm/vm-certification-issues-solutions-23.png)
 
-g) You can verify the partition table by running the command n fdisk /dev/sdb and typing p, then you can see as below, that partition is created with 2048 offset value. \
+g) You can verify the partition table by running the command n fdisk /dev/sdb and typing p, then you can see as below, that partition is created with 2048 offset value. 
 
-![2048 offset](./media/create-vm/vm-certification-issues-solutions-24.png)
+ ![2048 offset](./media/create-vm/vm-certification-issues-solutions-24.png)
 
 Step 7:  please detach the VHD from VM and Delete the VM.
 
