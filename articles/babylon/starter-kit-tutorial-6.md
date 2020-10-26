@@ -67,52 +67,57 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## View classification insights
 
 1. On the left, select **Classification** to view insights about the classifications found in your content.
-
-    - Adjust the time selector as needed to show updated results found over different time periods.
     
-    - Use the tiles at the top of the page to view the number of classified files, percentage of data that is secret, as well as the total amount of data scanned.
-    
-    - Use the **Top classifications** graph to view the most commonly used classifications found in your content, such as credit card numbers or national identification numbers.
-    
-1. Click **View all classifications** to drill down further.
+    |Option  |Description  |
+    |---------|---------|
+    |**Time selector**     | Adjust the time selector as needed to show updated results found over different time periods.        |
+    |**Overall statistics**     | Use the tiles at the top of the page to view the number of classified files, percentage of data that is secret, as well as the total amount of data scanned.        |
+    |**Top classifications**     |  Use the **Top classifications** graph to view the most commonly used classifications found in your content, such as credit card numbers or national identification numbers.       |
+    | | |
 
-    On the detailed classification reports, use any of the following steps to modify the data displayed or find more information:
+1. Click **View all classifications** to drill down further. 
 
-    - Use the **Classification**, **Subscription**, and **Asset Type** filters to filter the graphs to show data for specific content only.
+    On the detailed classification report, use the following methods to modify the data displayed:
     
-    - Select **Edit Columns** to change the column data shown in the table below your graphs.
-
-    - In the table below your graphs, select a specific classification to view additional information about the data sources, such as: asset types, subscription details, and numbers of labeled or classified files for the selected classification.
+    |Option  |Description  |
+    |---------|---------|
+    |**Filter**     |   Use the **Classification**, **Subscription**, and **Asset Type** filters to filter the graphs to show data for specific content only.      |
+    |**Edit columns**     | Select **Edit Columns** to change the column data shown in the table below your graphs.        |
+    |**Find more information** |In the table below your graphs, select a specific classification to view additional information about the data sources, such as: </br>- Asset types </br>- Subscription details </br>- Numbers of labeled or classified files for the selected classification. | 
+    | | | 
 
 ## View labeling insights
 
 1. On the left, select **Labels** to view insights about the sensitivity labels found in your content.
 
-    - Adjust the time selector as needed to show updated results found over different time periods.
-    
-    - Use the tiles at the top of the page to view the number of classified files, percentage of data that is secret, as well as the total amount of data scanned.
-    
-    - Use the **Top labels** graph to view the most commonly used labels found in your content, such as **Secret**, **All Employees**, or another specific group of internal users.
-    
+    |Option  |Description  |
+    |---------|---------|
+    |**Time selector**     | Adjust the time selector as needed to show updated results found over different time periods.        |
+    |**Overall statistics**     | Use the tiles at the top of the page to view the number of classified files, percentage of data that is secret, as well as the total amount of data scanned.        |
+    |**Top labels**     |  Use the **Top labels** graph to view the most commonly used labels found in your content, such as **Secret**, **All Employees**, or another specific group of internal users.    |
+    | | |
+            
 1. Click **View all labels** to drill down further.
 
-    On the detailed labeling reports, use any of the following steps to modify the data displayed or find more information:
-
-    - Use the **Classification**, **Subscription**, and **Asset Type** filters to filter the graphs to show data for specific content only.
+   On the detailed labeling report, use the following methods to modify the data displayed:
     
-    - Select **Edit Columns** to change the column data shown in the table below your graphs.
-
-    - In the table below your graphs, select a specific label to view additional information about the data sources, such as: asset types, subscription details, and numbers of labeled or classified files for the selected label.
+    |Option  |Description  |
+    |---------|---------|
+    |**Filter**     |   Use the **Classification**, **Subscription**, and **Asset Type** filters to filter the graphs to show data for specific content only.      |
+    |**Edit columns**     | Select **Edit Columns** to change the column data shown in the table below your graphs.        |
+    |**Find more information** |In the table below your graphs, select a specific label to view additional information about the data sources, such as: </br>- Asset types </br>- Subscription details </br>- Numbers of labeled or classified files for the selected label. | 
+    | | | 
 
 ## View file extension insights
 
 1. On the left, select **File extensions** to view insights about the file types (extensions) found in your content.
 
-    - Adjust the time selector as needed to show updated results found over different time periods.
-    
-    - Use the tile at the top to view the number of unique file extensions found across your content.
-
-    - Use the **Top classifications** and **Top labels** graphs to view the most commonly used classifications and labels found in your content. For example, top classifications might include credit card numbers or national identification numbers, and top labels might include **Secret**, **All Employees**, or another specific group of internal users.
+    |Option  |Description  |
+    |---------|---------|
+    |**Time selector**     | Adjust the time selector as needed to show updated results found over different time periods.        |
+    |**Overall statistics**     | Use the tile at the top to view the number of unique file extensions found across your content.       |
+    |**Top file extensions**     |  Use the **Top file extensions** graph to view the most commonly found file extensions in your content.       |
+    | | |
     
 1. Click **View all file extensions** to drill down further.
 
