@@ -34,13 +34,13 @@ This documentation includes sections that explain how to leverage Azure Spring C
     * Build and deploy apps
     * Use logs metrics and tracing
 * How-to
-    * Prepare apps
-    * Manage apps
-    * Monitor apps
-    * Secure apps
-    * Integration with other Azure services
-    * DevOps
-    * Troubleshoot
+    * Prepare apps: Prepare an existing Java Spring application for deployment to Azure Spring Cloud. If configured properly, Azure Spring Cloud provides robust services to monitor, scale, and update your Java Spring Cloud application.
+    * Manage apps:  Start, stop, and delete your Azure Spring Cloud application. Change an application's state in Azure Spring Cloud by using either the Azure portal or the Azure CLI.
+    * Monitor apps: Distributed tracing tools to easily debug and monitor complex issues. Azure Spring Cloud integrates Spring Cloud Sleuth with Azure's Application Insights. This integration provides powerful distributed tracing capability from the Azure portal.
+    * Secure apps: Azure resources provide an automatically managed identity in Azure Active Directory to an Azure resources. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
+    * Integration with other Azure services: Instead of manually configuring your Spring Boot applications, you can automatically bind select Azure services to your applications such as binding your application to an Azure Cosmos DB database.
+    * DevOps: Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs. 
+    * Troubleshoot: Azure Spring Cloud diagnostics provide an interactive experience to help troubleshoot apps. No configuration is required. When you find issues, Azure Spring Cloud diagnostics points out what’s wrong and guides you to information that helps troubleshoot and resolve the issue.
 
 As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other Azure services including storage, databases, monitoring, and more.
 
