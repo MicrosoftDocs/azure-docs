@@ -48,7 +48,7 @@
         href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Stream Analytics
         href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
-      - name: Synapse Analytics
+      - name: Synapse Analytics SQL pool
         href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Blockchain
       items:
@@ -166,20 +166,24 @@
         href: ../../firewall/quick-create-multiple-ip-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Firewall Manager
         href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
-      - name: Load Balancer
+      - name: Load Balancer - public
         href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Private Endpoint
         href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Private Link service
         href: ../../private-link/create-private-link-service-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Traffic Manager
+        href: ../../traffic-manager/quickstart-create-traffic-manager-profile-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Web Application Firewall
         href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Security
       items:
       - name: Attestation
         href: ../../attestation/quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
-      - name: Key Vault
+      - name: Key Vault - secret
         href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Security Center
+        href: ../../security-center/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Storage
       items:
       - name: Data Share
