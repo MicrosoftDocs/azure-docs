@@ -42,7 +42,7 @@ At this time, only text copy/paste is supported. Features such as file copy are 
 
 ### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
 
-This feature doesn't work with AADJ VM extension joined machines using Azure AD users. For more information, see [Windows Azure VMs and Azure AD](../articles/active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+This feature doesn't work with AADJ VM extension-joined machines using Azure AD users. For more information, see [Windows Azure VMs and Azure AD](../articles/active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
 
 ### <a name="browsers"></a>Which browsers are supported?
 
