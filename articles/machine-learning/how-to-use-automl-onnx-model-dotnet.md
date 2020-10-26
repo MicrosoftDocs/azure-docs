@@ -17,13 +17,13 @@ In this article, you learn how to use an AutoML ONNX model to make predictions i
 
 [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/) is an open-source, cross-platform, machine learning framework for the .NET ecosystem that allows you to train and consume custom machine learning models using a code-first approach in C# or F# as well as through low-code tooling like [Model Builder](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-model-builder) and the [ML.NET CLI](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-cli). The framework is also extensible and allows you to leverage other popular machine learning frameworks like TensorFlow and ONNX.
 
-The Open Neural Network Exchange (ONNX) is an open-source format for AI models. ONNX supports interoperability between frameworks. This means you can train a model in one of the many popular machine learning frameworks like PyTorch, convert it into ONNX format and consume the ONNX model in a different framework like ML.NET. To learn more, visit the [ONNX website](https://onnx.ai/).
+The Open Neural Network Exchange (ONNX) is an open-source format for AI models. ONNX supports interoperability between frameworks. This means you can train a model in one of the many popular machine learning frameworks like PyTorch, convert it into ONNX format, and consume the ONNX model in a different framework like ML.NET. To learn more, visit the [ONNX website](https://onnx.ai/).
 
 ## Prerequisites
 
 - [.NET Core SDK 3.1 or greater](https://dotnet.microsoft.com/download)
 - Text Editor or IDE (such as [Visual Studio](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/Download))
-- ONNX model. To learn how to train an Auto ML ONNX model, see the following [bank marketing classification notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
+- ONNX model. To learn how to train an AutoML ONNX model, see the following [bank marketing classification notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
 - [Netron](https://github.com/lutzroeder/netron) (optional)
 
 ## Create a C# console application
@@ -162,7 +162,7 @@ Similar to `OnnxInput`, use the [`ColumnName`](xref:Microsoft.ML.Data.ColumnName
 
 ## Define prediction pipeline
 
-A pipeline in ML.NET is a series of chained transformations that operate on the input data sequentially in order to produce an output. To learn more about data transforms, see the [ML.NET data transformation guide](https://docs.microsoft.com/dotnet/machine-learning/resources/transforms).
+A pipeline in ML.NET is typically a series of chained transformations that operate on the input data to produce an output. To learn more about data transforms, see the [ML.NET data transformation guide](https://docs.microsoft.com/dotnet/machine-learning/resources/transforms).
 
 1. Create a new method called `GetPredictionPipeline` inside the `Program` class
 
