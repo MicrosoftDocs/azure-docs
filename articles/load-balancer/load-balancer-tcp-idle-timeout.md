@@ -19,12 +19,10 @@ ms.author: allensu
 
 Azure Load Balancer has the following idle timeout range:
 
-4 minutes to 100 minutes for Outbound Rules
-4 minutes to 30 minutes for Load Balancer rules and Inbound NAT rules
+* 4 minutes to 100 minutes for Outbound Rules
+* 4 minutes to 30 minutes for Load Balancer rules and Inbound NAT rules
 
 By default, it's set to 4 minutes. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained between the client and your service. 
-
-Learn more about [TCP idle timeout](load-balancer-tcp-reset.md).
 
 The following sections describe how to change idle timeout and tcp reset settings for load balancer resources.
 
@@ -70,27 +68,12 @@ Replace the following with the values from your resources:
 
 * **myResourceGroup**
 * **myLoadBalancer**
-* **myLBrule**
-* Port **80** for the backend and frontend port.
-
-> [!IMPORTANT]
-> The **Set-AzLoadBalancerRuleConfig** overwrites all settings in the load-balancing rule with the specified parameters. Make note of all of your settings and replace them in the command. In this example **-DisableOutboundSNAT** is set in the rule disabling outbound internet access for the backend pool. </br> For more information about outbound connections with load balancer, see **[Outbound proxy Azure Load Balancer](load-balancer-outbound-connections.md)**. </br> For more information about load balancer outbound rules, see **[Outbound rules Azure Load Balancer](outbound-rules.md)**
 
 ```azurepowershell
 $lb = Get-AzLoadBalancer -Name "myLoadBalancer" -ResourceGroup "myResourceGroup"
-$parameters = @{
-    Name = 'myLBrule'
-    FrontendIpConfiguration = $lb.FrontendIpConfigurations[0]
-    Probe = $lb.Probes[0]
-    BackendAddressPool = $lb.BackendAddressPools[0]
-    Protocol = 'Tcp'
-    FrontendPort ='80'
-    BackendPort = '80'
-    IdleTimeoutInMinutes = '15'
-}
-$lb | Set-AzLoadBalancerRuleConfig @parameters -EnableTcpReset -DisableOutboundSNAT
-$lb | Set-AzLoadBalancer
-
+$lb.LoadBalancingRules[0].IdleTimeoutInMinutes = '15'
+$lb.LoadBalancingRules[0].EnableTcpReset = 'true'
+Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
 # [**Azure CLI**](#tab/tcp-reset-idle-cli)
@@ -106,6 +89,13 @@ Validate your environment before you begin:
 * Check your version of the Azure CLI in a terminal or command window by running `az --version`. For the latest version, see the [latest release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
   * If you don't have the latest version, update your installation by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
 
+Replace the following with the values from your resources:
+
+* **myResourceGroup**
+* **myLoadBalancer**
+* **myLBrule**
+
+
 ```azurecli
 az network lb rule update \
     --resource-group myResourceGroup \
@@ -117,8 +107,6 @@ az network lb rule update \
 ---
 ## Next steps
 
-[Internal load balancer overview](load-balancer-internal-overview.md)
+For more information on tcp idle timeout and reset, see [Load Balancer TCP Reset and Idle Timeout](load-balancer-tcp-reset.md)
 
-[Get started configuring an Internet-facing load balancer](quickstart-load-balancer-standard-public-powershell.md)
-
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+For more information on configuring the load balancer distribution mode, see [Configure a load balancer distribution mode](load-balancer-distribution-mode.md).
