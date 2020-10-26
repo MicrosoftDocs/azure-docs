@@ -1032,17 +1032,27 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/encrypt-disks.md",
-      "redirect_url": "/azure//virtual-machines/windows/disk-encryption-overview",
+      "redirect_url": "/azure/virtual-machines/windows/disk-encryption-overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/disks-ade-sse-conversion-cli.md",
-      "redirect_url": "/azure//virtual-machines/linux/disk-encryption",
+      "redirect_url": "/azure/virtual-machines/disk-encryption",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/windows/disks-ade-sse-conversion-powershell.md",
-      "redirect_url": "/azure//virtual-machines/windows/disk-encryption",
+      "redirect_url": "/azure/virtual-machines/disk-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disk-encryption.md",
+      "redirect_url": "/azure/virtual-machines/disk-encryption",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disk-encryption.md",
+      "redirect_url": "/azure/virtual-machines/disk-encryption",
       "redirect_document_id": false
     },
     {
