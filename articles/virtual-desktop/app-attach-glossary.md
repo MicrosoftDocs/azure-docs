@@ -40,7 +40,7 @@ Repackaging takes a non-MSIX application and converts it into MSIX using the MSI
 
 ## Expanding a MSIX package
 
-Expanding MSIX package is a multi-step process. It takes the MSIX file and put its content into a VHD(x) or CIM file. 
+Expanding an MSIX package is a multi-step process. Expansion takes the MSIX file and puts its content into a VHD(x) or CIM file. 
 
 To expand an MSIX package:
 
@@ -117,4 +117,3 @@ The following table is a performance comparison between VHD and CimFS. These num
 ## Next steps
 
 If you want to learn more about MSIX app attach, check out our [overview](what-is-app-attach.md) and [FAQ](app-attach-faq.md). Otherwise, get started with [Set up app attach](app-attach.md).
-
