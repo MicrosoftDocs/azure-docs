@@ -26,6 +26,7 @@ By default, it's set to 4 minutes. If a period of inactivity is longer than the 
 
 The following sections describe how to change idle timeout and tcp reset settings for load balancer resources.
 
+## Set tcp reset and idle timeout
 ---
 # [**Portal**](#tab/tcp-reset-idle-portal)
 
