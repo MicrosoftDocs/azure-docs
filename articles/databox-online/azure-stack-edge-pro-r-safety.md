@@ -39,8 +39,8 @@ The following hazard icons are to be observed when setting up and running your A
 | ![Electrical Shock Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | Electric Shock Hazard |
 | ![No User Serviceable Parts Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-do-not-access.png) | No User Serviceable Parts. Do not access unless properly trained. |
 | ![Multiple Power Sources Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-disconnect-all-power.png)  | Multiple power sources. Disconnect all power cords to remove all power from the equipment. |
-| ![Pinching Points Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-disconnect-all-power.png)  | Pinching points are present. |
-| ![Hot Components or Surfaces Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-disconnect-all-power.png)  | Indicates hot components or surfaces. |
+| ![Pinching Points Icon](./media/azure-stack-edge-pro-r-safety/icon-pinching-points.png)  | Pinching points are present. |
+| ![Hot Components or Surfaces Icon](./media/azure-stack-edge-pro-r-safety/icon-hot-component-surface.png)  | Indicates hot components or surfaces. |
 |
 
 ## Handling precautions and site selection
@@ -89,11 +89,11 @@ The following hazard icons are to be observed when setting up and running your A
 
 ## Heater precautions
 
-![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) ![Hot Components or Surfaces Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **WARNING:** 
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) ![Hot Components or Surfaces Icon 1](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **WARNING:** 
 
 * Automatic heater operation while the system is powered on may create a touch hazard due to high surface temperatures on the heater assembly cover. Do not touch this surface while the system is powered on. Allow a 10-minute cool down period after the system is powered off.
 
-![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) ![Pinching points Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **WARNING:** 
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) ![Pinching points Icon 1](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **WARNING:** 
 
 * When the system is powered on, automatic actuation of the rear plenum door may create a pinch-point hazard. Keep hands clear of this area when the system is powered on.
 
