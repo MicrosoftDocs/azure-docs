@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 10/26/2020
 ms.author: banders
 ms.custom: contperfq1
 ---
@@ -183,9 +183,4 @@ Power BI reporting is available for Azure EA direct, partner, and indirect custo
 ## Next steps
 
 - Azure Enterprise portal administrators should read [Azure Enterprise portal administration](ea-portal-administration.md) to learn about common administrative tasks.
-<<<<<<< HEAD
 - If you need help with troubleshooting Azure Enterprise portal issues, see [Troubleshoot Azure Enterprise portal access](ea-portal-troubleshoot.md).
-=======
-- If you need help with troubleshooting Azure Enterprise portal issues, see [Troubleshoot Azure Enterprise portal access](ea-portal-troubleshoot.md).
-- For an Azure EA onboarding guide, see [Azure EA Onboarding Guide (PDF)](https://ea.azure.com/api/v3Help/v2AzureEAOnboardingGuide).
->>>>>>> 0e89f5cefb51cdcb8689b39321656c64bc5a2105
