@@ -99,6 +99,14 @@ The model used in this sample uses data from the NYC TLC Taxi Trip dataset. A sa
 |VTS|1|1|480|2.72|CRD|10.0|
 |VTS|1|1|1680|7.8|CSH|26.5|
 
+### Inspect model (optional)
+
+Use tool like Netron to inspect your model metadata, inputs, and outputs. For example, the structure of the *automl-model.onnx* model looks like the following:
+
+:::image type="content" source="media/how-to-use-automl-onnx-model-dotnet/netron-automl-onnx-model.png" alt-text="Netron AutoML ONNX Model":::
+
+The inputs and outputs on the sidebar show you the name of the input and output columns as well as their data types. Use this information to define the input and output schema of your model.
+
 ### Input data schema
 
 Create a new class called `OnnxInput` with the following properties inside the *Program.cs* file.
