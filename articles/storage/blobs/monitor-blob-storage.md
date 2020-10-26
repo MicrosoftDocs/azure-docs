@@ -5,7 +5,7 @@ author: normesta
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: "monitoring, devx-track-csharp"
@@ -143,7 +143,7 @@ Enable logs by using the [Set-AzDiagnosticSetting](https://docs.microsoft.com/po
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
-Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the blob service. See [Resource ID for the storage services](https://docs.microsoft.com/azure/storage/common/storage-metrics-in-azure-monitor?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#resource-id-for-the-storage-services).
+Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the blob service. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
 
 You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the **Category** parameter.
 
@@ -201,7 +201,7 @@ Enable logs by using the [az monitor diagnostic-settings create](https://docs.mi
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
 ```
 
-Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID Blob storage service. See [Resource ID for the storage services](https://docs.microsoft.com/azure/storage/common/storage-metrics-in-azure-monitor?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#resource-id-for-the-storage-services).
+Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID Blob storage service. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
 
 You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the **category** parameter.
 
@@ -453,6 +453,9 @@ You can read the metric values of your storage account or the Blob storage servi
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
+# [Template](#tab/template)
+
+N/A.
 
 ---
 
