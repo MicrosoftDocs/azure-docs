@@ -282,8 +282,8 @@ The result of this query will return types and values formatted as JSON text:
 | {"date":"2020-08-08"} | {"int32":"312"} | {"string":"RS"} |
 | {"date":"2020-08-07"} | {"int32":"339"} | {"string":"RS"} |
 
-fore every value, you can see the type identified in Cosmos DB container item. Most of the values for `date_rep` property contain `date` values, but some of them are incorrectly stored as strings in Cosmos DB. Full fidelity schema will return both correctly typed `date` values and incorrectly formatted `string` values.
-Number of cases is an information stored as `int64` value, but there is one value that is entered as decimal number. This values has `float64` type. If there are some values that exceed the largest `int32` number, they would be stored as `int64` type. All `geo_id` values in this example are stored as `string` types.
+For every value, you can see the type identified in Cosmos DB container item. Most of the values for `date_rep` property contain `date` values, but some of them are incorrectly stored as strings in Cosmos DB. Full fidelity schema will return both correctly typed `date` values and incorrectly formatted `string` values.
+Number of cases is an information stored as `int64` value, but there is one value that is entered as decimal number. This value has `float64` type. If there are some values that exceed the largest `int32` number, they would be stored as `int64` type. All `geo_id` values in this example are stored as `string` types.
 
 > [!IMPORTANT]
 > Full fidelity schema exposes both values with expected types and the values with incorrectly entered types.
