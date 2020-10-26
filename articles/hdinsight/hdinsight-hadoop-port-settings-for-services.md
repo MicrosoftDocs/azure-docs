@@ -153,7 +153,7 @@ Examples:
 | --- | --- | --- | --- | --- |
 | Broker |Worker nodes |9092 |Kafka Wire Protocol |Used for client communication |
 | &nbsp; |Zookeeper nodes |2181 |&nbsp; |The port that clients use to connect to Zookeeper |
-| REST proxy | Kafka management nodes |9400 |HTTPS |[Kafka REST specification](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) |
+| REST proxy | Kafka management nodes |9400 |HTTPS |[Kafka REST specification](/rest/api/hdinsight-kafka-rest-proxy/) |
 
 ### Spark ports
 

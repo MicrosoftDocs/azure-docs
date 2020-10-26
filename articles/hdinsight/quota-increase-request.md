@@ -61,9 +61,9 @@ To request a quota increase, do the following steps:
 > [!NOTE]  
 > If you need to increase the HDInsight core quota in a private region, [submit a approved list request](https://aka.ms/canaryintwhitelist).
 
-You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+You can [contact support to request a quota increase](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
-There are some fixed quota limits. For example, a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+There are some fixed quota limits. For example, a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## Next steps
 

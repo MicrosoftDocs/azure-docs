@@ -587,7 +587,7 @@ The following table applies to Azure Batch.
 
 - **Cause**: There was an internal error while trying to read the Service Principal or instantiating the MSI authentication.
 
-- **Recommendation**: Consider providing a service principal, which has permissions to create an HDInsight cluster in the provided subscription and try again. Verify that the [Manage Identities are set up correctly](https://docs.microsoft.com/azure/hdinsight/hdinsight-managed-identities).
+- **Recommendation**: Consider providing a service principal, which has permissions to create an HDInsight cluster in the provided subscription and try again. Verify that the [Manage Identities are set up correctly](../hdinsight/hdinsight-managed-identities.md).
 
    If this option isn't an acceptable solution, contact ADF support team for further assistance.
 
@@ -599,7 +599,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Verify that the cluster hasn't been deleted, and that the provided URI is correct. When you open the URI in a browser, you should see the Ambari UI. If the cluster is in a virtual network, the URI should be the private URI. To open it, use a Virtual Machine (VM) that is part of the same virtual network.
 
-   For more information, see [Directly connect to Apache Hadoop services](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services).
+   For more information, see [Directly connect to Apache Hadoop services](../hdinsight/hdinsight-plan-virtual-network-deployment.md#directly-connect-to-apache-hadoop-services).
  
  </br>
 
@@ -609,7 +609,7 @@ The following table applies to Azure Batch.
    
    If you're using a self-hosted integrated runtime (IR), perform this step from the VM or machine where the self-hosted IR is installed. Then try submitting the job from Data Factory again. If it still fails, contact the Data Factory team for support.
 
-   For more information, read [Ambari Web UI](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-manage-ambari#ambari-web-ui).
+   For more information, read [Ambari Web UI](../hdinsight/hdinsight-hadoop-manage-ambari.md#ambari-web-ui).
 
  </br>
 
@@ -617,7 +617,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Correct the credentials and redeploy the linked service. First verify that the credentials work on HDInsight by opening the cluster URI on any browser and trying to sign in. If the credentials don't work, you can reset them from the Azure portal.
 
-   For ESP cluster, reset the password through [self service password reset](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password).
+   For ESP cluster, reset the password through [self service password reset](../active-directory/user-help/active-directory-passwords-update-your-own-password.md).
 
  </br>
 
@@ -633,8 +633,8 @@ The following table applies to Azure Batch.
        For more information, look through the Azure HDInsight troubleshooting documentation. For example:
 
        * [Ambari UI 502 error](https://hdinsight.github.io/ambari/ambari-ui-502-error.html)
-       * [RpcTimeoutException for Apache Spark thrift server](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception)
-       * [Troubleshooting bad gateway errors in Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502).
+       * [RpcTimeoutException for Apache Spark thrift server](../hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception.md)
+       * [Troubleshooting bad gateway errors in Application Gateway](../application-gateway/application-gateway-troubleshooting-502.md).
 
  </br>
 
@@ -642,7 +642,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Limit the number of concurrent jobs submitted to HDInsight. Refer to Data Factory activity concurrency if the jobs are being submitted by the same activity. Change the triggers so the concurrent pipeline runs are spread out over time.
 
-   Refer to [HDInsight documentation](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors) to adjust `templeton.parallellism.job.submit` as the error suggests.
+   Refer to [HDInsight documentation](../hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors.md) to adjust `templeton.parallellism.job.submit` as the error suggests.
 
 ### Error code: 2301
 
@@ -668,7 +668,7 @@ The following table applies to Azure Batch.
        1. For more information on alerts and resolutions to alerts, see [Managing and Monitoring a Cluster](https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_predefined_alerts.html).
     1. Review your YARN memory. If your YARN memory is high, the processing of your jobs may be delayed. If you do not have enough resources to accommodate your Spark application/job, scale up the cluster to ensure the cluster has enough memory and cores. 
  1. Run a Sample test job.
-    1. If you run the same job on HDInsight backend, check that it succeeded. For examples of sample runs, see [Run the MapReduce examples included in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
+    1. If you run the same job on HDInsight backend, check that it succeeded. For examples of sample runs, see [Run the MapReduce examples included in HDInsight](../hdinsight/hadoop/apache-hadoop-run-samples-linux.md) 
  1. If the job still failed on HDInsight, check the application logs and information, which to provide to Support:
     1. Check whether the job was submitted to YARN. If the job wasn't submitted to yarn, use `--master yarn`.
     1. If the application finished execution, collect the start time and end time of the YARN Application. If the application didn't complete the execution, collect Start time/Launch time.
@@ -690,7 +690,7 @@ The following table applies to Azure Batch.
        1. For more information on alerts and resolutions to alerts, see [Managing and Monitoring a Cluster](https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_predefined_alerts.html).
     1. Review your YARN memory. If your YARN memory is high, the processing of your jobs may be delayed. If you do not have enough resources to accommodate your Spark application/job, scale up the cluster to ensure the cluster has enough memory and cores. 
  1. Run a Sample test job.
-    1. If you run the same job on HDInsight backend, check that it succeeded. For examples of sample runs, see [Run the MapReduce examples included in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
+    1. If you run the same job on HDInsight backend, check that it succeeded. For examples of sample runs, see [Run the MapReduce examples included in HDInsight](../hdinsight/hadoop/apache-hadoop-run-samples-linux.md) 
  1. If the job still failed on HDInsight, check the application logs and information, which to provide to Support:
     1. Check whether the job was submitted to YARN. If the job wasn't submitted to yarn, use `--master yarn`.
     1. If the application finished execution, collect the start time and end time of the YARN Application. If the application didn't complete the execution, collect Start time/Launch time.
@@ -722,7 +722,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: The error message should help to identify the issue. Fix the json configuration and try again.
 
-   Check [Azure HDInsight on-demand linked service](https://docs.microsoft.com/azure/data-factory/compute-linked-services#azure-hdinsight-on-demand-linked-service) for more information.
+   Check [Azure HDInsight on-demand linked service](./compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for more information.
 
 ### Error code: 2310
 
@@ -732,7 +732,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Follow the error message to fix the issue. If there isn't enough information to get it resolved, contact the HDI team and provide them the batch ID and job ID, which can be found in the activity run Output in ADF Monitoring page. To troubleshoot further, collect the full log of the batch job.
 
-   For more information on how to collect the full log, see [Get the full log of a batch job](https://docs.microsoft.com/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
+   For more information on how to collect the full log, see [Get the full log of a batch job](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
 
 ### Error code: 2312
 
@@ -742,7 +742,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Follow the links in the activity run Output in ADF Monitoring page to troubleshoot the run on HDInsight Spark cluster. Contact HDInsight support team for further assistance.
 
-   For more information on how to collect the full log, see [Get the full log of a batch job](https://docs.microsoft.com/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
+   For more information on how to collect the full log, see [Get the full log of a batch job](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job).
 
 ### Error code: 2313
 
@@ -752,7 +752,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Troubleshoot batches on the HDInsight Spark cluster. Contact HDInsight support for further assistance. 
 
-   For more information on how to collect the full log, see [Get the full log of a batch job](https://docs.microsoft.com/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job), and share the full log with HDInsight support for further assistance.
+   For more information on how to collect the full log, see [Get the full log of a batch job](/rest/api/hdinsightspark/hdinsight-spark-batch-job#get-the-full-log-of-a-batch-job), and share the full log with HDInsight support for further assistance.
 
 ### Error code: 2328
 
@@ -839,8 +839,8 @@ The following table applies to Azure Batch.
    1. Confirm that you correctly set up your ODBC/Java Database Connectivity (JDBC) connection.
       1. For JDBC, if you're using the same virtual network, you can get this connection from:<br>
         `Hive -> Summary -> HIVESERVER2 JDBC URL`
-      1. To ensure that you have the correct JDBC set up, see [Query Apache Hive through the JDBC driver in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver).
-      1. For Open Database (ODB), see [Tutorial: Query Apache Hive with ODBC and PowerShell](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell) to ensure that you have the correct setup. 
+      1. To ensure that you have the correct JDBC set up, see [Query Apache Hive through the JDBC driver in HDInsight](../hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver.md).
+      1. For Open Database (ODB), see [Tutorial: Query Apache Hive with ODBC and PowerShell](../hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell.md) to ensure that you have the correct setup. 
    1. Verify that Hiveserver2, Hive Metastore, and Hiveserver2 Interactive are active and working. 
    1. Check the Ambari user interface (UI):
       1. Ensure that all services are still running.
@@ -860,8 +860,8 @@ The following table applies to Azure Batch.
    1. Confirm that you correctly set up your ODBC/Java Database Connectivity (JDBC) connection.
       1. For JDBC, if you're using the same virtual network, you can get this connection from:<br>
         `Hive -> Summary -> HIVESERVER2 JDBC URL`
-      1. To ensure that you have the correct JDBC set up, see [Query Apache Hive through the JDBC driver in HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver).
-      1. For Open Database (ODB), see [Tutorial: Query Apache Hive with ODBC and PowerShell](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell) to ensure that you have the correct setup. 
+      1. To ensure that you have the correct JDBC set up, see [Query Apache Hive through the JDBC driver in HDInsight](../hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver.md).
+      1. For Open Database (ODB), see [Tutorial: Query Apache Hive with ODBC and PowerShell](../hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell.md) to ensure that you have the correct setup. 
    1. Verify that Hiveserver2, Hive Metastore, and Hiveserver2 Interactive are active and working. 
    1. Check the Ambari user interface (UI):
       1. Ensure that all services are still running.
@@ -918,7 +918,7 @@ The following table applies to Azure Batch.
 
 - **Recommendation**: Verify that the selected linked service has one of the supported types for the activity. HDI activities support AzureBlobStorage and AzureBlobFSStorage linked services.
 
-   For more information, read [Compare storage options for use with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options)
+   For more information, read [Compare storage options for use with Azure HDInsight clusters](../hdinsight/hdinsight-hadoop-compare-storage-options.md)
 
 ### Error code: 2355
 
@@ -1065,4 +1065,4 @@ For more troubleshooting help, try these resources:
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Azure videos](https://azure.microsoft.com/resources/videos/index/)
-* [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+* [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)
