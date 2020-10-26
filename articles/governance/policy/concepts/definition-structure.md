@@ -595,6 +595,7 @@ The following properties are used with **count**:
   [condition](../concepts/definition-structure.md#conditions) should be used.
 
 For more details on how to work with array properties in Azure Policy, including detailed explanation on how the count expression is evaluated, see [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+
 #### Count examples
 
 Example 1: Check if an array is empty
@@ -681,7 +682,7 @@ expression
 }
 ```
 
-Example 6: Use `field()` function inside the `where` conditions to access the literal value of the currently evaluated array member. This condition checks that there are no security rules with even priority.
+Example 6: Use `field()` function inside the `where` conditions to access the literal value of the currently evaluated array member. This condition checks that there are no security rules with an even numbered _priority_ value.
 
 ```json
 {
@@ -882,18 +883,21 @@ Policy, use one of the following methods:
 ### Understanding the [*] alias
 
 Several of the aliases that are available have a version that appears as a 'normal' name and another that has **\[\*\]** attached to it. For example:
+
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 The 'normal' alias represents the field as a single value. This field is for exact match comparison scenarios when the entire set of values must be exactly as defined, no more and no less.
 
 The **\[\*\]** alias represents a collection of values selected from the elements of an array resource property. For example:
+
 | Alias | Selected values |
 |:---|:---|
 `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | The elements of the `ipRules` array |
 `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | The values of the `action` property from each element of the `ipRules` array |
 
 When used in a [field](#fields) condition, the array aliases makes it possible to compare each individual array element to a target value. When used with [count](#count) expression, it is possible to:
+
 - Check the size of an array
 - Check if all\any\none of the array elements meet a complex condition
 - Check if exactly ***n*** array elements meet a complex condition

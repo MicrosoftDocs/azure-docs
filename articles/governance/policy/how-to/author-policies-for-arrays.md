@@ -161,8 +161,9 @@ expression. To resolve this error message, change `equals` to either `in` or `no
 
 This section describes how to work with array inside Azure Policy conditions.
 
-### Recap: Referencing resource properties
-Resource properties can be referenced by Azure Policy using [aliases](../concepts/definition-structure.md#aliases) There are 2 ways to reference the value(s) of a resource property within Azure Policy:
+### Referencing resource properties
+Resource properties can be referenced by Azure Policy using [aliases](../concepts/definition-structure.md#aliases) There are two ways to reference the values of a resource property within Azure Policy:
+
 - Using a [field](../concepts/definition-structure.md#fields) condition to check whether **all** selected resource properties meet a condition. Example: 
   ```json
   {
@@ -178,25 +179,29 @@ Resource properties can be referenced by Azure Policy using [aliases](../concept
   }
   ```
 
-The field condition has an implicit "all of" behavior- if the alias represents a collection of values, it will check whether all individual values meet the condition. The `field()` function returns the value(s) represented by the alias as-is, which can then be manipulated by other template functions.
+The field condition has an implicit "all of" behavior. If the alias represents a collection of values, it checks whether all individual values meet the condition. The `field()` function returns the values represented by the alias as-is, which can then be manipulated by other template functions.
 
-### Referencing Array fields
+### Referencing array fields
 
-Array resource properties are usually represented by 2 different types of aliases. One 'normal' alias and [array aliases](../concepts/definition-structure.md#understanding-the--alias) that have `[*]` attached to it:
+Array resource properties are usually represented by two different types of aliases. One 'normal' alias and [array aliases](../concepts/definition-structure.md#understanding-the--alias) that have `[*]` attached to it:
+
 - `Microsoft.Test/resourceType/stringArray`
 - `Microsoft.Test/resourceType/stringArray[*]`
 
-#### Referencing the actual array
-The first alias represents the a single value- the value of `stringArray` property from the request content. Since the value of that property is an array, it is not very useful in policy conditions. For example:
+#### Referencing the array
+
+The first alias represents a single value, the value of `stringArray` property from the request content. Since the value of that property is an array, it isn't very useful in policy conditions. For example:
+
 ```json
 {
   "field": "Microsoft.Test/resourceType/stringArray",
   "equals": "..."
 }
 ```
-This condition compares the entire `stringArray` array to a single string value. Most conditions, including `equals`, only accept string values, so there's not much use in comparing an array to a string. Even when using conditions that accept arrays, it's hard to think of a  scenario where a condition that compares an entire array to another value is useful.
+This condition compares the entire `stringArray` array to a single string value. Most conditions, including `equals`, only accept string values, so there's not much use in comparing an array to a string. Even with conditions that accept arrays, there aren't many scenarios where a condition that compares an entire array to another value is useful.
 
-When using the `field()` function, the returned value will be the array from the request content, which can then be used with any of the [supported template functions](../concepts/definition-structure.md#policy-functions) that accept array arguments. For example:
+With the `field()` function, the returned value is the array from the request content, which can then be used with any of the [supported template functions](../concepts/definition-structure.md#policy-functions) that accept array arguments. For example:
+
 ```json
 {
   "value": "[length(field('Microsoft.Test/resourceType/stringArray'))]",
@@ -205,27 +210,31 @@ When using the `field()` function, the returned value will be the array from the
 ```
 
 #### Referencing the array members collection
-Aliases that use the `[*]` syntax represent a **collection of property values selected from an array property**, which is different than selecting the array property itself. In the case of `Microsoft.Test/resourceType/stringArray[*]`, it will return a collection that has all of the members of `stringArray`. As mentioned above, field condition checks that all selected resource properties meet the condition, therefore the following condition:
+
+Aliases that use the `[*]` syntax represent a **collection of property values selected from an array property**, which is different than selecting the array property itself. In the case of `Microsoft.Test/resourceType/stringArray[*]`, it returns a collection that has all of the members of `stringArray`. As mentioned previously, a `field` condition checks that all selected resource properties meet the condition, therefore the following condition is true only if **all** the members of `stringArray` are equal to '"value"'.
+
 ```json
 {
   "field": "Microsoft.Test/resourceType/stringArray[*]",
   "equals": "value"
 }
 ```
-Will be true only if **all** the members of `stringArray` are equal to `"value"`.
 
-If the array contains objects, an appropriate `[*]` alias can be used to select the value of a specific property from each array member. Example:
+If the array contains objects, a `[*]` alias can be used to select the value of a specific property from each array member. Example:
+
 ```json
 {
   "field": "Microsoft.Test/resourceType/objectArray[*].property",
   "equals": "value"
 }
 ```
-This condition will be true if the values of all `property` properties in `objectArray` are equal to `"value"`.
 
-When using the `field()` function to reference an array alias, the returned value will be an array of all the selected values. This means that the common use case of the `field()` function- the ability to apply template functions to resource property values- is very limited. The only template functions that can be used in this case are the ones that accept array arguments. It is possible, for example, to get the length of the array with `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]`. However, more complex scenarios, like applying template function to each array members and comparing it to a desired value, are only possible when using the `count` expression (which will be explained in the next section).
+This condition is true if the values of all `property` properties in `objectArray` are equal to `"value"`.
+
+When using the `field()` function to reference an array alias, the returned value is an array of all the selected values. This behavior means that the common use case of the `field()` function, the ability to apply template functions to resource property values, is very limited. The only template functions that can be used in this case are the ones that accept array arguments. For example, it's possible to get the length of the array with `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]`. However, more complex scenarios like applying template function to each array members and comparing it to a desired value are only possible when using the `count` expression. For more information, see [Count expression](#count-expressions).
 
 To summarize, see the following example resource content and the selected values returned by various aliases:
+
 ```json
 {
   "tags": {
@@ -247,20 +256,23 @@ To summarize, see the following example resource content and the selected values
   }
 }
 ```
-Using field conditions:
+
+When using the field condition on the example resource content, the results are as follows:
+
 | Alias | Selected values |
 |:--- |:---|
 | `Microsoft.Test/resourceType/missingArray` | `null` |
-| `Microsoft.Test/resourceType/missingArray[*]` | an empty collection of values |
-| `Microsoft.Test/resourceType/missingArray[*].property` | an empty collection of values |
+| `Microsoft.Test/resourceType/missingArray[*]` | An empty collection of values. |
+| `Microsoft.Test/resourceType/missingArray[*].property` | An empty collection of values. |
 | `Microsoft.Test/resourceType/stringArray` | `["a", "b", "c"]` |
 | `Microsoft.Test/resourceType/stringArray[*]` | `"a"`, `"b"`, `"c"` |
 | `Microsoft.Test/resourceType/objectArray[*]` |  `{ "property": "value", "nestedArray": [ 1, 2 ] }`,<br/>`{ "property": "value", "nestedArray": [ 3, 4 ] }`|
 | `Microsoft.Test/resourceType/objectArray[*].property` | `"value1"`, `"value2"` |
 | `Microsoft.Test/resourceType/objectArray[*].nestedArray` | `[ 1, 2 ]`, `[ 3, 4 ]` |
-| `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` | `1`, `2`, `3`, `4`
+| `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` | `1`, `2`, `3`, `4` |
 
-Using `field()` functions:
+When using the `field()` function on the example resource content, the results are as follows:
+
 | Expression | Returned Value |
 |:--- |:---|
 | `[field('Microsoft.Test/resourceType/missingArray')]` | `""` |
@@ -271,9 +283,10 @@ Using `field()` functions:
 | `[field('Microsoft.Test/resourceType/objectArray[*]')]` |  `[{ "property": "value", "nestedArray": [ 1, 2 ] }, { "property": "value", "nestedArray": [ 3, 4 ] }]`|
 | `[field('Microsoft.Test/resourceType/objectArray[*].property')]` | `["value1", "value2"]` |
 | `[field('Microsoft.Test/resourceType/objectArray[*].nestedArray')]` | `[[ 1, 2 ], [ 3, 4 ]]` |
-| `[field('Microsoft.Test/resourceType/objectArray[*].nestedArray[*]')]` | `[1, 2, 3, 4]`
+| `[field('Microsoft.Test/resourceType/objectArray[*].nestedArray[*]')]` | `[1, 2, 3, 4]` |
 
-## Count Expressions
+## Count expressions
+
 [Count](../concepts/definition-structure.md#count) expressions are a later addition to the policy language. They allow to count how many array members meet a complex condition and compare this number to a target value. The syntax is:
 ```json
 {
@@ -284,7 +297,9 @@ Using `field()` functions:
   "equals|greater|less|any other operator": <target value>
 }
 ```
-When used without a 'where' condition, `count()` simply return the length of an array. Using the example resource content from the previous section, the following `count` expression will be evaluated to `true` since `stringArray` has 3 members:
+
+When used without a 'where' condition, `count()` simply returns the length of an array. With the example resource content from the previous section, the following `count` expression is evaluated to `true` since `stringArray` has three members:
+
 ```json
 {
   "count": {
@@ -293,7 +308,9 @@ When used without a 'where' condition, `count()` simply return the length of an 
   "equals": 3
 }
 ```
-This also work with nested arrays. For example, the following `count` expression will be evaluated to `true` since there there are 4 array members in the `nestedArray` arrays:
+
+This behavior also works with nested arrays. For example, the following `count` expression is evaluated to `true` since there there are four array members in the `nestedArray` arrays:
+
 ```json
 {
   "count": {
@@ -302,9 +319,10 @@ This also work with nested arrays. For example, the following `count` expression
   "greaterOrEquals": 4
 }
 ```
-The power of `count` lies in the `where` condition. When it is specified, policy will enumerate the array members and evaluate each of them against the condition, counting how many array members were evaluated to `true`. To be more specific, in each iteration of the `where` condition evaluation, policy will select a single array member ***i*** and evaluate the resource content against the `where` condition **as if ***i*** is the only member of the array**. Having only one array member available in each iteration provide a way to apply complex conditions on each individual array member.
 
-To evaluate the `where` condition, policy will enumerate the array members and for each array member ***i*** it will evaluate the resource content against the `where` condition **as if ***i*** is the only member of the array**. If the evaluation result is `true`, the count will be incremented. This means that when referencing the counted array alias inside the `where` condition, the selected values will include only the array member that is currently being enumerated. That is the key behind the usefulness of the `count` expression- it provides a way to apply complex conditions to individual array members.
+The power of `count` is in the `where` condition. When it's specified, Azure Policy enumerates the array members and evaluate each against the condition, counting how many array members evaluated to `true`. Specifically, in each iteration of the `where` condition evaluation, Azure Policy selects a single array member ***i*** and evaluate the resource content against the `where` condition **as if ***i*** is the only member of the array**. Having only one array member available in each iteration provides a way to apply complex conditions on each individual array member.
+
+To evaluate the `where` condition, Azure Policy enumerates the array members and for each array member ***i*** it evaluates the resource content against the `where` condition **as if ***i*** is the only member of the array**. If the evaluation result is `true`, the count is incremented. This behavior means that when referencing the counted array alias inside the `where` condition, the selected values include only the array member that is currently being enumerated. This design is the key behind the usefulness of the `count` expression in that it provides a way to apply complex conditions to individual array members.
 
 
 The power of `count` lies in the `where` condition. When specified, policy will use the `where` condition to count how many array members satisfy it. To evaluate the `where` condition, policy will enumerate the array members and for each array member ***i*** it will evaluate the resource content against the `where` condition **as if ***i*** is the only member of the array**. If the evaluation result is `true`, the count will be incremented. This means that when referencing the counted array alias inside the `where` condition, the selected values will include only the array member that is currently being enumerated. That is the key behind the usefulness of the `count` expression- it provides a way to apply complex conditions to individual array members.
@@ -359,7 +377,7 @@ Here's a more complex expression:
 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `false`
 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4`| `true`
 
-And thus the `count` will return `1`.
+And thus the `count` returns `1`.
 
 The fact that the `where` expression is evaluated against the **entire** request content (with changes only to the array member that is currently being enumerated) means that the `where` condition can also refer to fields outside the array:
 ```json
@@ -412,13 +430,15 @@ Nested count expressions are also allowed:
 | 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`
 | 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `4`
 
-### Using `field()` functions inside `where` conditions
-The way `field()` functions behave when inside a `where` condition is based on the following concepts that were covered above:
-1. Array aliases are resolved into a collection of values selected from all array members
-2. `field()` functions referencing array aliases return an array with the selected values
-3. Referencing the counted array alias inside the `where` condition returns a collection with a single value- the value selected from the array member that is evaluated in the current iteration
+### The `field()` function inside `where` conditions
 
-This means that when referring to the counted array member with a `field()` function inside the `where` condition, **it will return an array with a single member**. While this may not be very intuitive, it is consistent with the idea that array aliases always return a collection of selected properties. Here's an example:
+The way `field()` functions behave when inside a `where` condition is based on the following concepts that were covered above:
+1. Array aliases are resolved into a collection of values selected from all array members.
+1. `field()` functions referencing array aliases return an array with the selected values.
+1. Referencing the counted array alias inside the `where` condition returns a collection with a single value selected from the array member that is evaluated in the current iteration.
+
+This behavior means that when referring to the counted array member with a `field()` function inside the `where` condition, **it returns an array with a single member**. While this may not be intuitive, it's consistent with the idea that array aliases always return a collection of selected properties. Here's an example:
+
 ```json
 {
   "count": {
@@ -431,13 +451,15 @@ This means that when referring to the counted array member with a `field()` func
   "equals": 0
 }
 ```
+
 | Iteration | Expression values | `where` Evaluation result |
 |:---|:---|:---|
 1 | `Microsoft.Test/resourceType/stringArray[*]` => `"a"` </br>  `[field('Microsoft.Test/resourceType/stringArray[*]')]` => `[ "a" ]` | `false`
 2 | `Microsoft.Test/resourceType/stringArray[*]` => `"b"` </br>  `[field('Microsoft.Test/resourceType/stringArray[*]')]` => `[ "b" ]` | `false`
 3 | `Microsoft.Test/resourceType/stringArray[*]` => `"c"` </br>  `[field('Microsoft.Test/resourceType/stringArray[*]')]` => `[ "c" ]` | `false`
 
-Therefore, when there's a need to access the value of the counted array alias with a `field()` function, the way to do it is to wrap the it with a `first()` template function:
+Therefore, when there's a need to access the value of the counted array alias with a `field()` function, the way to do so is to wrap the it with a `first()` template function:
+
 ```json
 {
   "count": {
@@ -456,6 +478,7 @@ Therefore, when there's a need to access the value of the counted array alias wi
 3 | `Microsoft.Test/resourceType/stringArray[*]` => `"c"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"c"` | `true`
 
 For useful examples, see [Count examples](../concepts/definition-structure.md#count-examples).
+
 ## Modifying arrays
 
 The [append](../concepts/effects.md#append) and [modify](../concepts/effects.md#modify) alter properties on a resource during creation or update. When working with array properties, the behavior of these effects depends on whether the operation is trying to modify the  **\[\*\]** alias or not:
