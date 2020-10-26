@@ -144,10 +144,6 @@ You can verify that the secret has been set with the [az keyvault secret show](/
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-```azurepowershell
-(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValueText
-```
-
 ### Retrieve a secret
 
 You can now retrieve the previously set value with the [GetSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.getsecretasync) method.
@@ -170,10 +166,6 @@ You can verify that the secret is gone with the [az keyvault secret show](/cli/a
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
-```
-
-```azurepowershell
-(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValueText
 ```
 
 ## Clean up resources
