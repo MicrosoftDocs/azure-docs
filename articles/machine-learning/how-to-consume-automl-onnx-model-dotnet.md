@@ -3,18 +3,9 @@ title: Use an Automated ML ONNX model in .NET
 description: Learn how to make make predictions using an Automated ML ONNX model in .NET with ML.NET
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 10/23/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
-
-
-# Use ms.service for services or ms.prod for on-prem products. Remove the # before the relevant field.
-# ms.service: service-name-from-white-list
-# ms.prod: product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
+# Customer Intent: As a .NET developer, I want to use an Azure Machine Learning Auto ML ONNX model inside a .NET application to make predictions.
 ---
 
 # Make predictions with an Automated ML ONNX model in .NET
@@ -27,8 +18,226 @@ The Open Neural Network Exchange (ONNX) is an open source format for AI models. 
 
 ## Prerequisites
 
-- .NET Core SDK 3.1
-- Text Editor
+- .NET Core SDK 3.1 or greater
+- Text Editor or IDE.
+- ONNX Model. To learn how to train an Auto ML ONNX model, see the following [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
+- Netron (optional)
 
 ## Create C# console application
 
+In this sample, you use the .NET CLI, but you can achieve the same tasks using Visual Studio. Learn more about the [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/).
+
+1. Open a terminal and create a new C# .NET Core console application.
+
+```dotnetcli
+dotnet new console -o AutoMLONNXConsoleApp
+```
+
+1. In the terminal, navigate to the *AutoMLONNXConsoleApp* directory.
+
+```bash
+cd AutoMLONNXConsoleApp
+```
+
+## Add software package dependencies
+
+1. Install the **Microsoft.ML**, **Microsoft.ML.OnnxRuntime** and **Microsoft.ML.OnnxTransformer** NuGet packages using the .NET Core CLI.
+
+```bash
+dotnet add package Microsoft.ML
+dotnet add package Microsoft.ML.OnnxRuntime
+dotnet add package Microsoft.ML.OnnxTransformer
+```
+
+These packages contain the dependencies required to use an ONNX model inside of a .NET application. ML.NET provides an API that leverages the OnnxRuntime to make predictions.
+
+1. Open the *Program.cs* file and add the following `using` statements at the top to reference the appropriate packages.
+
+```csharp
+using Microsoft.ML;
+using Microsoft.ML.Data;
+using Microsoft.ML.Transforms.Onnx;
+```
+
+## Add reference to ONNX model
+
+A way for the console application to access the ONNX model is to add it to the build output directory.  To learn more about MSBuild common items, see the [MSBuild guide](https://docs.microsoft.com/visualstudio/msbuild/common-msbuild-project-items).
+
+Add a reference to your ONNX model file in your application
+
+1. Open the *AutoMLONNXConsoleApp.csproj* file and add the following content inside the `Project` node.
+
+```xml
+<ItemGroup>
+    <None Include="automl-model.onnx">
+        <CopyToOutputDirectory>PreseveNewest</CopyToOutputDirectory>
+    </None>
+</ItemGroup>
+```
+
+In this case, the name of the ONNX model file is *automl-model.onnx*.
+
+1. Open the *Program.cs* file and add the following line inside the `Program` class.
+
+```csharp
+static string ONNX_MODEL_PATH = "automl-model.onnx";
+```
+
+## Define model data schema
+
+Your model expects your input and output data in a specific format. ML.NET allows you to define the format of your data via classes. Sometimes you may already know what that format looks like. In cases when you don't know the data format, you can use tools like Netron to inspect your ONNX model.
+
+The model used in this sample uses data from the NYC TLC Taxi Trip dataset. A sample of the data can be seen below:
+
+|vendor_id|rate_code|passenger_count|trip_time_in_secs|trip_distance|payment_type|fare_amount|
+|---|---|---|---|---|---|---|
+|VTS|1|1|1140|3.75|CRD|15.5|
+|VTS|1|1|480|2.72|CRD|10.0|
+|VTS|1|1|1680|7.8|CSH|26.5|
+
+1. Define your input data schema. Create a new class called `OnnxInput` with the following properties inside the *Program.cs* file.
+
+```csharp
+public class OnnxInput
+{
+    [ColumnName("vendor_id")]
+    public string VendorId { get; set; }
+
+    [ColumnName("rate_code"),OnnxMapType(typeof(Int64),typeof(Single))]
+    public Int64 RateCode { get; set; }
+
+    [ColumnName("passenger_count"), OnnxMapType(typeof(Int64), typeof(Single))]
+    public Int64 PassengerCount { get; set; }
+
+    [ColumnName("trip_time_in_secs"), OnnxMapType(typeof(Int64), typeof(Single))]
+    public Int64 TripTimeInSecs { get; set; }
+
+    [ColumnName("trip_distance")]
+    public float TripDistance { get; set; }
+
+    [ColumnName("payment_type")]
+    public string PaymentType { get; set; }
+}
+```
+
+Each of the properties maps to a column in the dataset. The properties are further annotated with attributes.
+
+The `ColumnName` attribute lets you specify how ML.NET should reference the column when operating on the data. For example, although the `TripDistance` property follows standard .NET naming conventions, the model only knows of a column or feature known as `trip_distance`. To address this naming discrepancy, the `ColumnName` attribute maps the `TripDistance` property to a column or feature by the name `trip_distance`.
+  
+For numerical values, ML.NET only operates on `Single` value types. However, the original data type of some of the columns are integers. The `OnnxMapType` attribute solves allows to map types between ONNX and ML.NET.
+
+To learn more more about data attributes, see the following guide.
+
+1. Once the data is processed, it produces an output of a certain format. Define your data output schema. Create a new class called `OnnxOutput` with the following properties inside the *Program.cs* file.
+
+```csharp
+public class OnnxOutput
+{
+    [ColumnName("variable_out1")]
+    public float[] PredictedPrice { get; set; }
+}
+```
+
+Similar to `OnnxInput`, use the `ColumnName` attribute to map the `variable_out1` output to a more descriptive name `PredictedPrice`.
+
+## Define prediction pipeline
+
+A pipeline in ML.NET is a series of chained transformations that operate on the input data sequentially in order to produce an output. To learn more about data transforms, see the [ML.NET data transformation guide](https://docs.microsoft.com/dotnet/machine-learning/resources/transforms).
+
+1. Create a new method called `GetPredictionPipeline` inside the `Program` class
+
+```csharp
+public ITransformer GetPredictionPipeline(MLContext mlContext)
+{
+
+}
+```
+
+1. Define the name of the input and output columns. Add the following code inside the `GetPredictionPipeline` method.
+
+```csharp
+var inputColumns = new string [] 
+{
+    "vendor_id", "rate_code", "passenger_count", "trip_time_in_secs", "trip_distance", "payment_type"
+};
+
+var outputColumns = new string [] { "variable_out1" };
+```
+
+1. Define your pipeline. An `IEstimator` provides a blueprint of the operations, input, and output schemas of your pipeline.
+
+```csharp
+var onnxPredictionPipeline =
+    mlContext
+        .Transforms
+        .ApplyOnnxModel(
+            outputColumnNames: outputColumns,
+            inputColumnNames: inputColumns,
+            onnxModelFilePath);
+```
+
+In this case, `ApplyOnnxModel` is the only transform in the pipeline, which takes in the names of the input and output columns as well as the path to the ONNX model file. 
+
+1. An `IEstimator` only defines the set of operations to apply to your data. What operates on your data is known as an `ITransformer`. Use the `Fit` method to create one from your `onnxPredictionPipeline` `IEstimator`.
+
+```csharp
+var emptyDv = mlContext.Data.LoadFromEnumerable(new OnnxInput[] {});
+
+return onnxPredictionPipeline.Fit(emptyDv);
+```
+
+The `Fit` method expects an `IDataView` as input to perform the operations on. An `IDataView` is a way to represent data in ML.NET using a tabular format. Since in this case, since the pipeline is only used for making predictions, you can provide an empty `IDataView` which gives the `ITransformer` input and output schema information. The fitted `ITransformer` is then return for further use in your application. 
+
+> [!TIP]
+> In this sample, the pipeline is defined and used within the same application. However, it is recommended that you use separate applications to define and use your pipeline to make predictions. In ML.NET your pipelines can be serialized and saved for further use in other .NET end-user applications. ML.NET supports various deployment targets such as desktop applications, web services, WebAssembly applications*, and many more. To learn more about saving pipelines, see the [ML.NET save and load trained models guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net).
+>
+> *WebAssembly is only supported in .NET Core 5
+
+Inside the `Main` method, call the `GetPredictionPipeline` method with the required parameters.
+
+```csharp
+var onnxPredictionPipeline = GetPredictionPipeline(mlContext,ONNX_MODEL_PATH);
+```
+
+## Use the model to make predictions
+
+Now that you have a pipeline, it's time to use it to make predictions. ML.NET provides a convenience API for making single predictions called `PredictionEngine`.
+
+Inside the `Main` method, create a `PredictionEngine` by using the `CreatePredictionEngine` method.
+
+```csharp
+var predictionEngine = mlContext.Model.CreatePredictionEngine<OnnxInput, OnnxOutput>(onnxScoringPipeline);
+```
+
+Create a test data input.
+
+```csharp
+var testInput = new OnnxInput
+{
+    VendorId = "CMT",
+    RateCode = 1,
+    PassengerCount = 1,
+    TripTimeInSecs = 1271,
+    TripDistance = 3.8f,
+    PaymentType = "CRD"
+};
+```
+
+Use the `predictionEngine` to make predictions based on the new `testInput` data.
+
+```csharp
+var prediction = predictionEngine.Predict(testInput);
+```
+
+Output the result of your prediction to the console.
+
+```csharp
+Console.WriteLine($"Predicted Price: {prediction.PredictedPrice.First()}");
+```
+
+To learn more about making predictions, see the [use a model to make predictions guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net).
+
+## Next steps
+
+- [Deploy your model as an ASP.NET Core Web API](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net)
+- [Deploy your model as a serverless .NET Azure Function](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/serve-model-serverless-azure-functions-ml-net)
