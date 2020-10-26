@@ -41,7 +41,7 @@ As an IoT Plug and Play user, the pertinent question for selecting your TS ID is
 
 The command below does the following:
 
-* Creates an Azure storage account for your environment's [cold store](https://docs.microsoft.com/en-us/azure/time-series-insights/concepts-storage#cold-store), designed for long-term retention and analytics over historical data.
+* Creates an Azure storage account for your environment's [cold store](https://docs.microsoft.com/azure/time-series-insights/concepts-storage#cold-store), designed for long-term retention and analytics over historical data.
   * Replace `mytsicoldstore` with a unique name for your account.
 * Creates an Azure Time Series Insights Gen2 environment, including warm storage with a retention period of 7 days, and a cold store for infinite retention. 
   * Replace `my-tsi-env` with a unique name for your TSI environment 
