@@ -186,11 +186,11 @@ In order to enable Azure AD users to sign in to Wikispaces, they must be provisi
 
 3. Click the **Invite People**.
    
-    ![Invite People](./media/wikispaces-tutorial/ic787194.png "Invite People")
+    ![Screenshot shows the Members page where you can select Invite People.](./media/wikispaces-tutorial/ic787194.png "Invite People")
 
 4. In the **Invite People** section, perform the following steps:
    
-    ![Invite People](./media/wikispaces-tutorial/ic787208.png "Invite People")
+    ![Screenshot shows the Invite People section where you can enter user data.](./media/wikispaces-tutorial/ic787208.png "Invite People")
    
     a. Type the **Usernames or Email Address** of a valid Azure AD account you want to provision into the related textboxes.
    

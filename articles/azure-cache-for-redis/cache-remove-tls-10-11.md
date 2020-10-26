@@ -62,7 +62,7 @@ Redis .NET clients use the earliest TLS version by default on .NET Framework 4.5
 
 Redis .NET Core clients default to the OS default TLS version which obviously depends on the OS itself. 
 
-Depending on the OS version and any patches which have been applied, the effective default TLS version can vary. While there is one source of info about this, [here](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) is an article for Windows. 
+Depending on the OS version and any patches which have been applied, the effective default TLS version can vary. While there is one source of info about this, [here](/dotnet/framework/network-programming/tls#support-for-tls-12) is an article for Windows. 
 
 However, if you are using a old OS or just want to be sure, we recommend configuring the preferred TLS version manually through the client.
 
