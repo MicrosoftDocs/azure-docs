@@ -257,7 +257,10 @@ choose SQL types that match these JSON types if you are using `WITH` clause in `
 
 ## Full fidelity schema
 
-`OPENROWSET` function on a container with full-fidelity schema provides both type and actual value in each cell.
+Azure Cosmos DB full fidelity schema records both values and their best match types for every property in a container.
+`OPENROWSET` function on a container with full-fidelity schema provides both type and actual value in each cell. 
+Let's assume that the following query reads the items from a container with full fidelity schema:
+
 ```sql
 SELECT *
 FROM OPENROWSET(
@@ -266,6 +269,7 @@ FROM OPENROWSET(
        EcdcCases
     ) as rows
 ```
+
 The result of this query will return types and values formatted as JSON text: 
 
 | date_rep | cases | geo_id |
@@ -278,8 +282,8 @@ The result of this query will return types and values formatted as JSON text:
 | {"date":"2020-08-08"} | {"int32":"312"} | {"string":"RS"} |
 | {"date":"2020-08-07"} | {"int32":"339"} | {"string":"RS"} |
 
-In the results, you can see types identified in Cosmos DB container items and values. Most of the values for `date_rep` contain `date` values, but some of them are incorrectly stored as strings in Cosmos DB. Full fidelity schema will return both correctly typed `date` values and incorrectly formated `string` values.
-Number of cases are stored as `int64` values, but there is one value that is entered as decimal number. This values is has `float64` type. If there are some values that exceed the largest `int32` number, they would be stored as `int64` type. All `geo_id` values in this example are stored as `string` types.
+fore every value, you can see the type identified in Cosmos DB container item. Most of the values for `date_rep` property contain `date` values, but some of them are incorrectly stored as strings in Cosmos DB. Full fidelity schema will return both correctly typed `date` values and incorrectly formatted `string` values.
+Number of cases is an information stored as `int64` value, but there is one value that is entered as decimal number. This values has `float64` type. If there are some values that exceed the largest `int32` number, they would be stored as `int64` type. All `geo_id` values in this example are stored as `string` types.
 
 > [!IMPORTANT]
 > Full fidelity schema exposes both values with expected types and the values with incorrectly entered types.
@@ -301,7 +305,7 @@ FROM OPENROWSET(
 GROUP BY geo_id
 ```
 
-Values with other types will not be returned in `geo_id` and `cases` columns. This query will reference only the `cases` with the specified type in the expression (`cases.int32`). If you have values with other types (`cases.int64`, `cases.float64`) that represent some incorrectly entered values in cosmos DB container, you would need to clean them in transactional store or explicitly reference them in `WITH` clause and combine the results:
+Values with other types will not be returned in `geo_id` and `cases` columns and the query will return `NULL` value in these cells. This query will reference only the `cases` with the specified type in the expression (`cases.int32`). If you have values with other types (`cases.int64`, `cases.float64`) that represent cannot be cleaned in Cosmos DB container, you would need to explicitly reference them in `WITH` clause and combine the results. the following query aggregates both `int32`, `int64` and `float64` stored in `cases` column:
 
 ```sql
 SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
@@ -317,7 +321,7 @@ FROM OPENROWSET(
 GROUP BY geo_id
 ```
 
-In this example, number of cases is stored either as `int32`, `int64`, `float64` types an all values must be extracted in order to calculate number of cases per year. 
+In this example, number of cases is stored either as `int32`, `int64`, `float64` types an all values must be extracted in order to calculate number of cases per country. 
 
 ## Known issues
 
