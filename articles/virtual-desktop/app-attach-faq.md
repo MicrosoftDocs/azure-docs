@@ -59,7 +59,7 @@ All VMs that are part of a host pool that uses MSIX app attach must have read pe
 
 All VMs that are part of a host pool that uses MSIX app attach must have read permissions on the file share where MSIX images are stored. If Azure Files is being used both RBAC and NTFS permissions must be granted.
 
-## If I restage the same MSIX application is there an error?
+## Can I restage the same MSIX application?
 
 No, restaging a staged application is an operation that is allowed and triggers no errors.
 
