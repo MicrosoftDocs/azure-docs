@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
-ms.custom: aaddev
+ms.custom: aaddev devx-track-js
 # Customer intent: As an application developer, I want to learn how MSAL.js can be used with Azure AD B2C for
 # authentication and authorization in my organization's web apps and web APIs that my customers log in to and use.
 ---

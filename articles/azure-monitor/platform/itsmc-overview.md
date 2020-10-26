@@ -136,7 +136,10 @@ Use the following procedure:
 
 7. If you want to fill out of the box fields with fixed values you should select the checkbox of "Use Custom Template" otherwise choose to use an existing [template](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) from the dropdown and fill the template fields with fixed values.
 
-8. Click **OK**.
+8. By selecting the checkbox **Create individual work items for each Configuration Item** every configuration item will have its own work item. Meaning there will be one work item per configuration item and it will be updated according to the alerts that will be created.
+If you de-select the checkbox **Create individual work items for each Configuration Item** every alert will create a new work item, meaning there can be more than 1 alert per configuration item.
+
+9. Click **OK**.
 
 When creating/editing an Azure alert rule, use an Action group, which has an ITSM Action. When the alert triggers, work item is created/updated in the ITSM tool.
 
@@ -155,7 +158,7 @@ Based on your configuration when setting up a connection, ITSM connector can syn
 
 The incident and change request data can be visualized using the ITSM Connector dashboard in the solution.
 
-![Log Analytics screen](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
+![Screenshot that shows the ITSM Connector dashboard.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 The dashboard also provides information on connector status which can be used as a starting point to analyze any issues with the connections.
 
