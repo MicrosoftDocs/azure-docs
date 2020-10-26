@@ -49,8 +49,9 @@ This limited public preview is subject to the [Azure preview terms](https://azur
 
 If you're interested in joining the preview program and accept these terms, then you can request enrollment by creating an Azure support ticket at [**https://azure.microsoft.com/support/create-ticket/**](https://azure.microsoft.com/support/create-ticket/). 
 
-1. On the "Create a support ticket" page, click **Create an Incident**.
-1. On the "Help + support" page, click **New support request** to create a new ticket.
+1. On the **Create a support ticket** page, click **Create an Incident**.
+
+1. On the **Help + support** page, click **New support request** to create a new ticket.
 
 1. Select the following options:
    - Issue type - **Technical**
@@ -63,14 +64,14 @@ If you're interested in joining the preview program and accept these terms, then
 
 1. Click **Next: Solutions**.
 
-1. Read the information about the preview, then click **Next: Details**.
+1. Read the information about the preview, and then click **Next: Details**.
 
-1. Within this page:
-   - For the question **Are you trying to sign up for the Preview?** select **Yes**. 
-   - In **Description**, enter the specifics of your request including the logical server name, region, and subscription ID that you would like to enroll in the preview. Enter other details as appropriate.
-   - Select your preferred contact method in the section **Preferred contact method**
+1. On this page:
+   - For the question **Are you trying to sign up for the Preview?**, select **Yes**. 
+   - For **Description**, enter the specifics of your request, including the logical server name, region, and subscription ID that you want to enroll in the preview. Enter other details as appropriate.
+   - Select your preferred contact method. 
 
-1. When you're finished, click **Next: Review + create**, then click **Create**.
+1. When you're finished, click **Next: Review + create**, and then click **Create**.
 
 Once you're enrolled in the program, Microsoft will onboard you to the public preview and enable Machine Learning Services for your existing or new database.
 
