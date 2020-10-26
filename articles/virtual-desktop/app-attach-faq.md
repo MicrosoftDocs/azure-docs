@@ -63,7 +63,7 @@ All VMs that are part of a host pool that uses MSIX app attach must have read pe
 
 No, restaging a staged application is an operation that is allowed and triggers no errors.
 
-## Are self-signed certificates supported?
+## Does MSIX app attach support self-signed certificates?
 
 Yes, self0signed certificates are supported. You will need to make sure that such certificates are installed in Trusted People.
 
