@@ -47,13 +47,9 @@ You can continue using classic metrics and logs if you want to. In fact, classic
 
 ## Collection and routing
 
-Platform metrics and the Activity log are collected automatically, but can be routed to other locations by using a diagnostic setting. You must create a diagnostic setting to collect resource logs. 
+Platform metrics and the Activity log are collected automatically, but can be routed to other locations by using a diagnostic setting. 
 
-When you create a diagnostic setting, choose **blob** as the type of storage that you want to enable logs for. Data Lake Storage Gen2 doesn't appear as a storage type. That's because Data Lake Storage Gen2 is a set of capabilities available to Blob storage. 
-
-If you create the diagnostic setting in the Azure portal, you can select the resource from a list. If you use PowerShell or the Azure CLI, you need to use the resource ID of the Blob storage endpoint. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
-
-You also have to specify one of the following categories of operations for which you want to collect logs. 
+To collect resource logs, you must create a diagnostic setting. When you create the setting, choose **blob** as the type of storage that you want to enable logs for. Then, specify one of the following categories of operations for which you want to collect logs. 
 
 | Category | Description |
 |:---|:---|
@@ -61,16 +57,16 @@ You also have to specify one of the following categories of operations for which
 | StorageWrite | Write operations on objects. |
 | StorageDelete | Delete operations on objects. |
 
+> [!NOTE]
+> Data Lake Storage Gen2 doesn't appear as a storage type. That's because Data Lake Storage Gen2 is a set of capabilities available to Blob storage. 
+
 ## Creating a diagnostic setting
 
-To create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell. The following sections show you how to create a diagnostic setting. 
+You can create a diagnostic setting by using the Azure portal, PowerShell, the Azure CLI, or an Azure Resource Manager template. 
 
 For general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-> [!NOTE]
-> To see an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
-
-### [Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 1. Sign in to the Azure portal.
 
@@ -242,6 +238,10 @@ Here's an example:
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/blobServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
  For more information, see [Stream Azure Resource Logs to Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+
+# [Template](#tab/template)
+
+To view an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
 ---
 
