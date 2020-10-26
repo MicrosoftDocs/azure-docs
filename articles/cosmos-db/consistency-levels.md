@@ -185,8 +185,6 @@ To learn more about consistency concepts, read the following articles:
 
 To learn more about consistency levels in Azure Cosmos DB, read the following articles:
 
-- [Choose the right consistency level for your application]()
-- [Consistency levels across Azure Cosmos DB APIs]()
 - [Configure the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level)
 - [Override the default consistency level](how-to-manage-consistency.md#override-the-default-consistency-level)
 - [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 04/13/2020
+ms.date: 10/23/2020
 ms.author: erhopf
 ---
 
