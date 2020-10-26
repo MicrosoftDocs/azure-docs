@@ -30,7 +30,7 @@ To use a Facebook account as an [identity provider](authorization-code-flow.md) 
 1. Select **Settings** > **Basic**.
     1. Choose a **Category**, for example `Business and Pages`. This value is required by Facebook, but not used for Azure AD B2C.
     1. Enter a URL for the **Terms of Service URL**, for example `http://www.contoso.com/tos`. The policy URL is a page you maintain to provide terms and conditions for your application.
-  1. Enter a URL for the **Privacy Policy URL**, for example `http://www.contoso.com/privacy`. The policy URL is a page you maintain to provide privacy information for your application.
+    1. Enter a URL for the **Privacy Policy URL**, for example `http://www.contoso.com/privacy`. The policy URL is a page you maintain to provide privacy information for your application.
 1. At the bottom of the page, select **Add Platform**, and then select **Website**.
 1. In **Site URL**, enter the address of your website, for example `https://contoso.com`. 
 1. Select **Save Changes**.
