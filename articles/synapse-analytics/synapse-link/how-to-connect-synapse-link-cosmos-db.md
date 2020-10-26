@@ -19,11 +19,11 @@ This article describes how to access an Azure Cosmos DB database from Azure Syna
 
 Before you connect an Azure Cosmos DB database to your workspace, you'll need an:
 
-> [!IMPORTANT]
-> Azure Synapse Link for Azure Cosmos DB is currently supported for workspaces that don't have a managed virtual network enabled.
-
 * Existing Azure Cosmos DB database, or create a new account by following the steps in [Quickstart: Manage an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-database-account).
 * Existing Azure Synapse workspace, or create a new workspace by following the steps in [Quickstart: Create a Synapse workspace](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
+
+> [!IMPORTANT]
+> Azure Synapse Link for Azure Cosmos DB is currently supported for workspaces that don't have a managed virtual network enabled.
 
 ## Enable Synapse Link on an Azure Cosmos DB database account
 
@@ -42,7 +42,7 @@ From the Data Object Explorer, you can directly connect to an Azure Cosmos DB da
 1. Select the **+** icon near **Data**.
 1. Select **Connect to external data**.
 1. Select the API that you want to connect to, for example, **SQL API** or **API for MongoDB**.
-1. Select **Continue**
+1. Select **Continue**.
 1. Use a friendly name to name the linked service. The name will appear in the Data Object Explorer and is used by Azure Synapse runtimes to connect to the database and containers.
 1. Select the **Azure Cosmos DB account name** and the **database name**.
 1. (Optional) If no region is specified, Azure Synapse runtime operations will be routed toward the nearest region where the analytical store is enabled. You can also manually set the region you want your users to use to access the Azure Cosmos DB analytical store. Select **Additional connection properties**, and then select **New**. Under **Property Name**, enter **PreferredRegions**. Set the **Value** to the region you want, for example, **WestUS2**. (There are no spaces between the words and the number.)
