@@ -17,7 +17,7 @@ The time required to complete a restart depends on the MySQL recovery process. T
 
 ## Prerequisites
 To complete this how-to guide, you need:
-- An [Azure Database for MySQL Flexible server](quickstart-create-mysql-server-database-using-azure-portal.md)
+- An [Azure Database for MySQL Flexible server](quickstart-create-server-portal.md)
 
 ## Perform server restart
 
@@ -43,4 +43,4 @@ The following steps restart the MySQL server:
 
 ## Next steps
 
-[Quickstart: Create Azure Database for MySQL Flexible Server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
+[Quickstart: Create Azure Database for MySQL Flexible Server using Azure portal](quickstart-create-server-portal.md)
