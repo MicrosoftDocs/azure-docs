@@ -148,9 +148,13 @@ Here are the steps to add:
 
 ### Start job and pass parameters
 
-To start the job, in your logic app, use the **Execute a SQL query** action with a passthrough native query and immediately push the parameters into the state table for the job to reference. The dynamic data output `Results JobExecutionId` as the input to the `jobid` attribute in the target table. Add the appropriate parameters for the job to unpackage them and pass them to the target stored procedure.
+To start the job, use the **Execute a SQL query** action with a passthrough native query and immediately push the parameters for the job into the state table. To provide input for the `jobid` attribute in the target table, use a **For each** loop and the dynamic data output, `ResultSets JobExecutionId`. For each execution ID, use the **Insert row** action to add the appropriate parameters for the job to unpack and pass to the target stored procedure.
 
+![Screenshot that shows actions to use for starting the job and passing parameters to the stored procedure.](media/handle-long-running-stored-procedures-sql-connector/start-job-actions.png)
 
+When the job completes, the job updates the `LongRunningState` table so that you can easily trigger on the result by using the **When an item modified** trigger. If you don't need the output, or if you already have a trigger that monitors an output table, you can skip this part.
+
+![Screenshot that shows the SQL trigger for when an item is modified.](media/handle-long-running-stored-procedures-sql-connector/trigger-on-results-after-job-completes.png)
 
 <a name="sql-on-premises-or-managed-instance"></a>
 
@@ -159,4 +163,6 @@ To start the job, in your logic app, use the **Execute a SQL query** action with
 For [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) and [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent). Although some management details differ, the fundamental steps remain the same.
 
 ## Next steps
+
+[Connect to SQL Server, Azure SQL Database, or Azure SQL Managed Instance](../connectors/connectors-create-api-sqlazure.md)
 
