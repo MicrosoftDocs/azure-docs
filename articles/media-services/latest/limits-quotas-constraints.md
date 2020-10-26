@@ -28,7 +28,7 @@ This article lists some of the most common Microsoft Azure Media Services limits
 
 | Resource | Default Limit |
 | --- | --- |
-| [Media Services accounts](media-services-account-concept.md) in a single subscription | 100 |
+| [Media Services accounts](media-services-account-concept.md) in a single subscription | 100 (fixed) |
 
 ## Asset limits
 
@@ -86,7 +86,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 
 | Resource | Default Limit |
 | --- | --- |
-| [Streaming Endpoints](streaming-endpoint-concept.md) (stopped or running) per Media Services account|2 |
+| [Streaming Endpoints](streaming-endpoint-concept.md) (stopped or running) per Media Services account | 2 |
 | Premium streaming units | 10 |
 | [Dynamic Manifest Filters](filters-dynamic-manifest-overview.md)|100|
 | [Streaming Policies](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
@@ -98,9 +98,9 @@ Any Job record in your account older than 90 days will be automatically deleted,
 
 ## Protection limits
 
-| Resource | Default Limit | 
-| --- | --- | 
-| Options per [Content Key Policy](content-key-policy-concept.md) |30 | 
+| Resource | Default Limit |
+| --- | --- |
+| Options per [Content Key Policy](content-key-policy-concept.md) |30 |
 | Licenses per month for each of the DRM types on Media Services key delivery service per account|1,000,000|
 
 ## Support ticket
