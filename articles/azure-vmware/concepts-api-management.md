@@ -25,7 +25,7 @@ The external deployment diagram shows the entire process and the actors involved
 
 - **Users:**  Represents the exposed APIs' consumers and represent both users and services consuming the APIs.
 
-The traffic flow goes through API Management instance, which abstracts the backend services, plugged into the Hub virtual network. The ExpressRoute Gateway routes the traffic to the ExpressRoute Global Reach channel and reaches an NSX Load Balancer distributing the incoming traffic to the different back-end services instances.
+The traffic flow goes through API Management instance, which abstracts the backend services, plugged into the Hub virtual network. The ExpressRoute Gateway routes the traffic to the ExpressRoute Global Reach channel and reaches an NSX Load Balancer distributing the incoming traffic to the different backend services instances.
 
 API Management has an Azure Public API, and activating Azure DDOS Protection Service is recommended. 
 
@@ -49,7 +49,7 @@ The deployment diagram below shows consumers that can be internal or external, w
 In an internal deployment, APIs get exposed to the same API Management instance. In front of API Management, Application Gateway gets deployed with Azure Web Application Firewall (WAF) capability activated. Also deployed, a set of HTTP listeners and rules to filter the traffic, exposing only a subset of the backend services running on Azure VMware Solution.
 
 
-* Internal traffic is routed through ExpressRoute Gateway to Azure Firewall and then to API Management. It can be directly or through traffic rules.   
+* Internal traffic routes through ExpressRoute Gateway to Azure Firewall and then to API Management, directly or through traffic rules.   
 
 * External traffic enters Azure through Application Gateway, which uses the external protection layer for API Management.
 
