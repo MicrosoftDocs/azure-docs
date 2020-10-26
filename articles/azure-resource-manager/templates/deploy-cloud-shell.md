@@ -6,7 +6,7 @@ ms.date: 10/22/2020
 ---
 # Deploy ARM templates from Cloud Shell
 
-You can use [Cloud Shell](../../cloud-shell/overview.md) to deploy an Azure Resource Manager template (ARM template). You can deploy either an ARM template that is stored remotely, or an ARM template that is stored on the local storage account for the cloud shell.
+You can use [Cloud Shell](../../cloud-shell/overview.md) to deploy an Azure Resource Manager template (ARM template). You can deploy either an ARM template that is stored remotely, or an ARM template that is stored on the local storage account for Cloud Shell.
 
 You can deploy to any scope. This article shows deploying to a resource group.
 
@@ -62,7 +62,7 @@ To deploy a local template, you must first upload your template to the storage a
 
    :::image type="content" source="./media/deploy-cloud-shell/files-shares.png" alt-text="Select file shares":::
 
-1. Select the default file share for your cloud shell. The file share has the name format of `cs-<user>-<domain>-com-<uniqueGuid>`.
+1. Select the default file share for Cloud Shell. The file share has the name format of `cs-<user>-<domain>-com-<uniqueGuid>`.
 
    :::image type="content" source="./media/deploy-cloud-shell/select-file-share.png" alt-text="Default file share":::
 
