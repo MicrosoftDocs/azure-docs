@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Use the Azure Digital Twins CLI
 
-In addition to managing your Azure Digital Twins instance in the Azure portal, Azure Digital Twins has a **command-line interface (CLI)** that you can use to perform most major actions with the service, including:
+In addition to managing your Azure Digital Twins instance in the Azure portal, Azure Digital Twins has a **command set for the [Azure CLI](/cli/azure/what-is-azure-cli)** that you can use to perform most major actions with the service, including:
 * Managing an Azure Digital Twins instance
 * Managing models
 * Managing digital twins
@@ -25,6 +25,8 @@ In addition to managing your Azure Digital Twins instance in the Azure portal, A
 * Configuring endpoints
 * Managing [routes](concepts-route-events.md)
 * Configuring [security](concepts-security.md) via Azure role-based access control (Azure RBAC)
+
+The command set is called **az dt**, and is part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the full list of commands and their usage as part of the reference documentation for the `az iot` command set: [*az dt* command reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest).
 
 ## Uses (deploy and validate)
 
@@ -34,7 +36,7 @@ In addition to generally managing your instance, the CLI is also a useful tool f
 
 ## Get the extension
 
-The Azure Digital Twins commands are part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the full list of commands and their usage as part of the reference documentation for the `az iot` command set: [*az dt* command reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest).
+The Azure Digital Twins commands are part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension), so follow these steps to make sure you have the latest extension with the **az dt** commands.
 
 You can make sure you have the latest version of the extension with these steps. You can run these commands in the [Azure Cloud Shell](../cloud-shell/overview.md) or a [local Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
