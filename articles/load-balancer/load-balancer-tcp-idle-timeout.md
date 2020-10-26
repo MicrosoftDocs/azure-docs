@@ -55,14 +55,14 @@ To set the idle timeout and tcp reset for a load balancer, edit the load-balance
 
 # [**PowerShell**](#tab/tcp-reset-idle-powershell)
 
-To set the idle timeout and tcp reset, set values in the following load balancing rule parameters with [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
+To set the idle timeout and tcp reset, set values in the following load-balancing rule parameters with [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
 
 * **IdleTimeoutInMinutes**
 * **EnableTcpReset**
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-Replace the following with the values from your resources:
+Replace the following examples with the values from your resources:
 
 * **myResourceGroup**
 * **myLoadBalancer**
@@ -87,7 +87,7 @@ Validate your environment before you begin:
 * Check your version of the Azure CLI in a terminal or command window by running `az --version`. For the latest version, see the [latest release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
   * If you don't have the latest version, update your installation by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
 
-Replace the following with the values from your resources:
+Replace the following examples with the values from your resources:
 
 * **myResourceGroup**
 * **myLoadBalancer**
