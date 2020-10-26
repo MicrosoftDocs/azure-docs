@@ -7,7 +7,7 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/29/2020
+ms.date: 10/26/2020
 ms.author: duau
 
 ---
@@ -105,6 +105,7 @@ The following table shows locations by service provider. If you want to view ava
 | **Etisalat UAE** |Supported |Supported |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Supported |Supported |Amsterdam, Amsterdam2, Dublin, Frankfurt, London |
 | **FarEasTone** |Supported |Supported |Taipei|
+| **[Fastweb](https://www.fastweb.it/grandi-aziende/cloud/scheda-prodotto/fastcloud-interconnect/)** | Supported |Supported |Milan|
 | **Fibrenoire** |Supported |Supported |Montreal|
 | **GÉANT** |Supported |Supported |Amsterdam, Amsterdam2, Dublin, Frankfurt, Marseille |
 | **GTT** |Supported |Supported |London2 |
