@@ -65,7 +65,7 @@ Download the Postman collection for this tutorial at [Azure Samples: media-servi
 1. Select **Upload files**.
 1. Go to where you saved the collection and environment files.
 1. Select the collection and environment files.
-1. Select **Open**. A warning appears that says the files won't be imported as an API, but as collections. This warning is expected.
+1. Select **Open**. A warning appears that says the files won't be imported as an API, but as collections. This warning is fine. It's what you want.
 
 The collection now shows in your Collections as BYOK. Also, the environment variables appear in your Environments.
 
