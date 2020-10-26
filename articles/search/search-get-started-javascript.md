@@ -1,20 +1,21 @@
 ---
-title: 'Quickstart: Create a search index in Node.js using REST APIs'
+title: 'Quickstart: Create a search index in JavaScript'
 titleSuffix: Azure Cognitive Search
-description: In this Node.js quickstart, learn how to create an index, load data, and run queries on Azure Cognitive Search using JavaScript and the REST APIs.
+description: In this JavaScript quickstart, learn how to create an index, load data, and run queries on Azure Cognitive Search using JavaScript
 
-author: HeidiSteen
-manager: nitinme
-ms.author: heidist
-ms.devlang: nodejs
+author: dereklegenzoff
+manager: luisca
+ms.author: delegenz
+ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/25/2020
+ms.date: 10/26/2020
 ms.custom: devx-track-js
 ---
+
 # Quickstart: Create an Azure Cognitive Search index in Node.js using REST APIs
 > [!div class="op_single_selector"]
-> * [JavaScript](search-get-started-nodejs.md)
+> * [JavaScript](search-get-started-javascript.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](./search-get-started-powershell.md)
@@ -354,7 +355,7 @@ You should see a series of messages describing the actions being taken by the pr
 
 Open the **Overview** of your search service in the Azure portal. Select the **Indexes** tab. You should see something like the following:
 
-:::image type="content" source="media/search-get-started-nodejs/create-index-no-data.png" alt-text="Screenshot of Azure portal, search service Overview, Indexes tab" border="false":::
+:::image type="content" source="media/search-get-started-javascript/create-index-no-data.png" alt-text="Screenshot of Azure portal, search service Overview, Indexes tab" border="false":::
 
 In the next step, you'll add data to index. 
 
