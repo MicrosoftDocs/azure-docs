@@ -15,9 +15,13 @@ manager: lizross
 
 This article answers frequently asked questions about MSIX app attach for Windows Virtual Desktop.
 
+## What is the difference between MSIX and MSIX app attach?
+
+MSIX is a packaging format. MSIX app attach is a mechanism for dynamically delivering MSIX packages.
+
 ## Does MSIX app attach use FSLogix?
 
-MSIX app attach doesn't use FSLogix. However, app attach and FSLogix are designed to work together to provide a seamless user experience.
+MSIX app attach doesn't use FSLogix. However, MSIX app attach and FSLogix are designed to work together to provide a seamless user experience.
 
 ## Can I use MSIX app attach outside of Windows Virtual Desktop?
 
@@ -29,7 +33,40 @@ Your software vendor will give you an MSIX package. You can also convert non-MSI
 
 ## Which operating systems support MSIX app attach?
 
-Windows 10 Enterprise and Windows 10 Enterprise Multi-session.
+Windows 10 Enterprise and Windows 10 Enterprise Multi-session release 2004 or later.
+
+## Is MSIX app attach GA?
+
+MSIX app attach is part of Windows 10 Enterprise and Windows 10 Enterprise Multi-session release 2004 or later. Both those OS are available GA. 
+
+## Can I use MSIX app attach outside of Windows Virtual Desktop?
+
+MSIX and MSIX app attach APIs are part of Windows 10 Enterprise and Windows 10 Enterprise Multi-session release 2004 or later. Currently, there are no plans to provide management UI for MSIX app attach outside of WVD.
+
+## Can I run two versions of the same application on the same machine and even for the same user?
+
+For two version of the same MSIX applications to run the MSIX package family taht is defined in the appxmanifest.xml must be different.
+
+## When using MSIX app attach should I disable auto-updates?
+
+MSIX app attach does not support auto-update for the MSIX applications.
+
+## How permissions work with MSIX app attach?
+
+All VMs that are part of a host pool that uses MSIX app attach must have read permissions on the file share where MSIX images are stored. If Azure Files is being used both RBAC and NTFS permissions must be granted.
+
+## Can I use MSIX app attach of HTTP/HTTPs?
+
+All VMs that are part of a host pool that uses MSIX app attach must have read permissions on the file share where MSIX images are stored. If Azure Files is being used both RBAC and NTFS permissions must be granted.
+
+## If I restage the same MSIX application is there an error?
+
+No, restaging a staged application is an operation that is allowed and triggers no errors.
+
+## Are self-signed certificates supported?
+
+Yes, self0signed certificates are supported. You will need to make sure that such certificates are installed in Trusted People.
+
 
 ## Next steps
 
