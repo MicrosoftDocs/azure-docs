@@ -10,21 +10,6 @@ ms.topic: conceptual
 
 You can use Update Management in Azure Automation to manage operating system updates for your Windows and Linux machines in Azure, in on-premises environments, and in other cloud environments. You can quickly assess the status of available updates on all agent machines and manage the process of installing required updates for servers.
 
-You can enable Update Management for VMs in the following ways:
-
-- From your [Azure Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines.
-
-- Manually for non-Azure machines, including machines or servers registered with [Azure Arc enabled servers](../../azure-arc/servers/overview.md).
-
-- For a single Azure VM from the [Virtual machine page](enable-from-vm.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
-
-- For [multiple Azure VMs](enable-from-portal.md) by selecting them from the Virtual machines page in the Azure portal.
-
-> [!NOTE]
-> Update Management requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](../how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
-
-An [Azure Resource Manager template](enable-from-template.md) is available to help you enable the Update Management feature in a new or existing Automation account and Log Analytics workspace in your subscription. It does not enable Azure or non-Azure VMs with the feature, that step is performed afterwards using one of the methods listed earlier.
-
 > [!NOTE]
 > You can't use a machine configured with Update Management to run custom scripts from Azure Automation. This machine can only run the Microsoft-signed update script.
 
@@ -73,7 +58,7 @@ Having a machine registered for Update Management in more than one Log Analytics
 The following table lists the supported operating systems for update assessments and patching. Patching requires a Hybrid Runbook Worker. For information on Hybrid Runbook Worker requirements, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) and a [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
 > [!NOTE]
-> Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings). 
+> Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings).
 
 |Operating system  |Notes  |
 |---------|---------|
@@ -251,10 +236,14 @@ An Azure [Resource Manager template](enable-from-template.md) is available to he
 
 Here are the ways that you can enable Update Management and select machines to be managed:
 
-* [From an Azure virtual machine](enable-from-vm.md)
-* [From browsing multiple Azure virtual machines](enable-from-portal.md)
-* [From an Azure Automation account](enable-from-automation-account.md)
-* For Arc enabled servers (preview) or non-Azure machines, install the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) and then [enable machines in the workspace](enable-from-automation-account.md#enable-machines-in-the-workspace) to Update Management.
+- From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc enabled servers.
+
+- For a [selected Azure VM](enable-from-vm) from the Virtual machine page in the Azure portal. This scenario is available for Linux and Windows VMs.
+
+- For [multiple Azure VMs](enable-from-portal.md) by selecting them from the Virtual machines page in the Azure portal.
+
+> [!NOTE]
+> Update Management requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](../how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
 
 ## Next steps
 
