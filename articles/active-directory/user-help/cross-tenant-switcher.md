@@ -1,6 +1,6 @@
 ---
 title: Switch organizations in My Account, My Apps, My Access and My Staff portals - Azure AD
-description: Learn how to find the My Apps portal and then how to access your organization's cloud-based apps.
+description: Switch from one organization to another one in a management portal such as My Account.
 services: active-directory
 author: curtand
 manager: daveba
