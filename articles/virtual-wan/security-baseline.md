@@ -105,7 +105,7 @@ Protect your Virtual WAN resources against attacks from external networks, inclu
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/41243.).
 
-**Guidance**: Currently, the best way of deploying intrusion detection/prevention systems in Virtual WAN is using a Network Virtual Appliance in the spoke networks attached to the virtual hub. More information is available on the routing scenarios at the referenced links. 
+**Guidance**: The best way of deploying intrusion detection/prevention systems in Virtual WAN is using a Network Virtual Appliance in the spoke networks attached to the virtual hub. More information is available on the routing scenarios at the referenced links. 
 
 Note that we eventually will use Azure Firewall to provide this capability.
 
@@ -171,11 +171,7 @@ Virtual WAN's Point to Site VPN is integrated with Microsoft Azure Active Direct
 - Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machines (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications.
 - Your organization's resources, such as applications on Azure or your corporate network resources.
 
- Secure Azure AD as a high priority
-in your organization’s cloud security practice. Assess your identity and
-security posture with the security score feature to gauge how closely your
-configuration matches best practice recommendations. Implement Microsoft’s
-best practice recommendations for improvements to your security posture.
+Secure Azure AD as a high priority in your organization’s cloud security practice. Assess your identity and security posture with the security score feature to gauge how closely your configuration matches best practice recommendations. Implement Microsoft’s best practice recommendations for improvements to your security posture.
 
 Note: Azure AD supports external identities, which allow users without a Microsoft account to sign-in to their applications and resources with their external identity. Review information on using Azure AD in Point to Site VPN scenarios at the referenced links.
 
@@ -590,7 +586,7 @@ Use Azure Conditional Access to limit users ability to interact with Azure Resou
 
 **Guidance**: 
 
-Not applicable; Virtual Wan does not currently produce customer facing resource logs that can be used for threat detection.
+Not applicable; Virtual Wan does not produce customer facing resource logs that can be used for threat detection.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -653,7 +649,7 @@ Virtual Wan does not produce or process DNS query logs which would need to be en
 Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your Virtual WAN resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) Understand logging and different log types in Azure: ../azure-monitor/platform/platform-logs-overview.md 
 
-However, Virtual Wan currently does not produce Azure resource logs.
+However, Virtual Wan does not produce Azure resource logs.
 
 **Azure Security Center monitoring**: Yes
 
