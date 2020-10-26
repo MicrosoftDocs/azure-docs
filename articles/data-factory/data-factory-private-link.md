@@ -63,7 +63,7 @@ Enabling the Private Link service for each of the preceding communication channe
 > When you create a linked service, make sure that your credentials are stored in an Azure key vault. Otherwise, the credentials won't work when you enable Private Link in Azure Data Factory.
 
 ## Set up Private Link for Azure Data Factory
-You can create private endpoints by using [the Azure portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal), PowerShell, or the Azure CLI.
+You can create private endpoints by using [the Azure portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
 
 You can also go to your Azure data factory in the Azure portal and create a private endpoint, as shown here:
 
