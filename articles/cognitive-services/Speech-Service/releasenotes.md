@@ -15,6 +15,62 @@ ms.custom: seodec18
 
 # Speech Service release notes
 
+## Speech SDK 1.14.0: 2020-October release
+
+**Note**: The Speech SDK on Windows depends on the shared Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019. Download it [here](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+
+**Speech CLI (also known as SPX)**
+SPX is the command line interface to use the Azure Speech service without writing code. 
+Download the latest version [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics).
+- `spx csr dataset upload --kind audio|language|acoustic` – create datasets from local data, not just from URLs.
+- `spx csr evaluation create|status|list|update|delete` – compare new models against baseline truth/other models.
+- `spx * list` – supports non-paged experience (doesn't require --top X --skip X).
+- `spx * --http header A=B` – support custom headers (added for Office for custom authentication). 
+- `spx help` – improved text and back-tick text color coded (blue).
+
+**New features**
+- **Linux**: Added support for Debian 10 and Ubuntu 20.04 LTS.
+- **Python/Objective-C**: Added support for the `KeywordRecognizer` API. Documentation will be [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics).
+- **C++/Java/C#**: Added support to set any `HttpHeader` key/value via `ServicePropertyChannel::HttpHeader`.
+- **JavaScript**: Added support for the `ConversationTranscriber` API. Read documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript). 
+- **C++/C#**: Added new `AudioDataStream FromFile` method (to read .WAV files) [here (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audiodatastream) and [here (C#)](
+https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream.fromfile).
+-  **C++/C#/Java/Python/Objective-C/Swift**: Added a `stopSpeakingAsync()` method to stop text-to-speech synthesis. Read the Reference documentation [here (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [here (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), [here (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), [here (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python),  and [here (Objective-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+- **DialogServiceConnector**: Added a `FromDialogServiceConnector()` function to the `Connection` class that can be used to monitor connection and disconnection events. Read the Reference documentation [here (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector?view=azure-dotnet).
+- **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the Reference documentation [here (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [here (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), [here (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), [here (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python),  and [here (Objective-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+
+**Bug fixes**
+- **All**: Fixed 1.13 regression in `SetServiceProperty` where values with certain special characters were ignored.
+- **C#**: Fixed Windows console samples on Visual Studio 2019 failing to find native DLLs.
+- **C#**: Fixed crash with memory management if stream is used as `KeywordRecognizer` input.
+- **ObjectiveC/Swift**: Fixed crash with memory management if stream is used as recognizer input.
+- **Windows**: Fixed co-existence issue with BT HFP/A2DP on UWP.
+- **JavaScript**: Fixed mapping of session IDs to improve logging and aid in internal debug/service correlations.
+- **JavaScript**: Added fix for `DialogServiceConnector` disabling `ListenOnce` calls after the first call is made.
+- **JavaScript**: Fixed issue where result output would only ever be "simple".
+- **JavaScript**: Fixed continuous recognition issue in Safari on MacOS.
+- **JavaScript**: CPU load mitigation for high request throughput scenario.
+- **JavaScript**: Allow access to details of Voice Profile Enrollment result.
+- **JavaScript**: Added fix for continuous recognition in `IntentRecognizer`.
+- **C++/C#/Java/Python/Swift/ObjectiveC**: Fixed incorrect url for australiaeast and brazilsouth in `IntentRecognizer`.
+- **C++/C#**: Added `VoiceProfileType` as an argument when creating a `VoiceProfile` object.
+- **C++/C#/Java/Python/Swift/ObjectiveC**: Fixed potential `SPX_INVALID_ARG` when trying to read `AudioDataStream` from a given position.
+- **IOS**: Fixed crash with speech recognition on Unity
+
+**Samples**
+- **ObjectiveC**: Added sample for keyword recognition [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/speech-samples).
+- **C#/JavaScript**: Added quickstart for conversation transcription [here (C#)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/conversation-transcription) and [here(JavaScript)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/conversation-transcription).
+- **C++/C#/Java/Python/Swift/ObjectiveC**: Added sample for pronunciation assessment [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples)
+- **Xamarin**: Updated quickstart to latest Visual Studio template [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin).
+
+**Known Issue**
+- DigiCert Global Root G2 certificate is not supported by default in Hololens 2 and Android 4.4 (KitKat) and needs to be added to the system to make the Speech SDK functional. The certificate will be added to Hololens 2 OS images in the near future. Android 4.4 customers need to add the updated the certificate to the system.
+
+**COVID-19 abridged testing:**
+Due to working remotely over the last few weeks, we couldn't do as much manual verification testing as we normally do. We haven't made any changes we think could have broken anything, and our automated tests all passed. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
+Stay healthy!
+
+
 ## Text-to-speech 2020-August release
 
 ### New features
