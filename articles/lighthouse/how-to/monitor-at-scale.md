@@ -1,7 +1,7 @@
 ---
 title: Monitor delegated resources at scale
 description: Learn how to effectively use Azure Monitor Logs in a scalable way across the customer tenants you're managing.
-ms.date: 10/23/2020
+ms.date: 10/26/2020
 ms.topic: how-to
 ---
 
@@ -25,10 +25,8 @@ We recommend creating these workspaces directly in the customer tenants. This wa
 
 You can create a Log Analytics workspace by using the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md), by using [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md), or by using [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
 
-
-
 > [!IMPORTANT]
-> Even if all of the workspaces are created in the customer tenant, the Microsoft.Insights resource provider must also be registered in the managing tenant.
+> Even if all of the workspaces are created in the customer tenant, the Microsoft.Insights resource provider must also be registered on a subscription in the managing tenant.
 
 ## Deploy policies that log data
 
