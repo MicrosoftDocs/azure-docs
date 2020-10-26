@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 **Note**: The Speech SDK on Windows depends on the shared Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019. Download it [here](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
 
-**Speech CLI (also known as SPX)**
+**Speech CLI (also known as SPX)**<br>
 SPX is the command line interface to use the Azure Speech service without writing code. 
 Download the latest version [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics).
 - `spx csr dataset upload --kind audio|language|acoustic` – create datasets from local data, not just from URLs.
