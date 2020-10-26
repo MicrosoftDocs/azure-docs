@@ -232,9 +232,9 @@ Update Management relies on the locally configured update repository to update s
 
 ## Enable Update Management
 
-An Azure [Resource Manager template](enable-from-template.md) is available to help you deploy Update Management to a new or existing Automation account and Azure Monitor Log Analytics workspace in your subscription. It does not configure the scope of machines that should be managed, this is performed as a separate step after using the template.
-
 Here are the ways that you can enable Update Management and select machines to be managed:
+
+- Using an Azure [Resource Manager template](enable-from-template.md) to deploy Update Management to a new or existing Automation account and Azure Monitor Log Analytics workspace in your subscription. It does not configure the scope of machines that should be managed, this is performed as a separate step after using the template.
 
 - From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc enabled servers.
 
