@@ -159,19 +159,22 @@ expression. To resolve this error message, change `equals` to either `in` or `no
 
 ## Referencing array resource properties
 
-This section describes how to work with array inside Azure Policy conditions.
+Many use cases require working with array properties in the evaluated resource. Some scenarios require referencing an entire array (for example, checking it's length). Others require applying a condition to each individual array member (for example, ensure that all firewall rule block access from the internet). Understanding the different ways Azure Policy can reference resource properties, and how these references behave when they refer to array properties is the key for writing conditions that cover these scenarios.
 
 ### Referencing resource properties
 Resource properties can be referenced by Azure Policy using [aliases](../concepts/definition-structure.md#aliases) There are two ways to reference the values of a resource property within Azure Policy:
 
-- Using a [field](../concepts/definition-structure.md#fields) condition to check whether **all** selected resource properties meet a condition. Example: 
+- Use [field](../concepts/definition-structure.md#fields) condition to check whether **all** selected resource properties meet a condition. Example:
+
   ```json
   {
     "field" : "Microsoft.Test/resourceType/property",
     "equals": "value"
   }
   ```
-- Using the `field()` function to access the **literal** value of a property. Example:
+
+- Use `field()` function to access the **literal** value of a property. Example:
+
   ```json
   {
     "value": "[take(field('Microsoft.Test/resourceType/property'), 7)]",
@@ -198,6 +201,7 @@ The first alias represents a single value, the value of `stringArray` property f
   "equals": "..."
 }
 ```
+
 This condition compares the entire `stringArray` array to a single string value. Most conditions, including `equals`, only accept string values, so there's not much use in comparing an array to a string. Even with conditions that accept arrays, there aren't many scenarios where a condition that compares an entire array to another value is useful.
 
 With the `field()` function, the returned value is the array from the request content, which can then be used with any of the [supported template functions](../concepts/definition-structure.md#policy-functions) that accept array arguments. For example:
@@ -322,11 +326,6 @@ This behavior also works with nested arrays. For example, the following `count` 
 
 The power of `count` is in the `where` condition. When it's specified, Azure Policy enumerates the array members and evaluate each against the condition, counting how many array members evaluated to `true`. Specifically, in each iteration of the `where` condition evaluation, Azure Policy selects a single array member ***i*** and evaluate the resource content against the `where` condition **as if ***i*** is the only member of the array**. Having only one array member available in each iteration provides a way to apply complex conditions on each individual array member.
 
-To evaluate the `where` condition, Azure Policy enumerates the array members and for each array member ***i*** it evaluates the resource content against the `where` condition **as if ***i*** is the only member of the array**. If the evaluation result is `true`, the count is incremented. This behavior means that when referencing the counted array alias inside the `where` condition, the selected values include only the array member that is currently being enumerated. This design is the key behind the usefulness of the `count` expression in that it provides a way to apply complex conditions to individual array members.
-
-
-The power of `count` lies in the `where` condition. When specified, policy will use the `where` condition to count how many array members satisfy it. To evaluate the `where` condition, policy will enumerate the array members and for each array member ***i*** it will evaluate the resource content against the `where` condition **as if ***i*** is the only member of the array**. If the evaluation result is `true`, the count will be incremented. This means that when referencing the counted array alias inside the `where` condition, the selected values will include only the array member that is currently being enumerated. That is the key behind the usefulness of the `count` expression- it provides a way to apply complex conditions to individual array members.
-
 Example:
 ```json
 {
@@ -344,9 +343,9 @@ In order to evaluate the `count` expression, policy engine will evaluate the `wh
 
 | Iteration | Selected `Microsoft.Test/resourceType/stringArray[*]` values | `where` Evaluation result |
 |:---|:---|:---|
-1 | `"a"` | `true`
-2 | `"b"` | `false`
-3 | `"c"` | `false`
+| 1 | `"a"` | `true` |
+| 2 | `"b"` | `false` |
+| 3 | `"c"` | `false` |
 
 And thus the `count` will return `1`.
 
@@ -374,8 +373,8 @@ Here's a more complex expression:
 
 | Iteration | Selected values | `where` Evaluation result |
 |:---|:---|:---|
-1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `false`
-2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4`| `true`
+1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | `false` |
+2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2"` </br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4`| `true` |
 
 And thus the `count` returns `1`.
 
@@ -391,10 +390,11 @@ The fact that the `where` expression is evaluated against the **entire** request
   }
 }
 ```
+
 | Iteration | Selected values | `where` Evaluation result |
 |:---|:---|:---|
-1 | `tags.env` => `"prod"` | `true`
-2 | `tags.env` => `"prod"` | `true`
+| 1 | `tags.env` => `"prod"` | `true` |
+| 2 | `tags.env` => `"prod"` | `true` |
 
 Nested count expressions are also allowed:
 ```json
@@ -423,16 +423,16 @@ Nested count expressions are also allowed:
 }
 ```
  
-| Outer Loop Iteration | Selected values | Inner Loop Iteration | Selected values
+| Outer Loop Iteration | Selected values | Inner Loop Iteration | Selected values |
 |:---|:---|:---|:---|
-| 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`
-| 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `2`
-| 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`
-| 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `4`
+| 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1` |
+| 1 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value1`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `1`, `2` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `2` |
+| 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3` |
+| 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `4` |
 
 ### The `field()` function inside `where` conditions
 
-The way `field()` functions behave when inside a `where` condition is based on the following concepts that were covered above:
+The way `field()` functions behave when inside a `where` condition is based on the following concepts:
 1. Array aliases are resolved into a collection of values selected from all array members.
 1. `field()` functions referencing array aliases return an array with the selected values.
 1. Referencing the counted array alias inside the `where` condition returns a collection with a single value selected from the array member that is evaluated in the current iteration.
@@ -454,9 +454,9 @@ This behavior means that when referring to the counted array member with a `fiel
 
 | Iteration | Expression values | `where` Evaluation result |
 |:---|:---|:---|
-1 | `Microsoft.Test/resourceType/stringArray[*]` => `"a"` </br>  `[field('Microsoft.Test/resourceType/stringArray[*]')]` => `[ "a" ]` | `false`
-2 | `Microsoft.Test/resourceType/stringArray[*]` => `"b"` </br>  `[field('Microsoft.Test/resourceType/stringArray[*]')]` => `[ "b" ]` | `false`
-3 | `Microsoft.Test/resourceType/stringArray[*]` => `"c"` </br>  `[field('Microsoft.Test/resourceType/stringArray[*]')]` => `[ "c" ]` | `false`
+| 1 | `Microsoft.Test/resourceType/stringArray[*]` => `"a"` </br>  `[field('Microsoft.Test/resourceType/stringArray[*]')]` => `[ "a" ]` | `false` |
+| 2 | `Microsoft.Test/resourceType/stringArray[*]` => `"b"` </br>  `[field('Microsoft.Test/resourceType/stringArray[*]')]` => `[ "b" ]` | `false` |
+| 3 | `Microsoft.Test/resourceType/stringArray[*]` => `"c"` </br>  `[field('Microsoft.Test/resourceType/stringArray[*]')]` => `[ "c" ]` | `false` |
 
 Therefore, when there's a need to access the value of the counted array alias with a `field()` function, the way to do so is to wrap the it with a `first()` template function:
 
@@ -471,11 +471,12 @@ Therefore, when there's a need to access the value of the counted array alias wi
   }
 }
 ```
+
 | Iteration | Expression values | `where` Evaluation result |
 |:---|:---|:---|
-1 | `Microsoft.Test/resourceType/stringArray[*]` => `"a"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"a"` | `true`
-2 | `Microsoft.Test/resourceType/stringArray[*]` => `"b"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"b"` | `true`
-3 | `Microsoft.Test/resourceType/stringArray[*]` => `"c"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"c"` | `true`
+| 1 | `Microsoft.Test/resourceType/stringArray[*]` => `"a"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"a"` | `true` |
+| 2 | `Microsoft.Test/resourceType/stringArray[*]` => `"b"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"b"` | `true` |
+| 3 | `Microsoft.Test/resourceType/stringArray[*]` => `"c"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"c"` | `true` |
 
 For useful examples, see [Count examples](../concepts/definition-structure.md#count-examples).
 

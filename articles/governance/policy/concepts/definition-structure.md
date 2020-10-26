@@ -893,8 +893,8 @@ The **\[\*\]** alias represents a collection of values selected from the element
 
 | Alias | Selected values |
 |:---|:---|
-`Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | The elements of the `ipRules` array |
-`Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | The values of the `action` property from each element of the `ipRules` array |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | The elements of the `ipRules` array. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | The values of the `action` property from each element of the `ipRules` array. |
 
 When used in a [field](#fields) condition, the array aliases makes it possible to compare each individual array element to a target value. When used with [count](#count) expression, it is possible to:
 
