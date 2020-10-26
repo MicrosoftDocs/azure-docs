@@ -65,7 +65,7 @@ No, restaging a staged application is an operation that is allowed and triggers 
 
 ## Does MSIX app attach support self-signed certificates?
 
-Yes, self0signed certificates are supported. You will need to make sure that such certificates are installed in Trusted People.
+Yes, MSIX app attach supports self-signed certificates. You'll need to make sure the certificates are installed under the  Trusted People category.
 
 
 ## Next steps
