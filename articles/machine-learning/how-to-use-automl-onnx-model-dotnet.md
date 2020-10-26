@@ -30,7 +30,7 @@ The Open Neural Network Exchange (ONNX) is an open-source format for AI models. 
 
 In this sample, you use the .NET Core CLI to build your application but you can do the same tasks using Visual Studio. Learn more about the [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/).
 
-1. Open a terminal and create a new C# .NET Core console application.
+1. Open a terminal and create a new C# .NET Core console application. In this example, the name of the application is `AutoMLONNXConsoleApp`. A directory is created by that same name with the contents of your application.
 
     ```dotnetcli
     dotnet new console -o AutoMLONNXConsoleApp
@@ -69,6 +69,7 @@ A way for the console application to access the ONNX model is to add it to the b
 
 Add a reference to your ONNX model file in your application
 
+1. Copy your ONNX model to your application's *AutoMLONNXConsoleApp* root directory.
 1. Open the *AutoMLONNXConsoleApp.csproj* file and add the following content inside the `Project` node.
 
     ```xml
