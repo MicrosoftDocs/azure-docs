@@ -298,7 +298,7 @@ When you submit the VHD, ensure that the first 2048 KB of the VHD is empty. Othe
 
 ## Steps for creating First MB (2048 KB) partition (Only for Linux) on an Empty VHD
 
-Step 1: Create any kind of VM (Example: Ubuntu / Cent OS/Debian etc). Please fill all the required fields and click on “Next:Disks>” 
+Step 1: Create any kind of VM (Example: Ubuntu / Cent OS/Debian etc). Please fill all the required fields and click on “Next:Disks>”
 ![Next: Disks command](./media/create-vm/vm-certification-issues-solutions-15.png)
 
 Step 2: Create an un-managed disk for the above VM.
@@ -312,7 +312,7 @@ Step 3: After creating the VM, please click on “Disks” which is on the left 
 Step 4:  Please attach your VHD as data disk to the above VM for creating Partition table as below.
 ![Attach your VHD](./media/create-vm/vm-certification-issues-solutions-18.png)
 
-Click on “Add DataDisk” -> Existing Blob -> browse your VHD storage account -> Container -> Select VHD ->  Click “OK” as below
+Click on Add DataDisk -> Existing Blob -> browse your VHD storage account -> Container -> Select VHD ->  Click OK as below.
 ![Select VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
 
 Your VHD will be added as data disk LUN 0 and please re-start the VM after adding the disk
@@ -334,9 +334,9 @@ d) Type n to create new partition and select p for (primary partition).
 e) Please enter 2048 as “First Sector” value and you can leave “last Sector” as it will take default value.Please note that any data will be erased till 2048 KB.
            
 >[!NOTE]
->*Please note that by creating the partion as above any existing data will be erased till 2048 KB, hence it is advised to take a backup of the VHD before executing the above command.
+>*Please note that by creating the partition as above any existing data will be erased till 2048 KB, hence it is advised to take a backup of the VHD before executing the above command.
 
-Please find the below screenshot for your reference
+Please find the below screenshot for your reference.
 ![Erased data](./media/create-vm/vm-certification-issues-solutions-22.png)
 
 f) Type w to confirm the creation of partition.
@@ -350,7 +350,7 @@ Step 7:  please detach the VHD from VM and Delete the VM.
          
 ## Steps for creating First MB (2048 KB) partition (Only for Linux) by moving the existing data on VHD
 
-Step 1: Create any kind of VM (Example: Ubuntu / Cent OS/Debian etc).Please fill all the required fields and click on “Next:Disks>” 
+Step 1: Create any kind of VM (Example: Ubuntu / Cent OS/Debian etc).Please fill all the required fields and click on “Next:Disks>”
 ![Click on “Next:Disks>”](./media/create-vm/vm-certification-issues-solutions-15.png)
 
 Step 2: Create an un-managed disk for the above VM.
