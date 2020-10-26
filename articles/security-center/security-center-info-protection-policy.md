@@ -17,26 +17,21 @@ ms.author: memildin
 ---
 # SQL information protection policy in Azure Security Center
  
-You can define and customize an SQL information protection policy for your entire Azure tenant, in Azure Security Center.
+Data Discovery & Classification is built into Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics. It provides advanced capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases.
 
-Information protection is an advanced security capability for discovering, classifying, labeling, and reporting sensitive data in your Azure data resources. Discovering and classifying your most sensitive data (business, financial, healthcare, personal data, etc.) can play a pivotal role in your organizational information protection stature. It can serve as infrastructure for:
-- Helping meet data privacy standards and regulatory compliance requirements
-- Security scenarios such as monitoring (auditing) and alerting on anomalous access to sensitive data
-- Controlling access to and hardening the security of data stores containing highly sensitive data
- 
-[SQL Information Protection](../azure-sql/database/data-discovery-and-classification-overview.md) implements this paradigm for your SQL data stores, currently supported for Azure SQL Database. SQL Information Protection automatically discovers and classifies potentially sensitive data, provides a labeling mechanism for persistently tagging the sensitive data with classification attributes, and provides a detailed dashboard showing the classification state of the database. In addition, it calculates the result set sensitivity of SQL queries, so that queries that extract sensitive data can be explicitly audited, and the data can be protected. For more information on SQL Information Protection, see [Azure SQL Database Data Discovery and Classification](../azure-sql/database/data-discovery-and-classification-overview.md).
- 
 The classification mechanism is based on two primary constructs that make up the classification taxonomy - **Labels** and **Information Types**.
 - **Labels** – The main classification attributes, used to define the sensitivity level of the data stored in the column. 
 - **Information Types** – Provides additional granularity into the type of data stored in the column.
- 
-Information Protection comes with a built-in set of labels and information types, which are used by default. To customize these labels and types, you can customize the information protection policy in Security Center.
+
+The information protection policy options within Security Center provide a predefined set of labels and information types which serve as the defaults for the classification engine. You can customize the policy, according to your organization's needs, as described below.
+
+[Learn more about SQL Data Discovery & Classification](../azure-sql/database/data-discovery-and-classification-overview.md).
  
 ## Customize the information protection policy
 
 To customize the information protection policy for your Azure tenant, you need to have [administrative privileges on the tenant's root management group](security-center-management-groups.md). 
  
-1. From Security Center's **Recommendatons** page, search for the recommendation **Sensitive data in your SQL databases should be classified**.
+1. From Security Center's **Recommendations** page, search for the recommendation **Sensitive data in your SQL databases should be classified**.
 
     :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-data-recommendation.png" alt-text="Finding the recommendation that provides access to the SQL information protection policies":::
 
@@ -47,6 +42,7 @@ To customize the information protection policy for your Azure tenant, you need t
     :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-columns-recommended.png" alt-text="Prompt to classify newly identified columns ":::
 
 1. The recommendation details page 
+
 1. In the Security Center main menu, under **RESOURCE SECURITY HYGIENE** go to **Data & storage** and click on the **SQL Information Protection** button.
 
    ![Configure Information protection policy](./media/security-center-info-protection-policy/security-policy.png) 
