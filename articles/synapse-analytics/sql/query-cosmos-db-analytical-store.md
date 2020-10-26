@@ -20,7 +20,7 @@ For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transa
 In this article, you'll learn how to write a query with serverless SQL pool that will query data from Azure Cosmos DB containers that are Synapse Link enabled. You can then learn more about building serverless SQL pool views over Azure Cosmos DB containers and connecting them to Power BI models in [this](./tutorial-data-analyst.md) tutorial. 
 
 > [!IMPORTANT]
-> This tutorial uses container with [Azure Cosmos DB well-defined schema](../../cosmos-db/analytical-store-introduction.md#schema-representation) that provides query experience that will be supported uin future. The query experience that serverless SQL pool provides for [Azure Cosmos DB full fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation) is temporary behaviour that will be changed based on preview feedback. Do not rely on the schema that `OPENROWSET` function provides for full-fidelity containers during public preview because the query experinece might be aligned with well-defined schema. Contact [Synapse link product team](mailto:cosmosdbsynapselink@microsoft.com) to provide feedback.
+> This tutorial uses a container with [Azure Cosmos DB well-defined schema](../../cosmos-db/analytical-store-introduction.md#schema-representation) that provides query experience that will be supported in future. The query experience that serverless SQL pool provides for [Azure Cosmos DB full fidelity schema](#full-fidelity-schema) is temporary behaviour that will be changed based on the preview feedback. Do not rely on the schema that `OPENROWSET` function provides for full-fidelity containers during public preview because the query experinece might be changed and aligned with well-defined schema. Contact [Synapse link product team](mailto:cosmosdbsynapselink@microsoft.com) to provide feedback.
 
 ## Overview
 
@@ -257,7 +257,7 @@ choose SQL types that match these JSON types if you are using `WITH` clause in `
 
 ## Full fidelity schema
 
-`OPENROWSET` function on a container with full-fidelity schema provides both type of the value and actual value in each row.
+`OPENROWSET` function on a container with full-fidelity schema provides both type and actual value in each cell.
 ```sql
 SELECT *
 FROM OPENROWSET(
@@ -266,17 +266,21 @@ FROM OPENROWSET(
        EcdcCases
     ) as rows
 ```
-Result of this query will return types and values formatted as JSON text: 
+The result of this query will return types and values formatted as JSON text: 
 
 | date_rep | cases | geo_id |
 | --- | --- | --- |
-| {"string":"2020-08-13"} | {"int32":"254"} | {"string":"RS"} |
+| {"date":"2020-08-13"} | {"int32":"254"} | {"string":"RS"} |
 | {"date":"2020-08-12"} | {"int64":"235"}| {"string":"RS"} |
-| {"string":"2020-08-13"} | {"int32":"316"} | {"string":"RS"} |
+| {"string":"2020-08-11"} | {"int32":"316"} | {"string":"RS"} |
+| {"date":"2020-08-10"} | {"int32":"281"} | {"string":"RS"} |
+| {"date":"2020-08-09"} | {"int32":"295"} | {"string":"RS"} |
+| {"date":"2020-08-08"} | {"int32":"312"} | {"string":"RS"} |
+| {"date":"2020-08-07"} | {"int32":"339"} | {"string":"RS"} |
 
-For querying Azure Cosmos DB accounts of Mongo DB API kind, you can learn more about the full fidelity schema representation in the analytical store and the extended property names to be used [here](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
+In the results, you can see types identified in Cosmos DB container items and values. For querying Azure Cosmos DB accounts of Mongo DB API kind, you can learn more about the full fidelity schema representation in the analytical store and the extended property names to be used [here](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
 
-While querying full fidelity schema you need to explicitly specify SQL type and Cosmos DB property type in `WITH` clause:
+While querying full fidelity schema, you need to explicitly specify SQL type and Cosmos DB property type in `WITH` clause:
 
 ```sql
 SELECT geo_id, cases = SUM(cases)
@@ -284,11 +288,13 @@ FROM OPENROWSET(
       'CosmosDB',
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases
-    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string', cases INT '$.cases.int32') as rows
+    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string',
+             cases INT '$.cases.int32'
+    ) as rows
 GROUP BY geo_id
 ```
 
-Note that that this query will reference only the `cases` with the specified type in the expression (`cases.int32`). If you have values with other types (`cases.int32`), you wouLD need to explicitly reference them in `WITH` clause and combine the results:
+Note that this query will reference only the `cases` with the specified type in the expression (`cases.int32`). If you have values with other types (`cases.int64`, `cases.int64`), you would need to explicitly reference them in `WITH` clause and combine the results:
 
 ```sql
 SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
@@ -296,7 +302,11 @@ FROM OPENROWSET(
       'CosmosDB',
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases
-    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string', cases_int INT '$.cases.int32', cases_bigint BIGINT '$.cases.int64', cases_float FLOAT '$.cases.float64') as rows
+    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string', 
+             cases_int INT '$.cases.int32',
+             cases_bigint BIGINT '$.cases.int64',
+             cases_float FLOAT '$.cases.float64'
+    ) as rows
 GROUP BY geo_id
 ```
 
