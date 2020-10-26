@@ -235,5 +235,5 @@ Use an Azure Application: Managed application plan when the following conditions
 
 ## Next steps
 
-- To plan a solution template, see [Plan an Azure application solution template](plan-azure-app-solution-template.md).
-- To plan an Azure managed application, see [Plan an Azure Application managed application](plan-azure-app-managed-app.md).
+- To plan a solution template, see [Plan a solution template for an Azure application offer](plan-azure-app-solution-template.md).
+- To plan an Azure managed application, see [Plan an Azure managed application for an Azure application offer](plan-azure-app-managed-app.md).

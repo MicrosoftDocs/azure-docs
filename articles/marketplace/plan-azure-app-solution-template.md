@@ -12,7 +12,7 @@ ms.date: 10/30/2020
 
 # Plan a solution template for an Azure application offer
 
-This article explains the requirements for publishing a solution template plan for an Azure Application offer. A solution template plan is one of the two types of plans supported by Azure Application offers. For information about the difference between these two plan types, see Plans for Azure application offers. If you haven’t already done so, read Plan an Azure application offer.
+This article explains the requirements for publishing a solution template plan for an Azure Application offer. A solution template plan is one of the two types of plans supported by Azure Application offers. For information about the difference between these two plan types, see [Types of plans](plan-azure-application-offer.md#plans). If you haven’t already done so, read [Plan an Azure application offer](plan-azure-application-offer.md).
 
 The solution template plan type requires an [Azure Resource Manager template (ARM template)](/azure/azure-resource-manager/templates/overview.md) to automatically deploy your solution infrastructure.
 
