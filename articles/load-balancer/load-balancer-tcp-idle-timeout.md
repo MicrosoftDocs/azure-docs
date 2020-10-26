@@ -74,7 +74,7 @@ Replace the following with the values from your resources:
 * Port **80** for the backend and frontend port.
 
 > [!IMPORTANT]
-> The **Set-AzLoadBalancerRuleConfig** replaces all settings in the load-balancing rule. Make note of all of your settings and replace them in the command. In this example **-DisableOutboundSNAT** is set in the rule disabling outbound internet access for the backend pool. </br> For more information about outbound connections with load balancer, see **[Outbound proxy Azure Load Balancer](load-balancer-outbound-connections.md)**. </br> For more information about load balancer outbound rules, see **[Outbound rules Azure Load Balancer](outbound-rules.md)**
+> The **Set-AzLoadBalancerRuleConfig** overwrites all settings in the load-balancing rule with the specified parameters. Make note of all of your settings and replace them in the command. In this example **-DisableOutboundSNAT** is set in the rule disabling outbound internet access for the backend pool. </br> For more information about outbound connections with load balancer, see **[Outbound proxy Azure Load Balancer](load-balancer-outbound-connections.md)**. </br> For more information about load balancer outbound rules, see **[Outbound rules Azure Load Balancer](outbound-rules.md)**
 
 ```azurepowershell
 $lb = Get-AzLoadBalancer -Name "myLoadBalancer" -ResourceGroup "myResourceGroup"
