@@ -34,11 +34,24 @@ In addition to generally managing your instance, the CLI is also a useful tool f
 * The control plane commands can be used to make the deployment of a new instance repeatable or automated.
 * The data plane commands can be used to quickly check values in your instance, and verify that operations completed as expected.
 
-## Get the extension
+## Get the command set
 
-The Azure Digital Twins commands are part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension), so follow these steps to make sure you have the latest extension with the **az dt** commands.
+The Azure Digital Twins commands are part of the [Azure IoT extension for Azure CLI (azure-iot)](https://github.com/Azure/azure-iot-cli-extension), so follow these steps to make sure you have the latest `azure-iot` extension with the **az dt** commands.
 
-You can make sure you have the latest version of the extension with these steps. You can run these commands in the [Azure Cloud Shell](../cloud-shell/overview.md) or a [local Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+### CLI version requirements
+
+If you're using the Azure CLI with PowerShell, the extension package requires that your Azure CLI version be **2.3.1** or above.
+
+You can check the version of your Azure CLI with this CLI command:
+```azurecli
+az --version
+```
+
+For instructions on how to install or update the Azure CLI, see [*Install the Azure CLI*](/cli/azure/install-azure-cli).
+
+### Get the extension
+
+You can make sure you have the latest version of the `azure-iot` extension with these steps. You can run these commands in the [Azure Cloud Shell](../cloud-shell/overview.md) or a [local Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 [!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
 
