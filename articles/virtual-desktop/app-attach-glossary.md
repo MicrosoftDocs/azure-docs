@@ -38,7 +38,7 @@ An MSIX image is a VHD, VHDx, or CIM file that contains one or more MSIX package
 
 Repackaging takes a non-MSIX application and converts it into MSIX using the MSIX Packaging Tool (MPT). For more information, see [MSIX Packaging Tool overview](/windows/msix/packaging-tool/tool-overview).
 
-## Expanding a MSIX package
+## Expand an MSIX package
 
 Expanding an MSIX package is a multi-step process. Expansion takes the MSIX file and puts its content into a VHD(x) or CIM file. 
 
