@@ -12,7 +12,7 @@ ms.date: 10/30/2020
 
 # Plan an Azure Application offer for the commercial marketplace
 
-This article explains the different options and requirements for publishing an Azure Application offer to the Microsoft commercial marketplace. 
+This article explains the different options and requirements for publishing an Azure Application offer to the Microsoft commercial marketplace.
 
 ## Before you begin
 

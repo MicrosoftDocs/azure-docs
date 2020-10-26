@@ -71,7 +71,7 @@ All three logo sizes are used in different places in the online stores.
 - The **Medium** logo appears when you create a new resource in Microsoft Azure.
 - The **Large** logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
 - The **Small** logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results pages.
-   
+
 ### Add screenshots
 
 You must add a minimum of one and a maximum of five screenshots that demonstrate your offer. All images must be 1280 x 720 pixels in size and in .PNG format.
