@@ -43,6 +43,9 @@ Sign in to the Azure portal at https://portal.azure.com
 
 2. Select **Add provider** and choose **SAP HANA** from the drop down. 
 
+   > [!IMPORTANT]
+   > Ensure that SAP HANA provider is configured for SAP HANA 'master' node.
+
 3. Input the Private IP for the HANA server.
 
 4. Input the name of the Database tenant you want to use. You can choose any tenant however, we recommend using **SYSTEMDB** as it enables a wider array of monitoring  areas. 

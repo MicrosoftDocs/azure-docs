@@ -58,6 +58,7 @@ Build succeeded.
  0 Error(s)
 ...
 ```
+---
 
 ### Install the client library 
 
@@ -66,8 +67,6 @@ Within the application directory, install the [Product Name] client library for 
 ```console
 dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 ```
-
----
 
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md), which contains the code examples in this quickstart.
@@ -97,7 +96,7 @@ With Form Recognizer, you can create two different client types. The first, `For
 
  - Recognizing form fields and content, using custom models trained to recognize your custom forms.  These values are returned in a collection of `RecognizedForm` objects. See example [Analyze custom forms](#analyze-forms-with-a-custom-model).
  - Recognizing form content, including tables, lines and words, without the need to train a model.  Form content is returned in a collection of `FormPage` objects. See example [Recognize form content](#recognize-form-content).
- - Recognizing common fields from US receipts, using a pre-trained receipt model on the Form Recognizer service.  These fields and meta-data are returned in a collection of `RecognizedForm` objects. See example [Recognize receipts](#recognize-receipts).
+ - Recognizing common fields from US receipts, using a pre-trained receipt model on the Form Recognizer service. These fields and meta-data are returned in a collection of `RecognizedForm` objects. See example [Recognize receipts](#recognize-receipts).
 
 ### FormTrainingClient
 

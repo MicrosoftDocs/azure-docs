@@ -44,8 +44,6 @@
     href: quickstart-create-workspace-powershell.md
   - name: Deploy with a template
     href: quickstart-deployment-template-workspaces.md
-  - name: Use Synapse Studio
-    href: quickstart-synapse-studio.md
   - name: Link a Power BI workspace
     href: quickstart-power-bi.md
   - name: Create pools
@@ -406,7 +404,7 @@
       items:
       - name: Model scoring wizard for SQL pools
         href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
-      - name: Run a regression experiment using Azure AutoML (Scoring in DW)
+      - name: Run a regression experiment using Azure AutoML
         href: ./spark/apache-spark-azure-machine-learning-tutorial.md
 
 
@@ -915,8 +913,6 @@
         href: ../data-factory/data-factory-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Connector troubleshooting
         href: ../data-factory/connector-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Copy Data tool troubleshooting
-        href: ../data-factory/copy-data-tool-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Self-hosted Integration Runtimes troubleshooting
         href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Connect tools to Synapse workspaces

@@ -3,9 +3,8 @@ title: Stream execution logs in Azure Functions
 description: 115-145 characters including spaces. This abstract displays in the search result.
 ms.date: 9/1/2020
 ms.topic: how-to
-ms.service: azure-functions
-
-ms.custom: can-be-multiple-comma-separated
+ms.custom: "contperfq2"
+# Customer intent: As a developer, I want to be able to configure streaming logs so that I can see what's happening in my functions in near real time.
 ---
 
 # Enable streaming execution logs in Azure Functions
