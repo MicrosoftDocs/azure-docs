@@ -255,7 +255,7 @@ Now that you have a pipeline, it's time to use it to make predictions. ML.NET pr
     Predicted Price: 15.621523
     ```
 
-To learn more about making predictions, see the [use a model to make predictions guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net).
+To learn more about making predictions in ML.NET, see the [use a model to make predictions guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net).
 
 ## Next steps
 
