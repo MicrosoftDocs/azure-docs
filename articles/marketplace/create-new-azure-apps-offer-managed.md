@@ -12,7 +12,7 @@ ms.date: 10/30/2020
 
 # Configure a managed application plan
 
-This article applies only to managed application plans for an Azure Application offer. If you’re configuring a solution template plan, go to [Configure a solution template plan](create-new-azure-apps-offer-solution.md).
+This article applies only to managed application plans for an Azure application offer. If you’re configuring a solution template plan, go to [Configure a solution template plan](create-new-azure-apps-offer-solution.md).
 
 ## Define markets, pricing, and availability
 
@@ -125,7 +125,7 @@ The **Previously published packages** sub-tab enables you to view all published 
 
 ### Enable just-in-time (JIT) access (optional)
 
-To enable JIT access for this plan, select the **Enable just-in-time (JIT) access** check box. To require that consumers of your managed application grant your account permanent access, leave this option unchecked. To learn more about this option, see [Plan an Azure Application offer](plan-azure-application-offer.md).
+To enable JIT access for this plan, select the **Enable just-in-time (JIT) access** check box. To require that consumers of your managed application grant your account permanent access, leave this option unchecked. To learn more about this option, see [Just in time (JIT) access](plan-azure-app-managed-app.md#just-in-time-(jit)-access).
 
 ### Select a deployment mode
 

@@ -12,7 +12,7 @@ ms.date: 10/30/2020
 
 # How to add a preview audience for your Azure Application offer to your Azure Application offer
 
-You need to define a preview audience who can review your offer listing before it goes live. This article explains how to configure a preview audience.
+This article describes how to configure a preview audience for an Azure Application offer in the commercial marketplace. You need to define a preview audience who can review your offer listing before it goes live.
 
 ## Define a preview audience
 

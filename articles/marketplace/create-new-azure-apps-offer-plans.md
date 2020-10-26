@@ -81,5 +81,5 @@ The **Plan listing** tab is where you configure listing details of the plan. Thi
 
 Do one of the following:
 
-- If you’re configuring a solution template plan, go to [Plan a solution template for an Azure application offer](plan-azure-app-solution-template.md).
-- If you’re configuring a managed application plan, go to [Plan an Azure managed application for an Azure application offer](plan-azure-app-managed-app.md).
+- If you’re configuring a solution template plan, go to [Configure a solution template plan](create-new-azure-apps-offer-solution.md).
+- If you’re configuring a managed application plan, go to [Configure a managed application plan](create-new-azure-apps-offer-managed-app.md).

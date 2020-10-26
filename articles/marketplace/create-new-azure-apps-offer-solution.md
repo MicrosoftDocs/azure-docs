@@ -12,7 +12,7 @@ ms.date: 10/30/2020
 
 # Configure a solution template plan
 
-This article applies only to solution template plans. If you are configuring a managed application plan, go to [Configure a managed application plan](create-new-azure-apps-offer-managed.md).
+This article applies only to solution template plans for an Azure application offer. If you are configuring a managed application plan, go to [Configure a managed application plan](create-new-azure-apps-offer-managed.md).
 
 ## Choose who can see your plan
 
