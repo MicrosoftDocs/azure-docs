@@ -671,13 +671,13 @@ The simplest way is to open ADF service URL in browser, for example, open https:
 
 Two possible reasons for this issue:
 
-1.	The Root CA of ADF service server certificate is not trusted on the machine where the SHIR is installed. 
-2.	You are using proxy in your environment and the server certificate of ADF service is replaced by the proxy, while the replaced server certificate is not trusted by the machine where the SHIR is installed.
+- The Root CA of ADF service server certificate is not trusted on the machine where the SHIR is installed. 
+- You are using proxy in your environment and the server certificate of ADF service is replaced by the proxy, while the replaced server certificate is not trusted by the machine where the SHIR is installed.
 
 #### Solution
 
-1.	For case 1, make sure the ADF server certificate and its certificate chain is trusted by the machine where the SHIR is installed.
-2.	For case 2, either trust the replaced root CA on SHIR machine, or configure the proxy not to replace ADF server certificate.
+- For reason 1, make sure the ADF server certificate and its certificate chain is trusted by the machine where the SHIR is installed.
+- For reason 2, either trust the replaced root CA on SHIR machine, or configure the proxy not to replace ADF server certificate.
 
 Refer to [this article](https://docs.microsoft.com/skype-sdk/sdn/articles/installing-the-trusted-root-certificate) for details to trust a certificate on Windows.
 
