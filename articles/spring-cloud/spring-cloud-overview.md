@@ -12,9 +12,35 @@ ms.custom: devx-track-java
 
 # What is Azure Spring Cloud?
 
-Azure Spring Cloud makes it easy to deploy Spring Boot-based microservice applications to Azure with zero code changes.  Azure Spring Cloud manages the infrastructure of Spring Cloud applications, so developers can focus on their code.  Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
+Azure Spring Cloud makes it easy to deploy Spring Boot-based microservice applications to Azure with zero code changes.  The service manages the infrastructure of Spring Cloud applications so developers can focus on their code.  Azure Spring Cloud provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
-   ![Azure Spring Cloud features](media/spring-cloud-principles/features-asc.png)
+## Why use Azure Spring Cloud?
+
+Deployment of applications to Azure Spring Cloud supports many benefits.  You can:
+* Efficiently migrate existing Spring apps to manage cloud scaling and economics.
+* Modernize apps with Spring Cloud patterns to improve agility and speed of delivery.
+* Run Java at cloud scale and drive higher usage without managing infrastructure.
+* Develop and deploy rapidly without containerization dependencies.
+* Monitor production workloads efficiently and effortlessly.
+
+## Feature overview
+
+This documentation includes sections that explain how to leverage Azure Spring Cloud services.
+
+* Quickstart
+    * Launch your first app
+    * Provision an Azure Spring Cloud service
+    * Set up the configuration server
+    * Build and deploy apps
+    * Use logs metrics and tracing
+* How-to
+    * Prepare apps
+    * Manage apps
+    * Monitor apps
+    * Secure apps
+    * Integration with other Azure services
+    * DevOps
+    * Troubleshoot
 
 As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other Azure services including storage, databases, monitoring, and more.
 
