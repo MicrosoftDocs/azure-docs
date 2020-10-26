@@ -75,7 +75,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 | | Data Sync | Transactional Replication |
 |---|---|---|
 | **Advantages** | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration <br/>-Azure SQL Managed Instance support |
-| **Disadvantages** | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can't publish from Azure SQL Database <br/>-    High maintenance cost |
+| **Disadvantages** | - 5 min minimum frequency between syncs<br/>- No transactional consistency<br/>- Higher performance impact | - Can't publish from Azure SQL Database <br/>-    High maintenance cost |
 
 ## Get started 
 
@@ -129,8 +129,9 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - A primary key can't have the following data types: sql_variant, binary, varbinary, image, xml.
 - Be cautious when you use the following data types as a primary key, because the supported precision is only to the second: time, datetime, datetime2, datetimeoffset.
 - The names of objects (databases, tables, and columns) can't contain the printable characters period (.), left square bracket ([), or right square bracket (]).
+- A table name can't contain printable characters: ! " # $ % ' ( ) * + - space
 - Azure Active Directory authentication isn't supported.
-- Tables with same name but different schema (for example, dbo.customers and sales.customers) aren't supported.
+- If there are tables with the same name but different schema (for example, dbo.customers and sales.customers) only one of the tables can be added into sync.
 - Columns with User-Defined Data Types aren't supported
 - Moving servers between different subscriptions isn't supported. 
 
@@ -159,7 +160,7 @@ Data Sync can't sync read-only or system-generated columns. For example:
 | Tables in a sync group                                          | 500                    | Create multiple sync groups |
 | Columns in a table in a sync group                              | 1000                   |                             |
 | Data row size on a table                                        | 24 Mb                  |                             |
-| Minimum sync interval                                           | 5 Minutes              |                             |
+| Minimum sync frequency interval                                 | 5 Minutes              |                             |
 
 > [!NOTE]
 > There may be up to 30 endpoints in a single sync group if there is only one sync group. If there is more than one sync group, the total number of endpoints across all sync groups cannot exceed 30. If a database belongs to multiple sync groups, it is counted as multiple endpoints, not one.

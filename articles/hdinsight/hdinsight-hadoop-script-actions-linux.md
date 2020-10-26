@@ -287,7 +287,7 @@ Scripts used to customize a cluster needs to be stored in one of the following l
 
 * A __publicly readable URI__. For example, a URL to data stored on OneDrive, Dropbox, or other file hosting service.
 
-* An __Azure Data Lake Storage account__ that is associated with the HDInsight cluster. For more information on using Azure Data Lake Storage with HDInsight, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* An __Azure Data Lake Storage account__ that is associated with the HDInsight cluster. For more information on using Azure Data Lake Storage with HDInsight, see [Quickstart: Set up clusters in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
     > [!NOTE]  
     > The service principal HDInsight uses to access Data Lake Storage must have read access to the script.
@@ -360,5 +360,5 @@ Replace `INFILE` with the file containing the BOM. `OUTFILE` should be a new fil
 ## <a name="seeAlso"></a>Next steps
 
 * Learn how to [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md)
-* Use the [HDInsight .NET SDK reference](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) to learn more about creating .NET applications that manage HDInsight
-* Use the [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) to learn how to use REST to perform management actions on HDInsight clusters.
+* Use the [HDInsight .NET SDK reference](/dotnet/api/overview/azure/hdinsight) to learn more about creating .NET applications that manage HDInsight
+* Use the [HDInsight REST API](/rest/api/hdinsight/) to learn how to use REST to perform management actions on HDInsight clusters.

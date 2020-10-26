@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 10/14/2020
 ms.author: chmutali
 ---
 # Tutorial: Configure attribute write-back from Azure AD to SAP SuccessFactors
@@ -318,13 +318,23 @@ Once the SuccessFactors provisioning app configurations have been completed, you
 
 1. In the **Provisioning** tab, set the **Provisioning Status** to **On**.
 
-2. Click **Save**.
+1. Select **Scope**. You can select from one of the following options: 
+   * **Sync all users and groups**: Select this option if you plan to write back mapped attributes of all users from Azure AD to SuccessFactors, subject to the scoping rules defined under **Mappings** -> **Source Object Scope**. 
+   * **Sync only assigned users and groups**: Select this option if you plan to write back mapped attributes of only users that you have assigned to this application in the **Application** -> **Manage** -> **Users and groups** menu option. These users are also subject to the scoping rules defined under **Mappings** -> **Source Object Scope**.
 
-3. This operation will start the initial sync, which can take a variable number of hours depending on how many users are in the SuccessFactors tenant. You can check the progress bar to the track the progress of the sync cycle. 
+   > [!div class="mx-imgBorder"]
+   > ![Select Writeback scope](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
 
-4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read from Employee Central and then subsequently added or updated to Active Directory. 
+   > [!NOTE]
+   > The SuccessFactors Writeback provisioning app does not support "group assignment". Only "user assignment" is supported. 
 
-5. Once the initial sync is completed, it will write an audit summary report in the **Provisioning** tab, as shown below.
+1. Click **Save**.
+
+1. This operation will start the initial sync, which can take a variable number of hours depending on how many users are in the Azure AD tenant and the scope defined for the operation. You can check the progress bar to the track the progress of the sync cycle. 
+
+1. At any time, check the **Provisioning logs** tab in the Azure portal to see what actions the provisioning service has performed. The provisioning logs lists all individual sync events performed by the provisioning service. 
+
+1. Once the initial sync is completed, it will write an audit summary report in the **Provisioning** tab, as shown below.
 
    > [!div class="mx-imgBorder"]
    > ![Provisioning progress bar](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)

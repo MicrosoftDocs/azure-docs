@@ -302,7 +302,7 @@ The following snippets show the side-by-side JSON representation of the `thermos
 
 ## Digital twin APIs
 
-Azure Digital Twins comes equipped with **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** for managing device digital twin. You can either use the [REST APIs](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) directly or through a [Service SDK](../iot-pnp/libraries-sdks.md).
+Azure Digital Twins comes equipped with **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** for managing device digital twin. You can either use the [REST APIs](/rest/api/iothub/service/digitaltwin) directly or through a [Service SDK](../iot-pnp/libraries-sdks.md).
 
 ## Digital twin change events
 
@@ -378,5 +378,5 @@ Now that you've learned about digital twins, here are some additional resources:
 
 - [How to use IoT Plug and Play digital twin APIs](howto-manage-digital-twin.md)
 - [Interact with a device from your solution](quickstart-service-node.md)
-- [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT explorer](howto-use-iot-explorer.md)

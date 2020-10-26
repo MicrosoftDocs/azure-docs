@@ -10,7 +10,7 @@ manager: ravijan
 ms.date: 09/30/2020
 ---
 
-# Azure Key Vault Recovery Overview
+# How to enable soft delete and purge protection
 
 This article covers two recovery features of Azure Key Vault, soft delete and purge protection. This document provides an overview of these features, and shows you how to manage them through the Azure portal, Azure CLI, and Azure PowerShell.
 

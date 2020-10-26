@@ -14,9 +14,9 @@ ms.author: genli
 ---
 # Troubleshooting Windows Azure Guest Agent
 
-Windows Azure Guest Agent is a virtual machine (VM) agent. It enables the VM to communicate with the Fabric Controller (the underlying physical server on which VM is hosted) on IP address 168.63.129.16. This is a virtual public IP address that facilitates the communication. For more information, see [What is IP address 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+Windows Azure Guest Agent is a virtual machine (VM) agent. It enables the VM to communicate with the Fabric Controller (the underlying physical server on which VM is hosted) on IP address 168.63.129.16. This is a virtual public IP address that facilitates the communication. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
- The VM that is migrated to Azure from on-premises or that is created by using a customized image doesn't have Windows Azure Guest Agent installed. In these scenarios, you have to manually install the VM agent. For more information about how to install the VM Agent, see [Azure Virtual Machine Agent Overview](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+ The VM that is migrated to Azure from on-premises or that is created by using a customized image doesn't have Windows Azure Guest Agent installed. In these scenarios, you have to manually install the VM agent. For more information about how to install the VM Agent, see [Azure Virtual Machine Agent Overview](../extensions/agent-windows.md).
 
 After Windows Azure Guest Agent is successfully installed, you can see following services listed in services.msc on the VM:
  
@@ -68,7 +68,7 @@ Go to to the VM properties page in Azure portal, and check the **Agent status**.
 
     In Control Panel, go to **Programs and Features** to determine whether the Windows Azure Guest Agent service is installed.
 
-If you don't find any packages, services and processes running and do not even see Windows Azure Guest Agent installed under Programs and Features, try [installing Windows Azure Guest Agent service](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows). If the Guest Agent doesn't install properly, you can [Install the VM agent offline](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+If you don't find any packages, services and processes running and do not even see Windows Azure Guest Agent installed under Programs and Features, try [installing Windows Azure Guest Agent service](../extensions/agent-windows.md). If the Guest Agent doesn't install properly, you can [Install the VM agent offline](./install-vm-agent-offline.md).
 
 If you can see the services and they are running, restart the service that see if the problem is resolved. If the services are stopped, start them and wait few minutes. Then check whether the **Agent status** is reporting as **Ready**. If you find that these services are crashing, some third party processes may be causing these services to crash. To further troubleshooting of these issues, contact [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -105,7 +105,7 @@ The Windows Azure Guest Agent has an auto-update feature. It will automatically 
     ```
     Then check whether the Guest Agent Services start correctly.
  
-    In rare cases in which Guest Agent doesn't install correctly, you can [Install the VM agent offline](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+    In rare cases in which Guest Agent doesn't install correctly, you can [Install the VM agent offline](./install-vm-agent-offline.md).
     
 
 ### Step 3 Check whether the VM can connect to the Fabric Controller
@@ -183,7 +183,7 @@ The VM cannot reach the wireserver host server.
 1. If you cannot reach the URL from step 1, check the network interface to determine whether it is set as DHCP-enabled and has DNS. To check the DHCP status, of the network interface, run the following command:  `netsh interface ip show config`.
 1. If DHCP is disabled, run the following making sure you change the value in yellow to the name of your interface: `netsh interface ip set address name="Name of the interface" source=dhcp`.
 1. Check for any issues that might be caused by a firewall, a proxy, or other source that could be blocking access to the IP address 168.63.129.16.
-1. Check whether Windows Firewall or a third-party firewall is blocking access to ports 80, 443, and 32526. For more information about why this address should not be blocked,  see [What is IP address 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+1. Check whether Windows Firewall or a third-party firewall is blocking access to ports 80, 443, and 32526. For more information about why this address should not be blocked,  see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ### Guest Agent is stuck "Stopping"  
 

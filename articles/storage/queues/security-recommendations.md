@@ -61,5 +61,5 @@ Azure Security Center periodically analyzes the security state of your Azure res
 
 ## Next steps
 
-- [Azure security documentation](https://docs.microsoft.com//azure/security/)
-- [Secure development documentation](https://docs.microsoft.com/azure/security/develop/).
+- [Azure security documentation](/azure/security/)
+- [Secure development documentation](/azure/security/develop/).

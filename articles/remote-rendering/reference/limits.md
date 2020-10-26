@@ -47,4 +47,4 @@ For detailed information on this limitation, see the [server size](../reference/
 
 **HoloLens 2**
 
-* The [render from PV camera](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature is not supported.
+* The [render from PV camera](/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature is not supported.
