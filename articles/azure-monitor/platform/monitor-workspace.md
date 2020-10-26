@@ -10,14 +10,14 @@ ms.date: 10/20/2020
 ---
 
 # Monitor health of Log Analytics workspace in Azure Monitor
-To maintain the performance and availability of your Log Analytics workspace in Azure Monitor, you need to be able to proactively detect any issues that arise. This article describes how to monitor the health of your Log Analytics workspace using data in the [Operation](/azure-monitor/reference/tables/operation) table. This table is included in every Log Analytics workspace and contains error and warnings that occur in your workspace. You should regularly review this data and create alerts to be proactively notified when there are any important incidents in your workspace.
+To maintain the performance and availability of your Log Analytics workspace in Azure Monitor, you need to be able to proactively detect any issues that arise. This article describes how to monitor the health of your Log Analytics workspace using data in the [Operation](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) table. This table is included in every Log Analytics workspace and contains error and warnings that occur in your workspace. You should regularly review this data and create alerts to be proactively notified when there are any important incidents in your workspace.
 
-## _LogsOperation function
-Azure Monitor Logs sends details on any issues to the [Operation](/azure-monitor/reference/tables/operation) table in the workspace where the issue occurred. The **_LogsOperation** system function is based on the **Operation** table and provides a simplified set of information for analysis and alerting.
+## _LogOperation function
+Azure Monitor Logs sends details on any issues to the [Operation](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) table in the workspace where the issue occurred. The **_LogOperation** system function is based on the **Operation** table and provides a simplified set of information for analysis and alerting.
 
 ## Columns
 
-The **_LogsOperation** function returns the columns in the following table.
+The **_LogOperation** function returns the columns in the following table.
 
 | Column | Description |
 |:---|:---|
@@ -32,7 +32,7 @@ The **_LogsOperation** function returns the columns in the following table.
 
 
 ## Categories
-The following table describes the categories from the _LogsOperations function. 
+The following table describes the categories from the _LogOperation function. 
 
 | Category | Description |
 |:---|:---|
@@ -78,8 +78,8 @@ Use the process in [Create, view, and manage log alerts using Azure Monitor](../
 
 | Query | Threshold value | Period | Frequency |
 |:---|:---|:---|:---|
-| `_LogsOperation | where Level == "Error"`   | 0 | 5 | 5 |
-| `_LogsOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
+| `_LogOperation | where Level == "Error"`   | 0 | 5 | 5 |
+| `_LogOperation | where Level == "Warning"` | 0 | 1440 | 1440 |
 
 These alert rules will respond the same to all operations with Error or Warning. As you become more familiar with the operations that are generating alerts, you may want to respond differently for particular operations. For example, you may want to send notifications to different people for particular operations. 
 
