@@ -298,25 +298,27 @@ When you submit the VHD, ensure that the first 2048 KB of the VHD is empty. Othe
 
 ## Steps for creating First MB (2048 KB) partition (Only for Linux) on an Empty VHD
 
-Step 1: Create any kind of VM (Example: Ubuntu / Cent OS/Debian etc)
-      please fill all the required fields and click on “Next:Disks>” 
-     ![Nextt: Disks command](./media/create-vm/vm-certification-issues-solutions-15.png)
+Step 1: Create any kind of VM (Example: Ubuntu / Cent OS/Debian etc). Please fill all the required fields and click on “Next:Disks>” 
+![Next: Disks command](./media/create-vm/vm-certification-issues-solutions-15.png)
 
 Step 2: Create an un-managed disk for the above VM.
-     ![Create an un-managed disk](./media/create-vm/vm-certification-issues-solutions-16.png)
-     Please note that, either you can go with default values or specify any value for fields like NIC, NSG and public IP.
+![Create an un-managed disk](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+Please note that, either you can go with default values or specify any value for fields like NIC, NSG and public IP.
 
 Step 3: After creating the VM, please click on “Disks” which is on the left side as shown below
-      ![Click on “Disks”](./media/create-vm/vm-certification-issues-solutions-17.png)
+![Click on “Disks”](./media/create-vm/vm-certification-issues-solutions-17.png)
 
 Step 4:  Please attach your VHD as data disk to the above VM for creating Partition table as below.
-      ![Attach your VHD](./media/create-vm/vm-certification-issues-solutions-18.png)
-        Click on “Add DataDisk” -> Existing Blob -> browse your VHD storage account -> Container -> Select VHD ->  Click “OK” as below
-      ![Select VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
-      Your VHD will be added as data disk LUN 0 and please re-start the VM after adding the disk
+![Attach your VHD](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+Click on “Add DataDisk” -> Existing Blob -> browse your VHD storage account -> Container -> Select VHD ->  Click “OK” as below
+![Select VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+Your VHD will be added as data disk LUN 0 and please re-start the VM after adding the disk
 
 Step 5:  After re-starting the VM, Login into the VM using Putty(or any other client) and run “sudo  -i” command to gain root access.
-      ![Login into the VM](./media/create-vm/vm-certification-issues-solutions-20.png)
+![Login into the VM](./media/create-vm/vm-certification-issues-solutions-20.png)
 
 Step 6: Follow below steps to create partition on your VHD.
 
@@ -325,7 +327,6 @@ a) Type fdisk /dev/sdb command
 b) For viewing the existing partition list from your VHD, Type p
 
 c) Type d for deleting all existing partition available in your VHD (You can skip this step, if it is not required)
-
 ![Delete all existing partition](./media/create-vm/vm-certification-issues-solutions-21.png)
 
 d) Type n to create new partition and select p for (primary partition).
@@ -339,36 +340,37 @@ Please find the below screenshot for your reference
 ![Erased data](./media/create-vm/vm-certification-issues-solutions-22.png)
 
 f) Type w to confirm the creation of partition.
-
-![Sreation of partition](./media/create-vm/vm-certification-issues-solutions-23.png)
+![Creation of partition](./media/create-vm/vm-certification-issues-solutions-23.png)
 
 g) You can verify the partition table by running the command n fdisk /dev/sdb and typing p, then you can see as below, that partition is created with 2048 offset value.
-
 ![2048 offset](./media/create-vm/vm-certification-issues-solutions-24.png)
+
 Step 7:  please detach the VHD from VM and Delete the VM.
 
          
 ## Steps for creating First MB (2048 KB) partition (Only for Linux) by moving the existing data on VHD
 
-Step 1: Create any kind of VM (Example: Ubuntu / Cent OS/Debian etc)
-      please fill all the required fields and click on “Next:Disks>” 
-     ![Click on “Next:Disks>”](./media/create-vm/vm-certification-issues-solutions-15.png)
+Step 1: Create any kind of VM (Example: Ubuntu / Cent OS/Debian etc).Please fill all the required fields and click on “Next:Disks>” 
+![Click on “Next:Disks>”](./media/create-vm/vm-certification-issues-solutions-15.png)
 
 Step 2: Create an un-managed disk for the above VM.
-     ![Create an un-managed disk](./media/create-vm/vm-certification-issues-solutions-16.png)
-     Please note that, either you can go with default values or specify any value for fields like NIC, NSG and public IP.
+![Create an un-managed disk](./media/create-vm/vm-certification-issues-solutions-16.png)
+
+Please note that, either you can go with default values or specify any value for fields like NIC, NSG and public IP.
 
 Step 3: After creating the VM, please click on “Disks” which is on the left side as shown below
-      ![Click on “Disks”](./media/create-vm/vm-certification-issues-solutions-17.png)
+![Click on “Disks”](./media/create-vm/vm-certification-issues-solutions-17.png)
 
 Step 4:  Please attach your VHD as data disk to the above VM for creating Partition table as below.
-      ![Partition table](./media/create-vm/vm-certification-issues-solutions-18.png)
-        Click on “Add DataDisk” -> Existing Blob -> browse your VHD storage account -> Container -> Select VHD ->  Click “OK” as below
-      ![Select VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
-      Your VHD will be added as data disk LUN 0 and please re-start the VM after adding the disk
+![Partition table](./media/create-vm/vm-certification-issues-solutions-18.png)
+
+Click on “Add DataDisk” -> Existing Blob -> browse your VHD storage account -> Container -> Select VHD ->  Click “OK” as below
+![Select VHD](./media/create-vm/vm-certification-issues-solutions-19.png)
+
+Your VHD will be added as data disk LUN 0 and please re-start the VM after adding the disk
 
 Step 5:  After re-starting the VM, Login into the VM using Putty and run “sudo  -i” command to gain root access.
-      ![Login after restart](./media/create-vm/vm-certification-issues-solutions-20.png)
+![Login after restart](./media/create-vm/vm-certification-issues-solutions-20.png)
 
 Step 6: Please excute the command echo '+1M,' | sfdisk --move-data /dev/sdc -N 1
       ![Execute command](./media/create-vm/vm-certification-issues-solutions-25.png)
