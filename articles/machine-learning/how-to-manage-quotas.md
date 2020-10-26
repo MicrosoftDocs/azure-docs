@@ -58,9 +58,9 @@ Limits for virtual machines cannot be raised above the value shown in the follow
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### Azure Machine Learning Compute
-[Azure Machine Learning Compute](concept-compute-target.md#azure-machine-learning-compute-managed) has a default quota limit on both the number of cores and number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota from the previous section.
+[Azure Machine Learning Compute](concept-compute-target.md#azure-machine-learning-compute-managed) has a default quota limit on both the number of cores (split by each VM Family and cumulative total cores) and number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota from the previous section as it applies only to the managed compute resources of AzureML.
 
-[Request a quota increase](#request-quota-increases) to raise the limits in this section up to the **Maximum limit** shown in the table.
+[Request a quota increase](#request-quota-increases) to raise the limits for various VM familiy core quotas, total subscription core quotas and resources in this section. Learn more about various 
 
 Available resources:
 + **Dedicated cores per region** have a default limit of 24 - 300 depending on your subscription offer type.  The number of dedicated cores per subscription can be increased for each VM family. Specialized VM families like NCv2, NCv3, or ND series start with a default of zero cores.
@@ -69,12 +69,19 @@ Available resources:
 
 + **Clusters per region** have a default limit of 200. These are shared between a training cluster and a compute instance (which is considered as a single node cluster for quota purposes).
 
-The following table shows additional limits that cannot be exceeded.
+> [!TIP]
+> To learn more about which VM family to request a quota increase for, check out [virtual machine sizes in Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). For instance GPU VM families start with an "N" in their family name (eg. NCv3 series)
 
-| **Resource** | **Maximum limit** |
+The following table shows additional limits in the platform. Please reach out to the AzureML product team through a **technical** support ticket to request an exception.
+
+| **Resource or Action** | **Maximum limit** |
 | --- | --- |
 | Workspaces per resource group | 800 |
-| Nodes in a single Azure Machine Learning Compute (AmlCompute) resource | 100 nodes |
+| Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** setup as a non communication-enabled pool (i.e. cannot run MPI jobs) | 100 nodes but configurable upto 65000 nodes |
+| Nodes in a single Parallel Run Step **run** on an Azure Machine Learning Compute (AmlCompute) cluster | 100 nodes but configurable upto 65000 nodes if your cluster is setup to scale per above |
+| Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** setup as a communication-enabled pool | 300 nodes but configurable upto 4000 nodes |
+| Nodes in a single Azure Machine Learning Compute (AmlCompute) **cluster** setup as a communication-enabled pool on an RDMA enabled VM Family | 100 nodes |
+| Nodes in a single MPI **run** on an Azure Machine Learning Compute (AmlCompute) cluster | 100 nodes but can be increased to 300 nodes |
 | GPU MPI processes per node | 1-4 |
 | GPU workers per node | 1-4 |
 | Job lifetime | 21 days<sup>1</sup> |
