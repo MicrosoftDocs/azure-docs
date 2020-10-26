@@ -1,6 +1,6 @@
 ---
 title: VM is unresponsive while waiting for the Local Session Manager
-description: This article provides steps to resolve issues where the OS is stuck waiting for the Local Session Manager to finish processing while booting an Azure VM.
+description: This article provides steps to resolve issues where the Guest OS is stuck waiting for the Local Session Manager to finish processing while booting an Azure VM.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mibufo
@@ -27,11 +27,11 @@ When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of
 
 ## Cause
 
-There could be multiple reasons a virtual machine is stuck waiting for the Local Session Manager. If this is a persistent issue, you'll need to collect a memory dump for analysis.
+There could be multiple reasons a virtual machine is stuck waiting for the Local Session Manager. If waiting for the Local Session Manager is a persistent issue, you'll need to collect a memory dump for analysis.
 
 ## Solution
 
-In some cases, simply waiting long enough for the process to complete will resolve your issue. If your VM has been hung on the screen for over an hour, you should then collect a memory dump and then contact Microsoft support.
+In some cases, simply waiting long enough for the process to complete will resolve your issue. If your VM is hung on the wait screen for over an hour, you should collect a memory dump and then contact Microsoft support.
 
 ### Collect the Memory Dump File
 
