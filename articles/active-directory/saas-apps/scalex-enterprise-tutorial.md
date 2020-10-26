@@ -146,11 +146,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	> [!NOTE]
 	> Contoso is just an example. This should be your actual Company Name.
 
-	![Configure single sign-on](./media/scalex-enterprise-tutorial/Test_Admin.png)
+	![Screenshot that shows an example company name selected from the menu in the upper-right.](./media/scalex-enterprise-tutorial/Test_Admin.png)
 
 1. Select **Integrations** from the top menu and select **single sign-on**.
 
-	![Configure single sign-on](./media/scalex-enterprise-tutorial/admin_sso.png) 
+	![Screenshot that shows "Integrations" selected, and "Single Sign-On" selected from the drop-down menu.](./media/scalex-enterprise-tutorial/admin_sso.png) 
 
 1. Complete the form as follows:
 
