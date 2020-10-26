@@ -49,7 +49,7 @@ Each example query is represented by a card. You can quickly scan through the qu
 
 All the same functionality of the dialog experience can be accessed from the queries pane on the left-hand sidebar of Log Analytics. You can hover over a query name to get the query description and additional functionality.
 
-![Sidebar](media/saved-queries/sidebar-3.png)
+![Screenshot that shows the queries pane.](media/saved-queries/sidebar-3.png)
 
 ## Finding and filtering queries
 

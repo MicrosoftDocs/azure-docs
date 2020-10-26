@@ -197,7 +197,11 @@ To limit the data that Microsoft collects on your workspace, select __High busin
 
 #### Use your own key
 
-You can provide your own key for data encryption. Doing so creates the Azure Cosmos DB instance that stores metrics and metadata in your Azure subscription. Use the following steps to provide your own key:
+You can provide your own key for data encryption. Doing so creates the Azure Cosmos DB instance that stores metrics and metadata in your Azure subscription.
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
+
+Use the following steps to provide your own key:
 
 > [!IMPORTANT]	
 > Before following these steps, you must first perform the following actions:	
