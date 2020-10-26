@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 09/23/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
 ---
 # Update Management overview
@@ -12,15 +12,18 @@ You can use Update Management in Azure Automation to manage operating system upd
 
 You can enable Update Management for VMs in the following ways:
 
-* From your [Azure Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines.
-* Manually for non-Azure machines, including machines or servers registered with [Azure Arc enabled servers](../../azure-arc/servers/overview.md) (preview).
-* For a single Azure VM from the Virtual machine page in the Azure portal. This scenario is available for [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
-* For [multiple Azure VMs](enable-from-portal.md) by selecting them from the Virtual machines page in the Azure portal.
+- From your [Azure Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines.
+
+- Manually for non-Azure machines, including machines or servers registered with [Azure Arc enabled servers](../../azure-arc/servers/overview.md).
+
+- For a single Azure VM from the [Virtual machine page](enable-from-vm.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
+
+- For [multiple Azure VMs](enable-from-portal.md) by selecting them from the Virtual machines page in the Azure portal.
 
 > [!NOTE]
 > Update Management requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](../how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
 
-An [Azure Resource Manager template](enable-from-template.md) is available to help you deploy Update Management to a new or existing Automation account and Log Analytics workspace in your subscription.
+An [Azure Resource Manager template](enable-from-template.md) is available to help you enable the Update Management feature in a new or existing Automation account and Log Analytics workspace in your subscription. It does not enable Azure or non-Azure VMs with the feature, that step is performed afterwards using one of the methods listed earlier.
 
 > [!NOTE]
 > You can't use a machine configured with Update Management to run custom scripts from Azure Automation. This machine can only run the Microsoft-signed update script.
@@ -100,7 +103,7 @@ The following information describes operating system-specific client requirement
 
 #### Windows
 
-Windows agents must be configured to communicate with a WSUS server, or they require access to Microsoft Update. For information about how to install the Log Analytics agent for Windows, see [Connect Windows computers to Azure Monitor](../../azure-monitor/platform/agent-windows.md).
+Windows agents must be configured to communicate with a WSUS server, or they require access to Microsoft Update. For information about how to install the Log Analytics agent for Windows, see [Connect Windows computers to Azure Monitor](../../azure-monitor/platform/agent-windows.md). For hybrid machines, we recommend installing the Log Analytics agent for Windows by first connecting your machine to [Azure Arc enabled servers](../../azure-arc/servers/overview.md), and then using Azure Policy to assign the [Deploy Log Analytics agent to Windows Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. If you also plan to monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
 You can use Update Management with Microsoft Endpoint Configuration Manager. To learn more about integration scenarios, see [Integrate Update Management with Windows Endpoint Configuration Manager](mecmintegration.md). The [Log Analytics agent for Windows](../../azure-monitor/platform/agent-windows.md) is required for Windows servers managed by sites in your Configuration Manager environment. 
 
@@ -116,7 +119,7 @@ For Linux, the machine requires access to an update repository, either private o
 > [!NOTE]
 > Update assessment of Linux machines is only supported in certain regions. See the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings).
 
-For information about how to install the Log Analytics agent for Linux and to download the latest version, see [Log Analytics agent for Linux](../../azure-monitor/platform/agent-linux.md).
+For information about how to install the Log Analytics agent for Linux and to download the latest version, see [Log Analytics agent for Linux](../../azure-monitor/platform/agent-linux.md). For hybrid machines, we recommend installing the Log Analytics agent for Windows by first connecting your machine to [Azure Arc enabled servers](../../azure-arc/servers/overview.md), and then using Azure Policy to assign the [Deploy Log Analytics agent to Linux Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. If you plan to also monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
 VMs created from the on-demand Red Hat Enterprise Linux (RHEL) images that are available in Azure Marketplace are registered to access the [Red Hat Update Infrastructure (RHUI)](../../virtual-machines/workloads/redhat/redhat-rhui.md) that's deployed in Azure. Any other Linux distribution must be updated from the distribution's online file repository by using methods supported by the distribution.
 
