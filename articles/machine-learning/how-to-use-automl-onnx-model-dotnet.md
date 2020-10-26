@@ -156,11 +156,11 @@ Once the data is processed, it produces an output of a certain format. Define yo
 public class OnnxOutput
 {
     [ColumnName("variable_out1")]
-    public float[] PredictedPrice { get; set; }
+    public float[] PredictedFare { get; set; }
 }
 ```
 
-Similar to `OnnxInput`, use the [`ColumnName`](xref:Microsoft.ML.Data.ColumnNameAttribute) attribute to map the `variable_out1` output to a more descriptive name `PredictedPrice`.
+Similar to `OnnxInput`, use the [`ColumnName`](xref:Microsoft.ML.Data.ColumnNameAttribute) attribute to map the `variable_out1` output to a more descriptive name `PredictedFare`.
 
 ## Define prediction pipeline
 
@@ -254,7 +254,7 @@ Now that you have a pipeline, it's time to use it to make predictions. ML.NET pr
 1. Output the result of your prediction to the console.
 
     ```csharp
-    Console.WriteLine($"Predicted Price: {prediction.PredictedPrice.First()}");
+    Console.WriteLine($"Predicted Price: {prediction.PredictedFare.First()}");
     ```
 
 1. Use the .NET Core CLI to run your application.
