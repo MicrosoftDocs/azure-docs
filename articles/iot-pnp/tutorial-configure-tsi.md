@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 
-# As a IoT solution builder, I want to see historize and analyze data from my IoT Plug and Play certified device by setting up and routing to Time Series Insights.
+# As a IoT solution builder, I want to historize and analyze data from my IoT Plug and Play devices by routing to Time Series Insights.
 ---
 
 # Tutorial: Create and Connect to Time Series Insights Gen2 to store, visualize, and analyze IoT Plug and Play device telemetry
@@ -116,7 +116,6 @@ Open your text editor of choice and save the JSON below to your local drive:
 In your Time Series Insights Explorer navigate to the Model tab by clicking on the model icon on the left. Click on **Types** and the click on **Upload JSON**:
 
 ![Upload](./media/tutorial-configure-tsi/upload-type.png)
-
 
 Select **Choose file**, select the JSON you saved previously, and click **Upload**
 
