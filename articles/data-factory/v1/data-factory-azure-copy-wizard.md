@@ -10,7 +10,7 @@ ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 10/26/2020
 ms.author: jingwang
 robots: noindex
 ---
@@ -31,8 +31,6 @@ This wizard allows you to easily move data from a wide variety of sources to des
 
 > [!NOTE]
 > For step-by-step instructions to create a sample pipeline to copy data from an Azure blob to an Azure SQL Database table, see the [Copy Wizard tutorial](data-factory-copy-data-wizard-tutorial.md).
->
->
 
 The wizard is designed with big data in mind from the start, with support for diverse data and object types. You can author Data Factory pipelines that move hundreds of folders, files, or tables. The wizard supports automatic data preview, schema capture and mapping, and data filtering.
 
@@ -46,7 +44,6 @@ The schema of input data may not match the schema of output data in some cases. 
 
 > [!TIP]
 > When copying data from SQL Server or Azure SQL Database into Azure Synapse Analytics (formerly SQL Data Warehouse), if the table does not exist in the destination store, Data Factory support auto table creation using source's schema. Learn more from [Move data to and from Azure Synapse Analytics using Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
->
 
 Use a drop-down list to select a column from the source schema to map to a column in the destination schema. The Copy Wizard tries to understand your pattern for column mapping. It applies the same pattern to the rest of the columns, so that you do not need to select each of the columns individually to complete the schema mapping. If you prefer, you can override these mappings by using the drop-down lists to map the columns one by one. The pattern becomes more accurate as you map more columns. The Copy Wizard constantly updates the pattern, and ultimately reaches the right pattern for the column mapping you want to achieve.     
 
@@ -90,6 +87,9 @@ A one-time copy operation enables data movement from a source to a destination o
 ## Troubleshooting
 
 This section explores common troubleshooting methods for Copy Wizard in Azure Data Factory.
+
+> [!NOTE] 
+> These troubleshooting tips apply to copy wizard in version 1 of Data Factory. For Data Factory v2, see troubleshooting guide at [Troubleshoot Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-ux-troubleshoot-guide).
 
 ### Error code: Unable to validate in Copy Wizard
 
