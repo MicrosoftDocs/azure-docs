@@ -1,5 +1,5 @@
 ---
-title: Overview of business continuity with Azure Database for MySQL Flexible Server
+title: Overview of business continuity - Azure Database for MySQL Flexible Server
 description: Learn about the concepts of business continuity with Azure Database for MySQL Flexible Server
 author: kummanish
 ms.author: manishku
@@ -17,7 +17,6 @@ Azure Database for MySQL Flexible Server enables business continuity capabilitie
 
 The table below illustrates the features that Flexible server offers.
 
-
 | **Feature** | **Description** | **Restrictions** |
 | ---------- | ----------- | ------------ |
 | **Backup & Recovery** | Flexible server automatically performs daily backups of your database files and continuously backs up transaction logs. Backups can be retained for any period between 1 to 35 days. You will be able to restore your database server to any point in time within your backup retention period. Recovery time will be dependent on the size of the data to restore + the time to perform log recovery. Refer to [Concepts - Backup and Restore](./concepts-backup-restore.md) for more details. |Backup data remains within the region |
@@ -29,17 +28,18 @@ The table below illustrates the features that Flexible server offers.
 > No uptime, RTO and RPO SLA are offered during preview period. Details provided in this page for your information and planning purposes only.
 
 ## Planned downtime mitigation
+
 Here are some planned maintenance scenarios that incur downtime:
 
 | **Scenario** | **Process**|
 | :------------ | :----------- |
 | **Compute scaling (User)**| When you perform compute scaling operation, a new flexible server is provisioned using the scaled compute configuration. In the existing database server, active checkpoints are allowed to complete, client connections are drained, any uncommitted transactions are canceled, and then it is shut down. The storage is then attached to the new server and the database is started which performs recovery if necessary before accepting client connections. |
-| **New software deployment (Azure)** | New features rollout or bug fixes automatically happen as part of service’s planned maintenance, and you can schedule when those activities to happen. For more information, see to the [documentation](https://aka.ms/servicehealthpm), and also check your [portal](https://aka.ms/servicehealthpm) |
-| **Minor version upgrades (Azure)** | Azure Database for MySQL automatically patches database servers to the minor version determined by Azure. It happens as part of service's planned maintenance. This would incur a short downtime in terms of seconds, and the database server is automatically restarted with the new minor version. For more information, see to the [documentation](https://docs.microsoft.com/azure/mysql/concepts-monitoring#planned-maintenance-notification), and also check your [portal](https://aka.ms/servicehealthpm).|
+| **New software deployment (Azure)** | New features rollout or bug fixes automatically happen as part of service's planned maintenance, and you can schedule when those activities to happen. For more information, see to the [documentation](https://aka.ms/servicehealthpm), and also check your [portal](https://aka.ms/servicehealthpm) |
+| **Minor version upgrades (Azure)** | Azure Database for MySQL automatically patches database servers to the minor version determined by Azure. It happens as part of service's planned maintenance. This would incur a short downtime in terms of seconds, and the database server is automatically restarted with the new minor version. For more information, see to the [documentation](../concepts-monitoring.md#planned-maintenance-notification), and also check your [portal](https://aka.ms/servicehealthpm).|
 
 When the flexible server is configured with **zone redundant high availability**, the flexible server performs operations on the standby server first and then on the primary server without a failover. Refer to [Concepts - High availability](./concepts-high-availability.md) for more details.
 
-##  Unplanned downtime mitigation
+## Unplanned downtime mitigation
 
 Unplanned downtimes can occur as a result of unforeseen failures, including underlying hardware fault, networking issues, and software bugs. If the database server goes down unexpectedly, if configured with high availability [HA], then the standby replica is activated. If not, then a new database server is automatically provisioned. While an unplanned downtime cannot be avoided, flexible server mitigates the downtime by automatically performing recovery operations at both database server and storage layers without requiring human intervention.
 
@@ -55,12 +55,10 @@ Here are some unplanned failure scenarios and the recovery process:
 | **Availability zone failure** | While it is a rare event, if you want to recover from a zone-level failure, you can perform point-in-time recovery using the backup and choosing custom restore point to get to the latest data. A new flexible server will be deployed in another zone. The time taken to restore depends on the previous backup and the number of transaction logs to recover. | Flexible server performs automatic failover to the standby site. Refer to [HA concepts page](./concepts-high-availability.md) for more details. |
 | **Region failure** | Cross-region replica and geo-restore features are not yet supported in preview. | |
 
-
 > [!IMPORTANT]
-> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. Use [Azure resource lock](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) to help prevent accidental deletion of your server.
-
+> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. Use [Azure resource lock](../../azure-resource-manager/management/lock-resources.md) to help prevent accidental deletion of your server.
 
 ## Next steps
 
--   Learn about [zone redundant high availability](./concepts-high-availability.md)
--   Learn about [backup and recovery](./concepts-backup-restore.md)
+- Learn about [zone redundant high availability](./concepts-high-availability.md)
+- Learn about [backup and recovery](./concepts-backup-restore.md)

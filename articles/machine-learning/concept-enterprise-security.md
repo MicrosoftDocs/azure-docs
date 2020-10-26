@@ -153,12 +153,7 @@ To enable provisioning a Cosmos DB instance in your subscription with customer-m
         > [!NOTE]
         > This key vault instance can be different than the key vault that is created by Azure Machine Learning when you provision the workspace. If you want to use the same key vault instance for the workspace, pass the same key vault while provisioning the workspace by using the [key_vault parameter](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-This Cosmos DB instance is created in a Microsoft-managed resource group in your subscription, along with any resources it needs. The managed resource group is named in the format `<AML Workspace Resource Group Name><GUID>`. If your Azure Machine Learning workspace uses a private endpoint, a virtual network is also created for the Cosmos DB instance. This VNet is used to secure communication between Cosmos DB and Azure Machine Learning.
-
-> [!IMPORTANT]
-> * Do not delete the resource group that contains this Cosmos DB instance, or any of the resources automatically created in this group. If you need to delete the resource group, Cosmos DB instance, etc., you must delete the Azure Machine Learning workspace that uses it. The resource group, Cosmos DB instance, and other automatically created resources are deleted when the associated workspace is deleted.
-> * The default [__Request Units__](../cosmos-db/request-units.md) for this Cosmos DB account is set at __8000__. Changing this value is unsupported.
-> * You cannot provide your own VNet for use with the Cosmos DB instance that is created. You also cannot modify the virtual network. For example, you cannot change the IP address range that it uses.
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 If you need to __rotate or revoke__ your key, you can do so at any time. When rotating a key, Cosmos DB will start using the new key (latest version) to encrypt data at rest. When revoking (disabling) a key, Cosmos DB takes care of failing requests. It usually takes an hour for the rotation or revocation to be effective.
 
@@ -178,6 +173,7 @@ To use your own (customer-managed) keys to encrypt your Azure Container Registry
 For an example of creating a workspace using an existing Azure Container Registry, see the following articles:
 
 * [Create a workspace for Azure Machine Learning with Azure CLI](how-to-manage-workspace-cli.md).
+* [Create a workspace with Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace).
 * [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md)
 
 #### Azure Container Instance

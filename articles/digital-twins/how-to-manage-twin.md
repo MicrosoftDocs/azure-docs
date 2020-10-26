@@ -387,6 +387,8 @@ For an example of how to delete all twins at once, download the sample app used 
 
 You can use the runnable code sample below to create a twin, update its details, and delete the twin. 
 
+### Set up the runnable sample
+
 The snippet uses the [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) model definition from [*Tutorial: Explore Azure Digital Twins with a sample client app*](tutorial-command-line-app.md). You can use this link to go directly to the file, or download it as part of the full end-to-end sample project [here](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
 
 Before you run the sample, do the following:
@@ -398,7 +400,12 @@ Before you run the sample, do the following:
     dotnet add package Azure.identity
     ```
 
-Then, run the sample.
+You'll also need to set up local credentials if you want to run the sample directly. The next section walks through this.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### Run the sample
+
+After completing the above steps, you can directly run the following sample code.
 
 ```csharp
 using System;
@@ -561,8 +568,6 @@ Here is the console output of the above program:
 ## Manage twins with CLI
 
 Twins can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## View all digital twins
 

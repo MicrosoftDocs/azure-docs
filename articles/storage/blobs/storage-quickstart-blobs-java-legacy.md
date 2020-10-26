@@ -8,7 +8,7 @@ ms.author: mhopkins
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: quickstart
 ---
 
 # Quickstart: Manage blobs with Java v8 SDK

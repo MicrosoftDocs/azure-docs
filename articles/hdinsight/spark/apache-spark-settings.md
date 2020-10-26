@@ -18,13 +18,13 @@ The default HDInsight Apache Spark cluster includes the following nodes: three A
 
 ![Spark HDInsight Architecture](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
-The number of VMs, and VM sizes, for the nodes in your HDInsight cluster can affect your Spark configuration. Non-default HDInsight configuration values often require non-default Spark configuration values. When you create an HDInsight Spark cluster, you're shown suggested VM sizes for each of the components. Currently the [Memory-optimized Linux VM sizes](../../virtual-machines/linux/sizes-memory.md) for Azure are D12 v2 or greater.
+The number of VMs, and VM sizes, for the nodes in your HDInsight cluster can affect your Spark configuration. Non-default HDInsight configuration values often require non-default Spark configuration values. When you create an HDInsight Spark cluster, you're shown suggested VM sizes for each of the components. Currently the [Memory-optimized Linux VM sizes](../../virtual-machines/sizes-memory.md) for Azure are D12 v2 or greater.
 
 ## Apache Spark versions
 
 Use the best Spark version for your cluster.  The HDInsight service includes several versions of both Spark and HDInsight itself.  Each version of Spark includes a set of default cluster settings.  
 
-When you create a new cluster, there are multiple Spark versions to choose from. To see the full list,  [HDInsight Components and Versions](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+When you create a new cluster, there are multiple Spark versions to choose from. To see the full list,  [HDInsight Components and Versions](../hdinsight-component-versioning.md).
 
 > [!NOTE]  
 > The default version of Apache Spark in the HDInsight service may change without notice. If you have a version dependency, Microsoft recommends that you specify that particular version when you create clusters using .NET SDK, Azure PowerShell, and Azure Classic CLI.
