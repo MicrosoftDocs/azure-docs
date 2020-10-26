@@ -48,3 +48,4 @@ After you switched organizations, all portal pages will reflect the organization
 
 > [!Note]
 > If you're signed in to an organization that isn't your home organization and then select **Password** on the My Account Overview page or other places where it appears, you are immediately switched back to your home organization. This is because the password you use to sign in to your home organization is used to sign you in to other organizations.
+> In the My Staff portal, if you switch to another organization, they'll only have access to My Staff if you are enabled for My Staff in that organization.
