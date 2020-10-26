@@ -11,13 +11,13 @@ ms.subservice: core
 ms.custom: how-to
 ---
 
-# Make predictions with an Automated ML (AutoML) ONNX model in .NET
+# Make predictions with an AutoML ONNX model in .NET
 
-In this article, you learn how to use an AutoML ONNX model to make predictions in a C# .NET Core console application with ML.NET.
+In this article, you learn how to use an Automated ML (AutoML) Open Neural Network Exchange (ONNX) model to make predictions in a C# .NET Core console application with ML.NET.
 
 [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/) is an open-source, cross-platform, machine learning framework for the .NET ecosystem that allows you to train and consume custom machine learning models using a code-first approach in C# or F# as well as through low-code tooling like [Model Builder](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-model-builder) and the [ML.NET CLI](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-cli). The framework is also extensible and allows you to leverage other popular machine learning frameworks like TensorFlow and ONNX.
 
-The Open Neural Network Exchange (ONNX) is an open-source format for AI models. ONNX supports interoperability between frameworks. This means you can train a model in one of the many popular machine learning frameworks like PyTorch, convert it into ONNX format, and consume the ONNX model in a different framework like ML.NET. To learn more, visit the [ONNX website](https://onnx.ai/).
+ONNX is an open-source format for AI models. ONNX supports interoperability between frameworks. This means you can train a model in one of the many popular machine learning frameworks like PyTorch, convert it into ONNX format, and consume the ONNX model in a different framework like ML.NET. To learn more, visit the [ONNX website](https://onnx.ai/).
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ In this sample, you use the .NET Core CLI to build your application but you can 
     dotnet add package Microsoft.ML.OnnxTransformer
     ```
 
-    These packages contain the dependencies required to use an ONNX model inside of a .NET application. ML.NET provides an API that leverages the [OnnxRuntime](https://github.com/Microsoft/onnxruntime) to make predictions.
+    These packages contain the dependencies required to use an ONNX model in a .NET application. ML.NET provides an API that uses the [OnnxRuntime](https://github.com/Microsoft/onnxruntime) for predictions.
 
 1. Open the *Program.cs* file and add the following `using` statements at the top to reference the appropriate packages.
 
@@ -181,11 +181,11 @@ A pipeline in ML.NET is typically a series of chained transformations that opera
     {
         "vendor_id", "rate_code", "passenger_count", "trip_time_in_secs", "trip_distance", "payment_type"
     };
-    
+
     var outputColumns = new string [] { "variable_out1" };
     ```
 
-1. Define your pipeline. An [`IEstimator`](xref:Microsoft.ML.IEstimator%601)provides a blueprint of the operations, input, and output schemas of your pipeline.
+1. Define your pipeline. An [`IEstimator`](xref:Microsoft.ML.IEstimator%601) provides a blueprint of the operations, input, and output schemas of your pipeline.
 
     ```csharp
     var onnxPredictionPipeline =
@@ -207,7 +207,7 @@ A pipeline in ML.NET is typically a series of chained transformations that opera
     return onnxPredictionPipeline.Fit(emptyDv);
     ```
 
-    The [`Fit`](xref:Microsoft.ML.IEstimator%601.Fit%2A) method expects an [`IDataView`](xref:Microsoft.ML.IDataView) as input to perform the operations on. An [`IDataView`](xref:Microsoft.ML.IDataView) is a way to represent data in ML.NET using a tabular format. Since in this case, since the pipeline is only used for making predictions, you can provide an empty [`IDataView`](xref:Microsoft.ML.IDataView) to give the [`ITransformer`](xref:Microsoft.ML.ITransformer) input and output schema information. The fitted [`ITransformer`](xref:Microsoft.ML.ITransformer) is then returned for further use in your application.
+    The [`Fit`](xref:Microsoft.ML.IEstimator%601.Fit%2A) method expects an [`IDataView`](xref:Microsoft.ML.IDataView) as input to perform the operations on. An [`IDataView`](xref:Microsoft.ML.IDataView) is a way to represent data in ML.NET using a tabular format. Since in this case the pipeline is only used for predictions, you can provide an empty [`IDataView`](xref:Microsoft.ML.IDataView) to give the [`ITransformer`](xref:Microsoft.ML.ITransformer) the necessary input and output schema information. The fitted [`ITransformer`](xref:Microsoft.ML.ITransformer) is then returned for further use in your application.
 
     > [!TIP]
     > In this sample, the pipeline is defined and used within the same application. However, it is recommended that you use separate applications to define and use your pipeline to make predictions. In ML.NET your pipelines can be serialized and saved for further use in other .NET end-user applications. ML.NET supports various deployment targets such as desktop applications, web services, WebAssembly applications*, and many more. To learn more about saving pipelines, see the [ML.NET save and load trained models guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net).
