@@ -47,7 +47,7 @@ You can check the version of your Azure CLI with this CLI command:
 az --version
 ```
 
-For instructions on how to install or update the Azure CLI, see [*Install the Azure CLI*](/cli/azure/install-azure-cli).
+For instructions on how to install or update the Azure CLI to a newer version, see [*Install the Azure CLI*](/cli/azure/install-azure-cli).
 
 ### Get the extension
 
