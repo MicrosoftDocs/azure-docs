@@ -23,7 +23,7 @@ The external deployment diagram shows the entire process and the actors involved
 
 - **Administrator(s):** Represents the admin or DevOps team, which manages Azure VMware Solution through the Azure portal and automation mechanisms like PowerShell or Azure DevOps.
 
-**Users:**  Represents the exposed APIs' consumers and represent both users and services consuming the APIs.
+- **Users:**  Represents the exposed APIs' consumers and represent both users and services consuming the APIs.
 
 The traffic flow goes through API Management instance, which abstracts the backend services, plugged into the Hub virtual network. The ExpressRoute Gateway routes the traffic to the ExpressRoute Global Reach channel and reaches an NSX Load Balancer distributing the incoming traffic to the different back-end services instances.
 
