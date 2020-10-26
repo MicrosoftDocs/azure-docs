@@ -68,11 +68,31 @@ To set the idle timeout and tcp reset, use the following parameters for [Set-AzL
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-Replace **myLoadBalancer**, **myResourceGroup**, and **myLBrule** with the names of your resources.
+Replace the following with the values from your resources:
+
+* **myResourceGroup**
+* **myLoadBalancer**
+* **myLBrule**
+* Port **80** for the backend and frontend port.
+
+> [!IMPORTANT]
+> The **Set-AzLoadBalancerRuleConfig** replaces all settings in the load-balancing rule. Make note of all of your settings and replace them in the command. In this example **-DisableOutboundSNAT** is set in the rule disabling outbound internet access for the backend pool. </br> For more information about outbound connections with load balancer, see **[Outbound proxy Azure Load Balancer](load-balancer-outbound-connections.md)**. </br> For more information about load balancer outbound rules, see **[Outbound rules Azure Load Balancer](outbound-rules.md)**
 
 ```azurepowershell
 $lb = Get-AzLoadBalancer -Name "myLoadBalancer" -ResourceGroup "myResourceGroup"
-$lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15 -EnableTcpReset
+$parameters = @{
+    Name = 'myLBrule'
+    FrontendIpConfiguration = $lb.FrontendIpConfigurations[0]
+    Probe = $lb.Probes[0]
+    BackendAddressPool = $lb.BackendAddressPools[0]
+    Protocol = 'Tcp'
+    FrontendPort ='80'
+    BackendPort = '80'
+    IdleTimeoutInMinutes = '15'
+}
+$lb | Set-AzLoadBalancerRuleConfig @parameters -EnableTcpReset -DisableOutboundSNAT
+$lb | Set-AzLoadBalancer
+
 ```
 
 # [**Azure CLI**](#tab/tcp-reset-idle-cli)
