@@ -37,4 +37,4 @@ You can submit Apache Hadoop jobs in Azure HDInsight by using the Microsoft .NET
 
 ## Next steps
 
-- [Azure HDInsight documentation](https://docs.microsoft.com/azure/hdinsight/)
+- [Azure HDInsight documentation](../index.yml)

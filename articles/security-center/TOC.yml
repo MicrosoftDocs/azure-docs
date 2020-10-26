@@ -15,9 +15,17 @@
       href: security-center-services.md
     - name: Feature coverage for Azure PaaS resources
       href: features-paas.md
-  - name: What's new in Security Center?
-    displayName: release notes
-    href: release-notes.md
+  - name: What's new?
+    items:
+    - name: Release notes
+      displayName: changelog
+      href: release-notes.md
+    - name: Important upcoming changes
+      displayName: release notes, changelog
+      href: upcoming-changes.md
+    - name: Archived release notes (older than six months)
+      displayName: changelog
+      href: release-notes-archive.md
   - name: Security Center fundamentals
     items:
     - name: Security Center's overview page
@@ -222,8 +230,13 @@
     - name: Customize the information protection policy
       href: security-center-info-protection-policy.md      
   - name: Use Azure Defender for container registries
-    displayName: ACR, registry, images
-    href: defender-for-container-registries-usage.md
+    items:
+    - name: Scan your registry images for vulnerabilities
+      displayName: ACR, registry, images, qualys
+      href: defender-for-container-registries-usage.md
+    - name: Disable specific image vulnerability findings
+      displayName: ACR, registry, images, qualys
+      href: defender-for-container-registries-usage.md#disable-specific-findings-preview
   - name: Export alerts and recommendations
     items:
     - name: Export to a SIEM, SOAR, or ITSM
@@ -278,8 +291,6 @@
       href: faq-vms.md      
     - name: Existing users of Azure Log Analytics
       href: faq-azure-monitor-logs.md      
-  - name: Archive of what's new in Security Center?
-    href: release-notes-archive.md
   - name: Azure roadmap blog
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Endpoint protection assessment and recommendations 
