@@ -69,7 +69,12 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
     cd quickstart
     ```
 
-2. Initialize an empty project with NPM by running `npm init`. Accept the default values, except for the License, which you should set to "MIT". 
+2. Initialize an empty project with NPM by running 
+
+    ```cmd
+    npm init
+    ```
+     Accept the default values, except for the License, which you should set to "MIT". 
 
 3. Install `@azure/search-documents`, the [Javascript/Typscript SDK for Azure Cognitive Search](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest).
 
@@ -362,7 +367,7 @@ In the next step, you'll add data to index.
 ## 2 - Load Documents 
 
 
-In Azure Cognitive Search, documents are data structures that are both inputs to indexing and outputs from queries. You can push such data to the index or use an [indexer](). In this case, we'll programatically push the documents to the index.
+In Azure Cognitive Search, documents are data structures that are both inputs to indexing and outputs from queries. You can push such data to the index or use an [indexer](search-indexer-overview.md). In this case, we'll programatically push the documents to the index.
 
 Document inputs might be rows in a database, blobs in Blob storage, or, as in this sample, JSON documents on disk. You can either download [hotels.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/v11/hotels.json) or create your own **hotels.json** file with the following content:
 
@@ -441,7 +446,7 @@ Document inputs might be rows in a database, blobs in Blob storage, or, as in th
 }
 ```
 
-Similarly to what we did with the indexDefinition, we also need to import `hotels.json` at the top of **index.js** so that the data can be accessed in our main function.
+Similar to what we did with the indexDefinition, we also need to import `hotels.json` at the top of **index.js** so that the data can be accessed in our main function.
 
 ```javascript
 const hotelData = require('./hotels.json');
@@ -493,7 +498,7 @@ sleep(1000);
 
 ## 3 - Search an index
 
-With an index created and documented uploaded, you're ready to send queries to the index. In this section, we'll send five different queries to the search index to demonstrate different pieces of query functionality available to you.
+With an index created and documents uploaded, you're ready to send queries to the index. In this section, we'll send five different queries to the search index to demonstrate different pieces of query functionality available to you.
 
 The queries are written in a `sendQueries()` function that we'll call in the main function as follows:
 
