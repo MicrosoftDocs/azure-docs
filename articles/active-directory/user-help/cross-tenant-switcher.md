@@ -14,7 +14,7 @@ ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
 ---
 
-Switching organizations in a portal
+# Switching organizations in a portal
 
 We're looking to add some documentation about switching between organizations (tenants) in our end user docs. We wanted to get your opinion on the best location to add the documentation.
 
@@ -42,6 +42,9 @@ For example, to switch to another organization in the **My Account** portal:
 
 If the organization you selected has additional security requirements, you might be prompted to provide an additional piece of security information.
 
-After you've switched organizations, the **My Account** pages will display your information for the organization you selected.
+## After switching
 
-If you're signed in to an organization that isn't your home organization and then select **Password** on the My Account Overview page or other places where it appears, you are immediately switched back to your home organization. This is because the password you use to sign in to your home organization is used to sign you in to other organizations.
+After you switched organizations, all portal pages will reflect the organization you selected.
+
+> [!Note]
+> If you're signed in to an organization that isn't your home organization and then select **Password** on the My Account Overview page or other places where it appears, you are immediately switched back to your home organization. This is because the password you use to sign in to your home organization is used to sign you in to other organizations.
