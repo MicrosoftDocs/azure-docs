@@ -276,11 +276,34 @@ Result of this query will return types and values formatted as JSON text:
 
 For querying Azure Cosmos DB accounts of Mongo DB API kind, you can learn more about the full fidelity schema representation in the analytical store and the extended property names to be used [here](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
 
+While querying full fidelity schema you need to explicitly specify SQL type and Cosmos DB property type in `WITH` clause:
+
+```sql
+SELECT geo_id, cases = SUM(cases)
+FROM OPENROWSET(
+      'CosmosDB',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string', cases INT '$.cases.int32') as rows
+GROUP BY geo_id
+```
+
+Note that that this query will reference only the `cases` with the specified type in the expression (`cases.int32`). If you have values with other types (`cases.int32`), you wouLD need to explicitly reference them in `WITH` clause and combine the results:
+
+```sql
+SELECT geo_id, cases = SUM(cases_int) + SUM(cases_bigint) + SUM(cases_float)
+FROM OPENROWSET(
+      'CosmosDB',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) WITH ( geo_id VARCHAR(50) '$.geo_id.string', cases_int INT '$.cases.int32', cases_bigint BIGINT '$.cases.int64', cases_float FLOAT '$.cases.float64') as rows
+GROUP BY geo_id
+```
 
 ## Known issues
 
 - Alias **MUST** be specified after `OPENROWSET` function (for example, `OPENROWSET (...) AS function_alias`). Omitting alias might cause connection issue and Synapse serverless SQL endpoint might be temporarily unavailable. This issue will be resolved in Nov 2020.
-- The query experience that serverless SQL pool provides for [Azure Cosmos DB full fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation) is temporary behavior that will be changed based on preview feedback. Do not rely on the schema that `OPENROWSET` function provides during public preview because the query experience might be aligned with well-defined schema. Contact [Synapse link product team](mailto:cosmosdbsynapselink@microsoft.com) to provide feedback.
+- The query experience that serverless SQL pool provides for [Azure Cosmos DB full fidelity schema](#full-fidelity-schema) is temporary behavior that will be changed based on preview feedback. Do not rely on the schema that `OPENROWSET` function provides during public preview because the query experience might be aligned with well-defined schema. Contact [Synapse link product team](mailto:cosmosdbsynapselink@microsoft.com) to provide feedback.
 
 Possible errors and troubleshooting actions are listed in the following table:
 
