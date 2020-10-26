@@ -5,7 +5,10 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 10/27/2020
 ms.topic: conceptual
-# Customer Intent: As a .NET developer, I want to use an Azure Machine Learning Auto ML ONNX model inside a .NET application to make predictions.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.custom: how-to
 ---
 
 # Make predictions with an Automated ML ONNX model in .NET
@@ -19,7 +22,7 @@ The Open Neural Network Exchange (ONNX) is an open source format for AI models. 
 ## Prerequisites
 
 - .NET Core SDK 3.1 or greater
-- Text Editor or IDE.
+- Text Editor or IDE (such as Visual Studio or Visual Studio Code)
 - ONNX Model. To learn how to train an Auto ML ONNX model, see the following [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
 - Netron (optional)
 
