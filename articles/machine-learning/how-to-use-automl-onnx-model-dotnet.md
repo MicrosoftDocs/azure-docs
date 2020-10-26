@@ -179,7 +179,7 @@ A pipeline in ML.NET is typically a series of chained transformations that opera
 1. Create a new method called `GetPredictionPipeline` inside the `Program` class
 
     ```csharp
-    public ITransformer GetPredictionPipeline(MLContext mlContext)
+    static ITransformer GetPredictionPipeline(MLContext mlContext)
     {
 
     }
@@ -264,7 +264,7 @@ Now that you have a pipeline, it's time to use it to make predictions. ML.NET pr
 1. Output the result of your prediction to the console.
 
     ```csharp
-    Console.WriteLine($"Predicted Price: {prediction.PredictedFare.First()}");
+    Console.WriteLine($"Predicted Fare: {prediction.PredictedFare.First()}");
     ```
 
 1. Use the .NET Core CLI to run your application.
@@ -276,7 +276,7 @@ Now that you have a pipeline, it's time to use it to make predictions. ML.NET pr
     The result should look as similar to the following output:
 
     ```text
-    Predicted Price: 15.621523
+    Predicted Fare: 15.621523
     ```
 
 To learn more about making predictions in ML.NET, see the [use a model to make predictions guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net).
