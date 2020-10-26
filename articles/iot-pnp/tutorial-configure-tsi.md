@@ -151,18 +151,44 @@ You should see the newly defined Thermostat Type.
 
 ### Optional - Create a hierarchy
 
+You can optionally create a hierarchy to organize the two thermostat components under their TemeraptureController parent.
+
+Click on *Hierarchies* and select *Add a hierarchy*. Enter `Device Fleet` as the name and create one level called `Device Name` and then click *Save*.
+
 ![Add a hierarchy](./media/tutorial-configure-tsi/add-hierarchy.png)
 
 ### Assign your instances to the correct type
 
+Next you'll change the Type of your instances and optionally situate them within the hierarchy
+
+Select the *Instances* tab and click on the *Edit* icon on the far right.
+
 ![Edit instances](./media/tutorial-configure-tsi/edit-instance.png)
+
+Click on the Type dropdown and select `Thermostat`. 
 
 ![Change instance type](./media/tutorial-configure-tsi/change-type.png)
 
+If you created a hierarchy, select *Instance fields* and check the `Device Fleet` box. Enter `Temperature Controller` as the Value of their parent device, and then click *Save*.
+
 ![Assign to hierarchy](./media/tutorial-configure-tsi/assign-to-hierarchy.png)
+
+Repeat the above steps for your second Thermostat.
+
+### View your data
+
+Navigate back to the charting pane and expand the Device Fleet and Temperatur Controller. Click on thermostat1, select the `Temperature` variable, and then click *Add* to chart the value. Do the same for thermostat2.
+
+![Change instance type](./media/tutorial-configure-tsi/charting-values.png)
 
 ## Next Steps
 
+* To learn more about the various charting options, including interval sizing and Y-axis controls, view the [Azure Time Series Insights Explorer
+](https://docs.microsoft.com/azure/time-series-insights/concepts-ux-panels) documentation.
+
+* For an indepth overview of your environment's Time Series Model see [this](https://docs.microsoft.com/azure/time-series-insights/concepts-model-overview) article.
+
+* To dive into the query APIs and the Time Series Expression syntax clik [here](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis).
 
 
 
