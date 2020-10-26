@@ -242,9 +242,15 @@ Now that you have a pipeline, it's time to use it to make predictions. ML.NET pr
     ```csharp
     Console.WriteLine($"Predicted Price: {prediction.PredictedPrice.First()}");
     ```
-    
+
+1. Use the .NET Core CLI to run your application.
+
+    ```dotnetcli
+    dotnet run
+    ```
+
     The result should look as similar to the following output:
-    
+
     ```text
     Predicted Price: 15.621523
     ```
