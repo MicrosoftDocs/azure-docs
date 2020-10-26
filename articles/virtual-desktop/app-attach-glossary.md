@@ -20,7 +20,7 @@ An MSIX container is where MSIX apps are run. To learn more, see [MSIX container
 
 ## MSIX application 
 
-An application stored in an MSIX file.
+An application stored in an .MSIX file.
 
 ## MSIX package 
 
@@ -30,11 +30,15 @@ An MSIX package is an MSIX file or application.
 
 An MSIX share is a network share that holds expanded MSIX packages. MSIX shares support SMB 3 or later. Applications get staged from this MSIX share without having to move application files to the system drive.
 
+## MSIX image
+
+An MSIX image is a VHD/VHDx or a CIM file that contains one or more MSIX packaged applications. Each applications is delivered in the MSIX image via the MSIXMGR tool.
+
 ## Repackage
 
 Repackaging takes a non-MSIX application and converts it into MSIX using the MSIX Packaging Tool (MPT). For more information, see [MSIX Packaging Tool overview](/windows/msix/packaging-tool/tool-overview).
 
-## Expand
+## Expanding a MSIX package
 
 Expanding MSIX package is a multi-step process. It takes the MSIX file and put its content into a VHD(x) or CIM file. 
 
@@ -58,11 +62,11 @@ Uploading an MSIX package involves uploading the VHD(x) or [CIM](#cim) that cont
 
 In Windows Virtual Desktop, uploads happen once per MSIX share. Once you upload a package, all host pools in the same subscription can reference it.
 
-## Publish an MSIX package
+## Add an MSIX package
 
-In Windows Virtual Desktop, publishing an MSIX package links it to a remote app or desktop.
+In Windows Virtual Desktop, adding an MSIX package links it to a host pool.
 
-## Assign an MSIX package 
+## Publish an MSIX package 
 
 In Windows Virtual Desktop, a published MSIX package must be assigned to an Active Directory Domain Service (AD DS) or Azure Active Directory (Azure AD) user or user group.
 
