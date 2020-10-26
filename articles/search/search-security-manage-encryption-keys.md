@@ -191,9 +191,13 @@ This example uses the REST API, with values for Azure Key Vault and Azure Active
 > [!Note]
 > None of these key vault details are considered secret and could be easily retrieved by browsing to the relevant Azure Key Vault key page in Azure portal.
 
-## REST example: Index encryption
+## REST examples
 
-The details of creating a new index via the REST API could be found at [Create Index (Azure Cognitive Search REST API)](/rest/api/searchservice/create-index), where the only difference here is specifying the encryption key details as part of the index definition:
+This section shows the full JSON for an encrypted index and synonym map
+
+### Index encryption
+
+The details of creating a new index via the REST API could be found at [Create Index (REST API)](/rest/api/searchservice/create-index), where the only difference here is specifying the encryption key details as part of the index definition:
 
 ```json
 {
@@ -224,9 +228,9 @@ The details of creating a new index via the REST API could be found at [Create I
 
 You can now send the index creation request, and then start using the index normally.
 
-## REST example: Synonym map encryption
+### Synonym map encryption
 
-The details of creating a new synonym map via the REST API can be found at [Create Synonym Map (Azure Cognitive Search REST API)](/rest/api/searchservice/create-synonym-map), where the only difference here is specifying the encryption key details as part of the synonym map definition: 
+The details of creating a new synonym map via the REST API can be found at [Create Synonym Map (REST API)](/rest/api/searchservice/create-synonym-map), where the only difference here is specifying the encryption key details as part of the synonym map definition: 
 
 ```json
 {   
@@ -249,13 +253,15 @@ The details of creating a new synonym map via the REST API can be found at [Crea
 You can now send the synonym map creation request, and then start using it normally.
 
 >[!Important]
-> While 1encryptionKey1 cannot be added to existing search indexes or synonym maps, it may be updated by providing different values for any of the three key vault details (for example, updating the key version). 
+> While `encryptionKey` cannot be added to existing search indexes or synonym maps, it may be updated by providing different values for any of the three key vault details (for example, updating the key version). 
 > When changing to a new Key Vault key or a new key version, any search index or synonym map that uses the key must first be updated to use the new key\version **before** deleting the previous key\version. 
 > Failing to do so will render the index or synonym map unusable, as it won't be able to decrypt the content once key access is lost. Although restoring Key vault access permissions at a later time will restore content access.
 
-## Simplified approach: Use a trusted search service without app registration
+## Simpler alternative: Trusted service
 
-If tenant configuration is less restrictive, you can substitute using a managed identity (or trusted search service), omitting the steps for application registration and application secrets.
+Depending on tenant configuration and authentication requirements, you might be able to implement a simpler approach for accessing a key vault key. Instead of creating and using an Active Directory application, you can make a search service a trusted service by enabling a system-managed identity for it. You would then use the trusted search service as a security principle, rather than an AD-registered application, to access the key vault key.
+
+This approach allows you to omit the steps for application registration and application secrets, and simplifies an encryption key definition to just the key vault components (URI, vault name, key version).
 
 In general, a managed identity enables your search service to authenticate to Azure Key Vault without storing credentials (ApplicationID or ApplicationSecret) in code. The lifecycle of this type of managed identity is tied to the lifecycle of your search service, which can only have one managed identity. For more information about how managed identities work, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
