@@ -20,7 +20,7 @@ For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transa
 In this article, you'll learn how to write a query with serverless SQL pool that will query data from Azure Cosmos DB containers that are Synapse Link enabled. You can then learn more about building serverless SQL pool views over Azure Cosmos DB containers and connecting them to Power BI models in [this](./tutorial-data-analyst.md) tutorial. 
 
 > [!IMPORTANT]
-> This tutorial uses container with [Azure Cosmos DB well-defined schema](../../cosmos-db/analytical-store-introduction.md#schema-representation) that provides query experience that will be supported uin future. The query experience that serverless SQL pool provides for [Azure Cosmos DB full fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation) is temporary behaviour that will be changed based on preview feedback. Do not rely on the schema that `OPENROWSET` function provides during public preview because the query experinece might be aligned with well-defined schema. Contact [Synapse link product team](mailto:cosmosdbsynapselink@microsoft.com) to provide feedback.
+> This tutorial uses container with [Azure Cosmos DB well-defined schema](../../cosmos-db/analytical-store-introduction.md#schema-representation) that provides query experience that will be supported uin future. The query experience that serverless SQL pool provides for [Azure Cosmos DB full fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation) is temporary behaviour that will be changed based on preview feedback. Do not rely on the schema that `OPENROWSET` function provides for full-fidelity containers during public preview because the query experinece might be aligned with well-defined schema. Contact [Synapse link product team](mailto:cosmosdbsynapselink@microsoft.com) to provide feedback.
 
 ## Overview
 
@@ -255,7 +255,27 @@ choose SQL types that match these JSON types if you are using `WITH` clause in `
 | Null | `any SQL type` 
 | Nested object or array | varchar(max) (UTF8 database collation), serialized as JSON text |
 
+## Full fidelity schema
+
+`OPENROWSET` function on a container with full-fidelity schema provides both type of the value and actual value in each row.
+```sql
+SELECT *
+FROM OPENROWSET(
+      'CosmosDB',
+      'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
+       EcdcCases
+    ) as rows
+```
+Result of this query will return types and values formatted as JSON text: 
+
+| date_rep | cases | geo_id |
+| --- | --- | --- |
+| {"string":"2020-08-13"} | {"int32":"254"} | {"string":"RS"} |
+| {"date":"2020-08-12"} | {"int64":"235"}| {"string":"RS"} |
+| {"string":"2020-08-13"} | {"int32":"316"} | {"string":"RS"} |
+
 For querying Azure Cosmos DB accounts of Mongo DB API kind, you can learn more about the full fidelity schema representation in the analytical store and the extended property names to be used [here](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
+
 
 ## Known issues
 
