@@ -260,7 +260,7 @@ For querying Azure Cosmos DB accounts of Mongo DB API kind, you can learn more a
 ## Known issues
 
 - Alias **MUST** be specified after `OPENROWSET` function (for example, `OPENROWSET (...) AS function_alias`). Omitting alias might cause connection issue and Synapse serverless SQL endpoint might be temporarily unavailable. This issue will be resolved in Nov 2020.
-- The query experience that serverless SQL pool provides for [Azure Cosmos DB full fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation) is temporary behaviour that will be changed based on preview feedback. Do not rely on the schema that `OPENROWSET` function provides during public preview because the query experinece might be aligned with well-defined schema. Contact [Synapse link product team](mailto:cosmosdbsynapselink@microsoft.com) to provide feedback.
+- The query experience that serverless SQL pool provides for [Azure Cosmos DB full fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation) is temporary behavior that will be changed based on preview feedback. Do not rely on the schema that `OPENROWSET` function provides during public preview because the query experience might be aligned with well-defined schema. Contact [Synapse link product team](mailto:cosmosdbsynapselink@microsoft.com) to provide feedback.
 
 Possible errors and troubleshooting actions are listed in the following table:
 
