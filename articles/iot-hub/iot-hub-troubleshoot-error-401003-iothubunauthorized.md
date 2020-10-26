@@ -20,7 +20,7 @@ This article describes the causes and solutions for **401003 IoTHubUnauthorized*
 
 ### Symptom 1
 
-In diagnostic logs, you see a pattern of devices disconnecting with **401003 IoTHubUnauthorized**, followed by **404104 DeviceConnectionClosedRemotely**, and then successfully connecting shortly after.
+In logs, you see a pattern of devices disconnecting with **401003 IoTHubUnauthorized**, followed by **404104 DeviceConnectionClosedRemotely**, and then successfully connecting shortly after.
 
 ### Symptom 2
 
