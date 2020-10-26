@@ -217,9 +217,9 @@ Update the relying party (RP) file that initiates the user journey that you crea
 5. Save your changes, upload the file, and then select the new policy in the list.
 6. Make sure that Azure AD B2C application that you created is selected in the **Select application** field, and then test it by clicking **Run now**.
 
-## Troubleshooting AD-FS service  
+## Troubleshooting AD FS service  
 
-AD-FS is configured to use the Windows application log. If you experience challenges setting up the ADFS as a SAML identity provider using custom policies in Azure AD B2C, you may want to check the AD-FS event log:
+AD FS is configured to use the Windows application log. If you experience challenges setting up the ADFS as a SAML identity provider using custom policies in Azure AD B2C, you may want to check the AD FS event log:
 
 1. On the Windows **Search bar**, type **Event Viewer**, and then select the **Event Viewer** desktop app.
 1. To view the log of a different computer, right-click **Event Viewer (local)**. Select **Connect to another computer**, and fill in the fields to complete the **Select Computer** dialog box.
@@ -229,11 +229,11 @@ AD-FS is configured to use the Windows application log. If you experience challe
 
 ### SAML request is not signed with expected signature algorithm event
 
-This error indicates that the SAML request sent by Azure AD B2C is not signed with expected signature algorithm configure in AD-FS. For example the SAML request is signed with signature algorithm `rsa-sha256`, while the expected signature algorithm is `rsa-sha1`. To fix this issue, make sure both Azure AD B2C and AD-FS configure with the same signature algorithm.
+This error indicates that the SAML request sent by Azure AD B2C is not signed with expected signature algorithm configure in AD FS. For example the SAML request is signed with signature algorithm `rsa-sha256`, while the expected signature algorithm is `rsa-sha1`. To fix this issue, make sure both Azure AD B2C and AD FS configure with the same signature algorithm.
 
-#### Option 1 - Set the Azure AD B2C 
+#### Option 1 - set the sign alg in AAD B2C 
 
-You can configure the Azure AD how to sign the SAML request. The [XmlSignatureAlgorithm](saml-identity-provider-technical-profile.md#metadata) metadata controls the value of the `SigAlg` parameter (query string or post parameter) in the SAML request. The following example configures Azure AD B2C to use the `rsa-sha256` signature algorithm.
+You can configure how to sign the SAML request in Azure AD B2C. The [XmlSignatureAlgorithm](saml-identity-provider-technical-profile.md#metadata) metadata controls the value of the `SigAlg` parameter (query string or post parameter) in the SAML request. The following example configures Azure AD B2C to use the `rsa-sha256` signature algorithm.
 
 ```xml
 <Metadata>
@@ -243,9 +243,9 @@ You can configure the Azure AD how to sign the SAML request. The [XmlSignatureAl
 </Metadata>
 ```
 
-#### Option 2 - Set the AD-FS 
+#### Option 2 - Set the AD FS 
 
-Alternatively, you can configure the expected the SAML request signature algorithm.
+Alternatively, you can configure the expected the SAML request signature algorithm in AD FS.
 
 1. In Server Manager, select **Tools**, and then select **ADFS Management**.
 1. Select the **Relying Party Trust** you created earlier.
