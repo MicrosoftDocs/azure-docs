@@ -4,7 +4,7 @@ description: Learn how to access graphs, trends, and values of aggregate data th
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 10/30/2020
 author: mingshen-ms
 ms.author: mingshen
 ---
@@ -20,25 +20,37 @@ To access the Summary dashboard, open the **[Analyze dashboard](https://partner.
 
 ## Summary dashboard
 
-The **Summary** dashboard presents an overview based on each offer type. **Insights** show critical information at a glance and provide a broad view of the sales activity of your offers. You can visualize these reports using the **Summary** dashboard. This article goes into more details on each of the following elements:
+The **Summary** dashboard presents an overview of the Azure Marketplace and AppSource offers’ business performance. The dashboard provides a broad overview of the following:
 
-- [Date range](#date-range)
-- [Summary section](#summary-section)
-- [Customers by geography](#customers-by-geography)
-- [Growth trend charts](#growth-trend-charts)
-- [Customer leaderboard](#customer-leaderboard)
-- [Seat count trend](#seat-count-trend)
-- [Free trials SaaS orders trend](#free-trials-saas-orders-trend)
+- Customers' orders
+- Customers
+- Customers' usage of the offers
+- Customers' page visits in Azure Marketplace and Microsoft AppSource
 
 ## Elements of the Summary dashboard
 
 The following sections describe how to use the summary dashboard and how to read the data.
 
-### Date range
+### Month range
 
-You can find a date range selection at the top-right corner of each page. Customize the output of the **Summary** page graphs by selecting a date range based on the past 3, 6, or 12 months, or by selecting a custom date range with a maximum duration of 12 months. The default date range is six months.
+You can find a month range selection at the top-right corner of each page. Customize the output of the **Summary** page graphs by selecting a month range based on the past 3, 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
-![Partner Center Analyze dashboard](./media/analyze-dashboard.png)
+:::image type="content" source="./media/data-and-analytics/analyze-dashboard.png" alt-text="Illustrates the monthly range options on the summary dashboard.":::
+
+> [!NOTE]
+> All metrics in the visualization widgets and export reports honor the computation period selected by the user.
+
+### Orders widget
+
+The **Orders widget** in the **Summary dashboard** displays the current orders for all of your SaaS offers. The Orders widget displays a count and trend of all purchased orders (excluding canceled orders) for the selected computation period. The percentage value below the Total Orders represents the amount of growth during the selected computation period.
+
+:::image type="content" source="./media/data-and-analytics/orders-widget.png" alt-text="Illustrates the Orders widget on the summary dashboard.":::
+
+You can also navigate to the Orders report by clicking on the “Orders dashboard” link in the bottom section of the widget.
+
+### Customers widget
+
+The **Customer** widget of the **Summary** dashboard displays the total number of customers who have acquired your offers for the selected computation period. The Customers widget displays a count and trend of total number of active (including new and existing) customers (excluding churned customers) for the selected computation period. The percentage value below the Total Customers represents the amount of growth during the selected computation period.
 
 ### Summary section
 
