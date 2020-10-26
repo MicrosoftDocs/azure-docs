@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/22/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -174,11 +174,11 @@ The following example demonstrates the use of a self-asserted technical profile 
 
 ### Output claims sign-up or sign-in page
 
-In a combined sign-up or sign-in page, using content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`:
+In a combined sign-up and sign-in page, note the following when using a content definition [DataUri](contentdefinitions.md#datauri) element the specifies a `unifiedssp` or `unifiedssd` page type:
 
-- Only username and password claims are rended
+- Only the username and password claims are rendered.
 - The first two output claims must be the username and the password (in this order). 
-- Any other claims are not rendered, and must be given `defaultValue`, or surface claims form validation technical profiles. 
+- Any other claims are not rendered; for these claims, you'll need to either set the `defaultValue` or invoke a claims form validation technical profile. 
 
 ## Persist claims
 
