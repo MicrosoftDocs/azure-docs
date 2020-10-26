@@ -36,7 +36,7 @@ API Management has an Azure Public API, and activating Azure DDOS Protection Ser
 
 An internal deployment publishes APIs consumed by internal users or systems. DevOps team and API developers use the same management tools and developer portal as in the external deployment.
 
-Internal deployments can be done [with Azure Application Gateway](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md) to create a public and secure endpoint for the API.  Using the gateway's capabilities to create a hybrid deployment that enables different scenarios.  
+Internal deployments can be done [with Azure Application Gateway](../api-management/api-management-howto-integrate-internal-vnet-appgateway.md) to create a public and secure endpoint for the API.  The gateway's capabilities are used to create a hybrid deployment that enables different scenarios.  
 
 * Use the same API Management resource for consumption by both internal and external consumers.
 
