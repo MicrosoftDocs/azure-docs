@@ -181,6 +181,8 @@
 
   - name: Reference
     items:
+    - name: Manage IoT Edge Role
+      href: azure-stack-edge-gpu-iot-edge-api-update.md
     - name: Azure PowerShell
       href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
     - name: REST API
