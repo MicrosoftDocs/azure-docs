@@ -10,17 +10,20 @@ ms.date: 10/04/2020
 ---
 
 # Overview of Log Analytics in Azure Monitor
-Log Analytics is a tool in the Azure portal used to edit and run log queries for analyzing data in Azure Monitor Logs. You can use tools in Log Analytics to analyze the results of log queries interactively or use it to write and test queries before using them in other places such as workbooks and log query alerts.
+Log Analytics is a tool in the Azure portal used to edit and run log queries with data in Azure Monitor Logs. You may write a simple query that returns a set of records and then use features of Log Analytics to sort, filter, and analyze them. Or you may write a more advanced query to perform statistical analysis and visualize the results in a chart to identify a particular trend. Whether you work with the results of your queries interactively or use them with other Azure Monitor features such as log query alerts or workbooks, Log Analytics is the tool that you're going to use write and test them. 
 
-## Tutorial
-See [Log Analytics tutorial](get-started-portal.md) to get started with a walk of through different features of Log Analytics.
+
+> [!TIP]
+> This article provides a description of Log Analytics and each of its features. If you want to jump right into a tutorial, see [Log Analytics tutorial](get-started-portal.md).
+
+
 
 ## Starting Log Analytics
-Start Log Analytics from **Logs** in the **Azure Monitor** menu in the Azure portal. You'll also see this option in the menu for most Azure resources. Regardless of where you start it from, it will be the same Log Analytics tool. The menu you use to start Log Analytics determines the data that will be available. If you start it from the **Azure Monitor** menu or the **Log Analytics workspaces** menu, you'll have access to all of the records in a workspace. If you select **Logs** from another type of resources, then your data will be limited to log data for that resource. See [Log query scope and time range in Azure Monitor Log Analytics](scope.md) for details.
+Start Log Analytics from **Logs** in the **Azure Monitor** menu in the Azure portal. You'll also see this option in the menu for most Azure resources. Regardless of where you start it from, it will be the same Log Analytics tool. The menu you use to start Log Analytics may determine the data that will be available though. If you start it from the **Azure Monitor** menu or the **Log Analytics workspaces** menu, you'll have access to all of the records in a workspace. If you select **Logs** from another type of resources, then your data will be limited to log data for that resource. See [Log query scope and time range in Azure Monitor Log Analytics](scope.md) for details.
 
 [![Start Log Analytics](media/log-analytics-overview/start-log-analytics.png)](media/log-analytics-overview/start-log-analytics.png#lightbox)
 
-When you start Log Analytics, the first thing you'll see is a dialog box with example queries. These are categorized by solution, and you can browse or search for queries that match your particular requirements. You may be able to find a that does exactly what you need or load on to the editor and modify it as required. Browsing through example queries is actually a great way to learn how to write your own queries. 
+When you start Log Analytics, the first thing you'll see is a dialog box with example queries. These are categorized by solution, and you can browse or search for queries that match your particular requirements. You may be able to find a that does exactly what you need, or load one to the editor and modify it as required. Browsing through example queries is actually a great way to learn how to write your own queries. 
 Of course if you want to start with an empty script and write it yourself, you can close the example queries. Just click the **Queries** at the top of the screen if you want to get them back.
 
 ## Log Analytics interface
