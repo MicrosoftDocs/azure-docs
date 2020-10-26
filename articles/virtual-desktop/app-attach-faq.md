@@ -33,7 +33,7 @@ Your software vendor will give you an MSIX package. You can also convert non-MSI
 
 ## Which operating systems support MSIX app attach?
 
-Windows 10 Enterprise and Windows 10 Enterprise Multi-session release 2004 or later.
+Windows 10 Enterprise and Windows 10 Enterprise Multi-session, version 2004 or later.
 
 ## Is MSIX app attach GA?
 
