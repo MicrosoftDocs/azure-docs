@@ -3,14 +3,14 @@ title: Use an Automated ML ONNX model in .NET
 description: Learn how to make make predictions using an Automated ML ONNX model in .NET with ML.NET
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 10/26/2020
+ms.date: 10/27/2020
 ms.topic: conceptual
 # Customer Intent: As a .NET developer, I want to use an Azure Machine Learning Auto ML ONNX model inside a .NET application to make predictions.
 ---
 
 # Make predictions with an Automated ML ONNX model in .NET
 
-In this article, you learn how to use an Automated ML ONNX model to make predictions in a .NET console application with ML.NET.
+In this article, you learn how to use an Automated ML ONNX model to make predictions in a C# .NET Core console application with ML.NET.
 
 [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/) is an open-source, cross-platform, machine learning framework for the .NET ecosystem that allows you to train and consume custom machine learning models using a code-first approach in C# or F# as well as through low-code tooling like [Model Builder](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-model-builder) and the [ML.NET CLI](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-cli). The framework is also extensible and allows you to leverage other popular machine learning frameworks like TensorFlow and ONNX.
 
@@ -54,6 +54,7 @@ These packages contain the dependencies required to use an ONNX model inside of 
 1. Open the *Program.cs* file and add the following `using` statements at the top to reference the appropriate packages.
 
 ```csharp
+using System.Linq;
 using Microsoft.ML;
 using Microsoft.ML.Data;
 using Microsoft.ML.Transforms.Onnx;
@@ -201,12 +202,12 @@ var onnxPredictionPipeline = GetPredictionPipeline(mlContext,ONNX_MODEL_PATH);
 
 ## Use the model to make predictions
 
-Now that you have a pipeline, it's time to use it to make predictions. ML.NET provides a convenience API for making single predictions called `PredictionEngine`.
+Now that you have a pipeline, it's time to use it to make predictions. ML.NET provides a convenience API for making predictions on a single data instance called `PredictionEngine`.
 
 Inside the `Main` method, create a `PredictionEngine` by using the `CreatePredictionEngine` method.
 
 ```csharp
-var predictionEngine = mlContext.Model.CreatePredictionEngine<OnnxInput, OnnxOutput>(onnxScoringPipeline);
+var onnxPredictionEngine = mlContext.Model.CreatePredictionEngine<OnnxInput, OnnxOutput>(onnxPredictionPipeline);
 ```
 
 Create a test data input.
@@ -223,16 +224,22 @@ var testInput = new OnnxInput
 };
 ```
 
-Use the `predictionEngine` to make predictions based on the new `testInput` data.
+Use the `predictionEngine` to make predictions based on the new `testInput` data using the `Predict` method.
 
 ```csharp
-var prediction = predictionEngine.Predict(testInput);
+var prediction = onnxPredictionEngine.Predict(testInput);
 ```
 
 Output the result of your prediction to the console.
 
 ```csharp
 Console.WriteLine($"Predicted Price: {prediction.PredictedPrice.First()}");
+```
+
+The result should look as similar to the following:
+
+```text
+Predicted Price: 15.621523
 ```
 
 To learn more about making predictions, see the [use a model to make predictions guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net).
