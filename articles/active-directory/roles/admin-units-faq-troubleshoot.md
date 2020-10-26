@@ -43,7 +43,9 @@ To prevent an elevation of privilege, an administrative unit-scoped administrato
 
 **Q: Why are administrative units necessary? Couldn't we have used security groups as the way to define a scope?**
 
-**A:** Security groups have an existing purpose and authorization model. A *User Administrator*, for example, can manage membership of all security groups in the Azure AD organization. The role might use groups to manage access to applications such as Salesforce. A *User Administrator* should not be able to manage the delegation model itself, which would be the result if security groups were extended to support "resource grouping" scenarios. Administrative units, such as organizational units in Windows Server Active Directory, are intended to provide a way to scope administration of a wide range of directory objects. Security groups themselves can be members of resource scopes. Using security groups to define the set of security groups that an administrator can manage could become confusing.
+**A:** Security groups have an existing purpose and authorization model. A *User Administrator*, for example, can manage membership of all security groups in the Azure AD organization. The role might use groups to manage access to applications such as Salesforce. A *User Administrator* should not be able to manage the delegation model itself, which would be the result if security groups were extended to support "resource grouping" scenarios. 
+
+Administrative units, such as organizational units in Windows Server Active Directory, are intended to provide a way to scope administration of a wide range of directory objects. Security groups themselves can be members of resource scopes. Using security groups to define the set of security groups that an administrator can manage could become confusing.
 
 **Q: What does it mean to add a group to an administrative unit?**
 
