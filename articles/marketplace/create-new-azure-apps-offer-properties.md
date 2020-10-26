@@ -79,4 +79,4 @@ You can choose to provide your own terms and conditions, instead of the standard
 
 ## Next steps
 
-- [How to configure your Azure Application offer listing details](create-new-azure-app-offer-listing.md)
+- [How to configure your Azure Application offer listing details](create-new-azure-apps-offer-listing.md)

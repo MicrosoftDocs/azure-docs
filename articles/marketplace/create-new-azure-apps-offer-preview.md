@@ -45,4 +45,4 @@ Add a minimum of one and up to 10 Azure subscription IDs, either individually (u
 
 ## Next steps
 
-- [How to add technical details for your Azure Application offer](create-new-azure-app-technical.md)
+- [How to add technical details for your Azure Application offer](create-new-azure-apps-offer-technical.md)
