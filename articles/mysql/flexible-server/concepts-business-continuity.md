@@ -35,7 +35,7 @@ Here are some planned maintenance scenarios that incur downtime:
 | :------------ | :----------- |
 | **Compute scaling (User)**| When you perform compute scaling operation, a new flexible server is provisioned using the scaled compute configuration. In the existing database server, active checkpoints are allowed to complete, client connections are drained, any uncommitted transactions are canceled, and then it is shut down. The storage is then attached to the new server and the database is started which performs recovery if necessary before accepting client connections. |
 | **New software deployment (Azure)** | New features rollout or bug fixes automatically happen as part of service’s planned maintenance, and you can schedule when those activities to happen. For more information, see to the [documentation](https://aka.ms/servicehealthpm), and also check your [portal](https://aka.ms/servicehealthpm) |
-| **Minor version upgrades (Azure)** | Azure Database for MySQL automatically patches database servers to the minor version determined by Azure. It happens as part of service's planned maintenance. This would incur a short downtime in terms of seconds, and the database server is automatically restarted with the new minor version. For more information, see to the [documentation](https://docs.microsoft.com/azure/mysql/concepts-monitoring#planned-maintenance-notification), and also check your [portal](https://aka.ms/servicehealthpm).|
+| **Minor version upgrades (Azure)** | Azure Database for MySQL automatically patches database servers to the minor version determined by Azure. It happens as part of service's planned maintenance. This would incur a short downtime in terms of seconds, and the database server is automatically restarted with the new minor version. For more information, see to the [documentation](../concepts-monitoring.md#planned-maintenance-notification), and also check your [portal](https://aka.ms/servicehealthpm).|
 
 When the flexible server is configured with **zone redundant high availability**, the flexible server performs operations on the standby server first and then on the primary server without a failover. Refer to [Concepts - High availability](./concepts-high-availability.md) for more details.
 
@@ -57,7 +57,7 @@ Here are some unplanned failure scenarios and the recovery process:
 
 
 > [!IMPORTANT]
-> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. Use [Azure resource lock](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) to help prevent accidental deletion of your server.
+> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. Use [Azure resource lock](../../azure-resource-manager/management/lock-resources.md) to help prevent accidental deletion of your server.
 
 
 ## Next steps

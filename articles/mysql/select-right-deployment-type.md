@@ -48,7 +48,7 @@ The main differences between these options are listed in the following table:
 | MySQL patching     | Automatic  | Automatic with custom maintenance window control | Managed by end users |
 | High availability | Built-in HA within single availability zone| Built-in HA within and across availability zones | Custom managed using clustering, replication etc|
 | Zone redundancy | Not supported | Supported | Supported|
-| Hybrid scenarios | Supported with [Data-in Replication](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)| Not available in preview | Managed by end users |
+| Hybrid scenarios | Supported with [Data-in Replication](./concepts-data-in-replication.md)| Not available in preview | Managed by end users |
 | Read replicas | Supported| Supported | Managed by end users |
 | Backup | Automated with 7-35 days retention | Automated with 1-35 days retention | Managed by end users |
 | Monitoring database operations | Supported | Supported | Managed by end users |
@@ -73,7 +73,7 @@ Cost reduction is often the primary consideration that determines the best solut
 
 Azure Database for MySQL is currently available as a service in several tiers with different prices for resources. All resources are billed hourly at a fixed rate. For the latest information on the currently supported service tiers, compute sizes, and storage amounts, see [pricing page](https://azure.microsoft.com/pricing/details/mysql/). You can dynamically adjust service tiers and compute sizes to match your application's varied throughput needs. You're billed for outgoing Internet traffic at regular [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-With Azure Database for MySQL, Microsoft automatically configures, patches, and upgrades the database software. These automated actions reduce your administration costs. Also, Azure Database for MySQL has [automated backups](https://docs.microsoft.com/azure/mysql/concepts-backup) capabilities. These capabilities help you achieve significant cost savings, especially when you have a large number of databases. In contrast, with MySQL on Azure VMs you can choose and run any MySQL version. No matter what MySQL version you use, you pay for the provisioned VM, storage cost associated with the data, backup, monitoring data and log storage and the costs for the specific MySQL license type used (if any).
+With Azure Database for MySQL, Microsoft automatically configures, patches, and upgrades the database software. These automated actions reduce your administration costs. Also, Azure Database for MySQL has [automated backups](./concepts-backup.md) capabilities. These capabilities help you achieve significant cost savings, especially when you have a large number of databases. In contrast, with MySQL on Azure VMs you can choose and run any MySQL version. No matter what MySQL version you use, you pay for the provisioned VM, storage cost associated with the data, backup, monitoring data and log storage and the costs for the specific MySQL license type used (if any).
 
 Azure Database for MySQL provides built-in high availability for any kind of node-level interruption while still maintaining the 99.99% SLA guarantee for the service. However, for database high availability within VMs, you use the high availability options like [MySQL replication](https://dev.mysql.com/doc/refman/8.0/en/replication.html) that are available on a MySQL database. Using a supported high availability option doesn't provide an additional SLA. But it does let you achieve greater than 99.99% database availability at additional cost and administrative overhead.
 
@@ -113,7 +113,7 @@ The following list describes administrative considerations for each option:
 
   Additionally, configuring high availability to another data center requires minimal to no configuration or administration.
 
-* With MySQL on Azure VMs, you have full control over the operating system and the MySQL server instance configuration. With a VM, you decide when to update or upgrade the operating system and database software and what patches to apply. You also decide when to install any additional software such as an antivirus application. Some automated features are provided to greatly simplify patching, backup, and high availability. You can control the size of the VM, the number of disks, and their storage configurations. For more information, see [Virtual machine and cloud service sizes for Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* With MySQL on Azure VMs, you have full control over the operating system and the MySQL server instance configuration. With a VM, you decide when to update or upgrade the operating system and database software and what patches to apply. You also decide when to install any additional software such as an antivirus application. Some automated features are provided to greatly simplify patching, backup, and high availability. You can control the size of the VM, the number of disks, and their storage configurations. For more information, see [Virtual machine and cloud service sizes for Azure](../virtual-machines/sizes.md).
 
 ### Time to move to Azure
 
@@ -126,4 +126,4 @@ Because there's no need to change the presentation, application, and data layers
 ## Next steps
 
 * See [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/MySQL/).
-* Get started by [creating your first server](https://docs.microsoft.com/azure/MySQL/quickstart-create-MySQL-server-database-using-azure-portal).
+* Get started by [creating your first server](./quickstart-create-mysql-server-database-using-azure-portal.md).

@@ -95,6 +95,8 @@
   items:
   - name: Manage Maps accounts
     items:
+    - name: Create account with ARM template
+      href: how-to-create-template.md
     - name: Manage accounts
       href: how-to-manage-account-keys.md
     - name: Manage authentication
