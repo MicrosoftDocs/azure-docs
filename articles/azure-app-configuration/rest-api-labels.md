@@ -108,7 +108,7 @@ If a reserved character is part of the value, then it must be escaped using `\{R
 
 ### Filter Validation
 
-In case of a filter validation error, the response is HTTP `400` with error details:
+If a filter validation error occurs, the response is HTTP `400` with error details:
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -147,7 +147,7 @@ Content-Type: application/problem+json; charset=utf-8
 
 ## Request specific fields
 
-Use the optional `$select` query string parameter and provide comma separated list of requested fields. If the `$select` parameter is omitted, the response contains the default set.
+Use the optional `$select` query string parameter and provide comma-separated list of requested fields. If the `$select` parameter is omitted, the response contains the default set.
 
 ```http
 GET /labels?$select=name&api-version={api-version} HTTP/1.1
