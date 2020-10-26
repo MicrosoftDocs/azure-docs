@@ -58,6 +58,7 @@ Build succeeded.
  0 Error(s)
 ...
 ```
+---
 
 ### Install the client library 
 
