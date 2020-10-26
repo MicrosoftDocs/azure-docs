@@ -18,9 +18,9 @@ ms.collection: M365-identity-device-management
 
 # Assign scoped roles to an administrative unit
 
-In Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units for more granular administrative control.
+In Azure Active Directory (Azure AD), for more granular administrative control, you can assign users to an Azure AD role with a scope that's limited to one or more administrative units.
 
-For steps to prepare to use PowerShell and Microsoft Graph for administrative unit management, see [Get started](admin-units-manage.md#get-started).
+To prepare to use PowerShell and Microsoft Graph for administrative unit management, see [Get started](admin-units-manage.md#get-started).
 
 ## Available roles
 
@@ -47,13 +47,13 @@ You can assign a scoped role by using the Azure portal, PowerShell, or Microsoft
 
 ### Use the Azure portal
 
-1. In the Azure portal, go to **Azure AD**, and then select **Administrative units**. 
+1. In the Azure portal, go to **Azure AD**.
 
-1. Select the administrative unit over which you want to assign the role to a user. 
+1. Select **Administrative units**, and then select the administrative unit that you want to assign a user role scope to. 
 
 1. On the left pane, select **Roles and administrators** to list all the available roles.
 
-   ![Select an administrative unit to change role scope](./media/admin-units-assign-roles/select-role-to-scope.png)
+   ![Screenshot of the "Role and administrators" pane for selecting an administrative unit whose role scope you want to assign.](./media/admin-units-assign-roles/select-role-to-scope.png)
 
 1. Select the role to be assigned, and then select **Add assignments**. 
 
@@ -62,7 +62,7 @@ You can assign a scoped role by using the Azure portal, PowerShell, or Microsoft
    ![Select the role to scope and then select Add assignments](./media/admin-units-assign-roles/select-add-assignment.png)
 
 > [!Note]
-> To assign a role on an administrative unit using Azure AD Privileged Identity Management(PIM), see [Assign Azure AD roles in PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
+> To assign a role on an administrative unit by using Azure AD Privileged Identity Management (PIM), see [Assign Azure AD roles in PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
 
 ### Use PowerShell
 
@@ -92,17 +92,17 @@ Request body
 }
 ```
 
-## List the scoped admins on an administrative unit
+## View a list of the scoped admins in an administrative unit
 
-You can list scoped admins by using the Azure portal, PowerShell, or Microsoft Graph.
+You can view a list of scoped admins by using the Azure portal, PowerShell, or Microsoft Graph.
 
 ### Use the Azure portal
 
-You can view all the role assignments done with an administrative unit scope in the [Administrative units section of Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
+You can view all the role assignments created with an administrative unit scope in the [Administrative units section of Azure AD](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 
-1. In the Azure portal, go to **Azure AD**, and then select **Administrative units**.
+1. In the Azure portal, go to **Azure AD**.
 
-1. Select the administrative unit for the role assignments you want to list. 
+1. In the left pane, select **Administrative units**, and then select the administrative unit for the list of role assignments you want to view. 
 
 1. Select **Roles and administrators**, and then open a role to view the assignments in the administrative unit.
 
@@ -113,7 +113,7 @@ $administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'T
 Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 ```
 
-You can change the highlighted section as required for the specific environment.
+You can change the highlighted section as required for your specific environment.
 
 ### Use Microsoft Graph
 
