@@ -70,7 +70,7 @@ For example:
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-The following is an example of a folder hierarchy. It's organized by pod name, then container, and then by directory hierarchy within the container.
+The following folder hierarchy is an example. It's organized by pod name, then container, and then by directory hierarchy within the container.
 
 ```output
 <export directory>
