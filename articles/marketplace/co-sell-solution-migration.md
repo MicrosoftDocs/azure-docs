@@ -13,7 +13,7 @@ ms.date: 10/30/2020
 
 ## Why is Microsoft moving publishing from OCP GTM to Partner Center?
 
-The commercial marketplace provides simplified offer publishing to co-sell through Microsoft's three channels. It does this by centralizing offer creation and management in Partner Center where you are managing your relationship with Microsoft. When you publish your offer in the commercial marketplace you benefit from: 
+The commercial marketplace provides simplified offer publishing to co-sell through Microsoft's three channels. As opposed to the One Commercial Partner Go-To-Market (OCP GTM) tool, it does this by centralizing offer creation and management in Partner Center where you are already managing your relationship with Microsoft. When you publish your offer in the commercial marketplace you benefit from: 
 
 - Co-selling with all three channels (direct customer, Microsoft partner, and Microsoft seller) with a single solution. 
 - The best Microsoft online store (AppSource or Azure Marketplace) is identified for you through the publishing experience for the direct channel.
