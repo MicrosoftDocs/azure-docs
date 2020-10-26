@@ -24,7 +24,7 @@ Sync-Token: <id>=<value>;sn=<sn>
 ```
 
 |Parameter|Description|
-| -- | -- |
+|--|--|
 | `<id>` | Token ID (opaque) |
 | `<value>` | Token value  (opaque). Allows base64 encoded string |
 | `<sn>` | Token sequence number (version). Higher means newer version of the same token. Allows for better concurrency and client caching. The client may choose to use only token's last version, since token versions are inclusive. Not required for requests. |
@@ -45,11 +45,11 @@ Any subsequent request is guaranteed **real-time** consistent response in relati
 Sync-Token: <id>=<value>
 ```
 
-If the `Sync-Token` header is omitted from the request, then it's possible for the service to respond with cached data during a short period of time (up to a few seconds), before it settles internally. This may cause inconsistent reads if changes have occurred immediately before reading.
+If the `Sync-Token` header is omitted from the request, then it's possible for the service to respond with cached data during a short period of time (up to a few seconds), before it settles internally. This behavior may cause inconsistent reads if changes have occurred immediately before reading.
 
-## Mutiple sync-tokens
+## Multiple sync-tokens
 
-The server MAY respond with multiple sync-tokens for a single request. To keep **real-time** consistency for the next request, the client MUST respond with all of the received sync-tokens. Per RFC, multiple header values must be comma separated.
+The server MAY respond with multiple sync-tokens for a single request. To keep **real-time** consistency for the next request, the client MUST respond with all of the received sync-tokens. Per RFC, multiple header values must be comma-separated.
 
 ```http
 Sync-Token: <token1-id>=<value>,<token2-id>=<value>

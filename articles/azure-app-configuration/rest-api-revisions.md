@@ -16,8 +16,8 @@ A **key-value revision** defines the historical representation of a key-value re
 
 - List
 
-For all operations ``key`` is an optional parameter. If ommited it implies **any** key.
-For all operations ``label`` is an optional parameter. If ommited it implies **any** label.
+For all operations, ``key`` is an optional parameter. If omitted, it implies **any** key.
+For all operations, ``label`` is an optional parameter. If omitted, it implies **any** label.
 
 ## Prerequisites
 
@@ -83,7 +83,7 @@ Link: <{relative uri}>; rel="next"
 
 ## List subset of revisions
 
-Use the `Range` request header. The response will contain a `Content-Range` header. If the server can't satisfy the requested range it will respond with HTTP `416` (RangeNotSatisfiable)
+Use the `Range` request header. The response will contain a `Content-Range` header. If the server can't satisfy the requested range, it will respond with HTTP `416` (RangeNotSatisfiable)
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -116,7 +116,7 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 |`key=abc*`|Matches keys names that start with **abc**|
 |`key=*abc`|Matches keys names that end with **abc**|
 |`key=*abc*`|Matches keys names that contain **abc**|
-|`key=abc,xyz`|Matche keys names **abc** or **xyz** (limited to 5 CSV)|
+|`key=abc,xyz`|Matches keys names **abc** or **xyz** (limited to 5 CSV)|
 
 |Label Filter|Effect|
 |--|--|
@@ -136,7 +136,7 @@ If a reserved character is part of the value, then it must be escaped using `\{R
 
 ### Filter Validation
 
-In case of a filter validation error, the response is HTTP `400` with error details:
+If a filter validation error occurs, the response is HTTP `400` with error details:
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -175,7 +175,7 @@ Content-Type: application/problem+json; charset=utf-8
 
 ## Request specific fields
 
-Use the optional `$select` query string parameter and provide comma separated list of requested fields. If the `$select` parameter is omitted, the response contains the default set.
+Use the optional `$select` query string parameter and provide comma-separated list of requested fields. If the `$select` parameter is omitted, the response contains the default set.
 
 ```http
 GET /revisions?$select=value,label,last_modified&api-version={api-version} HTTP/1.1

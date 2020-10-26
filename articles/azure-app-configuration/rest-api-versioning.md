@@ -12,9 +12,9 @@ ms.date: 08/17/2020
 
 api-version: 1.0
 
-Each client request must provide explicit API Version as query string parameter. For example:: `https://{myconfig}.azconfig.io/kv?api-version=1.0`
+Each client request must provide explicit API Version as query string parameter. For example: `https://{myconfig}.azconfig.io/kv?api-version=1.0`
 
-`api-version` is expressed in semver (major.minor) format. Range or version negotiation is not supported.
+`api-version` is expressed in SemVer (major.minor) format. Range or version negotiation isn't supported.
 
 ## Error response
 
@@ -22,7 +22,7 @@ The following outlines a summary of the possible error responses returned by the
 
 ### API Version Unspecified
 
-When a client makes a request without providing an API version.
+Occurs when a client makes a request without providing an API version.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -38,7 +38,7 @@ Content-Type: application/problem+json; charset=utf-8
 
 ### Unsupported API Version
 
-When a client requested API version does not match any of the supported API versions by the server.
+Occurs when a client requested API version does not match any of the supported API versions by the server.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -54,7 +54,7 @@ Content-Type: application/problem+json; charset=utf-8
 
 ### Invalid API Version
 
-When a client makes a request with an API version, but the value is malformed or cannot be parsed by the server.
+Occurs when a client makes a request with an API version, but the value is malformed or cannot be parsed by the server.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -70,7 +70,7 @@ Content-Type: application/problem+json; charset=utf-8
 
 ### Ambiguous API Version
 
-When a client requests API version that is ambiguous to the server. For example multiple different values.
+Occurs when a client requests API version that is ambiguous to the server. For example, multiple different values.
 
 ```http
 HTTP/1.1 400 Bad Request
