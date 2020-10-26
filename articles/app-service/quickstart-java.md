@@ -76,7 +76,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
 1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter or select an existing app.
-1. When prompted with **OS** option, select **windows** by entering `2`.
+1. When prompted with **OS** option, select **Windows** by entering `2`.
 1. When prompted with **Pricing Tier** option, select **B2** by entering `2`.
 1. Use the default Java version, **Java 8**, by pressing enter.
 1. Finally, press enter on the last prompt to confirm your selections.
@@ -108,7 +108,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
 1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter or select an existing app.
-1. When prompted with **OS** option, select **windows** by entering `2`.
+1. When prompted with **OS** option, select **Windows** by entering `2`.
 1. When prompted with **Pricing Tier** option, select **B2** by entering `2`.
 1. Use the default Java version, **Java 8**, by pressing enter.
 1. Use the default web container, **Tomcat 8.5**, by pressing enter.
@@ -175,7 +175,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
 
 1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
 1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter or select an existing app.
-1. When prompted with **OS** option, select **linux** by pressing enter.
+1. When prompted with **OS** option, select **Linux** by pressing enter.
 1. When prompted with **Pricing Tier** option, select **B2** by entering `2`.
 1. Use the default Java version, **Java 8**, by pressing enter.
 1. Use the default web container, **Tomcat 8.5**, by pressing enter.
@@ -214,7 +214,7 @@ Property | Required | Description | Version
 `<resourceGroup>` | true | Azure Resource Group for your Web App. | 0.1.0+
 `<appName>` | true | The name of your Web App. | 0.1.0+
 `<region>` | true | Specifies the region where your Web App will be hosted; the default value is **westeurope**. All valid regions at [Supported Regions](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) section. | 0.1.0+
-`<pricingTier>` | false | The pricing tier for your Web App. The default value is **P1V2**.| 0.1.0+
+`<pricingTier>` | false | The pricing tier for your Web App. The default value is **P1V2** for production workload, while **B2** is the recommended minimum for Java dev/test. [Learn more](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
 `<runtime>` | true | The runtime environment configuration, you could see the detail [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 `<deployment>` | true | The deployment configuration, you could see the details [here](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 
@@ -225,7 +225,7 @@ Be careful about the values of `<appName>` and `<resourceGroup>`(`helloworld-159
 
 ## Deploy the app
 
-The Maven plugin uses account credentials from the Azure CLI to deploy to App Services. [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing.
+The Maven plugin uses account credentials from the Azure CLI to deploy to App Services. [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli) before continuing.
 
 ```azurecli
 az login
