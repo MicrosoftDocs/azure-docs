@@ -38,7 +38,7 @@ The following diagram illustrates these concepts.
     * Volume 1 is assigned a quota of 20 TiB and has 13 TiB (12 TiB active, 1 TiB snapshots) of consumption.
     * Volume 2 is assigned a quota of 1 TiB and has 450 GiB of consumption.
     * Volume 3 is assigned a quota of 14 TiB but has 8.8 TiB (8 TiB active, 800 GiB snapshots) of consumption.   
-* The capacity pool is metered for 40 TiB of capacity (the provisioned amount). 22.25 TiB of capacity is consumed (13 TiB, 450 GiB and 8.8 TiB of quota from Volumes 1, 2 and 3). 
+* The capacity pool is metered for 40 TiB of capacity (the provisioned amount). 22.25 TiB of capacity is consumed (13 TiB, 450 GiB and 8.8 TiB of quota from Volumes 1, 2 and 3). The capacity pool has 17.75 TiB of capacity remaining.   
 
 ![Diagram showing capacity pool with three volumes.](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
 
