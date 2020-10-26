@@ -32,15 +32,15 @@ In this sample, you use the .NET CLI, but you can achieve the same tasks using V
 
 1. Open a terminal and create a new C# .NET Core console application.
 
-```dotnetcli
-dotnet new console -o AutoMLONNXConsoleApp
-```
+    ```dotnetcli
+    dotnet new console -o AutoMLONNXConsoleApp
+    ```
 
 1. In the terminal, navigate to the *AutoMLONNXConsoleApp* directory.
 
-```bash
-cd AutoMLONNXConsoleApp
-```
+    ```bash
+    cd AutoMLONNXConsoleApp
+    ```
 
 ## Add software package dependencies
 
@@ -190,7 +190,7 @@ var emptyDv = mlContext.Data.LoadFromEnumerable(new OnnxInput[] {});
 return onnxPredictionPipeline.Fit(emptyDv);
 ```
 
-The `Fit` method expects an `IDataView` as input to perform the operations on. An `IDataView` is a way to represent data in ML.NET using a tabular format. Since in this case, since the pipeline is only used for making predictions, you can provide an empty `IDataView` to give the `ITransformer` input and output schema information. The fitted `ITransformer` is then returned for further use in your application. 
+The `Fit` method expects an `IDataView` as input to perform the operations on. An `IDataView` is a way to represent data in ML.NET using a tabular format. Since in this case, since the pipeline is only used for making predictions, you can provide an empty `IDataView` to give the `ITransformer` input and output schema information. The fitted `ITransformer` is then returned for further use in your application.
 
 > [!TIP]
 > In this sample, the pipeline is defined and used within the same application. However, it is recommended that you use separate applications to define and use your pipeline to make predictions. In ML.NET your pipelines can be serialized and saved for further use in other .NET end-user applications. ML.NET supports various deployment targets such as desktop applications, web services, WebAssembly applications*, and many more. To learn more about saving pipelines, see the [ML.NET save and load trained models guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net).
