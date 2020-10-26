@@ -128,9 +128,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Sentry Sign on URL where you can initiate the login flow.  
+1. Click on **Test this application** in Azure portal. This will redirect to Sentry Sign on URL where you can initiate the login flow.  
 
-* Go to Sentry Sign-on URL directly and initiate the login flow from there.
+1. Go to Sentry Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
