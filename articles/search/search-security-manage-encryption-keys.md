@@ -8,7 +8,7 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 10/26/2020
 ms.custom: references_regions 
 ---
 
@@ -116,7 +116,7 @@ Skip this step if you already have a key in Azure Key Vault.
 
 1. Make a note of the Key Identifier – it's composed of the **key value Uri**, the **key name**, and the **key version**. You will need the identifier to define an encrypted index in Azure Cognitive Search.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="Create a new key vault key":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="Create a new key vault key":::
 
 ## 3 - App registration and credentials in Active Directory
 
@@ -269,7 +269,7 @@ You can now send the synonym map creation request, and then start using it norma
 > When changing to a new Key Vault key or a new key version, any search index or synonym map that uses the key must first be updated to use the new key\version **before** deleting the previous key\version. 
 > Failing to do so will render the index or synonym map unusable, as it won't be able to decrypt the content once key access is lost. Although restoring Key vault access permissions at a later time will restore content access.
 
-## Simplified: Use a trusted search service without app registration
+## Simplified approach: Use a trusted search service without app registration
 
 If tenant configuration is less restrictive, you can substitute using a trusted search service, omitting the steps for application registration and application secrets.
 
