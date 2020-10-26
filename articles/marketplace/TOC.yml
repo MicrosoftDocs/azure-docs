@@ -82,6 +82,7 @@
   - name: Enable offer authentication with Azure AD
     href: enable-appsource-marketplace-using-azure-ad.md
   - name: Azure application offers
+    items:
     - name: Plan Azure application offers
       items:
       - name: Plan an Azure application offer
@@ -90,7 +91,7 @@
         href: plan-azure-app-solution-template.md
       - name: Plan a managed application
         href: plan-azure-app-managed-app.md
-      - name: Create and publish an Azure application offer
+    - name: Create and publish an Azure application offer
       items:
       - name: Create an Azure application offer
         href: create-new-azure-apps-offer.md
