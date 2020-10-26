@@ -99,30 +99,32 @@ The model used in this sample uses data from the NYC TLC Taxi Trip dataset. A sa
 |VTS|1|1|480|2.72|CRD|10.0|
 |VTS|1|1|1680|7.8|CSH|26.5|
 
-1. Define your input data schema. Create a new class called `OnnxInput` with the following properties inside the *Program.cs* file.
+### Input data schema
 
-    ```csharp
-    public class OnnxInput
-    {
-        [ColumnName("vendor_id")]
-        public string VendorId { get; set; }
+Create a new class called `OnnxInput` with the following properties inside the *Program.cs* file.
 
-        [ColumnName("rate_code"),OnnxMapType(typeof(Int64),typeof(Single))]
-        public Int64 RateCode { get; set; }
+```csharp
+public class OnnxInput
+{
+    [ColumnName("vendor_id")]
+    public string VendorId { get; set; }
 
-        [ColumnName("passenger_count"), OnnxMapType(typeof(Int64), typeof(Single))]
-        public Int64 PassengerCount { get; set; }
+    [ColumnName("rate_code"),OnnxMapType(typeof(Int64),typeof(Single))]
+    public Int64 RateCode { get; set; }
 
-        [ColumnName("trip_time_in_secs"), OnnxMapType(typeof(Int64), typeof(Single))]
-        public Int64 TripTimeInSecs { get; set; }
+    [ColumnName("passenger_count"), OnnxMapType(typeof(Int64), typeof(Single))]
+    public Int64 PassengerCount { get; set; }
 
-        [ColumnName("trip_distance")]
-        public float TripDistance { get; set; }
+    [ColumnName("trip_time_in_secs"), OnnxMapType(typeof(Int64), typeof(Single))]
+    public Int64 TripTimeInSecs { get; set; }
 
-        [ColumnName("payment_type")]
-        public string PaymentType { get; set; }
-    }
-    ```
+    [ColumnName("trip_distance")]
+    public float TripDistance { get; set; }
+
+    [ColumnName("payment_type")]
+    public string PaymentType { get; set; }
+}
+```
 
 Each of the properties maps to a column in the dataset. The properties are further annotated with attributes.
 
@@ -132,7 +134,9 @@ For numerical values, ML.NET only operates on [`Single`](xref:System.Single) val
 
 To learn more about data attributes, see the [ML.NET load data guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/load-data-ml-net).
 
-1. Once the data is processed, it produces an output of a certain format. Define your data output schema. Create a new class called `OnnxOutput` with the following properties inside the *Program.cs* file.
+### Output data schema
+
+Once the data is processed, it produces an output of a certain format. Define your data output schema. Create a new class called `OnnxOutput` with the following properties inside the *Program.cs* file.
 
 ```csharp
 public class OnnxOutput
@@ -150,100 +154,100 @@ A pipeline in ML.NET is a series of chained transformations that operate on the 
 
 1. Create a new method called `GetPredictionPipeline` inside the `Program` class
 
-```csharp
-public ITransformer GetPredictionPipeline(MLContext mlContext)
-{
-
-}
-```
+    ```csharp
+    public ITransformer GetPredictionPipeline(MLContext mlContext)
+    {
+    
+    }
+    ```
 
 1. Define the name of the input and output columns. Add the following code inside the `GetPredictionPipeline` method.
 
-```csharp
-var inputColumns = new string []
-{
-    "vendor_id", "rate_code", "passenger_count", "trip_time_in_secs", "trip_distance", "payment_type"
-};
-
-var outputColumns = new string [] { "variable_out1" };
-```
+    ```csharp
+    var inputColumns = new string []
+    {
+        "vendor_id", "rate_code", "passenger_count", "trip_time_in_secs", "trip_distance", "payment_type"
+    };
+    
+    var outputColumns = new string [] { "variable_out1" };
+    ```
 
 1. Define your pipeline. An [`IEstimator`](xref:Microsoft.ML.IEstimator%601)provides a blueprint of the operations, input, and output schemas of your pipeline.
 
-```csharp
-var onnxPredictionPipeline =
-    mlContext
-        .Transforms
-        .ApplyOnnxModel(
-            outputColumnNames: outputColumns,
-            inputColumnNames: inputColumns,
-            onnxModelFilePath);
-```
+    ```csharp
+    var onnxPredictionPipeline =
+        mlContext
+            .Transforms
+            .ApplyOnnxModel(
+                outputColumnNames: outputColumns,
+                inputColumnNames: inputColumns,
+                onnxModelFilePath);
+    ```
 
-In this case, [`ApplyOnnxModel`](xref:Microsoft.ML.OnnxCatalog.ApplyOnnxModel%2A) is the only transform in the pipeline, which takes in the names of the input and output columns as well as the path to the ONNX model file.
+    In this case, [`ApplyOnnxModel`](xref:Microsoft.ML.OnnxCatalog.ApplyOnnxModel%2A) is the only transform in the pipeline, which takes in the names of the input and output columns as well as the path to the ONNX model file.
 
 1. An [`IEstimator`](xref:Microsoft.ML.IEstimator%601) only defines the set of operations to apply to your data. What operates on your data is known as an [`ITransformer`](xref:Microsoft.ML.ITransformer). Use the `Fit` method to create one from your `onnxPredictionPipeline`.
 
-```csharp
-var emptyDv = mlContext.Data.LoadFromEnumerable(new OnnxInput[] {});
+    ```csharp
+    var emptyDv = mlContext.Data.LoadFromEnumerable(new OnnxInput[] {});
 
-return onnxPredictionPipeline.Fit(emptyDv);
-```
+    return onnxPredictionPipeline.Fit(emptyDv);
+    ```
 
-The [`Fit`](xref:Microsoft.ML.IEstimator%601.Fit%2A) method expects an [`IDataView`](xref:Microsoft.ML.IDataView) as input to perform the operations on. An [`IDataView`](xref:Microsoft.ML.IDataView) is a way to represent data in ML.NET using a tabular format. Since in this case, since the pipeline is only used for making predictions, you can provide an empty [`IDataView`](xref:Microsoft.ML.IDataView) to give the [`ITransformer`](xref:Microsoft.ML.ITransformer) input and output schema information. The fitted [`ITransformer`](xref:xref:Microsoft.ML.ITransformer) is then returned for further use in your application.
+    The [`Fit`](xref:Microsoft.ML.IEstimator%601.Fit%2A) method expects an [`IDataView`](xref:Microsoft.ML.IDataView) as input to perform the operations on. An [`IDataView`](xref:Microsoft.ML.IDataView) is a way to represent data in ML.NET using a tabular format. Since in this case, since the pipeline is only used for making predictions, you can provide an empty [`IDataView`](xref:Microsoft.ML.IDataView) to give the [`ITransformer`](xref:Microsoft.ML.ITransformer) input and output schema information. The fitted [`ITransformer`](xref:xref:Microsoft.ML.ITransformer) is then returned for further use in your application.
 
-> [!TIP]
-> In this sample, the pipeline is defined and used within the same application. However, it is recommended that you use separate applications to define and use your pipeline to make predictions. In ML.NET your pipelines can be serialized and saved for further use in other .NET end-user applications. ML.NET supports various deployment targets such as desktop applications, web services, WebAssembly applications*, and many more. To learn more about saving pipelines, see the [ML.NET save and load trained models guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net).
->
-> *WebAssembly is only supported in .NET Core 5 or greater
+    > [!TIP]
+    > In this sample, the pipeline is defined and used within the same application. However, it is recommended that you use separate applications to define and use your pipeline to make predictions. In ML.NET your pipelines can be serialized and saved for further use in other .NET end-user applications. ML.NET supports various deployment targets such as desktop applications, web services, WebAssembly applications*, and many more. To learn more about saving pipelines, see the [ML.NET save and load trained models guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net).
+    >
+    > *WebAssembly is only supported in .NET Core 5 or greater
 
-Inside the `Main` method, call the `GetPredictionPipeline` method with the required parameters.
+1. Inside the `Main` method, call the `GetPredictionPipeline` method with the required parameters.
 
-```csharp
-var onnxPredictionPipeline = GetPredictionPipeline(mlContext,ONNX_MODEL_PATH);
-```
+    ```csharp
+    var onnxPredictionPipeline = GetPredictionPipeline(mlContext,ONNX_MODEL_PATH);
+    ```
 
 ## Use the model to make predictions
 
 Now that you have a pipeline, it's time to use it to make predictions. ML.NET provides a convenience API for making predictions on a single data instance called [`PredictionEngine`](xref:Microsoft.ML.PredictionEngine%602).
 
-Inside the `Main` method, create a [`PredictionEngine`](xref:Microsoft.ML.PredictionEngine%602) by using the [`CreatePredictionEngine`](xref:Microsoft.ML.ModelOperationsCatalog.CreatePredictionEngine%2A) method.
+1. Inside the `Main` method, create a [`PredictionEngine`](xref:Microsoft.ML.PredictionEngine%602) by using the [`CreatePredictionEngine`](xref:Microsoft.ML.ModelOperationsCatalog.CreatePredictionEngine%2A) method.
 
-```csharp
-var onnxPredictionEngine = mlContext.Model.CreatePredictionEngine<OnnxInput, OnnxOutput>(onnxPredictionPipeline);
-```
+    ```csharp
+    var onnxPredictionEngine = mlContext.Model.CreatePredictionEngine<OnnxInput, OnnxOutput>(onnxPredictionPipeline);
+    ```
 
-Create a test data input.
+1. Create a test data input.
 
-```csharp
-var testInput = new OnnxInput
-{
-    VendorId = "CMT",
-    RateCode = 1,
-    PassengerCount = 1,
-    TripTimeInSecs = 1271,
-    TripDistance = 3.8f,
-    PaymentType = "CRD"
-};
-```
+    ```csharp
+    var testInput = new OnnxInput
+    {
+        VendorId = "CMT",
+        RateCode = 1,
+        PassengerCount = 1,
+        TripTimeInSecs = 1271,
+        TripDistance = 3.8f,
+        PaymentType = "CRD"
+    };
+    ```
 
-Use the `predictionEngine` to make predictions based on the new `testInput` data using the [`Predict`](xref:Microsoft.ML.PredictionEngineBase%602.Predict%2A) method.
+1. Use the `predictionEngine` to make predictions based on the new `testInput` data using the [`Predict`](xref:Microsoft.ML.PredictionEngineBase%602.Predict%2A) method.
 
-```csharp
-var prediction = onnxPredictionEngine.Predict(testInput);
-```
+    ```csharp
+    var prediction = onnxPredictionEngine.Predict(testInput);
+    ```
 
-Output the result of your prediction to the console.
+1. Output the result of your prediction to the console.
 
-```csharp
-Console.WriteLine($"Predicted Price: {prediction.PredictedPrice.First()}");
-```
-
-The result should look as similar to the following output:
-
-```text
-Predicted Price: 15.621523
-```
+    ```csharp
+    Console.WriteLine($"Predicted Price: {prediction.PredictedPrice.First()}");
+    ```
+    
+    The result should look as similar to the following output:
+    
+    ```text
+    Predicted Price: 15.621523
+    ```
 
 To learn more about making predictions, see the [use a model to make predictions guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net).
 
