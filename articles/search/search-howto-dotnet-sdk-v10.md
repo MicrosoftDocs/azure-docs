@@ -12,11 +12,14 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
 ---
-# How to use Microsoft.Azure.Search in a C# .NET Application
+# How to use Microsoft.Azure.Search in a C# .NET application
 
-This article explains how to create and manage search objects using C# and the [Microsoft.Azure.Search client libraries](/dotnet/api/overview/azure/search/client10) in the Azure SDK for .NET. Version 10 is the last version of the Microsoft.Azure.Search package. Moving forward, new features will be rolled out in [Azure.Search.Documents](/dotnet/api/overview/azure/search.documents-readme) from the Azure SDK team.
+This article explains how to create and manage search objects using C# and the legacy client library, [**Microsoft.Azure.Search**](/dotnet/api/overview/azure/search/client10) (version 10) in the Azure SDK for .NET. 
 
-If you have existing or inflight development projects, continue to use version 10. For new projects, or to use new features, you should transition an existing search solution to the new library.
+Version 10 is the last version of the Microsoft.Azure.Search package. Moving forward, new features will be rolled out in [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) from the Azure SDK team.
+
+> [!NOTE]
+> If you have existing or inflight development projects, you can continue to use version 10. For new projects, or to use new features, you should transition to the [new library](/dotnet/api/overview/azure/search.documents-readme).
 
 ## About version 10
 

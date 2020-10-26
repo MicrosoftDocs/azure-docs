@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 ---
 # How to use Azure.Search.Documents in a C# .NET Application
 
-This article explains how to create and manage search objects using C# and the [Azure.Search.Documents (v11)](/dotnet/api/overview/azure/search) client library.
+This article explains how to create and manage search objects using C# and the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search) (version 11) client library.
 
 ## About version 11
 

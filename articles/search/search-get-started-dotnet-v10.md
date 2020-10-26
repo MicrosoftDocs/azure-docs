@@ -9,15 +9,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 10/27/2020
 ms.custom: devx-track-csharp
 
 ---
-# Quickstart: Create a search index using the Microsoft.Azure.Search v10 client library
+# Quickstart: Create a search index using the legacy Microsoft.Azure.Search v10 client library
 
-This article is the C# quickstart for the legacy Microsoft.Azure.Search (version 10) client library, now superseded by the Azure.Search.Documents (version 11) client library. If you have existing search solutions that uses the Microsoft.Azure.Search libraries, you can use this quickstart to learn about those APIs. 
+This article is the C# quickstart for the legacy [**Microsoft.Azure.Search**](/dotnet/api/overview/azure/search/client10) (version 10) client library, now superseded by the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) (version 11) client library.
 
-For new solutions, we recommend the new [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) client library and this [C# Quickstart](search-get-started-dotnet.md).
+> [!NOTE]
+> If you have existing or inflight development projects, you can continue to use version 10. But for new projects, or to use new features, you should transition to the [new library](/dotnet/api/overview/azure/search.documents-readme).
 
 ## About this quickstart
 
