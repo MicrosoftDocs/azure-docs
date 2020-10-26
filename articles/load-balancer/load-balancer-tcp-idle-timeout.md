@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2020
+ms.date: 10/26/2020
 ms.author: allensu
 ---
 
@@ -22,7 +22,7 @@ Azure Load Balancer has the following idle timeout range:
 4 minutes to 100 minutes for Outbound Rules
 4 minutes to 30 minutes for Load Balancer rules and Inbound NAT rules
 
-By default, it is set to 4 minutes. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained between the client and your service. 
+By default, it's set to 4 minutes. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained between the client and your service. 
 
 Learn more about [TCP idle timeout](load-balancer-tcp-reset.md).
 
@@ -39,17 +39,17 @@ To set the idle timeout and tcp reset for a load balancer, edit the load-balance
 
 2. In the left-hand menu, select **Resource groups**.
 
-3. Select the resource group for your load balancer. In this example the resource group is named **myResourceGroup**.
+3. Select the resource group for your load balancer. In this example, the resource group is named **myResourceGroup**.
 
-4. Select your load balancer. In this example the load balancer is named **myLoadBalancer**.
+4. Select your load balancer. In this example, the load balancer is named **myLoadBalancer**.
 
 5. In **Settings**, select **Load balancing rules**.
 
      :::image type="content" source="./media/load-balancer-tcp-idle-timeout/portal-lb-rules.png" alt-text="Edit load balancer rules." border="true":::
 
-6. Select your load balancing rule. In this example the load balancing rule is named **myLBrule**.
+6. Select your load-balancing rule. In this example, the load-balancing rule is named **myLBrule**.
 
-7. In the load balancing rule, move the slider in **Idle timeout (minutes)** to your desired timeout value.  
+7. In the load-balancing rule, move the slider in **Idle timeout (minutes)** to your timeout value.  
 
 8. Under **TCP reset**, select **Enabled**.
 
