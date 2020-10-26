@@ -286,6 +286,6 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 ## Next steps
 
-- [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/)
+- [Microsoft identity platform](/azure/active-directory/develop/)
 - [Manage access rights to storage data with Azure RBAC](storage-auth-aad-rbac.md)
 - [Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md)

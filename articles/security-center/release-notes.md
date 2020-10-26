@@ -21,8 +21,11 @@ Security Center is in active development and receives improvements on an ongoing
 
 This page is updated frequently, so revisit it often. 
 
+To learn about *planned* changes that are coming soon to Security Center, see [Important upcoming changes to Azure Security Center](upcoming-changes.md). 
+
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Azure Security Center](release-notes-archive.md).
+
 
 
 ## October 2020
@@ -666,7 +669,7 @@ Learn more about these two new recommendations in the [Compute and app recommend
 
 Learn more about how Azure Security Center uses the agent in [What is the Log Analytics agent?](faq-data-collection-agents.md#what-is-the-log-analytics-agent).
 
-Learn more about [extensions for Azure Arc machines](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal).
+Learn more about [extensions for Azure Arc machines](../azure-arc/servers/manage-vm-extensions.md).
 
 
 ### New policies to create continuous export and workflow automation configurations at scale

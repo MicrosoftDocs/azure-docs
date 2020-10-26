@@ -23,7 +23,7 @@ Enterprise Security is an optional package that you can add on your HDInsight cl
 
     * [Plan Azure domain-joined Apache Hadoop clusters in HDInsight](./domain-joined/apache-domain-joined-architecture.md)
 
-    * [Configure domain-joined sandbox environment](./domain-joined/apache-domain-joined-configure.md)
+    * [Configure domain-joined sandbox environment](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
     * [Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
