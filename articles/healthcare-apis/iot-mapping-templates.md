@@ -560,7 +560,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 Check out frequently asked questions on Azure IoT Connector for FHIR (preview).
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR FAQs](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[Azure IoT Connector for FHIR FAQs](fhir-faq.md)
 
 *In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
 

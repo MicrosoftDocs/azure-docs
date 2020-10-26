@@ -1,24 +1,20 @@
 ---
-title: Single sign-on with Application Proxy | Microsoft Docs
-description: Covers how to provide single sign-on using Azure AD Application Proxy.
+title: Kerberos-based single sign-on (SSO) in Azure Active Directory with Application Proxy
+description: Covers how to provide single sign-on using Azure Active Directory Application Proxy.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 08/13/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
+ms.custom: contperfq2
 ---
 
-# Kerberos Constrained Delegation for single sign-on to your apps with Application Proxy
+# Kerberos Constrained Delegation for single sign-on (SSO) to your apps with Application Proxy
 
 You can provide single sign-on for on-premises applications published through Application Proxy that are secured with Integrated Windows Authentication. These applications require a Kerberos ticket for access. Application Proxy uses Kerberos Constrained Delegation (KCD) to support these applications. 
 

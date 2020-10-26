@@ -33,13 +33,13 @@ When a node is rebooting, the cluster might become unhealthy, and jobs might slo
 
 Two steps are required to use the node reboot operation: list nodes and restart nodes.
 
-1. List nodes. You can get the cluster node list at [Get-AzHDInsightHost](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsighthost).
+1. List nodes. You can get the cluster node list at [Get-AzHDInsightHost](/powershell/module/az.hdinsight/get-azhdinsighthost).
 
       ```
       Get-AzHDInsightHost -ClusterName myclustername
       ```
 
-1. Restart hosts. After you get the names of the nodes that you want to reboot, restart the nodes by using [Restart-AzHDInsightHost](https://docs.microsoft.com/powershell/module/az.hdinsight/restart-azhdinsighthost).
+1. Restart hosts. After you get the names of the nodes that you want to reboot, restart the nodes by using [Restart-AzHDInsightHost](/powershell/module/az.hdinsight/restart-azhdinsighthost).
 
       ```
       Restart-AzHDInsightHost -ClusterName myclustername -Name wn0-myclus, wn1-myclus
@@ -49,13 +49,13 @@ Two steps are required to use the node reboot operation: list nodes and restart 
 
 You can use the **Try it** feature in the API doc to send requests to HDInsight. Two steps are required to use the node reboot operation: list nodes and restart nodes.
 
-1. List nodes. You can get the cluster node list from the REST API or in Ambari. For more information, see [HDInsight list hosts REST API operation](https://docs.microsoft.com/rest/api/hdinsight/virtualmachines/listhosts).
+1. List nodes. You can get the cluster node list from the REST API or in Ambari. For more information, see [HDInsight list hosts REST API operation](/rest/api/hdinsight/virtualmachines/listhosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/listHosts?api-version=2018-06-01-preview
     ```
 
-1. Restart hosts. After you get the names of the nodes that you want to reboot, restart the nodes by using the REST API to reboot the nodes. The node name follows the pattern of *NodeType(wn/hn/zk/gw)* + *x* + *first six characters of cluster name*. For more information, see [HDInsight restart hosts REST API operation](https://docs.microsoft.com/rest/api/hdinsight/virtualmachines/restarthosts).
+1. Restart hosts. After you get the names of the nodes that you want to reboot, restart the nodes by using the REST API to reboot the nodes. The node name follows the pattern of *NodeType(wn/hn/zk/gw)* + *x* + *first six characters of cluster name*. For more information, see [HDInsight restart hosts REST API operation](/rest/api/hdinsight/virtualmachines/restarthosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/restartHosts?api-version=2018-06-01-preview
@@ -72,6 +72,6 @@ The actual names of the nodes that you want to reboot are specified in a JSON ar
 
 ## Next steps
 
-* [Restart-AzHDInsightHost](https://docs.microsoft.com/powershell/module/az.hdinsight/restart-azhdinsighthost)
-* [HDInsight virtual machines REST API](https://docs.microsoft.com/rest/api/hdinsight/virtualmachines)
-* [HDInsight REST API](https://docs.microsoft.com/rest/api/hdinsight/)
+* [Restart-AzHDInsightHost](/powershell/module/az.hdinsight/restart-azhdinsighthost)
+* [HDInsight virtual machines REST API](/rest/api/hdinsight/virtualmachines)
+* [HDInsight REST API](/rest/api/hdinsight/)
