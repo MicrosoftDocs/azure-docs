@@ -24,7 +24,7 @@ The Open Neural Network Exchange (ONNX) is an open-source format for AI models. 
 - .NET Core SDK 3.1 or greater
 - Text Editor or IDE (such as Visual Studio or Visual Studio Code)
 - ONNX Model. To learn how to train an Auto ML ONNX model, see the following [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
-- Netron (optional)
+- [Netron](https://github.com/lutzroeder/netron) (optional)
 
 ## Create C# console application
 
@@ -46,22 +46,22 @@ In this sample, you use the .NET CLI, but you can achieve the same tasks using V
 
 1. Install the **Microsoft.ML**, **Microsoft.ML.OnnxRuntime**, and **Microsoft.ML.OnnxTransformer** NuGet packages using the .NET Core CLI.
 
-```bash
-dotnet add package Microsoft.ML
-dotnet add package Microsoft.ML.OnnxRuntime
-dotnet add package Microsoft.ML.OnnxTransformer
-```
+    ```dotnetcli
+    dotnet add package Microsoft.ML
+    dotnet add package Microsoft.ML.OnnxRuntime
+    dotnet add package Microsoft.ML.OnnxTransformer
+    ```
 
-These packages contain the dependencies required to use an ONNX model inside of a .NET application. ML.NET provides an API that leverages the OnnxRuntime to make predictions.
+    These packages contain the dependencies required to use an ONNX model inside of a .NET application. ML.NET provides an API that leverages the [OnnxRuntime](https://github.com/Microsoft/onnxruntime) to make predictions.
 
 1. Open the *Program.cs* file and add the following `using` statements at the top to reference the appropriate packages.
 
-```csharp
-using System.Linq;
-using Microsoft.ML;
-using Microsoft.ML.Data;
-using Microsoft.ML.Transforms.Onnx;
-```
+    ```csharp
+    using System.Linq;
+    using Microsoft.ML;
+    using Microsoft.ML.Data;
+    using Microsoft.ML.Transforms.Onnx;
+    ```
 
 ## Add reference to ONNX model
 
@@ -71,21 +71,21 @@ Add a reference to your ONNX model file in your application
 
 1. Open the *AutoMLONNXConsoleApp.csproj* file and add the following content inside the `Project` node.
 
-```xml
-<ItemGroup>
-    <None Include="automl-model.onnx">
-        <CopyToOutputDirectory>PreseveNewest</CopyToOutputDirectory>
-    </None>
-</ItemGroup>
-```
+    ```xml
+    <ItemGroup>
+        <None Include="automl-model.onnx">
+            <CopyToOutputDirectory>PreseveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+    ```
 
-In this case, the name of the ONNX model file is *automl-model.onnx*.
+    In this case, the name of the ONNX model file is *automl-model.onnx*.
 
 1. Open the *Program.cs* file and add the following line inside the `Program` class.
 
-```csharp
-static string ONNX_MODEL_PATH = "automl-model.onnx";
-```
+    ```csharp
+    static string ONNX_MODEL_PATH = "automl-model.onnx";
+    ```
 
 ## Define model data schema
 
@@ -101,36 +101,36 @@ The model used in this sample uses data from the NYC TLC Taxi Trip dataset. A sa
 
 1. Define your input data schema. Create a new class called `OnnxInput` with the following properties inside the *Program.cs* file.
 
-```csharp
-public class OnnxInput
-{
-    [ColumnName("vendor_id")]
-    public string VendorId { get; set; }
+    ```csharp
+    public class OnnxInput
+    {
+        [ColumnName("vendor_id")]
+        public string VendorId { get; set; }
 
-    [ColumnName("rate_code"),OnnxMapType(typeof(Int64),typeof(Single))]
-    public Int64 RateCode { get; set; }
+        [ColumnName("rate_code"),OnnxMapType(typeof(Int64),typeof(Single))]
+        public Int64 RateCode { get; set; }
 
-    [ColumnName("passenger_count"), OnnxMapType(typeof(Int64), typeof(Single))]
-    public Int64 PassengerCount { get; set; }
+        [ColumnName("passenger_count"), OnnxMapType(typeof(Int64), typeof(Single))]
+        public Int64 PassengerCount { get; set; }
 
-    [ColumnName("trip_time_in_secs"), OnnxMapType(typeof(Int64), typeof(Single))]
-    public Int64 TripTimeInSecs { get; set; }
+        [ColumnName("trip_time_in_secs"), OnnxMapType(typeof(Int64), typeof(Single))]
+        public Int64 TripTimeInSecs { get; set; }
 
-    [ColumnName("trip_distance")]
-    public float TripDistance { get; set; }
+        [ColumnName("trip_distance")]
+        public float TripDistance { get; set; }
 
-    [ColumnName("payment_type")]
-    public string PaymentType { get; set; }
-}
-```
+        [ColumnName("payment_type")]
+        public string PaymentType { get; set; }
+    }
+    ```
 
 Each of the properties maps to a column in the dataset. The properties are further annotated with attributes.
 
-The `ColumnName` attribute lets you specify how ML.NET should reference the column when operating on the data. For example, although the `TripDistance` property follows standard .NET naming conventions, the model only knows of a column or feature known as `trip_distance`. To address this naming discrepancy, the `ColumnName` attribute maps the `TripDistance` property to a column or feature by the name `trip_distance`.
+The [`ColumnName`](xref:Microsoft.ML.Data.ColumnNameAttribute) attribute lets you specify how ML.NET should reference the column when operating on the data. For example, although the `TripDistance` property follows standard .NET naming conventions, the model only knows of a column or feature known as `trip_distance`. To address this naming discrepancy, the [`ColumnName`](xref:Microsoft.ML.Data.ColumnNameAttribute) attribute maps the `TripDistance` property to a column or feature by the name `trip_distance`.
   
-For numerical values, ML.NET only operates on `Single` value types. However, the original data type of some of the columns are integers. The `OnnxMapType` attribute maps types between ONNX and ML.NET.
+For numerical values, ML.NET only operates on [`Single`](xref:System.Single) value types. However, the original data type of some of the columns are integers. The [`OnnxMapType`](xref:Microsoft.ML.Transforms.Onnx.OnnxMapTypeAttribute) attribute maps types between ONNX and ML.NET.
 
-To learn more about data attributes, see the following guide.
+To learn more about data attributes, see the [ML.NET load data guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/load-data-ml-net).
 
 1. Once the data is processed, it produces an output of a certain format. Define your data output schema. Create a new class called `OnnxOutput` with the following properties inside the *Program.cs* file.
 
@@ -142,7 +142,7 @@ public class OnnxOutput
 }
 ```
 
-Similar to `OnnxInput`, use the `ColumnName` attribute to map the `variable_out1` output to a more descriptive name `PredictedPrice`.
+Similar to `OnnxInput`, use the [`ColumnName`](xref:Microsoft.ML.Data.ColumnNameAttribute) attribute to map the `variable_out1` output to a more descriptive name `PredictedPrice`.
 
 ## Define prediction pipeline
 
@@ -160,7 +160,7 @@ public ITransformer GetPredictionPipeline(MLContext mlContext)
 1. Define the name of the input and output columns. Add the following code inside the `GetPredictionPipeline` method.
 
 ```csharp
-var inputColumns = new string [] 
+var inputColumns = new string []
 {
     "vendor_id", "rate_code", "passenger_count", "trip_time_in_secs", "trip_distance", "payment_type"
 };
@@ -168,7 +168,7 @@ var inputColumns = new string []
 var outputColumns = new string [] { "variable_out1" };
 ```
 
-1. Define your pipeline. An `IEstimator` provides a blueprint of the operations, input, and output schemas of your pipeline.
+1. Define your pipeline. An [`IEstimator`](xref:Microsoft.ML.IEstimator%601)provides a blueprint of the operations, input, and output schemas of your pipeline.
 
 ```csharp
 var onnxPredictionPipeline =
@@ -180,9 +180,9 @@ var onnxPredictionPipeline =
             onnxModelFilePath);
 ```
 
-In this case, `ApplyOnnxModel` is the only transform in the pipeline, which takes in the names of the input and output columns as well as the path to the ONNX model file. 
+In this case, [`ApplyOnnxModel`](xref:Microsoft.ML.OnnxCatalog.ApplyOnnxModel%2A) is the only transform in the pipeline, which takes in the names of the input and output columns as well as the path to the ONNX model file.
 
-1. An `IEstimator` only defines the set of operations to apply to your data. What operates on your data is known as an `ITransformer`. Use the `Fit` method to create one from your `onnxPredictionPipeline` `IEstimator`.
+1. An [`IEstimator`](xref:Microsoft.ML.IEstimator%601) only defines the set of operations to apply to your data. What operates on your data is known as an [`ITransformer`](xref:Microsoft.ML.ITransformer). Use the `Fit` method to create one from your `onnxPredictionPipeline`.
 
 ```csharp
 var emptyDv = mlContext.Data.LoadFromEnumerable(new OnnxInput[] {});
@@ -190,12 +190,12 @@ var emptyDv = mlContext.Data.LoadFromEnumerable(new OnnxInput[] {});
 return onnxPredictionPipeline.Fit(emptyDv);
 ```
 
-The `Fit` method expects an `IDataView` as input to perform the operations on. An `IDataView` is a way to represent data in ML.NET using a tabular format. Since in this case, since the pipeline is only used for making predictions, you can provide an empty `IDataView` to give the `ITransformer` input and output schema information. The fitted `ITransformer` is then returned for further use in your application.
+The [`Fit`](xref:Microsoft.ML.IEstimator%601.Fit%2A) method expects an [`IDataView`](xref:Microsoft.ML.IDataView) as input to perform the operations on. An [`IDataView`](xref:Microsoft.ML.IDataView) is a way to represent data in ML.NET using a tabular format. Since in this case, since the pipeline is only used for making predictions, you can provide an empty [`IDataView`](xref:Microsoft.ML.IDataView) to give the [`ITransformer`](xref:Microsoft.ML.ITransformer) input and output schema information. The fitted [`ITransformer`](xref:xref:Microsoft.ML.ITransformer) is then returned for further use in your application.
 
 > [!TIP]
 > In this sample, the pipeline is defined and used within the same application. However, it is recommended that you use separate applications to define and use your pipeline to make predictions. In ML.NET your pipelines can be serialized and saved for further use in other .NET end-user applications. ML.NET supports various deployment targets such as desktop applications, web services, WebAssembly applications*, and many more. To learn more about saving pipelines, see the [ML.NET save and load trained models guide](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net).
 >
-> *WebAssembly is only supported in .NET Core 5
+> *WebAssembly is only supported in .NET Core 5 or greater
 
 Inside the `Main` method, call the `GetPredictionPipeline` method with the required parameters.
 
@@ -205,9 +205,9 @@ var onnxPredictionPipeline = GetPredictionPipeline(mlContext,ONNX_MODEL_PATH);
 
 ## Use the model to make predictions
 
-Now that you have a pipeline, it's time to use it to make predictions. ML.NET provides a convenience API for making predictions on a single data instance called `PredictionEngine`.
+Now that you have a pipeline, it's time to use it to make predictions. ML.NET provides a convenience API for making predictions on a single data instance called [`PredictionEngine`](xref:Microsoft.ML.PredictionEngine%602).
 
-Inside the `Main` method, create a `PredictionEngine` by using the `CreatePredictionEngine` method.
+Inside the `Main` method, create a [`PredictionEngine`](xref:Microsoft.ML.PredictionEngine%602) by using the [`CreatePredictionEngine`](xref:Microsoft.ML.ModelOperationsCatalog.CreatePredictionEngine%2A) method.
 
 ```csharp
 var onnxPredictionEngine = mlContext.Model.CreatePredictionEngine<OnnxInput, OnnxOutput>(onnxPredictionPipeline);
@@ -227,7 +227,7 @@ var testInput = new OnnxInput
 };
 ```
 
-Use the `predictionEngine` to make predictions based on the new `testInput` data using the `Predict` method.
+Use the `predictionEngine` to make predictions based on the new `testInput` data using the [`Predict`](xref:Microsoft.ML.PredictionEngineBase%602.Predict%2A) method.
 
 ```csharp
 var prediction = onnxPredictionEngine.Predict(testInput);
