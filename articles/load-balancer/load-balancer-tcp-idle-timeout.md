@@ -97,7 +97,7 @@ $lb | Set-AzLoadBalancer
 
 # [**Azure CLI**](#tab/tcp-reset-idle-cli)
 
-To set the idle timeout and tcp reset, use the following parameters for [az network lb rule update](/cli/azure/network/lb/rule?view=azure-cli-latest#az_network_lb_rule_update):
+To set the idle timeout and tcp reset, use the following parameters for [az network lb rule update](/cli/azure/network/lb/rule?az_network_lb_rule_update):
 
 * **--idle-timeout**
 * **--enable-tcp-reset**
