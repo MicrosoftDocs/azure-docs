@@ -98,7 +98,7 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
 function fromFile() {
-    // wavByteContent should be an array or array-like structure of the raw wav byte content
+    // wavByteContent should be a byte array of the raw wav content
     let file = new File([wavByteContent]);
     let audioConfig = sdk.AudioConfig.fromWavFileInput(file);
     let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
@@ -143,6 +143,8 @@ fromFile();
 ```
 
 Using a push stream as input assumes that the file stream's position is set to the *start of the data*, skipping the headers. The API will still work in certain cases if the header has not been skipped, but for the best results consider implementing logic to read the headers and set the position to the start of the audio data.
+
+---
 
 ## Error handling
 
