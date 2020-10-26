@@ -1,6 +1,6 @@
 ---
-title: Use an Automated ML ONNX model in .NET
-description: Learn how to make predictions using an Automated ML ONNX model in .NET with ML.NET
+title: Make predictions with AutoML ONNX Model in .NET
+description: Learn how to make predictions using an Automated ML (AutoML) ONNX model in .NET with ML.NET
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 10/27/2020
@@ -11,9 +11,9 @@ ms.subservice: core
 ms.custom: how-to
 ---
 
-# Make predictions with an Automated ML ONNX model in .NET
+# Make predictions with an Automated ML (AutoML) ONNX model in .NET
 
-In this article, you learn how to use an Automated ML ONNX model to make predictions in a C# .NET Core console application with ML.NET.
+In this article, you learn how to use an AutoML ONNX model to make predictions in a C# .NET Core console application with ML.NET.
 
 [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/) is an open-source, cross-platform, machine learning framework for the .NET ecosystem that allows you to train and consume custom machine learning models using a code-first approach in C# or F# as well as through low-code tooling like [Model Builder](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-model-builder) and the [ML.NET CLI](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-cli). The framework is also extensible and allows you to leverage other popular machine learning frameworks like TensorFlow and ONNX.
 
@@ -21,14 +21,14 @@ The Open Neural Network Exchange (ONNX) is an open-source format for AI models. 
 
 ## Prerequisites
 
-- .NET Core SDK 3.1 or greater
-- Text Editor or IDE (such as Visual Studio or Visual Studio Code)
-- ONNX Model. To learn how to train an Auto ML ONNX model, see the following [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
+- [.NET Core SDK 3.1 or greater](https://dotnet.microsoft.com/download)
+- Text Editor or IDE (such as [Visual Studio](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/Download))
+- ONNX model. To learn how to train an Auto ML ONNX model, see the following [bank marketing classification notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
 - [Netron](https://github.com/lutzroeder/netron) (optional)
 
-## Create C# console application
+## Create a C# console application
 
-In this sample, you use the .NET CLI, but you can achieve the same tasks using Visual Studio. Learn more about the [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/).
+In this sample, you use the .NET Core CLI to build your application but you can do the same tasks using Visual Studio. Learn more about the [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/).
 
 1. Open a terminal and create a new C# .NET Core console application.
 
@@ -42,7 +42,7 @@ In this sample, you use the .NET CLI, but you can achieve the same tasks using V
     cd AutoMLONNXConsoleApp
     ```
 
-## Add software package dependencies
+## Add software packages
 
 1. Install the **Microsoft.ML**, **Microsoft.ML.OnnxRuntime**, and **Microsoft.ML.OnnxTransformer** NuGet packages using the .NET Core CLI.
 
@@ -63,7 +63,7 @@ In this sample, you use the .NET CLI, but you can achieve the same tasks using V
     using Microsoft.ML.Transforms.Onnx;
     ```
 
-## Add reference to ONNX model
+## Add a reference to the ONNX model
 
 A way for the console application to access the ONNX model is to add it to the build output directory.  To learn more about MSBuild common items, see the [MSBuild guide](https://docs.microsoft.com/visualstudio/msbuild/common-msbuild-project-items).
 
@@ -87,7 +87,7 @@ Add a reference to your ONNX model file in your application
     static string ONNX_MODEL_PATH = "automl-model.onnx";
     ```
 
-## Define model data schema
+## Define the model data schema
 
 Your model expects your input and output data in a specific format. ML.NET allows you to define the format of your data via classes. Sometimes you may already know what that format looks like. In cases when you don't know the data format, you can use tools like Netron to inspect your ONNX model.
 
@@ -99,7 +99,7 @@ The model used in this sample uses data from the NYC TLC Taxi Trip dataset. A sa
 |VTS|1|1|480|2.72|CRD|10.0|
 |VTS|1|1|1680|7.8|CSH|26.5|
 
-### Inspect model (optional)
+### Inspect the ONNX model (optional)
 
 Use tool like Netron to inspect your model metadata, inputs, and outputs. For example, the structure of the *automl-model.onnx* model looks like the following:
 
