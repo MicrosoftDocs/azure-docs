@@ -33,7 +33,7 @@ Requirements are summarized in the following table.
 **Auto tuning** | Not supported. | Workaround: Set auto tuning settings after the move. [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning-enable).
 **Database alerts** | Not supported. | Workaround: Set alerts after the move. [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-portal).
 **Azure SQL Server stretch database** | Not Supported | Can't move SQL server stretch databases with Resource Mover.
-**Azure Synapse Analytics** | Not Supported | Can’t move Synapse Analytics (formerly Azure SQL Data Warehouse) with Resource Mover.
+**Azure Synapse Analytics** | Not Supported | Can’t move Synapse Analytics (formerly SQL Data Warehouse) with Resource Mover.
 ## Next steps
 
 Try [Azure SQL resources](tutorial-move-region-sql.md) to another region with Resource Mover.
