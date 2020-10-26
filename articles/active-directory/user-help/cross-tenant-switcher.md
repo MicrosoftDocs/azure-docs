@@ -36,7 +36,7 @@ For example, to switch to another organization in the **My Account** portal:
 1. Sign in to your work or school account, and then open the [My Account](https://myaccount.microsoft.com) page.
 1. Select the organization switcher :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="The icon for the organization switcher"::: at the top of the page, next to your account photo.
 
-   :::image type="content" source="media/cross-tenant-switcher/switcher-location.png" alt-text="The menu of organizations you can switch to":::
+    :::image type="content" source="media/cross-tenant-switcher/switcher-location.png" alt-text="The menu of organizations you can switch to":::
 
 1. Select the organization to which you would like to switch. You'll automatically be switched to the organization you selected.
 
