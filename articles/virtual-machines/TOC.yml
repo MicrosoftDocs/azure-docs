@@ -105,7 +105,7 @@
   - name: Elasticsearch
     href: tutorial-elasticsearch.md
   - name: FreeBSD Packet Filter
-    href: freebsd-pf-nat.md
+    href: ./linux/freebsd-pf-nat.md
   - name: Databases
     items:
     - name: MySQL on SUSE
@@ -173,7 +173,11 @@
     - name: Deep dive on migration
       href: migration-classic-resource-manager-deep-dive.md
     - name: Plan for migration
-      href: migration-classic-resource-manager-plan.md
+      items:
+      - name: Linux
+        href: ./linux/migration-classic-resource-manager-plan.md
+      - name: Windows
+        href: ./windows/migration-classic-resource-manager-plan.md
     - name: Migrate using the CLI
       href: migration-classic-resource-manager-cli.md
     - name: Common migration errors
@@ -222,11 +226,13 @@
     - name: Azure SDKs
       href: ../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Linux Active Directory sign-in
-    href: login-using-aad.md
+    href: ./linux/login-using-aad.md
   - name: Updates and patches
     items:
     - name: Red Hat Update Infrastructure
       href: ../workloads/redhat/redhat-rhui.md
+  - name: Copy files to a VM
+    href: ./linux/copy-files-to-linux-vm-using-scp.md
   - name: VM sizes
     items: 
     - name: Overview
@@ -401,7 +407,7 @@
   - name: Dedicated hosts
     items: 
     - name: Overview
-      href: ../linux/dedicated-hosts.md
+      href: ./linux/dedicated-hosts.md
     - name: CLI
       href: dedicated-hosts-cli.md
     - name: Portal
@@ -564,6 +570,8 @@
       href: ./linux/image-builder-gallery.md
     - name: Update an existing image
       href: ./linux/image-builder-gallery-update-image-version.md
+    - name: Store scripts
+      href: ./linux/image-builder-user-assigned-identity.md
     - name: Troubleshoot
       href: ./linux/image-builder-troubleshoot.md
   - name: Find and use images
@@ -698,13 +706,13 @@
       - name: Windows
         href: ./windows/disk-encryption-sample-scripts.md
     - name: Disk encryption on an isolated network
-      href: disk-encryption-isolated-network.md
+      href: ./linux/disk-encryption-isolated-network.md
     - name: How to verify encryption status
-      href: how-to-verify-encryption-status.md
+      href: ./linux/how-to-verify-encryption-status.md
     - name: How to configure LVM RAID on crypt
       href: ./linux/how-to-configure-lvm-raid-on-crypt.md
-    - name: How to resize encrypted lvm volumes
-      href: how-to-resize-encrypted-lvm.md
+    - name: How to resize encrypted LVM volumes
+      href: ./linux/how-to-resize-encrypted-lvm.md
     - name: Disk encryption troubleshooting
       href: disk-encryption-troubleshooting.md
     - name: Disk encryption FAQ
@@ -718,7 +726,11 @@
         - name: Windows
           href: disk-encryption-overview-aad.md
       - name: Key vault for Azure Disk Encryption
-        href: disk-encryption-key-vault-aad.md
+        items:
+        - name: Linux
+          href: ./linux/disk-encryption-key-vault-aad.md
+        - name: Windows
+          href: ./windows/disk-encryption-key-vault-aad.md
       - name: Disk encryption scenarios for Linux
         href: ./linux/disk-encryption-linux-aad.md
   - name: Disk Storage reservations
@@ -734,7 +746,7 @@
   - name: Disk bursting
     href: ./linux/disk-bursting.md
   - name: Scalability targets for disks
-    href: disk-scalability-targets.md
+    href: ./linux/disk-scalability-targets.md
   - name: Backup and disaster recovery for disks
     href: backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: Shared disks
@@ -781,15 +793,15 @@
     - name: Securely import/export a disk
       items: 
       - name: CLI
-        href: disks-export-import-private-links-cli.md
+        href: ./linux/disks-export-import-private-links-cli.md
       - name: Portal
         href: disks-enable-private-links-for-import-export-portal.md
     - name: Resize a disk
       items: 
       - name: Linux 
-        href: expand-disks.md
+        href: ./linux/expand-disks.md
       - name: Windows
-        href: expand-os-disk.md
+        href: ./windows/expand-os-disk.md
     - name: Use Storage Explorer to manage disks
       href: disks-use-storage-explorer-managed-disks.md
     - name: Snapshot a disk
@@ -807,7 +819,7 @@
       - name: PowerShell
         href: ./windows/disks-incremental-snapshots.md
       - name: Portal
-        href: ./windows/disks-incremental-snapshots-portal.md
+        href: ./linux/disks-incremental-snapshots-portal.md
     - name: Encryption
       items:
       - name: Enable encryption at host
@@ -881,7 +893,14 @@
   - name: Create virtual network
     href: ../virtual-network/quick-create-cli.md
   - name: Open ports to a VM
-    href: nsg-quickstart.md
+    items:
+    - name: CLI
+      href: ./linx/nsg-quickstart.md
+    - name: PowerShell
+      href: ./windows/nsg-quickstart-powershell.md
+    - name: Portal
+      href: ./windows/nsg-quickstart-portal.md
+    
   - name: Assign public IP address
     href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md
   - name: Use multiple NICs
@@ -939,18 +958,22 @@
     - name: Use policies
       href: policy.md
     - name: Create a Key Vault
-      href: key-vault-setup.md
+      items: 
+      - name: CLI
+        href: ./linux/key-vault-setup.md
+      - name: PowerShell 
+        href: ./windows/key-vault-setup.md
     - name: Create and use SSH keys
       displayName: ssh keys ssh openssh
       items:
       - name: On Linux or macOS
-        href: ../linux/mac-create-ssh-keys.md
+        href: ./linux/mac-create-ssh-keys.md
       - name: On Windows
-        href: ../linux/ssh-from-windows.md
+        href: ./linux/ssh-from-windows.md
       - name: In the portal
         href: ssh-keys-portal.md
       - name: Detailed steps
-        href: ../linux/create-ssh-keys-detailed.md   
+        href: ./linux/create-ssh-keys-detailed.md   
   - name: Mitigating speculative execution
     href: mitigate-se.md
 - name: Monitoring
@@ -1307,6 +1330,10 @@
     - name: Windows VMs using classic deployment
       href: /previous-versions/azure/virtual-machines/windows/classic/
   - name: FAQ
-    href: faq.md
+    items:
+    - name: Linux
+      href: ./linux/faq.md
+    - name: Windows
+      href: ./windows/faq.md
   - name: Troubleshoot
     href: ../troubleshooting/index.yml
