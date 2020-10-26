@@ -187,10 +187,7 @@ To configure Azure AD single sign-on with Zscaler Two, perform the following ste
 
 6. On the **Configure User Authentication** dialog page, perform the following steps:
 
-    ![
-Alt text 'Administration' 	190
-Screenshot shows the Configure User Authentication dialog box with Activate selected.
-](./media/zscaler-two-tutorial/ic800207.png)
+    ![Screenshot shows the Configure User Authentication dialog box with Activate selected.](./media/zscaler-two-tutorial/ic800207.png)
 
 	a. Hover over the **Activation** menu near the bottom left.
 
