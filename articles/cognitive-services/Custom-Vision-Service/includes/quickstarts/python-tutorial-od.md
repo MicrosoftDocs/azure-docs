@@ -84,11 +84,14 @@ These code snippets show you how to do the following with the Custom Vision clie
 
 Instantiate a training and prediction client with your endpoint and keys. Create **ApiKeyServiceClientCredentials** objects with your keys, and use them with your endpoint to create a [CustomVisionTrainingClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) and [CustomVisionPredictionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python) object.
 
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_auth)]
+
+
 ## Create a new Custom Vision project
 
 Add the following code to your script to create a new Custom Vision service project. 
 
-See the **[create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** method to specify other options when you create your project (explained in the [Build a detector](../../get-started-build-detector.md) web portal guide).  
+See the [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-&preserve-view=true) method to specify other options when you create your project (explained in the [Build a detector](../../get-started-build-detector.md) web portal guide).  
 
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_create)]
 
@@ -113,14 +116,15 @@ When you tag images in object detection projects, you need to specify the region
 
 Then, use this map of associations to upload each sample image with its region coordinates (you can upload up to 64 images in a single batch). Add the following code.
 
-> [!NOTE]
-> You'll need to change the path to the images based on where you downloaded the Cognitive Services Python SDK Samples repo earlier.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_upload)]
 
+> [!NOTE]
+> You'll need to change the path to the images based on where you downloaded the Cognitive Services Python SDK Samples repo earlier.
+
 ## Train the project
 
-This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
+This code creates the first iteration of the prediction model. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_train)]
 
@@ -131,7 +135,8 @@ This code creates the first iteration of the prediction model and then publishes
 
 ## Publish the current iteration
 
-The following code makes the current iteration of the model available for querying. 
+An iteration is not available in the prediction endpoint until it is published. The following code makes the current iteration of the model available for querying. 
+
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ObjectDetection/CustomVisionQuickstart.py?name=snippet_publish)]
 
 ## Test the prediction endpoint
@@ -143,13 +148,13 @@ To send an image to the prediction endpoint and retrieve the prediction, add the
 
 ## Run the application
 
-Run *sample.py*.
+Run *CustomVisionQuickstart.py*.
 
 ```powershell
-python sample.py
+python CustomVisionQuickstart.py
 ```
 
-The output of the application should appear in the console. You can then verify that the test image (found in **samples/vision/images/Test**) is tagged appropriately and that the region of detection is correct.
+The output of the application should appear in the console. You can then verify that the test image (found in **<base_image_url>/images/Test**) is tagged appropriately and that the region of detection is correct. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
 
 [!INCLUDE [clean-od-project](../../includes/clean-od-project.md)]
 
