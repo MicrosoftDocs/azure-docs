@@ -73,7 +73,7 @@ chat_client = ChatClient(
 
 ## Access your call ID
 
-When filing a support request through the Azure portal, you'll be asked to provide your call ID. This can be accessed through the calling client library:
+When filing a support request through the Azure portal that is related to problems with calling SDK, you'll be asked to provide an ID of a call during which you've observed an issue. This can be accessed through the calling client library:
 
  # [JavaScript](#tab/javascript)
 
