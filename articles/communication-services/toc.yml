@@ -105,4 +105,4 @@
 - name: Resources
   items:
   - name: Release notes
-    href: https://github.com/Azure/Communication/blob/master/releasenotes/2020-September-22.md
+    href: https://github.com/Azure/Communication/blob/master/releasenotes
