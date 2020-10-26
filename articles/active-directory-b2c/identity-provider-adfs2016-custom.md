@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/27/2020
+ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -36,7 +36,7 @@ You need to store your certificate in your Azure AD B2C tenant.
 4. On the Overview page, select **Identity Experience Framework**.
 5. Select **Policy Keys** and then select **Add**.
 6. For **Options**, choose `Upload`.
-7. Enter a **Name** for the policy key. For example, `SamlCert`. The prefix `B2C_1A_` is added automatically to the name of your key.
+7. Enter a **Name** for the policy key. For example, `ADFSSamlCert`. The prefix `B2C_1A_` is added automatically to the name of your key.
 8. Browse to and select your certificate .pfx file with the private key.
 9. Click **Create**.
 
@@ -62,7 +62,6 @@ You can define an ADFS account as a claims provider by adding it to the **Claims
           <Metadata>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
-            <Item Key="XmlSignatureAlgorithm">Sha256</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
@@ -217,4 +216,40 @@ Update the relying party (RP) file that initiates the user journey that you crea
 4. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the new user journey that you created (SignUpSignInADFS).
 5. Save your changes, upload the file, and then select the new policy in the list.
 6. Make sure that Azure AD B2C application that you created is selected in the **Select application** field, and then test it by clicking **Run now**.
+
+## Troubleshooting AD-FS service  
+
+AD-FS is configured to use the Windows application log. If you experience challenges setting up the ADFS as a SAML identity provider using custom policies in Azure AD B2C, you may wnat to check the AD-FS event log:
+
+1. Logon into your AD-FS server with an administrative account.
+1. On the **Search bar**, type **Event Viewer**, and then select the **Event Viewer** desktop app.
+1. To view the log of a different computer, right-click **Event Viewer (local)**. Select **Connect to another computer**, and fill in the fields to complete the **Select Computer** dialog box.
+1. In **Event Viewer**, open the **Applications and Services Logs**.
+1. Select **AD FS**, then select **Admin**. 
+1. To view more information about an event, double-click the event.  
+
+### SAML request is not signed with expected signature algorithm event
+
+This error indicates that the SAML request sent by Azure AD B2C is not signed with expected signature algorithm configure in AD-FS. For example the SAML request is signed with signature algorithm `rsa-sha256`, while the expected signature algorithm is `rsa-sha1`. To fix this issue, make sure both Azure AD B2C and AD-FS configure with the same signature algorithm.
+
+#### Otion 1 - Set the Azure AD B2C 
+
+You can configure the Azure AD how to sign the SAML request. The [XmlSignatureAlgorithm](saml-identity-provider-technical-profile.md#metadata) metadata controls the value of the `SigAlg` parameter (query string or post parameter) in the SAML request. The follwoing example configure Azure AD B2C to use the `rsa-sha256` signature algorithm.
+
+```xml
+<Metadata>
+  <Item Key="WantsEncryptedAssertions">false</Item>
+  <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
+  <Item Key="XmlSignatureAlgorithm">Sha256</Item>
+</Metadata>
+```
+
+#### Otion 2 - Set the AD-FS 
+
+Alternatively, you can configure the expected the SAML request signature algorithm.
+
+1. In Server Manager, select **Tools**, and then select **ADFS Management**.
+1. Select the **Relying Party Trust** you created earlier.
+1. Select **Properties**, then select **Advance**
+1. Configure the **Secure hash algorithm**, and select **OK** to save the changes.
 
