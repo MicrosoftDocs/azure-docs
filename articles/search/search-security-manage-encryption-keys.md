@@ -100,7 +100,7 @@ You can set both properties using the portal, PowerShell, or Azure CLI commands.
    az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
    ```
 
-## 2 - Create a new key in Azure Key Vault
+## 2 - Create a key in Key Vault
 
 Skip this step if you already have a key in Azure Key Vault.
 
@@ -118,7 +118,7 @@ Skip this step if you already have a key in Azure Key Vault.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="Create a new key vault key":::
 
-## 3 - App registration and credentials in Active Directory
+## 3 - Register an app in Active Directory
 
 1. In [Azure portal](https://portal.azure.com), find the Azure Active Directory resource for your subscription.
 
