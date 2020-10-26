@@ -29,7 +29,7 @@ This quickstart uses the resources created in either of these guides as a starti
 
 ### Install PHP
 
-Install PHP on your own server, or create an Azure [web app](https://docs.microsoft.com/azure/app-service/overview) that includes PHP.  Refer to [create and manage firewall rules](./how-to-manage-firewall-portal.md) to learn how to create firewall rules.
+Install PHP on your own server, or create an Azure [web app](../../app-service/overview.md) that includes PHP.  Refer to [create and manage firewall rules](./how-to-manage-firewall-portal.md) to learn how to create firewall rules.
 
 #### macOS
 

@@ -138,7 +138,7 @@ Once your application is successfully processing reads and writes, you have comp
 
 ### Disaster recovery
 
-When there is a major disaster event such as availability zone-level or regional failures, you can perform disaster recovery operation by promoting your read replica. From the UI portal, you can navigate to the read replica server. Then click the replication tab, and you can stop the replica to promote it to be an independent server. Alternatively, you can use the [Azure CLI](https://docs.microsoft.com/cli/azure/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) to stop and promote the replica server.
+When there is a major disaster event such as availability zone-level or regional failures, you can perform disaster recovery operation by promoting your read replica. From the UI portal, you can navigate to the read replica server. Then click the replication tab, and you can stop the replica to promote it to be an independent server. Alternatively, you can use the [Azure CLI](/cli/azure/postgres/server/replica#az_postgres_server_replica_stop) to stop and promote the replica server.
 
 ## Considerations
 
