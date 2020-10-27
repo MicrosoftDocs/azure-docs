@@ -96,4 +96,4 @@ To learn more about the security alerts from these threat protection features, s
 * [Reference table for all Azure Security Center alerts](alerts-reference.md)
 * [Security alerts in Azure Security Center](security-center-alerts-overview.md)
 * [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-* [Export security alerts and recommendations (Preview)](continuous-export.md)
+* [Continuously export Security Center data](continuous-export.md)
