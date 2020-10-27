@@ -66,4 +66,4 @@ Or, select the **Request quota increase** link in the error message to request a
 
 ## Next steps
 
-- For more information about reservation scope options, see [Scope reservations](prepare-buy-reservation.md#scope-reservations)
+- For more information about reservation scope options, see [Scope reservations](prepare-buy-reservation.md#scope-reservations).
