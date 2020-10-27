@@ -125,7 +125,7 @@ There are nine outbound port requirements. Outbound requests in these ranges are
 | Port(s) | Direction | Transport Protocol | Purpose | Local IP | Remote IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Outbound |TCP |Redis dependencies on Azure Storage/PKI (Internet) | (Redis subnet) |* |
-| 443 | Outbound | TCP | Redis dependency on Azure Key Vault | (Redis subnet) | AzureKeyVault <sup>1</sup> |
+| 443 | Outbound | TCP | Redis dependency on Azure Key Vault and Azure Monitor | (Redis subnet) | AzureKeyVault, AzureMonitor <sup>1</sup> |
 | 53 |Outbound |TCP/UDP |Redis dependencies on DNS (Internet/VNet) | (Redis subnet) | 168.63.129.16 and 169.254.169.254 <sup>2</sup> and any custom DNS server for the subnet <sup>3</sup> |
 | 8443 |Outbound |TCP |Internal communications for Redis | (Redis subnet) | (Redis subnet) |
 | 10221-10231 |Outbound |TCP |Internal communications for Redis | (Redis subnet) | (Redis subnet) |
@@ -134,7 +134,7 @@ There are nine outbound port requirements. Outbound requests in these ranges are
 | 15000-15999 |Outbound |TCP |Internal communications for Redis and Geo-Replication | (Redis subnet) |(Redis subnet) (Geo-replica peer subnet) |
 | 6379-6380 |Outbound |TCP |Internal communications for Redis | (Redis subnet) |(Redis subnet) |
 
-<sup>1</sup> You can use the service tag 'AzureKeyVault' with Resource Manager Network Security Groups.
+<sup>1</sup> You can use the service tags 'AzureKeyVault' and 'AzureMonitor' with Resource Manager Network Security Groups.
 
 <sup>2</sup> These IP addresses owned by Microsoft are used to address the Host VM which serves Azure DNS.
 
@@ -166,7 +166,7 @@ There are eight inbound port range requirements. Inbound requests in these range
 There are network connectivity requirements for Azure Cache for Redis that may not be initially met in a virtual network. Azure Cache for Redis requires all the following items to function properly when used within a virtual network.
 
 * Outbound network connectivity to Azure Storage endpoints worldwide. This includes endpoints located in the same region as the Azure Cache for Redis instance, as well as storage endpoints located in **other** Azure regions. Azure Storage endpoints resolve under the following DNS domains: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net*, and *file.core.windows.net*. 
-* Outbound network connectivity to *ocsp.msocsp.com*, *mscrl.microsoft.com*, and *crl.microsoft.com*. This connectivity is needed to support TLS/SSL functionality.
+* Outbound network connectivity to *ocsp.msocsp.com*, *mscrl.microsoft.com*, *crl3.digicert.com*, *cacerts.digicert.com*, *oneocsp.microsoft.com*, *microsoft.com* and *crl.microsoft.com*. This connectivity is needed to support TLS/SSL functionality.
 * The DNS configuration for the virtual network must be capable of resolving all of the endpoints and domains mentioned in the earlier points. These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.
 * Outbound network connectivity to the following Azure Monitoring endpoints, which resolve under the following DNS domains: shoebox2-black.shoebox2.metrics.nsatc.net, north-prod2.prod2.metrics.nsatc.net, azglobal-black.azglobal.metrics.nsatc.net, shoebox2-red.shoebox2.metrics.nsatc.net, east-prod2.prod2.metrics.nsatc.net, azglobal-red.azglobal.metrics.nsatc.net.
 
