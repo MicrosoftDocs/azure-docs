@@ -101,9 +101,9 @@ As your needs change or requirements for automation increase you can also create
                              exist_ok=False)
    ```
 
-For more information, see [Workspace SDK reference](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)
+For more information, see [Workspace SDK reference](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true).
 
-If you have problems in accessing your subscription, see the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
+If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), as well as the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
 # [Portal](#tab/azure-portal)
 
@@ -296,6 +296,7 @@ ws = Workspace.from_config()
     ws = Workspace.from_config(auth=interactive_auth)
     ```
     
+If you have problems in accessing your subscription, see [Set up authentication for Azure Machine Learning resources and workflows](how-to-setup-authentication.md), as well as the [Authentication in Azure Machine Learning](https://aka.ms/aml-notebook-auth) notebook.
 
 ## <a name="view"></a>Find a workspace
 
