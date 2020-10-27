@@ -1,5 +1,5 @@
 ---
-title: What's New for Azure Key Vault
+title: What's new for Azure Key Vault
 description: Recent updates for Azure Key Vault
 services: key-vault
 author: msmbaldwin
@@ -26,7 +26,7 @@ Here's what's new with Azure Key Vault. New features and improvements are also a
 
 To support [soft delete now on by default](#soft-delete-on-by-default), two changes have been made to Azure Key Vault PowerShell cmdlets:
 
-- The DisableSoftDelete and EnableSoftDelete paramters of [Update-AzKeyVault](/powershell/module/az.keyvault/update-azkeyvault?view=azps-4.8.0) have been deprecated.
+- The DisableSoftDelete and EnableSoftDelete parameters of [Update-AzKeyVault](/powershell/module/az.keyvault/update-azkeyvault?view=azps-4.8.0) have been deprecated.
 - The output of the [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret?view=azps-4.8.0) cmdlet no longer has the `SecretValueText` attribute.
 
 ## July 2020
