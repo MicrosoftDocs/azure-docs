@@ -148,11 +148,11 @@ Here are the steps to add:
 
 ### Start job and pass parameters
 
-To start the job, use the **Execute a SQL query** action with a passthrough native query and immediately push the parameters for the job into the state table. To provide input for the `jobid` attribute in the target table, use a **For each** loop and the dynamic data output, `ResultSets JobExecutionId`. For each execution ID, use the **Insert row** action to add the appropriate parameters for the job to unpack and pass to the target stored procedure.
+To start the job, use a passthrough native query with the **Execute a SQL query** action and immediately push the job's parameters into the state table. To provide input to the `jobid` attribute in the target table, set up a **For each** loop that iterates through the table output from the preceding action. For each job execution ID, run an **Insert row** action that uses the dynamic data output, `ResultSets JobExecutionId`, to add the parameters for the job to unpack and pass to the target stored procedure.
 
 ![Screenshot that shows actions to use for starting the job and passing parameters to the stored procedure.](media/handle-long-running-stored-procedures-sql-connector/start-job-actions.png)
 
-When the job completes, the job updates the `LongRunningState` table so that you can easily trigger on the result by using the **When an item modified** trigger. If you don't need the output, or if you already have a trigger that monitors an output table, you can skip this part.
+When the job completes, the job updates the `LongRunningState` table so that you can easily trigger on the result by using the **When an item is modified** trigger. If you don't need the output, or if you already have a trigger that monitors an output table, you can skip this part.
 
 ![Screenshot that shows the SQL trigger for when an item is modified.](media/handle-long-running-stored-procedures-sql-connector/trigger-on-results-after-job-completes.png)
 
