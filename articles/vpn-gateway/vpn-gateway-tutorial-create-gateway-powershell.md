@@ -23,7 +23,7 @@ Azure VPN gateways provide cross-premises connectivity between customer premises
 
 The following diagram shows the virtual network and the VPN gateway created as part of this tutorial.
 
-![VNet and VPN gateway](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
+:::image type="content" source="./media/vpn-gateway-tutorial-create-gateway-powershell/gateway-diagram.png" alt-text="VNet and VPN gateway diagram":::
 
 ## Prerequisites
 
@@ -184,4 +184,4 @@ In this tutorial, you learned about basic VPN gateway creation and management su
 Next, proceed with the following tutorial:
 
 > [!div class="nextstepaction"]
-> * [Create a connection](vpn-gateway-tutorial-vpnconnection-powershell.md)
+> * [Create a S2S connection](vpn-gateway-create-site-to-site-rm-powershell.md)

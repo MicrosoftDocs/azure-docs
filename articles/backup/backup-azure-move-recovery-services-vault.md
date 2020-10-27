@@ -173,7 +173,7 @@ If you need to keep the current protected data in the old vault and continue the
   - You'll be able to restore the backed-up data only for unexpired recovery points in the old vault.
   - A new initial replica of the data will need to be created on the new vault.
 
-- For an Azure VM, you can [stop protection with retain data](backup-azure-manage-vms.md#stop-protecting-a-vm) for the VM in the old vault, move the VM to another resource group, and then protect the VM in the new vault. See [guidance and limitations](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) for moving a VM to another resource group.
+- For an Azure VM, you can [stop protection with retain data](backup-azure-manage-vms.md#stop-protecting-a-vm) for the VM in the old vault, move the VM to another resource group, and then protect the VM in the new vault. See [guidance and limitations](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md) for moving a VM to another resource group.
 
   A VM can be protected in only one vault at a time. However, the VM in the new resource group can be protected on the new vault as it's considered a different VM.
 

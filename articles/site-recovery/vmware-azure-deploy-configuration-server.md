@@ -161,7 +161,7 @@ Refer to our [troubleshooting article](vmware-azure-troubleshoot-configuration-s
     To learn more about the configuration server and its functionalities, see [VMware to Azure replication architecture](vmware-azure-architecture.md).
 * Where can I find the latest version of the configuration server?
 
-    For steps to upgrade the configuration server through the portal, see [Upgrade the configuration server](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). For instructions on how to upgrade all Site Recovery components, see [Service updates in Site Recovery](https://aka.ms/asr_how_to_upgrade).
+    For steps to upgrade the configuration server through the portal, see [Upgrade the configuration server](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). For instructions on how to upgrade all Site Recovery components, see [Service updates in Site Recovery](./service-updates-how-to.md).
 * Where can I download the passphrase for configuration server?
 
     To download the passphrase, see [Manage the configuration server for VMware VM disaster recovery](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase).

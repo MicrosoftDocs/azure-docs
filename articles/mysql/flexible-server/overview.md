@@ -93,7 +93,7 @@ The service encrypts data in-motion with transport layer security enforced by de
 
 See [how to use encrypted connections to flexible servers](https://docs.mongodb.com/manual/tutorial/configure-ssl) to learn more.
 
-Flexible servers allows full private access to the servers using [Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNet) integration. Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers cannot be reached using public endpoints. 
+Flexible servers allows full private access to the servers using [Azure virtual network](../../virtual-network/virtual-networks-overview.md) (VNet) integration. Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers cannot be reached using public endpoints. 
 
 See [Networking concepts](concepts-networking.md) to learn more.
 
@@ -109,16 +109,24 @@ See [Monitoring concepts](concepts-monitoring.md) to learn more.
 The service runs the community version of MySQL. This allows full application compatibility and requires minimal refactoring cost to migrate existing application developed on MySQL engine to single server service. The migration to the single server can be performed using one of the following options:
 
 - **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like mysqldump/mydumper can provide fastest way to migrate. See Migrate using dump and restore for details. 
-- **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) can be leveraged. 
+- **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, [Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-online.md) can be leveraged. 
 
 ## Azure regions
 
 One of the advantage of running your workload in Azure is it's global reach. The flexible server for Azure Database for MySQL is available today in following Azure regions:
 
+- West Europe
 - North Europe
-- Southeast Asia
+- UK South
 - East US 2
 - West US 2
+- Central US
+- East US
+- Canada Central
+- Southeast Asia
+- Korea Central
+- Japan East
+- Australia East
 
 We are working on adding new servers soon.
 
