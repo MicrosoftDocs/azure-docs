@@ -121,7 +121,7 @@ Use the following procedure:
 1. In Azure portal, click  **Alerts**.
 2. In the top pane, click  **Manage Actions**. The **Add action group** window appears.
 
-    ![Action Groups](media/itsmc-overview/action-groups_selection.png)
+    [![Action Groups](media/itsmc-overview/action-groups-selection.png)](media/itsmc-overview/action-groups-selection-big.png)
 
 3. Select the **Subscription** and **Resource Group** where you want to create your action group. Provide **Action Group Name** and **Display Name** for your action group. Click on **Next: Notifications**.
 
