@@ -1,5 +1,5 @@
 - name: Speaker Recognition Documentation
-  href: ../index.md
+  href: Home.md
 - name: Overview
   items: 
   - name: Learn about Speaker Recognition

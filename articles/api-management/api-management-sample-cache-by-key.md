@@ -1,6 +1,6 @@
 ---
 title: Custom caching in Azure API Management
-description: Learn how to cache items by key in Azure API Management
+description: Learn how to cache items by key in Azure API Management. You can modify the key by using request headers.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -10,6 +10,7 @@ editor: ''
 ms.assetid: 772bc8dd-5cda-41c4-95bf-b9f6f052bc85
 ms.service: api-management
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -18,7 +19,7 @@ ms.author: apimpm
 
 ---
 # Custom caching in Azure API Management
-Azure API Management service has built-in support for [HTTP response caching](api-management-howto-cache.md) using the resource URL as the key. The key can be modified by request headers using the `vary-by` properties. This is useful for caching entire HTTP responses (aka representations), but sometimes it is useful to just cache a portion of a representation. The new [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) and [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) policies provide the ability to store and retrieve arbitrary pieces of data from within policy definitions. This ability also adds value to the previously introduced [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) policy because you can now cache responses from external services.
+Azure API Management service has built-in support for [HTTP response caching](api-management-howto-cache.md) using the resource URL as the key. The key can be modified by request headers using the `vary-by` properties. This is useful for caching entire HTTP responses (also known as representations), but sometimes it is useful to just cache a portion of a representation. The new [cache-lookup-value](./api-management-caching-policies.md#GetFromCacheByKey) and [cache-store-value](./api-management-caching-policies.md#StoreToCacheByKey) policies provide the ability to store and retrieve arbitrary pieces of data from within policy definitions. This ability also adds value to the previously introduced [send-request](./api-management-advanced-policies.md#SendRequest) policy because you can now cache responses from external services.
 
 ## Architecture
 API Management service uses a shared per-tenant data cache so that, as you scale up to multiple units you still get access to the same cached data. However, when working with a multi-region deployment there are independent caches within each of the regions. It is important to not treat the cache as a data store, where it is the only source of some piece of information. If you did, and later decided to take advantage of the multi-region deployment, then customers with users that travel may lose access to that cached data.

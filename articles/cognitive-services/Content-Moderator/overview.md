@@ -1,65 +1,82 @@
 ---
-title: Azure Content Moderator overview | Microsoft Docs
-description: Learn how to use Content Moderator to track, flag, assess, and filter inappropriate content in user-generated content.
+title: What is Azure Content Moderator?
+titleSuffix: Azure Cognitive Services
+description: Learn how to use Content Moderator to track, flag, assess, and filter inappropriate material in user-generated content.
 services: cognitive-services
-author: sanjeev3
-manager: mikemcca
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: content-moderator
-ms.topic: article
-ms.date: 06/15/2017
-ms.author: sajagtap
+ms.subservice: content-moderator
+ms.topic: overview
+ms.date: 09/15/2020
+ms.author: pafarley
+ms.custom: cog-serv-seo-aug-2020
+keywords: content moderator, azure content moderator, online moderator, content filtering software, content moderation service, content moderation
+
+#Customer intent: As a developer of content management software, I want to find out whether Azure Content Moderator is the right solution for my moderation needs.
 ---
 
-# Content Moderator overview
+# What is Azure Content Moderator?
 
-Content moderation is the process of monitoring user-generated content on online and social media websites, chat and messaging platforms, enterprise environments, gaming platforms, and peer communication platforms. The goal is to track, flag, assess, and filter out offensive and unwanted content that creates risk for your organization. Moderated content might include text, images, and videos.
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## Why moderate content?
+Azure Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. It includes the AI-powered content moderation service which scans text, image, and videos and applies content flags automatically, as well as the Review tool, an online moderator environment for a team of human reviewers.
 
-Moderating text, image, and video content has multiple benefits:
-- Text moderation benefits communities, family-based websites, in-game communities, chat and messaging platforms, and user-generated content marketing.
-- Image moderation works great for ensuring that profile pictures, social media posts, and business documents are appropriate. Using moderation on image-sharing sites saves resources by providing a first-level scan and by flagging potentially damaging content.
-- Video moderation is designed for video publishing sites, news sites, and video content sites. Use it anywhere that videos are likely to be uploaded.
+You may want to build content filtering software into your app to comply with regulations or maintain the intended environment for your users.
 
-## Three ways to moderate content
+## Where it's used
 
-The method you use to moderate content depends on the resources and requirements that are available to you:
+The following are a few scenarios in which a software developer or team would require a content moderation service:
 
-- Human moderation uses teams and the community to moderate all content.
-- Automated moderation applies machine learning and AI to cost-effectively moderate at scale, without human involvement.
-- Hybrid moderation is automated moderation that is augmented by a human-in-the-loop component (human oversight).
+- Online marketplaces that moderate product catalogs and other user-generated content.
+- Gaming companies that moderate user-generated game artifacts and chat rooms.
+- Social messaging platforms that moderate images, text, and videos added by their users.
+- Enterprise media companies that implement centralized moderation for their content.
+- K-12 education solution providers filtering out content that is inappropriate for students and educators.
 
-You can use Azure Content Moderator in all three scenarios. Human moderators can use the Content Moderator review tool to apply tags to content and submit moderation decisions. Content Moderator APIs scan and automatically tag items and submit them for human review in the review tool.
+> [!IMPORTANT]
+> You cannot use Content Moderator to detect illegal child exploitation images. However, qualified organizations can use the [PhotoDNA Cloud Service](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud Service") to screen for this type of content.
 
-## Integrated tools
+## What it includes
 
-Content moderation in Content Moderator consists of several web service APIs and human-in-the-loop capabilities via the review tool:
+The Content Moderator service consists of several web service APIs available through both REST calls and a .NET SDK. It also includes the Review tool, which allows human reviewers to aid the service and improve or fine-tune its moderation function.
 
-![Content Moderator block diagram](images/content-moderator-block-diagram.png)
+## Moderation APIs
 
-Content Moderator uses the following APIs:
-  - **Text Moderation**: Use to scan and tag text.
-  - **Image Moderation**: Use to scan and tag images.
-  - **Video Moderation**: Use to scan and tag videos.
-  - **Review**: Use to create jobs, reviews, and workflows in the review tool.
-  - **List Management**: Use to moderate with custom lists of images and text, pre-identified content that you don’t need to scan again.
+The Content Moderator service includes Moderation APIs, which check content for material that is potentially inappropriate or objectionable.
 
-## Get started with the review tool
+![block diagram for Content Moderator moderation APIs](images/content-moderator-mod-api.png)
 
-Hybrid moderation by using the Content Moderator [review tool](http://contentmoderator.cognitive.microsoft.com/) is a good way to try out the Content Moderator APIs. It easily and intuitively augments automated moderation with human-in-the-loop capabilities. The Review tool internally calls the automated moderation APIs, and then presents the items for review, right in your web browser. In the Review tool, you can invite other users to review content, track pending invites, and assign permissions to team members.
+The following table describes the different types of moderation APIs.
 
-Use the [Review API](review-api.md) to auto-moderate content in bulk and review tagged images or text in the Review tool. Provide your API callback point so that you are notified when reviewers submit their moderation decisions. You can use this feature to automate post-review workflows by integrating it with your own systems.
+| API group | Description |
+| ------ | ----------- |
+|[**Text moderation**](text-moderation-api.md)| Scans text for offensive content, sexually explicit or suggestive content, profanity, and personal data.|
+|[**Custom term lists**](try-terms-list-api.md)| Scans text against a custom list of terms along with the built-in terms. Use custom lists to block or allow content according to your own content policies.|  
+|[**Image moderation**](image-moderation-api.md)| Scans images for adult or racy content, detects text in images with the Optical Character Recognition (OCR) capability, and detects faces.|
+|[**Custom image lists**](try-image-list-api.md)| Scans images against a custom list of images. Use custom image lists to filter out instances of commonly recurring content that you don't want to classify again.|
+|[**Video moderation**](video-moderation-api.md)| Scans videos for adult or racy content and returns time markers for said content.|
 
-## Use the automated moderation APIs
+## Review APIs
 
-If you sign up for the [review tool](http://contentmoderator.cognitive.microsoft.com/), to get your free tier key, select **Settings** > **Credentials**. Your subscription key is the value in the **Ocp-Apim-Subscription-Key** box.
+The Review APIs let you integrate your moderation pipeline with human reviewers. Use the [Jobs](review-api.md#jobs), [Reviews](review-api.md#reviews), and [Workflow](review-api.md#workflows) operations to create and automate human-in-the-loop workflows with the [Review tool](#review-tool) (below).
 
-You can also [sign up in Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) for the Content Moderator API. Use the APIs to automatically moderate large amounts of content, and integrate with your review tools and processes. While you’re at it, apply to use the private preview of the [Video Moderation API](video-moderation-api.md).
+> [!NOTE]
+> The Workflow API is not yet available in the .NET SDK but can be used with the REST endpoint.
 
-![Your Content Moderator API subscription key](Review-Tool-User-Guide/images/credentials-trial-resource-workflow.PNG)
+![block diagram for Content Moderator review APIs](images/content-moderator-rev-api.png)
+
+## Review tool
+
+The Content Moderator service also includes the web-based [Review tool](Review-Tool-User-Guide/human-in-the-loop.md), which hosts the content reviews for human moderators to process. The human input doesn't train the service, but the combined work of the service and human review teams allows developers to strike the right balance between efficiency and accuracy. The Review tool also provides a user-friendly front end for several Content Moderator resources.
+
+![Content Moderator Review tool homepage](images/homepage.PNG)
+
+## Data privacy and security
+
+As with all of the Cognitive Services, developers using the Content Moderator service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
 
 ## Next steps
 
-Use the [Quickstart](quick-start.md) to get started with Content Moderator.
+To get started using Content Moderator on the web portal, follow [Try Content Moderator on the web](quick-start.md). Or, complete a [client library quickstart](client-libraries.md) to implement the basic scenarios in code.

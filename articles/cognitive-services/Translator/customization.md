@@ -1,42 +1,62 @@
 ---
-title: Microsoft Translator Text API Translation Customization | Microsoft Docs
+title: Translation Customization - Translator
+titleSuffix: Azure Cognitive Services
 description: Use the Microsoft Translator Hub to build your own machine translation system using your preferred terminology and style.
 services: cognitive-services
-author: Jann-Skotdal
-manager: chriswendt1
-
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.technology: translator
-ms.topic: article
-ms.date: 11/01/2017
-ms.author: v-jansko
+ms.subservice: translator-text
+ms.topic: conceptual
+ms.date: 05/26/2020
+ms.author: swmachan
 ---
 
 # Customize your text translations
 
-The Translator Hub is a free extension of the Microsoft Translator service, which allows you to customize and improve the translations you receive from the Translator Text API. It is fully integrated into the Translator Text API. 
+The Custom Translator is feature of the Translator service, which allows users to customize Microsoft Translator's advanced neural machine translation when translating text using Translator (version 3 only).
 
-## Customize translations with the Microsoft Translator Hub
+The feature can also be used to customize speech translation when used with [Cognitive Services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
-With the Hub, you can build translation systems customized to the terminology and style of a business or industry. The Hub combines your domain-specific data with Microsoft's vast language knowledge to generate a custom translation system. 
+## Custom Translator
 
-Your customized translation system easily integrates into your existing applications, workflows, and websites, across multiple types of devices.
+With Custom Translator, you can build neural translation systems that understand the terminology used in your own business and industry. The customized translation system will then integrate into existing applications, workflows, and websites.
 
 ### How does it work?
-The Hub allows for varying levels of customization. You can start by adding just a few words in a dictionary, such as product names, etc., which would then be translated exactly the way you want. 
 
-As your needs grow, you can use parallel sentences to build a translation system that reflects your domain-specific terminology and style better than a generic translation system. Use your previously translated documents (leaflets, webpages, documentation, etc.) or an export of your translation memory in TMX, XLIFF, TXT, HTML, DOCX, XLSX, and PDF document formats. 
+Use your previously translated documents (leaflets, webpages, documentation, etc.) to build a translation system that reflects your domain-specific terminology and style, better than a standard translation system. Users can upload TMX, XLIFF, TXT, DOCX, and XLSX documents.  
 
-The customized system is then available through a regular call to the Microsoft Translator Text API using the category parameter.
+The system also accepts data that is parallel at the document level but is not yet aligned at the sentence level. If users have access to versions of the same content in multiple languages but in separate documents Custom Translator will be able to automatically match sentences across documents.  The system can also use monolingual data in either or both languages to complement the parallel training data to improve the translations.
 
-More details about the various levels of customization, based on available data, can be found on the [Microsoft Translator Blog](https://blogs.msdn.microsoft.com/translation/2016/01/27/new-microsoft-translator-customization-features-help-unleash-the-power-of-artificial-intelligence-for-everyone/).
+The customized system is then available through a regular call to Translator using the category parameter.
+
+Given the appropriate type and amount of training data it is not uncommon to expect gains between 5 and 10, or even more BLEU points on translation quality by using Custom Translator.
+
+More details about the various levels of customization based on available data can be found in the [Custom Translator User Guide](https://aka.ms/CustomTranslatorDocs).
+
+
+## Microsoft Translator Hub
+
+> [!NOTE]
+> The legacy Microsoft Translator Hub will be retired on May 17, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).  
+
+## Custom Translator versus Hub
+
+| Feature | Hub | Custom Translator |
+| ------- | :-: | :---------------: |
+|Customization Feature Status    | General Availability    | General Availability |
+| Text API version    | V2 only    | V3 only |
+| SMT customization    | Yes    | No |
+| NMT customization    | No    | Yes |
+| New unified Speech services customization    | No    | Yes |
+| [No Trace](https://www.aka.ms/notrace) | Yes    | Yes |
 
 ## Collaborative Translations Framework
 
 > [!NOTE]
-> As of February 1, 2018, AddTranslation() and AddTranslationArray() will fail and nothing will be written.
-Similar functionality is available in the Translator Hub API. See [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger). 
+> As of February 1, 2018, AddTranslation() and AddTranslationArray() are no longer available for use with Translator v2.0. These methods will fail and nothing will be written. Translator v3.0 does not support these methods.
 
 ## Next steps
+
 > [!div class="nextstepaction"]
-> [Set up a customized language system using the Microsoft Translator Hub](https://hub.microsofttranslator.com)
+> [Set up a customized language system using Custom Translator](https://aka.ms/CustomTranslatorDocs)

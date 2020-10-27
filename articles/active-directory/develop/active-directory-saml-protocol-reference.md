@@ -1,38 +1,35 @@
 ---
-title: Azure AD SAML Protocol Reference | Microsoft Docs
+title: How Microsoft identity platform uses the SAML protocol
 description: This article provides an overview of the Single Sign-On and Single Sign-Out SAML profiles in Azure Active Directory.
 services: active-directory
-documentationcenter: .net
-author: priyamohanram
-manager: mtillman
-editor: ''
+author: kenwith
+manager: CelesteDG
 
-ms.assetid: 88125cfc-45c1-448b-9903-a629d8f31b01
 ms.service: active-directory
+ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/21/2017
-ms.author: priyamo
+ms.topic: conceptual
+ms.date: 10/05/2018
+ms.author: kenwith
 ms.custom: aaddev
-ms.reviewer: dastrock
-
+ms.reviewer: paulgarn
 ---
-# How Azure Active Directory uses the SAML protocol
-Azure Active Directory (Azure AD) uses the SAML 2.0 protocol to enable applications to provide a single sign-on experience to their users. The [Single Sign-On](active-directory-single-sign-on-protocol-reference.md) and [Single Sign-Out](active-directory-single-sign-out-protocol-reference.md) SAML profiles of Azure AD explain how SAML assertions, protocols and bindings are used in the identity provider service.
 
-SAML Protocol requires the identity provider (Azure AD) and the service provider (the application) to exchange information about themselves.
+# How Microsoft identity platform uses the SAML protocol
 
-When an application is registered with Azure AD, the app developer registers federation-related information with Azure AD. This includes the **Redirect URI** and **Metadata URI** of the application.
+Microsoft identity platform uses the SAML 2.0 protocol to enable applications to provide a single sign-on experience to their users. The [Single Sign-On](single-sign-on-saml-protocol.md) and [Single Sign-Out](single-sign-out-saml-protocol.md) SAML profiles of Azure AD explain how SAML assertions, protocols, and bindings are used in the identity provider service.
 
-Azure AD uses the **Metadata URI** of the cloud service to retrieve the signing key and the logout URI of the cloud service. If the application does not support a metadata URI, the developer must contact Microsoft support to provide the logout URI and signing key.
+SAML Protocol requires the identity provider (Microsoft identity platform) and the service provider (the application) to exchange information about themselves.
 
-Azure Active Directory exposes tenant-specific and common (tenant-independent) single sign-on and single sign-out endpoints. These URLs represent addressable locations -- they are not just an identifiers -- so you can go to the endpoint to read the metadata.
+When an application is registered with Azure AD, the app developer registers federation-related information with Azure AD. This information includes the **Redirect URI** and **Metadata URI** of the application.
 
-* The Tenant-specific endpoint is located at `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.  The <TenantDomainName> placeholder represents a registered domain name or TenantID GUID of an Azure AD tenant. For example, the federation metadata of the contoso.com tenant is at: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+Microsoft identity platform uses the cloud service's **Metadata URI** to retrieve the signing key and the logout URI. Customer can open the app in **Azure AD -> App Registration** and then in **Settings -> Properties**, they can update the Logout URL. This way Microsoft identity platform can send the response to the correct URL. 
 
-* The Tenant-independent endpoint is located at
-  `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`.In this endpoint address, **common** appears, instead of a tenant domain name or ID.
+Azure Active Directory exposes tenant-specific and common (tenant-independent) single sign-on and single sign-out endpoints. These URLs represent addressable locations -- they are not just identifiers -- so you can go to the endpoint to read the metadata.
 
-For information about the Federation Metadata documents that Azure AD publishes, see [Federation Metadata](active-directory-federation-metadata.md).
+* The tenant-specific endpoint is located at `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. The *\<TenantDomainName>* placeholder represents a registered domain name or TenantID GUID of an Azure AD tenant. For example, the federation metadata of the contoso.com tenant is at: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+
+* The tenant-independent endpoint is located at
+  `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. In this endpoint address, **common** appears instead of a tenant domain name or ID.
+
+For information about the federation metadata documents that Azure AD publishes, see [Federation Metadata](../azuread-dev/azure-ad-federation-metadata.md).

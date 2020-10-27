@@ -1,33 +1,36 @@
 ---
-title: Copy data From PostgreSQL using Azure Data Factory | Microsoft Docs
+title: Copy data From PostgreSQL using Azure Data Factory 
 description: Learn how to copy data from PostgreSQL to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: shwang
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+
+
+ms.topic: conceptual
+ms.date: 02/19/2020
 ms.author: jingwang
 
 ---
 # Copy data from PostgreSQL by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-onprem-postgresql-connector.md)
-> * [Version 2 - Preview](connector-postgresql.md)
+> * [Version 1](v1/data-factory-onprem-postgresql-connector.md)
+> * [Current version](connector-postgresql.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [PostgreSQL connector in V1](v1/data-factory-onprem-postgresql-connector.md).
-
 ## Supported capabilities
+
+This PostgreSQL connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from PostgreSQL database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -35,10 +38,9 @@ Specifically, this PostgreSQL connector supports PostgreSQL **version 7.4 and ab
 
 ## Prerequisites
 
-To use this PostgreSQL connector, you need to:
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-- Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
-- Install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) with version between 2.0.12 and 3.1.9 on the Integration Runtime machine.
+The Integration Runtime provides a built-in PostgreSQL driver starting from version 3.7, therefore you don't need to manually install any driver.
 
 ## Getting started
 
@@ -53,14 +55,63 @@ The following properties are supported for PostgreSQL linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **PostgreSql** | Yes |
-| server | Name of the PostgreSQL server. |Yes |
-| database | Name of the PostgreSQL database. |Yes |
-| schema | Name of the schema in the database. The schema name is case-sensitive. |No |
-| username | Specify user name to connect to the PostgreSQL database. |Yes |
-| password | Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
+| connectionString | An ODBC connection string to connect to Azure Database for PostgreSQL. <br/>You can also put password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
+
+A typical connection string is `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. More properties you can set per your case:
+
+| Property | Description | Options | Required |
+|:--- |:--- |:--- |:--- |
+| EncryptionMethod (EM)| The method the driver uses to encrypt data sent between the driver and the database server. E.g.,  `EncryptionMethod=<0/1/6>;`| 0 (No Encryption) **(Default)** / 1 (SSL) / 6 (RequestSSL) | No |
+| ValidateServerCertificate (VSC) | Determines whether the driver validates the certificate that is sent by the database server when SSL encryption is enabled (Encryption Method=1). E.g.,  `ValidateServerCertificate=<0/1>;`| 0 (Disabled) **(Default)** / 1 (Enabled) | No |
 
 **Example:**
+
+```json
+{
+    "name": "PostgreSqlLinkedService",
+    "properties": {
+        "type": "PostgreSql",
+        "typeProperties": {
+            "connectionString": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: store password in Azure Key Vault**
+
+```json
+{
+    "name": "PostgreSqlLinkedService",
+    "properties": {
+        "type": "PostgreSql",
+        "typeProperties": {
+            "connectionString": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;",
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+If you were using PostgreSQL linked service with the following payload, it is still supported as-is, while you are suggested to use the new one going forward.
+
+**Previous payload:**
 
 ```json
 {
@@ -86,14 +137,16 @@ The following properties are supported for PostgreSQL linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by PostgreSQL dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by PostgreSQL dataset.
 
-To copy data from PostgreSQL, set the type property of the dataset to **RelationalTable**. The following properties are supported:
+To copy data from PostgreSQL, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **RelationalTable** | Yes |
-| tableName | Name of the table in the PostgreSQL database. | No (if "query" in activity source is specified) |
+| type | The type property of the dataset must be set to: **PostgreSqlTable** | Yes |
+| schema | Name of the schema. |No (if "query" in activity source is specified)  |
+| table | Name of the table. |No (if "query" in activity source is specified)  |
+| tableName | Name of the table with schema. This property is supported for backward compatibility. Use `schema` and `table` for new workload. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -102,15 +155,18 @@ To copy data from PostgreSQL, set the type property of the dataset to **Relation
     "name": "PostgreSQLDataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "PostgreSqlTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<PostgreSQL linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+If you were using `RelationalTable` typed dataset, it's still supported as-is, while you are suggested to use the new one going forward.
 
 ## Copy activity properties
 
@@ -118,11 +174,11 @@ For a full list of sections and properties available for defining activities, se
 
 ### PostgreSQL as source
 
-To copy data from PostgreSQL, set the source type in the copy activity to **RelationalSource**. The following properties are supported in the copy activity **source** section:
+To copy data from PostgreSQL, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **RelationalSource** | Yes |
+| type | The type property of the copy activity source must be set to: **PostgreSqlSource** | Yes |
 | query | Use the custom SQL query to read data. For example: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | No (if "tableName" in dataset is specified) |
 
 > [!NOTE]
@@ -149,7 +205,7 @@ To copy data from PostgreSQL, set the source type in the copy activity to **Rela
         ],
         "typeProperties": {
             "source": {
-                "type": "RelationalSource",
+                "type": "PostgreSqlSource",
                 "query": "SELECT * FROM \"MySchema\".\"MyTable\""
             },
             "sink": {
@@ -160,53 +216,12 @@ To copy data from PostgreSQL, set the source type in the copy activity to **Rela
 ]
 ```
 
-## Data type mapping for PostgreSQL
+If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
 
-When copying data from PostgreSQL, the following mappings are used from PostgreSQL data types to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+## Lookup activity properties
 
-| PostgreSQL data type | PostgresSQL aliases | Data factory interim data type |
-|:--- |:--- |:--- |
-| `abstime` | |`Datetime` | &nbsp;
-| `bigint` | `int8` | `Int64` |
-| `bigserial` | `serial8` | `Int64` |
-| `bit [ (n) ]` | | `Byte[], String` | &nbsp;
-| `bit varying [ (n) ]` | `varbit |Byte[], String` |
-| `boolean` | `bool` | `Boolean` |
-| `box` | | `Byte[], String` | &nbsp;
-| `bytea` | | `Byte[], String` |&nbsp;
-| `character [ (n) ]` | `char [ (n) ]` | `String` |
-| `character varying [ (n) ]` | `varchar [ (n) ]` | `String` |
-| `cid` | | `String` |&nbsp;
-| `cidr` | | `String` |&nbsp;
-| `circle` | |`Byte[], String` |&nbsp;
-| `date` | |`Datetime` |&nbsp;
-| `daterange` | |`String` |&nbsp;
-| `double precision` |`float8` |`Double` |
-| `inet` | |`Byte[], String` |&nbsp;
-| `intarry` | |`String` |&nbsp;
-| `int4range` | |`String` |&nbsp;
-| `int8range` | |`String` |&nbsp;
-| `integer` | `int, int4 |Int32` |
-| `interval [ fields ] [ (p) ]` | | `Timespan` |&nbsp;
-| `json` | | `String` |&nbsp;
-| `jsonb` | | `Byte[]` |&nbsp;
-| `line` | | `Byte[], String` |&nbsp;
-| `lseg` | | `Byte[], String` |&nbsp;
-| `macaddr` | | `Byte[], String` |&nbsp;
-| `money` | | `Decimal` |&nbsp;
-| `numeric [ (p, s) ]`|`decimal [ (p, s) ]` |`Decimal` |
-| `numrange` | |`String` |&nbsp;
-| `oid` | |`Int32` |&nbsp;
-| `path` | |`Byte[], String` |&nbsp;
-| `pg_lsn` | |`Int64` |&nbsp;
-| `point` | |`Byte[], String` |&nbsp;
-| `polygon` | |`Byte[], String` |&nbsp;
-| `real` |`float4` |`Single` |
-| `smallint` |`int2` |`Int16` |
-| `smallserial` |`serial2` |`Int16` |
-| `serial` |`serial4` |`Int32` |
-| `text` | |`String` |&nbsp;
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

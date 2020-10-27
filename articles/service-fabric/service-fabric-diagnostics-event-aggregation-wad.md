@@ -1,21 +1,11 @@
 ---
-title: Azure Service Fabric Event Aggregation with Windows Azure Diagnostics | Microsoft Docs
+title: Event Aggregation with Windows Azure Diagnostics
 description: Learn about aggregating and collecting events using WAD for monitoring and diagnostics of Azure Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
-author: dkkapur
-manager: timlt
-editor: ''
+author: srrengar
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/02/2017
-ms.author: dekapur
-
+ms.topic: conceptual
+ms.date: 04/03/2018
+ms.author: srrengar
 ---
 
 # Event aggregation and collection using Windows Azure Diagnostics
@@ -27,67 +17,75 @@ ms.author: dekapur
 
 When you're running an Azure Service Fabric cluster, it's a good idea to collect the logs from all the nodes in a central location. Having the logs in a central location helps you analyze and troubleshoot issues in your cluster, or issues in the applications and services running in that cluster.
 
-One way to upload and collect logs is to use the Windows Azure Diagnostics (WAD) extension, which uploads logs to Azure Storage, and also has the option to send logs to Azure Application Insights or Event Hubs. You can also use an external process to read the events from storage and place them in an analysis platform product, such as [OMS Log Analytics](../log-analytics/log-analytics-service-fabric.md) or another log-parsing solution.
+One way to upload and collect logs is to use the Windows Azure Diagnostics (WAD) extension, which uploads logs to Azure Storage, and also has the option to send logs to Azure Application Insights or Event Hubs. You can also use an external process to read the events from storage and place them in an analysis platform product, such as [Azure Monitor logs](./service-fabric-diagnostics-oms-setup.md) or another log-parsing solution.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
-These tools are used to perform some of the operations in this document:
+The following tools are used in this article:
 
-* [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (related to Azure Cloud Services but has good information and examples)
-* [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-* [Azure PowerShell](/powershell/azure/overview)
-* [Azure Resource Manager client](https://github.com/projectkudu/ARMClient)
-* [Azure Resource Manager template](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure Resource Manager](../azure-resource-manager/management/overview.md)
+* [Azure PowerShell](/powershell/azure/)
+* [Azure Resource Manager template](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 
-## Log and event sources
-
-### Service Fabric platform events
-As discussed in [this article](service-fabric-diagnostics-event-generation-infra.md), Service Fabric sets you up with a few out-of-the-box logging channels, of which the following channels are easily configured with WAD to send monitoring and diagnostics data to a storage table or elsewhere:
-  * Operational events: higher-level operations that the Service Fabric platform performs. Examples include creation of applications and services, node state changes, and upgrade information. These are emitted as Event Tracing for Windows (ETW) logs
+## Service Fabric platform events
+Service Fabric sets you up with a few [out-of-the-box logging channels](service-fabric-diagnostics-event-generation-infra.md), of which the following channels are pre-configured with the extension to send monitoring and diagnostics data to a storage table or elsewhere:
+  * [Operational events](service-fabric-diagnostics-event-generation-operational.md): higher-level operations that the Service Fabric platform performs. Examples include creation of applications and services, node state changes, and upgrade information. These are emitted as Event Tracing for Windows (ETW) logs
   * [Reliable Actors programming model events](service-fabric-reliable-actors-diagnostics.md)
   * [Reliable Services programming model events](service-fabric-reliable-services-diagnostics.md)
 
-### Application events
- Events emitted from your applications' and services' code and written out by using the EventSource helper class provided in the Visual Studio templates. For more information on how to write EventSource logs from your application, see [Monitor and diagnose services in a local machine development setup](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-
-## Deploy the Diagnostics extension
-The first step in collecting logs is to deploy the Diagnostics extension on each of the VMs in the Service Fabric cluster. The Diagnostics extension collects logs on each VM and uploads them to the storage account that you specify. The steps vary a little based on whether you use the Azure portal or Azure Resource Manager. The steps also vary based on whether the deployment is part of cluster creation or is for a cluster that already exists. Let's look at the steps for each scenario.
+## Deploy the Diagnostics extension through the portal
+The first step in collecting logs is to deploy the Diagnostics extension on the virtual machine scale set nodes in the Service Fabric cluster. The Diagnostics extension collects logs on each VM and uploads them to the storage account that you specify. The following steps outline how to accomplish this for new and existing clusters through the Azure portal and Azure Resource Manager templates.
 
 ### Deploy the Diagnostics extension as part of cluster creation through Azure portal
-To deploy the Diagnostics extension to the VMs in the cluster as part of cluster creation, you use the Diagnostics settings panel shown in the following image - ensure that Diagnostics is set to **On** (the default setting). After you create the cluster, you can't change these settings by using the portal.
+When creating your cluster, in the cluster configuration step, expand the optional settings and ensure that Diagnostics is set to **On** (the default setting).
 
-![Azure Diagnostics settings in the portal for cluster creation](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics.png)
+![Azure Diagnostics settings in the portal for cluster creation](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics-new.png)
 
-When you're creating a cluster by using the portal, we highly recommend that you download the template **before you click OK** to create the cluster. For details, refer to [Set up a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md). You'll need the template to make changes later, because you can't make some changes by using the portal.
+We highly recommend that you download the template **before you click Create** in the final step. For details, refer to [Set up a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md). You need the template to make changes on what channels (listed above) to gather data from.
 
-### Deploy the Diagnostics extension as part of cluster creation by using Azure Resource Manager
-To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full cluster Resource Manager template before you create the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+![Cluster Template](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
+
+Now that you're aggregating events in Azure Storage, [set up Azure Monitor logs](service-fabric-diagnostics-oms-setup.md) to gain insights and query them in the Azure Monitor logs portal
+
+>[!NOTE]
+>There is currently no way to filter or groom the events that are sent to the tables. If you don't implement a process to remove events from the table, the table will continue to grow (the default cap is 50 GB). Instructions on how to change this are [further below in this article](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Additionally, there is an example of a data grooming service running in the [Watchdog sample](https://github.com/Azure-Samples/service-fabric-watchdog-service), and it is recommended that you write one for yourself as well, unless there is a good reason for you to store logs beyond a 30 or 90 day timeframe.
+
+
+
+## Deploy the Diagnostics extension through Azure Resource Manager
+
+### Create a cluster with the diagnostics extension
+To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full Resource Manager template. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 To see the Diagnostics setting in the Resource Manager template, open the azuredeploy.json file and search for **IaaSDiagnostics**. To create a cluster by using this template, select the **Deploy to Azure** button available at the previous link.
 
-Alternatively, you can download the Resource Manager sample, make changes to it, and create a cluster with the modified template by using the `New-AzureRmResourceGroupDeployment` command in an Azure PowerShell window. See the following code for the parameters that you pass in to the command. For detailed information on how to deploy a resource group by using PowerShell, see the article [Deploy a resource group with the Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md).
+Alternatively, you can download the Resource Manager sample, make changes to it, and create a cluster with the modified template by using the `New-AzResourceGroupDeployment` command in an Azure PowerShell window. See the following code for the parameters that you pass in to the command. For detailed information on how to deploy a resource group by using PowerShell, see the article [Deploy a resource group with the Azure Resource Manager template](../azure-resource-manager/templates/deploy-powershell.md).
 
-### Deploy the Diagnostics extension to an existing cluster
-If you have an existing cluster that doesn't have Diagnostics deployed, or if you want to modify an existing configuration, you can add or update it. Modify the Resource Manager template that's used to create the existing cluster or download the template from the portal as described earlier. Modify the template.json file by performing the following tasks.
+### Add the diagnostics extension to an existing cluster
+If you have an existing cluster that doesn't have Diagnostics deployed, you can add or update it via the cluster template. Modify the Resource Manager template that's used to create the existing cluster or download the template from the portal as described earlier. Modify the template.json file by performing the following tasks:
 
 Add a new storage resource to the template by adding to the resources section.
 
 ```json
 {
-  "apiVersion": "2015-05-01-preview",
-  "type": "Microsoft.Storage/storageAccounts",
-  "name": "[parameters('applicationDiagnosticsStorageAccountName')]",
-  "location": "[parameters('computeLocation')]",
-  "properties": {
-    "accountType": "[parameters('applicationDiagnosticsStorageAccountType')]"
+	"apiVersion": "2018-07-01",
+	"type": "Microsoft.Storage/storageAccounts",
+	"name": "[parameters('applicationDiagnosticsStorageAccountName')]",
+	"location": "[parameters('computeLocation')]",
+	"sku": {
+	"name": "[parameters('applicationDiagnosticsStorageAccountType')]"
+	"tier": "standard"
   },
-  "tags": {
-    "resourceType": "Service Fabric",
-    "clusterName": "[parameters('clusterName')]"
+	"tags": {
+	"resourceType": "Service Fabric",
+	"clusterName": "[parameters('clusterName')]"
   }
 },
 ```
 
- Next, add to the parameters section just after the storage account definitions, between `supportLogStorageAccountName` and `vmNodeType0Name`. Replace the placeholder text *storage account name goes here* with the name of the storage account.
+ Next, add to the parameters section just after the storage account definitions, between `supportLogStorageAccountName`. Replace the placeholder text *storage account name goes here* with the name of the storage account you'd like.
 
 ```json
     "applicationDiagnosticsStorageAccountType": {
@@ -103,7 +101,7 @@ Add a new storage resource to the template by adding to the resources section.
     },
     "applicationDiagnosticsStorageAccountName": {
       "type": "string",
-      "defaultValue": "storage account name goes here",
+      "defaultValue": "**STORAGE ACCOUNT NAME GOES HERE**",
       "metadata": {
         "description": "Name for the storage account that contains application diagnostics data from the cluster"
       }
@@ -154,6 +152,15 @@ Then, update the `VirtualMachineProfile` section of the template.json file by ad
                     "DefaultEvents": {
                     "eventDestination": "ServiceFabricSystemEventTable"
                     }
+                },
+                {
+                    "provider": "02d06793-efeb-48c8-8f7f-09713309a810",
+                    "scheduledTransferLogLevelFilter": "Information",
+                    "scheduledTransferKeywordFilter": "4611686018427387904",
+                    "scheduledTransferPeriod": "PT5M",
+                    "DefaultEvents": {
+                    "eventDestination": "ServiceFabricSystemEventTable"
+                    }
                 }
                 ]
             }
@@ -168,73 +175,110 @@ Then, update the `VirtualMachineProfile` section of the template.json file by ad
 
 After you modify the template.json file as described, republish the Resource Manager template. If the template was exported, running the deploy.ps1 file republishes the template. After you deploy, ensure that **ProvisioningState** is **Succeeded**.
 
-## Collect health and load events
+> [!TIP]
+> If you are going to deploy containers to your cluster, enable WAD to pick up docker stats by adding this to your **WadCfg > DiagnosticMonitorConfiguration** section.
+>
+>```json
+>"DockerSources": {
+>    "Stats": {
+>        "enabled": true,
+>        "sampleRate": "PT1M"
+>    }
+>},
+>```
 
-Starting with the 5.4 release of Service Fabric, health and load metric events are available for collection. These events reflect events generated by the system or your code by using the health or load reporting APIs such as [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) or [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). This allows for aggregating and viewing system health over time and for alerting based on health or load events. To view these events in Visual Studio's Diagnostic Event Viewer add "Microsoft-ServiceFabric:4:0x4000000000000008" to the list of ETW providers.
+### Update storage quota
 
-To collect the events in your cluster, modify the `scheduledTransferKeywordFilter` in the WadCfg of your Resource Manager template to `4611686018427387912`.
-
-```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387912",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
-
-## Collect reverse proxy events
-
-Starting with the 5.7 release of Service Fabric, [reverse proxy](service-fabric-reverseproxy.md) events are available for collection through the Data & Messaging channels. 
-
-The reverse proxy pushes only error events through the main Data & Messaging channel - reflecting request processing failures and critical issues. The detailed channel contains verbose events about all the requests processed by the reverse proxy. 
-
-To view the error events in Visual Studio's Diagnostic Event Viewer add "Microsoft-ServiceFabric:4:0x4000000000000010" to the list of ETW providers. For all the request telemetry, update the Microsoft-ServiceFabric entry in the ETW provider list to "Microsoft-ServiceFabric:4:0x4000000000000020".
-
-For clusters running in Azure:
-
-To pick up the traces in the main Data & Messaging channel, modify the `scheduledTransferKeywordFilter` value in the WadCfg of your Resource Manager template to `4611686018427387920`.
+Since the tables populated by the extension grows until the quota is hit, you may want to consider decreasing the quota size. The default value is 50 GB and is configurable in the template under the `overallQuotaInMB` field under `DiagnosticMonitorConfiguration`
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387920",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
+"overallQuotaInMB": "50000",
 ```
 
-To collect all request processing events, turn on the Data & Messaging - detailed channel by changing the `scheduledTransferKeywordFilter` value in the WadCfg of your Resource Manager template to `4611686018427387936`.
+## Log collection configurations
+Logs from additional channels are also available for collection, here are some of the most common configurations you can make in the template for clusters running in Azure.
+
+* Operational Channel - Base: Enabled by default, high-level operations performed by Service Fabric and the cluster, including events for a node coming up, a new application being deployed, or an upgrade rollback, etc. For a list of events, refer to [Operational Channel Events](./service-fabric-diagnostics-event-generation-operational.md).
+  
+```json
+      scheduledTransferKeywordFilter: "4611686018427387904"
+  ```
+* Operational Channel - Detailed: This includes health reports and load balancing decisions, plus everything in the base operational channel. These events are generated by either the system or your code by using the health or load reporting APIs such as [ReportPartitionHealth](/previous-versions/azure/reference/mt645153(v=azure.100)) or [ReportLoad](/previous-versions/azure/reference/mt161491(v=azure.100)). To view these events in Visual Studio's Diagnostic Event Viewer add "Microsoft-ServiceFabric:4:0x4000000000000008" to the list of ETW providers.
 
 ```json
-  "EtwManifestProviderConfiguration": [
-    {
-      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
-      "scheduledTransferLogLevelFilter": "Information",
-      "scheduledTransferKeywordFilter": "4611686018427387936",
-      "scheduledTransferPeriod": "PT5M",
-      "DefaultEvents": {
-        "eventDestination": "ServiceFabricSystemEventTable"
-      }
-    }
-```
+      scheduledTransferKeywordFilter: "4611686018427387912"
+  ```
 
-Enabling collecting events from this detailed channel results in a lot of traces being generated quickly, and can consume storage capacity. Only turn this on when absolutely necessary.
-For detailed troubleshooting of the reverse proxy events, refer the [reverse proxy diagnostics guide](service-fabric-reverse-proxy-diagnostics.md).
+* Data and Messaging Channel - Base: Critical logs and events generated in the messaging (currently only the ReverseProxy) and data path, in addition to detailed operational channel logs. These events are request processing failures and other critical issues in the ReverseProxy, as well as requests processed. **This is our recommendation for comprehensive logging**. To view these events in Visual Studio's Diagnostic Event Viewer, add "Microsoft-ServiceFabric:4:0x4000000000000010" to the list of ETW providers.
+
+```json
+      scheduledTransferKeywordFilter: "4611686018427387928"
+  ```
+
+* Data & Messaging Channel - Detailed: Verbose channel that contains all the non-critical logs from data and messaging in the cluster and the detailed operational channel. For detailed troubleshooting of all reverse proxy events, refer to the [reverse proxy diagnostics guide](service-fabric-reverse-proxy-diagnostics.md).  To view these events in Visual Studio's Diagnostic Event viewer, add "Microsoft-ServiceFabric:4:0x4000000000000020" to the list of ETW providers.
+
+```json
+      scheduledTransferKeywordFilter: "4611686018427387944"
+  ```
+
+>[!NOTE]
+>This channel has a very high volume of events, enabling event collection from this detailed channel results in a lot of traces being generated quickly, and can consume storage capacity. Only turn this on if absolutely necessary.
+
+
+To enable the **Base Operational Channel** our recommendation for comprehensive logging with the least amount of noise, The `EtwManifestProviderConfiguration` in the `WadCfg` of your template would look like the following:
+
+```json
+  "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+          "overallQuotaInMB": "50000",
+          "EtwProviders": {
+            "EtwEventSourceProviderConfiguration": [
+              {
+                "provider": "Microsoft-ServiceFabric-Actors",
+                "scheduledTransferKeywordFilter": "1",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableActorEventTable"
+                }
+              },
+              {
+                "provider": "Microsoft-ServiceFabric-Services",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricReliableServiceEventTable"
+                }
+              }
+            ],
+            "EtwManifestProviderConfiguration": [
+              {
+                "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                "scheduledTransferLogLevelFilter": "Information",
+                "scheduledTransferKeywordFilter": "4611686018427387904",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                  "eventDestination": "ServiceFabricSystemEventTable"
+                }
+              },
+              {
+                "provider": "02d06793-efeb-48c8-8f7f-09713309a810",
+                "scheduledTransferLogLevelFilter": "Information",
+                "scheduledTransferKeywordFilter": "4611686018427387904",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                "eventDestination": "ServiceFabricSystemEventTable"
+                }
+              }
+            ]
+          }
+        }
+      },
+```
 
 ## Collect from new EventSource channels
 
 To update Diagnostics to collect logs from new EventSource channels that represent a new application that you're about to deploy, perform the same steps as previously described for the setup of Diagnostics for an existing cluster.
 
-Update the `EtwEventSourceProviderConfiguration` section in the template.json file to add entries for the new EventSource channels before you apply the configuration update by using the `New-AzureRmResourceGroupDeployment` PowerShell command. The name of the event source is defined as part of your code in the Visual Studio-generated ServiceEventSource.cs file.
+Update the `EtwEventSourceProviderConfiguration` section in the template.json file to add entries for the new EventSource channels before you apply the configuration update by using the `New-AzResourceGroupDeployment` PowerShell command. The name of the event source is defined as part of your code in the Visual Studio-generated ServiceEventSource.cs file.
 
 For example, if your event source is named My-Eventsource, add the following code to place the events from My-Eventsource into a table named MyDestinationTableName.
 
@@ -248,7 +292,7 @@ For example, if your event source is named My-Eventsource, add the following cod
         }
 ```
 
-To collect performance counters or event logs, modify the Resource Manager template by using the examples provided in [Create a Windows virtual machine with monitoring and diagnostics by using an Azure Resource Manager template](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Then, republish the Resource Manager template.
+To collect performance counters or event logs, modify the Resource Manager template by using the examples provided in [Create a Windows virtual machine with monitoring and diagnostics by using an Azure Resource Manager template](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json). Then, republish the Resource Manager template.
 
 ## Collect Performance Counters
 
@@ -259,15 +303,59 @@ If you are using an Application Insights sink, as described in the section below
 
 ## Send logs to Application Insights
 
-Sending monitoring and diagnostics data to Application Insights (AI) can be done as part of the WAD configuration. If you decide to use AI for event analysis and visualization, read [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) to set up an AI Sink as part of your "WadCfg".
+### Configuring Application Insights with WAD
+
+>[!NOTE]
+>This is only applicable to Windows clusters at the moment.
+
+There are two primary ways to send data from WAD to Azure Application Insights, which is achieved by adding an Application Insights sink to the WAD configuration, through the Azure portal or through an Azure Resource Manager template.
+
+#### Add an Application Insights Instrumentation Key when creating a cluster in Azure portal
+
+![Adding an AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
+
+When creating a cluster, if Diagnostics is turned "On", an optional field to enter an Application Insights Instrumentation key will show. If you paste your Application Insights Key here, the Application Insights sink is automatically configured for you in the Resource Manager template that is used to deploy your cluster.
+
+#### Add the Application Insights Sink to the Resource Manager template
+
+In the "WadCfg" of the Resource Manager template, add a "Sink" by including the following two changes:
+
+1. Add the sink configuration directly after the declaring of the `DiagnosticMonitorConfiguration` is completed:
+
+    ```json
+    "SinksConfig": {
+        "Sink": [
+            {
+                "name": "applicationInsights",
+                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
+            }
+        ]
+    }
+
+    ```
+
+2. Include the Sink in the `DiagnosticMonitorConfiguration` by adding the following line in the `DiagnosticMonitorConfiguration` of the `WadCfg` (right before the `EtwProviders` are declared):
+
+    ```json
+    "sinks": "applicationInsights"
+    ```
+
+In both the preceding code snippets, the name "applicationInsights" was used to describe the sink. This is not a requirement and as long as the name of the sink is included in "sinks", you can set the name to any string.
+
+Currently, logs from the cluster show up as **traces** in Application Insights' log viewer. Since most of the traces coming from the platform are of level "Informational", you can also consider changing the sink configuration to only send logs of type "Warning" or "Error." This can be done by adding "Channels" to your sink, as demonstrated in [this article](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+
+>[!NOTE]
+>If you use an incorrect Application Insights Key either in portal or in your Resource Manager template, you will have to manually change the key and update the cluster / redeploy it.
 
 ## Next steps
 
-Once you have correctly configured Azure diagnostics, you will see data in your Storage tables from the ETW and EventSource logs. If you choose to use OMS, Kibana, or any other data analytics and visualization platform that is not directly configured in the Resource Manager template, make sure to set up the platform of your choice to read in the data from these storage tables. Doing this for OMS is relatively trivial, and is explained in [Event and log analysis through OMS](service-fabric-diagnostics-event-analysis-oms.md). Application Insights is a bit of a special case in this sense, since it can be configured as part of the Diagnostics extension configuration, so refer to the [appropriate article](service-fabric-diagnostics-event-analysis-appinsights.md) if you choose to use AI.
+Once you have correctly configured Azure diagnostics, you will see data in your Storage tables from the ETW and EventSource logs. If you choose to use Azure Monitor logs, Kibana, or any other data analytics and visualization platform that is not directly configured in the Resource Manager template, make sure to set up the platform of your choice to read in the data from these storage tables. Doing this for Azure Monitor logs is relatively trivial, and is explained in [Event and log analysis](service-fabric-diagnostics-event-analysis-oms.md). Application Insights is a bit of a special case in this sense, since it can be configured as part of the Diagnostics extension configuration, so refer to the [appropriate article](service-fabric-diagnostics-event-analysis-appinsights.md) if you choose to use AI.
 
 >[!NOTE]
 >There is currently no way to filter or groom the events that are sent to the table. If you don't implement a process to remove events from the table, the table will continue to grow. Currently, there is an example of a data grooming service running in the [Watchdog sample](https://github.com/Azure-Samples/service-fabric-watchdog-service), and it is recommended that you write one for yourself as well, unless there is a good reason for you to store logs beyond a 30 or 90 day timeframe.
 
-* [Learn how to collect performance counters or logs by using the Diagnostics extension](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Learn how to collect performance counters or logs by using the Diagnostics extension](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Event Analysis and Visualization with OMS](service-fabric-diagnostics-event-analysis-oms.md)
+* [Event Analysis and Visualization with Azure Monitor logs](service-fabric-diagnostics-event-analysis-oms.md)
+* [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Event Analysis and Visualization with Azure Monitor logs](service-fabric-diagnostics-event-analysis-oms.md)

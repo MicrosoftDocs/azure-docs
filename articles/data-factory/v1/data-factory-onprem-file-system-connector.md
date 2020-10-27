@@ -1,33 +1,35 @@
 ---
-title: Copy data to/from a file system using Azure Data Factory | Microsoft Docs
+title: Copy data to/from a file system using Azure Data Factory 
 description: Learn how to copy data to and from an on-premises file system by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: shwang
+
 
 ms.assetid: ce19f1ae-358e-4ffc-8a80-d802505c9c84
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+
+
+ms.topic: conceptual
+ms.date: 04/13/2018
 ms.author: jingwang
 
 robots: noindex
 ---
 # Copy data to and from an on-premises file system by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-onprem-file-system-connector.md)
-> * [Version 2 - Preview](../connector-file-system.md)
+> * [Version 1](data-factory-onprem-file-system-connector.md)
+> * [Version 2 (current version)](../connector-file-system.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [File System connector in V2](../connector-file-system.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [File System connector in V2](../connector-file-system.md).
 
 
 This article explains how to use the Copy Activity in Azure Data Factory to copy data to/from an on-premises file system. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Supported scenarios
 You can copy data **from an on-premises file system** to the following data stores:
@@ -39,7 +41,7 @@ You can copy data from the following data stores **to an on-premises file system
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
-> Copy Activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file and use the activity in the pipeline. 
+> Copy Activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file and use the activity in the pipeline.
 
 ## Enabling connectivity
 Data Factory supports connecting to and from an on-premises file system via **Data Management Gateway**. You must install the Data Management Gateway in your on-premises environment for the Data Factory service to connect to any supported on-premises data store including file system. To learn about Data Management Gateway and for step-by-step instructions on setting up the gateway, see [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md). Apart from Data Management Gateway, no other binary files need to be installed to communicate to and from an on-premises file system. You must install and use the Data Management Gateway even if the file system is in Azure IaaS VM. For detailed information about the gateway, see [Data Management Gateway](data-factory-data-management-gateway.md).
@@ -51,11 +53,11 @@ You can create a pipeline with a copy activity that moves data to/from a file sy
 
 The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
+You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
-1. Create a **data factory**. A data factory may contain one or more pipelines. 
+1. Create a **data factory**. A data factory may contain one or more pipelines.
 2. Create **linked services** to link input and output data stores to your data factory. For example, if you are copying data from an Azure blob storage to an on-premises file system, you create two linked services to link your on-premises file system and Azure storage account to your data factory. For linked service properties that are specific to an on-premises file system, see [linked service properties](#linked-service-properties) section.
 3. Create **datasets** to represent input and output data for the copy operation. In the example mentioned in the last step, you create a dataset to specify the blob container and folder that contains the input data. And, you create another dataset to specify the folder and file name (optional) in your file system. For dataset properties that are specific to on-premises file system, see [dataset properties](#dataset-properties) section.
 4. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. In the example mentioned earlier, you use BlobSource as a source and FileSystemSink as a sink for the copy activity. Similarly, if you are copying from on-premises file system to Azure Blob Storage, you use FileSystemSource and BlobSink in the copy activity. For copy activity properties that are specific to on-premises file system, see [copy activity properties](#copy-activity-properties) section. For details on how to use a data store as a source or a sink, click the link in the previous section for your data store.
@@ -73,16 +75,18 @@ You can link an on-premises file system to an Azure data factory with the **On-P
 | host |Specifies the root path of the folder that you want to copy. Use the escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples. |Yes |
 | userid |Specify the ID of the user who has access to the server. |No (if you choose encryptedCredential) |
 | password |Specify the password for the user (userid). |No (if you choose encryptedCredential |
-| encryptedCredential |Specify the encrypted credentials that you can get by running the New-AzureRmDataFactoryEncryptValue cmdlet. |No (if you choose to specify userid and password in plain text) |
+| encryptedCredential |Specify the encrypted credentials that you can get by running the New-AzDataFactoryEncryptValue cmdlet. |No (if you choose to specify userid and password in plain text) |
 | gatewayName |Specifies the name of the gateway that Data Factory should use to connect to the on-premises file server. |Yes |
 
 
 ### Sample linked service and dataset definitions
 | Scenario | Host in linked service definition | folderPath in dataset definition |
 | --- | --- | --- |
-| Local folder on Data Management Gateway machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* |D:\\\\ (for Data Management Gateway 2.0 and later versions) <br/><br/> localhost (for earlier versions than Data Management Gateway 2.0) |.\\\\ or folder\\\\subfolder (for Data Management Gateway 2.0 and later versions) <br/><br/>D:\\\\ or D:\\\\folder\\\\subfolder (for gateway version below 2.0) |
-| Remote shared folder: <br/><br/>Examples: \\\\myserver\\share\\\* or \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\share |.\\\\ or folder\\\\subfolder |
+| Local folder on Data Management Gateway machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\\* |D:\\\\ (for Data Management Gateway 2.0 and later versions) <br/><br/> localhost (for earlier versions than Data Management Gateway 2.0) |.\\\\ or folder\\\\subfolder (for Data Management Gateway 2.0 and later versions) <br/><br/>D:\\\\ or D:\\\\folder\\\\subfolder (for gateway version below 2.0) |
+| Remote shared folder: <br/><br/>Examples: \\\\myserver\\share\\\* or \\\\myserver\\share\\folder\\subfolder\\\* |\\\\\\\\myserver\\\\share |.\\\\ or folder\\\\subfolder |
 
+>[!NOTE]
+>When authoring via UI, you don't need to input double backslash (`\\`) to escape like you do via JSON, specify single backslash.
 
 ### Example: Using username and password in plain text
 
@@ -124,7 +128,7 @@ The typeProperties section is different for each type of dataset. It provides in
 
 | Property | Description | Required |
 | --- | --- | --- |
-| folderPath |Specifies the subpath to the folder. Use the escape character ‘\’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
+| folderPath |Specifies the subpath to the folder. Use the escape character '\' for special characters in the string. Wildcard filter is not supported. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. |Yes |
 | fileName |Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When **fileName** is not specified for an output dataset and **preserveHierarchy** is not specified in activity sink, the name of the generated file is in the following format: <br/><br/>`Data.<Guid>.txt` (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No |
 | fileFilter |Specify a filter to be used to select a subset of files in the folderPath rather than all files. <br/><br/>Allowed values are: `*` (multiple characters) and `?` (single character).<br/><br/>Example 1: "fileFilter": "*.log"<br/>Example 2: "fileFilter": 2014-1-?.txt"<br/><br/>Note that fileFilter is applicable for an input FileShare dataset. |No |
 | partitionedBy |You can use partitionedBy to specify a dynamic folderPath/fileName for time-series data. An example is folderPath parameterized for every hour of data. |No |
@@ -157,7 +161,7 @@ In this example, {Slice} is replaced with the value of the Data Factory system v
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
@@ -200,7 +204,7 @@ This section describes the resulting behavior of the Copy operation for differen
 See [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article on details.
 
 ## JSON examples for copying data to and from file system
-The following examples provide sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from an on-premises file system and Azure Blob storage. However, you can copy data *directly* from any of the sources to any of the sinks listed in [Supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from an on-premises file system and Azure Blob storage. However, you can copy data *directly* from any of the sources to any of the sinks listed in [Supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.
 
 ### Example: Copy data from an on-premises file system to Azure Blob storage
 This sample shows how to copy data from an on-premises file system to Azure Blob storage. The sample has the following Data Factory entities:
@@ -250,7 +254,7 @@ We recommend using the **encryptedCredential** property instead the **userid** a
 
 **On-premises file system input dataset:**
 
-Data is picked up from a new file every hour. The folderPath and fileName properties are determined based on the start time of the slice.  
+Data is picked up from a new file every hour. The folderPath and fileName properties are determined based on the start time of the slice.
 
 Setting `"external": "true"` informs Data Factory that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
@@ -379,13 +383,13 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 The pipeline contains a copy activity that is configured to use the input and output datasets, and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource**, and **sink** type is set to **BlobSink**.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2015-06-01T18:00:00",
     "end":"2015-06-01T19:00:00",
     "description":"Pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "OnpremisesFileSystemtoBlob",
         "description": "copy activity",
@@ -419,8 +423,8 @@ The pipeline contains a copy activity that is configured to use the input and ou
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
 
@@ -431,7 +435,7 @@ The following sample shows:
 * A linked service of type [OnPremisesFileServer](#linked-service-properties).
 * An input dataset of type [AzureSqlTable](data-factory-azure-sql-connector.md#dataset-properties).
 * An output dataset of type [FileShare](#dataset-properties).
-* A pipeline with a copy activity that uses [SqlSource](data-factory-azure-sql-connector.md##copy-activity-properties) and [FileSystemSink](#copy-activity-properties).
+* A pipeline with a copy activity that uses [SqlSource](data-factory-azure-sql-connector.md#copy-activity-properties) and [FileSystemSink](#copy-activity-properties).
 
 The sample copies time-series data from an Azure SQL table to an on-premises file system every hour. The JSON properties that are used in these samples are described in sections after the samples.
 
@@ -568,13 +572,13 @@ Data is copied to a new file every hour. The folderPath and fileName for the blo
 The pipeline contains a copy activity that is configured to use the input and output datasets, and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **SqlSource**, and the **sink** type is set to **FileSystemSink**. The SQL query that is specified for the **SqlReaderQuery** property selects the data in the past hour to copy.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2015-06-01T18:00:00",
     "end":"2015-06-01T20:00:00",
     "description":"pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "AzureSQLtoOnPremisesFile",
         "description": "copy activity",
@@ -609,11 +613,10 @@ The pipeline contains a copy activity that is configured to use the input and ou
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
-
 
 You can also map columns from source dataset to columns from sink dataset in the copy activity definition. For details, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
 

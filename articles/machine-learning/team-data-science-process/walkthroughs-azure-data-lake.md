@@ -1,21 +1,16 @@
 ---
-title: Azure Data Lake data science walkthroughs using U-SQL  | Microsoft Docs
+title: Analytics using U-SQL on Azure Data Lake - Team Data Science Process
 description: Examples that walk through the use of U-SQL on Azure Data Lake to do predictive analytics.
 services: machine-learning
-documentationcenter: ''
-author: bradsev
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
+author: marktab
+manager: marktab
+editor: marktab
 ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
-ms.author: bradsev
-
+ms.date: 01/10/2020
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 # Azure Data Lake data science walkthroughs using U-SQL
@@ -27,11 +22,11 @@ Additional data science walkthroughs that execute the Team Data Science Process 
 
 ## Predict taxi tips using U-SQL with Azure Data Lake
 
-The [Use Azure Data Lake for data science](data-lake-walkthrough.md) walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks on a sample of the NYC taxi dataset to predict whether or not a tip is paid by a customer. 
+The [Use Azure Data Lake for data science](data-lake-walkthrough.md) walkthrough shows how to use Azure Data Lake to do data exploration and binary classification tasks.  The data are a sample of the NYC taxi dataset.  The task is predicting whether or not a tip is paid by a customer. 
 
 
 ## Next steps
 
-For a discussion of the key components that comprise the Team Data Science Process, see [Team Data Science Process overview](overview.md).
+For an overview of the Team Data Science Process, see [Team Data Science Process overview](overview.md).
 
-For a discussion of the Team Data Science Process lifecycle that you can use to structure your data science projects, see [Team Data Science Process lifecycle](lifecycle.md). The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 
+For a discussion of the Team Data Science Process lifecycle, see [Team Data Science Process lifecycle](lifecycle.md). This lifecycle outlines the steps that projects usually follow when they are executed. 

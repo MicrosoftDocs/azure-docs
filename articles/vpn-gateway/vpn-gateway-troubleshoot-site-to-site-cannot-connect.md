@@ -1,19 +1,13 @@
 ---
-title: Troubleshoot an Azure site-to-site VPN connection that cannot connect| Microsoft Docs
+title: 'Troubleshoot an Azure site-to-site VPN connection that cannot connect
+titleSuffix: Azure VPN Gateway'
 description: Learn how to troubleshoot a site-to-site VPN connection that suddenly stops working and cannot be reconnected. 
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: cshepard
-editor: ''
-tags: ''
 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/13/2017
+ms.date: 09/16/2019
 ms.author: genli
 ---
 
@@ -35,7 +29,7 @@ Check the type of the Azure VPN gateway.
 
 2. Check the **Overview** page of the VPN gateway for the type information.
     
-    ![Overview of the gateway](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
+    ![Overview of the gateway](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/gatewayoverview.png)
 
 ### Step 1. Check whether the on-premises VPN device is validated
 
@@ -59,13 +53,19 @@ To view the shared key for the Azure VPN connection, use one of the following me
 
 **Azure PowerShell**
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 For the Azure Resource Manager deployment model:
 
-    Get-AzureRmVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
+```azurepowershell
+Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>
+```
 
 For the classic deployment model:
 
-    Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
+```azurepowershell
+Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
+```
 
 ### Step 3. Verify the VPN peer IPs
 
@@ -89,13 +89,17 @@ Check for and remove user-defined routing (UDR) or Network Security Groups (NSGs
 
 ### Step 7. Verify the Azure gateway health probe
 
-1. Go to the health probe.
+1. Open health probe by browsing to the following URL:
+
+    `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
 2. Click through the certificate warning.
 3. If you receive a response, the VPN gateway is considered healthy. If you don't receive a response, the gateway might not be healthy or an NSG on the gateway subnet is causing the problem. The following text is a sample response:
 
-    &lt;?xml version="1.0"?>
-    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
+    ```xml
+    <?xml version="1.0"?>
+    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>
+    ```
 
 ### Step 8. Check whether the on-premises VPN device has the perfect forward secrecy feature enabled
 

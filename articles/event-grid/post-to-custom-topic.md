@@ -1,19 +1,15 @@
 ---
 title: Post event to custom Azure Event Grid topic
-description: Describes how to post an event to a custom topic for Azure Event Grid
-services: event-grid
-author: tfitzmac
-manager: timlt
-
-ms.service: event-grid
-ms.topic: article
-ms.date: 01/30/2018
-ms.author: tomfitz
+description: This article describes how to post an event to a custom topic. It shows the format of the post and event data.
+ms.topic: conceptual
+ms.date: 07/07/2020
 ---
 
 # Post to custom topic for Azure Event Grid
 
 This article describes how to post an event to a custom topic. It shows the format of the post and event data. The [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) only applies to posts that match the expected format.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Endpoint
 
@@ -30,7 +26,7 @@ az eventgrid topic show --name <topic-name> -g <topic-resource-group> --query "e
 To get the endpoint for a custom topic with Azure PowerShell, use:
 
 ```powershell
-(Get-AzureRmEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
+(Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
 ## Header
@@ -48,7 +44,7 @@ az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --quer
 To get the key for a custom topic with PowerShell, use:
 
 ```powershell
-(Get-AzureRmEventGridTopicKey -ResourceGroupName <topic-resource-group> -Name <topic-name>).Key1
+(Get-AzEventGridTopicKey -ResourceGroupName <topic-resource-group> -Name <topic-name>).Key1
 ```
 
 ## Event data
@@ -70,7 +66,10 @@ For custom topics, the top-level data contains the same fields as standard resou
 ]
 ```
 
-For a description of these properties, see [Azure Event Grid event schema](event-schema.md).
+For a description of these properties, see [Azure Event Grid event schema](event-schema.md). When posting events to an event grid topic, the array can have a total size of up to 1 MB. Each event in the array is limited to 64 KB (General Availability) or 1 MB (preview).
+
+> [!NOTE]
+> An event of size up to 64 KB is covered by General Availability (GA) Service Level Agreement (SLA). The support for an event of size up to 1 MB is currently in preview. Events over 64 KB are charged in 64-KB increments. 
 
 For example, a valid event data schema is:
 
@@ -88,8 +87,35 @@ For example, a valid event data schema is:
 }]
 ```
 
+## Response
+
+After posting to the topic endpoint, you receive a response. The response is a standard HTTP response code. Some common responses are:
+
+|Result  |Response  |
+|---------|---------|
+|Success  | 200 OK  |
+|Event data has incorrect format | 400 Bad Request |
+|Invalid access key | 401 Unauthorized |
+|Incorrect endpoint | 404 Not Found |
+|Array or event exceeds size limits | 413 Payload Too Large |
+
+For errors, the message body has the following format:
+
+```json
+{
+    "error": {
+        "code": "<HTTP status code>",
+        "message": "<description>",
+        "details": [{
+            "code": "<HTTP status code>",
+            "message": "<description>"
+    }]
+  }
+}
+```
+
 ## Next steps
 
-* For an introduction to routing custom events, see [Create and route custom events with Azure CLI and Event Grid](custom-event-quickstart.md) or [Create and route custom events with Azure PowerShell and Event Grid](custom-event-quickstart-powershell.md).
+* For information about monitoring event deliveries, see [Monitor Event Grid message delivery](monitor-event-delivery.md).
 * For more information about the authentication key, see [Event Grid security and authentication](security-authentication.md).
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).

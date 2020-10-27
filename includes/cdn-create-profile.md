@@ -1,27 +1,39 @@
-**To create a new CDN profile**
+---
+title: include file
+description: include file
+services: cdn
+author: SyntaxC4
+ms.service: azure-cdn
+ms.topic: include
+ms.date: 04/30/2020
+ms.author: cfowler
+ms.custom: include file
+---
 
-1. In the [Azure portal](https://portal.azure.com), in the upper left, select **Create a resource**.
-    
-2. In the **New** blade, select **Web + Mobile**, then **CDN**.
-   
-    The **CDN profile** blade appears.
-   
-    ![New CDN Profile](./media/cdn-create-profile/new-cdn-profile-include.png)
-3. For **Name**, enter a unique name for your CDN profile.
-    
-4. For **Subscription**, select the subscription to use for this CDN profile.
-   
-5. For **Resource group**, select or create a resource group. For information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
-    
-6. For **Resource group location**, select the Azure location to store your CDN profile information. This location has no impact on CDN endpoint locations.
-    
-7. For **Pricing tier**, select a tier. For a comparison of the features available with each pricing tier, see [Azure CDN features](../articles/cdn/cdn-overview.md#azure-cdn-features).
-   
-    ![CDN pricing tier selection](./media/cdn-create-profile/cdn-choose-sku-include.png)
+## Create a new CDN profile
 
-8. Optionally, select **Create a new CDN endpoint now** to display the options for creating an endpoint at the same time that you create the profile. For more information, see [Create a new CDN endpoint](../articles/cdn/cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
+A CDN profile is a container for CDN endpoints and specifies a pricing tier.
+
+1. In the Azure portal, select **Create a resource** (on the upper left). The **New** pane appears.
    
-9. If you want to save the profile to your dashboard after it is created to make it easier to find, select **Pin to dashboard**.
-    
-10. Select **Create** to create the profile. 
+1. Search for and select **CDN**, then select **Create**:
+   
+    ![Select CDN resource](./media/cdn-create-profile/cdn-new-resource.png)
+
+    The **CDN profile** pane appears.
+
+1. Enter the following values:
+   
+    | Setting  | Value |
+    | -------- | ----- |
+    | **Name** | Enter *cdn-profile-123* for your profile name. This name must be globally unique; if it's already in use, enter a different name. |
+    | **Subscription** | Select an Azure subscription from the drop-down list. |
+    | **Resource group** | Select **Create new** and enter *CDNQuickstart-rg* for your resource group name, or select **Use existing** and choose *CDNQuickstart-rg* if you have the group already. | 
+    | **Resource group location** | Select a location near you from the drop-down list. |
+    | **Pricing tier** | Select a **Standard Akamai** option from the drop-down list. (Deployment time for the Akamai tier is about one minute. The Microsoft tier takes about 10 minutes and the Verizon tiers take about 90 minutes.) |
+    | **Create a new CDN endpoint now** | Leave unselected. |  
+   
+    ![New CDN profile](./media/cdn-create-profile/cdn-new-profile.png)
+
+1. Select **Create** to create the profile.
 

@@ -1,20 +1,21 @@
 ---
-title: 'Tutorial: Create a pipeline with Copy Activity using Visual Studio | Microsoft Docs'
+title: 'Tutorial: Create a pipeline with Copy Activity using Visual Studio '
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: shwang
+
 
 ms.assetid: 1751185b-ce0a-4ab2-a9c3-e37b4d149ca3
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+ms.custom: vs-azure
+
+
+ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: jingwang
 
 robots: noindex
 ---
@@ -22,7 +23,6 @@ robots: noindex
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -32,9 +32,9 @@ robots: noindex
 > 
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md). 
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy activity tutorial](../quickstart-create-data-factory-dot-net.md). 
 
-In this article, you learn how to use the Microsoft Visual Studio to create a data factory with a pipeline that copies data from an Azure blob storage to an Azure SQL database. If you are new to Azure Data Factory, read through the [Introduction to Azure Data Factory](data-factory-introduction.md) article before doing this tutorial.   
+In this article, you learn how to use the Microsoft Visual Studio to create a data factory with a pipeline that copies data from an Azure blob storage to Azure SQL Database. If you are new to Azure Data Factory, read through the [Introduction to Azure Data Factory](data-factory-introduction.md) article before doing this tutorial.   
 
 In this tutorial, you create a pipeline with one activity in it: Copy Activity. The copy activity copies data from a supported data store to a supported sink data store. For a list of data stores supported as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. For more information about the Copy Activity, see [Data Movement Activities](data-factory-data-movement-activities.md).
 
@@ -44,8 +44,11 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 > The data pipeline in this tutorial copies data from a source data store to a destination data store. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 1. Read through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the **prerequisite** steps.       
-2. To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
+2. To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
 3. You must have the following installed on your computer: 
    * Visual Studio 2013 or Visual Studio 2015
    * Download Azure SDK for Visual Studio 2013 or Visual Studio 2015. Navigate to [Azure Download Page](https://azure.microsoft.com/downloads/) and click **VS 2013** or **VS 2015** in the **.NET** section.
@@ -58,15 +61,15 @@ Here are the steps you perform as part of this tutorial:
 	
 	The AzureStorageLinkedService links your Azure storage account to the data factory. You created a container and uploaded data to this storage account as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-	AzureSqlLinkedService links your Azure SQL database to the data factory. The data that is copied from the blob storage is stored in this database. You created a SQL table in this database as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).     
+	AzureSqlLinkedService links Azure SQL Database to the data factory. The data that is copied from the blob storage is stored in this database. You created a SQL table in this database as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).     
 2. Create input and output **datasets** in the data factory.  
 	
 	The Azure storage linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure storage account. And, the input blob dataset specifies the container and the folder that contains the input data.  
 
-	Similarly, the Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure SQL database. And, the output SQL table dataset specifies the table in the database to which the data from the blob storage is copied.
+	Similarly, the Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to Azure SQL Database. And, the output SQL table dataset specifies the table in the database to which the data from the blob storage is copied.
 3. Create a **pipeline** in the data factory. In this step, you create a pipeline with a copy activity.   
 	
-	The copy activity copies data from a blob in the Azure blob storage to a table in the Azure SQL database. You can use a copy activity in a pipeline to copy data from any supported source to any supported destination. For a list of supported data stores, see [data movement activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article. 
+	The copy activity copies data from a blob in the Azure blob storage to a table in Azure SQL Database. You can use a copy activity in a pipeline to copy data from any supported source to any supported destination. For a list of supported data stores, see [data movement activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article. 
 4. Create an Azure **data factory** when deploying Data Factory entities (linked services, datasets/tables, and pipelines). 
 
 ## Create Visual Studio project
@@ -85,7 +88,7 @@ Therefore, you create two linked services of types: AzureStorage and AzureSqlDat
 
 The Azure Storage linked service links your Azure storage account to the data factory. This storage account is the one in which you created a container and uploaded the data as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
-Azure SQL linked service links your Azure SQL database to the data factory. The data that is copied from the blob storage is stored in this database. You created the emp table in this database as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Azure SQL linked service links Azure SQL Database to the data factory. The data that is copied from the blob storage is stored in this database. You created the emp table in this database as part of [prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Linked services link data stores or compute services to an Azure data factory. See [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) for all the sources and sinks supported by the Copy Activity. See [compute linked services](data-factory-compute-linked-services.md) for the list of compute services supported by Data Factory. In this tutorial, you do not use any compute service. 
 
@@ -104,18 +107,18 @@ Linked services link data stores or compute services to an Azure data factory. S
 ### Create the Azure SQL linked service
 1. Right-click on **Linked Services** node in the **Solution Explorer** again, point to **Add**, and click **New Item**. 
 2. This time, select **Azure SQL Linked Service**, and click **Add**. 
-3. In the **AzureSqlLinkedService1.json file**, replace `<servername>`, `<databasename>`, `<username@servername>`, and `<password>` with names of your Azure SQL server, database, user account, and password.    
+3. In the **AzureSqlLinkedService1.json file**, replace `<servername>`, `<databasename>`, `<username@servername>`, and `<password>` with names of your server, database, user account, and password.    
 4. Save the **AzureSqlLinkedService1.json** file. 
 	
 	For more information about these JSON properties, see [Azure SQL Database connector](data-factory-azure-sql-connector.md#linked-service-properties).
 
 
 ## Create datasets
-In the previous step, you created linked services to link your Azure Storage account and Azure SQL database to your data factory. In this step, you define two datasets named InputDataset and OutputDataset that represent input and output data that is stored in the data stores referred by AzureStorageLinkedService1 and AzureSqlLinkedService1 respectively.
+In the previous step, you created linked services to link your Azure Storage account and Azure SQL Database to your data factory. In this step, you define two datasets named InputDataset and OutputDataset that represent input and output data that is stored in the data stores referred by AzureStorageLinkedService1 and AzureSqlLinkedService1 respectively.
 
 The Azure storage linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure storage account. And, the input blob dataset (InputDataset) specifies the container and the folder that contains the input data.  
 
-Similarly, the Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to your Azure SQL database. And, the output SQL table dataset (OututDataset) specifies the table in the database to which the data from the blob storage is copied. 
+Similarly, the Azure SQL Database linked service specifies the connection string that Data Factory service uses at run time to connect to Azure SQL Database. And, the output SQL table dataset (OututDataset) specifies the table in the database to which the data from the blob storage is copied. 
 
 ### Create input dataset
 In this step, you create a dataset named InputDataset that points to a blob file (emp.txt) in the root folder of a blob container (adftutorial) in the Azure Storage represented by the AzureStorageLinkedService1 linked service. If you don't specify a value for the fileName (or skip it), data from all blobs in the input folder are copied to the destination. In this tutorial, you specify a value for the fileName. 
@@ -126,8 +129,8 @@ Here, you use the term "tables" rather than "datasets". A table is a rectangular
 2. In the **Add New Item** dialog box, select **Azure Blob**, and click **Add**.   
 3. Replace the JSON text with the following text and save the **AzureBlobLocation1.json** file. 
 
-  ```json   
-  {
+   ```json   
+   {
     "name": "InputDataset",
     "properties": {
       "structure": [
@@ -155,8 +158,8 @@ Here, you use the term "tables" rather than "datasets". A table is a rectangular
         "interval": 1
       }
     }
-  }
-  ``` 
+   }
+   ``` 
     The following table provides descriptions for the JSON properties used in the snippet:
 
 	| Property | Description |
@@ -173,13 +176,13 @@ Here, you use the term "tables" rather than "datasets". A table is a rectangular
     For more information about these JSON properties, see [Azure Blob connector article](data-factory-azure-blob-connector.md#dataset-properties).   
 
 ### Create output dataset
-In this step, you create an output dataset named **OutputDataset**. This dataset points to a SQL table in the Azure SQL database represented by **AzureSqlLinkedService1**. 
+In this step, you create an output dataset named **OutputDataset**. This dataset points to a SQL table in Azure SQL Database represented by **AzureSqlLinkedService1**. 
 
 1. Right-click **Tables** in the **Solution Explorer** again, point to **Add**, and click **New Item**.
 2. In the **Add New Item** dialog box, select **Azure SQL**, and click **Add**. 
 3. Replace the JSON text with the following JSON and save the **AzureSqlTableLocation1.json** file.
 
-  ```json
+   ```json
 	{
 	 "name": "OutputDataset",
 	 "properties": {
@@ -204,12 +207,12 @@ In this step, you create an output dataset named **OutputDataset**. This dataset
 	   }
 	 }
 	}
-	```
+    ```
     The following table provides descriptions for the JSON properties used in the snippet:
 
 	| Property | Description |
 	|:--- |:--- |
-	| type | The type property is set to **AzureSqlTable** because data is copied to a table in an Azure SQL database. |
+	| type | The type property is set to **AzureSqlTable** because data is copied to a table in Azure SQL Database. |
 	| linkedServiceName | Refers to the **AzureSqlLinkedService** that you created earlier. |
 	| tableName | Specified the **table** to which the data is copied. | 
 	| frequency/interval | The frequency is set to **Hour** and interval is **1**, which means that the output slices are produced **hourly** between the pipeline start and end times, not before or after these times.  |
@@ -227,7 +230,7 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 2. Select **Copy Data Pipeline** in the **Add New Item** dialog box and click **Add**. 
 3. Replace the JSON with the following JSON and save the **CopyActivity1.json** file.
 
-  ```json   
+   ```json   
 	{
 	 "name": "ADFTutorialPipeline",
 	 "properties": {
@@ -270,20 +273,20 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 	   "isPaused": false
 	 }
 	}
-	```   
-	- In the activities section, there is only one activity whose **type** is set to **Copy**. For more information about the copy activity, see [data movement activities](data-factory-data-movement-activities.md). In Data Factory solutions, you can also use [data transformation activities](data-factory-data-transformation-activities.md).
-	- Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**. 
-	- In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. For a complete list of data stores supported by the copy activity as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). To learn how to use a specific supported data store as a source/sink, click the link in the table.  
+    ```   
+   - In the activities section, there is only one activity whose **type** is set to **Copy**. For more information about the copy activity, see [data movement activities](data-factory-data-movement-activities.md). In Data Factory solutions, you can also use [data transformation activities](data-factory-data-transformation-activities.md).
+   - Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**. 
+   - In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. For a complete list of data stores supported by the copy activity as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). To learn how to use a specific supported data store as a source/sink, click the link in the table.  
      
-	Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2016-02-03", which is equivalent to "2016-02-03T00:00:00Z"
+     Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2016-02-03", which is equivalent to "2016-02-03T00:00:00Z"
      
-	Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2016-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial. 
+     Both start and end datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2016-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial. 
      
-	If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property.
+     If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property.
      
-	In the preceding example, there are 24 data slices as each data slice is produced hourly.
+     In the preceding example, there are 24 data slices as each data slice is produced hourly.
 
-	For descriptions of JSON properties in a pipeline definition, see [create pipelines](data-factory-create-pipelines.md) article. For descriptions of JSON properties in a copy activity definition, see [data movement activities](data-factory-data-movement-activities.md). For descriptions of JSON properties supported by BlobSource, see [Azure Blob connector article](data-factory-azure-blob-connector.md). For descriptions of JSON properties supported by SqlSink, see [Azure SQL Database connector article](data-factory-azure-sql-connector.md).
+     For descriptions of JSON properties in a pipeline definition, see [create pipelines](data-factory-create-pipelines.md) article. For descriptions of JSON properties in a copy activity definition, see [data movement activities](data-factory-data-movement-activities.md). For descriptions of JSON properties supported by BlobSource, see [Azure Blob connector article](data-factory-azure-blob-connector.md). For descriptions of JSON properties supported by SqlSink, see [Azure SQL Database connector article](data-factory-azure-sql-connector.md).
 
 ## Publish/deploy Data Factory entities
 In this step, you publish Data Factory entities (linked services, datasets, and pipeline) you created earlier. You also specify the name of the new data factory to be created to hold these entities.  
@@ -329,19 +332,19 @@ Note the following points:
   
   * In Azure PowerShell, run the following command to register the Data Factory provider. 
 
-	```PowerShell    
-	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	```powershell    
+	Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 	You can run the following command to confirm that the Data Factory provider is registered. 
     
-	```PowerShell
-	Get-AzureRmResourceProvider
-	```
+	```powershell
+	Get-AzResourceProvider
+    ```
   * Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
-* The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
+* The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.
 
 > [!IMPORTANT]
-> To create Data Factory instances, you need to be a admin/co-admin of the Azure subscription
+> To create Data Factory instances, you need to be an admin/co-admin of the Azure subscription
 
 ## Monitor pipeline
 Navigate to the home page for your data factory:
@@ -356,19 +359,19 @@ Navigate to the home page for your data factory:
 4. Click your data factory in the results list to see the home page for your data factory.
 
 	![Data factory home page](media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png)
-5. Follow instructions from [Monitor datasets and pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines. 
+5. Follow instructions from [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines. 
 
 ## Summary
-In this tutorial, you created an Azure data factory to copy data from an Azure blob to an Azure SQL database. You used Visual Studio to create the data factory, linked services, datasets, and a pipeline. Here are the high-level steps you performed in this tutorial:  
+In this tutorial, you created an Azure data factory to copy data from an Azure blob to Azure SQL Database. You used Visual Studio to create the data factory, linked services, datasets, and a pipeline. Here are the high-level steps you performed in this tutorial:  
 
 1. Created an Azure **data factory**.
 2. Created **linked services**:
    1. An **Azure Storage** linked service to link your Azure Storage account that holds input data.     
-   2. An **Azure SQL** linked service to link your Azure SQL database that holds the output data. 
+   2. An **Azure SQL** linked service to link your database that holds the output data. 
 3. Created **datasets**, which describe input data and output data for pipelines.
 4. Created a **pipeline** with a **Copy Activity** with **BlobSource** as source and **SqlSink** as sink. 
 
-To see how to use a HDInsight Hive Activity to transform data by using Azure HDInsight cluster, see [ Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
+To see how to use a HDInsight Hive Activity to transform data by using Azure HDInsight cluster, see [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. See [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) for detailed information. 
 
@@ -432,13 +435,13 @@ Add a configuration file for each environment by performing the following steps:
 	    "AzureSqlLinkedService1": [
 	        {
 	            "name": "$.properties.typeProperties.connectionString",
-	            "value":  "Server=tcp:<Azure SQL server name>.database.windows.net,1433;Database=<Azure SQL datbase>;User ID=<Username>;Password=<Password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+	            "value":  "Server=tcp:<logical SQL server name>.database.windows.net,1433;Database=<Azure SQL datbase>;User ID=<Username>;Password=<Password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
 	        }
 	    ]
 	}
-	```
+    ```
 
-    This example configures connectionString property of an Azure Storage linked service and an Azure SQL linked service. Notice that the syntax for specifying name is [JsonPath](http://goessner.net/articles/JsonPath/).   
+    This example configures connectionString property of an Azure Storage linked service and an Azure SQL linked service. Notice that the syntax for specifying name is [JsonPath](https://goessner.net/articles/JsonPath/).   
 
     If JSON has a property that has an array of values as shown in the following code:  
 
@@ -453,7 +456,7 @@ Add a configuration file for each environment by performing the following steps:
             "type": "String"
         }
     ],
-	```
+    ```
 
     Configure properties as shown in the following configuration file (use zero-based indexing):
 
@@ -474,7 +477,7 @@ Add a configuration file for each environment by performing the following steps:
         "name": "$.properties.structure[1].type",
         "value": "String"
     }
-	```
+    ```
 
 ### Property names with spaces
 If a property name has spaces in it, use square brackets as shown in the following example (Database server name):
@@ -503,11 +506,11 @@ To publish entities in an Azure Data Factory project using configuration file:
 When you deploy, the values from the configuration file are used to set values for properties in the JSON files before the entities are deployed to Azure Data Factory service.   
 
 ## Use Azure Key Vault
-It is not advisable and often against security policy to commit sensitive data such as connection strings to the code repository. See [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFSecurePublish) sample on GitHub to learn about storing sensitive information in Azure Key Vault and using it while publishing Data Factory entities. The Secure Publish extension for Visual Studio allows the secrets to be stored in Key Vault and only references to them are specified in linked services/ deployment configurations. These references are resolved when you publish Data Factory entities to Azure. These files can then be committed to source repository without exposing any secrets.
+It is not advisable and often against security policy to commit sensitive data such as connection strings to the code repository. See [ADF Secure Publish](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFSecurePublish) sample on GitHub to learn about storing sensitive information in Azure Key Vault and using it while publishing Data Factory entities. The Secure Publish extension for Visual Studio allows the secrets to be stored in Key Vault and only references to them are specified in linked services/ deployment configurations. These references are resolved when you publish Data Factory entities to Azure. These files can then be committed to source repository without exposing any secrets.
 
 
 ## Next steps
-In this tutorial, you used Azure blob storage as a source data store and an Azure SQL database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
+In this tutorial, you used Azure blob storage as a source data store and Azure SQL Database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

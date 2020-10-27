@@ -11,9 +11,8 @@ ms.assetid: f3122c4d-e10e-4cdf-977b-36e8f4133fc8
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
 ---
 # Application templates in Azure API Management
@@ -26,7 +25,11 @@ Azure API Management provides you the ability to customize the content of develo
 -   [Application](#Application)  
   
 > [!NOTE]
->  Sample default templates are included in the following documentation, but are subject to change due to continuous improvements. You can view the live default templates in the developer portal by navigating to the desired individual templates. For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Sample default templates are included in the following documentation, but are subject to change due to continuous improvements. You can view the live default templates in the developer portal by navigating to the desired individual templates. For more information about working with templates, see [How to customize the API Management developer portal using templates](./api-management-developer-portal-templates.md).  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="ProductList"></a> Application list  
  The **Application list** template allows you to customize the body of the application list page in the developer portal.  
@@ -74,9 +77,9 @@ Azure API Management provides you the ability to customize the content of develo
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|Paging|[Paging](api-management-template-data-model-reference.md#Paging) entity.|The paging information for the applications collection.|  
-|Applications|Collection of [Application](api-management-template-data-model-reference.md#Application) entities.|The applications visible to the current user.|  
-|CategoryName|string|The category of application.|  
+|`Paging`|[Paging](api-management-template-data-model-reference.md#Paging) entity.|The paging information for the applications collection.|  
+|`Applications`|Collection of [Application](api-management-template-data-model-reference.md#Application) entities.|The applications visible to the current user.|  
+|`CategoryName`|string|The category of application.|  
   
 ### Sample template data  
   

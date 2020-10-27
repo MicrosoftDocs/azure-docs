@@ -4,7 +4,7 @@ title: Azure API Management terminology | Microsoft Docs
 description: This article gives definitions for the terms that are specific to API Management.
 services: api-management
 documentationcenter: ''
-author: Juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -15,7 +15,7 @@ ms.date: 10/11/2017
 ms.author: apimpm
 ---
 
-# Terminology
+# Azure API Management terminology
 
 This article gives definitions for the terms that are specific to API Management (APIM).
 

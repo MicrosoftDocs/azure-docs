@@ -1,20 +1,20 @@
 ---
 title: How caching works | Microsoft Docs
-description: 'Caching is the process of storing data locally so that future requests for that data can be accessed more quickly.'
+description: Caching is the process of storing data locally so that future requests for that data can be accessed more quickly.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: 
+author: asudbring
+manager: danielgi
 editor: ''
 
 ms.assetid: 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2017
-ms.author: v-deasim
+ms.date: 04/30/2018
+ms.author: allensu
 
 ---
 # How caching works
@@ -61,28 +61,28 @@ Two headers can be used to define cache freshness: `Cache-Control` and `Expires`
 ## Cache-directive headers
 
 > [!IMPORTANT]
-> By default, an Azure CDN endpoint that is optimized for DSA ignores cache-directive headers and bypasses caching. You can adjust how an Azure CDN endpoint treats these headers by using CDN caching rules to enable caching. For more information, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
+> By default, an Azure CDN endpoint that is optimized for DSA ignores cache-directive headers and bypasses caching. For **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles, you can adjust how an Azure CDN endpoint treats these headers by using [CDN caching rules](cdn-caching-rules.md) to enable caching. For **Azure CDN Premium from Verizon** profiles only, you use the [rules engine](cdn-rules-engine.md) to enable caching.
 
-Azure CDN supports the following HTTP cache-directive headers, which define cache duration and cache sharing: 
+Azure CDN supports the following HTTP cache-directive headers, which define cache duration and cache sharing.
 
-`Cache-Control`
+**Cache-Control:**
 - Introduced in HTTP 1.1 to give web publishers more control over their content and to address the limitations of the `Expires` header.
 - Overrides the `Expires` header, if both it and `Cache-Control` are defined.
-- When used in a request header, `Cache-Control` is ignored by Azure CDN, by default.
-- When used in a response header, Azure CDN supports the following `Cache-Control` directives, according to product: 
-   - **Azure CDN from Verizon**: Supports all `Cache-Control` directives. 
-   - **Azure CDN from Akamai**: Supports only the following `Cache-Control` directives; all others are ignored: 
-      - `max-age`: A cache can store the content for the number of seconds specified. For example, `Cache-Control: max-age=5`. This directive specifies the maximum amount of time the content is considered to be fresh.
-      - `no-cache`: Cache the content, but validate the content every time before delivering it from the cache. Equivalent to `Cache-Control: max-age=0`.
-      - `no-store`: Never cache the content. Remove content if it has been previously stored.
+- When used in an HTTP request from the client to the CDN POP, `Cache-Control` is ignored by all Azure CDN profiles, by default.
+- When used in an HTTP response from the client to the CDN POP:
+     - **Azure CDN Standard/Premium from Verizon** and **Azure CDN Standard from Microsoft** support all `Cache-Control` directives.
+     - **Azure CDN Standard from Akamai** supports only the following `Cache-Control` directives; all others are ignored:
+         - `max-age`: A cache can store the content for the number of seconds specified. For example, `Cache-Control: max-age=5`. This directive specifies the maximum amount of time the content is considered to be fresh.
+         - `no-cache`: Cache the content, but validate the content every time before delivering it from the cache. Equivalent to `Cache-Control: max-age=0`.
+         - `no-store`: Never cache the content. Remove content if it has been previously stored.
 
-`Expires`
+**Expires:**
 - Legacy header introduced in HTTP 1.0; supported for backwards compatibility.
 - Uses a date-based expiration time with second precision. 
 - Similar to `Cache-Control: max-age`.
 - Used when `Cache-Control` doesn't exist.
 
-`Pragma`
+**Pragma:**
    - Not honored by Azure CDN, by default.
    - Legacy header introduced in HTTP 1.0; supported for backwards compatibility.
    - Used as a client request header with the following directive: `no-cache`. This directive instructs the server to deliver a fresh version of the resource.
@@ -90,40 +90,42 @@ Azure CDN supports the following HTTP cache-directive headers, which define cach
 
 ## Validators
 
-When the cache is stale, HTTP cache validators are used to compare the cached version of a file with the version on the origin server. **Azure CDN from Verizon** supports both ETag and Last-Modified validators by default, while **Azure CDN from Akamai** supports only Last-Modified by default.
+When the cache is stale, HTTP cache validators are used to compare the cached version of a file with the version on the origin server. **Azure CDN Standard/Premium from Verizon** supports both `ETag` and `Last-Modified` validators by default, while **Azure CDN Standard from Microsoft** and **Azure CDN Standard from Akamai** supports only `Last-Modified` by default.
 
-`ETag`
-- **Azure CDN from Verizon** uses `ETag` by default while **Azure CDN from Akamai** does not.
+**ETag:**
+- **Azure CDN Standard/Premium from Verizon** supports `ETag` by default, while **Azure CDN Standard from Microsoft** and **Azure CDN Standard from Akamai** do not.
 - `ETag` defines a string that is unique for every file and version of a file. For example, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - Introduced in HTTP 1.1 and is more current than `Last-Modified`. Useful when the last modified date is difficult to determine.
 - Supports both strong validation and weak validation; however, Azure CDN supports only strong validation. For strong validation, the two resource representations must be byte-for-byte identical. 
 - A cache validates a file that uses `ETag` by sending an `If-None-Match` header with one or more `ETag` validators in the request. For example, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. If the server’s version matches an `ETag` validator on the list, it sends status code 304 (Not Modified) in its response. If the version is different, the server responds with status code 200 (OK) and the updated resource.
 
-`Last-Modified`
-- For **Azure CDN from Verizon only**, Last-Modified is used if ETag is not part of the HTTP response. 
+**Last-Modified:**
+- For **Azure CDN Standard/Premium from Verizon** only, `Last-Modified` is used if `ETag` is not part of the HTTP response. 
 - Specifies the date and time that the origin server has determined the resource was last modified. For example, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - A cache validates a file using `Last-Modified` by sending an `If-Modified-Since` header with a date and time in the request. The origin server compares that date with the `Last-Modified` header of the latest resource. If the resource has not been modified since the specified time, the server returns status code 304 (Not Modified) in its response. If the resource has been modified, the server returns status code 200 (OK) and the updated resource.
 
 ## Determining which files can be cached
 
-Not all resources can be cached. The following table shows what resources can be cached, based on the type of HTTP response. Resources delivered with HTTP responses that don't meet all of these conditions cannot be cached. For **Azure CDN from Verizon Premium** only, you can use the Rules Engine to customize some of these conditions.
+Not all resources can be cached. The following table shows what resources can be cached, based on the type of HTTP response. Resources delivered with HTTP responses that don't meet all of these conditions cannot be cached. For **Azure CDN Premium from Verizon** only, you can use the rules engine to customize some of these conditions.
 
-|                   | Azure CDN from Verizon | Azure CDN from Akamai            |
-|------------------ |------------------------|----------------------------------|
-| HTTP status codes | 200                    | 200, 203, 300, 301, 302, and 401 |
-| HTTP method       | GET                    | GET                              |
-| File size         | 300 GB                 | - General web delivery optimization: 1.8 GB<br />- Media streaming optimizations: 1.8 GB<br />- Large file optimization: 150 GB |
+|                       | Azure CDN from Microsoft          | Azure CDN from Verizon | Azure CDN from Akamai        |
+|-----------------------|-----------------------------------|------------------------|------------------------------|
+| **HTTP status codes** | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
+| **HTTP methods**      | GET, HEAD                         | GET                    | GET                          |
+| **File size limits**  | 300 GB                            | 300 GB                 | - General web delivery optimization: 1.8 GB<br />- Media streaming optimizations: 1.8 GB<br />- Large file optimization: 150 GB |
+
+For **Azure CDN Standard from Microsoft** caching to work on a resource, the origin server must support any HEAD and GET HTTP requests and the content-length values must be the same for any HEAD and GET HTTP responses for the asset. For a HEAD request, the origin server must support the HEAD request, and must respond with the same headers as if it had received a GET request.
 
 ## Default caching behavior
 
 The following table describes the default caching behavior for the Azure CDN products and their optimizations.
 
-|                    | Verizon - general web delivery | Verizon – DSA | Akamai - general web delivery | Akamai - DSA | Akamai - large file download | Akamai - general or VOD media streaming |
-|--------------------|--------|------|-----|----|-----|-----|
-| **Honor origin**   | Yes    | No   | Yes | No | Yes | Yes |
-| **CDN cache duration** | 7 days | None | 7 days | None | 1 day | 1 year |
+|    | Microsoft: General web delivery | Verizon: General web delivery | Verizon: DSA | Akamai: General web delivery | Akamai: DSA | Akamai: Large file download | Akamai: general or VOD media streaming |
+|------------------------|--------|-------|------|--------|------|-------|--------|
+| **Honor origin**       | Yes    | Yes   | No   | Yes    | No   | Yes   | Yes    |
+| **CDN cache duration** | 2 days |7 days | None | 7 days | None | 1 day | 1 year |
 
-**Honor origin**: Specifies whether to honor the [supported cache-directive headers](#http-cache-directive-headers) if they exist in the HTTP response from the origin server.
+**Honor origin**: Specifies whether to honor the supported cache-directive headers if they exist in the HTTP response from the origin server.
 
 **CDN cache duration**: Specifies the amount of time for which a resource is cached on the Azure CDN. However, if **Honor origin** is Yes and the HTTP response from the origin server includes the cache-directive header `Expires` or `Cache-Control: max-age`, Azure CDN uses the duration value specified by the header instead. 
 

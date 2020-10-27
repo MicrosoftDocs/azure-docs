@@ -1,17 +1,17 @@
 ---
-title: Troubleshoot Data Management Gateway issues | Microsoft Docs
+title: Troubleshoot Data Management Gateway issues 
 description: Provides tips to troubleshoot issues related to Data Management Gateway.
 services: data-factory
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: anandsub
+
 
 ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+
+
+ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 
@@ -21,9 +21,9 @@ robots: noindex
 This article provides information on troubleshooting issues with using Data Management Gateway.
 
 > [!NOTE]
-> This article applies to version 1 of Azure Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [self-hosted integration runtime in Data Factory version 2](../create-self-hosted-integration-runtime.md).
+> This article applies to version 1 of Azure Data Factory. If you are using the current version of the Data Factory service, see [self-hosted integration runtime in Data Factory](../create-self-hosted-integration-runtime.md).
 
-See the [Data Management Gateway](data-factory-data-management-gateway.md) article for detailed information about the gateway. See the [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for a walkthrough of moving data from an on-premises SQL Server database to Microsoft Azure Blob storage by using the gateway.
+See the [Data Management Gateway](data-factory-data-management-gateway.md) article for detailed information about the gateway. See the [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for a walkthrough of moving data from a SQL Server database to Microsoft Azure Blob storage by using the gateway.
 
 ## Failed to install or register gateway
 ### 1. Problem
@@ -136,7 +136,7 @@ You might see the following error message.
 This error happens when your gateway is in an environment that requires an HTTP proxy to access Internet resources, or your proxy's authentication password is changed but it's not updated accordingly in your gateway.
 
 #### Resolution
-Follow the instructions in the [Proxy server considerations](#proxy-server-considerations) section of this article, and configure proxy settings with Data Management Gateway Configuration Manager.
+Follow the instructions in the Proxy server considerations section of this article, and configure proxy settings with Data Management Gateway Configuration Manager.
 
 ## Gateway is online with limited functionality
 ### 1. Problem
@@ -167,8 +167,8 @@ Gateway cannot connect to the cloud service through Service Bus.
 Follow these steps to get the gateway back online:
 
 1. Allow IP address outbound rules on the gateway machine and the corporate firewall. You can find IP addresses from the Windows Event Log (ID == 401): An attempt was made to access a socket in a way forbidden by its access permissions XX.XX.XX.XX:9350.
-* Configure proxy settings on the gateway. See the [Proxy server considerations](#proxy-server-considerations) section for details.
-* Enable outbound ports 5671 and 9350-9354 on both the Windows Firewall on the gateway machine and the corporate firewall. See the [Ports and firewall](#ports-and-firewall) section for details. This step is optional, but we recommend it for performance consideration.
+1. Configure proxy settings on the gateway. See the Proxy server considerations section for details.
+1. Enable outbound ports 5671 and 9350-9354 on both the Windows Firewall on the gateway machine and the corporate firewall. See the Ports and firewall section for details. This step is optional, but we recommend it for performance consideration.
 
 ### 3. Problem
 You see the following error.
@@ -182,7 +182,7 @@ A transient error in network connectivity.
 Follow these steps to get the gateway back online:
 
 1. Wait for a couple of minutes, the connectivity will be automatically recovered when the error is gone.
-* If the error persists, restart the gateway service.
+1. If the error persists, restart the gateway service.
 
 ## Failed to author linked service
 ### Problem
@@ -195,7 +195,7 @@ When you see this error, the settings page of Data Management Gateway Configurat
 ![Database cannot be reached](media/data-factory-troubleshoot-gateway-issues/database-cannot-be-reached.png)
 
 #### Cause
-The SSL certificate might have been lost on the gateway machine. The gateway computer cannot load the certificate currently that is used for SSL encryption. You might also see an error message in the event log that is similar to the following message.
+The TLS/SSL certificate might have been lost on the gateway machine. The gateway computer cannot load the certificate currently that is used for TLS encryption. You might also see an error message in the event log that is similar to the following message.
 
  `Unable to get the gateway settings from cloud service. Check the gateway key and the network connection. (Certificate with thumbprint cannot be loaded.)`
 
@@ -204,10 +204,10 @@ Follow these steps to solve the problem:
 
 1. Start Data Management Gateway Configuration Manager.
 2. Switch to the **Settings** tab.  
-3. Click the **Change** button to change the SSL certificate.
+3. Click the **Change** button to change the TLS/SSL certificate.
 
    ![Change certificate button](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
-4. Select a new certificate as the SSL certificate. You can use any SSL certificate that is generated by you or any organization.
+4. Select a new certificate as the TLS/SSL certificate. You can use any TLS/SSL certificate that is generated by you or any organization.
 
    ![Specify certificate](media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png)
 
@@ -221,9 +221,9 @@ You might notice the following "UserErrorFailedToConnectToSqlserver" failure aft
 This can happen for different reasons, and mitigation varies accordingly.
 
 #### Resolution
-Allow outbound TCP connections over port TCP/1433 on the Data Management Gateway client side before connecting to an SQL database.
+Allow outbound TCP connections over port TCP/1433 on the Data Management Gateway client side before connecting to a SQL database.
 
-If the target database is an Azure SQL database, check SQL Server firewall settings for Azure as well.
+If the target database is in Azure SQL Database, check SQL Server firewall settings for Azure as well.
 
 See the following section to test the connection to the on-premises data store.
 
@@ -280,6 +280,6 @@ You can find detailed gateway log information in the Windows event logs.
 1. Start Windows **Event Viewer**.
 2. Locate logs in the **Application and Services Logs** > **Data Management Gateway** folder.
 
- When you're troubleshooting gateway-related issues, look for error level events in the event viewer.
+   When you're troubleshooting gateway-related issues, look for error level events in the event viewer.
 
 ![Data Management Gateway logs in event viewer](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)

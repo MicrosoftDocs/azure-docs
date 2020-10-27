@@ -1,26 +1,18 @@
 ---
-title: Overview of autoscale with Azure virtual machine scale sets | Microsoft Docs
+title: Overview of autoscale with Azure virtual machine scale sets
 description: Learn about the different ways that you can automatically scale an Azure virtual machine scale set based on performance or on a fixed schedule
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: iainfoulds
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
+author: avirishuv
+ms.author: avverma
+ms.topic: overview
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/19/2017
-ms.author: iainfou
-ms.custom: H1Hack27Feb2017
+ms.subservice: autoscale
+ms.date: 06/30/2020
+ms.reviewer: jushiman
+ms.custom: avverma
 
 ---
 # Overview of autoscale with Azure virtual machine scale sets
-An Azure virtual machine scale set can automatically increase or decrease the number of VM instances that run your application. This automated and elastic behavior reduces the management overhead to monitor and optimize the performance of your application. You create rules that define the minimally acceptable performance for a positive customer experience. When those defined thresholds are met, autoscale rules take action to adjust the capacity of your scale set. You can also schedule events to automatically increase or decrease the capacity of your scale set at fixed times. This article provides an overview of which performance metrics are available and what actions autoscale can perform.
+An Azure virtual machine scale set can automatically increase or decrease the number of VM instances that run your application. This automated and elastic behavior reduces the management overhead to monitor and optimize the performance of your application. You create rules that define the acceptable performance for a positive customer experience. When those defined thresholds are met, autoscale rules take action to adjust the capacity of your scale set. You can also schedule events to automatically increase or decrease the capacity of your scale set at fixed times. This article provides an overview of which performance metrics are available and what actions autoscale can perform.
 
 
 ## Benefits of autoscale
@@ -37,8 +29,9 @@ You can create autoscale rules that built-in host metrics available from your VM
 Autoscale rules that use host-based metrics can be created with one of the following tools:
 
 - [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [Azure CLI](tutorial-autoscale-cli.md)
+- [Azure template](tutorial-autoscale-template.md)
 
 To create autoscale rules that use more detailed performance metrics, you can [install and configure the Azure diagnostics extension](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) on VM instances, or [configure your application use App Insights](#application-level-metrics-with-app-insights).
 
@@ -101,7 +94,7 @@ When an autoscale rule triggers, your scale set can automatically scale in one o
 | Increase count by   | A fixed number of VM instances to create. Useful in scale sets with a smaller number of VMs.                                           |
 | Increase percent by | A percentage-based increase of VM instances. Good for larger scale sets where a fixed increase may not noticeably improve performance. |
 | Increase count to   | Create as many VM instances are required to reach a desired maximum amount.                                                            |
-| Decrease count to   | A fixed number of VM instances to remove. Useful in scale sets with a smaller number of VMs.                                           |
+| Decrease count by   | A fixed number of VM instances to remove. Useful in scale sets with a smaller number of VMs.                                           |
 | Decrease percent by | A percentage-based decrease of VM instances. Good for larger scale sets where a fixed increase may not noticeably reduce resource consumption and costs. |
 | Decrease count to   | Remove as many VM instances are required to reach a desired minimum amount.                                                            |
 
@@ -111,13 +104,13 @@ The Azure diagnostics extension is an agent that runs inside a VM instance. The 
 
 To use the Azure diagnostics extension, you must create Azure storage accounts for your VM instances, install the Azure diagnostics agent, then configure the VMs to stream specific performance counters to the storage account.
 
-For more information, see the articles for how to enable the Azure diagnostics extension on a [Linux VM](../virtual-machines/linux/diagnostic-extension.md) or [Windows VM](../virtual-machines/windows/ps-extensions-diagnostics.md).
+For more information, see the articles for how to enable the Azure diagnostics extension on a [Linux VM](../virtual-machines/extensions/diagnostics-linux.md) or [Windows VM](../virtual-machines/extensions/diagnostics-windows.md).
 
 
 ## Application-level metrics with App Insights
 To gain more visibility in to the performance of your applications, you can use Application Insights. You install a small instrumentation package in your application that monitors the app and sends telemetry to Azure. You can monitor metrics such as the response times of your application, the page load performance, and the session counts. These application metrics can be used to create autoscale rules at a granular and embedded level as you trigger rules based on actionable insights that may impact the customer experience.
 
-For more information about App Insights, see [What is Application Insights](../application-insights/app-insights-overview.md).
+For more information about App Insights, see [What is Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 
 ## Scheduled autoscale
@@ -133,12 +126,12 @@ The following examples are scenarios that may benefit the use of schedule-based 
 ## Next steps
 You can create autoscale rules that use host-based metrics with one of the following tools:
 
-- [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [Azure CLI](tutorial-autoscale-cli.md)
+- [Azure template](tutorial-autoscale-template.md)
 
 This overview detailed how to use autoscale rules to scale horizontally and increase or decrease the *number* of VM instances in your scale set. You can also scale vertically to increase or decrease the VM instance *size*. For more information, see [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-For information on how to manage your VM instances, see [Manage virtual machine scale sets with Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
+For information on how to manage your VM instances, see [Manage virtual machine scale sets with Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 
-To learn how to generate alerts when your autoscale rules trigger, see [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md). You can also [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+To learn how to generate alerts when your autoscale rules trigger, see [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). You can also [Use audit logs to send email and webhook alert notifications in Azure Monitor](../azure-monitor/platform/alerts-log-webhook.md).

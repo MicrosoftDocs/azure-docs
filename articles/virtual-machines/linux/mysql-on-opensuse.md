@@ -1,41 +1,33 @@
 ---
-title: Install MySQL on an OpenSUSE VM in Azure | Microsoft Docs
-description: Learn to install MySQL on an OpenSUSE Linux VMirtual machine in Azure.
+title: Install MySQL on an OpenSUSE VM in Azure 
+description: Learn to install MySQL on an OpenSUSE Linux Virtual machine in Azure.
 services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 1594e10e-c314-455a-9efb-a89441de364b
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
-ms.date: 01/22/2018
+ms.topic: how-to
+ms.date: 07/11/2018
 ms.author: cynthn
 
 ---
 # Install MySQL on a virtual machine running OpenSUSE Linux in Azure
 
-[MySQL](http://www.mysql.com) is a popular, open-source SQL database. This tutorial shows you how to create a virtual machine running OpenSUSE Linux, then install MySQL.
+[MySQL](https://www.mysql.com) is a popular, open-source SQL database. This tutorial shows you how to create a virtual machine running OpenSUSE Linux, then install MySQL.
 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, you need Azure CLI version 2.0 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a virtual machine running OpenSUSE Linux
 
-First, create a resource group. In this example, we are naming the resource group *mySQSUSEResourceGroup* and creating it in the *East US* region.
+First, create a resource group. In this example, the resource group is named *mySQSUSEResourceGroup* and it is created in the *East US* region.
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Create the VM. In this example, we are naming the VM *myVM*. We are also going to use a VM size *Standard_D2s_v3*, but you should choose the [VM size](sizes.md) you think is most appropriate for your workload.
+Create the VM. In this example, the VM is named *myVM* and the VM size is *Standard_D2s_v3*, but you should choose the [VM size](../sizes.md) you think is most appropriate for your workload.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -92,19 +84,32 @@ systemctl is-enabled mysql
 
 This should return: enabled.
 
+Restart the server.
+
+```bash
+sudo reboot
+```
+
 
 ## MySQL password
 
-After installation, the MySQL root password is empty by default. Run the **mysql\_secure\_installation** script to secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root logins, remove test databases, and reload the privileges table. 
+After installation, the MySQL root password is empty by default. Run the **mysql\_secure\_installation** script to secure MySQL. The script prompts you to change the MySQL root password, remove anonymous user accounts, disable remote root sign in, remove test databases, and reload the privileges table. 
+
+Once the server reboots, ssh to the VM again.
+
+```azurecli-interactive  
+ssh 10.111.112.113
+```
+
 
 
 ```bash
 mysql_secure_installation
 ```
 
-## Log in to MySQL
+## Sign in to MySQL
 
-You can now log in and enter the MySQL prompt.
+You can now sign in and enter the MySQL prompt.
 
 ```bash  
 mysql -u root -p
@@ -113,7 +118,7 @@ This switches you to the MySQL prompt where you can issue SQL statements to inte
 
 Now, create a new MySQL user.
 
-```   
+```sql
 CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
    
@@ -125,16 +130,16 @@ The semi-colon (;) at the end of the line is crucial for ending the command.
 
 Create a database and grant the `mysqluser` user permissions.
 
-```   
+```sql
 CREATE DATABASE testdatabase;
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
    
 Database user names and passwords are only used by scripts connecting to the database.  Database user account names do not necessarily represent actual user accounts on the system.
 
-Enable log in from another computer. In this example, the IP address of the computer that we want to log in from is *10.112.113.114*.
+Enable sign in from another computer. In this example, the IP address of the computer to allow sign in from is *10.112.113.114*.
 
-```   
+```sql
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';
 ```
    
@@ -146,8 +151,4 @@ quit
 
 
 ## Next steps
-For details about MySQL, see the [MySQL Documentation](http://dev.mysql.com/doc/index-topic.html).
-
-
-
-
+For details about MySQL, see the [MySQL Documentation](https://dev.mysql.com/doc).

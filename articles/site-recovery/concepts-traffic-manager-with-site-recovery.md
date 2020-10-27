@@ -2,19 +2,12 @@
 title: Azure Traffic Manager with Azure Site Recovery | Microsoft Docs
 description: Describes how to use Azure Traffic Manager with Azure Site Recovery for disaster recovery and migration
 services: site-recovery
-documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
-editor: ''
-
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/23/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 04/08/2019
+ms.author: mayg
 
 ---
 # Azure Traffic Manager with Azure Site Recovery
@@ -32,7 +25,7 @@ For the first scenario, consider **Company A** that has all its application infr
 **Company A** is running applications with public endpoints and wants the ability to seamlessly redirect traffic to Azure in a disaster event. The [Priority](../traffic-manager/traffic-manager-configure-priority-routing-method.md) traffic-routing method in Azure Traffic Manager allows Company A to easily implement this failover pattern.
 
 The setup is as follows:
-- **Company A** creates a [Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md).
+- **Company A** creates a [Traffic Manager profile](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Utilizing the **Priority** routing method, **Company A** creates two endpoints – **Primary** for on-premises and **Failover** for Azure. **Primary** is assigned Priority 1 and **Failover** is assigned Priority 2.
 - Since the **Primary** endpoint is hosted outside Azure, the endpoint is created as an [External](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) endpoint.
 - With Azure Site Recovery, the Azure site does not have any virtual machines or applications running prior to failover. So, the **Failover** endpoint is also created as an **External** endpoint.
@@ -46,11 +39,11 @@ In a disaster event, Company A can trigger a [failover](site-recovery-failover.m
 
 Depending on business requirements, **Company A** can choose a higher or lower [probing frequency](../traffic-manager/traffic-manager-monitoring.md) to switch between on-premises to Azure in a disaster event, and ensure minimal downtime for users.
 
-When the disaster is contained, **Company A** can failback from Azure to its on-premises environment ([VMware](site-recovery-how-to-failback-azure-to-vmware.md) or [Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)) using Azure Site Recovery. Now, when Traffic Manager detects that the **Primary** endpoint is healthy again, it automatically utilizes the **Primary** endpoint in its DNS responses.
+When the disaster is contained, **Company A** can failback from Azure to its on-premises environment ([VMware](vmware-azure-failback.md) or [Hyper-V](hyper-v-azure-failback.md)) using Azure Site Recovery. Now, when Traffic Manager detects that the **Primary** endpoint is healthy again, it automatically utilizes the **Primary** endpoint in its DNS responses.
 
 ## On-premises to Azure migration
 
-In addition to disaster recovery, Azure Site Recovery also enables [migrations to Azure](site-recovery-migrate-to-azure.md). Using Azure Site Recovery’s powerful test failover capabilities, customers can assess application performance on Azure without affecting their on-premises environment. And when customers are ready to migrate, they can choose to migrate entire workloads together or choose to migrate and scale gradually.
+In addition to disaster recovery, Azure Site Recovery also enables [migrations to Azure](migrate-overview.md). Using Azure Site Recovery’s powerful test failover capabilities, customers can assess application performance on Azure without affecting their on-premises environment. And when customers are ready to migrate, they can choose to migrate entire workloads together or choose to migrate and scale gradually.
 
 Azure Traffic Manager’s [Weighted](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) routing method can be used to direct some part of incoming traffic to Azure while directing the majority to the on-premises environment. This approach can help assess scale performance as you can continue increasing the weight assigned to Azure as you migrate more and more of your workloads to Azure.
 
@@ -67,7 +60,7 @@ For this example, consider **Company C** that has all its application infrastruc
 **Company C** is running applications with public endpoints and wants the ability to seamlessly redirect traffic to a different Azure region in a disaster event. The [Priority](../traffic-manager/traffic-manager-configure-priority-routing-method.md) traffic-routing method allows **Company C** to easily implement this failover pattern.
 
 The setup is as follows:
-- **Company C** creates a [Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md).
+- **Company C** creates a [Traffic Manager profile](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 - Utilizing the **Priority** routing method, **Company C** creates two endpoints – **Primary** for the source region (Azure East Asia) and **Failover** for the recovery region (Azure Southeast Asia). **Primary** is assigned Priority 1 and **Failover** is assigned Priority 2.
 - Since the **Primary** endpoint is hosted in Azure, the endpoint can be as an [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) endpoint.
 - With Azure Site Recovery, the recovery Azure site does not have any virtual machines or applications running prior to failover. So, the **Failover** endpoint can be created as an [External](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) endpoint.

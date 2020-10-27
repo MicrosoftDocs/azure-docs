@@ -1,30 +1,30 @@
 ---
-title: Move data from MySQL using Azure Data Factory | Microsoft Docs
+title: Move data from MySQL using Azure Data Factory 
 description: Learn about how to move data from MySQL database using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: shwang
+
 
 ms.assetid: 452f4fce-9eb5-40a0-92f8-1e98691bea4c
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+
+
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: jingwang
 
 robots: noindex
 ---
 # Move data From MySQL using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-onprem-mysql-connector.md)
-> * [Version 2 - Preview](../connector-mysql.md)
+> * [Version 1](data-factory-onprem-mysql-connector.md)
+> * [Version 2 (current version)](../connector-mysql.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [MySQL connector in V2](../connector-mysql.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [MySQL connector in V2](../connector-mysql.md).
 
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises MySQL database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
@@ -40,16 +40,16 @@ Gateway is required even if the MySQL database is hosted in an Azure IaaS virtua
 > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Supported versions and installation
-For Data Management Gateway to connect to the MySQL Database, you need to install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (version 6.6.5 or above) on the same system as the Data Management Gateway. This 32 bit driver is compatible with 64 bit Data Management Gateway. MySQL version 5.1 and above is supported.
+For Data Management Gateway to connect to the MySQL Database, you need to install the [MySQL Connector/NET for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (version between 6.6.5 and 6.10.7) on the same system as the Data Management Gateway. This 32 bit driver is compatible with 64 bit Data Management Gateway. MySQL version 5.1 and above is supported.
 
 > [!TIP]
-> If you hit error on "Authentication failed because the remote party has closed the transport stream.", consider to upgrade the MySQL Connector/Net to higher version.
+> If you hit error on "Authentication failed because the remote party has closed the transport stream.", consider to upgrade the MySQL Connector/NET to higher version.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs. 
 
 - The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
-- You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+- You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -71,7 +71,7 @@ The following table provides description for JSON elements specific to MySQL lin
 | database |Name of the MySQL database. |Yes |
 | schema |Name of the schema in the database. |No |
 | authenticationType |Type of authentication used to connect to the MySQL database. Possible values are: `Basic`. |Yes |
-| username |Specify user name to connect to the MySQL database. |Yes |
+| userName |Specify user name to connect to the MySQL database. |Yes |
 | password |Specify password for the user account you specified. |Yes |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises MySQL database. |Yes |
 
@@ -97,7 +97,7 @@ When source in copy activity is of type **RelationalSource** (which includes MyS
 
 
 ## JSON example: Copy data from MySQL to Azure Blob
-This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows how to copy data from an on-premises MySQL database to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
+This example provides sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows how to copy data from an on-premises MySQL database to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 > [!IMPORTANT]
 > This sample provides JSON snippets. It does not include step-by-step instructions for creating the data factory. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions.

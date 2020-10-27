@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/05/2017
+ms.date: 03/26/2018
 ms.author: alkohli
 
 ---
@@ -21,7 +21,7 @@ ms.author: alkohli
 
 This tutorial describes the steps you should follow to install and use the Multipath I/O (MPIO) feature on a host running Windows Server 2012 R2 and connected to a StorSimple physical device. The guidance in this article applies to StorSimple 8000 series physical devices only. MPIO is currently not supported on a StorSimple Cloud Appliance.
 
-Microsoft built support for the Multipath I/O (MPIO) feature in Windows Server to help build highly available, fault-tolerant SAN configurations. MPIO uses redundant physical path components — adapters, cables, and switches — to create logical paths between the server and the storage device. If there is a component failure, causing a logical path to fail, multipathing logic uses an alternate path for I/O so that applications can still access their data. Additionally depending on your configuration, MPIO can also improve performance by rebalancing the load across all these paths. For more information, see [MPIO overview](https://technet.microsoft.com/library/cc725907.aspx "MPIO overview and features").
+Microsoft built support for the Multipath I/O (MPIO) feature in Windows Server to help build highly available, fault-tolerant iSCSI network configurations. MPIO uses redundant physical path components — adapters, cables, and switches — to create logical paths between the server and the storage device. If there is a component failure, causing a logical path to fail, multipathing logic uses an alternate path for I/O so that applications can still access their data. Additionally depending on your configuration, MPIO can also improve performance by rebalancing the load across all these paths. For more information, see [MPIO overview](https://technet.microsoft.com/library/cc725907.aspx "MPIO overview and features").
 
 For the high-availability of your StorSimple solution, MPIO should be configured on your StorSimple device. When MPIO is installed on your host servers running Windows Server 2012 R2, the servers can then tolerate a link, network, or interface failure.
 
@@ -100,8 +100,8 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
    1. Enter the IP address of the DATA port of your StorSimple device (for example, enter DATA 0).
    2. Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
      
-     > [!IMPORTANT]
-     > **If you are using a private network for iSCSI connections, enter the IP address of the DATA port that is connected to the private network.**
+      > [!IMPORTANT]
+      > **If you are using a private network for iSCSI connections, enter the IP address of the DATA port that is connected to the private network.**
     
 4. Repeat steps 2-3 for a second network interface (for example, DATA 1) on your device. Keep in mind that these interfaces should be enabled for iSCSI. For more information, see [Modify network interfaces](storsimple-8000-modify-device-config.md#modify-network-interfaces).
 5. Select the **Targets** tab in the **iSCSI Initiator Properties** dialog box. You should see the StorSimple device target IQN under **Discovered Targets**.
@@ -146,12 +146,12 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 
 ## Step 4: Configure MPIO for high availability and load balancing
 
-For multi-path based high availability and load balancing, multiple sessions must be manually added to declare the different paths available. For example, if the host has two interfaces connected to SAN and the device has two interfaces connected to SAN, then you need four sessions configured with proper path permutations (only two sessions will be required if each DATA interface and host interface is on a different IP subnet and is not routable).
+For multi-path based high availability and load balancing, multiple sessions must be manually added to declare the different paths available. For example, if the host has two interfaces connected to iSCSI network and the device has two interfaces connected to iSCSI network, then you need four sessions configured with proper path permutations (only two sessions will be required if each DATA interface and host interface is on a different IP subnet and is not routable).
 
 **We recommend that you have at least 8 active parallel sessions between the device and your application host.** This can be achieved by enabling 4 network interfaces on your Windows Server system. Use physical network interfaces or virtual interfaces via network virtualization technologies on the hardware or operating system level on your Windows Server host. With the two network interfaces on the device, this configuration would result in 8 active sessions. This configuration helps optimize the device and cloud throughput.
 
 > [!IMPORTANT]
-> **We recommend that you do not mix 1 GbE and 10 GbE network interfaces. If you use two network interfaces, both interfaces should be the identical type.**
+> **We recommend that you do not mix 1 GbE and 10 GbE network interfaces. If you use two network interfaces, both interfaces should be of an identical type.**
 
 The following procedure describes how to add sessions when a StorSimple device with two network interfaces is connected to a host with two network interfaces. This gives you only 4 sessions. Use this same procedure with a StorSimple device with two network interfaces connected to a host with four network interfaces. You will need to configure 8 instead of the 4 sessions described here.
 
@@ -169,15 +169,15 @@ The following procedure describes how to add sessions when a StorSimple device w
 6. In the **Advanced Settings** dialog box:
    
    1. On the **Local Adapter** drop-down list, select **Microsoft iSCSI Initiator**.
-   2. On the **Initiator IP** drop-down list, select the IP address of the host.
-   3. On the **Target Portal IP** drop-down list, select the IP address of the data interface enabled on the device.
+   2. On the **Initiator IP** drop-down list, select the IP address corresponding to the first interface on the host (iSCSI interface).
+   3. On the **Target Portal IP** drop-down list, select the IP address for the first data interface enabled on the device.
    4. Click **OK** to return to the iSCSI Initiator Properties dialog box.
 7. Click **Properties**, and in the **Properties** dialog box, click **Add Session**.
 8. In the **Connect to Target** dialog box, select the **Enable multi-path** check box, and then click **Advanced**.
 9. In the **Advanced Settings** dialog box:
    
    1. On the **Local adapter** drop-down list, select **Microsoft iSCSI Initiator**.
-   2. On the **Initiator IP** drop-down list, select the IP address corresponding to the second interface on the host.
+   2. On the **Initiator IP** drop-down list, select the IP address corresponding to the second iSCSI interface on the host.
    3. On the **Target Portal IP** drop-down list, select the IP address for the second data interface enabled on the device.
    4. Click **OK** to return to the **iSCSI Initiator Properties** dialog box. You have now added a second session to the target.
 10. Repeat Steps 8-10 to add additional sessions (paths) to the target. With two interfaces on the host and two on the device, you can add a total of four sessions.

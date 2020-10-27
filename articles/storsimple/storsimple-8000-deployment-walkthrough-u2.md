@@ -1,23 +1,16 @@
 ---
-title: Deploy your StorSimple 8000 series device in Azure portal | Microsoft Docs
+title: Deploy your StorSimple 8000 series device in Azure portal
 description: Describes the steps and best practices for deploying the StorSimple 8000 series device running Update 3 and later, and StorSimple Device Manager service.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
-
-ms.assetid:
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/28/2017
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: alkohli
 
 ---
 # Deploy your on-premises StorSimple device (Update 3 and later)
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## Overview
 Welcome to Microsoft Azure StorSimple device deployment. These deployment tutorials apply to StorSimple 8000 Series Update 3 or later. This series of tutorials includes a configuration checklist, configuration prerequisites, and detailed configuration steps for your StorSimple device.
@@ -62,7 +55,7 @@ Perform these required steps to configure your StorSimple device and connect it 
 ## Deployment configuration checklist
 Before you deploy your device, you need to collect information to configure the software on your StorSimple device. Preparing some of this information ahead of time helps streamline the process of deploying the StorSimple device in your environment. Download and use this checklist to note down the configuration details as you deploy your device.
 
-* [Download StorSimple deployment configuration checklist](http://www.microsoft.com/download/details.aspx?id=49159)
+* [Download StorSimple deployment configuration checklist](https://www.microsoft.com/download/details.aspx?id=49159)
 
 ## Deployment prerequisites
 The following sections explain the configuration prerequisites for your StorSimple Device Manager service and your StorSimple device.
@@ -192,6 +185,19 @@ Perform the following steps to get the iSCSI Qualified Name (IQN) of a Windows h
 Perform the following steps in the Azure portal to create an on-demand manual backup for a single volume on your StorSimple device.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-8000-create-manual-backup.md)]
+
+## View the pinout diagram for serial cable for StorSimple
+The following pinout diagram can be used for the StorSimple serial console cable.
+
+Here the DB9 female connector is P1 and the 3.5 mm connector is P2.
+
+![Pinout diagram 1 for StorSimple serial console cable](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram1.png)
+
+The tip of the stereo jack is considered to be PIN 3 RX, the middle is PIN 2 TX and the base is PIN 1 GND as shown in the following diagram.
+
+![Pinout diagram 2 for StorSimple serial console cable](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram2.png)
+
+
 
 ## Next steps
 * [Configure a StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).

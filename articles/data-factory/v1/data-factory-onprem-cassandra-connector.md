@@ -1,61 +1,61 @@
 ---
-title: Move data from Cassandra using Data Factory | Microsoft Docs
+title: Move data from Cassandra using Data Factory 
 description: Learn about how to move data from an on-premises Cassandra database using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: shwang
+
 
 ms.assetid: 085cc312-42ca-4f43-aa35-535b35a102d5
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+
+
+ms.topic: conceptual
+ms.date: 06/07/2018
 ms.author: jingwang
 
 robots: noindex
 ---
 # Move data from an on-premises Cassandra database using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-onprem-cassandra-connector.md)
-> * [Version 2 - Preview](../connector-cassandra.md)
+> * [Version 1](data-factory-onprem-cassandra-connector.md)
+> * [Version 2 (current version)](../connector-cassandra.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Cassandra connector in V2](../connector-cassandra.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Cassandra connector in V2](../connector-cassandra.md).
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises Cassandra database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
-You can copy data from an on-premises Cassandra data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from a Cassandra data store to other data stores, but not for moving data from other data stores to a Cassandra data store. 
+You can copy data from an on-premises Cassandra data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from a Cassandra data store to other data stores, but not for moving data from other data stores to a Cassandra data store.
 
 ## Supported versions
-The Cassandra connector supports the following versions of Cassandra: 2.X.
+The Cassandra connector supports the following versions of Cassandra: 2.x and 3.x. For activity running on Self-hosted Integration Runtime, Cassandra 3.x is supported since IR version 3.7 and above.
 
 ## Prerequisites
 For the Azure Data Factory service to be able to connect to your on-premises Cassandra database, you must install a Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a component that connects on-premises data sources to cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details about Data Management Gateway. See [Move data from on-premises to cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway a data pipeline to move data.
 
-You must use the gateway to connect to a Cassandra database even if the database is hosted in the cloud, for example, on an Azure IaaS VM. Y You can have the gateway on the same VM that hosts the database or on a separate VM as long as the gateway can connect to the database.  
+You must use the gateway to connect to a Cassandra database even if the database is hosted in the cloud, for example, on an Azure IaaS VM. Y You can have the gateway on the same VM that hosts the database or on a separate VM as long as the gateway can connect to the database.
 
-When you install the gateway, it automatically installs a Microsoft Cassandra ODBC driver used to connect to Cassandra database. Therefore, you don't need to manually install any driver on the gateway machine when copying data from the Cassandra database. 
+When you install the gateway, it automatically installs a Microsoft Cassandra ODBC driver used to connect to Cassandra database. Therefore, you don't need to manually install any driver on the gateway machine when copying data from the Cassandra database.
 
 > [!NOTE]
 > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Getting started
-You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs. 
+You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs.
 
-- The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
-- You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+- The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+- You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
 1. Create **linked services** to link input and output data stores to your data factory.
-2. Create **datasets** to represent input and output data for the copy operation. 
-3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. 
+2. Create **datasets** to represent input and output data for the copy operation.
+3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an on-premises Cassandra data store, see [JSON example: Copy data from Cassandra to Azure Blob](#json-example-copy-data-from-cassandra-to-azure-blob) section of this article. 
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format. For a sample with JSON definitions for Data Factory entities that are used to copy data from an on-premises Cassandra data store, see [JSON example: Copy data from Cassandra to Azure Blob](#json-example-copy-data-from-cassandra-to-azure-blob) section of this article.
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to a Cassandra data store:
 
@@ -72,6 +72,9 @@ The following table provides description for JSON elements specific to Cassandra
 | password |Specify password for the user account. |Yes, if authenticationType is set to Basic. |
 | gatewayName |The name of the gateway that is used to connect to the on-premises Cassandra database. |Yes |
 | encryptedCredential |Credential encrypted by the gateway. |No |
+
+>[!NOTE]
+>Currently connection to Cassandra using TLS is not supported.
 
 ## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
@@ -93,10 +96,10 @@ When source is of type **CassandraSource**, the following properties are availab
 | Property | Description | Allowed values | Required |
 | --- | --- | --- | --- |
 | query |Use the custom query to read data. |SQL-92 query or CQL query. See [CQL reference](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>When using SQL query, specify **keyspace name.table name** to represent the table you want to query. |No (if tableName and keyspace on dataset are defined). |
-| consistencyLevel |The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. See [Configuring data consistency](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) for details. |No. Default value is ONE. |
+| consistencyLevel |The consistency level specifies how many replicas must respond to a read request before returning data to the client application. Cassandra checks the specified number of replicas for data to satisfy the read request. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. See [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) for details. |No. Default value is ONE. |
 
 ## JSON example: Copy data from Cassandra to Azure Blob
-This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows how to copy data from an on-premises Cassandra database to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
+This example provides sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). It shows how to copy data from an on-premises Cassandra database to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 > [!IMPORTANT]
 > This sample provides JSON snippets. It does not include step-by-step instructions for creating the data factory. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions.
@@ -111,7 +114,7 @@ The sample has the following data factory entities:
 
 **Cassandra linked service:**
 
-This example uses the **Cassandra** linked service. See [Cassandra linked service](#linked-service-properties) section for the properties supported by this linked service.  
+This example uses the **Cassandra** linked service. See [Cassandra linked service](#linked-service-properties) section for the properties supported by this linked service.
 
 ```json
 {
@@ -138,7 +141,7 @@ This example uses the **Cassandra** linked service. See [Cassandra linked servic
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-    "type": "AzureStorage",
+        "type": "AzureStorage",
         "typeProperties": {
             "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
@@ -207,13 +210,13 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 See [RelationalSource type properties](#copy-activity-properties) for the list of properties supported by the RelationalSource.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2016-06-01T18:00:00",
         "end":"2016-06-01T19:00:00",
         "description":"pipeline with copy activity",
-        "activities":[  
+        "activities":[
         {
             "name": "CassandraToAzureBlob",
             "description": "Copy from Cassandra to an Azure blob",
@@ -249,13 +252,13 @@ See [RelationalSource type properties](#copy-activity-properties) for the list o
                 "timeout": "01:00:00"
             }
         }
-        ]    
+        ]
     }
 }
 ```
 
 ### Type mapping for Cassandra
-| Cassandra Type | .Net Based Type |
+| Cassandra Type | .NET Based Type |
 | --- | --- |
 | ASCII |String |
 | BIGINT |Int64 |

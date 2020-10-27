@@ -3,67 +3,86 @@ title: Monitor identity and access in Azure Security Center | Microsoft Docs
 description: Learn how to use the identity and access capability in Azure Security Center to monitor your users' access activity and identity-related issues.
 services: security-center
 documentationcenter: na
-author: YuriDio
-manager: mbaldwin
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: yurid
-
+ms.date: 10/08/2020
+ms.author: memildin
 ---
-# Monitor identity and access in Azure Security Center
-This article helps you use Azure Security Center to monitor users' identity and access activity.
 
-## Why monitor identity and access?
-Identity should be the control plane for your enterprise, and protecting your identity should be your top priority. In the past, there were perimeters around organizations, and those perimeters were one of the primary defensive boundaries. Nowadays, with more data and more apps moving to the cloud, identity becomes the new perimeter.
+# Monitor identity and access
 
-By monitoring identity activities, you can take proactive actions before an incident takes place or reactive actions to stop an attack attempt. The Identity & Access dashboard provides you with an overview of your identity state, including the:
+The security perimeter has evolved from a network perimeter to an identity perimeter. With this development, security is less about defending your network, and more about managing the security of your apps, data, and users.
 
-* Number of failed attempts to log on. 
-* The users' accounts that were used during those attempts.
-* Accounts that were locked out.
-* Accounts with changed or reset passwords. 
-* The current number of accounts that are logged in.
+By monitoring the activities and configuration settings related to identity, you can take proactive actions before an incident takes place, or reactive actions to stop attempted attacks.
 
-## Monitor identity and access activities
-To see current activities related to identity and access, you need to access the **Identity & Access** dashboard.
+## What identity and access safeguards does Security Center provide? 
 
-1. Open the **Security Center** dashboard.
+Azure Security Center has two dedicated security controls for ensuring you're meeting your organization's identity and security requirements: 
 
-2. In the left pane, under **Prevention**, select **Identity & Access**. If you have multiple workspaces, the workspace selector appears.
+ - **Manage access and permissions** - We encourage you to adopt the [least privilege access model](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) and ensure you grant your users only the access necessary for them to do their jobs. This control also includes recommendations for implementing [role-based access control (RBAC)](../role-based-access-control/overview.md) to control access to your resources.
+ 
+ - **Enable MFA** - With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still authenticate to almost any application with single sign-on.
 
-	![Workspace selection](./media/security-center-identity-access\security-center-identity-access-fig1.png)
+### Example recommendations for identity and access
 
-	> [!NOTE]
-	> If the column on the far right shows **UPGRADE PLAN**, this workspace is using the free subscription. Upgrade to the Standard subscription to use this feature. If the column on the far right shows **REQUIRES UPDATE**, update [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Security Center pricing. 
-	> 
-3. If you have more than one workspace to investigate, you can prioritize the investigation according to the **FAILED LOGONS** column. It shows the current number of unsuccessful logon attempts in this workspace. Select the workspace that you want to use, and the **Identity & Access** dashboard appears.
+Examples of recommendations you might see in these two controls on Security Center's **Recommendations** page:
 
-	![Identity & Access](./media/security-center-identity-access\security-center-identity-access-fig2.png)
+- MFA should be enabled on accounts with owner permissions on your subscription
+- A maximum of 3 owners should be designated for your subscription
+- External accounts with read permissions should be removed from your subscription
+- Deprecated accounts should be removed from your subscription (Deprecated accounts are accounts that are no longer needed, and blocked from signing in by Azure Active Directory)
 
-4. The information available in this dashboard can immediately assist you in identifying potential suspicious activity. The dashboard is divided into three major areas:
+> [!TIP]
+> For more information about these recommendations and the others you might see in these controls, see [Identity and Access recommendations](recommendations-reference.md#recs-identity).
 
-	a. **Identity posture**. Summarizes the identity-related activities that take place in this workspace.
+### Limitations
 
-	b. **Failed logons**. Helps you to quickly identify the main cause for failed logon attempts. Shows a list of the top 10 accounts that failed the most attempts to log on.
+There are some limitations to Security Center's identity and access protections:
 
-	c. **Logons over time**. Helps you to quickly identify the number of logons over time. It shows a list of the top computer account logon attempts.
-	
-Regardless of which tile you select, the dashboard that appears is based on the Log Search query. The only difference is the type of query and the result. You can still select an item, for example, a computer, and see relevant data. 
+- Identity recommendations aren't available for subscriptions with more than 600 accounts. In such cases, these recommendations will be listed under "unavailable assessments".
+- Identity recommendations aren't available for Cloud Solution Provider (CSP) partner's admin agents.
+- Identity recommendations don’t identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you may see inaccurate results in the **Manage access and permissions** control.
 
-## See also
-In this article, you learned how to monitor identity and access in Security Center. To learn more about Security Center, see the following articles:
+## Multi-factor authentication (MFA) and Azure Active Directory 
 
-* [Manage and respond to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts and respond to security incidents in Security Center.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
-* [Understand security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Learn about the different types of security alerts.
-* [Azure Security Center troubleshooting guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Learn how to troubleshoot common issues in Security Center. 
-* [Azure Security Center FAQ](security-center-faq.md). Find answers to frequently asked questions about using Security Center.
-* [Azure security blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
+Enabling MFA requires [Azure Active Directory (AD) tenant permissions](../active-directory/roles/permissions-reference.md).
 
+- If you have a premium edition of AD, enable MFA using [Conditional Access](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
+- If you're using AD free edition, enable **security defaults** as described in [Azure Active Directory documentation](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
+
+## Identify accounts without multi-factor authentication (MFA) enabled
+
+To see which accounts don't have MFA enabled, use the following Azure Resource Graph query. The query returns all unhealthy resources - accounts - of the recommendation "MFA should be enabled on accounts with owner permissions on your subscription". 
+
+1. Open **Azure Resource Graph Explorer**.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
+
+1. Enter the following query and select **Run query**.
+
+    ```kusto
+    securityresources
+     | where type == "microsoft.security/assessments"
+     | where properties.displayName == "MFA should be enabled on accounts with owner permissions on your subscription"
+     | where properties.status.code == "Unhealthy"
+    ```
+
+1. The `additionalData` property reveals the list of account object IDs for accounts that don't have MFA enforced. 
+
+    > [!NOTE]
+    > The accounts are shown as object IDs rather than account names to protect the privacy of the account holders.
+
+> [!TIP]
+> Alternatively, you can use Security Center's REST API method [Assessments - Get](/rest/api/securitycenter/assessments/get).
+
+
+## Next steps
+To learn more about recommendations that apply to other Azure resource types, see the following article:
+
+- [Protecting your network in Azure Security Center](security-center-network-recommendations.md)

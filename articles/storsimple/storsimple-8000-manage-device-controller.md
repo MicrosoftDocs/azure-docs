@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
@@ -43,7 +43,7 @@ Restarting a device is not disruptive to connected initiators, assuming the pass
 
 > [!IMPORTANT]
 > * **A running controller should never be physically removed as this would result in a loss of redundancy and an increased risk of downtime.**
-> * The following procedure applies only to the StorSimple physical device. For information about how to start, stop, and restart the StorSimple Cloud Appliance, see [Work with the cloud appliance](storsimple-8000-cloud-appliance-u2.md##work-with-the-storsimple-cloud-appliance).
+> * The following procedure applies only to the StorSimple physical device. For information about how to start, stop, and restart the StorSimple Cloud Appliance, see [Work with the cloud appliance](storsimple-8000-cloud-appliance-u2.md#work-with-the-storsimple-cloud-appliance).
 
 You can restart or shut down a single device controller via the Azure portal of the  StorSimple Device Manager service or Windows PowerShell for StorSimple.
 
@@ -113,7 +113,7 @@ Perform the following steps to reset your Microsoft Azure StorSimple device to f
    
     `Reset-HcsFactoryDefault`
    
-    To instead reset a single controller, use the  [Reset-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) cmdlet with the `-scope` parameter.)
+    To instead reset a single controller, use the  [Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) cmdlet with the `-scope` parameter.)
    
     The system will reboot multiple times. You will be notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
    
@@ -144,7 +144,7 @@ In this section, we have summarized some of the frequently asked questions regar
 
 **Q.** How can you figure out if a controller was restarted or shut down?
 
-**A.** You can check the controller status on Controller blade. The controller status will indicate whether a controller is in the process of restarting or shutting down. Additionally, the **Alerts** blade contain an informational alert if the controller is restarted or shut down. The controller restart and shutdown operations are also recorded in the acitivity logs. For more information about acitivity logs, go to [View the activity logs](storsimple-8000-service-dashboard.md#view-the-activity-logs).
+**A.** You can check the controller status on Controller blade. The controller status will indicate whether a controller is in the process of restarting or shutting down. Additionally, the **Alerts** blade contain an informational alert if the controller is restarted or shut down. The controller restart and shutdown operations are also recorded in the activity logs. For more information about activity logs, go to [View the activity logs](storsimple-8000-service-dashboard.md#view-the-activity-logs).
 
 **Q.** Is there any impact to the I/O as a result of controller failover?
 

@@ -1,0 +1,63 @@
+### YamlMime:Landing
+
+title: Azure Active Directory reports and monitoring documentation
+summary: Learn how to use reports in Azure AD.
+
+metadata:
+  title: Azure Active Directory reports and monitoring documentation
+  description: Learn how to use reports and monitoring in Azure AD.
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: devices
+  ms.topic: landing-page
+  author: MarkusVi
+  ms.author: markvi
+  ms.date: 08/29/2019
+  ms.collection: M365-identity-device-management
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Active Directory reports and monitoring
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What are Azure Active Directory reports?
+            url: overview-reports.md
+          - text: What is Azure Active Directory monitoring?
+            url: overview-monitoring.md
+      - linkListType: concept
+        links:
+         - text: Audit logs
+           url: concept-audit-logs.md
+         - text: Sign-in logs
+           url: concept-sign-ins.md
+         - text: Risky sign-in logs
+           url: ../identity-protection/overview-identity-protection.md
+         - text: Users flagged for risk logs
+           url: ../identity-protection/overview-identity-protection.md
+         - text: Provisioning logs
+           url: concept-provisioning-logs.md
+  # Card
+  - title: Use reports in Azure AD
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Find activity reports
+            url: howto-find-activity-reports.md
+          - text: Remediate users flagged for risk
+            url: howto-remediate-users-flagged-for-risk.md
+          - text: Use Azure AD workbooks
+            url: howto-use-azure-monitor-workbooks.md
+  # Card
+  - title: Use monitoring in Azure AD
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Analyze activity logs in Azure Monitor logs
+            url: howto-analyze-activity-logs-log-analytics.md
+          - text: Install and use the log analytics views for Azure AD
+            url: howto-install-use-log-analytics-views.md

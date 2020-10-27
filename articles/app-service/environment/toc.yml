@@ -19,9 +19,9 @@
 - name: Samples
   items:
   - name: Azure CLI
-    href: ../app-service-cli-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+    href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
   - name: Azure PowerShell
-    href: ../app-service-powershell-samples.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+    href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
 - name: Concepts
   items:
   - name: Network architecture
@@ -30,6 +30,10 @@
     href: app-service-app-service-environment-geo-distributed-scale.md
   - name: ASEv1
     href: app-service-app-service-environment-intro.md
+  - name: Diagnostics
+    href: ../overview-diagnostics.md
+  - name: Certificates
+    href: certificates.md
 - name: How-To guides
   items:
   - name: Use an ASE
@@ -40,6 +44,10 @@
     href: create-from-template.md
   - name: Forced tunnel configuration
     href: forced-tunnel-support.md
+  - name: Firewall integration
+    href: firewall-integration.md
+  - name: Zone redundancy
+    href: zone-redundancy.md
 - name: Reference
   items:
   - name: Management addresses
@@ -62,8 +70,6 @@
       href: app-service-app-service-environment-network-architecture-overview.md
     - name: Create web app in ASEv1
       href: app-service-web-how-to-create-a-web-app-in-an-ase.md
-    - name: High density hosting
-      href: app-service-high-density-hosting.md
     - name: Connect to back end
       href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
     - name: Configure ExpressRoute
@@ -72,15 +78,6 @@
       href: app-service-app-service-environment-control-inbound-traffic.md
     - name: Use layered security
       href: app-service-app-service-environment-layered-security.md
-  - name: CLI 2.0
-- name: Reference
-  items:
-  - name: Azure CLI
-    href: /cli/azure/appservice
-  - name: Azure PowerShell
-    href: /powershell
-  - name: REST API
-    href: /rest/api/appservice/
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -88,8 +85,8 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/app-service/
   - name: Quota Information
-    href: ../../azure-subscription-service-limits.md#app-service-limits
-  - name: Service Updates & Release Notes
+    href: ../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits
+  - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=app-service
   - name: Best practices
     href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
@@ -112,20 +109,20 @@
   - name: Troubleshooting
     items:
     - name: Troubleshoot with Visual Studio
-      href: ../web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+      href: ../troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: Troubleshoot Node.js app
       href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: Troubleshoot HTTP 502 & 503
-      href: ../app-service-web-troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+      href: ../troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: Troubleshoot performance issues
-      href: ../app-service-web-troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+      href: ../troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: FAQ
       items:
       - name: Availability, performance, and application FAQ
-        href: ../app-service-web-availability-performance-application-issues-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-availability-performance-application-issues.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Deployment FAQ
-        href: ../app-service-web-deployment-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-deployment.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Open source technologies FAQ
-        href: ../app-service-web-open-source-technologies-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Configuration and management FAQ
-        href: ../app-service-web-configuration-and-management-faq.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json

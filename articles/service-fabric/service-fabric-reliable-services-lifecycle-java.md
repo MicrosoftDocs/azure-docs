@@ -1,19 +1,12 @@
 ---
-title: Azure Service Fabric Reliable Services lifecycle | Microsoft Docs
-description: Learn about the lifecycle events in Service Fabric Reliable Services.
-services: service-fabric
-documentationcenter: java
+title: Azure Service Fabric Reliable Services lifecycle 
+description: Learn about the lifecycle events in an Azure Service Fabric Reliable Services application using Java for stateful and stateless services.
 author: PavanKunapareddyMSFT
-manager: timlt
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 06/30/2017
-ms.author: pakunapa;
+ms.custom: devx-track-java
+ms.author: pakunapa
 ---
 
 # Reliable Services lifecycle
@@ -62,11 +55,11 @@ When shutting down a stateless service, the same pattern is followed, but in rev
 1. These events occur in parallel:
     - Any open listeners are closed. `CommunicationListener.closeAsync()` is called on each listener.
     - The cancellation token that was passed to `runAsync()` is canceled. Checking the cancellation token's `isCancelled` property returns `true`, and if called, the token's `throwIfCancellationRequested` method throws a `CancellationException`.
-2. When `closeAsync()` finishes on each listener and `runAsync()` also finishes, the service's `StatelessService.onCloseAsync()` method is called, if it's present. Again, this is not a common override.
+2. When `closeAsync()` finishes on each listener and `runAsync()` also finishes, the service's `StatelessService.onCloseAsync()` method is called, if it's present. Again, this is not a common override, but it can be used to safely close resources, stop background processing, finish saving external state, or close down existing connections.
 3. After `StatelessService.onCloseAsync()` finishes, the service object is destructed.
 
 ## Stateful service startup
-Stateful services have a pattern that is similar to stateless services, with a few changes. Here's the order of events for starting a stateful service:
+Stateful services have a pattern that is similar to stateless services, with a few changes.  Here's the order of events for starting a stateful service:
 
 1. The service is constructed.
 2. `StatefulServiceBase.onOpenAsync()` is called. This call is not commonly overridden in the service.
@@ -84,7 +77,7 @@ Like stateless services, the lifecycle events during shutdown are the same as du
 
 1. These events occur in parallel:
     - Any open listeners are closed. `CommunicationListener.closeAsync()` is called on each listener.
-    - The cancellation token that was passed to `runAsync()` is cancelled. A call to the cancellation token's `isCancelled()` method returns `true`, and if called, the token's `throwIfCancellationRequested()` method throws an `OperationCanceledException`.
+    - The cancellation token that was passed to `runAsync()` is canceled. A call to the cancellation token's `isCancelled()` method returns `true`, and if called, the token's `throwIfCancellationRequested()` method throws an `OperationCanceledException`.
 2. After `closeAsync()` finishes on each listener and `runAsync()` also finishes, the service's `StatefulServiceBase.onChangeRoleAsync()` is called. This call is not commonly overridden in the service.
 
    > [!NOTE]  
@@ -119,20 +112,18 @@ Services that don't handle cancellation cleanly can experience several issues. T
 
 Because the services are stateful, it's also likely that the services use [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). In Service Fabric, when a primary is demoted, one of the first things that happens is that write access to the underlying state is revoked. This leads to a second set of issues that might affect the service lifecycle. The collections return exceptions based on the timing and whether the replica is being moved or shut down. It's important to handle these exceptions correctly. 
 
-Exceptions thrown by Service Fabric are either permanent [(`FabricException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception) or transient [(`FabricTransientException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception._fabric_transient_exception). Permanent exceptions should be logged and thrown. Transient exceptions can be retried based on retry logic.
+Exceptions thrown by Service Fabric are either permanent [(`FabricException`)](/java/api/system.fabric.exception) or transient [(`FabricTransientException`)](/java/api/system.fabric.exception.fabrictransientexception). Permanent exceptions should be logged and thrown. Transient exceptions can be retried based on retry logic.
 
 An important part of testing and validating Reliable Services is handling the exceptions that come from using the `ReliableCollections` in conjunction with service lifecycle events. We recommend that you always run your service under load. You should also perform upgrades and [chaos testing](service-fabric-controlled-chaos.md) before deploying to production. These basic steps help ensure that your service is implemented correctly, and that it handles lifecycle events correctly.
 
 ## Notes on service lifecycle
-* Both the `runAsync()` method and the `createServiceInstanceListeners/createServiceReplicaListeners` calls are optional. A service might have one, both, or neither. For example, if the service does all its work in response to user calls, there's no need for it to implement `runAsync()`. Only the communication listeners and their associated code are necessary. 
-
-  Similarly, creating and returning communication listeners is optional. The service might have only background work to do, so it only needs to implement `runAsync()`.
+* Both the `runAsync()` method and the `createServiceInstanceListeners/createServiceReplicaListeners` calls are optional. A service might have one, both, or neither. For example, if the service does all its work in response to user calls, there's no need for it to implement `runAsync()`. Only the communication listeners and their associated code are necessary.  Similarly, creating and returning communication listeners is optional. The service might have only background work to do, so it only needs to implement `runAsync()`.
 * It's valid for a service to complete `runAsync()` successfully and return from it. This isn't considered a failure condition. It represents the background work of the service finishing. For stateful Reliable Services, `runAsync()` would be called again if the service is demoted from primary, and then promoted back to primary.
 * If a service exits from `runAsync()` by throwing some unexpected exception, this is a failure. The service object is shut down, and a health error is reported.
 * Although there's no time limit on returning from these methods, you immediately lose the ability to write. Therefore, you can't complete any real work. We recommend that you return as quickly as possible upon receiving the cancellation request. If your service doesn't respond to these API calls in a reasonable amount of time, Service Fabric might forcibly terminate your service. Usually, this happens only during application upgrades or when a service is being deleted. This timeout is 15 minutes by default.
-* Failures in the `onCloseAsync()` path result in `onAbort()` being called. This call is a last-chance, best-effort opportunity for the service to clean up and release any resources that they have claimed.
+* Failures in the `onCloseAsync()` path result in `onAbort()` being called. This call is a last-chance, best-effort opportunity for the service to clean up and release any resources that they have claimed. This is generally called when a permanent fault is detected on the node, or when Service Fabric cannot reliably manage the service instance's lifecycle due to internal failures.
+* `OnChangeRoleAsync()` is called when the stateful service replica is changing role, for example to primary or secondary. Primary replicas are given write status (are allowed to create and write to Reliable Collections). Secondary replicas are given read status (can only read from existing Reliable Collections). Most work in a stateful service is performed at the primary replica. Secondary replicas can perform read-only validation, report generation, data mining, or other read-only jobs.
 
 ## Next steps
 * [Introduction to Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Reliable Services quickstart](service-fabric-reliable-services-quick-start-java.md)
-* [Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)

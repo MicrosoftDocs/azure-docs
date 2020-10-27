@@ -1,74 +1,76 @@
 ---
-title: Azure Content Moderator - Video moderation | Microsoft Docs
-description: Use machine-assisted video moderation and human review tools to moderate inappropriate content
+title: Video moderation with human review - Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Use machine-assisted video moderation and the Review tool to moderate inappropriate content
 services: cognitive-services
-author: sanjeev3
-manager: mikemcca
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: content-moderator
-ms.topic: article
-ms.date: 01/20/2018
-ms.author: sajagtap
+ms.subservice: content-moderator
+ms.topic: conceptual
+ms.date: 04/14/2020
+ms.author: pafarley
 ---
 
-# Video moderation
+# Video moderation with human review
 
-Use Content Moderator’s machine-assisted [video moderation](video-moderation-api.md) and [human review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate videos and transcripts for adult (explicit) and racy (suggestive) content to get the best results for your business.
+Use Content Moderator's machine-assisted [video moderation](video-moderation-api.md) and [Review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate videos and transcripts for adult (explicit) and racy (suggestive) content to get the best results for your business.
 
-## Video-trained classifier
+## Video-trained classifier (preview)
 
 Machine-assisted video classification is either achieved with image trained models or video trained models. Unlike image-trained video classifiers, Microsoft's adult and racy video classifier is trained with videos. This method results in better match quality.
 
 ## Shot detection
 
 When outputting the classification details, additional video intelligence helps with more flexibility in analyzing videos. Instead of outputting just the frames, Microsoft's video moderation service provides shot-level information too. You now have the option to analyze your videos at the shot level and the frame level.
- 
+
 ## Key frame detection
 
 Instead of outputting frames at regular intervals, the video moderation service identifies and outputs only potentially complete (good) frames. The feature allows efficient frame generation for frame-level adult and racy analysis.
 
 The following extract shows a partial response with potential shots, key frames, and adult and racy scores:
 
-	"fragments": [
-    {
-      "start": 0,
-      "duration": 18000
-    },
-    {
-      "start": 18000,
-      "duration": 3600,
-      "interval": 3600,
-      "events": [
-        [
-          {
-            "reviewRecommended": false,
-            "adultScore": 0.00001,
-            "racyScore": 0.03077,
-            "index": 5,
-            "timestamp": 18000,
-            "shotIndex": 0
-          }
-        ]
+```json
+"fragments":[  
+  {  
+    "start":0,
+    "duration":18000
+  },
+  {  
+    "start":18000,
+    "duration":3600,
+    "interval":3600,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":false,
+          "adultScore":0.00001,
+          "racyScore":0.03077,
+          "index":5,
+          "timestamp":18000,
+          "shotIndex":0
+        }
       ]
-    },
-    {
-      "start": 18386372,
-      "duration": 119149,
-      "interval": 119149,
-      "events": [
-        [
-          {
-            "reviewRecommended": true,
-            "adultScore": 0.00000,
-            "racyScore": 0.91902,
-            "index": 5085,
-            "timestamp": 18386372,
-            "shotIndex": 62
-          }
-        ]
+    ]
+  },
+  {  
+    "start":18386372,
+    "duration":119149,
+    "interval":119149,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":true,
+          "adultScore":0.00000,
+          "racyScore":0.91902,
+          "index":5085,
+          "timestamp":18386372,
+          "shotIndex":62
+        }
       ]
-
+    ]
+```
 
 ## Visualization for human reviews
 
@@ -96,10 +98,7 @@ Videos typically have voice over that needs moderation as well for offensive spe
 
 ## Next steps
 
-Get started with the [video moderation quickstart](video-moderation-api.md). 
-
-Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) for your human reviewers from your moderated output.
-
-Add [video transcript reviews](video-transcript-reviews-quickstart-dotnet.md) to your video reviews.
-
-Check out the detailed tutorial on how to develop a [complete video moderation solution](video-transcript-moderation-review-tutorial-dotnet.md). 
+- Get started with the [video moderation quickstart](video-moderation-api.md).
+- Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) for your human reviewers from your moderated output.
+- Add [video transcript reviews](video-transcript-reviews-quickstart-dotnet.md) to your video reviews.
+- Check out the detailed tutorial on how to develop a [complete video moderation solution](video-transcript-moderation-review-tutorial-dotnet.md).

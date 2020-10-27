@@ -1,21 +1,16 @@
 ---
-title: HDInsight Hadoop data science walkthroughs using Hive on Azure  | Microsoft Docs
+title: Analytics on Azure HDInsight Hadoop using Hive - Team Data Science Process
 description: Examples of the Team Data Science Process that walk through the use of Hive on Azure HDInsight Hadoop to do predictive analytics.
 services: machine-learning
-documentationcenter: ''
-author: bradsev
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid:
+author: marktab
+manager: marktab
+editor: marktab
 ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
-ms.author: bradsev
-
+ms.date: 01/10/2020
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 # HDInsight Hadoop data science walkthroughs using Hive on Azure 
@@ -36,7 +31,7 @@ The scenario is implemented using Hive with an [Azure HDInsight Hadoop cluster](
 
 ## Predict advertisement clicks using Hive with HDInsight Hadoop
 
-The [Use Azure HDInsight Hadoop Clusters on a 1-TB dataset](hive-criteo-walkthrough.md) walkthrough uses a publicly available [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) click dataset to predict whether a tip is paid and the range of amounts expected. The scenario is implemented using Hive with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data. It uses Azure Machine Learning to build, train, and score a binary classification model predicting whether a user clicks on an advertisement. The walkthrough concludes showing how to publish one of these models as a Web service.
+The [Use Azure HDInsight Hadoop Clusters on a 1-TB dataset](hive-criteo-walkthrough.md) walkthrough uses a publicly available [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) click dataset to predict whether a tip is paid and the expected amounts. The scenario is implemented using Hive with an [Azure HDInsight Hadoop cluster](https://azure.microsoft.com/services/hdinsight/) to store, explore, feature engineer, and down sample data. It uses Azure Machine Learning to build, train, and score a binary classification model predicting whether a user clicks on an advertisement. The walkthrough concludes showing how to publish one of these models as a Web service.
 
 
 ## Next steps

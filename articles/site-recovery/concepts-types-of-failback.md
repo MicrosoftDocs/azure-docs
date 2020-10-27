@@ -1,24 +1,17 @@
 ---
-title: Failback in Azure Site Recovery | Microsoft Docs
-description: This article provides an overview of various types of failback and caveats to be considered while failing back to on-premises with the Azure Site Recovery service.
-services: site-recovery
-documentationcenter: ''
-author: rajani-janaki-ram
-manager: guaravd
-editor: ''
-
-ms.assetid: 
+title: Failback during disaster recovery with Azure Site Recovery | Microsoft Docs
+description: This article provides an overview of various types of failback and caveats to be considered while failing back to on-premises during disaster recovery with the Azure Site Recovery service.
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/18/2017
-ms.author: rajanki
+ms.topic: conceptual
+ms.date: 08/07/2019
+ms.author: raynew
 ---
 
-# Overview of failback
-After you have failed over to Azure, you can fail back to your on-premises site. There are two different types of failback that are possible with Azure Site Recovery: 
+# Failback of VMware VMs after disaster recovery to Azure
+
+After you have failed over to Azure as part of your disaster recovery process, you can fail back to your on-premises site. There are two different types of failback that are possible with Azure Site Recovery: 
 
 - Fail back to the original location 
 - Fail back to an alternate location
@@ -26,7 +19,7 @@ After you have failed over to Azure, you can fail back to your on-premises site.
 If you failed over a VMware virtual machine, you can fail back to the same source on-premises virtual machine if it still exists. In this scenario, only the changes are replicated back. This scenario is known as **original location recovery**. If the on-premises virtual machine does not exist, the scenario is an **alternate location recovery**.
 
 > [!NOTE]
-> You can only failback to the original vCenter and Configuration server. You cannot deploy a new Configuration server and fail back using it. Also, you cannot add a new vCenter to the existing Configuration server and failback into the new vCenter.
+> You can only fail back to the original vCenter and Configuration server. You cannot deploy a new Configuration server and fail back using it. Also, you cannot add a new vCenter to the existing Configuration server and failback into the new vCenter.
 
 ## Original Location Recovery (OLR)
 If you choose to fail back to the original virtual machine, the following conditions need to be met:
@@ -52,5 +45,5 @@ If the on-premises virtual machine does not exist before reprotecting the virtua
 
 ## Next steps
 
-Follow the steps to perform the [failback operation](site-recovery-how-to-failback-azure-to-vmware.md).
+Follow the steps to perform the [failback operation](vmware-azure-failback.md).
 

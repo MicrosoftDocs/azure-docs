@@ -1,36 +1,28 @@
 ---
-title: Sample data in Azure blob containers, SQL Server, and Hive tables | Microsoft Docs
-description: How to explore data stored in various Azure enviromnents.
+title: Sample data in different Azure Storage locations - Team Data Science Process
+description: Sample data in Azure blob containers, SQL Server, and Hive tables to reduce it to a smaller but representative and more manageable size.
 services: machine-learning
-documentationcenter: ''
-author: bradsev
-manager: cgronlun
-editor: cgronlun
-
-ms.assetid: 80a9dfae-e3a6-4cfb-aecc-5701cfc7e39d
+author: marktab
+manager: marktab
+editor: marktab
 ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
-ms.author: garye;bradsev
-
+ms.date: 01/10/2020
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # <a name="heading"></a>Sample data in Azure blob containers, SQL Server, and Hive tables
-This document links to articles that cover how to sample data that is stored in one of three different Azure locations:
 
-* **Azure blob container data** is sampled by downloading it programmatically and then sampling it with sample Python code.
-* **SQL Server data** is sampled using both SQL and the Python Programming Language. 
-* **Hive table data** is sampled using Hive queries.
+The following articles describe how to sample data that is stored in one of three different Azure locations:
 
-The following **menu** links to the topics that describe how to sample data from each of these Azure storage environments. 
+* [**Azure blob container data**](sample-data-blob.md) is sampled by downloading it programmatically and then sampling it with sample Python code.
+* [**SQL Server data**](sample-data-sql-server.md) is sampled using both SQL and the Python Programming Language. 
+* [**Hive table data**](sample-data-hive.md) is sampled using Hive queries.
 
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
-
-This sampling task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This sampling task is a step in the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 **Why sample data?**
 
-If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
+If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. Downsizing may facilitate data understanding, exploration, and feature engineering. This sampling role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
 

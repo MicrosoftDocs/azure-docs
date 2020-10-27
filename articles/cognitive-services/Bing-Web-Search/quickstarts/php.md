@@ -1,74 +1,76 @@
 ---
-title: Call and response - PHP Quickstart for Azure Cognitive Services, Bing Web Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Web Search API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Perform a search with PHP - Bing Web Search API"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to send requests to the Bing Web Search REST API using PHP, and receive a JSON response
 services: cognitive-services
-documentationcenter: ''
-author: jerrykindall
-
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.technology: bing-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-
+ms.subservice: bing-web-search
+ms.topic: quickstart
+ms.date: 05/22/2020
+ms.author: aahi
+ms.custom: seodec2018
+#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using PHP.
 ---
-# Call and response: your first Bing Web Search query in PHP
 
-The Bing Web Search API provides a experience similar to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
+# Quickstart: Use PHP to call the Bing Web Search API  
 
-This article includes a simple console application that performs a Bing Web Search API query and displays the returned raw search results, which are in JSON format. While this application is written in PHP, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+Use this quickstart to make your first call to the Bing Web Search API. This Node.js application sends a search request to the API, and shows the JSON response. Although this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
-You need [PHP 5.6.x](http://php.net/downloads.php) to run this code.
+Here are a few things that you'll need before running this quickstart:
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+* [PHP 5.6.x](https://php.net/downloads.php) or later
+* A subscription key  
 
-## Running the application
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-To run this application, follow these steps.
+## Enable secure HTTP support
 
-1. Make sure secure HTTP support is enabled in your `php.ini` as described in the code comment. On Windows, this file is in `C:\windows`.
-2. Create a new PHP project in your favorite IDE or editor.
-3. Add the provided code.
-4. Replace the `accessKey` value with an access key valid for your subscription.
-5. Run the program.
+Before we get started, locate php.ini and uncomment this line:
 
 ```php
-<?php
+; extension=php_openssl.dll
+```
 
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
+## Create a project and define variables
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+1. Create a new PHP project in your favorite IDE or editor. Add opening and closing tags: `<?php` and `?>`.
 
-// Replace the accessKey string value with your valid access key.
+2. For the `$endpoint` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
+
+3. Confirm that the `$endpoint` value is correct and replace the `$accesskey` value with a valid subscription key from your Azure account. 
+
+4. Optionally, customize the search query by replacing the value for `$term`.
+
+```php
 $accessKey = 'enter key here';
-
-// Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-// search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this value against
-// the endpoint for your Bing Web search instance in your Azure dashboard.
 $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
-
 $term = 'Microsoft Cognitive Services';
+```
 
+## Construct a request
+
+This code declares a function called `BingWebSearch` that's used to construct requests to the Bing Web Search API. It takes three arguments: `$url`, `$key`, and `$query`.
+
+```php
 function BingWebSearch ($url, $key, $query) {
-    // Prepare HTTP request
-    // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    /* Prepare the HTTP request.
+     * NOTE: Use the key 'http' even if you are making an HTTPS request.
+     * See: http://php.net/manual/en/function.stream-context-create.php.
+     */
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
     $options = array ('http' => array (
                           'header' => $headers,
                            'method' => 'GET'));
 
-    // Perform the Web request and get the JSON response
+    // Perform the request and get a JSON response.
     $context = stream_context_create($options);
     $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
 
-    // Extract Bing HTTP headers
+    // Extract Bing HTTP headers.
     $headers = array();
     foreach ($http_response_header as $k => $v) {
         $h = explode(":", $v, 2);
@@ -79,18 +81,25 @@ function BingWebSearch ($url, $key, $query) {
 
     return array($headers, $result);
 }
+```
 
+## Make a request and print the response
+
+This code validates the subscription key, makes a request, and prints the response.
+
+```php
+// Validates the subscription key.
 if (strlen($accessKey) == 32) {
 
     print "Searching the Web for: " . $term . "\n";
-    
+    // Makes the request.
     list($headers, $json) = BingWebSearch($endpoint, $accessKey, $term);
-    
+
     print "\nRelevant Headers:\n\n";
     foreach ($headers as $k => $v) {
         print $k . ": " . $v . "\n";
     }
-    
+    // Prints JSON encoded response.
     print "\nJSON Response:\n\n";
     echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 
@@ -100,12 +109,55 @@ if (strlen($accessKey) == 32) {
     print("Please paste yours into the source code.\n");
 
 }
+```
+
+## Put it all together
+
+The last step is to validate your code and run it. If you'd like to compare your code with ours, here's the complete program:
+
+```php
+<?php
+$accessKey = 'enter key here';
+$endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/search';
+$term = 'Microsoft Cognitive Services';
+
+function BingWebSearch ($url, $key, $query) {
+    $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
+    $options = array ('http' => array (
+                          'header' => $headers,
+                           'method' => 'GET'));
+    $context = stream_context_create($options);
+    $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
+    $headers = array();
+    foreach ($http_response_header as $k => $v) {
+        $h = explode(":", $v, 2);
+        if (isset($h[1]))
+            if (preg_match("/^BingAPIs-/", $h[0]) || preg_match("/^X-MSEdge-/", $h[0]))
+                $headers[trim($h[0])] = trim($h[1]);
+    }
+    return array($headers, $result);
+}
+
+if (strlen($accessKey) == 32) {
+    print "Searching the Web for: " . $term . "\n";
+    list($headers, $json) = BingWebSearch($endpoint, $accessKey, $term);
+    print "\nRelevant Headers:\n\n";
+    foreach ($headers as $k => $v) {
+        print $k . ": " . $v . "\n";
+    }
+    print "\nJSON Response:\n\n";
+    echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
+
+} else {
+    print("Invalid Bing Search API subscription key!\n");
+    print("Please paste yours into the source code.\n");
+}
 ?>
 ```
 
-## JSON response
+## Example JSON response
 
-A sample response follows. To limit the length of the JSON, only a single result is shown, and other parts of the response have been truncated. 
+Responses from the Bing Web Search API are returned as JSON. This sample response has been truncated to show a single result.  
 
 ```json
 {
@@ -125,18 +177,18 @@ A sample response follows. To limit the length of the JSON, only a single result
         "snippet": "Knock down barriers between you and your ideas. Enable natural and contextual interaction with tools that augment users' experiences via the power of machine-based AI. Plug them in and bring your ideas to life.",
         "deepLinks": [
           {
-            "name": "Face API",
-            "url": "https://azure.microsoft.com/en-us/services/cognitive-services/face/",
-            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face API from Microsoft Azure. ... Cognitive Services; Face API;"
+            "name": "Face",
+            "url": "https://azure.microsoft.com/services/cognitive-services/face/",
+            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using the Face service from Microsoft Azure. ... Cognitive Services; Face service;"
           },
           {
             "name": "Text Analytics",
-            "url": "https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/",
+            "url": "https://azure.microsoft.com/services/cognitive-services/text-analytics/",
             "snippet": "Cognitive Services; Text Analytics API; Text Analytics API . Detect sentiment, ... you agree that Microsoft may store it and use it to improve Microsoft services, ..."
           },
           {
             "name": "Computer Vision API",
-            "url": "https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/",
+            "url": "https://azure.microsoft.com/services/cognitive-services/computer-vision/",
             "snippet": "Extract the data you need from images using optical character recognition and image analytics with Computer Vision APIs from Microsoft Azure."
           },
           {
@@ -146,12 +198,12 @@ A sample response follows. To limit the length of the JSON, only a single result
           },
           {
             "name": "Bing Speech API",
-            "url": "https://azure.microsoft.com/en-us/services/cognitive-services/speech/",
+            "url": "https://azure.microsoft.com/services/cognitive-services/speech/",
             "snippet": "Add speech recognition to your applications, including text to speech, with a speech API from Microsoft Azure. ... Cognitive Services; Bing Speech API;"
           },
           {
             "name": "Get Started for Free",
-            "url": "https://azure.microsoft.com/en-us/services/cognitive-services/",
+            "url": "https://azure.microsoft.com/services/cognitive-services/",
             "snippet": "Add vision, speech, language, and knowledge capabilities to your applications using intelligence APIs and SDKs from Cognitive Services."
           }
         ]
@@ -232,11 +284,6 @@ A sample response follows. To limit the length of the JSON, only a single result
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
+> [Bing Web Search API single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
-## See also 
-
-[Bing Web Search overview](../overview.md)  
-[Try it](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
-[Bing Web Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

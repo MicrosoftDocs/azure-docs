@@ -1,55 +1,49 @@
 ---
-title: Update Azure modules in Azure Automation | Microsoft Docs
-description: This article describes how you can now update common Azure PowerShell modules provided by default in Azure Automation.
+title: Update Azure PowerShell modules in Azure Automation
+description: This article tells how to update common Azure PowerShell modules provided by default in Azure Automation.
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: tysonn
-
-ms.assetid: 
-ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/13/2017
-ms.author: magoedte
-
+ms.subservice: process-automation
+ms.date: 06/14/2019
+ms.topic: conceptual
 ---
 
-# How to update Azure PowerShell modules in Azure Automation
+# Update Azure PowerShell modules
 
-The most common Azure PowerShell modules are provided by default in each Automation account.  The Azure team updates the Azure modules regularly, so in the Automation account we provide a way for you to update the modules in the account when new versions are available from the portal.  
-
-Because modules are updated regularly by the product group, changes can occur with the  included cmdlets, which may negatively impact your runbooks depending on the type of change, such as renaming a parameter or deprecating a cmdlet entirely. To avoid impacting your runbooks and the processes they automate, it is strongly recommended that you test and validate before proceeding.  If you do not have a dedicated Automation account intended for this purpose, consider creating one so that you can test many different scenarios and permutations during the development of your runbooks, in addition to iterative changes such as updating the PowerShell modules.  After the results are validated and you have applied any changes required, proceed with coordinating the migration of any runbooks that required modification and perform the update as described below in production.     
-
-## Updating Azure Modules
-
-1. In the Modules page of your Automation account, there is an option called **Update Azure Modules**. It is always enabled.<br><br> ![Update Azure Modules option in Modules page](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
-
-2. Click **Update Azure Modules** and you are presented with a confirmation notification that asks you if you want to continue.<br><br> ![Update Azure Modules notification](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
-
-3. Click **Yes** and the module update process begins. The update process takes about 15-20 minutes to update the following modules:
-
-  * Azure
-  *	Azure.Storage
-  *	AzureRm.Automation
-  *	AzureRm.Compute
-  *	AzureRm.Profile
-  *	AzureRm.Resources
-  *	AzureRm.Sql
-  * AzureRm.Storage
-
-    If the modules are already up to date, then the process completes in a few seconds. When the update process completes, you will be notified.<br><br> ![Update Azure Modules update status](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+The most common PowerShell modules are provided by default in each Automation account. See [Default modules](shared-resources/modules.md#default-modules). As the Azure team updates the Azure modules regularly, changes can occur with the included cmdlets. These changes, for example, renaming a parameter or deprecating a cmdlet entirely, can negatively affect your runbooks. 
 
 > [!NOTE]
-> Azure Automation uses the latest modules in your Automation account when a new scheduled job is run.    
+> You can't delete global modules, which are modules that Automation provides out of the box.
 
-If you use cmdlets from these Azure PowerShell modules in your runbooks to manage Azure resources, then you want to perform this update process every month or so to assure that you have the latest modules.
+## Set up an Automation account
+
+To avoid impacting your runbooks and the processes they automate, be sure to test and validate as you make updates. If you don't have a dedicated Automation account intended for this purpose, consider creating one so that you can test many different scenarios during the development of your runbooks. This testing should include iterative changes, such as updating the PowerShell modules.
+
+Make sure that your Automation account has an [Azure Run As account credential](manage-runas-account.md) created.
+
+If you develop your scripts locally, it's recommended to have the same module versions locally that you have in your Automation account when testing to ensure that you receive the same results. After the results are validated and you've applied any changes required, you can move the changes to production.
+
+> [!NOTE]
+> A new Automation account might not contain the latest modules.
+
+## Obtain a runbook to use for updates
+
+To update the Azure modules in your Automation account, you must use the [Update-AutomationAzureModulesForAccount](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) runbook, which is available as open source. To start using this runbook to update your Azure modules, download it from the GitHub repository. You can then import it into your Automation account or run it as a script. To learn how to import a runbook in your Automation account, see [Import a runbook](manage-runbooks.md#import-a-runbook).
+
+The **Update-AutomationAzureModulesForAccount** runbook supports updating the Azure, AzureRM, and Az modules by default. Review the [Update Azure modules runbook README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) for more information on updating Az.Automation modules with this runbook. There are additional important factors that you need to take into account when using the Az modules in your Automation account. To learn more, see [Manage modules in Azure Automation](shared-resources/modules.md).
+
+## Use update runbook code as a regular PowerShell script
+
+You can use the runbook code as a regular PowerShell script instead of a runbook. To do this, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) cmdlet first, then pass `-Login $false` to the script.
+
+## Use the update runbook on sovereign clouds
+
+To use this runbook on sovereign clouds, use the `AzEnvironment` parameter to pass the correct environment to the runbook. Acceptable values are AzureCloud (Azure public cloud), AzureChinaCloud, AzureGermanCloud, and AzureUSGovernment. These values can be retrieved using `Get-AzEnvironment | select Name`. If you don't pass a value to this cmdlet, the runbook defaults to AzureCloud.
+
+## Use the update runbook to update a specific module version
+
+If you want to use a specific Azure PowerShell module version instead of the latest module available on the PowerShell Gallery, pass these versions to the optional `ModuleVersionOverrides` parameter of the **Update-AutomationAzureModulesForAccount** runbook. For examples, see the  [Update-AutomationAzureModulesForAccount.ps1](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update/blob/master/Update-AutomationAzureModulesForAccount.ps1) runbook. Azure PowerShell modules that aren't mentioned in the `ModuleVersionOverrides` parameter are updated with the latest module versions on the PowerShell Gallery. If you pass nothing to the `ModuleVersionOverrides` parameter, all modules are updated with the latest module versions on the PowerShell Gallery. This behavior is the same for the **Update Azure Modules** button in the Azure portal.
 
 ## Next steps
 
-* To learn more about Integration Modules and how to create custom modules to further integrate Automation with other systems, services, or solutions, see [Integration Modules](automation-integration-modules.md).
-
-* Consider source control integration using [GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md) or [Visual Studio Team Services](automation-scenario-source-control-integration-with-vsts.md) to centrally manage and control releases of your Automation runbook and configuration portfolio.  
+* For details of using modules, see [Manage modules in Azure Automation](shared-resources/modules.md).
+* For information about the update runbook, see [Update Azure modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update).

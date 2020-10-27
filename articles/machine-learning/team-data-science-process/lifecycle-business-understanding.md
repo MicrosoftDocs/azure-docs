@@ -1,23 +1,18 @@
 ---
-title: Business understanding stage of the Team Data Science Process lifecycle - Azure | Microsoft Docs
-description: The goals, tasks, and deliverables for the business understanding stage of your data-science projects
+title: Business understanding in Team Data Science Process
+description: The goals, tasks, and deliverables for the business understanding stage of your data-science projects in the Team Data Science Process.
 services: machine-learning
-documentationcenter: ''
-author: bradsev
-manager: cgronlun
-editor: cgronlun
-
-ms.assetid: 
+author: marktab
+manager: marktab
+editor: marktab
 ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
-ms.author: bradsev;
-
+ms.date: 01/10/2020
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
-# Business understanding
+# The business understanding stage of the Team Data Science Process lifecycle
 
 This article outlines the goals, tasks, and deliverables associated with the business understanding stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that you can use to structure your data-science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
 
@@ -45,7 +40,7 @@ There are two main tasks addressed in this stage:
 ### Define objectives
 1. A central objective of this step is to identify the key business variables that the analysis needs to predict. We refer to these variables as the *model targets*, and we use the metrics associated with them to determine the success of the project. Two examples of such targets are sales forecasts or the probability of an order being fraudulent.
 
-2. Define the project goals by asking and refining "sharp" questions that are relevant, specific, and unambiguous. Data science is a process that uses names and numbers to answer such questions. For more information on asking sharp questions, see the [How to do data science](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blog. You typically use data science or machine learning to answer five types of questions:
+2. Define the project goals by asking and refining "sharp" questions that are relevant, specific, and unambiguous. Data science is a process that uses names and numbers to answer such questions. You typically use data science or machine learning to answer five types of questions:
  
    * How much or how many? (regression)
    * Which category? (classification)
@@ -77,7 +72,7 @@ For example, you might find that the existing systems need to collect and log ad
 Here are the deliverables in this stage:
 
    * [Charter document](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): A standard template is provided in the TDSP project structure definition. The charter document is a living document. You update the template throughout the project as you make new discoveries and as business requirements change. The key is to iterate upon this document, adding more detail, as you progress through the discovery process. Keep the customer and other stakeholders involved in making the changes and clearly communicate the reasons for the changes to them.  
-   * [Data sources](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): The **Raw data sources** section of the **Data definitions** report that's found in the TDSP project **Data report** folder contains the data sources. This section specifies the original and destination locations for the raw data. In later stages, you fill in additional details like the scripts to move the data to your analytic environment.  
+   * [Data sources](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): The **Raw data sources** section of the **Data definitions** report that's found in the TDSP project **Data report** folder contains the data sources. This section specifies the original and destination locations for the raw data. In later stages, you fill in additional details like the scripts to move the data to your analytic environment.  
    * [Data dictionaries](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): This document provides descriptions of the data that's provided by the client. These descriptions include information about the schema (the data types and information on the validation rules, if any) and the entity-relation diagrams, if available.
 
 ## Next steps
@@ -90,6 +85,4 @@ Here are links to each step in the lifecycle of the TDSP:
    4. [Deployment](lifecycle-deployment.md)
    5. [Customer acceptance](lifecycle-acceptance.md)
 
-We provide full end-to-end walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
-
-For examples of how to execute steps in TDSPs that use Azure Machine Learning Studio, see [Use the TDSP with Azure Machine Learning](http://aka.ms/datascienceprocess).
+We provide full walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 

@@ -1,28 +1,24 @@
 ---
-title: Azure PowerShell Script Sample - Rotate storage account access key | Microsoft Docs
+title: Rotate storage account access keys with PowerShell
+titleSuffix: Azure Storage
 description: Create an Azure Storage account, then retrieve and rotate one of its account access keys.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
 
-ms.assetid:
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
+ms.subservice: blobs
+ms.devlang: powershell
 ms.topic: sample
-ms.date: 06/13/2017
-ms.author: tamram
+ms.date: 12/04/2019
+ms.author: tamram 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Create a storage account and rotate its account access keys
+# Rotate storage account access keys with PowerShell
 
 This script creates an Azure Storage account, displays the new storage account's primary access key, then renews (rotates) the key.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,12 +26,12 @@ This script creates an Azure Storage account, displays the new storage account's
 
 [!code-powershell[main](../../../powershell_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.ps1 "Rotate storage account keys")]
 
-## Clean up deployment 
+## Clean up deployment
 
 Run the following command to remove the resource group, storage account, and all related resources.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name rotatekeystestrg
+Remove-AzResourceGroup -Name rotatekeystestrg
 ```
 
 ## Script explanation
@@ -44,14 +40,14 @@ This script uses the following commands to create the storage account and retrie
 
 | Command | Notes |
 |---|---|
-| [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) | Gets all locations and the supported resource providers for each location. |
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates an Azure resource group. |
-| [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Creates a Storage account. |
-| [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) | Gets the access keys for an Azure Storage account. |
-| [New-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/new-azurermstorageaccountkey) | Regenerates an access key for an Azure Storage account. |
+| [Get-AzLocation](/powershell/module/az.resources/get-azlocation) | Gets all locations and the supported resource providers for each location. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates an Azure resource group. |
+| [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Creates a Storage account. |
+| [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Gets the access keys for an Azure Storage account. |
+| [New-AzStorageAccountKey](/powershell/module/az.storage/new-azstorageaccountkey) | Regenerates an access key for an Azure Storage account. |
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional storage PowerShell script samples can be found in [PowerShell samples for Azure Blob storage](../blobs/storage-samples-blobs-powershell.md).

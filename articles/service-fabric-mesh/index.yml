@@ -1,0 +1,86 @@
+### YamlMime:Landing
+
+title: Azure Service Fabric Mesh documentation
+summary: Azure Service Fabric Mesh is a fully managed service enabling developers to deploy containerized applications without managing virtual machines, storage, or networking resources.
+
+metadata:
+  ms.service: service-fabric-mesh
+  ms.topic: landing-page
+  author: erikadoyle
+  ms.author: edoyle
+  ms.date: 12/02/2019
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Service Fabric Mesh
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Service Fabric Mesh?
+            url: service-fabric-mesh-overview.md
+          - text: Introduction to the Service Fabric resource model
+            url: service-fabric-mesh-service-fabric-resources.md
+      - linkListType: concept
+        links:
+          - text: Terminology
+            url: service-fabric-mesh-terminology.md
+          - text: Networks and gateways
+            url: service-fabric-mesh-networks-and-gateways.md
+          - text: Storing state
+            url: service-fabric-mesh-storing-state.md
+          - text: Secrets
+            url: service-fabric-mesh-secrets-overview.md
+      - linkListType: whats-new
+        links:
+          - text: Commonly asked questions
+            url: service-fabric-mesh-faq.md
+
+  # Card
+  - title: Build new Service Fabric Mesh applications
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a web app with Visual Studio
+            url: service-fabric-mesh-quickstart-dotnet-core.md
+      - linkListType: tutorial
+        links:
+          - text: Build and deploy a Mesh app with Visual Studio
+            url: service-fabric-mesh-tutorial-create-dotnetcore.md
+      - linkListType: how-to-guide
+        links:
+          - text: Set up your development environment
+            url: service-fabric-mesh-howto-setup-developer-environment-sdk.md
+          - text: Optimize Visual Studio for Service Fabric Mesh
+            url: service-fabric-mesh-howto-optimize-vs.md
+          - text: Set up Service Fabric Mesh CLI
+            url: service-fabric-mesh-howto-setup-cli.md
+      - linkListType: download
+        links:
+          - text: Find Service Fabric Mesh samples
+            url: service-fabric-mesh-howto-find-samples.md
+
+  # Card
+  - title: Deploy and manage existing applications
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy Hello World
+            url: service-fabric-mesh-quickstart-deploy-container.md
+      - linkListType: tutorial
+        links:
+          - text: Deploy, scale, and upgrade a Service Fabric Mesh app
+            url: service-fabric-mesh-tutorial-template-deploy-app.md
+      - linkListType: how-to-guide
+        links:
+          - text: Containerize an existing .NET app for Service Fabric Mesh
+            url: service-fabric-mesh-howto-containerize-vs.md
+          - text: Create autoscale policies
+            url: service-fabric-mesh-howto-auto-scale-services.md
+      - linkListType: concept
+        links:
+          - text: Service scalability
+            url: service-fabric-mesh-scalability.md
+          - text: Monitoring and diagnostics
+            url: service-fabric-mesh-monitoring-diagnostics.md

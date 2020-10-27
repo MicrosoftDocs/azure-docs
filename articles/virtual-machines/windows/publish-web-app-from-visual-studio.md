@@ -1,42 +1,31 @@
 ---
-title: Publish a Web App to an Azure VM from Visual Studio| Microsoft Docs
+title: Publish a Web App to an Azure VM from Visual Studio
 description: Publish an ASP.NET Web Application to an Azure Virtual Machine from Visual Studio
-services: virtual-machines-windows
-documentationcenter: ''
-author:
-- kraigb
-- justcla
-manager: ghogen
-editor: ''
-tags: azure-service-management
-
-ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: dotnet
-ms.topic: article
+author: ghogen
+manager: jillfra
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: how-to
 ms.date: 11/03/2017
-ms.author:
-- kraigb
-- justcla
-
+ms.author: ghogen
 ---
 # Publish an ASP.NET Web App to an Azure VM from Visual Studio
 
-This document describes how to publish an ASP.NET web application to an Azure virtual machine (VM) using the **Microsoft Azure Virtual Machines** publishing feature in Visual Studio 2017.  
+This document describes how to publish an ASP.NET web application to an Azure virtual machine (VM) using the **Microsoft Azure Virtual Machines** publishing feature in Visual Studio 2019.  
 
 ## Prerequisites
 In order to use Visual Studio to publish an ASP.NET project to an Azure VM, the VM must be correctly set up.
 
-- Machine must be configured to run an ASP.NET web application and have WebDeploy installed.
+- The machine must be configured to run an ASP.NET web application and have WebDeploy installed. For more information, see [Create an ASP.NET VM with WebDeploy](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md).
 
 - The VM must have a DNS name configured. For more information, see [Create a fully qualified domain name in the Azure portal for a Windows VM](portal-create-fqdn.md).
 
 ## Publish your ASP.NET web app to the Azure VM using Visual Studio
 The following section describes how to publish an existing ASP.NET web application to an Azure virtual machine.
 
-1. Open your web app solution in Visual Studio 2017.
+1. Open your web app solution in Visual Studio 2019.
 2. Right-click the project in Solution Explorer and choose **Publish...**
 3. Use the arrow on the right of the page to scroll through the publishing options until you find **Microsoft Azure Virtual Machines**.  
 
@@ -60,7 +49,7 @@ The following section describes how to publish an existing ASP.NET web applicati
 
 7. Click OK to begin publishing.
 
-8. When prompted for credentials, supply the username and password of a user account on the target VM that is configured with publishing rights (typically the admin username and password used when creating the VM).  
+8. When prompted for credentials, supply the username and password of a user account on the target VM that is configured with publishing rights. These credentials are typically the admin username and password used when creating the VM.  
 
    ![WebDeploy Login]
 
@@ -101,12 +90,12 @@ Your settings should look something like this:
 ![Publish Settings - Connection page]
 
 #### Save User name and Password
-- To avoid providing authentication information every time you publish, you can populate the **User name** and **Password** fields and select the **Save password** box.
+- Avoid providing authentication information every time you publish. To do so, populate the **User name** and **Password** fields, and select the **Save password** box.
 - Use the **Validate Connection** button to confirm that you have entered the right information.
 
 #### Deploy to clean web server
 
-- If you want to ensure that the web server has a clean copy of the web application after each upload (and that no other files are left hanging around from a previous deployment), you can check the **Remove additional files at destination** checkbox in the **Settings** tab.
+- If you want to ensure that the web server has a clean copy of the web application after each upload and that no other files are left from a previous deployment, you can check the **Remove additional files at destination** checkbox in the **Settings** tab.
 
 - Warning: Publishing with this setting deletes all files that exist on the web server (wwwroot directory). Be sure you know the state of the machine before publishing with this option enabled. 
 
@@ -116,7 +105,7 @@ Your settings should look something like this:
 
 ### Set up CI/CD for automated deployment to Azure VM
 
-To set up a continuous delivery pipeline with Visual Studio Team Service, see [Deploy to a Windows Virtual Machine](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
+To set up a continuous delivery pipeline with Azure Pipelines, see [Deploy to a Windows Virtual Machine](/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
 
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png

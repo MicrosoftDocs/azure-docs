@@ -1,32 +1,47 @@
-
+---
+ title: include file
+ description: include file
+ services: notification-hubs
+ author: jwargo
+ ms.service: notification-hubs
+ ms.topic: include
+ ms.date: 01/17/2019
+ ms.author: jowargo
+ ms.custom: include file
+---
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **Create a resource** > **Web + Mobile** > **Notification Hub**.
-   
-      ![Azure portal - create a notification hub](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
-      
-3. In the **Notification Hub** box, type a unique name. Select your **Region**, **Subscription**, and **Resource Group** (if you have one already). 
-   
-      If you don't already have a service bus namespace, you can use the default name, which is created based on the hub name (if the namespace name is available).
-    
-      If you already have a service bus namespace that you want to create the hub in, follow these steps
+1. Select **All services** on the left menu, and then select **Notification Hubs** in the **Mobile** section. Select the star icon next to the service name to add the service to the **FAVORITES** section on the left menu. After you add **Notification Hubs** to **FAVORITES**, select it on the left menu.
 
-    a. In the **Namespace** area, select the **Select Existing** link. 
-   
-    b. Select **Create**.
-   
-      ![Azure portal - set notification hub properties](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
+      ![Azure portal - select Notification Hubs](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
 
-4. After you've created the namespace and notification hub, open it by selecting **All resources** and then select the created notification hub from the list. 
-   
-      ![Azure portal - notification hub portal page](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-resources.png)
+1. On the **Notification Hubs** page, select **Add** on the toolbar.
 
-5. Select **Access Policies** from the list. Note the two connection strings that are available to you. You need them to handle push notifications later.
+      ![Notification Hubs - Add toolbar button](./media/notification-hubs-portal-create-new-hub/add-toolbar-button.png)
+
+1. On the **Notification Hub** page, do the following steps:
+
+    1. Enter a name in **Notification Hub**.  
+
+    1. Enter a name in **Create a new namespace**. A namespace contains one or more hubs.
+
+    1. Select a value from the **Location** drop-down list box. This value specifies the location in which you want to create the hub.
+
+    1. Select an existing resource group in **Resource Group**, or create a name for a new resource group.
+
+    1. Select **Create**.
+
+        ![Azure portal - set notification hub properties](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
+
+1. Select **Notifications** (the bell icon), and then select **Go to resource**. You can also refresh the list on the **Notification Hubs** page and select your hub.
+
+      ![Azure portal - notifications -> Go to resource](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
+
+1. Select **Access Policies** from the list. Note that the two connection strings are available to you. You'll need them later to handle push notifications.
 
       >[!IMPORTANT]
-      >Do **NOT** use the DefaultFullSharedAccessSignature in your application. This is meant to be used in your back-end only.
+      >Do *not* use the **DefaultFullSharedAccessSignature** policy in your application. This is meant to be used in your back end only.
       >
-   
-      ![Azure portal - notification hub connection strings](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 
+      ![Azure portal - notification hub connection strings](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)

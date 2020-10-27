@@ -1,56 +1,60 @@
 ---
-title: "Bing Custom Search: Call endpoint by using Python | Microsoft Docs"
-description: Describes how to call Bing Custom Search endpoint with python
+title: "Quickstart: Call your Bing Custom Search endpoint using Python | Microsoft Docs"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to begin requesting search results from your Bing Custom Search instance using Python.
 services: cognitive-services
-author: brapel
-manager: ehansen
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: bing-web-search
-ms.topic: article
-ms.date: 09/28/2017
-ms.author: v-brapel
+ms.subservice: bing-custom-search
+ms.topic: quickstart
+ms.date: 05/08/2020
+ms.author: aahi
+ms.custom: devx-track-python
 ---
 
-# Call Bing Custom Search endpoint (Python)
+# Quickstart: Call your Bing Custom Search endpoint using Python
 
-This example shows how to request search results from your custom search instance using Python. To create this example follow these steps:
+Use this quickstart to learn how to request search results from your Bing Custom Search instance. Although this application is written in Python, the Bing Custom Search API is a RESTful web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingCustomSearchv7.py).
 
-1. Create your custom instance (see [Define a custom search instance](define-your-custom-view.md)).
-2. Get a subscription key (if you don't have one see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api)).  
+## Prerequisites
 
-  >[!NOTE]  
-  >Existing Bing Custom Search customers who have a preview key provisioned on or before October 15, 2017 will be able to use their keys until November 30 2017, or until they have exhausted the maximum number of queries allowed. Afterward, they need to migrate to the generally available version on Azure.  
+- A Bing Custom Search instance. For more information, see [Quickstart: Create your first Bing Custom Search instance](quick-start.md).
+- [Python](https://www.python.org/) 2.x or 3.x.
 
-3. Install [Python](https://www.python.org/).
-4. Create a folder for your code.
-5. From an administrator command prompt or terminal, navigate to the folder you just created.
-6. Run the following commands:
-    <pre>
-    pip install pipenv
-    pipenv install requests
-    </pre>
-7. Create the file BingCustomSearch.py and copy the following code to it.
-8. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID (see step 1).
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
-    ``` Python
+
+## Create and initialize the application
+
+- Create a new Python file in your favorite IDE or editor, and add the following import statements. Create variables for your subscription key, custom configuration ID, and search term.
+
+    ```python
     import json
     import requests
     
     subscriptionKey = "YOUR-SUBSCRIPTION-KEY"
     customConfigId = "YOUR-CUSTOM-CONFIG-ID"
     searchTerm = "microsoft"
-    
-    url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=' + searchTerm + '&customconfig=' + customConfigId
+    ```
+
+## Send and receive a search request 
+
+1. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's custom configuration ID to the `customconfig=` parameter. Separate the parameters with an ampersand (`&`). You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+
+    ```python
+    url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 'q=' + searchTerm + '&' + 'customconfig=' + customConfigId
+    ```
+
+2. Send the request to your Bing Custom Search instance, and print the returned search results.  
+
+    ```python
     r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
     print(r.text)
     ```
-9. Run the code using the command below:
-    <pre>
-    python BingCustomSearch.py
-    </pre>
 
-### Next steps
-- [Configure and consume custom hosted UI](./hosted-ui.md)
-- [Use decoration markers to highlight text](./hit-highlighting.md)
-- [Page webpages](./page-webpages.md)
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Build a Custom Search web app](./tutorials/custom-search-web-page.md)

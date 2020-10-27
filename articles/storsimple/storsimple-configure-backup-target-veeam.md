@@ -1,6 +1,6 @@
-﻿---
+---
 title: StorSimple 8000 series as backup target with Veeam | Microsoft Docs
-description: Describes the StorSimple backup target configuration with Veeam.
+description: Learn about the StorSimple backup target configuration with Veeam and best practices for integrating both solutions.
 services: storsimple
 documentationcenter: ''
 author: harshakirank
@@ -10,11 +10,11 @@ editor: ''
 ms.assetid:
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
-ms.author: hkanna
+ms.author: matd
 ---
 
 # StorSimple as a backup target with Veeam
@@ -205,16 +205,16 @@ Set up your solution according to the guidelines in the following few sections.
 
 ### Operating system best practices
 
--   Disable Windows Server encryption and deduplication for the NTFS file system.
--   Disable Windows Server defragmentation on the StorSimple volumes.
--   Disable Windows Server indexing on the StorSimple volumes.
--   Run an antivirus scan at the source host (not against the StorSimple volumes).
--   Turn off the default [Windows Server maintenance](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Task Manager. Do this in one of the following ways:
-    - Turn off the Maintenance configurator in Windows Task Scheduler.
-    - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) from Windows Sysinternals. After you download PsExec, run Windows PowerShell as an administrator, and type:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Disable Windows Server encryption and deduplication for the NTFS file system.
+- Disable Windows Server defragmentation on the StorSimple volumes.
+- Disable Windows Server indexing on the StorSimple volumes.
+- Run an antivirus scan at the source host (not against the StorSimple volumes).
+- Turn off the default [Windows Server maintenance](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Task Manager. Do this in one of the following ways:
+  - Turn off the Maintenance configurator in Windows Task Scheduler.
+  - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) from Windows Sysinternals. After you download PsExec, run Windows PowerShell as an administrator, and type:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### StorSimple best practices
 
@@ -261,6 +261,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 | Yearly full | 1  | 10 | 10 |
 | GFS requirement |   | 38 |   |
 | Additional quota  | 4  |   | 42 total GFS requirement  |
+
 \* The GFS multiplier is the number of copies you need to protect and retain to meet your backup policy requirements.
 
 ## Set up Veeam storage
@@ -269,7 +270,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 
 1.  In the Veeam Backup and Replication console, in **Repository Tools**, go to **Backup Infrastructure**. Right-click **Backup Repositories**, and then select **Add Backup Repository**.
 
-    ![Veeam management console, backup repository page](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
+    ![Screenshot that shows the Veeam  management console and highlights the Add Backup Repository option.](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
 2.  In the **New Backup Repository** dialog box, enter a name and description for the repository. Select **Next**.
 
@@ -290,7 +291,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 
 6.  In the **New Backup Repository** dialog box, select the **Enable vPower NFS service on the mount server (recommended)** check box. Select **Next**.
 
-    ![Veeam management console, backup repository page](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
+    ![Screenshot that shows the Veeam management console where you can add a new backup repository.](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
 7.  Review the settings, and then select **Next**.
 
@@ -315,7 +316,7 @@ Here's an example of a GFS rotation schedule for four weeks, monthly, and yearly
 |---|---|---|
 | Weekly (weeks 1-4) | Saturday | Monday-Friday |
 | Monthly  | Saturday  |   |
-| Yearly | Saturday  |   |   |
+| Yearly | Saturday  |   |
 
 
 ### Assign StorSimple volumes to a Veeam backup job
@@ -331,11 +332,11 @@ For primary backup target scenario, create a daily job with your primary Veeam S
 
 2.  In the **New Backup Job** dialog box, enter a name and description for the daily backup job.
 
-    ![Veeam management console, new backup job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
+    ![Screenshot of the Veeam management console where you add the name and description.](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
 
 3.  Select a virtual machine to back up to.
 
-    ![Veeam management console, new backup job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
+    ![Screenshot that shows the Veeam management console where you select the virtual machine.](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
 4.  Select the values you want for **Backup proxy** and **Backup repository**. Select a value for **Restore points to keep on disk** according to the RPO and RTO definitions for your environment on locally attached storage. Select **Advanced**.
 
@@ -343,7 +344,7 @@ For primary backup target scenario, create a daily job with your primary Veeam S
 
 5. In the **Advanced Settings** dialog box, on the **Backup** tab, select **Incremental**. Be sure that the **Create synthetic full backups periodically** check box is cleared. Select the **Create active full backups periodically** check box. Under **Active full backup**, select the **Weekly on selected days** check box for Saturday.
 
-    ![Veeam management console, new backup job advanced settings page](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
+    ![Screenshot thats shows the Veeam management console, specifically the new backup job advanced settings page](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
 6. On the **Storage** tab, make sure that the **Enable inline data deduplication** check box is cleared. Select the **Exclude swap file blocks** check box, and select the **Exclude deleted file blocks** check box. Set **Compression level** to **None**. For balanced performance and deduplication, set **Storage optimization** to **LAN target**. Select **OK**.
 
@@ -381,6 +382,7 @@ The following table shows how to set up backups to run on the local and StorSimp
 | Monthly full |StorSimple disk (long-term) | 1 | 12 | 12 |
 | Yearly full |StorSimple disk (long-term) | 1 | 1 | 1 |
 |GFS volumes size requirement |  |  |  | 18*|
+
 \* Total capacity includes 17 TiB of StorSimple disks and 1 TiB of local RAID volume.
 
 
@@ -395,7 +397,7 @@ GFS rotation weekly, monthly, and yearly schedule
 | Week 3 | StorSimple weeks 2-4 |   |   |   |   |   |
 | Week 4 | StorSimple weeks 2-4 |   |   |   |   |   |
 | Monthly | StorSimple monthly |   |   |   |   |   |
-| Yearly | StorSimple yearly  |   |   |   |   |   |   |
+| Yearly | StorSimple yearly  |   |   |   |   |   |
 
 ### Assign StorSimple volumes to a Veeam copy job
 
@@ -404,11 +406,11 @@ GFS rotation weekly, monthly, and yearly schedule
 1.  In the Veeam Backup and Replication console, select **Backup
 & Replication**. Right-click **Backup**, and then select **VMware** or **Hyper-V**, depending on your environment.
 
-    ![Veeam management console, new backup copy job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
+    ![Screenshot that shows the Veeam management console with the VMware and Hyper-V options that you can select.](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
 
 2.  In the **New Backup Copy Job** dialog box, enter a name and description for the job.
 
-    ![Veeam management console, new backup copy job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
+    ![Screenshot that shows the Veeam management console where you enter the name and description for the job.](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
 
 3.  Select the VMs you want to process. Select from backups, and then select the daily backup that you created earlier.
 
@@ -418,13 +420,13 @@ GFS rotation weekly, monthly, and yearly schedule
 
 5.  Select your backup repository, and set a value for **Restore points to keep**. Be sure to select the **Keep the following restore points for archival purposes** check box. Define the backup frequency, and then select **Advanced**.
 
-    ![Veeam management console, new backup copy job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
+    ![Screenshot that show where you define the backup frequency.](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
 
 6.  Specify the following advanced settings:
 
     * On the **Maintenance** tab, turn off storage level corruption guard.
 
-    ![Veeam management console, new backup copy job advanced settings page](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
+    ![Screenshot that shows the Maintenance tab on the Veeam management console.](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
 
     * On the **Storage** tab, be sure that deduplication and compression are turned off.
 
@@ -464,12 +466,12 @@ The following section describes how to create a short script to start and delete
 
 ### To start or delete a cloud snapshot
 
-1. [Install Azure PowerShell](/powershell/azure/overview).
+1. [Install Azure PowerShell](/powershell/azure/).
 2. Download and setup [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell script.
 3. On the server that runs the script, run PowerShell as an administrator. Ensure that you run the script with `-WhatIf $true` to see what changes the script will make. Once the validation is complete, pass `-WhatIf $false`. Run the below command:
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
 4. To add the script to your backup job, edit your Veeam job advanced options.
 
     ![Veeam backup advanced settings scripts tab](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
@@ -508,9 +510,9 @@ A disaster can be caused by a variety of factors. The following table lists comm
 The following documents were referenced for this article:
 
 - [StorSimple multipath I/O setup](storsimple-configure-mpio-windows-server.md)
-- [Storage scenarios: Thin provisioning](http://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [Using GPT drives](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [Set up shadow copies for shared folders](http://technet.microsoft.com/library/cc771893.aspx)
+- [Storage scenarios: Thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Using GPT drives](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
+- [Set up shadow copies for shared folders](https://technet.microsoft.com/library/cc771893.aspx)
 
 ## Next steps
 

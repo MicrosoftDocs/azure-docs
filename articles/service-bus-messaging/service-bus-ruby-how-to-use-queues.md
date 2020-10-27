@@ -1,35 +1,28 @@
 ---
-title: How to use Azure Service Bus queues with Ruby | Microsoft Docs
-description: Learn how to use Service Bus queues in Azure. Code samples written in Ruby.
-services: service-bus-messaging
+title: How to use Azure Service Bus queues with Ruby
+description: In this tutorial, you learn how to create Ruby applications to send messages to and receive messages from a Service Bus queue.
 documentationcenter: ruby
-author: sethmanheim
-manager: timlt
-editor: ''
-
-ms.assetid: 0a11eab2-823f-4cc7-842b-fbbe0f953751
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
-ms.date: 08/10/2017
-ms.author: sethm
-
+ms.topic: quickstart
+ms.date: 06/23/2020
 ---
-# How to use Service Bus queues with Ruby
+
+# Quickstart: How to use Service Bus queues with Ruby
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-This guide describes how to use Service Bus queues. The samples are
-written in Ruby and use the Azure gem. The scenarios
-covered include **creating queues, sending and receiving messages**, and
-**deleting queues**. For more information about Service Bus queues, see the [Next Steps](#next-steps) section.
+In this tutorial, you learn how to create Ruby applications to send messages to and receive messages from a Service Bus queue. The samples are written in Ruby and use the Azure gem.
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## Prerequisites
+1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article.
+    1. Read the quick **overview** of Service Bus **queues**. 
+    2. Create a Service Bus **namespace**. 
+    3. Get the **connection string**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-   
+        > [!NOTE]
+        > You will create a **queue** in the Service Bus namespace by using Ruby in this tutorial. 
+
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## How to create a queue
@@ -73,7 +66,7 @@ Messages are received from a queue using the `receive_queue_message()` method on
 
 The default behavior makes the reading and deleting a two-stage operation, which also makes it possible to support applications that cannot tolerate missing messages. When Service Bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application. After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by calling `delete_queue_message()` method and providing the message to be deleted as a parameter. The `delete_queue_message()` method will mark the message as being consumed and remove it from the queue.
 
-If the `:peek_lock` parameter is set to **false**, reading and deleting the message becomes the simplest model, and works best for scenarios in which an application can tolerate not processing a message in the event of a failure. To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus has marked the message as being consumed, when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
+If the `:peek_lock` parameter is set to **false**, reading, and deleting the message becomes the simplest model, and works best for scenarios in which an application can tolerate not processing a message in the event of a failure. To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus has marked the message as being consumed, when the application restarts and begins consuming messages again, it will have missed the message that was consumed prior to the crash.
 
 The following example demonstrates how to receive and process messages using `receive_queue_message()`. The example first receives and deletes a message by using `:peek_lock` set to **false**, then it receives another message and then deletes the message using `delete_queue_message()`:
 
@@ -90,6 +83,9 @@ Service Bus provides functionality to help you gracefully recover from errors in
 There is also a timeout associated with a message locked within the queue, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus unlocks the message automatically and makes it available to be received again.
 
 In the event that the application crashes after processing the message but before the `delete_queue_message()` method is called, then the message is redelivered to the application when it restarts. This process is often called *At Least Once Processing*; that is, each message is processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the `message_id` property of the message, which remains constant across delivery attempts.
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
 Now that you've learned the basics of Service Bus queues, follow these links to learn more.

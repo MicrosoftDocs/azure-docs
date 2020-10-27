@@ -1,35 +1,51 @@
 ---
-title: "Bing Custom Search: Get started | Microsoft Docs"
-description: Describes how to create a custom search instance
+title: "Quickstart: Create a first Bing Custom Search instance"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to create a custom Bing instance that can search domains and webpages that you define. 
 services: cognitive-services
-author: brapel
-manager: ehansen
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: bing-web-search
-ms.topic: article
-ms.date: 09/28/2017
-ms.author: v-brapel
+ms.subservice: bing-custom-search
+ms.topic: quickstart
+ms.date: 03/24/2020
+ms.author: aahi
 ---
 
-# Create your first Bing Custom Search instance
-To use Bing Custom Search, you need to create a custom search instance that defines your view or slice of the web. The instance contains settings that specify the public domains, subsites, and webpages that you want Bing to search, and any ranking adjustments. To create the instance, use the Bing Custom Search [portal](https://customsearch.ai). 
+# Quickstart: Create your first Bing Custom Search instance
+
+To use Bing Custom Search, you need to create a custom search instance that defines your view or slice of the web. This instance contains the public domains, websites, and webpages that you want to search, along with any ranking adjustments you may want. 
+
+To create the instance, use the [Bing Custom Search portal](https://customsearch.ai). 
+
+![A picture of the Bing Custom Search portal](media/blockedCustomSrch.png)
+
+## Prerequisites
+
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 ## Create a custom search instance
 
 To create a Bing Custom Search instance:
 
-1.  Get a key for Custom Search API. See [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).
-2.	Sign in to the portal using a Microsoft account (MSA). Click the **Sign in** button. If you don’t have an MSA, click **Create a Microsoft account**. Since it’s your first time using the portal, it’ll ask for permissions to access your data. Click **Yes**.
-3.	After signing in, click **New search instance** and name the instance. Use a name that’s meaningful and describes the type of content the search returns. You can change the name at any time. 
-4.	In the **Definition Editor**, click the **Active** tab and enter the URL of one or more sites you want to include in your search.
-5.	To confirm that your instance returns results, enter a query in the preview pane on the right. If there are no results, specify a new site. Bing returns results only for public sites that it has indexed.
-6.	 Click the **API Endpoint** tab and copy the **Custom Configuration ID**. You need this ID to call the Custom Search API.
+1. Click **Get Started** on the [Bing Custom Search portal](https://customsearch.ai) webpage, and sign in with your Microsoft account.
+
+2. Click **New Instance**, and enter a descriptive name. You can change the name of your instance at any time.
+ 
+3. On the **Active** tab under **Search Experience**, enter the URL of one or more websites you want to include in your search. 
+
+    > [!NOTE]
+    > Bing Custom Search instances will only return results for domains, and webpages that are public and have been indexed by Bing.
+
+4. You can use the right side of the Bing Custom Search portal to enter a query and examine the search results returned by your search instance. If no results are returned, try entering a different URL.  
+
+5. Click **Publish** to publish your changes to the production environment, and update the instance's endpoints.
+
+6.  Click on the **Production** tab under **Endpoints**, and copy your **Custom Configuration ID**. You need this ID to call the Custom Search API by appending it to the `customconfig=` query parameter in your calls.
+
 
 ## Next steps
 
-- [Define your custom view](./define-your-custom-view.md)
-- [Search your custom instance](./search-your-custom-view.md)
-- [Configure and consume custom hosted UI](./hosted-ui.md)
-- [Use decoration markers to highlight text](./hit-highlighting.md)
-- [Page webpages](./page-webpages.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Call your Bing Custom Search endpoint](./call-endpoint-csharp.md)

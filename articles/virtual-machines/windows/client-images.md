@@ -1,20 +1,13 @@
 ---
-title: Use Windows client images in Azure | Microsoft Docs
+title: Use Windows client images in Azure 
 description: How to use Visual Studio subscription benefits to deploy Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios
-services: virtual-machines-windows
-documentationcenter: ''
-author: iainfoulds
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
+author: cynthn
+ms.subservice: imaging
 ms.service: virtual-machines-windows
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # Use Windows client in Azure for dev/test scenarios
@@ -44,7 +37,7 @@ The following table details the offer IDs that are eligible to deploy Windows 10
 | [Visual Studio Premium with MSDN (benefit)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |
 | [Visual Studio Enterprise subscribers](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |Windows 10 |
 | [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |Windows 10 |
-| [Enterprise Dev/Test](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
+| [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## Check your Azure subscription
 If you do not know your offer ID, you can obtain it through the Azure portal in one of these two ways:  
@@ -55,10 +48,9 @@ If you do not know your offer ID, you can obtain it through the Azure portal in 
 
 - Or, click **Billing** and then click your subscription ID. The offer ID appears in the *Billing* window.
 
-You can also view the offer ID from the ['Subscriptions' tab](http://account.windowsazure.com/Subscriptions) of the Azure Account portal:
+You can also view the offer ID from the ['Subscriptions' tab](https://account.windowsazure.com/Subscriptions) of the Azure Account portal:
 
 ![Offer ID details from the Azure Account portal](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## Next steps
-You can now deploy your VMs using [PowerShell](quick-create-powershell.md), [Resource Manager templates](ps-template.md), or [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-
+You can now deploy your VMs using [PowerShell](quick-create-powershell.md), [Resource Manager templates](ps-template.md), or [Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

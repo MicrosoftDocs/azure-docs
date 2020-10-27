@@ -1,62 +1,85 @@
+---
+title: include file
+description: include file
+services: data-factory
+author: linda33wj
+ms.author: jingwang
+ms.service: data-factory
+ms.topic: include
+ms.custom: include file
+ms.date: 06/27/2019
+---
+
 ## Prerequisites
 
 ### Azure subscription
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ### Azure roles
-To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the *contributor* or *owner* role, or an *administrator* of the Azure subscription. In the Azure portal, select your username in the upper-right corner, and select **Permissions** to view the permissions that you have in the subscription. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on adding a user to a role, see the [Add roles](../articles/billing/billing-add-change-azure-subscription-administrator.md) article.
 
-### Azure storage account
-You use a general-purpose Azure storage account (specifically Blob storage) as both *source* and *destination* data stores in this quickstart. If you don't have a general-purpose Azure storage account, see [Create a storage account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) to create one. 
+To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the *contributor* or *owner* role, or an *administrator* of the Azure subscription. To view the permissions that you have in the subscription, go to the [Azure portal](https://portal.azure.com), select your username in the upper-right corner, select "**...**" icon for more options, and then select **My permissions**. If you have access to multiple subscriptions, select the appropriate subscription.
 
-#### Get the storage account name and account key
-You use the name and key of your Azure storage account in this quickstart. The following procedure provides steps to get the name and key of your storage account: 
+To create and manage child resources for Data Factory - including datasets, linked services, pipelines, triggers, and integration runtimes - the following requirements are applicable:
 
-1. In a web browser, go to the [Azure portal](https://portal.azure.com). Sign in by using your Azure username and password. 
-2. Select **More services** on the left menu, filter with the **Storage** keyword, and select **Storage accounts**.
+- To create and manage child resources in the Azure portal, you must belong to the **Data Factory Contributor** role at the resource group level or above.
+- To create and manage child resources with PowerShell or the SDK, the **contributor** role at the resource level or above is sufficient.
 
-   ![Search for a storage account](media/data-factory-quickstart-prerequisites/search-storage-account.png)
-3. In the list of storage accounts, filter for your storage account (if needed), and then select your storage account. 
-4. On the **Storage account** page, select **Access keys** on the menu.
+For sample instructions about how to add a user to a role, see the [Add roles](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) article.
 
-   ![Get storage account name and key](media/data-factory-quickstart-prerequisites/storage-account-name-key.png)
-5. Copy the values for the **Storage account name** and **key1** boxes to the clipboard. Paste them into Notepad or any other editor and save it. You use them later in this quickstart.   
+For more info, see the following articles:
 
-#### Create the input folder and files
-In this section, you create a blob container named **adftutorial** in Azure Blob storage. You create a folder named **input** in the container, and then upload a sample file to the input folder. 
+- [Data Factory Contributor role](../articles/role-based-access-control/built-in-roles.md#data-factory-contributor)
+- [Roles and permissions for Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md)
 
-1. On the **Storage account** page, switch to **Overview**, and then select **Blobs**. 
+### Azure Storage account
 
-   ![Select Blobs option](media/data-factory-quickstart-prerequisites/select-blobs.png)
-2. On the **Blob service** page, select **+ Container** on the toolbar. 
+You use a general-purpose Azure Storage account (specifically Blob storage) as both *source* and *destination* data stores in this quickstart. If you don't have a general-purpose Azure Storage account, see [Create a storage account](../articles/storage/common/storage-account-create.md) to create one. 
 
-   ![Add container button](media/data-factory-quickstart-prerequisites/add-container-button.png)    
-3. In the **New container** dialog box, enter **adftutorial** for the name, and then select **OK**. 
+#### Get the storage account name
 
-   ![Enter container name](media/data-factory-quickstart-prerequisites/new-container-dialog.png)
-4. Select **adftutorial** in the list of containers. 
+You need the name of your Azure Storage account for this quickstart. The following procedure provides steps to get the name of your storage account: 
 
-   ![Select the container](media/data-factory-quickstart-prerequisites/seelct-adftutorial-container.png)
-1. On the **Container** page, select **Upload** on the toolbar.  
+1. In a web browser, go to the [Azure portal](https://portal.azure.com) and sign in using your Azure username and password.
+2. From the Azure portal menu, select **All services**, then select **Storage** > **Storage accounts**. You can also search for and select *Storage accounts* from any page.
+3. In the **Storage accounts** page, filter for your storage account (if needed), and then select your storage account. 
 
-   ![Upload button](media/data-factory-quickstart-prerequisites/upload-toolbar-button.png)
-6. On the **Upload blob** page, select **Advanced**.
+You can also search for and select *Storage accounts* from any page.
+
+#### Create a blob container
+
+In this section, you create a blob container named **adftutorial** in Azure Blob storage.
+
+1. From the storage account page, select **Overview** > **Containers**.
+2. On the *\<Account name>* - **Containers** page's toolbar, select **Container**.
+3. In the **New container** dialog box, enter **adftutorial** for the name, and then select **OK**. The *\<Account name>* - **Containers** page is updated to include **adftutorial** in the list of containers.
+
+   ![List of containers](media/data-factory-quickstart-prerequisites/list-of-containers.png)
+
+#### Add an input folder and file for the blob container
+
+In this section, you create a folder named **input** in the container you created, and then upload a sample file to the input folder. Before you begin, open a text editor such as **Notepad**, and create a file named **emp.txt** with the following content:
+
+```emp.txt
+John, Doe
+Jane, Doe
+```
+
+Save the file in the **C:\ADFv2QuickStartPSH** folder. (If the folder doesn't already exist, create it.) Then return to the Azure portal and follow these steps:
+
+1. In the *\<Account name>* - **Containers** page where you left off, select **adftutorial** from the updated list of containers.
+
+   1. If you closed the window or went to another page, sign in to the [Azure portal](https://portal.azure.com) again.
+   1. From the Azure portal menu, select **All services**, then select **Storage** > **Storage accounts**. You can also search for and select *Storage accounts* from any page.
+   1. Select your storage account, and then select **Containers** > **adftutorial**.
+
+2. On the **adftutorial** container page's toolbar, select **Upload**.
+3. In the **Upload blob** page, select the **Files** box, and then browse to and select the **emp.txt** file.
+4. Expand the **Advanced** heading. The page now displays as shown:
 
    ![Select Advanced link](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)
-7. Start **Notepad** and create a file named **emp.txt** with the following content. Save it in the **c:\ADFv2QuickStartPSH** folder. Create the **ADFv2QuickStartPSH** folder if it does not already exist.
-    
-   ```
-   John, Doe
-   Jane, Doe
-   ```    
-8. In the Azure portal, on the **Upload blob** page, browse to and select the **emp.txt** file for the **Files** box. 
-9. Enter **input** as a value for the **Upload to folder** box. 
+5. In the **Upload to folder** box, enter **input**.
+6. Select the **Upload** button. You should see the **emp.txt** file and the status of the upload in the list.
+7. Select the **Close** icon (an **X**) to close the **Upload blob** page.
 
-    ![Upload blob settings](media/data-factory-quickstart-prerequisites/upload-blob-settings.png)    
-10. Confirm that the folder is **input** and the file is **emp.txt**, and select **Upload**.
-    
-    You should see the **emp.txt** file and the status of the upload in the list. 
-12. Close the **Upload blob** page by clicking **X** in the corner. 
-
-    ![Close upload blob page](media/data-factory-quickstart-prerequisites/close-upload-blob.png)
-1. Keep the **Container** page open. You use it to verify the output at the end of this quickstart.
+Keep the **adftutorial** container page open. You use it to verify the output at the end of this quickstart.

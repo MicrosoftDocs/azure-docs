@@ -3,9 +3,7 @@ title: How to Use Twilio for Voice and SMS (Ruby) | Microsoft Docs
 description: Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Ruby.
 services: ''
 documentationcenter: ruby
-author: devinrader
-manager: twilio
-editor: ''
+author: georgewallace
 
 ms.assetid: 60e512f6-fa47-47c0-aedc-f19bb72a1158
 ms.service: multiple
@@ -14,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
-ms.author: MicrosoftHelp@twilio.com
+ms.author: gwallace
 
 ---
 # How to Use Twilio for Voice and SMS Capabilities in Ruby
@@ -26,7 +24,7 @@ Twilio is a telephony web-service API that lets you use your existing web langua
 **Twilio Voice** allows your applications to make and receive phone calls. **Twilio SMS** allows your applications to make and receive SMS messages. **Twilio Client** allows your applications to enable voice communication using existing Internet connections, including mobile connections.
 
 ## <a id="Pricing"></a>Twilio Pricing and Special Offers
-Information about Twilio pricing is available at [Twilio Pricing][twilio_pricing]. Azure customers receive a [special offer][special_offer]: a free credit of 1000 texts or 1000 inbound minutes. To sign up for this offer or get more information, please visit [http://ahoy.twilio.com/azure][special_offer].  
+Information about Twilio pricing is available at [Twilio Pricing][twilio_pricing]. Azure customers receive a [special offer][special_offer]: a free credit of 1000 texts or 1000 inbound minutes. To sign up for this offer or get more information, please visit [https://ahoy.twilio.com/azure][special_offer].  
 
 ## <a id="Concepts"></a>Concepts
 The Twilio API is a RESTful API that provides voice and SMS functionality for applications. Client libraries are available in multiple languages; for a list, see [Twilio API Libraries][twilio_libraries].
@@ -36,10 +34,12 @@ TwiML is a set of XML-based instructions that inform Twilio of how to process a 
 
 As an example, the following TwiML would convert the text **Hello World** to speech.
 
-    <?xml version="1.0" encoding="UTF-8" ?>
-    <Response>
-       <Say>Hello World</Say>
-    </Response>
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<Response>
+    <Say>Hello World</Say>
+</Response>
+```
 
 All TwiML documents have `<Response>` as their root element. From there, you use Twilio Verbs to define the behavior of your application.
 
@@ -80,28 +80,36 @@ In the examples below, we will be using [Sinatra][sinatra], a very simple web fr
 
 SSH into your new VM and create a directory for your new app. Inside that directory, create a file called Gemfile and copy the following code into it:
 
-    source 'https://rubygems.org'
-    gem 'sinatra'
-    gem 'thin'
+```bash
+source 'https://rubygems.org'
+gem 'sinatra'
+gem 'thin'
+```
 
 On the command line run `bundle install`. This will install the dependencies above. Next create a file called `web.rb`. This will be where the code for your web app lives. Paste the following code into it:
 
-    require 'sinatra'
+```ruby
+require 'sinatra'
 
-    get '/' do
-        "Hello Monkey!"
-    end
+get '/' do
+    "Hello Monkey!"
+end
+```
 
 At this point you should be able the run the command `ruby web.rb -p 5000`. This will spin-up a small web server on port 5000. You should be able to browse to this app in your browser by visiting the URL you set-up for your Azure VM. Once you can reach your web app in the browser, you're ready to start building a Twilio app.
 
 ## <a id="configure_app"></a>Configure Your Application to Use Twilio
 You can configure your web app to use the Twilio library by updating your `Gemfile` to include this line:
 
-    gem 'twilio-ruby'
+```bash
+gem 'twilio-ruby'
+```
 
 On the command line, run `bundle install`. Now open `web.rb` and including this line at the top:
 
-    require 'twilio-ruby'
+```ruby
+require 'twilio-ruby'
+```
 
 You're now all set to use the Twilio helper library for Ruby in your web app.
 
@@ -110,50 +118,54 @@ The following shows how to make an outgoing call. Key concepts include using the
 
 Add this function to `web.md`:
 
-    # Set your account ID and authentication token.
-    sid = "your_twilio_account_sid";
-    token = "your_twilio_authentication_token";
+```ruby
+# Set your account ID and authentication token.
+sid = "your_twilio_account_sid";
+token = "your_twilio_authentication_token";
 
-    # The number of the phone initiating the the call.
-    # This should either be a Twilio number or a number that you've verified
-    from = "NNNNNNNNNNN";
+# The number of the phone initiating the call.
+# This should either be a Twilio number or a number that you've verified
+from = "NNNNNNNNNNN";
 
-    # The number of the phone receiving call.
-    to = "NNNNNNNNNNN";
+# The number of the phone receiving call.
+to = "NNNNNNNNNNN";
 
-    # Use the Twilio-provided site for the TwiML response.
-    url = "http://yourdomain.cloudapp.net/voice_url";
+# Use the Twilio-provided site for the TwiML response.
+url = "http://yourdomain.cloudapp.net/voice_url";
 
-    get '/make_call' do
-      # Create the call client.
-      client = Twilio::REST::Client.new(sid, token);
+get '/make_call' do
+    # Create the call client.
+    client = Twilio::REST::Client.new(sid, token);
 
-      # Make the call
-      client.account.calls.create(to: to, from: from, url: url)
-    end
+    # Make the call
+    client.account.calls.create(to: to, from: from, url: url)
+end
 
-    post '/voice_url' do
-      "<Response>
-         <Say>Hello Monkey!</Say>
-       </Response>"
-    end
+post '/voice_url' do
+    "<Response>
+        <Say>Hello Monkey!</Say>
+    </Response>"
+end
+```
 
 If you open-up `http://yourdomain.cloudapp.net/make_call` in a browser, that will trigger the call to the Twilio API to make the phone call. The first two parameters in `client.account.calls.create` are fairly self-explanatory: the number the call is `from` and the number the call is `to`. 
 
-The third parameter (`url`) is the URL that Twilio requests to get instructions on what to do once the call is connected. In this case we set-up a URL (`http://yourdomain.cloudapp.net`) that returns a simple TwiML document and uses the `<Say>` verb to do some text-to-speech and say "Hello Monkey" to the person recieving the call.
+The third parameter (`url`) is the URL that Twilio requests to get instructions on what to do once the call is connected. In this case we set-up a URL (`http://yourdomain.cloudapp.net`) that returns a simple TwiML document and uses the `<Say>` verb to do some text-to-speech and say "Hello Monkey" to the person receiving the call.
 
-## <a id="howto_recieve_sms"></a>How to: Recieve an SMS message
+## <a id="howto_receive_sms"></a>How to: Receive an SMS message
 In the previous example we initiated an **outgoing** phone call. This time, let's use the phone number that Twilio gave us during sign-up to process an **incoming** SMS message.
 
 First, log-in to your [Twilio dashboard][twilio_account]. Click on "Numbers" in the top nav and then click on the Twilio number you were provided. You'll see two URLs that you can configure. A Voice Request URL and an SMS Request URL. These are the URLs that Twilio calls whenever a phone call is made or an SMS is sent to your number. The URLs are also known as "web hooks".
 
 We would like to process incoming SMS messages, so let's update the URL to `http://yourdomain.cloudapp.net/sms_url`. Go ahead and click Save Changes at the bottom of the page. Now, back in `web.rb` let's program our application to handle this:
 
-    post '/sms_url' do
-      "<Response>
-         <Message>Hey, thanks for the ping! Twilio and Azure rock!</Message>
-       </Response>"
-    end
+```ruby
+post '/sms_url' do
+    "<Response>
+        <Message>Hey, thanks for the ping! Twilio and Azure rock!</Message>
+    </Response>"
+end
+```
 
 After making the change, make sure to re-start your web app. Now, take out your phone and send an SMS to your Twilio number. You should promptly get an SMS response that says "Hey, thanks for the ping! Twilio and Azure rock!".
 
@@ -175,19 +187,19 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 
 
 
-[twilio_pricing]: http://www.twilio.com/pricing
-[special_offer]: http://ahoy.twilio.com/azure
+[twilio_pricing]: https://www.twilio.com/pricing
+[special_offer]: https://ahoy.twilio.com/azure
 [twilio_libraries]: https://www.twilio.com/docs/libraries
-[twiml]: http://www.twilio.com/docs/api/twiml
-[twilio_api]: http://www.twilio.com/api
+[twiml]: https://www.twilio.com/docs/api/twiml
+[twilio_api]: https://www.twilio.com/api
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_account]:  https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
-[twilio_api_documentation]: http://www.twilio.com/api
-[twilio_security_guidelines]: http://www.twilio.com/docs/security
-[twilio_howtos]: http://www.twilio.com/docs/howto
+[twilio_api_documentation]: https://www.twilio.com/api
+[twilio_security_guidelines]: https://www.twilio.com/docs/security
+[twilio_howtos]: https://www.twilio.com/docs/howto
 [twilio_on_github]: https://github.com/twilio
-[twilio_support]: http://www.twilio.com/help/contact
-[twilio_quickstarts]: http://www.twilio.com/docs/quickstart
+[twilio_support]: https://www.twilio.com/help/contact
+[twilio_quickstarts]: https://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
-[azure_vm_setup]: http://www.windowsazure.com/develop/ruby/tutorials/web-app-with-linux-vm/
+[azure_vm_setup]: https://docs.microsoft.com/azure/virtual-machines/linux/classic/ruby-rails-web-app

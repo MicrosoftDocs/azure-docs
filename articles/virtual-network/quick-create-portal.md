@@ -1,129 +1,224 @@
 ---
-title: Create a virtual network in Azure - Portal | Microsoft Docs
-description: Quickly learn to create a virtual network using the Azure portal. A virtual network enables many types of Azure resources to communicate privately with each other.
-services: virtual-network
-documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
-editor: ''
+title: Create a virtual network - quickstart - Azure portal
+titleSuffix: Azure Virtual Network
+description: 'Quickstart: Create a virtual network in the Azure portal. These networks let Azure resources, like VMs, securely communicate with each other and the internet.'
+author: KumudD
 tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: 
+ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 01/25/2018
-ms.author: jdial
-ms.custom: 
+ms.date: 03/05/2020
+ms.author: kumud
+
 ---
 
-# Create a virtual network using the Azure portal
+# Quickstart: Create a virtual network using the Azure portal
 
-In this article, you learn how to create a virtual network. After creating a virtual network, you deploy two virtual machines into the virtual network to test private network communication between them.
+In this quickstart, you learn how to create a virtual network using the Azure portal. You deploy two virtual machines (VMs). Next, you securely communicate between VMs and connect to VMs from the internet. A virtual network is the fundamental building block for your private network in Azure. It enables Azure resources, like VMs, to securely communicate with each other and with the internet.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
 
-## Log in to Azure 
+* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-Log in to the Azure portal at http://portal.azure.com.
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a virtual network
 
-1. Select **+ New** on the upper left-hand corner of the Azure portal.
+1. From the Azure portal menu, select **Create a resource**. From the Azure Marketplace, select **Networking** > **Virtual network**.
 
-2. Select **Networking**, and then select **Virtual network**.
+1. In **Create virtual network**, enter or select this information:
 
-3. As shown in the following picture, enter *myVirtualNetwork* for **Name**, *myResourceGroup* for **Resource group**, select a **Location** and your **Subscription**, accept the remaining defaults, and then select **Create**. 
+    | Setting | Value |
+    | ------- | ----- |
+    | Subscription | Select your subscription.|
+    | Resource group | Select **Create new**, enter *myResourceGroup*, then select **OK**. |
+    | Name | Enter *myVirtualNetwork*. |
+    | Location | Select **East US**.|
 
-    ![Enter basic information about your virtual network](./media/quick-create-portal/virtual-network.png)
+1. Select **Next: IP Addresses**, and for **IPv4 address space**, enter *10.1.0.0/16*.
 
-    The **Address space** is specified in CIDR notation. A virtual network contains zero or more subnets. The default subnet **Address range** of 10.0.0.0/24 uses the entire address range of the virtual network, so another subnet cannot be created within the virtual network using the default address space and range. The specified address range includes the IP addresses 10.0.0.0-10.0.0.254. Only 10.0.0.4-10.0.0.254 are available however, because Azure reserves the first four addresses (0-3) and the last address in each subnet. The available IP addresses are assigned to resources deployed within a virtual network.
+1. Select **Add subnet**, then enter *myVirtualSubnet* for **Subnet name** and *10.1.0.0/24* for **Subnet address range**.
 
-## Test network communication
+1. Select **Add**, then select **Review + create**. Leave the rest as default and select **Create**.
 
-A virtual network enables several types of Azure resources to communicate privately with each other. One type of resource you can deploy into a virtual network is a virtual machine. Create two virtual machines in the virtual network so you can validate private communication between them in a later step.
+1. In **Create virtual network**, select **Create**.
 
-### Create virtual machines
+## Create virtual machines
 
-1. Select the **New** button found on the upper left-hand corner of the Azure portal.
+Create two VMs in the virtual network:
 
-2. Select **Compute**, and then select **Windows Server 2016 Datacenter**.
+### Create the first VM
 
-3. Enter virtual machine information shown in the picture that follows. The **User name** and **Password** you enter are used to log in to the virtual machine in a later step. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). Select your **Subscription**, choose to use the existing *myResourceGroup* resource group, and ensure that the **Location** selected is the same location you created the virtual network in. When complete, select **OK**.
+1. From the Azure portal menu, select **Create a resource**.
 
-    ![Enter basic information about a virtual machine](./media/quick-create-portal/virtual-machine-basics.png)
+1. From the Azure Marketplace, select **Compute** > **Windows Server 2019 Datacenter**. Select **Create**.
 
-4. Select a size for the virtual machine and then select **Select**. To see more sizes, select **View all** or change the **Supported disk type** filter. The sizes that appear for you may be different than the following example: 
+1. In **Create a virtual machine - Basics**, enter or select this information:
 
-    ![Select a size for a virtual machine](./media/quick-create-portal/virtual-machine-size.png)
+    | Setting | Value |
+    | ------- | ----- |
+    | **Project details** | |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **myResourceGroup**. You created this resource group in the previous section. |
+    | **Instance details** |  |
+    | Virtual machine name | Enter *myVm1*. |
+    | Region | Select **East US**. |
+    | Availability options | Default to **No infrastructure redundancy required**. |
+    | Image | Default to **Windows Server 2019 Datacenter**. |
+    | Size | Default to **Standard DS1 v2**. |
+    | **Administrator account** |  |
+    | Username | Enter a username of your choosing. |
+    | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Confirm Password | Re-enter password. |
+    | **Inbound port rules** |  |
+    | Public inbound ports | Select **Allow selected ports**. |
+    | Select inbound ports | Enter *HTTP (80)* and *RDP (3389)*. |
+    | **Save money** |  |
+    | Already have a Windows license? | Default to **No**. |
 
-5. Under **Settings**, *myVirtualNetwork* should already be selected for **Virtual network**, but if it's not, select **Virtual network**, then select *myVirtualNetwork*. Leave *default* selected for **Subnet**, and then select **OK**.
+1. Select **Next: Disks**.
 
-    ![Select a virtual network](./media/quick-create-portal/virtual-machine-network-settings.png)
+1. In **Create a virtual machine - Disks**, keep the defaults and select **Next: Networking**.
 
-6. On the **Summary** page, select **Create** to start the virtual machine deployment. 
+1. In **Create a virtual machine - Networking**, select this information:
 
-7. The virtual machine takes a few minutes to create. After creation, the virtual machine is pinned to the Azure portal dashboard and the virtual machine summary automatically opens. Select **Networking**.
+    | Setting | Value |
+    | ------- | ----- |
+    | Virtual network | Default to **myVirtualNetwork**. |
+    | Subnet | Default to **myVirtualSubnet (10.1.0.0/24)**. |
+    | Public IP | Default to **(new) myVm-ip**. |
+    | NIC network security group | Default to **Basic**. |
+    | Public inbound ports | Default to **Allow selected ports**. |
+    | Select inbound ports | Default to **HTTP** and **RDP**.
 
-    ![Virtual machine networking information](./media/quick-create-portal/virtual-machine-networking.png)
+1. Select **Next: Management**.
 
-    You see that the **Private IP** address is *10.0.0.4*. In step 5, under **Settings**, you selected the *myVirtualNetwork* virtual network and accepted the subnet named *default* for **Subnet**. When you [created the virtual network](#create-a-virtual-network), you accepted the default value of 10.0.0.0/24 for the subnet **Address range**. Azure's DHCP server assigns the first available address for the subnet you select to the virtual machine. Since Azure reserves the first four addresses (0-3) of each subnet, 10.0.0.4 is the first available IP address available for the subnet.
+1. In **Create a virtual machine - Management**, for **Diagnostics storage account**, select **Create New**.
 
-    The **Public IP** address assigned is different than the address assigned to your virtual machine. Azure assigns a public, Internet routable IP address to each virtual machine, by default. The public IP address is assigned to the virtual machine from a [pool of addresses assigned to each Azure region](https://www.microsoft.com/download/details.aspx?id=41653). While Azure knows which public IP address is assigned to a virtual machine, the operating system running in a virtual machine has no awareness of any public IP address assigned to it.
+1. In **Create storage account**, enter or select this information:
 
-8. Complete steps 1-7 again, but in step 3, name the virtual machine *myVm2*. 
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter *myvmstorageaccount*. If this name is taken, create a unique name.|
+    | Account kind | Default to **Storage (general purpose v1)**. |
+    | Performance | Default to **Standard**. |
+    | Replication | Default to **Locally-redundant storage (LRS)**. |
 
-9. After the virtual machine is created, select **Networking**, as you did in step 7. You see the **Private IP** address is *10.0.0.5*. Since Azure previously assigned the first usable address of *10.0.0.4* in the subnet to the *myVm1* virtual machine, it assigned *10.0.0.5* to the *myVm2* virtual machine, because it was the next available address in the subnet.
+1. Select **OK**, then select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
-### Connect to a virtual machine
+1. When you see the **Validation passed** message, select **Create**.
 
-1. Remotely connect to the *myVm1* virtual machine. At the top of the Azure portal, enter *myVm1*. When **myVm1** appears in the search results, select it. Select the **Connect** button.
+### Create the second VM
 
-    ![Virtual machine overview](./media/quick-create-portal/virtual-machine-overview.png)
+Repeat the procedure in the previous section to create another virtual machine.
 
-2. After selecting the **Connect** button, a Remote Desktop Protocol (.rdp) file is created and downloaded to your computer.  
+> [!IMPORTANT]
+> For the **Virtual machine name**, enter *myVm2*.
+>
+> For **Diagnosis storage account**, make sure you select **myvmstorageaccount**, instead of creating one.
 
-3. Open the downloaded rdp file. If prompted, select **Connect**. Enter the user name and password you specified when creating the virtual machine, and then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** or **Continue** to proceed with the connection.
+## Connect to a VM from the internet
 
-### Validate communication
+After you've created *myVm1*, connect to the internet.
 
-Attempting to ping a Windows virtual machine fails, because ping is not allowed through the Windows firewall, by default. To allow ping to *myVm1*, enter the following command from a command prompt:
+1. In the Azure portal, search for and select *myVm1*.
 
-```
-netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-```
+1. Select **Connect**, then **RDP**.
 
-To validate communication with *myVm2*, enter the following command from a command prompt on the *myVm1* virtual machine. Provide the credentials you used when you created the virtual machine, and then complete the connection:
+    ![Connect to a virtual machine](./media/quick-create-portal/connect-to-virtual-machine.png)
 
-```
-mstsc /v:myVm2
-```
+    The **Connect** page opens.
 
-The remote desktop connection is successful because both virtual machines have private IP addresses assigned from the *default* subnet and because remote desktop is open through the Windows firewall, by default. You are able to connect to *myVm2* by hostname because Azure automatically provides DNS name resolution for all hosts within a virtual network. From a command prompt, ping *myVm1*, from *myVm2*.
+1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol (*.rdp*) file and downloads it to your computer.
 
-```
-ping myvm1
-```
+1. Open the RDP file. If prompted, select **Connect**.
 
-Ping is successful because you allowed it through the Windows firewall on the *myVm1* virtual machine in a previous step. To confirm outbound communication to the Internet, enter the following command:
+1. Enter the username and password you specified when creating the VM.
 
-```
-ping bing.com
-```
+    > [!NOTE]
+    > You may need to select **More choices** > **Use a different account**, to specify the credentials you entered when you created the VM.
 
-You receive four replies from bing.com. By default, any virtual machine in a virtual network can communicate outbound to the Internet. 
+1. Select **OK**.
 
-Exit the remote desktop session.
+1. You may receive a certificate warning when you sign in. If you receive a certificate warning, select **Yes** or **Continue**.
+
+1. Once the VM desktop appears, minimize it to go back to your local desktop.
+
+## Communicate between VMs
+
+1. In the Remote Desktop of *myVm1*, open PowerShell.
+
+1. Enter `ping myVm2`.
+
+    You'll receive a message similar to this output:
+
+    ```output
+    Pinging myVm2.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.clouda
+    Request timed out.
+    Request timed out.
+    Request timed out.
+    Request timed out.
+
+    Ping statistics for 10.1.0.5:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+    ```
+
+    The `ping` fails, because `ping` uses the Internet Control Message Protocol (ICMP). By default, ICMP isn't allowed through the Windows firewall.
+
+1. To allow *myVm2* to ping *myVm1* in a later step, enter this command:
+
+    ```powershell
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
+    ```
+
+    This command allows ICMP inbound through the Windows firewall:
+
+1. Close the remote desktop connection to *myVm1*.
+
+1. Complete the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet) again, but connect to *myVm2*.
+
+1. From a command prompt, enter `ping myvm1`.
+
+    You'll get back something like this message:
+
+    ```output
+    Pinging myVm1.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.cloudapp.net [10.1.0.4] with 32 bytes of data:
+    Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
+
+    Ping statistics for 10.1.0.4:
+        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    Approximate round trip times in milli-seconds:
+        Minimum = 0ms, Maximum = 1ms, Average = 0ms
+    ```
+
+    You receive replies from *myVm1*, because you allowed ICMP through the Windows firewall on the *myVm1* VM in step 3.
+
+1. Close the remote desktop connection to *myVm2*.
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, and all its contents. At the top of the Azure portal, enter *myResourceGroup*. When **myResourceGroup** appears in the search results, select it. Select **Delete**.
+In this quickstart, you created a default virtual network and two VMs. You connected to one VM from the internet and securely communicated between the two VMs.
+
+When you're done using the virtual network and the VMs, delete the resource group and all of the resources it contains:
+
+1. Search for and select *myResourceGroup*.
+
+1. Select **Delete resource group**.
+
+1. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 
 ## Next steps
 
-In this article, you deployed a default virtual network with one subnet. To learn how to create a custom virtual network with multiple subnets, continue to the tutorial for creating a custom virtual network.
+To learn more about virtual network settings, see [Create, change, or delete a virtual network](manage-virtual-network.md).
 
-> [!div class="nextstepaction"]
-> [Create a custom virtual network](virtual-networks-create-vnet-arm-pportal.md#portal)
+By default, Azure allows secure communication between VMs. Azure only allows inbound remote desktop connections to Windows VMs from the internet. To learn more about types of VM network communications, see [Filter network traffic](tutorial-filter-network-traffic.md).
+
+> [!NOTE] 
+> Azure services cost money. Azure Cost Management helps you set budgets and configure alerts to keep spending under control. Analyze, manage, and optimize your Azure costs with Cost Management. To learn more, see the [quickstart on analyzing your costs](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

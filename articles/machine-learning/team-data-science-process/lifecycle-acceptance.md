@@ -1,23 +1,18 @@
 ---
-title: Customer acceptance stage of the Team Data Science Process lifecycle - Azure | Microsoft Docs
+title: Customer acceptance stage of the Team Data Science Process lifecycle
 description: The goals, tasks, and deliverables for the customer acceptance stage of your data-science projects
 services: machine-learning
-documentationcenter: ''
-author: bradsev
-manager: cgronlun
-editor: cgronlun
-
-ms.assetid: 
+author: marktab
+manager: marktab
+editor: marktab
 ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
-ms.author: bradsev;
-
+ms.date: 01/10/2020
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
-# Customer acceptance
+# Customer acceptance stage of the Team Data Science Process lifecycle
 
 This article outlines the goals, tasks, and deliverables associated with the customer acceptance stage of the Team Data Science Process (TDSP). This process provides a recommended lifecycle that you can use to structure your data-science projects. The lifecycle outlines the major stages that projects typically execute, often iteratively:
 
@@ -33,7 +28,7 @@ Here is a visual representation of the TDSP lifecycle:
 
 
 ## Goal
-**Finalize the project deliverables**: Confirm that the pipeline, the model, and their deployment in a production environment satisfy the customer's objectives.
+**Finalize project deliverables**: Confirm that the pipeline, the model, and their deployment in a production environment satisfy the customer's objectives.
 
 ## How to do it
 There are two main tasks addressed in this stage:
@@ -57,6 +52,6 @@ Here are links to each step in the lifecycle of the TDSP:
    4. [Deployment](lifecycle-deployment.md)
    5. [Customer acceptance](lifecycle-acceptance.md)
 
-We provide full end-to-end walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
+We provide full walkthroughs that demonstrate all the steps in the process for specific scenarios. The [Example walkthroughs](walkthroughs.md) article provides a list of the scenarios with links and thumbnail descriptions. The walkthroughs illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
-For examples of how to execute steps in TDSPs that use Azure Machine Learning Studio, see [Use the TDSP with Azure Machine Learning](http://aka.ms/datascienceprocess).
+For examples of how to execute steps in TDSPs that use Azure Machine Learning Studio, see [Use the TDSP with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).

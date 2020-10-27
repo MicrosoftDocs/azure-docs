@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
@@ -71,18 +71,18 @@ Complete the following steps to select a backup set for a volume or backup polic
       
       The backups associated with the selected volume or backup policy should appear in the list of backup sets.
 
-      ![Go to backup catalog](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
+      ![Go to backup catalog 2](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
 3. Select and expand a backup set. You can now see the backup sets broken down by the volumes that it contains. The **Restore** and **Delete** options are available via the context menu (right-click) for the backup set. You can perform either of these actions on the backup set that you selected.
 
-    ![Go to backup catalog](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
+    ![Go to backup catalog 3](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
 
 ## Delete a backup set
 Delete a backup when you no longer wish to retain the data associated with it. Perform the following steps to delete a backup set.
 
 #### To delete a backup set
  Go to your StorSimple Device Manager service and click **Backup catalog**.
-2. Filter the selections as follows:
+1. Filter the selections as follows:
    
    1. Specify the time range. 
    2. Select the appropriate device. 
@@ -91,19 +91,19 @@ Delete a backup when you no longer wish to retain the data associated with it. P
       
       The backups associated with the selected volume or backup policy should appear in the list of backup sets.
 
-      ![Go to backup catalog](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
+      ![Go to backup catalog 4](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
-3. Select and expand a backup set. You can now see the backup sets broken down by the volumes that it contains. The **Restore** and **Delete** options are available via the context menu (right-click) for the backup set. Right-click the selected backup set and from the context menu, select **Delete**.
+1. Select and expand a backup set. You can now see the backup sets broken down by the volumes that it contains. The **Restore** and **Delete** options are available via the context menu (right-click) for the backup set. Right-click the selected backup set and from the context menu, select **Delete**.
 
-    ![Go to backup catalog](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
+    ![Go to backup catalog 5](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
 
-4. When prompted for confirmation, review the displayed information and click **Delete**. The selected backup is deleted permanently.
+1. When prompted for confirmation, review the displayed information and click **Delete**. The selected backup is deleted permanently.
 
-    ![Go to backup catalog](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
+    ![Go to backup catalog 6](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
 
-5. You will be notified when the deletion is in progress and when it has successfully finished. After the deletion is done, refresh the query on this page. The deleted backup set will no longer appear in the list of backup sets.
+1. You will be notified when the deletion is in progress and when it has successfully finished. After the deletion is done, refresh the query on this page. The deleted backup set will no longer appear in the list of backup sets.
 
-    ![Go to backup catalog](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
+    ![Go to backup catalog 7](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
 
 ## Next steps
 * Learn how to [use the backup catalog to restore your device from a backup set](storsimple-8000-restore-from-backup-set-u2.md).

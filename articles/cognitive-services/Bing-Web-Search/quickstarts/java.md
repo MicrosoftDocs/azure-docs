@@ -1,143 +1,177 @@
 ---
-title: Call and response - Java Quickstart for Azure Cognitive Services, Bing Web Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Web Search API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Use Java to call the Bing Web Search REST API"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to send requests to the Bing Web Search REST API using Java, and receive a JSON response
 services: cognitive-services
-documentationcenter: ''
-author: jerrykindall
-
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.technology: bing-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-
+ms.subservice: bing-web-search
+ms.topic: quickstart
+ms.date: 05/22/2020
+ms.author: aahi
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Java.
 ---
-# Call and response: your first Bing Web Search query in Java
 
-The Bing Web Search API provides a experience similar to Bing.com/Search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
+# Quickstart: Use Java to search the web with the Bing Web Search REST API, an Azure cognitive service
 
-This article includes a simple console application that performs a Bing Web Search API query and displays the returned raw search results, which are in JSON format. While this application is written in Java, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+In this quickstart, you'll use a Java application to make your first call to the Bing Web Search API. This Java application sends a search request to the API, and shows the JSON response. Although this application is written in Java, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
-You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
+Here are a few things that you'll need before running this quickstart:
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+* [JDK 7 or 8](https://aka.ms/azure-jdks)
+* [Gson library](https://github.com/google/gson)
+* A subscription key
 
-## Running the application
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-To run this application, follow these steps.
+## Create a project and import dependencies
 
-1. Download or install the [gson library](https://github.com/google/gson). You may also obtain it via Maven.
-2. Create a new Java project in your favorite IDE or editor.
-3. Add the provided code in a file named `BingWebSearch.java`.
-4. Replace the `subscriptionKey` value with an access key valid for your subscription.
-5. Run the program.
+Create a new Java project in your favorite IDE or editor and import the following libraries. Gson is required to convert Java Objects into JSON.
 
 ```java
 import java.net.*;
 import java.util.*;
 import java.io.*;
 import javax.net.ssl.HttpsURLConnection;
-
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- *
- * Once you have compiled or downloaded gson-2.8.1.jar, assuming you have placed it in the
- * same folder as this file (BingWebSearch.java), you can compile and run this program at
- * the command line as follows.
- *
- * javac BingWebSearch.java -classpath .;gson-2.8.1.jar -encoding UTF-8
- * java -cp .;gson-2.8.1.jar BingWebSearch
- */
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+```
 
+### Declare Gson in the Maven POM file
+
+If you're using Maven, declare Gson in POM.xml. Skip this step if you've installed Gson locally.
+
+```xml
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.8.5</version>
+</dependency>
+```
+
+## Declare the BingWebSearch class
+
+Declare the `BingWebSearch` class. It includes most of the code we review in this quickstart, including the `main()` method.  
+
+```java
 public class BingWebSearch {
 
-// ***********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+// The code in the following sections goes here.
 
-    // Replace the subscriptionKey string value with your valid subscription key.
-    static String subscriptionKey = "enter key here";
+}
+```
 
-    // Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-    // search APIs.  In the future, regional endpoints may be available.  If you
-    // encounter unexpected authorization errors, double-check this value against
-    // the endpoint for your Bing Web search instance in your Azure dashboard.
-    static String host = "https://api.cognitive.microsoft.com";
-    static String path = "/bing/v7.0/search";
+## Define variables
 
-    static String searchTerm = "Microsoft Cognitive Services";
+The following code sets the `subscriptionKey`, `host`, `path`, and `searchTerm`. Add this code to the `BingWebSearch` class described in the previous section:
 
-    public static SearchResults SearchWeb (String searchQuery) throws Exception {
-        // construct URL of search request (endpoint + query string)
-        URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
-        HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+1. For the `host` value, you can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource. 
 
-        // receive JSON body
-        InputStream stream = connection.getInputStream();
-        String response = new Scanner(stream).useDelimiter("\\A").next();
+2. Replace the `subscriptionKey` value with a valid subscription key from your Azure account. 
 
-        // construct result object for return
-        SearchResults results = new SearchResults(new HashMap<String, String>(), response);
+3. Optionally, customize the search query by replacing the value for `searchTerm`. 
 
-        // extract Bing-related HTTP headers
-        Map<String, List<String>> headers = connection.getHeaderFields();
-        for (String header : headers.keySet()) {
-            if (header == null) continue;      // may have null key
-            if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
-                results.relevantHeaders.put(header, headers.get(header).get(0));
-            }
+```java
+// Enter a valid subscription key.
+static String subscriptionKey = "enter key here";
+
+/*
+ * If you encounter unexpected authorization errors, double-check these values
+ * against the endpoint for your Bing Web search instance in your Azure
+ * dashboard.
+ */
+static String host = "https://api.cognitive.microsoft.com";
+static String path = "/bing/v7.0/search";
+static String searchTerm = "Microsoft Cognitive Services";
+```
+
+## Construct a request
+
+The `SearchWeb()` method, which is included in the `BingWebSearch` class, constructs the `url`, receives and parses the response, and extracts Bing-related HTTP headers.  
+
+```java
+public static SearchResults SearchWeb (String searchQuery) throws Exception {
+    // Construct the URL.
+    URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
+
+    // Open the connection.
+    HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+    // Receive the JSON response body.
+    InputStream stream = connection.getInputStream();
+    String response = new Scanner(stream).useDelimiter("\\A").next();
+
+    // Construct the result object.
+    SearchResults results = new SearchResults(new HashMap<String, String>(), response);
+
+    // Extract Bing-related HTTP headers.
+    Map<String, List<String>> headers = connection.getHeaderFields();
+    for (String header : headers.keySet()) {
+        if (header == null) continue;      // may have null key
+        if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")){
+            results.relevantHeaders.put(header, headers.get(header).get(0));
         }
+    }
+    stream.close();
+    return results;
+}
+```
 
-        stream.close();
-        return results;
+## Handle the response
+
+Use Gson to parse and reserialize the response.
+
+```java
+public static String prettify(String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonObject json = parser.parse(json_text).getAsJsonObject();
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+}
+```
+
+## Declare the main method
+
+The `main()` method is required and is the first method invoked when you start the program. In this application, it includes code that validates the `subscriptionKey`, makes a request, and then prints the JSON response.
+
+```java
+public static void main (String[] args) {
+    // Confirm the subscriptionKey is valid.
+    if (subscriptionKey.length() != 32) {
+        System.out.println("Invalid Bing Search API subscription key!");
+        System.out.println("Please paste yours into the source code.");
+        System.exit(1);
     }
 
-    // pretty-printer for JSON; uses GSON parser to parse and re-serialize
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
+    // Call the SearchWeb method and print the response.
+    try {
+        System.out.println("Searching the Web for: " + searchTerm);
+        SearchResults result = SearchWeb(searchTerm);
+        System.out.println("\nRelevant HTTP Headers:\n");
+        for (String header : result.relevantHeaders.keySet())
+        System.out.println(header + ": " + result.relevantHeaders.get(header));
+        System.out.println("\nJSON Response:\n");
+        System.out.println(prettify(result.jsonResponse));
     }
-
-    public static void main (String[] args) {
-        if (subscriptionKey.length() != 32) {
-            System.out.println("Invalid Bing Search API subscription key!");
-            System.out.println("Please paste yours into the source code.");
-            System.exit(1);
-        }
-
-        try {
-            System.out.println("Searching the Web for: " + searchTerm);
-
-            SearchResults result = SearchWeb(searchTerm);
-
-            System.out.println("\nRelevant HTTP Headers:\n");
-            for (String header : result.relevantHeaders.keySet())
-                System.out.println(header + ": " + result.relevantHeaders.get(header));
-
-            System.out.println("\nJSON Response:\n");
-            System.out.println(prettify(result.jsonResponse));
-        }
-        catch (Exception e) {
-            e.printStackTrace(System.out);
-            System.exit(1);
-        }
+    catch (Exception e) {
+        e.printStackTrace(System.out);
+        System.exit(1);
     }
 }
+```
 
-// Container class for search results encapsulates relevant headers and JSON data
+## Create a container class for search results
+
+The `SearchResults` container class is defined outside of the `BingWebSearch` class. It includes relevant headers and JSON data for the response.
+
+```java
 class SearchResults{
     HashMap<String, String> relevantHeaders;
     String jsonResponse;
@@ -148,9 +182,20 @@ class SearchResults{
 }
 ```
 
-## JSON response
+## Put it all together
 
-A sample response follows. To limit the length of the JSON, only a single result is shown, and other parts of the response have been truncated. 
+The last step is to compile your code and run it. Use the following commands:
+
+```powershell
+javac BingWebSearch.java -classpath ./gson-2.8.5.jar -encoding UTF-8
+java -cp ./gson-2.8.5.jar BingWebSearch
+```
+
+If you'd like to compare your code with ours, [sample code is available on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingWebSearchv7.java).
+
+## Example JSON response
+
+Responses from the Bing Web Search API are returned as JSON. This sample response has been truncated to show a single result.
 
 ```json
 {
@@ -170,18 +215,18 @@ A sample response follows. To limit the length of the JSON, only a single result
         "snippet": "Knock down barriers between you and your ideas. Enable natural and contextual interaction with tools that augment users' experiences via the power of machine-based AI. Plug them in and bring your ideas to life.",
         "deepLinks": [
           {
-            "name": "Face API",
-            "url": "https://azure.microsoft.com/en-us/services/cognitive-services/face/",
-            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face API from Microsoft Azure. ... Cognitive Services; Face API;"
+            "name": "Face",
+            "url": "https://azure.microsoft.com/services/cognitive-services/face/",
+            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face service from Microsoft Azure. ... Cognitive Services; Face service;"
           },
           {
             "name": "Text Analytics",
-            "url": "https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/",
+            "url": "https://azure.microsoft.com/services/cognitive-services/text-analytics/",
             "snippet": "Cognitive Services; Text Analytics API; Text Analytics API . Detect sentiment, ... you agree that Microsoft may store it and use it to improve Microsoft services, ..."
           },
           {
             "name": "Computer Vision API",
-            "url": "https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/",
+            "url": "https://azure.microsoft.com/services/cognitive-services/computer-vision/",
             "snippet": "Extract the data you need from images using optical character recognition and image analytics with Computer Vision APIs from Microsoft Azure."
           },
           {
@@ -191,12 +236,12 @@ A sample response follows. To limit the length of the JSON, only a single result
           },
           {
             "name": "Bing Speech API",
-            "url": "https://azure.microsoft.com/en-us/services/cognitive-services/speech/",
+            "url": "https://azure.microsoft.com/services/cognitive-services/speech/",
             "snippet": "Add speech recognition to your applications, including text to speech, with a speech API from Microsoft Azure. ... Cognitive Services; Bing Speech API;"
           },
           {
             "name": "Get Started for Free",
-            "url": "https://azure.microsoft.com/en-us/services/cognitive-services/",
+            "url": "https://azure.microsoft.com/services/cognitive-services/",
             "snippet": "Add vision, speech, language, and knowledge capabilities to your applications using intelligence APIs and SDKs from Cognitive Services."
           }
         ]
@@ -277,11 +322,6 @@ A sample response follows. To limit the length of the JSON, only a single result
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
+> [Bing Web Search API single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
-## See also 
-
-[Bing Web Search overview](../overview.md)  
-[Try it](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
-[Bing Web Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]  

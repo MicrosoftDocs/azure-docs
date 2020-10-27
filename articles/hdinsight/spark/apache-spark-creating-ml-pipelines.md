@@ -1,26 +1,17 @@
 ---
-title: Create an Apache Spark machine learning pipeline - Azure HDInsight | Microsoft Docs
-description: Use the Apache Spark machine learning library to create data pipelines.
-services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 
+title: Create Apache Spark machine learning pipeline - Azure HDInsight
+description: Use the Apache Spark machine learning library to create data pipelines in Azure HDInsight.
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
-ms.author: maxluk
+ms.topic: how-to
+ms.date: 07/22/2019
 ---
-# Create a Spark machine learning pipeline
+# Create an Apache Spark machine learning pipeline
 
-Apache Spark's scalable machine learning library (MLlib)  brings modeling capabilities to a  distributed environment. The Spark package [`spark.ml`](http://spark.apache.org/docs/latest/ml-pipeline.html) is a  set of high-level APIs built on DataFrames. These APIs help you create and tune practical machine-learning pipelines.  *Spark machine learning*  refers to this MLlib DataFrame-based API, not the  older RDD-based pipeline API.
+Apache Spark's scalable machine learning library (MLlib)  brings modeling capabilities to a  distributed environment. The Spark package [`spark.ml`](https://spark.apache.org/docs/latest/ml-pipeline.html) is a  set of high-level APIs built on DataFrames. These APIs help you create and tune practical machine-learning pipelines.  *Spark machine learning*  refers to this MLlib DataFrame-based API, not the  older RDD-based pipeline API.
 
 A machine learning (ML) pipeline is  a complete workflow  combining multiple machine learning algorithms together. There can be many steps required to process and learn from data, requiring  a sequence of algorithms. Pipelines  define the stages and ordering of a machine learning process. In MLlib, stages of a pipeline are represented by a specific sequence of PipelineStages, where a Transformer and an Estimator each perform tasks.
 
@@ -32,7 +23,7 @@ Each stateless instance of a Transformer or an Estimator has its own unique iden
 
 ## Pipeline example
 
-To demonstrate a practical use of an ML pipeline, this example uses the sample `HVAC.csv` data file that comes pre-loaded on the default storage for your HDInsight cluster, either  Azure Storage or Data Lake Store. To view the contents of the file, navigate to the `/HdiSamples/HdiSamples/SensorSampleData/hvac` directory. `HVAC.csv` contains a set of times with both target and actual temperatures for HVAC (*heating, ventilation, and air conditioning*) systems in various buildings. The goal is to train the model on the data, and produce a forecast temperature for a given building.
+To demonstrate a practical use of an ML pipeline, this example uses the sample `HVAC.csv` data file that comes pre-loaded on the default storage for your HDInsight cluster, either  Azure Storage or Data Lake Storage. To view the contents of the file, navigate to the `/HdiSamples/HdiSamples/SensorSampleData/hvac` directory. `HVAC.csv` contains a set of times with both target and actual temperatures for HVAC (*heating, ventilation, and air conditioning*) systems in various buildings. The goal is to train the model on the data, and produce a forecast temperature for a given building.
 
 The following code:
 
@@ -42,6 +33,11 @@ The following code:
 4. Creates training data.
 
 ```python
+from pyspark.ml import Pipeline
+from pyspark.ml.classification import LogisticRegression
+from pyspark.ml.feature import HashingTF, Tokenizer
+from pyspark.sql import Row
+
 # The data structure (column meanings) of the data array:
 # 0 Date
 # 1 Time
@@ -54,19 +50,23 @@ The following code:
 LabeledDocument = Row("BuildingID", "SystemInfo", "label")
 
 # Define a function that parses the raw CSV file and returns an object of type LabeledDocument
+
+
 def parseDocument(line):
     values = [str(x) for x in line.split(',')]
     if (values[3] > values[2]):
         hot = 1.0
     else:
-        hot = 0.0        
+        hot = 0.0
 
     textValue = str(values[4]) + " " + str(values[5])
 
     return LabeledDocument((values[6]), textValue, hot)
 
+
 # Load the raw HVAC.csv file, parse it using the function
-data = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+data = sc.textFile(
+    "wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
 documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
 training = documents.toDF()
@@ -128,4 +128,4 @@ The `model` object can now be used to make predictions. For the  full sample of 
 
 ## See also
 
-* [Data Science using Scala and Spark on Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)
+* [Data Science using Scala and Apache Spark on Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)

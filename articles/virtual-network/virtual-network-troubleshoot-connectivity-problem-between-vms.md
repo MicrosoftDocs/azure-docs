@@ -1,10 +1,10 @@
 ---
 title: Troubleshooting connectivity problems between Azure VMs | Microsoft Docs
-description: Learn how to Troubleshoot the connectivity problems between Azure VMs.
+description: Learn how to troubleshoot and resolve the connectivity problems that you might experience between Azure VMs.
 services: virtual-network
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2017
+ms.date: 10/30/2018
 ms.author: genli
 ---
 
@@ -77,11 +77,15 @@ You can use one of the following methods to check whether the VM app or service 
 
 **Windows VM**
 
-    netstat –ano
+```console
+netstat –ano
+```
 
 **Linux VM**
 
-    netstat -l
+```console
+netstat -l
+```
 
 - Run the **telnet** command on the virtual machine itself to test the port. If the test fails, the application or service is not configured to listen on that port.
 
@@ -91,7 +95,7 @@ In some scenarios, the VM is placed behind a load balance solution that has a de
 
 ### Step 6: Check whether traffic is blocked by ACLs for the classic VM
 
-An  access control list (ACL) provides the ability to selectively permit or deny traffic for a virtual machine endpoint. For more information, see [Manage the ACL on an endpoint](../virtual-machines/windows/classic/setup-endpoints.md#manage-the-acl-on-an-endpoint).
+An  access control list (ACL) provides the ability to selectively permit or deny traffic for a virtual machine endpoint. For more information, see [Manage the ACL on an endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
 ### Step 7: Check whether the endpoint is created for the classic VM
 
@@ -99,7 +103,7 @@ All VMs that you create in Azure by using the classic deployment model can autom
 
 ### Step 8: Try to connect to a VM network share
 
-If you cannot connect to a VM network share, the problem may be caused by unavailable NICs in the VM. To delete the unavailable NICs, see [How to delete the unavailable NICs](../virtual-machines/windows/reset-network-interface.md#delete-the-unavailable-nics)
+If you cannot connect to a VM network share, the problem may be caused by unavailable NICs in the VM. To delete the unavailable NICs, see [How to delete the unavailable NICs](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
 
 ### Step 9: Check Inter-Vnet connectivity
 

@@ -1,29 +1,33 @@
 ---
-title: Copy data from/to SAP Cloud for Customer using Azure Data Factory | Microsoft Docs
+title: Copy data from/to SAP Cloud for Customer
 description: Learn how to copy data from SAP Cloud for Customer to supported sink data stores (or) from supported source data stores to SAP Cloud for Customer by using Data Factory.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: jhubbard
-editor: spelluru
-
+manager: shwang
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
-ms.author: jingwang
-
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 06/12/2020
 ---
+
 # Copy data from SAP Cloud for Customer (C4C) using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from/to SAP Cloud for Customer (C4C). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
+>[!TIP]
+>To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparsion and guidance.
 
 ## Supported capabilities
+
+This SAP Cloud for Customer connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from SAP Cloud for Customer to any supported sink data store, or copy data from any supported source data store to SAP Cloud for Customer. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -91,9 +95,10 @@ To copy data from SAP Cloud for Customer, set the type property of the dataset t
     "name": "SAPC4CDataset",
     "properties": {
         "type": "SapCloudForCustomerResource",
-        "typePoperties": {
+        "typeProperties": {
             "path": "<path e.g. LeadCollection>"
         },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP C4C linked service>",
             "type": "LinkedServiceReference"
@@ -114,6 +119,7 @@ To copy data from SAP Cloud for Customer, set the source type in the copy activi
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SapCloudForCustomerSource**  | Yes |
 | query | Specify the custom OData query to read data. | No |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. If not specified, the default value is **00:30:00** (30 minutes). | No |
 
 Sample query to get data for a specific day:
 `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
@@ -139,7 +145,7 @@ Sample query to get data for a specific day:
         ],
         "typeProperties": {
             "source": {
-                "type": "SAPC4CSource",
+                "type": "SapCloudForCustomerSource",
                 "query": "<custom query e.g. $top=10>"
             },
             "sink": {
@@ -185,7 +191,7 @@ To copy data to SAP Cloud for Customer, set the sink type in the copy activity t
                 "writeBatchSize": 30
             },
             "parallelCopies": 10,
-            "cloudDataMovementUnits": 4,
+            "dataIntegrationUnits": 4,
             "enableSkipIncompatibleRow": true,
             "redirectIncompatibleRowSettings": {
                 "linkedServiceName": {
@@ -221,6 +227,10 @@ When copying data from SAP Cloud for Customer, the following mappings are used f
 | Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

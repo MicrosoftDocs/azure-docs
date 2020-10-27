@@ -1,23 +1,14 @@
 ---
-title: OneDrive for Business | Microsoft Docs
-description: Create Logic apps with Azure App service. Connect to OneDrive for Business to manage your files. You can perform various actions such as upload, update, get, and delete on files.
+title: Connect to OneDrive for Business
+description: Upload and manage files with OneDrive for Business REST APIs and Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: MandiOhlinger
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: cf9484e9-7a20-4de0-93c8-0fa132221f2b
-ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
-
+tags: connectors
 ---
+
 # Get started with the OneDrive for Business connector
 Connect to OneDrive for Business to manage your files. You can perform various actions such as upload, update, get, and delete on files.
 

@@ -1,92 +1,178 @@
 ---
-title: Learn how to use the FTP connector in logic apps| Microsoft Docs
-description: Create logic apps with Azure App service. Connect to FTP server to manage your files. You can perform various actions such as upload, update, get, and delete files in FTP server.
+title: Connect to FTP server
+description: Automate tasks and workflows that create, monitor, and manage files on an FTP server by using Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
-editor: ''
+ms.suite: integration
+ms.reviewer: klam, logicappspm
+ms.topic: conceptual
+ms.date: 12/15/2019
 tags: connectors
-
-ms.assetid: d83c55fe-eb59-4b7b-a5ec-afac5c772616
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 07/22/2016
-ms.author: mandia; ladocs
-
 ---
-# Get started with the FTP connector
-Use the FTP connector to monitor, manage and create files on an  FTP server. 
 
-To use [any connector](apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+# Create, monitor, and manage FTP files by using Azure Logic Apps
+
+With Azure Logic Apps and the FTP connector, you can create automated tasks and workflows that create, monitor, send, and receive files through your account on an FTP server, along with other actions, for example:
+
+* Monitor when files are added or changed.
+* Get, create, copy, update, list, and delete files.
+* Get file content and metadata.
+* Extract archives to folders.
+
+You can use triggers that get responses from your FTP server and make the output available to other actions. You can use run actions in your logic apps for managing files on your FTP server. You can also have other actions use the output from FTP actions. For example, if you regularly get files from your FTP server, you can send email about those files and their content by using the Office 365 Outlook connector or Outlook.com connector. If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+
+## Limitations
+
+* The FTP connector supports only explicit FTP over TLS/SSL (FTPS) and isn't compatible with implicit FTPS.
+
+* By default, FTP actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB, FTP actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get file content** action implicitly uses chunking.
+
+* FTP triggers don't support chunking. When requesting file content, triggers select only files that are 50 MB or smaller. To get files larger than 50 MB, follow this pattern:
+
+  * Use an FTP trigger that returns file properties, such as **When a file is added or modified (properties only)**.
+
+  * Follow the trigger with the FTP **Get file content** action, which reads the complete file and implicitly uses chunking.
+
+* If you have an on-premises FTP server, consider creating an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) or using [Azure App Service Hybrid connections](../app-service/app-service-hybrid-connections.md), which both let you access on-premises data sources without using an on-premises data gateway.
+
+## How FTP triggers work
+
+FTP triggers work by polling the FTP file system and looking for any file that was changed since the last poll. Some tools let you preserve the timestamp when the files change. In these cases, you have to disable this feature so your trigger can work. Here are some common settings:
+
+| SFTP client | Action |
+|-------------|--------|
+| Winscp | Go to **Options** > **Preferences** > **Transfer** > **Edit** > **Preserve timestamp** > **Disable** |
+| FileZilla | Go to **Transfer** > **Preserve timestamps of transferred files** > **Disable** |
+|||
+
+When a trigger finds a new file, the trigger checks that the new file is complete, and not partially written. For example, a file might have changes in progress when the trigger checks the file server. To avoid returning a partially written file, the trigger notes the timestamp for the file that has recent changes, but doesn't immediately return that file. The trigger returns the file only when polling the server again. Sometimes, this behavior might cause a delay that is up to twice the trigger's polling interval.
+
+## Prerequisites
+
+* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+
+* Your FTP host server address and account credentials
+
+  The FTP connector requires that your FTP server is accessible from the internet and set up to operate in *passive* mode. Your credentials let your logic app create a connection and access your FTP account.
+
+* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* The logic app where you want to access your FTP account. To start with an FTP trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use an FTP action, start your logic app with another trigger, for example, the **Recurrence** trigger.
 
 ## Connect to FTP
-Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](connectors-overview.md) provides connectivity between a logic app and another service.  
 
-### Create a connection to FTP
-> [!INCLUDE [Steps to create a connection to FTP](../../includes/connectors-create-api-ftp.md)]
-> 
-> 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## Use a FTP trigger
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+1. Sign in to the [Azure portal](https://portal.azure.com), and open your logic app in Logic App Designer.
 
-> [!IMPORTANT]
-> The FTP connector requires an FTP server that  is accessible from the Internet and is configured to operate with PASSIVE mode. Also, the FTP connector is **not compatible with implicit FTPS (FTP over SSL)**. The FTP connector only supports explicit FTPS (FTP over SSL).  
-> 
-> 
+1. For blank logic apps, in the search box, enter `ftp` as your filter. From the **Triggers** list, select the trigger that you want.
 
-In this example, I will show you how to use the **FTP - When a file is added or modified** trigger to initiate a logic app workflow when a file is added to, or modified on, an FTP server. In an enterprise example, you could use this trigger to monitor an FTP folder for new files that represent orders from customers.  You could then use an FTP connector action such as **Get file content** to get the contents of the order for further processing and storage in your orders database.
+   -or-
 
-1. Enter *ftp* in the search box on the logic apps designer then select the **FTP - When a file is added or modified**  trigger   
-   ![FTP trigger image 1](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
-   The **When a file is added or modified** control opens up  
-   ![FTP trigger image 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
-2. Select the **...** located on the right side of the control. This opens the folder picker control  
-   ![FTP trigger image 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
-3. Select the **>** (right arrow) and browse to find the folder that you want to monitor for new or modified files. Select the folder and notice the folder is now displayed in the **Folder** control.  
-   ![FTP trigger image 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)   
+   For existing logic apps, under the last step where you want to add an action, select **New step**, and then select **Add an action**. In the search box, enter `ftp` as your filter. From the **Actions** list, select the action that you want.
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a file is either modified or created in the specific FTP folder. 
+   To add an action between steps, move your pointer over the arrow between steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
+
+1. Provide your connection information, and select **Create**.
+
+1. Provide the information for your selected trigger or action and continue building your logic app's workflow.
+
+## Examples
+
+<a name="file-added-modified"></a>
+
+### Add FTP trigger
+
+The **When a file is added or modified (properties only)** trigger starts a logic app workflow when the trigger detects that a file is added or changed on an FTP server. For example, you can add a condition that checks the file's content and decides whether to get that content, based on whether that content meets a specified condition. Finally, you can add an action that gets the file's content, and put that content into a different folder on the SFTP server.
+
+For example, you can use this trigger to monitor an FTP folder for new files that describe customer orders. You can then use an FTP action such as **Get file metadata** to get the properties for that new file, and then use **Get file content** to get the content from that file for further processing and store that order in an orders database.
+
+Here is an example that shows how to use the **When a file is added or modified (properties only)** trigger.
+
+1. Sign in to the [Azure portal](https://portal.azure.com), and open your logic app in Logic App Designer, if not open already.
+
+1. For blank logic apps, in the search box, enter `ftp` as your filter. Under the triggers list, select this trigger: **When a filed is added or modified (properties only)**
+
+   ![Find and select the FTP trigger](./media/connectors-create-api-ftp/select-ftp-trigger-logic-app.png)
+
+1. Provide the necessary details for your connection, and then select **Create**.
+
+   By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, select **Binary Transport**.
+
+   ![Create connection to FTP server](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)
+
+1. In the **Folder** box, select the folder icon so that a list appears. To find the folder you want to monitor for new or edited files, select the right angle arrow (**>**), browse to that folder, and then select the folder.
+
+   ![Find and select folder to monitor](./media/connectors-create-api-ftp/select-folder-ftp-trigger.png)
+
+   Your selected folder appears in the **Folder** box.
+
+   ![Selected folder appears in the "Folder" property](./media/connectors-create-api-ftp/selected-folder-ftp-trigger.png)
+
+1. Save your logic app. On the designer toolbar, select **Save**.
+
+Now that your logic app has a trigger, add the actions you want to run when your logic app finds a new or edited file. For this example, you can add an FTP action that gets the new or updated content.
+
+<a name="get-content"></a>
+
+### Add FTP action
+
+The **Get file metadata** action gets the properties for a file that's on your FTP server and the **Get file content** action gets the file content based on the information about that file on your FTP server. For example, you can add the trigger from the previous example and these actions to get the file's content after that file is added or edited.
+
+1. Under the trigger or any other actions, select **New step**.
+
+1. In the search box, enter `ftp` as your filter. Under the actions list, select this action: **Get file metadata**
+
+   ![Select the "Get file metadata" action](./media/connectors-create-api-ftp/select-get-file-metadata-ftp-action.png)
+
+1. If you already have a connection to your FTP server and account, go to the next step. Otherwise, provide the necessary details for that connection, and then select **Create**.
+
+   ![Create FTP server connection](./media/connectors-create-api-ftp/create-ftp-connection-action.png)
+
+1. After the **Get file metadata** action appears, click inside the **File** box so that the dynamic content list appears. You can now select properties for the outputs from previous steps. In the dynamic content list, under **Get file metadata**, select the **List of Files Id** property, which references the collection where the file was added or updated.
+
+   ![Find and select "List of Files Id" property](./media/connectors-create-api-ftp/select-list-of-files-id-output.png)
+
+   The **List of Files Id** property now appears in the **File** box.
+
+   ![Selected "List of Files Id" property](./media/connectors-create-api-ftp/selected-list-file-ids-ftp-action.png)
+
+1. Now add this FTP action: **Get file content**
+
+   ![Find and select the "Get file content" action](./media/connectors-create-api-ftp/select-get-file-content-ftp-action.png)
+
+1. After the **Get file content** action appears, click inside the **File** box so that the dynamic content list appears. You can now select properties for the outputs from previous steps. In the dynamic content list, under **Get file metadata**, select the **Id** property, which references the file that was added or updated.
+
+   ![Find and select "Id" property](./media/connectors-create-api-ftp/get-file-content-id-output.png)
+
+   The **Id** property now appears in the **File** box.
+
+   ![Selected "Id" property](./media/connectors-create-api-ftp/selected-get-file-content-id-ftp-action.png)
+
+1. Save your logic app.
+
+## Test your logic app
+
+To check that your workflow returns the content that you expect, add another action that sends you the content from the uploaded or updated file.
+
+1. Under the **Get file content** action, add an action that can send you the file's contents. This example adds the **Send an email** action for the Office 365 Outlook.
+
+   ![Add an action for sending email](./media/connectors-create-api-ftp/select-send-email-action.png)
+
+1. After the action appears, provide the information and include the properties that you want to test. For example, include the **File content** property, which appears in the dynamic content list after you select **See more** in the **Get file content** section.
+
+   ![Provide information about email action](./media/connectors-create-api-ftp/selected-send-email-action.png)
+
+1. Save your logic app. To run and trigger the logic app, on the toolbar, select **Run**, and then add a file to the FTP folder that your logic app now monitors.
+
+## Connector reference
+
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/ftpconnector/).
 
 > [!NOTE]
-> For a logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
-> 
-> 
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
-## Use a FTP action
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+## Next steps
 
-Now that you have added a trigger, follow these steps to add an action that will get the contents of the new or modified file found by the trigger.    
-
-1. Select **+ New step** to add the the action to get the contents of the file on the FTP server  
-2. Select the **Add an action** link.  
-   ![FTP action image 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
-3. Enter *FTP* to search for all actions related to FTP.
-4. Select **FTP - Get file content**  as the action to take when a new or modified file is found in the FTP folder.      
-   ![FTP action image 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
-   The **Get file content** control opens. **Note**: you will be prompted to authorize your logic app to access your FTP server account if you have not done so previously.  
-   ![FTP action image 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Select the **File** control (the white space located below **FILE***). Here, you can use any of the various properties from the new or modified file found on the FTP server.  
-6. Select the **File content** option.  
-   ![FTP action image 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
-7. The control is updated, indicating that the **FTP - Get file content** action will get the *file content* of the new or modified file on the FTP server.      
-   ![FTP action image 5](./media/connectors-create-api-ftp/ftp-action-5.png)     
-8. Save your work then add a file to the FTP folder to test your workflow.    
-
-At this point, the logic app has been configured with a trigger to monitor a folder on an FTP server and initiate the workflow when it finds either a new file or a modified file on the FTP server. 
-
-The logic app also has been configured with an action to get the contents of the new or modified file.
-
-You can now add another action such as the [SQL Server - insert row](connectors-create-api-sqlazure.md) action to insert the contents of the new or modified file into a SQL database table.  
-
-## Connector-specific details
-
-View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/ftpconnector/). 
-
-## Next Steps
-[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
 

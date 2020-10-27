@@ -1,21 +1,11 @@
 ---
-title: How to specify the port number of a service using parameters in Azure Service Fabric | Microsoft Docs
+title: Specify port number of a service using parameters
 description: Shows you how to use parameters to specify the port for an application in Service Fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: markfuss
-editor: ''
 
-ms.service: service-fabric
-
-ms.devlang: dotNet
-ms.topic: article
-ms.tgt_pltfrm: NA
-
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: mikhegn
-
 ---
 # How to specify the port number of a service using parameters in Service Fabric
 
@@ -80,7 +70,7 @@ In this example, you set the port number for your asp.net core web API using a p
 
     ```xml
       <Parameters>
-        <Parameter Name="MyWebAPI_PortNumber" DefaultValue="80" />
+        <Parameter Name="MyWebAPI_PortNumber" Value="80" />
       </Parameters>
     ```
 

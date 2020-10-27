@@ -1,32 +1,42 @@
-# Internet of Things security architecture
+---
+ title: include file
+ description: include file
+ services: iot-fundamentals
+ author: robinsh
+ ms.service: iot-fundamentals
+ ms.topic: include
+ ms.date: 08/07/2018
+ ms.author: robinsh
+ ms.custom: include file
+---
 
 When designing a system, it is important to understand the potential threats to that system, and add appropriate defenses accordingly, as the system is designed and architected. It is important to design the product from the start with security in mind because understanding how an attacker might be able to compromise a system helps make sure appropriate mitigations are in place from the beginning.
 
 ## Security starts with a threat model
 
-Microsoft has long used threat models for its products and has made the company’s threat modeling process publically available. The company experience demonstrates that the modeling has unexpected benefits beyond the immediate understanding of what threats are the most concerning. For example, it also creates an avenue for an open discussion with others outside the development team, which can lead to new ideas and improvements in the product.
+Microsoft has long used threat models for its products and has made the company’s threat modeling process publicly available. The company experience demonstrates that the modeling has unexpected benefits beyond the immediate understanding of what threats are the most concerning. For example, it also creates an avenue for an open discussion with others outside the development team, which can lead to new ideas and improvements in the product.
 
 The objective of threat modeling is to understand how an attacker might be able to compromise a system and then make sure appropriate mitigations are in place. Threat modeling forces the design team to consider mitigations as the system is designed rather than after a system is deployed. This fact is critically important, because retrofitting security defenses to a myriad of devices in the field is infeasible, error prone and leaves customers at risk.
 
 Many development teams do an excellent job capturing the functional requirements for the system that benefit customers. However, identifying non-obvious ways that someone might misuse the system is more challenging. Threat modeling can help development teams understand what an attacker might do and why. Threat modeling is a structured process that creates a discussion about the security design decisions in the system, as well as changes to the design that are made along the way that impact security. While a threat model is simply a document, this documentation also represents an ideal way to ensure continuity of knowledge, retention of lessons learned, and help new team onboard rapidly. Finally, an outcome of threat modeling is to enable you to consider other aspects of security, such as what security commitments you wish to provide to your customers. These commitments in conjunction with threat modeling inform and drive testing of your Internet of Things (IoT) solution.
 
-### When to threat model
+### When to do threat modeling
 
-[Threat modeling](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) offers the greatest value when you incorporate it into the design phase. When you are designing, you have the greatest flexibility to make changes to eliminate threats. Eliminating threats by design is the desired outcome. It is much easier than adding mitigations, testing them, and ensuring they remain current and moreover, such elimination is not always possible. It becomes harder to eliminate threats as a product becomes more mature, and in turn ultimately requires more work and a lot harder tradeoffs than threat modeling early on in the development.
+[Threat modeling](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) offers the greatest value when you incorporate it into the design phase. When you are designing, you have the greatest flexibility to make changes to eliminate threats. Eliminating threats by design is the desired outcome. It is much easier than adding mitigations, testing them, and ensuring they remain current and moreover, such elimination is not always possible. It becomes harder to eliminate threats as a product becomes more mature, and in turn ultimately requires more work and a lot harder tradeoffs than threat modeling early on in the development.
 
-### What to threat model
+### What to consider for threat modeling
 
-You should threat model the solution as a whole and also focus in the following areas:
+You should look at the solution as a whole and also focus on the following areas:
 
 * The security and privacy features
 * The features whose failures are security relevant
 * The features that touch a trust boundary
 
-### Who threat models
+### Who performs threat modeling
 
 Threat modeling is a process like any other. It is a good idea to treat the threat model document like any other component of the solution and validate it. Many development teams do an excellent job capturing the functional requirements for the system that benefit customers. However, identifying non-obvious ways that someone might misuse the system is more challenging. Threat modeling can help development teams understand what an attacker might do and why.
 
-### How to threat model
+### How to perform threat modeling
 
 The threat modeling process is composed of four steps; the steps are:
 
@@ -40,16 +50,21 @@ The threat modeling process is composed of four steps; the steps are:
 Three rules of thumb to keep in mind when building a threat model:
 
 1. Create a diagram out of reference architecture.
-1. Start breadth-first. Get an overview, and understand the system as a whole, before deep-diving. This approach helps ensure that you deep-dive in the right places.
-1. Drive the process, don’t let the process drive you. If you find an issue in the modeling phase and want to explore it, go for it! Don’t feel you need to follow these steps slavishly.
+
+2. Start breadth-first. Get an overview, and understand the system as a whole, before deep-diving. This approach helps ensure that you deep-dive in the right places.
+
+3. Drive the process, don’t let the process drive you. If you find an issue in the modeling phase and want to explore it, go for it! Don’t feel you need to follow these steps slavishly.
 
 #### Threats
 
 The four core elements of a threat model are:
 
 * Processes such as web services, Win32 services, and *nix daemons. Some complex entities (for example field gateways and sensors) can be abstracted as a process when a technical drill-down in these areas is not possible.
+
 * Data stores (anywhere data is stored, such as a configuration file or database)
+
 * Data flow (where data moves between other elements in the application)
+
 * External Entities (anything that interacts with the system, but is not under the control of the application, examples include users and satellite feeds)
 
 All elements in the architectural diagram are subject to various threats; this article the STRIDE mnemonic. Read [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) to know more about the STRIDE elements.
@@ -84,11 +99,11 @@ The components depicted within each boundary are also subjected to STRIDE, enabl
 
 The following sections discuss standard components typically found in these zones.
 
-### The Device Zone
+### The device zone
 
 The device environment is the immediate physical space around the device where physical access and/or “local network” peer-to-peer digital access to the device is feasible. A “local network” is assumed to be a network that is distinct and insulated from – but potentially bridged to – the public Internet, and includes any short-range wireless radio technology that permits peer-to-peer communication of devices. It does *not* include any network virtualization technology creating the illusion of such a local network and it does also not include public operator networks that require any two devices to communicate across public network space if they were to enter a peer-to-peer communication relationship.
 
-### The Field Gateway Zone
+### The field gateway zone
 
 Field gateway is a device/appliance or some general-purpose server computer software that acts as communication enabler and, potentially, as a device control system and device data processing hub. The field gateway zone includes the field gateway itself and all devices that are attached to it. As the name implies, field gateways act outside dedicated data processing facilities, are usually location bound, are potentially subject to physical intrusion, and has limited operational redundancy. All to say that a field gateway is commonly a thing one can touch and sabotage while knowing what its function is.
 
@@ -96,7 +111,7 @@ A field gateway is different from a mere traffic router in that it has had an ac
 
 ### The cloud gateway zone
 
-Cloud gateway is a system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways. Also in a Cloud Zone, operational measures prevent targeted physical access and are not necessarily exposed to a “public cloud” infrastructure.  
+A cloud gateway is a system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways. Also in a Cloud Zone, operational measures prevent targeted physical access and are not necessarily exposed to a “public cloud” infrastructure.  
 
 A cloud gateway may potentially be mapped into a network virtualization overlay to insulate the cloud gateway and all of its attached devices or field gateways from any other network traffic. The cloud gateway itself is not a device control system or a processing or storage facility for device data; those facilities interface with the cloud gateway. The cloud gateway zone includes the cloud gateway itself along with all field gateways and devices directly or indirectly attached to it. The edge of the zone is a distinct surface area where all external parties communicate through.
 
@@ -118,7 +133,7 @@ Connected special-purpose devices have a significant number of potential interac
 
 As you explore the interaction patterns, look at “device control” and “device data” with the same level of attention while threat modeling. “Device control” can be classified as any information that is provided to a device by any party with the goal of changing or influencing its behavior towards its state or the state of its environment. “Device data” can be classified as any information that a device emits to any other party about its state and the observed state of its environment.
 
-## Threat modeling the Azure IoT reference architecture
+## Performing threat modeling for the Azure IoT reference architecture
 
 Microsoft uses the framework outlined previously to do threat modeling for Azure IoT. The following section uses the concrete example of Azure IoT Reference Architecture to demonstrate how to think about threat modeling for IoT and how to address the threats identified. This example identifies four main areas of focus:
 
@@ -159,16 +174,16 @@ In each of the categories outlined in the Azure IoT architecture, this example t
 
 | **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
 | --- | --- | --- | --- | --- |
-| Device |S |Assigning identity to the device and authenticating the device |Replacing device or part of the device with some other device. How do you know you are talking to the right device? |Authenticating the device, using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
-| TRID |Apply tamperproof mechanisms to the device, for example,  by making it hard to impossible to extract keys and other cryptographic material from the device. |The risk is if someone is tampering the device (physical interference). How are you sure, that device has not been tampered with. |The most effective mitigation is a trusted platform module (TPM) capability that allows storing keys in special on-chip circuitry from which the keys cannot be read, but can only be used for cryptographic operations that use the key but never disclose the key. Memory encryption of the device. Key management for the device. Signing the code. | |
-| E |Having access control of the device. Authorization scheme. |If the device allows for individual actions to be performed based on commands from an outside source, or even compromised sensors, it allows the attack to perform operations not otherwise accessible. |Having authorization scheme for the device | |
+| Device |S |Assigning identity to the device and authenticating the device |Replacing device or part of the device with some other device. How do you know you are talking to the right device? |Authenticating the device, using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
+|| TRID |Apply tamperproof mechanisms to the device, for example,  by making it hard to impossible to extract keys and other cryptographic material from the device. |The risk is if someone is tampering the device (physical interference). How are you sure, that device has not been tampered with. |The most effective mitigation is a trusted platform module (TPM) capability that allows storing keys in special on-chip circuitry from which the keys cannot be read, but can only be used for cryptographic operations that use the key but never disclose the key. Memory encryption of the device. Key management for the device. Signing the code. |
+|| E |Having access control of the device. Authorization scheme. |If the device allows for individual actions to be performed based on commands from an outside source, or even compromised sensors, it allows the attack to perform operations not otherwise accessible. |Having authorization scheme for the device |
 | Field Gateway |S |Authenticating the Field gateway to Cloud Gateway (such as cert based, PSK, or Claim based.) |If someone can spoof Field Gateway, then it can present itself as any device. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). All the same key storage and attestation concerns of devices in general – best case is use TPM. 6LowPAN extension for IPSec to support Wireless Sensor Networks (WSN). |
-| TRID |Protect the Field Gateway against tampering (TPM?) |Spoofing attacks that trick the cloud gateway thinking it is talking to field gateway could result in information disclosure and data tampering |Memory encryption, TPM’s, authentication. | |
-| E |Access control mechanism for Field Gateway | | | |
+|| TRID |Protect the Field Gateway against tampering (TPM?) |Spoofing attacks that trick the cloud gateway thinking it is talking to field gateway could result in information disclosure and data tampering |Memory encryption, TPM’s, authentication. |
+|| E |Access control mechanism for Field Gateway | | |
 
 Here are some examples of threats in this category:
 
-Spoofing: An attacker may extract cryptographic key material from a device, either at the software or hardware level, and subsequently access the system with a different physical or virtual device under the identity of the device the key material has been taken from.
+**Spoofing**: An attacker may extract cryptographic key material from a device, either at the software or hardware level, and subsequently access the system with a different physical or virtual device under the identity of the device the key material has been taken from.
 
 **Denial of Service**: A device can be rendered incapable of functioning or communicating by interfering with radio frequencies or cutting wires. For example, a surveillance camera that had its power or network connection intentionally knocked out cannot report data, at all.
 
@@ -203,7 +218,7 @@ Threats around communication path between devices, devices and field gateways, a
 | **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
 | --- | --- | --- | --- | --- |
 | Device IoT Hub |TID |(D)TLS (PSK/RSA) to encrypt the traffic |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level. With custom protocols, you need to figure out how to protect them. In most cases, the communication takes place from the device to the IoT Hub (device initiates the connection). |
-| Device Device |TID |(D)TLS (PSK/RSA) to encrypt the traffic. |Reading data in transit between devices. Tampering with the data. Overloading the device with new connections |Security on the protocol level (MQTT/AMQP/HTTP/CoAP. With custom protocols, you need to figure out how to protect them. The mitigation for the DoS threat is to peer devices through a cloud or field gateway and have them only act as clients towards the network. The peering may result in a direct connection between the peers after having been brokered by the gateway |
+| Device to Device |TID |(D)TLS (PSK/RSA) to encrypt the traffic. |Reading data in transit between devices. Tampering with the data. Overloading the device with new connections |Security on the protocol level (MQTT/AMQP/HTTP/CoAP. With custom protocols, you need to figure out how to protect them. The mitigation for the DoS threat is to peer devices through a cloud or field gateway and have them only act as clients towards the network. The peering may result in a direct connection between the peers after having been brokered by the gateway |
 | External Entity Device |TID |Strong pairing of the external entity to the device |Eavesdropping the connection to the device. Interfering the communication with the device |Securely pairing the external entity to the device NFC/Bluetooth LE. Controlling the operational panel of the device (Physical) |
 | Field Gateway Cloud Gateway |TID |TLS (PSK/RSA) to encrypt the traffic. |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level (MQTT/AMQP/HTTP/CoAP). With custom protocols, you need to figure out how to protect them. |
 | Device Cloud Gateway |TID |TLS (PSK/RSA) to encrypt the traffic. |Eavesdropping or interfering the communication between the device and the gateway |Security on the protocol level (MQTT/AMQP/HTTP/CoAP). With custom protocols, you need to figure out how to protect them. |
@@ -234,15 +249,15 @@ Every device and field gateway has some form of storage (temporary for queuing t
 
 ### Device and event processing/cloud gateway zone
 
-A cloud gateway is system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways, and where operational measures prevent targeted physical access but is not necessarily to a “public cloud” infrastructure. A cloud gateway may potentially be mapped into a network virtualization overlay to insulate the cloud gateway and all of its attached devices or field gateways from any other network traffic. The cloud gateway itself is not a device control system or a processing or storage facility for device data; those facilities interface with the cloud gateway. The cloud gateway zone includes the cloud gateway itself along with all field gateways and devices directly or indirectly attached to it.
+A cloud gateway is a system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways, and where operational measures prevent targeted physical access but is not necessarily to a “public cloud” infrastructure. A cloud gateway may potentially be mapped into a network virtualization overlay to insulate the cloud gateway and all of its attached devices or field gateways from any other network traffic. The cloud gateway itself is not a device control system or a processing or storage facility for device data; those facilities interface with the cloud gateway. The cloud gateway zone includes the cloud gateway itself along with all field gateways and devices directly or indirectly attached to it.
 
-Cloud gateway is mostly custom built piece of software running as a service with exposed endpoints to which field gateway and devices connect. As such it must be designed with security in mind. Follow [SDL](http://www.microsoft.com/sdl) process for designing and building this service.
+Cloud gateway is mostly custom built piece of software running as a service with exposed endpoints to which field gateway and devices connect. As such it must be designed with security in mind. Follow [SDL](https://www.microsoft.com/sdl) process for designing and building this service.
 
 #### Services zone
 
 A control system (or controller) is a software solution that interfaces with a device, or a field gateway, or cloud gateway for the purpose of controlling one or multiple devices and/or to collect and/or store and/or analyze device data for presentation, or subsequent control purposes. Control systems are the only entities in the scope of this discussion that may immediately facilitate interaction with people. The exceptions are intermediate physical control surfaces on devices, like a switch that allows a person to turn off the device or change other properties, and for which there is no functional equivalent that can be accessed digitally.
 
-Intermediate physical control surfaces are those where governing logic constrains the function of the physical control surface such that an equivalent function can be initiated remotely or input conflicts with remote input can be avoided – such intermediated control surfaces are conceptually attached to a local control system that leverages the same underlying functionality as any other remote control system that the device may be attached to in parallel. Top threats to the cloud computing can be read at [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) page.
+Intermediate physical control surfaces are those where governing logic constrains the function of the physical control surface such that an equivalent function can be initiated remotely or input conflicts with remote input can be avoided – such intermediated control surfaces are conceptually attached to a local control system that leverages the same underlying functionality as any other remote control system that the device may be attached to in parallel. Top threats to the cloud computing can be read at [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/articles/csa-releases-top-threats-to-cloud-computing-deep-dive/) page.
 
 ## Additional resources
 

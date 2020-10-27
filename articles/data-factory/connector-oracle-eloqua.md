@@ -1,32 +1,32 @@
 ---
-title: Copy data from Oracle Eloqua using Azure Data Factory (Beta) | Microsoft Docs
+title: Copy data from Oracle Eloqua (Preview)
 description: Learn how to copy data from Oracle Eloqua to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: jhubbard
-editor: spelluru
-
+manager: shwang
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
-ms.author: jingwang
-
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 08/01/2019
 ---
-# Copy data from Oracle Eloqua using Azure Data Factory (Beta)
+
+# Copy data from Oracle Eloqua using Azure Data Factory (Preview)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Oracle Eloqua. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
-
 > [!IMPORTANT]
-> This connector is currently in Beta. You can try it out and provide feedback. Do not use it in production environments.
+> This connector is currently in preview. You can try it out and provide feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 ## Supported capabilities
+
+This Oracle Eloqua connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from Oracle Eloqua to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -45,12 +45,12 @@ The following properties are supported for Oracle Eloqua linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Eloqua** | Yes |
-| endpoint | The endpoint of the Eloqua server. (that is, eloqua.example.com)  | Yes |
-| username | The site name and user name of your Eloqua account in the form: site name/user name. (that is, Eloqua/Alice)  | Yes |
+| endpoint | The endpoint of the Eloqua server. Eloqua supports multiple data centers, to determine your endpoint, login to https://login.eloqua.com with your credential, then copy the **base URL** portion from the redirected URL with the pattern of `xxx.xxx.eloqua.com`. | Yes |
+| username | The site name and user name of your Eloqua account in the form: `SiteName\Username` e.g. `Eloqua\Alice`.  | Yes |
 | password | The password corresponding to the user name. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
-| useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
-| usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |
+| useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over TLS. The default value is true.  | No |
+| usePeerVerification | Specifies whether to verify the identity of the server when connecting over TLS. The default value is true.  | No |
 
 **Example:**
 
@@ -60,8 +60,8 @@ The following properties are supported for Oracle Eloqua linked service:
     "properties": {
         "type": "Eloqua",
         "typeProperties": {
-            "endpoint" : "eloqua.example.com",
-            "username" : "Eloqua/Alice",
+            "endpoint" : "<base URL e.g. xxx.xxx.eloqua.com>",
+            "username" : "<site name>\\<user name e.g. Eloqua\\Alice>",
             "password": {
                  "type": "SecureString",
                  "value": "<password>"
@@ -75,7 +75,12 @@ The following properties are supported for Oracle Eloqua linked service:
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Oracle Eloqua dataset.
 
-To copy data from Oracle Eloqua, set the type property of the dataset to **EloquaObject**. There is no additional type-specific property in this type of dataset.
+To copy data from Oracle Eloqua, set the type property of the dataset to **EloquaObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **EloquaObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -84,6 +89,8 @@ To copy data from Oracle Eloqua, set the type property of the dataset to **Eloqu
     "name": "EloquaDataset",
     "properties": {
         "type": "EloquaObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Eloqua linked service name>",
             "type": "LinkedServiceReference"
@@ -96,14 +103,14 @@ To copy data from Oracle Eloqua, set the type property of the dataset to **Eloqu
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Oracle Eloqua source.
 
-### EloquaSource as source
+### Eloqua as source
 
 To copy data from Oracle Eloqua, set the source type in the copy activity to **EloquaSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **EloquaSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Accounts"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Accounts"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
@@ -136,6 +143,11 @@ To copy data from Oracle Eloqua, set the source type in the copy activity to **E
     }
 ]
 ```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 
 ## Next steps
 For a list of supported data stored by Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

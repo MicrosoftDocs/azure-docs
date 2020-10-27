@@ -1,18 +1,18 @@
 ---
-title: Move data from Teradata using Azure Data Factory | Microsoft Docs
+title: Move data from Teradata using Azure Data Factory 
 description: Learn about Teradata Connector for the Data Factory service that lets you move data from Teradata Database
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: shwang
+
 
 ms.assetid: 98eb76d8-5f3d-4667-b76e-e59ed3eea3ae
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+
+
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 
@@ -20,15 +20,15 @@ robots: noindex
 ---
 # Move data from Teradata using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-onprem-teradata-connector.md)
-> * [Version 2 - Preview](../connector-teradata.md)
+> * [Version 1](data-factory-onprem-teradata-connector.md)
+> * [Version 2 (current version)](../connector-teradata.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Teradata connector in V2](../connector-teradata.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Teradata connector in V2](../connector-teradata.md).
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises Teradata database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
-You can copy data from an on-premises Teradata data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from a Teradata data store to other data stores, but not for moving data from other data stores to a Teradata data store. 
+You can copy data from an on-premises Teradata data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. Data factory currently supports only moving data from a Teradata data store to other data stores, but not for moving data from other data stores to a Teradata data store.
 
 ## Prerequisites
 Data factory supports connecting to on-premises Teradata sources via the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway.
@@ -39,21 +39,21 @@ Gateway is required even if the Teradata is hosted in an Azure IaaS VM. You can 
 > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Supported versions and installation
-For Data Management Gateway to connect to the Teradata Database, you need to install the [.NET Data Provider for Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) version 14 or above on the same system as the Data Management Gateway. Teradata version 12 and above is supported.
+For Data Management Gateway to connect to the Teradata Database, you need to install the [.NET Data Provider for Teradata](https://go.microsoft.com/fwlink/?LinkId=278886) version 14 or above on the same system as the Data Management Gateway. Teradata version 12 and above is supported.
 
 ## Getting started
-You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs. 
+You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs.
 
-- The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
-- You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+- The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+- You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
 1. Create **linked services** to link input and output data stores to your data factory.
-2. Create **datasets** to represent input and output data for the copy operation. 
-3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. 
+2. Create **datasets** to represent input and output data for the copy operation.
+3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an on-premises Teradata data store, see [JSON example: Copy data from Teradata to Azure Blob](#json-example-copy-data-from-teradata-to-azure-blob) section of this article. 
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an on-premises Teradata data store, see [JSON example: Copy data from Teradata to Azure Blob](#json-example-copy-data-from-teradata-to-azure-blob) section of this article.
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to a Teradata data store:
 
@@ -86,7 +86,7 @@ When the source is of type **RelationalSource** (which includes Teradata), the f
 | query |Use the custom query to read data. |SQL query string. For example: select * from MyTable. |Yes |
 
 ### JSON example: Copy data from Teradata to Azure Blob
-The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from Teradata to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.   
+The following example provides sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from Teradata to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 The sample has the following data factory entities:
 
@@ -255,7 +255,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
                     {
                         "name": "AzureBlobTeradataDataSet"
                     }
-                ],                    
+                ],
                 "policy": {
                     "timeout": "01:00:00",
                     "concurrency": 1

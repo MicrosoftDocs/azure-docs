@@ -1,27 +1,19 @@
 ---
-title: Use Docker Machine to create Linux hosts in Azure | Microsoft Docs
+title: Use Docker Machine to create Linux hosts
 description: Describes how to use Docker Machine to create Docker hosts in Azure.
-services: virtual-machines-linux
-documentationcenter: ''
-author: iainfoulds
-manager: jeconnoc
-editor: tysonn
-
-ms.assetid: 164b47de-6b17-4e29-8b7d-4996fa65bea4
+author: cynthn
 ms.service: virtual-machines-linux
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
+ms.topic: how-to
 ms.date: 12/15/2017
-ms.author: iainfou
+ms.author: cynthn
 
 ---
 # How to use Docker Machine to create hosts in Azure
 This article details how to use [Docker Machine](https://docs.docker.com/machine/) to create hosts in Azure. The `docker-machine` command creates a Linux virtual machine (VM) in Azure then installs Docker. You can then manage your Docker hosts in Azure using the same local tools and workflows. To use docker-machine in Windows 10, you must use Linux bash.
 
 ## Create VMs with Docker Machine
-First, obtain your Azure subscription ID with [az account show](/cli/azure/account#az_account_show) as follows:
+First, obtain your Azure subscription ID with [az account show](/cli/azure/account) as follows:
 
 ```azurecli
 sub=$(az account show --query "id" -o tsv)
@@ -36,7 +28,7 @@ docker-machine create -d azure \
     --azure-subscription-id $sub \
     --azure-ssh-user azureuser \
     --azure-open-port 80 \
-    --azure-size "Standard_D2_v2" \
+    --azure-size "Standard_DS2_v2" \
     myvm
 ```
 
@@ -133,4 +125,4 @@ To see the container in action, open a web browser and enter the public IP addre
 ![Running ngnix container](./media/docker-machine/nginx.png)
 
 ## Next steps
-You can also create hosts with the [Docker VM Extension](dockerextension.md). For examples on using Docker Compose, see [Get started with Docker and Compose in Azure](docker-compose-quickstart.md).
+For examples on using Docker Compose, see [Get started with Docker and Compose in Azure](docker-compose-quickstart.md).

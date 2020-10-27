@@ -1,5 +1,17 @@
-The virtual network gateway uses specific subnet called the 'gateway subnet'. You must always create a gateway subnet if you want to create a VPN gateway connection. The IP addresses that are specified in the gateway subnet are part of the virtual network IP address range that you specify when configuring your virtual network. Some of the resources and services that are used by the VPN gateway require IP addresses. Gateway subnet IP addresses are allocated to these gateway services. For this reason, never deploy anything directly to the gateway subnet, such as VMs or any other resources.
+---
+ title: include file
+ description: include file
+ services: vpn-gateway
+ author: cherylmc
+ ms.service: vpn-gateway
+ ms.topic: include
+ ms.date: 09/24/2019
+ ms.author: cherylmc
+ ms.custom: include file
+---
 
-When you create a gateway subnet, you specify the number of IP addresses that the gateway subnet contains. The size of the gateway subnet that you specify depends on the VPN gateway configuration that you want to create. Some configurations require more IP addresses than others. The instructions in the article specify when a certain sized gateway subnet is required. While it is technically possible to create a gateway subnet as small as /29, we recommend that in general, you create a larger subnet that includes more addresses by selecting /27 or /28. Using a larger gateway subnet allows for enough IP addresses to be allocated to the gateway services to accommodate possible future configurations.
+The virtual network gateway uses specific subnet called the gateway subnet. The gateway subnet is part of the virtual network IP address range that you specify when configuring your virtual network. It contains the IP addresses that the virtual network gateway resources and services use. The subnet must be named 'GatewaySubnet' in order for Azure to deploy the gateway resources. You can't specify a different subnet to deploy the gateway resources to. If you don't have a subnet named 'GatewaySubnet', when you create your VPN gateway, it will fail.
 
-When you create a gateway subnet, it must be named 'GatewaySubnet'. Naming subnet 'GatewaySubnet' tells Azure where to create the gateway services. If you name the subnet something else, your VPN gateway configuration will fail.
+When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The number of IP addresses needed depends on the VPN gateway configuration that you want to create. Some configurations require more IP addresses than others. We recommend that you create a gateway subnet that uses a /27 or /28.
+
+If you see an error that specifies that the address space overlaps with a subnet, or that the subnet is not contained within the address space for your virtual network, check your VNet address range. You may not have enough IP addresses available in the address range you created for your virtual network. For example, if your default subnet encompasses the entire address range, there are no IP addresses left to create additional subnets. You can either adjust your subnets within the existing address space to free up IP addresses, or specify an additional address range and create the gateway subnet there.

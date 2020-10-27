@@ -1,17 +1,17 @@
 ---
-title: Move data from SAP HANA using Azure Data Factory | Microsoft Docs
+title: Move data from SAP HANA using Azure Data Factory 
 description: Learn about how to move data from SAP HANA using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
+manager: shwang
 editor: 
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+
+
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 
@@ -19,11 +19,11 @@ robots: noindex
 ---
 # Move data From SAP HANA using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-sap-hana-connector.md)
-> * [Version 2 - Preview](../connector-sap-hana.md)
+> * [Version 1](data-factory-sap-hana-connector.md)
+> * [Version 2 (current version)](../connector-sap-hana.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [SAP HANA connector in V2](../connector-sap-business-warehouse.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [SAP HANA connector in V2](../connector-sap-business-warehouse.md).
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises SAP HANA. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
@@ -40,7 +40,7 @@ To enable the connectivity to the SAP HANA instance, install the following compo
 You can create a pipeline with a copy activity that moves data from an on-premises SAP HANA data store by using different tools/APIs. 
 
 - The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
-- You can also use the following tools to create a pipeline: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+- You can also use the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager template**, **.NET API**, and **REST API**. See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -82,7 +82,7 @@ When source in copy activity is of type **RelationalSource** (which includes SAP
 | query | Specifies the SQL query to read data from the SAP HANA instance. | SQL query. | Yes |
 
 ## JSON example: Copy data from SAP HANA to Azure Blob
-The following sample provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). This sample shows how to copy data from an on-premises SAP HANA to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks listed [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
+The following sample provides sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). This sample shows how to copy data from an on-premises SAP HANA to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks listed [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
 
 > [!IMPORTANT]
 > This sample provides JSON snippets. It does not include step-by-step instructions for creating the data factory. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions.

@@ -1,36 +1,45 @@
 ---
-title: Copy data from Web Table using Azure Data Factory | Microsoft Docs
+title: Copy data from Web Table using Azure Data Factory 
 description: Learn about Web Table Connector of Azure Data Factory that lets you copy data from a web table to data stores supported by Data Factory as sinks. 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: shwang
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/05/2018
+
+
+ms.topic: conceptual
+ms.date: 08/01/2019
 ms.author: jingwang
 
 ---
 # Copy data from Web table by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-web-table-connector.md)
-> * [Version 2 - Preview](connector-web-table.md)
+> * [Version 1](v1/data-factory-web-table-connector.md)
+> * [Current version](connector-web-table.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a Web table database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Web Table connector in V1](v1/data-factory-web-table-connector.md).
+The difference among this Web table connector, the [REST connector](connector-rest.md) and the [HTTP connector](connector-http.md) are:
+
+- **Web table connector** extracts table content from an HTML webpage.
+- **REST connector** specifically support copying data from RESTful APIs.
+- **HTTP connector** is generic to retrieve data from any HTTP endpoint, e.g. to download file. 
 
 ## Supported capabilities
 
+This Web table connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from Web table database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this Web table connector supports **extracting table content from an HTML page**. To retrieve data from a HTTP/s endpoint, use [HTTP connector](connector-http.md) instead.
+Specifically, this Web table connector supports **extracting table content from an HTML page**.
 
 ## Prerequisites
 
@@ -38,7 +47,7 @@ To use this Web table connector, you need to set up a Self-hosted Integration Ru
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Web table connector.
 
@@ -74,9 +83,9 @@ The following properties are supported for Web table linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Web table dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Web table dataset.
 
-To copy data from Web table, set the type property of the dataset to **RelationalTable**. The following properties are supported:
+To copy data from Web table, set the type property of the dataset to **WebTable**. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -91,10 +100,14 @@ To copy data from Web table, set the type property of the dataset to **Relationa
     "name": "WebTableInput",
     "properties": {
         "type": "WebTable",
-        "linkedServiceName": "WebLinkedService",
         "typeProperties": {
             "index": 1,
             "path": "AFI's_100_Years...100_Movies"
+        },
+        "schema": [],
+        "linkedServiceName": {
+            "referenceName": "<Web linked service name>",
+            "type": "LinkedServiceReference"
         }
     }
 }
@@ -141,6 +154,8 @@ To copy data from Web table, set the source type in the copy activity to **WebSo
 
 ## Get index of a table in an HTML page
 
+To get the index of a table which you need to configure in [dataset properties](#dataset-properties), you can use e.g. Excel 2016 as the tool as follows:
+
 1. Launch **Excel 2016** and switch to the **Data** tab.
 2. Click **New Query** on the toolbar, point to **From Other Sources** and click **From Web**.
 
@@ -165,6 +180,10 @@ To copy data from Web table, set the source type in the copy activity to **WebSo
 
 If you are using Excel 2013, use [Microsoft Power Query for Excel](https://www.microsoft.com/download/details.aspx?id=39379) to get the index. See [Connect to a web page](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) article for details. The steps are similar if you are using [Microsoft Power BI for Desktop](https://powerbi.microsoft.com/desktop/).
 
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,17 +1,17 @@
 ---
-title: High availability with data management gateway in Azure Data Factory | Microsoft Docs
+title: High availability with data management gateway in Azure Data Factory 
 description: This article explains how you can scale out a data management gateway by adding more nodes and scale up by increasing number of concurrent jobs that can run on a node.    
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
+manager: anandsub
 editor: 
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+
+
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 
@@ -19,15 +19,15 @@ robots: noindex
 ---
 # Data Management Gateway - high availability and scalability (Preview)
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [self-hosted integration runtime in version 2](../create-self-hosted-integration-runtime.md). 
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [self-hosted integration runtime in](../create-self-hosted-integration-runtime.md). 
 
 
 This article helps you configure high availability and scalability solution with Data Management Gateway/ Integration.    
 
 > [!NOTE]
 > This article assumes that you are already familiar with basics of Integration Runtime (Earlier Data Management Gateway). If you are not, see [Data Management Gateway](data-factory-data-management-gateway.md).
-
->**This preview feature is officially supported on Data Management Gateway version 2.12.xxxx.x and above**. Please make sure you are using version 2.12.xxxx.x or above. Download the latest version of Data Management Gateway [here](https://www.microsoft.com/download/details.aspx?id=39717).
+> 
+> **This preview feature is officially supported on Data Management Gateway version 2.12.xxxx.x and above**. Please make sure you are using version 2.12.xxxx.x or above. Download the latest version of Data Management Gateway [here](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## Overview
 You can associate data management gateways that are installed on multiple on-premises machines with a single logical gateway from the portal. These machines are called **nodes**. You can have up to **four nodes** associated with a logical gateway. The benefits of having multiple nodes (on-premises machines with gateway installed) for a logical gateway are:  
@@ -160,12 +160,12 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 
 - The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public (third-party) certification authority (CA).
 - Each integration runtime node must trust this certificate, as well as the client machine that is running the credential manager application. 
-> [!NOTE]
-> Credential manager application is used while securely setting credential from Copy Wizard/ Azure Portal. And this can be fired from any machine within the same network as the on premise/ private data store.
+  > [!NOTE]
+  > Credential manager application is used while securely setting credential from Copy Wizard/ Azure Portal. And this can be fired from any machine within the same network as the on-premises/ private data store.
 - Wild card certificates are supported. If your FQDN name is **node1.domain.contoso.com**, you can use ***.domain.contoso.com** as subject name of the certificate.
 - SAN certificates are not recommended since only the last item of the Subject Alternative Names will be used and all others will be ignored due to current limitation. E.g. you have a SAN certificate whose SAN are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can only use this cert on machine whose FQDN is **node2.domain.contoso.com**.
-- Supports any key size supported by Windows Server 2012 R2 for SSL certificates.
-- Certificate using CNG keys are not supported. Doesrted DoesDoes not support certificates that use CNG keys.
+- Supports any key size supported by Windows Server 2012 R2 for TLS/SSL certificates.
+- Certificate using CNG keys are not supported.
 
 #### FAQ: When would I not enable this encryption?
 Enabling encryption can add certain cost to your infrastructure (owning public certificate) hence you may skip enabling encryption in the below cases:
@@ -240,7 +240,7 @@ When the available memory and CPU are not utilized well, but the idle capacity i
 - You cannot re-register a gateway node with the authentication key from another logical gateway to switch from the current logical gateway. To re-register, uninstall the gateway from the node, reinstall the gateway, and register it with the authentication key for the other logical gateway. 
 - If HTTP proxy is required for all your gateway nodes, set the proxy in diahost.exe.config and diawp.exe.config, and use the server manager to make sure all nodes have the same diahost.exe.config and diawip.exe.config. See [configure proxy settings](data-factory-data-management-gateway.md#configure-proxy-server-settings) section for details. 
 - To change encryption mode for node-to-node communication in Gateway Configuration Manager, delete all the nodes in the portal except one. Then, add nodes back after changing the encryption mode.
-- Use an official SSL certificate if you choose to encrypt the node-to-node communication channel. Self-signed certificate may cause connectivity issues as the same certificate may not be trusted in certifying authority list on other machines. 
+- Use an official TLS certificate if you choose to encrypt the node-to-node communication channel. Self-signed certificate may cause connectivity issues as the same certificate may not be trusted in certifying authority list on other machines. 
 - You cannot register a gateway node to a logical gateway when the node version is lower than the logical gateway version. Delete all nodes of the logical gateway from portal so that you can register a lower version node(downgrade) it. If you delete all nodes of a logical gateway, manually install and register new nodes to that logical gateway. Express setup is not supported in this case.
 - You cannot use express setup to install nodes to an existing logical gateway, which is still using cloud credentials. You can check where the credentials are stored from the Gateway Configuration Manager on the Settings tab.
 - You cannot use express setup to install nodes to an existing logical gateway, which has node-to-node encryption enabled. As setting the encryption mode involves manually adding certificates, express install is no more an option. 

@@ -1,91 +1,99 @@
 ---
-title: PHP Quickstart for Azure Cognitive Services, Bing Spell Check API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Spell Check API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Check spelling with the REST API and PHP - Bing Spell Check"
+titleSuffix: Azure Cognitive Services
+description: This quickstart shows how a simple PHP application sends a request to the Bing Spell Check API and returns a list of suggested corrections.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: spellcheck
-ms.topic: article
-ms.date: 09/14/2017
-ms.author: v-jaswel
-
+ms.subservice: bing-spell-check
+ms.topic: quickstart
+ms.date: 05/21/2020
+ms.author: aahi
 ---
-# Quickstart for Bing Spell Check API with PHP 
-<a name="HOLTop"></a>
+# Quickstart: Check spelling with the Bing Spell Check REST API and PHP
 
-This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) with PHP. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!". The suggested replacements will be "Hello" and "world".
+Use this quickstart to make your first call to the Bing Spell Check REST API. This simple PHP application sends a request to the API and returns a list of suggested corrections. 
+
+Although this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
-You will need [PHP 5.6.x](http://php.net/downloads.php) to run this code.
+* [PHP 5.6.x](https://php.net/downloads.php)
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Spell Check API v7**. The [free trial](https://azure.microsoft.com/en-us/try/cognitive-services/#lang) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-## Get Spell Check results
+
+## Get Bing Spell Check REST API results
 
 1. Create a new PHP project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Run the program.
+4. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+5. Run the program.
+    
+    ```php
+    <?php
+    
+    // NOTE: Be sure to uncomment the following line in your php.ini file.
+    // ;extension=php_openssl.dll
+    
+    // These properties are used for optional headers (see below).
+    // define("CLIENT_ID", "<Client ID from Previous Response Goes Here>");
+    // define("CLIENT_IP", "999.999.999.999");
+    // define("CLIENT_LOCATION", "+90.0000000000000;long: 00.0000000000000;re:100.000000000000");
+    
+    $host = 'https://api.cognitive.microsoft.com';
+    $path = '/bing/v7.0/spellcheck?';
+    $params = 'mkt=en-us&mode=proof';
+    
+    $input = "Hollo, wrld!";
+    
+    $data = array (
+    	'text' => urlencode ($input)
+    );
+    
+    // NOTE: Replace this example key with a valid subscription key.
+    $key = 'ENTER KEY HERE';
+    
+    // The following headers are optional, but it is recommended
+    // that they are treated as required. These headers will assist the service
+    // with returning more accurate results.
+    //'X-Search-Location' => CLIENT_LOCATION
+    //'X-MSEdge-ClientID' => CLIENT_ID
+    //'X-MSEdge-ClientIP' => CLIENT_IP
+    
+    $headers = "Content-type: application/x-www-form-urlencoded\r\n" .
+    	"Ocp-Apim-Subscription-Key: $key\r\n";
+    
+    // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
+    // https://php.net/manual/en/function.stream-context-create.php
+    $options = array (
+        'http' => array (
+            'header' => $headers,
+            'method' => 'POST',
+            'content' => http_build_query ($data)
+        )
+    );
+    $context  = stream_context_create ($options);
+    $result = file_get_contents ($host . $path . $params, false, $context);
+    
+    if ($result === FALSE) {
+    	/* Handle error */
+    }
+    
+    $json = json_encode(json_decode($result), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    echo $json;
+    ?>
+    ```
 
-```php
-<?php
 
-// NOTE: Be sure to uncomment the following line in your php.ini file.
-// ;extension=php_openssl.dll
+## Run the application
 
-// These properties are used for optional headers (see below).
-// define("CLIENT_ID", "<Client ID from Previous Response Goes Here>");
-// define("CLIENT_IP", "999.999.999.999");
-// define("CLIENT_LOCATION", "+90.0000000000000;long: 00.0000000000000;re:100.000000000000");
+Run your application by starting a web server and navigating to your file.
 
-$host = 'https://api.cognitive.microsoft.com';
-$path = '/bing/v7.0/spellcheck?';
-
-$input = "Hollo, wrld!";
-
-$data = array (
-	'mkt' => 'en-US',
-	'method' => 'proof',
-	'text' => urlencode ($input)
-);
-
-// NOTE: Replace this example key with a valid subscription key.
-$key = 'enter key here';
-
-// The following headers are optional, but it is recommended
-// that they are treated as required. These headers will assist the service
-// with returning more accurate results.
-//'X-Search-Location' => CLIENT_LOCATION
-//'X-MSEdge-ClientID' => CLIENT_ID
-//'X-MSEdge-ClientIP' => CLIENT_IP
-
-$headers = "Content-type: application/x-www-form-urlencoded\r\n" .
-	"Ocp-Apim-Subscription-Key: $key\r\n";
-
-// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-// http://php.net/manual/en/function.stream-context-create.php
-$options = array (
-    'http' => array (
-        'header' => $headers,
-        'method' => 'POST',
-        'content' => http_build_query ($data)
-    )
-);
-$context  = stream_context_create ($options);
-$result = file_get_contents ($host . $path, false, $context);
-
-if ($result === FALSE) {
-	/* Handle error */
-}
-
-var_dump($result);
-?>
-```
-
-**Response**
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -126,13 +134,10 @@ A successful response is returned in JSON, as shown in the following example:
    ]
 }
 ```
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Spell Check tutorial](../tutorials/spellcheck.md)
+> [Create a single-page web app](../tutorials/spellcheck.md)
 
-## See also 
-
-[Bing Spell Check overview](../proof-text.md)
-[API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [What is the Bing Spell Check API?](../overview.md)
+- [Bing Spell Check API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

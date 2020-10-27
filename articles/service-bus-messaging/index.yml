@@ -1,0 +1,132 @@
+### YamlMime:Landing
+
+title: Azure Service Bus Messaging documentation
+summary: Learn how to set up messaging that connects applications and services across on-premises and cloud environments.  # < 160 chars
+
+metadata:
+  title: Azure Service Bus Messaging documentation
+  description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments. # Required; article description that is displayed in search results. < 160 chars.
+  services: service-bus-messaging
+  ms.service: service-bus-messaging #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: 
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: spelluru #Required; your GitHub user alias, with correct capitalization.
+  ms.author: spelluru #Required; microsoft alias of author; optional team alias.
+  ms.date: 06/23/2020 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Service Bus Messaging
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Service Bus Messaging?
+            url: service-bus-messaging-overview.md
+      - linkListType: concept
+        links:
+          - text: Compare Azure messaging services
+            url: ../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json
+          - text: Compare Azure queues and Service Bus queues
+            url: service-bus-azure-and-service-bus-queues-compared-contrasted.md            
+          - text: Queues, topics, and subscriptions
+            url: service-bus-queues-topics-subscriptions.md   
+      - linkListType: architecture
+        links:
+          - text: Reference architecture for queues and events
+            url: /azure/architecture/reference-architectures/enterprise-integration/queues-events
+
+  # Card
+  - title: Create a Service Bus queue
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure portal
+            url: service-bus-quickstart-portal.md
+          - text: Azure CLI
+            url: service-bus-quickstart-cli.md
+          - text: Azure PowerShell
+            url: service-bus-quickstart-powershell.md
+          - text: Azure Resource Manager template
+            url: service-bus-resource-manager-namespace-queue.md
+  
+    # Card
+  - title: Create Service Bus topics and subscriptions
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Azure portal
+            url: service-bus-quickstart-topics-subscriptions-portal.md
+          - text: Azure Resource Manager template
+            url: service-bus-resource-manager-namespace-topic.md
+
+  # Card
+  - title: Send and receive messages - queues
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: .NET
+            url: service-bus-dotnet-get-started-with-queues.md
+          - text: Java
+            url: service-bus-java-how-to-use-queues.md
+          - text: Node.js
+            url: service-bus-nodejs-how-to-use-queues-new-package.md
+          - text: Python
+            url: service-bus-python-how-to-use-queues.md
+          - text: PHP
+            url: service-bus-php-how-to-use-queues.md
+          - text: Ruby
+            url: service-bus-ruby-how-to-use-queues.md
+  # Card
+  - title: Publish and subscribe for messages
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: .NET
+            url: service-bus-dotnet-how-to-use-topics-subscriptions.md
+          - text: Java
+            url: service-bus-java-how-to-use-topics-subscriptions.md
+          - text: Node.js
+            url: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
+          - text: Python
+            url: service-bus-python-how-to-use-topics-subscriptions.md
+          - text: PHP
+            url: service-bus-php-how-to-use-topics-subscriptions.md
+          - text: Ruby
+            url: service-bus-ruby-how-to-use-topics-subscriptions.md                                    
+
+  # Card
+  - title: Monitor and manage
+    linkLists:
+      - linkListType: how-to-guide      
+        links:
+          - text: Use PowerShell to provision entities
+            url: service-bus-manage-with-ps.md        
+          - text: Monitor Service Bus using Azure Monitor
+            url: service-bus-metrics-azure-monitor.md
+          - text: Set up diagnostic logs
+            url: service-bus-diagnostic-logs.md
+          - text: Suspend and reactivate messaging entities
+            url: entity-suspend.md
+          - text: Use Azure Resource Manager templates
+            url: service-bus-resource-manager-overview.md            
+          - text: Troubleshoot exceptions
+            url: service-bus-messaging-exceptions.md            
+
+  # Card
+  - title: Secure
+    linkLists:
+      - linkListType: how-to-guide      
+        links:
+          - text: Authentication and Authorization
+            url: service-bus-authentication-and-authorization.md
+          - text: Authenticate with Shared Access Signature
+            url: service-bus-sas.md
+          - text: Authenticate managed identities with Azure Active Directory
+            url: service-bus-managed-service-identity.md            
+          - text: Authenticate an application with Azure Active Directory
+            url: authenticate-application.md

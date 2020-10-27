@@ -1,21 +1,12 @@
 ---
-title: Azure Service Fabric Event Aggregation with EventFlow | Microsoft Docs
+title: Azure Service Fabric Event Aggregation with EventFlow 
 description: Learn about aggregating and collecting events using EventFlow for monitoring and diagnostics of Azure Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
-author: dkkapur
-manager: timlt
-editor: ''
+author: srrengar
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
-
+ms.topic: conceptual
+ms.date: 2/25/2019
+ms.author: srrengar
+ms.custom: devx-track-csharp
 ---
 
 # Event aggregation and collection using EventFlow
@@ -28,14 +19,14 @@ EventFlow binaries are available as a set of NuGet packages. To add EventFlow to
 
 ![EventFlow NuGet packages in Visual Studio NuGet package manager UI](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
-You will see a list of various packages show up, labeled with "Inputs" and "Outputs". EventFlow supports various different logging providers and analyzers. The service hosting EventFlow should include appropriate packages depending on the source and destination for the application logs. In addition to the core ServiceFabric package, you also need at least one Input and Output configured. For example, you can add the following packages to sent EventSource events to Application Insights:
+You will see a list of various packages show up, labeled with "Inputs" and "Outputs". EventFlow supports various different logging providers and analyzers. The service hosting EventFlow should include appropriate packages depending on the source and destination for the application logs. In addition to the core ServiceFabric package, you also need at least one Input and Output configured. For example, you can add the following packages to send EventSource events to Application Insights:
 
-* `Microsoft.Diagnostics.EventFlow.Input.EventSource` to capture data from the service's EventSource class, and from standard EventSources such as *Microsoft-ServiceFabric-Services* and *Microsoft-ServiceFabric-Actors*)
-* `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights` (we are going to send the logs to an Azure Application Insights resource)
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` to capture data from the service's EventSource class, and from standard EventSources such as *Microsoft-ServiceFabric-Services* and *Microsoft-ServiceFabric-Actors*)
+* `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (we are going to send the logs to an Azure Application Insights resource)
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric`(enables initialization of the EventFlow pipeline from Service Fabric service configuration and reports any problems with sending diagnostic data as Service Fabric health reports)
 
 >[!NOTE]
->`Microsoft.Diagnostics.EventFlow.Input.EventSource` package requires the service project to target .NET Framework 4.6 or newer. Make sure you set the appropriate target framework in project properties before installing this package.
+>`Microsoft.Diagnostics.EventFlow.Inputs.EventSource` package requires the service project to target .NET Framework 4.6 or newer. Make sure you set the appropriate target framework in project properties before installing this package.
 
 After all the packages are installed, the next step is to configure and enable EventFlow in the service.
 
@@ -139,7 +130,7 @@ The name passed as the parameter of the `CreatePipeline` method of the `ServiceF
 
 ### Use Service Fabric settings and application parameters in eventFlowConfig
 
-EventFlow supports using Service Fabric settings and application paremeters to configure EventFlow settings. You can refer to Service Fabric settings parameters using this special syntax for values:
+EventFlow supports using Service Fabric settings and application parameters to configure EventFlow settings. You can refer to Service Fabric settings parameters using this special syntax for values:
 
 ```json
 servicefabric:/<section-name>/<setting-name>
@@ -154,5 +145,5 @@ Start your service and observe the Debug output window in Visual Studio. After t
 ## Next steps
 
 * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Event Analysis and Visualization with OMS](service-fabric-diagnostics-event-analysis-oms.md)
+* [Event Analysis and Visualization with Azure Monitor logs](service-fabric-diagnostics-event-analysis-oms.md)
 * [EventFlow documentation](https://github.com/Azure/diagnostics-eventflow)
