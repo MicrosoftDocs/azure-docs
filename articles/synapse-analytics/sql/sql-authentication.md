@@ -16,10 +16,10 @@ Azure Synapse Analytics has two SQL form-factors that enable you to control your
 
 To authorize to Synapse SQL, you can use two authorization types:
 
-- AAD authorization
+- Azure Active Directory authorization
 - SQL authorization
 
-AAD authorization relies on Azure Active Directory and enables you to have single place for user management. SQL authorization enables legacy applications to use Synapse SQL in a well familiar way.
+Azure Active Directory enables you to have single place for user management. SQL authorization enables legacy applications to use Synapse SQL in a well familiar way.
 
 ## Administrative accounts
 
