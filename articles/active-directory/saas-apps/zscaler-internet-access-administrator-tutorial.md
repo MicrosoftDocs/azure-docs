@@ -136,7 +136,7 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 	
 	![Screenshot shows the Manage user claims dialog box where you can enter the values described.](./common/new-attribute-details.png)
 
-	b. From the **Source attribute** list, selelct the attribute value.
+	b. From the **Source attribute** list, select the attribute value.
 
 	c. Click **Ok**.
 
