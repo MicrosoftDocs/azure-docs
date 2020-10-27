@@ -65,25 +65,33 @@
       href: disaster-recovery.md
 - name: How-to guides
   items:
-    - name: Prepare apps
+    - name: Develop
       items:
         - name: Prepare a Java Spring app for deployment
           href: spring-cloud-tutorial-prepare-app-deployment.md 
-        - name: Launch Java app from source code
-          href: spring-cloud-howto-launch-from-source.md
         - name: Set up a Config Server
           href: spring-cloud-tutorial-config-server.md
         - name: Enable Service Registration
           href: spring-cloud-service-registration.md
-    - name: Manage apps
+    - name: Deploy
+      items:
+        - name: Set up a staging environment
+          href: spring-cloud-howto-staging-environment.md
+        - name: Launch Java app from source code
+          href: spring-cloud-howto-launch-from-source.md
+        - name: CI/CD with Azure DevOps
+          href: spring-cloud-howto-cicd.md
+        - name: CI/CD with GitHub Actions
+          href: spring-cloud-howto-github-actions.md
+        - name: Auth with Key Vault in GitHub Actions
+          href: spring-cloud-github-actions-key-vault.md
+    - name: Configure
       items:
         - name: Start, stop, and delete an app
           href: spring-cloud-howto-start-stop-delete.md
-        - name: Set up a staging environment
-          href: spring-cloud-howto-staging-environment.md
         - name: Use persistent storage
           href: spring-cloud-howto-persistent-storage.md
-    - name: Monitor apps
+    - name: Monitor
       items:
         - name: Distributed tracing and App Insights
           href: spring-cloud-tutorial-distributed-tracing.md
@@ -91,13 +99,13 @@
           href: diagnostic-services.md
         - name: Stream logs in real-time
           href: spring-cloud-howto-log-streaming.md
-    - name: Secure apps
+    - name: Secure
       items:
         - name: Enable system-assigned managed identity
           href: spring-cloud-howto-enable-system-assigned-managed-identity.md
         - name: Create roles and permissions
           href: spring-cloud-howto-permissions.md
-    - name: Integration with Azure services
+    - name: Integrate
       items:
         - name: Bind an app to Azure CosmosDB
           href: spring-cloud-tutorial-bind-cosmos.md
@@ -107,14 +115,6 @@
           href: spring-cloud-tutorial-bind-mysql.md
         - name: Integrate with Azure Load Balance Solutions
           href: spring-cloud-howto-integrate-azure-load-balancers.md
-    - name: DevOps
-      items:
-        - name: CI/CD with Azure DevOps
-          href: spring-cloud-howto-cicd.md
-        - name: CI/CD with GitHub Actions
-          href: spring-cloud-howto-github-actions.md
-        - name: Auth with Key Vault in GitHub Actions
-          href: spring-cloud-github-actions-key-vault.md
     - name: Troubleshoot
       items:
         - name: Self diagnose and solve problems
