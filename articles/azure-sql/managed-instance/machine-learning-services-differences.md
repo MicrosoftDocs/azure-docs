@@ -42,7 +42,7 @@ For more information about managing Python and R packages, see:
 
 ## Resource governance
 
-In SQL Managed Instance, it's not possible to limit R resources through [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor), and external resource pools are not supported.
+In SQL Managed Instance, it's not possible to limit R resources through [Resource Governor](/sql/relational-databases/resource-governor/resource-governor), and external resource pools are not supported.
 
 By default, R resources are set to a maximum of 20% of the available SQL Managed Instance resources when extensibility is enabled. To change this default percentage, create an Azure support ticket at [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/).
 
@@ -60,7 +60,7 @@ sp_configure 'external scripts enabled', 0;
 RECONFIGURE WITH OVERRIDE;
 ```
 
-The total resources available to SQL Managed Instance depend on which service tier you choose. For more information, see [Azure SQL Database purchasing models](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+The total resources available to SQL Managed Instance depend on which service tier you choose. For more information, see [Azure SQL Database purchasing models](/azure/sql-database/sql-database-service-tiers).
 
 ### Insufficient memory error
 

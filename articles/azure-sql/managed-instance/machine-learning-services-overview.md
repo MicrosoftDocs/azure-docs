@@ -30,7 +30,13 @@ Use Machine Learning Services with R/Python support in Azure SQL Managed Instanc
 
 - **Deploy your models and scripts into production in stored procedures** - The scripts and trained models can be operationalized simply by embedding them in T-SQL stored procedures. Apps connecting to Azure SQL Managed Instance can benefit from predictions and intelligence in these models by just calling a stored procedure. You can also use the native T-SQL PREDICT function to operationalize models for fast scoring in highly concurrent real-time scoring scenarios.
 
-Base distributions of Python and R are included in Machine Learning Services. You can install and use open-source packages and frameworks, such as PyTorch, TensorFlow, and scikit-learn, in addition to the Microsoft packages [revoscalepy](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-revoscalepy) and [microsoftml](https://docs.microsoft.com/sql/advanced-analytics/python/ref-py-microsoftml) for Python, and [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler), [MicrosoftML](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml), [olapR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-olapr), and [sqlrutils](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-sqlrutils) for R.
+Base distributions of Python and R are included in Machine Learning Services. You can install and use open-source packages and frameworks, such as PyTorch, TensorFlow, and scikit-learn, in addition to the Microsoft packages 
+[revoscalepy](/sql/machine-learning/python/ref-py-revoscalepy) and 
+[microsoftml](/sql/machine-learning/python/ref-py-microsoftml) for Python, and 
+ [RevoScaleR](/sql/machine-learning/r/ref-r-revoscaler), 
+[MicrosoftML](/sql/machine-learning/r/ref-r-microsoftml), 
+      [olapR](/sql/machine-learning/r/ref-r-olapr), and 
+  [sqlrutils](/sql/machine-learning/r/ref-r-sqlrutils) for R.
 
 ## Next steps
 
