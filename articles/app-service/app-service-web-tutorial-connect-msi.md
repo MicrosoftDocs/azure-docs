@@ -5,7 +5,7 @@ description: Learn how to make database connectivity more secure by using a mana
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
-ms.custom: "devx-track-csharp, mvc, cli-validate"
+ms.custom: "devx-track-csharp, mvc, cli-validate, devx-track-azurecli"
 ---
 # Tutorial: Secure Azure SQL Database connection from App Service using a managed identity
 

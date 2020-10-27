@@ -14,7 +14,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
-ms.custom: mvc, devx-track-java
+ms.custom: mvc, devx-track-java, devx-track-azurecli
 
 #Customer intent: I want to update my Spring Boot application to reference values stored in Key Vault through App Configuration.
 ---
