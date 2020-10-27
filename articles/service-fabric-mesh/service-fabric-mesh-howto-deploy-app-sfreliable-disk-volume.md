@@ -5,7 +5,7 @@ author: ashishnegi
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asnegi
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ---
 
 # Mount highly available Service Fabric Reliable Disk based volume in a Service Fabric Mesh application 

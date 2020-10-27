@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 10/26/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
@@ -28,7 +28,8 @@ See the following sections to learn how a resource can validate and use the clai
 
 > [!IMPORTANT]
 > Access tokens are created based on the *audience* of the token, meaning the application that owns the scopes in the token.  This is how a resource setting `accessTokenAcceptedVersion` in the [app manifest](reference-app-manifest.md#manifest-reference) to `2` allows a client calling the v1.0 endpoint to receive a v2.0 access token.  Similarly, this is why changing the access token [optional claims](active-directory-optional-claims.md) for your client do not change the access token received when a token is requested for `user.read`, which is owned by the resource.
-> For the same reason, while testing your client application with a personal account (such as hotmail.com or outlook.com), you may find that the access token received by your client is an opaque string. This is because the resource being accessed has requested legacy MSA (Microsoft account) tickets that are encrypted and can't be understood by the client.
+>
+> For the same reason, while testing your client application with a Microsoft API that supports personal account (such as hotmail.com or outlook.com), you will find that the access token received by your client is an opaque string. This is because the resource being accessed has uses encrypted tokens and can't be understood by the client.  This is expected, and should not be an issue for your app - client apps should never have a dependency on the format of the access token. 
 
 ## Sample tokens
 
