@@ -2,7 +2,7 @@
 title: Use PowerShell to register and scan Power BI in Azure Babylon (preview)
 description: Learn how use PowerShell to register and scan a Power BI tenant in Azure Babylon.
 author: darrenparker
-ms.author: dpark
+ms.author: hophan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
