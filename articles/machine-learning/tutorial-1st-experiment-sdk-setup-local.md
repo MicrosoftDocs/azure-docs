@@ -94,32 +94,9 @@ cd <path/to/tutorial>
 python ./01-create-workspace.py
 ```
 
-### Multiple accounts
+> [!TIP]
+> If running this code gives you an error that you do not have access to the subscription, see [Create a workspace](how-to-manage-workspace.md?tab=python#create-multi-tenant) for information on authentication options.
 
-If you use multiple Azure accounts, you may get an error that you do not have access to the subscription.  In this case:
-
-1. Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**. 
-1. Change the contents of the file to:
-
-    ```python
-    # tutorial/01-create-workspace.py
-    from azureml.core.authentication import InteractiveLoginAuthentication
-    from azureml.core import Workspace
-    
-    interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id")
-    
-    ws = Workspace.create(name='<my_workspace_name>', # provide a name for your workspace
-                          subscription_id='<azure-subscription-id>', # provide your subscription ID
-                          resource_group='<myresourcegroup>', # provide a resource group name
-                          create_resource_group=True,
-                          location='<NAME_OF_REGION>', # For example: 'westeurope' or 'eastus2' or 'westus2' or 'southeastasia'.
-                          auth=interactive_auth)
-    
-    # write out the workspace details to a configuration file: .azureml/config.json
-    ws.write_config(path='.azureml')
-    ```
-
-### New folder structure
 
 After you've successfully run *01-create-workspace.py*, your folder structure will look like:
 

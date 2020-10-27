@@ -42,7 +42,7 @@ As your needs change or requirements for automation increase you can also create
     ```
     Set `create_resource_group` to False if you have an existing Azure resource group that you want to use for the workspace.
 
-* **Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
+* <a name="create-multi-tenant"></a>**Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
 
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication
@@ -276,7 +276,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-* **Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
+* <a name="connect-multi-tenant"></a>**Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
 
     ```python
     from azureml.core.authentication import InteractiveLoginAuthentication
