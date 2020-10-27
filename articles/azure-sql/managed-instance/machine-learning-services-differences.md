@@ -53,8 +53,8 @@ Python and R package management work differently between SQL Managed Instance an
 
 For more information about managing Python and R packages, see:
 
-- [Get Python package information](https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=azure/sql-database/context/ml-context&view=sql-server-ver15&preserve-view=true)
-- [Get R package information](https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=azure/sql-database/context/ml-context&view=sql-server-ver15&preserve-view=true)
+- [Get Python package information](https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15&preserve-view=true)
+- [Get R package information](https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15&preserve-view=true)
 
 ## Resource governance
 
