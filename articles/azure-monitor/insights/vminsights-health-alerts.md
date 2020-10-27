@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor for VMs guest health alerts (preview)
-description: Overview of the health feature in Azure Monitor for VMs including how you can view the health of your virtual machines and receive alerts when a virtual machine becomes unhealthy.
+description: Describes the alerts created by Azure Monitor for VMs guest health including how to enable them and configure notifications.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -87,7 +87,7 @@ Click **Add** next to **Filter**. Create a filter where **Monitor service Equals
 
 In **Define on thin scope**, select **Action group** and then select the action group to associate with the monitor. Give the rule a name and select the action group it should be saved in. Click **Create** to create the rule.
 
-![Action rule filter](media/vminsights-health-alerts/action-rule.png)
+![Action rule](media/vminsights-health-alerts/action-rule.png)
 
 
 ## Next steps
