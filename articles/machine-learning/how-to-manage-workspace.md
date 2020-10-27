@@ -74,7 +74,7 @@ As your needs change or requirements for automation increase you can also create
                 )
     ```
 
-* **Use existing Azure resources**.  You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure Portal or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights and container registry already exist.
+* **Use existing Azure resources**.  You can also create a workspace that uses existing Azure resources with the Azure resource ID format. Find the specific Azure resource IDs in the Azure portal or with the SDK. This example assumes that the resource group, storage account, key vault, App Insights and container registry already exist.
 
    ```python
    import os

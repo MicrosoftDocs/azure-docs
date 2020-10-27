@@ -26,7 +26,7 @@ In part 1 of this tutorial series, you will:
 > * Configure your local development environment.
 > * Set up a compute cluster.
 
->!NOTE]
+> [!NOTE]
 > This tutorial series focuses the Azure Machine Learning concepts suited to Python *jobs-based* machine learning tasks that are compute-intensive and/or require reproducibility. If you are more interested in an exploratory workflow, you could instead use [Jupyter or RStudio on an Azure Machine Learning compute instance](tutorial-1st-experiment-sdk-setup.md).
 
 ## Prerequisites
