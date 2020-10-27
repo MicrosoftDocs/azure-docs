@@ -1,6 +1,6 @@
 ---
-title: Get service logs for Azure Arc
-description: Get service logs to troubleshoot an Azure Arc enabled data controller.
+title: Get logs to troubleshoot Azure Arc enabled data services
+description: Learn how to get log files from a data controller to troubleshoot Azure Arc enabled data services.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,9 +11,7 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
-# Get service logs for Azure Arc
-
-This article shows you how to get service logs to troubleshoot an Azure Arc enabled data controller.
+# Get logs to troubleshoot Azure Arc enabled data services
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -21,7 +19,7 @@ This article shows you how to get service logs to troubleshoot an Azure Arc enab
 
 Before you proceed, you need:
 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. For more information, see [Install client tools for deploying and managing Azure Arc enabled data services](./install-client-tools.md).
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. For more information, see [Install client tools for deploying and managing Azure Arc data services](./install-client-tools.md).
 * An administrator account to sign in to the Azure Arc enabled data controller.
 
 ## Get log files
