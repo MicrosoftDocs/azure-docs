@@ -10,7 +10,7 @@ author: saachigopal
 ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 ---
 
 # Deploy a model using a custom Docker base image
@@ -36,7 +36,7 @@ This document is broken into two sections:
 
 ## Prerequisites
 
-* An Azure Machine Learning workgroup. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
+* An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
 * The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).

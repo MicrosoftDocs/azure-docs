@@ -39,7 +39,7 @@ If the user does not have the correct permissions to access resources in the Azu
 
 For more information on creating a workspace, see [Create and share an Azure Machine Learning Studio (classic) workspace](create-workspace.md).
 
-For more information on setting access permissions, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+For more information on setting access permissions, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 
 ## Manage New Web services

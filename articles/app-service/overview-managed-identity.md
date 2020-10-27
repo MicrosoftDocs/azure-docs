@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurepowershell"
+ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli"
 
 ---
 

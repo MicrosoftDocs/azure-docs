@@ -207,7 +207,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### Configuring adaptive sampling for Azure Functions
 
-Follow instructions from [this page](../../azure-functions/functions-monitoring.md#configure-sampling) to configure adaptive sampling for apps running in Azure Functions.
+Follow instructions from [this page](../../azure-functions/configure-monitoring.md#configure-sampling) to configure adaptive sampling for apps running in Azure Functions.
 
 ## Fixed-rate sampling
 

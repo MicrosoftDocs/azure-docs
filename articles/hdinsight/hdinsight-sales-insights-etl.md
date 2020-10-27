@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
 ---
 
@@ -22,13 +22,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* Azure CLI - at least version 2.2.0. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Azure CLI - at least version 2.2.0. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 * jq, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 * A member of the [Azure built-in role - owner](../role-based-access-control/built-in-roles.md).
 
-* If using PowerShell to trigger the Data Factory pipeline, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/).
+* If using PowerShell to trigger the Data Factory pipeline, you'll need the [Az Module](/powershell/azure/).
 
 * [Power BI Desktop](https://aka.ms/pbiSingleInstaller) to visualize business insights at the end of this tutorial.
 
@@ -88,7 +88,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    If you're not sure which region to specify, you can retrieve a list of supported regions for your subscription with the [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations) command.
+    If you're not sure which region to specify, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#az-account-list-locations) command.
 
     The command will deploy the following resources:
 
