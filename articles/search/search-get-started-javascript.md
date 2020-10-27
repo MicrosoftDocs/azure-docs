@@ -608,4 +608,4 @@ In this JavaScript quickstart, you worked through a series of tasks to create an
 If you already have some background in Azure Cognitive Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. If you're new to Azure Cognitive Search, we recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. 
 
 > [!div class="nextstepaction"]
-> [Build a React front-end for Azure Cognitive Search](https://github.com/liamca/azure-search-react-template)
+> [Build a React front-end for Azure Cognitive Search](https://github.com/dereklegenzoff/azure-search-react-template)
