@@ -217,11 +217,6 @@ Please be aware of the following restrictions/requirements:
 ### Troubleshoot
 
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell.
-
-### Frequently Asked Questions
-
-* Is there is a limit on the number of observedCertificates you can setup?
-  No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
   
 ## Azure PowerShell
 ```powershell
@@ -239,6 +234,23 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 /var/log/azure/Microsoft.Azure.KeyVault.KeyVaultForLinux/*
 /var/lib/waagent/Microsoft.Azure.KeyVault.KeyVaultForLinux-<most recent version>/config/*
 ```
+### Using Symlink
+
+Symbolic links or Symlinks are basically advanced shortcuts. A symbolic link will appear to be the same as the original file or folder it’s pointing at, even though it’s just a link. You can use symlinks to avoid monitoring the folder and get latest certificate automatically.
+
+You can implement the symlink `([VaultName].[ GetCertificateName])` for Linux to point it to the latest version of certificate PEM file in the Linux.
+```string_t CertificateLinkName = CertificateFolderName + "/" + certificate.GetVaultName() + "." + certificate.GetCertificateName();```
+
+The actual certificate file name will have version on it like below:
+```string_t CertificateFileName = CertificateFolderName + "/" + certificate.GetVaultName() + "." + certificate.GetCertificateName() + "." + certificate.GetVersionGuidString() + "." +  boost::lexical_cast<std::string>(certificate.GetNotBeforeAsUnixTime()) + "." +  boost::lexical_cast<std::string>(certificate.GetNotAfterAsUnixTime()) + ".PEM";```
+
+For creating a symlink, use following syntax in terminal window:
+ln -s <path to the file to be linked> <the path of the link to be created>
+
+### Frequently Asked Questions
+
+* Is there is a limit on the number of observedCertificates you can setup?
+  No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
 
 ### Support
 
