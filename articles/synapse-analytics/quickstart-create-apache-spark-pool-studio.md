@@ -69,8 +69,6 @@ From the workspace overview, select **Launch Synapse Studio** to open the locati
        
     ![Basics for Synapse Studio new Apache Spark pool](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-24.png)
     
-    ![Synapse Studio new Apache Spark pool form.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-24.png)
-    
     > [!IMPORTANT]
     > Note that there are specific limitations for the names that Apache Spark pools can use. Names must contain letters or numbers only, must be 15 or less characters, must start with a letter, not contain reserved words, and be unique in the workspace.
 
