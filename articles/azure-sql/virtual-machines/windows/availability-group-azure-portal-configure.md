@@ -13,7 +13,7 @@ ms.workload: iaas-sql-server
 ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: "seo-lt-2019"
+ms.custom: "seo-lt-2019, devx-track-azurecli"
 
 ---
 # Use Azure portal to configure an availability group (Preview) for SQL Server on Azure VM 
