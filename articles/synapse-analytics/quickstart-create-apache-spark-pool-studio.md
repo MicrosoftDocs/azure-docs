@@ -62,6 +62,8 @@ Sign in to the [Azure portal](https://portal.azure.com/)
     | **Node size** | Small (4 vCPU / 32 GB) | Set this to the smallest size to reduce costs for this quickstart |
     | **Autoscale** | Disabled | We won't need autoscale in this quickstart |
     | **Number of nodes** | 8 | Use a small size to limit costs in this quickstart|
+       
+    ![Basics for Synapse Studio new Apache Spark pool](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-24.png)
     
     ![Synapse Studio new Apache Spark pool form.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-24.png)
     > [!IMPORTANT]
@@ -72,14 +74,16 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 1. We won't add any tags for now, so select **Review + create**.
 
-1. In the **Review + create** tab, make sure that the details look correct based on what was previously entered, and press **create**. 
- ![Synapse Studio new Apache Spark pool form.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-26.png)
+1. In the **Review + create** tab, make sure that the details look correct based on what was previously entered, and press **Create**. 
+
+    ![Create Synapse Studio new Apache Spark pool](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-26.png)
 
 1. The Apache Spark pool will start the provisioning process.
 ![Synapse Studio new Apache Spark pool form.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-27.png)
 
 1. Once the provisioning is complete, the new Apache Spark pool will appear in the list.
-![Synapse Studio new Apache Spark pool form.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-28.png)
+    
+    ![Synapse Studio new Apache Spark pool list](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-28.png)
 
 ## Clean up Apache Spark pool resources using Synapse Studio
 
