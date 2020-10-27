@@ -25,11 +25,11 @@ Private clouds contain vSAN clusters built with dedicated, bare-metal Azure host
 As with other resources, private clouds are installed and managed from within an Azure subscription. The number of private clouds within a subscription is scalable. Initially, there's a limit of one private cloud per subscription.
 
 ## Clusters
-For each private cloud created, there is one vSAN cluster by default. You can add, delete, and scale clusters using the Azure portal or through the API.  All clusters have a default size of three hosts and can scale up to 16 hosts.  The hosts used in a cluster must be the same host type.
+For each private cloud created, there's one vSAN cluster by default. You can add, delete, and scale clusters using the Azure portal or through the API.  All clusters have a default size of three hosts and can scale up to 16 hosts.  The hosts used in a cluster must be the same host type.
 
-Trial clusters are available for evaluation and are limited to three hosts and a single trial cluster per private cloud. You can scale a trial cluster by a single host during the evaluation period.
+Trial clusters are available for evaluation and limited to three hosts. There's a single trial cluster per private cloud. You can scale a trial cluster by a single host during the evaluation period.
 
-You still use vSphere and NSX-T Manager to manage most other aspects of cluster configuration or operation. All local storage of each host in a cluster is under the control of vSAN.
+You use vSphere and NSX-T Manager to manage most other aspects of cluster configuration or operation. All local storage of each host in a cluster is under the control of vSAN.
 
 ## Hosts
 
@@ -52,7 +52,7 @@ The current software versions of the VMware software used in Azure VMware Soluti
 | vSAN                  |    6.7 U2    |
 | NSX-T                 |      2.5     |
 
-For any new cluster in a private cloud, the software version will match what is currently running in the private cloud. For any new private cloud in a subscription, the software stack's latest version gets installed.
+For any new cluster in a private cloud, the software version matches what's currently running. For any new private cloud in a subscription, the software stack's latest version gets installed.
 
 You can find the general upgrade policies and processes for the Azure VMware Solution platform software described in the [Upgrades Concepts](concepts-upgrades.md) article.
 
@@ -60,18 +60,18 @@ You can find the general upgrade policies and processes for the Azure VMware Sol
 
 Host maintenance and lifecycle management have no impact on the private cloud clusters' capacity or performance.  Examples of automated host maintenance include firmware upgrades and hardware repair or replacement.
 
-Microsoft is responsible for the lifecycle management of NSX-T appliances, such as NSX-T Manager and NSX-T Edge. Microsoft is also responsible for bootstrapping network config, such as creating the Tier-0 gateway and enabling North-South Routing. As an administrator to your Azure VMware Solution private cloud, you're responsible for NSX-T SDN configuration. For example, network segments, distributed firewall rules, Tier 1 gateways, and load balancers.
+Microsoft is responsible for the lifecycle management of NSX-T appliances, such as NSX-T Manager and NSX-T Edge. They are also responsible for bootstrapping network configuration, such as creating the Tier-0 gateway and enabling North-South routing. You're responsible for NSX-T SDN configuration. For example, network segments, distributed firewall rules, Tier 1 gateways, and load balancers.
 
 > [!IMPORTANT]
 > Do not modify the configuration of NSX-T Edge or Tier-0 Gateway, as this may result in a loss of service.
 
 ## Backup and restoration
 
-Private cloud vCenter and NSX-T configurations are on an hourly backup schedule.  Backups are kept for three days. Use a Service Request in the Azure portal to request restoration from a backup.
+Private cloud vCenter and NSX-T configurations are on an hourly backup schedule.  Backups are kept for three days. If you need to restore from a backup, use a Service Request in the Azure portal to request restoration.
 
 ## Next steps
 
-The next step is to learn [networking and inter-connectivity concepts](concepts-networking.md).
+The next step is to learn [networking and interconnectivity concepts](concepts-networking.md).
 
 <!-- LINKS - internal -->
 
