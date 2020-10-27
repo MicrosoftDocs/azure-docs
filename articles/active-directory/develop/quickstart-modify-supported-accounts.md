@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 10/27/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: mmacy, aragra, lenalepa, sureshja
+ms.reviewer: marsma, aragra, lenalepa, sureshja
 # Customer intent: As an application developer, I need to know how to modify which account types can sign in to or access my application or API.
 ---
 
@@ -56,4 +56,4 @@ For more information about configuring a verified publisher domain, see [Configu
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to: Convert an app to multi-tenant](howto-convert-app-to-be-multi-tenant.md)
+> [How to: Convert your app to multi-tenant](howto-convert-app-to-be-multi-tenant.md)
