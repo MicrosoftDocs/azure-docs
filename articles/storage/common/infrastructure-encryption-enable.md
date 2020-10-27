@@ -10,7 +10,8 @@ ms.date: 09/17/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurecli
 ---
 
 # Create a storage account with infrastructure encryption enabled for double encryption of data
