@@ -63,9 +63,6 @@ If you do not enable managed identity, you will receive this error, `Error: Unab
 * Submit an AutoML experiment.
 * Start a labeling project.
 
-> [!NOTE]
-> [ML assisted data labelling](how-to-create-labeling-projects.md#use-ml-assisted-labeling) does not support default storage accounts secured behind a virtual network. You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network. 
-
 The studio supports reading data from the following datastore types in a virtual network:
 
 * Azure Blob
@@ -73,7 +70,11 @@ The studio supports reading data from the following datastore types in a virtual
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
-### Configure datastores to use managed identity
+### Grant workspace managed identity __Reader__ access to storage private link
+
+This step is only required if you added the Azure storage account to your virtual network with a [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints). For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role.
+
+### Configure datastores to use workspace managed identity
 
 Azure Machine Learning uses [datastores](concept-data.md#datastores) to connect to storage accounts. Use the following steps to configure your datastores to use managed identity. 
 
