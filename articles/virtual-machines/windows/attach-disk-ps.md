@@ -112,4 +112,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## Next steps
 
-You can also deploy managed disks using templates. For more information, see [Using Managed Disks in Azure Resource Manager Templates](using-managed-disks-template-deployments.md) or the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) for deploying multiple data disks.
+You can also deploy managed disks using templates. For more information, see [Using Managed Disks in Azure Resource Manager Templates](../using-managed-disks-template-deployments.md) or the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) for deploying multiple data disks.

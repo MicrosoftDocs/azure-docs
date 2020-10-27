@@ -95,7 +95,7 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-Each tile is given XY coordinates ranging from (0, 0) in the upper left to *(2<sup>zoom</sup>–1, 2<sup>zoom</sup>–1)* in the lower right. For example, at zoom level 2, the tile coordinates range from (0, 0) to (7, 7) as follows:
+Each tile is given XY coordinates ranging from (0, 0) in the upper left to *(2<sup>zoom</sup>–1, 2<sup>zoom</sup>–1)* in the lower right. For example, at zoom level 3, the tile coordinates range from (0, 0) to (7, 7) as follows:
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Map of tile coordinates":::
 
@@ -131,7 +131,7 @@ To convert tile coordinates into a `quadkey`, the bits of the Y and X coordinate
 ```
 tileX = 3 = 011 (base 2)
 
-tileY = 5 = 1012 (base 2)
+tileY = 5 = 101 (base 2)
 
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
@@ -928,20 +928,20 @@ module AzureMaps {
 
 > [!NOTE]
 > The interactive map controls in the Azure Maps SDK's have helper functions for converting between geospatial positions and viewport pixels. 
-> - [Web SDK: Map pixel and position calculations](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> - [Web SDK: Map pixel and position calculations](/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## Next steps
 
 Directly access map tiles from the Azure Maps REST services:
 
 > [!div class="nextstepaction"]
-> [Get map tiles](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+> [Get map tiles](/rest/api/maps/render/getmaptile)
 
 > [!div class="nextstepaction"]
-> [Get traffic flow tiles](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
+> [Get traffic flow tiles](/rest/api/maps/traffic/gettrafficflowtile)
 
 > [!div class="nextstepaction"]
-> [Get traffic incident tiles](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
+> [Get traffic incident tiles](/rest/api/maps/traffic/gettrafficincidenttile)
 
 Learn more about geospatial concepts:
 

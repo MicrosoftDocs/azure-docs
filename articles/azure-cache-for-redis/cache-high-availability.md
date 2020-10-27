@@ -52,7 +52,7 @@ Azure Cache for Redis allows additional replica nodes in the Premium tier. A [mu
 >
 >
 
-Azure Cache for Redis supports zone redundant configurations in the Premium tier. A [zone redundant cache](cache-how-to-zone-redundancy.md) can place its nodes across different [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) in the same region. It eliminates datacenter or AZ outage as a single point of failure and increases the overall availability of your cache.
+Azure Cache for Redis supports zone redundant configurations in the Premium tier. A [zone redundant cache](cache-how-to-zone-redundancy.md) can place its nodes across different [Azure Availability Zones](../availability-zones/az-overview.md) in the same region. It eliminates datacenter or AZ outage as a single point of failure and increases the overall availability of your cache.
 
 The following diagram illustrates the zone redundant configuration:
 

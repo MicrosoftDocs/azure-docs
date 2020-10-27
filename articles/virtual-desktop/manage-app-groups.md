@@ -3,7 +3,7 @@ title: Manage app groups for Windows Virtual Desktop portal - Azure
 description: How to manage Windows Virtual Desktop app groups with the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/04/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -120,7 +120,7 @@ The deployment process will do the following things for you:
 - Create a link to an Azure Resource Manager template based on your configuration that you can download and save for later.
 
 >[!IMPORTANT]
->You can only create 50 application groups for each Azure Active Directory tenant. We added this limit because of service limitations for retrieving feeds for our users. This limit doesn't apply to app groups created in Windows Virtual Desktop (classic).
+>You can only create 200 application groups for each Azure Active Directory tenant. We added this limit because of service limitations for retrieving feeds for our users. This limit doesn't apply to app groups created in Windows Virtual Desktop (classic).
 
 ## Next steps
 

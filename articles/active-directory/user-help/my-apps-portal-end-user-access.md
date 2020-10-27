@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 09/08/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
@@ -37,7 +37,7 @@ You can get to the **My Apps** portal from any of the following web browsers:
 
 You can access and use the My Apps portal on your computer, or from the mobile version of the Edge browser on an iOS or Android mobile device.
 
-![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page.png)
+![Apps page in the My Apps portal](media/my-apps-portal/my-apps-home.png)
 
 ## Access and use the My Apps portal on your computer
 

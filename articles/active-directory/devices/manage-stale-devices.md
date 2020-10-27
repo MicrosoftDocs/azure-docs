@@ -162,9 +162,9 @@ When configured, BitLocker keys for Windows 10 devices are stored on the device 
 ### Why should I worry about Windows Autopilot devices?
 
 When you delete an Azure AD device that was associated with a Windows Autopilot object the following three scenarios can occur if the device will be repurposed in future:
-- With Windows Autopilot user-driven deployments without using white glove, a new Azure AD device will be created, but it won’t be tagged with the ZTDID.
+- With Windows Autopilot user-driven deployments without using pre-provisioning, a new Azure AD device will be created, but it won’t be tagged with the ZTDID.
 - With Windows Autopilot self-deploying mode deployments, they will fail because an associate Azure AD device cannot be found.  (This is a security mechanism to make sure that no “imposter” devices try to join Azure AD with no credentials.) The failure will indicate a ZTDID mismatch.
-- With Windows Autopilot white glove deployments, they will fail because an associated Azure AD device cannot be found. (Behind the scenes, white glove deployments use the same self-deploying mode process, so they enforce the same security mechanisms.)
+- With Windows Autopilot pre-provisioning deployments, they will fail because an associated Azure AD device cannot be found. (Behind the scenes, pre-provisioning deployments use the same self-deploying mode process, so they enforce the same security mechanisms.)
 
 ### How do I know all the type of devices joined?
 

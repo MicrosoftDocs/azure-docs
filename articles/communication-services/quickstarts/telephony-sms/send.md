@@ -15,7 +15,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Send an SMS message
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .NET client library](./includes/send-sms-net.md)]

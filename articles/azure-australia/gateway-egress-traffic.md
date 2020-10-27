@@ -113,7 +113,7 @@ To design and build secure solutions within Azure, it is critical to understand 
 * Design and implement a complete network architecture to identify and control all ingress and egress points to Azure resources
 * Consider utilising a Hub and Spoke Network Design for virtual networks as discussed in the Microsoft Virtual Data Centre (VDC) documentation
 * Utilise products with inbuilt security capabilities for outbound connections to the Internet (for example, Azure Firewall, Network Virtual Appliances or Web Proxies)
-* Use identity controls such as Role-Based Access, Conditional Access, and Multi-Factor Authentication (MFA) to limit network configuration privileges
+* Use identity controls such as Azure role-based access control, Conditional Access, and Multi-Factor Authentication (MFA) to limit network configuration privileges
 * Implement Locks to prevent modification or deletion of key elements of the network configuration
 * Deploy PaaS in a VNet integrated configuration for increased segregation and control
 * Implement ExpressRoute for connectivity with on-premises networks

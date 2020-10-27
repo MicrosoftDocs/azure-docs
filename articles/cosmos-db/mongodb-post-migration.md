@@ -49,12 +49,12 @@ To globally distribute your data, please see [Distribute data globally on Azure 
 
 ## Set consistency level
 
-Azure Cosmos DB offers 5 well-defined [consistency levels](consistency-levels.md). To read about the mapping between MongoDB and Azure Cosmos DB consistency levels, read [Consistency levels and Azure Cosmos DB APIs](consistency-levels-across-apis.md). The default consistency level is the session consistency level. Changing the consistency level is optional and you can optimize it for your app. To change consistency level using Azure portal:
+Azure Cosmos DB offers 5 well-defined [consistency levels](consistency-levels.md). To read about the mapping between MongoDB and Azure Cosmos DB consistency levels, read [Consistency levels and Azure Cosmos DB APIs](./consistency-levels.md). The default consistency level is the session consistency level. Changing the consistency level is optional and you can optimize it for your app. To change consistency level using Azure portal:
 
 1. Go to the **Default Consistency** blade under Settings.
 2. Select your [consistency level](consistency-levels.md)
 
-Most users leave their consistency level at the default session consistency setting. However, there are [availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md).
+Most users leave their consistency level at the default session consistency setting. However, there are [availability and performance tradeoffs for various consistency levels](./consistency-levels.md).
 
 ## Next steps
 

@@ -37,7 +37,7 @@ See the below video for a high-level explanation of these access controls and wh
 
 ## Allow Azure services
 
-During creation of a new logical SQL server [from the Azure portal](single-database-create-quickstart.md), this setting is left unchecked.
+By default during creation of a new logical SQL server [from the Azure portal](single-database-create-quickstart.md), this setting is set to **OFF**. This setting appears when connectivity is allowed using public service endpoint.
 
 You can also change this setting via the firewall pane after the logical SQL server is created as follows.
   
@@ -51,7 +51,7 @@ However, doing so affects the following features that run on virtual machines in
 
 ### Import Export Service
 
-Import Export Service doesn't work when **Allow access to Azure services** is set to **OFF**. However you can work around the problem [by manually running sqlpackage.exe from an Azure VM or performing the export](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) directly in your code by using the DACFx API.
+Import Export Service doesn't work when **Allow access to Azure services** is set to **OFF**. However you can work around the problem [by manually running sqlpackage.exe from an Azure VM or performing the export](./database-import-export-azure-services-off.md) directly in your code by using the DACFx API.
 
 ### Data Sync
 
@@ -143,7 +143,7 @@ Private Link allows you to connect to a server via a **private endpoint**. A pri
 
 - For a quickstart on creating a server-level virtual network firewall rule, see [Virtual Network service endpoints and rules for Azure SQL Database](vnet-service-endpoint-rule-overview.md).
 
-- For help with connecting to a database in SQL Database from open source or third-party applications, see [Client quickstart code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+- For help with connecting to a database in SQL Database from open source or third-party applications, see [Client quickstart code samples to SQL Database](/previous-versions/azure/ee336282(v=azure.100)).
 
 - For information on additional ports that you may need to open, see the **SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](adonet-v12-develop-direct-route-ports.md)
 
@@ -154,4 +154,3 @@ Private Link allows you to connect to a server via a **private endpoint**. A pri
 <!--Image references-->
 [1]: media/quickstart-create-single-database/new-server2.png
 [2]: media/quickstart-create-single-database/manage-server-firewall.png
- 

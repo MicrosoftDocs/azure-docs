@@ -122,7 +122,7 @@ The time to complete this operation depends upon your data size and the speed of
  
 1. Copy data to both the device nodes using both the 40-Gbps data interfaces in parallel.
 
-    - If using a Windows host, use an SMB compatible file copy tool such as [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+    - If using a Windows host, use an SMB compatible file copy tool such as [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
     - For NFS host, use `cp` command or `rsync` to copy the data.
 2. Connect to the shares on the device using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box Heavy.
 3. Make sure that the share and folder names, and the data follow guidelines described in the [Azure Storage and Data Box Heavy service limits](data-box-heavy-limits.md).

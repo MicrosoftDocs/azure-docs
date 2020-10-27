@@ -11,6 +11,7 @@ includes/policy/ @DCtheGeek
 
 articles/active-directory-b2c/ @msmimart @yoelhor
 articles/active-directory/app-provisioning/ @CelesteDG
+articles/active-directory/develop/ @mmacy
 articles/active-directory/manage-apps/ @CelesteDG
 
 # Cognitive Services
