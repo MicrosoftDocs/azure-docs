@@ -63,7 +63,7 @@ To manage server or database level firewall rules, please enable the public netw
 ## Change Public Network Access via PowerShell
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
 The following PowerShell script shows how to `Get` and `Set` the **Public Network Access** property at the server level:
 
@@ -80,7 +80,7 @@ Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group 
 ## Change Public Network Access via CLI
 
 > [!IMPORTANT]
-> All scripts in this section requires [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> All scripts in this section requires [Azure CLI](/cli/azure/install-azure-cli).
 
 ### Azure CLI in a bash shell
 
@@ -119,7 +119,7 @@ Login failed with invalid TLS version
 ## Set minimal TLS version via PowerShell
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
 The following PowerShell script shows how to `Get` and `Set` the **Minimal TLS Version** property at the logical server level:
 
@@ -136,7 +136,7 @@ Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group 
 ## Set Minimal TLS Version via Azure CLI
 
 > [!IMPORTANT]
-> All scripts in this section requires [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> All scripts in this section requires [Azure CLI](/cli/azure/install-azure-cli).
 
 ### Azure CLI in a bash shell
 
@@ -159,7 +159,7 @@ az sql server update -n sql-server-name -g sql-server-group --set minimalTlsVers
 ## Change Connection policy via PowerShell
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
 The following PowerShell script shows how to change the connection policy using PowerShell:
 
@@ -180,7 +180,7 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ## Change Connection policy via Azure CLI
 
 > [!IMPORTANT]
-> All scripts in this section requires [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> All scripts in this section requires [Azure CLI](/cli/azure/install-azure-cli).
 
 ### Azure CLI in a bash shell
 
@@ -218,7 +218,7 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ## Next steps
 
 - For an overview of how connectivity works in Azure SQL Database, refer to [Connectivity Architecture](connectivity-architecture.md)
-- For information on how to change the connection policy for a server, see [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- For information on how to change the connection policy for a server, see [conn-policy](/cli/azure/sql/server/conn-policy).
 
 <!--Image references-->
 [1]: media/single-database-create-quickstart/manage-connectivity-settings.png

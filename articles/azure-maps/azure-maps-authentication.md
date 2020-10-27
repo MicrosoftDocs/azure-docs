@@ -99,7 +99,7 @@ Some Azure Maps services may require elevated privileges to perform write or del
 | Creator            | Azure Maps Data Contributor |
 | Spatial            | Azure Maps Data Contributor |
 
-For information about viewing your Azure RBAC settings, see [How to configure Azure RBAC for Azure Maps](https://aka.ms/amrbac).
+For information about viewing your Azure RBAC settings, see [How to configure Azure RBAC for Azure Maps](./how-to-manage-authentication.md).
 
 #### Custom role definitions
 

@@ -6,7 +6,7 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Connect with Managed Identity to Azure Database for MySQL
