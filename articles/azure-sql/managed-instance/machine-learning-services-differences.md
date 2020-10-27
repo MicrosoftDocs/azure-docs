@@ -47,7 +47,7 @@ Machine Learning Services in SQL Managed Instance and SQL Server support both Py
 
 ## Packages
 
-Python and R package management work differently between SQL Managed Instance and SQL Server. These differences are:
+Python and R package management work differently between SQL Managed Instance and SQL Server. The difference is:
 
 - There is no support for packages that depend on external runtimes (like Java) or need access to OS APIs for installation or usage.
 
