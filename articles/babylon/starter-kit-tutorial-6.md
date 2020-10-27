@@ -6,18 +6,20 @@ ms.author: suvirdi
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 10/26/2020
 ---
 
 # Tutorial: Use Catalog insights
 
-Catalog Insights is a collection of four reports - asset, scan, glossary and classifications. Catalog Insights provides value to the data consumers and data producers who are managing their data estate through Babylon.
+Catalog Insights is a collection of six reports - asset, scan, glossary, classifications, labeling, and file extensions. Catalog Insights provides value to the data consumers and data producers who are managing their data estate through Babylon.
 
 In this tutorial, learn about:
 * Asset Insights
 * Scan Insights
 * Glossary Insights
 * Classification Insights
+* Labeling Insights
+* File Extension Insights
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
@@ -61,6 +63,72 @@ Sign in to the [Azure portal](https://portal.azure.com).
 2. In Glossary insights you can view total terms in your account.
 
 3. You can view top glossary terms with assets attached to them, count of catalog users and terms by status.
+
+## View classification insights
+
+1. On the left, select **Classification** to view insights about the classifications found in your content.
+    
+    |Option  |Description  |
+    |---------|---------|
+    |**Time selector**     | Adjust the time selector as needed to show updated results found over different time periods.        |
+    |**Overall statistics**     | Use the tiles at the top of the page to view the number of classified files, percentage of data that is secret, as well as the total amount of data scanned.        |
+    |**Top classifications**     |  Use the **Top classifications** graph to view the most commonly used classifications found in your content, such as credit card numbers or national identification numbers.       |
+    | | |
+
+1. Click **View all classifications** to drill down further. 
+
+    On the detailed classification report, use the following methods to modify the data displayed:
+    
+    |Option  |Description  |
+    |---------|---------|
+    |**Filter**     |   Use the **Classification**, **Subscription**, and **Asset Type** filters to filter the graphs to show data for specific content only.      |
+    |**Edit columns**     | Select **Edit Columns** to change the column data shown in the table below your graphs.        |
+    |**Find more information** |In the table below your graphs, select a specific classification to view additional information about the data sources, such as: </br>- Asset types </br>- Subscription details </br>- Numbers of labeled or classified files for the selected classification. | 
+    | | | 
+
+## View labeling insights
+
+1. On the left, select **Labels** to view insights about the sensitivity labels found in your content.
+
+    |Option  |Description  |
+    |---------|---------|
+    |**Time selector**     | Adjust the time selector as needed to show updated results found over different time periods.        |
+    |**Overall statistics**     | Use the tiles at the top of the page to view the number of classified files, percentage of data that is secret, as well as the total amount of data scanned.        |
+    |**Top labels**     |  Use the **Top labels** graph to view the most commonly used labels found in your content, such as **Secret**, **All Employees**, or another specific group of internal users.    |
+    | | |
+            
+1. Click **View all labels** to drill down further.
+
+   On the detailed labeling report, use the following methods to modify the data displayed:
+    
+    |Option  |Description  |
+    |---------|---------|
+    |**Filter**     |   Use the **Classification**, **Subscription**, and **Asset Type** filters to filter the graphs to show data for specific content only.      |
+    |**Edit columns**     | Select **Edit Columns** to change the column data shown in the table below your graphs.        |
+    |**Find more information** |In the table below your graphs, select a specific label to view additional information about the data sources, such as: </br>- Asset types </br>- Subscription details </br>- Numbers of labeled or classified files for the selected label. | 
+    | | | 
+
+## View file extension insights
+
+1. On the left, select **File extensions** to view insights about the file types (extensions) found in your content.
+
+    |Option  |Description  |
+    |---------|---------|
+    |**Time selector**     | Adjust the time selector as needed to show updated results found over different time periods.        |
+    |**Overall statistics**     | Use the tile at the top to view the number of unique file extensions found across your content.       |
+    |**Top file extensions**     |  Use the **Top file extensions** graph to view the most commonly found file extensions in your content.       |
+    | | |
+    
+1. Click **View all file extensions** to drill down further.
+
+    On the file extension analysis report, use any of the following steps to modify the data displayed:
+    
+    |Option  |Description  |
+    |---------|---------|
+    |**Search box**     |   Enter a file extension name in the search box to display data for that file extension only.      |
+    |**Filters**     | Use the filters to show data only for: <br>- Specific file extensions </br>- Data from specific sources </br>- Data found during specific time periods </br>- Files that can be scanned further for sensitive content, or files that cannot be scanned further such as **.cert** or **.jpg** files        |
+    |**Edit columns**     |   Select **Edit Columns** to change the column data shown in the table below your graphs.      |
+    | | |
 
 ## Next steps
 
