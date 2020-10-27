@@ -14,17 +14,17 @@ ms.reviewer: jrasnick
 
 This trouble-shooting guide provides instruction on what information to provide when opening a support ticket on network connectivity issues. With the proper information, we can possibly resolve the issue more quickly.
 
-## SQL on-demand (preview) service connectivity issue
+## Serverless SQL pool (preview) service connectivity issue
 
 ### Symptom 1
 
-"SQL on-demand" option is grayed out in the "Connect to" dropdown.
+"Serverless SQL pool" option is grayed out in the "Connect to" dropdown.
 
 ![symptom1](media/troubleshooting-synapse-studio/symptom1v2.png)
 
 ### Symptom 2
 
-Running the query with "SQL on-demand" gives you the "Failed to establish connection to server" error message.
+Running the query with "serverless SQL pool" gives you the "Failed to establish connection to server" error message.
 
 ![symptom 2](media/troubleshooting-synapse-studio/symptom2.png)
  
@@ -40,7 +40,7 @@ Open the "Diagnostic Info" panel, select the "Download Diagnostic" button. Keep 
 
 To begin troubleshooting, retry the operation you performed in Azure Synapse Studio.
 
-- For symptom 1, select the "Refresh" button to the right of the "Use database" dropdown in the "SQL script" tab and check whether you can see "SQL on-demand".
+- For symptom 1, select the "Refresh" button to the right of the "Use database" dropdown in the "SQL script" tab and check whether you can see "serverless SQL pool".
 - For symptom 2, try running the query again to see if it executes successfully.
 
 If the problem still exists, press F12 in your browser to open "Developer Tools" (DevTools).
@@ -66,7 +66,7 @@ If either one of them has something other than "20x" and:
 
     - If you see ERR_NAME_NOT_RESOLVED and you created your workspace within 10 minutes, wait for 10 minutes and retry to see whether the problem still exists.
     - If you see ERR_INTERNET_DISCONNECTED or ERR_NETWORK_CHANGED, it may indicate your PC network connection is having issues. Check your network connection and retry the operation.
-    - If you see ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR or other error codes containing "SSL", it may indicate your local SSL configuration is having issues, or your network administrator has blocked access to the SQL on-demand server. Open a support ticket and attach the error code in the description.
+    - If you see ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR or other error codes containing "SSL", it may indicate your local SSL configuration is having issues, or your network administrator has blocked access to the serverless SQL pool server. Open a support ticket and attach the error code in the description.
     - If you see ERR_NETWORK_ACCESS_DENIED, you may need to check with the administrator on whether your local firewall policy has blocked access to either *.database.windows.net domain, or remote port 1443.
     - Optionally, try the same operation immediately on a different machine and/or network environment to rule out a network configuration issue on your PC.
 
