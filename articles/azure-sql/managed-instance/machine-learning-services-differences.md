@@ -1,6 +1,6 @@
 ---
 title: Key differences for Machine Learning Services (preview)
-description: This topic describes key differences between Machine Learning Services in Azure SQL Managed Instance and SQL Server Machine Learning Services.
+description: This article describes key differences between Machine Learning Services in Azure SQL Managed Instance and SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: machine-learning
@@ -30,7 +30,7 @@ During the preview, the service has the following limitations:
 - Only Python and R are supported. External languages such as Java cannot be added.
 - Scenarios using the [Message Passing Interface](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) (MPI) are not supported.
 
-In case of a Service Level Objective (SLO) update, please update the SLO and raise a support ticket to re-enable the dedicated resource limits for R/Python.
+In case of a Service Level Objective (SLO) update, update the SLO and raise a support ticket to re-enable the dedicated resource limits for R/Python.
 
 ## Language support
 
@@ -66,9 +66,9 @@ During the public preview, R resources are set to a maximum of 20% of the SQL Ma
 
 If there is insufficient memory available for R, you will get an error message. Common error messages are:
 
-- Unable to communicate with the runtime for 'R' script for request id: *******. Please check the requirements of 'R' runtime
-- 'R' script error occurred during execution of 'sp_execute_external_script' with HRESULT 0x80004004. ...an external script error occurred: "..could not allocate memory (0 Mb) in C function 'R_AllocStringBuffer'"
-- An external script error occurred: Error: cannot allocate vector of size.
+- `Unable to communicate with the runtime for 'R' script for request id: *******. Please check the requirements of 'R' runtime`
+- `'R' script error occurred during execution of 'sp_execute_external_script' with HRESULT 0x80004004. ...an external script error occurred: "..could not allocate memory (0 Mb) in C function 'R_AllocStringBuffer'"`
+- `An external script error occurred: Error: cannot allocate vector of size.`
 
 Memory usage depends on how much is used in your R scripts and the number of parallel queries being executed. If you receive the errors above, you can scale your database to a higher service tier to resolve this.
 
