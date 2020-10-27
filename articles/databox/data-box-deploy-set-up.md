@@ -65,7 +65,7 @@ Perform the following steps to cable your device.
 2. Transport the device to the location where you wish to power it on. Place the device on a flat surface. The device can also be placed on a standard rack shelf.
 3. Connect the power and network cables. The backplane of a connected device for a common configuration is shown below. Depending on your environment, you could choose from other [cabling options](data-box-cable-options.md).
     
-    ![Data Box device backplane cabled](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
+    ![Data Box device backplane cabled - 1](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 
     1. Connect the power cable to the labeled power input location. The other end of the power cable should be connected to a power distribution unit.
     2. Use the RJ-45 CAT 6 cable to connect the MGMT port on one end and a laptop on the other end.            
@@ -97,7 +97,7 @@ After you have received the device, you need to cable and connect to your device
 	
 4. Cable the device as shown below.  
 
-    ![Data Box device backplane cabled](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
+    ![Data Box device backplane cabled - 2](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
 
     1. Connect the power cable to the device.
     2. Use the RJ-45 CAT 6 network cable to connect your host computer to the management port (MGMT) on the device. 
@@ -117,7 +117,7 @@ Perform the following steps to set up your device using the local web UI and the
 2. Connect to MGMT port of your device and access its local web UI at https\://192.168.100.10. This may take up to 5 minutes after you turned on the device.
 3. Click **Details** and then click **Go on to the webpage**.
 
-   ![Connect to local web UI](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 
+   ![Connect to local web UI](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
 
 4. You see a **Sign in** page for the local web UI. Ensure that the device serial number matches across both the portal UI and the local web UI. The device is locked at this point.
 5. Sign into the [Azure portal](https://portal.azure.com).
