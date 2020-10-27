@@ -16,7 +16,7 @@ ms.custom: "user-help, seo-update-azuread-jan"
 
 # Switching organizations in a portal
 
-In your account and access portals, such as the **My Account** portal for your organizational accounts, you switch to other organizations you might work with to manage your account information with other organizations.
+In your account or access portals, such as the **My Account** portal for your organizational accounts, you can switch to other organizations you might work with to manage your account information in those other organizations.
 
 The organization switcher is available in the following portals:
 
@@ -25,11 +25,11 @@ The organization switcher is available in the following portals:
 - [**My Access**](https://myaccess.microsoft.com)
 - [**My Staff**](https://mystaff.microsoft.com)
 
-Switching organization is not available for **My Sign-ins**, **Security info** or **My Groups**.
+Switching organizations is not available for **My Sign-ins**, **Security info**, or **My Groups**.
 
 ## Switch organizations
 
-For example, to switch to another organization in the **My Account** portal:
+Here's how to switch to another organization. This example uses in the **My Account** portal, but the switcher icon and placement are similar in other portals, too.
 
 1. Sign in to your work or school account, and then open the [My Account](https://myaccount.microsoft.com) page.
 1. Select the organization switcher :::image type="content" source="media/cross-tenant-switcher/switcher-icon.png" alt-text="The icon for the organization switcher"::: at the top of the page, next to your account photo.
@@ -42,8 +42,7 @@ If the organization you selected has additional security requirements, you might
 
 ## After switching
 
-After you switched organizations, all portal pages will reflect the organization you selected.
+After you switch organizations, all portal pages will reflect the organization you selected. Please be aware that:
 
-> [!Note]
-> - If you're signed in to an organization that isn't your home organization and then select **Password** on the My Account Overview page or other places where it appears, you are immediately switched back to your home organization. This is because the password you use to sign in to your home organization is used to sign you in to other organizations.
-> - In the My Staff portal, if you switch to another organization, they'll only have access to My Staff if you are enabled for My Staff in that organization.
+- If you're signed in to an organization that isn't your home organization and then select **Password** on the **My Account** Overview page or other places where it appears, you are immediately switched back to your home organization. This is because the password you use to sign in to your home organization is used to sign you in to other organizations.
+- In the **My Staff** portal, if you switch to another organization, you'll only have access to My Staff if you are enabled for My Staff in that organization.
