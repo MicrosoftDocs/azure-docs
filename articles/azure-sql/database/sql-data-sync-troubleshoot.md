@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: data sync, sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: stevestein
 ms.author: sstein
 ms.reviewer:

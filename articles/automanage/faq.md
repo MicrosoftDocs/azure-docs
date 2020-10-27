@@ -30,7 +30,7 @@ The following are prerequisites for enabling Azure Automanage:
 - VMs must not link to a log analytics workspace in a different subscription
 - Automanage does not support Sandbox subscriptions at this time
 
-**What RBAC permission is needed to enable Automanage?**
+**What Azure RBAC permission is needed to enable Automanage?**
 
 If you are enabling Automanage on an VM with an existing Automanage Account, you need Contributor role to the Resource Group where the VM resides.
 

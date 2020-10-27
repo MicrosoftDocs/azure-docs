@@ -103,4 +103,4 @@ pip3 install azure-mgmt-media==1.1.1
 ## Next steps
 
 - Use [Python SDK](https://aka.ms/ams-v3-python-sdk).
-- Review the Media Services [Python ref](https://aka.ms/ams-v3-python-ref) documentation.
+- Review the Media Services [Python ref](/python/api/overview/azure/mediaservices/management) documentation.

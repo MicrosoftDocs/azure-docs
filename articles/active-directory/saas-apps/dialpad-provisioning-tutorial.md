@@ -49,13 +49,13 @@ Before configuring Dialpad for automatic user provisioning with Azure AD, you wi
 
 1. Sign in to your [Dialpad Admin Console](https://dialpadbeta.com/login) and select **Admin settings**. Ensure that **My Company** is selected from the dropdown. Navigate to **Authentication > API Keys**.
 
-	![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/dialpad01.png)
+	:::image type="content" source="media/dialpad-provisioning-tutorial/dialpad01.png" alt-text="Screenshot of the Dialpad admin console, with the settings icon, My Company, Authentication, and A P I keys highlighted, and My Company selected." border="false":::
 
 2. Generate a new key by clicking **Add a key** and configuring the properties of your secret token.
 
-	![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/dialpad02.png)
+	:::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Screenshot of the A P I keys page in the Dialpad admin console. Add a key is highlighted." border="false":::
 
-	![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/dialpad03.png)
+	:::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Screenshot of the Edit A P I key page in the Dialpad admin console. The Save button is highlighted." border="false":::
 
 3. Click the **Click to show value** button for your recently created API key and copy the value shown. This value will be entered in the **Secret Token** field in the Provisioning tab of your Dialpad application in the Azure portal. 
 
@@ -84,19 +84,19 @@ To configuring Dialpad for automatic user provisioning with Azure AD, you need t
 
 5. Navigate to the **URL** highlighted below in a separate browser. 
 
- 	![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/dialpad05.png)
+ 	:::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Screenshot of a page displaying information about the Dialpad app. Under U R L, an address is listed and is highlighted." border="false":::
 
 6. In the top right-hand corner, select **Log In > Use Dialpad online**.
 
-	![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/dialpad06.png)
+	:::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Screenshot of the Dialpad website. Log in is highlighted, and the Log in tab is open. Use Dialpad online is also highlighted." border="false":::
 
 7. As Dialpad is an OpenIDConnect app, choose to login to Dialpad using your Microsoft work account.
 
-	![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/loginpage.png)
+	:::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Screenshot of the Start making calls page in the Dialpad website. The Log in with Office 365 button is highlighted." border="false":::
 
 8. After a successful authentication, accept the consent prompt for the consent page. The application will then be automatically added to your tenant and you will be redirected to your Dialpad account.
 
-	![Dialpad Add SCIM](media/dialpad-provisioning-tutorial/redirect.png)
+	:::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Screenshot showing a Microsoft authentication page stating that the Dialpad app has requested access to some data. The Accept button is highlighted." border="false":::
 
  ## Configure automatic user provisioning to Dialpad
 

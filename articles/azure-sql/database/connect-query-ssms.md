@@ -58,6 +58,8 @@ Get the connection information you need to connect to your database. You'll need
 
 ## Connect to your database
 
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 In SSMS, connect to your server.
 
 > [!IMPORTANT]
@@ -79,7 +81,7 @@ In SSMS, connect to your server.
    ![connect to server](./media/connect-query-ssms/connect.png)  
 
 > [!NOTE]
-> This tutorial utilizes SQL Server Authentication.  However, for connecting via Azure Active Directory with MFA, ensure you are utilizing [SSMS 18.6 or newer](https://aka.ms/ssms). 
+> This tutorial utilizes SQL Server Authentication.
 
 3. Select **Options** in the **Connect to Server** dialog box. In the **Connect to database** drop-down menu, select **mySampleDatabase**. Completing the quickstart in the [Prerequisites section](#prerequisites) creates an AdventureWorksLT database named mySampleDatabase. If your working copy of the AdventureWorks database has a different name than mySampleDatabase, then select it instead.
 

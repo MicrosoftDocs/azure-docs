@@ -83,7 +83,7 @@ The following table summarizes the key differences between ML Studio (classic) a
 | Training compute targets | Proprietary compute target, CPU support only | Wide range of customizable [training compute targets](concept-compute-target.md#train). Includes GPU and CPU support | 
 | Deployment compute targets | Proprietary web service format, not customizable | Wide range of customizable [deployment compute targets](concept-compute-target.md#deploy). Includes GPU and CPU support |
 | ML Pipeline | Not supported | Build flexible, modular [pipelines](concept-ml-pipelines.md) to automate workflows |
-| MLOps | Basic model management and deployment | Entity versioning (model, data, workflows), workflow automation, integration with CICD tooling, [and more](concept-model-management-and-deployment.md) |
+| MLOps | Basic model management and deployment; CPU only deployments | Entity versioning (model, data, workflows), workflow automation, integration with CICD tooling, CPU and GPU deployments [and more](concept-model-management-and-deployment.md) |
 | Model format | Proprietary format, Studio (classic) only | Multiple supported formats depending on training job type |
 | Automated model training and hyperparameter tuning |  Not supported | [Supported](concept-automated-ml.md). Code-first and no-code options. | 
 | Data drift detection | Not supported | [Supported](how-to-monitor-datasets.md) |
@@ -93,7 +93,9 @@ The following table summarizes the key differences between ML Studio (classic) a
 ## Next steps
 
 Visit the [studio](https://ml.azure.com), or explore the different authoring options with these tutorials:  
-  + [Use Python notebooks to train & deploy models](tutorial-1st-experiment-sdk-setup.md)
+
+- + [Get started in your own development environment](tutorial-1st-experiment-sdk-setup-local.md)
+  + [Use Jupyter notebooks on a compute instance to train & deploy models](tutorial-1st-experiment-sdk-setup.md)
   + [Use automated machine learning to train & deploy models](tutorial-first-experiment-automated-ml.md)  
   + [Use the designer to train & deploy models](tutorial-designer-automobile-price-train-score.md)
 

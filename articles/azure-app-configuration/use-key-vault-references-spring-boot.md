@@ -14,7 +14,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
-ms.custom: mvc, devx-track-java
+ms.custom: mvc, devx-track-java, devx-track-azurecli
 
 #Customer intent: I want to update my Spring Boot application to reference values stored in Key Vault through App Configuration.
 ---
@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* A supported [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) with version 8.
+* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 8.
 * [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
 ## Create a vault

@@ -39,7 +39,7 @@ This article describes step-by-step how to clone a backup set of your shares or 
    
    c.    Click **OK**.
    
-   ![Clone a backup](./media/storsimple-virtual-array-clone/cloneshare3.png)
+   ![Clone a backup 2](./media/storsimple-virtual-array-clone/cloneshare3.png)
 3. In the **Clone** blade, click **Target settings** and then do the following:
    
    a.    Provide a share name. The share name must contain 3-127 characters.
@@ -54,13 +54,13 @@ This article describes step-by-step how to clone a backup set of your shares or 
    
    f.    Click **OK**.
    
-   ![Clone a backup](./media/storsimple-virtual-array-clone/cloneshare6.png)
+   ![Clone a backup 3](./media/storsimple-virtual-array-clone/cloneshare6.png)
 
 4. Click **Clone** to start a clone job. After the job is complete, the clone operation starts and you are notified. To monitor the progress of clone, go to the **Jobs** blade and click the job to view job details.
 5. After the clone is successfully created, navigate back to the **Shares** blade on your device.
 6. You can now view the new cloned share in the list of shares on your device. A tiered share is cloned as tiered and a locally pinned share as a locally pinned share.
    
-   ![Clone a backup](./media/storsimple-virtual-array-clone/cloneshare10.png)
+   ![Clone a backup 4](./media/storsimple-virtual-array-clone/cloneshare10.png)
 
 ## Clone volumes from a backup set
 
@@ -79,7 +79,7 @@ To clone from a backup, in the Azure portal, you have to perform steps similar t
    
    c.    Click **OK**.
    
-   ![Clone a backup](./media/storsimple-virtual-array-clone/clonevolume3.png)
+   ![Clone a volume 2](./media/storsimple-virtual-array-clone/clonevolume3.png)
 3. In the **Clone** blade, click **Target volume settings** and then do the following::
    
    a. The device name is automatically populated.
@@ -90,16 +90,16 @@ To clone from a backup, in the Azure portal, you have to perform steps similar t
    
    d. For the **Connected hosts**, click **Select**.
    
-   ![Clone a backup](./media/storsimple-virtual-array-clone/clonevolume4.png)
+   ![Clone a volume 3](./media/storsimple-virtual-array-clone/clonevolume4.png)
 4. In  the **Connected hosts** blade, select from an existing ACR or add a new ACR. To add a new ACR, you will need to provide an ACR name and the host IQN. Click **Select**.
    
-   ![Clone a backup](./media/storsimple-virtual-array-clone/clonevolume5.png)
+   ![Clone a volume 4](./media/storsimple-virtual-array-clone/clonevolume5.png)
 5. Click **Clone** to launch a clone job.
    
-   ![Clone a backup](./media/storsimple-virtual-array-clone/clonevolume6.png)  
+   ![Clone a volume 5](./media/storsimple-virtual-array-clone/clonevolume6.png)  
 6. After the clone job is created, cloning will start. Once the clone is created, it is displayed on the Volumes blade on your device. Note that a tiered volume is cloned as tiered and a locally pinned volume is cloned as a locally pinned volume.
    
-   ![Clone a backup](./media/storsimple-virtual-array-clone/clonevolume8.png)
+   ![Clone a volume 6](./media/storsimple-virtual-array-clone/clonevolume8.png)
 7. Once the volume appears online on the list of volumes, the volume is available for use. On the iSCSI initiator host, refresh the list of targets in iSCSI initiator properties window. A new target that contains the cloned volume name should appear as 'inactive' under the status column.
 8. Select the target and click **Connect**. After the initiator is connected to the target, the status should change to **Connected**.
 9. In the **Disk Management** window, the mounted volumes appear as shown in the following illustration. Right-click the discovered volume (click the disk name), and then click **Online**.

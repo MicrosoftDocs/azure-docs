@@ -48,7 +48,7 @@ You may start with a run configuration for your local computer, and then switch 
 
 * [What is a run configuration?](concept-azure-machine-learning-architecture.md#run-configurations)
 * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md)
-* [Examples: Jupyter Notebook examples of training models](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
+* [Examples: Jupyter Notebook and Python examples of training models](https://github.com/Azure/azureml-examples)
 * [How to: Configure a training run](how-to-set-up-training-targets.md)
 
 ### Automated Machine Learning
@@ -113,11 +113,6 @@ The designer lets you train models using a drag and drop interface in your web b
 
 + [What is the designer?](concept-designer.md)
 + [Tutorial: Predict automobile price](tutorial-designer-automobile-price-train-score.md)
-+ [Regression: Predict price](how-to-designer-sample-regression-automobile-price-basic.md)
-+ [Classification: Predict income](how-to-designer-sample-classification-predict-income.md)
-+ [Classification: Predict churn, appetency, and up-selling](how-to-designer-sample-classification-churn.md)
-+ [Classification with custom R script: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
-+ [Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
 
 ## Many models solution accelerator
 

@@ -9,19 +9,20 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 10/27/2020
 ms.custom: devx-track-csharp
 
 ---
-# Quickstart: Create a search index using the Microsoft.Azure.Search v10 client library
+# Quickstart: Create a search index using the legacy Microsoft.Azure.Search v10 client library
 
-This article is the C# quickstart for the legacy Microsoft.Azure.Search (version 10) client library, now superseded by the Azure.Search.Documents (version 11) client library. If you have existing search solutions that uses the Microsoft.Azure.Search libraries, you can use this quickstart to learn about those APIs. 
+This article is the C# quickstart for the legacy [**Microsoft.Azure.Search**](/dotnet/api/overview/azure/search/client10) (version 10) client library, now superseded by the [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) (version 11) client library.
 
-For new solutions, we recommend the new Azure.Search.Documents library. For an introduction, see [Quickstart: Create a search index using Azure.Search.Documents library](search-get-started-dotnet.md).
+> [!NOTE]
+> If you have existing or inflight development projects, you can continue to use version 10. But for new projects, or to use new features, you should transition to the [new library](/dotnet/api/overview/azure/search.documents-readme).
 
 ## About this quickstart
 
-Create a .NET Core console application in C# that creates, loads, and queries an Azure Cognitive Search index using Visual Studio and the [Microsoft.Azure.Search client libraries](/dotnet/api/overview/azure/search/client10?view=azure-dotnet). 
+Create a .NET Core console application in C# that creates, loads, and queries an Azure Cognitive Search index using Visual Studio and the [Microsoft.Azure.Search client libraries](/dotnet/api/overview/azure/search/client10). 
 
 This article explains how to create the application. You could also [download and run the complete application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v10).
 
@@ -99,7 +100,7 @@ For this project, use version 10 of the `Microsoft.Azure.Search` NuGet package a
 
 ### Add class ".Method" files to your project
 
-This step is required to produce meaningful output in the console. When printing results to the console window, individual fields from the Hotel object must be returned as strings. This step implements [ToString()](/dotnet/api/system.object.tostring?view=netframework-4.8) to perform this task, which you do by copying the necessary code to two new files.
+This step is required to produce meaningful output in the console. When printing results to the console window, individual fields from the Hotel object must be returned as strings. This step implements [ToString()](/dotnet/api/system.object.tostring) to perform this task, which you do by copying the necessary code to two new files.
 
 1. Add two empty class definitions to your project: Address.Methods.cs, Hotel.Methods.cs
 
@@ -194,15 +195,15 @@ The hotels index consists of simple and complex fields, where a simple field is 
     Attributes on the field determine how it is used in an application. For example, the `IsSearchable` attribute must be assigned to every field that should be included in a full text search. 
     
     > [!NOTE]
-    > In the .NET SDK, fields must be explicitly attributed as [`IsSearchable`](/dotnet/api/microsoft.azure.search.models.field.issearchable?view=azure-dotnet), [`IsFilterable`](/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet), [`IsSortable`](/dotnet/api/microsoft.azure.search.models.field.issortable?view=azure-dotnet), and [`IsFacetable`](/dotnet/api/microsoft.azure.search.models.field.isfacetable?view=azure-dotnet). This behavior is in contrast with the REST API which implicitly enables attribution based on data type (for example, simple string fields are automatically searchable).
+    > In the .NET SDK, fields must be explicitly attributed as [`IsSearchable`](/dotnet/api/microsoft.azure.search.models.field.issearchable), [`IsFilterable`](/dotnet/api/microsoft.azure.search.models.field.isfilterable), [`IsSortable`](/dotnet/api/microsoft.azure.search.models.field.issortable), and [`IsFacetable`](/dotnet/api/microsoft.azure.search.models.field.isfacetable). This behavior is in contrast with the REST API which implicitly enables attribution based on data type (for example, simple string fields are automatically searchable).
 
     Exactly one field in your index of type `string` must be the *key* field, uniquely identifying each document. In this schema, the key is `HotelId`.
 
-    In this index, the description fields use the optional [`analyzer`](/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet) property, specified when you want to override the default standard Lucene analyzer. The `description_fr` field is using the French Lucene analyzer ([FrLucene](/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)) because it stores French text. The `description` is using the optional Microsoft language analyzer ([EnMicrosoft](/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
+    In this index, the description fields use the optional [`analyzer`](/dotnet/api/microsoft.azure.search.models.field.analyzer) property, specified when you want to override the default standard Lucene analyzer. The `description_fr` field is using the French Lucene analyzer ([FrLucene](/dotnet/api/microsoft.azure.search.models.analyzername.frlucene)) because it stores French text. The `description` is using the optional Microsoft language analyzer ([EnMicrosoft](/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft)).
 
-1. In Program.cs, create an instance of the [`SearchServiceClient`](/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) class to connect to the service, using values that are stored in the application's config file (appsettings.json). 
+1. In Program.cs, create an instance of the [`SearchServiceClient`](/dotnet/api/microsoft.azure.search.searchserviceclient) class to connect to the service, using values that are stored in the application's config file (appsettings.json). 
 
-   `SearchServiceClient` has an [`Indexes`](/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) property, providing all the methods you need to create, list, update, or delete Azure Cognitive Search indexes. 
+   `SearchServiceClient` has an [`Indexes`](/dotnet/api/microsoft.azure.search.searchserviceclient.indexes) property, providing all the methods you need to create, list, update, or delete Azure Cognitive Search indexes. 
 
     ```csharp
     using System;
@@ -302,7 +303,7 @@ The hotels index consists of simple and complex fields, where a simple field is 
 
 In Azure Cognitive Search, documents are data structures that are both inputs to indexing and outputs from queries. As obtained from an external data source, document inputs might be rows in a database, blobs in Blob storage, or JSON documents on disk. In this example, we're taking a shortcut and embedding JSON documents for four hotels in the code itself. 
 
-When uploading documents, you must use an [`IndexBatch`](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) object. An `IndexBatch` contains a collection of [`IndexAction`](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) objects, each of which contains a document and a property telling Azure Cognitive Search what action to perform ([upload, merge, delete, and mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
+When uploading documents, you must use an [`IndexBatch`](/dotnet/api/microsoft.azure.search.models.indexbatch) object. An `IndexBatch` contains a collection of [`IndexAction`](/dotnet/api/microsoft.azure.search.models.indexaction) objects, each of which contains a document and a property telling Azure Cognitive Search what action to perform ([upload, merge, delete, and mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
 1. In Program.cs, create an array of documents and index actions, and then pass the array to `IndexBatch`. The documents below conform to the hotel-quickstart index, as defined by the hotel and address classes.
 
@@ -424,7 +425,7 @@ When uploading documents, you must use an [`IndexBatch`](/dotnet/api/microsoft.a
     }
     ```
 
-    Once you initialize the`IndexBatch` object, you can send it to the index by calling [`Documents.Index`](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) on your [`SearchIndexClient`](/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) object. `Documents` is a property of `SearchIndexClient` that provides methods for adding, modifying, deleting, or querying documents in your index.
+    Once you initialize the`IndexBatch` object, you can send it to the index by calling [`Documents.Index`](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index) on your [`SearchIndexClient`](/dotnet/api/microsoft.azure.search.searchindexclient) object. `Documents` is a property of `SearchIndexClient` that provides methods for adding, modifying, deleting, or querying documents in your index.
 
     The `try`/`catch` surrounding the call to the `Index` method catches indexing failures, which might happen if your service is under heavy load. In production code, you could delay and then retry indexing the documents that failed, or log and continue like the sample does, or handle it in some other way that meets your application's data consistency requirements.
 
@@ -442,16 +443,15 @@ When uploading documents, you must use an [`IndexBatch`](/dotnet/api/microsoft.a
 
     If the project builds successfully, a console window opens, writing status messages, this time with a message about uploading documents. In the Azure portal, in the search service **Overview** page, the hotels-quickstart index should now have 4 documents.
 
-For more information about document processing, see ["How the .NET SDK handles documents"](search-howto-dotnet-sdk.md#how-dotnet-handles-documents).
+For more information about document processing, see ["How the .NET SDK handles documents"](search-howto-dotnet-sdk-v10.md#how-dotnet-handles-documents).
 
 ## 3 - Search an index
 
 You can get query results as soon as the first document is indexed, but actual testing of your index should wait until all documents are indexed. 
 
-This section adds two pieces of functionality: query logic, and results. For queries, use the [`Search`](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.search?view=azure-dotnet
-) method. This method takes search text as well as other [parameters](/dotnet/api/microsoft.azure.search.models.searchparameters?view=azure-dotnet). 
+This section adds two pieces of functionality: query logic, and results. For queries, use the [`Search`](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.search) method. This method takes search text as well as other [parameters](/dotnet/api/microsoft.azure.search.models.searchparameters). 
 
-The [`DocumentsSearchResult`](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1?view=azure-dotnet) class represents the results.
+The [`DocumentsSearchResult`](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) class represents the results.
 
 
 1. In Program.cs, create a WriteDocuments method that prints search results to the console.

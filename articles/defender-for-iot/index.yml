@@ -102,10 +102,8 @@ landingContent:
     linkLists:
       - linkListType: video
         links:
-          - text: What is Azure Defender for IoT?
-            url: https://youtu.be/pq5uSp9u_x0
           - text: Understanding Azure Defender for IoT
-            url: https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek
+            url: https://myignite.microsoft.com/sessions/973175b0-2a2d-4b41-99f8-051e42ac575a
       - linkListType: reference
         links:
           - text: Frequently asked questions

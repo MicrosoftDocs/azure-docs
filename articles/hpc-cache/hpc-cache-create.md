@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 09/30/2020
 ms.author: v-erkel
 ---
 
@@ -24,7 +24,7 @@ Click the image below to watch a [video demonstration](https://azure.microsoft.c
 
 ![screenshot of project details page in Azure portal](media/hpc-cache-create-basics.png)
 
-In **Project Details**, select the subscription and resource group that will host the cache.<!-- Make sure the subscription is on the [access](hpc-cache-prerequisites.md#azure-subscription) list.  -->
+In **Project Details**, select the subscription and resource group that will host the cache.
 
 In **Service Details**, set the cache name and these other attributes:
 
@@ -76,7 +76,7 @@ After you create the cache, you must authorize it to use the key vault service. 
 
 ## Add resource tags (optional)
 
-The **Tags** page lets you add [resource tags](https://go.microsoft.com/fwlink/?linkid=873112) to your Azure HPC Cache instance.
+The **Tags** page lets you add [resource tags](../azure-resource-manager/management/tag-resources.md) to your Azure HPC Cache instance.
 
 ## Finish creating the cache
 
@@ -199,7 +199,7 @@ module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information
 about installing the Az PowerShell module, see
 [Install Azure PowerShell](/powershell/azure/install-az-ps). If you choose to use Cloud Shell, see
-[Overview of Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) for
+[Overview of Azure Cloud Shell](../cloud-shell/overview.md) for
 more information.
 
 > [!IMPORTANT]

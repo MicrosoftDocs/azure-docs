@@ -102,4 +102,4 @@ Get the connection information you need to connect to a database in Azure SQL Da
 - [Design your first database in Azure SQL Database](design-first-database-tutorial.md)
 - [GitHub repository for TinyTDS](https://github.com/rails-sqlserver/tiny_tds)
 - [Report issues or ask questions about TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues)
-- [Ruby driver for SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
+- [Ruby driver for SQL Server](/sql/connect/ruby/ruby-driver-for-sql-server/)

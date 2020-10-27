@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
 ---
 
@@ -20,7 +20,7 @@ This article describes best practices to plan and get started quickly by using A
 
 Best practices surrounding planning for and preparing your environment are described further in the following articles:
 
-* What you get when you [provision a Azure Time Series Insights Gen2 environment](#the-gen2-environment).
+* What you get when you [provision an Azure Time Series Insights Gen2 environment](#the-gen2-environment).
 * What your [Time Series IDs and Timestamp properties are](#configure-time-series-ids-and-timestamp-properties).
 * What the new [Time Series Model is](#understand-the-time-series-model), and how to build your own.
 * How to [send events efficiently in JSON](#shape-your-events).
@@ -30,8 +30,7 @@ Azure Time Series Insights employs a pay-as-you-go business model. For more info
 
 ## The Gen2 environment
 
-When you provision a Azure Time Series Insights Gen2 environment, you create two Azure resources:
-
+When you provision an Azure Time Series Insights Gen2 environment, you create two Azure resources:
 
 * An Azure Time Series Insights Gen2 environment
 * An Azure Storage account
@@ -89,8 +88,8 @@ For more information and to understand how events will be flattened and stored, 
 
 ## Next steps
 
-- Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
-- Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
-- Read more about [data ingestion](./concepts-ingestion-overview.md) in Azure Time Series Insights Gen2.
-- Review the article on [data storage](./concepts-storage.md) in Azure Time Series Insights Gen2.
-- Learn about [data modeling](./concepts-model-overview.md) in Azure Time Series Insights Gen2.
+* Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
+* Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
+* Read more about [data ingestion](./concepts-ingestion-overview.md) in Azure Time Series Insights Gen2.
+* Review the article on [data storage](./concepts-storage.md) in Azure Time Series Insights Gen2.
+* Learn about [data modeling](./concepts-model-overview.md) in Azure Time Series Insights Gen2.

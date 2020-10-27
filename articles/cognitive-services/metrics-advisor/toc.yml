@@ -45,6 +45,8 @@
     href: https://aka.ms/azure-powershell-cognitiveservices
 - name: Resources
   items:
+  - name: Support & help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context
   - name: Pricing
     href: http://go.microsoft.com/fwlink/?LinkID=761229
   - name: Regional Availability
