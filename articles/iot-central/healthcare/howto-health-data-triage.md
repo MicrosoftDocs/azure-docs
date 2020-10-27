@@ -178,7 +178,7 @@ The next step will be to parse the data coming from your Event Hub to stream it 
 13. For the **Smart Knee Brace** switch case, add a **Parse JSON** action to parse the content, similar to Step 7. Then **Add rows to a dataset** to update your Teddy Silvers dataset in Power BI.
 
     >[!div class="mx-imgBorder"] 
-    >![Smart Vitals add condition](media/knee-brace-pbi.png)
+    >![Screenshot that shows how to add rows to a dataset.](media/knee-brace-pbi.png)
 
 14. Press **Save** and then run your Logic App.
 

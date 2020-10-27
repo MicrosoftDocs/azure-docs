@@ -12,7 +12,7 @@ You can attach a number of data disks to an Azure virtual machine. Based on the 
 
 **For Azure managed disks:**
 
-The following table illustrates the default and maximum limits of the number of resources per region per subscription. There is no limit for the number of Managed Disks, snapshots and images per resource group.  
+The following table illustrates the default and maximum limits of the number of resources per region per subscription. The limits remain the same irrespective of disks encrypted with either platform-managed keys or customer-managed keys. There is no limit for the number of Managed Disks, snapshots and images per resource group.  
 
 > | Resource | Limit |
 > | --- | --- |
