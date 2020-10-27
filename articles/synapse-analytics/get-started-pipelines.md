@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Get started orchestrate with pipelines' 
-description: In this tutorial, you'll learn how orchestrate pipelines and activities using Synapse Studio.
+title: 'Tutorial: Get started to integrate with pipelines' 
+description: In this tutorial, you'll learn how to integrate pipelines and activities using Synapse Studio.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: pipeline
 ms.topic: tutorial
-ms.date: 10/16/2020 
+ms.date: 10/27/2020 
 ---
 
 # Integrate with pipelines
