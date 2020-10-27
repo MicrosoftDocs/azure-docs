@@ -80,7 +80,7 @@ To delete a source server, you can run the **[az mysql flexible-server delete](/
 az mysql flexible-server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-[Having an issue? Let us know](http://aka.ms/mysql-cli-feedback)
+[Having an issue? Let us know](https://aka.ms/mysql-cli-feedback)
 
 ## Next steps
 
