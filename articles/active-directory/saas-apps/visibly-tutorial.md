@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate Visibly with Azure Active Direct
 * Enable your users to be automatically signed-in to Visibly with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Visibly supports **SP** initiated SSO
 
-* Once you configure Visibly you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Visibly you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Visibly from the gallery
 
@@ -138,19 +138,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Navigate to the **settings** option from the navigation menu.
 
-	![Configuraion](./media/visibly-tutorial/settings.png)
+	![Screenshot shows the settings option selected.](./media/visibly-tutorial/settings.png)
 
 1. Click on **Integrations** within Settings.
 
-	![Configuraion](./media/visibly-tutorial/integrations.png)
+	![Screenshot shows Integrations selected from the Settings menu.](./media/visibly-tutorial/integrations.png)
 
 1. In the **Integrations**, select **SSO**.
 
-	![Configuraion](./media/visibly-tutorial/sso.png)
+	![Screenshot shows S S O selected from the Integrations.](./media/visibly-tutorial/sso.png)
 
 1. Perform the following steps in the following page.
 
-	![Configuraion](./media/visibly-tutorial/configuration.png)
+	![Screenshot shows S S O Integration page where you can enter the values described.](./media/visibly-tutorial/configuration.png)
 
 	a. In the **Entity ID** textbox, paste the **Entity ID** value which you have copied from the Azure portal.
 
@@ -170,16 +170,16 @@ In this section, a user called B.Simon is created in Visibly. Visibly supports j
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Visibly tile in the Access Panel, you should be automatically signed in to the Visibly for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Visibly tile in the Access Panel, you should be automatically signed in to the Visibly for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Visibly with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

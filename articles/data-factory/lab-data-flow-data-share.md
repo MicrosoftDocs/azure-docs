@@ -25,15 +25,15 @@ The data used in this lab is New York City taxi data. To import it into your dat
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-* **Azure SQL Database**: If you don't have a SQL DB, learn how to [create a SQL DB account](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal)
+* **Azure SQL Database**: If you don't have a SQL DB, learn how to [create a SQL DB account](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal)
 
-* **Azure Data Lake Storage Gen2 storage account**: If you don't have an ADLS Gen2 storage account, learn how to [create an ADLS Gen2 storage account](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account).
+* **Azure Data Lake Storage Gen2 storage account**: If you don't have an ADLS Gen2 storage account, learn how to [create an ADLS Gen2 storage account](../storage/common/storage-account-create.md).
 
-* **Azure Synapse Analytics (formerly SQL DW)**: If you don't have an Azure Synapse Analytics (formerly SQL DW), learn how to [create an Azure Synapse Analytics instance](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal).
+* **Azure Synapse Analytics (formerly SQL DW)**: If you don't have an Azure Synapse Analytics (formerly SQL DW), learn how to [create an Azure Synapse Analytics instance](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
-* **Azure Data Factory**: If you haven't created a data factory, see how to [create a data factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal).
+* **Azure Data Factory**: If you haven't created a data factory, see how to [create a data factory](./quickstart-create-data-factory-portal.md).
 
-* **Azure Data Share**: If you haven't created a data share, see how to [create a data share](https://docs.microsoft.com/azure/data-share/share-your-data#create-a-data-share-account).
+* **Azure Data Share**: If you haven't created a data share, see how to [create a data share](../data-share/share-your-data.md#create-a-data-share-account).
 
 ## Set up your Azure Data Factory environment
 
@@ -156,7 +156,7 @@ You have successfully created your source dataset. Make sure in the source setti
 1. The copy monitoring view gives the activity's execution details and performance characteristics. You can see information such as data read/written, rows read/written, files read/written, and throughput. If you have configured everything correctly, you should see 49,999 rows written into one file in your ADLS sink.
 
     ![Portal copy 13](media/lab-data-flow-data-share/copy13.png)
-1. Before moving on to the next section, it's suggested that you publish your changes to the data factory service by clicking **Publish all** in the factory top bar. While not covered in this lab, Azure Data Factory supports full git integration. Git integration allows for version control, iterative saving in a repository, and collaboration on a data factory. For more information, see [source control in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/source-control#troubleshooting-git-integration).
+1. Before moving on to the next section, it's suggested that you publish your changes to the data factory service by clicking **Publish all** in the factory top bar. While not covered in this lab, Azure Data Factory supports full git integration. Git integration allows for version control, iterative saving in a repository, and collaboration on a data factory. For more information, see [source control in Azure Data Factory](./source-control.md#troubleshooting-git-integration).
 
     ![Portal publish 1](media/lab-data-flow-data-share/publish1.png)
 
@@ -219,7 +219,7 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
 1. To add a new transformation, click the plus icon in the bottom-right corner of 'TripDataCSV'. Under **Multiple inputs/outputs**, select **Join**.
 
     ![Portal join 1](media/lab-data-flow-data-share/join1.png)
-1. Name your join transformation 'InnerJoinWithTripFares'. Select 'TripFaresSQL' from the right stream dropdown. Select **Inner** as the join type. To learn more about the different join types in mapping data flow, see [join types](https://docs.microsoft.com/azure/data-factory/data-flow-join#join-types).
+1. Name your join transformation 'InnerJoinWithTripFares'. Select 'TripFaresSQL' from the right stream dropdown. Select **Inner** as the join type. To learn more about the different join types in mapping data flow, see [join types](./data-flow-join.md#join-types).
 
     Select which columns you wish to match on from each stream via the **Join conditions** dropdown. To add an additional join condition, click on the plus icon next to an existing condition. By default, all join conditions are combined with an AND operator which means all conditions must be met for a match. In this lab, we want to match on columns `medallion`, `hack_license`, `vendor_id`, and `pickup_datetime`
 
@@ -243,7 +243,7 @@ The data flow created in this step inner joins the 'TripDataCSV' dataset created
     First, you'll create the average fare expression. In the text box labeled **Add or select a column**, enter 'average_fare'.
 
     ![Portal agg 3](media/lab-data-flow-data-share/agg3.png)
-1. To enter an aggregation expression, click the blue box labeled **Enter expression**. This will open up the data flow expression builder, a tool used to visually create data flow expressions using input schema, built-in functions and operations, and user-defined parameters. For more information on the capabilities of the expression builder, see the [expression builder documentation](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder).
+1. To enter an aggregation expression, click the blue box labeled **Enter expression**. This will open up the data flow expression builder, a tool used to visually create data flow expressions using input schema, built-in functions and operations, and user-defined parameters. For more information on the capabilities of the expression builder, see the [expression builder documentation](./concepts-data-flow-expression-builder.md).
 
     To get the average fare, use the `avg()` aggregation function to aggregate the `total_amount` column cast to an integer with `toInteger()`. In the data flow expression language, this is defined as `avg(toInteger(total_amount))`. Click **Save and finish** when you're done.
 
@@ -515,5 +515,3 @@ You may be prompted to select a subscription. Make sure you select the subscript
 1. Navigate back to the Data consumer's data share. Once the status of the trigger is successful, navigate to the destination SQL database and data lake to see that the data has landed in the respective stores. 
 
 Congratulations, you have completed the lab!
-
-

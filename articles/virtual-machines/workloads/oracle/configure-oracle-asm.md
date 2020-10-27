@@ -523,7 +523,7 @@ To set up your Oracle ASM installation, complete the following steps:
    - Click `ok` to create the disk group.
    - Click `ok` to close the confirmation window.
 
-   ![Screenshot of the Create Disk Group dialog box](./media/oracle-asm/asm04.png)
+   ![Screenshot of the Create Disk Group dialog box and highlights the External (none) option.](./media/oracle-asm/asm04.png)
 
 6. Select **Exit** to close ASM Configuration Assistant.
 
