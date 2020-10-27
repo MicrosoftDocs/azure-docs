@@ -16,6 +16,9 @@ ms.custom: github-actions-azure
 
 Get started with [GitHub Actions](https://help.github.com/en/articles/about-github-actions) to train a model on Azure Machine Learning. 
 
+> [!NOTE]
+> GitHub Actions for Azure Machine Learning are provided as-is, and are not fully supported by Microsoft. If you encounter problems with a specific action, open an issue in the repository for the action. For example, if you encounter a problem with the aml-deploy action, report the problem in the [https://github.com/Azure/aml-deploy]( https://github.com/Azure/aml-deploy) repo.
+
 ## Prerequisites 
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
