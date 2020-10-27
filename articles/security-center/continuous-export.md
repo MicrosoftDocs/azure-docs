@@ -213,6 +213,12 @@ No. Continuous export is built for streaming of **events**:
 
 Different recommendations have different compliance evaluation intervals, which can vary from a few minutes to every few days. Consequently, recommendations will differ in the amount of time it takes for them to appear in your exports.
 
+### Does continuous export support any business continuity or disaster recovery (BCDR) scenarios?
+
+When preparing your environment for BCDR scenarios, where the target resource is experiencing an outage or other disaster, it's the organization's responsibility to prevent data loss by establishing backups according to the guidelines from Azure Event Hubs, Log Analytics workspace, and Logic App.
+
+Learn more in [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md).
+
 
 ### Is continuous export available with Azure Security Center free?
 

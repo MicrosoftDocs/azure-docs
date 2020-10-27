@@ -136,22 +136,20 @@ To implement these policies:
 1. Review the summary page and select **Create**.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Data types schemas
 
 To view the raw event schemas of the security alerts or recommendations events passed to the Logic App instance, visit the [Workflow automation data types schemas](https://aka.ms/ASCAutomationSchemas). This can be useful in cases where you are not using Security Center's built-in Logic App connectors mentioned above, but instead are using Logic App's generic HTTP connector - you could use the event JSON schema to manually parse it as you see fit.
+
+
+## FAQ for workflow automation
+
+### Does workflow automation support any business continuity or disaster recovery (BCDR) scenarios?
+
+When preparing your environment for BCDR scenarios, where the target resource is experiencing an outage or other disaster, it's the organization's responsibility to prevent data loss by establishing backups according to the guidelines from Azure Event Hubs, Log Analytics workspace, and Logic App.
+
+For every active automation, we recommend you create an identical (disabled) automation and store it in a different location. When there's an outage, you can enable these backup automations and maintain normal operations.
+
+Learn more about [Business continuity and disaster recovery for Azure Logic Apps](../logic-apps/business-continuity-disaster-recovery-guidance.md).
 
 ## Next steps
 
