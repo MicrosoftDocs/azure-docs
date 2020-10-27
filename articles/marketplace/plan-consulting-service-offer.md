@@ -7,7 +7,7 @@ ms.reviewer: anbene
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 10/27/2020
 ---
 
 # How to plan a consulting service offer in the commercial marketplace
