@@ -4,7 +4,7 @@ description: Learn how to set TLS configuration using Azure portal for your Azur
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/02/2020
 ---
 

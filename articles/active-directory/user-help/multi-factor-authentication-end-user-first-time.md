@@ -29,7 +29,7 @@ Two-factor verification is more secure than just a password because it relies on
 Two-factor verification can help stop malicious hackers from pretending to be you. Even if they have your password, the odds are that they don't have your device, too.
 
 >[!Important]
->If you're an administrator looking for information about how to turn on two-factor verification for your employees or other users, see the [Azure Active Directory Authentication documentation](https://docs.microsoft.com/azure/active-directory/authentication/). This article is intended for users trying to use two-factor verification with a work or school account (such as alain@contoso.com).
+>If you're an administrator looking for information about how to turn on two-factor verification for your employees or other users, see the [Azure Active Directory Authentication documentation](../authentication/index.yml). This article is intended for users trying to use two-factor verification with a work or school account (such as alain@contoso.com).
 
 ## Who decides if you use this feature?
 

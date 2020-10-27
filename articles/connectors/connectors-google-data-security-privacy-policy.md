@@ -10,7 +10,7 @@ ms.date: 06/05/2020
 
 # Data security and privacy policies for Google connectors in Azure Logic Apps
 
-Starting **May 1, 2020**, changes due to Google's [data security and privacy policies](https://www.blog.google/technology/safety-security/project-strobe/) might affect your logic app workflows that use the [Gmail connector](https://docs.microsoft.com/connectors/gmail/). If your logic apps use the Gmail connector with a Gmail consumer account (email address that ends with @gmail.com or @googlemail.com), your logic apps can use only specific [Google-approved triggers, actions, and connectors](#approved-connectors).
+Starting **May 1, 2020**, changes due to Google's [data security and privacy policies](https://www.blog.google/technology/safety-security/project-strobe/) might affect your logic app workflows that use the [Gmail connector](/connectors/gmail/). If your logic apps use the Gmail connector with a Gmail consumer account (email address that ends with @gmail.com or @googlemail.com), your logic apps can use only specific [Google-approved triggers, actions, and connectors](#approved-connectors).
 
 > [!NOTE]
 > If your logic apps use the Gmail connector with a G-Suite business account (email address with a custom domain), your logic apps aren't affected and have no restrictions on using the Gmail connector.
@@ -35,7 +35,7 @@ Under this policy, when you use a Gmail consumer account, you can use the Gmail 
 
 * Google services: Gmail, Google Calendar, Google Contacts, Google Drive, Google Sheets, and Google Tasks
 
-* Approved Microsoft services: Dynamics 365, Excel Online, Microsoft Teams, Office 365, OneDrive, and SharePoint Online
+* Approved Microsoft services: Dynamics 365, Excel Online, Microsoft Teams, Microsoft 365, OneDrive, and SharePoint Online
 
 * Connectors for customer-managed data sources: FTP, RSS, SFTP, SMTP, and SQL Server
 
@@ -57,7 +57,7 @@ Here are some examples that use the Gmail connector with built-in triggers and a
 
   ![Non-compliant logic app - Example 3](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
 
-For the most recent information, see the [Gmail connector's technical reference documentation](https://docs.microsoft.com/connectors/gmail/).
+For the most recent information, see the [Gmail connector's technical reference documentation](/connectors/gmail/).
 
 <a name="update-affected-workflows"></a>
 
@@ -69,11 +69,11 @@ If you have to use the Gmail connector with a Gmail consumer account and Google 
 
 1. In your Gmail connector, use the client ID and client secret values from your Google client app.
 
-For more information, see the [Gmail connector's technical reference documentation](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application).
+For more information, see the [Gmail connector's technical reference documentation](/connectors/gmail/#authentication-and-bring-your-own-application).
 
 ### Create Google client app
 
-To set up a project for your client app, use the [Google API Console wizard](https://console.developers.google.com/start/api?id=gmail&credential=client_key) and follow the instructions. Or, for detailed steps, review the instructions in the [Gmail connector's technical reference documentation](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application).
+To set up a project for your client app, use the [Google API Console wizard](https://console.developers.google.com/start/api?id=gmail&credential=client_key) and follow the instructions. Or, for detailed steps, review the instructions in the [Gmail connector's technical reference documentation](/connectors/gmail/#authentication-and-bring-your-own-application).
 
 When you're done, your screen looks like this example except you'll have your own **Client ID** and **Client secret** values, which you later use in your logic app.
 
@@ -112,4 +112,5 @@ To use the client ID and client secret from your Google client app in your Gmail
 
 ## Next steps
 
-Learn more about the [Gmail connector](https://docs.microsoft.com/connectors/gmail/)
+Learn more about the [Gmail connector](/connectors/gmail/)
+

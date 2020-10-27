@@ -1,22 +1,23 @@
 ---
-title: "Quickstart: Text Analytics client library v3 | Microsoft Docs"
+title: "Quickstart: Text mining using the Text Analytics client library"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to connect your applications to the Text Analytics API from Azure Cognitive Services.
+description: Use this quickstart to perform sentiment analysis and more, using the Text Analytics API from Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 06/11/2020
+ms.date: 10/07/2020
 ms.author: aahi
-ms.custom: tracking-python
+keywords: text mining, sentiment analysis, text analytics
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
 # Quickstart: Use the Text Analytics client library
 
-Get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for basic tasks.
+Use this article to get started with the Text Analytics client library. Follow these steps to install the package and try out the example code for mining text.
 
 Use the Text Analytics client library to perform:
 
@@ -24,6 +25,7 @@ Use the Text Analytics client library to perform:
 * Language detection
 * Entity recognition
 * Key phrase extraction
+* Opinion mining
 
 ::: zone pivot="programming-language-csharp"
 
@@ -31,6 +33,8 @@ Use the Text Analytics client library to perform:
 > * The latest stable version of the Text Analytics API is `3.0`.
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
+
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 

@@ -7,7 +7,7 @@ ms.date: 02/17/2020
 
 # Restore Azure File Shares using REST API
 
-This article explains how to restore an entire file share or specific files from a restore point created by [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) by using the REST API.
+This article explains how to restore an entire file share or specific files from a restore point created by [Azure Backup](./backup-overview.md) by using the REST API.
 
 By the end of this article, you'll learn how to perform the following operations using REST API:
 
@@ -28,7 +28,7 @@ For this article, we'll use the following resources:
 
 ## Fetch ContainerName and ProtectedItemName
 
-For most of the restore related API calls, you need to pass values for the {containerName} and {protectedItemName} URI parameters. Use the ID attribute in the response body of the [GET backupprotectableitems](https://docs.microsoft.com/rest/api/backup/protecteditems/get) operation to retrieve values for these parameters. In our example, the ID of the file share we want to protect is:
+For most of the restore related API calls, you need to pass values for the {containerName} and {protectedItemName} URI parameters. Use the ID attribute in the response body of the [GET backupprotectableitems](/rest/api/backup/protecteditems/get) operation to retrieve values for these parameters. In our example, the ID of the file share we want to protect is:
 
 `"/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/storagecontainer;storage;azurefiles;afsaccount/protectableItems/azurefileshare;azurefiles`
 
@@ -39,7 +39,7 @@ So the values translate as follows:
 
 ## Fetch recovery points for backed up Azure file share
 
-To restore any backed-up file share or files, first select a recovery point to perform the restore operation. The available recovery points of a backed-up item can be listed using the [Recovery Point-List](https://docs.microsoft.com/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems) REST API call. It's a GET operation with all the relevant values.
+To restore any backed-up file share or files, first select a recovery point to perform the restore operation. The available recovery points of a backed-up item can be listed using the [Recovery Point-List](/rest/api/site-recovery/recoverypoints/listbyreplicationprotecteditems) REST API call. It's a GET operation with all the relevant values.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13&$filter={$filter}
@@ -59,7 +59,7 @@ The GET URI has all the required parameters. There's no need for an additional r
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare;azurefiles/recoveryPoints?api-version=2019-05-13
 ```
 
-### Example response
+### Example response for fetch recovery points
 
 Once the GET URI is submitted, a 200 response is returned:
 
@@ -139,7 +139,7 @@ The recovery point is identified with the {name} field in the response above.
 ## Full share recovery using REST API
 
 Use this restore option to restore the complete file share in the original or an alternate location.
-Triggering restore is a POST request and you can perform this operation using the [trigger restore](https://docs.microsoft.com/rest/api/backup/restores/trigger) REST API.
+Triggering restore is a POST request and you can perform this operation using the [trigger restore](/rest/api/backup/restores/trigger) REST API.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
@@ -159,11 +159,11 @@ Name |  Type   |   Description
 --- | ---- | ----
 Properties | AzureFileShareRestoreRequest | RestoreRequestResource properties
 
-For the complete list of definitions of the request body and other details, refer to the [trigger Restore REST API document](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
+For the complete list of definitions of the request body and other details, refer to the [trigger Restore REST API document](/rest/api/backup/restores/trigger#request-body).
 
 ### Restore to original location
 
-#### Request body example
+#### Request body example for restore to original location
 
 The following request body defines properties required to trigger an Azure file share restore:
 
@@ -187,7 +187,7 @@ Specify the following parameters for alternate location recovery:
 * **name**: The file share within the target storage account to which the backed-up content is restored.
 * **targetFolderPath**: The folder under the file share to which data is restored.
 
-#### Request body example
+#### Request body example for restore to alternate location
 
 The following request body restores the *azurefiles* file share in the *afsaccount* storage account to the *azurefiles1* file share in the *afaccount1* storage account.
 
@@ -214,7 +214,7 @@ The following request body restores the *azurefiles* file share in the *afsaccou
 
 ### Response
 
-The triggering of a restore operation is an [asynchronous operation](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). This operation creates another operation that needs to be tracked separately.
+The triggering of a restore operation is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). This operation creates another operation that needs to be tracked separately.
 It returns two responses: 202 (Accepted) when another operation is created, and 200 (OK) when that operation completes.
 
 #### Response example
@@ -345,7 +345,7 @@ For alternate location recovery, the response body will be like this:
 }
 ```
 
-Since the backup job is a long running operation, it should be tracked as explained in the [monitor jobs using REST API document](https://docs.microsoft.com/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job).
+Since the backup job is a long running operation, it should be tracked as explained in the [monitor jobs using REST API document](./backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## Item level recovery using REST API
 
@@ -361,7 +361,7 @@ The values {containerName} and {protectedItemName} are as set [here](#fetch-cont
 POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare%3Bazurefiles/recoveryPoints/932886657837421071/restore?api-version=2019-05-13'
 ```
 
-### Create request body
+### Create request body for item-level recovery using REST API
 
 To trigger a restore for an Azure file share, the following are the components of the request body:
 
@@ -369,9 +369,9 @@ Name |  Type   |   Description
 --- | ---- | ----
 Properties | AzureFileShareRestoreRequest | RestoreRequestResource properties
 
-For the complete list of definitions of the request body and other details, refer to the [trigger Restore REST API document](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
+For the complete list of definitions of the request body and other details, refer to the [trigger Restore REST API document](/rest/api/backup/restores/trigger#request-body).
 
-### Restore to original location
+### Restore to original location for item-level recovery using REST API
 
 The following request body is to restore the *Restoretest.txt* file in the *azurefiles* file share in the *afsaccount* storage account.
 
@@ -397,7 +397,7 @@ Create Request Body
 }
 ```
 
-### Restore to alternate location
+### Restore to alternate location for item-level recovery using REST API
 
 The following request body is to restore the *Restoretest.txt* file in the *azurefiles* file share in the *afsaccount* storage account to the *restoredata* folder of the *azurefiles1* file share in the *afaccount1* storage account.
 

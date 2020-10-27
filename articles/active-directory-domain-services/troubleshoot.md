@@ -2,7 +2,7 @@
 title: Azure Active Directory Domain Services troubleshooting | Microsoft Docs'
 description: Learn how to troubleshoot common errors when you create or manage Azure Active Directory Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 01/21/2020
-ms.author: iainfou
+ms.date: 07/06/2020
+ms.author: joflore
 
 ---
 # Common errors and troubleshooting steps for Azure Active Directory Domain Services
@@ -133,15 +133,15 @@ If one or more users in your Azure AD tenant can't sign in to the managed domain
     
       * You've deployed, or updated to, the [latest recommended release of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
       * You've configured Azure AD Connect to [perform a full synchronization][hybrid-phs].
-      * Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in Azure AD DS. Make sure you wait long enough before trying to authenticate against the managed domain.
-      * If the issue persists after verifying the previous steps, try restarting the *Microsoft Azure AD Sync Service*. From your Azure AD Connect server, open a command prompt and run the following commands:
+      * Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in the managed domain. Make sure you wait long enough before trying to authenticate against the managed domain.
+      * If the issue persists after verifying the previous steps, try restarting the *Microsoft Azure AD Sync Service*. From your Azure AD Connect server, open a command prompt, then run the following commands:
     
         ```console
         net stop 'Microsoft Azure AD Sync'
         net start 'Microsoft Azure AD Sync'
         ```
 
-    * **Cloud-only accounts**: If the affected user account is a cloud-only user account, make sure that the [user has changed their password after you enabled Azure AD DS][cloud-only-passwords]. This password reset causes the required credential hashes for Azure AD Domain Services to be generated.
+    * **Cloud-only accounts**: If the affected user account is a cloud-only user account, make sure that the [user has changed their password after you enabled Azure AD DS][cloud-only-passwords]. This password reset causes the required credential hashes for the managed domain to be generated.
 
 * **Verify the user account is active**: By default, five invalid password attempts within 2 minutes on the managed domain cause a user account to be locked out for 30 minutes. The user can't sign in while the account is locked out. After 30 minutes, the user account is automatically unlocked.
   * Invalid password attempts on the managed domain don't lock out the user account in Azure AD. The user account is locked out only within the managed domain. Check the user account status in the *Active Directory Administrative Console (ADAC)* using the [management VM][management-vm], not in Azure AD.

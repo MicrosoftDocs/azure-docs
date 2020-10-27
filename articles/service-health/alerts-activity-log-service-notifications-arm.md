@@ -3,7 +3,7 @@ title: Receive activity log alerts on Azure service notifications using Resource
 description: Get notified via SMS, email, or webhook when Azure service occurs.
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/27/2019
+ms.date: 06/29/2020
 ---
 
 # Quickstart: Create activity log alerts on service notifications using an ARM template
@@ -46,19 +46,19 @@ The following template creates an action group with an email target and enables 
   "contentVersion": "1.0.0.0",
   "parameters": {
     "actionGroups_name": {
-      "defaultValue": "SubHealth",
-      "type": "String"
+      "type": "String",
+      "defaultValue": "SubHealth"
     },
     "activityLogAlerts_name": {
-      "defaultValue": "ServiceHealthActivityLogAlert",
-      "type": "String"
+      "type": "String",
+      "defaultValue": "ServiceHealthActivityLogAlert"
     },
-    "emailAddress":{
-      "type":"string"
+    "emailAddress": {
+      "type": "string"
     }
   },
   "variables": {
-    "alertScope":"[concat('/','subscriptions','/',subscription().subscriptionId)]"
+    "alertScope": "[concat('/','subscriptions','/',subscription().subscriptionId)]"
   },
   "resources": [
     {
@@ -67,8 +67,9 @@ The following template creates an action group with an email target and enables 
       "apiVersion": "2019-06-01",
       "name": "[parameters('actionGroups_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "dependsOn": [],
+      "tags": {},
       "properties": {
         "groupShortName": "[parameters('actionGroups_name')]",
         "enabled": true,
@@ -80,8 +81,7 @@ The following template creates an action group with an email target and enables 
         ],
         "smsReceivers": [],
         "webhookReceivers": []
-      },
-      "dependsOn": []
+      }
     },
     {
       "comments": "Service Health Activity Log Alert",
@@ -89,8 +89,11 @@ The following template creates an action group with an email target and enables 
       "apiVersion": "2017-04-01",
       "name": "[parameters('activityLogAlerts_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "dependsOn": [
+        "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]"
+      ],
+      "tags": {},
       "properties": {
         "scopes": [
           "[variables('alertScope')]"
@@ -117,10 +120,7 @@ The following template creates an action group with an email target and enables 
         },
         "enabled": true,
         "description": ""
-      },
-      "dependsOn": [
-        "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]"
-      ]
+      }
     }
   ]
 }
@@ -129,7 +129,7 @@ The following template creates an action group with an email target and enables 
 The template defines two resources:
 
 - [Microsoft.Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
-- [microsoft.Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
+- [Microsoft.Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
 
 ## Deploy the template
 

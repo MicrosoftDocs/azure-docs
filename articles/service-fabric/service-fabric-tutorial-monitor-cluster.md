@@ -6,7 +6,7 @@ author: srrengar
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ---
 # Tutorial: Monitor a Service Fabric cluster in Azure
 
@@ -36,7 +36,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+* Install [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 * Create a secure [Windows cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 
 * Setup [diagnostics collection](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor) for the cluster
 * Enable the [EventStore service](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor) in the cluster
@@ -52,7 +52,7 @@ Select the resource **ServiceFabric(mysfomsworkspace)**.
 
 In **Overview** you see tiles in the form of a graph for each of the solutions enabled, including one for Service Fabric. Click the **Service Fabric** graph to continue to the Service Fabric Analytics solution.
 
-![Service Fabric solution](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
+![Screenshot that shows the Service Fabric graph.](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
 The following image shows the home page of the Service Fabric Analytics solution. This home page provides a snapshot view of what's happening in your cluster.
 

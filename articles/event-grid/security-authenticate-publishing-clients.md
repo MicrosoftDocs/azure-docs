@@ -1,13 +1,9 @@
 ---
 title: Authenticate clients publishing events to Event Grid custom topics or domains
 description: This article describes different ways of authenticating clients publishing events to Event Grid custom topics. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.author: spelluru
+ms.date: 07/07/2020
+ms.custom: devx-track-csharp
 ---
 
 # Authenticate publishing clients (Azure Event Grid)
@@ -27,7 +23,7 @@ aeg-sas-key: XXXXXXXXXXXXXXXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
 You can also specify `aeg-sas-key` as a query parameter. 
 
 ```
-https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01&&aeg-sas-key=XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
+https://<yourtopic>.<region>.eventgrid.azure.net/api/events?aeg-sas-key=XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
 ```
 
 For instructions on how to get access keys for a topic or domain, see [Get access keys](get-access-keys.md).
@@ -35,7 +31,7 @@ For instructions on how to get access keys for a topic or domain, see [Get acces
 ## Authenticate using a SAS token
 SAS tokens for an Event Grid resource include the resource, expiration time, and a signature. The format of the SAS token is: `r={resource}&e={expiration}&s={signature}`.
 
-The resource is the path for the event grid topic to which you're sending events. For example, a valid resource path is: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01`. To see all the supported API versions, see [Microsoft.EventGrid resource types](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions). 
+The resource is the path for the event grid topic to which you're sending events. For example, a valid resource path is: `https://<yourtopic>.<region>.eventgrid.azure.net/api/events`. To see all the supported API versions, see [Microsoft.EventGrid resource types](/azure/templates/microsoft.eventgrid/allversions). 
 
 First, programmatically generate a SAS token and then use the `aeg-sas-token` header or `Authorization SharedAccessSignature` header to authenticate with Event Grid. 
 
@@ -65,18 +61,33 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 }
 ```
 
+```python
+def generate_sas_token(uri, key, expiry=3600):
+    ttl = datetime.datetime.utcnow() + datetime.timedelta(seconds=expiry)
+    encoded_resource = urllib.parse.quote_plus(uri)
+    encoded_expiration_utc = urllib.parse.quote_plus(ttl.isoformat())
+
+    unsigned_sas = f'r={encoded_resource}&e={encoded_expiration_utc}'
+    signature = b64encode(HMAC(b64decode(key), unsigned_sas.encode('utf-8'), sha256).digest())
+    encoded_signature = urllib.parse.quote_plus(signature)
+    
+    token = f'r={encoded_resource}&e={encoded_expiration_utc}&s={encoded_signature}'
+
+    return token
+```
+
 ### Using aeg-sas-token header
 Here's an example of passing the SAS token as a value for the `aeg-sas-toke` header. 
 
 ```http
-aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
+aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevents&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
 ```
 
 ### Using Authorization header
 Here's an example of passing the SAS token as a value for the `Authorization` header. 
 
 ```http
-Authorization: SharedAccessSignature r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
+Authorization: SharedAccessSignature r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevents&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
 ```
 
 ## Next steps

@@ -2,7 +2,7 @@
 title: Join a CoreOS VM to Azure AD Domain Services | Microsoft Docs
 description: Learn how to configure and join a CoreOS virtual machine to an Azure AD Domain Services managed domain.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2020
-ms.author: iainfou
+ms.date: 07/13/2020
+ms.author: joflore
 
 ---
 # Join a CoreOS virtual machine to an Azure Active Directory Domain Services managed domain
@@ -81,7 +81,7 @@ sudo vi /etc/sssd/sssd.conf
 Specify your own managed domain name for the following parameters:
 
 * *domains* in ALL UPPER CASE
-* *[domain/AADDS]* where AADDS is in ALL UPPER CASE
+* *[domain/AADDSCONTOSO]* where AADDSCONTOSO is in ALL UPPER CASE
 * *ldap_uri*
 * *ldap_search_base*
 * *krb5_server*
@@ -93,7 +93,7 @@ config_file_version = 2
 services = nss, pam
 domains = AADDSCONTOSO.COM
 
-[domain/AADDSCONTOSO.COM]
+[domain/AADDSCONTOSO]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad

@@ -45,11 +45,14 @@ Some nuances of this query:
 
 The Hive query took 26 minutes to finish on a 24 node A3 HDInsight cluster. The customer noticed the following warning messages:
 
+```output
     Warning: Map Join MAPJOIN[428][bigTable=?] in task 'Stage-21:MAPRED' is a cross product
     Warning: Shuffle Join JOIN[8][tables = [t1933775, t1932766]] in Stage 'Stage-4:MAPRED' is a cross product
+```
 
 By using the Apache Tez execution engine. The same query ran for 15 minutes, and then threw the following error:
 
+```output
     Status: Failed
     Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
         at
@@ -73,6 +76,7 @@ By using the Apache Tez execution engine. The same query ran for 15 minutes, and
         at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
         at java.lang.Thread.run(Thread.java:745)
     Caused by: java.lang.OutOfMemoryError: Java heap space
+```
 
 The error remains when using a bigger virtual machine (for example, D12).
 
@@ -96,7 +100,7 @@ The **hive.auto.convert.join.noconditionaltask** in the hive-site.xml file was s
 </property>
 ```
 
-It's likely map join was the cause of the Java Heap Space out of memory error. As explained in the blog post [Hadoop Yarn memory settings in HDInsight](https://docs.microsoft.com/archive/blogs/shanyu/hadoop-yarn-memory-settings-in-hdinsight), when Tez execution engine is used the heap space used actually belongs to the Tez container. See the following image describing the Tez container memory.
+It's likely map join was the cause of the Java Heap Space out of memory error. As explained in the blog post [Hadoop Yarn memory settings in HDInsight](/archive/blogs/shanyu/hadoop-yarn-memory-settings-in-hdinsight), when Tez execution engine is used the heap space used actually belongs to the Tez container. See the following image describing the Tez container memory.
 
 ![Tez container memory diagram: Hive out of memory error](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
@@ -107,8 +111,10 @@ As the blog post suggests, the following two memory settings define the containe
 
 Because a D12 machine has 28 GB memory, we decided to use a container size of 10 GB (10240 MB) and assign 80% to java.opts:
 
-    SET hive.tez.container.size=10240
-    SET hive.tez.java.opts=-Xmx8192m
+```console
+SET hive.tez.container.size=10240
+SET hive.tez.java.opts=-Xmx8192m
+```
 
 With the new settings, the query successfully ran in under 10 minutes.
 

@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 10/05/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rateller
 
@@ -63,7 +63,7 @@ First, let's enable SMS-based authentication for your Azure AD tenant.
 1. Search for and select **Azure Active Directory**.
 1. From the navigation menu on the left-hand side of the Azure Active Directory window, select **Security > Authentication methods > Authentication method policy (preview)**.
 
-    [![](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png "Browse to and select the Authentication method policy (preview) window in the Azure portal")](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
+    [![Browse to and select the Authentication method policy (preview) window in the Azure portal.](media/howto-authentication-sms-signin/authentication-method-policy-cropped.png)](media/howto-authentication-sms-signin/authentication-method-policy.png#lightbox)
 
 1. From the list of available authentication methods, select **Text message**.
 1. Set **Enable** to *Yes*.
@@ -79,7 +79,7 @@ With SMS-based authentication enabled in your Azure AD tenant, now select some u
 1. In the text message authentication policy window, set **Target** to *Select users*.
 1. Choose to **Add users or groups**, then select a test user or group, such as *Contoso User* or *Contoso SMS Users*.
 
-    [![](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png "Choose users or groups to enable for SMS-based authentication in the Azure portal")](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
+    [![Choose users or groups to enable for SMS-based authentication in the Azure portal.](media/howto-authentication-sms-signin/add-users-or-groups-cropped.png)](media/howto-authentication-sms-signin/add-users-or-groups.png#lightbox)
 
 1. When you've selected your users or groups, choose **Select**, then **Save** the updated authentication method policy.
 
@@ -94,13 +94,17 @@ When a phone number is set for SMS-sign, it's also then available for use with [
 1. Search for and select **Azure Active Directory**.
 1. From the navigation menu on the left-hand side of the Azure Active Directory window, select **Users**.
 1. Select the user you enabled for SMS-based authentication in the previous section, such as *Contoso User*, then select **Authentication methods**.
-1. Enter the user's phone number, including the country code, such as *+1 xxxxxxxxx*. The Azure portal validates the phone number is in the correct format.
+1. Select **+ Add authentication method**, then in the *Choose method* drop-down menu, choose **Phone number**.
 
-    ![Set a phone number for a user in the Azure portal to use with SMS-based authentication](./media/howto-authentication-sms-signin/set-user-phone-number.png)
+    Enter the user's phone number, including the country code, such as *+1 xxxxxxxxx*. The Azure portal validates the phone number is in the correct format.
+
+    Then, from the *Phone type* drop-down menu, select *Mobile*, *Alternate mobile*, or *Other* as needed.
+
+    :::image type="content" source="media/howto-authentication-sms-signin/set-user-phone-number.png" alt-text="Set a phone number for a user in the Azure portal to use with SMS-based authentication":::
 
     The phone number must be unique in your tenant. If you try to use the same phone number for multiple users, an error message is shown.
 
-1. To apply the phone number to a user's account, select **Save**.
+1. To apply the phone number to a user's account, select **Add**.
 
 When successfully provisioned, a check mark appears for *SMS Sign-in enabled*.
 

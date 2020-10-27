@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: quickstart
 author: danimir
 ms.author: danil
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/26/2019
 ---
 # Quickstart: Create a managed instance of SQL Managed Instance
@@ -30,7 +30,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select **Azure SQL** on the left menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, and then enter **Azure SQL** in the search box.
-1. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about Azure SQL Managed Instance by selecting **Show details** on the **SQL Managed instance** tile.
+1. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about Azure SQL Managed Instance by selecting **Show details** on the **SQL managed instances** tile.
 1. Select **Create**.
 
    ![Create a managed instance](./media/instance-create-quickstart/create-managed-instance.png)
@@ -118,7 +118,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 > 3. Select the SQL Managed Instance deployment operation in progress.
 
 > [!IMPORTANT]
-> In order to be able to get the status of managed instance creation, you need to have **read permissions** over the resource group. If you don't have this permission or revoke it while the managed instance is in creation process, this can cause SQL Managed Instance not to be visible in the list of resource group deployments.
+> - Creation of SQL Managed Instance is a long-running operation that might take a few hours at a time, depending on specific circumstances. See [Management operations duration](management-operations-overview.md#duration) for typical creation times.
+> - Start of SQL Managed Instance creation could be delayed in cases when there exist other impacting operations, such are long-running restore or scaling operations on other Managed Instances in the same subnet. To learn more, see [Management operations cross-impact](management-operations-overview.md#management-operations-cross-impact).
+> - In order to be able to get the status of managed instance creation, you need to have **read permissions** over the resource group. If you don't have this permission or revoke it while the managed instance is in creation process, this can cause SQL Managed Instance not to be visible in the list of resource group deployments.
 >
 
 ## View resources created

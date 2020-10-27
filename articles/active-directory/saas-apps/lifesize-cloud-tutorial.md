@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Lifesize Cloud | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Lifesize Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 75fab335-fdcd-4066-b42c-cc738fcb6513
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Lifesize Cloud
 
@@ -28,7 +21,7 @@ Integrating Lifesize Cloud with Azure AD provides you with the following benefit
 * You can enable your users to be automatically signed-in to Lifesize Cloud (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -37,6 +30,9 @@ To configure Azure AD integration with Lifesize Cloud, you need the following it
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * Lifesize Cloud single sign-on enabled subscription
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -138,15 +134,15 @@ To configure Azure AD single sign-on with Lifesize Cloud, perform the following 
 
 2. In the top right corner click on your name and then click on the **Advance Settings**.
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+    ![Screenshot shows the Advanced Settings menu item.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
 
 3. In the Advance Settings now click on the **SSO Configuration** link. It will open the SSO Configuration page for your instance.
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+    ![Screenshot shows Advanced Settings where you can select S S O Configuration.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
 
 4. Now configure the following values in the SSO configuration UI.
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![Screenshot shows the S S O Configuration page where you can enter the values described.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
 
 	a. In **Identity Provider Issuer** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal.
 
@@ -230,12 +226,12 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Lifesize Cloud tile in the Access Panel,  you should get login page of Lifesize Cloud application. Here you need to enter your username, and after that you will redirected to the application homepage.
 
-For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

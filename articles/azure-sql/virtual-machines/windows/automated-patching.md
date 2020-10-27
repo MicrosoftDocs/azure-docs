@@ -19,10 +19,6 @@ ms.reviewer: jroth
 # Automated Patching for SQL Server on Azure virtual machines (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-> [!div class="op_single_selector"]
-> * [Resource Manager](automated-patching.md)
-> * [Classic](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
-
 Automated Patching establishes a maintenance window for an Azure virtual machine running SQL Server. Automated Updates can only be installed during this maintenance window. For SQL Server, this restriction ensures that system updates and any associated restarts occur at the best possible time for the database. 
 
 > [!IMPORTANT]
@@ -39,6 +35,7 @@ To use Automated Patching, consider the following prerequisites:
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
+* Windows Server 2019
 
 **SQL Server version**:
 
@@ -47,10 +44,11 @@ To use Automated Patching, consider the following prerequisites:
 * SQL Server 2014
 * SQL Server 2016
 * SQL Server 2017
+* SQL Server 2019
 
 **Azure PowerShell**:
 
-* [Install the latest Azure PowerShell commands](/powershell/azure/overview) if you plan to configure Automated Patching with PowerShell.
+* [Install the latest Azure PowerShell commands](/powershell/azure/) if you plan to configure Automated Patching with PowerShell.
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 

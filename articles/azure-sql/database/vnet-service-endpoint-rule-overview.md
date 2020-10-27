@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
@@ -15,18 +15,16 @@ ms.date: 11/14/2019
 # Use virtual network service endpoints and rules for servers in Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*Virtual network rules* are one firewall security feature that controls whether the server for your databases and elastic pools in [Azure SQL Database](sql-database-paas-overview.md) or for your databases in [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your database in Azure SQL Database and SQL Data Warehouse.
+*Virtual network rules* are one firewall security feature that controls whether the server for your databases and elastic pools in [Azure SQL Database](sql-database-paas-overview.md) or for your databases in [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your database in Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse).
 
 > [!NOTE]
-> This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics.
+> This article applies to both Azure SQL Database and Azure Synapse Analytics. For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics.
 
 To create a virtual network rule, there must first be a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference.
 
 ## How to create a virtual network rule
 
 If you only create a virtual network rule, you can skip ahead to the steps and explanation [later in this article](#anchor-how-to-by-using-firewall-portal-59j).
-
-<!--<a name="anch-details-about-vnet-rules-38q"/> -->
 
 ## Details about virtual network rules
 
@@ -55,7 +53,7 @@ There is a separation of security roles in the administration of Virtual Network
 
 The roles of Network Admin and Database Admin have more capabilities than are needed to manage virtual network rules. Only a subset of their capabilities is needed.
 
-You have the option of using [role-based access control (RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role, versus adding the user to the other two major administrator roles.
+You have the option of using [Azure role-based access control (Azure RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role, versus adding the user to the other two major administrator roles.
 
 > [!NOTE]
 > In some cases the database in Azure SQL Database and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
@@ -100,17 +98,17 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## Impact of using VNet Service Endpoints with Azure storage
 
-Azure Storage has implemented the same feature that allows you to limit connectivity to your Azure Storage account. If you choose to use this feature with an Azure Storage account that is being used by Azure SQL Database, you can run into issues. Next is a list and discussion of Azure SQL Database and Azure SQL Data Warehouse features that are impacted by this.
+Azure Storage has implemented the same feature that allows you to limit connectivity to your Azure Storage account. If you choose to use this feature with an Azure Storage account that is being used by Azure SQL Database, you can run into issues. Next is a list and discussion of Azure SQL Database and Azure Synapse Analytics features that are impacted by this.
 
-### Azure Synapse PolyBase
+### Azure Synapse PolyBase and COPY statement
 
-PolyBase is commonly used to load data into Azure Synapse Analytics from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. For enabling both PolyBase import and export scenarios with Azure Synapse Analytics connecting to Azure Storage that's secured to VNet, follow the steps indicated below:
+PolyBase and the COPY statement is commonly used to load data into Azure Synapse Analytics from Azure Storage accounts for high throughput data ingestion. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity when using PolyBase and the COPY statement to the storage account will break. For enabling import and export scenarios using COPY and PolyBase with Azure Synapse Analytics connecting to Azure Storage that's secured to VNet, follow the steps indicated below:
 
 #### Prerequisites
 
 - Install Azure PowerShell using this [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - If you have a general-purpose v1 or blob storage account, you must first upgrade to general-purpose v2 using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- You must have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. Refer to this [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) for more information.
+- You must have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. Enabling this configuration will allow PolyBase and the COPY statement to connect to the storage account using strong authentication where network traffic remains on the Azure backbone. Refer to this [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) for more information.
 
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
@@ -132,10 +130,10 @@ PolyBase is commonly used to load data into Azure Synapse Analytics from Azure S
    > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
 
-1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to the server hosting your Azure Synapse Analytics which you've registered with Azure Active Directory (AAD) as in step #1.
+1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** Azure role to the server hosting your Azure Synapse Analytics which you've registered with Azure Active Directory (AAD) as in step #1.
 
    > [!NOTE]
-   > Only members with Owner privilege  on the storage account can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Only members with Owner privilege  on the storage account can perform this step. For various Azure built-in roles, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Polybase connectivity to the Azure Storage account:**
 

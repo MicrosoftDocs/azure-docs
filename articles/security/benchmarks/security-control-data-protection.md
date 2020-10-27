@@ -70,9 +70,9 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 When no feature is available for your specific service in Azure, use a third-party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located on-site, or at a remote service provider, and update the organization's sensitive information inventory.
 
-Use Azure Information Protection for identifying sensitive information within Office 365 documents.
+Use Azure Information Protection for identifying sensitive information within Microsoft 365 documents.
 
-Use Azure SQL Information Protection to assist in the classification and labeling of information stored in Azure SQL Databases.
+Use Azure SQL Information Protection to assist in the classification and labeling of information stored in Azure SQL Database.
 
 - [How to implement Azure SQL Data Discovery](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
 
@@ -80,15 +80,15 @@ Use Azure SQL Information Protection to assist in the classification and labelin
 
 - [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-## 4.6: Use Role-based access control to control access to resources
+## 4.6: Use Azure RBAC to control access to resources
 
 | Azure ID | CIS IDs | Responsibility |
 |--|--|--|
 | 4.6 | 14.6 | Customer |
 
-Use Azure AD RBAC to control access to data and resources, otherwise use service specific access control methods.
+Use Azure role-based access control (Azure RBAC) to control access to data and resources, otherwise use service specific access control methods.
 
-- [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [How to configure Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 ## 4.7: Use host-based data loss prevention to enforce access control
 

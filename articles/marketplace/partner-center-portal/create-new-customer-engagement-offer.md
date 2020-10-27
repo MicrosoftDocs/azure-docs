@@ -1,19 +1,19 @@
 ---
 title: Create a Dynamics 365 for Customer Engagement & PowerApps offer in the Microsoft commercial marketplace
 description: How to create a new Dynamics 365 for Customer Engagement & PowerApps offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program in Partner Center. 
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 02/17/2020
+ms.topic: how-to
+author: navits09
+ms.author: navits
+ms.date: 06/17/2020
 ---
 
 # Create a Dynamics 365 for Customer Engagement & PowerApps offer
 
 This topic explains how to create a new Dynamics 365 for Customer Engagement & PowerApps offer. All apps for Dynamics 365 for Customer Engagement (PowerApps, Sales, Service, Project Service, and Field Service) must go through our certification process and support a trial experience. The certification process checks your solution for standard requirements, compatibility, and proper practices. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
 
-Before starting, [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
+Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
 ## Create a new offer
 
@@ -24,14 +24,15 @@ Before starting, [Create a Commercial Marketplace account in Partner Center](htt
     ![Illustrates the left-navigation menu.](./media/new-offer-dynamics-365-customer-engagement-powerapps.png)
 
 > [!NOTE]
-> After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+> After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ## New offer
 
 Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
 - This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
-- Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- The Offer ID combined with the Publisher ID must be under 40 characters in length.
+- Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces. For example, if your Publisher ID is testpublisherid and you enter **test-offer-1**, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
 - The Offer ID can't be changed after you select **Create**.
 
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
@@ -51,11 +52,11 @@ Select the option you'd like to use for this offer.
 
 #### Get it now (free)
 
-List your offer to customers for free by providing a valid URL (beginning with *http* or *https*) where they can access your app.  For example, `https://contoso.com/my-app`.
+List your offer to customers for free.
 
 #### Free trial (listing)
 
-List your offer to customers with a link to a free trial by providing a valid URL (beginning with `http` or `https`) where they can get a trial.  For example, `https://contoso.com/trial/my-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+List your offer to customers with a link to a free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 
 > [!NOTE]
 > The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
@@ -86,7 +87,12 @@ This page lets you define the categories and industries used to group your offer
 
 ### Category
 
-Select at least one and up to three categories. These are used to place your offer into the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description.
+Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. Select:
+
+- At least one and up to two categories, including a primary and a secondary category (optional).
+- Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
+
+See the full list of categories and subcategories in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
 
 ### Industry
 
@@ -180,15 +186,23 @@ Provide at least one (and up to three) related marketing documents here, such as
 
 Provide logos and images for your offer. All images must be in PNG format.
 
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
-Provide your offer's logo in three pixel sizes:
-- **Small** (required; 48 x 48)
-- **Large** (required; 216 x 216)
-- **Wide** (optional; 255 x 115)
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** logo. You can optionally replace this with a different image later.
+
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Small** (48 x 48 px, optional)
+
+These logos are used in different places in the listing:
+
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 
@@ -200,7 +214,7 @@ You can optionally add up to four videos that demonstrate your offer. These vide
 
 #### Additional marketplace listing resources
 
-[Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+[Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md)
 
 Select **Save draft** before continuing.
 
@@ -256,7 +270,7 @@ For detailed information on how to build your package and update its structure, 
 
 ### CRM package availability
 
-In this section, select **+ Add region** to specify the geographic regions in which your CRM package will be available to customers. Deploying to the following sovereign regions require special permission and validation during the certification process: [Germany](https://docs.microsoft.com/azure/germany/), [US Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), and TIP.
+In this section, select **+ Add region** to specify the geographic regions in which your CRM package will be available to customers. Deploying to the following sovereign regions require special permission and validation during the certification process: [Germany](../../germany/index.yml), [US Government Cloud](../../azure-government/documentation-government-welcome.md), and TIP.
 
 By default, the **Application configuration URL** you entered above will be used for each region. If you prefer, you can enter a separate Application Configuration URL for one or more specific regions. 
 

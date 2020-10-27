@@ -6,17 +6,15 @@ documentationcenter: ''
 author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-
-
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 09/09/2020
 ms.author: jingwang
-
 ---
+
 # Copy data from MySQL using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Current version](connector-mysql.md)
@@ -64,7 +62,9 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
 
 | Property | Description | Options | Required |
 |:--- |:--- |:--- |:--- |
-| SSLMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MySQL. E.g.,  `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+| SSLMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MySQL. E.g.,  `SSLMode=<0/1/2/3/4>`.| DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+| SSLCert | The full path and name of a .pem file containing the SSL certificate used for proving the identity of the client. <br/> To specify a private key for encrypting this certificate before sending it to the server, use the `SSLKey` property.| | Yes, if using two-way SSL verification. |
+| SSLKey | The full path and name of a file containing the private key used for encrypting the client-side certificate during two-way SSL verification.|  | Yes, if using two-way SSL verification. |
 | UseSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>;`| Enabled (1) / Disabled (0) **(Default)** | No |
 
 **Example:**

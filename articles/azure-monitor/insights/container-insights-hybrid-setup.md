@@ -17,7 +17,7 @@ The following configurations are officially supported with Azure Monitor for con
 
     - Kubernetes on-premises
     
-    - AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
+    - AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)
     
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4 and higher, on-premises or other cloud environments.
 
@@ -35,7 +35,7 @@ Before you start, make sure that you have the following:
 
 - A [Log Analytics workspace](../platform/design-logs-deployment.md).
 
-    Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
+    Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../samples/resource-manager-workspace.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
 
     >[!NOTE]
     >Enable monitoring of multiple clusters with the same cluster name to same Log Analytics workspace is not supported. Cluster names must be unique.
@@ -66,9 +66,11 @@ Before you start, make sure that you have the following:
 
 Enabling Azure Monitor for containers for the hybrid Kubernetes cluster consists of performing the following steps in order.
 
-1. Configure your Log Analytics workspace with Container Insights solution.
+1. Configure your Log Analytics workspace with Container Insights solution.   
 
 2. Enable the Azure Monitor for containers HELM chart with Log Analytics workspace.
+
+For additional information on Monitoring solutions in Azure Monitor refer [here](../../azure-monitor/insights/solutions.md).
 
 ### How to add the Azure Monitor Containers solution
 
@@ -80,7 +82,7 @@ If you are unfamiliar with the concept of deploying resources by using a templat
 
 - [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 This method includes two JSON templates. One template specifies the configuration to enable monitoring, and the other contains parameter values that you configure to specify the following:
 
@@ -197,7 +199,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
     }
     ```
 
-7. Edit the values for **workspaceResourceId** using the value you copied in step 3, and for **workspaceRegion** copy the **Region** value after running the Azure CLI command [az monitor log-analytics workspace show](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
+7. Edit the values for **workspaceResourceId** using the value you copied in step 3, and for **workspaceRegion** copy the **Region** value after running the Azure CLI command [az monitor log-analytics workspace show](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
 
 8. Save this file as containerSolutionParams.json to a local folder.
 

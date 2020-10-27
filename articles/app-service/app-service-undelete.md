@@ -9,13 +9,16 @@ ms.topic: article
 
 # Restore deleted App Service app Using PowerShell
 
-If you happened to accidentally delete your app in Azure App Service, you can restore it using the commands from the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
+If you happened to accidentally delete your app in Azure App Service, you can restore it using the commands from the [Az PowerShell module](/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
 
 > [!NOTE]
-> Deleted apps are purged from the system 30 days after the initial deletion. Once an app has been purged, it can't be recovered.
+> - Deleted apps are purged from the system 30 days after the initial deletion. After an app is purged, it can't be recovered.
+> - Undelete functionality isn't supported for the Consumption plan.
+> - Apps Service apps running in an App Service Environment don't support snapshots. Therefore, undelete functionality and clone functionality aren't supported for App Service apps running in an App Service Environment.
 >
 
 ## Re-register App Service resource provider
+
 Some customers might come across an issue where retrieving the list of deleted apps fails. To resolve the issue, run the following command:
 
 ```powershell
@@ -43,28 +46,29 @@ The detailed information includes:
 - **Deletion Time**: When was the app deleted  
 
 ## Restore deleted app
+
 >[!NOTE]
 > `Restore-AzDeletedWebApp` isn't supported for function apps.
 
 Once the app you want to restore has been identified, you can restore it using `Restore-AzDeletedWebApp`.
 
 ```powershell
-Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
+Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
-> Deployment slots are not restored as part of your app. If you need to restore a staging slot use the `-Slot <slot-name>`  flag.
+> Deployment slots are not restored as part of your app. If you need to restore a staging slot, use the `-Slot <slot-name>`  flag.
 >
 
 The inputs for command are:
 
-- **Resource Group**: Target resource group where the app will be restored
+- **Target Resource Group**: Target resource group where the app will be restored
 - **Name**: Name for the app, should be globally unique.
 - **TargetAppServicePlanName**: App Service plan linked to the app
 
 By default `Restore-AzDeletedWebApp` will restore both your app configuration as well any content. If you want to only restore content, you use the `-RestoreContentOnly` flag with this commandlet.
 
 > [!NOTE]
-> If the app was hosted on and then deleted from an App Service Environment then it can be restored only if the corresponding App Service Environment still exist.
+> If the app was hosted on and then deleted from an App Service Environment, it can be restored only if the corresponding App Service Environment still exists.
 >
 
-You can find the full commandlet reference here: [Restore-AzDeletedWebApp](https://docs.microsoft.com/powershell/module/az.websites/restore-azdeletedwebapp).
+You can find the full commandlet reference here: [Restore-AzDeletedWebApp](/powershell/module/az.websites/restore-azdeletedwebapp).

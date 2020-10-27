@@ -16,7 +16,7 @@ When you create an Automation account in the Azure portal, the **Run As** accoun
 
 * Creates a service principal in Azure Active Directory (Azure AD).
 * Creates a certificate.
-* Assigns the Contributor Role-Based Access Control (RBAC), which manages Azure Resource Manager resources by using runbooks.
+* Assigns the Contributor role, which manages Azure Resource Manager resources by using runbooks.
 
 With this account created for you, you can quickly start building and deploying runbooks to support your automation needs.
 
@@ -53,7 +53,7 @@ To create an Azure Automation account in the Azure portal, complete the followin
    > [!NOTE]
    > If you see the following message in the Add Automation Account pane, your account is not a member of the subscription Administrators role and a coadministrator of the subscription.
    >
-   > ![Add Automation account warning](media/automation-create-standalone-account/create-account-without-perms.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-without-perms.png" alt-text="Screenshot of prompt 'You do not have permissions to create a Run As account in Azure Active directory.'":::
 
 1. In the Add Automation Account pane, enter a name for your new Automation account in the **Name** field. You can't change this name after it's chosen. 
 
@@ -68,7 +68,7 @@ To create an Azure Automation account in the Azure portal, complete the followin
    > [!NOTE]
    > If you choose not to create the Run As account by selecting **No** for **Create Azure Run As account**, a message appears in the Add Automation Account pane. Although the account is created in the Azure portal, the account doesn't have a corresponding authentication identity in your classic deployment model subscription or in the Azure Resource Manager subscription directory service. Therefore, the Automation account doesn't have access to resources in your subscription. This prevents any runbooks that reference this account from being able to authenticate and perform tasks against resources in those deployment models.
    >
-   > ![Add Automation account warning](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Screenshot of prompt with message 'You have chosen not to create a Run As Account.'":::
    >
    > When the service principal is not created, the Contributor role is not assigned.
    >
@@ -99,5 +99,4 @@ Classic Run As accounts are no longer created by default when you create an Azur
 * To get started with PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
 * To get started with PowerShell Workflow runbooks, see [Tutorial: Create a PowerShell workflow runbook](learn/automation-tutorial-runbook-textual.md).
 * To get started with Python 2 runbooks, see [Tutorial: Create a Python 2 runbook](learn/automation-tutorial-runbook-textual-python2.md).
-* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).

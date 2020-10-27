@@ -13,7 +13,7 @@ ms.date: 05/07/2020
 
 CPU core quotas help to ensure that resource usage is distributed fairly between all customers in a particular Azure region. However, in certain cases, your business requirements might demand more cluster resources than your current quota will allow. In such cases, you can request a CPU core quota increase so that you can deploy clusters, which match your data processing requirements.
 
-When you reach a quota limit, you can't deploy new clusters or scale out existing clusters by adding more worker nodes. The only quota limit is the CPU Cores quota that exists at the region level for each subscription. For example, your subscription may have a 30 CPU core limit in the East US region, with another 30 CPU cores allowed in the East US 2.
+When you reach a quota limit, you can't deploy new clusters or scale out existing clusters by adding more worker nodes. The only quota limit is the CPU Cores quota that exists at the region level for each subscription. For example, your subscription may have a 30 CPU core limit in the East US region, with another 30 CPU cores allowed in the East US.
 
 ## Gather required information
 
@@ -59,11 +59,11 @@ To request a quota increase, do the following steps:
 1. On the **Review + create** tab, select **Create**.
 
 > [!NOTE]  
-> If you need to increase the HDInsight core quota in a private region, [submit a whitelist request](https://aka.ms/canaryintwhitelist).
+> If you need to increase the HDInsight core quota in a private region, [submit a approved list request](https://aka.ms/canaryintwhitelist).
 
-You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+You can [contact support to request a quota increase](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
-There are some fixed quota limits. For example, a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+There are some fixed quota limits. For example, a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## Next steps
 

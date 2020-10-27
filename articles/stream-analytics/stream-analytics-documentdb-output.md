@@ -10,7 +10,7 @@ ms.date: 02/2/2020
 ms.custom: seodec18
 ---
 # Azure Stream Analytics output to Azure Cosmos DB  
-Azure Stream Analytics can target [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) for JSON output, enabling data archiving and low-latency queries on unstructured JSON data. This document covers some best practices for implementing this configuration.
+Azure Stream Analytics can target [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) for JSON output, enabling data archiving and low-latency queries on unstructured JSON data. This document covers some best practices for implementing this configuration. We recommend that you set your job to compatability level 1.2 when using Azure Cosmos DB as output.
 
 If you're unfamiliar with Azure Cosmos DB, see the [Azure Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/) to get started. 
 
@@ -66,7 +66,9 @@ Depending on your choice of partition key, you might receive this _warning_:
 
 It's important to choose a partition key property that has a number of distinct values, and that lets you distribute your workload evenly across these values. As a natural artifact of partitioning, requests that involve the same partition key are limited by the maximum throughput of a single partition. 
 
-The storage size for documents that belong to the same partition key is limited to 20 GB. An ideal partition key is one that appears frequently as a filter in your queries and has sufficient cardinality to ensure that your solution is scalable.
+The storage size for documents that belong to the same partition key value is limited to 20 GB (the [physical partition size limit](../cosmos-db/partition-data.md) is 50 GB). An [ideal partition key](../cosmos-db/partitioning-overview.md#choose-partitionkey) is one that appears frequently as a filter in your queries and has sufficient cardinality to ensure that your solution is scalable.
+
+Partition keys used for Stream Analytics queries and Cosmos DB don't need to be identical. Fully parallel topologies recommend using *Input Partition key*, `PartitionId`, as the Stream Analytics query's partition key but that may not be the recommended choice for a Cosmos DB container's partition key.
 
 A partition key is also the boundary for transactions in stored procedures and triggers for Azure Cosmos DB. You should choose the partition key so that documents that occur together in transactions share the same partition key value. The article [Partitioning in Azure Cosmos DB](../cosmos-db/partitioning-overview.md) gives more details on choosing a partition key.
 
@@ -129,3 +131,17 @@ If a transient failure, service unavailability, or throttling happens while Stre
 - NotFound (HTTP error code 404)
 - Forbidden (HTTP error code 403)
 - BadRequest (HTTP error code 400)
+
+## Common issues
+
+1. A unique index constraint is added to the collection and the output data from Stream Analytics violates this constraint. Ensure the output data from Stream Analytics doesn't violate unique constraints or remove constraints. For more information, see [Unique key constraints in Azure Cosmos DB](../cosmos-db/unique-keys.md).
+
+2. The `PartitionKey` column does not exists.
+
+3. The `Id` column does not exist.
+
+## Next steps
+
+* [Understand outputs from Azure Stream Analytics](stream-analytics-define-outputs.md) 
+* [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md)
+* [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md)

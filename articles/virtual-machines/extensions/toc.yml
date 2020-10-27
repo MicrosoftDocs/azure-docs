@@ -12,7 +12,7 @@
   expanded: true
   items:
     - name: Use the Custom Script Extension
-      href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
+      href: ../windows/tutorial-automate-vm-deployment.md
       maintainContext: true
 - name: Concepts
   items:
@@ -52,12 +52,20 @@
       href: vmsnapshot-linux.md
     - name: Windows
       href: vmsnapshot-windows.md
-  - name: Network Watcher Agent
+  - name: Network Watcher Extension
     items:
     - name: Linux
       href: network-watcher-linux.md
     - name: Windows
       href: network-watcher-windows.md
+    - name: Update to latest version
+      href: network-watcher-update.md
+  - name: InfiniBand Drivers
+    items:
+    - name: Linux
+      href: hpc-compute-infiniband-linux.md
+    - name: Windows
+      href: hpc-compute-infiniband-windows.md
   - name: NVIDIA GPU Drivers
     items:
     - name: Linux
@@ -70,6 +78,8 @@
       href: hpccompute-amd-gpu-windows.md
   - name: Azure Monitor
     items:
+    - name: Azure Monitor agent
+      href: ../../azure-monitor/platform/azure-monitor-agent-overview.md?#install-the-azure-monitor-agent
     - name: Diagnostics extension
       items:
       - name: Linux

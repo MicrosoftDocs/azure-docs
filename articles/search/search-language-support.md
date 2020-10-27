@@ -8,7 +8,7 @@ author: yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/12/2020
 ---
 
 # How to create an index for multiple languages in Azure Cognitive Search
@@ -48,6 +48,7 @@ You can query your index from the portal, using [**Search explorer**](search-exp
 
 Sometimes the language of the agent issuing a query is not known, in which case the query can be issued against all fields simultaneously. If needed, preference for results in a certain language can be defined using [scoring profiles](index-add-scoring-profiles.md). In the example below, matches found in the description in English will be scored higher relative to matches in Polish and French:
 
+```http
     "scoringProfiles": [
       {
         "name": "englishFirst",
@@ -56,9 +57,10 @@ Sometimes the language of the agent issuing a query is not known, in which case 
         }
       }
     ]
+```
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2020-06-30`
 
 ## Next steps
 
-If you're a .NET developer, note that you can configure language analyzers using the [Azure Cognitive Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) and the [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) property. 
+If you're a .NET developer, note that you can configure language analyzers using the [Azure Cognitive Search .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search) and the [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer) property.

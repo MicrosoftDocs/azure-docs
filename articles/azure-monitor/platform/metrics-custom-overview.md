@@ -10,7 +10,7 @@ ms.subservice: metrics
 ---
 # Custom metrics in Azure Monitor (Preview)
 
-As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called [standard or platform](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). However, they're limited in nature. 
+As you deploy resources and applications in Azure, you'll want to start collecting telemetry to gain insights into their performance and health. Azure makes some metrics available to you out of the box. These metrics are called [standard or platform](./metrics-supported.md). However, they're limited in nature. 
 
 You might want to collect some custom performance indicators or business-specific metrics to provide deeper insights. These **custom** metrics can be collected via your application telemetry, an agent that runs on your Azure resources, or even an outside-in monitoring system and submitted directly to Azure Monitor. After they're published to Azure Monitor, you can browse, query, and alert on custom metrics for your Azure resources and applications side by side with the standard metrics emitted by Azure.
 
@@ -20,9 +20,10 @@ Azure Monitor custom metrics are current in public preview.
 
 Custom metrics can be sent to Azure Monitor via several methods:
 - Instrument your application by using the Azure Application Insights SDK and send custom telemetry to Azure Monitor. 
+- Install the Azure Monitor Agent (Preview) on your [Windows or Linux Azure VM](azure-monitor-agent-overview.md) and use a [data collection rule](data-collection-rule-azure-monitor-agent.md) to send performance counters to Azure Monitor metrics.
 - Install the Windows Azure Diagnostics (WAD) extension on your [Azure VM](collect-custom-metrics-guestos-resource-manager-vm.md), [virtual machine scale set](collect-custom-metrics-guestos-resource-manager-vmss.md), [classic VM](collect-custom-metrics-guestos-vm-classic.md), or [classic Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md) and send performance counters to Azure Monitor. 
 - Install the [InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md) on your Azure Linux VM and send metrics by using the Azure Monitor output plug-in.
-- Send custom metrics [directly to the Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+- Send custom metrics [directly to the Azure Monitor REST API](./metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
 ## Pricing model and retention
 
@@ -31,7 +32,7 @@ Check the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/detai
 Custom metrics are retained for the [same amount of time as platform metrics](data-platform-metrics.md#retention-of-metrics). 
 
 > [!NOTE]  
-> Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data. They only incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) has been selected. This checkbox sends data to the Azure Monitor metrics database using the custom metrics API to allow the more complex alerting.  Learn more about the [Application Insights pricing model](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
+> Metrics sent to Azure Monitor via the Application Insights SDK are billed as ingested log data. They only incur additional metrics charges only if the Application Insights feature [Enable alerting on custom metric dimensions](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) has been selected. This checkbox sends data to the Azure Monitor metrics database using the custom metrics API to allow the more complex alerting.  Learn more about the [Application Insights pricing model](../app/pricing.md#pricing-model) and [prices in your region](https://azure.microsoft.com/pricing/details/monitor/).
 
 
 ## How to send custom metrics
@@ -40,8 +41,8 @@ When you send custom metrics to Azure Monitor, each data point, or value, report
 
 ### Authentication
 To submit custom metrics to Azure Monitor, the entity that submits the metric needs a valid Azure Active Directory (Azure AD) token in the **Bearer** header of the request. There are a few supported ways to acquire a valid bearer token:
-1. [Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Gives an identity to an Azure resource itself, such as a VM. Managed Service Identity (MSI) is designed to give resources permissions to carry out certain operations. An example is allowing a resource to emit metrics about itself. A resource, or its MSI, can be granted **Monitoring Metrics Publisher** permissions on another resource. With this permission, the MSI can emit metrics for other resources as well.
-2. [Azure AD Service Principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). In this scenario, an Azure AD application, or service, can be assigned permissions to emit metrics about an Azure resource.
+1. [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Gives an identity to an Azure resource itself, such as a VM. Managed Service Identity (MSI) is designed to give resources permissions to carry out certain operations. An example is allowing a resource to emit metrics about itself. A resource, or its MSI, can be granted **Monitoring Metrics Publisher** permissions on another resource. With this permission, the MSI can emit metrics for other resources as well.
+2. [Azure AD Service Principal](../../active-directory/develop/app-objects-and-service-principals.md). In this scenario, an Azure AD application, or service, can be assigned permissions to emit metrics about an Azure resource.
 To authenticate the request, Azure Monitor validates the application token by using Azure AD public keys. The existing **Monitoring Metrics Publisher** role already has this permission. It's available in the Azure portal. The service principal, depending on what resources it emits custom metrics for, can be given the **Monitoring Metrics Publisher** role at the scope required. Examples are a subscription, resource group, or specific resource.
 
 > [!TIP]  
@@ -229,6 +230,7 @@ Use custom metrics from different services:
  - [Virtual machine scale set](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Azure Virtual Machines (classic)](collect-custom-metrics-guestos-vm-classic.md)
  - [Linux Virtual Machine using the Telegraf agent](collect-custom-metrics-linux-telegraf.md)
- - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
+ - [REST API](./metrics-store-custom-rest-api.md)
  - [Classic Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  
+

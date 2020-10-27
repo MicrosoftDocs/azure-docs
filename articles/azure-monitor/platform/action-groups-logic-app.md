@@ -13,7 +13,7 @@ This article shows you how to set up and trigger a logic app to create a convers
 
 ## Overview
 
-When an Azure Monitor alert triggers, it calls an [action group](../../azure-monitor/platform/action-groups.md). Action groups allow you to trigger one or more actions to notify others about an alert and also remediate it.
+When an Azure Monitor alert triggers, it calls an [action group](./action-groups.md). Action groups allow you to trigger one or more actions to notify others about an alert and also remediate it.
 
 The general process is:
 
@@ -102,7 +102,7 @@ The process is similar if you want the logic app to perform a different action.
 
     ![Microsoft Teams actions](media/action-groups-logic-app/microsoft-teams-actions.png "Microsoft Teams actions")
 
-12. Configure the Microsoft Teams action. The **Logic Apps Designer** asks you to authenticate to your Office 365 account. Choose the **Team ID** and **Channel ID** to send the message to.
+12. Configure the Microsoft Teams action. The **Logic Apps Designer** asks you to authenticate to your work or school account. Choose the **Team ID** and **Channel ID** to send the message to.
 
 13. Configure the message by using a combination of static text and references to the \<fields\> in the dynamic content. Copy and paste the following text into the **Message** field:
 
@@ -122,7 +122,7 @@ The process is similar if you want the logic app to perform a different action.
 
 14. At the top of the **Logic Apps Designer**, select **Save** to save your logic app.
 
-15. Open your existing action group and add an action to reference the logic app. If you don't have an existing action group, see [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) to create one. Don’t forget to save your changes.
+15. Open your existing action group and add an action to reference the logic app. If you don't have an existing action group, see [Create and manage action groups in the Azure portal](./action-groups.md) to create one. Don’t forget to save your changes.
 
     ![Update the action group](media/action-groups-logic-app/update-action-group.png "Update the action group")
 
@@ -288,7 +288,7 @@ The process for creating a metric alert is similar to [creating an activity log 
 Logic Apps has a number of different connectors that allow you to trigger actions in a wide range of applications and databases. Slack, SQL Server, Oracle, Salesforce, are just some examples. For more information about connectors, see [Logic App connectors](../../connectors/apis-list.md).  
 
 ## Next steps
-* Get an [overview of Azure activity log alerts](../../azure-monitor/platform/alerts-overview.md) and learn how to receive alerts.  
-* Learn how to [configure alerts when an Azure Service Health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-* Learn more about [action groups](../../azure-monitor/platform/action-groups.md).
+* Get an [overview of Azure activity log alerts](./alerts-overview.md) and learn how to receive alerts.  
+* Learn how to [configure alerts when an Azure Service Health notification is posted](../../service-health/alerts-activity-log-service-notifications-portal.md).
+* Learn more about [action groups](./action-groups.md).
 

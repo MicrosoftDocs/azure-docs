@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Studio (preview): Connect and query Synapse SQL" 
+title: Connect to Synapse SQL with Azure Data Studio (preview)
 description: Use Azure Data Studio (preview) to connect to and query Synapse SQL in Azure Synapse Analytics. 
 services: synapse analytics
 author: azaricstefan 
@@ -90,4 +90,5 @@ Explore other ways to connect to Synapse SQL:
 - [Power BI](get-started-power-bi-professional.md)
 - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [sqlcmd](get-started-connect-sqlcmd.md)
- 
+
+Visit [Use Azure Data Studio to connect and query data using a dedicated SQL pool in Azure Synapse Analytics](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-dw), for more information. 

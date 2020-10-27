@@ -4,6 +4,10 @@
   href: debug-rendering.md
 - name: Hierarchical state override
   href: override-hierarchical-state.md
+- name: Camera
+  href: camera.md
+- name: Stage space
+  href: stage-space.md
 - name: Late stage reprojection
   href: late-stage-reprojection.md
 - name: Scene lighting

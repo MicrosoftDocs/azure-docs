@@ -1,12 +1,12 @@
 ---
 title: Types of test drives, Microsoft commercial marketplace
 description: Types of test drives in the commercial marketplace
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.author: dsindona
+ms.author: keferna
+author: keferna
 ---
 
 # Azure Resource Manager test drive
@@ -30,6 +30,9 @@ A deployment template contains all the Azure resources that comprise your soluti
   - **Cold** – This type of instance represents the total number of instances that can possibly be deployed per region. Cold instances require the entire Test Drive Resource Manager template to deploy when a customer requests the test drive, so *Cold* instances are much slower to load than *Hot* instances. The tradeoff is that you only have to pay for the duration of the test drive, it is *not* always running on your Azure subscription as with a *Hot* instance.
 
 - **Test drive Azure Resource Manager template** – Upload the .zip containing your Azure Resource Manager template. Learn more about creating an Azure Resource Manager template in the quickstart article [Create and deploy Azure Resource Manager templates by using the Azure portal](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+
+    > [!note]
+    > To publish successfully, it is important to validate the formatting of the ARM template. Two ways to do this are (1) by using an [online API tool](https://docs.microsoft.com/rest/api/resources/deployments/validate) or (2) with a [test deployment](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).
 
 - **Test drive duration** (required) – Enter the number of hours the test drive will stay active. The test drive terminates automatically after this time period ends. Use only whole numbers (for example, "2" hours is valid, "1.5" is not).
 

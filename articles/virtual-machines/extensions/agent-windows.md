@@ -2,19 +2,11 @@
 title: Azure Virtual Machine Agent Overview 
 description: Azure Virtual Machine Agent Overview
 services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: mimckitt
-manager: gwallace
-
-tags: azure-resource-manager
-
-ms.assetid: 0a1f212e-053e-4a39-9910-8d622959f594
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 07/20/2019
-ms.author: akjosh
+ms.author: mimckitt
 ---
 
 # Azure Virtual Machine Agent overview
@@ -66,21 +58,25 @@ $vm | Update-AzVM
 ```
 
 ### Prerequisites
-- The Windows VM Agent needs at least Windows Server 2008 (64-bit) to run, with the .Net Framework 4.0. See [Minimum version support for virtual machine agents in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
-- Ensure your VM has access to IP address 168.63.129.16. For more information see [What is IP address 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+- The Windows VM Agent needs at least Windows Server 2008 SP2 (64-bit) to run, with the .NET Framework 4.0. See [Minimum version support for virtual machine agents in Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
+
+- Ensure your VM has access to IP address 168.63.129.16. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
+
+- Ensure that DHCP is enabled inside the guest VM. This is required to get the host or fabric address from DHCP for the IaaS VM Agent and extensions to work. If you need a static private IP, you should configure it through the Azure portal or PowerShell, and make sure the DHCP option inside the VM is enabled. [Learn more](../../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) about setting up a static IP address with PowerShell.
+
 
 ## Detect the VM Agent
 
 ### PowerShell
 
-The Azure Resource Manager PowerShell module can be used to retrieve information about Azure VMs. To see information about a VM, such as the provisioning state for the Azure VM Agent, use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm):
+The Azure Resource Manager PowerShell module can be used to retrieve information about Azure VMs. To see information about a VM, such as the provisioning state for the Azure VM Agent, use [Get-AzVM](/powershell/module/az.compute/get-azvm):
 
 ```powershell
 Get-AzVM
 ```
 
-The following condensed example output shows the *ProvisionVMAgent* property nested inside *OSProfile*. This property can be used to determine if the VM agent has been deployed to the VM:
+The following condensed example output shows the *ProvisionVMAgent* property nested inside `OSProfile`. This property can be used to determine if the VM agent has been deployed to the VM:
 
 ```powershell
 OSProfile                  :
@@ -108,12 +104,22 @@ When logged in to a Windows VM, Task Manager can be used to examine running proc
 
 
 ## Upgrade the VM Agent
-The Azure VM Agent for Windows is automatically upgraded. As new VMs are deployed to Azure, they receive the latest VM agent at VM provision time. Custom VM images should be manually updated to include the new VM agent at image creation time.
+The Azure VM Agent for Windows is automatically upgraded on images deployed from the Azure Marketplace. As new VMs are deployed to Azure, they receive the latest VM agent at VM provision time. If you have installed the agent manually or are deploying custom VM images you will need to manually update to include the new VM agent at image creation time.
 
 ## Windows Guest Agent Automatic Logs Collection
 Windows Guest Agent has a feature to automatically collect some logs. This feature is controller by the CollectGuestLogs.exe process. 
 It exists for both PaaS Cloud Services and IaaS Virtual Machines and its goal is to quickly & automatically collect some diagnostics logs from a VM - so they can be used for offline analysis. 
 The collected logs are Event Logs, OS Logs, Azure Logs and some registry keys. It produces a ZIP file that is transferred to the VM’s Host. This ZIP file can then be looked at by Engineering Teams and Support professionals to investigate issues on request of the customer owning the VM.
+
+## Guest Agent and OSProfile certificates
+The Azure VM Agent is responsible for installing the certificates referenced in the `OSProfile` of a VM or Virtual Machine Scale Set. 
+If you manually remove these certificates from the certificates MMC console inside the guest VM, it is expected that the guest agent will add them back.
+To permanently remove a certificate, you will have to remove it from the `OSProfile`, and then remove it from within the guest operating system.
+
+For a Virtual Machine, use the [Remove-AzVMSecret]() to remove certificates from the `OSProfile`.
+
+For more information on Virtual Machine Scale Set certificates, see [Virtual Machine Scale Sets - How do I remove deprecated certificates?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-remove-deprecated-certificates)
+
 
 ## Next steps
 For more information about VM extensions, see [Azure virtual machine extensions and features overview](overview.md).

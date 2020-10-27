@@ -5,10 +5,10 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, bonova, danil
+ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
 ---
@@ -21,7 +21,7 @@ This article summarizes and explains the differences in syntax and behavior betw
 
 SQL Managed Instance provides high compatibility with the SQL Server database engine, and most features are supported in a SQL Managed Instance.
 
-![Migration](./media/transact-sql-tsql-differences-sql-server/migration.png)
+![Easy migration from SQL Server](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
 There are some PaaS limitations that are introduced in SQL Managed Instance and some behavior changes compared to SQL Server. The differences are divided into the following categories: <a name="Differences"></a>
 
@@ -348,7 +348,11 @@ Undocumented DBCC statements that are enabled in SQL Server aren't supported in 
 
 ### Distributed transactions
 
-MSDTC and [elastic transactions](../database/elastic-transactions-overview.md) currently aren't supported in SQL Managed Instance.
+Partial support for [distributed transactions](../database/elastic-transactions-overview.md) is currently in public preview. Supported scenarios are:
+* Transactions where participants are only Azure SQL Managed Instances that are part of [Server trust group](https://aka.ms/mitrusted-groups).
+* Transactions initiated from .NET (TransactionScope class) and Transact-SQL.
+
+Azure SQL Managed Instance currently does not support other scenarios which are regularly supported by MSDTC on-premises or in Azure Virtual Machines.
 
 ### Extended Events
 
@@ -359,7 +363,7 @@ Some Windows-specific targets for Extended Events (XEvents) aren't supported:
 
 ### External libraries
 
-In-database R and Python, external libraries aren't yet supported. See [SQL Server Machine Learning Services](/sql/advanced-analytics/r/sql-server-r-services).
+In-database R and Python external libraries are supported in limited public preview. See [Machine Learning Services in Azure SQL Managed Instance (preview)](machine-learning-services-overview.md).
 
 ### Filestream and FileTable
 

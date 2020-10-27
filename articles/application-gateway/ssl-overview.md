@@ -2,10 +2,10 @@
 title: Enabling end to end TLS on Azure Application Gateway
 description: This article is an overview of the Application Gateway end to end TLS support.
 services: application-gateway
-author: amsriva
+author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 5/13/2020
+ms.date: 08/21/2020
 ms.author: victorh
 
 ---
@@ -25,7 +25,7 @@ Application Gateway supports TLS termination at the gateway, after which traffic
 To configure TLS termination, a TLS/SSL certificate is required to be added to the listener to enable the Application Gateway to derive a symmetric key as per TLS/SSL protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. The TLS/SSL certificate needs to be in Personal Information Exchange (PFX) format. This file format allows you to export the private key that is required by the application gateway to perform the encryption and decryption of traffic.
 
 > [!IMPORTANT] 
-> Please note that the certificate on the listener requires the entire certificate chain to be uploaded. 
+> The certificate on the listener requires the entire certificate chain to be uploaded (the root certificate from the CA, the intermediates and the leaf certificate) to establish the chain of trust. 
 
 
 > [!NOTE] 
@@ -106,7 +106,7 @@ Authentication Certificates have been deprecated and replaced by Trusted Root Ce
 
 - In addition to the root certificate match, Application Gateway v2 also validates if the Host setting specified in the backend http setting matches that of the common name (CN) presented by the backend server’s TLS/SSL certificate. When trying to establish a TLS connection to the backend, Application Gateway v2 sets the Server Name Indication (SNI) extension to the Host specified in the backend http setting.
 
-- If **pick hostname from backend address** is chosen instead of the Host field in the backend http setting,  then the SNI header is always set to the backend pool FQDN and the CN on the backend server TLS/SSL certificate must match its FQDN. Backend pool members with IPs aren't supported in this scenario.
+- If **pick hostname from backend target** is chosen instead of the Host field in the backend http setting,  then the SNI header is always set to the backend pool FQDN and the CN on the backend server TLS/SSL certificate must match its FQDN. Backend pool members with IPs aren't supported in this scenario.
 
 - The root certificate is a base64 encoded root certificate from the backend server certificates.
 

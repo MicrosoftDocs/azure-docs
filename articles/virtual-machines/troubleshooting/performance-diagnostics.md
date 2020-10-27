@@ -30,18 +30,35 @@ You can run performance diagnostics directly from the Azure portal, where you ca
 
 ### Windows
 
-Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows Server 2016, Windows Server 2012, Windows Server 2012 Datacenter, Windows Server 2012 R2, Windows Server 2012 R2 Datacenter, Windows Server 2012 R2 Standard, Windows Server 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Datacenter, Windows Server 2008 R2 Enterprise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ### Linux
 
-Oracle Linux Server 6.10 [`*`], 7.3, 7.6, 7.5 (Oracle-Database-Ee 13.8 marketplace image), CentOS 6.5 [`*`], 7.6, RHEL 7.2, 7.5, 8.0 [`*`], Ubuntu 14.04, 16.04, 18.04, Debian 8, 9, 10 [`*`], SLES 12 SP4 [`*`]
+- The following distributions are currently supported:
+
+    | Distribution               | Version                                         |
+    |----------------------------|-------------------------------------------------|
+    | Oracle Linux Server        | 6.10 [`*`], 7.3, 7.6, 7.5 |
+    | CentOS                     | 6.5 [`*`], 7.6                                    |
+    | RHEL                       | 7.2, 7.5, 8.0 [`*`]                               |
+    | Ubuntu                     | 14.04, 16.04, 18.04, 20.04                               |
+    | Debian                     | 8, 9, 10 [`*`]                                    |
+    | SLES                       | 12 SP4 [`*`]                                      |
+    |                            |                                                   |
 
 >[!Note]
 >[`*`] Please refer to [Known issues](how-to-use-perfinsights-linux.md#known-issues)
 
 ## Install and run performance diagnostics on your VM
 
-Performance diagnostics installs a VM extension that runs a diagnostics tool that is named PerfInsights. PerfInsights is available for both [Windows](https://aka.ms/perfinsights) and [Linux](https://aka.ms/perfinsightslinux). To install and run performance diagnostics, follow these steps:
+Performance diagnostics installs a VM extension that runs a diagnostics tool that is named PerfInsights. PerfInsights is available for both [Windows](./how-to-use-perfinsights.md) and [Linux](./how-to-use-perfinsights-linux.md). To install and run performance diagnostics, follow these steps:
 
 1. In the left column of commands, select **Virtual machines**.
 1. From the list of VM names, select the VM that you want to run diagnostics on.
@@ -71,16 +88,16 @@ Performance diagnostics installs a VM extension that runs a diagnostics tool tha
 The following analysis scenarios are available from the Azure portal. Select an analysis, depending on the performance issue that you are having. Select the duration and trace options as necessary for the analysis.
 
 * **Quick performance analysis**  
-    Checks for known issues, analyzes best practices, and collects diagnostics data. This analysis takes several minutes to run. Learn more [Windows](https://aka.ms/perfinsights/quick) or [Linux](https://aka.ms/perfinsightslinux/quick)
+    Checks for known issues, analyzes best practices, and collects diagnostics data. This analysis takes several minutes to run. Learn more [Windows](./how-to-use-perfinsights.md) or [Linux](./how-to-use-perfinsights-linux.md)
 
 * **Performance analysis**  
-    Includes all checks in the quick performance analysis and monitors high resource consumption. Use this version to troubleshoot general performance issues, such as high CPU, memory, and disk usage. This analysis takes 30 seconds to 15 minutes, depending on the selected duration. Learn more [Windows](https://aka.ms/perfinsights/vmslow) or [Linux](https://aka.ms/perfinsightslinux/vmslow)
+    Includes all checks in the quick performance analysis and monitors high resource consumption. Use this version to troubleshoot general performance issues, such as high CPU, memory, and disk usage. This analysis takes 30 seconds to 15 minutes, depending on the selected duration. Learn more [Windows](./how-to-use-perfinsights.md) or [Linux](./how-to-use-perfinsights-linux.md)
 
 * **Advanced performance analysis** `*`  
-    Includes all checks in the performance analysis, and collects one or more of the traces, as listed in the following sections. Use this scenario to troubleshoot complex issues that require additional traces. Running this scenario for longer periods will increase the overall size of diagnostics output, depending on the size of the VM and the trace options that are selected. This analysis takes 30 seconds to 15 minutes to run, depending on the selected duration. [Learn more](https://aka.ms/perfinsights/advanced)
+    Includes all checks in the performance analysis, and collects one or more of the traces, as listed in the following sections. Use this scenario to troubleshoot complex issues that require additional traces. Running this scenario for longer periods will increase the overall size of diagnostics output, depending on the size of the VM and the trace options that are selected. This analysis takes 30 seconds to 15 minutes to run, depending on the selected duration. [Learn more](./how-to-use-perfinsights.md)
 
 * **Azure Files analysis** `*`  
-    Includes all checks in the performance analysis, and captures a network trace and SMB counters. Use this scenario to troubleshoot the performance of Azure files. This analysis takes 30 seconds to 15 minutes to run, depending on the selected duration. [Learn more](https://aka.ms/perfinsights/azurefiles)
+    Includes all checks in the performance analysis, and captures a network trace and SMB counters. Use this scenario to troubleshoot the performance of Azure files. This analysis takes 30 seconds to 15 minutes to run, depending on the selected duration. [Learn more](./how-to-use-perfinsights.md)
 
 >[!Note]
 >[`*`] These analysis scenarios are only supported on Windows.

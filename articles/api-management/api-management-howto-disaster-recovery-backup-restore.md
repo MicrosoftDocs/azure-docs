@@ -165,20 +165,25 @@ Set the value of the `Content-Type` request header to `application/json`.
 
 Backup is a long running operation that may take more than a minute to complete. If the request succeeded and the backup process began, you receive a `202 Accepted` response status code with a `Location` header. Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the backup is in progress, you continue to receive a '202 Accepted' status code. A Response code of `200 OK` indicates successful completion of the backup operation.
 
-Note the following constraints when making a backup or restore request:
+#### Constraints when making backup or restore request
 
 -   **Container** specified in the request body **must exist**.
 -   While backup is in progress, **avoid management changes in the service** such as SKU upgrade or downgrade, change in domain name, and more.
 -   Restore of a **backup is guaranteed only for 30 days** since the moment of its creation.
--   **Usage data** used for creating analytics reports **isn't included** in the backup. Use [Azure API Management REST API][azure api management rest api] to periodically retrieve analytics reports for safekeeping.
--   In addition, the following items are not part of the backup data: custom domain TLS/SSL certificates and any intermediate or root certificates uploaded by customer, developer portal content, and virtual network integration settings.
--   The frequency with which you perform service backups affect your recovery point objective. To minimize it, we recommend implementing regular backups and performing on-demand backups after you make changes to your API Management service.
 -   **Changes** made to the service configuration, (for example, APIs, policies, and developer portal appearance) while backup operation is in process **might be excluded from the backup and will be lost**.
--   **Allow** access from control plane to Azure Storage Account, if it has [firewall][azure-storage-ip-firewall] enabled. Customer should open the set of [Azure API Management Control Plane IP Addresses][control-plane-ip-address] on their Storage Account for Backup to or Restore from. 
+-   **Allow** access from control plane to Azure Storage Account, if it has [firewall][azure-storage-ip-firewall] enabled. Customer should open the set of [Azure API Management Control Plane IP Addresses][control-plane-ip-address] on their Storage Account for Backup to or Restore from. This is because the requests to Azure Storage are not SNATed to a public IP from Compute > (Azure Api Management control Plane). Cross Region storage request will be SNATed.
 
-> [!NOTE]
-> If you attempt to do backup/restore from/to an API Management service using a storage account which has [firewall][azure-storage-ip-firewall] 
-> enabled, in the same Azure Region, then this will not work. This is because the requests to Azure Storage are not SNATed to a public IP from Compute > (Azure Api Management control Plane). Cross Region storage request will be SNATed.
+#### What is not backed up
+-   **Usage data** used for creating analytics reports **isn't included** in the backup. Use [Azure API Management REST API][azure api management rest api] to periodically retrieve analytics reports for safekeeping.
+-   [Custom domain TLS/SSL](configure-custom-domain.md) certificates
+-   [Custom CA Certificate](api-management-howto-ca-certificates.md) which include intermediate or root certificates uploaded by customer
+-   [Virtual network](api-management-using-with-vnet.md) integration settings.
+-   [Managed Identity](api-management-howto-use-managed-service-identity.md) configuration.
+-   [Azure Monitor Diagnostic](api-management-howto-use-azure-monitor.md) Configuration.
+-   [Protocols and Cipher](api-management-howto-manage-protocols-ciphers.md) settings.
+-   [Developer portal](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) content.
+
+The frequency with which you perform service backups affect your recovery point objective. To minimize it, we recommend implementing regular backups and performing on-demand backups after you make changes to your API Management service.
 
 ### <a name="step2"> </a>Restore an API Management service
 
@@ -226,12 +231,12 @@ Check out the following resources for different walkthroughs of the backup/resto
 
 -   [Replicate Azure API Management Accounts](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
--   [Azure API Management: Backing Up and Restoring Configuration](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+-   [Azure API Management: Backing Up and Restoring Configuration](/archive/blogs/stuartleeks/azure-api-management-backing-up-and-restoring-configuration)
     _The approach detailed by Stuart does not match the official guidance but it is interesting._
 
 [backup an api management service]: #step1
 [restore an api management service]: #step2
-[azure api management rest api]: https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest
+[azure api management rest api]: /rest/api/apimanagement/apimanagementrest/api-management-rest
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 [api-management-aad-permissions]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-permissions.png
 [api-management-aad-permissions-add]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-permissions-add.png

@@ -4,7 +4,7 @@ description: This article describes how to configure and access metric alerts fo
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 
@@ -22,32 +22,32 @@ You can configure an alert to do the following actions when it triggers:
 You can configure and get information about alert rules using:
 * [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## Create an alert rule on a metric from the Azure portal
 1. In the [Azure portal](https://portal.azure.com/), select the Azure Database for MySQL server you want to monitor.
 
 2. Under the **Monitoring** section of the sidebar, select **Alerts** as shown:
 
-   ![Select Alert Rules](./media/howto-alert-on-metric/2-alert-rules.png)
+   :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="Select Alert Rules":::
 
 3. Select **Add metric alert** (+ icon).
 
 4. The **Create rule** page opens as shown below. Fill in the required information:
 
-   ![Add metric alert form](./media/howto-alert-on-metric/4-add-rule-form.png)
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Add metric alert form":::
 
 5. Within the **Condition** section, select **Add condition**.
 
 6. Select a metric from the list of signals to be alerted on. In this example, select "Storage percent".
    
-   ![Select metric](./media/howto-alert-on-metric/6-configure-signal-logic.png)
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Select metric":::
 
 7. Configure the alert logic including the **Condition** (ex. "Greater than"), **Threshold** (ex. 85 percent), **Time Aggregation**, **Period** of time the metric rule must be satisfied before the alert triggers (ex. "Over the last 30 minutes"), and **Frequency**.
    
    Select **Done** when complete.
 
-   ![Select metric](./media/howto-alert-on-metric/7-set-threshold-time.png)
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Select metric 2":::
 
 8. Within the **Action Groups** section, select **Create New** to create a new group to receive notifications on the alert.
 
@@ -61,11 +61,11 @@ You can configure and get information about alert rules using:
 
     Select **OK** when completed.
 
-    ![Action group](./media/howto-alert-on-metric/10-action-group-type.png)
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Action group":::
 
 11. Specify an Alert rule name, Description, and Severity.
 
-    ![Action group](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group 2"::: 
 
 12. Select **Create alert rule** to create the alert.
 
@@ -81,4 +81,4 @@ Once you have created an alert, you can select it and do the following actions:
 
 ## Next steps
 * Learn more about [configuring webhooks in alerts](../azure-monitor/platform/alerts-webhooks.md).
-* Get an [overview of metrics collection](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
+* Get an [overview of metrics collection](../azure-monitor/platform/data-platform.md) to make sure your service is available and responsive.

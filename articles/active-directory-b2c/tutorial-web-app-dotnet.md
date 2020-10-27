@@ -7,8 +7,8 @@ author: msmimart
 manager: celestedg
 
 ms.author: mimart
-ms.date: 10/14/2019
-ms.custom: mvc
+ms.date: 10/02/2020
+ms.custom: "devx-track-csharp, mvc"
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
@@ -26,6 +26,9 @@ In this tutorial, you learn how to:
 > * Sign up using the user flow
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+> [!NOTE]
+> This tutorial uses an ASP.NET sample web application. For other sample applications (including ASP.NET Core, Node.js, Python, and more), see [Azure Active Directory B2C code samples](code-samples.md).
 
 ## Prerequisites
 

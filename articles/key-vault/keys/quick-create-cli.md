@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Set and retrieve a key from Azure Key Vault'
+title: Create and retrieve attributes of a key in Azure Key Vault - Azure CLI
 description: Quickstart showing how to set and retrieve a key from Azure Key Vault using Azure CLI
 services: key-vault
 author: msmbaldwin
@@ -10,7 +10,8 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.date: 03/30/2020
-ms.author: mbaldwin
+ms.author: mbaldwin 
+ms.custom: devx-track-azurecli
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a key from Azure Key Vault using Azure CLI
@@ -69,7 +70,7 @@ Type the commands below to create a called **ExampleKey** :
 az keyvault key create --vault-name "Contoso-Vault2" -n ExampleKey --protection software
 ```
 
-You can now reference this key that you added to Azure Key Vault by using its URI. Use **https://Contoso-Vault2.vault.azure.net/keys/ExampleKey** to get the current version. 
+You can now reference this key that you added to Azure Key Vault by using its URI. Use **'https://Contoso-Vault2.vault.azure.net/keys/ExampleKey'** to get the current version. 
 
 To view previously stored key:
 

@@ -3,9 +3,9 @@ title: Azure CLI script examples
 titleSuffix: Azure SQL Database & SQL Managed Instance 
 description: Azure CLI script examples to create and manage Azure SQL Database and Azure SQL Managed Instance 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
-ms.custom: overview-samples, mvc, sqldbrb=2
+ms.custom: overview-samples, mvc, sqldbrb=2, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
@@ -30,7 +30,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 The following table includes links to Azure CLI script examples to manage single and pooled databases in Azure SQL Database. 
 
-| | |
+|Area|Description|
 |---|---|
 |**Create databases in Azure SQL Database**||
 | [Create a single database and configure a firewall rule](scripts/create-and-configure-database-cli.md) | Creates an SQL Database and configures a server-level firewall rule. |
@@ -58,7 +58,7 @@ Learn more about the [single-database Azure CLI API](single-database-manage.md#t
 
 The following table includes links to Azure CLI script examples for Azure SQL Managed Instance.
 
-| | |
+|Area|Description|
 |---|---|
 | **Create a SQL Managed Instance**||
 | [Create a SQL Managed Instance](../../sql-database/scripts/sql-database-create-configure-managed-instance-cli.md)| Creates a SQL Managed Instance. |
@@ -68,7 +68,7 @@ The following table includes links to Azure CLI script examples for Azure SQL Ma
 | [Configure a failover group for SQL Managed Instance](../../sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md) | Creates two instances of SQL Managed Instance, adds them to a failover group, and then tests failover from the primary SQL Managed Instance to the secondary SQL Managed Instance. |
 |||
 
-For additional SQL Managed Instance examples, see the [create](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/), [update](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/), [move a database](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/), and [working with](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) scripts.
+For additional SQL Managed Instance examples, see the [create](/archive/blogs/sqlserverstorageengine/create-azure-sql-managed-instance-using-azure-cli), [update](/archive/blogs/sqlserverstorageengine/modify-azure-sql-database-managed-instance-using-azure-cli), [move a database](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance), and [working with](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) scripts.
 
 Learn more about the [SQL Managed Instance Azure CLI API](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-configure-managed-instances).
 

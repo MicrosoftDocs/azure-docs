@@ -1,6 +1,6 @@
 ---
 title: Call a web API from a daemon app - Microsoft identity platform | Azure
-description: Learn how to build a daemon app that calls web APIs
+description: Learn how to build a daemon app that calls a web API.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -69,16 +69,16 @@ For daemon apps, the web APIs that you call need to be pre-approved. There's no 
 # [.NET](#tab/dotnet)
 
 > [!div class="nextstepaction"]
-> [Daemon app - move to production](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=dotnet)
+> [Daemon app - move to production](./scenario-daemon-production.md?tabs=dotnet)
 
 # [Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Daemon app - move to production](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=python)
+> [Daemon app - move to production](./scenario-daemon-production.md?tabs=python)
 
 # [Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Daemon app - move to production](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=java)
+> [Daemon app - move to production](./scenario-daemon-production.md?tabs=java)
 
 ---

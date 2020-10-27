@@ -3,7 +3,8 @@ title: Tutorial - Deploy a local Azure Resource Manager template
 description: Learn how to deploy an Azure Resource Manager template from your local computer
 ms.date: 05/20/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom:
 ---
 
 # Tutorial: Deploy a local Azure Resource Manager template
@@ -28,7 +29,7 @@ After installing either Azure PowerShell or Azure CLI, make sure you sign in for
 
 ### Editor (Optional)
 
-Templates are JSON files. To review/edit templates, you need a good JSON editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Use Visual Studio Code to create Azure Resource Manager templates](use-vs-code-to-create-template.md).
+Templates are JSON files. To review/edit templates, you need a good JSON editor. We recommend Visual Studio Code with the Resource Manager Tools extension. If you need to install these tools, see [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## Review template
 

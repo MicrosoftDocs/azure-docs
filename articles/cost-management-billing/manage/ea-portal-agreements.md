@@ -3,9 +3,10 @@ title: Azure EA agreements and amendments
 description: This article explains how Azure EA agreements and amendments affect your Azure EA portal use.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 09/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
 ---
 
@@ -15,7 +16,7 @@ The article describes how Azure EA agreements and amendments might affect your a
 
 ## Enrollment provisioning status
 
-The start date of a new monetary commitment is defined by the date that the regional operations center processed it. Since monetary commitment orders via the Azure EA portal are processed in the UTC time zone, you may experience some delay if your monetary commitment purchase order was processed in a different region. The coverage start date on the purchase order at https://www.explore.ms shows the start of the monetary commitment. The coverage start date is when the monetary commitment appears in the Azure EA portal.
+The start date of a new Azure Prepayment is defined by the date that the regional operations center processed it. Since Azure Prepayment orders via the Azure EA portal are processed in the UTC time zone, you may experience some delay if your Azure Prepayment purchase order was processed in a different region. The coverage start date on the purchase order shows the start of the Azure Prepayment. The coverage start date is when the Azure Prepayment appears in the Azure EA portal.
 
 ## Support for enterprise customers
 
@@ -31,14 +32,14 @@ An enrollment has one of the following status values. Each value determines how 
 
 **Indefinite Extended Term** - Indefinite extended term status occurs after the enterprise agreement end date is reached. Before the EA enrollment reaches the enterprise agreement end date, the Enrollment Administrator should decide to:
 
-- Renew the enrollment by adding additional Monetary Commitment
+- Renew the enrollment by adding additional Azure Prepayment
 - Transfer the existing enrollment to a new enrollment
 - Migrate to the Microsoft Online Subscription Program (MOSP)
 - Confirm disablement of all services associated with the enrollment
 
 **Expired** - The EA enrollment expires when it reaches the enterprise agreement end date. The EA customer is opted out of the extended term and all their services are disabled.
 
-As of August 1, 2019, new opt-out forms aren't accepted for Azure commercial customers. Instead, all enrollments go into indefinite extended term. If you want to stop using Azure services, close your subscription in the [Azure portal](https://portal.azure.com). Or, your partner can submit a termination request at https://www.explore.ms. There's no change for customers with government agreement types.
+As of August 1, 2019, new opt-out forms aren't accepted for Azure commercial customers. Instead, all enrollments go into indefinite extended term. If you want to stop using Azure services, close your subscription in the [Azure portal](https://portal.azure.com). Or, your partner can submit a termination request. There's no change for customers with government agreement types.
 
 **Transferred** - Transferred status is applied to enrollments that have their associated accounts and services transferred to a new enrollment. Enrollments don't automatically transfer if a new enrollment number is generated during renewal. The prior enrollment number must be included in the customer's renewal request for an automatic transfer.
 
@@ -46,7 +47,7 @@ As of August 1, 2019, new opt-out forms aren't accepted for Azure commercial cus
 
 In the Azure EA portal, Partner Price Markup helps to enable better cost reporting for customers. The Azure EA portal shows usage and prices configured by partners for their customers.
 
-Markup allows partner administrators to add a percentage markup to their indirect enterprise agreements. Percentage markup applies to all Microsoft first party service information in the Azure EA portal such as: meter rates, monetary commitments, and orders. After the markup is published by the partner, the customer sees Azure costs in the Azure EA portal. For example, usage summary, price lists, and downloaded usage reports.
+Markup allows partner administrators to add a percentage markup to their indirect enterprise agreements. Percentage markup applies to all Microsoft first party service information in the Azure EA portal such as: meter rates, Azure Prepayment, and orders. After the markup is published by the partner, the customer sees Azure costs in the Azure EA portal. For example, usage summary, price lists, and downloaded usage reports.
 
 Starting in September 2019, partners can apply markup anytime during a term. They don't need to wait until the term next anniversary to apply markup.
 
@@ -56,7 +57,7 @@ Microsoft won't access or utilize the provided markup and associated prices for 
 
 The LSP provides a single percentage number in the EA portal.  All commercial information on the portal will be uplifted by the percentage provided by the LSP. Example:
 
-- Customer signs an EA with monetary commitment of USD 100,000.
+- Customer signs an EA with Azure Prepayment of USD 100,000.
 - The meter rate for Service A is USD 10 / Hour.
 - LSP sets markup percentage of 10% on the EA Portal.
 - The example below is how the customer will see the commercial information:
@@ -67,10 +68,10 @@ The LSP provides a single percentage number in the EA portal.  All commercial i
 
 ### When to use a markup
 
-Use the feature if you set the same markup percentage on ALL commercial transactions in the EA. i.e. – if you mark-up the monetary commitment information, the meter rates, the order information, etc.
+Use the feature if you set the same markup percentage on ALL commercial transactions in the EA. i.e. – if you mark-up the Azure Prepayment information, the meter rates, the order information, etc.
 
 Don't use the markup feature if:
-- You use different rates between monetary commitment and meter rates.
+- You use different rates between Azure Prepayment and meter rates.
 - You use different rates for different meters.
 
 If you're using different rates for different meters, we recommend developing a custom solution based on the API Key, which can be provided by the customer, to pull consumption data and provide reports.
@@ -92,12 +93,12 @@ Please make sure to review the commercial information - monetary balance informa
 
 **Step Two: Review and validate**
 
-Review the markup price in the _Usage Summary_ for the commitment term in the customer view. The Microsoft price will still be available in the partner view. The views can be toggled using the partner markup "people" toggle at the top right.
+Review the markup price in the _Usage Summary_ for the Prepayment term in the customer view. The Microsoft price will still be available in the partner view. The views can be toggled using the partner markup "people" toggle at the top right.
 
 1. Review the prices in the price sheet.
 1. Changes can be made before publishing by selecting **Edit** on _View Usage Summary > Customer View_ tab.
    
-Both the service prices and the commitment balances will be marked up by the same percentages. If you have different percentages for monetary balance and meter rates, or different percentages for different services, then please don't use this feature.
+Both the service prices and the Prepayment balances will be marked up by the same percentages. If you have different percentages for monetary balance and meter rates, or different percentages for different services, then please don't use this feature.
 
 **Step Three: Publish**
 
@@ -117,7 +118,7 @@ Once partner markup is published, the indirect customer will have access to bala
 Partners can use the markup feature (on Azure EA) after a Change of Channel Partner is processed; no need to wait for the next anniversary term.
 
 
-## Resource commitment and requesting quota increases
+## Resource Prepayment and requesting quota increases
 
 **The system enforces the following default quotas per subscription:**
 
@@ -131,11 +132,11 @@ Partners can use the markup feature (on Azure EA) after a Change of Channel Part
 | Access Control | 50 Namespaces per account. 100 million Access Control transactions per month |   |
 | Service Bus | 50 Namespaces per account. 40 Service Bus connections | Customers purchasing Service Bus connections through connection packs will have quotas equal to the midpoint between the connection pack they purchased and the next highest connection pack amount. Customers choosing a 500 Pack will have a quota of 750. |
 
-## Resource commitment
+## Resource Prepayment
 
-Microsoft will provide services to you up to at least the level of the associated usage included in the monthly commitment that you purchased (the Service Commitment), but all other increases in usage levels of service resources (e.g. adding to the number of compute instances running, or increasing the amount of storage in use) are subject to the availability of these service resources.
+Microsoft will provide services to you up to at least the level of the associated usage included in the monthly Prepayment that you purchased (the Service Prepayment), but all other increases in usage levels of service resources (e.g. adding to the number of compute instances running, or increasing the amount of storage in use) are subject to the availability of these service resources.
 
-Any quota described above is not a Service Commitment. For purposes of determining the number of simultaneous small compute instances (or their equivalent) that Microsoft will provide as part of a Service Commitment, this is determined by dividing the number of committed small compute instance hours purchased for a month by the number of hours in the shortest month of the year (i.e., February – 672 hours).
+Any quota described above is not a Service Prepayment. For purposes of determining the number of simultaneous small compute instances (or their equivalent) that Microsoft will provide as part of a Service Prepayment, this is determined by dividing the number of committed small compute instance hours purchased for a month by the number of hours in the shortest month of the year (i.e., February – 672 hours).
 
 ## Requesting a quota increase
 

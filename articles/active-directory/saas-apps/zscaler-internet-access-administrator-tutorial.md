@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Zscaler Internet Access Administrator | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler Internet Access Administrator.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: ea555097-bf62-45dd-9b45-b75c50324a69
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Zscaler Internet Access Administrator
 
@@ -28,7 +21,7 @@ Integrating Zscaler Internet Access Administrator with Azure AD provides you wit
 * You can enable your users to be automatically signed-in to Zscaler Internet Access Administrator (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -37,6 +30,9 @@ To configure Azure AD integration with Zscaler Internet Access Administrator, yo
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * Zscaler Internet Access Administrator subscription
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -104,8 +100,8 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 
     a. In the **Identifier** text box, type a URL as per your requirement:
 
-	| |
-	|--|
+	| Identifier |
+	|------------|
 	| `https://admin.zscaler.net` |
 	| `https://admin.zscalerone.net` |
 	| `https://admin.zscalertwo.net` |
@@ -115,8 +111,8 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 
     b. In the **Reply URL** text box, type a URL as per your requirement:
 
-	| |
-	|--|
+	| Reply URL |
+	|-----------|
 	| `https://admin.zscaler.net/adminsso.do` |
 	| `https://admin.zscalerone.net/adminsso.do` |
 	| `https://admin.zscalertwo.net/adminsso.do` |
@@ -147,7 +143,7 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 	d. Click **Save**.
 
 	> [!NOTE]
-	> Please click [here](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) to know how to configure Role in Azure AD
+	> Please click [here](../develop/active-directory-enterprise-app-role-management.md) to know how to configure Role in Azure AD
 
 7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -247,12 +243,12 @@ https://help.zscaler.com/zia/adding-admins
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Zscaler Internet Access Administrator tile in the Access Panel, you should be automatically signed in to the Zscaler Internet Access Admin UI for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Zscaler Internet Access Administrator tile in the Access Panel, you should be automatically signed in to the Zscaler Internet Access Admin UI for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

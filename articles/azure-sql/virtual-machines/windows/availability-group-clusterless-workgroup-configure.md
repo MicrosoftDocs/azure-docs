@@ -10,7 +10,7 @@ tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
@@ -101,7 +101,7 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 ## Create the failover cluster
 
-In this step, you will create the failover cluster. If you're unfamiliar with these steps, you can follow them from the [failover cluster tutorial](failover-cluster-instance-storage-spaces-direct-manually-configure.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct).
+In this step, you will create the failover cluster. If you're unfamiliar with these steps, you can follow them from the [failover cluster tutorial](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
 
 Notable differences between the tutorial and what should be done for a workgroup cluster:
 - Uncheck **Storage**, and **Storage Spaces Direct** when running the cluster validation. 
@@ -127,7 +127,7 @@ Once the cluster has been created, assign a static Cluster IP address. To do so,
 
 ## Create a cloud witness 
 
-In this step, configure a cloud share witness. If you're unfamiliar with the steps, see the [failover cluster tutorial](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-a-cloud-witness). 
+In this step, configure a cloud share witness. If you're unfamiliar with the steps, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness). 
 
 ## Enable the availability group feature 
 

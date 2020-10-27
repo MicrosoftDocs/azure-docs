@@ -194,7 +194,7 @@
           items:
           - name: "FAQ: Locally pinned volumes"
             href: storsimple-8000-local-volume-faq.md
-        - name: Role-based Access Control
+        - name: Azure role-based access control
           href: storsimple-8000-role-based-access-control.md
         - name: Manage ACRs
           href: storsimple-8000-manage-acrs.md
@@ -323,8 +323,6 @@
         items:
         - name: To StorSimple 8000 series devices
           href: storsimple-8000-migrate-from-5000-7000.md
-        - name: To Azure File Sync
-          href: storsimple-5000-7000-afs-migration.md
       - name: From other storage devices
         href: https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf
     - name: Update
@@ -428,7 +426,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=storsimple
   - name: Support blog
-    href: https://blogs.msdn.com/b/storsimple/
+    href: https://docs.microsoft.com/archive/blogs/storsimple/
   - name: Third-party notices
     href: https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip
   - name: Videos

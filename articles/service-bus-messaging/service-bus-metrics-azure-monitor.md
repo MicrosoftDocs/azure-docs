@@ -2,14 +2,14 @@
 title: Azure Service Bus metrics in Azure Monitor| Microsoft Docs
 description: This article explains how to use Azure Monitor to monitor Service Bus entities (queues, topics, and subscriptions).
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 09/30/2020
 ---
 
 # Azure Service Bus metrics in Azure Monitor
 
 Service Bus metrics give you the state of resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your Service Bus resources, not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of Service Bus. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
 
-Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) and the [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) sample on GitHub.
+Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](../azure-monitor/overview.md) and the [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) sample on GitHub.
 
 > [!IMPORTANT]
 > When there has not been any interaction with an entity for 2 hours, the metrics will start showing "0" as a value until the entity is no longer idle.
@@ -24,17 +24,17 @@ Metrics are enabled by default, and you can access the most recent 30 days of da
 
 You can monitor metrics over time in the [Azure portal](https://portal.azure.com). The following example shows how to view successful requests and incoming requests at the account level:
 
-![][1]
+![Screenshot of the Monitor - Metrics (preview) page in the Azure portal.][1]
 
 You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics**. To display metrics filtered to the scope of the entity, select the entity and then click **Metrics**.
 
-![][2]
+![Screenshot of the Monitor - Metrics (preview) page filtered to the scope of the entity.][2]
 
 For metrics supporting dimensions, you must filter with the desired dimension value.
 
 ## Billing
 
-Metrics and Alerts on Azure Monitor are charged on a per alert basis. These charges should be available on the portal when the alert is setup and before it is saved. 
+Metrics and Alerts on Azure Monitor are charged on a per alert basis. These charges should be available on the portal when the alert is set up and before it is saved. 
 
 Additional solutions that ingest metrics data are billed directly by those solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. You are also billed by Log Analytics if you stream metrics data to Log Analytics for advanced analysis.
 
@@ -51,11 +51,11 @@ Counts the number of data and management operations requests.
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-| Incoming Requests| The number of requests made to the Service Bus service over a specified period. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|Successful Requests|The number of successful requests made to the Service Bus service over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|Server Errors|The number of requests not processed due to an error in the Service Bus service over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|User Errors (see the following subsection)|The number of requests not processed due to user errors over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|Throttled Requests|The number of requests that were throttled because the usage was exceeded.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+| Incoming Requests| The number of requests made to the Service Bus service over a specified period. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
+|Successful Requests|The number of successful requests made to the Service Bus service over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
+|Server Errors|The number of requests not processed due to an error in the Service Bus service over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
+|User Errors (see the following subsection)|The number of requests not processed due to user errors over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
+|Throttled Requests|The number of requests that were throttled because the usage was exceeded.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
 
 ### User errors
 
@@ -69,12 +69,13 @@ The following two types of errors are classified as user errors:
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-|Incoming Messages|The number of events or messages sent to Service Bus over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|Outgoing Messages|The number of events or messages received from Service Bus over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-| Messages| Count of messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimension: EntityName |
-| ActiveMessages| Count of active messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimension: EntityName |
-| Dead-lettered messages| Count of dead-lettered messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/>Dimension: EntityName |
-| Scheduled messages| Count of scheduled messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average  <br/> Dimension: EntityName |
+|Incoming Messages|The number of events or messages sent to Service Bus over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
+|Outgoing Messages|The number of events or messages received from Service Bus over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
+| Messages| Count of messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimension: Entity name |
+| Active Messages| Count of active messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimension: Entity name |
+| Dead-lettered messages| Count of dead-lettered messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/>Dimension: Entity name |
+| Scheduled messages| Count of scheduled messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average  <br/> Dimension: Entity name |
+| Size | Size of an entity (queue or topic) in bytes. <br/><br/>Unit: Count <br/>Aggregation Type: Average <br/>Dimension: Entity name | 
 
 > [!NOTE]
 > Values for the following metrics are point-in-time values. Incoming messages that were consumed immediately after that point-in-time may not be reflected in these metrics. 
@@ -87,9 +88,9 @@ The following two types of errors are classified as user errors:
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-|ActiveConnections|The number of active connections on a namespace as well as on an entity.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|Connections Opened |The number of open connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
-|Connections Closed |The number of closed connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+|Active Connections|The number of active connections on a namespace as well as on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
+|Connections Opened |The number of open connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
+|Connections Closed |The number of closed connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
 
 ## Resource usage metrics
 
@@ -102,8 +103,8 @@ The following two types of errors are classified as user errors:
 
 | Metric Name | Description |
 | ------------------- | ----------------- |
-|CPU usage per namespace|The percentage CPU usage of the namespace.<br/><br/> Unit: Percent <br/> Aggregation Type: Maximum <br/> Dimension: EntityName|
-|Memory size usage per namespace|The percentage memory usage of the namespace.<br/><br/> Unit: Percent <br/> Aggregation Type: Maximum <br/> Dimension: EntityName|
+|CPU usage per namespace|The percentage CPU usage of the namespace.<br/><br/> Unit: Percent <br/> Aggregation Type: Maximum <br/> Dimension: Entity name|
+|Memory size usage per namespace|The percentage memory usage of the namespace.<br/><br/> Unit: Percent <br/> Aggregation Type: Maximum <br/> Dimension: Entity name|
 
 ## Metrics dimensions
 
@@ -111,7 +112,7 @@ Azure Service Bus supports the following dimensions for metrics in Azure Monitor
 
 |Dimension name|Description|
 | ------------------- | ----------------- |
-|EntityName| Service Bus supports messaging entities under the namespace.|
+|Entity Name| Service Bus supports messaging entities under the namespace.|
 
 ## Set up alerts on metrics
 
@@ -141,7 +142,7 @@ Azure Service Bus supports the following dimensions for metrics in Azure Monitor
     2. Enter a **description** for the alert.
     3. Select **severity** for the alert. 
 
-        ![Alert details](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![Screenshot of the Create rule page. Define alert details is expanded and the fields for Alert rule name, Description, and Severity are highlighted.](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. On the **Create rule** page, expand **Define action group**, select **New action group**, and do the following actions on the **Add action group page**. 
     1. Enter a name for the action group.
     2. Enter a short name for the action group. 
@@ -155,7 +156,7 @@ Azure Service Bus supports the following dimensions for metrics in Azure Monitor
         2. Type the **email address**. 
         3. Select **OK**.
 
-            ![Alert details](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+            ![Screenshot of the Add action group page. An Action named "Send email" with the Action type Email/SMS/Push/Voice is being added to the group.](./media/service-bus-metrics-azure-monitor/add-action-group.png)
         4. On the **Add action group** page, select **OK**. 
 1. On the **Create rule** page, select **Create alert rule**. 
 
@@ -163,9 +164,7 @@ Azure Service Bus supports the following dimensions for metrics in Azure Monitor
 
 ## Next steps
 
-See the [Azure Monitor overview](../monitoring-and-diagnostics/monitoring-overview.md).
+See the [Azure Monitor overview](../azure-monitor/overview.md).
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png
-
-

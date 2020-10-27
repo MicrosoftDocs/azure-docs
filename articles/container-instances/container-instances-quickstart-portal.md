@@ -2,8 +2,8 @@
 title: Quickstart - Deploy Docker container to container instance - Portal
 description: In this quickstart, you use the Azure portal to quickly deploy a containerized web app that runs in an isolated Azure container instance
 ms.topic: quickstart
-ms.date: 03/09/2020
-ms.custom: "seodec18, mvc"
+ms.date: 08/24/2020
+ms.custom: "seodec18, mvc, devx-track-js"
 ---
 
 # Quickstart: Deploy a container instance in Azure using the Azure portal
@@ -12,7 +12,7 @@ Use Azure Container Instances to run serverless Docker containers in Azure with 
 
 In this quickstart, you use the Azure portal to deploy an isolated Docker container and make its application available with a fully qualified domain name (FQDN). After configuring a few settings and deploying the container, you can browse to the running application:
 
-![App deployed to Azure Container Instances viewed in browser][aci-portal-07]
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-07.png" alt-text="App deployed using Azure Container Instances viewed in browser":::
 
 ## Sign in to Azure
 
@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account][azure-free-acco
 
 Select the **Create a resource** > **Containers** > **Container Instances**.
 
-![Begin creating a new container instance in the Azure portal][aci-portal-01]
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-01.png" alt-text="Begin creating a new container instance in the Azure portal":::
 
 On the **Basics** page, enter the following values in the **Resource group**, **Container name**, and **Container image** text boxes. Leave the other values at their defaults, then select **OK**.
 
@@ -33,29 +33,29 @@ On the **Basics** page, enter the following values in the **Resource group**, **
 * Image source: **Quickstart images**
 * Container image: `mcr.microsoft.com/azuredocs/aci-helloworld` (Linux)
 
-![Configuring basic settings for a new container instance in the Azure portal][aci-portal-03]
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-03.png" alt-text="Configuring basic settings for a new container instance in the Azure portal":::
 
 For this quickstart, you use default settings to deploy the public Microsoft `aci-helloworld` image. This sample Linux image packages a small web app written in Node.js that serves a static HTML page. You can also bring your own container images stored in Azure Container Registry, Docker Hub, or other registries.
 
 On the **Networking** page, specify a **DNS name label** for your container. The name must be unique within the Azure region where you create the container instance. Your container will be publicly reachable at `<dns-name-label>.<region>.azurecontainer.io`. If you receive a "DNS name label not available" error message, try a different DNS name label.
 
-![Configuring network settings for a new container instance in the Azure portal][aci-portal-04]
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-04.png" alt-text="Configuring network settings for a new container instance in the Azure portal":::
 
 Leave the other settings at their defaults, then select **Review + create**.
 
 When the validation completes, you're shown a summary of the container's settings. Select **Create** to submit your container deployment request.
 
-![Settings summary for a new container instance in the Azure portal][aci-portal-05]
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-05.png" alt-text="Settings summary for a new container instance in the Azure portal":::
 
 When deployment starts, a notification appears to indicate the deployment is in progress. Another notification is displayed when the container group has been deployed.
 
 Open the overview for the container group by navigating to **Resource Groups** > **myresourcegroup** > **mycontainer**. Take note of the **FQDN** (the fully qualified domain name) of the container instance, as well its **Status**.
 
-![Container group overview in the Azure portal][aci-portal-06]
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-06.png" alt-text="Container group overview in the Azure portal":::
 
 Once its **Status** is *Running*, navigate to the container's FQDN in your browser.
 
-![App deployed using Azure Container Instances viewed in browser][aci-portal-07]
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-07.png" alt-text="App deployed using Azure Container Instances viewed in browser":::
 
 Congratulations! By configuring just a few settings, you've deployed a publicly accessible application in Azure Container Instances.
 
@@ -65,17 +65,18 @@ Viewing the logs for a container instance is helpful when troubleshooting issues
 
 To view the container's logs, under **Settings**, select **Containers**, then **Logs**. You should see the HTTP GET request generated when you viewed the application in your browser.
 
-![Container logs in the Azure portal][aci-portal-11]
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-11.png" alt-text="Container logs in the Azure portal":::
+
 
 ## Clean up resources
 
 When you're done with the container, select **Overview** for the *mycontainer* container instance, then select **Delete**.
 
-![Deleting the container instance in the Azure portal][aci-portal-09]
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-09.png" alt-text="Deleting the container instance in the Azure portal]":::
 
 Select **Yes** when the confirmation dialog appears.
 
-![Delete confirmation of a container instance in the Azure portal][aci-portal-10]
+:::image type="content" source="media/container-instances-quickstart-portal/qs-portal-10.png" alt-text="Delete confirmation of a container instance in the Azure portal]":::
 
 ## Next steps
 
@@ -83,18 +84,6 @@ In this quickstart, you created an Azure container instance from a public Micros
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](./container-instances-tutorial-prepare-app.md)
-
-<!-- IMAGES -->
-[aci-portal-01]: ./media/container-instances-quickstart-portal/qs-portal-01.png
-[aci-portal-03]: ./media/container-instances-quickstart-portal/qs-portal-03.png
-[aci-portal-04]: ./media/container-instances-quickstart-portal/qs-portal-04.png
-[aci-portal-05]: ./media/container-instances-quickstart-portal/qs-portal-05.png
-[aci-portal-06]: ./media/container-instances-quickstart-portal/qs-portal-06.png
-[aci-portal-07]: ./media/container-instances-quickstart-portal/qs-portal-07.png
-[aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
-[aci-portal-09]: ./media/container-instances-quickstart-portal/qs-portal-09.png
-[aci-portal-10]: ./media/container-instances-quickstart-portal/qs-portal-10.png
-[aci-portal-11]: ./media/container-instances-quickstart-portal/qs-portal-11.png
 
 <!-- LINKS - External -->
 [azure-free-account]: https://azure.microsoft.com/free/

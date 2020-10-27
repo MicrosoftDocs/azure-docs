@@ -1,16 +1,17 @@
 ---
-title: Configure Azure Role Based Access Control (RBAC) for Azure API for FHIR
+title: Configure Azure role-based access control (Azure RBAC) for Azure API for FHIR
 description: This article describes how to configure Azure RBAC for the Azure API for FHIR data plane
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference 
 ms.date: 03/15/2020
-ms.author: mihansen
+ms.author: matjazl
+ms.reviewer: dseven
 ---
 # Configure Azure RBAC for FHIR 
 
-In this article, you will learn how to use [Azure Role Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) to assign access to the Azure API for FHIR data plane. Azure RBAC is the preferred methods for assigning data plane access when data plane users are managed in the Azure Active Directory tenant associated with your Azure subscription. If you are using an external Azure Active Directory tenant, refer to the [local RBAC assignment reference](configure-local-rbac.md).
+In this article, you will learn how to use [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) to assign access to the Azure API for FHIR data plane. Azure RBAC is the preferred methods for assigning data plane access when data plane users are managed in the Azure Active Directory tenant associated with your Azure subscription. If you are using an external Azure Active Directory tenant, refer to the [local RBAC assignment reference](configure-local-rbac.md).
 
 ## Confirm Azure RBAC mode
 
@@ -24,7 +25,7 @@ The **Authority** should be set to the Azure Active directory tenant associated 
 
 To grant users, service principals or groups access to the FHIR data plane, click **Access control (IAM)**, then click **Role assignments** and click **+ Add**:
 
-:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Add Azure RBAC role assignment":::
+:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Add Azure role assignment":::
 
 In the **Role** selection, search for one of the built-in roles for the FHIR data plane:
 
@@ -47,8 +48,7 @@ The Azure API for FHIR will cache decisions for up to 5 minutes. If you grant a 
 
 ## Next steps
 
-In this article, you learned how to assign Azure RBAC roles for the FHIR data plane. Next learn about additional settings for the Azure API for FHIR:
+In this article, you learned how to assign Azure roles for the FHIR data plane. To learn about additional settings for the Azure API for FHIR:
  
 >[!div class="nextstepaction"]
->[Additional settings Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
-
+>[Additional settings for Azure API for FHIR](azure-api-for-fhir-additional-settings.md)

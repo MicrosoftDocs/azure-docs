@@ -1,6 +1,6 @@
 ---
 title: Branching and chaining activities in a pipeline using Azure portal
-description: Learn how to control flow of data in Azure Data Factory by branching and chaining activities.
+description: Learn how to control flow of data in Azure Data Factory pipeline by using the Azure portal.
 services: data-factory
 author: djpmsft
 ms.author: daperlov
@@ -20,7 +20,7 @@ ms.date: 01/11/2018
 In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, the pipeline sends details of the successful copy operation (such as the amount of data written) in a success email. If the copy activity fails, the pipeline sends details of copy failure (such as the error message) in a failure email. Throughout the tutorial, you see how to pass parameters.
 
 A high-level overview of the scenario:
-![Overview](media/tutorial-control-flow-portal/overview.png)
+![Diagram shows Azure Blob Storage, which is the target of a copy, which, on success, sends an email with details or, on failure, sends an email with error details.](media/tutorial-control-flow-portal/overview.png)
 
 You perform the following steps in this tutorial:
 
@@ -135,7 +135,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+   *Data factory name “ADFTutorialDataFactory” is not available.*
+
 3. Select your Azure **subscription** in which you want to create the data factory.
 4. For the **Resource Group**, do one of the following steps:
 
@@ -179,7 +180,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
    ![Drag-drop copy activity](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. In the **Properties** window for the **Copy** activity at the bottom, switch to the **Source** tab, and click **+ New**. You create a source dataset for the copy activity in this step.
 
-   ![Source dataset](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
+   ![Screenshot that shows how to create a source dataset for teh copy activity.](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
 6. In the **New Dataset** window, select **Azure Blob Storage**, and click **Finish**.
 
    ![Select Azure Blob Storage](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
@@ -198,10 +199,11 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
    ![New Azure Storage linked service](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Enter `@pipeline().parameters.sourceBlobContainer` for the folder and `emp.txt` for the file name. You use the sourceBlobContainer pipeline parameter to set the folder path for the dataset.
 
-   ![Source dataset settings](./media/tutorial-control-flow-portal/source-dataset-settings.png)
-13. Switch to the **pipeline** tab (or) click the pipeline in the treeview. Confirm that **SourceBlobDataset** is selected for **Source Dataset**.
+    ![Source dataset settings](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 
-    ![Source dataset](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+13. Switch to the **pipeline** tab (or) click the pipeline in the treeview. Confirm that **SourceBlobDataset** is selected for **Source Dataset**.
+      
+   ![Source dataset](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 
 13. In the properties window, switch to the **Sink** tab, and click **+ New** for **Sink Dataset**. You create a sink dataset for the copy activity in this step similar to the way you created the source dataset.
 
@@ -267,7 +269,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
         ![Settings for the second Web activity](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
 22. Select **Copy** activity in the pipeline designer, and click **+->** button, and select **Error**.  
 
-    ![Settings for the second Web activity](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
+    ![Screenshot that shows how to select Error on the Copy activity in the pipeline designer.](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
 23. Drag the **red** button next to the Copy activity to the second Web activity **SendFailureEmailActivity**. You can move the activities around so that the pipeline looks like in the following image:
 
     ![Full pipeline with all activities](./media/tutorial-control-flow-portal/full-pipeline.png)
@@ -298,7 +300,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
     ![Successful pipeline run](./media/tutorial-control-flow-portal/monitor-success-pipeline-run.png)
 2. To **view activity runs** associated with this pipeline run, click the first link in the **Actions** column. You can switch back to the previous view by clicking **Pipelines** at the top. Use the **Refresh** button to refresh the list.
 
-    ![Activity runs](./media/tutorial-control-flow-portal/activity-runs-success.png)
+    ![Screenshot that shows how to view the list of activity runs.](./media/tutorial-control-flow-portal/activity-runs-success.png)
 
 ## Trigger a pipeline run that fails
 1. Switch to the **Edit** tab on the left.

@@ -3,13 +3,12 @@ title: Metadata with GenerateAnswer API - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer pairs. You can filter results to user queries, and store additional information that can be used in follow-up conversations.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.author: diberry
+ms.date: 07/16/2020
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Get an answer with the GenerateAnswer API and metadata
@@ -179,13 +178,40 @@ Because results are required only for the restaurant "Paradise", you can set a f
 {
     "question": "When does this hotel close?",
     "top": 1,
-    "strictFilters": [
-      {
-        "name": "restaurant",
-        "value": "paradise"
-      }]
+    "strictFilters": [ { "name": "restaurant", "value": "paradise"}]
 }
 ```
+
+### Logical AND by default
+
+To combine several metadata filters in the query, add the additional metadata filters to the array of the `strictFilters` property. By default, the values are logically combined (AND). A logical combination requires all filters to matches the QnA pairs in order for the pair to be returned in the answer.
+
+This is equivalent to using the `strictFiltersCompoundOperationType` property with the value of `AND`.
+
+### Logical OR using strictFiltersCompoundOperationType property
+
+When combining several metadata filters, if you are only concerned with one or some of the filters matching, use the `strictFiltersCompoundOperationType` property with the value of `OR`.
+
+This allows your knowledge base to return answers when any filter matches but won't return answers that have no metadata.
+
+```json
+{
+    "question": "When do facilities in this hotel close?",
+    "top": 1,
+    "strictFilters": [
+      { "name": "type","value": "restaurant"},
+      { "name": "type", "value": "bar"},
+      { "name": "type", "value": "poolbar"}
+    ],
+    "strictFiltersCompoundOperationType": "OR"
+}
+```
+
+### Metadata examples in quickstarts
+
+Learn more about metadata in the QnA Maker portal quickstart for metadata:
+* [Authoring - add metadata to QnA pair](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [Query prediction - filter answers by metadata](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 <a name="keep-context"></a>
 

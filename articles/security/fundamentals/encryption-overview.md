@@ -1,21 +1,16 @@
 ---
 title: Azure encryption overview | Microsoft Docs
-description: Learn about various encryption options in Azure
+description: Learn about encryption options in Azure. See information for encryption at rest, encryption in flight, and key management with Azure Key Vault.
 services: security
-documentationcenter: na
-author: Barclayn
-manager: barbkess
-editor: TomShinder
+author: msmbaldwin
 
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/20/2018
+ms.date: 07/20/2020
 ms.author: mbaldwin
+
 ---
 # Azure encryption overview
 
@@ -84,7 +79,7 @@ Finally, you can also use the Azure Storage Client Library for Java to perform c
 
 #### Transparent Data Encryption
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md), and [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time, using a Database Encryption Key (DEK), which is stored in the database boot record for availability during recovery.
+[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time, using a Database Encryption Key (DEK), which is stored in the database boot record for availability during recovery.
 
 TDE protects data and log files, using AES and Triple Data Encryption Standard (3DES) encryption algorithms. Encryption of the database file is performed at the page level. The pages in an encrypted database are encrypted before they are written to disk and are decrypted when they’re read into memory. TDE is now enabled by default on newly created Azure SQL databases.
 
@@ -112,9 +107,13 @@ Three types of keys are used in encrypting and decrypting data: the Master Encry
 
 Azure offers many mechanisms for keeping data private as it moves from one location to another.
 
-### TLS/SSL encryption in Azure
+### Data-link Layer encryption in Azure
 
-Microsoft uses the [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) protocol to protect data when it’s traveling between the cloud services and customers. Microsoft datacenters negotiate a TLS connection with client systems that connect to Azure services. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, and ease of deployment and use.
+Whenever Azure Customer traffic moves between datacenters-- outside physical boundaries not controlled by Microsoft (or on behalf of Microsoft)-- a data-link layer encryption method using the [IEEE 802.1AE MAC Security Standards](https://1.ieee802.org/security/802-1ae/) (also known as MACsec) is applied from point-to-point across the underlying network hardware. The packets are encrypted and decrypted on the devices before being sent, preventing physical “man-in-the-middle” or snooping/wiretapping attacks. Because this technology is integrated on the network hardware itself, it provides line rate encryption on the network hardware with no measurable link latency increase. This MACsec encryption is on by default for all Azure traffic traveling within a region or between regions, and no action is required on customers’ part to enable. 
+
+### TLS encryption in Azure
+
+Microsoft gives customers the ability to use [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) protocol to protect data when it’s traveling between the cloud services and customers. Microsoft datacenters negotiate a TLS connection with client systems that connect to Azure services. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, and ease of deployment and use.
 
 [Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protects connections between customers’ client systems and Microsoft cloud services by unique keys. Connections also use RSA-based 2,048-bit encryption key lengths. This combination makes it difficult for someone to intercept and access data that is in transit.
 
@@ -136,7 +135,7 @@ By default, after SMB encryption is turned on for a share or server, only SMB 3.
 
 ## In-transit encryption in VMs
 
-Data in transit to, from, and between VMs that are running Windows is encrypted in a number of ways, depending on the nature of the connection.
+Data in transit to, from, and between VMs that are running Windows can be encrypted in a number of ways, depending on the nature of the connection.
 
 ### RDP sessions
 

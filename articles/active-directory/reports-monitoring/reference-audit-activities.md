@@ -32,8 +32,8 @@ The reporting architecture in Azure AD consists of the following components:
     - [Audit logs](concept-audit-logs.md) - Provides traceability through logs for all changes done by various features within Azure AD. 
     
 - **Security reports** 
-    - [Risky sign-ins](concept-risky-sign-ins.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
-    - [Users flagged for risk](concept-user-at-risk.md) - A risky user is an indicator for a user account that might have been compromised. 
+    - [Risky sign-ins](../identity-protection/overview-identity-protection.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
+    - [Users flagged for risk](../identity-protection/overview-identity-protection.md) - A risky user is an indicator for a user account that might have been compromised. 
 
 This articles lists the audit activities that can be logged in your audit logs.
 

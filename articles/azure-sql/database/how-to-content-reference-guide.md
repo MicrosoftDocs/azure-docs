@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: guide
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 ms.date: 01/14/2020
 ---
 # Configure and manage content reference - Azure SQL Database
@@ -50,7 +50,7 @@ In this article you can find a content reference of various guides, scripts, and
 
 - [Manual tuning](performance-guidance.md)
 - [Use DMVs to monitor performance](monitoring-with-dmvs.md)
-- [Use Query store to monitor performance](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
+- [Use Query store to monitor performance](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Enable automatic tuning](automatic-tuning-enable.md) to let Azure SQL Database optimize performance of your workload.
 - [Enable e-mail notifications for automatic tuning](automatic-tuning-email-notifications-configure.md) to get information about tuning recommendations.
 - [Apply performance recommendations](database-advisor-find-recommendations-portal.md) and optimize your database.
@@ -78,7 +78,7 @@ In this article you can find a content reference of various guides, scripts, and
 - [SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
 - [Data Sync Agent](sql-data-sync-agent-overview.md)
 - [Replicate schema changes](sql-data-sync-update-sync-schema.md)
-- [Monitor with OMS](sql-data-sync-monitor-sync.md)
+- [Monitor with OMS](./monitor-tune-overview.md)
 - [Best practices for Data Sync](sql-data-sync-best-practices.md)
 - [Troubleshoot Data Sync](sql-data-sync-troubleshoot.md)
 

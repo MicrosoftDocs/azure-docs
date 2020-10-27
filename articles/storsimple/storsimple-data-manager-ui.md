@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple Data Manager UI
-description: Describes how to use StorSimple Data Manager service UI
+description: Learn how you can use the StorSimple Data Manager UI to transform the data residing on the StorSimple 8000 series devices.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
@@ -37,7 +37,7 @@ Perform the following steps to create a StorSimple Data Manager service.
 
    2. Choose a **Subscription** from the dropdown list. The subscription is linked to your billing account. This field is automatically populated (and not selectable) if you have only one subscription.
 
-   3. Select an existing resource group or create a new group. For more information, see [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+   3. Select an existing resource group or create a new group. For more information, see [Azure resource groups](/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
    4. Specify the **Location** for your service that houses your storage accounts and your StorSimple Data Manager service. Your StorSimple Device Manager service, Data Manager service, and the associated storage account should all be in the supported regions.
     

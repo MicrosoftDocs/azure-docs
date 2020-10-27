@@ -23,9 +23,9 @@ You complete the following tasks:
 
 ## Prerequisites
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) or higher. This guide uses Visual Studio 2019
 > * An Azure subscription key for Speech service:
-[Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+[Get one for free](overview.md#try-the-speech-service-for-free) or create it on the [Azure portal](https://portal.azure.com)
 > * A previously [created Custom Commands app](quickstart-custom-commands-application.md)
 > * A Speech SDK enabled client app:
 [How-to: Integrate with a client application using Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)
@@ -43,7 +43,7 @@ You complete the following tasks:
      "device": "{SubjectDevice}"
    }
    ```
-1. Click **Save** to create a new rule with a Send Activity action
+1. Click **Save** to create a new rule with a Send Activity action, **Train** and **Publish** the change
 
    > [!div class="mx-imgBorder"]
    > ![Send Activity completion rule](media/custom-commands/send-activity-to-client-completion-rules.png)
@@ -52,9 +52,12 @@ You complete the following tasks:
 
 In [How-to: Setup client application with Speech SDK (Preview)](./how-to-custom-commands-setup-speech-sdk.md), you created a UWP client application with Speech SDK that handled commands such as `turn on the tv`, `turn off the fan`. With some visuals added, you can see the result of those commands.
 
-Add labeled boxes with text indicating **on** or **off** using the following XML added to `MainPage.xaml`
+To Add labeled boxes with text indicating **on** or **off**, add the following XML block of StackPanel to `MainPage.xaml`.
 
 ```xml
+<StackPanel Orientation="Vertical" H......>
+......
+</StackPanel>
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
     <Grid x:Name="Grid_TV" Margin="50, 0" Width="100" Height="100" Background="LightBlue">
         <StackPanel>
@@ -69,6 +72,7 @@ Add labeled boxes with text indicating **on** or **off** using the following XML
         </StackPanel>
     </Grid>
 </StackPanel>
+<MediaElement ....../>
 ```
 
 ### Add reference libraries
@@ -76,15 +80,21 @@ Add labeled boxes with text indicating **on** or **off** using the following XML
 Since you've created a JSON payload, you need to add a reference to the [JSON.NET](https://www.newtonsoft.com/json) library to handle deserialization.
 
 1. Right-client your solution.
-1. Choose **Manage NuGet Packages for Solution**, Select **Install** 
-1. Search for **Newtonsoft.json** in the update list, Update **Microsoft.NETCore.UniversalWindowsPlatform** to newest version
+1. Choose **Manage NuGet Packages for Solution**, Select **Browse** 
+1. If you already installed **Newtonsoft.json**, make sure its version is at least 12.0.3. If not, go to **Manage NuGet Packages for Solution - Updates**, search for **Newtonsoft.json** to update it. This guide is using version 12.0.3.
 
-> [!div class="mx-imgBorder"]
-> ![Send Activity payload](media/custom-commands/send-activity-to-client-json-nuget.png)
+    > [!div class="mx-imgBorder"]
+    > ![Send Activity payload](media/custom-commands/send-activity-to-client-json-nuget.png)
+
+1. Also, make sure NuGet package **Microsoft.NETCore.UniversalWindowsPlatform** is at least 6.2.10. This guide is using version 6.2.10.
 
 In `MainPage.xaml.cs', add
-- `using Newtonsoft.Json;` 
-- `using Windows.ApplicationModel.Core;`
+
+```C#
+using Newtonsoft.Json; 
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
+```
 
 ### Handle the received payload
 
@@ -141,7 +151,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. Say `turn on the tv`
 1. The visual state of the tv should change to "on"
    > [!div class="mx-imgBorder"]
-   > ![Send Activity payload](media/custom-commands/send-activity-to-client-turn-on-tv.png)
+   > ![Screenshot that shows that the visual state of the T V is now on.](media/custom-commands/send-activity-to-client-turn-on-tv.png)
 
 ## Next steps
 

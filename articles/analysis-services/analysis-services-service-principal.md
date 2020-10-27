@@ -4,7 +4,7 @@ description: Learn how to create a service principal for automating Azure Analys
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -29,12 +29,12 @@ Service principals can be created in the Azure portal or by using PowerShell. To
 
 Service principal credentials and certificates can be stored securely in Azure Automation for runbook operations. To learn more, see:
 
-[Credential assets in Azure Automation](../automation/automation-credentials.md)   
-[Certificate assets in Azure Automation](../automation/automation-certificates.md)
+[Credential assets in Azure Automation](../automation/shared-resources/credentials.md)   
+[Certificate assets in Azure Automation](../automation/shared-resources/certificates.md)
 
 ## Add service principals to server admin role
 
-Before you can use a service principal for Analysis Services server management operations, you must add it to the server administrators role. To learn more, see [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md).
+Before you can use a service principal for Analysis Services server management operations, you must add it to the server administrators role. Service principals must be added directly to the server administrator role. Adding a service principal to a security group, and then adding that security group to the server administrator role is not supported. To learn more, see [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md).
 
 ## Service principals in connection strings
 
@@ -88,7 +88,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### AMO and ADOMD 
 
-When connecting with client applications and web apps, [AMO and ADOMD client libraries](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) version 15.0.2 and higher installable packages from NuGet support service principals in connection strings using the following syntax: `app:AppID` and password or `cert:thumbprint`. 
+When connecting with client applications and web apps, [AMO and ADOMD client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current) version 15.0.2 and higher installable packages from NuGet support service principals in connection strings using the following syntax: `app:AppID` and password or `cert:thumbprint`. 
 
 In the following example, `appID` and a `password` are used to perform a model database refresh operation:
 
@@ -105,8 +105,8 @@ db.Model.SaveChanges();
 ```
 
 ## Next steps
-[Sign in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps)   
 [Refresh with Logic Apps](analysis-services-refresh-logic-app.md)  
 [Refresh with Azure Automation](analysis-services-refresh-azure-automation.md)  
 [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md)  
-[Automate Power BI Premium workspace and dataset tasks with service principals](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 
+[Automate Power BI Premium workspace and dataset tasks with service principals](/power-bi/admin/service-premium-service-principal)

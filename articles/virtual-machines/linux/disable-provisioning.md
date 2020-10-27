@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ---
@@ -15,7 +15,7 @@ ms.reviewer: cynthn
 
 Before removing the Linux Agent, you must understand of what VM will not be able to do after the Linux Agent is removed.
 
-Azure virtual machine (VM) [extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) are small applications that provide post-deployment configuration and automation tasks on Azure VMs, extensions are installed and managed by the Azure control plane. It is the job of the [Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) to process the platform extension commands and ensure the correct state of the extension inside the VM.
+Azure virtual machine (VM) [extensions](../extensions/overview.md) are small applications that provide post-deployment configuration and automation tasks on Azure VMs, extensions are installed and managed by the Azure control plane. It is the job of the [Azure Linux Agent](../extensions/agent-linux.md) to process the platform extension commands and ensure the correct state of the extension inside the VM.
 
 The Azure platform hosts many extensions that range from VM configuration, monitoring, security, and utility applications. There is a large choice of first and third-party extensions, examples of key scenarios that extensions are used for:
 * Supporting first party Azure services, such as Azure Backup, Monitoring, Disk Encryption, Security, Site Replication and others.
@@ -26,11 +26,14 @@ The Azure platform hosts many extensions that range from VM configuration, monit
 
 ## Disabling extension processing
 
-There are several ways to disable extension processing, depending on your needs, but before you continue, you **MUST** remove all extensions deployed to the VM, for example using the AZ CLI, you can [list](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) and [delete](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete):
+There are several ways to disable extension processing, depending on your needs, but before you continue, you **MUST** remove all extensions deployed to the VM, for example using the AZ CLI, you can [list](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) and [delete](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete):
 
 ```bash
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
 ```
+> [!Note]
+> 
+> If you do not do the above, the platform will try to send the extension configuration and timeout after 40min.
 
 ### Disable at the control plane
 If you are not sure whether you will need extensions in the future, you can leave the Linux Agent installed on the VM, then disable extension processing capability from the platform. This is option is available in `Microsoft.Compute` api version `2018-06-01` or higher, and does not have a dependency on the Linux Agent version installed.
@@ -40,36 +43,13 @@ az vm update -g <resourceGroup> -n <vmName> --set osProfile.allowExtensionOperat
 ```
 You can easily reenable this extension processing from the platform, with the above command, but set it to 'true'.
 
-### Optional - reduce the functionality 
-
-You can also put the Linux Agent into a reduced functionality mode. In this mode, the guest agent still communicates with Azure Fabric and reports guest state on a much more limited basis, but will not process any extension updates. To reduce the functionality, you need to make a configuration change within the VM. To reenable, you would need to SSH into the VM, but if you are locked out of the VM, you would not be able to reenable extension processing, this maybe an issue, if you need to do an SSH or password reset.
-
-To enable this mode, WALinuxAgent version 2.2.32 or higher is required, and set the following option in /etc/waagent.conf:
-
-```bash
-Extensions.Enabled=n
-```
-
-This **must** be done in conjunction with 'Disable at the control plane'.
-
 ## Remove the Linux Agent from a running VM
 
 Ensure you have **removed** all existing extensions from the VM before, as per above.
 
-### Step 1: Disable extension processing
+### Step 1: Remove the Azure Linux Agent
 
-You must disable extension processing.
-
-```bash
-az vm update -g <resourceGroup> -n <vmName> --set osProfile.allowExtensionOperations=false
-```
-> [!Note]
-> 
-> If you do not do the above, the platform will try to send the extension configuration and timeout after 40min.
-
-### Step 2: Remove the Azure Linux Agent
-
-Run one of the following, as root, to remove the Azure Linux Agent:
+If you just remove the Linux Agent, and not the associated configuration artifacts, you can reinstall at a later date. Run one of the following, as root, to remove the Azure Linux Agent:
 
 #### For Ubuntu >=18.04
 ```bash
@@ -86,17 +66,16 @@ yum -y remove WALinuxAgent
 zypper --non-interactive remove python-azure-agent
 ```
 
-### Step 3: (Optional) Remove the Azure Linux Agent artifacts
+### Step 2: (Optional) Remove the Azure Linux Agent artifacts
 > [!IMPORTANT] 
 >
-> You can remove all Artifacts of the Linux Agent, but this will mean you cannot reinstall it at a later date. Therefore, it is strongly recommended you consider disabling the Linux Agent first, removing the Linux Agent using the above only. 
+> You can remove all associated artifacts of the Linux Agent, but this will mean you cannot reinstall it at a later date. Therefore, it is strongly recommended you consider disabling the Linux Agent first, removing the Linux Agent using the above only. 
 
 If you know you will not ever reinstall the Linux Agent again, then you can run the following:
 
 #### For Ubuntu >=18.04
 ```bash
-apt -y remove walinuxagent
-rm -f /etc/waagent.conf
+apt -y purge walinuxagent
 rm -rf /var/lib/waagent
 rm -f /var/log/waagent.log
 ```
@@ -171,7 +150,7 @@ When you create the VM from the image with no Linux Agent, you need to ensure th
 > 
 > If you do not do the above, the platform will try to send the extension configuration and timeout after 40min.
 
-To deploy the VM with extensions disabled, you can use the Azure CLI with [--enable-agent](https://docs.microsoft.com/cli/azure/vm#az-vm-create).
+To deploy the VM with extensions disabled, you can use the Azure CLI with [--enable-agent](/cli/azure/vm#az-vm-create).
 
 ```bash
 az vm create \

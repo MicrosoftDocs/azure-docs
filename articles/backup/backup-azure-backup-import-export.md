@@ -130,7 +130,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
     | Parameter | Description |
     | --- | --- |
     | s:&lt;*Staging Location Path*&gt; |This mandatory input is used to provide the path to the staging location that you entered in the workflow in the "Initiate offline backup" section. |
-    | p:&lt;*Path to PublishSettingsFile*&gt; |This optional input is used to provide the path to the Azure publish settings file that you entered in the workflow in the "Initiate offline backup" section. |
+    | p:&lt;*Path to PublishSettingsFile*&gt; |This optional input is used to provide the path to the Azure publish settings file.  |
 
     When you run the command, the utility requests the selection of the Azure import job that corresponds to the drives that need to be prepared. If only a single import job is associated with the provided staging location, you see a page like this one.
 
@@ -142,7 +142,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
     ![Azure subscription sign-in](./media/backup-azure-backup-import-export/signindiskprep.png) <br/>
 
-    The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool in case the provided disk doesn't have sufficient space for the backup data. <br/>
+    The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool if the provided disk doesn't have sufficient space for the backup data. <br/>
 
     At the end of successful execution of the tool, the command prompt provides three pieces of information:
 

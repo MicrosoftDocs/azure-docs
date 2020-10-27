@@ -6,7 +6,8 @@ ms.author: cynthn
 ms.date: 06/17/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.subservice: imaging 
+ms.custom: devx-track-azurepowershell
 ---
 # Preview: Create a Windows VM with Azure Image Builder using PowerShell
 
@@ -26,9 +27,9 @@ before you begin.
 
 If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
 module and connect to your Azure account using the
-[Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount)
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
 cmdlet. For more information about installing the Az PowerShell module, see
-[Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+[Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > While the **Az.ImageBuilder** and **Az.ManagedServiceIdentity** PowerShell modules are in preview,
@@ -44,7 +45,7 @@ cmdlet. For more information about installing the Az PowerShell module, see
 
 If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
 should be billed. Select a specific subscription using the
-[Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) cmdlet.
+[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -112,8 +113,8 @@ Write-Output $subscriptionID
 
 ## Create a resource group
 
-Create an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
-using the [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)
+Create an [Azure resource group](../../azure-resource-manager/management/overview.md)
+using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
 cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as
 a group.
 
@@ -188,7 +189,7 @@ New-AzRoleAssignment @RoleAssignParams
 > [!NOTE]
 > If you receive the error: "_New-AzRoleDefinition: Role definition limit exceeded. No more role
 > definitions can be created._", see
-> [Troubleshoot Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting).
+> [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md).
 
 ## Create a Shared Image Gallery
 
@@ -221,7 +222,7 @@ New-AzGalleryImageDefinition @GalleryParams
 ## Create an image
 
 Create an Azure image builder source object. See
-[Find Windows VM images in the Azure Marketplace with Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage)
+[Find Windows VM images in the Azure Marketplace with Azure PowerShell](./cli-ps-findimage.md)
 for valid parameter values.
 
 ```azurepowershell-interactive
@@ -296,7 +297,7 @@ resource group is used for the image build. It's in the format:
 
 If the service reports a failure during the image configuration template submission:
 
-- See [Troubleshooting Azure VM Image Build (AIB) Failures](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting).
+- See [Troubleshooting Azure VM Image Build (AIB) Failures](../linux/image-builder-troubleshoot.md).
 - Delete the template using the following example before you retry.
 
 ```azurepowershell-interactive
@@ -313,7 +314,7 @@ Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $image
 
 Wait for the image build process to complete. This step could take up to an hour.
 
-If you encounter errors, review [Troubleshooting Azure VM Image Build (AIB) Failures](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting).
+If you encounter errors, review [Troubleshooting Azure VM Image Build (AIB) Failures](../linux/image-builder-troubleshoot.md).
 
 ## Create a VM
 

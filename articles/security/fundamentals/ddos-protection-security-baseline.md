@@ -1,12 +1,12 @@
 ---
 title: Azure security baseline for Azure DDoS Protection Standard
-description: Azure security baseline for Azure DDoS Protection Standard
+description: The Azure DDoS Protection Standard security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 08/05/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -14,121 +14,17 @@ ms.custom: security-benchmark
 
 # Azure security baseline for Azure DDoS Protection Standard
 
-The Azure Security Baseline for Azure DDoS Protection Standard contains recommendations that will help you improve the security posture of your deployment.
-
-The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
-
-For more information, see the [Azure security baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
-
-## Network security
-
-*For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
-
-### 1.1: Protect Azure resources within virtual networks
-
-**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
-
-**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.3: Protect critical web applications
-
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.4: Deny communications with known malicious IP addresses
-
-**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.5: Record network packets
-
-**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
-
-**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.7: Manage traffic to web applications
-
-**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.8: Minimize complexity and administrative overhead of network security rules
-
-**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.9: Maintain standard security configurations for network devices
-
-**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.10: Document traffic configuration rules
-
-**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 1.11: Use automated tools to monitor network resource configurations and detect changes
-
-**Guidance**: Not applicable; Azure DDoS is intended to be enabled on virtual networks hosting other services, it in itself is a core Azure offering and its underlying infrastructure including networking is fully managed by Microsoft.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
+This security baseline applies guidance from the [Azure Security Benchmark](../benchmarks/overview.md) to Azure DDoS Protection standard. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to DDoS Protection. **Controls** not applicable to DDoS Protection have been excluded. To see how DDoS Protection completely maps to the Azure Security Benchmark, see the [full DDoS Protection security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## Logging and monitoring
 
-*For more information, see [Security control: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
-
-### 2.1: Use approved time synchronization sources
-
-**Guidance**: Not applicable; Microsoft maintains the time source used for Azure resources, such as Azure DDoS Protection.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
+*For more information, see [Security control: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### 2.2: Configure central security log management
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure DDoS Protection plans at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your Azure DDoS Protection instances.
 
-* [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 **Azure Security Center monitoring**: Yes
 
@@ -140,39 +36,33 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were performed on your Azure Cache for Redis instances at the control plane level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for your Azure DDoS Protection instances.
 
-* [How to configure alerts for DDoS protection metrics](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection#configure-alerts-for-ddos-protection-metrics)
+- [How to configure alerts for DDoS protection metrics](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
 
-* [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 2.4: Collect security logs from operating systems
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 2.5: Configure security log storage retention
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure DDoS Protection plans according to your organization's compliance regulations.
 
-* [How to set log retention parameters](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 2.6: Monitor and review Logs
+### 2.6: Monitor and review logs
 
 **Guidance**: Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the Activity Log data that may have been collected for Recovery Services vaults.
 
-* [How to enable diagnostic settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Information on how to access telemetry, logs and attack analytics for DDoS Protection Standard service](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
 
-* [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect)
+- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+
+- [How to collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](/azure/azure-monitor/platform/activity-log-collect)
 
 **Azure Security Center monitoring**: Yes
 
@@ -184,43 +74,19 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 
 Onboard a Log Analytics workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues. Additionally, you can create custom log alerts in your Log Analytics workspace using Azure Monitor.
 
-* [How configure alerts for DDoS metrics](https://azure.microsoft.com/blog/holiday-season-is-ddos-season/)
+- [How configure alerts for DDoS metrics](https://azure.microsoft.com/blog/holiday-season-is-ddos-season/)
 
-* [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-* [Create, view, and manage log alerts using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
+- [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/platform/alerts-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 2.8: Centralize anti-malware logging
-
-**Guidance**: Not applicable; Azure DDoS Protection does not process or produce anti-malware related logs.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 2.9: Enable DNS query logging
-
-**Guidance**: Not applicable; Azure DDoS Protection does not process or produce DNS-related logs.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 2.10: Enable command-line audit logging
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Identity and access control
 
-*For more information, see [Security control: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security control: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -228,11 +94,11 @@ Onboard a Log Analytics workspace to Azure Sentinel as it provides a security or
 
 Additionally, Azure Active Directory (AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-* [Understand permissions in Azure DDoS protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection#permissions)
+- [Understand permissions in Azure DDoS protection](../../virtual-network/manage-ddos-protection.md#permissions-and-restrictions)
 
-* [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-* [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Yes
 
@@ -250,52 +116,55 @@ Additionally, Azure Active Directory (AD) has built-in roles that must be explic
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
 
-Additionally, to help you keep track of dedicated administrative accounts, you may use recommendations from Azure Security Center or built-in Azure Policies, such as:
+Additionally, to help you keep track of dedicated administrative accounts, you can use recommendations from Azure Security Center or built-in Azure Policies, such as:
+
 - There should be more than one owner assigned to your subscription
+
 - Deprecated accounts with owner permissions should be removed from your subscription
+
 - External accounts with owner permissions should be removed from your subscription
 
-* [How to use Azure Security Center to monitor identity and access (Preview)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [How to use Azure Security Center to monitor identity and access (Preview)](../../security-center/security-center-identity-access.md)
 
-* [How to use Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to use Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 3.4: Use single sign-on (SSO) with Azure Active Directory
+### 3.4: Use Azure Active Directory single sign-on (SSO)
 
 **Guidance**: Use an Azure app registration (service principal) to retrieve a token that can be used to interact with your DDoS Protection plans via API calls.
 
-* [How to call Azure REST APIs](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
+- [How to call Azure REST APIs](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
-* [How to register your client application (service principal) with Azure AD](https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad)
+- [How to register your client application (service principal) with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-* [Azure DDos Protection API information](https://docs.microsoft.com/rest/api/virtual-network/)
+- [Azure DDos Protection API information](/rest/api/virtual-network/)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 3.5: Use multi-factor authentication for all Azure Active Directory based access
+### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management recommendations.
 
-* [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [How to enable MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [How to monitor identity and access within Azure Security Center](../../security-center/security-center-identity-access.md)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
+### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks 
 
-**Guidance**: Use a Privileged Access Workstation (PAW) with Azure Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Customer Lockbox requests.
+**Guidance**: Use a secure, Azure-managed workstation with Azure Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Customer Lockbox requests.
 
-* [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Deploy a secure, Azure-managed workstation](../../active-directory/devices/howto-azure-managed-workstation.md)
 
-* [Planning a cloud-based Azure Multi-Factor Authentication deployment](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Planning a cloud-based Azure Multi-Factor Authentication deployment](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -303,13 +172,13 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 ### 3.7: Log and alert on suspicious activities from administrative accounts
 
-**Guidance**: Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
+**Guidance**: Use Azure Active Directory (Azure AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
-In addition, use Azure AD risk detections to view alerts and reports on risky user behavior.
+In addition, use Azure AD risk detection to view alerts and reports on risky user behavior.
 
-* [How to deploy Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [How to deploy Privileged Identity Management](../../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Understand Azure AD risk detections](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Understand Azure AD risk detection](/azure/active-directory/reports-monitoring/concept-risk-events)
 
 **Azure Security Center monitoring**: Yes
 
@@ -317,9 +186,9 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 ### 3.8: Manage Azure resources from only approved locations
 
-**Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.
+**Guidance**: Use Azure AD named locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.
 
-* [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [How to configure Azure AD named locations](../../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -329,7 +198,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system where applicable. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
-* [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [How to create and configure an Azure AD instance](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -337,11 +206,11 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 ### 3.10: Regularly review and reconcile user access
 
-**Guidance**: Azure Active Directory (Azure AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access.
+**Guidance**: Azure Active Directory (Azure AD) provides logs to help you discover stale accounts. In addition, use Azure AD access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access should be reviewed on a regular basis to make sure only the right users have continued access.
 
-* [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
 
-* [How to use Azure AD access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [How to use Azure AD access reviews](../../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -355,181 +224,75 @@ You have access to Azure AD sign-in activity, audit and risk event log sources, 
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired log alerts within Log Analytics.
 
-* [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-* [How to on-board Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to on-board Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 3.12: Alert on account login behavior deviation
+### 3.12: Alert on account sign-in behavior deviation
 
-**Guidance**: For account login behavior deviation on the control plane (e.g. Azure portal), use Azure AD Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
+**Guidance**: For account sign-in behavior deviation on the control plane (e.g. Azure portal), use Azure AD Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
-* [How to view Azure AD risky sign-in](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-in](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-* [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [How to configure and enable Identity Protection risk policies](../../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
-### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
-
-**Guidance**: This recommendation is not applicable to Azure DDoS Protection.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Data protection
 
-*For more information, see [Security control: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security control: Data protection](/azure/security/benchmarks/security-control-data-protection).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
-**Guidance**: Use Tags to assist in tracking Azure resources that store or process sensitive information.
+**Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
 
-* [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 4.2: Isolate systems storing or processing sensitive information
-
-**Guidance**: Not applicable; your DDoS Protection plan will be provisioned in the resource group you define. There is no public endpoint to protect or isolate.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 4.3: Monitor and block unauthorized transfer of sensitive information
-
-**Guidance**: Microsoft manages the underlying infrastructure for Azure DDoS Protection and has implemented strict controls to prevent the loss or exposure of customer data.
-
-* [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Microsoft
-
-### 4.4: Encrypt all sensitive information in transit
-
-**Guidance**: Not applicable; Azure DDoS Protection does not hold customer data at rest.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 4.5: Use an active discovery tool to identify sensitive data
-
-**Guidance**: Not applicable; Azure DDoS protection does not hold customer data.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 4.6: Use Role-based access control to control access to resources
-
-**Guidance**: To work with DDoS protection plans, your account must be assigned to the network contributor role or to a custom role that is assigned specific actions.
-
-* [Manage role-based access control in Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 4.7: Use host-based data loss prevention to enforce access control
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft manages the underlying infrastructure for Azure DDoS Protection and has implemented strict controls to prevent the loss or exposure of customer data.
+**Guidance**: To work with Azure DDoS Protection plans, your account must be assigned to the network contributor role or to a custom role that is assigned specific actions.
 
-* [Azure customer data protection](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 4.8: Encrypt sensitive information at rest
-
-**Guidance**: Not applicable; Azure DDoS Protection does not hold customer data.
+- [Manage Azure role-based access control (Azure RBAC) in Azure DDoS Protection](../../virtual-network/manage-ddos-protection.md)
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Not applicable
+**Responsibility**: Customer
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
-**Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to Azure DDoS Protection plans as well as other critical or related resources.
+**Guidance**: Use Azure Monitor with the Azure Activity Log to create alerts for when changes take place to Azure DDoS Protection plans as well as other critical or related resources.
 
-* [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
-## Vulnerability management
-
-*For more information, see [Security control: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
-
-### 5.1: Run automated vulnerability scanning tools
-
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure DDoS Protection.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 5.2: Deploy automated operating system patch management solution
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 5.3: Deploy automated patch management solution for third-party software titles
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 5.4: Compare back-to-back vulnerability scans
-
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure DDoS Protection.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
-
-**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure DDoS Protection.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Inventory and asset management
 
-*For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security control: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
-### 6.1: Use automated Asset Discovery solution
+### 6.1: Use automated asset discovery solution
 
-**Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscriptions. Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
+**Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscriptions.  Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended that you create and use Azure Resource Manager resources going forward.
 
-* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to create queries with Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-* [How to view your Azure subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
-
-* [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [How to view your Azure subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -539,7 +302,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them according to a taxonomy.
 
-* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -550,22 +313,24 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
 In addition, use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
+
 - Not allowed resource types
+
 - Allowed resource types
 
-* [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-* [How to create management groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [How to create management groups](../../governance/management-groups/create.md)
 
-* [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 6.4: Define and Maintain an inventory of approved Azure resources
+### 6.4: Define and maintain inventory of approved Azure resources
 
-**Guidance**: Define approved Azure resources and approved software for compute resources.
+**Guidance**: Create an inventory of approved Azure resources and approved software for compute resources as per your organizational needs.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -573,213 +338,109 @@ In addition, use Azure Policy to put restrictions on the type of resources that 
 
 ### 6.5: Monitor for unapproved Azure resources
 
-**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscription(s).
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscriptions.
 
-Use Azure Resource Graph to query for and discover resources within their subscriptions. Ensure that all Azure resources present in the environment are approved.
+Use Azure Resource Graph to query for and discover resources within their subscriptions.  Ensure that all Azure resources present in the environment are approved.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to create queries with Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
-
-### 6.6: Monitor for unapproved software applications within compute resources
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 6.7: Remove unapproved Azure resources and software applications
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 6.8: Use only approved applications
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
 
 ### 6.9: Use only approved Azure services
 
-**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
+
 - Not allowed resource types
+
 - Allowed resource types
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
-
-### 6.10: Maintain an inventory of approved software titles
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
 
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
-* [How to configure Conditional Access to block access to Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [How to configure Conditional Access to block access to Azure Resource Manager](../../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 6.12: Limit users' ability to execute scripts within compute resources
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 6.13: Physically or logically segregate high risk applications
-
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Secure configuration
 
-*For more information, see [Security control: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security control: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
 **Guidance**: Define and implement standard security configurations for Azure DDos Protection with Azure Policy. Use Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to audit or enforce the configuration of your Recovery Services vaults.
 
-* [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
-
-### 7.2: Establish secure operating system configurations
-
-**Guidance**: Not applicable; this guideline is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
 
 ### 7.3: Maintain secure Azure resource configurations
 
 **Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Understand Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Understand Azure Policy effects](../../governance/policy/concepts/effects.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
-
-### 7.4: Maintain secure operating system configurations
-
-**Guidance**: Not applicable; this guideline is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
 
 ### 7.5: Securely store configuration of Azure resources
 
 **Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-* [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-* [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
-
-### 7.6: Securely store custom operating system images
-
-**Guidance**: Not applicable; this guideline is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
 
 ### 7.7: Deploy configuration management tools for Azure resources
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
-
-### 7.8: Deploy configuration management tools for operating systems
-
-**Guidance**: Not applicable; this guideline is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Network" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
 
-* [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
-### 7.10: Implement automated configuration monitoring for operating systems
-
-**Guidance**: Not applicable; this guideline is intended for compute resources.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 7.11: Manage Azure secrets securely
-
-**Guidance**: Not applicable; to work with DDoS Protection plans, your account must be assigned to the network contributor role or to a custom role that is assigned the appropriate actions. There are no passwords, secrets, or keys required to access DDoS Protection.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 7.12: Manage identities securely and automatically
-
-**Guidance**: Not applicable; Azure DDoS Protection does not make use of managed identities.
-
-* [Azure services that support managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ### 7.13: Eliminate unintended credential exposure
 
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
-* [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
+- [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -787,15 +448,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 ## Malware defense
 
-*For more information, see [Security control: Malware defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
-
-### 8.1: Use centrally managed anti-malware software
-
-**Guidance**: Not applicable; this guideline is intended for compute resources. Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure DDoS Protection), however it does not run on customer content.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
+*For more information, see [Security control: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
@@ -807,63 +460,19 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Responsibility**: Customer
 
-### 8.3: Ensure anti-malware software and signatures are updated
-
-**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft Anti-malware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-## Data recovery
-
-*For more information, see [Security control: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
-
-### 9.1: Ensure regular automated back ups
-
-**Guidance**: Not applicable; Azure DDoS Protection itself does not store customer data.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 9.2: Perform complete system backups and backup any customer-managed keys
-
-**Guidance**: Not applicable; Azure DDoS Protection itself does not store customer data.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 9.3: Validate all backups including customer-managed keys
-
-**Guidance**: Not applicable; Azure DDoS Protection itself does not store customer data.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
-### 9.4: Ensure protection of backups and customer-managed keys
-
-**Guidance**: Not applicable; Azure DDoS Protection itself does not store customer data.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not applicable
-
 ## Incident response
 
-*For more information, see [Security control: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security control: Incident response](/azure/security/benchmarks/security-control-incident-response).*
 
 ### 10.1: Create an incident response guide
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
-* [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
+- [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
-* [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
+- [Microsoft Security Response Center's Anatomy of a SSIRP incident](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/)
 
-* [Leverage NIST's Computer Security Incident Handling Guide to aid in the creation of your own incident response plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+- [Leverage NIST's Computer Security Incident Handling Guide to aid in the creation of your own incident response plan](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -873,11 +482,11 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
-Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data. It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
+Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-* [Security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+- [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md)
 
-* [Use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Yes
 
@@ -885,9 +494,13 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ### 10.3: Test security response procedures
 
-**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
+**Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
 
-* [NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
+Test your assumptions about how your services will respond to an attack by generating traffic against your applications to simulate a DDoS attack. Don’t wait for an actual attack to happen. Microsoft has partnered with Ixia, a Keysight company, to provide a self-service traffic generator (BreakingPoint Cloud) that allows Azure DDoS Protection customers to simulate DDoS test traffic against their Azure public endpoints.
+
+- [Microsoft Azure DDoS Protection Validation](https://www.ixiacom.com/products/breakingpoint-cloud)
+
+- [NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -897,7 +510,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
-* [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [How to set the Azure Security Center security contact](../../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -905,11 +518,15 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
+**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You can use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
-* [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)
+Select any of the available DDoS protection metrics to alert you when there’s an active mitigation during an attack, using the Azure Monitor alert configuration. When the conditions are met, the address specified receives an alert email
 
-* [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Configure alerts for DDoS protection metrics](../../virtual-network/manage-ddos-protection.md#configure-alerts-for-ddos-protection-metrics)
+
+- [How to configure continuous export](../../security-center/continuous-export.md)
+
+- [How to stream alerts into Azure Sentinel](../../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -919,7 +536,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations to protect your Azure resources.
 
-* [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [How to configure Workflow Automation and Logic Apps](../../security-center/workflow-automation.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -927,15 +544,15 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ## Penetration tests and red team exercises
 
-*For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security control: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
-**Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
+**Guidance**: Follow the Microsoft Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
-* [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -943,5 +560,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ## Next steps
 
-- See the [Azure security benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](/azure/security/benchmarks/overview)
+- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)

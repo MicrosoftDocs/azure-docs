@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to dynamically create a persistent volume with Azure disks in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 09/21/2020
 
 
 #Customer intent: As a developer, I want to learn how to dynamically create and attach storage to pods in AKS.
@@ -15,7 +15,7 @@ ms.date: 03/01/2019
 A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This article shows you how to dynamically create persistent volumes with Azure disks for use by a single pod in an Azure Kubernetes Service (AKS) cluster.
 
 > [!NOTE]
-> An Azure disk can only be mounted with *Access mode* type *ReadWriteOnce*, which makes it available to only a single pod in AKS. If you need to share a persistent volume across multiple pods, use [Azure Files][azure-files-pvc].
+> An Azure disk can only be mounted with *Access mode* type *ReadWriteOnce*, which makes it available to one node in AKS. If you need to share a persistent volume across multiple nodes, use [Azure Files][azure-files-pvc].
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
@@ -29,16 +29,16 @@ You also need the Azure CLI version 2.0.59 or later installed and configured. Ru
 
 A storage class is used to define how a unit of storage is dynamically created with a persistent volume. For more information on Kubernetes storage classes, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-Each AKS cluster includes two pre-created storage classes, both configured to work with Azure disks:
+Each AKS cluster includes four pre-created storage classes, two of them configured to work with Azure disks:
 
-* The *default* storage class provisions a standard Azure disk.
-    * Standard storage is backed by HDDs and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost-effective dev and test workload.
+* The *default* storage class provisions a standard SSD Azure disk.
+    * Standard storage is backed by Standard SSDs and delivers cost-effective storage while still delivering reliable performance. 
 * The *managed-premium* storage class provisions a premium Azure disk.
     * Premium disks are backed by SSD-based high-performance, low-latency disk. Perfect for VMs running production workload. If the AKS nodes in your cluster use premium storage, select the *managed-premium* class.
     
-If you use one of the default storage classes, you can't update the volume size after the storage class is created. To be able to update the volume size after a storage class is created, add the line `allowVolumeExpansion: true` to one of the default storage classes, or you can create you own custom storage class. You can edit an existing storage class by using the `kubectl edit sc` command. 
+If you use one of the default storage classes, you can't update the volume size after the storage class is created. To be able to update the volume size after a storage class is created, add the line `allowVolumeExpansion: true` to one of the default storage classes, or you can create you own custom storage class. Note that it's not supported to reduce the size of a PVC (to prevent data loss). You can edit an existing storage class by using the `kubectl edit sc` command. 
 
-For example, if you want to use a disk of size 4 TiB, you must create a storage class that defines `cachingmode: None` because [disk caching isn't supported for disks 4 TiB and larger](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
+For example, if you want to use a disk of size 4 TiB, you must create a storage class that defines `cachingmode: None` because [disk caching isn't supported for disks 4 TiB and larger](../virtual-machines/premium-storage-performance.md#disk-caching).
 
 For more information about storage classes and creating your own storage class, see [Storage options for applications in AKS][storage-class-concepts].
 
@@ -149,6 +149,9 @@ Events:
   Normal  SuccessfulMountVolume  1m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "pvc-faf0f176-8b8d-11e8-923b-deb28c58d242"
 [...]
 ```
+
+## Use Ultra Disks
+To leverage ultra disk see [Use Ultra Disks on Azure Kubernetes Service (AKS)](use-ultra-disks.md).
 
 ## Back up a persistent volume
 
@@ -271,7 +274,7 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/windows/disks-types.md
+[premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az-disk-list
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create
@@ -282,3 +285,11 @@ Learn more about Kubernetes persistent volumes using Azure disks.
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

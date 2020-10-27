@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 12/26/2018
+ms.custom: devx-track-js, devx-track-csharp
 ---
 # Expire data with Azure Cosmos DB's API for MongoDB
 
@@ -68,7 +69,7 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 
 The per-document TTL feature can be activated with Azure Cosmos DB's API for MongoDB.
 
-![Screenshot of the Per-document TTL feature activation in Portal](./media/mongodb-ttl/mongodb_portal_ttl.png) 
+:::image type="content" source="./media/mongodb-ttl/mongodb_portal_ttl.png" alt-text="Screenshot of the Per-document TTL feature activation in Portal":::
 
 ## Next steps
 * [Expire data in Azure Cosmos DB automatically with time to live](../cosmos-db/time-to-live.md)

@@ -2,6 +2,7 @@
 title: Azure Windows Communication Foundation (WCF) Relay hybrid on-premises/cloud application (.NET) | Microsoft Docs
 description: Learn how to expose an on-premises WCF service to a web application in the cloud by using Azure Relay 
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 06/23/2020
 ---
 
@@ -239,7 +240,7 @@ In this section, you build a simple ASP.NET application that displays data retri
     ![Specify authentication][18]
 
 1. Back in **Create a new ASP.NET Web Application**, select **Create** to create the MVC app.
-1. Configure Azure resources for a new web app. Follow the steps in [Publish your web app](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard). Then, return to this tutorial and continue to the next step.
+1. Configure Azure resources for a new web app. Follow the steps in [Publish your web app](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard). Then, return to this tutorial and continue to the next step.
 1. In **Solution Explorer**, right-click **Models** and then select **Add** > **Class**.
 1. Name the class *Product.cs*, then select **Add**.
 
@@ -338,7 +339,7 @@ Run the application to verify that it works.
 
 Your application should appear, running in a browser.
 
-![Web application][21]
+![Screenshot shows an example of the application running in a browser with the URL highlighted.][21]
 
 ## Put the pieces together
 

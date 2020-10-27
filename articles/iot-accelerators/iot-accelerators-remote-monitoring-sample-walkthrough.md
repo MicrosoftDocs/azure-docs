@@ -101,7 +101,7 @@ The service provides a RESTful endpoint for CRUD operations on key-value pairs. 
 
 ### Azure Cosmos DB
 
-Solution accelerator deployments use [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) to store rules, alerts, configuration settings, and all other cold storage.
+Solution accelerator deployments use [Azure Cosmos DB](../cosmos-db/index.yml) to store rules, alerts, configuration settings, and all other cold storage.
 
 ### Azure Stream Analytics manager microservice
 
@@ -115,11 +115,11 @@ The ASA jobs deliver the telemetry from the connected devices to Time Series Ins
 
 ### Azure Stream Analytics
 
-[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) is an event-processing engine that allows you to examine high volumes of data streaming from devices.
+[Azure Stream Analytics](../stream-analytics/index.yml) is an event-processing engine that allows you to examine high volumes of data streaming from devices.
 
 ### Azure Time Series Insights
 
-[Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) stores the telemetry from the devices connected to the solution accelerator. It also enables visualizing and querying device telemetry in the solution web UI.
+[Azure Time Series Insights](../time-series-insights/index.yml) stores the telemetry from the devices connected to the solution accelerator. It also enables visualizing and querying device telemetry in the solution web UI.
 
 ### Configuration microservice
 
@@ -131,7 +131,7 @@ The [authentication and authorization microservice](https://github.com/Azure/rem
 
 ### Azure Active Directory
 
-Solution accelerator deployments use [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) as an OpenID Connect provider. Azure Active Directory stores user information and provides certificates to validate JWT token signatures.
+Solution accelerator deployments use [Azure Active Directory](../active-directory/index.yml) as an OpenID Connect provider. Azure Active Directory stores user information and provides certificates to validate JWT token signatures.
 
 ## Presentation
 

@@ -7,7 +7,7 @@ ms.subservice: imaging
 ms.topic: tutorial
 ms.date: 05/01/2020
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
 ---
 # Tutorial: Create and use a custom image for virtual machine scale sets with the Azure CLI
@@ -86,11 +86,11 @@ Image definition names can be made up of uppercase or lowercase letters, digits,
 
 Make sure your image definition is the right type. If you have generalized the VM (using Sysprep for Windows, or waagent -deprovision for Linux) then you should create a generalized image definition using `--os-state generalized`. If you want to use the VM without removing existing user accounts, create a specialized image definition using `--os-state specialized`.
 
-For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+For more information about the values you can specify for an image definition, see [Image definitions](../virtual-machines/linux/shared-image-galleries.md#image-definitions).
 
 Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-In this example, the image definition is named *myImageDefinition*, and is for a [specialized](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
+In this example, the image definition is named *myImageDefinition*, and is for a [specialized](../virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
 
 ```azurecli-interactive 
 az sig image-definition create \
@@ -131,7 +131,7 @@ az sig image-version create \
 > [!NOTE]
 > You need to wait for the image version to completely finish being built and replicated before you can use the same managed image to create another image version.
 >
-> You can also store your image in Premium storage by a adding `--storage-account-type  premium_lrs`, or [Zone Redundant Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) by adding `--storage-account-type  standard_zrs` when you create the image version.
+> You can also store your image in Premium storage by a adding `--storage-account-type  premium_lrs`, or [Zone Redundant Storage](../storage/common/storage-redundancy.md) by adding `--storage-account-type  standard_zrs` when you create the image version.
 >
 
 
@@ -191,7 +191,7 @@ Type the public IP address into your web browser. The default NGINX web page is 
 
 ## Share the gallery
 
-You can share images across subscriptions using Role-Based Access Control (RBAC). You can share images at the gallery, image definition or image version. Any user that has read permissions to an image version, even across subscriptions, will be able to deploy a VM using the image version.
+You can share images across subscriptions using Azure role-based access control (Azure RBAC). You can share images at the gallery, image definition or image version. Any user that has read permissions to an image version, even across subscriptions, will be able to deploy a VM using the image version.
 
 We recommend that you share with other users at the gallery level. To get the object ID of your gallery, use [az sig show](/cli/azure/sig#az-sig-show).
 
@@ -211,7 +211,7 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-For more information about how to share resources using RBAC, see [Manage access using RBAC and Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+For more information about how to share resources using Azure RBAC, see [Add or remove Azure role assignments using Azure CLI](../role-based-access-control/role-assignments-cli.md).
 
 
 ## Clean up resources

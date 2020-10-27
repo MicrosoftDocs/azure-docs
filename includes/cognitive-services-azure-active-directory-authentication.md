@@ -12,7 +12,7 @@ ms.date: 05/11/2020
 > 1. Currently, **only** the Computer Vision API, Face API, Text Analytics API, Immersive Reader, Form Recognizer, Anomaly Detector, and all Bing services except Bing Custom Search support authentication using Azure Active Directory (AAD).
 > 2. AAD authentication needs to be always used together with custom subdomain name of your Azure resource. [Regional endpoints](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) does not support AAD authentication.
 
-In the previous sections, we showed you how to authenticate against Azure Cognitive Services using either a single-service or multi-service subscription key. While these keys provide a quick and easy path to start development, they fall short in more complex scenarios that require role-based access controls. Let's take a look at what's required to authenticate using Azure Active Directory (AAD).
+In the previous sections, we showed you how to authenticate against Azure Cognitive Services using either a single-service or multi-service subscription key. While these keys provide a quick and easy path to start development, they fall short in more complex scenarios that require Azure role-based access control (Azure RBAC). Let's take a look at what's required to authenticate using Azure Active Directory (AAD).
 
 In the following sections, you'll use either the Azure Cloud Shell environment or the Azure CLI to create a subdomain, assign roles, and obtain a bearer token to call the Azure Cognitive Services. If you get stuck, links are provided in each section with all available options for each command in Azure Cloud Shell/Azure CLI.
 
@@ -40,7 +40,7 @@ The first step is to create a custom subdomain. If you want to use an existing C
 Now that you have a custom subdomain associated with your resource, you're going to need to assign a role to a service principal.
 
 > [!NOTE]
-> Keep in mind that AAD role assignments may take up to five minutes to propagate.
+> Keep in mind that Azure role assignments may take up to five minutes to propagate.
 
 1. First, let's register an [AAD application](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
 
@@ -84,7 +84,7 @@ In this sample, a password is used to authenticate the service principal. The to
    > [!NOTE]
    > If you're using Azure Cloud Shell, the `SecureClientSecret` class isn't available. 
 
-   #### [PoweerShell](#tab/powershell)
+   #### [PowerShell](#tab/powershell)
    ```powershell-interactive
    $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList "https://login.windows.net/<TENANT_ID>"
    $secureSecretObject = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.SecureClientSecret" -ArgumentList $SecureStringPassword   

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: quickstart
 author: sachinpMSFT
 ms.author: sachinp
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 02/11/2019
 ---
 # Quickstart: Create a server-level firewall rule using the Azure portal
@@ -27,12 +27,12 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a server-level IP firewall rule
 
- SQL Database creates a firewall at the  server level for single and pooled databases. This firewall prevents client applications from connecting to the server or any of its single or pooled databases unless you create an IP firewall rule to open the firewall. For a connection from an IP address outside Azure, create a firewall rule for a specific IP address or range of addresses that you want to be able to connect. For more information about server-level and database-level IP firewall rules, see [Server-level and database-level IP firewall rules](firewall-configure.md).
+ SQL Database creates a firewall at the  server level for single and pooled databases. This firewall prevents client applications from connecting to the server or any of its databases unless you create an IP firewall rule to open the firewall. For a connection from an IP address outside Azure, create a firewall rule for a specific IP address or range of addresses that you want to be able to connect. For more information about server-level and database-level IP firewall rules, see [Server-level and database-level IP firewall rules](firewall-configure.md).
 
 > [!NOTE]
 > Azure SQL Database communicates over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you can't connect to your server unless your IT department opens port 1433.
 > [!IMPORTANT]
-> A firewall rule of 0.0.0.0 enables all Azure services to pass through the server-level firewall rule and attempt to connect to a single or pooled database through the server.
+> A firewall rule of 0.0.0.0 enables all Azure services to pass through the server-level firewall rule and attempt to connect to a database through the server.
 
 Follow these steps to create a server-level IP firewall rule for your client's IP address and enable external connectivity through the Azure SQL Database firewall for your IP address only.
 

@@ -65,10 +65,10 @@
     href: network-best-practices.md
   - name: DDoS Protection
     href: ddos-best-practices.md
-  - name: Dangling DNS and subdomain takeover
-    href: subdomain-takeover.md
   - name: DDoS Protection security baseline
     href: ddos-protection-security-baseline.md
+  - name: Dangling DNS and subdomain takeover
+    href: subdomain-takeover.md
   - name: Secure hybrid network architecture
     href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 
@@ -87,12 +87,18 @@
   items: 
   - name: Data security and encryption
     href: encryption-overview.md
+  - name: Double encryption
+    href: double-encryption.md
+  - name: TLS certificate changes
+    href: tls-certificate-changes.md
   - name: Disk encryption
-    items:
+    items: 
     - name: Best practices
       href: data-encryption-best-practices.md
-    - name: Data encryption-at-rest
+    - name: Data encryption at rest
       href: encryption-atrest.md
+    - name: Data encryption models
+      href: encryption-models.md
     - name: Azure Disk Encryption for virtual machines
       href: azure-disk-encryption-vms-vmss.md
   - name: Database security

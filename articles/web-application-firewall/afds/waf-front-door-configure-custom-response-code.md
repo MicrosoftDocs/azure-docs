@@ -33,7 +33,7 @@ In the above example, we kept the response code as 403, and configured a short "
 
 Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) model for managing your Azure resources. 
 
-You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install the Az PowerShell module.
+You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install the Az PowerShell module.
 
 ### Connect to Azure with an interactive dialog for sign-in
 

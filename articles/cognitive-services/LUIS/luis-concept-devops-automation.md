@@ -1,6 +1,8 @@
 ---
-title: Testing for DevOps - LUIS
+title: Continuous workflows for LUIS apps
 description: How to implement CI/CD workflows for DevOps for Language Understanding (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
 ---

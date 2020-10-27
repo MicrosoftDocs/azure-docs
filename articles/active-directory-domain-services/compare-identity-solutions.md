@@ -2,7 +2,7 @@
 title: Compare Active Directory-based services in Azure | Microsoft Docs
 description: In this overview, you compare the different identity offerings for Active Directory Domain Services, Azure Active Directory, and Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
-ms.author: iainfou
+ms.author: joflore
 
 #Customer intent: As an IT administrator or decision maker, I want to understand the differences between Active Directory Domain Services (AD DS), Azure AD, and Azure AD DS so I can choose the most appropriate identity solution for my organization.
 ---
@@ -24,7 +24,7 @@ Although the three Active Directory-based identity solutions share a common name
 * **Active Directory Domain Services (AD DS)** - Enterprise-ready lightweight directory access protocol (LDAP) server that provides key features such as identity and authentication, computer object management, group policy, and trusts.
     * AD DS is a central component in many organizations with an on-premises IT environment, and provides core user account authentication and computer management features.
     * For more information, see [Active Directory Domain Services overview in the Windows Server documentation][overview-adds].
-* **Azure Active Directory (Azure AD)** - Cloud-based identity and mobile device management that provides user account and authentication services for resources such as Office 365, the Azure portal, or SaaS applications.
+* **Azure Active Directory (Azure AD)** - Cloud-based identity and mobile device management that provides user account and authentication services for resources such as Microsoft 365, the Azure portal, or SaaS applications.
     * Azure AD can be synchronized with an on-premises AD DS environment to provide a single identity to users that works natively in the cloud.
     * For more information about Azure AD, see [What is Azure Active Directory?][whatis-azuread]
 * **Azure Active Directory Domain Services (Azure AD DS)** - Provides managed domain services with a subset of fully-compatible traditional AD DS features such as domain join, group policy, LDAP, and Kerberos / NTLM authentication.
@@ -45,7 +45,7 @@ If you have applications and services that need access to traditional authentica
 
 With Azure AD DS, the core service components are deployed and maintained for you by Microsoft as a *managed* domain experience. You don't deploy, manage, patch, and secure the AD DS infrastructure for components like the VMs, Windows Server OS, or domain controllers (DCs).
 
-Azure AD DS provides a smaller subset of features to traditional self-managed AD DS environment, which reduces some of the design and management complexity. For example, there are no AD forests, domain, sites, and replication links to design and maintain. You can still [create forest trusts between Azure AD DS and on-premises environments (currently in preview)][create-forest-trust].
+Azure AD DS provides a smaller subset of features to traditional self-managed AD DS environment, which reduces some of the design and management complexity. For example, there are no AD forests, domain, sites, and replication links to design and maintain. You can still [create forest trusts between Azure AD DS and on-premises environments][create-forest-trust].
 
 For applications and services that run in the cloud and need access to traditional authentication mechanisms such as Kerberos or NTLM, Azure AD DS provides a managed domain experience with the minimal amount of administrative overhead. For more information, see [Management concepts for user accounts, passwords, and administration in Azure AD DS][administration-concepts].
 

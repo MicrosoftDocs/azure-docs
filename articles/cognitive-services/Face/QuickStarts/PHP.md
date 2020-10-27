@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using the REST API and PHP
@@ -43,59 +43,7 @@ Create a new HTML file, *detectFaces.html*, and add the following code.
 
 Add the following code inside the `body` element of the document. This code sets up a basic user interface with a URL field, an **Analyze face** button, a response pane, and an image display pane.
 
-```php
-<?php
-// Replace <Subscription Key> with a valid subscription key.
-$ocpApimSubscriptionKey = '<Subscription Key>';
-
-// Replace <My Endpoint String> with the string in your endpoint URL.
-$uriBase = 'https:/<My Endpoint String>.com/face/v1.0/';
-
-$imageUrl =
-    'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
-
-// This sample uses the PHP5 HTTP_Request2 package
-// (https://pear.php.net/package/HTTP_Request2).
-require_once 'HTTP/Request2.php';
-
-$request = new Http_Request2($uriBase . '/detect');
-$url = $request->getUrl();
-
-$headers = array(
-    // Request headers
-    'Content-Type' => 'application/json',
-    'Ocp-Apim-Subscription-Key' => $ocpApimSubscriptionKey
-);
-$request->setHeader($headers);
-
-$parameters = array(
-    // Request parameters
-    'returnFaceId' => 'true',
-    'returnFaceLandmarks' => 'false',
-    'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,' .
-        'emotion,hair,makeup,occlusion,accessories,blur,exposure,noise');
-$url->setQueryVariables($parameters);
-
-$request->setMethod(HTTP_Request2::METHOD_POST);
-
-// Request body parameters
-$body = json_encode(array('url' => $imageUrl));
-
-// Request body
-$request->setBody($body);
-
-try
-{
-    $response = $request->send();
-    echo "<pre>" .
-        json_encode(json_decode($response->getBody()), JSON_PRETTY_PRINT) . "</pre>";
-}
-catch (HttpException $ex)
-{
-    echo "<pre>" . $ex . "</pre>";
-}
-?>
-```
+:::code language="php" source="~/cognitive-services-quickstart-code/php/face/rest/detect.php":::
 
 You'll need to update the `subscriptionKey` field with the value of your subscription key, and you need to change the `uriBase` string so that it contains the correct endpoint string. The `returnFaceAttributes` field specifies which face attributes to retrieve; you may wish to change this string depending on your intended use.
 
@@ -104,6 +52,34 @@ You'll need to update the `subscriptionKey` field with the value of your subscri
 ## Run the script
 
 Open the file in a PHP-enabled web browser. You should get a JSON string of Face data, like the following.
+
+```json
+[
+    {
+        "faceId": "e93e0db1-036e-4819-b5b6-4f39e0f73509",
+        "faceRectangle": {
+            "top": 621,
+            "left": 616,
+            "width": 195,
+            "height": 195
+        }
+    }
+]
+```
+
+## Extract Face Attributes
+ 
+To extract face attributes, use detection model 1 and add the `returnFaceAttributes` query parameter.
+
+```php
+$parameters = array(
+    // Request parameters
+	'detectionModel' => 'detection_01',
+	'returnFaceAttributes' => 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+   'returnFaceId' => 'true');
+```
+
+The response now includes face attributes. For example:
 
 ```json
 [

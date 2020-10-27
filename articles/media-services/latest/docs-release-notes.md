@@ -4,18 +4,20 @@ title: Azure Media Services v3 documentation updates
 description: To stay up-to-date with the most recent Media Services v3 documentation updates.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/20/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ---
 
 # Azure Media Services v3 documentation updates
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 >Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+documentation+updates%22&locale=en-us` into your RSS feed reader.
 
@@ -23,7 +25,7 @@ This article talks about the most recent Media Services v3 documentation updates
 
 ## June 2020
 
-* The preview of Live Video Analytics on IoT Edge went public. See details in the [Live Video Analytics on IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/) documentation.
+* The preview of Live Video Analytics on IoT Edge went public. See details in the [Live Video Analytics on IoT Edge](../live-video-analytics-edge/index.yml) documentation.
 * New quickstarts:
 
     * [Use portal to upload, encode, and stream content](manage-assets-quickstart.md)

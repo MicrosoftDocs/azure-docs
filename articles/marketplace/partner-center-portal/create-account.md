@@ -1,20 +1,23 @@
 ---
 title: Create a commercial marketplace account in Partner Center
 description: Learn how to create a Microsoft commercial marketplace account in Partner Center.
-author: qianw211
-ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: guide
-ms.date: 04/14/2020
+ms.topic: how-to
+ms.date: 07/01/2020
+author: parthpandyaMSFT
+ms.author: parthp
 ---
 
 # Create a commercial marketplace account in Partner Center
 
-To publish your offers to [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [Microsoft AppSource](https://appsource.microsoft.com/), you need to create an account in the commercial marketplace program in Partner Center. This article covers how to create a Partner Center account and how to add new publishers to the commercial marketplace program.
+To publish your offers to [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [Microsoft AppSource](https://appsource.microsoft.com/), you must create an account in the commercial marketplace program in Partner Center. This article covers how to create a Partner Center account and how to add new publishers to the commercial marketplace program.
 
 >[!IMPORTANT]
->If you have an account in the [Cloud Partner Portal](https://cloudpartner.azure.com) that has been moved to Partner Center, you don't need to create a new account. For more information, see [For publishers who are moving from the Cloud Partner Portal](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
+>To publish offers in the commercial marketplace you must use a work account, associated with a company or organization. Personal accounts aren't supported.
+
+>[!IMPORTANT]
+>If you had an account in the Cloud Partner Portal (CPP), we moved it to Partner Center; you don't need to create a new account. For more information, see [For publishers who moved from the Cloud Partner Portal](#for-publishers-who-moved-from-the-cloud-partner-portal).
 
 ## Before you begin
 
@@ -40,7 +43,7 @@ Use this method if you're new to Partner Center and are not enrolled in the Micr
 - [Provide your publisher profile](#provide-your-publisher-profile)
 
 >[!IMPORTANT]
->If you have a [Cloud Partner Portal](https://cloudpartner.azure.com) account that has been moved to Partner Center, you don't need to create a new account. For more information, see [For publishers who are moving from the Cloud Partner Portal](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
+>If you had an account in the Cloud Partner Portal, we moved it to Partner Center; you don't need to create a new account. For more information, see [For publishers who moved from the Cloud Partner Portal](#for-publishers-who-moved-from-the-cloud-partner-portal).
 
 ### Register on the Partner Center enrollment page
 
@@ -72,7 +75,7 @@ Your publisher profile includes your company name and MPN ID. If you haven't yet
     
 1. To verify that the commercial marketplace account is listed as registered,  select **Settings** > **Partner Settings** > **Programs**.
 
-You've now created a commercial marketplace account in Partner Center. For more information, see [Commercial marketplace overview](./commercial-marketplace-overview.md). For help with adding publishers, see [Add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
+You've now created a commercial marketplace account in Partner Center. For help with adding publishers, see [Add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## Create an account by using existing Microsoft Partner Center enrollments
 
@@ -91,7 +94,7 @@ For both enrollment types, you will:
 Be sure to have your account information handy.
 
 >[!IMPORTANT]
->If you have an account in the [Cloud Partner Portal](https://cloudpartner.azure.com/) that has been moved to Partner Center, you don't need to create a new account. For more information, see [For publishers who are moving from the Cloud Partner Portal](#for-publishers-who-are-moving-from-the-cloud-partner-portal).
+>If you had an account in the Cloud Partner Portal, we moved it to Partner Center; you don't need to create a new account. For more information, see [For publishers who moved from the Cloud Partner Portal](#for-publishers-who-moved-from-the-cloud-partner-portal).
 
 ### What if I'm already enrolled in the Microsoft Partner Network?
 
@@ -121,7 +124,7 @@ After you sign in, finish setting up your account by doing the following:
     
 1. To verify that the commercial marketplace account is listed as registered,  select **Settings** > **Partner Settings** > **Programs**.
 
-You've now created a commercial marketplace account in Partner Center. For more information, see [Commercial marketplace overview](./commercial-marketplace-overview.md). For help with adding publishers, see [Add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
+You've now created a commercial marketplace account in Partner Center. For help with adding publishers, see [Add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ### What if I'm already enrolled in a developer program?
 
@@ -149,17 +152,15 @@ After you sign in to Partner Center, finish setting up your account by doing the
     
 1. To verify that the commercial marketplace account is listed as registered,  select **Settings** > **Partner Settings** > **Programs**.
 
-You've now created a commercial marketplace account in Partner Center. For more information, see [Commercial marketplace overview](./commercial-marketplace-overview.md). For help with adding publishers, see [add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
+You've now created a commercial marketplace account in Partner Center. For help with adding publishers, see [add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
-## For publishers who are moving from the Cloud Partner Portal
+## For publishers who moved from the Cloud Partner Portal
 
-If your account has been migrated from the [Cloud Partner Portal](https://cloudpartner.azure.com), you don't need to create a new Partner Center account. You should have received a customized link to your new Partner Center account both in email and in a banner notification after you signed in to your existing Cloud Partner Portal account.
+If you had a Cloud Partner Portal account, we moved it to Partner Center. You don't need to create a new Partner Center account. You should have received a customized link to your new Partner Center account both in email and in a banner notification after you signed in to your existing Cloud Partner Portal account.
 
 After you've selected the customized link and enabled your new Partner Center account, you can return to your account by going to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
 
-The publishing agreement and company profile information are migrated to your new Partner Center account, along with any previously set up account payout profile information, user accounts and permissions, and active offers that are associated with your Cloud Partner Portal account.
-
-After your account information is moved from the Cloud Partner Portal to Partner Center, you'll no longer use the Cloud Partner Portal to make account updates, or to manage users, permissions, and billing. For a limited time, any account updates you make in Partner Center are automatically updated in your read-only Cloud Partner Portal account until it is eventually deprecated.
+The publishing agreement and company profile information transition to your new Partner Center account, along with any previously set up account payout profile information, user accounts and permissions, and active offers that were associated with your Cloud Partner Portal account.
 
 ## Add new publishers to the commercial marketplace program
 
@@ -184,4 +185,5 @@ After this process is complete, you can manage the newly created publisher by go
 
 ## Next steps
 
+- [What is the Microsoft commercial marketplace?](../overview.md)
 - [Manage your commercial marketplace account in Partner Center](./manage-account.md)

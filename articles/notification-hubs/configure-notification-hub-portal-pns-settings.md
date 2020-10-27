@@ -11,16 +11,17 @@ ms.topic: quickstart
 ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
-ms.lastreviewed: 02/14/2019
+ms.lastreviewed: 02/14/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Set up push notifications in a notification hub
 
 Azure Notification Hubs provides a push engine that's easy to use and that scales out. Use Notification Hubs to send notifications to any platform (iOS, Android, Windows, Baidu) and from any back end (cloud or on-premises). For more information, see [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
-In this quickstart, you'll use the platform notification system (PNS) settings in Notification Hubs to set up push notifications on multiple platforms. The quickstart shows you the steps to take in the Azure portal.  [Google Firebase Cloud Messaging](/azure/notification-hubs/configure-notification-hub-portal-pns-settings?tabs=azure-cli#google-firebase-cloud-messaging-fcm) includes instructions for using the Azure CLI.
+In this quickstart, you'll use the platform notification system (PNS) settings in Notification Hubs to set up push notifications on multiple platforms. The quickstart shows you the steps to take in the Azure portal. [Google Firebase Cloud Messaging](?tabs=azure-cli#google-firebase-cloud-messaging-fcm) includes instructions for using the Azure CLI.
 
-If you haven't already created a notification hub, create one now. For more information, see [Create an Azure notification hub in the Azure portal](create-notification-hub-portal.md) or [Create an Azure notification hub using the Azure CLI](create-notification-hub-azure-cli.md)
+If you haven't already created a notification hub, create one now. For more information, see [Create an Azure notification hub in the Azure portal](create-notification-hub-portal.md) or [Create an Azure notification hub using the Azure CLI](create-notification-hub-azure-cli.md).
 
 ## Apple Push Notification Service
 
@@ -62,14 +63,11 @@ When you complete these steps, an alert indicates that the notification hub has 
 
 # [Azure CLI](#tab/azure-cli)
 
-### Prerequisites
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Before you begin, you must have the following:
+- Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
-* The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.67 or later.
-
-* The Azure CLI [extension for Notification Hubs](/cli/azure/ext/notification-hub/notification-hub).
-* The **API Key** for a Google Firebase Cloud Messaging (FCM) project.
+- You will need the **API Key** for your Google Firebase Cloud Messaging (FCM) project.
 
 ### Set up push notifications for Google FCM
 
@@ -104,9 +102,7 @@ Before you begin, you must have the following:
 
 Get Azure CLI references for other platforms with the [az notification-hub credential](/cli/azure/ext/notification-hub/notification-hub/credential) command.
 
----
-
-For more information on pushing notifications to an Android application, see [Send push notifications to Android devices using Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
+For more information about sending notifications to an Android application, see [Send push notifications to Android devices using Firebase](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 ## Windows Push Notification Service
 

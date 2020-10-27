@@ -5,7 +5,8 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: troubleshooting
+ms.custom: contperfq1
 ms.date: 06/18/2020
 ---
 # Troubleshoot Azure Stream Analytics by using resource logs
@@ -53,7 +54,7 @@ Activity logs are on by default and give high-level insights into operations per
 
 Turning on resource logs and sending them to Azure Monitor logs is highly recommended. They are **off** by default. To turn them on, complete these steps:
 
-1.  [Create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) if you don't already have one. It is recommended to have your Log Analytics workspace in the same region as your Stream Analytics job.
+1.  Create a Log Analytics workspace if you don't already have one. It is recommended to have your Log Analytics workspace in the same region as your Stream Analytics job.
 
 2.  Sign in to the Azure portal, and navigate to your Stream Analytics job. Under **Monitoring**, select **Diagnostics logs**. Then select **Turn on diagnostics**.
 
@@ -132,12 +133,9 @@ Name | Description
 Error | (optional) Error information. Usually, this is exception information if it's available.
 Message| Log message.
 Type | Type of message. Maps to internal categorization of errors. For example, **JobValidationError** or **BlobOutputAdapterInitializationFailure**.
-Correlation ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) that uniquely identifies the job execution. All execution log entries from the time the job starts until the job stops have the same **Correlation ID** value.
+Correlation ID | GUID that uniquely identifies the job execution. All execution log entries from the time the job starts until the job stops have the same **Correlation ID** value.
 
 ## Next steps
 
-* [Introduction to Stream Analytics](stream-analytics-introduction.md)
-* [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Stream Analytics data errors](https://docs.microsoft.com/azure/stream-analytics/data-errors)
+* [Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

@@ -3,9 +3,8 @@ title: Deploy container image from Azure Container Registry
 description: Learn how to deploy containers in Azure Container Instances by pulling container images from an Azure container registry.
 services: container-instances
 ms.topic: article
-ms.date: 02/18/2020
-ms.author: danlep
-ms.custom: mvc
+ms.date: 07/02/2020
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Deploy to Azure Container Instances from Azure Container Registry
@@ -18,16 +17,18 @@ ms.custom: mvc
 
 **Azure CLI**: The command-line examples in this article use the [Azure CLI](/cli/azure/) and are formatted for the Bash shell. You can [install the Azure CLI](/cli/azure/install-azure-cli) locally, or use the [Azure Cloud Shell][cloud-shell-bash].
 
+## Limitations
+
+* You can't authenticate to Azure Container Registry to pull images during container group deployment by using a [managed identity](container-instances-managed-identity.md) configured in the same container group.
+* You can't pull images from [Azure Container Registry](../container-registry/container-registry-vnet.md) deployed into an Azure Virtual Network at this time.
+
 ## Configure registry authentication
 
-In a production scenario where you provide access to "headless" services and applications, it's recommended to configure registry access by using a [service principal](../container-registry/container-registry-auth-service-principal.md). A service principal allows you to provide [role-based access control](../container-registry/container-registry-roles.md) to your container images. For example, you can configure a service principal with pull-only access to a registry.
+In a production scenario where you provide access to "headless" services and applications, it's recommended to configure registry access by using a [service principal](../container-registry/container-registry-auth-service-principal.md). A service principal allows you to provide [Azure role-based access control (Azure RBAC)](../container-registry/container-registry-roles.md) to your container images. For example, you can configure a service principal with pull-only access to a registry.
 
 Azure Container Registry provides additional [authentication options](../container-registry/container-registry-authentication.md).
 
-> [!NOTE]
-> You can't authenticate to Azure Container Registry to pull images during container group deployment by using a [managed identity](container-instances-managed-identity.md) configured in the same container group.
-
-In the following section, you create an Azure key vault and a service principal, and store the service principal's credentials in the vault. 
+In the following section, you create an Azure key vault and a service principal, and store the service principal's credentials in the vault.
 
 ### Create key vault
 
@@ -131,7 +132,7 @@ You can specify the properties of your Azure container registry in an Azure Reso
 [...]
 ```
 
-For complete container group settings, see the [Resource Manager template reference](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
+For complete container group settings, see the [Resource Manager template reference](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups).    
 
 For details on referencing Azure Key Vault secrets in a Resource Manager template, see [Use Azure Key Vault to pass secure parameter value during deployment](../azure-resource-manager/templates/key-vault-parameter.md).
 

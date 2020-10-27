@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/05/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 
@@ -46,6 +46,8 @@ It's also possible for stronger password validation to affect your existing Acti
 * [Domain controller demotion fails due to a weak local Administrator password](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
 After the feature has been running in audit mode for a reasonable period, you can switch the configuration from *Audit* to *Enforce* to require more secure passwords. Additional monitoring during this time is a good idea.
+
+It is important to note that Azure AD Password Protection can only validate passwords during password change or set operations. Passwords that were accepted and stored in Active Directory prior to the deployment of Azure AD Password Protection will never be validated and will continue working as-is. Over time, all users and accounts will eventually start using Azure AD Password Protection-validated passwords as their existing passwords expire normally. Accounts configured with "password never expires" are exempt from this.
 
 ### Multiple forest considerations
 
@@ -98,7 +100,7 @@ The following requirements apply to the Azure AD Password Protection DC agent:
     * The Active Directory domain or forest doesn't need to be at Windows Server 2012 domain functional level (DFL) or forest functional level (FFL). As mentioned in [Design Principles](concept-password-ban-bad-on-premises.md#design-principles), there's no minimum DFL or FFL required for either the DC agent or proxy software to run.
 * All machines that run the Azure AD Password Protection DC agent must have .NET 4.5 installed.
 * Any Active Directory domain that runs the Azure AD Password Protection DC agent service must use Distributed File System Replication (DFSR) for sysvol replication.
-   * If your domain isn't already using DFSR, you must migrate before installing Azure AD Password Protection. For more information, see [SYSVOL Replication Migration Guide: FRS to DFS Replication](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+   * If your domain isn't already using DFSR, you must migrate before installing Azure AD Password Protection. For more information, see [SYSVOL Replication Migration Guide: FRS to DFS Replication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
     > [!WARNING]
     > The Azure AD Password Protection DC agent software will currently install on domain controllers in domains that are still using FRS (the predecessor technology to DFSR) for sysvol replication, but the software will NOT work properly in this environment.
@@ -121,14 +123,14 @@ The following requirements apply to the Azure AD Password Protection proxy servi
 * All machines that host the Azure AD Password Protection proxy service must be configured to grant domain controllers the ability to log on to the proxy service. This ability is controlled via the "Access this computer from the network" privilege assignment.
 * All machines that host the Azure AD Password Protection proxy service must be configured to allow outbound TLS 1.2 HTTP traffic.
 * A *Global Administrator* account to register the Azure AD Password Protection proxy service and forest with Azure AD.
-* Network access must be enabled for the set of ports and URLs specified in the [Application Proxy environment setup procedures](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+* Network access must be enabled for the set of ports and URLs specified in the [Application Proxy environment setup procedures](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### Microsoft Azure AD Connect Agent Updater prerequisites
 
 The Microsoft Azure AD Connect Agent Updater service is installed side by side with the Azure AD Password Protection Proxy service. Additional configuration is required in order for the Microsoft Azure AD Connect Agent Updater service to be able to function:
 
-* If your environment uses an HTTP proxy server, follow the guidelines specified in [Work with existing on-premises proxy servers](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
-* The Microsoft Azure AD Connect Agent Updater service also requires the TLS 1.2 steps specified in [TLS requirements](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
+* If your environment uses an HTTP proxy server, follow the guidelines specified in [Work with existing on-premises proxy servers](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md).
+* The Microsoft Azure AD Connect Agent Updater service also requires the TLS 1.2 steps specified in [TLS requirements](../manage-apps/application-proxy-add-on-premises-application.md#tls-requirements).
 
 > [!WARNING]
 > Azure AD Password Protection proxy and Azure AD Application Proxy install different versions of the Microsoft Azure AD Connect Agent Updater service, which is why the instructions refer to Application Proxy content. These different versions are incompatible when installed side by side and doing so will prevent the Agent Updater service from contacting Azure for software updates, so you should never install Azure AD Password Protection Proxy and Application Proxy on the same machine.

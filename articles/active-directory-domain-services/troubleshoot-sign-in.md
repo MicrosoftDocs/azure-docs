@@ -1,16 +1,16 @@
 ---
 title: Troubleshoot sign in problems in Azure AD Domain Services | Microsoft Docs
-description: Learn how to troubleshoot common user sign in problems and errors in Azure Active Directory Domain Services.
+description: Learn how to troubleshoot common user sign-in problems and errors in Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/02/2019
-ms.author: iainfou
+ms.date: 07/06/2020
+ms.author: joflore
 
 #Customer intent: As a directory administrator, I want to troubleshoot user account sign in problems in an Azure Active Directory Domain Services managed domain.
 ---
@@ -28,11 +28,11 @@ The most common reasons for a user account that can't sign in to an Azure Active
 
 ## Account isn't synchronized into Azure AD DS yet
 
-Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in Azure AD DS. For large directories, this initial one-way sync from Azure AD can take few hours, and up to a day or two. Make sure that you wait long enough before retrying authentication.
+Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in a managed domain. For large directories, this initial one-way sync from Azure AD can take few hours, and up to a day or two. Make sure that you wait long enough before retrying authentication.
 
 For hybrid environments that user Azure AD Connect to synchronize on-premises directory data into Azure AD, make sure that you run the latest version of Azure AD Connect and have [configured Azure AD Connect to perform a full synchronization after enabling Azure AD DS][azure-ad-connect-phs]. If you disable Azure AD DS and then re-enable, you have to follow these steps again.
 
-If you continue to have issues with accounts not synchronizing through Azure AD Connect, restart the Azure AD Sync Service. From the computer with Azure AD Connect installed, open a command prompt window and run the following commands:
+If you continue to have issues with accounts not synchronizing through Azure AD Connect, restart the Azure AD Sync Service. From the computer with Azure AD Connect installed, open a command prompt window, then run the following commands:
 
 ```console
 net stop 'Microsoft Azure AD Sync'
@@ -45,7 +45,7 @@ Azure AD doesn't generate or store password hashes in the format that's required
 
 ### Hybrid environments with on-premises synchronization
 
-For hybrid environments using Azure AD Connect to synchronize from an on-premises AD DS environment, you can locally generate and synchronize the required NTLM or Kerberos password hashes into Azure AD. After you create your managed domain, [enable password hash synchronization to Azure Active Directory Domain Services][azure-ad-connect-phs]. Without completing this password hash synchronization step, you can't sign in to an account using Azure AD DS. If you disable Azure AD DS and then re-enable, you have to follow those steps again.
+For hybrid environments using Azure AD Connect to synchronize from an on-premises AD DS environment, you can locally generate and synchronize the required NTLM or Kerberos password hashes into Azure AD. After you create your managed domain, [enable password hash synchronization to Azure Active Directory Domain Services][azure-ad-connect-phs]. Without completing this password hash synchronization step, you can't sign in to an account using the managed domain. If you disable Azure AD DS and then re-enable, you have to follow those steps again.
 
 For more information, see [How password hash synchronization works for Azure AD DS][phs-process].
 
@@ -62,7 +62,7 @@ Managed domains with no on-premises synchronization, only accounts in Azure AD, 
 
 ## The account is locked out
 
-A user account in Azure AD DS is locked out when a defined threshold for unsuccessful sign-in attempts has been met. This account lockout behavior is designed to protect you from repeated brute-force sign-in attempts that may indicate an automated digital attack.
+A user account in a managed domain is locked out when a defined threshold for unsuccessful sign-in attempts has been met. This account lockout behavior is designed to protect you from repeated brute-force sign-in attempts that may indicate an automated digital attack.
 
 By default, if there are 5 bad password attempts in 2 minutes, the account is locked out for 30 minutes.
 
@@ -74,7 +74,7 @@ If you still have problems joining your VM to the managed domain, [find help and
 
 <!-- INTERNAL LINKS -->
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
-[azure-ad-connect-phs]: active-directory-ds-getting-started-password-sync-synced-tenant.md
+[azure-ad-connect-phs]: ./tutorial-configure-password-hash-sync.md
 [enable-user-accounts]:  tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds
 [phs-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [azure-ad-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

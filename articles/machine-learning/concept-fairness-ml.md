@@ -1,5 +1,5 @@
 ---
-title: Assess and mitigate fairness issues in machine learning models
+title: Mitigate fairness in machine learning models (preview)
 titleSuffix: Azure Machine Learning
 description: Learn about fairness in machine learning models and how the Fairlearn Python package can help you build fairer models. 
 services: machine-learning
@@ -8,18 +8,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 06/30/2020
+ms.date: 08/05/2020
 #Customer intent: As a data scientist, I want to learn about assessing and mitigating fairness in machine learning models.
 ---
 
-# Build fairer machine learning models
+# Mitigate fairness in machine learning models (preview)
 
-Learn about fairness in machine learning and how the [Fairlearn](https://fairlearn.github.io/) open-source Python package can help you build models that are more fair. If you are not making an effort to understand fairness issues and to assess fairness when building machine learning models, you may build models that produce unfair results. 
+Learn about fairness in machine learning and how the [Fairlearn](https://fairlearn.github.io/) open-source Python package can help you mitigate fairness issues in machine learning models. If you are not making an effort to understand fairness issues and to assess fairness when building machine learning models, you may build models that produce unfair results.
 
 The following summary of the [user guide](https://fairlearn.github.io/user_guide/index.html) for the Fairlearn open-source package, describes how to use it to assess the fairness of the AI systems that you are building.  The Fairlearn open-source package can also offer options to help mitigate, or help to reduce, any fairness issues you observe.  See the [how-to](how-to-machine-learning-fairness-aml.md) and [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) to enable fairness assessment of AI systems during training on Azure Machine Learning.
 
 
-## What is fairness in machine learning systems?
+## What is fairness in machine learning models?
 
 >[!NOTE]
 > Fairness is a socio-technical challenge. Many aspects of fairness, such as justice and due process, are not captured in quantitative fairness metrics. Also, many quantitative fairness metrics can't all be satisfied simultaneously. The goal with the Fairlearn open-source package is to enable humans to assess different impact and mitigation strategies. Ultimately, it is up to the human users building artificial intelligence and machine learning models to make trade-offs that are appropriate to their scenario.
@@ -34,7 +34,6 @@ Two common types of AI-caused harms are:
 
 To reduce unfair behavior in AI systems, you have to assess and mitigate these harms.
 
-
 ## Fairness assessment and mitigation with Fairlearn
 
 Fairlearn is an open-source Python package that allows machine learning systems developers to assess their systems' fairness and mitigate the observed fairness issues.
@@ -46,7 +45,8 @@ The Fairlearn open-source package has two components:
 
 Together, these components enable data scientists and business leaders to navigate any trade-offs between fairness and performance, and to select the mitigation strategy that best fits their needs.
 
-## Fairness assessment
+## Assess fairness in machine learning models
+
 In the Fairlearn open-source package, fairness is conceptualized though an approach known as **group fairness**, which asks: Which groups of individuals are at risk for experiencing harms? The relevant groups, also known as subpopulations, are defined through **sensitive features** or sensitive attributes. Sensitive features are passed to an estimator in the Fairlearn open-source package as a vector or a matrix called  `sensitive_features`. The term suggests that the system designer should be sensitive to these features when assessing group fairness. 
 
 Something to be mindful of is whether these features contain privacy implications due to private data. But the word "sensitive" doesn't imply that these features shouldn't be used to make predictions.
@@ -68,14 +68,14 @@ During assessment phase, fairness is quantified through disparity metrics. **Dis
 
 - Disparity in selection rate: This metric contains the difference in selection rate among different subgroups. An example of this is disparity in loan approval rate. Selection rate means the fraction of datapoints in each class classified as 1 (in binary classification) or distribution of prediction values (in regression).
 
-## Unfairness mitigation
+## Mitigate unfairness in machine learning models
 
 ### Parity constraints
 
 The Fairlearn open-source package includes a variety of unfairness mitigation algorithms. These algorithms support a set of constraints on the predictor's behavior called **parity constraints** or criteria. Parity constraints require some aspects of the predictor behavior to be comparable across the groups that sensitive features define (e.g., different races). The mitigation algorithms in the Fairlearn open-source package use such parity constraints to mitigate the observed fairness issues.
 
 >[!NOTE]
-> Mitigating unfairness in a model means reducing the unfairness, but this technical mitigation cannot eliminate this unfairness completely.  The unfairness mitigation algorithms in the Fairlearn open-source package can provide suggested mitigation strategies to help reduce unfairness in a machine learning model, but they are not solutions to eliminate unfairness completely.  There may be other parity constraints or criteria that should be considered for each particular developer’s machine learning model. Developers using Azure Machine Learning must determine for themselves if the mitigation sufficiently eliminates any unfairness in their intended use and deployment of machine learning models.  
+> Mitigating unfairness in a model means reducing the unfairness, but this technical mitigation cannot eliminate this unfairness completely.  The unfairness mitigation algorithms in the Fairlearn open-source package can provide suggested mitigation strategies to help reduce unfairness in a machine learning model, but they are not solutions to eliminate unfairness completely.  There may be other parity constraints or criteria that should be considered for each particular developer's machine learning model. Developers using Azure Machine Learning must determine for themselves if the mitigation sufficiently eliminates any unfairness in their intended use and deployment of machine learning models.  
 
 The Fairlearn open-source package supports the following types of parity constraints: 
 
@@ -104,6 +104,6 @@ The Fairlearn open-source package provides postprocessing and reduction unfairne
 
 ## Next steps
 
-- Learn how to use the different components by checking out the Fairlearn's [GitHub](https://github.com/fairlearn/fairlearn/), [user guide](https://fairlearn.github.io/user_guide/index.html), [examples](https://fairlearn.github.io/auto_examples/notebooks/index.html), and [sample notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
+- Learn how to use the different components by checking out the Fairlearn's [GitHub](https://github.com/fairlearn/fairlearn/), [user guide](https://fairlearn.github.io/user_guide/index.html), [examples](https://fairlearn.github.io/auto_examples/), and [sample notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
 - Learn [how to](how-to-machine-learning-fairness-aml.md) enable fairness assessment of machine learning models in Azure Machine Learning.
 - See the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) for additional fairness assessment scenarios in Azure Machine Learning. 

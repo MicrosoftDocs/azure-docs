@@ -5,7 +5,8 @@ ms.subservice: ""
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 2/14/2018
+ms.date: 2/14/2018 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -18,10 +19,10 @@ This article shows you sample PowerShell commands to help you access Azure Monit
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Set up PowerShell
-If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](/powershell/azure/overview).
+If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](/powershell/azure/).
 
 ## Examples in this article
-The examples in the article illustrate how you can use Azure Monitor cmdlets. You can also review the entire list of Azure Monitor PowerShell cmdlets at [Azure Monitor (Insights) Cmdlets](https://docs.microsoft.com/powershell/module/az.applicationinsights).
+The examples in the article illustrate how you can use Azure Monitor cmdlets. You can also review the entire list of Azure Monitor PowerShell cmdlets at [Azure Monitor (Insights) Cmdlets](/powershell/module/az.applicationinsights).
 
 ## Sign in and use subscriptions
 First, log in to your Azure subscription.
@@ -49,7 +50,7 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## Retrieve Activity log
-Use the [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet.  The following are some common examples. The Activity Log holds the last 90 days of operations. Using dates before this time results in an error message.  
+Use the [Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet.  The following are some common examples. The Activity Log holds the last 90 days of operations. Using dates before this time results in an error message.  
 
 See what the current date/time are to verify what times to use in the commands below:
 ```powershell
@@ -112,7 +113,7 @@ To view the history for a specific alert rule, you can use the `Get-AzAlertHisto
 Get-AzAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/alertrules/myalert -StartTime 2016-03-1 -Status Activated
 ```
 
-The `Get-AzAlertHistory` cmdlet supports various parameters. More information, see [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx).
+The `Get-AzAlertHistory` cmdlet supports various parameters. More information, see [Get-AlertHistory](/previous-versions/azure/mt282453(v=azure.100)).
 
 ## Retrieve information on alert rules
 All of the following commands act on a Resource Group named "montest".
@@ -135,7 +136,7 @@ Retrieve all alert rules set for a target resource. For example, all alert rules
 Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
 ```
 
-`Get-AzAlertRule` supports other parameters. See [Get-AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) for more information.
+`Get-AzAlertRule` supports other parameters. See [Get-AlertRule](/previous-versions/azure/mt282459(v=azure.100)) for more information.
 
 ## Create metric alerts
 You can use the `Add-AlertRule` cmdlet to create, update, or disable an alert rule.
@@ -197,7 +198,7 @@ The following example generates a table with the metric Name and the Unit for it
 Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-A full list of available options for `Get-AzMetricDefinition` is available at [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
+A full list of available options for `Get-AzMetricDefinition` is available at [Get-MetricDefinitions](/previous-versions/azure/mt282458(v=azure.100)).
 
 ## Create and manage Activity Log alerts
 You can use the `Set-AzActivityLogAlert` cmdlet to set an Activity Log alert. An Activity Log alert requires that you first define your conditions as a dictionary of conditions, then create an alert that uses those conditions.
@@ -268,7 +269,7 @@ Finally, create the autoscale setting to add the profile that you created previo
 Add-AzAutoscaleSetting -Location "East US" -Name "MyScaleVMSSSetting" -ResourceGroup big2 -TargetResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -AutoscaleProfiles $profile1 -Notifications $notification1
 ```
 
-For more information about managing Autoscale settings, see [Get-AutoscaleSetting](https://msdn.microsoft.com/library/mt282461.aspx).
+For more information about managing Autoscale settings, see [Get-AutoscaleSetting](/previous-versions/azure/mt282461(v=azure.100)).
 
 ## Autoscale history
 The following example shows you how you can view recent autoscale and alert events. Use the activity log search to view the autoscale history.
@@ -283,7 +284,7 @@ You can use the `Get-AzAutoScaleHistory` cmdlet to retrieve AutoScale history.
 Get-AzAutoScaleHistory -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/microsoft.insights/autoscalesettings/myScaleSetting -StartTime 2016-03-15 -DetailedOutput
 ```
 
-For more information, see [Get-AutoscaleHistory](https://msdn.microsoft.com/library/mt282464.aspx).
+For more information, see [Get-AutoscaleHistory](/previous-versions/azure/mt282464(v=azure.100)).
 
 ### View details for an autoscale setting
 You can use the `Get-Autoscalesetting` cmdlet to retrieve more information about the autoscale setting.
@@ -395,4 +396,3 @@ Note that the WorkspaceId property takes the *resource ID* of the workspace. You
 ```
 
 These commands can be combined to send data to multiple destinations.
-

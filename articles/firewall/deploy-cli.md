@@ -31,13 +31,12 @@ For this article, you create a simplified single VNet with three subnets for eas
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up a test network environment
-> * Deploy a firewall
-> * Create a default route
-> * Configure an application rule to allow access to www.google.com
-> * Configure a network rule to allow access to external DNS servers
-> * Test the firewall
+* Set up a test network environment
+* Deploy a firewall
+* Create a default route
+* Configure an application rule to allow access to www.google.com
+* Configure a network rule to allow access to external DNS servers
+* Test the firewall
 
 If you prefer, you can complete this procedure using the [Azure portal](tutorial-firewall-deploy-portal.md) or [Azure PowerShell](deploy-ps.md).
 

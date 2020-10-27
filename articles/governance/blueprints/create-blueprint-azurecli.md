@@ -1,15 +1,16 @@
 ---
 title: "Quickstart: Create a blueprint with Azure CLI"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the Azure CLI.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with Azure CLI
 
 Learning how to create and assign blueprints enables the definition of common patterns to develop
-reusable and rapidly deployable configurations based on Resource Manager templates, policy,
-security, and more. In this tutorial, you learn to use Azure Blueprints to do some of the common
-tasks related to creating, publishing, and assigning a blueprint within your organization, such as:
+reusable and rapidly deployable configurations based on Azure Resource Manager templates (ARM
+templates), policy, security, and more. In this tutorial, you learn to use Azure Blueprints to do
+some of the common tasks related to creating, publishing, and assigning a blueprint within your
+organization, such as:
 
 ## Prerequisites
 
@@ -24,10 +25,11 @@ To enable Azure CLI to manage blueprint definitions and assignments, the extensi
 This extension works wherever Azure CLI can be used, including
 [bash on Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (both
 standalone and inside the portal), the [Azure CLI Docker
-image](https://hub.docker.com/r/microsoft/azure-cli/), or locally installed.
+image](https://hub.docker.com/_/microsoft-azure-cli), or locally installed.
 
 1. Check that the latest Azure CLI is installed (at least **2.0.76**). If it isn't yet installed,
-   follow [these instructions](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+   follow
+   [these instructions](/cli/azure/install-azure-cli-windows).
 
 1. In your Azure CLI environment of choice, import it with the following command:
 
@@ -50,8 +52,8 @@ image](https://hub.docker.com/r/microsoft/azure-cli/), or locally installed.
 
 The first step in defining a standard pattern for compliance is to compose a blueprint from the
 available resources. We'll create a blueprint named 'MyBlueprint' to configure role and policy
-assignments for the subscription. Then we'll add a resource group, a Resource Manager template, and
-a role assignment on the resource group.
+assignments for the subscription. Then we'll add a resource group, an ARM template, and a role
+assignment on the resource group.
 
 > [!NOTE]
 > When using Azure CLI, the _blueprint_ object is created first. For each _artifact_ to be added
@@ -213,14 +215,14 @@ a role assignment on the resource group.
         --parameters artifacts\policyStorageTags.json
      ```
 
-1. Add template under resource group. The **template** parameter for a Resource Manager template
-   includes the normal JSON components of the template. The template also reuses the
-   **storageAccountType**, **tagName**, and **tagValue** blueprint parameters by passing each to the
-   template. The blueprint parameters are available to the template by using parameter
-   **parameters** and inside the template JSON that key-value pair is used to inject the value. The
-   blueprint and template parameter names could be the same.
+1. Add template under resource group. The **template** parameter for an ARM template includes the
+   normal JSON components of the template. The template also reuses the **storageAccountType**,
+   **tagName**, and **tagValue** blueprint parameters by passing each to the template. The blueprint
+   parameters are available to the template by using parameter **parameters** and inside the
+   template JSON that key-value pair is used to inject the value. The blueprint and template
+   parameter names could be the same.
 
-   - JSON Azure Resource Manager template file - artifacts\templateStorage.json
+   - JSON ARM template file - artifacts\templateStorage.json
 
      ```json
      {
@@ -274,7 +276,7 @@ a role assignment on the resource group.
      }
      ```
 
-   - JSON Azure Resource Manager template parameter file - artifacts\templateStorageParams.json
+   - JSON ARM template parameter file - artifacts\templateStorageParams.json
 
      ```json
      {

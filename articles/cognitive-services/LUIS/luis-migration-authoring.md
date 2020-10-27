@@ -3,14 +3,14 @@ title: Migrate to an Azure resource authoring key
 titleSuffix: Azure Cognitive Services
 description: This article describes how to migrate Language Understanding (LUIS) authoring authentication from an email account to an Azure resource.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/17/2020
-ms.author: diberry
+ms.date: 08/13/2020
+
 ---
 
 # Migrate to an Azure resource authoring key
@@ -20,7 +20,7 @@ Language Understanding (LUIS) authoring authentication changed from an email acc
 
 ## What is migration?
 
-Migration is the process of changing authoring authentication from an email account to an Azure resource. Your account will be linked to an Azure subscription and an Azure authoring resource after you migrate. *All LUIS users (owners or collaborators) will eventually need to migrate.* 
+Migration is the process of changing authoring authentication from an email account to an Azure resource. Your account will be linked to an Azure subscription and an Azure authoring resource after you migrate. *All LUIS users (owners or collaborators) will eventually need to migrate.*
 
 Migration has to be done from the LUIS portal. If you create the authoring keys by using the LUIS CLI, for example, you'll need to complete the migration process in the LUIS portal. You can still have coauthors on your applications after migration, but these will be added on the Azure resource level instead of the application level.
 
@@ -29,6 +29,7 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
 
 ## Note before you migrate
 
+* You must migrate your authoring experience by **Nov, 2, 2020**. 
 * Migration is a one-way process. You can't go back after you migrate.
 * Applications will automatically migrate with you if you're the owner of the application.
 * The owner can't choose a subset of apps to migrate, and the process isn't reversible.
@@ -46,7 +47,7 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
 
 ## Migration prerequisites
 
-* You need to be associated with a valid Azure subscription. Ask your tenant admin to add you on the subscription, or [sign up for a free one](https://azure.microsoft.com/free/).
+* You need to be associated with a valid Azure subscription. Ask your tenant admin to add you on the subscription, or [sign up for a free one](https://azure.microsoft.com/free/cognitive-services).
 * You need to create a LUIS Azure authoring resource from the LUIS portal or from the Azure portal. Creating an authoring resource from the LUIS portal is part of the migration flow that's discussed in the next section.
 * If you're a collaborator on applications, the applications won't automatically migrate. We recommend that you back up these applications by exporting them or by using the [export API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). You can import the app back into LUIS after migration. The import process creates a new app with a new app ID, for which you're the owner.
 * If you're the owner of the application, you won't need to export your apps because they'll migrate automatically. We recommend that you save each app's collaborator list. An email template that has this list is provided optionally as part of the migration process.
@@ -54,7 +55,7 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
 
 |Portal|Purpose|
 |--|--|
-|[Azure](https://azure.microsoft.com/free/)| Create prediction and authoring resources.<br> Assign contributors on resources.|
+|[Azure](https://azure.microsoft.com/free/cognitive-services)| Create prediction and authoring resources.<br> Assign contributors on resources.|
 |[LUIS](https://www.luis.ai)| Migrate to new authoring resources.<br> Create new authoring resources in the migration flow.<br> Assign or unassign prediction and authoring resources to apps from the **Manage** > **Azure resources** page. <br> Move applications from one authoring resource to another.  |
 
 > [!Note]
@@ -76,7 +77,7 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
 3. If any of your apps have collaborators, you're prompted to send them an email that lets them know about the migration. This is an optional step.
 
    For each collaborator and app, the default email application opens with a lightly formatted email. You can edit the email before sending it. The email template includes the exact app ID and app name.
-   
+
    ```html
    Dear Sir/Madam,
 
@@ -84,10 +85,10 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
 
    App Id: <app-ID-omitted>
    App name: Human Resources
-      
+
    Thank you
    ```
-   
+
    > [!Note]
    > After you migrate your account to Azure, your apps will no longer be available to collaborators.
 
@@ -157,7 +158,7 @@ The **My Apps** list shows the apps migrated to the new authoring resource. Befo
  > [!div class="mx-imgBorder"]
  > ![Boxes for subscription and authoring resource](./media/create-app-in-portal-select-subscription-luis-resource.png)
 
-You don't need to know the authoring resource's key to continue editing your apps in the LUIS portal. 
+You don't need to know the authoring resource's key to continue editing your apps in the LUIS portal.
 
 If you plan to edit your apps programmatically, you'll need the authoring key values. These values are displayed on the **Manage** > **Azure Resources** page in the LUIS portal. They're also available in the Azure portal on the resource's **Keys** page. You can also create more authoring resources and assign them from the same page.
 
@@ -221,7 +222,7 @@ We recommend that you:
 ## Troubleshooting the migration process
 
 When you try to migrate but can't find your Azure subscription in the drop-down list:
-* Ensure that you have a valid Azure subscription that's authorized to create Cognitive Services resources. Go to the [Azure portal](https://ms.portal.azure.com) and check the status of the subscription. If you don't have one, [create a free trial](https://azure.microsoft.com/free/).
+* Ensure that you have a valid Azure subscription that's authorized to create Cognitive Services resources. Go to the [Azure portal](https://ms.portal.azure.com) and check the status of the subscription. If you don't have one, [create a free Azure account](https://azure.microsoft.com/free/cognitive-services/).
 * Ensure that you're in the proper tenant associated with your valid subscription. You can switch tenants from the avatar to the left of your initials on this toolbar:
 ![Toolbar where you can switch tenants](./media/migrate-authoring-key/switch-user-tenant-2.png)
 
@@ -242,5 +243,5 @@ If you see the following error, check the [recommended steps if you're a collabo
 
 ## Next steps
 
-* Review [concepts about authoring and runtime keys](luis-concept-keys.md). 
+* Review [concepts about authoring and runtime keys](luis-how-to-azure-subscription.md).
 * Review how to [assign keys](luis-how-to-azure-subscription.md) and [add contributors](luis-how-to-collaborate.md).

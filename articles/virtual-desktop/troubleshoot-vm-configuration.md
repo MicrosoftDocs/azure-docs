@@ -1,10 +1,7 @@
 ---
 title: Troubleshoot Windows Virtual Desktop session host - Azure
 description: How to resolve issues when you're configuring Windows Virtual Desktop session host virtual machines.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
@@ -13,10 +10,7 @@ manager: lizross
 # Session host virtual machine configuration
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
 
 Use this article to troubleshoot issues you're having when configuring the Windows Virtual Desktop session host virtual machines (VMs).
 
@@ -136,8 +130,8 @@ When the Windows Virtual Desktop Agent is first installed on session host VMs (e
 
 **Fix:** Follow these instructions to fix the agent registry error.
 
-1. If there's already a registration token, remove it with Remove-AzWvdRegistrationInfo. 
-2. Run the **New-AzWvdRegistrationInfo** cmdlet to generate a new token. 
+1. If there's already a registration token, remove it with Remove-AzWvdRegistrationInfo.
+2. Run the **New-AzWvdRegistrationInfo** cmdlet to generate a new token.
 3. Confirm that the *-ExpriationTime* parameter is set to 3 days.
 
 ### Error: Windows Virtual Desktop agent isn't reporting a heartbeat when running Get-AzWvdSessionHost
@@ -303,7 +297,7 @@ If you sign in to Windows 10 Enterprise multi-session using an administrative ac
 
 If the time limit expires, an error message will appear that says, "The remote session was disconnected because there are no Remote Desktop client access licenses available for this computer."
 
-If you see either of these messages, this means the image doesn't have the latest Windows updates installed or that you are setting the Remote Desktop licensing mode through group policy. Follow the steps in the next sections to check the group policy setting, identify the version of Windows 10 Enterprise multi-session, and install the corresponding update.  
+If you see either of these messages, this means the image doesn't have the latest Windows updates installed or that you are setting the Remote Desktop licensing mode through group policy. Follow the steps in the next sections to check the group policy setting, identify the version of Windows 10 Enterprise multi-session, and install the corresponding update.
 
 >[!NOTE]
 >Windows Virtual Desktop only requires an RDS client access license (CAL) when your host pool contains Windows Server session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](/windows-server/remote/remote-desktop-services/rds-client-access-license/).

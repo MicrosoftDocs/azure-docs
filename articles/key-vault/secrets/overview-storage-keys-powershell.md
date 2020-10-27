@@ -1,7 +1,7 @@
 ---
 title: Azure Key Vault managed storage account - PowerShell version
 description: The managed storage account feature provides a seamless integration, between Azure Key Vault and an Azure storage account.
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: key-vault
 ms.subservice: secrets
 author: msmbaldwin
@@ -22,12 +22,11 @@ When you use the managed storage account key feature, consider the following poi
 - Key values are never returned in response to a caller.
 - Only Key Vault should manage your storage account keys. Don't manage the keys yourself and avoid interfering with Key Vault processes.
 - Only a single Key Vault object should manage storage account keys. Don't allow key management from multiple objects.
-- You can request Key Vault to manage your storage account with a user principal, but not with a service principal.
 - Regenerate keys by using Key Vault only. Don't manually regenerate your storage account keys.
 
 We recommend using Azure Storage integration with Azure Active Directory (Azure AD), Microsoft's cloud-based identity and access management service. Azure AD integration is available for [Azure blobs and queues](../../storage/common/storage-auth-aad.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault).
 
-Azure AD allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Azure AD managed identity](/azure/active-directory/managed-identities-azure-resources/) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application.
+Azure AD allows you to authenticate your client application by using an application or user identity, instead of storage account credentials. You can use an [Azure AD managed identity](../../active-directory/managed-identities-azure-resources/index.yml) when you run on Azure. Managed identities remove the need for client authentication and storing credentials in or with your application.
 
 Azure AD uses role-based access control (RBAC) to manage authorization, which is also supported by Key Vault.
 
@@ -35,7 +34,7 @@ Azure AD uses role-based access control (RBAC) to manage authorization, which is
 
 ## Service principal application ID
 
-An Azure AD tenant provides each registered application with a [service principal](/azure/active-directory/develop/developer-glossary#service-principal-object). The service principal serves as the application ID, which is used during authorization setup for access to other Azure resources via RBAC.
+An Azure AD tenant provides each registered application with a [service principal](../../active-directory/develop/developer-glossary.md#service-principal-object). The service principal serves as the application ID, which is used during authorization setup for access to other Azure resources via RBAC.
 
 Key Vault is a Microsoft application that's pre-registered in all Azure AD tenants. Key Vault is registered under the same Application ID in each Azure cloud.
 
@@ -71,7 +70,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### Set variables
 
-First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the <YourResourceGroupName>, <YourStorageAccountName>, and <YourKeyVaultName> placeholders, and set $keyVaultSpAppId to `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (as specified in [Service principal application ID](#service-principal-application-id), above).
+First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the "YourResourceGroupName", "YourStorageAccountName", and "YourKeyVaultName" placeholders, and set $keyVaultSpAppId to `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (as specified in [Service principal application ID](#service-principal-application-id), above).
 
 We will also use the Azure PowerShell [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) and [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) cmdlets to get your user ID and the context of your Azure storage account.
 
@@ -95,12 +94,12 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -St
 
 ### Give Key Vault access to your storage account
 
-Before Key Vault can access and manage your storage account keys, you must authorize its access your storage account. The Key Vault application requires permissions to *list* and *regenerate* keys for your storage account. These permissions are enabled through the built-in RBAC role [Storage Account Key Operator Service Role](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
+Before Key Vault can access and manage your storage account keys, you must authorize its access your storage account. The Key Vault application requires permissions to *list* and *regenerate* keys for your storage account. These permissions are enabled through the Azure built-in role [Storage Account Key Operator Service Role](../../role-based-access-control/built-in-roles.md#storage-account-key-operator-service-role). 
 
 Assign this role to the Key Vault service principal, limiting scope to your storage account, using the Azure PowerShell [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-2.6.0) cmdlet.
 
 ```azurepowershell-interactive
-# Assign RBAC role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
+# Assign Azure role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
 New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
 
@@ -160,7 +159,7 @@ Tags                :
 
 ### Enable key regeneration
 
-If you want Key Vault to regenerate your storage account keys periodically, you can use the Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) cmdlet to set a regeneration period. In this example, we set a regeneration period of three days. After three days, Key Vault will regenerate 'key2' and swap the active key from 'key2' to 'key1' (replace with 'primary' and 'secondary' for Classic Storage Accounts).
+If you want Key Vault to regenerate your storage account keys periodically, you can use the Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) cmdlet to set a regeneration period. In this example, we set a regeneration period of three days. When it is time to rotate, Key Vault regenerates the key that is not active, and then sets the newly created key as active. Only one of the keys are used to issue SAS tokens at any one time. This is the active key.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
@@ -255,9 +254,7 @@ Tags         :
 You can now use the [Get-AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) cmdlet and the secret `Name` property to view the content of that secret.
 
 ```azurepowershell-interactive
-$secret = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>
-
-Write-Host $secret.SecretValueText
+Write-Host (Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>).SecretValue | ConvertFrom-SecureString -AsPlainText
 ```
 
 The output of this command will show your SAS definition string.

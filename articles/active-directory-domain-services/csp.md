@@ -2,22 +2,22 @@
 title: Azure AD Domain Services for Cloud Solution Providers | Microsoft Docs
 description: Learn how to enable and manage Azure Active Directory Domain Services managed domains for Azure Cloud Solution Providers
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.author: iainfou
+ms.date: 07/09/2020
+ms.author: joflore
 
 ---
 # Azure Active Directory Domain Services deployment and management for Azure Cloud Solution Providers
 
 Azure Cloud Solution Providers (CSP) is a program for Microsoft Partners and provides a license channel for various Microsoft cloud services. Azure CSP enables partners to manage sales, own the billing relationship, provide technical and billing support, and be the customer's single point of contact. In addition, Azure CSP provides a full set of tools, including a self-service portal and accompanying APIs. These tools enable CSP partners to easily provision and manage Azure resources, and provide billing for customers and their subscriptions.
 
-The [Partner Center portal](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview) is the entry point for all Azure CSP partners, and provides rich customer management capabilities, automated processing, and more. Azure CSP partners can use Partner Center capabilities by using a web-based UI or by using PowerShell and various API calls.
+The [Partner Center portal](/partner-center/azure-plan-lp) is the entry point for all Azure CSP partners, and provides rich customer management capabilities, automated processing, and more. Azure CSP partners can use Partner Center capabilities by using a web-based UI or by using PowerShell and various API calls.
 
 The following diagram illustrates how the CSP model works at a high level. Here, Contoso has an Azure Active Directory (Azure AD) tenant. They have a partnership with a CSP, who deploys and manages resources in their Azure CSP subscription. Contoso may also have regular (direct) Azure subscriptions, which are billed directly to Contoso.
 
@@ -29,7 +29,7 @@ The *Admin* agents group is assigned to the tenant administrator role in Contoso
 
 When the CSP partner provisions an Azure CSP subscription for Contoso, their admin agents group is assigned to the owner role for that subscription. As a result, the CSP partner's admin agents have the required privileges to provision Azure resources such as virtual machines, virtual networks, and Azure AD Domain Services on behalf of Contoso.
 
-For more information, see the [Azure CSP overview](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)
+For more information, see the [Azure CSP overview](/partner-center/azure-plan-lp)
 
 ## Benefits of using Azure AD DS in an Azure CSP subscription
 

@@ -1,8 +1,8 @@
 ---
 title: Creating and configuring a key vault for Azure Disk Encryption
-description: This article provides steps for creating and configuring a key vault for use with Azure Disk Encryption
+description: This article provides steps for creating and configuring a key vault for use with Azure Disk Encryption on a Linux VM.
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 # Creating and configuring a key vault for Azure Disk Encryption
 
-Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/key-vault-get-started.md) and [Secure your key vault](../../key-vault/general/secure-your-key-vault.md). 
+Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/general/overview.md) and [Secure your key vault](../../key-vault/general/secure-your-key-vault.md). 
 
 > [!WARNING]
 > - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)](disk-encryption-key-vault-aad.md) for details.
@@ -35,7 +35,7 @@ You may also, if you wish, generate or import a key encryption key (KEK).
 
 ## Install tools and connect to Azure
 
-The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/overview), or the [Azure portal](https://portal.azure.com). 
+The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/), or the [Azure portal](https://portal.azure.com). 
 
 While the portal is accessible through your browser, Azure CLI and Azure PowerShell require local installation; see [Azure Disk Encryption for Linux: Install tools](disk-encryption-linux.md#install-tools-and-connect-to-azure) for details.
 

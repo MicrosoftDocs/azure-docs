@@ -36,6 +36,14 @@ The scheduler is responsible for two tasks:
 
 The scheduler itself is always running, but it can be configured to only run one or none of these tasks. For example, if you need to have your own synchronization cycle process, you can disable this task in the scheduler but still run the maintenance task.
 
+>[!IMPORTANT]
+>By default every 30 minutes a synchronization cycle is run. If you have modified the synchronization cycley you will need to make sure that a synchronization cycle is run at least once every 7 days. 
+>
+>* A delta sync needs to happen within 7 days from the last delta sync.
+>* A delta sync (following a full sync) needs to happen within 7 days from the time the last full sync completed.
+>
+>Failure to do so may cause synchronization issues which will require you to run a full synchronization to resolve. This also applies to servers in Staging mode.
+
 ## Scheduler configuration
 To see your current configuration settings, go to PowerShell and run `Get-ADSyncScheduler`. It shows you something like this picture:
 
@@ -148,19 +156,21 @@ Example:  If you made changes to the synchronization rules for Connector “AD F
 ## Stop the scheduler
 If the scheduler is currently running a synchronization cycle, you might need to stop it. For example if you start the installation wizard and you get this error:
 
-![SyncCycleRunningError](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
+![Screenshot shows Cannot change configuration error message.](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
 
 When a sync cycle is running, you cannot make configuration changes. You could wait until the scheduler has finished the process, but you can also stop it so you can make your changes immediately. Stopping the current cycle is not harmful and pending changes are processed with next run.
 
 1. Start by telling the scheduler to stop its current cycle with the PowerShell cmdlet `Stop-ADSyncSyncCycle`.
 2. If you use a build before 1.1.281, then stopping the scheduler does not stop the current Connector from its current task. To force the Connector to stop, take the following actions:
-   ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+
+   ![Screenshot shows Synchronization Service Manager with Connectors selected and a running connector highlighted with the Stop action selected.](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+
    * Start **Synchronization Service** from the start menu. Go to **Connectors**, highlight the Connector with the state **Running**, and select **Stop** from the Actions.
 
 The scheduler is still active and starts again on next opportunity.
 
 ## Custom scheduler
-The cmdlets documented in this section are only available in build [1.1.130.0](reference-connect-version-history.md#111300) and later.
+The cmdlets documented in this section are only available in build [1.1.130.0](reference-connect-version-history.md) and later.
 
 If the built-in scheduler does not satisfy your requirements, then you can schedule the Connectors using PowerShell.
 

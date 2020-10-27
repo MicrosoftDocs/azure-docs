@@ -161,7 +161,7 @@ To set additional quotas, do the following:
 
 To add students to a classroom lab, you use their email accounts. Students might have the following types of email accounts:
 
-- A student email account that's provided by your university's Azure Active Directory instance for Office 365. 
+- A student email account that's provided by your university's Azure Active Directory instance.
 - A Microsoft-domain email account, such as *outlook.com*, *hotmail.com*, *msn.com*, or *live.com*.
 - A non-Microsoft email account, such as one provided by Yahoo! or Google. However, these types of accounts must be linked with a Microsoft account.
 - A GitHub account. This account must be linked with a Microsoft account.

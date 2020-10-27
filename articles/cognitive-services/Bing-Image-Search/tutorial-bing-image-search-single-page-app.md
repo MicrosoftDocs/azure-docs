@@ -10,6 +10,7 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
+ms.custom: devx-track-js
 ---
 
 # Tutorial: Create a single-page app using the Bing Image Search API
@@ -113,7 +114,7 @@ By default, the `onsubmit` handler returns `false`, keeping the form from being 
 
 The Bing Image Search API offers several [filter query parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) to narrow and filter search results. The HTML form in this application uses and displays the following parameter options:
 
-|              |                                                                                                                                                                                    |
+| Option | Description |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `where`      | A drop-down menu for selecting the market (location and language) used for the search.                                                                                             |
 | `query`      | The text field in which to enter the search terms.                                                                                                                                 |

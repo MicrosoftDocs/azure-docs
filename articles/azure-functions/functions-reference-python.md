@@ -3,7 +3,7 @@ title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Azure Functions Python developer guide
@@ -82,7 +82,6 @@ The main project folder (\_\_app\_\_) can contain the following files:
 * *requirements.txt*: Contains the list of packages the system installs when publishing to Azure.
 * *host.json*: Contains global configuration options that affect all functions in a function app. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
 * *.funcignore*: (Optional) declares files that shouldn't get published to Azure.
-* *.gitignore*: (Optional) declares files that are excluded from a git repo, such as local.settings.json.
 * *Dockerfile*: (Optional) used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
 
 Each function has its own code file and binding configuration file (function.json).
@@ -291,21 +290,38 @@ In this function, the value of the `name` query parameter is obtained from the `
 
 Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
 
-## Scaling and concurrency
+## Scaling and Performance
 
-By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
+It's important to understand how your functions perform and how that performance affects the way your function app gets scaled. This is particularly important when designing highly performant apps. The following are several factors to consider when designing, writing and configuring your functions apps.
 
-This scaling behavior is sufficient for many applications. Applications with any of the following characteristics, however, may not scale as effectively:
+### Horizontal scaling
+By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Functions uses built-in thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. These thresholds aren't user configurable. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-- The application needs to handle many concurrent invocations.
-- The application processes a large number of I/O events.
-- The application is I/O bound.
+### Improving throughput performance
 
-In such cases, you can improve performance further by employing async patterns and by using multiple language worker processes.
+A key to improving performance is understanding how your app uses resources and being able to configure your function app accordingly.
 
-### Async
+#### Understanding your workload
 
-Because Python is a single-threaded runtime, a host instance for Python can process only one function invocation at a time. For applications that process a large number of I/O events and/or is I/O bound, you can improve performance by running functions asynchronously.
+The default configurations are suitable for most of Azure Functions applications. However, you can improve the performance of your applications' throughput by employing configurations based on your workload profile. The first step is to understand the type of workload that you are running.
+
+|| I/O-bound workload | CPU-bound workload |
+|--| -- | -- |
+|Function app characteristics| <ul><li>App needs to handle many concurrent invocations.</li> <li> App processes a large number of I/O events, such as network calls and disk read/writes.</li> </ul>| <ul><li>App does long-running computations, such as image resizing.</li> <li>App does data transformation.</li> </ul> |
+|Examples| <ul><li>Web APIs</li><ul> | <ul><li>Data processing</li><li> Machine learning inference</li><ul>|
+
+ 
+> [!NOTE]
+>  As real world functions workload are most of often a mix of I/O and CPU bound, we recommend to profile the workload under realistic production loads.
+
+
+#### Performance-specific configurations
+
+After understanding the workload profile of your function app, the following are configurations that you can use to improve the throughput performance of your functions.
+
+##### Async
+
+Because [Python is a single-threaded runtime](https://wiki.python.org/moin/GlobalInterpreterLock), a host instance for Python can process only one function invocation at a time. For applications that process a large number of I/O events and/or is I/O bound, you can improve performance significantly by running functions asynchronously.
 
 To run a function asynchronously, use the `async def` statement, which runs the function with [asyncio](https://docs.python.org/3/library/asyncio.html) directly:
 
@@ -313,6 +329,21 @@ To run a function asynchronously, use the `async def` statement, which runs the 
 async def main():
     await some_nonblocking_socket_io_op()
 ```
+Here is an example of a function with HTTP trigger that uses [aiohttp](https://pypi.org/project/aiohttp/) http client:
+
+```python
+import aiohttp
+
+import azure.functions as func
+
+async def main(req: func.HttpRequest) -> func.HttpResponse:
+    async with aiohttp.ClientSession() as client:
+        async with client.get("PUT_YOUR_URL_HERE") as response:
+            return func.HttpResponse(await response.text())
+
+    return func.HttpResponse(body='NotFound', status_code=404)
+```
+
 
 A function without the `async` keyword is run automatically in an asyncio thread-pool:
 
@@ -323,11 +354,25 @@ def main():
     some_blocking_socket_io()
 ```
 
-### Use multiple language worker processes
+In order to achieve the full benefit of running functions asynchronously, the I/O operation/library that is used in your code needs to have async implemented as well. Using synchronous I/O operations in functions that are defined as asynchronous **may hurt** the overall performance.
+
+Here are a few examples of client libraries that has implemented async pattern:
+- [aiohttp](https://pypi.org/project/aiohttp/) - Http client/server for asyncio 
+- [Streams API](https://docs.python.org/3/library/asyncio-stream.html) - High-level async/await-ready primitives to work with network connection
+- [Janus Queue](https://pypi.org/project/janus/) - Thread-safe asyncio-aware queue for Python
+- [pyzmq](https://pypi.org/project/pyzmq/) - Python bindings for ZeroMQ
+ 
+
+##### Use multiple language worker processes
 
 By default, every Functions host instance has a single language worker process. You can increase the number of worker processes per host (up to 10) by using the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting. Azure Functions then tries to evenly distribute simultaneous function invocations across these workers.
 
+For CPU bound apps, you should set the number of language worker to be the same as or higher than the number of cores that are available per function app. To learn more, see [Available instance SKUs](functions-premium-plan.md#available-instance-skus). 
+
+I/O-bound apps may also benefit from increasing the number of worker processes beyond the number of cores available. Keep in mind that setting the number of workers too high can impact overall performance due to the increased number of required context switches. 
+
 The FUNCTIONS_WORKER_PROCESS_COUNT applies to each host that Functions creates when scaling out your application to meet demand.
+
 
 ## Context
 
@@ -426,17 +471,15 @@ When you're ready to publish, make sure that all your publicly available depende
 
 Project files and folders that are excluded from publishing, including the virtual environment folder, are listed in the .funcignore file.
 
-There are three build actions supported for publishing your Python project to Azure:
+There are three build actions supported for publishing your Python project to Azure: remote build, local build, and builds using custom dependencies.
 
-+ Remote build: Dependencies are obtained remotely based on the contents of the requirements.txt file. [Remote build](functions-deployment-technologies.md#remote-build) is the recommended build method. Remote is also the default build option of Azure tooling.
-+ Local build: Dependencies are obtained locally based on the contents of the requirements.txt file.
-+ Custom dependencies: Your project uses packages not publicly available to our tools. (Requires Docker.)
-
-To build your dependencies and publish using a continuous delivery (CD) system, [use Azure Pipelines](functions-how-to-azure-devops.md).
+You can also use Azure Pipelines to build your dependencies and publish using continuous delivery (CD). To learn more, see [Continuous delivery by using Azure DevOps](functions-how-to-azure-devops.md).
 
 ### Remote build
 
-By default, the Azure Functions Core Tools requests a remote build when you use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish your Python project to Azure.
+When using remote build, dependencies restored on the server and native dependencies match the production environment. This results in a smaller deployment package to upload. Use remote build when developing Python apps on Windows. If your project has custom dependencies, you can [use remote build with extra index URL](#remote-build-with-extra-index-url).
+
+Dependencies are obtained remotely based on the contents of the requirements.txt file. [Remote build](functions-deployment-technologies.md#remote-build) is the recommended build method. By default, the Azure Functions Core Tools requests a remote build when you use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish your Python project to Azure.
 
 ```bash
 func azure functionapp publish <APP_NAME>
@@ -448,7 +491,7 @@ The [Azure Functions Extension for Visual Studio Code](functions-create-first-fu
 
 ### Local build
 
-You can prevent doing a remote build by using the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build.
+Dependencies are obtained locally based on the contents of the requirements.txt file. You can prevent doing a remote build by using the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build.
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
@@ -458,7 +501,19 @@ Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
 Using the `--build local` option, project dependencies are read from the requirements.txt file and those dependent packages are downloaded and installed locally. Project files and dependencies are deployed from your local computer to Azure. This results in a larger deployment package being uploaded to Azure. If for some reason, dependencies in your requirements.txt file can't be acquired by Core Tools, you must use the custom dependencies option for publishing.
 
+We don't recommend using local builds when developing locally on Windows.
+
 ### Custom dependencies
+
+When your project has dependencies not found in the [Python Package Index](https://pypi.org/), there are two ways to build the project. The build method depends on how you build the project.
+
+#### Remote build with extra index URL
+
+When your packages are available from an accessible custom package index, use a remote build. Before publishing, make sure to [create an app setting](functions-how-to-use-azure-function-app-settings.md#settings) named `PIP_EXTRA_INDEX_URL`. The value for this setting is the URL of your custom package index. Using this setting tells the remote build to run `pip install` using the `--extra-index-url` option. To learn more, see the [Python pip install documentation](https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format).
+
+You can also use basic authentication credentials with your extra package index URLs. To learn more, see [Basic authentication credentials](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) in Python documentation.
+
+#### Install local packages
 
 If your project uses packages not publicly available to our tools, you can make them available to your app by putting them in the \_\_app\_\_/.python_packages directory. Before publishing, run the following command to install the dependencies locally:
 
@@ -466,7 +521,7 @@ If your project uses packages not publicly available to our tools, you can make 
 pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
 ```
 
-When using custom dependencies, you should use the `--no-build` publishing option, since you have already installed the dependencies.
+When using custom dependencies, you should use the `--no-build` publishing option, since you have already installed the dependencies into the project folder.
 
 ```command
 func azure functionapp publish <APP_NAME> --no-build
@@ -646,11 +701,14 @@ To view the full details of the list of these libraries, please visit the links 
 
 The Functions Python worker requires a specific set of libraries. You can also use these libraries in your functions, but they aren't a part of the Python standard. If your functions rely on any of these libraries, they may not be available to your code when running outside of Azure Functions. You can find a detailed list of dependencies in the **install\_requires** section in the [setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) file.
 
+> [!NOTE]
+> If your function app's requirements.txt contains an `azure-functions-worker` entry, remove it. The functions worker is automatically managed by Azure Functions platform, and we regularly update it with new features and bug fixes. Manually installing an old version of worker in requirements.txt may cause unexpected issues.
+
 ### Azure Functions Python library
 
 Every Python worker update includes a new version of [Azure Functions Python library (azure.functions)](https://github.com/Azure/azure-functions-python-library). This approach makes it easier to continuously update your Python function apps, because each update is backwards-compatible. A list of releases of this library can be found in [azure-functions PyPi](https://pypi.org/project/azure-functions/#history).
 
-The runtime library version is fixed by Azure, and it can't be overridden by requirements.txt. The `azure-functions` entry in requirements.txt is only for linting and customer awareness. 
+The runtime library version is fixed by Azure, and it can't be overridden by requirements.txt. The `azure-functions` entry in requirements.txt is only for linting and customer awareness.
 
 Use the following code to track the actual version of the Python Functions library in your runtime:
 
@@ -677,7 +735,8 @@ CORS is fully supported for Python function apps.
 
 Following is a list of troubleshooting guides for common issues:
 
-* [ModuleNotFoundError and ImportError](recover-module-not-found.md)
+* [ModuleNotFoundError and ImportError](recover-python-functions.md#troubleshoot-modulenotfounderror)
+* [Cannot import 'cygrpc'](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
 
 All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
 

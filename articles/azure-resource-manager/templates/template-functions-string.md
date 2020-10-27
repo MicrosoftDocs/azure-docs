@@ -21,6 +21,7 @@ Resource Manager provides the following functions for working with strings in yo
 * [format](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
+* [json](#json)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
@@ -888,6 +889,12 @@ The output from the preceding example with the default values is:
 | firstString | Int | 2 |
 | lastString | Int | 0 |
 | notFound | Int | -1 |
+
+## json
+
+`json(arg1)`
+
+Converts a valid JSON string into a JSON data type. For more information, see [json function](template-functions-object.md#json).
 
 ## last
 
@@ -1840,7 +1847,7 @@ This function is helpful when you need to create a unique name for a resource. Y
 
 The returned value isn't a random string, but rather the result of a hash function. The returned value is 13 characters long. It isn't globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is meaningful. The following example shows the format of the returned value. The actual value varies by the provided parameters.
 
-    tcvhiyu5h2o5o
+`tcvhiyu5h2o5o`
 
 The following examples show how to use uniqueString to create a unique value for commonly used levels.
 

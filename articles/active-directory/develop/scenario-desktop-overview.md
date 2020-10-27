@@ -20,27 +20,17 @@ ms.custom: aaddev, identityplatformtop40
 
 Learn all you need to build a desktop app that calls web APIs.
 
-## Prerequisites
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## Get started
 
-If you haven't already, create your first application by following the .NET desktop quickstart, the Universal Windows Platform (UWP) quickstart, or the macOS native app quickstart:
+If you haven't already, create your first application by completing a quickstart:
 
-> [!div class="nextstepaction"]
-> [Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app](./quickstart-v2-windows-desktop.md)
-
-
-> [!div class="nextstepaction"]
-> [Quickstart: Acquire a token and call Microsoft Graph API from a UWP app](./quickstart-v2-uwp.md)
-
-> [!div class="nextstepaction"]
-> [Quickstart: Acquire a token and call Microsoft Graph API from a macOS native app](./quickstart-v2-ios.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app](./quickstart-v2-windows-desktop.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from a UWP app](./quickstart-v2-uwp.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from a macOS native app](./quickstart-v2-ios.md)
 
 ## Overview
 
-You write a desktop application, and you want to sign in users to your application and call web APIs such as Microsoft Graph, other Microsoft APIs, or your own web API. You have several possibilities:
+You write a desktop application, and you want to sign in users to your application and call web APIs such as Microsoft Graph, other Microsoft APIs, or your own web API. You have several options:
 
 - You can use the interactive token acquisition:
 
@@ -61,6 +51,10 @@ You write a desktop application, and you want to sign in users to your applicati
 ## Specifics
 
 Desktop applications have a number of specificities. They depend mainly on whether your application uses interactive authentication or not.
+
+## Recommended reading
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## Next steps
 

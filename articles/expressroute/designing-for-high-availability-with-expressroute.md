@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Designing for high availability'
 description: This page provides architectural recommendations for high availability while using Azure ExpressRoute.
 services: expressroute
-author: rambk
+author: duongau
 
 ms.service: expressroute
 ms.topic: article
 ms.date: 06/28/2019
-ms.author: rambala
+ms.author: duau
 
 ---
 
@@ -15,6 +15,9 @@ ms.author: rambala
 
 ExpressRoute is designed for high availability to provide carrier grade private network connectivity to Microsoft resources. In other words, there is no single point of failure in the ExpressRoute path within Microsoft network. To maximize the availability, the customer and the service provider segment of your ExpressRoute circuit should also be architected for high availability. In this article, first let's look into network architecture considerations for building robust network connectivity using an ExpressRoute, then let's look into the fine-tuning features that help you to improve the high availability of your ExpressRoute circuit.
 
+>[!NOTE]
+>The concepts described in this article equally applies when an ExpressRoute circuit is created under Virtual WAN or outside of it.
+>
 
 ## Architecture considerations
 
@@ -87,12 +90,8 @@ For design considerations to build geo-redundant network connectivity to Microso
 
 
 <!--Link References-->
-[zone redundant vgw]: https://docs.microsoft.com/azure/vpn-gateway/about-zone-redundant-vnet-gateways
-[conf zone redundant vgw]: https://docs.microsoft.com/azure/vpn-gateway/create-zone-redundant-vnet-gateway
-[Configure Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-set-global-reach
-[BFD]: https://docs.microsoft.com/azure/expressroute/expressroute-bfd
-[DR]: https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering
-
-
-
-
+[zone redundant vgw]: ../vpn-gateway/about-zone-redundant-vnet-gateways.md
+[conf zone redundant vgw]: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+[Configure Global Reach]: ./expressroute-howto-set-global-reach.md
+[BFD]: ./expressroute-bfd.md
+[DR]: ./designing-for-disaster-recovery-with-expressroute-privatepeering.md

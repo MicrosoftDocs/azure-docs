@@ -11,6 +11,7 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial - Encrypt and decrypt blobs using Azure Key Vault
@@ -206,7 +207,7 @@ The way to use a secret with client-side encryption is via the SymmetricKey clas
 Here is an example in PowerShell of creating a secret in Key Vault that can be used as a SymmetricKey.
 Please note that the hard coded value, $key, is for demonstration purpose only. In your own code you'll want to generate this key.
 
-```csharp
+```powershell
 // Here we are making a 128-bit key so we have 16 characters.
 //     The characters are in the ASCII range of UTF8 so they are
 //    each 1 byte. 16 x 8 = 128.
@@ -235,4 +236,4 @@ For more information about using Microsoft Azure Storage with C#, see [Microsoft
 
 For more information about the Blob REST API, see [Blob Service REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/).
+For the latest information on Microsoft Azure Storage, go to the [Microsoft Azure Storage Team Blog](https://docs.microsoft.com/archive/blogs/windowsazurestorage/).

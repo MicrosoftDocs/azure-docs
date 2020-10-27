@@ -25,7 +25,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 > 
 > * [Create a storage account](../../storage/common/storage-account-create.md)
 >   <br/>
-> * [Create an Azure Machine Learning workspace](../studio/create-workspace.md)
+> * [Create an Azure Machine Learning workspace](../classic/create-workspace.md)
 > 
 > 
 
@@ -192,9 +192,7 @@ To replicate the entire SQL Server database in your SQL Server VM, you should co
 1. Create an Azure HDInsight Hadoop cluster.
 1. (Optional) Pre-process and clean data.
    
-   a.  Pre-process and clean data in IPython Notebook, accessing data from Azure
-   
-       blobs.
+   a.  Pre-process and clean data in IPython Notebook, accessing data from Azure blobs.
    
    b.  Transform data to a cleaned tabular form, if needed.
    

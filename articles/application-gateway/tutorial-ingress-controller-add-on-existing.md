@@ -1,11 +1,11 @@
 ---
-title: Enable Ingress Controller Add-On for existing AKS cluster with existing Azure Application Gateway 
+title: 'Tutorial: Enable Ingress Controller Add-On for existing AKS cluster with existing Azure Application Gateway'
 description: Use this tutorial to enable the Ingress Controller Add-On for your existing AKS cluster with an existing Application Gateway
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: how-to
-ms.date: 06/10/2020
+ms.topic: tutorial
+ms.date: 09/24/2020
 ms.author: caya
 ---
 
@@ -24,6 +24,8 @@ In this tutorial, you learn how to:
 > * Deploy a sample application using AGIC for Ingress on the AKS cluster
 > * Check that the application is reachable through Application Gateway
 
+## Prerequisites
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -37,7 +39,7 @@ az feature register --name AKS-IngressApplicationGatewayAddon --namespace micros
 
 It might take a few minutes for the status to show Registered. You can check on the registration status using the [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command:
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the Microsoft.ContainerService resource provider using the [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) command:
@@ -146,7 +148,6 @@ az group delete --name myResourceGroup
 ```
 
 ## Next steps
-* [Learn more about disabling the AGIC add-on](./ingress-controller-disable-addon.md)
-* [Learn more about which annotations are supported with AGIC](./ingress-controller-annotations.md)
-* [Troubleshoot issues with AGIC](./ingress-controller-troubleshoot.md)
 
+> [!div class="nextstepaction"]
+> [Learn more about disabling the AGIC add-on](./ingress-controller-disable-addon.md)

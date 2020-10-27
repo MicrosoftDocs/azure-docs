@@ -1,14 +1,14 @@
 ---
-title: Backing up files and folders - common questions
+title: Microsoft Azure Recovery Services (MARS) Agent – FAQ
 description: Addresses common questions about backing up files and folders with Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
 
 ---
 
-# Common questions about backing up files and folders
+# Frequently asked questions - Microsoft Azure Recovery Services (MARS) agent
 
-This article answers common questions abound backing up files and folders with the Microsoft Azure Recovery Services (MARS) Agent in the [Azure Backup](backup-overview.md) service.
+This article answers common questions about backing up data with the Microsoft Azure Recovery Services (MARS) Agent in the [Azure Backup](backup-overview.md) service.
 
 ## Configure backups
 
@@ -16,9 +16,19 @@ This article answers common questions abound backing up files and folders with t
 
 The latest MARS agent used when backing up Windows Server machines, System Center DPM, and Microsoft Azure Backup server is available for [download](https://aka.ms/azurebackup_agent).
 
+### Where can I download the vault credentials file?
+
+In the Azure portal, navigate to **Properties** for your vault. Under **Backup Credentials**, select the checkbox for **Already using the latest Recovery Services Agent**. Select **Download**.
+
+![Download credentials](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
+
 ### How long are vault credentials valid?
 
 Vault credentials expire after 10 days. If the credentials file expires, download the file again from the Azure portal.
+
+### What characters are allowed for the passphrase?
+
+The passphrase should use characters from the ASCII character set, with [ASCII values less than or equal to 127](/office/vba/language/reference/user-interface-help/character-set-0127).
 
 ### From what drives can I back up files and folders?
 
@@ -70,11 +80,11 @@ When you rename a Windows machine, all currently configured backups are stopped.
 
 ### What is the maximum file path length for backup?
 
-The MARS agent relies on NTFS, and uses the filepath length specification limited by the [Windows API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). If the files you want to protect are longer than the allowed value, back up the parent folder or the disk drive.  
+The MARS agent relies on NTFS, and uses the filepath length specification limited by the [Windows API](/windows/win32/FileIO/naming-a-file#fully-qualified-vs-relative-paths). If the files you want to protect are longer than the allowed value, back up the parent folder or the disk drive.  
 
 ### What characters are allowed in file paths?
 
-The MARS agent relies on NTFS, and allows [supported characters](/windows/desktop/FileIO/naming-a-file#naming-conventions) in file names/paths.
+The MARS agent relies on NTFS, and allows [supported characters](/windows/win32/FileIO/naming-a-file#naming-conventions) in file names/paths.
 
 ### The warning "Azure Backups have not been configured for this server" appears
 
@@ -87,11 +97,11 @@ This warning can appear even though you've configured a backup policy, when the 
 
 ### What's the minimum size requirement for the cache folder?
 
-The size of the cache folder determines the amount of data that you are backing up.
+The size of the cache folder determines the amount of data that you're backing up.
 
 * The cache folder volumes should have free space that equals at least 5-10% of the total size of backup data.
 * If the volume has less than 5% free space, either increase the volume size, or move the cache folder to a volume with enough space by following [these steps](#how-do-i-change-the-cache-location-for-the-mars-agent).
-* If you backup Windows System State, you'll need an additional 30-35 GB of free space in the volume containing the cache folder.
+* If you back up Windows System State, you'll need an additional 30-35 GB of free space in the volume containing the cache folder.
 
 ### How to check if scratch folder is valid and accessible?
 
@@ -108,7 +118,7 @@ The size of the cache folder determines the amount of data that you are backing 
 1. Run this command in an elevated command prompt to stop the Backup engine:
 
     ```Net stop obengine```
-2. If you have configured System State backup, open Disk Management and unmount the disk(s) with names in the format `"CBSSBVol_<ID>"`.
+2. If you've configured System State backup, open Disk Management and unmount the disk(s) with names in the format `"CBSSBVol_<ID>"`.
 3. By default, the scratch folder is located at `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 4. Copy the entire `\Scratch` folder to a different drive that has sufficient space. Ensure the contents are copied, not moved.
 5. Update the following registry entries with the path of the newly moved scratch folder.
@@ -137,7 +147,7 @@ The following locations for the cache folder aren't recommended:
 
 ### Are there any attributes of the cache folder that aren't supported?
 
-The following attributes or their combinations are not supported for the cache folder:
+The following attributes or their combinations aren't supported for the cache folder:
 
 * Encrypted
 * De-duplicated
@@ -155,32 +165,37 @@ Yes, you can use the **Change Properties** option in the MARS agent to adjust th
 
 ### Manage
 
-**Can I recover if I forgot my passphrase?**
+#### Can I recover if I forgot my passphrase?
+
 The Azure Backup agent requires a passphrase (that you provided during registration) to decrypt the backed-up data during restore. Review the scenarios below to understand your options for handling a lost passphrase:
 
 | Original Machine <br> *(source machine where backups were taken)* | Passphrase | Available Options |
 | --- | --- | --- |
-| Available |Lost |If your original machine (where backups were taken) is available and still registered with the same Recovery Services vault, then you can regenerate the passphrase by following these [steps](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
-| Lost |Lost |Not possible to recover the data or data is not available |
+| Available |Lost |If your original machine (where backups were taken) is available and still registered with the same Recovery Services vault, then you can regenerate the passphrase by following these [steps](./backup-azure-manage-mars.md#re-generate-passphrase).  |
+| Lost |Lost |Not possible to recover the data or data isn't available |
 
 Consider the following conditions:
 
-* If you uninstall and re-register the agent on the same original machine with
-  * *Same passphrase*, then you will be able to restore your backed-up data.
-  * *Different passphrase*, then you will not be able to restore your backed-up data.
-* If you install the agent on a *different machine* with
-  * *Same passphrase* (used in the original machine), then you will be able to restore your backed-up data.
-  * *Different passphrase*, you will not be able to restore your backed-up data.
+* If you uninstall and re-register the agent on the same original machine with the
+  * *Same passphrase*, then you can restore your backed-up data.
+  * *Different passphrase*, then you can't restore your backed-up data.
+* If you install the agent on a *different machine* with the
+  * *Same passphrase* (used in the original machine), then you can restore your backed-up data.
+  * *Different passphrase*, you can't restore your backed-up data.
 * If your original machine is corrupted (preventing you from regenerating the passphrase through the MARS console), but you can restore or access the original scratch folder used by the MARS agent, then you might be able to restore (if you forgot the password). For more assistance, contact Customer Support.
 
-**How do I recover if I lost my original machine (where backups were taken)?**
+#### How do I recover if I lost my original machine (where backups were taken)?
 
 If you have the same passphrase (that you provided during registration) of the original machine, then you can restore the backed-up data to an alternate machine. Review the scenarios below to understand your restore options.
 
 | Original Machine | Passphrase | Available Options |
 | --- | --- | --- |
-| Lost |Available |You can install and register the MARS agent on another machine with the same passphrase that you provided during registration of the original machine. Choose **Recovery Option** > **Another location** to perform your restore. For more information, see this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
-| Lost |Lost |Not possible to recover the data or data is not available |
+| Lost |Available |You can install and register the MARS agent on another machine with the same passphrase that you provided during registration of the original machine. Choose **Recovery Option** > **Another location** to perform your restore. For more information, see this [article](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Lost |Lost |Not possible to recover the data or data isn't available |
+
+### My backup jobs have been failing or not running for a long time. I'm past the retention period. Can I still restore?
+
+As a safety measure, Azure Backup will preserve the most recent recovery point, even if it's past the retention period. Once backups resume and fresh recovery points become available, the older recovery point will be removed according to the specified retention.
 
 ### What happens if I cancel an ongoing restore job?
 
@@ -190,7 +205,7 @@ If an ongoing restore job is canceled, the restore process stops. All files rest
 
 * The MARS agent backs up ACLs set on files, folders, and volumes
 * For Volume Restore recovery option, the MARS agent provides an option to skip restoring ACL permissions to the file or folder being recovered
-* For the individual file and folders recovery option, the MARS agent will restore with ACL permissions (there is no option to skip ACL restore).
+* For the individual file and folders recovery option, the MARS agent will restore with ACL permissions (there's no option to skip ACL restore).
 
 ## Next steps
 

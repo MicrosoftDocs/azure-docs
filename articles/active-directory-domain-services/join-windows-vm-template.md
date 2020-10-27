@@ -2,7 +2,7 @@
 title: Use a template to join a Windows VM to Azure AD DS | Microsoft Docs
 description: Learn how to use Azure Resource Manager templates to join a new or existing Windows Server VM to an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
-ms.author: iainfou
+ms.date: 07/09/2020
+ms.author: joflore
 ---
 
 # Join a Windows Server virtual machine to an Azure Active Directory Domain Services managed domain using a Resource Manager template

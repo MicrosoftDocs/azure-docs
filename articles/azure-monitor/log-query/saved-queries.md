@@ -49,7 +49,7 @@ Each example query is represented by a card. You can quickly scan through the qu
 
 All the same functionality of the dialog experience can be accessed from the queries pane on the left-hand sidebar of Log Analytics. You can hover over a query name to get the query description and additional functionality.
 
-![Sidebar](media/saved-queries/sidebar-3.png)
+![Screenshot that shows the queries pane.](media/saved-queries/sidebar-3.png)
 
 ## Finding and filtering queries
 
@@ -74,8 +74,8 @@ Change the grouping of the queries by clicking the *group by* drop-down list:
 
 The dialog supports grouping by:
 
-- **Resource type** – A resource as defined in Azure, such as a Virtual machine. See the [Azure Monitor Table Reference](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resroucetype) for a full mapping of Azure Monitor Logs/Log Analytics tables to resource type.  
-- **Category** – A type of information such as *Security* or *Audit*. Categories are identical to the categories defined in the Tables side pane. See the [Azure Monitor Table Reference](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-category) for a full list of categories.  
+- **Resource type** – A resource as defined in Azure, such as a Virtual machine. See the [Azure Monitor Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype) for a full mapping of Azure Monitor Logs/Log Analytics tables to resource type.  
+- **Category** – A type of information such as *Security* or *Audit*. Categories are identical to the categories defined in the Tables side pane. See the [Azure Monitor Table Reference](/azure/azure-monitor/reference/tables/tables-category) for a full list of categories.  
 - **Solution** – An Azure Monitor solution associated with the queries
 - **Topic** – The topic of the example query such as *Activity Logs* or *App logs*. The topic property is unique to example queries and may differ according to the specific resource type.
 

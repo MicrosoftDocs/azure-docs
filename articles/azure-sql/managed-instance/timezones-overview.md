@@ -6,11 +6,11 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: 
-ms.date: 05/25/2020
+ms.date: 10/12/2020
 ---
 # Time zones in Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -89,7 +89,7 @@ Using the same time zone across a primary and secondary instance in a failover g
 
 ## Limitations
 
-- The time zone of the existing managed instance can't be changed.
+- The time zone of the existing managed instance can't be changed. As a workaround, create a new managed instance with the proper time zone and then either perform a manual backup and restore, or what we recommend, perform a [cross-instance point-in-time restore](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database).
 - External processes launched from the SQL Server Agent jobs don't observe the time zone of the instance.
 
 ## List of supported time zones

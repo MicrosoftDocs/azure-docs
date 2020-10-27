@@ -8,7 +8,7 @@ ms.date: 04/26/2020
 
 # Add assessment tools
 
-This article describes how to add assessment tools in [Azure Migrate](migrate-overview.md). 
+This article describes how to add assessment tools in [Azure Migrate](./migrate-services-overview.md). 
 
 - If you want to add an assessment tool and you don't yet have an Azure Migrate project, follow this [article](how-to-add-tool-first-time.md).-
 - If you've added an ISV tool, or Movere, for assessment, [follow the steps](prepare-isv-movere.md), to prepare to work with the tool.
@@ -56,4 +56,4 @@ This article describes how to add assessment tools in [Azure Migrate](migrate-ov
 
 ## Next steps
 
-Try out an assess using Azure Migrate Server Assessment for [VMware](tutorial-prepare-vmware.md) VMs, [Hyper-V](tutorial-prepare-hyper-v.md), or [physical servers](tutorial-prepare-physical.md)
+Try out an assess using Azure Migrate Server Assessment for [VMware](./tutorial-discover-vmware.md) VMs, [Hyper-V](./tutorial-discover-hyper-v.md), or [physical servers](./tutorial-discover-physical.md)

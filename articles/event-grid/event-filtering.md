@@ -1,13 +1,8 @@
 ---
 title: Event filtering for Azure Event Grid
 description: Describes how to filter events when creating an Azure Event Grid subscription.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Understand event filtering for Event Grid subscriptions

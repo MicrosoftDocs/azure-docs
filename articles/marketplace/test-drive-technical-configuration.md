@@ -1,12 +1,12 @@
 ---
 title: Test drive technical configuration, Microsoft commercial marketplace
 description: Learn about test drives. Test drives allow new customers to test drive your offer before committing to the purchase. 
-author: dsindona 
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/13/2019
+author: keferna
+ms.author: keferna
 ---
 
 # Test drive technical configuration
@@ -25,7 +25,7 @@ Microsoft can remove the complexity of setting up a test drive by hosting and ma
 
 - **Max concurrent test drives** (required) – Set the maximum number of customers that can use your test drive at one time. Each concurrent user will consume a Dynamics 365 license while the test drive is active, so ensure you have enough licenses available to support the maximum limit set. The recommended value is 3-5.
 
-- **Test drive duration** (required) – Enter the number of hours the test drive will stay active. After this time, the session will end and no longer consume one of your licenses. We recommend a value of 2-24 hours depending on the complexity of your offer. This duration may only be set in whole hours (for example, "2" hours is valid; "1.5" is not). The user can request a new session if they run out of time and want to access the test drive again.
+- **Test drive duration** (required) – Enter the number of hours the test drive will stay active (at least one hour). After this time, the session will end and no longer consume one of your licenses. We recommend a value of 2-24 hours depending on the complexity of your offer. This duration may only be set in whole hours (for example, "2" hours is valid; "1.5" is not). The user can request a new session if they run out of time and want to access the test drive again.
 
 - **Instance URL** (required) – The URL where the customer will begin their test drive. Typically the URL of your Dynamics 365 instance running your app with sample data installed (for example, `https://testdrive.crm.dynamics.com`).
 
@@ -43,9 +43,9 @@ This type of test drive is not hosted by Microsoft. Use it to connect with a Dyn
 
 - **Max concurrent test drives** (required) – Set the maximum number of customers that can use your test drive at one time. These test drives are already deployed, enabling customers to instantly access them without waiting for a deployment.
 
-- **Test drive duration** (required) – Enter the length of time that the Test Drive will stay active, in # of hours. The test drive terminates automatically after this time period ends.
+- **Test drive duration** (required) – Enter the number of hours the test drive will stay active (at least one hour). The test drive terminates automatically after this time period ends.
 
-- **Azure resource group name** (required) – Enter the [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) name where your Logic App test drive is saved.
+- **Azure resource group name** (required) – Enter the [Azure resource group](../azure-resource-manager/resource-group-overview.md#resource-groups)) name where your Logic App test drive is saved.
 
 - **Azure logic app name** (required) – Enter the name of the Logic app that assigns the test drive to the user. This Logic app must be saved in the Azure resources group above.
 
@@ -61,15 +61,15 @@ For more information on setting up Power BI apps, see [What are Power BI apps?](
 
 To allow Microsoft to deploy the test drive on your behalf, create and provide a separate, unique Azure Subscription (not required for Power BI test drives).
 
-- **Azure subscription ID** (required for Azure Resource Manager and Logic apps) – Enter the subscription ID to grant access to your Azure account services for resource usage reporting and billing. We recommend that you consider [creating a separate Azure subscription](https://docs.microsoft.com/azure/billing/billing-create-subscription) to use for test drives if you don't have one already. You can find your Azure subscription ID by logging in to the [Azure portal](https://portal.azure.com/) and navigating to the **Subscriptions** tab of the left-side menu. Selecting the tab will display your subscription ID (for example, "a83645ac-1234-5ab6-6789-1h234g764ghty").
+- **Azure subscription ID** (required for Azure Resource Manager and Logic apps) – Enter the subscription ID to grant access to your Azure account services for resource usage reporting and billing. We recommend that you consider [creating a separate Azure subscription](../cost-management-billing/manage/create-subscription.md) to use for test drives if you don't have one already. You can find your Azure subscription ID by logging in to the [Azure portal](https://portal.azure.com/) and navigating to the **Subscriptions** tab of the left-side menu. Selecting the tab will display your subscription ID (for example, "a83645ac-1234-5ab6-6789-1h234g764ghty").
 
-- **Azure AD tenant ID** (required) – Enter your Azure Active Directory (AD) [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **Properties**, then look for the **Directory ID** number listed (for example, 50c464d3-4930-494c-963c-1e951d15360e). You can also look up your organization's tenant ID using your domain name address at [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+- **Azure AD tenant ID** (required) – Enter your Azure Active Directory (AD) [tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **Properties**, then look for the **Directory ID** number listed (for example, 50c464d3-4930-494c-963c-1e951d15360e). You can also look up your organization's tenant ID using your domain name address at [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
 - **Azure AD tenant name** (required for Dynamic 365) – Enter your Azure Active Directory (AD) name. To find this name, sign in to the [Azure portal](https://portal.azure.com/), in the upper right corner your tenant name will be listed under your account name.
 
-- **Azure AD app ID** (required) – Enter your Azure Active Directory (AD) [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **App registrations**, then look for the **Application ID** number listed (such as `50c464d3-4930-494c-963c-1e951d15360e`).
+- **Azure AD app ID** (required) – Enter your Azure Active Directory (AD) [application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **App registrations**, then look for the **Application ID** number listed (such as `50c464d3-4930-494c-963c-1e951d15360e`).
 
-- **Azure AD app client secret** (required) – Enter your Azure AD application [client secret](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value. Don't navigate away from the page before you copy the value.
+- **Azure AD app client secret** (required) – Enter your Azure AD application [client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value. Don't navigate away from the page before you copy the value.
 
 ## Test drive listings
 

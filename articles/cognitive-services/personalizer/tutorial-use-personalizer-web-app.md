@@ -1,11 +1,13 @@
 ---
 title: Use web app - Personalizer
 description: Customize a C# .NET web app with a Personalizer loop to provide the correct content to a user based on actions (with features) and context features.
-ms.topic: troubleshooting
+ms.service: cognitive-services
+ms.subservice: personalizer
+ms.topic: tutorial
 ms.date: 06/10/2020
-ms.author: diberry
+ms.custom: devx-track-csharp
 ---
-# Add Personalizer to a .NET web app
+# Tutorial: Add Personalizer to a .NET web app
 
 Customize a C# .NET web app with a Personalizer loop to provide the correct content to a user based on actions (with features) and context features.
 
@@ -36,7 +38,7 @@ In this tutorial, the actions are types of food:
 * coffee
 * soup
 
-To help Personalizer learn about your actions, send both __actions with features_ and _context features_ with each Rank API request.
+To help Personalizer learn about your actions, send both _actions with features_ and _context features_ with each Rank API request.
 
 A **feature** of the model is information about the action or context that can be aggregated (grouped) across members of your web app user base. A feature _isn't_ individually specific (such as a user ID) or highly specific (such as an exact time of day).
 
@@ -150,7 +152,7 @@ The web app uses Personalizer to select the best action from the list of food ch
 * **actions** with their features such as `taste` and `spiceLevel`
 * **context** features such as `time` of day, user's `taste` preference, and the browser's user agent information, and context features
 * **actions to exclude** such as juice
-* **eventid**, which is different for each call to Rank API.
+* **eventId**, which is different for each call to Rank API.
 
 ## Personalizer model features in a web app
 
@@ -206,7 +208,7 @@ The sample browser-based web app (all code is provided) needs the following appl
 
 Install the following software:
 
-* [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) - the sample back end server uses .NET core
+* [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) - the sample back-end server uses .NET core
 * [Node.js](https://nodejs.org/) - the client/front end depends on this application
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), or [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/) - use either the developer environment of Visual Studio 2019 or the .NET Core CLI to build and run the app
 
@@ -248,7 +250,7 @@ Build and run HttpRequestFeaturesExample with one of the following methods:
 Through a web browser, you can send a Rank request and a Reward request and see their responses, as well as the http request features extracted from your environment.
 
 > [!div class="mx-imgBorder"]
-> ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/web-app-single-page.png)
+> ![Screenshot shows an example of the Http Request Feature in a web browser.](./media/tutorial-web-app/web-app-single-page.png)
 
 ## Demonstrate the Personalizer loop
 
@@ -261,7 +263,7 @@ Through a web browser, you can send a Rank request and a Reward request and see 
 1. Set the reward value, then select the **Send Reward Request** button. If you don't change the reward value, the client application always sends the value of `1` to Personalizer.
 
     > [!div class="mx-imgBorder"]
-    > ![Build and run the HTTPRequestFeaturesExample project. A browser window opens to display the single page application.](./media/tutorial-web-app/reward-score-api-call.png)
+    > ![Screenshot shows the Reward Request section.](./media/tutorial-web-app/reward-score-api-call.png)
 
     For your own future application, generation of the reward score may happen after collecting information from the user's behavior on the client, along with business logic on the server.
 
@@ -288,7 +290,7 @@ This is a typical .NET web app with a client application, much of the boiler pla
 
 In the server's **Startup.cs**, the Personalizer endpoint and key are used to create the Personalizer client. The client application doesn't need to communicate with Personalizer in this app, instead relying on the server to make those SDK calls.
 
-The web server's .NET start up code is:
+The web server's .NET start-up code is:
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Personalizer;
@@ -564,7 +566,7 @@ In this sample application, you can select a value to see how the reward impacts
 
 ## Additional ways to learn from this sample
 
-The sample uses several time-based events configured in the Azure portal for your personalizer resource. Play with those values then return to this sample web app to see how the changes impact the Rank and Reward calls:
+The sample uses several time-based events configured in the Azure portal for your Personalizer resource. Play with those values then return to this sample web app to see how the changes impact the Rank and Reward calls:
 
 * Reward wait time
 * Model update frequency

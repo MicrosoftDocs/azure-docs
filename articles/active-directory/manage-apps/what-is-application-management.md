@@ -1,6 +1,6 @@
 ---
-title: Managing Applications with Azure Active Directory | Microsoft Docs
-description: An overview of using Azure Active Directory (AD) as an Identity and Authorization Management (IAM) system for your cloud and on-premises applications.
+title: What is application management in Azure Active Directory
+description: An overview of using Azure Active Directory (AD) as an Identity and Access Management (IAM) system for your cloud and on-premises applications.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # What is application management?
 
-Azure AD is an Identity and Authorization Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored. 
+Azure AD is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored. 
 
 Azure AD must be configured to integrate with an application. In other words, it needs to know what applications are using it as an identity system. The process of keeping Azure AD aware of these applications, and how it should handle them, is known as application management.
 
@@ -25,12 +25,12 @@ You manage applications on the **Enterprise applications** blade located in the 
 
 ![The Enterprise applications option under the Manage section of the Azure AD portal.](media/what-is-application-management/enterprise-applications-in-nav.png)
 
-## What is an Identity and Authorization Management (IAM) system?
+## What is an Identity and Access Management (IAM) system?
 An application is a piece of software that is used for some purpose. Most applications require users to sign in so that the application can provide a tailored experience for that particular user. In other words, the application needs to know the identity of the user using the application. Because it knows what functionality to offer, or remove, for the user.
 
 If each application kept track of users separately then the result would be a silo of different usernames and logins for every application. One application wouldn't know anything about the users in other applications.
 
-A centralized identity system solves this problem by providing a single place to store user information that can then be used by all applications. These systems have come to be known as Identity and Authorization Management (IAM) systems. Azure Active AD is the IAM system for the Microsoft cloud.
+A centralized identity system solves this problem by providing a single place to store user information that can then be used by all applications. These systems have come to be known as Identity and Access Management (IAM) systems. Azure Active AD is the IAM system for the Microsoft cloud.
 
 >[!TIP]
 >An IAM system provides a single place to keep track of user identities. Azure AD is the IAM system for the Microsoft cloud.
@@ -45,7 +45,7 @@ Organizations often have hundreds of applications that users depend on to get th
 
 ## How does Azure AD work with applications?
 
-Azure AD simplifies the way you manage your applications by providing a single identity system for your cloud and on-premises apps. You can add your software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps to Azure AD. Then users sign in once to securely and seamlessly access these applications, along with Office 365 and other business applications from Microsoft. You can reduce administrative costs by [automating user provisioning](../app-provisioning/user-provisioning.md). You can also use multi-factor authentication and Conditional Access policies to provide secure application access.
+Azure AD simplifies the way you manage your applications by providing a single identity system for your cloud and on-premises apps. You can add your software as a service (SaaS) applications, on-premises applications, and line of business (LOB) apps to Azure AD. Then users sign in once to securely and seamlessly access these applications, along with Microsoft 365 and other business applications from Microsoft. You can reduce administrative costs by [automating user provisioning](../app-provisioning/user-provisioning.md). You can also use multi-factor authentication and Conditional Access policies to provide secure application access.
 
 ![Diagram that shows apps federated via Azure AD](media/what-is-application-management/app-management-overview.png)
 
@@ -55,11 +55,11 @@ There are four main types of applications that you can add to your **Enterprise 
 
 - **Azure AD Gallery applications** – Azure AD has a gallery that contains thousands of applications that have been pre-integrated for single sign-on with Azure AD. Some of the applications your organization uses are probably in the gallery. [Learn about planning your app integration](plan-an-application-integration.md), or get detailed integration steps for individual apps in the [SaaS application tutorials](https://docs.microsoft.com/azure/active-directory/saas-apps/).
 
-- **On-premises applications with Application Proxy** – With Azure AD Application Proxy, you can integrate your on-premises web apps with Azure AD to support single sign-on. Then end users can access your on-premises web apps in the same way they access Office 365 and other SaaS apps, see [Provide remote access to on-premises applications through Azure AD's Application Proxy](application-proxy.md).
+- **On-premises applications with Application Proxy** – With Azure AD Application Proxy, you can integrate your on-premises web apps with Azure AD to support single sign-on. Then end users can access your on-premises web apps in the same way they access Microsoft 365 and other SaaS apps, see [Provide remote access to on-premises applications through Azure AD's Application Proxy](application-proxy.md).
 
 - **Custom-developed applications** – When building your own line-of-business applications, you can integrate them with Azure AD to support single sign-on. By registering your application with Azure AD, you have control over the authentication policy for the application. For more information, see [guidance for developers](developer-guidance-for-integrating-applications.md).
 
-- **Non-Gallery applications** – Bring your own applications! Support single sign-on for other apps by adding them to Azure AD. There are multiple ways to integrate an application, some of these are listed below. For more information, see [Configure single sign-on for non-gallery apps](configure-single-sign-on-non-gallery-applications.md).
+- **Non-Gallery applications** – Bring your own applications! Support single sign-on for other apps by adding them to Azure AD. There are multiple ways to integrate an application, some of these are listed below. For more information, see [Configure SAML single sign-on](configure-saml-single-sign-on.md).
 
 >[!TIP]
 >You can integrate Azure AD with an application even if it is not already pre-configured and in the app gallery. You can **integrate Azure AD with any** of the following
@@ -73,7 +73,7 @@ Coupling Azure AD single sign-on (SSO) with [Conditional Access](../conditional-
 
 ## Improve productivity with single sign-on
 
-Enabling single sign-on (SSO) across applications and Office 365 provides a superior sign-in experience for existing users by reducing or eliminating sign-in prompts. The user’s environment feels more cohesive and is less distracting without multiple prompts, or the need to manage multiple passwords. The business group can manage and approve access through self-service and dynamic membership. Allowing the right people in the business to manage access to an application improves the security of the identity system.
+Enabling single sign-on (SSO) across applications and Microsoft 365 provides a superior sign-in experience for existing users by reducing or eliminating sign-in prompts. The user’s environment feels more cohesive and is less distracting without multiple prompts, or the need to manage multiple passwords. The business group can manage and approve access through self-service and dynamic membership. Allowing the right people in the business to manage access to an application improves the security of the identity system.
 
 SSO improves security. *Without single sign-on*, administrators need to create and update user accounts for each individual application, which takes time. Also, users have to track multiple credentials to access their applications. As a result, users tend to write down their passwords or use other password management solutions, which introduce data security risks. [Read more about single sign-on](what-is-single-sign-on.md).
 
@@ -89,8 +89,6 @@ For Human Resources focused applications, or other applications with a large set
 
 ## Next steps
 
-- [View applications already configured in your Azure AD tenant](view-applications-portal.md)
-- [Quickstart: Add a gallery application to your Azure AD tenant](add-application-portal.md)
-- [Add a gallery app to your Azure AD organization](add-gallery-app.md)
+- [Quickstart Series on Application Management](view-applications-portal.md)
 - [Get started with application integration](plan-an-application-integration.md)
 - [Learn how to automate provisioning](../app-provisioning/user-provisioning.md)

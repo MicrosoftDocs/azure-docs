@@ -4,7 +4,7 @@ description: Learn how to add an automation service principal to the Azure Analy
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
@@ -13,7 +13,10 @@ ms.custom: fasttrack-edit
 
 # Add a service principal to the server administrator role 
 
- To automate unattended PowerShell tasks, a service principal must have **server administrator** privileges on the Analysis Services server being managed. This article describes how to add a service principal to the server administrators role on an Azure AS server. You can do this using SQL Server Management Studio or a Resource Manager template.
+ To automate unattended PowerShell tasks, a service principal must have **server administrator** privileges on the Analysis Services server being managed. This article describes how to add a service principal to the server administrators role on an Azure AS server. You can do this using SQL Server Management Studio or a Resource Manager template. 
+
+> [!NOTE]
+> Service principals must be added directly to the server administrator role. Adding a service principal to a security group, and then adding that security group to the server administrator role is not supported. 
 
 ## Before you begin
 Before completing this task, you must have a service principal registered in Azure Active Directory.
@@ -37,7 +40,7 @@ You can configure server administrators using SQL Server Management Studio (SSMS
 
 ## Using a Resource Manager template
 
-You can also configure server administrators by deploying the Analysis Services server using an Azure Resource Manager template. The identity running the deployment must belong to the **Contributor** role for the resource in [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md).
+You can also configure server administrators by deploying the Analysis Services server using an Azure Resource Manager template. The identity running the deployment must belong to the **Contributor** role for the resource in [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 > [!IMPORTANT]
 > The service principal must be added using the format `app:{service-principal-client-id}@{azure-ad-tenant-id}`.
@@ -110,7 +113,5 @@ You can then use this client ID in conjunction with the tenant ID to add the man
 
 ## Related information
 
-* [Download SQL Server PowerShell Module](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [Download SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
-
-
+* [Download SQL Server PowerShell Module](/sql/ssms/download-sql-server-ps-module)   
+* [Download SSMS](/sql/ssms/download-sql-server-management-studio-ssms)

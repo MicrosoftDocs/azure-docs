@@ -1,14 +1,14 @@
 ---
 title: "Tutorial: Copy to Blob storage via REST APIs"
 titleSuffix: Azure Data Box
-description: Learn how to copy data to your Azure Data Box Blob storage via REST APIs
+description: In this tutorial, learn how to connect to Azure Data Box Blob storage by using REST APIs over http or https, then copy data from Azure Data Box.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/09/2019
+ms.date: 07/02/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -112,11 +112,11 @@ Follow these steps to import the `.cer` file into the root store of a Windows or
 
 3. Select **Place all certificates in the following store**, and then click **Browse**. Navigate to the root store of your remote host, and then click **Next**.
 
-    ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
+    ![Import certificate using PowerShell 2](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
 4. Click **Finish**. A message that tells you that the import was successful appears.
 
-    ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
+    ![Import certificate using PowerShell 3](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
 #### Use a Linux system
 

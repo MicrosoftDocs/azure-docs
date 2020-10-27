@@ -1,6 +1,6 @@
 ---
 title:  "Algorithm & module reference"
-description: Learn about the modules available in Azure Machine Learning designer (preview)
+description: Learn about the modules available in Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -11,9 +11,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
 ---
-# Algorithm & module reference for Azure Machine Learning designer (preview)
+# Algorithm & module reference for Azure Machine Learning designer
 
-This reference content provides the technical background on each of the machine learning algorithms and modules available in Azure Machine Learning designer (preview).
+This reference content provides the technical background on each of the machine learning algorithms and modules available in Azure Machine Learning designer.
 
 Each module represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
 
@@ -38,7 +38,7 @@ For help with choosing algorithms, see
 
 | Functionality | Description | Module |
 | --- |--- | --- |
-| Regression | Predict a value. | [Boosted Decision Tree Regression](boosted-decision-tree-regression.md) <br/> [Decision Forest Regression](decision-forest-regression.md) <br/> [Linear Regression](linear-regression.md)  <br/> [Neural Network Regression](neural-network-regression.md)  <br/> |
+| Regression | Predict a value. | [Boosted Decision Tree Regression](boosted-decision-tree-regression.md) <br/> [Decision Forest Regression](decision-forest-regression.md) <br/> [Fast Forest Quantile Regression](fast-forest-quantile-regression.md)  <br/> [Linear Regression](linear-regression.md)  <br/> [Neural Network Regression](neural-network-regression.md)  <br/> [Poisson Regression](poisson-regression.md)  <br/>|
 | Clustering | Group data together.| [K-Means Clustering](k-means-clustering.md)
 | Classification | Predict a class.  Choose from binary (two-class) or multiclass algorithms.| [Multiclass Boosted Decision Tree](multiclass-boosted-decision-tree.md) <br/> [Multiclass Decision Forest](multiclass-decision-forest.md) <br/> [Multiclass Logistic Regression](multiclass-logistic-regression.md)  <br/> [Multiclass Neural Network](multiclass-neural-network.md) <br/> [One vs. All Multiclass](one-vs-all-multiclass.md) <br/> [Two-Class Averaged Perceptron](two-class-averaged-perceptron.md) <br/>  [Two-Class Boosted Decision Tree](two-class-boosted-decision-tree.md)  <br/> [Two-Class Decision Forest](two-class-decision-forest.md) <br/>  [Two-Class Logistic Regression](two-class-logistic-regression.md) <br/> [Two-Class Neural Network](two-class-neural-network.md) <br/> [Two Class Support Vector Machine](two-class-support-vector-machine.md) | 
 

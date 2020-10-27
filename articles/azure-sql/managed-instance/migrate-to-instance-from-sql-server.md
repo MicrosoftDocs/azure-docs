@@ -9,13 +9,13 @@ ms.devlang:
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: douglas, carlrab
+ms.reviewer:
 ms.date: 07/11/2019
 ---
 # SQL Server instance migration to Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). For information on migrating to a single database or elastic pool, see [Migrate to a single or pooled database](../database/migrate-to-database-from-sql-server.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
+In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). For information on migrating to a single database or elastic pool, see [Migrate to SQL Database](../database/migrate-to-database-from-sql-server.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
 
 > [!NOTE]
 > If you want to quickly start and try Azure SQL Managed Instance, you might want to go to the [quickstart guide](quickstart-content-reference-guide.md) instead of this page.
@@ -120,7 +120,7 @@ RESTORE of native backups (.bak files) taken from a SQL Server instance, availab
 
 The following diagram provides a high-level overview of the process:
 
-![migration-flow](./media/migrate-to-instance-from-sql-server/migration-flow.png)
+![Diagram shows SQL Server with an arrow labeled BACKUP / Upload to URL flowing to Azure Storage and a second arrow labeled RESTORE from URL flowing from Azure Storage to a Managed Instance of SQL.](./media/migrate-to-instance-from-sql-server/migration-flow.png)
 
 The following table provides more information regarding the methods you can use depending on source SQL Server version you are running:
 
@@ -156,7 +156,7 @@ Database migration to a managed instance keeps database settings and its origina
 As a prerequisite, make sure that you have completed the following activities:
 
 - Align your settings on the managed instance with the settings from the source SQL Server instance by investigating various instance, database, tempdb settings, and configurations. Make sure that you have not changed settings like compatibility levels or encryption before you run the first performance comparison, or accept the risk that some of the new features that you enabled might affect some queries. To reduce migration risks, change the database compatibility level only after performance monitoring.
-- Implement [storage best practice guidelines for General Purpose](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525), such as pre-allocating the size of the files to get better performance.
+- Implement [storage best practice guidelines for General Purpose](https://techcommunity.microsoft.com), such as pre-allocating the size of the files to get better performance.
 - Learn about the [key environment differences that might cause the performance differences between a managed instance and SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/), and identify the risks that might affect the performance.
 - Make sure that you keep enabled Query Store and automatic tuning on your managed instance. These features enable you to measure workload performance and automatically fix the potential performance issues. Learn how to use Query Store as an optimal tool for getting information about workload performance before and after database compatibility level change, as explained in [Keep performance stability during the upgrade to a newer SQL Server version](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 Once you have prepared the environment that is comparable as much as possible with your on-premises environment, you can start running your workload and measure performance. Measurement process should include the same parameters that you measured [while you created baseline performance of your workload measures on the source SQL Server instance](#create-a-performance-baseline).
@@ -192,7 +192,7 @@ Even if you don't make some changes in managed instance during the migration, th
 
 For instance, you don’t have to create backups on managed instance - the service performs backups for you automatically. You no longer must worry about scheduling, taking, and managing backups. SQL Managed Instance provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](../database/recovery-using-backups.md#point-in-time-restore). Additionally, you do not need to worry about setting up high availability, as [high availability](../database/high-availability-sla.md) is built in.
 
-To strengthen security, consider using [Azure Active Directory Authentication](../database/security-overview.md), [auditing](auditing-configure.md), [threat detection](../database/advanced-data-security.md), [row-level security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), and [dynamic data masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
+To strengthen security, consider using [Azure Active Directory Authentication](../database/security-overview.md), [auditing](auditing-configure.md), [threat detection](../database/azure-defender-for-sql.md), [row-level security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), and [dynamic data masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
 
 In addition to advanced management and security features, a managed instance provides a set of advanced tools that can help you to [monitor and tune your workload](../database/monitor-tune-overview.md). [Azure SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) enables you to monitor a large set of managed instances and centralize monitoring of a large number of instances and databases. [Automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) in managed instances continuously monitors performance of your SQL plan execution statistics and automatically fixes the identified performance issues.
 

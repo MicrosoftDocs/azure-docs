@@ -4,8 +4,9 @@ description: Learn about important points to help you buy an Azure reservation.
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 05/04/2020
+ms.subservice: reservations
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
 ---
 
@@ -29,9 +30,12 @@ You can scope a reservation to a subscription or resource groups. Setting the sc
 
 You have three options to scope a reservation, depending on your needs:
 
-- **Single resource group scope**—Applies the reservation discount to the matching resources in the selected resource group only.
-- **Single subscription scope**—Applies the reservation discount to the matching resources in the selected subscription.
-- **Shared scope**—Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment. For Microsoft Customer Agreement customers, the billing scope is the billing profile. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
+- **Single resource group scope**— Applies the reservation discount to the matching resources in the selected resource group only.
+- **Single subscription scope**— Applies the reservation discount to the matching resources in the selected subscription.
+- **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context.
+    - For Enterprise Agreement customers, the billing context is the enrollment. The reservation shared scope would include multiple Active Directory tenants in an enrollment.
+    - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
+    - For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
 
 While applying reservation discounts on your usage, Azure processes the reservation in the following order:
 
@@ -63,7 +67,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Databricks](prepay-databricks-reserved-capacity.md)
 - [Data Explorer](/azure/data-explorer/pricing-reserved-capacity)
-- [Disk Storage](../../virtual-machines/linux/disks-reserved-capacity.md)
+- [Disk Storage](../../virtual-machines/disks-reserved-capacity.md)
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
 - [Software plans](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Storage](../../storage/blobs/storage-blob-reserved-capacity.md)
@@ -114,7 +118,7 @@ Depending on how you pay for your Azure subscription, email reservation notifica
 For customers with EA subscriptions:
 
 - Notifications are sent only to the EA notification contacts.
-- Users added to a reservation using RBAC (IAM) permission don't receive any email notifications.
+- Users added to a reservation using Azure RBAC (IAM) permission don't receive any email notifications.
 
 For customers with individual subscriptions:
 

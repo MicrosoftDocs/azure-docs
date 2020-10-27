@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang:
-ms.topic: conceptual
+ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
@@ -15,7 +15,7 @@ ms.date: 12/18/2018
 # Multi-tenant applications with elastic database tools and row-level security
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Elastic database tools](elastic-scale-get-started.md) and [row-level security (RLS)][rls] cooperate to enable scaling the data tier of a multi-tenant application with Azure SQL Database. Together these technologies help you build an application that has a highly scalable data tier. The data tier supports multi-tenant shards, and uses **ADO.NET SqlClient** or **Entity Framework**. For more information, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](../../sql-database/saas-tenancy-app-design-patterns.md).
+[Elastic database tools](elastic-scale-get-started.md) and [row-level security (RLS)][rls] cooperate to enable scaling the data tier of a multi-tenant application with Azure SQL Database. Together these technologies help you build an application that has a highly scalable data tier. The data tier supports multi-tenant shards, and uses **ADO.NET SqlClient** or **Entity Framework**. For more information, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](./saas-tenancy-app-design-patterns.md).
 
 - **Elastic database tools** enable developers to scale out the data tier with standard sharding practices, by using .NET libraries and Azure service templates. Managing shards by using the [Elastic Database Client Library][s-d-elastic-database-client-library] helps automate and streamline many of the infrastructural tasks typically associated with sharding.
 - **Row-level security** enables developers to safely store data for multiple tenants in the same database. RLS security policies filter out rows that do not belong to the tenant executing a query. Centralizing the filter logic inside the database simplifies maintenance and reduces the risk of a security error. The alternative of relying on all client code to enforce security is risky.
@@ -53,9 +53,9 @@ Notice that because RLS has not yet been enabled in the shard databases, each of
 
 ## 1. Application tier: Set TenantId in the SESSION\_CONTEXT
 
-First you connect to a shard database by using the data-dependent routing APIs of the elastic database client library. The application still must tell the database which TenantId is using the connection. The TenantId tells the RLS security policy which rows must be filtered out as belonging to other tenants. Store the current TenantId in the [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) of the connection.
+First you connect to a shard database by using the data-dependent routing APIs of the elastic database client library. The application still must tell the database which TenantId is using the connection. The TenantId tells the RLS security policy which rows must be filtered out as belonging to other tenants. Store the current TenantId in the [SESSION\_CONTEXT](/sql/t-sql/functions/session-context-transact-sql) of the connection.
 
-An alternative to SESSION\_CONTEXT is to use [CONTEXT\_INFO](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql). But SESSION\_CONTEXT is a better option. SESSION\_CONTEXT is easier to use, it returns NULL by default, and it supports key-value pairs.
+An alternative to SESSION\_CONTEXT is to use [CONTEXT\_INFO](/sql/t-sql/functions/context-info-transact-sql). But SESSION\_CONTEXT is a better option. SESSION\_CONTEXT is easier to use, it returns NULL by default, and it supports key-value pairs.
 
 ### Entity Framework
 
@@ -222,7 +222,7 @@ RLS is implemented in Transact-SQL. A user-defined function defines the access l
     - A BLOCK predicate prevents rows that fail the filter from being INSERTed or UPDATEd.
     - If SESSION\_CONTEXT has not been set, the function returns NULL, and no rows are visible or able to be inserted.
 
-To enable RLS on all shards, execute the following T-SQL by using either Visual Studio (SSDT), SSMS, or the PowerShell script included in the project. Or if you are using [Elastic Database Jobs](../../sql-database/elastic-jobs-overview.md), you can automate execution of this T-SQL on all shards.
+To enable RLS on all shards, execute the following T-SQL by using either Visual Studio (SSDT), SSMS, or the PowerShell script included in the project. Or if you are using [Elastic Database Jobs](./elastic-jobs-overview.md), you can automate execution of this T-SQL on all shards.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.
@@ -346,16 +346,16 @@ Elastic database tools and row-level security can be used together to scale out 
 
 - [What is an Azure elastic pool?](elastic-pool-overview.md)
 - [Scaling out with Azure SQL Database](elastic-scale-introduction.md)
-- [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](../../sql-database/saas-tenancy-app-design-patterns.md)
+- [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](./saas-tenancy-app-design-patterns.md)
 - [Authentication in multitenant apps, using Azure AD and OpenID Connect](/azure/architecture/multitenant-identity/authenticate)
 - [Tailspin Surveys application](/azure/architecture/multitenant-identity/tailspin)
 
 ## Questions and Feature Requests
 
-For questions, contact us on the [Microsoft Q&A question page for SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html). And add any feature requests to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
+For questions, contact us on the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html). And add any feature requests to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
-[rls]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
+[rls]: /sql/relational-databases/security/row-level-security
 [s-d-elastic-database-client-library]:elastic-database-client-library.md
