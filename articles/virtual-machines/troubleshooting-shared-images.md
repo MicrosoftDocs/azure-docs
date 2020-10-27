@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: troubleshooting
 ms.workload: infrastructure
-ms.date: 06/15/2020
+ms.date: 10/27/2020
 ms.author: cynthn
 ms.reviewer: cynthn
 
