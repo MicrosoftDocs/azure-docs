@@ -30,7 +30,7 @@ IP firewall rules grant access to databases based on the originating IP address 
 
 ### Virtual network firewall rules
 
-[Virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) extend your virtual network connectivity over the Azure backbone and enable Azure SQL Database to identify the virtual network subnet that traffic originates from. To allow traffic to reach Azure SQL Database, use the SQL [service tags](../../virtual-network/security-overview.md) to allow outbound traffic through Network Security Groups.
+[Virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) extend your virtual network connectivity over the Azure backbone and enable Azure SQL Database to identify the virtual network subnet that traffic originates from. To allow traffic to reach Azure SQL Database, use the SQL [service tags](../../virtual-network/network-security-groups-overview.md) to allow outbound traffic through Network Security Groups.
 
 [Virtual network rules](vnet-service-endpoint-rule-overview.md) enable Azure SQL Database to only accept communications that are sent from selected subnets inside a virtual network.
 

@@ -109,7 +109,7 @@ To add the sample images to the project, insert the following code after the tag
 [!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_tags)]
 
 > [!NOTE]
-> You'll need to change the path to the images based on where you downloaded the Cognitive Services Python SDK Samples repo earlier.
+> You'll need to change the path to the images based on where you downloaded the Cognitive Services Python SDK Samples repo.
 
 ## Train the project
 
