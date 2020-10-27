@@ -239,9 +239,10 @@ By contrast, ephemeral OS disks are stored only on the host machine, just like a
 
 Like the temporary disk, an ephemeral OS disk is included in the price of the virtual machine, so you incur no additional storage costs.
 
-When a user does not explicitly request managed disks for the OS, AKS will default to ephemeral OS if possible for a given nodepool configuration.
+> [!IMPORTANT]
+>When a user does not explicitly request managed disks for the OS, AKS will default to ephemeral OS if possible for a given nodepool configuration.
 
-When using ephemeral OS, the OS disk must fit in the VM cache. The sizes for VM cache are available in the [Azure documentation](../virtual-machines/dv3-dsv3-series) in parentheses next to IO throughput ("cache size in GiB"). 
+When using ephemeral OS, the OS disk must fit in the VM cache. The sizes for VM cache are available in the [Azure documentation](../virtual-machines/dv3-dsv3-series) in parentheses next to IO throughput ("cache size in GiB").
 
 Ephemeral OS requires at least version 0.4.63 of the aks-preview CLI extension.
 
@@ -265,7 +266,7 @@ Configure the cluster to use Ephemeral OS disks when the cluster is created. Use
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-If you want to create a regular cluster using network-attached OS disks, you can do so by omitting the custom `--node-osdisk-type` tag, or specifying `--node-osdisk-type=Managed`. You can also choose to add more ephemeral OS node pools as per below.
+If you want to create a regular cluster using network-attached OS disks, you can do so by specifying `--node-osdisk-type=ManagedDisks`. You can also choose to add more ephemeral OS node pools as per below.
 
 ### Use Ephemeral OS on existing clusters
 Configure a new node pool to use Ephemeral OS disks. Use the `--node-osdisk-type` flag to set as the OS disk type as the OS disk type for that node pool.
