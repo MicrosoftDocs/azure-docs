@@ -542,10 +542,10 @@
         items:
         - name: Azure portal
           href: flexible-server/how-to-configure-audit-logs-portal.md
-      - name: Restart server
-        items:
-        - name: Azure portal
-          href: flexible-server/how-to-restart-server-portal.md
+    - name: Restart server
+      items:
+      - name: Azure portal
+        href: flexible-server/how-to-restart-server-portal.md
     - name: Replication
       items:
       - name: Create read replicas Azure portal
