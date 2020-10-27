@@ -42,7 +42,7 @@ As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other 
     * **DevOps**: Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs. 
     * **Troubleshoot**: Azure Spring Cloud diagnostics provide an interactive experience to help troubleshoot apps. No configuration is required. When you find issues, Azure Spring Cloud diagnostics points out what’s wrong and guides you to information that helps troubleshoot and resolve the issue.
 
-## Other features of Azure Spring Cloud:
+## Other features
 
 * Configuration server
 * Blue/green deployments
