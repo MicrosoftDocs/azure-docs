@@ -33,7 +33,7 @@ If you run into issues while performing any operations on shared image galleries
 
 *The provided location <region\> is not available for resource type 'Microsoft.Compute/galleries'. List of available regions for the resource type is …*  
 <u>Cause</u>: The region specified for the gallery is incorrect or requires an access request.  
-<u>Workaround</u>: Check that the region name is spelled correctly. You can run this command to see what regions you have access to. If the region is not listed in the list, submit [an access request](https://docs.microsoft.com/en-us/troubleshoot/azure/general/region-access-request-process).
+<u>Workaround</u>: Check that the region name is spelled correctly. You can run this command to see what regions you have access to. If the region is not listed in the list, submit [an access request](troubleshoot/azure/general/region-access-request-process).
 
 *Can not delete resource before nested resources are deleted.*  
 <u>Cause</u>: You have attempted to delete a gallery that contains at least one existing image definition. A gallery must be empty before it can be deleted.  
@@ -71,7 +71,7 @@ If you run into issues while performing any operations on shared image galleries
 
 *The provided location <region\> is not available for resource type 'Microsoft.Compute/galleries'. List of available regions for the resource type is …*  
 <u>Cause</u>: The <region\> is incorrect or requires an access request  
-<u>Workaround</u>: Check that the region name is spelled correctly. You can run this command to see what regions you have access to. If the region is not listed in the list, submit [an access request](https://docs.microsoft.com/en-us/troubleshoot/azure/general/region-access-request-process).
+<u>Workaround</u>: Check that the region name is spelled correctly. You can run this command to see what regions you have access to. If the region is not listed in the list, submit [an access request](troubleshoot/azure/general/region-access-request-process).
 
 *Unable to serialize value: <value\> as type: 'iso-8601'., ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string <value\>*  
 <u>Cause</u>: The value provided to property is not properly formatted as a date.  
@@ -119,13 +119,13 @@ If you run into issues while performing any operations on shared image galleries
 
 *ZRS storage account type is not supported in this region.*  
 <u>Cause</u>: ZRS storage account type is used in a region that does not yet support this.  
-<u>Workaround</u>: Change the storage account type to 'Premium\_LRS' or 'Standard\_LRS'. Please check our documentation for the latest [list of regions](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy#zone-redundant-storage) with ZRS preview enabled.
+<u>Workaround</u>: Change the storage account type to 'Premium\_LRS' or 'Standard\_LRS'. Please check our documentation for the latest [list of regions](azure/storage/common/storage-redundancy#zone-redundant-storage) with ZRS preview enabled.
 
 **Issues with creating or updating image versions**
 
 *The provided location <region\> is not available for resource type 'Microsoft.Compute/galleries'. List of available regions for the resource type is …*  
 <u>Cause</u>: The <region\> is incorrect or requires an access request  
-<u>Workaround</u>: Check that the region name is spelled correctly. You can run this command to see what regions you have access to. If the region is not listed in the list, submit [an access request](https://docs.microsoft.com/en-us/troubleshoot/azure/general/region-access-request-process).
+<u>Workaround</u>: Check that the region name is spelled correctly. You can run this command to see what regions you have access to. If the region is not listed in the list, submit [an access request](troubleshoot/azure/general/region-access-request-process).
 
 *Can not perform requested operation on nested resource. Parent resource <galleryName/imageDefinitionName\> not found.*  
 <u>Cause</u>: There is no gallery with the name <galleryName/imageDefinitionName\> in the current subscription and resource group.  
