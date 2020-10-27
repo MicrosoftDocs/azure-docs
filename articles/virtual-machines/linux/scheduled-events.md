@@ -154,7 +154,7 @@ Each event is scheduled a minimum amount of time in the future based on the even
 
 ### Polling frequency
 
-You can poll the endpoint for updates as frequently or infrequently as you like.  However, the longer the time between requests, the more time you potentially lose to react to an upcoming event.  Most events will come with five to fifteen minutes of advance notice, though in some cases this could be as little as 30 seconds.  So in order ensure you have as much time as possible to take mitigating actions, it is recommended that you poll the service once per second.
+You can poll the endpoint for updates as frequently or infrequently as you like. However, the longer the time between requests, the more time you potentially lose to react to an upcoming event. Most events have 5 to 15 minutes of advance notice, although in some cases advance notice might be as little as 30 seconds. To ensure that you have as much time as possible to take mitigating actions, we recommend that you poll the service once per second.
 
 ### Start an event 
 
