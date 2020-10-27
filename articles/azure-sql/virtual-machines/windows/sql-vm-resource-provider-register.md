@@ -183,7 +183,7 @@ Register your SQL Server 2008 R2 virtual machine in NoAgent mode with Azure Powe
 
 ---
 
-## Get mode
+## Verify mode
 
 You can view the current mode of your SQL Server IaaS agent by using Azure Powershell: 
 
