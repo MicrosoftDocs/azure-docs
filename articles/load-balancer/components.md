@@ -123,6 +123,7 @@ Basic load balancer doesn't support Outbound rules.
 
 ## Limitations
 
+- Learn about Load Balancer [limits](https://aka.ms/lblimits) 
 - Load balancer provides load balancing and port forwarding for specific TCP or UDP protocols. Load-balancing rules and inbound NAT rules support TCP and UDP, but not other IP protocols including ICMP.
 - Outbound flow from a backend VM to a frontend of an internal Load Balancer will fail.
 - A load balancer rule can't span two virtual networks.  Frontends and their backend instances must be located in the same virtual network.  

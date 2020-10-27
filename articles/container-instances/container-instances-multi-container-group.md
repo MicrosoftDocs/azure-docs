@@ -3,7 +3,7 @@ title: Tutorial - Deploy multi-container group - template
 description: In this tutorial, you learn how to deploy a container group with multiple containers in Azure Container Instances by using an Azure Resource Manager template with the Azure CLI.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Deploy a multi-container group using a Resource Manager template

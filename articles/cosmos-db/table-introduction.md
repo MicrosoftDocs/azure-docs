@@ -14,7 +14,7 @@ ms.author: sngun
 [Azure Cosmos DB](introduction.md) provides the Table API for applications that are written for Azure Table storage and that need premium capabilities like:
 
 * [Turnkey global distribution](distribute-data-globally.md).
-* [Dedicated throughput](partition-data.md) worldwide.
+* [Dedicated throughput](partitioning-overview.md) worldwide.
 * Single-digit millisecond latencies at the 99th percentile.
 * Guaranteed high availability.
 * Automatic secondary indexing.

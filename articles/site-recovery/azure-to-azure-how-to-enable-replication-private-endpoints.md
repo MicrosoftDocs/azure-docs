@@ -193,7 +193,7 @@ following requirements apply:
 > [Standard page blob prices](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 Follow the
-[guidance for creation of private storage](../private-link/create-private-endpoint-storage-portal.md#create-your-private-endpoint)
+[guidance for creation of private storage](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint)
 to create a storage account with private endpoint. Ensure to select **Yes** to integration with
 private DNS zone. Select an already created DNS zone or create a new one.
 

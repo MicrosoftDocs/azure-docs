@@ -106,7 +106,7 @@ Syslog
 | count 
 ```
 
-In some cases the evaluated column is created implicitly by the query processing enine since the filtering is done not just on the field:
+In some cases the evaluated column is created implicitly by the query processing engine since the filtering is done not just on the field:
 ```Kusto
 //less efficient
 SecurityEvent

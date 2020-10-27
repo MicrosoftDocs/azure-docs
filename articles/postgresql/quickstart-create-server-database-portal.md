@@ -57,6 +57,7 @@ Go to the [Azure portal](https://portal.azure.com/) to create an Azure Database 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-database-portal/deployment-success.png" alt-text="success deployment.":::
 
+[Having issues? Let us know.](https://aka.ms/postgres-doc-feedback)
 
 ## Configure a firewall rule
 By default, the server that you create is not publicly accessible. You need to give permissions to your IP address. Go to your server resource in the Azure portal and select **Connection security** from left-side menu for your server resource. If you're not sure how to find your resource, see [Open resources](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
@@ -69,9 +70,11 @@ Select **Add current client IP address**, and then select **Save**. You can add 
 > [!NOTE]
 > To avoid connectivity issues, check if your network allows outbound traffic over port 5432. Azure Database for PostgreSQL uses that port.
 
+[Having issues? Let us know.](https://aka.ms/postgres-doc-feedback)
+
 ## Connect to the server with psql
 
-You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html), which are popular PostgreSQL clients. For this quickstart, we'll connect by using psql in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) within the Azure portal.
+You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html), which are popular PostgreSQL clients. For this quickstart, we'll connect by using psql in [Azure Cloud Shell](../cloud-shell/overview.md) within the Azure portal.
 
 1. Make a note of your server name, server admin login name, password, and subscription ID for your newly created server from the **Overview** section of your server.
     > [!div class="mx-imgBorder"]
@@ -124,6 +127,8 @@ You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](ht
    ```
 6. Type `\q`, and then select the Enter key to close psql.
 
+[Having issues? Let us know.](https://aka.ms/postgres-doc-feedback)
+
 ## Clean up resources
 You've successfully created an Azure Database for PostgreSQL server in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting either the resource group or the PostgreSQL server.
 
@@ -139,11 +144,13 @@ To delete the server, select the **Delete** button on the **Overview** page of y
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="media/quickstart-create-database-portal/12-delete.png" alt-text="Screenshot that shows the button for deleting a server.":::
 
+[Having issues? Let us know.](https://aka.ms/postgres-doc-feedback)
+
 ## Next steps
 > [!div class="nextstepaction"]
 > [Migrate your database using export and import](./howto-migrate-using-export-and-import.md) <br/>
 
-
 > [!div class="nextstepaction"]
 > [Design a database](./tutorial-design-database-using-azure-portal.md#create-tables-in-the-database)
 
+[Cannot find what you are looking for? Let us know.](https://aka.ms/postgres-doc-feedback)

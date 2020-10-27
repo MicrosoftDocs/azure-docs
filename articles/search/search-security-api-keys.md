@@ -8,12 +8,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 10/22/2020
 ---
 
 # Create and manage api-keys for an Azure Cognitive Search service
 
-All requests to a search service need a read-only api-key that was generated specifically for your service. The api-key is the sole mechanism for authenticating access to your search service endpoint and must be included on every request. In [REST solutions](search-get-started-postman.md), the api-key is typically specified in a request header. In [.NET solutions](search-howto-dotnet-sdk.md#core-scenarios), a key is often specified as a configuration setting and then passed as [Credentials](/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (admin key) or [SearchCredentials](/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (query key) on [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient).
+All requests to a search service need a read-only `api-key` that was generated specifically for your service. The `api-key` is the sole mechanism for authenticating access to your search service endpoint and must be included on every request. 
+
++ In [REST solutions](search-get-started-postman.md), the api-key is typically specified in a request header
+
++ In [.NET solutions](search-howto-dotnet-sdk.md), a key is often specified as a configuration setting and then passed as an [AzureKeyCredential](/dotnet/api/azure.azurekeycredential)
 
 Keys are created with your search service during service provisioning. You can view and obtain key values in the [Azure portal](https://portal.azure.com).
 
@@ -91,6 +95,6 @@ Members of the following roles can view and regenerate keys: Owner, Contributor,
 
 ## See also
 
-+ [Role-based access control in Azure Cognitive Search](search-security-rbac.md)
++ [Azure role-based access control in Azure Cognitive Search](search-security-rbac.md)
 + [Manage using PowerShell](search-manage-powershell.md) 
 + [Performance and optimization article](search-performance-optimization.md)

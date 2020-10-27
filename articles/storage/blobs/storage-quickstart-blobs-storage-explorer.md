@@ -34,7 +34,7 @@ On first launch, the **Microsoft Azure Storage Explorer - Connect** window is sh
 
 Select **Add an Azure Account** and click **Sign in..**. Follow the on-screen prompts to sign into your Azure account.
 
-![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![Screenshot that shows the Microsoft Azure Storage Explorer - Connect window.](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
 When it completes connecting, Azure Storage Explorer loads with the **Explorer** tab shown. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azurite storage emulator](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) accounts, or [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
 
@@ -66,7 +66,7 @@ When you select **OK**, the files selected are queued to upload, each file is up
 
 In the **Azure Storage Explorer** application, select a container under a storage account. The main pane shows a list of the blobs in the selected container.
 
-![Microsoft Azure Storage Explorer - list blobs in a container](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
+![Screenshot that shows where you select a container in Microsoft Azure Storage Explorer.](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
 
 ## Download blobs
 
@@ -76,7 +76,7 @@ To download blobs using **Azure Storage Explorer**, with a blob selected, select
 
 Azure Storage Explorer provides the capability to take and manage [snapshots](storage-blob-snapshots.md) of your blobs. To take a snapshot of a blob, right-click the blob and select **Create Snapshot**. To view snapshots for a blob, right-click the blob and select **Manage Snapshots**. A list of the snapshots for the blob are shown in the current tab.
 
-![Microsoft Azure Storage Explorer - list blobs in a container](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
+![Screenshot that shows a list of blobs in Microsoft Azure Storage Explorer.](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 
 ## Manage access policies
 

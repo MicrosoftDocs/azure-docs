@@ -3,7 +3,7 @@ title: Monitor an Azure Kubernetes Service (AKS) cluster deployed | Microsoft Do
 description: Learn how to enable monitoring of an Azure Kubernetes Service (AKS) cluster with Azure Monitor for containers already deployed in your subscription.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: devx-track-terraform
+ms.custom: devx-track-terraform, devx-track-azurecli
 ---
 
 # Enable monitoring of Azure Kubernetes Service (AKS) cluster already deployed
@@ -127,12 +127,10 @@ To enable monitoring directly from one of your AKS clusters in the Azure portal,
 2. In the list of resources, begin typing **Containers**.  The list filters based on your input.
 
 3. Select **Kubernetes services**.
+    
+4. In the list of Kubernetes services, select a service.
 
-    ![The Kubernetes services link](./media/container-insights-onboard/portal-search-containers-01.png)
-
-4. In the list of containers, select a container.
-
-5. On the container overview page, select **Monitor Containers**.
+5. On the Kubernetes service overview page, select **Monitoring - Insights**.
 
 6. On the **Onboarding to Azure Monitor for containers** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it in the drop-down list.
     The list preselects the default workspace and location that the AKS container is deployed to in the subscription.

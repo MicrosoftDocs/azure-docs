@@ -30,7 +30,7 @@ This article shows how to set up both kinds of managed identities for your logic
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
 
-* To give a managed identity access to an Azure resource, you need to add a role to the target resource for that identity. To add roles, you need [Azure AD administrator permissions](../active-directory/users-groups-roles/directory-assign-admin-roles.md) that can assign roles to identities in the corresponding Azure AD tenant.
+* To give a managed identity access to an Azure resource, you need to add a role to the target resource for that identity. To add roles, you need [Azure AD administrator permissions](../active-directory/roles/permissions-reference.md) that can assign roles to identities in the corresponding Azure AD tenant.
 
 * The target Azure resource that you want to access. On this resource, you'll add a role for the managed identity, which helps the logic app authenticate access to the target resource.
 
@@ -302,7 +302,7 @@ Before you can use your logic app's managed identity for authentication, set up 
    > [!TIP]
    > If the **Add role assignment** option is disabled, you most likely don't have permissions. 
    > For more information about the permissions that let you manage roles for resources, see 
-   > [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+   > [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 1. Under **Add role assignment**, select a **Role** that gives your identity the necessary access to the target resource.
 
@@ -470,7 +470,7 @@ In the Azure portal, first remove the identity's access to [your target resource
    > [!TIP]
    > If the **Remove** option is disabled, you most likely don't have permissions. 
    > For more information about the permissions that let you manage roles for resources, see 
-   > [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+   > [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 The managed identity is now removed and no longer has access to the target resource.
 

@@ -110,8 +110,8 @@ A Hit has the following properties:
 
 ## API documentation
 
-* [C# RemoteManager.RayCastQueryAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.raycastqueryasync)
-* [C++ RemoteManager::RayCastQueryAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#raycastqueryasync)
+* [C# RemoteManager.RayCastQueryAsync()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.raycastqueryasync)
+* [C++ RemoteManager::RayCastQueryAsync()](/cpp/api/remote-rendering/remotemanager#raycastqueryasync)
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Deploy Azure API for FHIR using an ARM template'
-description: In this quickstart, learn how to deploy Azure API for Fast Healthcare Interoperability Resources (FHIR®), by using an Azure Resource Manager template.
+description: In this quickstart, learn how to deploy Azure API for Fast Healthcare Interoperability Resources (FHIR®), by using an Azure Resource Manager template (ARM template).
 author: mgblythe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -219,9 +219,14 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
+For a step-by-step tutorial that guides you through the process of creating an ARM template, see the [tutorial to create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+
 ## Next steps
 
-For a step-by-step tutorial that guides you through the process of creating an ARM template, see:
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. To set additional settings in your Azure API for FHIR, proceed to the additional settings how-to guide. If you are ready to start using the Azure API for FHIR, read more on how to register applications.
 
-> [!div class="nextstepaction"]
-> [ Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+>[!div class="nextstepaction"]
+>[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[Register Applications Overview](fhir-app-registration.md)

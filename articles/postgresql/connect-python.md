@@ -15,7 +15,7 @@ ms.date: 10/18/2020
 In this quickstart, you will learn how to connect to the database on Azure Database for PostgreSQL Single Server and run SQL statements to query using Python on macOS, Ubuntu Linux, or Windows.
 
 > [!TIP]
-> If you are looking to build a Django Application with PostgreSQL then checkout the tutorial, [Deploy a Django web app with PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md) tutorial.
+> If you are looking to build a Django Application with PostgreSQL then checkout the tutorial, [Deploy a Django web app with PostgreSQL](../app-service/tutorial-python-postgresql-app.md) tutorial.
 
 
 ## Prerequisites
@@ -143,6 +143,7 @@ cursor.execute("DELETE FROM inventory WHERE name = %s;", ("orange",))
 print("Deleted 1 row of data")
 
 ```
+
 [Having issues? Let us know](https://aka.ms/postgres-doc-feedback)
 
 ## Next steps
@@ -150,6 +151,6 @@ print("Deleted 1 row of data")
 > [Manage Azure Database for MySQL server using Portal](./howto-create-manage-server-portal.md)<br/>
 
 > [!div class="nextstepaction"]
-> [Manage Azure Database for MySQL server using CLI](./how-to-manage-server-cli.md)
+> [Manage Azure Database for MySQL server using CLI](./how-to-manage-server-cli.md)<br/>
 
 [Cannot find what you are looking for? Let us know.](https://aka.ms/postgres-doc-feedback)
