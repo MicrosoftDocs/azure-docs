@@ -32,7 +32,7 @@ While this article manually configures the availability group environment, it is
 
 ## Prerequisites
 
-The tutorial assumes you have a basic understanding of SQL Server Always On availability groups. If you need more information, see [Overview of Always On availability groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+The tutorial assumes you have a basic understanding of SQL Server Always On availability groups. If you need more information, see [Overview of Always On availability groups (SQL Server)](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server).
 
 Before you begin the tutorial, you need to [Complete prerequisites for creating Always On availability groups in Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). If these prerequisites are completed already, you can jump to [Create Cluster](#CreateCluster).
 
@@ -49,7 +49,7 @@ The following table lists the prerequisites that you need to complete before sta
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Installation domain account** | - Local administrator on each SQL Server <br/> - Member of SQL Server sysadmin fixed server role for each instance of SQL Server  |
 
 >[!NOTE]
-> Many of the steps provided in this tutorial can now be automated with the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell and the Az CLI](availability-group-az-cli-configure.md) and [Azure Quickstart Templates](availability-group-quickstart-template-configure.md).
+> Many of the steps provided in this tutorial can now be automated with the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell and the Az CLI](./availability-group-az-commandline-configure.md) and [Azure Quickstart Templates](availability-group-quickstart-template-configure.md).
 
 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear – H2's appear in the right pane on the web page and are important for navigation.*-->
@@ -112,7 +112,7 @@ Add the other SQL Server to the cluster.
    ![Add Node Confirmation](./media/availability-group-manually-configure-tutorial/46-addnodeconfirmation.png)
 
    >[!WARNING]
-   >If you are using Storage Spaces and do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they don't appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](https://technet.microsoft.com/library/hh831739).
+   >If you are using Storage Spaces and do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they don't appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)).
    >
 
 1. Select **Next**.
@@ -125,7 +125,7 @@ Add the other SQL Server to the cluster.
 
 ### Add a cluster quorum file share
 
-In this example, the Windows cluster uses a file share to create a cluster quorum. This tutorial uses a Node and File Share Majority quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster](https://technet.microsoft.com/library/cc731739.aspx).
+In this example, the Windows cluster uses a file share to create a cluster quorum. This tutorial uses a Node and File Share Majority quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731739(v=ws.11)).
 
 1. Connect to the file share witness member server with a remote desktop session.
 
@@ -174,7 +174,7 @@ Next, set the cluster quorum.
 1. On **Select Quorum Witness**, select **Configure a file share witness**.
 
    >[!TIP]
-   >Windows Server 2016 supports a cloud witness. If you choose this type of witness, you do not need a file share witness. For more information, see [Deploy a cloud witness for a Failover Cluster](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). This tutorial uses a file share witness, which is supported by previous operating systems.
+   >Windows Server 2016 supports a cloud witness. If you choose this type of witness, you do not need a file share witness. For more information, see [Deploy a cloud witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness). This tutorial uses a file share witness, which is supported by previous operating systems.
    >
 
 1. On **Configure File Share Witness**, type the path for the share you created. Select **Next**.
@@ -345,7 +345,7 @@ You are now ready to configure an availability group using the following steps:
    ![availability group in Failover Cluster Manager](./media/availability-group-manually-configure-tutorial/80-clustermanager.png)
 
    > [!WARNING]
-   > Do not try to fail over the availability group from the Failover Cluster Manager. All failover operations should be performed from within **AlwaysOn Dashboard** in SSMS. For more information, see [Restrictions on Using The Failover Cluster Manager with availability groups](https://msdn.microsoft.com/library/ff929171.aspx).
+   > Do not try to fail over the availability group from the Failover Cluster Manager. All failover operations should be performed from within **AlwaysOn Dashboard** in SSMS. For more information, see [Restrictions on Using The Failover Cluster Manager with availability groups](/sql/database-engine/availability-groups/windows/failover-clustering-and-always-on-availability-groups-sql-server).
     >
 
 At this point, you have an availability group with replicas on two instances of SQL Server. You can move the availability group between instances. You cannot connect to the availability group yet because you do not have a listener. In Azure virtual machines, the listener requires a load balancer. The next step is to create the load balancer in Azure.
@@ -533,7 +533,7 @@ To test the connection:
 The SQLCMD connection automatically connects to whichever instance of SQL Server hosts the primary replica.
 
 > [!TIP]
-> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](https://technet.microsoft.com/library/cc753558.aspx).
+> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11)).
 >
 
 ## Next steps
