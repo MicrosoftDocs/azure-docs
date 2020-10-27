@@ -74,4 +74,4 @@ Since this update is a client-side change, if the client used to read data from 
 Since this configuration is client-side, information is not available on server side.
 
 ### What if I have further questions?
-If you have a support plan and you need technical help, create Azure support request, see [How to create Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+If you have a support plan and you need technical help, create Azure support request, see [How to create Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
