@@ -19,7 +19,7 @@ landingContent:
     - linkListType: concept
       links:
         - text: What are Cognitive Services containers?
-          url: ../container-support.md
+          url: ../cognitive-services-container-support
         - text: Frequently Asked Questions
           url: container-faq.md
         - text: Container image tags
