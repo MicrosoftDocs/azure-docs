@@ -1,6 +1,6 @@
 ---
-title: What is the SQL Server IaaS Agent Extension? 
-description: This article describes how the SQL Server IaaS Agent Extension helps automate management specific administration tasks of of SQL Server on Azure VMs. These include automated backup, automated patching, and Azure Key Vault integration.
+title: What is the SQL Server IaaS Agent extension? 
+description: This article describes how the SQL Server IaaS Agent extension helps automate management specific administration tasks of of SQL Server on Azure VMs. These include automated backup, automated patching, and Azure Key Vault integration.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -17,29 +17,25 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
 ---
-# What is the SQL Server IaaS Agent Extension?
+# What is the SQL Server IaaS Agent extension?
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
-The SQL Server IaaS Agent Extension (SqlIaasExtension) runs on Azure virtual machines to automate administration tasks. 
+The SQL Server IaaS Agent extension (SqlIaasExtension) runs on SQL Server on Azure Virtual Machines (VMs) to automate management and administration tasks. 
 
-This article provides an overview of the extension. To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the articles for [Automatic installation](sql-vm-resource-provider-automatic-registration.md), [Single VM](sql-vm-resource-provider-register.md),  or [VMs in bulk](sql-vm-resource-provider-bulk-register). 
+This article provides an overview of the extension. To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the articles for [Automatic installation](sql-vm-resource-provider-automatic-registration.md), [Single VMs](sql-vm-resource-provider-register.md),  or [VMs in bulk](sql-vm-resource-provider-bulk-register). 
 
 ## Overview
 
-The SQL Server IaaS Agent Extension is installed when you register your SQL Server VMs with the SQL VM resource provider. Registering with the resource provider creates the **SQL virtual machine** _resource_ within your subscription, which is a separate resource from the virtual machine resource. Unregistering your SQL Server VM from the resource provider will remove the **SQL virtual machine** _resource_ but will not drop the actual virtual machine.
+The SQL Server IaaS Agent extension provides a number of benefits for SQL Server on Azure VMs: 
 
-Deploying a SQL Server VM Azure Marketplace image through the Azure portal automatically registers the SQL Server VM with the resource provider. However, if you choose to self-install SQL Server on an Azure virtual machine, or provision an Azure virtual machine from a custom VHD, you should register your SQL Server VM with the resource provider for:
+- **Feature benefits**: The extension unlocks a number of automation feature benefits, such as portal management, license flexibility, automated backup, automated patching and more. See [Feature benefits](#feature-benefits) later in this article for details. 
 
-- **Feature benefits**: The SQL VM resource provider unlocks a number of automation feature benefits, such as automated backup and automated patching. See [Feature benefits](#feature-benefits) later in this article for more details. 
+- **Compliance**: The extension offers a simplified method of fulfilling the requirement to notify Microsoft that the Azure Hybrid Benefit has been enabled as is specified in the product terms. This process negates needing to manage licensing registration forms for each resource.  
 
-- **Portal management**: The SQL VM resource provider enables you to [manage your SQL Server VM in the Azure portal](manage-sql-vm-portal.md). 
+- **Free**: The extension in all three manageability modes is completely free. There is no additional cost associated with the resource provider, or with changing management modes. 
 
-- **Compliance**: The SQL VM resource provider offers a simplified method of fulfilling the requirement to notify Microsoft that the Azure Hybrid Benefit has been enabled as is specified in the product terms. This process negates needing to manage licensing registration forms for each resource.  
-
-- **Free**: Registering with the SQL VM resource provider in all three manageability modes is completely free. There is no additional cost associated with the resource provider, or with changing management modes. 
-
-- **Simplified license management**: The SQL VM resource provider simplifies SQL Server license management, and allows you to quickly identify SQL Server VMs with the Azure Hybrid Benefit enabled using the [Azure portal](manage-sql-vm-portal.md), the Azure CLI, or PowerShell: 
+- **Simplified license management**: The extension simplifies SQL Server license management, and allows you to quickly identify SQL Server VMs with the Azure Hybrid Benefit enabled using the [Azure portal](manage-sql-vm-portal.md), the Azure CLI, or PowerShell: 
 
    # [Azure CLI](#tab/azure-cli)
 
@@ -66,7 +62,7 @@ The SQL IaaS extension has three management modes:
 
 - **NoAgent** mode is dedicated to SQL Server 2008 and SQL Server 2008 R2 installed on Windows Server 2008. There is no impact to memory or CPU when using the NoAgent mode. There is no cost associated with using the NoAgent manageability mode. 
 
-You can view the current mode of your SQL Server IaaS agent by using PowerShell: 
+You can view the current mode of your SQL Server IaaS agent by using Az PowerShell: 
 
   ```powershell-interactive
   # Get the SqlVirtualMachine
@@ -74,17 +70,11 @@ You can view the current mode of your SQL Server IaaS agent by using PowerShell:
   $sqlvm.SqlManagementType
   ```
 
-
-
 ## Feature benefits 
 
-The SQL Server IaaS Agent Extension unlocks a number of feature benefits for managing your SQL Server VM. 
+The SQL Server IaaS Agent extension unlocks a number of feature benefits for managing your SQL Server VM. 
 
-The following table provides details about these benefits: 
-
-supports the following administration tasks:
-
-The SQL VM resource provider unlocks [automated patching](automated-patching.md), [automated backup](automated-backup.md), [Azure Key Vault integration](azure-key-vault-integration-configure.md) as well as monitoring and manageability capabilities. It also unlocks [licensing](licensing-model-azure-hybrid-benefit-ahb-change.md) and [edition](change-sql-server-edition.md) flexibility. 
+The following table details these benefits: 
 
 
 | Feature | Description |
@@ -99,14 +89,20 @@ The SQL VM resource provider unlocks [automated patching](automated-patching.md)
 
 ## Installation
 
-The SQL Server IaaS extension is installed when you register your SQL Server VM with the [SQL Server VM resource provider](sql-vm-resource-provider-register.md). 
+The SQL Server IaaS Agent extension is installed when you register your SQL Server VMs with the SQL VM resource provider. Registering with the resource provider creates the **SQL virtual machine** _resource_ within your subscription, which is a _separate_ resource from the virtual machine resource. Unregistering your SQL Server VM from the resource provider will remove the **SQL virtual machine** _resource_ but will not drop the actual virtual machine.
 
-Alternatively, you can enable the [Automatic registration](sql-vm-resource-provider-automatic-registration.md) feature, which will automatically register any currently existing or future SQL Server VMs with the SQL VM resource provider. 
+Deploying a SQL Server VM Azure Marketplace image through the Azure portal automatically registers the SQL Server VM with the resource provider. However, if you choose to self-install SQL Server on an Azure virtual machine, or provision an Azure virtual machine from a custom VHD, then you must register your SQL Server VM with the SQL VM resource provider to install the SQL IaaS Agent extension. 
 
-You also have the option to register your SQL Server VMs in [bulk](sql-vm-resource-provider-bulk-register.md). 
+To install the extension, register the SQL Server VM with the resource provider:
+- [Automatically for all current and future VMs in a subscription](sql-vm-resource-provider-automatic-registration.md)
+- [For a single VM](sql-vm-resource-provider-register.md)
+- [For multiple VMs in bulk](sql-vm-resource-provider-bulk-register)
+
+
+
 
 ### Install on a VM with a single named SQL Server instance
-The SQL Server IaaS extension will work with a named instance on SQL Server if the default instance is uninstalled and the IaaS extension is reinstalled.
+The SQL Server IaaS extension will work with a named instance on SQL Server if the default instance is uninstalled and the SQL IaaS extension is reinstalled.
 
 To use a named instance of SQL Server, follow these steps:
    1. Deploy a SQL Server VM from Azure Marketplace. 
@@ -119,7 +115,7 @@ To use a named instance of SQL Server, follow these steps:
 ## Get status of extension
 One way to verify that the extension is installed is to view the agent status in the Azure portal. Select **All settings** in the virtual machine window, and then select **Extensions**. You should see the **SqlIaasExtension** extension listed.
 
-![Status of the SQL Server IaaS Agent Extension in the Azure portal](./media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-portal.png)
+![Status of the SQL Server IaaS Agent extension in the Azure portal](./media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-portal.png)
 
 You can also use the **Get-AzVMSqlServerExtension** Azure PowerShell cmdlet:
 
@@ -138,7 +134,7 @@ The previous command confirms that the agent is installed and provides general s
 ## Removal
 In the Azure portal, you can uninstall the extension by selecting the ellipsis in the **Extensions** window of your virtual machine properties. Then select **Delete**.
 
-![Uninstalling the SQL Server IaaS Agent Extension in Azure portal](./media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-uninstall.png)
+![Uninstalling the SQL Server IaaS Agent extension in Azure portal](./media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-uninstall.png)
 
 You can also use the **Remove-AzVMSqlServerExtension** PowerShell cmdlet:
 

@@ -19,9 +19,16 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 # Install SQL Server IaaS Agent Extension
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Registering your SQL Server VM with the SQL VM resource provider installs the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). 
+Registering your SQL Server VM with the SQL VM resource provider installs the [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md). 
 
 This article teaches you to register a single SQL Server VM with the SQL VM resource provider. Alternatively, you can register all SQL Server VMs [automatically](sql-vm-resource-provider-automatic-registration.md) or [scripted in bulk](sql-vm-resource-provider-bulk-register.md).
+
+
+## Overview
+
+Registering with the resource provider installs the [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) and also creates the **SQL virtual machine** _resource_ within your subscription, which is a _separate_ resource from the virtual machine resource. Unregistering your SQL Server VM from the resource provider will remove the **SQL virtual machine** _resource_ but will not drop the actual virtual machine.
+
+Deploying a SQL Server VM Azure Marketplace image through the Azure portal automatically registers the SQL Server VM with the resource provider. However, if you choose to self-install SQL Server on an Azure virtual machine, or provision an Azure virtual machine from a custom VHD, then you must register your SQL Server VM with the SQL VM resource provider to install the SQL IaaS Agent extension. 
 
 To utilize the SQL VM resource provider, you must first [register your subscription with the resource provider](#register-subscription-with-rp), which gives the resource provider the ability to create resources within that specific subscription.
 
@@ -71,10 +78,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ## Register with RP
 
-There are three management modes for the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md#management-modes). 
+There are three management modes for the [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md#management-modes). 
 
 Installing the extension in full management mode restarts the SQL Server service so it's recommended to install the extension in lightweight mode first, and then [upgrade to full](#upgrade-to-full) during a maintenance window. 
-
 
 ### Lightweight management mode
 
@@ -156,7 +162,6 @@ Register your SQL Server 2008 R2 virtual machine in NoAgent mode with the Azure 
 
 Register your SQL Server 2008 virtual machine in NoAgent mode with Az PowerShell: 
 
-
   ```powershell-interactive
   # Get the existing compute VM
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
@@ -167,7 +172,6 @@ Register your SQL Server 2008 virtual machine in NoAgent mode with Az PowerShell
   
 
 Register your SQL Server 2008 R2 virtual machine in NoAgent mode with Az PowerShell: 
-
 
   ```powershell-interactive
   # Get the existing compute VM
