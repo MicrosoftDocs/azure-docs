@@ -89,64 +89,6 @@ The IoT Edge hub is the other module that makes up the Azure IoT Edge runtime. I
 <!-- TODO: Is this example still true with cloud authentication as disabled? I don t believe so-->
 The IoT Edge hub isn't a full version of IoT Hub running locally. IoT Edge hub silently delegates some tasks to IoT Hub. For example, IoT Edge hub forwards authentication requests to IoT Hub when a device first tries to connect. After the first connection is established, security information is cached locally by IoT Edge hub. Future connections from that device are allowed without having to authenticate to the cloud again.
 
-### Connecting to the IoT Edge hub
-
-The IoT Edge hub accepts connections from device or module clients, either over the MQTT protocol or the AMQP protocol.
-
->[!NOTE]
-> IoT Edge hub supports clients that connect using MQTT or AMQP. It does not support clients that use HTTP.
-
-When a client connects to the IoT Edge hub, the following steps are taken:
-
-1. If Transport Layer Security (TLS) is used (recommended), a TLS channel is built to establish an encrypted communication between the client and the IoT Edge hub.
-2. Authentication information is sent from the client to IoT Edge hub to identify itself.
-3. IoT Edge hub authorizes or rejects the connection based on its authentication policy.
-
-#### Secure connections (TLS)
-
-By default, the IoT Edge hub only accepts connections secured with Transport Layer Security (TLS), e.g. encrypted connections that a third party cannot decrypt.
-
-If a client connects on port 8883 (MQTTS) or 5671 (AMQPS) to the IoT Edge hub, a TLS channel must be built. During the TLS handshake, the IoT Edge hub sends its certificate chain that the client needs to validate. In order to validate the certificate chain, the root certificate of the IoT Edge hub must be installed as a trusted certificate on the client. If the root certificate is not trusted, the client library will be rejected by the IoT Edge hub with a certificate verification error.
-
-The steps to follow to install this root certificate of the broker on device clients are described in the [transparent gateway](how-to-create-transparent-gateway.md) and in the [prepare a downstream device](how-to-connect-downstream-device.md#prepare-a-downstream-device.md) documentation. Modules can use the same root certificate as the IoT Edge hub by leveraging the IoT Edge daemon API. <!--Varun to verify this last sentence-->
-
-#### Authentication
-
-The IoT Edge Hub only accepts connections from devices or modules that have an IoT Hub identity, e.g. that have been registered in IoT Hub and have one of the three client authentication methods supported by IoT hub to provide prove their identity: [Symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication), [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication), [X.509 CA signed authentication](how-to-authenticate-downstream-device.md#x509-ca-signed-authentication).  These IoT Hub identities can be verified locally by the IoT Edge hub so connections can still be made while offline.
-
-Notes:
-- The IoT Edge hub will not allow connecting two clients using the same credentials information. It will disconnect the already connected client if a second client connects using the same credentials.
-- IoT Edge modules currently only support symmetric key authentication.
-- MQTT clients with only local username and passwords are not accepted by the IoT Edge hub MQTT broker, they must use IoT Hub identities.
-
-##### MQTT
-
-The first packet being sent to the MQTT broker is the CONNECT packet. This packet provides three authentication information: a `client identifier`, a `username` and `password`. The connect packet delivers the following credentials:
-
--	The `client identifier` field is the name of the device or module name in IoT Hub. It uses the following syntax:
-
-    - For a device: `<device_name>`
-
-    - For a module: `<device_name>/<module_name>`
-
-- The `username` field is derived from the device or module name, and the IoTHub name the device belongs to using the following syntax:
-
-    - For a device: `<iot_hub_name>.azure-devices.net/<device_name>/?api-version=2018-06-30`
-
-    - For a module: `<iot_hub_name>.azure-devices.net/<device_name>/<module_name>/?api-version=2018-06-30`
-
-- The `password` field of the CONNECT packet depends on the authentication mode:
-
-    - In case of the [symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication), the `password` field is a SAS token. You can use the  [generate-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext_azure_cli_iot_ext_az_iot_hub_generate_sas_token) Azure CLI commands to generate SAS token for a device or module.
-    - In case of the [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication), the `password` field is not present. In this authentication mode, a TLS channel is required. The client needs to connect to port 8883 to establish a TLS connection. During the TLS handshake, the MQTT broker requests a client certificate. This certificate is used to verify the identity of the client and thus the `password` field is not needed later when the CONNECT packet is sent. Sending both a client certificate and the password field will lead to an error and the connection will be closed. MQTT libraries and TLS client libraries usually have a way to send a client certificate when initiating a connection. You can see a step-by-step example in section [Using X509 Certificate for client authentication](#using-x509-certificate-for-client-authentication).
-
-#### Authorization
-
-Once authenticated, the IoT Edge hub have two ways to authorize client connections:
-
-1. By verifying that a client belongs to its set of trusted clients defined in IoT Hub. The set of trusted clients is specified by setting up parent/child or device/module relationships in IoT Hub. When a module is created in IoT Edge, a trust relationship is automatically established between this module and its IoT Edge device. This is the only authorization model supported by the routing brokering mechanism.
-2. By setting up an authorization policy. This authorization policy is a document listing all the authorized client identities that can access resources on the IoT Edge hub. This is the primary authorization model used by the IoT Edge hub MQTT broker, though parent/child and device/module relationships can also be understood by the MQTT broker for IoT Hub topics.
-
 ### Cloud communication
 
 To reduce the bandwidth that your IoT Edge solution uses, the IoT Edge hub optimizes how many actual connections are made to the cloud. IoT Edge hub takes logical connections from modules or downstream devices and combines them for a single physical connection to the cloud. The details of this process are transparent to the rest of the solution. Clients think they have their own connection to the cloud even though they are all being sent over the same connection. The IoT Edge hub can either use the AMQP or the MQTT protocol to communicate upstream with the cloud, independently from protocols used by downstream devices. However, the IoT Edge hub currently only supports combining logical connections into a single physical connection by using AMQP as the upstream protocol and its multiplexing capabilities. AMQP is the default upstream protocol.
@@ -224,6 +166,62 @@ Here are the features available with each brokering mechanism:
 |Device-to-Device     |         |    &#10004;     |
 |Local broadcasting     |         |    &#10004;     |
 |Performance     |         |    &#10004;     |
+
+### Connecting to the IoT Edge hub
+
+The IoT Edge hub accepts connections from device or module clients, either over the MQTT protocol or the AMQP protocol.
+
+>[!NOTE]
+> IoT Edge hub supports clients that connect using MQTT or AMQP. It does not support clients that use HTTP.
+
+When a client connects to the IoT Edge hub, the following steps are taken:
+
+1. If Transport Layer Security (TLS) is used (recommended), a TLS channel is built to establish an encrypted communication between the client and the IoT Edge hub.
+2. Authentication information is sent from the client to IoT Edge hub to identify itself.
+3. IoT Edge hub authorizes or rejects the connection based on its authentication policy.
+
+#### Secure connections (TLS)
+
+By default, the IoT Edge hub only accepts connections secured with Transport Layer Security (TLS), e.g. encrypted connections that a third party cannot decrypt.
+
+If a client connects on port 8883 (MQTTS) or 5671 (AMQPS) to the IoT Edge hub, a TLS channel must be built. During the TLS handshake, the IoT Edge hub sends its certificate chain that the client needs to validate. In order to validate the certificate chain, the root certificate of the IoT Edge hub must be installed as a trusted certificate on the client. If the root certificate is not trusted, the client library will be rejected by the IoT Edge hub with a certificate verification error.
+
+The steps to follow to install this root certificate of the broker on device clients are described in the [transparent gateway](how-to-create-transparent-gateway.md) and in the [prepare a downstream device](how-to-connect-downstream-device.md#prepare-a-downstream-device.md) documentation. Modules can use the same root certificate as the IoT Edge hub by leveraging the IoT Edge daemon API. <!--Varun to verify this last sentence-->
+
+#### Authentication
+
+The IoT Edge Hub only accepts connections from devices or modules that have an IoT Hub identity, e.g. that have been registered in IoT Hub and have one of the three client authentication methods supported by IoT hub to provide prove their identity: [Symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication), [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication), [X.509 CA signed authentication](how-to-authenticate-downstream-device.md#x509-ca-signed-authentication).  These IoT Hub identities can be verified locally by the IoT Edge hub so connections can still be made while offline.
+
+Notes:
+- The IoT Edge hub will not allow connecting two clients using the same credentials information. It will disconnect the already connected client if a second client connects using the same credentials.
+- IoT Edge modules currently only support symmetric key authentication.
+- MQTT clients with only local username and passwords are not accepted by the IoT Edge hub MQTT broker, they must use IoT Hub identities.
+
+To authenticate with a MQTT client, you first need to send a CONNECT packet to to the MQTT broker to initiate the connection. This packet provides three authentication information: a `client identifier`, a `username` and `password`. The connect packet delivers the following credentials:
+
+-	The `client identifier` field is the name of the device or module name in IoT Hub. It uses the following syntax:
+
+    - For a device: `<device_name>`
+
+    - For a module: `<device_name>/<module_name>`
+
+- The `username` field is derived from the device or module name, and the IoTHub name the device belongs to using the following syntax:
+
+    - For a device: `<iot_hub_name>.azure-devices.net/<device_name>/?api-version=2018-06-30`
+
+    - For a module: `<iot_hub_name>.azure-devices.net/<device_name>/<module_name>/?api-version=2018-06-30`
+
+- The `password` field of the CONNECT packet depends on the authentication mode:
+
+    - In case of the [symmetric keys authentication](how-to-authenticate-downstream-device.md#symmetric-key-authentication), the `password` field is a SAS token. You can use the  [generate-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext_azure_cli_iot_ext_az_iot_hub_generate_sas_token) Azure CLI commands to generate SAS token for a device or module.
+    - In case of the [X.509 self-signed authentication](how-to-authenticate-downstream-device.md#x509-self-signed-authentication), the `password` field is not present. In this authentication mode, a TLS channel is required. The client needs to connect to port 8883 to establish a TLS connection. During the TLS handshake, the MQTT broker requests a client certificate. This certificate is used to verify the identity of the client and thus the `password` field is not needed later when the CONNECT packet is sent. Sending both a client certificate and the password field will lead to an error and the connection will be closed. MQTT libraries and TLS client libraries usually have a way to send a client certificate when initiating a connection. You can see a step-by-step example in section [Using X509 Certificate for client authentication](#using-x509-certificate-for-client-authentication).
+
+#### Authorization
+
+Once authenticated, the IoT Edge hub have two ways to authorize client connections:
+
+1. By verifying that a client belongs to its set of trusted clients defined in IoT Hub. The set of trusted clients is specified by setting up parent/child or device/module relationships in IoT Hub. When a module is created in IoT Edge, a trust relationship is automatically established between this module and its IoT Edge device. This is the only authorization model supported by the routing brokering mechanism.
+2. By setting up an authorization policy. This authorization policy is a document listing all the authorized client identities that can access resources on the IoT Edge hub. This is the primary authorization model used by the IoT Edge hub MQTT broker, though parent/child and device/module relationships can also be understood by the MQTT broker for IoT Hub topics.
 
 
 ### Remote configuration
