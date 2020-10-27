@@ -146,7 +146,7 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Yes.   Supported for encrypted VMs and VMs with lesser than 4-TB  disks | All Azure public regions and sovereign clouds.  |
-| SQL /SAP HANA | Yes                                                          | West US 2 (WUS2), West Central US (WCUS), Canada Central (CNC), Canada East (CNE), East US (EUS), West US (WUS), Japan East (JPE), Japan East (JPE) |
+| SQL /SAP HANA | Yes                                                          | All public regions except France |
 | MARS Agent/On premises  | No                                                           | N/A               |
 | AFS (Azure file shares)                 | No                                                           | N/A               |
 

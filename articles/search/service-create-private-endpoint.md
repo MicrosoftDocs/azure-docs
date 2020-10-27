@@ -1,14 +1,14 @@
 ---
 title: Create a Private Endpoint for a secure connection
 titleSuffix: Azure Cognitive Search
-description: Set up a private endpoint in a virtual network for a secure connection to an Azure Cognitive Search service
+description: Set up a private endpoint in a virtual network for a secure connection to an Azure Cognitive Search service.
 
 manager: nitinme
 author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 10/19/2020
 ---
 
 # Create a Private Endpoint for a secure connection to Azure Cognitive Search
@@ -148,10 +148,16 @@ In this section, you will create a new Azure Cognitive Search service with a Pri
     | Select inbound ports | Select **HTTP** and **RDP**.|
     ||
 
+   > [!NOTE]
+   > IPv4 addresses can be expressed in [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) format. Remember to avoid the IP range reserved for private networking, as described in [RFC 1918](https://tools.ietf.org/html/rfc1918):
+   >
+   > - `10.0.0.0 - 10.255.255.255  (10/8 prefix)`
+   > - `172.16.0.0 - 172.31.255.255  (172.16/12 prefix)`
+   > - `192.168.0.0 - 192.168.255.255 (192.168/16 prefix)`
+
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
 1. When you see the **Validation passed** message, select **Create**. 
-
 
 ## Connect to the VM
 
@@ -177,7 +183,6 @@ Download and then connect to the VM *myVm* as follows:
 1. You may receive a certificate warning during the sign-in process. If you receive a certificate warning, select **Yes** or **Continue**.
 
 1. Once the VM desktop appears, minimize it to go back to your local desktop.  
-
 
 ## Test connections
 

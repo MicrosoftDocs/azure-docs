@@ -3,7 +3,7 @@ title: 'Quickstart: Run a custom container on App Service'
 description: Get started with containers on Azure App Service by deploying your first custom container.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 08/28/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux

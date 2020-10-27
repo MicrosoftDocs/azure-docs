@@ -160,7 +160,7 @@ The Log Analytics workspace must exist in the following regions:
 
 ### User access requirements
 
-Your account must be a member of one of the following Azure [built-in roles](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json):
+Your account must be a member of one of the following [Azure built-in roles](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json):
 
 |Deployment model   | Role                   |
 |---------          |---------               |
