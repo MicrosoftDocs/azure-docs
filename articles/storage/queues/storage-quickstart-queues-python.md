@@ -30,12 +30,12 @@ Additional resources:
 * [API reference documentation](/python/api/azure-storage-queue/index)
 * [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
 * [Package (Python Package Index)](https://pypi.org/project/azure-storage-queue/)
-* [Samples](/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Samples](../common/storage-samples-python.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* Azure storage account - [create a storage account](/azure/storage/common/storage-quickstart-create-account)
+* Azure storage account - [create a storage account](../common/storage-account-create.md)
 * [Python](https://www.python.org/downloads/) for your operating system - 2.7, 3.5 or above
 
 ## Setting up
