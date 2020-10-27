@@ -15,6 +15,8 @@ You can use Update Management in Azure Automation to manage operating system upd
 
 To download and install available *Critical* and *Security* patches automatically on your Azure VM, review [Automatic VM guest patching](../../virtual-machines/windows/automatic-vm-guest-patching.md) for Windows VMs.
 
+Before deploying Update Management and enabling your machines for management, make sure that you understand the information in the following sections.  
+
 ## About Update Management
 
 Machines that are managed by Update Management use the following configurations to perform assessment and to update deployments:
@@ -23,6 +25,7 @@ Machines that are managed by Update Management use the following configurations 
 * PowerShell Desired State Configuration (DSC) for Linux
 * Automation Hybrid Runbook Worker
 * Microsoft Update or Windows Server Update Services (WSUS) for Windows machines
+* An update repository for Linux machines
 
 The following diagram illustrates how Update Management assesses and applies security updates to all connected Windows Server and Linux servers in a workspace:
 
@@ -185,7 +188,7 @@ If your IT security policies do not allow machines on the network to connect to 
 
 ## Update classifications
 
-The following table defines the classifications that Update Management supports for Windows updates. 
+The following table defines the classifications that Update Management supports for Windows updates.
 
 |Classification  |Description  |
 |---------|---------|
