@@ -13,9 +13,65 @@ ms.date: 09/10/2020
 
 # Azure Machine Learning release notes
 
-In this article, learn about Azure Machine Learning releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) reference page.
+In this article, learn about Azure Machine Learning releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) reference page.
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
+
+## 2020-10-26
+
+### Azure Machine Learning SDK for Python v1.17.0
++ **new examples**
+  + A new community-driven repository of examples is available at https://github.com/Azure/azureml-examples
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Fixed an issue where get_output may raise an XGBoostError.
+  + **azureml-automl-runtime**
+    + Time/calendar based features created by AutoML will now have the prefix.
+    + Fixed an IndexError occurring during training of StackEnsemble for classification datasets with large number of classes and subsampling enabled.
+    + Fixed an issue where VotingRegressor predictions may be inaccurate after refitting the model.
+  + **azureml-core**
+    + Additional detail added about relationship between AKS deployment configuration and Azure Kubernetes Service concepts.
+    + Customer can use linked service SDK to link synapse workspace into AML workspace. CRUD are supported.
+    + Environment client labels support. User can label Environments and reference them by label.
+  + **azureml-dataprep**
+    + Better error message when using currently unsupported Spark with Scala 2.12.
+  + **azureml-explain-model**
+    + The azureml-explain-model package is officially deprecated
+  + **azureml-mlflow**
+    + Resolved a bug in mlflow.projects.run against azureml backend where Finalizing state was not handled properly.
+  + **azureml-pipeline-core**
+    + Add support to create, list and get pipeline schedule based one pipeline endpoint.
+    +  Improved the documentation of PipelineData.as_dataset with an invalid usage example - Using PipelineData.as_dataset improperly will now result in a ValueException being thrown
+    + Changed the HyperDriveStep pipelines notebook to register the best model within a PipelineStep directly after the HyperDriveStep run.
+  + **azureml-pipeline-steps**
+    + Changed the HyperDriveStep pipelines notebook to register the best model within a PipelineStep directly after the HyperDriveStep run.
+  + **azureml-train-automl-client**
+    + Fixed an issue where get_output may raise an XGBoostError.
+
+
+## 2020-10-12
+
+### Azure Machine Learning SDK for Python v1.16.0
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. These optional limits can be used by setting `--cpu-cores-limit` and `--memory-gb-limit` flags in applicable CLI calls
+  + **azureml-core**
+    + Pin major versions of direct dependencies of azureml-core
+    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. More information on [Kubernetes Resources and Limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
+    + Updated run.log_table to allow individual rows to be logged.
+    + Added static method `Run.get(workspace, run_id)` to retrieve a run only using a workspace 
+    + Added instance method `Workspace.get_run(run_id)` to retrieve a run within the workspace
+    + Introducing command property in run configuration which will enables users to submit command instead of script & arguments.
+  + **azureml-interpret**
+    + fixed explanation client is_raw flag behavior in azureml-interpret
+  + **azureml-sdk**
+    + `azureml-sdk` officially support Python 3.8.
+  + **azureml-train-core**
+    + Adding TensorFlow 2.3 curated environment
+    + Introducing command property in run configuration which will enables users to submit command instead of script & arguments.
+  + **azureml-widgets**
+    + Redesigned interface for script run widget.
+
 
 ## 2020-09-28
 
@@ -1783,7 +1839,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
 + **New features**
   + Automated Machine Learning now supports training ONNX models on the remote compute target
   + Azure Machine Learning now provides ability to resume training from a previous run, checkpoint, or model files.
-    + Learn how to [use estimators to resume training from a previous run](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/training/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
+    + Learn how to [use estimators to resume training from a previous run](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
 + **Bug fixes and improvements**
   + **azure-cli-ml**
@@ -2047,7 +2103,7 @@ The [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-
 
 + **New features**
   + Azure Machine Learning now provides first class support for popular DNN framework Chainer. Using [`Chainer`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true) class users can easily train and deploy Chainer models.
-    + Learn how to [run distributed training with ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/training/distributed-chainer/distributed-chainer.ipynb)
+    + Learn how to [run distributed training with ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/distributed-chainer/distributed-chainer.ipynb)
     + Learn how to [run hyperparameter tuning with Chainer using HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/b881f78e4658b4e102a72b78dbd2129c24506980/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Azure Machine Learning Pipelines added ability to trigger a Pipeline run based on datastore modifications. The pipeline [schedule notebook](https://aka.ms/pl-schedule) is updated to showcase this feature.
 

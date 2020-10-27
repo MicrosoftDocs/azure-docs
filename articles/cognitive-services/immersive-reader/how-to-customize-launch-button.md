@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.author: metan
+ms.author: metang
 ---
 
 # How to customize the Immersive Reader button

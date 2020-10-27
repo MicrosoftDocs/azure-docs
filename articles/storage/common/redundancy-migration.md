@@ -119,8 +119,11 @@ You must perform a manual migration if:
 
 You can request live migration through the [Azure Support portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). From the portal, select the storage account you want to convert to ZRS.
 
-1. Select **New Support Request**
-2. Complete the **Basics** based on your account information. In the **Service** section, select **Storage Account Management** and the resource you want to convert to ZRS.
+1. Select **New Support Request**.
+2. Complete the **Basics** based on your account information: 
+    - **Issue type**: Select **Technical**.
+    - **Service**: Select **My Services** and **Storage Account Management**.
+    - **Resource**: Select the resource you want to convert to ZRS.
 3. Select **Next**.
 4. Specify the following values the **Problem** section:
     - **Severity**: Leave the default value as-is.
@@ -137,9 +140,9 @@ A support person will contact you and provide any assistance you need.
 > [!NOTE]
 > Live migration is not currently supported for premium file shares. Only manually copying or moving data is currently supported.
 >
-> GZRS storage accounts do not currently support the archive tier. See [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) for more details.
+> GZRS storage accounts do not currently support the archive tier. See [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) for more details.
 >
-> Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
+> Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).
 
 ## Switch from ZRS Classic
 

@@ -2,11 +2,11 @@
 title: 'Configure Azure AD authentication for User VPN connection: Virtual WAN'
 description: Learn how to configure Azure Active Directory authentication for User VPN.
 services: virtual-wan
-author: kumudD
+author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/17/2020
+ms.date: 10/14/2020
 ms.author: alzam
 
 ---
@@ -18,15 +18,14 @@ This type of connection requires a client to be configured on the client compute
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create a Virtual WAN
-> * Create a Virtual Hub
-> * Create a User VPN configuration
-> * Download a Virtual WAN User VPN profile
-> * Apply User VPN configuration to a Virtual Hub
-> * Connect a VNet to a Virtual Hub
-> * Download and apply the User VPN client configuration
-> * View your Virtual WAN
+* Create a Virtual WAN
+* Create a Virtual Hub
+* Create a User VPN configuration
+* Download a Virtual WAN User VPN profile
+* Apply User VPN configuration to a Virtual Hub
+* Connect a VNet to a Virtual Hub
+* Download and apply the User VPN client configuration
+* View your Virtual WAN
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwanp2s.png)
 

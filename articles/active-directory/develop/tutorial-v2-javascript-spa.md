@@ -69,7 +69,7 @@ Make sure you have [Node.js](https://nodejs.org/en/download/) installed, and the
    npm install morgan --save
    ```
 
-1. Now, create a .js file named `index.js`, and then add the following code:
+1. Now, create a .js file named `server.js`, and then add the following code:
 
    ```JavaScript
    const express = require('express');
@@ -276,7 +276,7 @@ Before proceeding further with authentication, register your application on **Az
 
 > ### Set a redirect URL for Node.js
 >
-> For Node.js, you can set the web server port in the *index.js* file. This tutorial uses port 3000, but you can use any other available port.
+> For Node.js, you can set the web server port in the *server.js* file. This tutorial uses port 3000, but you can use any other available port.
 >
 > To set up a redirect URL in the application registration information, switch back to the **Application Registration** pane, and do either of the following:
 >
@@ -511,3 +511,4 @@ Delve deeper into single-page application (SPA) development on the Microsoft ide
 
 > [!div class="nextstepaction"]
 > [Scenario: Single-page application](scenario-spa-overview.md)
+

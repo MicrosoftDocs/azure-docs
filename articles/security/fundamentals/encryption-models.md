@@ -144,7 +144,7 @@ The Azure services that support each encryption model:
 | Azure Cognitive Search           | Yes                | Yes                | -                  |
 | Azure Cognitive Services         | Yes                | Yes                | -                  |
 | Azure Machine Learning           | Yes                | Yes                | -                  |
-| Azure Machine Learning Studio    | Yes                | Preview, RSA 2048-bit | -               |
+| Azure Machine Learning Studio (classic) | Yes         | Preview, RSA 2048-bit | -               |
 | Content Moderator                | Yes                | Yes                | -                  |
 | Face                             | Yes                | Yes                | -                  |
 | Language Understanding           | Yes                | Yes                | -                  |

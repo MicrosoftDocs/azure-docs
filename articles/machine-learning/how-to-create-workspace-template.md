@@ -37,13 +37,6 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
     For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
-* Some scenarios require you to open a support ticket. These scenarios are:
-
-    * __Private Link enabled workspace with a customer-managed key (CMK)__
-    * __Azure Container Registry for the workspace behind your virtual network__
-
-    For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
-
 ## Workspace Resource Manager template
 
 The Azure Resource Manager template used throughout this document can be found in the [201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/201-machine-learning-advanced/azuredeploy.json) directory of the Azure quickstart templates GitHub repository.
@@ -166,9 +159,11 @@ New-AzResourceGroupDeployment `
 
 The following example template demonstrates how to create a workspace with three settings:
 
-* Enable high confidentiality settings for the workspace
-* Enable encryption for the workspace
-* Uses an existing Azure Key Vault to retrieve customer-managed keys
+* Enable high confidentiality settings for the workspace. This creates a new Cosmos DB instance.
+* Enable encryption for the workspace.
+* Uses an existing Azure Key Vault to retrieve customer-managed keys. Customer-managed keys are used to create a new Cosmos DB instance for the workspace.
+
+    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 > [!IMPORTANT]
 > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.

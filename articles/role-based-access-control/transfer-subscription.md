@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/31/2020
+ms.date: 10/06/2020
 ms.author: rolyon
 ---
 
@@ -19,7 +19,7 @@ Organizations might have several Azure subscriptions. Each subscription is assoc
 This article describes the basic steps you can follow to transfer a subscription to a different Azure AD directory and re-create some of the resources after the transfer.
 
 > [!NOTE]
-> For Azure Cloud Service Providers (CSP) subscriptions, changing the Azure AD directory for the subscription isn't supported.
+> For Azure Cloud Solution Providers (CSP) subscriptions, changing the Azure AD directory for the subscription isn't supported.
 
 ## Overview
 
@@ -69,8 +69,9 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Data Lake Storage Gen1 | Yes | Yes |  | You must re-create any ACLs. |
 | Azure Files | Yes | Yes |  | You must re-create any ACLs. |
 | Azure File Sync | Yes | Yes |  |  |
-| Azure Managed Disks | Yes | N/A |  |  |
-| Azure Container Services for Kubernetes | Yes | Yes |  |  |
+| Azure Managed Disks | Yes | Yes |  |  If you are using Disk Encryption Sets to encrypt Managed Disks with customer-managed keys, you must disable and re-enable the system-assigned identities associated with Disk Encryption Sets. And you must re-create the role assignments i.e. again grant required permissions to Disk Encryption Sets in the Key Vaults. |
+| Azure Kubernetes Service | Yes | Yes |  |  |
+| Azure Policy | Yes | No | All Azure Policy objects, including custom definitions, assignments, exemptions, and compliance data. | You must [export](../governance/policy/how-to/export-resources.md), import, and re-assign definitions. Then, create new policy assignments and any needed [policy exemptions](../governance/policy/concepts/exemption-structure.md). |
 | Azure Active Directory Domain Services | Yes | No |  |  |
 | App registrations | Yes | Yes |  |  |
 
@@ -103,9 +104,9 @@ To complete these steps, you will need:
     az account set --subscription "Marketing"
     ```
 
-### Install the resource-graph extension
+### Install the Azure Resource Graph extension
 
- The resource-graph extension enables you to use the [az graph](/cli/azure/ext/resource-graph/graph) command to query resources managed by Azure Resource Manager. You'll use this command in later steps.
+ The Azure CLI extension for [Azure Resource Graph](../governance/resource-graph/index.yml), *resource-graph*, enables you to use the [az graph](/cli/azure/ext/resource-graph/graph) command to query resources managed by Azure Resource Manager. You'll use this command in later steps.
 
 1. Use [az extension list](/cli/azure/extension#az_extension_list) to see if you have the *resource-graph* extension installed.
 

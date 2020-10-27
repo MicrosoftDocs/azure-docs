@@ -27,8 +27,6 @@ Get started with [GitHub Actions](https://help.github.com/en/articles/about-gith
 
 ## Workflow file overview
 
-Azure App Service workflow files have three sections:
-
 A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
 
 The file has three sections:
@@ -121,7 +119,7 @@ When you configure your GitHub workflow, you use the `AZURE_WEBAPP_PUBLISH_PROFI
 
 In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
 
-To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name like `AZURE_CREDENTIALS`.
+To use [user-level credentials](#generate-deployment-credentials), paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name `AZURE_CREDENTIALS`.
 
 When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
 
@@ -479,7 +477,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Building web app
-      uses: azure/appservice-build@v2-beta
+      uses: azure/appservice-build@v2
     - name: Deploy web App using GH Action azure/webapps-deploy
       uses: azure/webapps-deploy@v2
       with:

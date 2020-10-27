@@ -7,6 +7,7 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: tutorial
 ms.date: 07/20/2020 
 ---
@@ -52,4 +53,4 @@ Tables in Spark databases are automatically visible, and they can be queried by 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze using spark](get-started-analyze-spark.md)
+> [Analyze data in Storage](get-started-analyze-storage.md)

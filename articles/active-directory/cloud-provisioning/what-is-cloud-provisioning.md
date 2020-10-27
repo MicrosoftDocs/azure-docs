@@ -29,7 +29,7 @@ With Azure AD Connect cloud provisioning, provisioning from AD to Azure AD is or
 ## Azure AD Connect cloud provisioning video
 The following short video provides an excellent overveiw of Azure AD Connect cloud provisioning:
 
-> [!VIDEO https://youtube/embed/mOT3ID02_YQ]
+> [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
 
 
 ## Comparison between Azure AD Connect and cloud provisioning
