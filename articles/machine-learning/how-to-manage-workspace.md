@@ -29,7 +29,7 @@ As your needs change or requirements for automation increase you can also create
 
 # [Python](#tab/python)
 
-* **Minimal specification.** All dependent resources as well as the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
+mak* **Default specification.** By default, dependent resources as well as the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
     
     ```python
     from azureml.core import Workspace
@@ -269,7 +269,7 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 
 ## Connect to a workspace
 
-Create a workspace object in Python to connect to your workspace.  This code will read the contents of the configuration file to find your workspace.  You will get a prompt to sign in if you are not already authenticated.
+In your Python code, you create a workspace object to connect to your workspace.  This code will read the contents of the configuration file to find your workspace.  You will get a prompt to sign in if you are not already authenticated.
 
 ```python
 from azureml.core import Workspace
@@ -277,17 +277,26 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
+* **Multiple tenants.**  If you have multiple accounts, add the tenant ID of the Azure Active Directory you wish to use.  Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**.
 
-```python
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id")
+    ws = Workspace.from_config(auth=interactive_auth)
+    ```
 
-from azureml.core.authentication import InteractiveLoginAuthentication
-from azureml.core import Workspace
+* **[Sovereign cloud](reference-machine-learning-cloud-parity.md)**. You'll need extra code to authenticate to Azure if you're working in a sovereign cloud.
 
-interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id")
-ws = Workspace.from_config(auth=interactive_auth)
-```
-
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    from azureml.core import Workspace
+    
+    interactive_auth = InteractiveLoginAuthentication(cloud="<cloud name>") # for example, cloud="AzureUSGovernment"
+    ws = Workspace.from_config(auth=interactive_auth)
+    ```
+    
 
 ## <a name="view"></a>Find a workspace
 
