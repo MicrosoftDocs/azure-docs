@@ -1,5 +1,5 @@
 ---
-title: live events and live outputs concepts in Azure Media Services v3
+title: Live events and live outputs concepts in Azure Media Services v3
 titleSuffix: Azure Media Services
 description: This topic provides an overview of live events and live outputs in Azure Media Services v3.
 services: media-services
@@ -24,11 +24,11 @@ ms.author: inhenkel
 Azure Media Services lets you deliver live events to your customers on the Azure cloud. To set up your live streaming events in Media Services v3, you need to understand the concepts discussed in this article.
 
 > [!TIP]
-> For customers migrating from Media Services v2 APIs, the **live event** entity replaces **Channel** in v2 and **live output** replaces **Program**.
+> For customers migrating from Media Services v2 APIs, the **live event** entity replaces **Channel** in v2 and **live output** replaces **program**.
 
 ## Live events
 
-[live events](/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. When you create a live event, a primary and secondary input endpoint is created that you can use to send a live signal from a remote encoder. The remote live encoder sends the contribution feed to that input endpoint using either the [RTMP](https://www.adobe.com/devnet/rtmp.html) or [Smooth Streaming](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) (fragmented-MP4) input protocol. For the RTMP ingest protocol, the content can be sent in the clear (`rtmp://`) or securely encrypted on the wire(`rtmps://`). For the Smooth Streaming ingest protocol, the supported URL schemes are `http://` or `https://`.  
+[Live events](/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. When you create a live event, a primary and secondary input endpoint is created that you can use to send a live signal from a remote encoder. The remote live encoder sends the contribution feed to that input endpoint using either the [RTMP](https://www.adobe.com/devnet/rtmp.html) or [Smooth Streaming](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) (fragmented-MP4) input protocol. For the RTMP ingest protocol, the content can be sent in the clear (`rtmp://`) or securely encrypted on the wire(`rtmps://`). For the Smooth Streaming ingest protocol, the supported URL schemes are `http://` or `https://`.  
 
 ## Live event types
 
@@ -44,10 +44,10 @@ A [live event](/rest/api/media/liveevents) can be set to either a *pass-through*
 
 When using the pass-through **live event**, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the live event (using RTMP or fragmented-MP4 protocol). The live event then carries through the incoming video streams without any further processing. Such a pass-through live event is optimized for long-running live events or 24x365 linear live streaming. When creating this type of live event, specify None (LiveEventEncodingType.None).
 
-You can send the contribution feed at resolutions up to 4K and at a frame rate of 60 frames/second, with either H.264/AVC or H.265/HEVC video codecs, and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. For more information, see [live event types comparison](live-event-types-comparison.md).
+You can send the contribution feed at resolutions up to 4K and at a frame rate of 60 frames/second, with either H.264/AVC or H.265/HEVC video codecs, and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. For more information, see [Live event types comparison](live-event-types-comparison.md).
 
 > [!NOTE]
-> Using a pass-through method is the most economical way to do live streaming when you're doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [pricing](https://azure.microsoft.com/pricing/details/media-services/) details.
+> Using a pass-through method is the most economical way to do live streaming when you're doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [Pricing](https://azure.microsoft.com/pricing/details/media-services/) details.
 >
 
 See a .NET code example in [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
@@ -58,7 +58,7 @@ See a .NET code example in [MediaV3LiveApp](https://github.com/Azure-Samples/med
 
 When using live encoding with Media Services, you configure your on-premises live encoder to send a single bitrate video as the contribution feed to the live event (using RTMP or Fragmented-Mp4 protocol). You then set up a live event so that it encodes that incoming single bitrate stream to a [multiple bitrate video stream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), and makes the output available for delivery to play back devices via protocols like MPEG-DASH, HLS, and Smooth Streaming.
 
-When you use live encoding, you can send the contribution feed only at resolutions up to 1080p resolution at a frame rate of 30 frames/second, with H.264/AVC video codec and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. Note that pass-through live events can support resolutions up to 4K at 60 frames/second. For more information, see [live event types comparison](live-event-types-comparison.md).
+When you use live encoding, you can send the contribution feed only at resolutions up to 1080p resolution at a frame rate of 30 frames/second, with H.264/AVC video codec and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. Note that pass-through live events can support resolutions up to 4K at 60 frames/second. For more information, see [Live event types comparison](live-event-types-comparison.md).
 
 The resolutions and bitrates contained in the output from the live encoder is determined by the preset. If using a **Standard** live encoder (LiveEventEncodingType.Standard), then the *Default720p* preset specifies a set of six resolution/bit rate pairs, going from 720p at 3.5 Mbps down to 192p at 200 kbps. Otherwise, if using a **Premium1080p** live encoder (LiveEventEncodingType.Premium1080p), then the *Default1080p* preset specifies a set of six resolution/bit rate pairs, going from 1080p at 3.5 Mbps down to 180p at 200 kbps. For information, see [System presets](live-event-types-comparison.md#system-presets).
 
@@ -72,30 +72,32 @@ The resolutions and bitrates contained in the output from the live encoder is de
 When creating a live event, you can specify the following options:
 
 * You can give the live event a name and a description.
-* Cloud encoding includes Pass-through - no cloud encoding, Standard (up to 720p), or Premium (up to 1080p). For Standard and Premium encoding, you can choose the stretch mode of the encoded video.
+* Cloud encoding includes Pass-through (no cloud encoding), Standard (up to 720p), or Premium (up to 1080p). For Standard and Premium encoding, you can choose the stretch mode of the encoded video.
   * None: Strictly respects the output resolution specified in the encoding preset without considering the pixel aspect ratio or display aspect ratio of the input video.
-  * AutoSize:  Overrides the output resolution and changes it to match the display aspect ratio of the input, without padding. For example, if the input is 1920x1080 and the encoding preset asks for 1280x1280, then the value in the preset is overridden, and the output will be at 1280x720, which maintains the input aspect ratio of 16:9
+  * AutoSize:  Overrides the output resolution and changes it to match the display aspect ratio of the input, without padding. For example, if the input is 1920x1080 and the encoding preset asks for 1280x1280, then the value in the preset is overridden, and the output will be at 1280x720, which maintains the input aspect ratio of 16:9.
   * AutoFit: Pads the output (with either letterbox or pillar box) to honor the output resolution, while ensuring that the active video region in the output has the same aspect ratio as the input. For example, if the input is 1920x1080 and the encoding preset asks for 1280x1280, then the output will be at 1280x1280, which contains an inner rectangle of 1280x720 at aspect ratio of 16:9, with pillar box regions 280 pixels wide at the left and right.
-* Streaming protocol (currently, the RTMP and Smooth Streaming protocols are supported).<br/>You can't change the protocol option while the live event or its associated live outputs are running. If you require different protocols, create a separate live event for each streaming protocol.
+* Streaming protocol (currently, the RTMP and Smooth Streaming protocols are supported). You can't change the protocol option while the live event or its associated live outputs are running. If you require different protocols, create a separate live event for each streaming protocol.
 * Input ID which is a globally unique identifier for the live event input stream.
-* Status hostname prefix which includes none (in which case a random 128 bit hex string will be used), Use live event name, or Use custom name.  When you choose to use a customer name this value is the Custom hostname prefix.
+* Static hostname prefix which includes none (in which case a random 128 bit hex string will be used), Use live event name, or Use custom name.  When you choose to use a customer name, this value is the Custom hostname prefix.
 * You can reduce end-to-end latency between the live broadcast and the playback by setting the input key frame interval, which is the duration (in seconds), of each media segment in the HLS output. The value should be a non-zero integer in the range of 0.5 to 20 seconds.  The value defaults to 2 seconds if *neither* of the input or output key frame intervals are set. The key frame interval is only allowed on pass-through events.
-* When creating the event, you can set it to autostart. <br/>When autostart is set to true, the live event will be started after creation. The billing starts as soon as the live event starts running. You must explicitly call Stop on the live event resource to halt further billing. Alternatively, you can start the event when you're ready to start streaming.
+* When creating the event, you can set it to autostart. When autostart is set to true, the live event will be started after creation. The billing starts as soon as the live event starts running. You must explicitly call Stop on the live event resource to halt further billing. Alternatively, you can start the event when you're ready to start streaming.
 
-> [!NOTE}
-> * The max framerate is 30 fps for both Standard and Premium encoding.]
+> [!NOTE]
+> The max framerate is 30 fps for both Standard and Premium encoding.
 
 ## StandBy mode
 
-When you create a live event, you can set it to Standby mode. While the event is in Standby mode, you can edit the Description, the Static hostname prefix and restrict input and preview access settings.  Standby mode is still a billable mode, but is priced differently than when you start a live stream.
+When you create a live event, you can set it to StandBy mode. While the event is in StandBy mode, you can edit the Description, the Static hostname prefix and restrict input and preview access settings.  StandBy mode is still a billable mode, but is priced differently than when you start a live stream.
 
-For more information, see [live event states and billing](live-event-states-billing.md).
+For more information, see [Live event states and billing](live-event-states-billing.md).
 
-* IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this live event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').<br/>If no IP addresses are specified and there's no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.<br/>The IP addresses have to be in one of the following formats: IpV4 address with four numbers or CIDR address range.
+* IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this live event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').
+<br/><br/>
+If no IP addresses are specified and there's no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.<br/>The IP addresses have to be in one of the following formats: IpV4 address with four numbers or CIDR address range.
+<br/><br/>
+If you want to enable certain IPs on your own firewalls or want to constrain inputs to your live events to Azure IP addresses, download a JSON file from [Azure Datacenter IP address ranges](https://www.microsoft.com/download/details.aspx?id=41653). For details about this file, select the **Details** section on the page.
 
-    If you want to enable certain IPs on your own firewalls or want to constrain inputs to your live events to Azure IP addresses, download a JSON file from [Azure Datacenter IP address ranges](https://www.microsoft.com/download/details.aspx?id=41653). For details about this file, select the **Details** section on the page.
-    
-* When creating the event, you can choose to turn on live transcriptions. <br/> By default, live transcription is disabled. For more information about live transcription read [live transcription](live-transcription.md).
+* When creating the event, you can choose to turn on live transcriptions. By default, live transcription is disabled. For more information about live transcription read [Live transcription](live-transcription.md).
 
 ### Naming rules
 
@@ -112,23 +114,23 @@ Also see [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#
 Once the live event is created, you can get ingest URLs that you'll provide to the live on-premises encoder. The live encoder uses these URLs to input a live stream. For more information, see [Recommended on-premises live encoders](recommended-on-premises-live-encoders.md).
 
 >[!NOTE]
-> As of 2020-05-01, vanity URLs are known as Static Host Names
+> As of the 2020-05-01 API release, vanity URLs are known as Static Host Names
 
 You can either use non-vanity URLs or vanity URLs.
 
-> [!NOTE] 
+> [!NOTE]
 > For an ingest URL to be predictive, set the "vanity" mode.
 
 * Non-vanity URL
 
-    Non-vanity URL is the default mode in Media Services v3. You potentially get the live event quickly but ingest URL is known only when the live event is started. The URL will change if you do stop/start the live event. <br/>Non-Vanity is useful in scenarios when an end user wants to stream using an app where the app wants to get a live event ASAP and having a dynamic ingest URL isn't a problem.
+    Non-vanity URL is the default mode in Media Services v3. You potentially get the live event quickly but ingest URL is known only when the live event is started. The URL will change if you do stop/start the live event. Non-Vanity is useful in scenarios when an end user wants to stream using an app where the app wants to get a live event ASAP and having a dynamic ingest URL isn't a problem.
 
-    If a client app doesn't need to pre-generate an ingest URL before the live event is created, let Media Services autogenerate the Access Token for the live event.
+    If a client app doesn't need to pre-generate an ingest URL before the live event is created, let Media Services auto-generate the Access Token for the live event.
 
 * Vanity URL
 
     Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to reconfigure their encoders when they start the live event. These broadcasters want a predictive ingest URL which doesn't change over time.
-    
+
     > [!NOTE]
     > In the Azure portal, the vanity URL is named "*Static hostname prefix*".
 
@@ -145,7 +147,7 @@ You can either use non-vanity URLs or vanity URLs.
     |REST|[properties.vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--vanity-url](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
     |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
-    
+
 ### Live ingest URL naming rules
 
 * The *random* string below is a 128-bit hex number (which is composed of 32 characters of 0-9 a-f).
