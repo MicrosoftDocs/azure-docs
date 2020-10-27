@@ -69,10 +69,6 @@ Use the following steps to configure your storage account for private data asset
    ![Private data storage account settings](./media/data-protection/storage-account-create.png)
 
 
-
-### Known issues
-Currently, there is a known limitation where a job using customer managed key runs into failures when using managed identity to authenticate to any inputs or outputs.
-
 ## Next steps
 
 * [Create an Azure Storage account](../storage/common/storage-account-create.md)

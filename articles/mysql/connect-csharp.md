@@ -128,6 +128,7 @@ Use the following code to connect and read the data by using a `SELECT` SQL stat
 - [ExecuteReaderAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executereaderasync) to run the database commands. 
 - [ReadAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbdatareader.readasync#System_Data_Common_DbDataReader_ReadAsync) to advance to the records in the results. Then the code uses GetInt32 and GetString to parse the values in the record.
 
+
 Replace the `Server`, `Database`, `UserID`, and `Password` parameters with the values that you specified when you created the server and database. 
 
 ```csharp
@@ -190,6 +191,7 @@ Use the following code to connect and read the data by using an `UPDATE` SQL sta
 - [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand) to set the CommandText property
 - [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) to run the database commands. 
 
+
 Replace the `Server`, `Database`, `UserID`, and `Password` parameters with the values that you specified when you created the server and database. 
 
 ```csharp
@@ -246,6 +248,7 @@ The code uses the `MySqlConnection` class with method
 - [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand) to set the CommandText property.
 - [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) to run the database commands. 
 
+
 Replace the `Server`, `Database`, `UserID`, and `Password` parameters with the values that you specified when you created the server and database. 
 
 ```csharp
@@ -300,3 +303,4 @@ namespace AzureMySqlExample
 > [Manage Azure Database for MySQL server using CLI](./how-to-manage-single-server-cli.md)
 
 [Cannot find what you are looking for?Let us know.](https://aka.ms/mysql-doc-feedback)
+

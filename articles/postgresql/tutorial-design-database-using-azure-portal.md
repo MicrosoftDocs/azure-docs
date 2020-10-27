@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Create an Azure Database for PostgreSQL
 
-An Azure Database for PostgreSQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](../azure-resource-manager/management/overview.md).
+An Azure Database for PostgreSQL server is created with a defined set of [compute and storage resources](./concepts-pricing-tiers.md). The server is created within an [Azure resource group](../azure-resource-manager/management/overview.md).
 
 Follow these steps to create an Azure Database for PostgreSQL server:
 1. Click **Create a resource**  in the upper left-hand corner of the Azure portal.
@@ -184,7 +184,7 @@ Imagine you have accidentally deleted this table. This situation is something yo
 
 1. On the Azure Database for PostgreSQL **Overview** page for your server, click **Restore** on the toolbar. The **Restore** page opens.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png" alt-text="Azure portal - Restore form options":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png" alt-text="Screenshot that shows the Azure Database for PostgreSQL **Overview** page for your server and highlights the Restore button.":::
 
 2. Fill out the **Restore** form with the required information:
 

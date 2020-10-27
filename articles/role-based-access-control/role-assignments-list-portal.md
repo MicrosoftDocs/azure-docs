@@ -121,7 +121,7 @@ You can list role assignments for system-assigned and user-assigned managed iden
 
     You see a list of roles assigned to the selected user-assigned managed identity at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
 
-    ![Role assignments for a system-assigned managed identity](./media/shared/role-assignments-user-assigned.png)
+    ![Screenshot that shows role assignments for a user-assigned managed identity.](./media/shared/role-assignments-user-assigned.png)
 
 1. To change the subscription, click the **Subscription** list.
 
@@ -173,7 +173,7 @@ Follow these steps to download role assignments at a scope.
 
     ![Download role assignments as CSV](./media/role-assignments-list-portal/download-role-assignments-csv.png)
 
-    ![Download role assignments as CSV](./media/role-assignments-list-portal/download-role-assignments-json.png)
+    ![Screenshot of the downloaded role assignments as in JSON format.](./media/role-assignments-list-portal/download-role-assignments-json.png)
 
 ## Next steps
 
