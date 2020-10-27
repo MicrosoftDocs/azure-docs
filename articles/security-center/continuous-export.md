@@ -201,6 +201,23 @@ Learn more about [Log Analytics workspace pricing](https://azure.microsoft.com/p
 Learn more about [Azure Event Hub pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 
+### Does the export include data about the current state of all resources?
+
+No. Continuous export is built for streaming of **events**:
+
+- **Alerts** received before you enabled export won't be exported.
+- **Recommendations** are sent whenever a resource's compliance state changes. For example, when a resource turns from healthy to unhealthy. Therefore, as with alerts, recommendations for resources that haven't changed state since you enabled export won't be exported.
+
+
+### Why are recommendations sent at different intervals?
+
+Different recommendations have different compliance evaluation intervals, which can vary from a few minutes to every few days. Consequently, recommendations will differ in the amount of time it takes for them to appear in your exports.
+
+
+### Is continuous export available with Azure Security Center free?
+
+Yes! Note that many Security Center alerts are only provided when you've enabled Azure Defender. A good way to preview the alerts you'll get in your exported data is to see the alerts shown in Security Center's pages in the Azure portal.
+
 
 
 ## Next steps

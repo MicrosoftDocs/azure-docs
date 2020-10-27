@@ -18,7 +18,7 @@ Every security program includes multiple workflows for incident response. These 
 This article describes the workflow automation feature of Azure Security Center. This feature can trigger Logic Apps on security alerts and recommendations. For example, you might want Security Center to email a specific user when an alert occurs. You'll also learn how to create Logic Apps using [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 > [!NOTE]
-> If you previously used the Playbooks (Preview) view on the sidebar, you'll find the same features together with the expanded functionality in the new workflow automation page.
+> When you delete a workflow automation configuration the related automation resources will be deleted from the database after 24-48 hours.
 
 
 
@@ -47,6 +47,10 @@ This article describes the workflow automation feature of Azure Security Center.
     A pane appears with the options for your new automation. Here you can enter:
     1. A name and description for the automation.
     1. The triggers that will initiate this automatic workflow. For example, you might want your Logic App to run when a security alert that contains "SQL" is generated.
+
+        > [!NOTE]
+        > If your trigger is a recommendation that has "sub-recommendations", for example **Vulnerability assessment findings on your SQL databases should be remediated**, the logic app will not trigger for every new security finding; only when the status of the parent recommendation changes.
+
     1. The Logic App that will run when your trigger conditions are met. 
 
         :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Add workflow automations pane":::
@@ -86,6 +90,63 @@ You can also run Logic Apps manually when viewing any security alert or recommen
 To manually run a Logic App, open an alert or a recommendation and click **Trigger Logic App**:
 
 [![Manually trigger a Logic App](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
+
+
+
+
+## Configure workflow automation at scale using the supplied policies
+
+Automating your organization's monitoring and incident response processes can greatly improve the time it takes to investigate and mitigate security incidents.
+
+To deploy your automation configurations across your organization, use the supplied Azure Policy 'DeployIfNotExist' policies described below to create and configure workflow automation procedures.
+
+Get started with [workflow automation templates](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
+
+To implement these policies:
+
+1. From the table below, select the policy you want to apply:
+
+    |Goal  |Policy  |Policy ID  |
+    |---------|---------|---------|
+    |Workflow automation for security alerts|[Deploy Workflow Automation for Azure Security Center alerts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
+    |Workflow automation for security recommendations|[Deploy Workflow Automation for Azure Security Center recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+    ||||
+
+    > [!TIP]
+    > You can also find these by searching Azure Policy:
+    > 1. Open Azure Policy.
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accessing Azure Policy":::
+    > 2. From the Azure Policy menu, select **Definitions** and search for them by name. 
+
+1. From the relevant Azure Policy page, select **Assign**.
+    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Assigning the Azure Policy":::
+
+1. Open each tab and set the parameters as desired:
+    1. In the **Basics** tab, set the scope for the policy. To use centralized management, assign the policy to the Management Group containing the subscriptions that will use the workflow automation configuration. 
+    1. In the **Parameters** tab, set the resource group and data type details. 
+        > [!TIP]
+        > Each parameter has a tooltip explaining the options available to you.
+        >
+        > Azure Policy's parameters tab (1) provides access to similar configuration options as Security Center's workflow automation page (2).
+        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Comparing the parameters in continuous export with Azure Policy" lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
+
+    1. Optionally, to apply this assignment to existing subscriptions, open the **Remediation** tab and select the option to create a remediation task.
+
+1. Review the summary page and select **Create**.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Data types schemas
 
