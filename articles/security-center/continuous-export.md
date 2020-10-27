@@ -6,11 +6,11 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 10/27/2020
 ms.author: memildin
 
 ---
-# Continuously export security alerts and recommendations
+# Continuously export Security Center data
 
 Azure Security Center generates detailed security alerts and recommendations. You can view them in the portal or through programmatic tools. You may also need to export some or all of this information for tracking with other monitoring tools in your environment. 
 
@@ -23,7 +23,7 @@ Azure Security Center generates detailed security alerts and recommendations. Yo
 This article describes how to configure continuous export to Log Analytics workspaces or Azure Event Hubs.
 
 > [!NOTE]
-> If you need to integrate Security Center with a SIEM, review [Stream alerts to a SIEM](export-to-siem.md) for your options.
+> If you need to integrate Security Center with a SIEM, see [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 
 > [!TIP]
 > Security Center also offers the option to perform a one-time, manual export to CSV. Learn more in [Manual one-time export of alerts and recommendations](#manual-one-time-export-of-alerts-and-recommendations).

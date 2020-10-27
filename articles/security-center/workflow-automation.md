@@ -6,12 +6,12 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/27/2020
 ms.author: memildin
 ---
 
 
-# Create automatic responses to alerts and recommendations with workflow automation
+# Automate responses to Security Center triggers
 
 Every security program includes multiple workflows for incident response. These processes might include notifying relevant stakeholders, launching a change management process, and applying specific remediation steps. Security experts recommend that you automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.
 
