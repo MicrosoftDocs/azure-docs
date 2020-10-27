@@ -82,6 +82,10 @@ The following example shows the Key Descriptor section of the SAML metadata used
 
 The **Name** attribute of the Protocol element needs to be set to `SAML2`.
 
+## Input claims
+
+The **InputClaims** element is used to send a **NameId** within the **Subject** of the SAML AuthN Request. To achieve this add an input claim with a **PartnerClaimType** set to `subject`.
+
 ## Output claims
 
 The **OutputClaims** element contains a list of claims returned by the SAML identity provider under the `AttributeStatement` section. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider as long as you set the `DefaultValue` attribute.
