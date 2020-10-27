@@ -15,7 +15,7 @@ ms.reviewer: sngun
 With the change feed pull model, you can consume the Azure Cosmos DB change feed at your own pace. As you can already do with the [change feed processor](change-feed-processor.md), you can use the change feed pull model to parallelize the processing of changes across multiple change feed consumers.
 
 > [!NOTE]
-> The change feed pull model is currently in [preview in the Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0-preview) only. The preview is not yet available for other SDK versions.
+> The change feed pull model is currently in [preview in the Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview) only. The preview is not yet available for other SDK versions.
 
 ## Comparing with change feed processor
 
@@ -89,7 +89,7 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 }
 ```
 
-Because the change feed is effectively an infinite list of items encompossing all future writes and updates, the value of `HasMoreResults` is alway true. When there are no additional changes available, you'll receive an exception with reading the change feed. In the above example, the exception is handled by waiting 5 seconds before rechecking for changes.
+Because the change feed is effectively an infinite list of items encompossing all future writes and updates, the value of `HasMoreResults` is alway true. When you try to read the change feed and there are no new changes available, you'll receive an exception. In the above example, the exception is handled by waiting 5 seconds before rechecking for changes.
 
 ## Consuming a partition key's changes
 
