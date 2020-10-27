@@ -67,7 +67,7 @@ Information on training runs.
 | Failed runs | Count | The number of failed runs. |
 | Started runs | Count | The number of started runs. |
 
-## Metric Dimensions
+## Metric dimensions
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
@@ -224,7 +224,7 @@ The following schemas are in use by Azure Machine Learning
 | TotalE2ETimeInSeconds | Total time node was active |
 
 
-## See Also
+## See also
 
 - See [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md) for a description of monitoring Azure Machine Learning.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.
