@@ -54,7 +54,7 @@ Babylon is able to detect the file types found in your data estate, and provide 
 
     The report displays a summary of how many unique file extensions are found, as well as a graph of top 10 extensions found.
 
-    :::image type="content" source="media/file-extension-insights/file-extension-overview.PNG" alt-text="File extension report - overview":::
+    :::image type="content" source="media/file-extension-insights/file-extension-overview.png" alt-text="File extension report - overview":::
 
     Do any of the following to find out more:
 
@@ -66,7 +66,7 @@ Babylon is able to detect the file types found in your data estate, and provide 
 
 Once you've viewed the high-level information about the file types found in your data estate, drill down for more details about where they are located, and whether they can be scanned for sensitive content.
 
-:::image type="content" source="media/file-extension-insights/file-extension-drilldown.PNG" alt-text="File extension report - drilldown":::
+:::image type="content" source="media/file-extension-insights/file-extension-drilldown.png" alt-text="File extension report - drilldown":::
 
 The grid shows details for each file extension found, including:
 

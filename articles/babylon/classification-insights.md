@@ -68,7 +68,7 @@ Babylon uses the same sensitive information types as Microsoft 365, allowing you
 
 1. Select the **View all classifications** link at the bottom of the **Top classifications** tile. The resulting report displays all classifications found within your data over the time period selected in the **Time** filter.  
     
-    ![View all classifications](./media/insights/view-classifications.png)
+    :::image type="content" source="media/insights/view-classifications.png" alt-text="View all classifications":::
 
 1. Use the **Classification**, **Subscription**, and **Asset Type** filters to change your views and filter out specific classifications, subscriptions, or asset types from the report.
 
