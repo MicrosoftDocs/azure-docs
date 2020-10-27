@@ -7,11 +7,7 @@ ms.topic: conceptual
 
 # Connect hybrid machines to Azure using PowerShell
 
-You can enable Azure Arc enabled servers for one or more Windows or Linux machines in your environment by performing a set of manual steps. Or you can use the PowerShell cmdlet [Connect-AzConnectedMachine](/powershell/module/az.connectedmachine/remove-azconnectedmachine) to perform the following actions:
-
-- Configure the host machine to download the Windows agent from the Microsoft Download Center, and the Linux agent package from packages.microsoft.com.
-- Install the Connected Machine agent.
-- Register the machine with Azure Arc.
+You can enable Azure Arc enabled servers for one or more Windows or Linux machines in your environment by performing a set of manual steps. Or you can use the PowerShell cmdlet [Connect-AzConnectedMachine](/powershell/module/az.connectedmachine/remove-azconnectedmachine) to download the Connected Machine agent, install the agent, and register the machine with Azure Arc.
 
 This method requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, you are member of the Local Administrators group. You can complete this process interactively or remotely on a Windows server using [PowerShell remoting](/powershell/scripting/learn/ps101/08-powershell-remoting).
 
