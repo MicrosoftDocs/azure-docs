@@ -42,11 +42,11 @@ For more information about managing Python and R packages, see:
 
 ## Resource governance
 
-In SQL Managed Instance, it's not possible to limit R resources through [Resource Governor](/sql/relational-databases/resource-governor/resource-governor), and external resource pools are not supported.
+In SQL Managed Instance, it's not possible to limit R resources through [Resource Governor](/sql/relational-databases/resource-governor/resource-governor?view=azuresqldb-mi-current&preserve-view=true), and external resource pools are not supported.
 
 By default, R resources are set to a maximum of 20% of the available SQL Managed Instance resources when extensibility is enabled. To change this default percentage, create an Azure support ticket at [https://azure.microsoft.com/support/create-ticket/](https://azure.microsoft.com/support/create-ticket/).
 
-Extensibility is enabled with the following SQL commands (SQL Managed Instance restarts and is unavailable for a few seconds):
+Extensibility is enabled with the following SQL commands (SQL Managed Instance will restart and be unavailable for a few seconds):
 
 ```sql
 sp_configure 'external scripts enabled', 1;
