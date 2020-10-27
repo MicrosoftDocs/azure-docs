@@ -20,6 +20,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ## 2020-10-26
 
 ### Azure Machine Learning SDK for Python v1.17.0
++ **new examples**
+  + A new community-driven repository of examples is available at https://github.com/Azure/azureml-examples
 + **Bug fixes and improvements**
   + **azureml-automl-core**
     + Fixed an issue where get_output may raise an XGBoostError.
