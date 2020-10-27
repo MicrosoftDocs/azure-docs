@@ -3,7 +3,7 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 10/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -466,6 +466,43 @@ Before you can create an enterprise Azure (EA) offer subscription, your account 
 ### Who can create a subscription?
 
 To create an enterprise Azure offer type subscription, you must be entitled in the role of account owner on the [EA portal](https://ea.azure.com).
+
+## Azure EA term glossary
+
+- **Account**: An organizational unit on the Azure Enterprise portal. It is used to administer subscriptions and for reporting.
+- **Account owner**: The person who manages subscriptions and service administrators on Azure. They can view usage data on this account and its associated subscriptions.
+- **Amendment subscription**: A one-year, or coterminous subscription under the enrollment amendment.
+- **Prepayment**: Prepayment of an annual monetary amount for Azure services at a discounted Prepayment rate for usage against this prepayment.
+- **Department administrator**: The person who manages departments, creates new accounts and account owners, views usage details for the departments they manage, and can view costs when granted permissions.
+- **Enrollment number**: A unique identifier supplied by Microsoft to identify the specific enrollment associated with an Enterprise Agreement.
+- **Enterprise administrator**: The person who manages departments, department owners, accounts, and account owners on Azure. They have the ability to manage enterprise administrators as well as view usage data, billed quantities, and unbilled charges across all accounts and subscriptions associated with the enterprise enrollment.
+- **Enterprise agreement**: A Microsoft licensing agreement for customers with centralized purchasing who want to standardize their entire organization on Microsoft technology and maintain an information technology infrastructure on a standard of Microsoft software.
+- **Enterprise agreement enrollment**: An enrollment in the Enterprise Agreement program providing Microsoft products in volume at discounted rates.
+- **Microsoft account**: A web-based service that enables participating sites to authenticate a user with a single set of credentials.
+- **Microsoft Azure Enterprise Enrollment Amendment (enrollment amendment)**: An amendment signed by an enterprise, which provides them access to Azure as part of their enterprise enrollment.
+- **Azure Enterprise portal**: The portal used by our enterprise customers to manage their Azure accounts and their related subscriptions.
+- **Resource quantity consumed**: The quantity of an individual Azure service that was used in a month.
+- **Service administrator**: The person who accesses and manages subscriptions and development projects on the Azure Enterprise portal.
+- **Subscription**: Represents an Azure Enterprise portal subscription and is a container of Azure services managed by the same service administrator.
+- **Work or school account**: For organizations that have set up active directory with federation to the cloud and all accounts are on a single tenant.
+
+### Enrollment statuses
+
+- **New**: This status is assigned to an enrollment that was created within 24 hours and will be updated to a Pending status within 24 hours.
+- **Pending**: The enrollment administrator needs to sign in to the Azure Enterprise portal. Once signed in, the enrollment will switch to an Active status.
+- **Active**: The enrollment is Active and accounts and subscriptions can be created in the Azure Enterprise portal. The enrollment will remain active until the Enterprise Agreement end date.
+- **Indefinite extended term**: An indefinite extended term takes place after the Enterprise Agreement end date has passed. It enables Azure EA customers who are opted in to the extended term to continue to use Azure services indefinitely at the end of their Enterprise Agreement.
+
+   Before the Azure EA enrollment reaches the Enterprise Agreement end date, the enrollment administrator should decide which of the following options to take:
+
+  - Renew the enrollment by adding additional Azure Prepayment.
+  - Transfer to a new enrollment.
+  - Migrate to the Microsoft Online Subscription Program (MOSP).
+  - Confirm disablement of all services associated with the enrollment.
+- **Expired**: The Azure EA customer is opted out of the extended term, and the Azure EA enrollment has reached the Enterprise Agreement end date. The enrollment will expire, and all associated services will be disabled.
+- **Transferred**: Enrollments where all associated accounts and services have been transferred to a new enrollment appear with a transferred status.
+  >[!NOTE]
+  > Enrollments don't automatically transfer if a new enrollment number is generated at renewal. You must include your prior enrollment number in your renewal paperwork to facilitate an automatic transfer.
 
 ## Next steps
 

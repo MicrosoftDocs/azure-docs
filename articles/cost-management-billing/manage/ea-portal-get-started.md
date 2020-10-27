@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 10/27/2020
 ms.author: banders
 ms.custom: contperfq1
 ---
@@ -29,50 +29,29 @@ View this video to watch a full Azure Enterprise portal onboarding session:
 
 > [!VIDEO https://www.youtube.com/embed/OiZ1GdBpo-I]
 
-## Azure EA term glossary
+## Understanding EA user roles and introduction to user hierarchy
 
-- **Account**: An organizational unit on the Azure Enterprise portal. It is used to administer subscriptions and for reporting.
-- **Account owner**: The person who manages subscriptions and service administrators on Azure. They can view usage data on this account and its associated subscriptions.
-- **Amendment subscription**: A one-year, or coterminous subscription under the enrollment amendment.
-- **Prepayment**: Prepayment of an annual monetary amount for Azure services at a discounted Prepayment rate for usage against this prepayment.
-- **Department administrator**: The person who manages departments, creates new accounts and account owners, views usage details for the departments they manage, and can view costs when granted permissions.
-- **Enrollment number**: A unique identifier supplied by Microsoft to identify the specific enrollment associated with an Enterprise Agreement.
-- **Enterprise administrator**: The person who manages departments, department owners, accounts, and account owners on Azure. They have the ability to manage enterprise administrators as well as view usage data, billed quantities, and unbilled charges across all accounts and subscriptions associated with the enterprise enrollment.
-- **Enterprise agreement**: A Microsoft licensing agreement for customers with centralized purchasing who want to standardize their entire organization on Microsoft technology and maintain an information technology infrastructure on a standard of Microsoft software.
-- **Enterprise agreement enrollment**: An enrollment in the Enterprise Agreement program providing Microsoft products in volume at discounted rates.
-- **Microsoft account**: A web-based service that enables participating sites to authenticate a user with a single set of credentials.
-- **Microsoft Azure Enterprise Enrollment Amendment (enrollment amendment)**: An amendment signed by an enterprise, which provides them access to Azure as part of their enterprise enrollment.
-- **Azure Enterprise portal**: The portal used by our enterprise customers to manage their Azure accounts and their related subscriptions.
-- **Resource quantity consumed**: The quantity of an individual Azure service that was used in a month.
-- **Service administrator**: The person who accesses and manages subscriptions and development projects on the Azure Enterprise portal.
-- **Subscription**: Represents an Azure Enterprise portal subscription and is a container of Azure services managed by the same service administrator.
-- **Work or school account**: For organizations that have set up active directory with federation to the cloud and all accounts are on a single tenant.
+To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement (EA) can assign five distinct administrative roles:
 
-### Enrollment statuses
+- Enterprise Administrator
+- Enterprise Administrator (read only)
+- Department Administrator
+- Department Administrator (read only)
+- Account Owner
 
-- **New**: This status is assigned to an enrollment that was created within 24 hours and will be updated to a Pending status within 24 hours.
-- **Pending**: The enrollment administrator needs to sign in to the Azure Enterprise portal. Once signed in, the enrollment will switch to an Active status.
-- **Active**: The enrollment is Active and accounts and subscriptions can be created in the Azure Enterprise portal. The enrollment will remain active until the Enterprise Agreement end date.
-- **Indefinite extended term**: An indefinite extended term takes place after the Enterprise Agreement end date has passed. It enables Azure EA customers who are opted in to the extended term to continue to use Azure services indefinitely at the end of their Enterprise Agreement.
+Each role has a varying degree of user limits and permissions. For more information, see [Organization structure and permissions by role](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-ea-roles#organization-structure-and-permissions-by-role).
 
-   Before the Azure EA enrollment reaches the Enterprise Agreement end date, the enrollment administrator should decide which of the following options to take:
+## Activate your enrollment, create a subscription, and other administrative tasks
 
-  - Renew the enrollment by adding additional Azure Prepayment.
-  - Transfer to a new enrollment.
-  - Migrate to the Microsoft Online Subscription Program (MOSP).
-  - Confirm disablement of all services associated with the enrollment.
-- **Expired**: The Azure EA customer is opted out of the extended term, and the Azure EA enrollment has reached the Enterprise Agreement end date. The enrollment will expire, and all associated services will be disabled.
-- **Transferred**: Enrollments where all associated accounts and services have been transferred to a new enrollment appear with a transferred status.
-  >[!NOTE]
-  > Enrollments don't automatically transfer if a new enrollment number is generated at renewal. You must include your prior enrollment number in your renewal paperwork to facilitate an automatic transfer.
+For more information regarding activating your enrollment, creating a department or subscription, adding administrators and account owners, and other administrative tasks, see [Azure EA portal administration](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration).
 
-## Now that you’re familiar with the EA terms, here are the major tasks that you need to do to get onboarded
+If you’d like to know more about transferring an Enterprise subscription to a Pay-As-You-Go subscription, see [Azure Enterprise transfers](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-transfers).
 
-- For an understanding of EA user roles and an introduction to EA portal user hierarchy, see [Understand EA Roles](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-ea-roles).
-- For more information regarding activating your enrollment, creating a department or subscription, adding administrators and account owners, and other administrative tasks, see [Azure EA portal administration](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration).
-- If you’d like to know more about transferring an Enterprise subscription to a Pay-As-You-Go subscription, see [Azure Enterprise transfers](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-transfers).
-- To view usage summary and download reports, see [Azure Enterprise enrollment invoices](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-enrollment-invoices).
+## View usage summary and download reports
 
+You can manage and act on your Azure EA invoice. Your invoice is a representation of your bill and should be reviewed for accuracy.
+
+To view usage summary, download reports, and manage enrollment invoices, see [Azure Enterprise enrollment invoices](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-enrollment-invoices).
 
 ## Get started on Azure EA - FAQ
 
@@ -134,7 +113,7 @@ You can create as many departments as you need under your Azure EA enrollment. I
 
 After you have created departments and subscriptions, you can see data in the usage report. This information can help you track usage and manage cost and spend at the department level.
 
-You can also access usage data via the reporting API. For detailed information and sample code, see [Azure Enterprise REST APIs](./ea-portal-rest-apis.md).
+You can also access usage data via the reporting API. For detailed information and sample code, see [Azure Enterprise REST APIs](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
 
 ### Can I set a spending quota and get alerts as I approach my limit?
 
@@ -146,7 +125,7 @@ To define your spending quota, select a department and then select the edit icon
 
 If you use _resource groups_ and _tags_, this information is tracked at service level, and you can access it in the detailed usage download (CSV) file. See the [download usage report](https://ea.azure.com/report/downloadusage) in the Azure Enterprise portal.
 
-You can also access usage via API. For detailed information and sample code, see [Azure Enterprise REST APIs](./ea-portal-rest-apis.md).
+You can also access usage via API. For detailed information and sample code, see [Azure Enterprise REST APIs](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
 
 > [!NOTE]
 > You can only apply tags to resources that support Azure Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you cannot apply a tag to that resource. You must re-deploy these resources through the Resource Manager to support tagging. All other resources support tagging.
