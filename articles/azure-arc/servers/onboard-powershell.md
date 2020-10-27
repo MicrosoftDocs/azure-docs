@@ -7,11 +7,11 @@ ms.topic: conceptual
 
 # Connect hybrid machines to Azure using PowerShell
 
-You can enable Azure Arc enabled servers for one or a small number of Windows or Linux machines in your environment by performing a set of steps manually. Or you can use the PowerShell cmdlet [Connect-AzConnectedMachine](/powershell/module/az.connectedmachine/remove-azconnectedmachine). This cmdlet performs the following actions:
+You can enable Azure Arc enabled servers for one or more Windows or Linux machines in your environment by performing a set of manual steps. Or you can use the PowerShell cmdlet [Connect-AzConnectedMachine](/powershell/module/az.connectedmachine/remove-azconnectedmachine). to perform the following actions:
 
-- Configures the host machine to download the Windows agent from the Microsoft Download Center, and the Linux agent package from packages.microsoft.com.
-- Installs the Connected Machine agent.
-- Registers the machine with Azure Arc
+- Configure the host machine to download the Windows agent from the Microsoft Download Center, and the Linux agent package from packages.microsoft.com.
+- Install the Connected Machine agent.
+- Register the machine with Azure Arc
 
 This method requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, you are member of the Local Administrators group. You can complete this process interactively or remotely on a Windows server using [PowerShell remoting](/powershell/scripting/learn/ps101/08-powershell-remoting).
 
@@ -39,7 +39,7 @@ When the installation completes, the following message is returned:
 
 2. Sign into Azure by running the command `Connect-AzAccount`.
 
-3. To install the Connected Machine agent, use `Connect-AzConnectedMachine` with the `-Name`, `-ResourceGroupName`, and `-Location` parameters. Use the `-SubscriptionId` parameter to override the default subscription as a result of the Azure context created after sign in.
+3. To install the Connected Machine agent, use `Connect-AzConnectedMachine` with the `-Name`, `-ResourceGroupName`, and `-Location` parameters. Use the `-SubscriptionId` parameter to override the default subscription as a result of the Azure context created after sign-in.
 
     To install the Connected Machine agent on the target machine that can directly communicate to Azure, run the following command:
 
@@ -63,7 +63,7 @@ Perform the following steps to configure the target Windows server or machine wi
 
 2. Sign into Azure by running the command `Connect-AzAccount`.
 
-3. To install the Connected Machine agent, use `Connect-AzConnectedMachine` with the `-Name`, `-ResourceGroupName`, and `-Location` parameters. Use the `-SubscriptionId` parameter to override the default subscription as a result of the Azure context created after sign in.
+3. To install the Connected Machine agent, use `Connect-AzConnectedMachine` with the `-Name`, `-ResourceGroupName`, and `-Location` parameters. Use the `-SubscriptionId` parameter to override the default subscription as a result of the Azure context created after sign-in.
 
 To install the Connected Machine agent on the target machine that can directly communicate to Azure, run the following command:
 
