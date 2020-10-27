@@ -295,7 +295,7 @@ conceptualContent:
           itemType: concept
           text:  Onboarding partners
       footerLink: 
-        url: /azure/ddos-protection/fundamental-best-practices
+        url: ../ddos-protection/index.yml
         text: See more
 
     - title: Content delivery network
