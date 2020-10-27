@@ -41,6 +41,7 @@ Verify the following items:
 
    :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connections.png" alt-text="VPN gateway connections":::
 1. On the **Connections** page, select **+Add**.
+1. This opens the **Add connection** page.
 
    :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/add-connection.png" alt-text="Add connection page":::
 1. On the **Add connection** page, fill out the following fields:
@@ -50,7 +51,7 @@ Verify the following items:
 
 ## <a name="local"></a>Add a local network gateway
 
-1. For the **Local network gateway** field, select ***Choose a local network gateway***. This will open the **Choose local network gateway** page.
+1. For the **Local network gateway** field, select ***Choose a local network gateway***. This opens the **Choose local network gateway** page.
 1. Select **+ Create new** to open the **Create local network gateway** page.
 
    :::image type="content" source="./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/create-local-network-gateway.png" alt-text="Create local network gateway page":::
@@ -63,15 +64,15 @@ Verify the following items:
 
 ## <a name="part3"></a>Add the shared key
 
-On the **Add connection** page, complete the remaining fields.
-
-When you add the shared key, you can either get the shared key from your VPN device, or make one up here and then configure your VPN device to use the same shared key. The important thing is that the keys are exactly the same.
+1. After creating the local network gateway, return to the **Add connection** page.
+1. Complete the remaining fields. For the **Shared key (PSK)**, you can either get the shared key from your VPN device, or make one up here and then configure your VPN device to use the same shared key. The important thing is that the keys are exactly the same.
 
 ## <a name="create"></a>Create the connection
 
-At the bottom of the page, select **OK** to create the connection.
+1. At the bottom of the page, select **OK** to create the connection. The connection begins creating immediately.
+1. Once the connection completes, you can view and verify it.
 
-## <a name="verify"></a>Verify the VPN connection
+## <a name="verify"></a>View and verify the VPN connection
 
 [!INCLUDE [Verify the connection](../../includes/vpn-gateway-verify-connection-portal-include.md)]
 
