@@ -179,23 +179,26 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## INSERT..EXECUTE
 
-Synapse SQL doesn't permit you to consume the result set of a stored procedure with an INSERT statement. There's an alternative approach you can use. For an example, see the article on [temporary tables](develop-tables-temporary.md) for provisioned Synapse SQL pool.
+Provisioned Synapse SQL pool doesn't permit you to consume the result set of a stored procedure with an INSERT statement. There's an alternative approach you can use. For an example, see the article on [temporary tables](develop-tables-temporary.md) for provisioned Synapse SQL pool.
 
 ## Limitations
 
 There are some aspects of Transact-SQL stored procedures that aren't implemented in Synapse SQL, such as:
 
-* temporary stored procedures
-* numbered stored procedures
-* extended stored procedures
-* CLR stored procedures
-* encryption option
-* replication option
-* table-valued parameters
-* read-only parameters
-* default parameters  (in provisioned pool)
-* execution contexts
-* return statement
+| Feature/option | Provisioned | Serverless |
+| --- | --- |
+| Temporary stored procedures | No | Yes |
+| Numbered stored procedures | No | No |
+| Extended stored procedures | No | No |
+| CLR stored procedures | No | No |
+| Encryption option | No | Yes |
+| Replication option | No | No |
+| Table-valued parameters | No | No |
+| Read-only parameters | No | No |
+| Default parameters | No | Yes |
+| Execution contexts | No | No |
+| Return statement | No | Yes |
+| INSERT INTO .. EXEC | No | Yes |
 
 ## Next steps
 
