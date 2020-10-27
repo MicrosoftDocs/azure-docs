@@ -21,7 +21,7 @@ On an Apache Hive/LLAP cluster, unwanted logs are taking up the entire disk spac
 - Ambari throws *HTTP ERROR: 503 Service Unavailable*.
 - HiveServer2 Interactive fails to restart.
 
-The Ambari agent logs will include the following entries when the problem happens:
+The `ambari-agent` logs will include the following entries when the problem happens:
 ```
 ambari_agent - Controller.py - [54697] - Controller - ERROR - Error:[Errno 28] No space left on device
 ```
@@ -37,7 +37,7 @@ In advanced Hive log4j configurations, the current default deletion schedule is 
 
 1. Go to the Hive component summary on the Ambari portal and select the **Configs** tab.
 
-2. Go to the **Advanced hive-log4j** section in Advanced settings.
+2. Go to the `Advanced hive-log4j` section in Advanced settings.
 
 3. Set the `appender.RFA.strategy.action.condition.age` parameter to an age of your choice. This example will set the age to 14 days: `appender.RFA.strategy.action.condition.age = 14D`
 
