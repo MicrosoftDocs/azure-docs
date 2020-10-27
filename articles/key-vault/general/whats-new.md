@@ -19,6 +19,16 @@ ms.author: mbaldwin
 
 Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
+## October 2020
+
+> [!WARNING]
+> These updates have the potential to impact Azure Key Vault implementations.
+
+To support [soft delete now on by default](#soft-delete-on-by-default), two changes have been made to Azure Key Vault PowerShell cmdlets:
+
+- The DisableSoftDelete and EnableSoftDelete paramters of [Update-AzKeyVault](/powershell/module/az.keyvault/update-azkeyvault?view=azps-4.8.0) have been deprecated.
+- The output of the [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret?view=azps-4.8.0) cmdlet no longer has the `SecretValueText` attribute.
+
 ## July 2020
 
 > [!WARNING]
