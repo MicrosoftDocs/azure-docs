@@ -41,6 +41,8 @@ landingContent:
             url: faq.md
           - text: Container image tags
             url: container-image-tags.md
+          - text: More containers documentation
+            url: index.yml
   - title: Container recipes 
     linkLists:
       - linkListType: concept
