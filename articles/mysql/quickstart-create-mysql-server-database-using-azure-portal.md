@@ -46,7 +46,7 @@ Data source |*None* | Select None to create a new server from scratch. Select Ba
 Admin username | *mydemoadmin* | Enter your server admin username. You cannot use **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public** as the admin username.
 Password | your password | A new password for the server admin user. Password must be 8 to 128 characters in length with a combination of uppercase or lowercase letters, numbers, and non-alphanumeric characters (!, $, #, %, and so on).
 Location |your desired location | Select a location from the dropdown list.
-Version | latest major version| Use the latest major version. See [all supported versions](https://docs.microsoft.com/en-us/azure/postgresql/concepts-supported-versions)
+Version | latest major version| Use the latest major version. See [all supported versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions)
 Compute + Storage | use defaults| The default pricing tier is General Purpose with **4 vCores** and **100 GB** storage. Backup retention is set to **7 days** with Geographically Redundant backup option.<br/>Learn about the [pricing](https://azure.microsoft.com/pricing/details/mysql/) and update the defaults if needed.
 
    > [!NOTE]
