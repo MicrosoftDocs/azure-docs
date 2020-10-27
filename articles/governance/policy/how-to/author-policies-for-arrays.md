@@ -204,7 +204,7 @@ The first alias represents a single value, the value of `stringArray` property f
 
 This condition compares the entire `stringArray` array to a single string value. Most conditions, including `equals`, only accept string values, so there's not much use in comparing an array to a string. Even with conditions that accept arrays, there aren't many scenarios where a condition that compares an entire array to another value is useful.
 
-With the `field()` function, the returned value is the array from the request content, which can then be used with any of the [supported template functions](../concepts/definition-structure.md#policy-functions) that accept array arguments. For example:
+With the `field()` function, the returned value is the array from the request content, which can then be used with any of the [supported template functions](../concepts/definition-structure.md#policy-functions) that accept array arguments. For example, the following condition checks whether the length of `stringArray` is greater than 0:
 
 ```json
 {
