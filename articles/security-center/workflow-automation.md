@@ -61,7 +61,12 @@ This article describes the workflow automation feature of Azure Security Center.
 
 1. In your new logic app, you can choose from built-in, predefined templates from the security category. Or you can define a custom flow of events to occur when this process is triggered.
 
-    In the logic app designer the following triggers from the Security Center connectors are supported:
+    > [!TIP]
+    > Sometimes in a logic app, you need to access data that might not exist yet when your workflow starts to run.
+    >
+    > For an example of how to extract parameters for the fields you need at runtime, see step #14 of [Working with logic app parameters while building Azure Security Center workflow automations](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121).
+
+    The logic app designer supports these Security Center triggers:
 
     * **When an Azure Security Center Recommendation is created or triggered** - If your logic app relies on a recommendation that gets deprecated or replaced, your automation will stop working and you'll need to update the trigger. To track changes to recommendations, see [Azure Security Center release notes](release-notes.md).
 
