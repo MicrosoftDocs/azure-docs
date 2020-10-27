@@ -7,7 +7,7 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Host a static website in Azure Storage
@@ -254,7 +254,7 @@ Once you've enabled metrics, traffic statistics on files in the **$web** contain
 
 4. Then select the **Egress** metric.
 
-   ![Azure Storage static websites metrics metric](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![Screenshot that shows the Azure Storage static websites Egress metric.](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
 5. Select **Sum** from the *Aggregation* selector.
 
