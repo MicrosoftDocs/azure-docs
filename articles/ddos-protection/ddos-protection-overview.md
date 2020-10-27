@@ -46,4 +46,4 @@ To learn about Azure DDoS Protection Standard pricing, see [Azure DDoS Protectio
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a DDoS Protection Plan](manage-ddos-protection-2.md)
+> [Create a DDoS Protection Plan](manage-ddos-protection.md)

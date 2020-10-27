@@ -1,5 +1,5 @@
 ---
-title: Azure DDoS Protection Simulation Testing
+title: Azure DDoS Protection simulation testing
 description: Learn about how to test through simulations
 services: ddos-protection
 documentationcenter: na
@@ -27,7 +27,7 @@ We have partnered with [BreakingPoint Cloud](https://www.ixiacom.com/products/br
 
 ## Prerequisites
 
-- Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection-2.md) with protected public IP addresses.
+- Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection.md) with protected public IP addresses.
 - You must first create an account with [BreakingPoint Cloud](http://breakingpoint.cloud/). 
 
 ## Configure a DDoS test attack
@@ -48,7 +48,7 @@ It should now appear like this:
 
 ## Monitor and validate
 
-1. Log in to https://ms.portal.azure.com and go to your subscription.
+1. Log in to https://portal.azure.com and go to your subscription.
 1. Select the Public IP address you tested the attack on.
 1. Under **Monitoring**, select **Metrics**.
 1. For **Metric**, select _Under DDoS attack or not_.

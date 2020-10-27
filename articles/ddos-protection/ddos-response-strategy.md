@@ -1,6 +1,6 @@
 ---
-title: Components of a DDoS Response Strategy
-description: Learn what constitutes a proper response strategy against DDoS attacks.
+title: Components of a DDoS response strategy
+description: Learn what how to use Azure DDoS Protection Standard to respond to DDoS attacks.
 services: ddos-protection
 documentationcenter: na
 author: yitoh
@@ -39,31 +39,23 @@ It’s imperative to understand the scope of your risk from a DDoS attack on an 
 
 - Are my services active/active with failover across multiple regions?
 
+It is essential that you understand the normal behavior of an application and prepare to act if the application is not behaving as expected during a DDoS attack. Have monitors configured for your business-critical applications that mimic client behavior, and notify you when relevant anomalies are detected. Refer to [monitoring and diagnostics best practices](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios) to gain insights on the health of your application.
+
+[Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible application performance management (APM) service for web developers on multiple platforms. Use Application Insights to monitor your live web application. It automatically detects performance anomalies. It includes analytics tools to help you diagnose issues and to understand what users do with your app. It's designed to help you continuously improve performance and usability.
+
 ## Customer DDoS response team
 
-Creating a DDoS response team is a key step in responding to an attack quickly and effectively. Identify contacts in your organization who will oversee both planning and execution. This DDoS response team should thoroughly understand the Azure DDoS Protection Standard service. Make sure that the team can identify and mitigate an attack by coordinating with internal and external customers, including the Microsoft support team.
+Creating a DDoS response team is a key step in responding to an attack quickly and effectively. Identify contacts in your organization who will oversee both planning and execution. This DDoS response team should thoroughly understand the Azure DDoS Protection Standard service. Make sure that the team can identify and mitigate an attack by coordinating with internal and external customers, including the Microsoft support team. 
 
-For your DDoS response team, we recommend that you use simulation exercises as a normal part of your service availability and continuity planning. These exercises should include scale testing.
+We recommend that you use simulation exercises as a normal part of your service availability and continuity planning, and these exercises should include scale testing. See [test through simulations](test-through-simulations.md) to learn how to simulate DDoS test traffic against your Azure public endpoints.
 
 ## Alerts during an attack
 
-Azure DDoS Protection Standard identifies and mitigates DDoS attacks without any user intervention. To get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](/azure/virtual-network/ddos-protection-manage-portal) on the metric **Under DDoS attack or not**. You can choose to create alerts for the other DDoS metrics to understand the scale of the attack, traffic being dropped, and other details.
+Azure DDoS Protection Standard identifies and mitigates DDoS attacks without any user intervention. To get notified when there’s an active mitigation for a protected public IP, you can [configure an alert](telemetry-monitoring-alerting.md) on the metric **Under DDoS attack or not**. You can choose to create alerts for the other DDoS metrics to understand the scale of the attack, traffic being dropped, and other details.
 
 ### When to contact Microsoft support
 
-- During a DDoS attack, you find that the performance of the protected resource is severely degraded, or the resource is not available.
-
-- You think the DDoS Protection service is not behaving as expected. 
-
-  The DDoS Protection service starts mitigation only if the metric value **Policy to trigger DDoS mitigation (TCP/TCP SYN/UDP)** is lower than the traffic received on the protected public IP resource.
-
-- You're planning a viral event that will significantly increase your network traffic.
-
-- An actor has threatened to launch a DDoS attack against your resources.
-
-- If you need to allow list an IP or IP range from Azure DDoS Protection Standard. A common scenario is to allow list IP if the traffic is routed from an external cloud WAF to Azure. 
-
-For attacks that have a critical business impact, create a severity-A [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Azure DDoS Protection Standard customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack as well as post-attack analysis. See [DDoS Rapid Response](ddos-rapid-response.md) for more details, including when you should engage the DRR team.
 
 ## Post-attack steps
 
@@ -79,4 +71,4 @@ If you suspect you're under a DDoS attack, escalate through your normal Azure Su
 
 ## Next steps
 
-- Learn how to [create a DDoS protection plan](manage-ddos-protection-2.md).
+- Learn how to [create a DDoS protection plan](manage-ddos-protection.md).

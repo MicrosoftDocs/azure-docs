@@ -1,5 +1,5 @@
 ---
-title: Azure DDoS Protection Reference Architectures
+title: Azure DDoS Protection reference architectures
 description: Learn Azure DDoS protection reference architectures.
 services: ddos-protection
 documentationcenter: na
@@ -23,7 +23,7 @@ DDoS Protection Standard is designed [for services that are deployed in a virtua
 
 This reference architecture shows a set of proven practices for running multiple Windows VMs in a scale set behind a load balancer, to improve availability and scalability. This architecture can be used for any stateless workload, such as a web server.
 
-![Diagram of the reference architecture for an application running on load-balanced VMs](./media/ddos-best-practices/image9.png)
+![Diagram of the reference architecture for an application running on load-balanced VMs](./media/ddos-best-practices/image-9.png)
 
 In this architecture, a workload is distributed across multiple VM instances. There is a single public IP address, and internet traffic is distributed to the VMs through a load balancer. DDoS Protection Standard is enabled on the virtual network of the Azure (internet) load balancer that has the public IP associated with it.
 
@@ -34,7 +34,7 @@ The load balancer distributes incoming internet requests to the VM instances. Vi
 
 There are many ways to implement an N-tier architecture. The following diagram shows a typical three-tier web application. This architecture builds on the article [Run load-balanced VMs for scalability and availability](/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm). The web and business tiers use load-balanced VMs.
 
-![Diagram of the reference architecture for an application running on Windows N-tier](./media/ddos-best-practices/image10.png)
+![Diagram of the reference architecture for an application running on Windows N-tier](./media/ddos-best-practices/image-10.png)
 
 In this architecture, DDoS Protection Standard is enabled on the virtual network. All public IPs in the virtual network get DDoS protection for Layer 3 and 4. For Layer 7 protection, deploy Application Gateway in the WAF SKU. For more information on this reference architecture, see 
 [this article](/azure/architecture/reference-architectures/virtual-machines-windows/n-tier).
@@ -47,7 +47,7 @@ In this architecture, DDoS Protection Standard is enabled on the virtual network
 This reference architecture shows running an Azure App Service application in a single region. This architecture shows a set of proven practices for a web application that uses [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) and [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
 A standby region is set up for failover scenarios.
 
-![Diagram of the reference architecture for a PaaS web application](./media/ddos-best-practices/image11.png)
+![Diagram of the reference architecture for a PaaS web application](./media/ddos-best-practices/image-11.png)
 
 Azure Traffic Manager routes incoming requests to Application Gateway in one of the regions. During normal operations, it routes requests to Application Gateway in the active region. If that region becomes unavailable, Traffic Manager fails over to Application Gateway in the standby region.
 
@@ -63,9 +63,9 @@ For more information about this reference architecture, see [this article](/azur
 
 This reference architecture shows configuring DDoS Protection Standard for an [Azure HDInsight cluster](/azure/hdinsight/). Make sure that the HDInsight cluster is linked to a virtual network and that DDoS Protection is enabled on the virtual network.
 
-!["HDInsight" and "Advanced settings" panes, with virtual network settings](./media/ddos-best-practices/image12.png)
+!["HDInsight" and "Advanced settings" panes, with virtual network settings](./media/ddos-best-practices/image-12.png)
 
-![Selection for enabling DDoS Protection](./media/ddos-best-practices/image13.png)
+![Selection for enabling DDoS Protection](./media/ddos-best-practices/image-13.png)
 
 In this architecture, traffic destined to the HDInsight cluster from the internet is routed to the public IP associated with the HDInsight gateway load balancer. The gateway load balancer then sends the traffic to the head nodes or the worker nodes directly. Because DDoS Protection Standard is enabled on the HDInsight virtual network, all public IPs in the virtual network get DDoS protection for Layer 3 and 4. This reference architecture can be combined with the N-Tier and multi-region reference architectures.
 
@@ -78,4 +78,4 @@ documentation.
 
 ## Next steps
 
-- Learn how to [create a DDoS protection plan](manage-ddos-protection-2.md).
+- Learn how to [create a DDoS protection plan](manage-ddos-protection.md).

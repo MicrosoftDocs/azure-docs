@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create and Configure an Azure DDoS Protection Plan using Azure CLI'
+title: Create and configure an Azure DDoS Protection plan using Azure CLI
 description: Learn how to create a DDoS Protection Plan using Azure CLI
 services: ddos-protection
 documentationcenter: na

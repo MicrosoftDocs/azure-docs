@@ -24,7 +24,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure DDoS Protection Standard?
-            url: ddos-protection-overview-2.md
+            url: ddos-protection-overview.md
       - linkListType: concept
         links:
           - text: Azure DDoS Protection Standard features
@@ -38,7 +38,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a DDoS Protection Plan - Portal
-            url: manage-ddos-protection-2.md
+            url: manage-ddos-protection.md
 
 
   # Card

@@ -1,5 +1,5 @@
 ---
-title: Azure DDoS Protection Plan Permissions
+title: Azure DDoS Protection Plan permissions
 description: Learn how to manage permission in a protection plan.
 services: ddos-protection
 documentationcenter: na

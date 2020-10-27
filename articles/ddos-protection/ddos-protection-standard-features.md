@@ -1,5 +1,5 @@
 ---
-title: Azure DDoS Protection Features
+title: Azure DDoS Protection features
 description: Learn Azure DDoS Protection features
 services: ddos-protection
 documentationcenter: na
@@ -39,7 +39,7 @@ The Azure DDoS Protection Basic service helps protect customers and prevent impa
 
 - Minimizing false positives, considering that the scale of Azure allows it to absorb a significant amount of traffic.
 
-![Diagram of how DDoS Protection Standard works, with "Policy Generation" circled](./media/ddos-best-practices/image5.png)
+![Diagram of how DDoS Protection Standard works, with "Policy Generation" circled](./media/ddos-best-practices/image-5.png)
 
 ## DDoS Protection telemetry, monitoring, and alerting
 
@@ -51,7 +51,7 @@ In the Azure portal, select **Monitor** > **Metrics**. In the **Metrics** pane, 
 
 DDoS Protection Standard applies three autotuned mitigation policies (TCP SYN, TCP, and UDP) for each public IP of the protected resource, in the virtual network that has DDoS enabled. You can view the policy thresholds by selecting the metric **Inbound packets to trigger DDoS mitigation**.
 
-![Available metrics and metrics chart](./media/ddos-best-practices/image7.png)
+![Available metrics and metrics chart](./media/ddos-best-practices/image-7.png)
 
 The policy thresholds are autoconfigured via machine learning-based network traffic profiling. DDoS mitigation occurs for an IP address under attack only when the policy threshold is exceeded.
 
@@ -59,11 +59,11 @@ The policy thresholds are autoconfigured via machine learning-based network traf
 
 If the public IP address is under attack, the value for the metric **Under DDoS attack or not** changes to 1 as DDoS Protection performs mitigation on the attack traffic.
 
-!["Under DDoS attack or not" metric and chart](./media/ddos-best-practices/image8.png)
+!["Under DDoS attack or not" metric and chart](./media/ddos-best-practices/image-8.png)
 
 We recommend configuring an alert on this metric. You'll then be notified when there’s an active DDoS mitigation performed on your public IP address.
 
-For more information, see [Manage Azure DDoS Protection Standard using the Azure portal](/azure/virtual-network/ddos-protection-manage-portal).
+For more information, see [Manage Azure DDoS Protection Standard using the Azure portal](manage-ddos-protection.md).
 
 ## Web application firewall for resource attacks
 
@@ -83,4 +83,4 @@ Learn how your services will respond to an attack by [testing through simulation
 
 ## Next steps
 
-- Learn how to [create a DDoS protection plan](manage-ddos-protection-2.md).
+- Learn how to [create a DDoS protection plan](manage-ddos-protection.md).

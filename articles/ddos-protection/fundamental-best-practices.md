@@ -1,5 +1,5 @@
 ---
-title: Azure DDoS Protection Fundamental Best Practices
+title: Azure DDoS Protection fundamental best practices
 description: Learn the best security practices using DDoS protection.
 services: ddos-protection
 documentationcenter: na
@@ -48,4 +48,4 @@ We often see customers' on-premises resources getting attacked along with their 
 
 ## Next steps
 
-- Learn how to [create a DDoS protection plan](manage-ddos-protection-2.md).
+- Learn how to [create a DDoS protection plan](manage-ddos-protection.md).

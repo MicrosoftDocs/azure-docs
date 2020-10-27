@@ -1,6 +1,6 @@
 ---
-title: Azure DDoS Protection Telemetry, Monitoring and Alerting
-description: Learn how to manage permission in a protection plan.
+title: View and configure DDoS protection telemetry
+description: Learn how to view and configure DDoS protection telemetry.
 services: ddos-protection
 documentationcenter: na
 author: yitoh
@@ -28,7 +28,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection-2.md).
+- Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection.md).
 
 ## Configure alerts for DDoS protection metrics
 

@@ -58,11 +58,11 @@ Azure DDoS Protection Standard partnering opportunities are made available via A
 
 ### Integrate with DDoS Protection Standard
 The following steps are required for partners to configure integration with Azure DDoS Protection Standard:
-1. Create a DDoS Protection Plan in your desired (partner) subscription. For step-by-step instructions, see [Create a DDoS Standard Protection plan](manage-ddos-protection-2.md#create-a-ddos-protection-plan).
+1. Create a DDoS Protection Plan in your desired (partner) subscription. For step-by-step instructions, see [Create a DDoS Standard Protection plan](manage-ddos-protection.md#create-a-ddos-protection-plan).
    > [!NOTE]
    > Only 1 DDoS Protection Plan needs to be created for a given tenant. 
 2. Deploy a service with public endpoint in your (partner) subscriptions, such as load balancer, firewalls, and web application firewall. 
-3. Enable Azure DDoS Protection Standard on the virtual network of the service that has public endpoints using DDoS Protection Plan created in the first step. For stpe-by-step instructions, see [Enable DDoS Standard Protection plan](manage-ddos-protection-2.md#enable-ddos-protection-for-an-existing-virtual-network)
+3. Enable Azure DDoS Protection Standard on the virtual network of the service that has public endpoints using DDoS Protection Plan created in the first step. For stpe-by-step instructions, see [Enable DDoS Standard Protection plan](manage-ddos-protection.md#enable-ddos-protection-for-an-existing-virtual-network)
    > [!IMPORTANT] 
    > After Azure DDoS Protection Standard is enabled on a virtual network, all public IPs within that virtual network are automatically protected. The origin of these public IPs can be either within Azure (client subscription) or outside of Azure. 
 4. Optionally, integrate Azure DDoS Protection Standard telemetry and attack analytics in your application-specific customer-facing dashboard. For more information about using telemetry, see [View and configure DDoS protection telemetry](telemetry-monitoring-alerting.md). 
@@ -70,7 +70,7 @@ The following steps are required for partners to configure integration with Azur
 ### Onboarding guides and technical documentation
 
 - [Azure DDoS Protection product page](https://azure.microsoft.com/services/ddos-protection/)
-- [Azure DDoS Protection documentation](ddos-protection-overview-2.md)
+- [Azure DDoS Protection documentation](ddos-protection-overview.md)
 - [Azure DDoS Protection API reference](https://docs.microsoft.com/rest/api/virtualnetwork/ddosprotectionplans)
 - [Azure virtual network API reference](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks)
 

@@ -3,12 +3,12 @@
 - name: Overview
   items:
   - name: What is Azure DDoS Protection Standard?
-    href: ddos-protection-overview-2.md    
+    href: ddos-protection-overview.md    
 - name: Quickstarts
   items:
   - name: Create a DDoS protection plan - Portal
-    href: manage-ddos-protection-2.md
-  - name: Create a DDoS protection plan - Powershell
+    href: manage-ddos-protection.md
+  - name: Create a DDoS protection plan - PowerShell
     href: manage-ddos-protection-powershell.md
   - name: Create a DDoS protection plan - CLI
     href: manage-ddos-protection-cli.md
@@ -41,12 +41,12 @@
     - name: Engage DDoS Rapid Response (DRR)
       href: ddos-rapid-response.md
     - name: Onboard partners
-      href: ddos-protection-partner-onboarding-2.md  
+      href: ddos-protection-partner-onboarding.md  
 - name: Reference
   items:
   - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest
-  - name: Azure Powershell
+  - name: Azure PowerShell
     href: https://docs.microsoft.com/powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0
   - name: .NET
     href: https://docs.microsoft.com/dotnet/api/

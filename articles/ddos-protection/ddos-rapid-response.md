@@ -19,28 +19,28 @@ During an active access, Azure DDoS Protection Standard customers have access to
 
 ## Prerequisites
 
-- Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection-2.md).
+- Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection.md).
 
 ## When to engage DRR
 
 You should only engage DRR if: 
 
-1. During a DDoS attack if you find that the performance of the protected resource is severely degraded, or the resource is not available. Review step 2 above on configuring monitors to detect resource availability and performance issues.
-2. You think your resource is under DDoS attack, but DDoS Protection service is not mitigating the attack effectively.
-3. You're planning a viral event that will significantly increase your network traffic.
-4. For attacks that have a critical business impact.
+- During a DDoS attack if you find that the performance of the protected resource is severely degraded, or the resource is not available. Review step 2 above on configuring monitors to detect resource availability and performance issues.
+- You think your resource is under DDoS attack, but DDoS Protection service is not mitigating the attack effectively.
+- You're planning a viral event that will significantly increase your network traffic.
+- For attacks that have a critical business impact.
 
 ## Engage DRR during an active attack
 
-1. From Azure Portal while creating a new support request, choose **Issue Type** as Technical.
+1. From Azure portal while creating a new support request, choose **Issue Type** as Technical.
 2. Choose **Service** as **DDOS Protection**.
 3. Choose a resource in the resource drop down menu. _You must select a DDoS Plan that’s linked to the virtual network being protected by DDoS Protection Standard to engage DRR._
 
-![Choose Resource](./media/ddos-rapid-response/choose-resource.png)
+    ![Choose Resource](./media/ddos-rapid-response/choose-resource.png)
 
 4. On the next **Problem** page select the **severity** as A -Critical Impact and **Problem Type** as ‘Under attack.’
 
-![PSeverity and Problem Type](./media/ddos-rapid-response/severity-and-problem-type.png)
+    ![PSeverity and Problem Type](./media/ddos-rapid-response/severity-and-problem-type.png)
 
 5. Complete additional details and submit the support request.
 
