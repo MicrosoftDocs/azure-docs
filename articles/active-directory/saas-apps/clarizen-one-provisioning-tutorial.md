@@ -45,7 +45,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 3. Determine what data to [map between Azure AD and Clarizen One](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
 ## Step 2. Configure Clarizen One to support provisioning with Azure AD
-1. Select one of the four following Tenant URLs accourding to your Clarizen One environment and data center:
+1. Select one of the four following Tenant URLs according to your Clarizen One environment and data center:
       * US Production data center: https://servicesapp2.clarizen.com/scim/v2
       * EU Production data center: https://serviceseu1.clarizen.com/scim/v2
       * US Sandbox data center: https://servicesapp.clarizentb.com/scim/v2
@@ -76,7 +76,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Clarizen One **.
+2. In the applications list, select **Clarizen One**.
 
 	![The Clarizen One link in the Applications list](common/all-applications.png)
 
