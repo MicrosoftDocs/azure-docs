@@ -90,6 +90,28 @@ The following list describes the levels at which you can scope access to Azure D
 
 If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [*Troubleshooting: Azure Digital Twins request failed with Status: 403 (Forbidden)*](troubleshoot-error-403.md).
 
+## Service tags
+
+A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. For more information about service tags, see [*Virtual network tags*](../virtual-network/service-tags-overview.md). 
+
+You can use service tags to define network access controls on [network security groups](../virtual-network/network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name (for example, **AzureDigitalTwins**) in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service. 
+
+| Tag | Purpose | Can use inbound or outbound ? | Can be regional? | Can use with Azure Firewall? |
+| --- | --- | --- | --- | --- |
+| AzureDigitalTwins | Azure Digital Twins.<br>Note: This tag or the IP addresses covered by this tag can be used to restrict access to endpoints configured for [event routes](concepts-route-events.md). | Inbound | No | Yes |
+
+### Using service tags for accessing event route endpoints 
+
+1. Download JSON file with Azure IP Ranges and Service Tags from [here](https://www.microsoft.com/download/details.aspx?id=56519). 
+
+2. Look for "AzureDigitalTwins" IP ranges in the JSON file.  
+
+3. Refer to the documentation of the external resource (for example, event route endpoint such as [Event Grid](../event-grid/overview.md), [Event Hub](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), or [Azure Storage](../storage/blobs/storage-blobs-overview.md) for dead-letter events in Azure Digital Twins)  
+
+4. Set IP filters on the external resources using IP ranges from step 2.  
+
+5. Update IP ranges periodically. 
+
 ## Encryption of data at rest
 
 Azure Digital Twins provides encryption of data at rest and in-transit as it's written in our data centers, and decrypts it for you as you access it. This encryption occurs using a Microsoft managed encryption key.
