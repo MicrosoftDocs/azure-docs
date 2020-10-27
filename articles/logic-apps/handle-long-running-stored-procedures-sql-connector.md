@@ -40,7 +40,7 @@ Rather than directly call the stored procedure, you can asynchronously run the p
 > stored procedure multiple times. To avoid duplicating output, before you create any objects, 
 > make sure that you check for their existence.
 
-The next section describe how you can use the Azure Elastic Job Agent for Azure SQL Database. For SQL Server and Azure SQL Managed Instance, you can use the SQL Server Agent. Some management details will differ, but the fundamental steps remain the same as setting up a job agent for Azure SQL Database.
+The next section describes how you can use the Azure Elastic Job Agent for Azure SQL Database. For SQL Server and Azure SQL Managed Instance, you can use the SQL Server Agent. Some management details will differ, but the fundamental steps remain the same as setting up a job agent for Azure SQL Database.
 
 <a name="azure-sql-database"></a>
 

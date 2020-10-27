@@ -62,7 +62,7 @@ Now, continue with these steps:
 
 ### Connect to Azure SQL Database or Managed Instance
 
-To access a Azure SQL Managed Instance without using the on-premises data gateway or integration service environment, you have to [set up the public endpoint on the Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md). The public endpoint uses port 3342, so make sure that you specify this port number when you create the connection from your logic app.
+To access an Azure SQL Managed Instance without using the on-premises data gateway or integration service environment, you have to [set up the public endpoint on the Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md). The public endpoint uses port 3342, so make sure that you specify this port number when you create the connection from your logic app.
 
 
 The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
@@ -223,12 +223,17 @@ Sometimes, you have to work with result sets so large that the connector doesn't
 
   > [!NOTE]
   > The SQL connector has a stored procedure timeout limit that's [less than 2-minutes](/connectors/sql/#known-issues-and-limitations). 
-  > Some stored procedures might take longer than this limit to run and finish, generating a `504 TIMEOUT` error. Actually, some long-running 
-  > processes are coded as stored procedures explicitly for this purpose. Calling these procedures from Azure Logic Apps might create problems 
-  > due to this timeout limit. Although the SQL connector doesn't natively support an asynchronous mode, you can simulate this mode by using a 
-  > SQL completion trigger, native SQL pass-through query, a state table, and server-side jobs by using the [Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md) 
-  > for [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). For [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) 
-  > and [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
+  > Some stored procedures might take longer than this limit to run and finish, generating a `504 Timeout` error. Some long-running 
+  > processes are coded as stored procedures explicitly for this purpose. Due to the timeout limit, calling these procedures from 
+  > Azure Logic Apps might create problems. Although the SQL connector doesn't natively support an asynchronous mode, you can simulate 
+  > this mode by using a SQL completion trigger, native SQL pass-through query, a state table, and server-side jobs.
+  > 
+  > For this task, you can use the [Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md) 
+  > for [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). For 
+  > [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) 
+  > and [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), 
+  > you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent). To learn more, see 
+  > [Handle long-running stored procedure timeouts in the SQL connector for Azure Logic Apps](../logic-apps/handle-long-running-stored-procedures-sql-connector.md).
 
 ### Handle dynamic bulk data
 
