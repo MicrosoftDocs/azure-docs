@@ -94,7 +94,7 @@ cd <path/to/tutorial>
 python ./01-create-workspace.py
 ```
 
-If you have access to multiple Azure accounts, you may have to specify the tenant ID of the Azure Active Directory you're using.  If running the code returns a subscription access error:
+If you use multiple Azure accounts, you may get an error that you do not have access to the subscription.  In this case:
 
 1. Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**. 
 1. Change the contents of the file to:

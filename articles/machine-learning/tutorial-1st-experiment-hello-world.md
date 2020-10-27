@@ -85,6 +85,22 @@ aml_url = run.get_portal_url()
 print(aml_url)
 ```
 
+If you use multiple Azure accounts, you may get an error that you do not have access to the subscription.  In this case:
+
+1. Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**. 
+1. Add this code to the top of your script:
+
+    ```python
+    from azureml.core.authentication import InteractiveLoginAuthentication
+    interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id")
+    ```
+
+1. Change `ws = Workspace.from_config()` to:
+
+    ```python
+    ws = Workspace.from_config(auth=interactive_auth)
+    ```
+
 ### Understand the code
 
 Here's a description of how the control script works:
