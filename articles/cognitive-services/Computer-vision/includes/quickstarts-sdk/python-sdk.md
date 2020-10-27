@@ -132,7 +132,7 @@ The following code prints the detected presence of adult content in the image. S
 
 The following code prints the detected color attributes in the image, like the dominant colors and accent color. See [Color schemes](../../concept-detecting-color-schemes.md) for more details.
 
-[!code-python[](~/cognitive-services-quickstart-code/'ython/ComputerVision/ComputerVisionQuickstart.py?name=snippet_color)]
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_color)]
 
 ### Get domain-specific content
 
@@ -197,4 +197,4 @@ In this quickstart, you learned how to use the Computer Vision library for Pytho
 
 * [What is Computer Vision?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).
-''                ''                
+           
