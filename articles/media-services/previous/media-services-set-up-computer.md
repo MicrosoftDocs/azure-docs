@@ -17,10 +17,12 @@ ms.date: 04/01/2019
 ms.author: juliako
 
 ---
-# Set up your Media Services development environment  
+# Set up your Media Services development environment 
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 The following steps describe prerequisites required for developing with Azure Media Services.
 
@@ -49,4 +51,3 @@ Find multiple code samples in the **Azure Code Samples** gallery: [Azure Media S
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

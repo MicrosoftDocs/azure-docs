@@ -4,9 +4,9 @@ description: Outlines the authentication mechanisms to bulk load data
 services: synapse-analytics
 author: kevinvngo
 ms.service: synapse-analytics
-ms.topic: overview
-ms.subservice:
-ms.date: 05/06/2020
+ms.topic: quickstart
+ms.subservice: sql-dw
+ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ---
@@ -18,12 +18,13 @@ This article highlights and provides examples on the secure authentication mecha
 
 The following matrix describes the supported authentication methods for each file type and storage account. This applies to the source storage location and the error file location.
 
-|                      |                CSV                |              Parquet              |                ORC                |
-| :------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
-|  Azure blob storage  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/KEY              |              SAS/KEY              |
-| Azure Data Lake Gen2 | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |
+|                          |                CSV                |              Parquet               |                ORC                 |
+| :----------------------: | :-------------------------------: | :-------------------------------:  | :-------------------------------:  |
+|  **Azure blob storage**  | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD |              SAS/KEY               |              SAS/KEY               |
+| **Azure Data Lake Gen2** | SAS/MSI/SERVICE PRINCIPAL/KEY/AAD | SAS (blob endpoint)/MSI (dfs endpoint)/SERVICE PRINCIPAL/KEY/AAD | SAS (blob endpoint)/MSI (dfs endpoint)/SERVICE PRINCIPAL/KEY/AAD |
 
-## A. Storage account key with LF as the row terminator
+
+## A. Storage account key with LF as the row terminator (Unix-style new line)
 
 
 ```sql
@@ -42,7 +43,7 @@ WITH (
 >
 > - Use the hexadecimal value (0x0A) to specify the Line Feed/Newline character. Note the COPY statement will interpret the '\n' string as '\r\n' (carriage return newline).
 
-## B. Shared Access Signatures (SAS) with CRLF as the row terminator
+## B. Shared Access Signatures (SAS) with CRLF as the row terminator (Windows style new line)
 ```sql
 COPY INTO target_table
 FROM 'https://adlsgen2account.dfs.core.windows.net/myblobcontainer/folder1/'
@@ -70,7 +71,7 @@ Managed Identity authentication is required when your storage account is attache
 3. You must have **Allow trusted Microsoft services to access this storage account** turned on under Azure Storage account **Firewalls and Virtual networks** settings menu. Refer to this [guide](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions) for more information.
 #### Steps
 
-1. In PowerShell, **register your SQL server** with Azure Active Directory (AAD):
+1. In PowerShell, **register your SQL server** with Azure Active Directory:
 
    ```powershell
    Connect-AzAccount
@@ -83,11 +84,16 @@ Managed Identity authentication is required when your storage account is attache
    > [!NOTE]
    > If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-3. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Owner, Contributor, or Reader** RBAC role to your SQL server.
+3. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Owner, Contributor, or Reader** Azure role to your SQL server.
 
    > [!NOTE]
-   > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+   > Only members with Owner privilege can perform this step. For various Azure built-in roles, refer to this [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
    
+    > [!IMPORTANT]
+    > Specify the **Storage** **Blob Data** Owner, Contributor, or Reader Azure role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader. 
+
+    ![Granting Azure RBAC permission to load](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+
 4. You can now run the COPY statement specifying "Managed Identity":
 
 	```sql
@@ -99,14 +105,15 @@ Managed Identity authentication is required when your storage account is attache
 	)
 	```
 
-> [!IMPORTANT]
->
-> - Specify the **Storage** **Blob Data** Owner, Contributor, or Reader RBAC role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader. 
-
-## D. Azure Active Directory Authentication (AAD)
+## D. Azure Active Directory Authentication
 #### Steps
 
-1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Owner, Contributor, or Reader** RBAC role to your AAD user. 
+1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Owner, Contributor, or Reader** Azure role to your Azure AD user. 
+
+    > [!IMPORTANT]
+    > Specify the **Storage** **Blob Data** Owner, Contributor, or Reader Azure role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader.
+
+    ![Granting Azure RBAC permission to load](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 2. Configure Azure AD authentication by going through the following [documentation](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
 
@@ -120,18 +127,15 @@ Managed Identity authentication is required when your storage account is attache
 	)
 	```
 
-> [!IMPORTANT]
->
-> - Specify the **Storage** **Blob Data** Owner, Contributor, or Reader RBAC role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader. 
 
 ## E. Service Principal Authentication
 #### Steps
 
-1. [Create an Azure Active Directory (AAD) application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
+1. [Create an Azure Active Directory application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
 2. [Get application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)
 3. [Get the authentication key](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-a-new-application-secret)
 4. [Get the V1 OAuth 2.0 token endpoint](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
-5. [Assign read, write, and execution permissions to your AAD application](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) on your storage account
+5. [Assign read, write, and execution permissions to your Azure AD application](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) on your storage account
 6. You can now run the COPY statement:
 
 	```sql

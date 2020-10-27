@@ -7,6 +7,7 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
+ms.custom: devx-track-js, devx-track-azurecli
 ---
 
 # Host a static website in Azure Storage
@@ -14,6 +15,9 @@ ms.date: 03/04/2020
 You can serve static content (HTML, CSS, JavaScript, and image files) directly from a container in an Azure Storage GPv2 account. To learn more, see [Static website hosting in Azure Storage](storage-blob-static-website.md).
 
 This article shows you how to enable static website hosting by using the Azure portal, the Azure CLI, or PowerShell.
+
+> [!NOTE]
+> Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
 
 ## Enable static website hosting
 
@@ -43,7 +47,7 @@ Static website hosting is a feature that you have to enable on the storage accou
 
 ### [Azure CLI](#tab/azure-cli)
 
-<a id="cli" />
+<a id="cli"></a>
 
 You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -71,7 +75,7 @@ You can enable static website hosting by using the [Azure Command-Line Interface
 
 ### [PowerShell](#tab/azure-powershell)
 
-<a id="powershell" />
+<a id="powershell"></a>
 
 You can enable static website hosting by using the Azure PowerShell module.
 
@@ -148,13 +152,10 @@ These instructions show you how to upload files by using the version of Storage 
 
 Upload objects to the *$web* container from a source directory.
 
-> [!NOTE]
-> If you're using Azure Cloud Shell, make sure to add an `\` escape character when referring to the `$web` container (For example: `\$web`). If you're using a local installation of the Azure CLI, then you won't have to use the escape character.
-
 This example assumes that you're running commands from Azure Cloud Shell session.
 
 ```azurecli-interactive
-az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
+az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-account-name>
 ```
 
 > [!NOTE] 
@@ -190,21 +191,19 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 
 ---
 
-## Find the website URL by using the Azure portal
+<a id="portal-find-url"></a>
+
+## Find the website URL
 
 You can view the pages of your site from a browser by using the public URL of the website.
 
 ### [Portal](#tab/azure-portal)
-
-<a id="portal-find-url" />
 
 In the pane that appears beside the account overview page of your storage account, select **Static Website**. The URL of your site appears in the **Primary endpoint** field.
 
 ![Azure Storage static websites metrics metric](./media/storage-blob-static-website/storage-blob-static-website-url.png)
 
 ### [Azure CLI](#tab/azure-cli)
-
-<a id="cli-find-url" />
 
 Find the public URL of your static website by using the following command:
 
@@ -217,8 +216,6 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 * Replace the `<resource-group-name>` placeholder value with the name of your resource group.
 
 ### [PowerShell](#tab/azure-powershell)
-
-<a id="powershell-find-url" />
 
 Find the public URL of your static website by using by using the following command:
 
@@ -233,7 +230,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 ---
 
-<a id="metrics" />
+<a id="metrics"></a>
 
 ## Enable metrics on static website pages
 
@@ -257,7 +254,7 @@ Once you've enabled metrics, traffic statistics on files in the **$web** contain
 
 4. Then select the **Egress** metric.
 
-   ![Azure Storage static websites metrics metric](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+   ![Screenshot that shows the Azure Storage static websites Egress metric.](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
 5. Select **Sum** from the *Aggregation* selector.
 

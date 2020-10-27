@@ -1,11 +1,8 @@
 ---
 title: PowerShell module Windows Virtual Desktop - Azure
 description: How to install and set up the PowerShell module for Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
@@ -13,10 +10,7 @@ manager: lizross
 # Set up the PowerShell module for Windows Virtual Desktop
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects.
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>This content applies to Windows Virtual Desktop with Azure Resource Manager integration.
 
 The Windows Virtual Desktop PowerShell module is integrated into the Azure PowerShell module. This article will tell you how to set up the PowerShell module so you can run cmdlets for Windows Virtual Desktop.
 
@@ -41,6 +35,13 @@ Next, run the following cmdlet to connect to Azure:
 Connect-AzAccount
 ```
 
+>[!IMPORTANT]
+>If you're connecting to the US Gov portal, run this cmdlet instead:
+> 
+> ```powershell
+> Connect-AzAccount -EnvironmentName AzureUSGovernment
+> ```
+
 Signing into your Azure account requires a code that's generated when you run the Connect cmdlet. To sign in, go to <https://microsoft.com/devicelogin>, enter the code, then sign in using your Azure admin credentials.
 
 ```powershell
@@ -58,7 +59,13 @@ This will sign you directly into the subscription that is default for your admin
 If you want to change the default subscription after you've signed in, run this cmdlet:
 
 ```powershell
-Select-AzSubscription -SubscriptionName <preferredsubscriptionname>
+Select-AzSubscription -Subscription <preferredsubscriptionname>
+```
+
+You can also select one from a list using the Out-GridView cmdlet:
+
+```powershell
+Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription
 ```
 
 When you select a new subscription to use, you don't need to specify that subscription's ID in cmdlets you run afterwards. For example, the following cmdlet retrieves a specific session host without needing the subscription ID:

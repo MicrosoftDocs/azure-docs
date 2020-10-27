@@ -3,11 +3,13 @@ title: Azure Database Migration Service documentation
 summary: "Azure Database Migration Service enables seamless migrations from multiple database sources to Azure Data platforms with minimal downtime. The service uses the Data Migration Assistant to generate assessment reports that provide recommendations to guide you through the changes required before performing a migration. When you're ready to begin the migration process, Azure Database Migration Service performs all the required steps."
 metadata: 
   description: "Learn how to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime by using Azure Database Migration Service."
+  keywords: azure database migration services, dms service, azure data migration, data migration service, database migration service
   author: HJToland3
   ms.author: jtoland
   ms.date: 12/19/2019
   ms.service: dms
   ms.topic: landing-page
+  ms.custom: seo-azure-migrate
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -89,6 +91,8 @@ landingContent:
             url: tutorial-postgresql-azure-postgresql-online.md
           - text: Migrate RDS PostgreSQL to Azure DB for PostgreSQL
             url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
+          - text: Migrate between Azure DB for PostgreSQL instances online via the portal
+            url: tutorial-azure-postgresql-to-azure-postgresql-online-portal.md
           - text: Migrate to Azure DB for MySQL - online
             url: tutorial-mysql-azure-mysql-online.md
           - text: Migrate RDS MySQL to Azure DB for MySQL - online

@@ -6,7 +6,7 @@ services: storage
 author: santoshc
 
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
@@ -53,7 +53,7 @@ For read access to the secondary region with a storage account configured for ge
 
 For more detailed information on creating a private endpoint for your storage account, refer to the following articles:
 
-- [Connect privately to a storage account from the Storage Account experience in the Azure portal](../../private-link/create-private-endpoint-storage-portal.md)
+- [Connect privately to a storage account from the Storage Account experience in the Azure portal](../../private-link/tutorial-private-endpoint-storage-portal.md)
 - [Create a private endpoint using the Private Link Center in the Azure portal](../../private-link/create-private-endpoint-portal.md)
 - [Create a private endpoint using Azure CLI](../../private-link/create-private-endpoint-cli.md)
 - [Create a private endpoint using Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
@@ -110,8 +110,8 @@ The recommended DNS zone names for private endpoints for storage services are:
 
 For more information on configuring your own DNS server to support private endpoints, refer to the following articles:
 
-- [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS configuration for private endpoints](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Name resolution for resources in Azure virtual networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [DNS configuration for private endpoints](../../private-link/private-endpoint-overview.md#dns-configuration)
 
 ## Pricing
 
@@ -133,7 +133,7 @@ This constraint is a result of the DNS changes made when account A2 creates a pr
 
 ### Network Security Group rules for subnets with private endpoints
 
-Currently, you can't configure [Network Security Group](../../virtual-network/security-overview.md) (NSG) rules and user-defined routes for private endpoints. NSG rules applied to the subnet hosting the private endpoint are applied to the private endpoint. A limited workaround for this issue is to implement your access rules for private endpoints on the source subnets, though this approach may require a higher management overhead.
+Currently, you can't configure [Network Security Group](../../virtual-network/network-security-groups-overview.md) (NSG) rules and user-defined routes for private endpoints. NSG rules applied to the subnet hosting the private endpoint are only applied to other endpoints (e.g. NICs) than the private endpoint. A limited workaround for this issue is to implement your access rules for private endpoints on the source subnets, though this approach may require a higher management overhead.
 
 ## Next steps
 

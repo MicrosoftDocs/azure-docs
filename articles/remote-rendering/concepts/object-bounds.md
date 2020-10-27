@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 
 # Object bounds
@@ -19,7 +20,7 @@ It's possible to compute the bounds of an entire object hierarchy this way, but 
 
 A better way is to call `QueryLocalBoundsAsync` or `QueryWorldBoundsAsync` on an entity. The computation is then offloaded to the server and returned with minimal delay.
 
-``` cs
+```cs
 private BoundsQueryAsync _boundsQuery = null;
 
 public void GetBounds(Entity entity)
@@ -36,6 +37,27 @@ public void GetBounds(Entity entity)
     };
 }
 ```
+
+```cpp
+void GetBounds(ApiHandle<Entity> entity)
+{
+    ApiHandle<BoundsQueryAsync> boundsQuery = *entity->QueryWorldBoundsAsync();
+    boundsQuery->Completed([](ApiHandle<BoundsQueryAsync> bounds)
+    {
+        if (bounds->GetIsRanToCompletion())
+        {
+            Double3 aabbMin = bounds->GetResult().min;
+            Double3 aabbMax = bounds->GetResult().max;
+            // ...
+        }
+    });
+}
+```
+
+## API documentation
+
+* [C# Entity.QueryLocalBoundsAsync](/dotnet/api/microsoft.azure.remoterendering.entity.querylocalboundsasync)
+* [C++ Entity::QueryLocalBoundsAsync](/cpp/api/remote-rendering/entity#querylocalboundsasync)
 
 ## Next steps
 

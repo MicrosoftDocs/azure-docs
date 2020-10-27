@@ -8,7 +8,14 @@
   expanded: true
   items:
     - name: Build your first static web app
-      href: getting-started.md
+      expanded: true
+      items:
+        - name: Visual Studio Code
+          href: getting-started.md
+        - name: Azure portal
+          href: get-started-portal.md
+        - name: Azure CLI
+          href: get-started-cli.md
 - name: Concepts
   items:
     - name: API support with Azure Functions
@@ -33,6 +40,8 @@
       href: add-api.md
     - name: Configure app settings
       href: application-settings.md
+    - name: Configure front-end frameworks and libraries
+      href: front-end-frameworks.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator
@@ -43,8 +52,12 @@
           href: publish-hugo.md
         - name: VuePress
           href: publish-vuepress.md
+        - name: Jekyll
+          href: publish-jekyll.md
     - name: Deploy from a framework
       items:
+        - name: Blazor
+          href: deploy-blazor.md
         - name: Next.js
           href: deploy-nextjs.md
         - name: Nuxt.js

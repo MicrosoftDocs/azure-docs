@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
+ms.custom: devx-track-csharp
 ---
 
 # Implementing Voice Assistants on Windows
@@ -108,19 +109,28 @@ await appView.TryEnterViewModeAsync(ApplicationViewMode.Default);
 
 ## Implementing above lock activation
 
-The following steps cover the requirements to enable a voice assistant on Windows to run above lock, including references to example code and guidelines for managing the application lifecycle. For guidance on designing above lock experiences, visit the [best practices guide](windows-voice-assistants-best-practices.md).
+The following steps cover the requirements to enable a voice assistant on Windows to run above lock, including references to example code and guidelines for managing the application lifecycle.
+
+For guidance on designing above lock experiences, visit the [best practices guide](windows-voice-assistants-best-practices.md).
+
+When an app shows a view above lock, it is considered to be in "Kiosk Mode". For more information on implementing an app that uses Kiosk Mode, see the [kiosk mode documentation](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access).
+
+### Transitioning above lock
+
+An activation above lock is similar to an activation below lock. If there are no active instances of the application, a new instance will be started in the background and `OnBackgroundActivated` in App.xaml.cs will be called. If there is an instance of the application, that instance will get a notification through the `ConversationalAgentSession.SignalDetected` event.
+
+If the application is not already showing above lock, it must call `ConversationalAgentSession.RequestForegroundActivationAsync`. This triggers the `OnLaunched` method in App.xaml.cs which should navigate to the view that will be shown above lock.
 
 ### Detecting lock screen transitions
 
-The ConversationalAgent library in the Windows SDK provides an API to make the lock screen state and changes to the lock screen state easily accessible. To detect the current lock screen state, check the `ConversationalAgentSession.IsUserAuthenticated` field. To detect changes in lock state, add an event handler to the `ConversationalAgentSession` object's `SystemStateChanged` event. It will fire whenever the screen changes from unlocked to locked or vice versa. If the value of the event arguments is `ConversationalAgentSystemStateChangeType.UserAuthentication`, then the lock screen state has changed and the application should close.
+The ConversationalAgent library in the Windows SDK provides an API to make the lock screen state and changes to the lock screen state easily accessible. To detect the current lock screen state, check the `ConversationalAgentSession.IsUserAuthenticated` field. To detect changes in lock state, add an event handler to the `ConversationalAgentSession` object's `SystemStateChanged` event. It will fire whenever the screen changes from unlocked to locked or vice versa. If the value of the event arguments is `ConversationalAgentSystemStateChangeType.UserAuthentication`, then the lock screen state has changed.
 
 ```csharp
-// When the app changes lock state, close the application to prevent duplicates running at once
 conversationalAgentSession.SystemStateChanged += (s, e) =>
 {
     if (e.SystemStateChangeType == ConversationalAgentSystemStateChangeType.UserAuthentication)
     {
-        WindowService.CloseWindow();
+        // Handle lock state change
     }
 };
 ```
@@ -132,6 +142,9 @@ The application entry in the Voice Activation Privacy settings page has a toggle
 ## Closing the application
 
 To properly close the application programmatically while above or below lock, use the `WindowService.CloseWindow()` API. This triggers all UWP lifecycle methods, including OnSuspend, allowing the application to dispose of its `ConversationalAgentSession` instance before closing.
+
+> [!NOTE]
+> The application can close without closing the [below lock instance](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-). In this case, the above lock view needs to "clean up", ensuring that once the screen is unlocked, there are no event handlers or tasks that will try to manipulate the above lock view.
 
 ## Next steps
 

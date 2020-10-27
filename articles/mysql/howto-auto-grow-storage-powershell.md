@@ -4,8 +4,9 @@ description: This article describes how you can enable auto grow storage using P
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 4/28/2020
+ms.topic: how-to
+ms.date: 4/28/2020 
+ms.custom: devx-track-azurepowershell
 ---
 # Auto grow storage in Azure Database for MySQL server using PowerShell
 
@@ -13,12 +14,12 @@ This article describes how you can configure an Azure Database for MySQL server 
 without impacting the workload.
 
 Storage auto grow prevents your server from
-[reaching the storage limit](/azure/mysql/concepts-pricing-tiers#reaching-the-storage-limit) and
+[reaching the storage limit](./concepts-pricing-tiers.md#reaching-the-storage-limit) and
 becoming read-only. For servers with 100 GB or less of provisioned storage, the size is increased by
 5 GB when the free space is below 10%. For servers with more than 100 GB of provisioned storage, the
 size is increased by 5% when the free space is below 10 GB. Maximum storage limits apply as
 specified in the storage section of the
-[Azure Database for MySQL pricing tiers](/azure/mysql/concepts-pricing-tiers#storage).
+[Azure Database for MySQL pricing tiers](./concepts-pricing-tiers.md#storage).
 
 > [!IMPORTANT]
 > Remember that storage can only be scaled up, not down.

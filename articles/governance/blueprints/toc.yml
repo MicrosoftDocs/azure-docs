@@ -4,22 +4,25 @@
   items:
   - name: What is Azure Blueprints?
     displayName: templates, policy, definition, assignment, rbac
-    href: overview.md
+    href: ./overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create a blueprint - Portal
     displayName: publish, assign, track, unassign, delete
-    href: create-blueprint-portal.md
-  - name: Create a blueprint - PowerShell
+    href: ./create-blueprint-portal.md
+  - name: Create a blueprint - Azure PowerShell
     displayName: publish, assign, track, unassign, delete
-    href: create-blueprint-powershell.md
+    href: ./create-blueprint-powershell.md
+  - name: Create a blueprint - Azure CLI
+    displayName: publish, assign, track, unassign, delete
+    href: ./create-blueprint-azurecli.md
   - name: Create a blueprint - REST API
     displayName: publish, assign, track, unassign, delete
     href: create-blueprint-rest-api.md
   - name: Create a blueprint - ARM template
     displayName: assign, compliance, resource manager
-    href: ../../azure-resource-manager/templates/deploy-to-subscription.md??toc=/azure/governance/blueprints/toc.json&bc=/azure/governance/blueprints/breadcrumb/toc.json
+    href: ../../azure-resource-manager/templates/deploy-to-subscription.md?toc=/azure/governance/blueprints/toc.json&bc=/azure/governance/blueprints/breadcrumb/toc.json#azure-blueprints
 - name: Tutorials
   items:
   - name: Create from a blueprint sample
@@ -28,27 +31,28 @@
   - name: Protect new resources with blueprint resource locks
     displayName: read only, do not delete, lock assignment
     href: ./tutorials/protect-new-resources.md
+  - name: "Learn: Govern multiple subscriptions by using Azure Blueprints"
+    displayName: governance, module
+    href: /learn/modules/build-cloud-governance-strategy-azure/10-govern-subscriptions-azure-blueprints
 - name: Samples
   items:
   - name: Index
     displayName: list, examples
     href: ./samples/index.md
   - name: Azure Security Benchmark
-    items:
-    - name: Overview
-      displayName: standards, azure, benchmark
-      href: ./samples/azure-security-benchmark/index.md
-    - name: Control mapping
-      displayName: standards, azure, benchmark
-      href: ./samples/azure-security-benchmark/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, azure, benchmark
-      href: ./samples/azure-security-benchmark/deploy.md
+    displayName: standards, azure, benchmark
+    href: ./samples/azure-security-benchmark.md
   - name: Australian Government ISM PROTECTED
     items:
+    - name: Overview
+      displayName: standards, Australian, Government, ISM, PROTECTED
+      href: ./samples/ism-protected/index.md
     - name: Control mapping
       displayName: standards, Australian, Government, ISM, PROTECTED
       href: ./samples/ism-protected/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, Australian, Government, ISM, PROTECTED
+      href: ./samples/ism-protected/deploy.md
   - name: Canada Federal PBMM
     items:
     - name: Overview
@@ -61,16 +65,8 @@
       displayName: standards, canada, federal, pbmm
       href: ./samples/canada-federal-pbmm/deploy.md
   - name: CIS Microsoft Azure Foundations Benchmark
-    items:
-    - name: Overview
-      displayName: standards, cis
-      href: ./samples/cis-azure-1.1.0/index.md
-    - name: Recommendation mapping
-      displayName: standards, cis
-      href: ./samples/cis-azure-1.1.0/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, cis
-      href: ./samples/cis-azure-1.1.0/deploy.md
+    displayName: standards, cis
+    href: ./samples/cis-azure-1-1-0.md
   - name: DoD Impact Level 4
     items:
     - name: Overview
@@ -82,6 +78,17 @@
     - name: Steps to deploy
       displayName: standards, DoD, IL4
       href: ./samples/dod-impact-level-4/deploy.md
+  - name: DoD Impact Level 5
+    items:
+    - name: Overview
+      displayName: standards, DoD, IL5
+      href: ./samples/dod-impact-level-5/index.md
+    - name: Control mapping
+      displayName: standards, DoD, IL5
+      href: ./samples/dod-impact-level-5/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, DoD, IL5
+      href: ./samples/dod-impact-level-5/deploy.md
   - name: FedRAMP Moderate
     items:
     - name: Overview
@@ -104,17 +111,9 @@
     - name: Steps to deploy
       displayName: standards, fedramp, high
       href: ./samples/fedramp-h/deploy.md
-  - name: HIPAA HITRUST
-    items:
-    - name: Overview
-      displayName: standards, HIPAA HITRUST
-      href: ./samples/HIPAA-HITRUST/index.md
-    - name: Control mapping
-      displayName: standards, HIPAA HITRUST
-      href: ./samples/HIPAA-HITRUST/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, HIPAA HITRUST
-      href: ./samples/HIPAA-HITRUST/deploy.md
+  - name: HIPAA HITRUST 9.2
+    displayName: standards, HIPAA HITRUST
+    href: ./samples/hipaa-hitrust-9-2.md
   - name: IRS 1075
     items:
     - name: Overview
@@ -170,17 +169,12 @@
     - name: Steps to deploy
       displayName: standards, Media
       href: ./samples/media/deploy.md
-  - name: NIST SP 800-53 Rev4
-    items:
-    - name: Overview
-      displayName: standards, nist, 800-53, rev 4
-      href: ./samples/nist-sp-800-53-rev4/index.md
-    - name: Control mapping
-      displayName: standards, nist, 800-53, rev 4
-      href: ./samples/nist-sp-800-53-rev4/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, nist, 800-53, rev 4
-      href: ./samples/nist-sp-800-53-rev4/deploy.md
+  - name: NIST SP 800-53 R4
+    displayName: standards, nist, 800-53, rev 4
+    href: ./samples/nist-sp-800-53-r4.md
+  - name: NIST SP 800-171 R2
+    displayName: standards, nist, 800-171, rev 2
+    href: ./samples/nist-sp-800-171-r2.md
   - name: PCI-DSS v3.2.1
     items:
     - name: Overview
@@ -268,6 +262,8 @@
   href: ./troubleshoot/general.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/ext/blueprint/blueprint
   - name: Azure PowerShell
     href: /powershell/module/az.blueprint/#blueprint
   - name: Azure SDK for .NET
@@ -284,13 +280,15 @@
   items:
   - name: GitHub - Azure Blueprints samples
     href: https://github.com/Azure/azure-blueprints
+  - name: Microsoft Q&A for Azure Blueprints
+    href: /answers/topics/azure-blueprints.html
+  - name: Governance YouTube Channel
+    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+  - name: Azure Friday - Azure Blueprints Overview
+    href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
-    href: https://feedback.azure.com/forums/915958-azure-governance
-  - name: Governance YouTube Channel
-    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-  - name: Azure Friday - Azure Blueprints Overview
-    href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
+    href: https://feedback.azure.com/forums/915958-azure-governance?category_id=345058

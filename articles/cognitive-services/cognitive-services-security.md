@@ -1,14 +1,15 @@
 ---
-title: Security
+title: Azure Cognitive Services security
 titleSuffix: Azure Cognitive Services
 description: Learn about the various security considerations for Cognitive Services usage.
 services: cognitive-services
-author: IEvangelist
+author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: dapine
+ms.date: 08/28/2020
+ms.author: erhopf
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 ---
 
 # Azure Cognitive Services security
@@ -27,7 +28,7 @@ For .NET users, consider the <a href="https://docs.microsoft.com/dotnet/framewor
 
 ## Authentication
 
-When discussing authentication, there are several common misconceptions. Authentication and authorization are often confused for one another. Identity is also a major component in security. An identity is a collection of information about a <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Identity providers (IdP) provide identities to authentication services. Authentication is the act of verifying a user's identity. Authorization is the specification of access rights and privileges to resources for a given identity. Several of the Cognitive Services offerings, include role-based access control (RBAC). RBAC could be used to simplify some of the ceremony involved with manually managing principals. For more details, see [role-based access control for Azure resources](../role-based-access-control/overview.md).
+When discussing authentication, there are several common misconceptions. Authentication and authorization are often confused for one another. Identity is also a major component in security. An identity is a collection of information about a <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">principal <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Identity providers (IdP) provide identities to authentication services. Authentication is the act of verifying a user's identity. Authorization is the specification of access rights and privileges to resources for a given identity. Several of the Cognitive Services offerings, include Azure role-based access control (Azure RBAC). Azure RBAC could be used to simplify some of the ceremony involved with manually managing principals. For more details, see [Azure role-based access control for Azure resources](../role-based-access-control/overview.md).
 
 For more information on authentication with subscription keys, access tokens and Azure Active Directory (AAD), see <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">authenticate requests to Azure Cognitive Services<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
@@ -197,9 +198,19 @@ Customer Lockbox is available for this Cognitive Service:
 
 * Translator
 
-For Language Understanding, Microsoft engineers will not access any customer data in the E0 SKU. To request the ability to use the E0 SKU, fill out and submit the [LUIS Service Request Form](https://aka.ms/cogsvc-cmk). It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using the E0 SKU with LUIS, you'll need to create a new Language Understanding resource from the Azure portal and select E0 as the Pricing Tier. Users won't be able to upgrade from the F0 to the new E0 SKU.
+For the following services, Microsoft engineers will not access any customer data in the E0 tier: 
 
-The Speech service doesn't currently support Customer Lockbox. However, customer data can be stored using BYOS, allowing you to achieve similar data controls to [Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md). Keep in mind that Speech service data stays and is processed in the region where the Speech resource was created. This applies to any data at rest and data in transit. When using customization features, like Custom Speech and Custom Voice, all customer data is transferred, stored, and processed in the same region where your BYOS (if used) and Speech service resource reside.
+* Language Understanding
+* Face
+* Content Moderator
+* Personalizer
+
+> [!IMPORTANT]
+> For **Form Recognizer**, Microsoft engineers will not access any customer data in resources created after July 10, 2020.
+
+To request the ability to use the E0 SKU, fill out and submit this [request Form](https://aka.ms/cogsvc-cmk). It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using the E0 SKU with LUIS, you'll need to create a new resource from the Azure portal and select E0 as the Pricing Tier. Users won't be able to upgrade from the F0 to the new E0 SKU.
+
+The Speech service doesn't currently support Customer Lockbox. However, customer data can be stored using bring your own storage (BYOS), allowing you to achieve similar data controls to Customer Lockbox. Keep in mind that Speech service data stays and is processed in the region where the Speech resource was created. This applies to any data at rest and data in transit. When using customization features, like Custom Speech and Custom Voice, all customer data is transferred, stored, and processed in the same region where your BYOS (if used) and Speech service resource reside.
 
 > [!IMPORTANT]
 > Microsoft **does not** use customer data to improve its Speech models. Additionally, if endpoint logging is disabled and no customizations are used, then no customer data is stored. 

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and Java"
 titleSuffix: Azure Cognitive Services
-description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API.
+description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and Java.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,6 +10,7 @@ ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
+ms.custom: devx-track-java
 ms.author: aahi
 ---
 

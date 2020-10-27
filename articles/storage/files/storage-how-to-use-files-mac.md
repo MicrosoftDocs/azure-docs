@@ -1,25 +1,16 @@
 ---
 title: Mount Azure file share over SMB with macOS | Microsoft Docs
-description: Learn how to mount an Azure file share over SMB with macOS.
-author: RenaShahMSFT
+description: Learn how to mount an Azure file share over SMB with macOS using Finder or Terminal. Azure Files is Microsoft's easy-to-use cloud file system.
+author: roygara
 ms.service: storage
-ms.topic: conceptual
-ms.date: 09/19/2017
-ms.author: renash
+ms.topic: how-to
+ms.date: 09/23/2020
+ms.author: rogarana
 ms.subservice: files
 ---
 
 # Mount Azure file share over SMB with macOS
-[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted with the industry standard SMB 3 protocol by macOS El Capitan 10.11+. This article shows two different ways to mount an Azure file share on macOS: with the Finder UI and using the Terminal.
-
-> [!Note]  
-> Before mounting an Azure file share over SMB, we recommend disabling SMB packet signing. Not doing so may yield poor performance when accessing the Azure file share from macOS. Your SMB connection will be encrypted, so this does not affect the security of your connection. From the terminal, the following commands will disable SMB packet signing, as described by this [Apple support article on disabling SMB packet signing](https://support.apple.com/HT205926):  
->    ```
->    sudo -s
->    echo "[default]" >> /etc/nsmb.conf
->    echo "signing_required=no" >> /etc/nsmb.conf
->    exit
->    ```
+[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. Azure file shares can be mounted with the industry standard SMB 3 protocol by macOS High Sierra 10.13+. This article shows two different ways to mount an Azure file share on macOS: with the Finder UI and using the Terminal.
 
 ## Prerequisites for mounting an Azure file share on macOS
 * **Storage account name**: To mount an Azure file share, you will need the name of the storage account.
@@ -42,10 +33,10 @@ ms.subservice: files
     ![A snapshot of a mounted Azure file share](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
 ## Mount an Azure file share via Terminal
-1. Replace `<storage-account-name>` with the name of your storage account. Provide Storage Account Key as password when prompted. 
+1. Replace `<storage-account-name>`, `<storage-account-key>`, and `<share-name>` with the appropriate values for your environment.
 
     ```
-    mount_smbfs //<storage-account-name>@<storage-account-name>.file.core.windows.net/<share-name> <desired-mount-point>
+    open smb://<storage-account-name>:<storage-account-key>@<storage-account-name>.file.core.windows.net/<share-name>
     ```
 
 2. **Use the Azure file share as desired**: The Azure file share will be mounted at the mount point specified by the previous command.  
@@ -53,9 +44,4 @@ ms.subservice: files
     ![A snapshot of the mounted Azure file share](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## Next steps
-See these links for more information about Azure Files.
-
-* [Apple Support Article - How to connect with File Sharing on your Mac](https://support.apple.com/HT204445)
-* [FAQ](../storage-files-faq.md)
-* [Troubleshooting on Windows](storage-troubleshoot-windows-file-connection-problems.md)      
-* [Troubleshooting on Linux](storage-troubleshoot-linux-file-connection-problems.md)    
+* [Connect your Mac to shared computers and servers - Apple Support](https://support.apple.com/guide/mac-help/connect-mac-shared-computers-servers-mchlp1140/mac)

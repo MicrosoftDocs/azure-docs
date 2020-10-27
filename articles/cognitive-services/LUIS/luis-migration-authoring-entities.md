@@ -1,19 +1,21 @@
 ---
-title: Migrate to V3 machine-learned entity
-description: The V3 authoring provides one new entity type, the machine-learned entity, along with the ability to add relationships to the machine-learned entity and other entities or features of the application.
+title: Migrate to V3 machine-learning entity
+description: The V3 authoring provides one new entity type, the machine-learning entity, along with the ability to add relationships to the machine-learning entity and other entities or features of the application.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/08/2020
 ---
 
 # Migrate to V3 Authoring entity
 
-The V3 authoring provides one new entity type, the machine-learned entity, along with the ability to add relationships to the machine-learned entity and other entities or features of the application.
+The V3 authoring provides one new entity type, the machine-learning entity, along with the ability to add relationships to the machine-learning entity and other entities or features of the application.
 
 ## Entities are decomposable in V3
 
-Entities created with the V3 authoring APIs, either using the [APIs](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) or with the portal, allow you to build a layered entity model with a parent and children. The parent is known to as the **machine-learned entity** and the children are known as **subentities** of the machine learned entity.
+Entities created with the V3 authoring APIs, either using the [APIs](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) or with the portal, allow you to build a layered entity model with a parent and children. The parent is known to as the **machine-learning entity** and the children are known as **subentities** of the machine learned entity.
 
-Each subentity is also a machine-learned entity but with the added configuration options of features.
+Each subentity is also a machine-learning entity but with the added configuration options of features.
 
 * **Required features** are rules that guarantee an entity is extracted when it matches a feature. The rule is defined by required feature to the model:
     * [Prebuilt entity](luis-reference-prebuilt-entities.md)
@@ -49,36 +51,36 @@ When you migrate, consider the following in your migration plan:
     * Entities
         * Hierarchical entity
         * Composite entity
-    * Roles - roles can only be applied to a machine-learned (parent) entity. Roles can't be applied to subentities
+    * Roles - roles can only be applied to a machine-learning (parent) entity. Roles can't be applied to subentities
     * Batch tests and patterns that use the hierarchical and composite entities
 
-When you design your migration plan, leave time to review the final machine-learned entities, after all hierarchical and composite entities have been migrated. While a straight migration will work, after you make the change and review your batch test results, and prediction JSON, the more unified JSON may lead you to make changes so the final information delivered to the client-side app is organized differently. This is similar to code refactoring and should be treated with the same review process your organization has in place.
+When you design your migration plan, leave time to review the final machine-learning entities, after all hierarchical and composite entities have been migrated. While a straight migration will work, after you make the change and review your batch test results, and prediction JSON, the more unified JSON may lead you to make changes so the final information delivered to the client-side app is organized differently. This is similar to code refactoring and should be treated with the same review process your organization has in place.
 
 If you don't have batch tests in place for your V2 model, and migrate the batch tests to the V3 model as part of the migration, you won't be able to validate how the migration will impact the endpoint prediction results.
 
 ## Migrating from V2 entities
 
-As you begin to move to the V3 authoring model, you should consider how to move to the machine-learned entity, and its subentities and features.
+As you begin to move to the V3 authoring model, you should consider how to move to the machine-learning entity, and its subentities and features.
 
 The following table notes which entities need to migrate from a V2 to a V3 entity design.
 
 |V2 authoring entity type|V3 authoring entity type|Example|
 |--|--|--|
 |Composite entity|Machine learned entity|[learn more](#migrate-v2-composite-entity)|
-|Hierarchical entity|Machine-learned entity's role|[learn more](#migrate-v2-hierarchical-entity)|
+|Hierarchical entity|machine-learning entity's role|[learn more](#migrate-v2-hierarchical-entity)|
 
 ## Migrate V2 Composite entity
 
-Each child of the V2 composite should be represented with a subentity of the V3 machine-learned entity. If the composite child is a prebuilt, regular expression, or a list entity, this should be applied as a required feature on the subentity.
+Each child of the V2 composite should be represented with a subentity of the V3 machine-learning entity. If the composite child is a prebuilt, regular expression, or a list entity, this should be applied as a required feature on the subentity.
 
-Considerations when planning to migrate a composite entity to a machine-learned entity:
+Considerations when planning to migrate a composite entity to a machine-learning entity:
 * Child entities can't be used in patterns
 * Child entities are no longer shared
 * Child entities need to be labeled if they used to be non-machine-learned
 
 ### Existing features
 
-Any phrase list used to boost words in the composite entity should be applied as a feature to either the machine-learned (parent) entity, the subentity (child) entity, or the intent (if the phrase list only applies to one intent). Plan to add the feature to the entity where it should boost most significantly. Do not add the feature generically to the machine-learned (parent) entity, if it will most significantly boost the prediction of a subentity (child).
+Any phrase list used to boost words in the composite entity should be applied as a feature to either the machine-learning (parent) entity, the subentity (child) entity, or the intent (if the phrase list only applies to one intent). Plan to add the feature to the entity where it should boost most significantly. Do not add the feature generically to the machine-learning (parent) entity, if it will most significantly boost the prediction of a subentity (child).
 
 ### New features
 
@@ -101,7 +103,7 @@ The following table demonstrates the migration:
 
 |V2 models|V3 models|
 |--|--|
-|Parent - Component entity named `Order`|Parent - Machine-learned entity named `Order`|
+|Parent - Component entity named `Order`|Parent - machine-learning entity named `Order`|
 |Child - Prebuilt datetimeV2|* Migrate prebuilt entity to new app.<br>* Add required feature on parent for prebuilt datetimeV2.|
 |Child - list entity for toppings|* Migrate list entity to new app.<br>* Then add a required feature on the parent for the list entity.|
 
@@ -111,7 +113,7 @@ The following table demonstrates the migration:
 In V2 authoring, a hierarchical entity was provided before roles existing in LUIS. Both served the same purpose of extracting entities based on context usage. If you have hierarchical entities, you can think of them as simple entities with roles.
 
 In V3 authoring:
-* A role can be applied on the machine-learned (parent) entity.
+* A role can be applied on the machine-learning (parent) entity.
 * A role can't be applied to any subentities.
 
 This entity is an example only. Your own entity migration may require other considerations.
@@ -127,7 +129,7 @@ The following table demonstrates the migration:
 
 |V2 models|V3 models|
 |--|--|
-|Parent - Component entity named `Order`|Parent - Machine-learned entity named `Order`|
+|Parent - Component entity named `Order`|Parent - machine-learning entity named `Order`|
 |Child - Hierarchical entity with original and final pizza topping|* Add role to `Order` for each topping.|
 
 ## API change constraint replaced with required feature

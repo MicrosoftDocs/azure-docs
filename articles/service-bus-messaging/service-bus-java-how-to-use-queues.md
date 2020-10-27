@@ -1,23 +1,12 @@
 ---
 title: Use Azure Service Bus queues with Java
 description: In this tutorial, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
-services: service-bus-messaging
-documentationcenter: java
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: f701439c-553e-402c-94a7-64400f997d59
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 03/24/2020
-ms.author: aschhab
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-
+ms.date: 06/23/2020
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
+
 # Quickstart: Use Azure Service Bus queues with Java to send and receive messages
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -71,7 +60,7 @@ public void run() throws Exception {
 	// Create a QueueClient instance and then asynchronously send messages.
 	// Close the sender once the send operation is complete.
 	QueueClient sendClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
-	this.sendMessageAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
+	this.sendMessagesAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
 
 	sendClient.close();
 }
@@ -241,6 +230,6 @@ Now that you've learned the basics of Service Bus queues, see [Queues, topics, a
 For more information, see the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
 [Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
-[Azure Toolkit for Eclipse]: https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation
+[Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

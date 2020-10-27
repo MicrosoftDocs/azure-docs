@@ -4,7 +4,7 @@ description: Learn how to create an application gateway with redirected traffic 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 
@@ -15,12 +15,11 @@ You can use the Azure portal to create an [application gateway](overview.md) wit
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create a self-signed certificate
-> * Set up a network
-> * Create an application gateway with the certificate
-> * Add a listener and redirection rule
-> * Create a virtual machine scale set with the default backend pool
+* Create a self-signed certificate
+* Set up a network
+* Create an application gateway with the certificate
+* Add a listener and redirection rule
+* Create a virtual machine scale set with the default backend pool
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

@@ -27,8 +27,8 @@ In order to read secrets from Key Vault, you need to have a vault created and gi
 
 1. Create an [access policy in Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) for the application identity you created earlier. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
 
-    > [!NOTE]
-    > Key Vault references are not presently able to resolve secrets stored in a key vault with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md).
+   > [!IMPORTANT]
+   > Key Vault references are not presently able to resolve secrets stored in a key vault with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md) unless the app is hosted within an [App Service Environment](./environment/intro.md).
 
 ## Reference syntax
 
@@ -40,11 +40,15 @@ A Key Vault reference is of the form `@Microsoft.KeyVault({referenceString})`, w
 > | SecretUri=_secretUri_                                                       | The **SecretUri** should be the full data-plane URI of a secret in Key Vault, including a version, e.g., https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | The **VaultName** should the name of your Key Vault resource. The **SecretName** should be the name of the target secret. The **SecretVersion** should be the version of the secret to use. |
 
-For example, a complete reference with Version would look like the following:
+> [!NOTE] 
+> Versions are currently required. When rotating secrets, you will need to update the version in your application configuration.
+For example, a complete reference would look like the following:
+
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
 ```
+
 Alternatively:
 
 ```
@@ -65,7 +69,7 @@ To use a Key Vault reference for an application setting, set the reference as th
 
 When automating resource deployments through Azure Resource Manager templates, you may need to sequence your dependencies in a particular order to make this feature work. Of note, you will need to define your application settings as their own resource, rather than using a `siteConfig` property in the site definition. This is because the site needs to be defined first so that the system-assigned identity is created with it and can be used in the access policy.
 
-An example psuedo-template for a function app might look like the following:
+An example pseudo-template for a function app might look like the following:
 
 ```json
 {

@@ -7,8 +7,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 05/07/2020
+ms.topic: how-to
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -37,6 +37,9 @@ You can configure the token lifetime on any user flow.
 
 8. Click **Save**.
 
+> [!NOTE]
+> Single-page applications using the authorization code flow with PKCE always have a refresh token lifetime of 24 hours. [Learn more about the security implications of refresh tokens in the browser](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+
 ## Configure JWT token compatibility
 
 1. Select **User flows (policies)**.
@@ -48,9 +51,20 @@ You can configure the token lifetime on any user flow.
 
 5. Click **Save**.
 
+## Provide optional claims to your app
+
+The application claims are values that are returned to the application. Update your user flow to contain the desired claims.
+
+1. Select **User flows (policies)**.
+1. Open the user flow that you previously created.
+1. Select **Application claims**.
+1. Choose the claims and attributes that you want send back to your application.
+1. Click **Save**.
+
+
 ## Next steps
 
-Learn more about how to [use access tokens](access-tokens.md).
+Learn more about how to [request access tokens](access-tokens.md).
 
 
 

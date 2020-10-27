@@ -3,9 +3,10 @@ title: Migrate non-partitioned Azure Cosmos containers to partitioned containers
 description: Learn how to migrate all the existing non-partitioned containers into partitioned containers.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
+ms.custom: devx-track-csharp
 ---
 
 # Migrate non-partitioned containers to partitioned containers
@@ -126,6 +127,6 @@ If new items are inserted with different values for the partition key, querying 
 * [Partitioning in Azure Cosmos DB](partitioning-overview.md)
 * [Request Units in Azure Cosmos DB](request-units.md)
 * [Provision throughput on containers and databases](set-throughput.md)
-* [Work with Azure Cosmos account](account-overview.md)
+* [Work with Azure Cosmos account](./account-databases-containers-items.md)
 
 [1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

@@ -1,13 +1,13 @@
 ---
-title: Zoom levels and tile grid | Microsoft Azure Maps
-description: In this article, you will learn about zoom levels and tile grid in Microsoft Azure Maps.
-author: Philmea
-ms.author: philmea
-ms.date: 01/22/2020
+title: Zoom levels and tile grid in Microsoft Azure Maps
+description: Learn how to set zoom levels in Azure Maps. See how to convert geographic coordinates into pixel coordinates, tile coordinates, and quadkeys. View code samples.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: 
+manager: philmea
 ---
 
 # Zoom levels and tile grid
@@ -19,15 +19,11 @@ Azure Maps use the Spherical Mercator projection coordinate system (EPSG: 3857).
 
 To optimize the performance of map retrieval and display, the map is divided into square tiles. The Azure Maps SDK's use tiles that have a size of 512 x 512 pixels for road maps, and smaller 256 x 256 pixels for satellite imagery. Azure Maps provides raster and vector tiles for 23 zoom levels, numbered 0 through 22. At zoom level 0, the entire world fits on a single tile:
 
-<center>
-
-![World map tile](./media/zoom-levels-and-tile-grid/world0.png)</center>
+:::image type="content" source="./media/zoom-levels-and-tile-grid/world0.png" alt-text="World map tile":::
 
 Zoom level 1 uses four tiles to render the world: a 2 x 2 square
 
-<center>
-
-![2x2 map tile layout](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
+:::image type="content" source="./media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png" alt-text="2x2 map tile layout":::
 
 Each additional zoom level quad-divides the tiles of the previous one, creating a grid of 2<sup>zoom</sup> x 2<sup>zoom</sup>. Zoom level 22 is a grid 2<sup>22</sup> x 2<sup>22</sup>, or 4,194,304 x 4,194,304 tiles (17,592,186,044,416 tiles in total).
 
@@ -75,11 +71,7 @@ var mapHeight = mapWidth;
 
 Since the map width and height is different at each zoom level, so are the pixel coordinates. The pixel at the upper-left corner of the map always has pixel coordinates (0, 0). The pixel at the lower-right corner of the map has pixel coordinates *(width-1, height-1)*, or referring to the equations in the previous section, *(tileSize \* 2<sup>zoom</sup>–1, tileSize \* 2<sup>zoom</sup>–1)*. For example, when using 512 square tiles at level 2, the pixel coordinates range from (0, 0) to (2047, 2047), like this:
 
-<center>
-
-![Map showing pixel dimensions](media/zoom-levels-and-tile-grid/map-width-height.png)
-
-</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Map showing pixel dimensions":::
 
 Given latitude and longitude in degrees, and the level of detail, the pixel XY coordinates is calculated as follows:
 
@@ -103,11 +95,9 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-Each tile is given XY coordinates ranging from (0, 0) in the upper left to *(2<sup>zoom</sup>–1, 2<sup>zoom</sup>–1)* in the lower right. For example, at zoom level 2, the tile coordinates range from (0, 0) to (7, 7) as follows:
+Each tile is given XY coordinates ranging from (0, 0) in the upper left to *(2<sup>zoom</sup>–1, 2<sup>zoom</sup>–1)* in the lower right. For example, at zoom level 3, the tile coordinates range from (0, 0) to (7, 7) as follows:
 
-<center>
-
-![Map of tile coordinates](media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Map of tile coordinates":::
 
 Given a pair of pixel XY coordinates, you can easily determine the tile XY coordinates of the tile containing that pixel:
 
@@ -121,17 +111,13 @@ Tiles are called by zoom level. The x and y coordinates correspond to the tile's
 
 When determining which zoom level to use, remember each location is in a fixed position on its tile. As a result, the number of tiles needed to display a given expanse of territory is dependent on the specific placement of zoom grid on the world map. For instance, if there are two points 900 meters apart, it *may* only take three tiles to display a route between them at zoom level 17. However, if the western point is on the right of its tile, and the eastern point on the left of its tile, it may take four tiles:
 
-<center>
-
-![Zoom demo scale](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png" alt-text="Zoom demo scale":::
 
 Once the zoom level is determined, the x and y values can be calculated. The top-left tile in each zoom grid is x=0, y=0; the bottom-right tile is at x=2<sup>zoom-1</sup>, y=2<sup>zoom-1</sup>.
 
 Here is the zoom grid for zoom level 1:
 
-<center>
-
-![Zoom grid for zoom level 1](media/zoom-levels-and-tile-grid/api_x_y.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/api_x_y.png" alt-text="Zoom grid for zoom level 1":::
 
 ## Quadkey indices
 
@@ -145,16 +131,14 @@ To convert tile coordinates into a `quadkey`, the bits of the Y and X coordinate
 ```
 tileX = 3 = 011 (base 2)
 
-tileY = 5 = 1012 (base 2)
+tileY = 5 = 101 (base 2)
 
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
 `Qquadkeys` have several interesting properties. First, the length of a `quadkey` (the number of digits) equals the zoom level of the corresponding tile. Second, the `quadkey` of any tile starts with the `quadkey` of its parent tile (the containing tile at the previous level). As shown in the example below, tile 2 is the parent of tiles 20 through 23:
 
-<center>
-
-![Quadkey tile pyramid](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
+:::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png" alt-text="Quadkey tile pyramid":::
 
 Finally, `quadkeys` provide a one-dimensional index key that usually preserves the proximity of tiles in XY space. In other words, two tiles that have nearby XY coordinates usually have `quadkeys` that are relatively close together. This is important for optimizing database performance, because neighboring tiles are often requested in groups, and it's desirable to keep those tiles on the same disk blocks, in order to minimize the number of disk reads.
 

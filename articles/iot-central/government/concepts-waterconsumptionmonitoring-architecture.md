@@ -29,7 +29,7 @@ Let's take a look at key components that generally play a part in a water consum
 ## Devices and connectivity 
 This section refers to devices used for smart water solutions, such as water quality monitoring or water consumption monitoring, generally as smart water devices. Smart water devices can be flow meters, water quality monitors, smart valves, leak detectors, and so on.
 
-Devices used in smart water solutions will generally be connected through low-power wide area networks (LPWAN), through a third-party network operator. For these types of devices, you can use the [Azure IoT Central Device Bridge](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) to send your device data to your IoT application in Azure IoT Central. Alternatively, you may have device gateways that are IP capable and can connect directly to IoT Central.
+Devices used in smart water solutions will generally be connected through low-power wide area networks (LPWAN), through a third-party network operator. For these types of devices, you can use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. Alternatively, you may have device gateways that are IP capable and can connect directly to IoT Central.
 
 ## IoT Central 
 Azure IoT Central is an IoT App platform, which gets you started up and running on your IoT solution quickly. You can brand, customize, and integrate your solution with third-party services.
@@ -49,4 +49,4 @@ The IoT data can be used to power different kinds of business applications withi
 ## Next steps
 * Learn how to [create a water consumption](./tutorial-water-consumption-monitoring.md) IoT Central application
 * Learn more about [IoT Central government templates](./overview-iot-central-government.md)
-* To learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
+* To learn more about IoT Central, see [IoT Central overview](../core/overview-iot-central.md)

@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
+ms.custom: devx-track-csharp
 ---
 
 # Call or trigger logic apps by using Azure Functions and Azure Service Bus
@@ -114,11 +115,11 @@ Next, create the function that acts as the trigger and listens to the queue.
 
    * This example uses the `application/json` message content type, but you can change this type as necessary.
    
-   * Due to possible concurrently running functions, high volumes, or heavy loads, avoid instantiating the [HTTPClient class](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) with the `using` statement and directly creating HTTPClient instances per request. For more information, see [Use HttpClientFactory to implement resilient HTTP requests](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
+   * Due to possible concurrently running functions, high volumes, or heavy loads, avoid instantiating the [HTTPClient class](/dotnet/api/system.net.http.httpclient) with the `using` statement and directly creating HTTPClient instances per request. For more information, see [Use HttpClientFactory to implement resilient HTTP requests](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests#issues-with-the-original-httpclient-class-available-in-net-core).
    
    * If possible, reuse the instance of HTTP clients. For more information, see [Manage connections in Azure Functions](../azure-functions/manage-connections.md).
 
-   This example uses the [`Task.Run` method](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) in [asynchronous](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async) mode. For more information, see [Asynchronous programming with async and await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
+   This example uses the [`Task.Run` method](/dotnet/api/system.threading.tasks.task.run) in [asynchronous](/dotnet/csharp/language-reference/keywords/async) mode. For more information, see [Asynchronous programming with async and await](/dotnet/csharp/programming-guide/concepts/async/).
 
    ```csharp
    using System;

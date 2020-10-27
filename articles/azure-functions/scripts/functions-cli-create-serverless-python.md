@@ -4,6 +4,7 @@ description: Create a serverless Python function app using the Azure CLI
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Create a serverless Python function app using Azure CLI

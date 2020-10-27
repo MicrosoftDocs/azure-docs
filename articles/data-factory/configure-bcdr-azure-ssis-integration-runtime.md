@@ -20,15 +20,15 @@ ms.date: 04/09/2020
 
 This article describes how to configure the Azure-SSIS integration runtime (IR) with Azure SQL Database geo-replication for the SSISDB database. When a failover occurs, you can ensure that the Azure-SSIS IR keeps working with the secondary database.
 
-For more info about geo-replication and failover for SQL Database, see [Overview: Active geo-replication and auto-failover groups](../sql-database/sql-database-geo-replication-overview.md).
+For more info about geo-replication and failover for SQL Database, see [Overview: Active geo-replication and auto-failover groups](../azure-sql/database/auto-failover-group-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Azure-SSIS IR failover with a SQL Database managed instance
+## Azure-SSIS IR failover with a SQL Managed Instance
 
 ### Prerequisites
 
-An Azure SQL Database managed instance uses a *database master key (DMK)* to help secure data, credentials, and connection information that's stored in a database. To enable the automatic decryption of DMK, a copy of the key is encrypted through the *server master key (SMK)*. 
+An Azure SQL Managed Instance uses a *database master key (DMK)* to help secure data, credentials, and connection information that's stored in a database. To enable the automatic decryption of DMK, a copy of the key is encrypted through the *server master key (SMK)*. 
 
 The SMK is not replicated in a failover group. You need to add a password on both the primary and secondary instances for DMK decryption after failover.
 
@@ -38,7 +38,7 @@ The SMK is not replicated in a failover group. You need to add a password on bot
     ALTER MASTER KEY ADD ENCRYPTION BY PASSWORD = 'password'
     ```
 
-2. Create a failover group on an Azure SQL Database managed instance.
+2. Create a failover group on an SQL Managed Instance.
 
 3. Run **sp_control_dbmasterkey_password** on the secondary instance, by using the new encryption password.
 
@@ -82,19 +82,19 @@ When failover occurs, take the following steps:
 2. Edit the Azure-SSIS IR with new region, endpoint, and virtual network information for the secondary instance.
 
     ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-                -VNetId "new VNet" `
-                -Subnet "new subnet" `
-                -SetupScriptContainerSasUri "new custom setup SAS URI"
-    ```
+      Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                    -CatalogServerEndpoint "Azure SQL Database endpoint" `
+                    -CatalogAdminCredential "Azure SQL Database admin credentials" `
+                    -VNetId "new VNet" `
+                    -Subnet "new subnet" `
+                    -SetupScriptContainerSasUri "new custom setup SAS URI"
+        ```
 
 3. Restart the Azure-SSIS IR.
 
-### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of a SQL Database managed instance
+### Scenario 3: Azure-SSIS IR is pointing to a public endpoint of a SQL Managed Instance
 
-This scenario is suitable if the Azure-SSIS IR is pointing to a public endpoint of an Azure SQL Database managed instance and it doesn't join to a virtual network. The only difference from scenario 2 is that you don't need to edit virtual network information for the Azure-SSIS IR after failover.
+This scenario is suitable if the Azure-SSIS IR is pointing to a public endpoint of a Azure SQL Managed Instance and it doesn't join to a virtual network. The only difference from scenario 2 is that you don't need to edit virtual network information for the Azure-SSIS IR after failover.
 
 #### Solution
 
@@ -197,12 +197,12 @@ When failover occurs, take the following steps:
 2. Edit the Azure-SSIS IR with new region, endpoint, and virtual network information for the secondary instance.
 
     ```powershell
-    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
-                    -CatalogServerEndpoint "Azure SQL Database server endpoint" `
-                    -CatalogAdminCredential "Azure SQL Database server admin credentials" `
-                    -VNetId "new VNet" `
-                    -Subnet "new subnet" `
-                    -SetupScriptContainerSasUri "new custom setup SAS URI"
+      Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
+                        -CatalogServerEndpoint "Azure SQL Database endpoint" `
+                        -CatalogAdminCredential "Azure SQL Database admin credentials" `
+                        -VNetId "new VNet" `
+                        -Subnet "new subnet" `
+                        -SetupScriptContainerSasUri "new custom setup SAS URI"
     ```
 
 3. Restart the Azure-SSIS IR.

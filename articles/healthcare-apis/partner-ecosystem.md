@@ -13,14 +13,14 @@ ms.author: chrupa
 # Partner ecosystem for Azure API for FHIR
 We are excited that Azure API for FHIR has been released in generally availability to all Azure Customers. We are even more excited about the solutions that you will build with our service.  
 
-When creating an end-to-end solution built around Azure API for FHIR, you may require the help of a partner for their unique IP or for help stitching everything together. We are hard at work growing this ecosystem of diverse partners and I’d like to introduce you to a few of them.
+When creating an end-to-end solution built around Azure API for FHIR, you may require the help of a partner for their unique IP or for help stitching everything together. We are hard at work growing this ecosystem of diverse partners and I'd like to introduce you to a few of them.
 
 
-| Partner          | Capabilities                               | Supported Countries         | Contact                                                                                                                                |
+| Partner          | Capabilities                               | Supported Countries/Regions         | Contact                                                                                                                                |
 |------------------|--------------------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | Medal            | De-identification, Legacy-FHIR conversion  | USA                         | [Contact](http://www.medal.com/)                                                                                           |
 | Rhapsody         | Legacy-FHIR conversion                     | USA, Australia, New Zealand | [Contact](https://rhapsody.health/contact-us)                                                                                          |
-| iNTERFACEWARE    | Legacy-FHIR conversion                     | USA, Canada                 | [Contact](https://www.interfaceware.com/contact.html)                                                                                  |
+| iNTERFACEWARE    | Legacy-FHIR conversion                     | USA, Canada                 | [Contact](https://www.interfaceware.com/contact)                                                                                  |
 | Darena Solutions | Application Development, System Integrator | USA                         | [Contact](https://www.darenasolutions.com/contact)                                                                                     |
 | NewWave          | Application Development, System Integrator | USA                         | [Contact](https://newwave.io/get-in-touch/)                                                                                            |
 | Dapasoft         | Application Development, System Integrator | USA, Canada                 | [Contact](https://www.dapasoft.com/contact-us/)                                                                                        |

@@ -1,15 +1,15 @@
-﻿---
+---
 title: CLI example of auditing and Advanced Threat Protection - Azure SQL Database  
 description: Azure CLI example script to configure auditing and Advanced Threat Protection in an Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: security
+ms.custom: security, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: ronitr
 ms.author: ronitr
-ms.reviewer: carlrab, vanto
+ms.reviewer: vanto
 ms.date: 08/05/2019
 ---
 # Use CLI to configure SQL Database auditing and Advanced Threat Protection
@@ -46,7 +46,7 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az sql db audit-policy](/cli/azure/sql/db/audit-policy) | Sets the auditing policy for a database. |
 | [az sql db threat-policy](/cli/azure/sql/db/threat-policy) | Sets an Advanced Threat Protection policy on a database. |
@@ -55,4 +55,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../sql-database-cli-samples.md).
+Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../../azure-sql/database/az-cli-script-samples-content-guide.md).

@@ -81,7 +81,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/bing-api
   - name: Subscription key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api
+    href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/spell-check/
   - name: UserVoice

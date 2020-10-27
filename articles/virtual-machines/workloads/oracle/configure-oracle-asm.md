@@ -1,21 +1,13 @@
 ---
 title: Set up Oracle ASM on an Azure Linux virtual machine | Microsoft Docs
 description: Quickly get Oracle ASM up and running in your Azure environment.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: BorisB2015
-manager: gwallace
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
+author: dbakevlar
 ms.service: virtual-machines-linux
-
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: borisb
+ms.author: kegorman
+ms.reviewer: cynthn
+
 ---
 
 # Set up Oracle ASM on an Azure Linux virtual machine  
@@ -531,7 +523,7 @@ To set up your Oracle ASM installation, complete the following steps:
    - Click `ok` to create the disk group.
    - Click `ok` to close the confirmation window.
 
-   ![Screenshot of the Create Disk Group dialog box](./media/oracle-asm/asm04.png)
+   ![Screenshot of the Create Disk Group dialog box and highlights the External (none) option.](./media/oracle-asm/asm04.png)
 
 6. Select **Exit** to close ASM Configuration Assistant.
 

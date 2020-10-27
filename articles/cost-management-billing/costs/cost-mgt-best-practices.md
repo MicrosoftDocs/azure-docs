@@ -3,9 +3,10 @@ title: Optimize your cloud investment with Azure Cost Management
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/04/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
 ---
@@ -120,20 +121,45 @@ For more information, see the [Azure pricing calculator](https://azure.microsoft
 
 Azure Migrate is a service that assesses your organization's current workloads in on-premises datacenters. It gives you insight into what you might need from an Azure replacement solution. First, Migrate analyzes your on-premises machines to determine whether migration is feasible. Then, it recommends VM sizing in Azure to maximize performance. Finally, it also creates a cost estimate for an Azure-based solution.
 
-For more information, see [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview).
+For more information, see [Azure Migrate](../../migrate/migrate-services-overview.md).
 
 ## Analyze and manage your costs
 
 Keep informed about how your organization's costs evolve over time. Use the following techniques to properly understand and manage your spending.
 
-### Organize and tag your resources
+### Organize resources to maximize cost insights and accountability
 
-Organize your resources with cost in mind. As you create subscriptions and resource groups, think about the teams that are responsible for associated costs. Make sure your reporting keeps your organization in mind. Subscriptions and resource groups provide good buckets to organize and attribute spending across your organization. Tags provide a good way to attribute cost. You can use tags as a filter. And you can use them to group by when you analyze data and investigate costs. Enterprise Agreement customers can also create departments and place subscriptions under them. Cost-based organization in Azure helps keep the relevant people in your organization accountable for reducing their team's spending.
+A well-planned organizational structure for your Azure billing and resource hierarchies helps to give you a good understanding and control over costs as you create your cloud infrastructure. Watch the video [Setting up entity hierarchies](https://www.youtube.com/watch?v=n3TLRaYJ1NY) to gain a better understanding of the organizational tools that are available and how to take advantage of them. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
-Watch the video [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) to understand the tools available to you to enforce scalable resource tagging in your organization. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+>[!VIDEO https://www.youtube.com/embed/n3TLRaYJ1NY]
+
+As you evaluate and create a hierarchy that meets your needs, ask yourself the following questions.
+
+*Which billing hierarchy is available to me and what are the different scopes that I can use?*
+
+Identify the billing arrangement for your organization by determining your Azure offer type. The available scopes for each Azure billing arrangement are documented at [Understand and work with scopes](understand-work-scopes.md).
+
+*If I have multiple teams, how should I organize my subscriptions and resource groups?*
+
+Creating a subscription or resource group for each team is a common practice. They can help you to differentiate costs and hold teams accountable. However, costs are bound to the subscription or resource group.
+
+If you already have teams with multiple subscriptions, consider grouping the subscriptions into management groups to analyze the costs together. Management groups, subscriptions, and resource groups are all part of the Azure RBAC hierarchy. Use them collectively for access control in your teams.
+
+Resources can span across multiple scopes, especially when they're shared by multiple teams or workloads. Consider identifying resources with tags. Tags are discussed further in the next section.
+
+*Do I have Development and Production environments?*
+
+Consider creating Dev/Test subscriptions for your development environments to take advantage of reduced pricing. If the workloads span multiple teams or Azure scopes, consider using tags to identify them.
+
+### Tag shared resources
+
+Tags are a effective way to understand costs that span across multiple teams and Azure scopes. For example, you might have a resource like an email server that many teams use. You can put a shared resource, like the email server, in a subscription that's dedicated to shared resources or put it in an existing subscription. If you put it in an existing subscription, the subscription owner might not want its cost accruing to their team every month. For this example, you can use a tag to identify the resource as being shared.
+
+Similarly, you might also have web apps or environments, such as Test or Production, that use resources across multiple subscriptions owned by different teams. To better understand the full cost of the workloads, tag the resources that they use. When tags are applied properly, you can apply them as a filter in cost analysis to better understand trends.
+
+After you plan for resource tagging, you can configure an Azure policy to enforce tagging on resources. Watch the [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video to understand the tools available that help you enforce scalable resource tagging. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
-
 
 ### Use cost analysis
 

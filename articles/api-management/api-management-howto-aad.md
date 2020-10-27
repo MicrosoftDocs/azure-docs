@@ -30,7 +30,7 @@ This article shows you how to enable access to the developer portal for users fr
 ## Authorize developer accounts by using Azure AD
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. Select ![arrow](./media/api-management-howto-aad/arrow.png).
+2. Select ![Arrow icon.](./media/api-management-howto-aad/arrow.png).
 3. Type **api** in the search box.
 4. Select **API Management services**.
 5. Select your API Management service instance.
@@ -85,7 +85,7 @@ To add an external Azure AD group into APIM, you must first complete the previou
 
 1. Go back to your App Registration that was created in the previous section.
 2. Select **API Permissions**, and then click **+Add a permission**. 
-3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, and then select the **Microsoft Graph** tile. Select **Application permissions**, search for **Directory**, and then select the **Directory.Read.All** permission. 
+3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, scroll down and then select the **Azure Active Directory Graph** tile. Select **Application permissions**, search for **Directory**, and then select the **Directory.Read.All** permission. 
 4. Click **Add permissions** at the bottom of the pane, and then click **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
 
 Now you can add external Azure AD groups from the **Groups** tab of your API Management instance.
@@ -100,7 +100,7 @@ After you add an external Azure AD group, you can review and configure its prope
  
 Users from the configured Azure AD instance can now sign in to the developer portal. They can view and subscribe to any groups for which they have visibility.
 
-## <a id="log_in_to_dev_portal"/> Developer portal - add Azure AD account authentication
+## <a id="log_in_to_dev_portal"></a> Developer portal - add Azure AD account authentication
 
 In the developer portal, sign-in with AAD is possible with the **Sign-in button: OAuth** widget. The widget is already included on the sign-in page of the default developer portal content.
 
@@ -138,14 +138,14 @@ Your user is now signed in to the developer portal for your API Management servi
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.png
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to add and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: api-management-policy-reference.md
-[Caching policies]: api-management-policy-reference.md#caching-policies
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-policies.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
 [https://oauth.net/2/]: https://oauth.net/2/

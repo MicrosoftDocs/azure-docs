@@ -1,35 +1,39 @@
 ---
 title: What is Azure Lighthouse?
 description: Azure Lighthouse lets service providers deliver managed services for their customers with higher automation and efficiency at scale.
-ms.date: 05/05/2020
+ms.date: 10/19/2020
 ms.topic: overview
 ---
+
 # What is Azure Lighthouse?
 
-Azure Lighthouse offers service providers a single control plane to view and manage Azure across all their customers with higher automation, scale, and enhanced governance. With Azure Lighthouse, service providers can deliver managed services using comprehensive and robust management tooling built into the Azure platform. This offering can also benefit enterprise IT organizations managing resources across multiple tenants. 
+Azure Lighthouse enables cross- and multi-tenant management, allowing for higher automation, scalability, and enhanced governance across resources and tenants.
+
+With Azure Lighthouse, service providers can deliver managed services using comprehensive and robust management tooling built into the Azure platform. Customers maintain control over who can access their tenant, what resources they can access, and what actions can be taken. This offering can also benefit [enterprise IT organizations](concepts/enterprise.md) managing resources across multiple tenants.
 
 ![Overview diagram of Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 
 ## Benefits
 
-Azure Lighthouse helps you to profitably and efficiently build and deliver managed services for your customers. The benefits include:
+Azure Lighthouse helps service providers efficiently build and deliver managed services. Benefits include:
 
-- **Management at scale**: Customer engagement and life-cycle operations to manage customer resources are easier and more scalable. Existing APIs, management tools, and workflows can be used with delegated customer resources.
-- **Greater visibility and precision for customers**: Customers will have greater visibility into your actions and precise control over the scope they delegate for management, including the ability to remove access completely, while your IP is preserved.
-- **Comprehensive and unified platform tooling**: Our tooling experience addresses key service provider scenarios, including multiple licensing models such as EA, CSP and pay-as-you-go. The new capabilities work with existing tools and APIs, licensing models, and partner programs such as the [Cloud Solution Provider program (CSP)](https://docs.microsoft.com/partner-center/csp-overview). Azure Lighthouse can be integrated into your existing workflows and applications, and you can track your impact on customer engagements by [linking your partner ID](../billing/billing-partner-admin-link-started.md).
+- **Management at scale**: Customer engagement and life-cycle operations to manage customer resources are easier and more scalable. Existing APIs, management tools, and workflows can be used with delegated resources, including machines hosted outside of Azure, regardless of the regions in which they’re located.
+- **Greater visibility and control for customers**: Customers have precise control over the scopes they delegate for management and the permissions that are allowed. They can audit service provider actions and remove access completely if desired.
+- **Comprehensive and unified platform tooling**: Our tooling experience addresses key service provider scenarios, including multiple licensing models such as EA, CSP and pay-as-you-go. Azure Lighthouse works with existing tools and APIs, licensing models, [Azure managed applications](concepts/managed-applications.md), and partner programs such as the [Cloud Solution Provider program (CSP)](/partner-center/csp-overview). You can integrate Azure Lighthouse into your existing workflows and applications, and track your impact on customer engagements by [linking your partner ID](./how-to/partner-earned-credit.md).
 
-There are no additional costs associated with using Azure Lighthouse to manage your customers' Azure resources. Any Azure customer or partner can use Azure Lighthouse.
+There are no additional costs associated with using Azure Lighthouse to manage Azure resources. Any Azure customer or partner can use Azure Lighthouse.
 
 ## Capabilities
 
-Azure Lighthouse includes multiple ways to help streamline customer engagement and management:
+Azure Lighthouse includes multiple ways to help streamline engagement and management:
 
-- **Azure delegated resource management**: Manage your customers' Azure resources securely from within your own tenant, without having to switch context and control planes. Subscriptions and resource groups can be delegated to specified users and roles in the managing tenant, with the ability to remove access as needed. For more info, see [Azure delegated resource management](concepts/azure-delegated-resource-management.md).
-- **New Azure portal experiences**: View cross-tenant info in the new **My customers** page in the [Azure portal](https://portal.azure.com). A corresponding **Service providers** blade lets your customers view and manage service provider access. For more info, see [View and manage customers](./how-to/view-manage-customers.md) and [View and manage service providers](how-to/view-manage-service-providers.md).
-- **Azure Resource Manager templates**: Perform management tasks more easily, including onboarding customers for Azure delegated resource management. For more info, see our [samples repo](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates) and [Onboard a customer to Azure delegated resource management](how-to/onboard-customer.md).
-- **Managed Service offers in Azure Marketplace**: Offer your services to customers through private or public offers, and have them automatically onboarded to Azure delegated resource management, as an alternate to onboarding using Azure Resource Manager templates. For more info, see [Managed Service offers in Azure Marketplace](concepts/managed-services-offers.md).
+- **Azure delegated resource management**: [Manage your customers' Azure resources securely from within your own tenant](concepts/azure-delegated-resource-management.md), without having to switch context and control planes. Customer subscriptions and resource groups can be delegated to specified users and roles in the managing tenant, with the ability to remove access as needed.
+- **New Azure portal experiences**: View cross-tenant information in the [**My customers** page](how-to/view-manage-customers.md) in the Azure portal. A corresponding [**Service providers** page](how-to/view-manage-service-providers.md) lets customers view and manage their service provider access.
+- **Azure Resource Manager templates**: Use ARM templates to [onboard delegated customer resources](how-to/onboard-customer.md) and [perform cross-tenant management tasks](samples/index.md).
+- **Managed Service offers in Azure Marketplace**: [Offer your services to customers](concepts/managed-services-offers.md) through private or public offers, and automatically onboard them to Azure Lighthouse.
 
 ## Next steps
 
 - Learn about [Azure delegated resource management](concepts/azure-delegated-resource-management.md).
-- Learn about [cross-tenant management experiences](concepts/cross-tenant-management-experience.md).
+- Explore [cross-tenant management experiences](concepts/cross-tenant-management-experience.md).
+- See how to [use Azure Lighthouse within an enterprise](concepts/enterprise.md).

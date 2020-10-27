@@ -1,5 +1,5 @@
 ---
-title: Phone sign-up and sign-in with custom policies (Preview)
+title: Phone sign-up and sign-in with custom policies
 titleSuffix: Azure AD B2C
 description: Send one-time passwords (OTP) in text messages to your application users' phones with custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
@@ -8,23 +8,81 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 02/25/2020
+ms.topic: how-to
+ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Set up phone sign-up and sign-in with custom policies in Azure AD B2C (Preview)
+# Set up phone sign-up and sign-in with custom policies in Azure AD B2C
 
 Phone sign-up and sign-in in Azure Active Directory B2C (Azure AD B2C) enables your users to sign up and sign in to your applications by using a one-time password (OTP) sent in a text message to their phone. One-time passwords can help minimize the risk of your users forgetting or having their passwords compromised.
 
 Follow the steps in this article to use the custom policies to enable your customers to sign up and sign in to your applications by using a one-time password sent to their phone.
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 ## Pricing
 
 One-time passwords are sent to your users by using SMS text messages, and you may be charged for each message sent. For pricing information, see the **Separate Charges** section of [Azure Active Directory B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+
+## User experience for phone sign-up and sign-in
+
+With phone sign-up and sign-in, the user can sign up for the app using a phone number as their primary identifier. The end user's experience during sign-up and sign-in is described below.
+
+> [!NOTE]
+> We strongly suggest you include consent information in your sign-up and sign-in experience similar to the sample text below. This sample text is for informational purposes only. Please refer to the Short Code Monitoring Handbook on the [CTIA website](https://www.ctia.org/programs) and consult with your own legal or compliance experts for guidance on your final text and feature configuration to meet your own compliance needs:
+>
+> *By providing your phone number, you consent to recieving a one-time passcode sent by text message to help you sign in to *&lt;insert: your application name&gt;*. Standard message and data rates may apply.*
+>
+> *&lt;insert: a link to your Privacy Statement&gt;*<br/>*&lt;insert: a link to your Terms of Service&gt;*
+
+To add your own consent information, customize the following sample and include it in the LocalizedResources for the ContentDefinition used by the self-asserted page with the display control (the Phone-Email-Base.xml file in the phone sign-up & sign-in starter pack):
+
+```xml
+<LocalizedResources Id="phoneSignUp.en">        
+    <LocalizedStrings>
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>                
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>             
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_url">{insert your terms and conditions URL}</LocalizedString>          
+    <LocalizedString ElementType="UxElement" StringId="initial_intro">Please verify your country code and phone number</LocalizedString>        
+    </LocalizedStrings>      
+</LocalizedResources>
+   ```
+
+### Phone sign-up experience
+
+If the user doesn't already have an account for your application, they can create one by choosing the **Sign up now** link. A sign-up page appears, where the user selects their **Country**, enters their phone number, and selects **Send Code**.
+
+![User starts phone sign-up](media/phone-authentication/phone-signup-start.png)
+
+A one-time verification code is sent to the user's phone number. The user enters the **Verification Code** on the sign-up page, and then selects **Verify Code**. (If the user wasn't able to retrieve the code, they can select **Send New Code**.)
+
+![User verifies code during phone sign-up](media/phone-authentication/phone-signup-verify-code.png)
+
+ The user enters any other information requested on the sign-up page, for example, **Display Name**, **Given Name**, and **Surname** (Country and phone number remain populated). If the user wants to use a different phone number, they can choose **Change number** to restart sign-up. When finished, the user selects **Continue**.
+
+![User provides additional info](media/phone-authentication/phone-signup-additional-info.png)
+
+Next, the user is asked to provide a recovery email. The user enters their email address, and then selects **Send verification code**. A code is sent to the user's email inbox, which they can retrieve and enter in the **Verification code** box. Then the user selects **Verify code**. 
+
+Once the code is verified, the user selects **Create** to create their account. Or if the user wants to use a different email address, they can choose **Change e-mail**.
+
+![User creates account](media/phone-authentication/email-verification.png)
+
+### Phone sign-in experience
+
+If the user has an existing account with phone number as their identifier, the user enters their phone number and selects **Continue**. They confirm the country and phone number by selecting **Continue**, and a one-time verification code is sent to their phone. The user enters the verification code and selects **Continue** to sign in.
+
+![Phone sign-in user experience](media/phone-authentication/phone-signin-screens.png)
+
+## Deleting a user account
+
+In certain cases you might you need to delete a user and associated data from your Azure AD B2C directory. For details about how to delete a user account through the Azure portal, refer to [these instructions](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
+
 
 ## Prerequisites
 
@@ -91,11 +149,8 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 ## Next steps
 
 You can find the phone sign-up and sign-in custom policy starter pack (and other starter packs) on GitHub:
-
-[Azure-Samples/active-directory-b2c-custom-policy-starterpack/scenarios/phone-number-passwordless][starter-pack-phone]
-
-The starter pack policy files use multi-factor authentication technical profiles and phone number claims transformations:
-
+  [Azure-Samples/active-directory-b2c-custom-policy-starterpack/scenarios/phone-number-passwordless][starter-pack-phone]
+  The starter pack policy files use multi-factor authentication technical profiles and phone number claims transformations:
 * [Define an Azure Multi-Factor Authentication technical profile](multi-factor-auth-technical-profile.md)
 * [Define phone number claims transformations](phone-number-claims-transformations.md)
 

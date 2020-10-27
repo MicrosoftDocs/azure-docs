@@ -1,6 +1,6 @@
 ---
 title: Authentication - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: mitigations for threats exposed in the Threat Modeling Tool
+description: Learn about authentication mitigation in the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: has-adal-ref
+ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 ---
 
 # Security Frame: Authentication | Mitigations

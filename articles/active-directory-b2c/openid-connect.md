@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -30,7 +30,7 @@ When your web application needs to authenticate the user and run a user flow, it
 
 In this request, the client indicates the permissions that it needs to acquire from the user in the `scope` parameter, and specifies the user flow to run. To get a feel for how the request works, try pasting the request into a browser and running it. Replace `{tenant}` with the name of your tenant. Replace `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` with the app ID of the application you've previously registered in your tenant. Also change the policy name (`{policy}`) to the policy name that you have in your tenant, for example `b2c_1_sign_in`.
 
-```HTTP
+```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
@@ -60,7 +60,7 @@ After the user completes the user flow, a response is returned to your applicati
 
 A successful response using `response_mode=fragment` would look like:
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
@@ -75,7 +75,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 
 Error responses can also be sent to the `redirect_uri` parameter so that the application can handle them appropriately:
 
-```HTTP
+```http
 GET https://aadb2cplayground.azurewebsites.net/#
 error=access_denied
 &error_description=the+user+canceled+the+authentication
@@ -94,13 +94,13 @@ Just receiving an ID token is not enough to authenticate the user. Validate the 
 
 Azure AD B2C has an OpenID Connect metadata endpoint, which allows an application to get information about Azure AD B2C at runtime. This information includes endpoints, token contents, and token signing keys. There is a JSON metadata document for each user flow in your B2C tenant. For example, the metadata document for the `b2c_1_sign_in` user flow in `fabrikamb2c.onmicrosoft.com` is located at:
 
-```HTTP
+```http
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/v2.0/.well-known/openid-configuration
 ```
 
 One of the properties of this configuration document is `jwks_uri`, whose value for the same user flow would be:
 
-```HTTP
+```http
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
 ```
 
@@ -132,7 +132,7 @@ You can redeem the authorization code that you acquired (by using `response_type
 
 You can also request an access token for your app's own back-end Web API by convention of using the app's client ID as the requested scope (which will result in an access token with that client ID as the "audience"):
 
-```HTTP
+```http
 POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
 Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
@@ -153,7 +153,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 A successful token response looks like:
 
-```JSON
+```json
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -175,7 +175,7 @@ A successful token response looks like:
 
 Error responses look like:
 
-```JSON
+```json
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",
@@ -191,7 +191,7 @@ Error responses look like:
 
 Now that you've successfully acquired an access token, you can use the token in requests to your back-end web APIs by including it in the `Authorization` header:
 
-```HTTP
+```http
 GET /tasks
 Host: mytaskwebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
@@ -201,7 +201,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ID tokens expire in a short period of time. Refresh the tokens after they expire to continue being able to access resources. You can refresh a token by submitting another `POST` request to the `/token` endpoint. This time, provide the `refresh_token` parameter instead of the `code` parameter:
 
-```HTTP
+```http
 POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
 Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
@@ -215,14 +215,14 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | {policy} | Yes | The user flow that was used to acquire the original refresh token. You can't use a different user flow in this request. Add this parameter to the query string, not to the POST body. |
 | client_id | Yes | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application. |
 | client_secret | Yes, in Web Apps | The application secret that was generated in the [Azure portal](https://portal.azure.com/). Client secrets are used in this flow for Web App scenarios, where the client can securely store a client secret. For Native App (public client) scenarios, client secrets cannot be securely stored, therefore not used on this call. If using a client secret, please change it on a periodic basis. |
-| grant_type | Yes | The type of grant, which must be a refresh token for this part of the authorization code flow. |
+| grant_type | Yes | The type of grant, which must be `refresh_token` for this part of the authorization code flow. |
 | refresh_token | Yes | The original refresh token that was acquired in the second part of the flow. The `offline_access` scope must be used in both the authorization and token requests in order to receive a refresh token. |
 | redirect_uri | No | The `redirect_uri` parameter of the application where you received the authorization code. |
 | scope | No | A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. It can be used to send tokens to your application's own back-end web API, which is represented by the same application ID as the client. The `offline_access` scope indicates that your application needs a refresh token for extended access to resources. |
 
 A successful token response looks like:
 
-```JSON
+```json
 {
     "not_before": "1442340812",
     "token_type": "Bearer",
@@ -244,7 +244,7 @@ A successful token response looks like:
 
 Error responses look like:
 
-```JSON
+```json
 {
     "error": "access_denied",
     "error_description": "The user revoked access to the app.",
@@ -262,7 +262,7 @@ When you want to sign the user out of the application, it isn't enough to clear 
 
 To sign out the user, redirect the user to the `end_session` endpoint that is listed in the OpenID Connect metadata document described earlier:
 
-```HTTP
+```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fjwt.ms%2F
 ```
 
@@ -270,13 +270,17 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | --------- | -------- | ----------- |
 | {tenant} | Yes | Name of your Azure AD B2C tenant |
 | {policy} | Yes | The user flow that you want to use to sign the user out of your application. |
-| id_token_hint| No | A previously issued ID token to pass to the logout endpoint as a hint about the end user's current authenticated session with the client. The `id_token_hint` ensures that the `post_logout_redirect_uri` is a registered reply URL in your Azure AD B2C application settings. |
+| id_token_hint| No | A previously issued ID token to pass to the logout endpoint as a hint about the end user's current authenticated session with the client. The `id_token_hint` ensures that the `post_logout_redirect_uri` is a registered reply URL in your Azure AD B2C application settings. For more information, see [Secure your logout redirect](#secure-your-logout-redirect). |
 | client_id | No* | The application ID that the [Azure portal](https://portal.azure.com/) assigned to your application.<br><br>\**This is required when using `Application` isolation SSO configuration and _Require ID Token_ in logout request is set to `No`.* |
 | post_logout_redirect_uri | No | The URL that the user should be redirected to after successful sign out. If it isn't included, Azure AD B2C shows the user a generic message. Unless you provide an `id_token_hint`, you should not register this URL as a reply URL in your Azure AD B2C application settings. |
 | state | No | If a `state` parameter is included in the request, the same value should appear in the response. The application should verify that the `state` values in the request and response are identical. |
 
 ### Secure your logout redirect
 
-After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected.
+After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed, and the **Require ID Token in logout requests** is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected.
 
+To set the required ID Token in logout requests, see [Configure session behavior in Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect), and [Configure session behavior using custom policies in Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect).
 
+## Next steps
+
+- Learn more about [Azure AD B2C session](session-overview.md).

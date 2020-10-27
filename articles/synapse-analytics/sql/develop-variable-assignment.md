@@ -5,17 +5,17 @@ services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020 
 ms.author: v-stazar 
 ms.reviewer: jrasnick
 ---
 
-# Assigning variables with Synapse SQL
+# Assign variables with Synapse SQL
 
 In this article, you'll find tips for assigning T-SQL variables with Synapse SQL.
 
-## Setting variables with DECLARE
+## Set variables with DECLARE
 
 Variables in Synapse SQL are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in Synapse SQL.
 
@@ -32,7 +32,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-You can't initialize and use a variable in the same DECLARE statement. To illustrate, the following example isn't allowed since *@p1* is both initialized and used in the same DECLARE statement. The following example gives an error.
+You can't initialize and use a variable in the same DECLARE statement. To illustrate, the following example isn't allowed since *\@p1* is both initialized and used in the same DECLARE statement. The following example gives an error.
 
 ```sql
 DECLARE @p1 int = 0
@@ -40,7 +40,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## Setting values with SET
+## Set values with SET
 
 SET is a common method for setting a single variable.
 

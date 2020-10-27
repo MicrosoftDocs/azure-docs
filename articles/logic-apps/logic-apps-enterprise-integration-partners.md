@@ -42,7 +42,7 @@ In an agreement, you specify the details for handling incoming and outgoing mess
 
 1. Choose the **Partners** tile.
 
-   ![Choose "Partners" tile](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
+   ![Screenshot that shows the Partners tile.](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
 
 1. Under **Partners**, choose **Add**. Under **Add Partner**, provide the partner's details as described by the table below.
 
@@ -95,7 +95,7 @@ Choose the **Partners** tile.
 
 1. In the [Azure portal](https://portal.azure.com), find and select your integration account. Choose the **Partners** tile.
 
-   ![Choose "Partners" tile](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
+   ![Screenshot that shows the Partners tile you select when you want to delete a partner.](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
 
 1. Under **Partners**, select the partner that you want to delete. Choose **Delete**.
 

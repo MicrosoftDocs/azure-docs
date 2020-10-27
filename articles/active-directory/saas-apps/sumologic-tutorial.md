@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SumoLogic | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SumoLogic.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: fbb76765-92d7-4801-9833-573b11b4d910
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with SumoLogic
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate SumoLogic with Azure Active Dire
 * Enable your users to be automatically signed-in to SumoLogic with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -80,28 +74,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-    | |
-    |--|
-    | `https://service.sumologic.com`|
-    | `https://<tenantname>.us2.sumologic.com`|
-    | `https://<tenantname>.us4.sumologic.com`|
-    | `https://<tenantname>.eu.sumologic.com`|
-    | `https://<tenantname>.jp.sumologic.com`|
-    | `https://<tenantname>.de.sumologic.com`|
-    | `https://<tenantname>.ca.sumologic.com`|
+    - `https://service.sumologic.com`
+    - `https://<tenantname>.us2.sumologic.com`
+    - `https://<tenantname>.us4.sumologic.com`
+    - `https://<tenantname>.eu.sumologic.com`
+    - `https://<tenantname>.jp.sumologic.com`
+    - `https://<tenantname>.de.sumologic.com`
+    - `https://<tenantname>.ca.sumologic.com`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-    | |
-    |--|
-    | `https://service.sumologic.com/sumo/saml/consume/<tenantname>`|
-    | `https://service.us2.sumologic.com/sumo/saml/consume/<tenantname>`|
-    | `https://service.us4.sumologic.com/sumo/saml/consume/<tenantname>`|
-    | `https://service.eu.sumologic.com/sumo/saml/consume/<tenantname>`|
-    | `https://service.jp.sumologic.com/sumo/saml/consume/<tenantname>`|
-    | `https://service.de.sumologic.com/sumo/saml/consume/<tenantname>`|
-    | `https://service.ca.sumologic.com/sumo/saml/consume/<tenantname>`|
-    | `https://service.au.sumologic.com/sumo/saml/consume/<tenantname>`|
+    - `https://service.sumologic.com/sumo/saml/consume/<tenantname>`
+    - `https://service.us2.sumologic.com/sumo/saml/consume/<tenantname>`
+    - `https://service.us4.sumologic.com/sumo/saml/consume/<tenantname>`
+    - `https://service.eu.sumologic.com/sumo/saml/consume/<tenantname>`
+    - `https://service.jp.sumologic.com/sumo/saml/consume/<tenantname>`
+    - `https://service.de.sumologic.com/sumo/saml/consume/<tenantname>`
+    - `https://service.ca.sumologic.com/sumo/saml/consume/<tenantname>`
+    - `https://service.au.sumologic.com/sumo/saml/consume/<tenantname>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [SumoLogic Client support team](https://www.sumologic.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -119,7 +109,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Roles | user.assignedroles |
 
     > [!NOTE]
-	> Please click [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) to know how to configure **Role** in Azure AD.
+	> Please click [here](../develop/active-directory-enterprise-app-role-management.md) to know how to configure **Role** in Azure AD.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -173,11 +163,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. From the **Select a configuration or create a new one** list, select **Azure AD**, and then click **Configure**.
 
-    ![Configure SAML 2.0](./media/sumologic-tutorial/ic778558.png "Configure SAML 2.0")
+    ![Screenshot shows Configure SAML 2.0 where you can select Azure A D.](./media/sumologic-tutorial/ic778558.png "Configure SAML 2.0")
 
 1. On the **Configure SAML 2.0** dialog, perform the following steps:
 
-    ![Configure SAML 2.0](./media/sumologic-tutorial/ic778559.png "Configure SAML 2.0")
+    ![Screenshot shows the Configure SAML 2.0 dialog box where you can enter the values described.](./media/sumologic-tutorial/ic778559.png "Configure SAML 2.0")
 
     a. In the **Configuration Name** textbox, type **Azure AD**.
 
@@ -205,11 +195,11 @@ In order to enable Azure AD users to sign in to SumoLogic, they must be provisio
 
 1. Go to **Manage \> Users**.
 
-    ![Users](./media/sumologic-tutorial/ic778561.png "Users")
+    ![Screenshot shows Users selected from the Manage menu.](./media/sumologic-tutorial/ic778561.png "Users")
 
 1. Click **Add**.
 
-    ![Users](./media/sumologic-tutorial/ic778562.png "Users")
+    ![Screenshot shows the Add button for Users.](./media/sumologic-tutorial/ic778562.png "Users")
 
 1. On the **New User** dialog, perform the following steps:
 
@@ -230,14 +220,14 @@ In order to enable Azure AD users to sign in to SumoLogic, they must be provisio
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the SumoLogic tile in the Access Panel, you should be automatically signed in to the SumoLogic for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the SumoLogic tile in the Access Panel, you should be automatically signed in to the SumoLogic for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try SumoLogic with Azure AD](https://aad.portal.azure.com/)

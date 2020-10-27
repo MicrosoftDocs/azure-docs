@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
 ---
 
@@ -17,11 +17,16 @@ ms.author: aahi
 
 **Q: What is available?**
 
-**A:** Azure Cognitive Services containers allow developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. Some containers are available as a [gated preview](../cognitive-services-gating-process.md), which may require an application to access. Other containers are publicly available as an ungated preview, or are generally available. You can find a full list of containers and their availability in the [Container support in Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) article. 
+**A:** Azure Cognitive Services containers allow developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. Some containers are available as a gated preview which may require an application to access. Other containers are publicly available as an ungated preview, or are generally available. You can find a full list of containers and their availability in the [Container support in Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) article. You can also view the containers in the [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
 **Q: Is there any difference between the Cognitive Services cloud and the containers?**
 
 **A:** Cognitive Services containers are an alternative to the Cognitive Services cloud. Containers offer the same capabilities as the corresponding cloud services. Customers can deploy the containers on-premises or in Azure. The core AI technology, pricing tiers, API keys, and API signature are the same between the container and the corresponding cloud services. Here are the [features and benefits](../cognitive-services-container-support.md#features-and-benefits) for choosing containers over their cloud service equivalent.
+
+**Q: How do I access and use a gated preview container?**
+
+**A:** Previously, gated preview containers were hosted on the `containerpreview.azurecr.io` repository. Starting September 22nd 2020, these containers are hosted on the Microsoft Container Registry, and downloading them doesn't require you to use the docker login command. You'll be able to run a gated preview container if your Azure resource was created with the approved Azure subscription ID. You won't be able to run the container if your Azure subscription has not been approved after completing the [request form](https://aka.ms/csgate).
+
 
 **Q: Will containers be available for all Cognitive Services and what are the next set of containers we should expect?**
 
@@ -71,6 +76,22 @@ We don't test containers with OpenShift, but generally, Cognitive Services conta
 **Q: How do I provide product feedback and feature recommendations?**
 
 **A:** Customers are encouraged to [voice their concerns](https://cognitive.uservoice.com/) publicly, and up-vote others who have done the same where potential issues overlap. The user voice tool can be used for both product feedback and feature recommendations.
+
+**Q: What status messages and errors are returned by Cognitive Services containers?**
+
+**A:** See the following table for a list of status messages and errors.
+
+|Status  | Description  |
+|---------|---------|
+| `Valid` |	Your API key is valid, no action is needed. |
+| `Invalid` |	Your API key is invalid. You must provide an valid API key to run the container. Find your API key and service region in the **Keys and Endpoint** section for your Azure Cognitive Services resource, in the Azure portal. |
+| `Mismatch` | You have provided an API Key or endpoint for a different kind of cognitive services resource. Find your API key and service region in the **Keys and Endpoint** section for your Azure Cognitive Services resource. |
+| `CouldNotConnect` | The container couldn't connect to the billing endpoint. Check the `Retry-After` value and wait for this period to end before making additional requests. |
+| `OutOfQuota` | The API key is out of quota. You can either upgrade your pricing tier, or wait for additional quota to be made available. Find your tier in the **Pricing Tier** section of your Azure Cognitive Service resource, in the Azure portal. |
+| `BillingEndpointBusy` | The billing endpoint is currently busy. Check the `Retry-After` value and wait for this period to end before making additional requests. |
+| `ContainerUseUnauthorized` | The API key provided is not authorized for use with this container. You are likely using a gated container, so make sure your Azure Subscription ID is approved by submitting an [online request](https://aka.ms/csgate). |
+| `Unknown` | The server is currently unable to process billing requests. |
+
 
 **Q: Who do I contact for support?**
 

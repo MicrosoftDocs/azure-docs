@@ -29,7 +29,7 @@ You can toggle between the **geography** and **geometry** spatial type in the Az
 
 Here's how to set the **Geospatial Configuration** in **Data Explorer** within the Azure portal:
 
-![Setting geospatial configuration](./media/sql-query-geospatial-index/geospatial-configuration.png)
+:::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="Setting geospatial configuration":::
 
 You can also modify the `geospatialConfig` in the .NET SDK to adjust the **Geospatial Configuration**:
 
@@ -72,15 +72,15 @@ The following JSON snippet shows an indexing policy with spatial indexing enable
 **Container indexing policy JSON with geography spatial indexing**
 
 ```json
-    {
-       "automatic":true,
-       "indexingMode":"Consistent",
-        "includedPaths": [
+{
+    "automatic": true,
+    "indexingMode": "Consistent",
+    "includedPaths": [
         {
             "path": "/*"
         }
-        ],
-        "spatialIndexes": [
+    ],
+    "spatialIndexes": [
         {
             "path": "/*",
             "types": [
@@ -91,8 +91,8 @@ The following JSON snippet shows an indexing policy with spatial indexing enable
             ]
         }
     ],
-       "excludedPaths":[]
-    }
+    "excludedPaths": []
+}
 ```
 
 > [!NOTE]
@@ -118,7 +118,7 @@ Create a bounding box that contains all (or most) of your data. Only operations 
 Here is an example indexing policy that indexes **geometry** data with **geospatialConfig** set to `geometry`:
 
 ```json
- {
+{
     "indexingMode": "consistent",
     "automatic": true,
     "includedPaths": [

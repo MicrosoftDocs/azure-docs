@@ -52,7 +52,7 @@ If you are creating JavaScript Durable Functions, you'll need to install the [`d
 4. Once your `package.json` is uploaded, run the `npm install` command from the Kudu Remote Execution Console.
 
    ![Kudu run npm install](./media/durable-functions-create-portal/kudu-npm-install.png)
-
+   
 ## Create an orchestrator function
 
 1. In your function app, select **Functions** from the left pane, and then select **Add** from the top menu. 
@@ -76,7 +76,7 @@ If you are creating JavaScript Durable Functions, you'll need to install the [`d
 1. Use an HTTP tool like Postman or cURL to send a POST request to the URL that you copied. The following example is a cURL command that sends a POST request to the durable function:
 
     ```bash
-    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
+    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence --header "Content-Length: 0"
     ```
 
     In this example, `{your-function-app-name}` is the domain that is the name of your function app. The response message contains a set of URI endpoints that you can use to monitor and manage the execution, which looks like the following example:

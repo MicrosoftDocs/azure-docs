@@ -30,11 +30,11 @@ In order for your models to be candidates for deployment, they must meet the fol
 ## Process
 Once you have migrated models from the Hub that are candidates for deployment, you can find them by going to the **Settings** page for your workspace and scrolling to the end of the page where you will see an **Unsupported Translator Hub Trainings** section.  This section only appears if you have projects that meet the prerequisites mentioned above.
 
-![How to migrate from Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
+![Screenshot that highlights the Unsupported Translator Hub Trainings section.](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
 Within the **Unsupported Translator Hub Trainings** selection page, the **Unrequested trainings** tab contains models that are eligible for deployment.  Select the models you wish to deploy and submit a request.   Before the April 30 deployment deadline, you can select as many models as you wish for deployment.
  
-![How to migrate from Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
+![Screenshot that shows the Unrequested trainings tab.](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
 Once submitted, the model will no longer be available on the **Unrequested trainings** tab and will instead appear on the **Requested trainings** tab.  You can view your requested trainings at any time.
 
@@ -52,4 +52,4 @@ Unlike standard Custom Translator models, Hub models will only be available in a
 ## Next steps
 
 - [Train a model](how-to-train-model.md).
-- Start using your deployed custom translation model via [Translator V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Start using your deployed custom translation model via [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

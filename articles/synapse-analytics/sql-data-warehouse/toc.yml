@@ -33,6 +33,9 @@
       href: create-data-warehouse-portal.md
     - name: PowerShell
       href: create-data-warehouse-powershell.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: quickstart-arm-template.md
   - name: Load data
     items: 
     - name: COPY statement
@@ -119,7 +122,7 @@
         href: /azure/sql-database/transparent-data-encryption-azure-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
       - name: TDE with Bring Your Own Key
         href: /azure/sql-database/transparent-data-encryption-byok-azure-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
-  - name: Data loading
+  - name: Data ingestion and preparation
     items:
     - name: Overview
       href: design-elt-data-loading.md
@@ -179,6 +182,8 @@
         href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
       - name: Clean up cache
         href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
+    - name: Machine learning predictions
+      href: sql-data-warehouse-predict.md
     - name: Tables
       items:
       - name: Overview
@@ -217,8 +222,6 @@
         href: sql-data-warehouse-develop-user-defined-schemas.md
       - name: Variable assignment
         href: sql-data-warehouse-develop-variable-assignment.md
-      - name: Views
-        href: sql-data-warehouse-develop-views.md
   - name: Querying
     items:
     - name: Dynamic SQL
@@ -279,7 +282,7 @@
       href: sql-data-warehouse-encryption-tde.md
     - name: Enable encryption - T-SQL
       href: sql-data-warehouse-encryption-tde-tsql.md
-  - name: Load data
+  - name: Load and prepare data
     items:
     - name: From Azure Data Lake Storage (ADLS)
       href: sql-data-warehouse-load-from-azure-data-lake-store.md
@@ -292,7 +295,7 @@
     - name: Samples
       items:
       - name: New York Taxi 
-        href: load-data-from-azure-blob-storage-using-polybase.md
+        href: load-data-from-azure-blob-storage-using-copy.md
       - name: Contoso 
         href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
       - name: Wide World Importers
@@ -366,7 +369,7 @@
     - name: Build dashboards and reports 
       items:
       - name: Visualize with Power BI
-        href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect.md 
+        href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect
   - name: Troubleshoot
     items:
     - name: Connectivity
@@ -393,8 +396,8 @@
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases
-  - name: Forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
   - name: Pricing calculator
@@ -417,3 +420,7 @@
       href: sql-data-warehouse-partner-data-integration.md
     - name: Data management
       href: sql-data-warehouse-partner-data-management.md
+    - name: Machine learning and AI
+      href: sql-data-warehouse-partner-machine-learning-ai.md
+    - name: Public Preview partners
+      href: sql-data-warehouse-partner-launch.md

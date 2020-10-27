@@ -12,8 +12,9 @@
     href: cdn-create-a-storage-account-with-cdn.md    
   - name: Create a profile and endpoint
     href: cdn-create-new-endpoint.md
-  - name: Create a profile by using an Azure Resource Manager template
-    href: create-profile-resource-manager-template.md
+  - name: Create profile and endpoint - ARM Template
+    displayName: Resource Manager
+    href: create-profile-endpoint-template.md
 - name: Tutorials
   items:
   - name: Add Azure CDN to a web app
@@ -185,8 +186,8 @@
     href: cdn-billing.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=azurecdn
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-cdn.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cdn/
   - name: Pricing calculator
@@ -196,4 +197,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-cdn
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=cdn   
+    href: https://azure.microsoft.com/documentation/videos/index/?services=cdn

@@ -6,7 +6,7 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
@@ -59,7 +59,7 @@ See also [INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-a
 
 SQL pool supports loading and exporting data through several tools including Azure Data Factory, PolyBase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.  However, when you are loading or exporting large volumes of data or fast performance is needed, PolyBase is the best choice.  
 
-PolyBase is designed to leverage the MPP (Massively Parallel Processing) architecture and will load and export data magnitudes faster than any other tool.  PolyBase loads can be run using CTAS or INSERT INTO.  
+PolyBase is designed to leverage distributed nature of the system and will load and export data magnitudes faster than any other tool.  PolyBase loads can be run using CTAS or INSERT INTO.   
 
 > [!TIP]
 > Using CTAS will minimize transaction logging and the fastest way to load your data.
@@ -175,7 +175,7 @@ See also [Resource classes for workload management](resource-classes-for-workloa
 
 Also see our [Troubleshooting](sql-data-warehouse-troubleshoot.md) article for common issues and solutions.
 
-If you didn't find what you are looking for in this article, try using the "Search for docs" on the left side of this page to search all of the Azure Synapse documents.  The [Azure Synapse Forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) is a place for you to post questions to other users and to the Azure Synapse Product Group. We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  
+If you didn't find what you are looking for in this article, try using the "Search for docs" on the left side of this page to search all of the Azure Synapse documents.  The [Microsoft Q&A question page for Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) is a place for you to post questions to other users and to the Azure Synapse Product Group. We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  
 
 If you prefer to ask your questions on Stack Overflow, we also have an [Azure Synapse Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

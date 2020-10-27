@@ -10,7 +10,7 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 03/13/2020
+ms.date: 06/09/2020
 ---
 
 # Create and configure a self-hosted integration runtime
@@ -51,13 +51,13 @@ To create and set up a self-hosted integration runtime, use the following proced
 
 Use the following steps to create a self-hosted IR using Azure Data Factory UI.
 
-1. On the **Let's get started** page of Azure Data Factory UI, select the **Author** tab on the leftmost pane.
+1. On the **Let's get started** page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
-   ![The home page Author button](media/doc-common-process/get-started-page-author-button.png)
+   ![The home page Manage button](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Select **Connections** at the bottom of the leftmost pane, and select **Integration runtimes** in the **Connections** window. Select **+New**.
+1. Select **Integration runtimes** on the left pane, and then select **+New**.
 
-   ![Create an integration runtime](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
+   ![Create an integration runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**. 
 
@@ -92,7 +92,7 @@ You can automate self-hosted IR setup on an Azure virtual machine by using the [
 
 You can use a command line to set up or manage an existing self-hosted IR. This usage can especially help to automate the installation and registration of self-hosted IR nodes.
 
-Dmgcmd.exe is included in the self-hosted installer. It's typically located in the C:\Program Files\Microsoft Integration Runtime\3.0\Shared\ folder. This application supports various parameters and can be invoked via a command line using batch scripts for automation.
+Dmgcmd.exe is included in the self-hosted installer. It's typically located in the C:\Program Files\Microsoft Integration Runtime\4.0\Shared\ folder. This application supports various parameters and can be invoked via a command line using batch scripts for automation.
 
 Use the application as follows:
 
@@ -133,7 +133,7 @@ Here is a high-level summary of the data-flow steps for copying with a self-host
 1. A data developer creates a self-hosted integration runtime within an Azure data factory by using a PowerShell cmdlet. Currently, the Azure portal doesn't support this feature.
 1. The data developer creates a linked service for an on-premises data store. The developer does so by specifying the self-hosted integration runtime instance that the service should use to connect to data stores.
 1. The self-hosted integration runtime node encrypts the credentials by using Windows Data Protection Application Programming Interface (DPAPI) and saves the credentials locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts the credentials by using DPAPI and stores them locally. Credential synchronization is transparent to the data developer and is handled by the self-hosted IR.
-1. Azure Data Factory communicates with the self-hosted integration runtime to schedule and manage jobs. Communication is via a control channel that uses a shared [Azure Service Bus Relay](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it#wcf-relay) connection. When an activity job needs to be run, Data Factory queues the request along with any credential information. It does so in case credentials aren't already stored on the self-hosted integration runtime. The self-hosted integration runtime starts the job after it polls the queue.
+1. Azure Data Factory communicates with the self-hosted integration runtime to schedule and manage jobs. Communication is via a control channel that uses a shared [Azure Service Bus Relay](../azure-relay/relay-what-is-it.md#wcf-relay) connection. When an activity job needs to be run, Data Factory queues the request along with any credential information. It does so in case credentials aren't already stored on the self-hosted integration runtime. The self-hosted integration runtime starts the job after it polls the queue.
 1. The self-hosted integration runtime copies data between an on-premises store and cloud storage. The direction of the copy depends on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services like Azure Blob storage over a secure HTTPS channel.
 
 ## Considerations for using a self-hosted IR
@@ -166,7 +166,7 @@ Here is a high-level summary of the data-flow steps for copying with a self-host
 - If the host machine hibernates, the self-hosted integration runtime doesn't respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installer prompts with a message.
 - You must be an administrator on the machine to successfully install and configure the self-hosted integration runtime.
 - Copy-activity runs happen with a specific frequency. Processor and RAM usage on the machine follows the same pattern with peak and idle times. Resource usage also depends heavily on the amount of data that is moved. When multiple copy jobs are in progress, you see resource usage go up during peak times.
-- Tasks might fail during extraction of data in Parquet, ORC, or Avro formats. For more on Parquet, see [Parquet format in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime). File creation runs on the self-hosted integration machine. To work as expected, file creation requires the following prerequisites:
+- Tasks might fail during extraction of data in Parquet, ORC, or Avro formats. For more on Parquet, see [Parquet format in Azure Data Factory](./format-parquet.md#using-self-hosted-integration-runtime). File creation runs on the self-hosted integration machine. To work as expected, file creation requires the following prerequisites:
     - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Package (x64)
     - Java Runtime (JRE) version 8 from a JRE provider such as [Adopt OpenJDK](https://adoptopenjdk.net/). Ensure that the `JAVA_HOME` environment variable is set.
 
@@ -283,7 +283,7 @@ To share a self-hosted integration runtime with multiple data factories, see [Cr
 
 ### Known limitations of self-hosted IR sharing
 
-* The data factory in which a linked IR is created must have an [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). By default, the data factories created in the Azure portal or PowerShell cmdlets have an implicitly created Managed Identity. But when a data factory is created through an Azure Resource Manager template or SDK, you must set the **Identity** property explicitly. This setting ensures that Resource Manager creates a data factory that contains a Managed Identity.
+* The data factory in which a linked IR is created must have an [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md). By default, the data factories created in the Azure portal or PowerShell cmdlets have an implicitly created Managed Identity. But when a data factory is created through an Azure Resource Manager template or SDK, you must set the **Identity** property explicitly. This setting ensures that Resource Manager creates a data factory that contains a Managed Identity.
 
 * The Data Factory .NET SDK that supports this feature must be version 1.1.0 or later.
 
@@ -291,7 +291,7 @@ To share a self-hosted integration runtime with multiple data factories, see [Cr
 
 * The sharing feature works only for data factories within the same Azure AD tenant.
 
-* For Azure AD [guest users](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews), the search functionality in the UI, which lists all data factories by using a search keyword, [doesn't work](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). But as long as the guest user is the owner of the data factory, you can share the IR without the search functionality. For the Managed Identity of the data factory that needs to share the IR, enter that Managed Identity in the **Assign Permission** box and select **Add** in the Data Factory UI.
+* For Azure AD [guest users](../active-directory/governance/manage-guest-access-with-access-reviews.md), the search functionality in the UI, which lists all data factories by using a search keyword, [doesn't work](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). But as long as the guest user is the owner of the data factory, you can share the IR without the search functionality. For the Managed Identity of the data factory that needs to share the IR, enter that Managed Identity in the **Assign Permission** box and select **Add** in the Data Factory UI.
 
   > [!NOTE]
   > This feature is available only in Data Factory V2.
@@ -315,6 +315,7 @@ At the corporate firewall level, you need to configure the following domains and
 
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
+
 At the Windows firewall level or machine level, these outbound ports are normally enabled. If they aren't, you can configure the domains and ports on a self-hosted integration runtime machine.
 
 > [!NOTE]
@@ -326,13 +327,13 @@ At the Windows firewall level or machine level, these outbound ports are normall
 
 Ensure that you properly enable firewall rules on the corporate firewall, the Windows firewall of the self-hosted integration runtime machine, and the data store itself. Enabling these rules lets the self-hosted integration runtime successfully connect to both source and sink. Enable rules for each data store that is involved in the copy operation.
 
-For example, to copy from an on-premises data store to a SQL Database sink or an Azure SQL Data Warehouse sink, take the following steps:
+For example, to copy from an on-premises data store to a SQL Database sink or an Azure Synapse Analytics (formerly SQL Data Warehouse) sink, take the following steps:
 
 1. Allow outbound TCP communication on port 1433 for both the Windows firewall and the corporate firewall.
 1. Configure the firewall settings of the SQL Database to add the IP address of the self-hosted integration runtime machine to the list of allowed IP addresses.
 
 > [!NOTE]
-> If your firewall doesn't allow outbound port 1433, the self-hosted integration runtime can't access the SQL database directly. In this case, you can use a [staged copy](copy-activity-performance.md) to SQL Database and SQL Data Warehouse. In this scenario, you require only HTTPS (port 443) for the data movement.
+> If your firewall doesn't allow outbound port 1433, the self-hosted integration runtime can't access the SQL database directly. In this case, you can use a [staged copy](copy-activity-performance.md) to SQL Database and Azure Synapse Analytics. In this scenario, you require only HTTPS (port 443) for the data movement.
 
 ## Proxy server considerations
 
@@ -370,9 +371,9 @@ You can use the configuration manager tool to view and update the HTTP proxy.
 
 If you select the **Use system proxy** option for the HTTP proxy, the self-hosted integration runtime uses the proxy settings in diahost.exe.config and diawp.exe.config. When these files specify no proxy, the self-hosted integration runtime connects to the cloud service directly without going through a proxy. The following procedure provides instructions for updating the diahost.exe.config file:
 
-1. In File Explorer, make a safe copy of C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config as a backup of the original file.
+1. In File Explorer, make a safe copy of C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config as a backup of the original file.
 1. Open Notepad running as administrator.
-1. In Notepad, open the text file C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config.
+1. In Notepad, open the text file C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config.
 1. Find the default **system.net** tag as shown in the following code:
 
     ```xml
@@ -390,7 +391,7 @@ If you select the **Use system proxy** option for the HTTP proxy, the self-hoste
     </system.net>
     ```
 
-    The proxy tag allows additional properties to specify required settings like `scriptLocation`. See [\<proxy\> Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) for syntax.
+    The proxy tag allows additional properties to specify required settings like `scriptLocation`. See [\<proxy\> Element (Network Settings)](/dotnet/framework/configure-apps/file-schema/network/proxy-element-network-settings) for syntax.
 
     ```xml
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>

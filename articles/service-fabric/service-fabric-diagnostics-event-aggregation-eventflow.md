@@ -6,6 +6,7 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: srrengar
+ms.custom: devx-track-csharp
 ---
 
 # Event aggregation and collection using EventFlow

@@ -9,14 +9,16 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
+ms.date: 08/24/2020
 ---
 
 # Boosted Decision Tree Regression module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create an ensemble of regression trees using boosting. *Boosting* means that each tree is dependent on prior trees. The algorithm learns by fitting the residual of the trees that preceded it. Thus, boosting in a decision tree ensemble tends to improve accuracy with some small risk of less coverage.  
+
+This module is based LightGBM algorithm.
   
 This regression method is a supervised learning method, and therefore requires a *labeled dataset*. The label column must contain numerical values.  
 
@@ -95,7 +97,7 @@ The gradient boosting method can also be used for classification problems by red
 
 After training is complete:
 
-+ To use the model for scoring, connect it to [Score Model](./score-model.md), to predict values for new input examples.
++ To use the model for scoring, connect [Train Model](train-model.md) to [Score Model](./score-model.md), to predict values for new input examples.
 
 + To save a snapshot of the trained model, select **Outputs** tab in the right panel of **Trained model** and click **Register dataset** icon. The copy of the trained model will be saved as a module in the module tree and will not be updated on successive runs of the pipeline.
 

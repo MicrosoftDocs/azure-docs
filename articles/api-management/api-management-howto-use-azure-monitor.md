@@ -39,14 +39,13 @@ The following video shows how to monitor API Management using Azure Monitor.
 
 ## View metrics of your APIs
 
-API Management emits metrics every minute, giving you near real-time visibility into the state and health of your APIs. Following is a summary of some of the available metrics:
+API Management emits metrics every minute, giving you near real-time visibility into the state and health of your APIs. Below are the two most frequently used metrics. For a list of all available metrics, please see [supported metrics](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice).
 
-* Capacity:  helps you make decisions about upgrading/downgrading your APIM services. The metric is emitted per minute and reflects the gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization.
-* Total Gateway Requests: the number of API requests in the period. 
-* Successful Gateway Requests: the number of API requests that received successful HTTP response codes including 304, 307, and anything smaller than 301 (for example, 200).
-* Failed Gateway Requests: the number of API requests that received erroneous HTTP response codes including 400, and anything larger than 500.
-* Unauthorized Gateway Requests: the number of API requests that received HTTP response codes including 401, 403, and 429.
-* Other Gateway Requests: the number of API requests that received HTTP response codes that do not belong to any of the preceding categories (for example, 418).
+* Capacity: helps you make decisions about upgrading/downgrading your APIM services. The metric is emitted per minute and reflects the gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization.
+* Requests: helps you to analyze API traffic going through your APIM services. The metric is emitted per minute and reports the number of gateway requests with dimensions including response codes, location, hostname, and errors. 
+
+> [!IMPORTANT]
+> The following metrics have been deprecated as of May 2019 and will be retired in August 2023: Total Gateway Requests, Successful Gateway Requests, Unauthorized Gateway Requests, Failed Gateway Requests, Other Gateway Requests. Please migrate to the Requests metric which provides equivalent functionality.
 
 ![metrics chart](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
@@ -56,9 +55,9 @@ To access metrics:
 
     ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-1. From the drop-down, select metrics you are interested in. For example, **Requests**. 
-1. The chart shows the total number of API calls.
-1. The chart can be filtered using the dimensions of the **Requests** metric. For example, click on **Add filter**, choose **Backend Response Code**, enter 500 as the value. Now the chart shows the number of requests that were failed in the API backend.   
+2. From the drop-down, select metrics you are interested in. For example, **Requests**. 
+3. The chart shows the total number of API calls.
+4. The chart can be filtered using the dimensions of the **Requests** metric. For example, click on **Add filter**, choose **Backend Response Code**, enter 500 as the value. Now the chart shows the number of requests that were failed in the API backend.   
 
 ## Set up an alert rule for unauthorized request
 
@@ -72,18 +71,18 @@ To configure alerts:
 
 1. Select **Alerts** from the menu bar near the bottom of the page.
 
-    ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
+    ![Screenshot that shows Alerts in the menu near the bottom of the page.](./media/api-management-azure-monitor/alert-menu-item.png)
 
 2. Click on a **New alert rule** for this alert.
 3. Click on **Add condition**.
 4. Select **Metrics** in the Signal type drop down.
 5. Select **Unauthorized Gateway Request** as the signal to monitor.
 
-    ![alerts](./media/api-management-azure-monitor/signal-type.png)
+    ![Screenshot that highlights the Signal Type field  and Unauthorized Gateway Requests signal name.](./media/api-management-azure-monitor/signal-type.png)
 
 6. In the **Configure signal logic** view, specify a threshold after which the alert should be triggered and click **Done**.
 
-    ![alerts](./media/api-management-azure-monitor/threshold.png)
+    ![Screenshot that shows the Configure signal logic view.](./media/api-management-azure-monitor/threshold.png)
 
 7. Select an existing Action Group or create a new one. In the example below, an email will be sent to the admins. 
 

@@ -1,18 +1,19 @@
 ---
 title: Configure routing preference for a public IP address using Azure CLI
 titlesuffix: Azure Virtual Network
-description: Learn how to create a public IP with an Internet traffic routing preference
+description: Learn how to create a public IP with an Internet traffic routing preference by using the Azure CLI.
 services: virtual-network
 documentationcenter: na
 author: KumudD
 manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
-ms.author: mnayak
+ms.author: mnayak 
+ms.custom: devx-track-azurecli
 
 ---
 # Configure routing preference for a public IP address using Azure CLI

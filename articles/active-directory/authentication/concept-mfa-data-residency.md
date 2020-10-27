@@ -1,32 +1,32 @@
 ---
 title: Azure Multi-Factor Authentication data residency
-description: Learn what personal and organizational data Azure Multi-Factor Authentication stores about you and your users and what data remains within the country of origin.
+description: Learn what personal and organizational data Azure Multi-Factor Authentication stores about you and your users and what data remains within the country/region of origin.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 09/24/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: inbarc
+
 ms.collection: M365-identity-device-management
 ---
 # Data residency and customer data for Azure Multi-Factor Authentication
 
-Customer data is stored by Azure AD in a geographical location based on the address provided by your organization when subscribing for a Microsoft Online service such as Office 365 and Azure. For information on where your customer data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+Customer data is stored by Azure AD in a geographical location based on the address provided by your organization when subscribing for a Microsoft Online service such as Microsoft 365 and Azure. For information on where your customer data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
 Cloud-based Azure Multi-Factor Authentication and Azure Multi-Factor Authentication Server process and store some amount of personal data and organizational data. This article outlines what and where data is stored.
 
-The following Multi-Factor Authentication activities currently originate out of US datacenters except where noted:
+The Azure Multi-Factor Authentication service has datacenters in the US, Europe, and Asia Pacific. The following activities originate out of the regional datacenters except where noted:
 
-* Two-factor authentication using phone calls or SMS typically originate from US datacenters and are routed by global providers.
-    * General purpose user authentication requests from other regions such as Europe or Australia are currently processed by datacenters in that region. Other events such as self-service password resets, Azure B2C events, or hybrid scenarios using NPS Extension or AD FS adapter, are all currently processed by US datacenters.
-* Push notifications using the Microsoft Authenticator app originate from US datacenters. In addition, device vendor-specific services may also come into play from different regions.
-* OATH codes are typically currently validated in the U.S.
-    * Again, general purpose user authentication events that originate in other regions, like Europe or Australia, are processed by datacenters in that region. Additional events are currently processed by US datacenters.
+* Multi-factor authentication using phone calls originate from US datacenters and are routed by global providers.
+* General purpose user authentication requests from other regions such as Europe or Australia are currently processed based on the user's location.
+* Push notifications using the Microsoft Authenticator app are currently processed in the regional datacenters based on the user's location.
+    * Device vendor-specific services, such as Apple Push Notifications, may be outside the user's location.
 
 ## Personal data stored by Azure Multi-Factor Authentication
 

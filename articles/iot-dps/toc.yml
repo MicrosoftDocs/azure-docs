@@ -1,4 +1,4 @@
-- name: Azure IoT Hub Device Provisioning Service Documentation 
+- name: Azure IoT Hub Device Provisioning Service documentation 
   href: index.yml
 - name: Overview
   items:
@@ -9,107 +9,115 @@
   items:
   - name: Set up a DPS
     items:
-    - name: Azure Portal
+    - name: Azure portal
       href: quick-setup-auto-provision.md
     - name: Azure CLI
       href: quick-setup-auto-provision-cli.md
     - name: Azure RM template
       href: quick-setup-auto-provision-rm.md
-  - name: Provision a single device 
+  - name: Provision a symmetric key device
     items:
-    - name: Symmetric Key attestation
-      items:
-        - name: C
-          href: quick-create-simulated-device-symm-key.md
-        - name: Java
-          href: quick-create-simulated-device-symmetric-key-java.md
-    - name: X.509 Certificate attestation
-      items:
-        - name: C
-          href: quick-create-simulated-device-x509.md
-        - name: Java
-          href: quick-create-simulated-device-x509-java.md
-        - name: C#
-          href: quick-create-simulated-device-x509-csharp.md
-        - name: Node.js
-          href: quick-create-simulated-device-x509-node.md
-        - name: Python
-          href: quick-create-simulated-device-x509-python.md
-    - name: Simulated TPM device attestation
-      items:
       - name: C
-        href: quick-create-simulated-device.md
+        href: quick-create-simulated-device-symm-key.md
       - name: Java
-        href: quick-create-simulated-device-tpm-java.md
+        href: quick-create-simulated-device-symmetric-key-java.md
       - name: C#
-        href: quick-create-simulated-device-tpm-csharp.md
+        href: quick-create-device-symmetric-key-csharp.md
       - name: Node.js
-        href: quick-create-simulated-device-tpm-node.md
+        href: quick-create-device-symmetric-key-node.md
       - name: Python
-        href: quick-create-simulated-device-tpm-python.md
+        href: quick-create-device-symmetric-key-python.md
+  - name: Provision a X.509 certificate device
+    items:
+      - name: C
+        href: quick-create-simulated-device-x509.md
+      - name: Java
+        href: quick-create-simulated-device-x509-java.md
+      - name: C#
+        href: quick-create-simulated-device-x509-csharp.md
+      - name: Node.js
+        href: quick-create-simulated-device-x509-node.md
+      - name: Python
+        href: quick-create-simulated-device-x509-python.md
+- name: Tutorials
+  items:
+  - name: 1 - Provision sets of devices with enrollment groups
+    items:
+     - name: Provision devices with symmetric keys
+       href: how-to-legacy-device-symm-key.md
+     - name: Use custom allocation policies
+       href: tutorial-custom-allocation-policies.md
+  - name: 2 - Provision devices to multiple hubs
+    items:
+     - name: Link multiple hubs to DPS
+       href: tutorial-provision-multiple-hubs.md
+     - name: Provision for multitenancy
+       href: how-to-provision-multitenant.md
+- name: Samples
+  items:
+  - name: Simulated TPM device attestation sample
+    items:
+    - name: C
+      href: quick-create-simulated-device.md
+    - name: Java
+      href: quick-create-simulated-device-tpm-java.md
+    - name: C#
+      href: quick-create-simulated-device-tpm-csharp.md
+    - name: Node.js
+      href: quick-create-simulated-device-tpm-node.md
+    - name: Python
+      href: quick-create-simulated-device-tpm-python.md
   - name: Create device enrollments using DPS APIs
     items:
     - name: Group enrollment using X.509 Certificate Attestation
       items:
-        - name: Java
-          href: quick-enroll-device-x509-java.md
-        - name: C#
-          href: quick-enroll-device-x509-csharp.md
-        - name: Node.js
-          href: quick-enroll-device-x509-node.md
-        - name: Python
-          href: quick-enroll-device-x509-python.md
+      - name: Java
+        href: quick-enroll-device-x509-java.md
+      - name: C#
+        href: quick-enroll-device-x509-csharp.md
+      - name: Node.js
+        href: quick-enroll-device-x509-node.md
+      - name: Python
+        href: quick-enroll-device-x509-python.md
     - name: Individual device enrollment using TPM attestation
       items:
-        - name: Java
-          href: quick-enroll-device-tpm-java.md
-        - name: C#
-          href: quick-enroll-device-tpm-csharp.md
-        - name: Node.js
-          href: quick-enroll-device-tpm-node.md
-        - name: Python
-          href: quick-enroll-device-tpm-python.md
-- name: Tutorials
-  items:
-  - name: 1 - Set up cloud resources
-    href: tutorial-set-up-cloud.md
-  - name: 2 - Set up a device
-    href: tutorial-set-up-device.md
-  - name: 3 - Provision a device to an IoT hub
-    items:
-      - name: C
-        href: tutorial-provision-device-to-hub.md
+      - name: Java
+        href: quick-enroll-device-tpm-java.md
       - name: C#
-        href: tutorial-net-provision-device-to-hub.md
-  - name: 4 - Provision devices to multiple hubs
-    href: tutorial-provision-multiple-hubs.md
-  - name: 5 - Set up group enrollments
-    href: tutorial-group-enrollments.md
+        href: quick-enroll-device-tpm-csharp.md
+      - name: Node.js
+        href: quick-enroll-device-tpm-node.md
+      - name: Python
+        href: quick-enroll-device-tpm-python.md
 - name: Concepts
   items:
-  - name: Auto-provisioning
-    href: concepts-auto-provisioning.md  
-  - name: Reprovisioning
-    href: concepts-device-reprovision.md  
-  - name: Devices
-    href: concepts-device.md
-  - name: Security
-    href: concepts-security.md
-  - name: Service
+  - name: DPS terminology
     href: concepts-service.md
-  - name: Understanding DPS IP addresses
-    href: iot-dps-understand-ip-address.md
-  - name: TPM attestation
-    href: concepts-tpm-attestation.md
   - name: Symmetric key attestation
     href: concepts-symmetric-key-attestation.md
+  - name: X.509 certificate attestation
+    href: concepts-x509-attestation.md
+  - name: TPM attestation
+    href: concepts-tpm-attestation.md
+  - name: Roles and operations
+    href: concepts-roles-operations.md  
+  - name: Virtual networks support
+    href: virtual-network-support.md
+  - name: Reprovisioning
+    href: concepts-device-reprovision.md  
+  - name: Understanding DPS IP addresses
+    href: iot-dps-understand-ip-address.md
+  - name: TLS support
+    href: tls-support.md
   - name: Security practices for device manufacturers
     href: concepts-device-oem-security-practices.md
 - name: How-to guides
   items:
   - name: Connect MXChip IoT DevKit to IoT Hub
     href: how-to-connect-mxchip-iot-devkit.md
-  - name: Manage Device Provisioning Service configuration
+  - name: Provision devices using custom allocation policies
+    href: how-to-use-custom-allocation-policies.md
+  - name: Manage Device Provisioning Service
     items:
     - name: Manage enrollments - Portal
       href: how-to-manage-enrollments.md
@@ -125,14 +133,12 @@
       href: how-to-revoke-device-access-portal.md 
     - name: Manage deprovisioning
       href: how-to-unprovision-devices.md      
-  - name: Manage Device Provisioning Service
-    items:
-    - name: Configure Device Provisioning Service using Azure CLI
-      href: how-to-manage-dps-with-cli.md
     - name: Control access to Provisioning Service APIs
       href: how-to-control-access.md
     - name: Configure IP filtering
       href: iot-dps-ip-filtering.md
+    - name: Configure Device Provisioning Service using Azure CLI
+      href: how-to-manage-dps-with-cli.md
   - name: Provision IoT Edge devices
     items: 
     - name: Linux
@@ -143,12 +149,6 @@
       maintainContext: true
   - name: Use attestation mechanisms with SDK
     href: use-hsm-with-sdk.md
-  - name: Provision for multitenancy
-    href: how-to-provision-multitenant.md
-  - name: Use custom allocation policies
-    href: how-to-use-custom-allocation-policies.md
-  - name: Use symmetric keys with legacy devices
-    href: how-to-legacy-device-symm-key.md
   - name: Use SDK tools for development
     href: how-to-use-sdk-tools.md
   - name: How to send additional data from devices
@@ -173,6 +173,8 @@
     href: https://github.com/Azure/azure-iot-sdk-java
   - name: Azure IoT SDK for .NET
     href: https://github.com/Azure/azure-iot-sdk-csharp
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options
@@ -225,16 +227,12 @@
     href: https://github.com/Azure/azure-iot-explorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/iot-hub/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=iot-hub
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-iot-hub
   - name: Technical case studies
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videos

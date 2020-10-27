@@ -8,8 +8,8 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: [mvc, seo-java-august2019, seo-java-september2019, mqtt]
-ms.date: 06/21/2019
+ms.custom: [mvc, seo-java-august2019, seo-java-september2019, mqtt, devx-track-java, devx-track-azurecli]
+ms.date: 05/26/2020
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
@@ -23,7 +23,7 @@ In this quickstart, you send telemetry to Azure IoT Hub and read it with a Java 
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), under **Long-term support**, select **Java 8**.
+* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/?view=azure-java-stable), under **Long-term support**, select **Java 8**.
 
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
@@ -125,7 +125,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
-    ![Output from telemetry sent by the device to your IoT hub](media/quickstart-send-telemetry-java/iot-hub-simulated-device.png)
+    ![Output from telemetry sent by the device to your IoT hub](media/quickstart-send-telemetry-java/simulated-device.png)
 
 ## Read the telemetry from your hub
 
@@ -137,9 +137,9 @@ The back-end application connects to the service-side **Events** endpoint on you
 
     | Variable | Value |
     | -------- | ----------- |
-    | `eventHubsCompatibleEndpoint` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of earlier. |
-    | `eventHubsCompatiblePath`     | Replace the value of the variable with the Event Hubs-compatible path you made a note of earlier. |
-    | `iotHubSasKey`                | Replace the value of the variable with the service primary key you made a note of earlier. |
+    | `EVENT_HUBS_COMPATIBLE_ENDPOINT` | Replace the value of the variable with the Event Hubs-compatible endpoint you made a note of earlier. |
+    | `EVENT_HUBS_COMPATIBLE_PATH`     | Replace the value of the variable with the Event Hubs-compatible path you made a note of earlier. |
+    | `IOT_HUB_SAS_KEY`                | Replace the value of the variable with the service primary key you made a note of earlier. |
 
 3. In the local terminal window, run the following commands to install the required libraries and build the back-end application:
 
@@ -155,7 +155,7 @@ The back-end application connects to the service-side **Events** endpoint on you
 
     The following screenshot shows the output as the back-end application receives telemetry sent by the simulated device to the hub:
 
-    ![Output as back-end application receives telemetry sent to your IoT hub](media/quickstart-send-telemetry-java/iot-hub-read-device-to-cloud.png)
+    ![Output as back-end application receives telemetry sent to your IoT hub](media/quickstart-send-telemetry-java/read-device-to-cloud.png)
 
 ## Clean up resources
 

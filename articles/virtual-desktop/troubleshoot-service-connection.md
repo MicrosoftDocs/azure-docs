@@ -1,22 +1,16 @@
 ---
 title: Troubleshoot service connection Windows Virtual Desktop - Azure
-description: How to resolve issues when you set up client connections in a Windows Virtual Desktop tenant environment.
-services: virtual-desktop
+description: How to resolve issues while setting up service connections in a Windows Virtual Desktop tenant environment.
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
 ---
 # Windows Virtual Desktop service connections
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-service-connection-2019.md).
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-service-connection-2019.md).
 
 Use this article to resolve issues with Windows Virtual Desktop client connections.
 
@@ -28,45 +22,30 @@ You can give us feedback and discuss the Windows Virtual Desktop Service with th
 
 A user can start Remote Desktop clients and is able to authenticate, however the user doesn't see any icons in the web discovery feed.
 
-Confirm that the user reporting the issues has been assigned to application groups by using this command line:
+1. Confirm that the user reporting the issues has been assigned to application groups by using this command line:
 
-```PowerShell
-Get-AzRoleAssignment -SignInName <userupn>
-```
+     ```powershell
+     Get-AzRoleAssignment -SignInName <userupn>
+     ```
 
-Confirm that the user is signing in with the correct credentials.
+2. Confirm that the user is signing in with the correct credentials.
 
-If the web client is being used, confirm that there are no cached credentials issues.
+3. If the web client is being used, confirm that there are no cached credentials issues.
 
-## Windows 10 Enterprise multi-session virtual machines don't respond
+4. If the user is part of an Azure Active Directory (AD) user group, make sure the user group is a security group instead of a distribution group. Windows Virtual Desktop doesn't support Azure AD distribution groups.
 
-If a virtual machine isn't responsive and you can't access it through RDP, you'll need to troubleshoot it with the diagnostics feature by checking the host status.
+## User loses existing feed and no remote resource is displayed (no feed)
 
-To check the host status, run this cmdlet:
+This error usually appears after a user moved their subscription from one Azure AD tenant to another. As a result, the service loses track of their user assignments, since those are still tied to the old Azure AD tenant.
 
-```powershell
-Get-AzWvdSessionHost -HostPoolName <hostpoolname> -ResourceGroupName <resourcegroupname>| Format-List Name, LastHeartBeat, AllowNewSession, Status
-```
+To resolve this, all you need to do is reassign the users to their app groups.
 
-If the host status is `NoHeartBeat`, that means the VM isn't responding and the agent can't communicate with the Windows Virtual Desktop service.
+This could also happen if a CSP Provider created the subscription and then transferred to the customer. To resolve this re-register the Resource Provider.
 
-```powershell
-Name            : 0301HP/win10pd-0.contoso.com 
-LastHeartBeat   : 4/8/2020 1:48:35 AM 
-AllowNewSession : True 
-Status          : Available 
-
-Name            : 0301HP/win10pd-1.contoso.com 
-LastHeartBeat   : 4/8/2020 1:45:44 AM 
-AllowNewSession : True 
-Status          : NoHeartBeat
-```
-
-There are a few things you can do to fix the NoHeartBeat status.
-
-### Update FSLogix
-
-If your FSLogix isn't up to date, especially if it's version 2.9.7205.27375 of frxdrvvt.sys, it could cause a deadlock. Make sure to [update FSLogix to the latest version](https://go.microsoft.com/fwlink/?linkid=2084562).
+1. Sign in to the Azure portal.
+2. Go to **Subscription**, then select your subscription.
+3. In the menu on the left side of the page, select **Resource provider**.
+4. Find and select **Microsoft.DesktopVirtualization**, then select **Re-register**.
 
 ## Next steps
 

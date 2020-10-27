@@ -82,7 +82,7 @@ Points to consider when you are using Azure-provided name resolution:
 Reverse DNS is supported in all ARM based virtual networks. You can issue reverse DNS queries (PTR queries) to map IP addresses of virtual machines to FQDNs of virtual machines.
 * All PTR queries for IP addresses of virtual machines will return FQDNs of form \[vmname\].internal.cloudapp.net
 * Forward lookup on FQDNs of form \[vmname\].internal.cloudapp.net will resolve to IP address assigned to the virtual machine.
-* If the virtual network is linked to an [Azure DNS private zones](../dns/private-dns-overview.md) as a registration virtual network, the reverse DNS queries will return two records. One record will the of the form \[vmname\].[priatednszonename] and other would be of the form \[vmname\].internal.cloudapp.net
+* If the virtual network is linked to an [Azure DNS private zones](../dns/private-dns-overview.md) as a registration virtual network, the reverse DNS queries will return two records. One record will be of the form \[vmname\].[privatednszonename] and the other will be of the form \[vmname\].internal.cloudapp.net
 * Reverse DNS lookup is scoped to a given virtual network even if it is peered to other virtual networks. Reverse DNS queries (PTR queries) for IP addresses of virtual machines located in peered virtual networks will return NXDOMAIN.
 * If you want to turn off reverse DNS function in a virtual network you can do so by creating a reverse lookup zone using [Azure DNS private zones](../dns/private-dns-overview.md) and link this zone to your virtual network. For example if the IP address space of your virtual network is 10.20.0.0/16 then you can create a empty private DNS zone 20.10.in-addr.arpa and link it to the virtual network. While linking the zone to your virtual network you should disable auto registration on the link. This zone will override the default reverse lookup zones for the virtual network and since this zone is empty you will get NXDOMAIN for your reverse DNS queries. See our [Quickstart guide](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal) for details on how to create a private DNS zone and link it to a virtual network.
 
@@ -173,7 +173,7 @@ When you are using Azure-provided name resolution, Azure Dynamic Host Configurat
 If necessary, you can determine the internal DNS suffix by using PowerShell or the API:
 
 * For virtual networks in Azure Resource Manager deployment models, the suffix is available via the [network interface REST API](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), the [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) PowerShell cmdlet, and the [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI command.
-* In classic deployment models, the suffix is available via the [Get Deployment API](https://msdn.microsoft.com/library/azure/ee460804.aspx) call or the [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure/get-azurevm) cmdlet.
+* In classic deployment models, the suffix is available via the [Get Deployment API](https://msdn.microsoft.com/library/azure/ee460804.aspx) call or the [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure.service/get-azurevm) cmdlet.
 
 If forwarding queries to Azure doesn't suit your needs, you should provide your own DNS solution. Your DNS solution needs to:
 
@@ -211,7 +211,7 @@ When you are using the Azure Resource Manager deployment model, you can specify 
 > [!NOTE]
 > If you opt for custom DNS server for your virtual network, you must specify at least one DNS server IP address; otherwise, virtual network will ignore the configuration and use Azure-provided DNS instead.
 
-When you are using the classic deployment model, you can specify DNS servers for the virtual network in the Azure portal or the [Network Configuration file](https://msdn.microsoft.com/library/azure/jj157100). For cloud services, you can specify DNS servers via the [Service Configuration file](https://msdn.microsoft.com/library/azure/ee758710) or by using PowerShell, with [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
+When you are using the classic deployment model, you can specify DNS servers for the virtual network in the Azure portal or the [Network Configuration file](https://msdn.microsoft.com/library/azure/jj157100). For cloud services, you can specify DNS servers via the [Service Configuration file](https://msdn.microsoft.com/library/azure/ee758710) or by using PowerShell, with [New-AzureVM](/powershell/module/servicemanagement/azure.service/new-azurevm).
 
 > [!NOTE]
 > If you change the DNS settings for a virtual network or virtual machine that is already deployed, for the new DNS settings to take effect, you must perform a DHCP lease renewal on all affected VMs in the virtual network. For VMs running the Windows OS, you can do this by typing `ipconfig /renew` directly in the VM. The steps vary depending on the OS. See the relevant documentation for your OS type.

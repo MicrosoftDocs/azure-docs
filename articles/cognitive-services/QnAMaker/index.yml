@@ -5,7 +5,7 @@ summary: Learn about the QnA Maker service and how this service's knowledge base
 
 metadata:
   ms.topic: landing-page
-  ms.date: 09/18/2019
+  ms.date: 06/08/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -66,8 +66,8 @@ landingContent:
         links:
           - text: "Quickstart: With Postman or cURL"
             url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-          - text: "Quickstart: Using REST and C#"
-            url: quickstarts/get-answer-from-knowledge-base-csharp.md
+          - text: "Quickstart: Using REST and cURL"
+            url: quickstarts/quickstart-rest-curl.md
           - text: "Quickstart: Using SDK"
             url: quickstarts/quickstart-sdk.md
       - linkListType: how-to-guide
@@ -102,10 +102,12 @@ landingContent:
       - linkListType: get-started
         links:
 
-          - text: "Portal: Create a QnA Bot"
+          - text: "Portal: Create an Azure Bot service bot"
             url: tutorials/create-qna-bot.md
-          - text: ".Net: Create a bot with QnA Maker and Language Understanding"
-            url: tutorials/integrate-qnamaker-luis.md
+          - text: "Power apps: Create a QnA Maker powered bot"
+            url: tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+          - text: "Bot Framework: Dispatch between LUIS and QnA Maker apps"
+            url: https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs
           - text: Other bot samples
             url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
 
@@ -128,11 +130,9 @@ landingContent:
 
   - title: Help and feedback
     linkLists:
-      - linkListType: reference
-        links:
-          - text: Troubleshooting
-            url: troubleshooting.md
-          - text: Ask questions on Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/QnAMaker
-          - text: Influence service with UserVoice
-            url: https://cognitive.uservoice.com/forums/578689-qna-maker-api
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
+        - text: Troubleshooting
+          url: troubleshooting.md

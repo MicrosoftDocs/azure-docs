@@ -1,6 +1,8 @@
 ---
 title: SharePoint files - QnA Maker
 description: Add secured SharePoint data sources to your knowledge base to enrich the knowledge base with questions and answers that may be secured with Active Directory.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
 ---
@@ -27,7 +29,7 @@ You can add all QnA Maker-supported [file types](../Concepts/content-types.md) f
 
    ![Get the SharePoint file URL by selecting the file's ellipsis menu then copying the URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. In the QnA Maker portal, on the **Settings** page, [add the URL](manage-knowledge-bases.md#edit-knowledge-base) to the knowledge base.
+1. In the QnA Maker portal, on the **Settings** page, add the URL to the knowledge base.
 
 ### Images with SharePoint files
 

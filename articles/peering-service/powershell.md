@@ -14,7 +14,7 @@ Customer intent: Customer wants to measure their connection telemetry per prefix
 
 In this tutorial, you'll learn how to register Peering Service using Azure PowerShell.
 
-Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Office 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. In this article, you'll learn how to register a Peering Service connection by using Azure PowerShell.
+Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. In this article, you'll learn how to register a Peering Service connection by using Azure PowerShell.
 
 If you don't have an Azure subscription, create an [account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -58,6 +58,9 @@ Run the following commands in Azure PowerShell to acquire the location and servi
 Get Peering Service locations:
 
 ```azurepowershell-interactive
+# Gets a list of available countries
+Get-AzPeeringServiceCountry 
+# Gets a list of metro locations serviced by country
 Get-AzPeeringServiceLocation -Country "United States"
 ```
 
@@ -91,12 +94,13 @@ $name = “myPeeringService”
 $peeringService = New-AzPeeringService -ResourceGroupName $resourceGroup -Name $name -PeeringLocation $loc -PeeringServiceProvider $provider
 $prefixName = "myPrefix"
 $prefix = “192.168.1.0/24”
-$prefixService = $peeringService | New-AzPeeringServicePrefix -Name $prefixName -Prefix $prefix
+$serviceKey = "6f48cdd6-2c2e-4722-af89-47e27b2513af"
+$prefixService = $peeringService | New-AzPeeringServicePrefix -Name $prefixName -Prefix $prefix -ServiceKey $serviceKey
 ```
 
 ### List all the Peering Services connections
 
-To view the list of all Peering Services connections, run the following command:
+To view the list of all Peering Services, run the following command:
 
 ```azurepowershell-interactive
 $peeringService = Get-AzPeeringService

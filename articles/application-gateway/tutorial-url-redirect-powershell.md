@@ -6,7 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 03/19/2020
 ms.author: victorh
-ms.topic: conceptual
+ms.topic: how-to
 #Customer intent: As an IT administrator, I want to use Azure PowerShell to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.
 ---
 
@@ -16,11 +16,10 @@ You can use Azure PowerShell to configure [URL-based routing rules](application-
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Add listeners and routing rules
-> * Create virtual machine scale sets for backend pools
+* Set up the network
+* Create an application gateway
+* Add listeners and routing rules
+* Create virtual machine scale sets for backend pools
 
 The following example shows site traffic coming from both ports 8080 and 8081 and being directed to the same backend pools:
 

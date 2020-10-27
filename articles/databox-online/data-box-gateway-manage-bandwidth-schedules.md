@@ -6,23 +6,23 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
 ---
 # Use the Azure portal to manage bandwidth schedules on your Azure Data Box Gateway  
 
-This article describes how to manage users on your Azure Data Box Gateway. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules. These schedules can be applied to the upload and download operations from your device to the cloud. 
+This article describes how to manage users on your Azure Data Box Gateway. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules. These schedules can be applied to the upload and download operations from your device to the cloud.
 
 You can add, modify, or delete the bandwidth schedules for your Data Box Gateway via the Azure portal.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Add a schedule
 > * Modify schedule
-> * Delete a schedule 
-
+> * Delete a schedule
 
 ## Add a schedule
 
@@ -41,7 +41,7 @@ Do the following steps in the Azure portal to add a user.
    4. Check **Unlimited** bandwidth if you do not want to throttle the date upload and download. 
    5. Click **Add**.
 
-      ![Click add user](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Click add user 2](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. A schedule is created with the specified parameters. This schedule is then displayed in the list of bandwidth schedules in the portal.
 
@@ -56,11 +56,11 @@ Do the following steps to edit a bandwidth schedule.
 
 3. Make the desired changes and save the changes.
 
-    ![Modify user](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-2.png)
+    ![Modify user 2](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-2.png)
 
 4. After the schedule is modified, the list of schedules is updated to reflect the modified schedule.
 
-    ![Modify user](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-3.png)
+    ![Modify user 3](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-3.png)
 
 
 ## Delete a schedule

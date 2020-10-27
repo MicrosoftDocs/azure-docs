@@ -5,6 +5,7 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/28/2020
 ms.topic: how-to
+ms.custom: devx-track-csharp
 ---
 
 # Interact with Unity game objects and components
@@ -83,7 +84,7 @@ The code samples above used the model loading path via SAS because the built-in 
 
 Creating a Unity game object implicitly adds a `RemoteEntitySyncObject` component to the game object. This component is used to synchronize the entity transform to the server. By default `RemoteEntitySyncObject` requires the user to explicitly call `SyncToRemote()` to synchronize the local Unity state to the server. Enabling `SyncEveryFrame` will synchronize the object automatically.
 
-Objects with a `RemoteEntitySyncObject` can have their remote children instantiated and shown in the Unity editor through the **Show Children** button.
+Objects with a `RemoteEntitySyncObject` can have their remote children instantiated and shown in the Unity editor through the **:::no-loc text="Show children":::** button.
 
 ![RemoteEntitySyncObject](media/remote-entity-sync-object.png)
 
@@ -117,4 +118,4 @@ if (cutplane != null)
 ## Next steps
 
 * [Set up Remote Rendering for Unity](unity-setup.md)
-* [Tutorial: Working with remote entities in Unity](../../tutorials/unity/working-with-remote-entities.md)
+* [Tutorial: Manipulate remote entities in Unity](../../tutorials/unity/manipulate-models/manipulate-models.md)

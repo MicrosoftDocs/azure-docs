@@ -6,6 +6,7 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
+ms.custom: "devx-track-js, devx-track-csharp, devx-track-azurecli"
 ---
 # Azure SignalR Service authentication
 
@@ -41,7 +42,7 @@ To complete this tutorial, you must have the following prerequisites:
 * An account created on [GitHub](https://github.com/)
 * [Git](https://git-scm.com/)
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [Azure Cloud Shell configured](https://docs.microsoft.com/azure/cloud-shell/quickstart)
+* [Azure Cloud Shell configured](../cloud-shell/quickstart.md)
 * Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository.
 
 ## Create an OAuth app
@@ -61,8 +62,10 @@ To complete this tutorial, you must have the following prerequisites:
 
 4. Once the new OAuth app registration is complete, add the *Client ID* and *Client Secret* to Secret Manager using the following commands. Replace *Your_GitHub_Client_Id* and *Your_GitHub_Client_Secret* with the values for your OAuth app.
 
-        dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
-        dotnet user-secrets set GitHubClientSecret Your_GitHub_Client_Secret
+    ```dotnetcli
+    dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
+    dotnet user-secrets set GitHubClientSecret Your_GitHub_Client_Secret
+    ```
 
 ## Implement the OAuth flow
 
@@ -70,9 +73,11 @@ To complete this tutorial, you must have the following prerequisites:
 
 1. Add a reference to the latest *Microsoft.AspNetCore.Authentication.Cookies* and *AspNet.Security.OAuth.GitHub* packages and restore all packages.
 
-        dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
-        dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
-        dotnet restore
+    ```dotnetcli
+    dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
+    dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
+    dotnet restore
+    ```
 
 1. Open *Startup.cs*, and add `using` statements for the following namespaces:
 
@@ -339,19 +344,25 @@ In this section, you will turn on real authentication by adding the `Authorize` 
 
 2. Build the app using the .NET Core CLI, execute the following command in the command shell:
 
-        dotnet build
+    ```dotnetcli
+    dotnet build
+    ```
 
 3. Once the build successfully completes, execute the following command to run the web app locally:
 
-        dotnet run
+    ```dotnetcli
+    dotnet run
+    ```
 
     By default, the app will be hosted locally on port 5000:
 
-        E:\Testing\chattest>dotnet run
-        Hosting environment: Production
-        Content root path: E:\Testing\chattest
-        Now listening on: http://localhost:5000
-        Application started. Press Ctrl+C to shut down.
+    ```output
+    E:\Testing\chattest>dotnet run
+    Hosting environment: Production
+    Content root path: E:\Testing\chattest
+    Now listening on: http://localhost:5000
+                    Application started. Press Ctrl+C to shut down.
+    ```
 
 4. Launch a browser window and navigate to `http://localhost:5000`. Click the **here** link at the top to log in with GitHub.
 
@@ -371,7 +382,7 @@ In this section, you will turn on real authentication by adding the `Authorize` 
 
 ## Deploy the app to Azure
 
-In this section, you will use the Azure command-line interface (CLI) from the Azure Cloud Shell to create a new web app in [Azure App Service](https://docs.microsoft.com/azure/app-service/) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
+In this section, you will use the Azure command-line interface (CLI) from the Azure Cloud Shell to create a new web app in [Azure App Service](../app-service/index.yml) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
 
 The steps in this section use the *signalr* extension for the Azure CLI. Execute the following command to install the *signalr* extension for the Azure CLI:
 

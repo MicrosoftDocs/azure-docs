@@ -1,14 +1,8 @@
 ---
 title: Integrate with Apache Kafka Connect- Azure Event Hubs | Microsoft Docs
-description: This article provides information on how to use Apache Spark with Azure Event Hubs for Kafka.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-ms.service: event-hubs
+description: This article provides information on how to use Kafka Connect with Azure Event Hubs for Kafka.
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-
+ms.date: 06/23/2020
 ---
 
 # Integrate Apache Kafka Connect support on Azure Event Hubs (Preview)
@@ -35,7 +29,7 @@ To complete this walkthrough, make sure you have the following prerequisites:
 - [Git](https://www.git-scm.com/downloads)
 - Linux/MacOS
 - Kafka release (version 1.1.1, Scala version 2.11), available from [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
-- Read through the [Event Hubs for Apache Kafka](https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) introduction article
+- Read through the [Event Hubs for Apache Kafka](./event-hubs-for-kafka-ecosystem-overview.md) introduction article
 
 ## Create an Event Hubs namespace
 An Event Hubs namespace is required to send and receive from any Event Hubs service. See [Creating an event hub](event-hubs-create.md) for instructions to create a namespace and an event hub. Get the Event Hubs connection string and fully qualified domain name (FQDN) for later use. For instructions, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). 
@@ -91,6 +85,10 @@ consumer.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModul
 
 plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka release
 ```
+
+> [!IMPORTANT]
+> Replace `{YOUR.EVENTHUBS.CONNECTION.STRING}` with the connection string for your Event Hubs namespace. For instructions on getting the connection string, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). Here's an example configuration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
 
 ## Run Kafka Connect
 

@@ -1,8 +1,11 @@
 ---
-title: Improve knowledge base - QnA Maker
+title: Active Learning suggested questions - QnA Maker
 description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 
@@ -15,7 +18,7 @@ Active Learning alters the Knowledge Base or Search Service after you approve th
 
 ## Turn on active learning
 
-In order to see suggested questions, you must [turn on active learning](use-active-learning.md) for your QnA Maker resource.
+In order to see suggested questions, you must [turn on active learning](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/active-learning-suggestions) for your QnA Maker resource.
 
 ## View suggested questions
 
@@ -195,7 +198,7 @@ Your bot framework code needs to call the Train API, if the user's query should 
 * Determine if query should be used for active learning
 * Send query back to QnA Maker's Train API for active learning
 
-In the [Azure Bot sample](https://aka.ms/activelearningsamplebot), both of these activities have been programmed.
+In the [Azure Bot sample](https://github.com/microsoft/BotBuilder-Samples), both of these activities have been programmed.
 
 ### Example C# code for Train API with Bot Framework 4.x
 
@@ -325,11 +328,6 @@ The `SuggestedQuestions` column is a JSON object of information of implicit, `au
     }
 ]
 ```
-
-You can also use the download alterations API to review these alterations, using REST or any of the language-based SDKs:
-* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
-* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
-
 
 When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base.
 

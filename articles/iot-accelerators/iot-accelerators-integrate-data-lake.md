@@ -165,9 +165,9 @@ Azure Stream Analytics uses a SQL-like query language to specify an input source
 
 1. On the Overview tab, click **Data explorer**.
 
-1. In the Data explorer, drill down to the **/streaming** folder. You will see folders created with YYYY/MM/DD/HH format.
+1. In the Data explorer, drill down to the **/streaming** folder. You will see folders created with YYYY/MM/DD format.
 
-    ![Explore Streaming Data](./media/iot-accelerators-integrate-data-lake/data-lake-store-data-explorer.png)
+    ![Screenshot that shows the path to the /streaming/YYYY/MM/DD/HH folder.](./media/iot-accelerators-integrate-data-lake/data-lake-store-data-explorer.png)
 
     You will see json files with one file per hour.
 
@@ -175,4 +175,4 @@ Azure Stream Analytics uses a SQL-like query language to specify an input source
 
 ## Next Steps
 
-Azure Data Lake Analytics can be used to perform big data analysis on your Data Lake Store data sets. Learn more on the [Data Lake Analytics Documentation](https://docs.microsoft.com/azure/data-lake-analytics).
+Azure Data Lake Analytics can be used to perform big data analysis on your Data Lake Store data sets. Learn more on the [Data Lake Analytics Documentation](../data-lake-analytics/index.yml).

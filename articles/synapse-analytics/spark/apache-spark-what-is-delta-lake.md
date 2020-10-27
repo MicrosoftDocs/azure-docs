@@ -5,15 +5,17 @@ services: synapse-analytics
 author: euangMS 
 ms.service: synapse-analytics 
 ms.topic: conceptual 
-ms.subservice: 
+ms.subservice: spark
 ms.date: 04/15/2020 
 ms.author: euang 
 ms.reviewer: euang
 ---
 
-# What is Delta Lake?
+# What is Delta Lake
 
 Azure Synapse Analytics is compatible with Linux Foundation Delta Lake. Delta Lake is an open-source storage layer that brings ACID (atomicity, consistency, isolation, and durability) transactions to Apache Spark and big data workloads.
+
+The current version of Delta Lake included with Azure Synapse has language support for Scala, PySpark, and .NET. There are links at the bottom of the page to more detailed examples and documentation.
 
 ## Key features
 
@@ -27,12 +29,12 @@ Azure Synapse Analytics is compatible with Linux Foundation Delta Lake. Delta La
 | **Schema Enforcement** | Schema enforcement helps ensure that the data types are correct and required columns are present, preventing bad data from causing data inconsistency. For more information, see [Diving Into Delta Lake: Schema Enforcement & Evolution](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) |
 | **Schema Evolution** | Delta Lake enables you to make changes to a table schema that can be applied automatically, without having to write migration DDL. For more information, see [Diving Into Delta Lake: Schema Enforcement & Evolution](https://databricks.com/blog/2019/09/24/diving-into-delta-lake-schema-enforcement-evolution.html) |
 | **Audit History** | Delta Lake transaction log records details about every change made to data providing a full audit trail of the changes. |
-| **Updates and Deletes** | Delta Lake supports Scala / Java / Python and SQL APIs for a variety of functionality. Support for merge, update, and delete operations helps you to meet compliance requirements. For more information, see [Announcing the Delta Lake 0.4.0 Release](https://delta.io/news/delta-lake-0-4-0-released/) and [Simple, Reliable Upserts and Deletes on Delta Lake Tables using Python APIs](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html), which includes code snippets for merge, update, and delete DML commands. |
+| **Updates and Deletes** | Delta Lake supports Scala / Java / Python and SQL APIs for a variety of functionality. Support for merge, update, and delete operations helps you to meet compliance requirements. For more information, see [Announcing the Delta Lake 0.6.1 Release](https://delta.io/news/delta-lake-0-6-1-released/),  [Announcing the Delta Lake 0.7 Release](https://delta.io/news/delta-lake-0-7-0-released/) and [Simple, Reliable Upserts and Deletes on Delta Lake Tables using Python APIs](https://databricks.com/blog/2019/10/03/simple-reliable-upserts-and-deletes-on-delta-lake-tables-using-python-apis.html), which includes code snippets for merge, update, and delete DML commands. |
 | **100% Compatible with Apache Spark API** | Developers can use Delta Lake with their existing data pipelines with minimal change as it is fully compatible with existing Spark implementations. |
 
 For full documentation, see the [Delta Lake Documentation Page](https://docs.delta.io/latest/delta-intro.html)
 
-For more information, see [Delta Lake Project](https://lfprojects.org).
+For more information, see [Delta Lake Project](https://github.com/delta-io/delta).
 
 ## Next steps
 

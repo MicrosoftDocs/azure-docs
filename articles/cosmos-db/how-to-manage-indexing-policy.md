@@ -3,14 +3,18 @@ title: Manage indexing policies in Azure Cosmos DB
 description: Learn how to manage indexing policies, include or exclude a property from indexing, how to define indexing using different Azure Cosmos DB SDKs
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 04/28/2020
+ms.topic: how-to
+ms.date: 08/04/2020
 ms.author: tisande
+ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
 ---
 
 # Manage indexing policies in Azure Cosmos DB
 
 In Azure Cosmos DB, data is indexed following [indexing policies](index-policy.md) that are defined for each container. The default indexing policy for newly created containers enforces range indexes for any string or number. This policy can be overridden with your own custom indexing policy.
+
+> [!NOTE]
+> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's SQL (Core) API. Learn about indexing in [Azure Cosmos DB's API for MongoDB](mongodb-indexing.md) and [Secondary indexing in Azure Cosmos DB Cassandra API.](cassandra-secondary-index.md)
 
 ## Indexing policy examples
 
@@ -338,7 +342,7 @@ In Azure Cosmos DB, the indexing policy can be updated using any of the below me
 An [indexing policy update](index-policy.md#modifying-the-indexing-policy) triggers an index transformation. The progress of this transformation can also be tracked from the SDKs.
 
 > [!NOTE]
-> When updating indexing policy, writes to Azure Cosmos DB will be uninterrupted. During re-indexing, queries may return partial results as the index is being updated.
+> When updating indexing policy, writes to Azure Cosmos DB will be uninterrupted. Learn more about [indexing transformations](index-policy.md#modifying-the-indexing-policy)
 
 ## Use the Azure portal
 
@@ -356,7 +360,7 @@ Azure Cosmos containers store their indexing policy as a JSON document that the 
 
 1. Click **Save** when you are done.
 
-![Manage Indexing using Azure portal](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
+:::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Manage Indexing using Azure portal":::
 
 ## Use the Azure CLI
 
@@ -739,6 +743,13 @@ Update the container with changes
 ```python
 response = database_client.replace_container(container_client, container['partitionKey'], indexingPolicy)
 ```
+
+Retrieve the index transformation progress from the response headers
+```python
+container_client.read(populate_quota_info = True,
+                      response_hook = lambda h,p: print(h['x-ms-documentdb-collection-index-transformation-progress']))
+```
+
 ---
 
 ## Next steps

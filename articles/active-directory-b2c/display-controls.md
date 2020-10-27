@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -30,7 +30,7 @@ The following image illustrates a self-asserted sign-up page with two display co
 
  In the [Metadata](self-asserted-technical-profile.md#metadata) section of a [self-asserted technical profile](self-asserted-technical-profile.md), the referenced [ContentDefinition](contentdefinitions.md) needs to have `DataUri` set to page contract version 2.0.0 or higher. For example:
 
-```XML
+```xml
 <ContentDefinition Id="api.selfasserted">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -51,9 +51,9 @@ The **DisplayControl** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **InputClaims** are used to prepopulate the value of the claims to be collected from the user. |
-| DisplayClaims | 0:1 | **DisplayClaims** are used to represent claims to be collected from the user. |
-| OutputClaims | 0:1 | **OutputClaims** are used to represent claims to be saved temporarily for this **DisplayControl**. |
+| InputClaims | 0:1 | **InputClaims** are used to prepopulate the value of the claims to be collected from the user. For more information, see [InputClaims](technicalprofiles.md#inputclaims) element. |
+| DisplayClaims | 0:1 | **DisplayClaims** are used to represent claims to be collected from the user. For more information, see [DisplayClaim](technicalprofiles.md#displayclaim) element.|
+| OutputClaims | 0:1 | **OutputClaims** are used to represent claims to be saved temporarily for this **DisplayControl**. For more information, see [OutputClaims](technicalprofiles.md#outputclaims) element.|
 | Actions | 0:1 | **Actions** are used to list the validation technical profiles to invoke for user actions happening at the front-end. |
 
 ### Input claims
@@ -62,7 +62,7 @@ In a display control, you can use **InputClaims** elements to prepopulate the va
 
 The following example prepopulates the email address to be verified with the address already present.
 
-```XML
+```xml
 <DisplayControl Id="emailControl" UserInterfaceControlType="VerificationControl">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="emailAddress" />
@@ -78,7 +78,7 @@ Similar to the **display claims** defined in a [self-asserted technical profile]
 
 Certain display claims are required for certain types of display control. For example, **VerificationCode** is required for the display control of type **VerificationControl**. Use the attribute **ControlClaimType** to specify which DisplayClaim is designated for that required claim. For example:
 
-```XML
+```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
 ```
 
@@ -94,9 +94,92 @@ The **Actions** of a display control are procedures that occur in the Azure AD B
 
 An action defines a list of **validation technical profiles**. They are used for validating some or all of the display claims of the display control. The validation technical profile validates the user input and may return an error to the user. You can use **ContinueOnError**, **ContinueOnSuccess**, and **Preconditions** in the display control Action similar to the way they're used in [validation technical profiles](validation-technical-profile.md) in a self asserted technical profile.
 
-The following example sends a code either in email or SMS based on the user's selection of the **mfaType** claim.
+#### Actions
 
-```XML
+The **Actions** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| Action | 1:n | List of actions to be executed. |
+
+#### Action
+
+The **Action** element contains the following attribute:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| Id | Yes | The type of operation. Possible values: `SendCode` or `VerifyCode`. The `SendCode` value sends a code to the user. This action may contain two validation technical profiles: one to generate a code and one to send it. The `VerifyCode` value verifies the code the user typed in the input textbox. |
+
+The **Action** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| ValidationClaimsExchange | 1:1 | The identifiers of technical profiles that are used to validate some or all of the display claims of the referencing technical profile. All input claims of the referenced technical profile must appear in the display claims of the referencing technical profile. |
+
+#### ValidationClaimsExchange
+
+The **ValidationClaimsExchange** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| ValidationTechnicalProfile | 1:n | A technical profile to be used for validating some or all of the display claims of the referencing technical profile. |
+
+The **ValidationTechnicalProfile** element contains the following attributes:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| ReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
+|ContinueOnError|No| Indicates whether validation of any subsequent validation technical profiles should continue if this validation technical profile raises an error. Possible values: `true` or `false` (default, processing of further validation profiles will stop and an error will be returned). |
+|ContinueOnSuccess | No | Indicates whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Possible values: `true` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
+
+The **ValidationTechnicalProfile** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| Preconditions | 0:1 | A list of preconditions that must be satisfied for the validation technical profile to execute. |
+
+The **Precondition** element contains the following attributes:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| `Type` | Yes | The type of check or query to perform for the precondition. Possible values: `ClaimsExist` or `ClaimEquals`. `ClaimsExist` specifies that the actions should be performed if the specified claims exist in the user's current claim set. `ClaimEquals` specifies that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
+| `ExecuteActionsIf` | Yes | Indicates whether the actions in the precondition should be performed if the test is true or false. |
+
+The **Precondition** element contains following elements:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| Value | 1:n | The data that is used by the check. If the type of this check is `ClaimsExist`, this field specifies a ClaimTypeReferenceId to query for. If the type of check is `ClaimEquals`, this field specifies a ClaimTypeReferenceId to query for. Specify the value to be checked in another value element.|
+| Action | 1:1 | The action that should be taken if the precondition check within an orchestration step is true. The value of the **Action** is set to `SkipThisValidationTechnicalProfile`, which specifies that the associated validation technical profile should not be executed. |
+
+The following example sends and verifies the email address using [Azure AD SSPR technical profile](aad-sspr-technical-profile.md).
+
+```xml
+<DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
+  <InputClaims></InputClaims>
+  <DisplayClaims>
+    <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
+  </DisplayClaims>
+  <OutputClaims></OutputClaims>
+  <Actions>
+    <Action Id="SendCode">
+      <ValidationClaimsExchange>
+        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-SendCode" />
+      </ValidationClaimsExchange>
+    </Action>
+    <Action Id="VerifyCode">
+      <ValidationClaimsExchange>
+        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-VerifyCode" />
+      </ValidationClaimsExchange>
+    </Action>
+  </Actions>
+</DisplayControl>
+```
+
+The following example sends a code either in email or SMS based on the user's selection of the **mfaType** claim with preconditions.
+
+```xml
 <Action Id="SendCode">
   <ValidationClaimsExchange>
     <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AzureMfa-SendSms">
@@ -127,7 +210,7 @@ Display controls are referenced in the [display claims](self-asserted-technical-
 
 For example:
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
   ...
   <DisplayClaims>
@@ -137,3 +220,10 @@ For example:
     <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
 ```
+
+## Next steps
+
+For samples of using display control, see: 
+
+- [Custom email verification with Mailjet](custom-email-mailjet.md)
+- [Custom email verification with SendGrid](custom-email-sendgrid.md)

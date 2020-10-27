@@ -1,13 +1,13 @@
 ### YamlMime:Hub
 
 title: Azure Media Services documentation # < 60 chars
-summary: Azure Media Services is a cloud-based media workflow platform that enables you to build solutions that require encoding, packaging, content-protection, and live event broadcasting.  
+summary: Azure Media Services is a collection of cloud and edge media workflow services that enable you to build solutions that require live and batch video analytics, transcoding, multi-device delivery services, content-protection, and live event broadcasting at scale. 
 # brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
 brand: azure
 
 metadata:
   title: Azure Media Services documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Media Services is a cloud-based media workflow platfo/lrm that enables you to build solutions that require encoding, packaging, content-protection, and live event broadcasting. 
+  description: Azure Media Services is a collection of cloud and edge media workflow services that enable you to build solutions that require live and batch video analytics, transcoding, multi-device delivery services, content-protection, and live event broadcasting at scale. 
   services: media-services
   ms.service: media-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: 
@@ -36,15 +36,18 @@ highlightedContent:
     - title: Compare Media Services v3 presets and Video Indexer
       itemType: concept
       url: ./video-indexer/compare-video-indexer-with-media-services-presets.md    
+    - title: Live Video Analytics on IoT Edge (preview)
+      itemType: overview
+      url: ./live-video-analytics-edge/overview.md
+    - title: Azure Media Player
+      itemType: overview
+      url: ./azure-media-player/azure-media-player-overview.md
     - title: About Azure Media Services v2 (legacy)
       itemType: overview
       url: ./previous/media-services-overview.md  
     - title: Migrate Media Services v2 to v3
       itemType: concept
       url: ./latest/migrate-from-v2-to-v3.md      
-    - title: Azure Media Player
-      itemType: overview
-      url: azure-media-player/azure-media-player-overview.md
 
 conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -54,7 +57,7 @@ conceptualContent:
           - url: ./latest/media-services-apis-overview.md
             itemType: concept
             text: Develop with Media Services v3
-          - url: https://docs.microsoft.com/samples/browse/?products=azure-media-services
+          - url: /samples/browse/?products=azure-media-services
             itemType: sample
             text: Code samples
           - url: ./latest/release-notes.md
@@ -118,20 +121,26 @@ conceptualContent:
             text: Smooth Streaming protocol (MS-SSTR) amendment for HEVC
           - url: media-services-fmp4-live-ingest-overview.md
             itemType: concept
-            text:  Smooth Streaming ingest protocol             
+            text:  Smooth Streaming ingest protocol   
+            
+    - title: Live Video Analytics on IoT Edge (preview)         
+      links:
+          - url: ./live-video-analytics-edge/overview.md
+            itemType: overview
+            text: Overview
+          - url: ./live-video-analytics-edge/use-your-model-quickstart.md
+            itemType: quickstart
+            text: Run Live Video Analytics with your own model  
 
 additionalContent:
   sections:
     - items:      
       - title: Azure Storage
         summary: Learn about block blobs and containers
-        url: https://docs.microsoft.com/azure/storage/        
+        url: ../storage/index.yml
       - title: CDN
         summary: Use the power of the Azure CDN to stream content at scale with services from Akamai and Verizon or load balance across multiple content delivery networks
-        url: https://docs.microsoft.com/azure/cdn         
+        url: ../cdn/index.yml
       - title: Event Grid
         summary: Learn how to use Azure Event Grid to react to relevant events     
-        url: https://docs.microsoft.com/azure/event-grid/
-        
-
-  
+        url: ../event-grid/index.yml

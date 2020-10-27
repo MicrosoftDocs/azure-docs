@@ -32,7 +32,7 @@ This video provides an introduction to some of the complex solutions that you ca
 
 ## Schema drift in source
 
-Columns coming into your data flow from your source definition are defined as "drifted" when they are not present in your source projection. You can view your source projection from the projection tab in the source transformation. When you select a dataset for your source, ADF will automatically take the schema from the dataset and create a project from that dataset schema definition.
+Columns coming into your data flow from your source definition are defined as "drifted" when they are not present in your source projection. You can view your source projection from the projection tab in the source transformation. When you select a dataset for your source, ADF will automatically take the schema from the dataset and create a projection from that dataset schema definition.
 
 In a source transformation, schema drift is defined as reading columns that aren't defined your dataset schema. To enable schema drift, check **Allow schema drift** in your source transformation.
 
@@ -55,7 +55,7 @@ If schema drift is enabled, make sure the **Auto-mapping** slider in the Mapping
 When your data flow has drifted columns, you can access them in your transformations with the following methods:
 
 * Use the `byPosition` and `byName` expressions to explicitly reference a column by name or position number.
-* Add a column pattern in a Derived Column or Aggregate transformation to match on any combination of name, stream, position, or type
+* Add a column pattern in a Derived Column or Aggregate transformation to match on any combination of name, stream, position, origin, or type
 * Add rule-based mapping in a Select or Sink transformation to match drifted columns to columns aliases via a pattern
 
 For more information on how to implement column patterns, see [Column patterns in mapping data flow](concepts-data-flow-column-pattern.md).

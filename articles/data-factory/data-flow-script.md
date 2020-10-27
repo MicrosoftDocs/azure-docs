@@ -6,7 +6,7 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/06/2020
+ms.date: 09/29/2020
 ---
 
 # Data flow script (DFS)
@@ -171,13 +171,13 @@ aggregate(groupBy(movie),
 Use this code in your data flow script to create a new derived column called ```DWhash``` that produces a ```sha1``` hash of three columns.
 
 ```
-derive(DWhash = sha1(Name,ProductNumber,Color))
+derive(DWhash = sha1(Name,ProductNumber,Color)) ~> DWHash
 ```
 
 You can also use this script below to generate a row hash using all columns that are present in your stream, without needing to name each column:
 
 ```
-derive(DWhash = sha1(columns()))
+derive(DWhash = sha1(columns())) ~> DWHash
 ```
 
 ### String_agg equivalent
@@ -186,7 +186,33 @@ This code will act like the T-SQL ```string_agg()``` function and will aggregate
 ```
 source1 aggregate(groupBy(year),
 	string_agg = collect(title)) ~> Aggregate1
-Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+Aggregate1 derive(string_agg = toString(string_agg)) ~> StringAgg
+```
+
+### Count number of updates, upserts, inserts, deletes
+When using an Alter Row transformation, you may want to count the number of updates, upserts, inserts, deletes that result from your Alter Row policies. Add an Aggregate transformation after your alter row and paste this Data Flow Script into the aggregate definition for those counts.
+
+```
+aggregate(updates = countIf(isUpdate(), 1),
+		inserts = countIf(isInsert(), 1),
+		upserts = countIf(isUpsert(), 1),
+		deletes = countIf(isDelete(),1)) ~> RowCount
+```
+
+### Distinct row using all columns
+This snippet will add a new Aggregate transformation to your data flow which will take all incoming columns, generate a hash that is used for grouping to eliminate duplicates, then provide the first occurrence of each duplicate as output. You do not need to explicitly name the columns, they will be automatically generated from your incoming data stream.
+
+```
+aggregate(groupBy(mycols = sha2(256,columns())),
+    each(match(true()), $$ = first($$))) ~> DistinctRows
+```
+
+### Check for NULLs in all columns
+This is a snippet that you can paste into your data flow to generically check all of your columns for NULL values. This technique leverages schema drift to look through all columns in all rows and uses a Conditional Split to separate the rows with NULLs from the rows with no NULLs. 
+
+```
+split(contains(array(columns()),isNull(#item)),
+	disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
 ```
 
 ## Next steps

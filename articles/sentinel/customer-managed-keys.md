@@ -10,30 +10,29 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 10/12/2020
 ms.author: yelevin
 
 ---
 # Set up Azure Sentinel customer-managed key
 
-
-This article provides background information and steps to configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to
-Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created or owned by you.
+This article provides background information and steps to configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created or owned by you.
 
 > [!NOTE]
-> -   The Azure Sentinel CMK capability is provided only to customers who are **new** and access to this capability is controlled by Azure feature registration. You can request access by contacting azuresentinelCMK@microsoft.com, and as capacity is available, pending requests will be approved.
-> -   The Azure Sentinel CMK capability is only available in East US, West US 2, and South-Central US regions.
-> -   The CMK capability is only available to customers sending 1TB per day or more. You will receive information about additional pricing when you apply
-    to Microsoft to provision CMK on your Azure subscription. Learn more about [Log Analytics](../azure-monitor/platform/customer-managed-keys.md#disclaimers) charging.
+> - The Azure Sentinel CMK capability is provided only to **new customers**.
+>
+> - Access to this capability is controlled by Azure feature registration. You can request access by contacting azuresentinelCMK@microsoft.com. Pending requests will be approved according to the available capacity.
+>
+> - The CMK capability is only available to customers sending 1TB per day or more. You will receive information about additional pricing when you apply to Microsoft to provision CMK on your Azure subscription. Learn more about [Log Analytics pricing](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 ## How CMK works 
 
-The Azure Sentinel solution uses a several storage resources for log collection and features, these include Log Analytics and other storage resources. As part
-of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related storage resources as well. Data saved in storage
-resources other than Log Analytics will also be encrypted.
+The Azure Sentinel solution uses several storage resources for log collection and features, including Log Analytics and others. As part of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related storage resources as well. Data saved in storage resources other than Log Analytics will also be encrypted.
+
+Learn more about [CMK](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-cmk-overview).
 
 > [!NOTE]
 > If you enable CMK on Azure Sentinel, any Public Preview feature that does not support CMK will not be enabled.
@@ -56,16 +55,16 @@ To provision CMK, follow these steps: 
 
 ### STEP 1: Create an Azure Key Vault and storing key
 
-1.  [Create Azure Key Vault resource](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal?view=azs-1910),
+1.  [Create Azure Key Vault resource](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal),
     then generate or import a key to be used for data encryption.
     > [!NOTE]
     >  Azure Key Vault must be configured as recoverable to protect your key and the access.
 
 1.  [Turn on recovery options:](../key-vault/general/best-practices.md#turn-on-recovery-options)
 
-    -   Make sure [Soft Delete](../key-vault/general/overview-soft-delete.md) is turned on.
+    -   Make sure [Soft Delete](../key-vault/general/soft-delete-overview.md) is turned on.
 
-    -   Turn on [Purge protection](../key-vault/general/overview-soft-delete.md#purge-protection) to guard against forced deletion of the secret/vault even after soft delete.
+    -   Turn on [Purge protection](../key-vault/general/soft-delete-overview.md#purge-protection) to guard against forced deletion of the secret/vault even after soft delete.
 
 ### STEP 2: Enable CMK on your Log Analytics workspace
 
@@ -89,7 +88,7 @@ After you get approval, you will be asked to provide the following information t
 
 -  Workspace ID on which you want to enable CMK
 
--  Key Vault URL: Copy the key’s “Key Identifier” up to the last forward slash:  
+-  Key Vault URL: Copy the key's "Key Identifier" up to the last forward slash:  
     
 
     ![key identifier](./media/customer-managed-keys/key-identifier.png)

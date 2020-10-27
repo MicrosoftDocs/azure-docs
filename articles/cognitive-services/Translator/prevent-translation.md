@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 05/26/2020
 ms.author: swmachan
 ---
 
@@ -32,13 +32,26 @@ The Translator allows you to tag content so that it isn't translated. For exampl
    <div>This will be translated. </div>
    ```
 
-2. Use the [dynamic dictionary](dynamic-dictionary.md) to prescribe a specific translation.
+2. Tag your content with `translate="no"`. This only works when the input textType is set as HTML
 
-3. Don't pass the string to the Translator for translation.
+   Example:
 
-4. Custom Translator: Use a [dictionary in Custom Translator](custom-translator/what-is-dictionary.md) to prescribe the translation of a phrase with 100% probability.
+   ```html
+   <span translate="no">This will not be translated.</span>
+   <span>This will be translated. </span>
+   ```
+   
+   ```html
+   <div translate="no">This will not be translated.</div>
+   <div>This will be translated. </div>
+
+3. Use the [dynamic dictionary](dynamic-dictionary.md) to prescribe a specific translation.
+
+4. Don't pass the string to the Translator for translation.
+
+5. Custom Translator: Use a [dictionary in Custom Translator](custom-translator/what-is-dictionary.md) to prescribe the translation of a phrase with 100% probability.
 
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Avoid translation in your Translator call](reference/v3-0-translate.md)
+> [Use the Translate operation to translate text](reference/v3-0-translate.md)

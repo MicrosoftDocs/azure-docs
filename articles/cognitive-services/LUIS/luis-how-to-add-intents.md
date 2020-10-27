@@ -3,13 +3,13 @@ title: Add intents - LUIS
 titleSuffix: Azure Cognitive Services
 description: Add intents to your LUIS app to identify groups of questions or commands that have the same intentions.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 05/07/2020
-ms.author: diberry
+ms.topic: how-to
+ms.date: 05/17/2020
+
 ms.service: cognitive-services
 ---
 
@@ -17,9 +17,9 @@ ms.service: cognitive-services
 
 Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intention.
 
-Intents are managed from top navigation bar's **Build** section, then from the left panel's **Intents**.
+In the LUIS portal, Intents are managed from top navigation bar's **Build** section, then from the left panel's **Intents**.
 
-## Add intent
+## Add an intent to your app
 
 1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
 1. Open your app by selecting its name on **My Apps** page.
@@ -29,7 +29,7 @@ Intents are managed from top navigation bar's **Build** section, then from the l
     > [!div class="mx-imgBorder"]
     > ![Add Intent](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    The intent needs example utterances.
+    The intent needs [example utterances](luis-concept-utterance.md) in order to predict utterances at the published prediction endpoint.
 
 ## Add an example utterance
 
@@ -46,16 +46,16 @@ Example utterances are text examples of user questions or commands. To teach Lan
 
 ## Intent prediction errors
 
-An example utterance in an intent might have an intent prediction error between the intent the example utterance is currently in and the intent determined during training.
+An intent prediction error is determined when the utterance is not predicted with the trained app for the intent.
 
-To find utterance prediction errors and fix them, use the **Filter** options of Incorrect and Unclear combined with the **View** option of **Detailed view**.
+1. To find utterance prediction errors and fix them, use the **Filter** options of Incorrect and Unclear.
 
-![To find utterance prediction errors and fix them, use the Filter option.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+    > [!div class="mx-imgBorder"]
+    > ![To find utterance prediction errors and fix them, use the Filter option.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-When the filters and view are applied, and there are example utterances with errors, the example utterance list shows the utterances and the issues.
+1. To display the score value on the Intent details page, select **Show details intent scores** from the **View** options menu.
 
-> [!div class="mx-imgBorder"]
-> ![![When the filters and view are applied, and there are example utterances with errors, the example utterance list shows the utterances and the issues.](./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+    When the filters and view are applied, and there are example utterances with errors, the example utterance list shows the utterances and the issues.
 
 Each row shows the current training's prediction score for the example utterance, the nearest rival's score, which is the difference in these two scores.
 

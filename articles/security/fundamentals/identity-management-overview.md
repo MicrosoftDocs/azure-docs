@@ -1,6 +1,6 @@
 ---
 title: Azure security features that help with identity management | Microsoft Docs
-description: " This article provides an overview of the core Azure security features that help with identity management. Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation, such as Multi-Factor Authentication and Conditional Access policies. "
+description: Learn about the core Azure security features that help with identity management. See information about topics like single sign-on and reverse proxy.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -37,7 +37,7 @@ The article focuses on the following core Azure Identity management capabilities
 * Single sign-on
 * Reverse proxy
 * Multi-Factor Authentication
-* Role based access control (RBAC)
+* Azure role-based access control (Azure RBAC)
 * Security monitoring, alerts, and machine learning-based reports
 * Consumer identity and access management
 * Device registration
@@ -50,7 +50,7 @@ The article focuses on the following core Azure Identity management capabilities
 
 SSO means being able to access all the applications and resources that you need to do business, by signing in only once using a single user account. Once signed in, you can access all of the applications you need without being required to authenticate (for example, type a password) a second time.
 
-Many organizations rely upon SaaS applications such as Office 365, Box, and Salesforce for user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
+Many organizations rely upon SaaS applications such as Microsoft 365, Box, and Salesforce for user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
 
 Azure AD extends on-premises Active Directory environments into the cloud, enabling users to use their primary organizational account to  sign in not only to their domain-joined devices and company resources, but also to all the web and SaaS applications they need for their jobs.
 
@@ -60,7 +60,7 @@ Learn more:
 
 * [Overview of single sign-on](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [What is application access and single sign-on with Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Integrate Azure Active Directory single sign-on with SaaS apps](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md)
+* [Quickstart Series on App Management](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## Reverse proxy
 
@@ -83,14 +83,19 @@ Learn more:
 * [What is Azure Multi-Factor Authentication?](/azure/active-directory/authentication/multi-factor-authentication)
 * [How Azure Multi-Factor Authentication works](../../active-directory/authentication/concept-mfa-howitworks.md)
 
-## RBAC
+## Azure RBAC
 
-RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management of resources in Azure. RBAC allows you to granularly control the level of access that users have. For example, you can limit a user to only manage virtual networks and another user to manage all resources in a resource group. Azure includes several built-in roles that you can use. The following lists four fundamental built-in roles. The first three apply to all resource types.
+Azure RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management of resources in Azure. Azure RBAC allows you to granularly control the level of access that users have. For example, you can limit a user to only manage virtual networks and another user to manage all resources in a resource group. Azure includes several built-in roles that you can use. The following lists four fundamental built-in roles. The first three apply to all resource types.
+
+- [Owner](/azure/role-based-access-control/built-in-roles#owner) - Has full access to all resources including the right to delegate access to others. 
+- [Contributor](/azure/role-based-access-control/built-in-roles#contributor) - Can create and manage all types of Azure resources but can't grant access to others.
+- [Reader](/azure/role-based-access-control/built-in-roles#reader) - Can view existing Azure resources.
+- [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) - Lets you manage user access to Azure resources.
 
 Learn more:
 
-* [What is role-based access control (RBAC)?](/azure/role-based-access-control/overview)
-* [Built-in roles for Azure resources](/azure/role-based-access-control/built-in-roles)
+* [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
+* [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
 
 ## Security monitoring, alerts, and machine learning-based reports
 
@@ -138,14 +143,14 @@ Learn more:
 
 ## Privileged identity management
 
-With Azure AD Privileged Identity Management, you can manage, control, and monitor your privileged identities and access to resources in Azure AD as well as other Microsoft online services, such as Office 365 and Microsoft Intune.
+With Azure AD Privileged Identity Management, you can manage, control, and monitor your privileged identities and access to resources in Azure AD as well as other Microsoft online services, such as Microsoft 365 and Microsoft Intune.
 
-Users sometimes need to carry out privileged operations in Azure or Office 365 resources, or in other SaaS apps. This need often means that organizations have to give users permanent privileged access in Azure AD. Such access is a growing security risk for cloud-hosted resources, because organizations can't sufficiently monitor what the users are doing with their administrator privileges. Additionally, if a user account with privileged access is compromised, that one breach could affect the organization's overall cloud security. Azure AD Privileged Identity Management helps to mitigate this risk.
+Users sometimes need to carry out privileged operations in Azure or Microsoft 365 resources, or in other SaaS apps. This need often means that organizations have to give users permanent privileged access in Azure AD. Such access is a growing security risk for cloud-hosted resources, because organizations can't sufficiently monitor what the users are doing with their administrator privileges. Additionally, if a user account with privileged access is compromised, that one breach could affect the organization's overall cloud security. Azure AD Privileged Identity Management helps to mitigate this risk.
 
 With Azure AD Privileged Identity Management, you can:
 
 * See which users are Azure AD administrators.
-* Enable on-demand, just-in-time (JIT) administrative access to Microsoft services such as Office 365 and Intune.
+* Enable on-demand, just-in-time (JIT) administrative access to Microsoft services such as Microsoft 365 and Intune.
 * Get reports about administrator access history and changes in administrator assignments.
 * Get alerts about access to a privileged role.
 
@@ -165,7 +170,7 @@ Learn more:
 
 ## Hybrid identity management/Azure AD connect
 
-Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity. Azure AD Connect is the Microsoft tool designed to meet and accomplish your hybrid identity goals. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD. It provides the following features:
+Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity. Azure AD Connect is the Microsoft tool designed to meet and accomplish your hybrid identity goals. This allows you to provide a common identity for your users for Microsoft 365, Azure, and SaaS applications integrated with Azure AD. It provides the following features:
 
 * Synchronization
 * AD FS and federation integration

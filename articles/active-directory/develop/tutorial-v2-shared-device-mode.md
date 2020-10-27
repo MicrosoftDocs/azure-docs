@@ -1,6 +1,7 @@
 ---
-title: Using shared device mode with MSAL Android | Azure
-description: Learn how to prepare an Android device to run in shared mode and run a firstline worker app.
+title: "Tutorial: Use shared-device mode with the Microsoft Authentication Library (MSAL) for Android | Azure"
+titleSuffix: Microsoft identity platform
+description: In this tutorial, you learn how to prepare an Android device to run in shared mode and run a first-line worker app.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -17,18 +18,30 @@ ms.custom: aaddev, identityplatformtop40
 
 # Tutorial: Use shared-device mode in your Android application
 
-> [!NOTE]
-> This feature is in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This tutorial provides guidance for both developers and tenant administrators in setting up and supporting shared-device mode for an Android app.
+
+In this tutorial:
+
+> [!div class="checklist"]
+> * Download a code sample
+> * Enable and detect shared-device mode
+> * Detect single or multiple account mode
+> * Detect a user switch, and enable global sign-in and sign-out
+> * Set up tenant and register the application in the Azure portal
+> * Set up an Android device in shared-device mode
+> * Run the sample app
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Developer guide
 
-This guide provides developer guidance to implement shared-device mode in an Android application using the Microsoft Authentication Library (MSAL). See the [MSAL Android tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android) to see how to integrate MSAL with your Android app, sign in a user, call Microsoft graph, and sign out a user.
+This section of the tutorial provides developer guidance for implementing shared-device mode in an Android application using the Microsoft Authentication Library (MSAL). See the [MSAL Android tutorial](./tutorial-v2-android.md) to see how to integrate MSAL with your Android app, sign in a user, call Microsoft graph, and sign out a user.
 
 ### Download the sample
 
-Clone the [sample application](https://github.com/Azure-Samples/ms-identity-android-java/) from GitHub. The sample has the capability to work in [single or multi account mode](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account).
+Clone the [sample application](https://github.com/Azure-Samples/ms-identity-android-java/) from GitHub. The sample has the capability to work in [single or multi account mode](./single-multi-account.md).
 
 ### Add the MSAL SDK to your local Maven repository
 
@@ -42,7 +55,7 @@ dependencies{
 
 ### Configure your app to use shared-device mode
 
-Refer to the [configuration documentation](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration) for more information on setting up your config file.
+Refer to the [configuration documentation](./msal-configuration.md) for more information on setting up your config file.
 
 Set `"shared_device_mode_supported"` to `true` in your MSAL configuration file.
 
@@ -107,7 +120,7 @@ PublicClientApplication.create(this.getApplicationCOntext(),
 
 ### Detect single vs. multiple account mode
 
-If you're writing an app that will only be used for firstline workers on a shared device, we recommend you write your app to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. This will simplify your development as many features of the SDK won't need to be accommodated.
+If you're writing an app that will only be used for first-line workers on a shared device, we recommend you write your app to only support single-account mode. This includes most applications that are task focused such as medical records apps, invoice apps, and most line-of-business apps. This will simplify your development as many features of the SDK won't need to be accommodated.
 
 If your app supports multiple accounts as well as shared device mode, you must perform a type check and cast to the appropriate interface as shown below.
 
@@ -200,15 +213,16 @@ The following steps describe setting up your application in the Azure portal and
 
 First, register your application within your organizational tenant. Then provide these values below in auth_config.json in order for your application to run correctly.
 
-For information on how to do this, refer to [Register your application](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#register-your-application).
+For information on how to do this, refer to [Register your application](./tutorial-v2-android.md#register-your-application).
 
 > [!NOTE]
 > When you register your app, please use the quickstart guide on the left-hand side and then select **Android**. This will lead you to a page where you'll be asked to provide the **Package Name** and **Signature Hash** for your app. These are very important to ensure your app configuration will work. You'll then receive a configuration object that you can use for your app that you'll cut and paste into your auth_config.json file.
 
-![App registration screen](media/tutorial-v2-shared-device-mode/register-app.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/register-app.png" alt-text="Configure your Android app page in Azure portal quickstart":::
+
 You should select **Make this change for me** and then provide the values the quickstart asks for in the Azure portal. When that's done, we will generate all the configuration files you need.
 
-![App config info screen](media/tutorial-v2-shared-device-mode/config-info.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/config-info.png" alt-text="Configure your project page in Azure portal quickstart":::
 
 ## Set up a tenant
 
@@ -224,25 +238,25 @@ Download the Microsoft Authenticator App from the Google Play store. If you alre
 
 Launch the Authenticator App and navigate to main account page. Once you see the **Add Account** page, you're ready to make the device shared.
 
-![Authenticator add account screen](media/tutorial-v2-shared-device-mode/authenticator-add-account.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-add-account.png" alt-text="Authenticator add account screen":::
 
- Go to the **Settings** pane using the right-hand menu bar. Select **Device Registration** under **Work & School accounts**.
+Go to the **Settings** pane using the right-hand menu bar. Select **Device Registration** under **Work & School accounts**.
 
- ![Authenticator add account screen](media/tutorial-v2-shared-device-mode/authenticator-settings.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-settings.png" alt-text="Authenticator settings screen":::
 
- When you click this button, you'll be asked to authorize access to device contacts. This is due to Android's account integration on the device. Choose **allow**.
+When you click this button, you'll be asked to authorize access to device contacts. This is due to Android's account integration on the device. Choose **allow**.
 
- ![Authenticator add account screen](media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/authenticator-allow-screen.png" alt-text="Authenticator allow access confirmation screen":::
 
 The Cloud Device Administrator should enter their organizational email under **Or register as a shared device**. Then click the **register as shared device** button, and enter their credentials.
 
-![register-device screen](media/tutorial-v2-shared-device-mode/register-device.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/register-device.png" alt-text="Device registration screen in app":::
 
-![sign-in](media/tutorial-v2-shared-device-mode/sign-in.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/sign-in.png" alt-text="App screenshot showing Microsoft sign-in page":::
 
 The device is now in shared mode.
 
-![register-device screen](media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/shared-device-mode-screen.png" alt-text="App screen showing shared device mode enabled":::
 
  Any sign-ins and sign-outs on the device will be global, meaning they apply to all apps that are integrated with MSAL and Microsoft Authenticator on the device. You can now deploy applications to the device that use shared-device mode features.
 
@@ -250,14 +264,17 @@ The device is now in shared mode.
 
 Once you've put a device in shared-mode, it becomes known to your organization and is tracked in your organizational tenant. You can view your shared devices by looking at the **Join Type** in the Azure Active Directory blade of your Azure portal.
 
-![All devices blade in the Azure portal](media/tutorial-v2-shared-device-mode/registered-device-screen.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/registered-device-screen.png" alt-text="All devices pane shown in the Azure portal":::
 
 ## Running the sample app
 
 The Sample Application is a simple app that will call the Graph API of your organization. On first run you'll be prompted to consent as the application is new to your employee account.
 
-![App config info screen](media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png)
+:::image type="content" source="media/tutorial-v2-shared-device-mode/run-app-permissions-requested.png" alt-text="Application configuration info screen":::
 
 ## Next steps
 
-Learn more about shared mode at [Shared device mode for Android devices](msal-android-shared-devices.md)
+Learn more about working with the Microsoft Authentication Library and shared device mode on Android devices:
+
+> [!div class="nextstepaction"]
+> [Shared device mode for Android devices](msal-android-shared-devices.md)

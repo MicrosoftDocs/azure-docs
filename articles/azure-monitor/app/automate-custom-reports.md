@@ -27,9 +27,9 @@ Each enterprise has its unique reporting needs, such as:
 
 You can [programmatically query Application Insights](https://dev.applicationinsights.io/) data to generate custom reports on a schedule. The following options can help you get started quickly:
 
-* [Automate reports with Microsoft Flow](automate-with-flow.md)
+* [Automate reports with Microsoft Flow](../platform/logicapp-flow-connector.md)
 * [Automate reports with Logic Apps](automate-with-logic-apps.md)
-* Use the "Application Insights scheduled digest" [Azure function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function) template in the Monitoring scenario. This function uses SendGrid to deliver the email. 
+* Use the "Application Insights scheduled digest" [Azure function](../../azure-functions/functions-create-first-azure-function.md) template in the Monitoring scenario. This function uses SendGrid to deliver the email. 
 
     ![Azure function template](./media/automate-custom-reports/azure-function-template.png)
 
@@ -68,7 +68,7 @@ availabilityResults
 
 1. Create an Azure Function App.(Application Insights _On_ is required only if you want to monitor your new Function App with Application Insights)
 
-   Visit the Azure Functions documentation to learn how to [create a function app](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app)
+   Visit the Azure Functions documentation to learn how to [create a function app](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app)
 
 2. Once your new Function App has completed deployment, select **Go to resource**.
 
@@ -79,7 +79,7 @@ availabilityResults
 4. Select the **_Application Insights scheduled digest template_**.
 
      > [!NOTE]
-     > By default, function apps are created with runtime version 3.x. You must [target Azure Functions runtime version](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1.x** to use the Application Insights scheduled digest template. Go to Configuration > Function Runtime settings to change the runtime version. ![runtime screenshot](./media/automate-custom-reports/change-runtime-v.png)
+     > By default, function apps are created with runtime version 3.x. You must [target Azure Functions runtime version](../../azure-functions/set-runtime-version.md) **1.x** to use the Application Insights scheduled digest template. Go to Configuration > Function Runtime settings to change the runtime version. ![runtime screenshot](./media/automate-custom-reports/change-runtime-v.png)
 
    ![New Function Application Insights Template screenshot](./media/automate-custom-reports/function-app-04.png)
 
@@ -102,7 +102,7 @@ availabilityResults
    * SendGridAPI =SendGrid API Key
 
      > [!NOTE]
-     > If you don't have a SendGrid account you can create one. SendGrid's documentation for Azure Functions is [here](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). If just want a minimal explanation of how to setup SendGrid and generate an API key one is provided at the end of this article. 
+     > If you don't have a SendGrid account you can create one. SendGrid's documentation for Azure Functions is [here](../../azure-functions/functions-bindings-sendgrid.md). If just want a minimal explanation of how to setup SendGrid and generate an API key one is provided at the end of this article. 
 
 8. Select **Integrate** and under Outputs click **SendGrid ($return)**.
 
@@ -146,7 +146,8 @@ These steps only apply if you don't already have a SendGrid account configured.
 
 ## Next steps
 
-* Learn more about creating [Analytics queries](../../azure-monitor/log-query/get-started-queries.md).
+* Learn more about creating [Analytics queries](../log-query/get-started-queries.md).
 * Learn more about [programmatically querying Application Insights data](https://dev.applicationinsights.io/)
-* Learn more about [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
-* Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
+* Learn more about [Logic Apps](../../logic-apps/logic-apps-overview.md).
+* Learn more about [Microsoft Power Automate](https://ms.flow.microsoft.com).
+

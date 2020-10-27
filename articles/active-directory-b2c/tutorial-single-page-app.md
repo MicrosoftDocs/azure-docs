@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.author: mimart
 ms.date: 04/04/2020
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Enable authentication in a single-page application with Azure AD B2C
 
-This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign up and sign in users in a single-page application (SPA).
+This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign up and sign in users in a single-page application (SPA) using the OAuth 2.0 implicit grant flow.
 
 In this tutorial, the first in a two-part series:
 
@@ -35,7 +35,7 @@ The [next tutorial](tutorial-single-page-app-webapi.md) in the series enables th
 You need the following Azure AD B2C resources in place before continuing with the steps in this tutorial:
 
 * [Azure AD B2C tenant](tutorial-create-tenant.md)
-* [Application registered](tutorial-register-applications.md) in your tenant
+* [Application registered](tutorial-register-spa.md) in your tenant (use implicit flow options)
 * [User flows created](tutorial-create-user-flows.md) in your tenant
 
 Additionally, you need the following in your local development environment:
@@ -47,28 +47,28 @@ Additionally, you need the following in your local development environment:
 
 In the second tutorial that you completed as part of the prerequisites, you registered a web application in Azure AD B2C. To enable communication with the code sample in this tutorial, add a reply URL (also called a redirect URI) to the application registration.
 
-You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience to update the application. [Learn more about the new experience](https://aka.ms/b2cappregintro).
+To update an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
 
-#### [Applications](#tab/applications/)
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-1. Select **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-1. Select **Applications**, and then select the *webapp1* application.
-1. Under **Reply URL**, add `http://localhost:6420`.
-1. Select **Save**.
-1. On the properties page, record the **Application ID**. You use the app ID in a later step when you update the code in the single-page web application.
-
-#### [App registrations (Preview)](#tab/app-reg-preview/)
+#### [App registrations](#tab/app-reg-ga/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. Select **App registrations (Preview)**, select the **Owned applications** tab, and then select the *webapp1* application.
-1. Select **Authentication**, then select **Try out the new experience** (if shown).
-1. Under **Web**, select the **Add URI** link, enter `http://localhost:6420`, and then select **Save**.
+1. Select **App registrations**, select the **Owned applications** tab, and then select the *webapp1* application.
+1. Under **Web**, select the **Add URI** link, enter `http://localhost:6420`.
+1. Under **Implicit Grant**, select the checkboxes for **Access Tokens** and **ID Tokens** if not already selected and then select **Save**.
 1. Select **Overview**.
 1. Record the **Application (client) ID** for use in a later step when you update the code in the single-page web application.
+
+#### [Applications (Legacy)](#tab/applications-legacy/)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. Select **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **Applications (Legacy)**, and then select the *webapp1* application.
+1. Under **Reply URL**, add `http://localhost:6420`.
+1. Select **Save**.
+1. On the properties page, record the **Application ID**. You use the app ID in a later step when you update the code in the single-page web application.
 
 * * *
 
@@ -94,16 +94,90 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
     ```javascript
     const msalConfig = {
         auth: {
-            clientId: "00000000-0000-0000-0000-000000000000", // Replace this value with your Application (client) ID
-            authority: "https://your-b2c-tenant.b2clogin.com/your-b2c-tenant.onmicrosoft.com/B2C_1_signupsignin1", // Update with your tenant and user flow names
-            validateAuthority: false
+          clientId: "00000000-0000-0000-0000-000000000000", // Replace this value with your Application (client) ID
+          authority: b2cPolicies.authorities.signUpSignIn.authority,
+          validateAuthority: false
         },
         cache: {
-            cacheLocation: "localStorage",
-            storeAuthStateInCookie: true
+          cacheLocation: "localStorage",
+          storeAuthStateInCookie: true
         }
     };
+
+    const loginRequest = {
+       scopes: ["openid", "profile"],
+    };
+
+    const tokenRequest = {
+      scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
+    };
     ```
+
+1. Open the *authConfig.js* file inside the *JavaScriptSPA* folder.
+1. In the `msalConfig` object, update:
+    * `clientId` with the **Application (client) ID** you recorded in an earlier step
+    * `authority` URI with your Azure AD B2C tenant name and the name of the sign-up/sign-in user flow you created as part of the prerequisites (for example, *B2C_1_signupsignin1*)
+1. Open the *policies.js* file.
+1. Find the entries for `names` and `authorities` and replace them as appropriate with the names of the policies you created in Step 2. Replace `fabrikamb2c.onmicrosoft.com` with the name of your Azure AD B2C tenant, for example `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`.
+1. Open the *apiConfig.js* file.
+1. Find the assignment for the scopes `b2cScopes` and replace the URL with the scope URL you created for the Web API, for example `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/helloapi/demo.read"]`.
+1. Find the assignment for the API URL `webApi` and replace the current URL with the URL where you deployed your Web API in Step 4, for example `webApi: http://localhost:5000/hello`.
+
+Your resulting code should look as follows:
+
+### authConfig.js
+
+```javascript
+const msalConfig = {
+  auth: {
+    clientId: "e760cab2-b9a1-4c0d-86fb-ff7084abd902",
+    authority: b2cPolicies.authorities.signUpSignIn.authority,
+    validateAuthority: false
+  },
+  cache: {
+    cacheLocation: "localStorage",
+    storeAuthStateInCookie: true
+  }
+};
+
+const loginRequest = {
+  scopes: ["openid", "profile"],
+};
+
+const tokenRequest = {
+  scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
+};
+```
+### policies.js
+
+```javascript
+const b2cPolicies = {
+    names: {
+        signUpSignIn: "b2c_1_susi",
+        forgotPassword: "b2c_1_reset",
+        editProfile: "b2c_1_edit_profile"
+    },
+    authorities: {
+        signUpSignIn: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_susi",
+        },
+        forgotPassword: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_reset",
+        },
+        editProfile: {
+            authority: "https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_edit_profile"
+        }
+    },
+}
+```
+### apiConfig.js
+
+```javascript
+const apiConfig = {
+  b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
+  webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
+};
+```
 
 ## Run the sample
 

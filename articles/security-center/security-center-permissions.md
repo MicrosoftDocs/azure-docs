@@ -12,15 +12,15 @@ ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 10/28/2018
+ms.topic: overview
+ms.date: 07/02/2020
 ms.author: memildin
 
 ---
 
 # Permissions in Azure Security Center
 
-Azure Security Center uses [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
+Azure Security Center uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
 Security Center assesses the configuration of your resources to identify security issues and vulnerabilities. In Security Center, you only see information related to a resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to.
 
@@ -32,21 +32,20 @@ In addition to these roles, there are two specific Security Center roles:
 > [!NOTE]
 > The security roles, Security Reader and Security Admin, have access only in Security Center. The security roles do not have access to other service areas of Azure such as Storage, Web & Mobile, or Internet of Things.
 >
->
 
 ## Roles and allowed actions
 
 The following table displays roles and allowed actions in Security Center.
 
-| Role | Edit security policy | Apply security recommendations for a resource</br> (including with 'Quick Fix!') | Dismiss alerts and recommendations | View alerts and recommendations |
-|:--- |:---:|:---:|:---:|:---:|
-| Subscription Owner | ✔ | ✔ | ✔ | ✔ |
-| Subscription Contributor | -- | ✔ | ✔ | ✔ |
-| Resource Group Owner | -- | ✔ | -- | ✔ |
-| Resource Group Contributor | -- | ✔ | -- | ✔ |
-| Reader | -- | -- | -- | ✔ |
-| Security Admin | ✔ | -- | ✔ | ✔ |
-| Security Reader | -- | -- | -- | ✔ |
+|Action|Security Reader / <br> Reader |Security Admin  |Resource Group Contributor / <br> Resource Group Owner  |Subscription Contributor  |Subscription Owner  |
+|:--- |:---:|:---:|:---:|:---:|:---:|
+|Edit security policy|-|✔|-|-|✔|
+|Add/assign initiatives (including) regulatory compliance standards)|-|-|-|-|✔|
+|Enable / disable Azure Defender|-|✔|-|-|✔|
+|Enable / disable auto-provisioning|-|✔|-|✔|✔|
+|Apply security recommendations for a resource</br> (and use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
+|Dismiss alerts|-|✔|-|✔|✔|
+|View alerts and recommendations|✔|✔|✔|✔|✔|
 
 > [!NOTE]
 > We recommend that you assign the least permissive role needed for users to complete their tasks. For example, assign the Reader role to users who only need to view information about the security health of a resource but not take action, such as applying recommendations or editing policies.
@@ -60,4 +59,4 @@ This article explained how Security Center uses RBAC to assign permissions to us
 - [Manage security recommendations in Security Center](security-center-recommendations.md)
 - [Monitor the security health of your Azure resources](security-center-monitoring.md)
 - [Manage and respond to security alerts in Security Center](security-center-managing-and-responding-alerts.md)
-- [Monitor partner security solutions](security-center-partner-solutions.md)
+- [Monitor partner security solutions](./security-center-partner-integration.md)

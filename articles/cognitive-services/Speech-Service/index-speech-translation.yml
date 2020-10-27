@@ -22,16 +22,12 @@ landingContent:
         url: speech-translation.md
       - text: Speech translation basics
         url: speech-translation-basics.md
-      - text: Use SPX to translate speech with no code
+      - text: Use the Speech CLI to translate speech with no code
         url: spx-overview.md
     - linkListType: quickstart
       links:
-        - text: Translate speech-to-text
-          url: quickstarts/translate-speech-to-text.md
-        - text: Translate speech into multiple target languages
-          url: quickstarts/translate-speech-to-text-multiple-languages.md
-        - text: Translate speech-to-speech
-          url: quickstarts/translate-speech-to-speech.md
+        - text: Get started with speech translation
+          url: get-started-speech-translation.md
 - title: Develop with speech translation
   linkLists:
     - linkListType: learn
@@ -52,3 +48,9 @@ landingContent:
           url: https://www.microsoft.com/translator/business/faq/
         - text: Speech translation pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+- title: Help and feedback
+  linkLists:
+  - linkListType: reference
+    links:
+      - text: Support and help options
+        url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

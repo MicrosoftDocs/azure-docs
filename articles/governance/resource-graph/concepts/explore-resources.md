@@ -1,14 +1,14 @@
 ---
 title: Explore your Azure resources
 description: Learn to use the Resource Graph query language to explore your resources and discover how they're connected.
-ms.date: 10/18/2019
+ms.date: 10/14/2020
 ms.topic: conceptual
 ---
 # Explore your Azure resources with Resource Graph
 
 Azure Resource Graph provides the ability to explore and discover your Azure resources quickly and
 at scale. Engineered for fast responses, it's a great way to learn about your environment and also
-about the properties that make up your Azure resources.
+about the properties that exist on your Azure resources.
 
 ## Explore virtual machines
 
@@ -105,8 +105,9 @@ The JSON results are structured similar to the following example:
 ]
 ```
 
-The properties tell us additional information about the virtual machine resource itself, everything
-from SKU, OS, disks, tags, and the resource group and subscription it's a member of.
+The properties tell us additional information about the virtual machine resource itself. These
+properties include: operating system, disks, tags, and the resource group and subscription it's
+a member of.
 
 ### Virtual machines by location
 
@@ -172,9 +173,8 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ### Virtual machines connected to premium-managed disks
 
-If we wanted to get the details of premium-managed disks that are attached to these
-**Standard_B2s** virtual machines, we can expand the query to give us the resource ID of those
-managed disks.
+To get the details of premium-managed disks that are attached to these **Standard_B2s** virtual
+machines, we expand the query to return the resource ID of those managed disks.
 
 ```kusto
 Resources
@@ -186,8 +186,9 @@ Resources
 
 > [!NOTE]
 > Another way to get the SKU would have been by using the **aliases** property
-> **Microsoft.Compute/virtualMachines/sku.name**. See the [Show aliases](../samples/starter.md#show-aliases)
-> and [Show distinct alias values](../samples/starter.md#distinct-alias-values) examples.
+> **Microsoft.Compute/virtualMachines/sku.name**. See the
+> [Show aliases](../samples/starter.md#show-aliases) and
+> [Show distinct alias values](../samples/starter.md#distinct-alias-values) examples.
 
 ```azurecli-interactive
 az graph query -q "Resources | where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
@@ -220,11 +221,11 @@ Resources
 | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
-Before running the query, how did we know the **type** should now be **Microsoft.Compute/disks**?
-If you look at the full ID, you'll see **/providers/Microsoft.Compute/disks/** as part of the
-string. This string fragment gives you a hint as to what type to search for. An alternative method
-would be to remove the limit by type and instead only search by the ID field. As the ID is unique,
-only one record would be returned and the **type** property on it provides that detail.
+Before running the query, how did we know the **type** should now be **Microsoft.Compute/disks**? If
+you look at the full ID, you'll see **/providers/Microsoft.Compute/disks/** as part of the string.
+This string fragment gives you a hint as to what type to search for. An alternative method would be
+to remove the limit by type and instead only search by the ID field. As the ID is unique, only one
+record would be returned and the **type** property on it provides that detail.
 
 > [!NOTE]
 > For this example to work, you must replace the ID field with a result from your own environment.

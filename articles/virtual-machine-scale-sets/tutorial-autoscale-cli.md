@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 05/18/2018
 ms.reviewer: avverma
-ms.custom: avverma
+ms.custom: avverma, devx-track-azurecli
 
 ---
 # Tutorial: Automatically scale a virtual machine scale set with the Azure CLI
@@ -121,6 +121,7 @@ ssh azureuser@13.92.224.66 -p 50001
 Once logged in, install the **stress** utility. Start *10* **stress** workers that generate CPU load. These workers run for *420* seconds, which is enough to cause the autoscale rules to implement the desired action.
 
 ```console
+sudo apt-get update
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
@@ -211,8 +212,3 @@ In this tutorial, you learned how to automatically scale in or out a scale set w
 > * Create and use autoscale rules
 > * Stress-test VM instances and trigger autoscale rules
 > * Autoscale back in as demand is reduced
-
-For more examples of virtual machine scale sets in action, see the following sample Azure CLI sample scripts:
-
-> [!div class="nextstepaction"]
-> [Scale set script samples for Azure CLI](cli-samples.md)

@@ -1,24 +1,26 @@
 ---
 title: Design knowledge base - QnA Maker
-description: A QnA Maker knowledge base consists of a set of question-and-answer (QnA) sets and optional metadata associated with each QnA pair.
+description: Learn how to design a knowledge base - QnA Maker.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ---
 
-# Question and answer set concepts
+# Question and answer pair concepts
 
-A knowledge base consists of question and answer (QnA) sets.  Each set has one answer and a set contains all the information associated with that _answer_. An answer can loosely resemble a database row or a data structure instance.
+A knowledge base consists of question and answer (QnA) pairs.  Each pair has one answer and a pair contains all the information associated with that _answer_. An answer can loosely resemble a database row or a data structure instance.
 
-## Question and answer sets
+## Question and answer pairs
 
-The **required** settings in a question-and-answer (QnA) set are:
+The **required** settings in a question-and-answer (QnA) pair are:
 
 * a **question** - text of user query, used to QnA Maker's machine-learning, to align with text of user's question with different wording but the same answer
-* the **answer** - the set's answer is the response that's returned when a user query is matched with the associated question
+* the **answer** - the pair's answer is the response that's returned when a user query is matched with the associated question
 
-Each set is represented by an **ID**.
+Each pair is represented by an **ID**.
 
-The **optional** settings for a set include:
+The **optional** settings for a pair include:
 
 * **Alternate forms of the question** - this helps QnA Maker return the correct answer for a wider variety of question phrasings
 * **Metadata**: Metadata are tags associated with a QnA pair and are represented as key-value pairs. Metadata tags are used to filter QnA pairs and limit the set over which query matching is performed.

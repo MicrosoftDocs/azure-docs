@@ -1,10 +1,10 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 05/05/2020
+ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
-manager: gwallace
+manager: daberry
 ---
 
 Standardized virtual machine (VM) images allow organizations to migrate to the cloud and ensure consistency in the deployments. Images typically include predefined security and configuration settings and necessary software. Setting up your own imaging pipeline requires time, infrastructure and setup, but with Azure VM Image Builder, just provide a simple configuration describing your image, submit it to the service, and the image is built, and distributed.
@@ -51,7 +51,8 @@ AIB will support Azure Marketplace base OS images:
 - Windows 2016
 - Windows 2019
 
-RHEL ISOs support is not longer supported.
+RHEL ISOs support is no longer supported.
+
 ## How it works
 
 
@@ -68,7 +69,7 @@ The Azure Image Builder is a fully managed Azure service that is accessible by a
 1. Create the Image Template as a .json file. This .json file contains information about the image source, customizations, and distribution. There are multiple examples in the [Azure Image Builder GitHub repository](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
 1. Submit it to the service, this will create an Image Template artifact in the resource group you specify. In the background, Image Builder will download the source image or ISO, and scripts as needed. These are stored in a separate resource group that is automatically created in your subscription, in the format: IT_\<DestinationResourceGroup>_\<TemplateName>. 
 1. Once the Image Template is created, you can then build the image. In the background Image Builder uses the template and source files to create a VM (default size: Standard_D1_v2), network, public IP, NSG, and storage in the IT_\<DestinationResourceGroup>_\<TemplateName> resource group.
-1. As part of the image creation, Image builder distributes the image it according to the template, then deletes the additional resources in the IT_\<DestinationResourceGroup>_\<TemplateName> resource group that was created for the process.
+1. As part of the image creation, Image builder distributes the image according to the template, then deletes the additional resources in the IT_\<DestinationResourceGroup>_\<TemplateName> resource group that was created for the process.
 
 
 ## Permissions
@@ -76,14 +77,14 @@ When you register for the (AIB), this grants the AIB Service permission to creat
 
 To allow Azure VM Image Builder to distribute images to either the managed images or to a Shared Image Gallery, you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private containers.
 
-Initially you must [create Azure user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) documentation on how to create an identity.
+Initially you must follow [create Azure user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) documentation on how to create an identity.
 
 Once you have the identity you need to grant it permissions, to do this, you can use an Azure Custom Role Definition, and then assign the user-assigned managed identity to use the Custom Role Definition.
 
 Permissions are explained in more detail [here](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements), and the examples show how this is implemented.
 
-> [Note!]
-> Previously with AIB, you would use the AIB SPN, and grant the SPN permissions to the image resource groups. We are moving away from this model, to allow for future capabilities. From 1st June 2020, Image Builder will not accept templates that do not have a user-assigned identity, existing templates will need to be resubmitted to the service with a [user-identity](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#identity). The examples here already show how you can create a user-assigned identity and add them to a template.
+> [!Note]
+> Previously with AIB, you would use the AIB SPN, and grant the SPN permissions to the image resource groups. We are moving away from this model, to allow for future capabilities. From 26th May 2020, Image Builder will not accept templates that do not have a user-assigned identity, existing templates will need to be resubmitted to the service with a [user-identity](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#identity). The examples here already show how you can create a user-assigned identity and add them to a template. For more information please review this [documentation](https://github.com/danielsollondon/azvmimagebuilder#service-updates-and-latest-release-information) on this change and releases updates.
 
 ## Costs
 You will incur some compute, networking and storage costs when creating, building and storing images with Azure Image Builder. These costs are similar to the costs incurred in manually creating custom images. For the resources, you will be charged at your Azure rates. 
@@ -93,6 +94,9 @@ During the image creation process, files are downloaded and stored in the `IT_<D
 Image Builder creates a VM using a D1v2 VM size, and the storage, and networking needed for the VM. These resources will last for the duration of the build process, and will be deleted once Image Builder has finished creating the image. 
  
 Azure Image Builder will distribute the image to your chosen regions, which might incur network egress charges.
+
+## Hyper-V generation
+Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images to the Azure Shared Image Gallery (SIG) or Managed Image. If you want to create Gen2 images, then you need to use a source Gen2 image, and distribute to VHD. After, you will then need to create a Managed Image from the VHD, and inject it into the SIG as a Gen2 image.
  
 ## Next steps 
  

@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Batch
 description: Learn about Azure monitoring services, metrics, diagnostic logs, and other monitoring features for Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/05/2018
 ---
 
@@ -9,15 +9,15 @@ ms.date: 04/05/2018
 
 Azure and the Batch service provide a range of services, tools, and APIs to monitor your Batch solutions. This overview article helps you choose a monitoring approach that fits your needs.
 
-For an overview of the Azure components and services available to monitor Azure resources, see [Monitoring Azure applications and resources](../monitoring-and-diagnostics/monitoring-overview.md).
+For an overview of the Azure components and services available to monitor Azure resources, see [Monitoring Azure applications and resources](../azure-monitor/overview.md).
 
 ## Subscription-level monitoring
 
-At the subscription level, which includes Batch accounts, the [Azure activity log](../azure-monitor/platform/platform-logs-overview.md) collects operational event data in [several categories](../azure-monitor/platform/activity-log-view.md#categories-in-the-activity-log).
+At the subscription level, which includes Batch accounts, the [Azure activity log](../azure-monitor/platform/platform-logs-overview.md) collects operational event data in [several categories](../azure-monitor/platform/activity-log.md#view-the-activity-log).
 
 For Batch accounts specifically, the activity log collects events related to account creation and deletion and key management.
 
-One way to retrieve events from your activity log is to use the Azure portal. Click **All services** > **Activity Log**. Or, query for events using the Azure CLI, PowerShell cmdlets, or the Azure Monitor REST API. You can also export the activity log, or configure [activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
+One way to retrieve events from your activity log is to use the Azure portal. Click **All services** > **Activity Log**. Or, query for events using the Azure CLI, PowerShell cmdlets, or the Azure Monitor REST API. You can also export the activity log, or configure [activity log alerts](../azure-monitor/platform/alerts-activity-log.md).
 
 ## Batch account-level monitoring
 

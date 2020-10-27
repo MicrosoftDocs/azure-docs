@@ -5,7 +5,7 @@
  author: SnehaGunda
  ms.service: cosmos-db
  ms.topic: include
- ms.date: 01/22/2020
+ ms.date: 10/01/2020
  ms.author: sngun
  ms.custom: include file
 ---
@@ -30,7 +30,7 @@
     API|Cassandra|The API determines the type of account to create. Azure Cosmos DB provides five APIs: Core (SQL) for document databases, Gremlin for graph databases, MongoDB for document databases, Azure Table, and Cassandra. You must create a separate account for each API. <br><br>Select **Cassandra**, because in this quickstart you are creating a table that works with the Cassandra API. <br><br>[Learn more about the Cassandra API](../articles/cosmos-db/cassandra-introduction.md).|
     Location|Select the region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that's closest to your users to give them the fastest access to the data.
 
-    Select **Review+Create**. You can skip the **Network** and **Tags** section. 
+    Select **Review+Create**. You can skip the **Networking**, **Backup**, **Encryption** and **Tags** section. 
 
     ![The new account page for Azure Cosmos DB](./media/cosmos-db-create-dbaccount-cassandra/azure-cosmos-db-create-new-account.png)
 

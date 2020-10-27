@@ -5,8 +5,9 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 3/18/2020
+ms.topic: how-to
+ms.date: 3/18/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Create and manage Azure Database for MariaDB firewall rules by using the Azure CLI
@@ -15,7 +16,7 @@ Server-level firewall rules can be used to manage access to an Azure Database fo
 Virtual Network (VNet) rules can also be used to secure access to your server. Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure CLI](howto-manage-vnet-cli.md).
 
 ## Prerequisites
-* [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* [Install Azure CLI](/cli/azure/install-azure-cli).
 * An [Azure Database for MariaDB server and database](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 ## Firewall rule commands:

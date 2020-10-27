@@ -1,6 +1,6 @@
 ---
-title: Share Azure portal dashboards by using Role-Based Access Control
-description: This article explains how to share a dashboard in the Azure portal by using Role-Based Access Control.
+title: Share Azure portal dashboards by using Azure role-based access control
+description: This article explains how to share a dashboard in the Azure portal by using Azure role-based access control.
 services: azure-portal
 documentationcenter: ''
 author: mgblythe
@@ -10,16 +10,16 @@ manager: mtillman
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 
 ---
-# Share Azure dashboards by using Role-Based Access Control
+# Share Azure dashboards by using Azure role-based access control
 
-After configuring a dashboard, you can publish it and share it with other users in your organization. You allow others to view your dashboard by using Azure [Role-Based Access Control](../role-based-access-control/role-assignments-portal.md) (RBAC). Assign a user or group of users to a role. That role defines whether those users can view or modify the published dashboard.
+After configuring a dashboard, you can publish it and share it with other users in your organization. You allow others to view your dashboard by using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Assign a user or group of users to a role. That role defines whether those users can view or modify the published dashboard.
 
 All published dashboards are implemented as Azure resources. They exist as manageable items within your subscription and are contained in a resource group. From an access control perspective, dashboards are no different than other resources, such as a virtual machine or a storage account.
 
@@ -30,7 +30,7 @@ All published dashboards are implemented as Azure resources. They exist as manag
 
 ## Understanding access control for dashboards
 
-With Role-Based Access Control (RBAC), you can assign users to roles at three different levels of scope:
+With Azure role-based access control (Azure RBAC), you can assign users to roles at three different levels of scope:
 
 * subscription
 * resource group
@@ -84,6 +84,5 @@ You can assign a group of users to a role for that dashboard.
 
 ## Next steps
 
-* For a list of roles, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
-* To learn about managing resources, see [Manage Azure resources by using the Azure portal](resource-group-portal.md).
-
+* For a list of roles, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
+* To learn about managing resources, see [Manage Azure resources by using the Azure portal](../azure-resource-manager/management/manage-resources-portal.md).

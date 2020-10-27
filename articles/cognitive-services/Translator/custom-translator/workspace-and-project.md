@@ -7,7 +7,7 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to concept of a project, so that I can use it efficiently.
@@ -50,7 +50,7 @@ The project label is used as part of the CategoryID. If the project label is
 left unset or is set identically across projects, then projects with the same
 category and *different* language pairs will share the same CategoryID. This approach is
 advantageous because it allows you or your customer to switch between
-languages when using the Translator without worrying about a CategoryID that is unique to each project.
+languages when using the Text Translator API without worrying about a CategoryID that is unique to each project.
 
 For example, if I wanted to enable translations in the Technology domain from
 English to French and from French to English, I would create two

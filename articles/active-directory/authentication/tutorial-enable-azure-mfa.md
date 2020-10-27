@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/11/2020
+ms.date: 07/13/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
@@ -22,6 +22,11 @@ Multi-factor authentication (MFA) is a process where a user is prompted during a
 
 Azure Multi-Factor Authentication and Conditional Access policies give the flexibility to enable MFA for users during specific sign-in events.
 
+> [!IMPORTANT]
+> This tutorial shows an administrator how to enable Azure Multi-Factor Authentication.
+>
+> If your IT team hasn't enabled the ability to use Azure Multi-Factor Authentication or you have problems during sign-in, reach out to your helpdesk for additional assistance.
+
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -33,13 +38,13 @@ In this tutorial you learn how to:
 
 To complete this tutorial, you need the following resources and privileges:
 
-* A working Azure AD tenant with Azure AD Premium or trial license enabled.
+* A working Azure AD tenant with at least an Azure AD Premium P1 or trial license enabled.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with *global administrator* privileges.
 * A non-administrator user with a password you know, such as *testuser*. You test the end-user Azure Multi-Factor Authentication experience using this account in this tutorial.
-    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md).
+    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * A group that the non-administrator user is a member of, such as *MFA-Test-Group*. You enable Azure Multi-Factor Authentication for this group in this tutorial.
-    * If you need to create a group, see how to [Create a group and add members in Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+    * If you need to create a group, see how to [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## Create a Conditional Access policy
 
@@ -59,7 +64,7 @@ First, create a Conditional Access policy and assign your test group of users as
 1. Check the box for **Users and groups**, then **Select** to browse the available Azure AD users and groups.
 1. Browse for and select your Azure AD group, such as *MFA-Test-Group*, then choose **Select**.
 
-    [![](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png "Select your Azure AD group to use with the Conditional Access policy")](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
+    [ ![Select your Azure AD group to use with the Conditional Access policy](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png) ](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
 
 1. To apply the Conditional Access policy for the group, select **Done**.
 
@@ -127,4 +132,4 @@ In this tutorial, you enabled Azure Multi-Factor Authentication using Conditiona
 > * Test the MFA process as a user
 
 > [!div class="nextstepaction"]
-> [Enable password writeback for self-service password reset (SSPR)](tutorial-enable-writeback.md)
+> [Enable password writeback for self-service password reset (SSPR)](./tutorial-enable-sspr-writeback.md)

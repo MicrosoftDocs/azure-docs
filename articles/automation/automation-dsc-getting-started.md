@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure Automation State Configuration
-description: Explanation and examples of the most common tasks in Azure Automation State Configuration
+description: This article tells how to do the most common tasks in Azure Automation State Configuration.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -21,8 +21,8 @@ article, you can use the [Azure Automation Managed Node template](https://github
 
 To complete the examples in this article, the following are required:
 
-- An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](automation-sec-configure-azure-runas-account.md).
-- An Azure Resource Manager VM (not Classic) running a [supported operating system](automation-dsc-overview.md#operating-system-requirements). For instructions on creating a VM, see [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](./manage-runas-account.md).
+- An Azure Resource Manager VM (not Classic) running a [supported operating system](automation-dsc-overview.md#operating-system-requirements). For instructions on creating a VM, see [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
 
 ## Create a DSC configuration
 
@@ -247,10 +247,10 @@ If you no longer want a node to be managed by State Configuration, you can unreg
 
     ![Screenshot of the Node details page highlighting the Unregister button](./media/automation-dsc-getting-started/UnregisterNode.png)
 
-## Related articles
+## Next steps
 
-- [Azure Automation State Configuration overview](automation-dsc-overview.md)
-- [Onboarding machines for management by Azure Automation State Configuration](automation-dsc-onboarding.md)
-- [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview)
-- [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/)
-- [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+- For an overview, see [Azure Automation State Configuration overview](automation-dsc-overview.md).
+- To enable the feature for VMs in your environment, see [Enable Azure Automation State Configuration](automation-dsc-onboarding.md).
+- To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration overview](/powershell/scripting/dsc/overview/overview).
+- For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
+- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

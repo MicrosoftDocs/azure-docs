@@ -4,13 +4,13 @@ description: This article explains the different input and output data errors th
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 03/27/2020
+ms.topic: troubleshooting
+ms.date: 08/07/2020
 ---
 
 # Azure Stream Analytics data errors
 
-Data errors are errors that occur while processing the data.  These errors most often occur during data de-serialization, serialization, and write operations.  When data errors occur, Stream Analytics writes detailed information and example events to the resource logs.  In some cases, summary of this information is also provided through portal notifications.
+Data errors are errors that occur while processing the data.  These errors most often occur during data de-serialization, serialization, and write operations.  When data errors occur, Stream Analytics writes detailed information and example events to the resource logs. Enable diagnostic logs in your job to get these additional details. In some cases, a summary of this information is also provided through portal notifications.
 
 This article outlines the different error types, causes, and resource log details for input and output data errors.
 
@@ -206,6 +206,10 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 ```
 
 ## Output data errors
+
+Azure Stream Analytics can identify output data errors with or without an I/O request to the output sink depending on the configuration. For example, missing a required column, such as  `PartitionKey`, when using Azure Table output can be identified without an I/O request. However, constraint violations in SQL output do require an I/O request.
+
+There are several data errors that can only be detected after making a call to the output sink, which can slow down processing. To resolve this, change your job's configuration or the query that is causing the data error.
 
 ### OutputDataConversionError.RequiredColumnMissing
 

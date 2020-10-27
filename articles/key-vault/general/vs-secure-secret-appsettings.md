@@ -8,9 +8,10 @@ editor: ''
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: cawa
+ms.custom: devx-track-csharp
 
 ---
 
@@ -26,7 +27,7 @@ To make sure the development process is secure, tooling and framework libraries 
 ## ASP.NET and .NET Core applications
 
 ### Save secret settings in User Secret store that is outside of source control folder
-If you are doing a quick prototype or you don't have internet access, start with moving your secret settings outside of source control folder to User Secret store. User Secret store is a file saved under user profiler folder, so secrets are not checked in to source control. The following diagram demonstrates how [User Secret](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio) works.
+If you are doing a quick prototype or you don't have internet access, start with moving your secret settings outside of source control folder to User Secret store. User Secret store is a file saved under user profiler folder, so secrets are not checked in to source control. The following diagram demonstrates how [User Secret](/aspnet/core/security/app-secrets?tabs=visual-studio) works.
 
 ![User Secret keeps secret settings outside of source control](../media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -39,7 +40,7 @@ If you are developing a project and need to share source code securely, use [Azu
 
     ![Create Azure Key Vault](../media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Grant you and your team members access to the Key Vault. If you have a large team, you can create an [Azure Active Directory group](../../active-directory/active-directory-groups-create-azure-portal.md) and add that security group access to the Key Vault. In the *Secret Permissions* dropdown, check *Get* and *List* under *Secret Management Operations*.
+2. Grant you and your team members access to the Key Vault. If you have a large team, you can create an [Azure Active Directory group](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) and add that security group access to the Key Vault. In the *Secret Permissions* dropdown, check *Get* and *List* under *Secret Management Operations*.
 If you already have your web app created, grant the web app access to the Key Vault so it can access the key vault without storing secret configuration in App Settings or files. Search for your web app by its name and add it the same way you grant users access.
 
     ![Add Key Vault access policy](../media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
@@ -52,14 +53,19 @@ If you already have your web app created, grant the web app access to the Key Va
     > Prior to Visual Studio 2017 V15.6 we used to recommend installing the Azure Services Authentication extension for Visual Studio. But it is deprecated now as the functionality is integrated within the Visual Studio . Hence if you are on an older version of visual Studio 2017 , we suggest you to update to at least VS 2017 15.6 or up so that you can use this functionality natively and access the Key-vault from using the Visual Studio sign-in Identity itself.
     >
 
-4. Add the following NuGet packages to your project:
+4. Log in to Azure using the CLI, you can type:
+
+    ```azurecli
+    az login
+    ```
+
+5. Add the following NuGet packages to your project:
 
     ```
-    Microsoft.Azure.KeyVault
-    Microsoft.Azure.Services.AppAuthentication
-    Microsoft.Extensions.Configuration.AzureKeyVault
+    Azure.Identity
+    Azure.Extensions.AspNetCore.Configuration.Secrets
     ```
-5. Add the following code to Program.cs file:
+6. Add the following code to Program.cs file:
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -69,12 +75,7 @@ If you already have your web app created, grant the web app access to the Key Va
                     var keyVaultEndpoint = GetKeyVaultEndpoint();
                     if (!string.IsNullOrEmpty(keyVaultEndpoint))
                     {
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
-                        builder.AddAzureKeyVault(
-                        keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                        builder.AddAzureKeyVault(new Uri(keyVaultEndpoint), new DefaultAzureCredential(), new KeyVaultSecretManager());
                     }
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
@@ -84,11 +85,12 @@ If you already have your web app created, grant the web app access to the Key Va
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-6. Add your Key Vault URL to launchsettings.json file. The environment variable name *KEYVAULT_ENDPOINT* is defined in the code you added in step 6.
+
+7. Add your Key Vault URL to launchsettings.json file. The environment variable name *KEYVAULT_ENDPOINT* is defined in the code you added in step 7.
 
     ![Add Key Vault URL as a project environment variable](../media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
-7. Start debugging the project. It should run successfully.
+8. Start debugging the project. It should run successfully.
 
 ## ASP.NET and .NET applications
 
@@ -98,35 +100,22 @@ To proceed, [download .NET 4.7.1](https://www.microsoft.com/download/details.asp
 ### Save secret settings in a secret file that is outside of source control folder
 If you are writing a quick prototype and don't want to provision Azure resources, go with this option.
 
-1. Install the following NuGet package to your project
-    ```
-    Microsoft.Configuration.ConfigurationBuilders.Base
-    ```
+1. Right click on the project and select **Manage User Secrets**. This will install a NuGet package **Microsoft.Configuration.ConfigurationBuilders.UserSecrets** , create a file for saving secret settings outside of web.config file, and add a section **ConfigBuilders** in the web.config file.
 
-2. Create a file that's similar to the following. Save it under a location outside of your project folder.
+2. Put secret settings under root element. below is an example
 
     ```xml
+    <?xml version="1.0" encoding="utf-8"?>
     <root>
-        <secrets ver="1.0">
-            <secret name="secret1" value="foo_one" />
-            <secret name="secret2" value="foo_two" />
-        </secrets>
+      <secrets ver="1.0">
+        <secret name="secret" value="foo"/>
+        <secret name="secret1" value="foo_one" />
+        <secret name="secret2" value="foo_two" />
+      </secrets>
     </root>
     ```
 
-3. Define the secret file to be a configuration builder in your Web.config file. Put this section before *appSettings* section.
-
-    ```xml
-    <configBuilders>
-        <builders>
-            <add name="Secrets"
-                 secretsFile="C:\Users\AppData\MyWebApplication1\secret.xml" type="Microsoft.Configuration.ConfigurationBuilders.UserSecretsConfigBuilder,
-                    Microsoft.Configuration.ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
-        </builders>
-    </configBuilders>
-    ```
-
-4. Specify appSettings section is using the secret configuration builder. Make sure there is an entry for the secret setting with a dummy value.
+3. Specify appSettings section is using the secret configuration builder. Make sure there is an entry for the secret setting with a dummy value.
 
     ```xml
         <appSettings configBuilders="Secrets">
@@ -145,20 +134,18 @@ Follow instructions from ASP.NET core section to configure a Key Vault for your 
 
 1. Install the following NuGet package to your project
    ```
-   Microsoft.Configuration.ConfigurationBuilders.UserSecrets
+   Microsoft.Configuration.ConfigurationBuilders.Azure
    ```
 
-2. Define Key Vault configuration builder in Web.config. Put this section before *appSettings* section. Replace *vaultName* to be the Key Vault name if your Key Vault is in public Azure, or full URI if you are using Sovereign cloud.
+2. Define Key Vault configuration builder in Web.config. Put this section before *appSettings* section. Replace *vaultName* to be the Key Vault name if your Key Vault is in global Azure, or full URI if you are using Sovereign cloud.
 
     ```xml
-    <configSections>
-        <section name="configBuilders" type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" restartOnExternalChanges="false" requirePermission="false" />
-    </configSections>
-    <configBuilders>
+     <configBuilders>
         <builders>
-            <add name="AzureKeyVault" vaultName="Test911" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
+            <add name="Secrets" userSecretsId="695823c3-6921-4458-b60b-2b82bbd39b8d" type="Microsoft.Configuration.ConfigurationBuilders.UserSecretsConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+            <add name="AzureKeyVault" vaultName="[VaultName]" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
         </builders>
-    </configBuilders>
+      </configBuilders>
     ```
 3. Specify appSettings section is using the Key Vault configuration builder. Make sure there is any entry for the secret setting with a dummy value.
 

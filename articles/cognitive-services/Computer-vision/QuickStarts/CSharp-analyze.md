@@ -9,32 +9,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ---
 # Quickstart: Analyze a local image using the Computer Vision REST API and C#
 
 In this quickstart, you will analyze a locally stored image to extract visual features using the Computer Vision REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual feature information from image content.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
-
 ## Prerequisites
 
-- You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later.
-- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key. Then, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and service endpoint string, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* [Create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint URL, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT`, respectively.
 
 ## Create and run the sample application
 
 To create the sample in Visual Studio, do the following steps:
 
-1. Create a new Visual Studio solution in Visual Studio, using the Visual C# Console App (.NET Framework) template.
+1. Create a new Visual Studio solution/project in Visual Studio, using the Visual C# Console App (.NET Core Framework) template.
 1. Install the Newtonsoft.Json NuGet package.
     1. On the menu, click **Tools**, select **NuGet Package Manager**, then **Manage NuGet Packages for Solution**.
-    1. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json".
-    1. Select **Newtonsoft.Json** when it displays, then click the checkbox next to your project name, and **Install**.
+    1. Click the **Browse** tab, and in the **Search** box type "Newtonsoft.Json" (if it is not already displayed).
+    1. Select **Newtonsoft.Json**, then click the checkbox next to your project name, and **Install**.
+1. Copy/paste the sample code snippet below, into your Program.cs file. Adjust the namespace name if it's different from the one you created.
+1. Add an image of your choosing to your bin/debug/netcoreappX.X folder, then add the image name (with extension) to the 'imageFilePath' variable.
 1. Run the program.
-1. At the prompt, enter the path to a local image.
 
 ```csharp
 using Newtonsoft.Json.Linq;
@@ -54,26 +57,18 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
         
         // the Analyze method endpoint
-        static string uriBase = endpoint + "vision/v2.1/analyze";
+        static string uriBase = endpoint + "vision/v3.1/analyze";
 
-        static async Task Main()
+        // Image you want analyzed (add to your bin/debug/netcoreappX.X folder)
+        // For sample images, download one from here (png or jpg):
+        // https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/Images
+        static string imageFilePath = @"my-sample-image";
+
+        public static void Main()
         {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Analyze an image:");
-            Console.Write(
-                "Enter the path to the image you wish to analyze: ");
-            string imageFilePath = Console.ReadLine();
+            // Call the API
+            MakeAnalysisRequest(imageFilePath).Wait();
 
-            if (File.Exists(imageFilePath))
-            {
-                // Call the REST API method.
-                Console.WriteLine("\nWait for the results to appear.\n");
-                await MakeAnalysisRequest(imageFilePath);
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path");
-            }
             Console.WriteLine("\nPress Enter to exit...");
             Console.ReadLine();
         }
@@ -162,7 +157,7 @@ namespace CSHttpClientSample
 
 ## Examine the response
 
-A successful response is returned in JSON. The sample application parses and displays a successful response in the console window, similar to the following example:
+A successful response is returned in JSON (based on your own image used) in the console window, similar to the following example:
 
 ```json
 {

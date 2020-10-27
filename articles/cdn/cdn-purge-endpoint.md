@@ -1,6 +1,6 @@
 ---
 title: Purge an Azure CDN endpoint | Microsoft Docs
-description: Learn how to purge all cached content from an Azure CDN endpoint.
+description: Learn how to purge all cached content from an Azure Content Delivery Network endpoint. Edge nodes cache assets until their time-to-live expires.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -12,7 +12,7 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
 
@@ -65,7 +65,7 @@ This tutorial walks you through purging assets from all edge nodes of an endpoin
     ![Purge button](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Purge requests take approximately 10 minutes to process with **Azure CDN from Microsoft**, approximately 2 minutes with **Azure CDN from Verizon** (standard and premium), and approximately 10 seconds with **Azure CDN from Akamai**.  Azure CDN has a limit of 50 concurrent purge requests at any given time at the profile level. 
+> Purge requests take approximately 10 minutes to process with **Azure CDN from Microsoft**, approximately 2 minutes with **Azure CDN from Verizon** (standard and premium), and approximately 10 seconds with **Azure CDN from Akamai**.  Azure CDN has a limit of 100 concurrent purge requests at any given time at the profile level. 
 > 
 > 
 

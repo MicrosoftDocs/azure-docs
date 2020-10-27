@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/27/2020
+ms.date: 07/13/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 ms.reviewer: rogoya
 
 ms.collection: M365-identity-device-management
@@ -31,16 +31,16 @@ In this tutorial you learn how to:
 
 To complete this tutorial, you need the following resources and privileges:
 
-* A working Azure AD tenant with at least a trial license enabled.
+* A working Azure AD tenant with at least an Azure AD Premium P1 or trial license enabled.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with *global administrator* privileges.
 * A non-administrator user with a password you know, such as *testuser*. You test a password change event using this account in this tutorial.
-    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md).
+    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
     * To test the password change operation using a banned password, the Azure AD tenant must be [configured for self-service password reset](tutorial-enable-sspr.md).
 
 ## What are banned password lists?
 
-Azure AD includes a global banned password list. The contents of the global banned password list isn't based on any external data source. Instead, the global banned password list is based on the ongoing results of Azure AD security telemetry and analysis. When a user or administrator tries to change or reset their credentials, the desired password is checked against the list of banned passwords. The password change request fails if there's a match in the global banned password list.
+Azure AD includes a global banned password list. The contents of the global banned password list isn't based on any external data source. Instead, the global banned password list is based on the ongoing results of Azure AD security telemetry and analysis. When a user or administrator tries to change or reset their credentials, the desired password is checked against the list of banned passwords. The password change request fails if there's a match in the global banned password list. You can't edit this default global banned password list.
 
 To give you flexibility in what passwords are allowed, you can also define a custom banned password list. The custom banned password list works alongside the global banned password list to enforce strong passwords in your organization. Organizational-specific terms can be added to the custom banned password list, such as the following examples:
 
@@ -76,7 +76,7 @@ To enable the custom banned password list and add entries to it, complete the fo
 
     Specify your own custom passwords to ban, as shown in the following example
 
-    [![](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png "Modify the custom banned password list under Authentication Methods in the Azure portal")](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
+    [ ![Modify the custom banned password list under Authentication Methods in the Azure portal](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png) ](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
 
 1. Leave the option for **Enable password protection on Windows Server Active Directory** to *No*.
 1. To enable the custom banned passwords and your entries, select **Save**.
@@ -90,7 +90,7 @@ For a hybrid environment, you can also [deploy Azure AD password protection to a
 To see the custom banned password list in action, try to change the password to a variation of one that you added in the previous section. When Azure AD tries to process the password change, the password is matched against an entry in the custom banned password list. An error is then displayed to the user.
 
 > [!NOTE]
-> Before a user can reset their password in the web-based portal, the Azure AD tenant must be [configured for self-service password reset](tutorial-enable-sspr.md).
+> Before a user can reset their password in the web-based portal, the Azure AD tenant must be [configured for self-service password reset](tutorial-enable-sspr.md). If needed, the user can then [register for SSPR at https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
 
 1. Go to the **My Apps** page at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. In the top-right corner, select your name, then choose **Profile** from the drop-down menu.
@@ -123,4 +123,4 @@ In this tutorial, you enabled and configured custom password protection lists fo
 > * Test password changes with a banned password
 
 > [!div class="nextstepaction"]
-> [Enable risk-based Azure Multi-Factor Authentication](tutorial-mfa-applications.md)
+> [Enable risk-based Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

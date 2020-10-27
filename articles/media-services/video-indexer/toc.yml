@@ -13,6 +13,8 @@
     href: invite-users.md
 - name: Tutorials
   items:
+  - name: Create a new account connected to Azure
+    href: connect-to-azure.md
   - name: Use Video Indexer API
     href: video-indexer-use-apis.md
   - name: Logic Apps connector
@@ -23,8 +25,6 @@
     href: https://github.com/Azure-Samples/media-services-video-indexer
 - name: Concepts
   items:
-  - name: Overview
-    href: video-indexer-concepts.md
   - name: Compare Video Indexer and Media Services presets
     href: compare-video-indexer-with-media-services-presets.md   
   - name: Manage multiple tenants
@@ -104,6 +104,7 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Regions
+    displayName: location
     href: regions.md
   - name: FAQs
     href: faq.md    
@@ -111,6 +112,8 @@
     href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942 
   - name: Release notes
     href: release-notes.md
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=video-indexer
   - name: User voice
     href: https://cognitive.uservoice.com/forums/598144-video-indexer
   - name: Blogs

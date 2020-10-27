@@ -7,7 +7,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -22,9 +22,9 @@ ms.subservice: B2C
 You can use the following properties to manage web application sessions:
 
 - **Web app session lifetime (minutes)** - The lifetime of Azure AD B2C's session cookie stored on the user's browser upon successful authentication.
-    - Default =  86400 seconds (1440 minutes).
-    - Minimum (inclusive) = 900  seconds (15 minutes).
-    - Maximum (inclusive) = 86400 seconds (1440 minutes).
+  - Default =  86400 seconds (1440 minutes).
+  - Minimum (inclusive) = 900  seconds (15 minutes).
+  - Maximum (inclusive) = 86400 seconds (1440 minutes).
 - **Web app session timeout** - The [session expiry type](session-overview.md#session-expiry-type), *Rolling*, or *Absolute*. 
 - **Single sign-on configuration** - The [session scope](session-overview.md#session-scope) of the single sign-on (SSO) behavior across multiple apps and user flows in your Azure AD B2C tenant. 
 
@@ -32,7 +32,7 @@ You can use the following properties to manage web application sessions:
 
 To change your session behavior and SSO configurations, you add a **UserJourneyBehaviors** element inside of the [RelyingParty](relyingparty.md) element.  The **UserJourneyBehaviors** element must immediately follow the **DefaultUserJourney**. Your **UserJourneyBehavors** element should look like this example:
 
-```XML
+```xml
 <UserJourneyBehaviors>
    <SingleSignOn Scope="Application" />
    <SessionExpiryType>Absolute</SessionExpiryType>
@@ -40,23 +40,47 @@ To change your session behavior and SSO configurations, you add a **UserJourneyB
 </UserJourneyBehaviors>
 ```
 
-## Single sign-out
+## Configure sign-out behavior
 
-### Configure the applications
+### Secure your logout redirect
+
+After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed and the **Require ID Token in logout requests** is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected. 
+
+To require an ID Token in logout requests, add a **UserJourneyBehaviors** element inside of the [RelyingParty](relyingparty.md) element. Then set the **EnforceIdTokenHintOnLogout** of the **SingleSignOn** element to `true`. Your **UserJourneyBehaviors** element should look like this example:
+
+```xml
+<UserJourneyBehaviors>
+  <SingleSignOn Scope="Tenant" EnforceIdTokenHintOnLogout="true"/>
+</UserJourneyBehaviors>
+```
+
+To configure your application Logout URL:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **App registrations**, and then select your application.
+1. Select **Authentication**.
+1. In the **Logout URL** text box, type your post logout redirect URI, and then select **Save**.
+
+### Single sign-out
+
+#### Configure the applications
 
 When you redirect the user to the Azure AD B2C sign-out endpoint (for both OAuth2 and SAML protocols), Azure AD B2C clears the user's session from the browser.  To allow [Single sign-out](session-overview.md#single-sign-out), set the `LogoutUrl` of the application from the Azure portal:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. Choose your Azure AD B2C directory by clicking your account in the top right corner of the page.
 1. In the left menu, choose **Azure AD B2C**, select **App registrations**, and then select your application.
-1. Select **Settings**, select **Properties**, and then find the **Logout URL** text box. 
+1. Select **Authentication**.
+1. In the **Logout URL** text box, type your post logout redirect URI, and then select **Save**.
 
-### Configure the token issuer 
+#### Configure the token issuer 
 
 To support single sign-out, the token issuer technical profiles for both JWT and SAML must specify:
 
 - The protocol name, such as `<Protocol Name="OpenIdConnect" />`
-- The reference  to the session technical profile, such as `UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />`.
+- The reference  to the session technical profile, such as `UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />`.
 
 The following example illustrates the JWT and SAML token issuers with single sign-out:
 
@@ -70,7 +94,7 @@ The following example illustrates the JWT and SAML token issuers with single sig
       <Protocol Name="OpenIdConnect" />
       <OutputTokenFormat>JWT</OutputTokenFormat>
       ...    
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />
     </TechnicalProfile>
 
     <!-- Session management technical profile for OIDC based tokens -->

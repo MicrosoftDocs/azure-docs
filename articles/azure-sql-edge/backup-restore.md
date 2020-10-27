@@ -1,9 +1,9 @@
 ---
-title: Backup and restore databases - Azure SQL Edge (Preview)
-description: Learn about backup and restore capabilities in Azure SQL Edge (Preview)
+title: Back up and restore databases - Azure SQL Edge
+description: Learn about backup and restore capabilities in Azure SQL Edge.
 keywords: 
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
@@ -11,32 +11,34 @@ ms.reviewer: sstein
 ms.date: 05/19/2020
 ---
 
-# Backup and Restore databases in Azure SQL Edge (Preview) 
+# Back up and restore databases in Azure SQL Edge 
 
-Azure SQL Edge is built on the latest versions of the Microsoft SQL Server Database Engine on Linux, providing similar backup and restore database capabilities as those available in SQL Server on Linux and SQL Server running in containers. Backup and restore component provides an essential safeguard for protecting data stored in your Azure SQL Edge databases. To minimize the risk of catastrophic data loss, it's recommended that you back up your databases periodically to preserve modifications to your data on a regular basis. A well-planned backup and restore strategy helps protect databases against data loss caused by a variety of failures. Test your strategy by restoring a set of backups and then recovering your database to prepare you to respond effectively to a disaster.
+Azure SQL Edge is built on the latest versions of the Microsoft SQL Database Engine. It provides similar backup and restore database capabilities as those available in SQL Server on Linux and SQL Server running in containers. The backup and restore component provides an essential safeguard for protecting data stored in your Azure SQL Edge databases. 
 
-To read more about why backups are important, see [Back Up and Restore of SQL Server Databases](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases/).
+To minimize the risk of catastrophic data loss, you should back up your databases periodically to preserve modifications to your data on a regular basis. A well-planned backup and restore strategy helps protect databases against data loss caused by a variety of failures. Test your strategy by restoring a set of backups and then recovering your database, to prepare you to respond effectively to a disaster.
 
-Azure SQL Edge supports backup to and restore from both local storage or from Azure blobs. For more information on backup to and restore from Azure Blob Storage, refer [SQL Server Backup and Restore with Microsoft Azure Blob Storage Service](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service/) and [SQL Server Backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url).
+To read more about why backups are important, see [Backup and restore of SQL Server databases](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases/).
 
-## Backing up a database in Azure SQL Edge
+Azure SQL Edge enables you to back up to and restore from both local storage and Azure blobs. For more information, see [SQL Server backup and restore with Azure Blob storage](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service/) and [SQL Server backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
-Azure SQL Edge supports the same backup types as supported by SQL Server. For a complete list of the backup types supported in SQL Server, refer [Backup Overview](/sql/relational-databases/backup-restore/backup-overview-sql-server/).
+## Back up a database in Azure SQL Edge
+
+Azure SQL Edge supports the same backup types as SQL Server. For a complete list, see [Backup overview](/sql/relational-databases/backup-restore/backup-overview-sql-server/).
 
 > [!IMPORTANT] 
-> Databases created in Azure SQL Edge use simple recovery model by default. As such log backups cannot be performed on these databases. If there is a need to perform log backups on these databases, an administrator would need to change the database recovery model to full recovery model. For a complete list of recovery models supported by SQL Server, refer [Recovery Model Overview](/sql/relational-databases/backup-restore/recovery-models-sql-server#RMov).
+> Databases created in Azure SQL Edge use the simple recovery model by default. As such, you can't perform log backups on these databases. If you need to do this, you'll need an administrator to change the database recovery model to the full recovery model. For a complete list of recovery models supported by SQL Server, see [Recovery model overview](/sql/relational-databases/backup-restore/recovery-models-sql-server#RMov).
 
-### Backup to local disk
+### Back up to local disk
 
-In the example provided below, BACKUP DATABASE Transact-SQL command is used to create a database backup in the container. For the purpose of this example, a new folder called "backup" is created to store the backup files.
+In the following example, you use the `BACKUP DATABASE` Transact-SQL command to create a database backup in the container. For the purpose of this example, you create a new folder called *backup* to store the backup files.
 
-1. Create a folder for the backups. This command needs to be executed on the host where your Azure SQL Edge container is running. In the command below replace **<AzureSQLEdge_Container_Name>** with the name of Azure SQL Edge container in your deployment.
+1. Create a folder for the backups. Run this command on the host where your Azure SQL Edge container is running. In the following command, replace **<AzureSQLEdge_Container_Name>** with the name of the Azure SQL Edge container in your deployment.
 
     ```bash
     sudo docker exec -it <AzureSQLEdge_Container_Name> mkdir /var/opt/mssql/backup
     ```
 
-2. Connect to the Azure SQL Edge instance using SQL Server Management Studio (SSMS) or using Azure Data Studio (ADS) and run the Backup database command to take the backup of your user database. In the example below, we are taking the backup of the *IronOreSilicaPrediction* database.
+2. Connect to the Azure SQL Edge instance by using SQL Server Management Studio (SSMS), or by using Azure Data Studio. Run the `BACKUP DATABASE` command to take the backup of your user database. In the following example, you're taking the backup of the *IronOreSilicaPrediction* database.
 
     ```sql
     BACKUP DATABASE [IronOreSilicaPrediction] 
@@ -46,7 +48,7 @@ In the example provided below, BACKUP DATABASE Transact-SQL command is used to c
     GO
     ```
 
-3. After you run the command and if the backup of the database is successful, you'll see messages similar to the following in the results section of SSMS or ADS.
+3. After you run the command, if the backup of the database is successful, you'll see messages similar to the following in the results section of SSMS or Azure Data Studio.
 
     ```txt
     10 percent processed.
@@ -66,11 +68,11 @@ In the example provided below, BACKUP DATABASE Transact-SQL command is used to c
     Completion time: 2020-04-09T23:54:48.4957691-07:00
     ```
 
-### Backup to URL
+### Back up to URL
 
-Azure SQL Edge supports backups to both page blobs and block blobs. For more information on page blobs and block blobs, refer [Backup to Block blob vs Page blob](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-ver15#blockbloborpageblob). In the example below, database *IronOreSilicaPrediction* is being backed up to a block blob. 
+Azure SQL Edge supports backups to both page blobs and block blobs. For more information, see [Back up to block blob vs page blob](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob). In the following example, the database *IronOreSilicaPrediction* is being backed up to a block blob. 
 
-1. The first step in configuring backups to block blobs is to generate a shared access signature (SAS) token that can be used to create a SQL Server Credential on Azure SQL Edge. The script creates a Shared Access Signature that is associated with a Stored Access Policy. For more information, see [Shared Access Signatures, Part 1: Understanding the SAS Model](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/). The script also writes the T-SQL command required to create the credential on SQL Server. The script below assumes that you already have an Azure subscription with a storage account and a storage container for the backups.
+1. To configure backups to block blobs, first generate a shared access signature (SAS) token that you can use to create a SQL Server credential on Azure SQL Edge. The script creates a SAS that is associated with a stored access policy. For more information, see [Shared access signatures, part 1: Understanding the SAS model](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/). The script also writes the T-SQL command required to create the credential on SQL Server. The following script assumes that you already have an Azure subscription with a storage account, and a storage container for the backups.
 
     ```PowerShell
     # Define global variables for the script  
@@ -102,9 +104,9 @@ Azure SQL Edge supports backups to both page blobs and block blobs. For more inf
     Write-Host $tSql
     ```
 
-    After successfully running the script, copy the CREATE CREDENTIAL command to a query tool, connect to an instance of SQL Server and run the command to create the credential with the Shared Access Signature.
+    After successfully running the script, copy the `CREATE CREDENTIAL` command to a query tool. Then connect to an instance of SQL Server, and run the command to create the credential with the SAS.
 
-2. Connect to the Azure SQL Edge instance using SQL Server Management Studio (SSMS) or using Azure Data Studio (ADS) and create the credential using the command from the previous step. Make sure to replace the CREATE CREDENTIAL command with the actual output from the previous step.
+2. Connect to the Azure SQL Edge instance by using SSMS or Azure Data Studio, and create the credential by using the command from the previous step. Make sure to replace the `CREATE CREDENTIAL` command with the actual output from the previous step.
 
     ```sql
     IF NOT EXISTS  
@@ -124,21 +126,24 @@ Azure SQL Edge supports backups to both page blobs and block blobs. For more inf
     GO
     ```
 
-## Restoring a database in Azure SQL Edge
+## Restore a database in Azure SQL Edge
 
-Azure SQL Edge supports restoring from both a local disk, a network location or from an Azure Blob Storage account. For an overview of Restore and Recovery in SQL Server, refer [Restore and Recovery Overview](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server?view=sql-server-ver15). For an overview of the simple recovery model in SQL Server, refer [Complete Database Restores (Simple Recovery Model)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model?view=sql-server-ver15).
+In Azure SQL Edge, you can restore from a local disk, a network location, or an Azure Blob storage account. For more information about restore and recovery in SQL Server, see [Restore and recovery overview](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server). For an overview of the simple recovery model in SQL Server, see [Complete database restores (simple recovery model)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model).
 
-### Restore from local disk
+> [!IMPORTANT] 
+> Databases created in Azure SQL Edge cannot be restored on an instance of Microsoft SQL Server or Azure SQL. Additionally, a database created on Microsoft SQL Server or Azure SQL can be restored on Azure SQL Edge, provided the database does not contain any of the features not supported by Azure SQL Edge. 
 
-This example uses the *IronOreSilicaPrediction* backup performed in the previous example for restoration as a new database with a different name.
+### Restore from a local disk
 
-1. If the database backup file is not already present in the container, you can use the command below to copy the file into the container. The example below assumes that the backup file is present on the local host and is being copied to the /var/opt/mssql/backup folder into an Azure SQL Edge container named sql1.
+This example uses the *IronOreSilicaPrediction* backup that you made in the previous example. Now, you'll restore it as a new database with a different name.
+
+1. If the database backup file isn't already present in the container, you can use the following command to copy the file into the container. The following example assumes that the backup file is present on the local host, and is being copied to the /var/opt/mssql/backup folder into an Azure SQL Edge container named *sql1*.
 
     ```bash
     sudo docker cp IronOrePredictDB.bak sql1:/var/opt/mssql/backup
     ```
 
-2. Connect to the Azure SQL Edge instance using SQL Server Management Studio (SSMS) or using Azure Data Studio (ADS) to execute the restore command. In the example below, the **IronOrePredictDB.bak** is restored to create a new database **IronOreSilicaPrediction_2**
+2. Connect to the Azure SQL Edge instance by using SSMS or Azure Data Studio to run the restore command. In the following example, **IronOrePredictDB.bak** is restored to create a new database, **IronOreSilicaPrediction_2**.
 
     ```sql
     Restore FilelistOnly from disk = N'/var/opt/mssql/backup/IronOrePredictDB.bak'
@@ -149,7 +154,7 @@ This example uses the *IronOreSilicaPrediction* backup performed in the previous
     MOVE 'IronOreSilicaPrediction_log' TO '/var/opt/mssql/data/IronOreSilicaPrediction_Primary_2.ldf'
     ```
 
-3. After you run the restore command and if the restore operation was successful, you'll see the messages similar to the following in the output window. 
+3. After you run the restore command, if the restore operation was successful, you'll see messages similar to the following in the output window. 
 
     ```txt
     Processed 51648 pages for database 'IronOreSilicaPrediction_2', file 'IronOreSilicaPrediction' on file 1.
@@ -161,7 +166,7 @@ This example uses the *IronOreSilicaPrediction* backup performed in the previous
 
 ### Restore from URL
 
-Azure SQL Edge also supports restoring a database from an Azure Storage account. Restores can be performed from either the block blobs or page blob backups. In the example provided below, the *IronOreSilicaPrediction_2020_04_16.bak* database backup file on a block blob is restored to create the database *IronOreSilicaPrediction_3*.
+Azure SQL Edge also supports restoring a database from an Azure Storage account. You can restore from either the block blobs or page blob backups. In the following example, the *IronOreSilicaPrediction_2020_04_16.bak* database backup file on a block blob is restored to create the database, *IronOreSilicaPrediction_3*.
 
 ```sql
 RESTORE DATABASE IronOreSilicaPrediction_3

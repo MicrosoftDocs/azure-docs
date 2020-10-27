@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
+ms.custom: devx-track-js
 ---
 
 # Call Azure functions from Azure Logic Apps
@@ -197,7 +198,7 @@ When you want to trigger a logic app from inside an Azure function, the logic ap
 
 ## Enable authentication for Azure functions
 
-To authenticate access to resources in other Azure Active Directory (Azure AD) tenants without having to sign in and provide credentials or secrets, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+To easily authenticate access to other resources that are protected by Azure Active Directory (Azure AD) without having to sign in and provide credentials or secrets, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI). Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 If you set up your logic app to use the system-assigned identity or a manually-created user-assigned identity, the Azure functions in your logic app can also use that same identity for authentication. For more information about authentication support for Azure functions in logic apps, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -254,7 +255,7 @@ Before you start this task, find and put these values aside for later use:
 
 * The directory ID for your tenant in Azure Active Directory (Azure AD)
 
-  To get your tenant's directory ID, you can run the [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount) Powershell command. Or, in the Azure portal, follow these steps:
+  To get your tenant's directory ID, you can run the [`Get-AzureAccount`](/powershell/module/servicemanagement/azure.service/get-azureaccount) Powershell command. Or, in the Azure portal, follow these steps:
 
   1. In the [Azure portal](https://portal.azure.com), find and select your function app.
 

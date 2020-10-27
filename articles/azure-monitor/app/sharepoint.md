@@ -2,12 +2,16 @@
 title: Monitor a SharePoint site with Application Insights
 description: Start monitoring a new application with a new instrumentation key
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/08/2020
 
 ---
 
 # Monitor a SharePoint site with Application Insights
+
 Azure Application Insights monitors the availability, performance and usage of your apps. Here you'll learn how to set it up for a SharePoint site.
+
+> [!NOTE]
+> Due to security concerns, you can't directly add the script that's described in this article to your webpages in the SharePoint modern UX. As an alternative, you can use [SharePoint Framework (SPFx)](/sharepoint/dev/spfx/extensions/overview-extensions) to build a custom extension that you can use to install Application Insights on your SharePoint sites.
 
 ## Create an Application Insights resource
 In the [Azure portal](https://portal.azure.com), create a new Application Insights resource. Choose ASP.NET as the application type.
@@ -45,18 +49,18 @@ If you can edit the site's master page, that will provide monitoring for every p
 
 Check out the master page and edit it using SharePoint Designer or any other editor.
 
-![](./media/sharepoint/03-master.png)
+![Screenshot that shows how to edit the master page using Sharepoing Designer or another editor.](./media/sharepoint/03-master.png)
 
 Add the code just before the </head> tag. 
 
-![](./media/sharepoint/04-code.png)
+![Screenshot that shows where to add the code to your site page.](./media/sharepoint/04-code.png)
 
 #### Or on individual pages
 To monitor a limited set of pages, add the script separately to each page. 
 
 Insert a web part and embed the code snippet in it.
 
-![](./media/sharepoint/05-page.png)
+![Screenshot that shows adding the script to monitor a limited set of pages.](./media/sharepoint/05-page.png)
 
 ## View data about your app
 Redeploy your app.
@@ -65,7 +69,7 @@ Return to your application blade in the [Azure portal](https://portal.azure.com)
 
 The first events will appear in Search. 
 
-![](./media/sharepoint/09-search.png)
+![Screenshot that shows the new data that you can view in the app.](./media/sharepoint/09-search.png)
 
 Click Refresh after a few seconds if you're expecting more data.
 
@@ -74,7 +78,7 @@ The standard web page code snippet doesn't capture the user id from SharePoint, 
 
 1. Copy your app's instrumentation key from the Essentials drop-down in Application Insights. 
 
-    ![](./media/sharepoint/02-props.png)
+    ![Screenshot that shows copying the app's instrumentation from the Essentials dropdown in Application Insights.](./media/sharepoint/02-props.png)
 
 1. Substitute the instrumentation key for 'XXXX' in the snippet below. 
 2. Embed the script in your SharePoint app instead of the snippet you get from the portal.
@@ -129,9 +133,7 @@ function onRequestFail(sender, args) {
 
 
 ## Next Steps
-* [Web tests](../../azure-monitor/app/monitor-web-app-availability.md) to monitor the availability of your site.
-* [Application Insights](../../azure-monitor/app/app-insights-overview.md) for other types of app.
+* [Web tests](./monitor-web-app-availability.md) to monitor the availability of your site.
+* [Application Insights](./app-insights-overview.md) for other types of app.
 
 <!--Link references-->
-
-

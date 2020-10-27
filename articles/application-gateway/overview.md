@@ -6,7 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/04/2020
+ms.date: 08/26/2020
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.
 ---
@@ -35,6 +35,10 @@ To learn about Application Gateway features, see [Azure Application Gateway feat
 For Application Gateway pricing information, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 For Application Gateway SLA information, see [Application Gateway SLA](https://azure.microsoft.com/support/legal/sla/application-gateway/v1_2/).
+
+## What's new
+
+To learn what's new with Azure Application Gateway, see [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=Application%20Gateway).
 
 ## Next steps
 

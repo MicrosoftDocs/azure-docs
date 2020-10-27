@@ -20,14 +20,14 @@ You can buy Azure Cache for Redis reserved capacity in the [Azure portal](https:
 * For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 * For Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure Cache for Redis reserved capacity.
 
-For the details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [understand Azure reservation usage for your Enterprise enrollment](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) and [understand Azure reservation usage for your Pay-As-You-Go subscription](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
+For the details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [understand Azure reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) and [understand Azure reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 
 ## Determine the right cache size before purchase
 
-The size of reservation should be based on the total amount of compute used by the existing or soon-to-be-deployed cache within a specific region and using the same service tier.
+The size of reservation should be based on the total amount of memory size used by the existing or soon-to-be-deployed cache within a specific region and using the same service tier.
 
-For example, let's suppose that you are running one general purpose, Gen5 – 32 vCore cache, and two memory optimized, Gen5 – 16 vCore caches. Further, let's supposed that you plan to deploy within the next month an additional general purpose, Gen5 – 32 vCore database server, and one memory optimized, Gen5 – 16 vCore database server. Let's suppose that you know that you will need these resources for at least 1 year. In this case, you should purchase a 64 (2x32) vCores, 1 year reservation for single database general purpose - Gen5 and a 48 (2x16 + 16) vCore 1 year reservation for single database memory optimized - Gen5
+For example, let's suppose that you are running two caches - one at 13 GB and the other at 26 GB. You'll need both for at least one year. Further, let's suppose that you plan to scale the existing 13 GB caches to 26 GB for a month to meet your seasonal demand, and then scale back. In this case, you can purchase either 1 P2 cache and 1 P3 cache or 3 P2 caches on a one-year reservation to maximize savings. You'll receive discount on the total amount of cache memory you reserve, independent of how that amount is allocated across your caches.
 
 
 ## Buy Azure Cache for Redis reserved capacity
@@ -50,11 +50,11 @@ The following table describes required fields.
 | Region | The Azure region that’s covered by the Azure Cache for Redis reserved capacity reservation.
 | Pricing tier | The service tier for the Azure Cache for Redis servers.
 | Term | One year or three years
-| Quantity | The amount of compute resources being purchased within the Azure Cache for Redis reserved capacity reservation. The quantity is a number of caches in the selected Azure region and service tier that are being reserved and will get the billing discount. For example, if you are running or planning to run an Azure Cache for Redis servers with the total cache capacity of 26 GB in the East US region, then you would specify quantity as 26 to maximize the benefit for all caches.
+| Quantity | The amount of compute resources being purchased within the Azure Cache for Redis reserved capacity reservation. The quantity is a number of caches in the selected Azure region and service tier that are being reserved and will get the billing discount. For example, if you are running or planning to run an Azure Cache for Redis servers with the total cache capacity of 26 GB in the East US region, then you would specify quantity that gives you the equivalent of 26 GB to maximize the benefit for all caches. This could be 1 P3 or 2 P2 caches.
 
 ## Cancel, exchange, or refund reservations
 
-You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## Cache size flexibility
 
@@ -72,10 +72,9 @@ The reservation discount is applied automatically to the Azure Cache for Redis i
 
 * To learn more about Azure Reservations, see the following articles:
 
-    * [What are Azure Reservations?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
-    * [Manage Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-    * [Understand Azure Reservations discount](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-    * [Understand reservation usage for your Pay-As-You-Go subscription](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mysql)
-    * [Understand reservation usage for your Enterprise enrollment](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-    * [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
-
+    * [What are Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+    * [Manage Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+    * [Understand Azure Reservations discount](../cost-management-billing/reservations/understand-reservation-charges.md)
+    * [Understand reservation usage for your Pay-As-You-Go subscription](../cost-management-billing/reservations/understand-reservation-charges-mysql.md)
+    * [Understand reservation usage for your Enterprise enrollment](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+    * [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)

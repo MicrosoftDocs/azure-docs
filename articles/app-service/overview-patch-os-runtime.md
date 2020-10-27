@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 This article shows you how to get certain version information regarding the OS or software in [App Service](overview.md). 
 
-App Service is a Platform-as-a-Service, which means that the OS and application stack are managed for you by Azure; you only manage your application and its data. More control over the OS and application stack is available you in [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/). With that in mind, it is nevertheless helpful for you as an App Service user to know more information, such as:
+App Service is a Platform-as-a-Service, which means that the OS and application stack are managed for you by Azure; you only manage your application and its data. More control over the OS and application stack is available you in [Azure Virtual Machines](../virtual-machines/index.yml). With that in mind, it is nevertheless helpful for you as an App Service user to know more information, such as:
 
 -	How and when are OS updates applied?
 -	How is App Service patched against significant vulnerabilities (such as zero-day)?
@@ -21,7 +21,7 @@ For security reasons, certain specifics of security information are not publishe
 
 ## How and when are OS updates applied?
 
-Azure manages OS patching on two levels, the physical servers and the guest virtual machines (VMs) that run the App Service resources. Both are updated monthly, which aligns to the monthly [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) schedule. These updates are applied automatically, in a way that guarantees the high-availability SLA of Azure services. 
+Azure manages OS patching on two levels, the physical servers and the guest virtual machines (VMs) that run the App Service resources. Both are updated monthly, which aligns to the monthly [Patch Tuesday](/security-updates/) schedule. These updates are applied automatically, in a way that guarantees the high-availability SLA of Azure services. 
 
 For detailed information on how updates are applied, see [Demystifying the magic behind App Service OS updates](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
 
@@ -51,7 +51,7 @@ Patch updates to .NET, PHP, Java SDK, or Tomcat/Jetty version are applied automa
 
 ### New major and minor versions
 
-When a new major or minor version is added, it is installed side by side with the existing versions. You can manually upgrade your app to the new version. If you configured the runtime version in a configuration file (such as `web.config` and `package.json`), you need to upgrade with the same method. If you used an App Service setting to configure your runtime version, you can change it in the [Azure portal](https://portal.azure.com) or by running an [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) command in the [Cloud Shell](../cloud-shell/overview.md), as shown in the following examples:
+When a new major or minor version is added, it is installed side by side with the existing versions. You can manually upgrade your app to the new version. If you configured the runtime version in a configuration file (such as `web.config` and `package.json`), you need to upgrade with the same method. If you used an App Service setting to configure your runtime version, you can change it in the [Azure portal](https://portal.azure.com) or by running an [Azure CLI](/cli/azure/get-started-with-azure-cli) command in the [Cloud Shell](../cloud-shell/overview.md), as shown in the following examples:
 
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
@@ -74,7 +74,7 @@ The following table shows how to the versions of Windows and of the language run
 | Information | Where to find it | 
 |-|-|
 | Windows version | See `https://<appname>.scm.azurewebsites.net/Env.cshtml` (under System info) |
-| .NET version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
+| .NET version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br>`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"` |
 | .NET Core version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `dotnet --version` |
 | PHP version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `php --version` |
 | Default Node.js version | In the [Cloud Shell](../cloud-shell/overview.md), run the following command: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
@@ -82,7 +82,7 @@ The following table shows how to the versions of Windows and of the language run
 | Java version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `java -version` |  
 
 > [!NOTE]  
-> Access to registry location `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, where information on ["KB" patches](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) is stored, is locked down.
+> Access to registry location `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, where information on ["KB" patches](/security-updates/SecurityBulletins/securitybulletins) is stored, is locked down.
 >
 >
 

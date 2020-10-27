@@ -1,5 +1,5 @@
 ---
-title: Run custom scripts on Linux VMs in Azure 
+title: Run Custom Script Extension on Linux VMs in Azure
 description: Automate Linux VM configuration tasks by using the Custom Script Extension v2
 services: virtual-machines-linux
 documentationcenter: ''
@@ -34,14 +34,14 @@ Please switch new and existing deployments to use the new version 2 instead. The
 
 ### Operating System
 
-The Custom Script Extension for Linux will run on the extension supported extension OS's, for more information, see this [article](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+The Custom Script Extension for Linux will run on the extension supported extension OS's, for more information, see this [article](../linux/endorsed-distros.md).
 
 ### Script Location
 
 You can use the extension to use your Azure Blob storage credentials, to access Azure Blob storage. Alternatively, the script location can be any where, as long as the VM can route to that end point, such as GitHub, internal file server etc.
 
 ### Internet Connectivity
-If you need to download a script externally such as GitHub or Azure Storage, then additional firewall/Network Security Group ports need to be opened. For example if your script is located in Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+If you need to download a script externally such as GitHub or Azure Storage, then additional firewall/Network Security Group ports need to be opened. For example if your script is located in Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](../../virtual-network/network-security-groups-overview.md#service-tags).
 
 If your script is on a local server, then you may still need additional firewall/Network Security Group ports need to be opened.
 
@@ -51,8 +51,10 @@ If your script is on a local server, then you may still need additional firewall
 * Ensure the scripts do not require user input when they run.
 * There is 90 mins allowed for the script to run, anything longer will result in a failed provision of the extension.
 * Do not put reboots inside the script, this will cause issues with other extensions that are being installed, and post reboot, the extension will not continue after the restart. 
+* It is not recommended to run a script that will cause a stop or update of the VM Agent. This might leave the extension in a Transitioning state and lead to a timeout.
 * If you have a script that will cause a reboot, then install applications and run scripts etc. You should schedule the reboot using a Cron job, or using tools such as DSC, or Chef, Puppet extensions.
-* The extension will only run a script once, if you want to run a script on every boot, then you can use [cloud-init image](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)  and use a [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) module. Alternatively, you can use the script to create a SystemD service unit.
+* The extension will only run a script once, if you want to run a script on every boot, then you can use [cloud-init image](../linux/using-cloud-init.md)  and use a [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) module. Alternatively, you can use the script to create a SystemD service unit.
+* You can only have one version of an extension applied to the VM. In order to run a second custom script, you need to remove the custom script extension and reapply it again with the updated script. 
 * If you want to schedule when a script will run, you should use the extension to create a Cron job. 
 * When the script is running, you will only see a 'transitioning' extension status from the Azure portal or CLI. If you want more frequent status updates of a running script, you will need to create your own solution.
 * Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl*. 
@@ -133,7 +135,7 @@ These items should be treated as sensitive data and specified in the extensions 
 * `storageAccountName`: (optional, string) the name of storage account. If you
   specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
 * `storageAccountKey`: (optional, string) the access key of storage account
-* `managedIdentity`: (optional, json object) the [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for downloading file(s)
+* `managedIdentity`: (optional, json object) the [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for downloading file(s)
   * `clientId`: (optional, string) the client ID of the managed identity
   * `objectId`: (optional, string) the object ID of the managed identity
 
@@ -212,9 +214,9 @@ CustomScript uses the following algorithm to execute a script.
 > [!NOTE]
 > This property **must** be specified in protected settings only.
 
-CustomScript (version 2.1 onwards) supports [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) for downloading file(s) from URLs provided in the "fileUris" setting. It allows CustomScript to access Azure Storage private blobs or containers without the user having to pass secrets like SAS tokens or storage account keys.
+CustomScript (version 2.1 onwards) supports [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for downloading file(s) from URLs provided in the "fileUris" setting. It allows CustomScript to access Azure Storage private blobs or containers without the user having to pass secrets like SAS tokens or storage account keys.
 
-To use this feature, the user must add a [system-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) or [user-assigned](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) identity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+To use this feature, the user must add a [system-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) or [user-assigned](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity) identity to the VM or VMSS where CustomScript is expected to run, and [grant the managed identity access to the Azure Storage container or blob](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access).
 
 To use the system-assigned identity on the target VM/VMSS, set "managedidentity" field to an empty json object. 
 

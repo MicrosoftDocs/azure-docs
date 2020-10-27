@@ -1,20 +1,16 @@
 ---
 title: Webhooks as event handlers for Azure Event Grid events
 description: Describes how you can use webhooks as event handlers for Azure Event Grid events. Azure Automation runbooks and logic apps are supported as event handlers via webhooks. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Webhooks, Automation runbooks, Logic Apps as event handlers for Azure Event Grid events
 An event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events. You can also use any WebHook for handling events. The WebHook doesn't need to be hosted in Azure to handle events. Event Grid only supports HTTPS Webhook endpoints.
 
 > [!NOTE]
-> Azure Automation runbooks and logic apps are supported as event handlers via webhooks. 
+> - Azure Automation runbooks and logic apps are supported as event handlers via webhooks. 
+> - Even though you can use **Webhook** as an **endpoint type** to configure an Azure function as an event handler, use **Azure Function** as an endpoint type. For more information, see [Azure function as an event handler](handler-functions.md).
 
 ## Webhooks
 See the following articles for an overview and examples of using webhooks as event handlers. 
@@ -43,6 +39,27 @@ Use **Logic Apps** to implement business processes to process Event Grid events.
 | [Tutorial: Monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | A logic app monitors changes to a virtual machine and sends emails about those changes. |
 | [Tutorial: Send email notifications about Azure IoT Hub events using Logic Apps](publish-iot-hub-events-to-logic-apps.md) | A logic app sends a notification email every time a device is added to your IoT hub. |
 | [Tutorial: Respond to Azure Service Bus events received via Azure Event Grid by using Azure Functions and Azure Logic Apps](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to function app and logic app. |
+
+## REST example (for PUT)
+
+```json
+{
+	"properties": 
+	{
+		"destination": 
+		{
+			"endpointType": "WebHook",
+			"properties": 
+			{
+				"endpointUrl": "<WEB HOOK URL>",
+				"maxEventsPerBatch": 1,
+				"preferredBatchSizeInKilobytes": 64
+			}
+		},
+		"eventDeliverySchema": "EventGridSchema"
+	}
+}
+```
 
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

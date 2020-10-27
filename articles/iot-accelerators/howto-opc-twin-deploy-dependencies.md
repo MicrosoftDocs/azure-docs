@@ -12,11 +12,14 @@ manager: philmea
 
 # Deploying dependencies for local development
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 This article explains how to deploy only the Azure Platform Services needed to do local development and debugging.   At the end, you will have a resource group deployed that contains everything you need for local development and debugging.
 
 ## Deploy Azure platform services
 
-1. Make sure you have PowerShell and [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) extensions installed.  Open a command prompt or terminal and run:
+1. Make sure you have PowerShell and [AzureRM PowerShell](/powershell/azure/azurerm/install-azurerm-ps) extensions installed.  Open a command prompt or terminal and run:
 
    ```bash
    git clone https://github.com/Azure/azure-iiot-components
@@ -27,7 +30,7 @@ This article explains how to deploy only the Azure Platform Services needed to d
    deploy -type local
    ```
 
-2. Follow the prompts to assign a name to the resource group for your deployment.  The script deploys only the dependencies to this resource group in your Azure subscription, but not the micro services.  The script also registers an Application in Azure Active Directory.  This is needed to support OAUTH-based authentication.  Deployment can take several minutes.
+2. Follow the prompts to assign a name to the resource group for your deployment.  The script deploys only the dependencies to this resource group in your Azure subscription, but not the micro services.  The script also registers an Application in Azure AD.  This is needed to support OAUTH-based authentication.  Deployment can take several minutes.
 
 3. Once the script completes, you can select to save the .env file.  The .env environment file is the configuration file of all services and tools you want to run on your development machine.  
 
@@ -37,12 +40,12 @@ This article explains how to deploy only the Azure Platform Services needed to d
 
 Ensure you use a short and simple resource group name.  The name is used also to name resources as such it must comply with resource naming requirements.  
 
-### Azure Active Directory (AAD) registration
+### Azure Active Directory (AD) registration
 
-The deployment script tries to register AAD applications in Azure Active Directory.  Depending on your rights to the selected AAD tenant, this might fail.   There are three options:
+The deployment script tries to register Azure AD applications in Azure AD.  Depending on your rights to the selected Azure AD tenant, this might fail. There are three options:
 
-1. If you chose a AAD tenant from a list of tenants, restart the script and choose a different one from the list.
-2. Alternatively, deploy a private AAD tenant, restart the script and select to use it.
+1. If you chose a Azure AD tenant from a list of tenants, restart the script and choose a different one from the list.
+2. Alternatively, deploy a private Azure AD tenant, restart the script and select to use it.
 3. Continue without Authentication.  Since you are running your micro services locally, this is acceptable, but does not mimic production environments.  
 
 ## Next steps

@@ -1,15 +1,15 @@
 ---
 title: Concepts - Identity and access
-description: Learn about the identity and access concepts of Azure VMware Solution (AVS)
+description: Learn about the identity and access concepts of Azure VMware Solution
 ms.topic: conceptual
 ms.date: 05/04/2020
 ---
 
-# Azure VMware Solution (AVS) identity concepts
+# Azure VMware Solution identity concepts
 
-A vCenter server and NSX-T manager are provisioned when a private cloud is deployed. You use vCenter to manage virtual machine workloads and NSX-T manager to extend the private cloud software-defined network.
+When deploying a private cloud, a vCenter server and NSX-T manager get provisioned. You use vCenter to manage virtual machine (VM) workloads. You use NSX-T manager to extend the private cloud software-defined network.
 
-Access and identity management use CloudAdmin group privileges for vCenter and restricted administrator rights for NSX-T manager. This policy ensures that your private cloud platform can be upgraded automatically. This delivers the newest features and patches on a regular basis. See the [private cloud upgrades concepts article][concepts-upgrades] for more details on private cloud upgrades.
+Access and identity management use CloudAdmin group privileges for vCenter and restricted administrator rights for NSX-T manager. It ensures that your private cloud platform upgrades automatically with the newest features and patches.  For more information, see [private cloud upgrades concepts article][concepts-upgrades].
 
 ## vCenter access and identity
 
@@ -44,7 +44,7 @@ The CloudAdmin and CloudGlobalAdmin privileges are shown in the table below.
 
 ## NSX-T Manager access and identity
 
-You access NSX-T Manager using the "administrator" account. That account has full privileges and enables you to create and manage T1 routers, logical switches, and all services. The full privileges in NSX-T also provide you with access to the NSX-T T0 router. A change to the T0 router could result in degraded network performance or a loss of access to a private cloud. To meet support requirements, it's required that you open an support request in the Azure portal to request any changes to your NSX-T T0 router.
+Use the "administrator" account to access NSX-T Manager. It has full privileges and lets you create and manage T1 routers, logical switches, and all services. The privileges give you access to the NSX-T T0 router. A change to the T0 router could result in degraded network performance or no private cloud access. Open a support request in the Azure portal to request any changes to your NSX-T T0 router.
   
 ## Next steps
 

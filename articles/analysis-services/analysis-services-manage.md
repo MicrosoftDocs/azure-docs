@@ -25,7 +25,7 @@ Connecting to your server in Azure is just like connecting to a server instance 
 ### Download and install SSMS
 To get all the latest features, and the smoothest experience when connecting to your Azure Analysis Services server, be sure you're using the latest version of SSMS. 
 
-[Download SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+[Download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 ### To connect with SSMS
@@ -46,7 +46,7 @@ To get all the latest features, and the smoothest experience when connecting to 
 
     **Active Directory Password Authentication** to use an organizational account. For example, when connecting from a non-domain joined computer.
 
-    **Active Directory - Universal with MFA support** to use [non-interactive or multi-factor authentication](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory - Universal with MFA support** to use [non-interactive or multi-factor authentication](../azure-sql/database/authentication-mfa-ssms-overview.md). 
    
     ![Connect in SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
@@ -61,4 +61,3 @@ When connecting using SSMS, if you run into problems, you may need to clear the 
 If you haven't already deployed a tabular model to your new server, now is a good time. To learn more, see [Deploy to Azure Analysis Services](analysis-services-deploy.md).
 
 If you've deployed a model to your server, you're ready to connect to it using a client or browser. To learn more, see [Get data from Azure Analysis Services server](analysis-services-connect.md).
-

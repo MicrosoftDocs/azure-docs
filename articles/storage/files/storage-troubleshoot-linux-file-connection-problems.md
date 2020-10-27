@@ -1,18 +1,21 @@
 ---
 title: Troubleshoot Azure Files problems in Linux | Microsoft Docs
-description: Troubleshooting Azure Files problems in Linux
+description: Troubleshooting Azure Files problems in Linux. See common issues related to Azure Files when you connect from Linux clients, and see possible resolutions.
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
 ---
-# Troubleshoot Azure Files problems in Linux
+# Troubleshoot Azure Files problems in Linux (SMB)
 
 This article lists common problems that are related to Azure Files when you connect from Linux clients. It also provides possible causes and resolutions for these problems. 
 
-In addition to the troubleshooting steps in this article, you can use [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) to ensure that the Linux client has correct prerequisites. AzFileDiagnostics automates the detection of most of the symptoms mentioned in this article. It helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). The troubleshooter provides steps to help you with problems connecting, mapping, and mounting Azure Files shares.
+In addition to the troubleshooting steps in this article, you can use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) to ensure that the Linux client has correct prerequisites. AzFileDiagnostics automates the detection of most of the symptoms mentioned in this article. It helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). The troubleshooter provides steps to help you with problems connecting, mapping, and mounting Azure Files shares.
+
+> [!IMPORTANT]
+> The content of this article only applies to SMB shares. For details on NFS shares, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).
 
 ## Cannot connect to or mount an Azure file share
 
@@ -24,12 +27,12 @@ Common causes for this problem are:
 
 |   | SMB 2.1 <br>(Mounts on VMs within the same Azure region) | SMB 3.0 <br>(Mounts from on-premises and cross-region) |
 | --- | :---: | :---: |
-| Ubuntu Server | 14.04+ | 16.04+ |
-| RHEL | 7+ | 7.5+ |
-| CentOS | 7+ |  7.5+ |
-| Debian | 8+ |   |
-| openSUSE | 13.2+ | 42.3+ |
-| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+| **Ubuntu Server** | 14.04+ | 16.04+ |
+| **RHEL** | 7+ | 7.5+ |
+| **CentOS** | 7+ |  7.5+ |
+| **Debian** | 8+ |   |
+| **openSUSE** | 13.2+ | 42.3+ |
+| **SUSE Linux Enterprise Server** | 12 | 12 SP3+ |
 
 - CIFS utilities (cifs-utils) are not installed on the client.
 - The minimum SMB/CIFS version, 2.1, is not installed on the client.
@@ -40,7 +43,7 @@ Common causes for this problem are:
 
 ### Solution
 
-To resolve the problem, use the [troubleshooting tool for Azure Files mounting errors on Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). This tool:
+To resolve the problem, use the [troubleshooting tool for Azure Files mounting errors on Linux](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux). This tool:
 
 * Helps you to validate the client running environment.
 * Detects the incompatible client configuration that would cause access failure for Azure Files.
@@ -78,9 +81,9 @@ In Linux, you receive an error message that resembles the following:
 
 ### Cause
 
-You have reached the upper limit of concurrent open handles that are allowed for a file.
+You have reached the upper limit of concurrent open handles that are allowed for a file or directory.
 
-There is a quota of 2,000 open handles on a single file. When you have 2,000 open handles, an error message is displayed that says the quota is reached.
+There is a quota of 2,000 open handles on a single file or directory. When you have 2,000 open handles, an error message is displayed that says the quota is reached.
 
 ### Solution
 
@@ -141,7 +144,7 @@ Verify virtual network and firewall rules are configured properly on the storage
 
 ### Solution for cause 2
 
-Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Browse to the storage account where the Azure file share is located, click **Access control (IAM)** and verify your user account has access to the storage account. To learn more, see [How to secure your storage account with Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
 ## Unable to delete a file or directory in an Azure file share
@@ -289,6 +292,32 @@ This error is logged because Azure Files [does not currently support SMB multich
 
 ### Solution
 This error can be ignored.
+
+
+### Unable to access folders or files which name has a space or a dot at the end
+
+You are unable to access folders or files from the Azure file share while mounted on Linux, commands like du and ls and/or third-party applications may fail with a "No such file or directory" error while accessing the share, however you are able to upload files to said folders via the portal.
+
+### Cause
+
+The folders or files were uploaded from a system that encodes the characters at the end of the name to a different character, files uploaded from a Macintosh computer may have a "0xF028" or "0xF029" character instead of 0x20 (space) or 0X2E (dot).
+
+### Solution
+
+Use the mapchars option on the share while mounting the share on Linux: 
+
+instead of :
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+```
+
+use:
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,mapchars
+```
+
 
 ## Need help? Contact support.
 

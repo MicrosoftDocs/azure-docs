@@ -1,19 +1,19 @@
 ---
-title: Troubleshoot module errors
+title: Troubleshoot designer module errors
 titleSuffix: "Azure Machine Learning"
-description: Troubleshoot module exceptions in Azure Machine Learning designer using error codes
+description: Troubleshoot module error codes in Azure Machine Learning designer
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-
+ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
 ---
-# Exceptions and error codes for the designer (preview)
+# Exceptions and error codes for the designer
 
-This article describes the error messages and exception codes in Azure Machine Learning designer (preview) to help you troubleshoot your machine learning pipelines.
+This article describes the error messages and exception codes in Azure Machine Learning designer to help you troubleshoot your machine learning pipelines.
 
 You can find the error message in the designer following these steps:  
 
@@ -736,7 +736,7 @@ For general information about how the Matchbox recommendation algorithm works, a
  This error is caused by many conditions and there is no specific remedy.  
  The following table contains generic messages for this error, which are followed by a specific description of the condition. 
 
- If no details are available, [send feedback](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) and provide information about the modules that generated the error and related conditions.
+ If no details are available, [Microsoft Q&A question page for send feedback](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html) and provide information about the modules that generated the error and related conditions.
 
 |Exception Messages|
 |------------------------|
@@ -1208,7 +1208,7 @@ This error in Azure Machine Learning occurs when you are trying to bin data usin
 
 Error handling for this event was introduced in an earlier version of Azure Machine Learning that allowed more customization of binning methods. Currently all binning methods are based on a selection from a dropdown list, so technically it should no longer be possible to get this error.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Azure Machine Learning forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Exception Messages|
 |------------------------|
@@ -1559,7 +1559,7 @@ Resolution:
 
 
 ## Error 0159
- Exception occurs if passed to module model directory is invalid. 
+ Exception occurs if module model directory is invalid. 
 
 |Exception Messages|
 |------------------------------------------------------------|
@@ -1574,7 +1574,7 @@ Internal library exception.
 
 This error is provided to capture otherwise unhandled internal engine errors. Therefore, the cause for this error might be different depending on the module that generated the error.  
 
-To get more help, we recommend that you post the detailed message that accompanies the error to the Azure Machine Learning forum, together with a description of the scenario, including the data used as inputs. This feedback will help us to prioritize errors and identify the most important issues for further work.  
+To get more help, we recommend that you post the detailed message that accompanies the error to the [Azure Machine Learning forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), together with a description of the scenario, including the data used as inputs. This feedback will help us to prioritize errors and identify the most important issues for further work.  
 
 |Exception Messages|
 |------------------------|

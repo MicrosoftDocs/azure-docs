@@ -11,7 +11,7 @@ ms.date: 01/31/2020
 ms.author: baselden
 author: barbaraselden
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
 ---
@@ -20,14 +20,14 @@ ms.collection: M365-identity-device-management
 > [!IMPORTANT]
 > This deployment plan offers guidance and best practices for deploying Azure AD self-service password reset (SSPR).
 >
-> **If you're and end user and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr)**.
+> **If you're an end user and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr)**.
 
 [Self-Service Password Reset (SSPR)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) is an Azure Active Directory (AD) feature that enables users to reset their passwords without contacting IT staff for help. The users can quickly unblock themselves and continue working no matter where they are or time of day. By allowing the employees to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues.
 
 SSPR has the following key capabilities:
 
 * Self-service allows end users to reset their expired or non-expired passwords without contacting an administrator or helpdesk for support.
-* [Password Writeback](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback) allows management of on-premises passwords and resolution of account lockout though the cloud.
+* [Password Writeback](./concept-sspr-writeback.md) allows management of on-premises passwords and resolution of account lockout though the cloud.
 * Password management activity reports give administrators insight into password reset and registration activity occurring in their organization.
 
 This deployment guide shows you how to plan and then test an SSPR roll-out.
@@ -39,7 +39,7 @@ To quickly see SSPR in action and then come back to understand additional deploy
 
 ## Learn about SSPR
 
-Learn more about SSPR. See [How it works: Azure AD self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks).
+Learn more about SSPR. See [How it works: Azure AD self-service password reset](./concept-sspr-howitworks.md).
 
 ### Key benefits
 
@@ -57,7 +57,7 @@ The key benefits of enabling SSPR are:
 
 Azure Active Directory is licensed per-user meaning each user requires an appropriate license for the features they use. We recommend group-based licensing for SSPR. 
 
-To compare editions and features and enable group or user-based licensing, see [Licensing requirements for Azure AD self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-licensing).
+To compare editions and features and enable group or user-based licensing, see [Licensing requirements for Azure AD self-service password reset](./concept-sspr-licensing.md).
 
 For more information about pricing, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -80,10 +80,10 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 | Online courses|[Managing Identities in Microsoft Azure Active Directory](https://www.pluralsight.com/courses/microsoft-azure-active-directory-managing-identities) Use SSPR to give your users a modern, protected experience. See especially the "[Managing Azure Active Directory Users and Groups](https://app.pluralsight.com/library/courses/microsoft-azure-active-directory-managing-identities/table-of-contents)" module. |
 |Pluralsight Paid courses |[The Issues of Identity and Access Management](https://www.pluralsight.com/courses/identity-access-management-issues) Learn about IAM and security issues to be aware of in your organization. See especially the "Other Authentication Methods" module.|
 | |[Getting Started with the Microsoft Enterprise Mobility Suite](https://www.pluralsight.com/courses/microsoft-enterprise-mobility-suite-getting-started) Learn the best practices for extending on-premises assets to the cloud in a manner that allows for authentication, authorization, encryption, and a secured mobile experience. See especially the "Configuring Advanced Features of Microsoft Azure Active Directory Premium" module.
-|Tutorials |[Complete an Azure AD self-service password reset pilot roll out](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot) |
-| |[Enabling password writeback](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-writeback) |
-| |[Azure AD password reset from the login screen for Windows 10](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-windows) |
-| FAQ|[Password management frequently asked questions](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-faq) |
+|Tutorials |[Complete an Azure AD self-service password reset pilot roll out](./tutorial-enable-sspr.md) |
+| |[Enabling password writeback](./tutorial-enable-sspr-writeback.md) |
+| |[Azure AD password reset from the login screen for Windows 10](./howto-sspr-windows.md) |
+| FAQ|[Password management frequently asked questions](./active-directory-passwords-faq.md) |
 
 
 ### Solution architecture
@@ -100,13 +100,13 @@ To reset the password, users go to the [password reset portal](https://aka.ms/ss
 
 * For hybrid users, SSPR writes back the password to the on-prem Active Directory via the Azure AD Connect service. 
 
-Note: For users who have [Password hash synchronization (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) disabled, SSPR stores the passwords in the on-prem Active Directory only.
+Note: For users who have [Password hash synchronization (PHS)](../hybrid/whatis-phs.md) disabled, SSPR stores the passwords in the on-prem Active Directory only.
 
 ### Best practices
 
 You can help users register quickly by deploying SSPR alongside another popular application or service in the organization. This action will generate a large volume of sign-ins and will drive registration.
 
-Before deploying SSPR, you may opt to determine the number and the average cost of each password reset call. YOU can use this data post deployment to show the value SSPR is bringing to the organization.
+Before deploying SSPR, you may opt to determine the number and the average cost of each password reset call. You can use this data post deployment to show the value SSPR is bringing to the organization.
 
 #### Enable combined registration for SSPR and MFA
 
@@ -138,9 +138,9 @@ Communication is critical to the success of any new service. You should proactiv
 
 ### Plan a pilot
 
-We recommend that the initial configuration of SSPR is in a test environment. Start with a pilot group by enabling SSPR for a subset of users in your organization. See [Best practices for a pilot](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans).
+We recommend that the initial configuration of SSPR is in a test environment. Start with a pilot group by enabling SSPR for a subset of users in your organization. See [Best practices for a pilot](../fundamentals/active-directory-deployment-plans.md).
 
-To create a group, see how to [create a group and add members in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal). 
+To create a group, see how to [create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md). 
 
 ## Plan configuration
 
@@ -169,7 +169,7 @@ When enabling SSPR, choose an appropriate security group in the pilot environmen
 
 ### Authentication methods
 
-When SSPR is enabled, users can only reset their password if they have data present in the authentication methods that the administrator has enabled. Methods include phone, Authenticator app notification, security questions, etc. For more information, see [What are authentication methods?](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods).
+When SSPR is enabled, users can only reset their password if they have data present in the authentication methods that the administrator has enabled. Methods include phone, Authenticator app notification, security questions, etc. For more information, see [What are authentication methods?](./concept-authentication-methods.md).
 
 We recommend the following authentication method settings:
 
@@ -177,7 +177,7 @@ We recommend the following authentication method settings:
 
 * Set **Number of methods required to reset** to a level appropriate to your organization. One requires the least friction, while two may increase your security posture. 
 
-Note: The user must have the authentication methods configured in the [Password policies and restrictions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+Note: The user must have the authentication methods configured in the [Password policies and restrictions in Azure Active Directory](./concept-sspr-policy.md).
 
 ### Registration settings
 
@@ -193,11 +193,11 @@ Configure both the **Notify users on password resets** and the **Notify all admi
 
 It's critical to customize the helpdesk email or URL to ensure users who experience problems can get help immediately. Set this option to a common helpdesk email address or web page that your users are familiar with. 
 
-For more information, see [Customize the Azure AD functionality for self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization).
+For more information, see [Customize the Azure AD functionality for self-service password reset](./howto-sspr-customization.md).
 
 ### Password Writeback
 
-**Password Writeback** is enabled with [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity) and writes password resets in the cloud back to an existing on-premises directory in real time. For more information, see [What is Password Writeback?](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback)
+**Password Writeback** is enabled with [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) and writes password resets in the cloud back to an existing on-premises directory in real time. For more information, see [What is Password Writeback?](./concept-sspr-writeback.md)
 
 We recommend the following settings:
 
@@ -217,7 +217,7 @@ We recommend that you don't sync your on-prem Active Directory admin accounts wi
 
 ### Environments with multiple identity management systems
 
-Some environments have multiple identity management systems. On-premises identity managers like Oracle AM and SiteMinder, require synchronization with AD for passwords. You can do this using a tool like the Password Change Notification Service (PCNS) with Microsoft Identity Manager (MIM). To find information on this more complex scenario, see the article [Deploy the MIM Password Change Notification Service on a domain controller](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
+Some environments have multiple identity management systems. On-premises identity managers like Oracle AM and SiteMinder, require synchronization with AD for passwords. You can do this using a tool like the Password Change Notification Service (PCNS) with Microsoft Identity Manager (MIM). To find information on this more complex scenario, see the article [Deploy the MIM Password Change Notification Service on a domain controller](/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
 
 ## Plan Testing and Support
 
@@ -225,7 +225,7 @@ At each stage of your deployment from initial pilot groups through organization-
 
 ### Plan testing
 
-To ensure that your deployment works as expected, plan a set of test cases to validate the implementation. To assess the test cases, you need a non-administrator test user with a password. If you need to create a user, see [Add new users to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+To ensure that your deployment works as expected, plan a set of test cases to validate the implementation. To assess the test cases, you need a non-administrator test user with a password. If you need to create a user, see [Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 
 The following table includes useful test scenarios you can use to document your organizations expected results based on your policies.
 <br>
@@ -243,7 +243,7 @@ The following table includes useful test scenarios you can use to document your 
 | Reset user password from Windows 10 Azure AD joined or hybrid Azure AD joined device lock screen| User can reset password |
 | SSPR registration and usage data are available to administrators in near real time| Is available via audit logs |
 
-You can also refer to [Complete out an Azure AD self-service password reset pilot roll](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot). In this tutorial, you will enable a pilot roll out of SSPR in your organization and test using a non-administrator account.
+You can also refer to [Complete out an Azure AD self-service password reset pilot roll](./tutorial-enable-sspr.md). In this tutorial, you will enable a pilot roll out of SSPR in your organization and test using a non-administrator account.
 
 ### Plan support
 
@@ -286,20 +286,20 @@ Before deploying, ensure that you have done the following:
 
 **You're now ready to deploy SSPR!**
 
-See [Enable self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-sspr-pilot#enable-self-service-password-reset) for complete step-by-step directions on configuring the following areas.
+See [Enable self-service password reset](./tutorial-enable-sspr.md#enable-self-service-password-reset) for complete step-by-step directions on configuring the following areas.
 
-1. [Authentication methods](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)
+1. [Authentication methods](./concept-authentication-methods.md)
 
-1. [Registration settings](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined)
+1. [Registration settings](./concept-registration-mfa-sspr-combined.md)
 
 1. [Notifications settings](#notifications-settings)
 
-1. [Customization settings](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization)
+1. [Customization settings](./howto-sspr-customization.md)
 
-1. [On-premises integration](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-writeback)
+1. [On-premises integration](./tutorial-enable-sspr-writeback.md)
 
 ### Enable SSPR in Windows
-For machines running Windows 7, 8, 8.1, and 10 you can [enable users to reset their password at the Windows sign in screen](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-windows)
+For machines running Windows 7, 8, 8.1, and 10 you can [enable users to reset their password at the Windows sign in screen](./howto-sspr-windows.md)
 
 ## Manage SSPR
 
@@ -307,41 +307,41 @@ Azure AD can provide additional information on your SSPR performance through aud
 
 ### Password management activity reports 
 
-You can use pre-built reports on Azure portal to measure the SSPR performance. If you're appropriately licensed, you can also create custom queries. For more information, see [Reporting options for Azure AD password management](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting)
+You can use pre-built reports on Azure portal to measure the SSPR performance. If you're appropriately licensed, you can also create custom queries. For more information, see [Reporting options for Azure AD password management](./howto-sspr-reporting.md)
 
 > [!NOTE]
->  You must be [a global administrator](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles), and you must opt-in for this data to be gathered for your organization. To opt in, you must visit the Reporting tab or the audit logs on the Azure Portal at least once. Until then, the data doesn't collect for your organization.
+>  You must be [a global administrator](../roles/permissions-reference.md), and you must opt-in for this data to be gathered for your organization. To opt in, you must visit the Reporting tab or the audit logs on the Azure Portal at least once. Until then, the data doesn't collect for your organization.
 
-Audit logs for registration and password reset are available for 30 days. If security auditing within your corporation requires longer retention, the logs need to be exported and consumed into a SIEM tool such as [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-active-directory), Splunk, or ArcSight.
+Audit logs for registration and password reset are available for 30 days. If security auditing within your corporation requires longer retention, the logs need to be exported and consumed into a SIEM tool such as [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or ArcSight.
 
 ![SSPR Reporting screenshot](./media/howto-sspr-deployment/sspr-reporting.png)
 
 ### Authentication methods- Usage and Insights
 
-[Usage and insights](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-methods-usage-insights) enable you to understand how authentication methods for features like Azure MFA and SSPR are working in your organization. This reporting capability provides your organization with the means to understand what methods register and how to use them.
+[Usage and insights](./howto-authentication-methods-usage-insights.md) enable you to understand how authentication methods for features like Azure MFA and SSPR are working in your organization. This reporting capability provides your organization with the means to understand what methods register and how to use them.
 
 ### Troubleshoot
 
-* Refer to [Troubleshoot self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-troubleshoot) 
+* Refer to [Troubleshoot self-service password reset](./active-directory-passwords-troubleshoot.md) 
 
-* Follow [Password management frequently asked questions](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-faq) 
+* Follow [Password management frequently asked questions](./active-directory-passwords-faq.md) 
 
 ### Helpful documentation
 
-* [What are authentication methods?](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)
+* [What are authentication methods?](./concept-authentication-methods.md)
 
-* [How it works: Azure AD self-service password reset?](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks)
+* [How it works: Azure AD self-service password reset?](./concept-sspr-howitworks.md)
 
-* [Customize the Azure AD functionality for self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-customization)
+* [Customize the Azure AD functionality for self-service password reset](./howto-sspr-customization.md)
 
-* [Password policies and restrictions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy)
+* [Password policies and restrictions in Azure Active Directory](./concept-sspr-policy.md)
 
-* [What is password writeback?](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-writeback)
+* [What is Password Writeback?](./concept-sspr-writeback.md)
 
 ## Next steps
 
 * To get started deploying SSPR, see [Enable Azure AD self-service password reset](tutorial-enable-sspr.md)
 
-* [Consider implementing Azure AD password protection](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)
+* [Consider implementing Azure AD password protection](./concept-password-ban-bad.md)
 
-* [Consider implementing Azure AD Smart Lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)
+* [Consider implementing Azure AD Smart Lockout](./howto-password-smart-lockout.md)

@@ -20,7 +20,7 @@ Many of the steps in this document use the following utilities, which may need t
 
 * [cURL](https://curl.haxx.se/) - used to communicate with web-based services.
 * **jq**, a command-line JSON processor.  See [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) - used to remotely manage Azure services.
+* [Azure CLI](/cli/azure/install-azure-cli) - used to remotely manage Azure services.
 * **An SSH client**. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Users
@@ -35,13 +35,17 @@ The fully qualified domain name (FQDN) to use when connecting to the cluster fro
 
 Internally, each node in the cluster has a name that is assigned during cluster configuration. To find the cluster names, see the **Hosts** page on the Ambari Web UI. You can also use the following to return a list of hosts from the Ambari REST API:
 
-    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+```console
+curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+```
 
 Replace `CLUSTERNAME` with the name of your cluster. When prompted, enter the password for the admin account. This command returns a JSON document that contains a list of the hosts in the cluster. [jq](https://stedolan.github.io/jq/) is used to extract the `host_name` element value for each host.
 
 If you need to find the name of the node for a specific service, you can query Ambari for that component. For example, to find the hosts for the HDFS name node, use the following command:
 
-    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+```console
+curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+```
 
 This command returns a JSON document describing the service, and then [jq](https://stedolan.github.io/jq/) pulls out only the `host_name` value for the hosts.
 
@@ -72,7 +76,7 @@ This command returns a JSON document describing the service, and then [jq](https
     >
     > Authentication is plaintext - always use HTTPS to help ensure that the connection is secure.
 
-* **SSH** - CLUSTERNAME-ssh.azurehdinsight.net on port 22 or 23. Port 22 is used to connect to the primary headnode, while 23 is used to connect to the secondary. For more information on the head nodes, see [Availability and reliability of Apache Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** - CLUSTERNAME-ssh.azurehdinsight.net on port 22 or 23. Port 22 is used to connect to the primary headnode, while 23 is used to connect to the secondary. For more information on the head nodes, see [Availability and reliability of Apache Hadoop clusters in HDInsight](./hdinsight-business-continuity.md).
 
     > [!NOTE]  
     > You can only access the cluster head nodes through SSH from a client machine. Once connected, you can then access the worker nodes by using SSH from a headnode.
@@ -92,17 +96,19 @@ Example data and JAR files can be found on Hadoop Distributed File System at `/e
 
 In most Hadoop distributions, the data is stored in HDFS. HDFS is backed by local storage on the machines in the cluster. Using local storage can be costly for a cloud-based solution where you're charged hourly or by minute for compute resources.
 
-When using HDInsight, the data files are stored in an adaptable and resilient way in the cloud using Azure Blob Storage and optionally Azure Data Lake Storage. These services provide the following benefits:
+When using HDInsight, the data files are stored in an adaptable and resilient way in the cloud using Azure Blob Storage and optionally Azure Data Lake Storage Gen1/Gen2. These services provide the following benefits:
 
 * Cheap long-term storage.
 * Accessibility from external services such as websites, file upload/download utilities, various language SDKs, and web browsers.
 * Large file capacity and large adaptable storage.
 
-For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
+For more information, see [Azure Blob storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md), or [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
-When using either Azure Storage or Data Lake Storage, you don't have to do anything special from HDInsight to access the data. For example, the following command lists files in the `/example/data` folder whether it's stored on Azure Storage or Data Lake Storage:
+When using either Azure Blob storage or Data Lake Storage Gen1/Gen2, you don't have to do anything special from HDInsight to access the data. For example, the following command lists files in the `/example/data` folder whether it's stored on Azure Storage or Data Lake Storage:
 
-    hdfs dfs -ls /example/data
+```console
+hdfs dfs -ls /example/data
+```
 
 In HDInsight, the data storage resources (Azure Blob Storage and Azure Data Lake Storage) are decoupled from compute resources. You can create HDInsight clusters to do computation as you need, and later delete the cluster when the work is finished. Meanwhile keeping your data files persisted safely in cloud storage as long as you need.
 
@@ -124,7 +130,7 @@ When using [**Azure Data Lake Storage Gen2**](./hdinsight-hadoop-use-data-lake-s
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Used when communicating with a non-default storage account. For example, when you have an additional storage account or when accessing data stored in a publicly accessible storage account.
 
-When using [**Azure Data Lake Storage Gen1**](./hdinsight-hadoop-use-data-lake-store.md), use one of the following URI schemes:
+When using [**Azure Data Lake Storage Gen1**](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md), use one of the following URI schemes:
 
 * `adl:///`: Access the default Data Lake Storage for the cluster.
 
@@ -178,9 +184,9 @@ You can also find the storage information using the Azure portal by using the fo
 
 There are a various ways to access data from outside the HDInsight cluster. The following are a few links to utilities and SDKs that can be used to work with your data:
 
-If using __Azure Storage__, see the following links for ways that you can access your data:
+If using __Azure Blob storage__, see the following links for ways that you can access your data:
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Command-Line interface commands for working with Azure. After installing, use the `az storage` command for help on using storage, or `az storage blob` for blob-specific commands.
+* [Azure CLI](/cli/azure/install-az-cli2): Command-Line interface commands for working with Azure. After installing, use the `az storage` command for help on using storage, or `az storage blob` for blob-specific commands.
 * [blobxfer.py](https://github.com/Azure/blobxfer): A python script for working with blobs in Azure Storage.
 * Various SDKs:
 
@@ -190,9 +196,9 @@ If using __Azure Storage__, see the following links for ways that you can access
     * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
-    * [Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
+    * [Storage REST API](/rest/api/storageservices/Blob-Service-REST-API)
 
-If using __Azure Data Lake Storage__, see the following links for ways that you can access your data:
+If using __Azure Data Lake Storage Gen1__, see the following links for ways that you can access your data:
 
 * [Web browser](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
@@ -234,7 +240,7 @@ To use a different version of a component, upload the version you need and use i
 > [!IMPORTANT]
 > Components provided with the HDInsight cluster are fully supported and Microsoft Support helps to isolate and resolve issues related to these components.
 >
-> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Also Apache projects have project sites on [https://apache.org](https://apache.org), for example: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
+> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [Microsoft Q&A question page for HDInsight](/answers/topics/azure-hdinsight.html), [https://stackoverflow.com](https://stackoverflow.com). Also Apache projects have project sites on [https://apache.org](https://apache.org), for example: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 
 ## Next steps
 

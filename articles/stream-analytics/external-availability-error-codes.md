@@ -3,7 +3,7 @@ title: External availability error codes - Azure Stream Analytics
 description: Troubleshoot Azure Stream Analytics issues with external availability error codes. 
 ms.author: mamccrea
 author: mamccrea
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
 ---
@@ -15,11 +15,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 ## ExternalServiceUnavailable
 
 * **Cause**: A service is temporarily unavailable.
-* **Recommendation**: Stream Analytics will continue to attempt to reach the service. 
-
-## KafkaServerNotAvailable
-
-* **Cause**: The Kafka server is not available.
+* **Recommendation**: Stream Analytics will continue to attempt to reach the service.
 
 ## EventHubMessagingError
 

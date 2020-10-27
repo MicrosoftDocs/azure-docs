@@ -1,12 +1,14 @@
 ---
 title: Good example utterances - LUIS
 description: Utterances are input from the user that your app needs to interpret. Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/19/2020
 ---
 # Understand what good utterances are for your LUIS app
 
-**Utterances** are input from the user that your app needs to interpret. To train LUIS to extract intents and entities from them, it's important to capture a variety of different example utterances for each intent. Active learning, or the process of continuing to train on new utterances, is essential to machine-learned intelligence that LUIS provides.
+**Utterances** are input from the user that your app needs to interpret. To train LUIS to extract intents and entities from them, it's important to capture a variety of different example utterances for each intent. Active learning, or the process of continuing to train on new utterances, is essential to machine-learning intelligence that LUIS provides.
 
 Collect utterances that you think users will enter. Include utterances, which mean the same thing but are constructed in a variety of different ways:
 
@@ -78,7 +80,7 @@ Set the version settings via the LUIS portal, on the **Manage** section, on the 
 
 ### Word forms
 
-Normalizing **word forms** ignores the differences in words that expand beyond the root. For example, the words `run`, `running`, and `runs` change based on verb tense.
+Normalizing **word forms** ignores the differences in words that expand beyond the root.
 
 <a name="utterance-normalization-for-diacritics-and-punctuation"></a>
 

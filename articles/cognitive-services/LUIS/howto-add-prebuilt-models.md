@@ -3,13 +3,13 @@ title: Prebuilt models for Language Understanding
 titleSuffix: Azure Cognitive Services
 description: LUIS includes a set of prebuilt models for quickly adding common, conversational user scenarios.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
-ms.author: diberry
+ms.date: 05/17/2020
+
 ---
 
 # Add prebuilt models for common usage scenarios
@@ -21,7 +21,7 @@ LUIS includes a set of prebuilt models for quickly adding common, conversational
 1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
 1. Open your app by selecting its name on **My Apps** page.
 
-1. Select **Prebuilt domains** from the left toolbar.
+1. Select **Prebuilt Domains** from the left toolbar.
 
 1. Find the domain you want added to the app then select **Add domain** button.
 
@@ -35,7 +35,7 @@ LUIS includes a set of prebuilt models for quickly adding common, conversational
 
 1. On the **Intents** page, select **Add prebuilt domain intent** from the toolbar above the intents list.
 
-1. Select the **Utilities.Cancel** intent from the pop-up dialog.
+1. Select an intent from the pop-up dialog.
 
     > [!div class="mx-imgBorder"]
     > ![Add prebuilt intent](./media/luis-prebuilt-domains/add-prebuilt-domain-intents.png)
@@ -56,13 +56,24 @@ LUIS includes a set of prebuilt models for quickly adding common, conversational
 
 1. Select **Done**. After the entity is added, you do not need to train the app.
 
+## Add a prebuilt domain entity
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
+1. Select **Entities** in the left side.
+
+1. On the **Entities** page, select **Add prebuilt domain entity**.
+
+1. In **Add prebuilt domain models** dialog box, select the prebuilt domain entity.
+
+1. Select **Done**. After the entity is added, you do not need to train the app.
+
 ## Publish to view prebuilt model from prediction endpoint
 
 The easiest way to view the value of a prebuilt model is to query from the published endpoint.
 
 ## Entities containing a prebuilt entity token
 
-If you have a machine-learned entity that needs a required feature of a prebuilt entity, add a subcomponent to the machine-learned entity, then add a _required_ feature of a prebuilt entity.
+If you have a machine-learning entity that needs a required feature of a prebuilt entity, add a subentity to the machine-learning entity, then add a _required_ feature of a prebuilt entity.
 
 ## Next steps
 > [!div class="nextstepaction"]
