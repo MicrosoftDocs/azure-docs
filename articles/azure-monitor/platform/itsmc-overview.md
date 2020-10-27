@@ -61,7 +61,7 @@ Before you can create a connection, you need to add the ITSM Connector Solution.
    >[!NOTE]
    >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as Log Analytics workspaces.
 
-5. Click **Create**.
+5. Click **OK**.
 
 When the solution resource is deployed, a notification appears at the top right- of the window.
 
@@ -118,28 +118,29 @@ Action Groups provide a modular and reusable way of triggering actions for your 
 
 Use the following procedure:
 
-1. In Azure portal, click  **Monitor**.
-2. In the left pane, click  **Action groups**. The **Add action group** window appears.
+1. In Azure portal, click  **Alerts**.
+2. In the top pane, click  **Manage Actions**. The **Add action group** window appears.
 
-    ![Action Groups](media/itsmc-overview/action-groups.png)
+    [![Action Groups](media/itsmc-overview/action-groups-selection.png)](media/itsmc-overview/action-groups-selection-big.png)
 
-3. Provide **Name** and **ShortName** for your action group. Select the **Resource Group** and **Subscription** where you want to create your action group.
+3. Select the **Subscription** and **Resource Group** where you want to create your action group. Provide **Action Group Name** and **Display Name** for your action group. Click on **Next: Notifications**.
 
     ![Action Groups detail](media/itsmc-overview/action-groups-details.png)
 
-4. In the Actions list, select **ITSM** from the drop-down menu for **Action Type**. Provide a **Name** for the action and click **Edit details**.
-5. Select the **Subscription** where your Log Analytics workspace is located. Select the **Connection** name (your ITSM Connector name) followed by your Workspace name. For example, "MyITSMMConnector(MyWorkspace)."
+4. In the notification list click on **Nest: Actions**.
+5. In the Actions list, select **ITSM** from the drop-down menu for **Action Type**. Provide a **Name** for the action and click on the pen that represents **Edit details**.
+6. Select the **Subscription** where your Log Analytics workspace is located. Select the **Connection** name (your ITSM Connector name) followed by your Workspace name. For example, "MyITSMMConnector(MyWorkspace)."
 
-    ![ITSM Action details](media/itsmc-overview/itsm-action-details.png)
+    ![ITSM Action details](media/itsmc-overview/itsm-action-configuration.png)
 
-6. Select **Work Item** type from the drop-down menu.
+7. Select **Work Item** type from the drop-down menu.
 
-7. If you want to fill out of the box fields with fixed values you should select the checkbox of "Use Custom Template" otherwise choose to use an existing [template](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) from the dropdown and fill the template fields with fixed values.
+8. If you want to fill out of the box fields with fixed values you should select the checkbox of "Use Custom Template" otherwise choose to use an existing [template](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) from the dropdown and fill the template fields with fixed values.
 
-8. By selecting the checkbox **Create individual work items for each Configuration Item** every configuration item will have its own work item. Meaning there will be one work item per configuration item and it will be updated according to the alerts that will be created.
+9. By selecting the checkbox **Create individual work items for each Configuration Item** every configuration item will have its own work item. Meaning there will be one work item per configuration item and it will be updated according to the alerts that will be created.
 If you de-select the checkbox **Create individual work items for each Configuration Item** every alert will create a new work item, meaning there can be more than 1 alert per configuration item.
 
-9. Click **OK**.
+10. Click **OK**.
 
 When creating/editing an Azure alert rule, use an Action group, which has an ITSM Action. When the alert triggers, work item is created/updated in the ITSM tool.
 

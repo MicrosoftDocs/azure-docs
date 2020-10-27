@@ -27,7 +27,7 @@ To make sure the development process is secure, tooling and framework libraries 
 ## ASP.NET and .NET Core applications
 
 ### Save secret settings in User Secret store that is outside of source control folder
-If you are doing a quick prototype or you don't have internet access, start with moving your secret settings outside of source control folder to User Secret store. User Secret store is a file saved under user profiler folder, so secrets are not checked in to source control. The following diagram demonstrates how [User Secret](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio) works.
+If you are doing a quick prototype or you don't have internet access, start with moving your secret settings outside of source control folder to User Secret store. User Secret store is a file saved under user profiler folder, so secrets are not checked in to source control. The following diagram demonstrates how [User Secret](/aspnet/core/security/app-secrets?tabs=visual-studio) works.
 
 ![User Secret keeps secret settings outside of source control](../media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -40,7 +40,7 @@ If you are developing a project and need to share source code securely, use [Azu
 
     ![Create Azure Key Vault](../media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Grant you and your team members access to the Key Vault. If you have a large team, you can create an [Azure Active Directory group](../../active-directory/active-directory-groups-create-azure-portal.md) and add that security group access to the Key Vault. In the *Secret Permissions* dropdown, check *Get* and *List* under *Secret Management Operations*.
+2. Grant you and your team members access to the Key Vault. If you have a large team, you can create an [Azure Active Directory group](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) and add that security group access to the Key Vault. In the *Secret Permissions* dropdown, check *Get* and *List* under *Secret Management Operations*.
 If you already have your web app created, grant the web app access to the Key Vault so it can access the key vault without storing secret configuration in App Settings or files. Search for your web app by its name and add it the same way you grant users access.
 
     ![Add Key Vault access policy](../media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
