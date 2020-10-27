@@ -35,7 +35,7 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 ### Integrated with Azure and Microsoft PaaS/SaaS services 
 
-- Generate (or import using [BYOK](hsm-protected-keys-byok.md)) keys and use them to encrypt your data at rest in Azure services such as [Azure Storage](../../storage/common/encryption-customer-managed-keys.md), [Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md), and [Azure Information Protection](/azure/information-protection/byok-price-restrictions).
+- Generate (or import using [BYOK](hsm-protected-keys-byok.md)) keys and use them to encrypt your data at rest in Azure services such as [Azure Storage](../../storage/common/customer-managed-keys-overview.md), [Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md), and [Azure Information Protection](/azure/information-protection/byok-price-restrictions).
 
 ### Uses same API and management interfaces as Key Vault
 
