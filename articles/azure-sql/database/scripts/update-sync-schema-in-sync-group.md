@@ -72,11 +72,11 @@ The **UpdateSyncSchema** script uses the following commands. Each command in the
 
 | Command | Notes |
 |---|---|
-| [Get-AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncgroup) | Returns information about a sync group. |
-| [Update-AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncgroup) | Updates a sync group. |
-| [Get-AzSqlSyncMember](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncmember) | Returns information about a sync member. |
-| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncschema) | Returns information about a sync schema. |
-| [Update-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncschema) | Updates a sync schema. |
+| [Get-AzSqlSyncGroup](/powershell/module/az.sql/get-azsqlsyncgroup) | Returns information about a sync group. |
+| [Update-AzSqlSyncGroup](/powershell/module/az.sql/update-azsqlsyncgroup) | Updates a sync group. |
+| [Get-AzSqlSyncMember](/powershell/module/az.sql/get-azsqlsyncmember) | Returns information about a sync member. |
+| [Get-AzSqlSyncSchema](/powershell/module/az.sql/get-azsqlsyncschema) | Returns information about a sync schema. |
+| [Update-AzSqlSyncSchema](/powershell/module/az.sql/update-azsqlsyncschema) | Updates a sync schema. |
 
 ## Next steps
 
@@ -94,7 +94,7 @@ For more information about SQL Data Sync, see:
         -  [Use PowerShell to sync data between Azure SQL Database and SQL Server](sql-data-sync-sync-data-between-azure-onprem.md)
 - Data Sync Agent - [Data Sync Agent for SQL Data Sync in Azure](../sql-data-sync-agent-overview.md)
 - Best practices - [Best practices for SQL Data Sync in Azure](../sql-data-sync-best-practices.md)
-- Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../sql-data-sync-monitor-sync.md)
+- Monitor - [Monitor SQL Data Sync with Azure Monitor logs](../monitor-tune-overview.md)
 - Troubleshoot - [Troubleshoot issues with SQL Data Sync in Azure](../sql-data-sync-troubleshoot.md)
 - Update the sync schema
     - Use Transact-SQL - [Automate the replication of schema changes in SQL Data Sync in Azure](../sql-data-sync-update-sync-schema.md)
@@ -102,4 +102,4 @@ For more information about SQL Data Sync, see:
 For more information about SQL Database, see:
 
 - [SQL Database overview](../sql-database-paas-overview.md)
-- [Database Lifecycle Management](https://msdn.microsoft.com/library/jj907294.aspx)
+- [Database Lifecycle Management](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))
