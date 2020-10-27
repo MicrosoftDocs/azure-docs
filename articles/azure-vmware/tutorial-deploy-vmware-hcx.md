@@ -60,7 +60,9 @@ Infrastructure components must be running the required minimum version.
 
 * Configure [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) between on-premises and Azure VMware Solution SDDC ExpressRoute circuits.
 
-* All required ports should be open for communication between on-premises components and Azure VMware Solution SDDC. For more information, see [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
+* [All required ports](https://ports.vmware.com/home/VMware-HCX) should be open for communication between on-premises components and Azure VMware Solution SDDC.
+
+For more information, see the [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
 
 
 ### IP addresses
@@ -69,13 +71,13 @@ Infrastructure components must be running the required minimum version.
    
 ## Deploy the VMware HCX Connector OVA on-premises
 
->[!NOTE]
->Before you deploy the virtual appliance to your on-premises vCenter, you'll need to download the VMware HCX Connector OVA. 
+> [!NOTE]
+> Before you deploy the virtual appliance to your on-premises vCenter, you must download the VMware HCX Connector OVA. 
 
 1. Open a browser window, sign in to the Azure VMware Solution HCX Manager on `https://x.x.x.9` port 443 with the **cloudadmin** user credentials, and then go to **Support**.
 
-   >[!TIP]
-   >Note the IP address of the HCX Cloud Manager in Azure VMware Solution. To identify the IP address, on the Azure VMware Solution pane, go to **Manage** > **Connectivity** and then select the **HCX** tab. 
+   > [!TIP]
+   > Note the IP address of the HCX Cloud Manager in Azure VMware Solution. To identify the IP address, on the Azure VMware Solution pane, go to **Manage** > **Connectivity** and then select the **HCX** tab. 
    >
    >The vCenter password was defined when you set up the private cloud.
 
@@ -98,8 +100,8 @@ Infrastructure components must be running the required minimum version.
 
 1. Select **Next**, verify the configuration, and then select **Finish** to deploy the HCX Connector OVA.
      
-   >[!NOTE]
-   >Generally, the VMware HCX Connector that you're deploying now is deployed onto the cluster's management network.  
+   > [!NOTE]
+   > Generally, the VMware HCX Connector that you're deploying now is deployed onto the cluster's management network.  
    
    > [!IMPORTANT]
    > You might need to turn on the virtual appliance manually.  If that's the case, wait 10-15 minutes before proceeding to the next step.
@@ -167,7 +169,7 @@ You can connect (pair) the VMware HCX Cloud Manager in Azure VMware Solution wit
 1. Enter the Remote HCX URL or IP address that you noted earlier, the Azure VMware Solution cloudadmin@vsphere.local username, and the password. Then select **Connect**.
 
    > [!NOTE]
-   > The remote HCX URL is your Azure VMware Solution private cloud's HCX Cloud Manager IP address, which is the ".9" address of the management network. For example, if your vCenter is 192.168.4.2, then your HCX URL will be 192.168.4.9.
+   > To establish a site pair successfully, your HCX connector must be able to route to your HCX Cloud Manager IP over port 443.
    >
    > The password is the same password that you used to sign in to vCenter. You defined this password on the initial deployment screen.
 
@@ -268,6 +270,13 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 
 Now it's time to configure a service mesh between on-premises and Azure VMware Solution SDDC.
 
+   > [!NOTE]
+   > To successfully establish a service mesh with Azure VMware Solution:
+   >
+   > Ports UDP 500/4500 are open between your on-premises HCX connector-defined 'uplink' network profile addresses and the Azure VMware Solution HCX Cloud 'uplink' network profile addresses.
+   >
+   > Be sure to review [HCX required ports](https://ports.vmware.com/home/VMware-HCX).
+
 1. Under **Infrastructure**, select **Interconnect** > **Service Mesh** > **Create Service Mesh**.    
 
    :::image type="content" source="media/tutorial-vmware-hcx/create-service-mesh.png" alt-text="Screenshot of selections to start creating a service mesh." lightbox="media/tutorial-vmware-hcx/create-service-mesh.png":::
@@ -347,3 +356,4 @@ For more information on using HCX, go to the VMware technical documentation:
 
 * [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html)
 * [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
+* [HCX required ports](https://ports.vmware.com/home/VMware-HCX)

@@ -5,7 +5,7 @@ services: container-service
 ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-azurecli
 ---
 
 # Manage system node pools in Azure Kubernetes Service (AKS)
