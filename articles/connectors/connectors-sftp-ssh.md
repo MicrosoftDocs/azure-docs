@@ -261,7 +261,7 @@ This error can happen when the logic app is not able to successfully establish a
 
 1. The connection time out is 20 seconds. Please make sure the SFTP server has good performance and intermidiate devices like firewall do not add much overhead. 
 
-2. If there is a firewall involved, please make sure that the **Managed connector IP** addresses are whitelisted. You can find these IP addresses for your logic app region [**here**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+2. If there is a firewall involved, please make sure that the **Managed connector IP** addresses are added to the approved list. You can find these IP addresses for your logic app region [**here**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
 
 3. If this is intermittent issue, please test the retry setting to see whether a higher retry count than the default 4 may help.
 
@@ -282,4 +282,3 @@ For more technical details about this connector, such as triggers, actions, and 
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
-

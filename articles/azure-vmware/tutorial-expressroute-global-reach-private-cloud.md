@@ -78,7 +78,7 @@ Now that you’ve created an authorization key for the private cloud ExpressRout
 We’ve augmented the [CLI commands](../expressroute/expressroute-howto-set-global-reach-cli.md) with specific details and examples to help you configure the ExpressRoute Global Reach peering between on-premises environments to an Azure VMware Solution private cloud.  
 
 > [!TIP]  
-> For brevity in the Azure CLI command output, these instructions may use a [`–query` argument to execute a JMESPath query to only show the required results](https://docs.microsoft.com/cli/azure/query-azure-cli).
+> For brevity in the Azure CLI command output, these instructions may use a [`–query` argument to execute a JMESPath query to only show the required results](/cli/azure/query-azure-cli).
 
 
 1. Sign in to the Azure portal using the same subscription as the on-premises ExpressRoute circuit and open a Cloud Shell. Leave the shell as Bash.

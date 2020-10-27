@@ -43,7 +43,7 @@ Built-in roles that grant permissions to call storage management operations incl
 |    Azure role    |    Description    |    Includes access to account keys?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Owner** | Can manage all storage resources and access to resources.  | Yes, provides permissions to view and regenerate the storage account keys. |
-| **Contributor**  | Can manage all storage resources, but cannot manage assign to resources. | Yes, provides permissions to view and regenerate the storage account keys. |
+| **Contributor**  | Can manage all storage resources, but cannot manage access to resources. | Yes, provides permissions to view and regenerate the storage account keys. |
 | **Reader** | Can view information about the storage account, but cannot view the account keys. | No. |
 | **Storage Account Contributor** | Can manage the storage account, get information about the subscription's resource groups and resources, and create and manage subscription resource group deployments. | Yes, provides permissions to view and regenerate the storage account keys. |
 | **User Access Administrator** | Can manage access to the storage account.   | Yes, permits a security principal to assign any permissions to themselves and others. |

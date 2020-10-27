@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # How to create an NFS share
@@ -53,8 +53,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 
 ```azurecli
 az login
-az feature register --name AllowNfsFileShares
-                    --namespace Microsoft.Storage
+az feature register --name AllowNfsFileShares \
+                    --namespace Microsoft.Storage \
                     --subscription <yourSubscriptionIDHere>
 az provider register --namespace Microsoft.Storage
 ```
@@ -147,10 +147,9 @@ To create a premium file share with the Azure CLI, use the [az storage share cre
 
 ```azurecli-interactive
 az storage share-rm create \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
+    --storage-account $STORAGEACCT \
     --enabled-protocol NFS \
-    --root-access RootSquash \
+    --root-squash RootSquash \
     --name "myshare" 
 ```
 ---

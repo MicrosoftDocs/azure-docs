@@ -32,6 +32,8 @@ These properties are common to all materials:
 
 * **isDoubleSided:** If double-sidedness is set to true, triangles with this material are rendered even if the camera is looking at their back faces. By default this option is disabled. See also [:::no-loc text="Single-sided"::: rendering](single-sided-rendering.md).
 
+* **TransparencyWritesDepth:** If the TransparencyWritesDepth flag is set on the material and the material is transparent, objects using this material will also contribute to the final depth buffer. See the color material property *transparencyMode* in the next section. Enabling this feature is recommended if your use case needs a more plausible [late stage reprojection](late-stage-reprojection.md) of fully transparent scenes. For mixed opaque/transparent scenes, this setting may introduce implausible reprojection behavior or reprojection artifacts. For this reason, the default and recommended setting for the general use case is to disable this flag. The written depth values are taken from the per-pixel depth layer of the object that is closest to the camera.
+
 ## Color material properties
 
 The following properties are specific to color materials:
@@ -48,10 +50,10 @@ The following properties are specific to color materials:
 
 ## API documentation
 
-* [C# ColorMaterial class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterial)
-* [C# RemoteManager.CreateMaterial()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
-* [C++ ColorMaterial class](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterial)
-* [C++ RemoteManager::CreateMaterial()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
+* [C# ColorMaterial class](/dotnet/api/microsoft.azure.remoterendering.colormaterial)
+* [C# RemoteManager.CreateMaterial()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C++ ColorMaterial class](/cpp/api/remote-rendering/colormaterial)
+* [C++ RemoteManager::CreateMaterial()](/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## Next steps
 

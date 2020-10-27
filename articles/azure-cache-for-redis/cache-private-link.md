@@ -5,7 +5,7 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/14/2020
 ---
 
 # Azure Cache for Redis with Azure Private Link (Public Preview)
@@ -16,10 +16,11 @@ Azure Private Endpoint is a network interface that connects you privately and se
 ## Prerequisites
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
-> [!NOTE]
-> This feature is currently in public preview for limited regions. If you don't have the option to create a private endpoint, [contact us](mailto:azurecache@microsoft.com). To use private endpoints, your Azure Cache for Redis instance needs to have been created after July 28th, 2020.
+> [!IMPORTANT]
+> To use private endpoints, your Azure Cache for Redis instance needs to have been created after July 28th, 2020.
+> Currently, geo-replication, firewall rules, portal console support, multiple endpoints per clustered cache, 
+> persistence to firewall and VNet injected caches is not supported. 
 >
-> Regions with public preview access currently: West Central US, North Central US, West US, West US 2, East US, East US 2, Central US, South Central US, Norway East, Norway West, Europe North, Europe West, Asia East, Asia Southeast, Japan East, Japan West, Switzerland North, Switzerland West, India Central, India West, UAE Central, Korea Central, Korea South, UK South, UK West, South Africa North, France South, France Central, Canada East, Canada Central, Germany North, Germany West Central, Australia Central, India West, India South, Australia East, Brazil SouthEast, Brazil South, and Brazil South.
 >
 
 ## Create a private endpoint with a new Azure Cache for Redis instance 
@@ -105,6 +106,23 @@ To create a cache instance, follow these steps.
 
 It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use. 
     
+> [!IMPORTANT]
+> 
+> There is a `publicNetworkAccess` flag which is `Enabled` by default. 
+> This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to `Enabled`. If set to `Disabled`, it will only allow private endpoint access. You can set the value to `Disabled` with the following PATCH request.
+> ```http
+> PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
+> {    "properties": {
+>        "publicNetworkAccess":"Disabled"
+>    }
+> }
+> ```
+>
+
+> [!IMPORTANT]
+> 
+> To connect to a clustered cache, `publicNetworkAccess` needs to be set to `Disabled` and there can only be one private endpoint connection. 
+>
 
 ## Create a private endpoint with an existing Azure Cache for Redis instance 
 
@@ -186,5 +204,4 @@ To create a private endpoint, follow these steps.
 
 ## Next steps
 
-To learn more about Azure Private Link, see the [Azure Private Link documentation](https://docs.microsoft.com/azure/private-link/private-link-overview). 
-
+To learn more about Azure Private Link, see the [Azure Private Link documentation](../private-link/private-link-overview.md).

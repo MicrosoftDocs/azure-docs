@@ -18,7 +18,7 @@ ms.custom: devx-track-java
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## Overview
-The [Azure Storage Client Library for Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
+The [Azure Storage Client Library for Java](https://search.maven.org/artifact/com.azure/azure-storage-blob-cryptography) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
 
 ## Encryption and decryption via the envelope technique
 The processes of encryption and decryption follow the envelope technique.  

@@ -17,7 +17,7 @@ ms.author: memildin
 ---
 
 # Tutorial: Triage, investigate, and respond to security alerts
-Security Center continuously analyzes your hybrid cloud workloads using advanced analytics and threat intelligence to alert you to malicious activity. You can also integrate alerts from other security products and services into Security Center, and create custom alerts based on your own indicators or intelligence sources. Once an alert is generated, swift action is needed to investigate and remediate. 
+Security Center continuously analyzes your hybrid cloud workloads using advanced analytics and threat intelligence to alert you about potentially malicious activities in your cloud resources. You can also integrate alerts from other security products and services into Security Center. Once an alert is raised, swift action is needed to investigate and remediate the potential security issue. 
 
 In this tutorial, you will learn how to:
 
@@ -88,8 +88,8 @@ After investigating an alert and understanding its scope, you can respond to sec
 
     This removes the alert from the main alerts list. You can use the filter from the alerts list page to view all alerts with **Dismissed** status.
 
-1.	Optionally, provide feedback on an alert to Microsoft:
-    1. Marking the alert as **Useful** or **Not useful** and providing
+1.	We encourage you to provide feedback about the alert to Microsoft:
+    1. Marking the alert as **Useful** or **Not useful**.
     1. Select a reason and add a comment.
 
         :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Provide feedback to Microsoft on the usefulness of an alert":::

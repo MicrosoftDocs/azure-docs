@@ -28,7 +28,7 @@ Vault credentials expire after 10 days. If the credentials file expires, downloa
 
 ### What characters are allowed for the passphrase?
 
-The passphrase should use characters from the ASCII character set, with [ASCII values less than or equal to 127](https://docs.microsoft.com/office/vba/language/reference/user-interface-help/character-set-0127).
+The passphrase should use characters from the ASCII character set, with [ASCII values less than or equal to 127](/office/vba/language/reference/user-interface-help/character-set-0127).
 
 ### From what drives can I back up files and folders?
 
