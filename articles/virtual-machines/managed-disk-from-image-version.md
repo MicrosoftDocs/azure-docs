@@ -71,7 +71,7 @@ $sourceImgVer = Get-AzGalleryImageVersion `
    -Name 1.0.0
 ```
 
-After setting the `source` variable to the ID of the image version, use [New-AzDiskConfig](powershell/module/az.compute/new-azdiskconfig) to create a disk configuration and [New-AzDisk](powershell/module/az.compute/new-azdisk) to create the disk. 
+After setting the `source` variable to the ID of the image version, use [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) to create a disk configuration and [New-AzDisk](/powershell/module/az.compute/new-azdisk) to create the disk. 
 
 In this example, we export the OS disk of the image version to create a managed disk named *myManagedOSDisk*, in the *EastUS* region, in a resource group named *myResourceGroup*. 
 
