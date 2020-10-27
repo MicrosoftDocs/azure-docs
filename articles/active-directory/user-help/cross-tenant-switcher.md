@@ -1,5 +1,5 @@
 ---
-title: Switch organizations in My Account, My Apps, My Access and My Staff portals - Azure AD
+title: Switch organizations in My Account, My Apps, My Access and My Staff portals - Azure Active Directory
 description: Switch from one organization to another one in a management portal such as My Account.
 services: active-directory
 author: curtand
