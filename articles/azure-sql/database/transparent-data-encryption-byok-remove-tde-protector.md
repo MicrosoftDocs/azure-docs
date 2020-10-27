@@ -5,7 +5,7 @@ description: "Learn how to respond to a potentially compromised TDE protector fo
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang:
 ms.topic: how-to
 author: jaszymas

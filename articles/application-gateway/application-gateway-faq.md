@@ -471,6 +471,10 @@ Yes. If your configuration matches following scenario, you won't see allowed tra
 - You have an NSG on the application gateway subnet
 - You've enabled NSG flow logs on that NSG
 
+### Does Application Gateway store customer data?
+
+No, Application Gateway does not store customer data.
+
 ## Next steps
 
 To learn more about Application Gateway, see [What is Azure Application Gateway?](overview.md).
