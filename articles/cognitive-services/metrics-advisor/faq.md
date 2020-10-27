@@ -19,10 +19,6 @@ ms.author: mbullwin
 
 There currently isn't a cost to use your instance during the preview.
 
-### Why is the demo website readonly?
-
-The [demo website](https://anomaly-detector.azurewebsites.net/) is publicly available. This instance is made read-only to prevent accidental upload of any data.
-
 ### Why can't I create the resource? The "Pricing tier" is unavailable and it says "You have already created 1 S0 for this subscription"?
 
 :::image type="content" source="media/pricing.png" alt-text="Message when an F0 resource already exists":::
@@ -142,5 +138,4 @@ For example, when an anomaly occurs on `Service = S2 | Data Center = DC2 | Machi
 
 ## Next Steps
 - [Metrics Advisor overview](overview.md)
-- [Try the demo site](quickstarts/explore-demo.md)
 - [Use the web portal](quickstarts/web-portal.md)
