@@ -235,7 +235,7 @@ To remove an MSIX package from your host pool:
 
 1. Select **MSIX packages**.  You should see a list of all existing MSIX packages within the host pool.
 
-2. Select the packages you want to remove, then select **Remove**.
+2. Select the ellipsis on the right side the name of the package you want to delete, then select **Remove**.
 
 ## Remove MSIX apps
 
