@@ -1,7 +1,7 @@
 ---
 title: "Migrating to Bridge to Kubernetes"
 services: azure-dev-spaces
-ms.date: 10/12/2020
+ms.date: 10/21/2020
 ms.topic: "conceptual"
 description: "Describes the migration process from Azure Dev Spaces to Bridge to Kubernetes"
 keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Bridge to Kubernetes"
@@ -45,10 +45,10 @@ Azure Dev Spaces and Bridge to Kubernetes have similar features, they also diffe
 | **Usability** |
 | Independent from Kubernetes and Docker artifacts  | No  | Yes   |
 | Automatic rollback of changes, post-debug  | No  | Yes   |
-| **Environments** |
+| **Supported Client Tooling** |
 | Works with Visual Studio 2019  | Yes  | Yes   |
 | Works with Visual Studio Code  | Yes  | Yes   |
-| Works with the CLI  | Yes  | No   |
+| Works with a CLI  | Yes  | No   |
 | **Operating System Compatibility** |
 | Works on Windows 10  | Yes  | Yes  |
 | Works on Linux  | Yes  | Yes  |

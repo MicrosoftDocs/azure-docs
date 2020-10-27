@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
+ms.date: 10/27/2020
 ---
 
 # Authenticate access to Azure resources by using managed identities in Azure Logic Apps
@@ -30,7 +30,7 @@ This article shows how to set up both kinds of managed identities for your logic
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). Both the managed identity and the target Azure resource where you need access must use the same Azure subscription.
 
-* To give a managed identity access to an Azure resource, you need to add a role to the target resource for that identity. To add roles, you need [Azure AD administrator permissions](../active-directory/users-groups-roles/directory-assign-admin-roles.md) that can assign roles to identities in the corresponding Azure AD tenant.
+* To give a managed identity access to an Azure resource, you need to add a role to the target resource for that identity. To add roles, you need [Azure AD administrator permissions](../active-directory/roles/permissions-reference.md) that can assign roles to identities in the corresponding Azure AD tenant.
 
 * The target Azure resource that you want to access. On this resource, you'll add a role for the managed identity, which helps the logic app authenticate access to the target resource.
 
@@ -153,19 +153,19 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
    ![Add new managed identity](./media/create-managed-service-identity/add-user-assigned-identity.png)
 
-1. Provide information about your managed identity, and then select **Create**, for example:
+1. Provide information about your managed identity, and then select **Review + Create**, for example:
 
    ![Create user-assigned managed identity](./media/create-managed-service-identity/create-user-assigned-identity.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Resource Name** | Yes | <*user-assigned-identity-name*> | The name to give your user-assigned identity. This example uses "Fabrikam-user-assigned-identity". |
    | **Subscription** | Yes | <*Azure-subscription-name*> | The name for the Azure subscription to use |
-   | **Resource group** | Yes | <*Azure-resource-group-name*> | The name for the resource group to use. Create a new group, or select an existing group. This example creates a new group named "fabrikam-managed-identities-RG". |
-   | **Location** | Yes | <*Azure-region*> | The Azure region where to store information about your resource. This example uses "West US". |
+   | **Resource group** | Yes | <*Azure-resource-group-name*> | The name for the resource group to use. Create a new group, or select an existing group. This example creates a new group named `fabrikam-managed-identities-RG`. |
+   | **Region** | Yes | <*Azure-region*> | The Azure region where to store information about your resource. This example uses "West US". |
+   | **Name** | Yes | <*user-assigned-identity-name*> | The name to give your user-assigned identity. This example uses `Fabrikam-user-assigned-identity`. |
    |||||
 
-   Now you can add the user-assigned identity to your logic app. You can't add more than one user-assigned identity to your logic app.
+   After validating these details, Azure creates your managed identity. Now you can add the user-assigned identity to your logic app. You can't add more than one user-assigned identity to your logic app.
 
 1. In the Azure portal, find and open your logic app in Logic App Designer.
 
@@ -286,7 +286,7 @@ Before you can use your logic app's managed identity for authentication, set up 
 * [Azure portal](#azure-portal-assign-access)
 * [Azure Resource Manager template](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)) - For more information, see [Add role assignment by using Azure RBAC and Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* Azure CLI ([az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) - For more information, see [Add role assignment by using Azure RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md).
+* Azure CLI ([az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true#az-role-assignment-create)) - For more information, see [Add role assignment by using Azure RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md).
 * [Azure REST API](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
@@ -302,11 +302,11 @@ Before you can use your logic app's managed identity for authentication, set up 
    > [!TIP]
    > If the **Add role assignment** option is disabled, you most likely don't have permissions. 
    > For more information about the permissions that let you manage roles for resources, see 
-   > [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+   > [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 1. Under **Add role assignment**, select a **Role** that gives your identity the necessary access to the target resource.
 
-   For this topic's example, your identity needs a [role that can access the blob in an Azure Storage container](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
+   For this topic's example, your identity needs a [role that can access the blob in an Azure Storage container](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights), so select the **Storage Blob Data Contributor** role for the managed identity.
 
    ![Select "Storage Blob Data Contributor" role](./media/create-managed-service-identity/select-role-for-identity.png)
 
@@ -381,8 +381,8 @@ These steps show how to use the managed identity with a trigger or action throug
    |----------|----------|---------------|-------------|
    | **Method** | Yes | `PUT`| The HTTP method that the Snapshot Blob operation uses |
    | **URI** | Yes | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | The resource ID for an Azure Blob Storage file in the Azure Global (public) environment, which uses this syntax |
-   | **Headers** | Yes, for Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | The `x-ms-blob-type` and `x-ms-version` header values that are required for Azure Storage operations. <p><p>**Important**: In outgoing HTTP trigger and action requests for Azure Storage, the header requires the `x-ms-version` property and the API version for the operation that you want to run. <p>For more information, see these topics: <p><p>- [Request headers - Snapshot Blob](/rest/api/storageservices/snapshot-blob#request) <br>- [Versioning for Azure Storage services](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
-   | **Queries** | Yes, for this operation | `comp` = `snapshot` | The query parameter name and value for the Snapshot Blob operation. |
+   | **Headers** | For Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` <p>`x-ms-date` = `@{formatDateTime(utcNow(),'r'}` | The `x-ms-blob-type`, `x-ms-version`, and `x-ms-date` header values are required for Azure Storage operations. <p><p>**Important**: In outgoing HTTP trigger and action requests for Azure Storage, the header requires the `x-ms-version` property and the API version for the operation that you want to run. The `x-ms-date` must be the current date. Otherwise, your logic app fails with a `403 FORBIDDEN` error. To get the current date in the required format, you can use the expression in the example value. <p>For more information, see these topics: <p><p>- [Request headers - Snapshot Blob](/rest/api/storageservices/snapshot-blob#request) <br>- [Versioning for Azure Storage services](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **Queries** | Only for the Snapshot Blob operation | `comp` = `snapshot` | The query parameter name and value for the operation. |
    |||||
 
    Here is the example HTTP action that shows all these property values:
@@ -470,7 +470,7 @@ In the Azure portal, first remove the identity's access to [your target resource
    > [!TIP]
    > If the **Remove** option is disabled, you most likely don't have permissions. 
    > For more information about the permissions that let you manage roles for resources, see 
-   > [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+   > [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 The managed identity is now removed and no longer has access to the target resource.
 

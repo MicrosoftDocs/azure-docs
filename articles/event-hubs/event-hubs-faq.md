@@ -2,7 +2,7 @@
 title: Frequently asked questions - Azure Event Hubs | Microsoft Docs
 description: This article provides a list of frequently asked questions (FAQ) for Azure Event Hubs and their answers. 
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 10/23/2020
 ---
 
 # Event Hubs frequently asked questions
@@ -37,13 +37,13 @@ For more information about pricing tiers, including Event Hubs Dedicated, see th
 
 Azure Event Hubs is available in all supported Azure regions. For a list, visit the [Azure regions](https://azure.microsoft.com/regions/) page.  
 
-### Can I use a single AMQP connection to send and receive from multiple event hubs?
+### Can I use a single Advanced Message Queuing Protocol (AMQP) connection to send and receive from multiple event hubs?
 
 Yes, as long as all the event hubs are in the same namespace.
 
 ### What is the maximum retention period for events?
 
-Event Hubs Standard tier currently supports a maximum retention period of seven days. Event hubs aren't intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it's convenient to replay an event stream into the same systems; for example, to train or verify a new machine learning model on existing data. If you need message retention beyond seven days, enabling [Event Hubs Capture](event-hubs-capture-overview.md) on your event hub pulls the data from your event hub into the Storage account or Azure Data Lake Service account of your choosing. Enabling Capture incurs a charge based on your purchased throughput units.
+Event Hubs Standard tier currently supports a maximum retention period of seven days. Event hubs aren't intended as a permanent data store. Retention periods greater than 24 hours are intended for scenarios in which it's convenient to replay an event stream into the same systems. For example, to train or verify a new machine learning model on existing data. If you need message retention beyond seven days, enabling [Event Hubs Capture](event-hubs-capture-overview.md) on your event hub pulls the data from your event hub into the Storage account or Azure Data Lake Service account of your choosing. Enabling Capture incurs a charge based on your purchased throughput units.
 
 You can configure the retention period for the captured data on your storage account. The **lifecycle management** feature of Azure Storage offers a rich, rule-based policy for general purpose v2 and blob storage accounts. Use the policy to transition your data to the appropriate access tiers or expire at the end of the data's lifecycle. For more information, see [Manage the Azure Blob storage lifecycle](../storage/blobs/storage-lifecycle-management-concepts.md). 
 
@@ -51,12 +51,12 @@ You can configure the retention period for the captured data on your storage acc
 Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
 ### <a name="in-region-data-residency"></a>Where does Azure Event Hubs store customer data?
-Azure Event Hubs stores customer data. This data is automatically stored by Event Hubs in a single region, so this service automatically satisfies in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+Azure Event Hubs stores customer data. This data is automatically stored by Event Hubs in a single region, so this service automatically satisfies the region data residency requirements including the ones specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
 
 ### What ports do I need to open on the firewall? 
 You can use the following protocols with Azure Service Bus to send and receive messages:
 
-- Advanced Message Queuing Protocol (AMQP)
+- AMQP
 - HTTP
 - Apache Kafka
 
@@ -100,7 +100,7 @@ If you use the **zone redundancy** for your namespace, you need to do a few addi
 ### Where can I find client IP sending or receiving messages to my namespace?
 First, enable [IP filtering](event-hubs-ip-filtering.md) on the namespace. 
 
-Then, Enable diagnostic logs for [Event Hubs virtual network connection events](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). You will see the IP address for which connection is denied.
+Then, Enable diagnostic logs for [Event Hubs virtual network connection events](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). You'll see the IP address for which connection is denied.
 
 ```json
 {
@@ -123,20 +123,23 @@ Event Hubs provides a Kafka endpoint that can be used by your existing Apache Ka
 ### What configuration changes need to be done for my existing application to talk to Event Hubs?
 To connect to an event hub, you'll need to update the Kafka client configs. It's done by creating an Event Hubs namespace and obtaining the [connection string](event-hubs-get-connection-string.md). Change the bootstrap.servers to point the Event Hubs FQDN and the port to 9093. Update the sasl.jaas.config to direct the Kafka client to your Event Hubs endpoint (which is the connection string you've obtained), with correct authentication as shown below:
 
+```properties
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
 request.timeout.ms=60000
 security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+```
 
 Example:
 
+```properties
 bootstrap.servers=dummynamespace.servicebus.windows.net:9093
 request.timeout.ms=60000
 security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
-sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
-
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
+```
 Note: If sasl.jaas.config isn't a supported configuration in your framework, find the configurations that are used to set the SASL username and password and use those instead. Set the username to $ConnectionString and the password to your Event Hubs connection string.
 
 ### What is the message/event size for Event Hubs?
@@ -184,32 +187,17 @@ On a multi-tenant offering, throughput units can grow up to 40 TUs (you can sele
 ### What are Event Hubs Dedicated clusters?
 Event Hubs Dedicated clusters offer single-tenant deployments for customers with most demanding requirements. This offering builds a capacity-based cluster that is not bound by throughput units. It means that you could use the cluster to ingest and stream your data as dictated by the CPU and memory usage of the cluster. For more information, see [Event Hubs Dedicated clusters](event-hubs-dedicated-overview.md).
 
-### How much does a single capacity unit let me achieve?
-For a dedicated cluster, how much you can ingest and stream depends on various factors such as your producers, consumers, the rate at which you're ingesting and processing, and much more. 
-
-Following table shows the benchmark results that we achieved during our testing:
-
-| Payload shape | Receivers | Ingress bandwidth| Ingress messages | Egress bandwidth | Egress messages | Total TUs | TUs per CU |
-| ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batches of 100x1KB | 2 | 400 MB/sec | 400k messages/sec | 800 MB/sec | 800k messages/sec | 400 TUs | 100 TUs | 
-| Batches of 10x10KB | 2 | 666 MB/sec | 66.6k messages/sec | 1.33 GB/sec | 133k messages/sec | 666 TUs | 166 TUs |
-| Batches of 6x32KB | 1 | 1.05 GB/sec | 34k messages / sec | 1.05 GB/sec | 34k messages/sec | 1000 TUs | 250 TUs |
-
-In the testing, the following criteria was used:
-
-- A dedicated Event Hubs cluster with four capacity units (CUs) was used. 
-- The event hub used for ingestion had 200 partitions. 
-- The data that was ingested was received by two receiver applications receiving from all partitions.
-
-The results give you an idea of what can be achieved with a dedicated Event Hubs cluster. In addition, a dedicate cluster comes with the Event Hubs Capture enabled for your micro-batch and long-term retention scenarios.
-
 ### How do I create an Event Hubs Dedicated cluster?
-You create an Event Hubs dedicated cluster by submitting a [quota increase support request](https://portal.azure.com/#create/Microsoft.Support) or by contacting the [Event Hubs team](mailto:askeventhubs@microsoft.com). It typically takes about two weeks to get the cluster deployed and handed over to be used by you. This process is temporary until a complete self-serve is made available through the Azure portal.
+For step-by-step instructions and more information on setting up an Event Hubs dedicated cluster, see the [Quickstart: Create a dedicated Event Hubs cluster using Azure portal](event-hubs-dedicated-cluster-create-portal.md). 
+
+
+[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
+
 
 ## Best practices
 
 ### How many partitions do I need?
-The number of partitions is specified at creation and must be between 2 and 32. The partition count isn't changeable, so you should consider long-term scale when setting partition count. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. For more information on partitions, see [Partitions](event-hubs-features.md#partitions).
+The number of partitions is specified at creation and must be between 1 and 32. The partition count isn't changeable, so you should consider long-term scale when setting partition count. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. For more information on partitions, see [Partitions](event-hubs-features.md#partitions).
 
 You may want to set it to be the highest possible value, which is 32, at the time of creation. Remember that having more than one partition will result in events sent to multiple partitions without retaining the order, unless you configure senders to only send to a single partition out of the 32 leaving the remaining 31 partitions redundant. In the former case, you'll have to read events across all 32 partitions. In the latter case, there's no obvious additional cost apart from the extra configuration you have to make on Event Processor Host.
 
@@ -277,9 +265,9 @@ To learn more about our SLA, see the [Service Level Agreements](https://azure.mi
 ## Azure Stack Hub
 
 ### How can I target a specific version of Azure Storage SDK when using Azure Blob Storage as a checkpoint store?
-If you run this code on Azure Stack Hub, you will experience runtime errors unless you target a specific Storage API version. That's because the Event Hubs SDK uses the latest available Azure Storage API available in  Azure that may not be available on your Azure Stack Hub platform. Azure Stack Hub may support a different version of Storage Blob SDK than those typically available on Azure. If you are using Azure Blog Storage as a checkpoint store, check the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and target that version in your code. 
+If you run this code on Azure Stack Hub, you will experience runtime errors unless you target a specific Storage API version. That's because the Event Hubs SDK uses the latest available Azure Storage API available in  Azure that may not be available on your Azure Stack Hub platform. Azure Stack Hub may support a different version of Storage Blob SDK than that are typically available on Azure. If you are using Azure Blog Storage as a checkpoint store, check the [supported Azure Storage API version for your Azure Stack Hub build](/azure-stack/user/azure-stack-acs-differences?#api-version) and target that version in your code. 
 
-For example, If you are running on Azure Stack Hub version 2005, the highest available version for the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2019-02-02. For an example on how to target a specific Storage API version, see the following samples for C#, Java, Python, and JavaScript/TypeScript.  
+For example, If you're running on Azure Stack Hub version 2005, the highest available version for the Storage service is version 2019-02-02. By default, the Event Hubs SDK client library uses the highest available version on Azure (2019-07-07 at the time of the release of the SDK). In this case, besides following steps in this section, you will also need to add code to target the Storage service API version 2019-02-02. For an example on how to target a specific Storage API version, see the following samples for C#, Java, Python, and JavaScript/TypeScript.  
 
 For an example on how to target a specific Storage API version from your code, see the following samples on GitHub: 
 

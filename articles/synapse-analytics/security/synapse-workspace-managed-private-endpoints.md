@@ -5,7 +5,7 @@ author: RonyMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
 ---
@@ -47,6 +47,7 @@ When a workspace is created, Azure Synapse creates two Managed private endpoints
 These two Managed private endpoints are listed in Azure Synapse Studio. Select **Manage** in the left navigation, then select **Managed Virtual Networks** to see then in the Studio.
 
 The Managed private endpoint that targets SQL pool is called *synapse-ws-sql--\<workspacename\>* and the one that targets SQL on-demand is called *synapse-ws-sqlOnDemand--\<workspacename\>*.
+
 ![Managed private endpoints for SQL pool and SQL on-demand](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 These two Managed private endpoints are automatically created for you when you create your Azure Synapse workspace. You aren't charged for these two Managed private endpoints.

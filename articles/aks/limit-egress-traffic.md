@@ -5,7 +5,7 @@ services: container-service
 ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-azurecli
 author: palma21
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.

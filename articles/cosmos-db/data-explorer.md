@@ -51,4 +51,4 @@ Customers receiving HTTP-401 errors may be due to insufficient RBAC permissions 
 
 Now that you have learned how to get started with Azure Cosmos DB explorer to manage your data, next you can:
 
-* Start defining [queries](sql-api-query-reference.md) using SQL syntax and perform [server side programming](stored-procedures-triggers-udfs.md) by using stored procedures, UDFs, triggers. 
+* Start defining [queries](./sql-query-getting-started.md) using SQL syntax and perform [server side programming](stored-procedures-triggers-udfs.md) by using stored procedures, UDFs, triggers.

@@ -159,8 +159,7 @@ Translator detects the following languages for translation and transliteration.
 |Pashto|	`ps`	|
 |Persian|	`fa`	|
 |Polish|	`pl`	|
-|Portuguese (Brazil)|	`pt-br`	|
-|Portuguese (Portugal)| `pt-pt` |
+|Portuguese|	`pt`	|
 |Romanian|	`ro`	|
 |Russian|	`ru`	|
 |Serbian (Cyrillic)|	`sr-Cyrl`|
@@ -359,6 +358,7 @@ Convert speech into text in order to translate to the text language of your choi
 |English|
 |Finnish|
 |French|
+|French (Canada)|
 |German|
 |Gujarati|
 |Hindi|
@@ -396,6 +396,7 @@ Convert text to speech. Text-to-speech is used to add audible output of translat
 |English|
 |Finnish|
 |French|
+|French (Canada)|
 |German|
 |Greek|
 |Hebrew|

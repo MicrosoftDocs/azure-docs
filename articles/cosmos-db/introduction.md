@@ -36,7 +36,7 @@ By virtue of deep integration with Azure infrastructure and [transparent multi-r
 
 ### Elastic scalability of throughput and storage, worldwide
 
-Designed with transparent horizontal partitioning and multi-region write replication, Cosmos DB offers unprecedented elastic scalability for your writes and reads, all around the globe. You can elastically scale up from thousands to hundreds of millions of requests/sec around the globe, with a single API call and pay only for the throughput (and storage) you need. This capability helps you to deal with unexpected spikes in your workloads without having to over-provision for the peak. For more information, see [partitioning in Cosmos DB](partitioning-overview.md), [provisioned throughput on containers and databases](set-throughput.md), and [scaling provisioned throughput globally](scaling-throughput.md).
+Designed with transparent horizontal partitioning and multi-region write replication, Cosmos DB offers unprecedented elastic scalability for your writes and reads, all around the globe. You can elastically scale up from thousands to hundreds of millions of requests/sec around the globe, with a single API call and pay only for the throughput (and storage) you need. This capability helps you to deal with unexpected spikes in your workloads without having to over-provision for the peak. For more information, see [partitioning in Cosmos DB](partitioning-overview.md), [provisioned throughput on containers and databases](set-throughput.md), and [scaling provisioned throughput globally](./request-units.md).
 
 ### Guaranteed low latency at 99th percentile, worldwide
 
@@ -44,7 +44,7 @@ Using Cosmos DB, you can build highly responsive, planet scale applications. Wit
 
 ### Precisely defined, multiple consistency choices
 
-When building globally distributed applications in Cosmos DB, you no longer have to make extreme [tradeoffs between consistency, availability, latency, and throughput](consistency-levels-tradeoffs.md). Cosmos DB's multi-region write replication protocol is carefully designed to offer [five well-defined consistency choices](consistency-levels.md) - *strong*, *bounded staleness*, *session*, *consistent prefix*, and *eventual* — for an intuitive programming model with low latency and high availability for your globally distributed application.
+When building globally distributed applications in Cosmos DB, you no longer have to make extreme [tradeoffs between consistency, availability, latency, and throughput](./consistency-levels.md). Cosmos DB's multi-region write replication protocol is carefully designed to offer [five well-defined consistency choices](consistency-levels.md) - *strong*, *bounded staleness*, *session*, *consistent prefix*, and *eventual* — for an intuitive programming model with low latency and high availability for your globally distributed application.
 
 ### No schema or index management
 
@@ -56,7 +56,7 @@ Cosmos DB is a foundational service in Azure. For nearly a decade, Cosmos DB has
 
 ### Ubiquitous regional presence
 
-Cosmos DB is available in all Azure regions worldwide, including 54+ regions in public cloud, [Azure China 21Vianet](https://www.azure.cn/en-us/), Azure Germany, Azure Government, and Azure Government for Department of Defense (DoD). See [Cosmos DB's regional presence](regional-presence.md).
+Cosmos DB is available in all Azure regions worldwide, including 54+ regions in public cloud, [Azure China 21Vianet](https://www.azure.cn/en-us/), Azure Germany, Azure Government, and Azure Government for Department of Defense (DoD). See [High availability with Azure Cosmos DB](high-availability.md).
 
 ### Secure by default and enterprise ready
 
@@ -72,11 +72,11 @@ Cosmos DB is the first and only service to offer [industry-leading comprehensive
 
 ### Globally distributed operational analytics and AI with natively built-in Apache Spark
 
-You can run [Spark](spark-connector.md) directly on data stored in Cosmos DB. This capability allows you to do low-latency, operational analytics at global scale without impacting transactional workloads operating directly against Cosmos DB. For more information, see [Globally distributed operational analytics](lambda-architecture.md).
+You can run [Spark](spark-connector.md) directly on data stored in Cosmos DB. This capability allows you to do low-latency, operational analytics at global scale without impacting transactional workloads operating directly against Cosmos DB. For more information, see [Globally distributed operational analytics](./synapse-link.md).
 
 ### Develop applications on Cosmos DB using popular Open Source Software (OSS) APIs
 
-Cosmos DB offers a choice of APIs to work with your data stored in your Cosmos database. By default, [you can use SQL](how-to-sql-query.md) (a core API) for querying your Cosmos database. Cosmos DB also implements APIs for [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) and [Azure Table Storage](table-introduction.md). You can point client drivers (and tools) for the commonly used NoSQL (e.g., MongoDB, Cassandra, Gremlin) directly to your Cosmos database. By supporting the wire protocols of commonly used NoSQL APIs, Cosmos DB allows you to:
+Cosmos DB offers a choice of APIs to work with your data stored in your Cosmos database. By default, [you can use SQL](./sql-query-getting-started.md) (a core API) for querying your Cosmos database. Cosmos DB also implements APIs for [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) and [Azure Table Storage](table-introduction.md). You can point client drivers (and tools) for the commonly used NoSQL (e.g., MongoDB, Cassandra, Gremlin) directly to your Cosmos database. By supporting the wire protocols of commonly used NoSQL APIs, Cosmos DB allows you to:
 
 * Easily migrate your application to Cosmos DB while preserving significant portions of your application logic.
 * Keep your application portable and continue to remain cloud vendor-agnostic.

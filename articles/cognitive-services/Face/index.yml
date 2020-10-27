@@ -116,9 +116,7 @@ landingContent:
   
   - title: Help and feedback
     linkLists:
-      - linkListType: reference
-        links:
-          - text: UserVoice
-            url: https://cognitive.uservoice.com/forums/430315-face-api
-          - text: Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/face/context/context
