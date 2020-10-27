@@ -17,10 +17,6 @@ Every security program includes multiple workflows for incident response. These 
 
 This article describes the workflow automation feature of Azure Security Center. This feature can trigger Logic Apps on security alerts and recommendations. For example, you might want Security Center to email a specific user when an alert occurs. You'll also learn how to create Logic Apps using [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-> [!NOTE]
-> When you delete a workflow automation configuration the related automation resources will be deleted from the database after 24-48 hours.
-
-
 
 ## Availability
 
