@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-dt-2019, sqldbrb=1
-ms.topic: conceptual
+ms.topic: how-to
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto

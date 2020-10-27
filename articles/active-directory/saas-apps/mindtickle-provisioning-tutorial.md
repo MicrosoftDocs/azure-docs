@@ -110,11 +110,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to MindTickle**.
 
-	![MindTickle User Mappings](media/mindtickle-provisioning-tutorial/usermapping.png)
+	:::image type="content" source="media/mindtickle-provisioning-tutorial/usermapping.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Azure Active Directory Users to MindTickle is visible." border="false":::
 
 9. Review the user attributes that are synchronized from Azure AD to MindTickle in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in MindTickle for update operations. Select the **Save** button to commit any changes.
 
-	![MindTickle User Mappings](media/mindtickle-provisioning-tutorial/userattribute.png)
+	:::image type="content" source="media/mindtickle-provisioning-tutorial/userattribute.png" alt-text="Screenshot of the Attribute Mappings page. A table lists Azure Active Directory and MindTickle attributes and the matching precedence." border="false":::
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

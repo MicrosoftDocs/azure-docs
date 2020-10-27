@@ -47,7 +47,7 @@ Look at the storage section of the output:
     }
 ...
 ```
-If you see  a section "backups", it means your server group has been configured to use a backup storage class and is ready for you to take backups and do restores. If you do not see a section "backups", you need to delete and recreate your server group to configure backup storage class. At this point, it is not yet possible to configure a backup storage class after the server group has been created.
+If you see  the name of a storage class indicated in the "backups" section of the output of that command, it means your server group has been configured to use a backup storage class and is ready for you to take backups and do restores. If you do not see a section "backups", you need to delete and recreate your server group to configure backup storage class. At this point, it is not yet possible to configure a backup storage class after the server group has been created.
 
 >[!IMPORTANT]
 >If your server group is already configured to use a backup storage class, skip the next step and go directly to step "Take manual full backup".
@@ -77,7 +77,12 @@ azdata arc postgres server create -n postgres01 --workers 2 --storage-class-back
 
 ## Take manual full backup
 
+
 Next, take a manual full backup.
+
+> [!CAUTION]
+> **For users of Azure Kubernetes Service (AKS) only:** we are aware of an issue with taking backups of a server group hosted on Azure Kubernetes Service (AKS). We are already working on fixing it. Until the update is deployed in a future release/update, before you take a backup, you need to delete the pods of your server groups. For each of the pods of your server group (you list the pods by running **kubectl get pods -n \<namespace name>**) delete them by running  **kubectl delete pod \<server group pod name> -n \<namespace name>**. Do not delete pods that are not part of your server group. Deleting pods is not putting your data at risk. Wait until all pods are back online and in STATUS=RUNNING before taking a backup. The status of the pod is provided in the output of the kubectl get pods command above.
+
 
 To take a full backup of the entire data and log folders of your server group, run the following command:
 
@@ -88,8 +93,6 @@ Where:
 - __name__ indicates the name of a backup
 - __server-name__ indicates a server group
 - __no-wait__ indicates that the command line will not wait for the backup to complete for you to be able to continue to use this command-line window
-
->**Note**: The command that allows you to list the backups that are available to restore does not show yet, the date/time at which the backup was taken. So it is recommended you give a name to the backup (using the --name parameter) that includes the date/time information.
 
 This command will coordinate a distributed full backup across all the nodes that constitute your Azure Arc enabled PostgreSQL Hyperscale server group. In other words, it will backup all data in your Coordinator and Worker nodes.
 
@@ -129,10 +132,12 @@ azdata arc postgres backup list --server-name postgres01
 
 It will return an output like:
 ```console
-ID                                Name                      State
---------------------------------  ------------------------  -------
-d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done
+ID                                Name                      State    Timestamp
+--------------------------------  ------------------------  -------  ------------------------------
+d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done     2020-08-31 14:30:00:00+00:00
 ```
+
+Timestamp indicates the point in time UTC at which the backup was taken.
 
 ## Restore a backup
 

@@ -45,7 +45,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 | Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Allows the VM to communicate with the Site Recovery service. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
 
-For exhaustive list of URLs to be whitelisted for communication between on-premises Azure Site Recovery infrastructure and Azure services, refer to [network requirements section in the prerequisites article](vmware-azure-deploy-configuration-server.md#prerequisites).
+For exhaustive list of URLs to be filtered for communication between on-premises Azure Site Recovery infrastructure and Azure services, refer to [network requirements section in the prerequisites article](vmware-azure-deploy-configuration-server.md#prerequisites).
 
 ## Replication process
 

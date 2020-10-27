@@ -74,4 +74,4 @@ If you don't require a datastore, write files to the `./outputs` and/or `./logs`
 
 * Learn more about [accessing data from your datastores](how-to-access-data.md).
 
-* Learn more about creating compute targets with the [Python SDK](how-to-create-attach-compute-sdk.md) or using [studio](how-to-create-attach-compute-studio.md).
+* Learn more about [Create compute targets for model training and deployment](how-to-create-attach-compute-studio.md)

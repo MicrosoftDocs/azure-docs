@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=4
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: overview
 keywords: SQL Server cloud, SQL Server in the cloud, PaaS database, cloud SQL Server, DBaaS, IaaS
 author: stevestein
 ms.author: sstein

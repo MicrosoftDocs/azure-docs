@@ -10,8 +10,9 @@ metadata:
   ms.topic: landing-page 
   author: dikamath 
   ms.author: dikamath 
-  ms.date: 05/04/2020 
+  ms.date: 10/19/2020 
 
+# card 1
 landingContent:
   - title: About Azure VMware Solution
     linkLists:
@@ -19,15 +20,120 @@ landingContent:
         links:
           - text: What is Azure VMware Solution?
             url: introduction.md
-      - linkListType: get-started
+      - linkListType: concept
         links:
-          - text: Network checklist
-            url: tutorial-network-checklist.md
+          - text: Private cloud and clusters
+            url: concepts-private-clouds-clusters.md
+          - text: Private cloud networking and interconnectivity
+            url: concepts-networking.md
+          - text: Storage in private clouds
+            url: concepts-storage.md
+          - text: Access and identity for private clouds
+            url: concepts-identity.md
+          - text: Role-based access control 
+            url: concepts-role-based-access-control.md
+          - text: Private cloud upgrades
+            url: concepts-upgrades.md
+
+# card 2
+  - title: Get started
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Plan the deployment
+            url: production-ready-deployment-steps.md
+          - text: 1 - Deploy Azure VMware Solution
+            url: deploy-azure-vmware-solution.md
+          - text: 2 - Connect to on-premises
+            url: azure-vmware-solution-on-premises.md
+          - text: 3 - Deploy and configure HCX
+            url: tutorial-deploy-vmware-hcx.md
       - linkListType: tutorial
         links:
-          - text: Create an AVS private cloud
+          - text: Network planning checklist 
+            url: tutorial-network-checklist.md
+          - text: Create a private cloud
             url: tutorial-create-private-cloud.md
+          - text: Access a private cloud 
+            url: tutorial-access-private-cloud.md
           - text: Configure networking
             url: tutorial-configure-networking.md
-          - text: Access Private Cloud
-            url: tutorial-access-private-cloud.md
+          - text: Create an NSX-T network segment 
+            url: tutorial-nsx-t-network-segment.md
+          - text: Peer on-premises to private cloud 
+            url: tutorial-expressroute-global-reach-private-cloud.md
+          - text: Scale a private cloud 
+            url: tutorial-scale-private-cloud.md
+
+# card 3
+  - title: Extend Azure VMware Solution
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Enable Azure VMware Solution
+            url: enable-azure-vmware-solution.md
+          - text: Save costs with a reserved instance
+            url: reserved-instance.md
+          - text: Migration assessment
+            url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
+          - text: Manage DHCP
+            url: manage-dhcp.md
+          - text: Deploy disaster recovery for VMs
+            url: disaster-recovery-for-virtual-machines.md
+          - text: Deploy VM via content library
+            url: ./deploy-vm-content-library.md
+          - text: Set up GitHub Enterprise Server
+            url: github-enterprise-server.md
+          - text: Public IP usage
+            url: public-ip-usage.md
+          - text: Create an IPSec tunnel
+            url: create-ipsec-tunnel.md
+
+# card 4
+  - title: Azure native integration
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: API Management
+            url: concepts-api-management.md
+          - text: Hub and spoke
+            url: concepts-hub-and-spoke.md
+          - text: Azure Backup Server
+            url: set-up-backup-server-for-azure-vmware-solution.md
+          - text: Lifecycle management on VMs
+            url: lifecycle-management-of-azure-vmware-solution-vms.md
+          - text: Application Gateway
+            url: protect-azure-vmware-solution-with-application-gateway.md
+          - text: Traffic Manager
+            url: deploy-traffic-manager-balance-workloads.md
+
+# card 5
+  - title: VMware solutions
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Set up vRealize Operations
+            url: vrealize-operations-for-azure-vmware-solution.md
+          - text: Deploy VMware Horizon
+            url: azure-vmware-solution-horizon.md
+
+# card 6
+  - title: VMware ecosystem
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Backup solutions for VMs
+            url: ecosystem-back-up-vms.md
+
+# card 7
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: https://docs.microsoft.com/powershell/module/az.vmware
+          - text: Get help with deployment or provisioning failures
+            url: fix-deployment-provisioning-failures.md
+          - text: FAQ
+            url: faq.md
+          

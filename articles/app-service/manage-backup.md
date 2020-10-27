@@ -88,7 +88,7 @@ The following database solutions are supported with backup feature:
 
     You see a progress message during the backup process.
 
-Once the storage account and container is configured, you can initiate a manual backup at any time.
+Once the storage account and container is configured, you can initiate a manual backup at any time. Manual backups are retained indefinitely.
 
 <a name="automatedbackups"></a>
 
@@ -137,7 +137,7 @@ Run backups the same way you would normally do it, [manually](#create-a-manual-b
 > [!NOTE]
 > You restore partial backups of your site the same way you would [restore a regular backup](web-sites-restore.md). The restore process does the right thing.
 > 
-> When a full backup is restored, all content on the site is replaced with whatever is in the backup. If a file is on the site, but not in the backup it gets deleted. But when a partial backup is restored, any content that is located in one of the blacklisted directories, or any blacklisted file, is left as is.
+> When a full backup is restored, all content on the site is replaced with whatever is in the backup. If a file is on the site, but not in the backup it gets deleted. But when a partial backup is restored, any content that is located in one of the restricted directories, or any restricted file, is left as is.
 > 
 
 

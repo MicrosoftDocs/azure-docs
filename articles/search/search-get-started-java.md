@@ -23,7 +23,7 @@ ms.custom: devx-track-java
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Create a Java console application that creates, loads, and queries a search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable), and the [Azure Cognitive Search REST API](/rest/api/searchservice/). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Create a Java console application that creates, loads, and queries a search index using [IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/), and the [Azure Cognitive Search REST API](/rest/api/searchservice/). This article provides step-by-step instructions for creating the application. Alternatively, you can [download and run the complete application](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -33,7 +33,7 @@ We used the following software and services to build and test this quickstart:
 
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
-+ [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)
++ [Java 11 SDK](/java/azure/jdk/)
 
 + [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
@@ -51,7 +51,7 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
 :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Get the service name and admin and query keys" border="false":::
 
-Every request sent to your service requires an api key. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+Every request sent to your service requires an API key. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
 ## Set up your environment
 
@@ -144,7 +144,7 @@ Begin by opening IntelliJ IDEA and setting up a new project.
 
 1. In the **Project** window, expand the source tree to access the `src` >  `main` >`resources` > `app` folder, and add a `config.properties` file. To do this, select the `app` folder, press Alt + Insert, select **File**, and then enter the file name.
 
-1. Copy the following settings into the new file and replace `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>`, and `<YOUR-QUERY-KEY>` with your service name and keys. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
+1. Copy the following settings into the new file and replace `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>`, and `<YOUR-QUERY-KEY>` with your service name and keys. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be `"mydemo"`.
 
     ```java
         SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>

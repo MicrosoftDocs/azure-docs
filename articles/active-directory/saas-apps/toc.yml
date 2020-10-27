@@ -21,6 +21,8 @@
         href: 8x8virtualoffice-tutorial.md
     - name: A
       items:
+      - name: ABBYY FlexiCapture Cloud
+        href: abbyy-flexicapture-cloud-tutorial.md
       - name: Abintegro
         href: abintegro-tutorial.md
       - name: Absorb LMS
@@ -173,6 +175,8 @@
         href: bambubysproutsocial-tutorial.md
       - name: BC in the Cloud
         href: bcinthecloud-tutorial.md
+      - name: Beautiful.ai
+        href: beautiful.ai-tutorial.md
       - name: Beekeeper Azure AD Data Connector
         href: beekeeper-azure-ad-data-connector-tutorial.md
       - name: BeeLine
@@ -295,6 +299,8 @@
         href: chatwork-tutorial.md
       - name: Chargebee
         href: chargebee-tutorial.md
+      - name: CheckProof
+        href: checkproof-tutorial.md
       - name: Cherwell
         href: cherwell-tutorial.md
       - name: Chromeriver
@@ -460,7 +466,7 @@
       - name: Direct
         href: direct-tutorial.md
       - name: Directions on Microsoft
-        href: directions-microsoft-tutorial.md
+        href: ./tutorial-list.md
       - name: Discovery Benefits SSO
         href: discovery-benefits-sso-tutorial.md
       - name: Displayr
@@ -493,6 +499,8 @@
         href: dynamicsignal-tutorial.md
       - name: Dynatrace
         href: dynatrace-tutorial.md
+      - name: EAComposer
+        href: eacomposer-tutorial.md
       - name: EAB Navigate
         href: eab-navigate-tutorial.md
       - name: EAB Navigate IMPL
@@ -1026,6 +1034,8 @@
         href: lr-tutorial.md
       - name: Logz.io - Azure AD Integration
         href: logzio-cloud-observability-for-engineers-tutorial.md
+      - name: Loop Flow CRM
+        href: loop-flow-crm-tutorial.md
       - name: Lucidchart
         href: lucidchart-tutorial.md
       - name: Lynda.com
@@ -1216,6 +1226,8 @@
         href: oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md
       - name: OrgChart Now
         href: orgchartnow-tutorial.md
+      - name: OrgVitality SSO
+        href: orgvitality-sso-tutorial.md
       - name: Origami
         href: origami-tutorial.md
       - name: Otsuka Shokai
@@ -1371,7 +1383,7 @@
       - name: Recognize
         href: recognize-tutorial.md
       - name: RedBrick Health
-        href: redbrickhealth-tutorial.md
+        href: ./redbrick-health-tutorial.md
       - name: RedVector
         href: redvector-tutorial.md
       - name: Reflektive
@@ -1498,6 +1510,8 @@
         href: sendsafely-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
         href: sensoscientific-tutorial.md
+      - name: Sentry
+        href: sentry-tutorial.md
       - name: Sequr
         href: sequr-tutorial.md
       - name: Serraview Space Utilization Software Solutions
@@ -1614,6 +1628,8 @@
         href: sprinklr-tutorial.md
       - name: SSOGEN Azure AD SSO Gateway for Oracle E Business Suite EBS, PeopleSoft, and JDE
         href: ssogen-tutorial.md
+      - name: Starmind
+        href: starmind-tutorial.md
       - name: StatusPage
         href: statuspage-tutorial.md
       - name: Stormboard
@@ -1720,6 +1736,8 @@
         href: trakopolis-tutorial.md
       - name: Trakstar
         href: trakstar-tutorial.md
+      - name: TravelPerk
+        href: travelperk-tutorial.md
       - name: Trelica
         href: trelica-tutorial.md
       - name: Trello
@@ -1806,6 +1824,8 @@
         href: waywedo-tutorial.md
       - name: Wdesk
         href: wdesk-tutorial.md
+      - name: Web Cargo Air
+        href: web-cargo-air-tutorial.md
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
       - name: Wedo
@@ -1946,7 +1966,7 @@
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
       - name: Azure Databricks SCIM Connector
-        href: https://docs.microsoft.com/azure/databricks/administration-guide/users-groups/scim/aad?toc=/azure/active-directory/saas-apps/toc.json&bc=/azure/active-directory/saas-apps/breadcrumb/toc.json 
+        href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%252fazure%252factive-directory%252fsaas-apps%252fbreadcrumb%252ftoc.json&toc=%252fazure%252factive-directory%252fsaas-apps%252ftoc.json
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: Blink
@@ -1961,6 +1981,8 @@
         href: brivo-onair-identity-connector-provisioning-tutorial.md       
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
+      - name: Cinode
+        href: cinode-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
       - name: Coda

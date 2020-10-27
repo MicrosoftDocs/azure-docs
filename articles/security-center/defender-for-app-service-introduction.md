@@ -23,7 +23,7 @@ By using the visibility that Azure has as a cloud provider, Security Center anal
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Preview|
+|Release state:|Generally available (GA)|
 |Pricing:|[Azure Defender for App Service](azure-defender.md) is billed as shown on [the pricing page](security-center-pricing.md)|
 |Supported App Service plans:|![Yes](./media/icons/yes-icon.png) Basic, Standard, Premium, Isolated, or Linux<br>![No](./media/icons/no-icon.png) Free, Shared, or Consumption<br>[Learn more about App Service Plans](https://azure.microsoft.com/pricing/details/app-service/plans/)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|

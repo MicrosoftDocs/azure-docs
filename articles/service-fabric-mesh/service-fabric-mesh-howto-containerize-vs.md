@@ -1,8 +1,8 @@
 ---
 title: Containerize an existing .NET app for Service Fabric Mesh 
 description: Add Service Fabric Mesh container orchestration support to ASP.NET and Console projects that use the full .NET framework.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/08/2018
 ms.topic: conceptual
 #Customer intent: As a developer, I want to use environment variables when I debug to test different scenarios.

@@ -370,7 +370,7 @@ This feature was built to access the VM data without the need to restore the ent
 
 #### Select Recovery point (who can generate script)
 
-The script provides access to VM data, so it's important to regulate who can generate it in the first place. You need to sign in into the Azure portal and be [RBAC authorized](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) to generate the script.
+The script provides access to VM data, so it's important to regulate who can generate it in the first place. You need to sign in into the Azure portal and be [Azure RBAC authorized](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) to generate the script.
 
 File recovery needs the same level of authorization as required for VM restore and disks restore. In other words, only authorized users can view the VM data can generate the script.
 

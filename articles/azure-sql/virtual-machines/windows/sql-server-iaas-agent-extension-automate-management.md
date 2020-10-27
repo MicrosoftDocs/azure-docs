@@ -79,7 +79,7 @@ The SQL Server IaaS extension is installed when you register your SQL Server VM 
     -Version "2.0" -Location "Central US";  
   ```
 
-> [!NOTE]
+> [!WARNING]
 > Installing the extension restarts the SQL Server service. 
 
 

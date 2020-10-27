@@ -29,9 +29,9 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
 
 ## Access the Azure NetApp Files REST API  
 
-1. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven't done so already.
+1. [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven't done so already.
 2. Create a service principal in your Azure Active Directory (Azure AD):
-   1. Verify that you have [sufficient permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+   1. Verify that you have [sufficient permissions](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
    2. Enter the following command in the Azure CLI: 
     
@@ -198,4 +198,4 @@ The following example shows how to create a snapshot of a volume:
 
 ## Next steps
 
-[See the Azure NetApp Files REST API reference](https://docs.microsoft.com/rest/api/netapp/)
+[See the Azure NetApp Files REST API reference](/rest/api/netapp/)

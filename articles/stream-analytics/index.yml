@@ -142,7 +142,7 @@ landingContent:
             url: stream-analytics-machine-learning-anomaly-detection.md
           - text: Perform sentiment analysis with Azure Machine Learning Studio (classic)
             url: stream-analytics-machine-learning-integration-tutorial.md
-          - text: Scale jobs with Machine Learning Studio functions
+          - text: Scale jobs with Azure Machine Learning Studio (classic) functions
             url: stream-analytics-scale-with-machine-learning-functions.md
   - title: Create and manage jobs with developer tools
     linkLists:

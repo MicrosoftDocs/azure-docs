@@ -1,6 +1,6 @@
 ---
-title: Use SQL on-demand (preview) to analyze Azure Open Datasets in Azure Synapse Studio (preview)
-description: Learn how to easily perform exploratory data analysis combining different Azure Open Datasets using SQL on-demand (preview) and visualize the results in Azure Synapse Studio.
+title: 'Tutorial: Use SQL on-demand (preview) to analyze Azure Open Datasets in Azure Synapse Studio (preview)'
+description: This tutorial shows you how to easily perform exploratory data analysis combining different Azure Open Datasets using SQL on-demand (preview) and visualize the results in Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick 
 ---
 
-# Use SQL on-demand to analyze Azure Open Datasets and visualize the results in Azure Synapse Studio
+# Tutorial: Use SQL on-demand to analyze Azure Open Datasets and visualize the results in Azure Synapse Studio
 
 In this tutorial, you learn how to perform exploratory data analysis by combining different Azure Open Datasets using SQL on-demand and then visualizing the results in Azure Synapse Studio.
 

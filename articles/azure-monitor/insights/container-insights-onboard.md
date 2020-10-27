@@ -40,7 +40,7 @@ Before you start, make sure that you've met the following requirements:
    You can create a workspace when you enable monitoring for your new AKS cluster, or you can let the onboarding experience create a default workspace in the default resource group of the AKS cluster subscription. 
    
    If you choose to create the workspace yourself, you can create it through: 
-   - [Azure Resource Manager](../platform/template-workspace-configuration.md)
+   - [Azure Resource Manager](../samples/resource-manager-workspace.md)
    - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
    - [The Azure portal](../learn/quick-create-workspace.md) 
    
@@ -128,4 +128,3 @@ To enable Azure Monitor for containers, use one of the methods that's described 
 ## Next steps
 
 Now that you've enabled monitoring, you can begin analyzing the performance of your Kubernetes clusters that are hosted on Azure Kubernetes Service (AKS), Azure Stack, or another environment. To learn how to use Azure Monitor for containers, see [View Kubernetes cluster performance](container-insights-analyze.md).
-

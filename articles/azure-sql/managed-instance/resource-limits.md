@@ -7,7 +7,7 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom:
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
