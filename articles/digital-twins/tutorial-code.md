@@ -46,7 +46,7 @@ Open a command prompt or other console window on your machine, and create an emp
 
 Navigate into the new directory.
 
-Once in the project directory, create an empty .NET console app project. In the command window, run the following command to create a minimal C# project for the console:
+Once in the project directory, **create an empty .NET console app project**. In the command window, you can run the following command to create a minimal C# project for the console:
 
 ```cmd/sh
 dotnet new console
@@ -56,7 +56,7 @@ This will create several files inside your directory, including one called *Prog
 
 Keep the command window open, as you'll continue to use it throughout the tutorial.
 
-Next, add two dependencies to your project that will be needed to work with Azure Digital Twins. You can use the links below to navigate to the packages on NuGet, where you can also copy the .NET CLI commands to run in the console to download the latest version.
+Next, **add two dependencies to your project** that will be needed to work with Azure Digital Twins. You can use the links below to navigate to the packages on NuGet, where you can find the console commands (including for .NET CLI) to download the latest version of each.
 * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). This is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
 * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). This library provides tools to help with authentication against Azure.
 
