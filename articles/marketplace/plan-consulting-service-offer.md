@@ -22,7 +22,20 @@ Consulting service offers are published as **Contact me** listings. This means t
 
 ## Primary products and online stores
 
-Each consulting service offer should focus on a Microsoft product, called **primary product**. The primary product you select in Partner Center determines whether your offer will be published to Microsoft AppSource or Azure Marketplace.
+Each consulting service must focus on one of these Microsoft products, which  is the **primary product** of the offer:
+
+|                               |                   |
+|-------------------------------|-------------------|
+|Azure                          |Dynamics 365 Project Service Automation |
+|Dynamics 365 Business Central  |Dynamics 365 Sales |
+|Dynamics 365 Commerce          |Dynamics 365 Supply Chain Management |
+|Dynamics 365 Customer Insights |Microsoft 365 |
+|Dynamics 365 Customer Service  |Power Apps |
+|Dynamics 365 Field Service     |Power Automate |
+|Dynamics 365 Finance           |Power BI |
+|Dynamics 365 Marketing         |Power Virtual Agents |
+
+The primary product you select in Partner Center determines whether your offer will be published to Microsoft AppSource or Azure Marketplace.
 
 * If the primary product of your consulting service is Azure, the offer will be listed in Azure Marketplace.
 * If the primary product is not Azure, the offer will be listed in AppSource.
@@ -137,6 +150,11 @@ Follow these guidelines for your logos:
 **Marketplace media – screenshots**: Add at least one and up to five images that demonstrate your offer. All images must be 1280 x 720 pixels in size and in .PNG format.
 
 **Marketplace media – videos** (optional): you can add up to four videos that demonstrate your offer. The videos must be hosted on YouTube or Vimeo and have a thumbnail (1280 x 720 PNG file).
+
+## Pricing and availability
+
+Your consulting service can be made available in one or more countries or regions. In Partner Center, you can decide the price for each market you select. For the complete list of supported markets and currencies, see [Geographic availability and currency support for the commercial marketplace](./marketplace-geo-availability-currencies.md).
+
 
 ## Next steps
 

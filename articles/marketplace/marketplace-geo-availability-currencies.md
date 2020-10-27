@@ -15,43 +15,43 @@ ms.date: 07/29/2020
 
 Commercial marketplace offerings can be purchased in 141 geographies as defined by the customer's billing address, and transactions can be completed in 17 currencies. The following table lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), and the assigned currency.
 
-|   Country/Region Name               |   ISO-2   |   Currency   |
-|-------------------------------------|-----------|--------------|
-| Afghanistan                         | AF        | USD          |
-| Albania                             | AL        | USD          |
-| Algeria                             | DZ        | USD          |
-| Andorra                             | AD        | EUR          |
-| Angola                              | AO        | USD          |
-| Argentina                           | AR        | USD          |
-| Armenia                             | AM        | USD          |
-| Australia                           | AU        | AUD          |
-| Austria                             | AT        | EUR          |
-| Azerbaijan                          | AZ        | USD          |
-| Bahrain                             | BH        | USD          |
-| Bangladesh                          | BD        | USD          |
-| Barbados                            | BB        | USD          |
-| Belarus                             | BY        | USD          |
-| Belgium                             | BE        | EUR          |
-| Belize                              | BZ        | USD          |
-| Bermuda                             | BM        | USD          |
-| Bolivia                             | BO        | USD          |
-| Bosnia and Herzegovina              | BA        | USD          |
-| Botswana                            | BW        | USD          |
-| Brazil                              | BR        | BRL\*        |
-| Brunei                              | BN        | USD          |
-| Bulgaria                            | BG        | EUR          |
-| Cabo Verde                          | CV        | USD          |
-| Cameroon                            | CM        | USD          |
-| Canada                              | CA        | CAD          |
-| Cayman Islands                      | KY        | USD          |
-| Chile                               | CL        | USD          |
-| China\**                            | CN        | N/A          |
-| Colombia                            | CO        | USD          |
-| Costa Rica                          | CR        | USD          |
-| Côte d'Ivoire                       | CI        | USD          |
-| Croatia                             | HR        | EUR          |
-| Curaçao                             | CW        | USD          |
-| Cyprus                              | CY        | EUR          |
+|   Country/Region Name               |   ISO-2   |   Currency   |    Currency for consulting services only    |
+|-------------------------------------|-----------|--------------|---------------------------------------------|
+| Afghanistan                         | AF        | USD          | AFN, EUR, USD |
+| Albania                             | AL        | USD          | ALL, EUR, USD |
+| Algeria                             | DZ        | USD          | DZD, EUR, USD |
+| Andorra                             | AD        | EUR          | EUR, USD |
+| Angola                              | AO        | USD          | AOA, EUR, USD |
+| Argentina                           | AR        | USD          | ARS, EUR, USD |
+| Armenia                             | AM        | USD          | AMD, EUR, USD |
+| Australia                           | AU        | AUD          | AUD, EUR, USD |
+| Austria                             | AT        | EUR          | EUR, USD  |
+| Azerbaijan                          | AZ        | USD          | AZN, EUR, USD |
+| Bahrain                             | BH        | USD          | BHD, EUR, USD |
+| Bangladesh                          | BD        | USD          | BDT, EUR, USD |
+| Barbados                            | BB        | USD          | BBD, EUR, USD |
+| Belarus                             | BY        | USD          | BYN, EUR, USD |
+| Belgium                             | BE        | EUR          | EUR, USD  |
+| Belize                              | BZ        | USD          | BZD, EUR, USD |
+| Bermuda                             | BM        | USD          | BMD, EUR, USD |
+| Bolivia                             | BO        | USD          | BOB, EUR, USD |
+| Bosnia and Herzegovina              | BA        | USD          | BAM, EUR, USD |
+| Botswana                            | BW        | USD          | BWP, EUR, USD |
+| Brazil                              | BR        | BRL\*        | BRL, EUR, USD,  |
+| Brunei                              | BN        | USD          | BND, EUR, SGD, USD |
+| Bulgaria                            | BG        | EUR          | BGN, EUR, USD |
+| Cabo Verde                          | CV        | USD          | CVE, EUR, USD |
+| Cameroon                            | CM        | USD          | XAF, EUR, USD |
+| Canada                              | CA        | CAD          | CAD, EUR, USD  |
+| Cayman Islands                      | KY        | USD          | KYD, EUR, USD |
+| Chile                               | CL        | USD          | CLP, EUR, USD |
+| China\**                            | CN        | N/A          | N/A |
+| Colombia                            | CO        | USD          | COP, EUR, USD |
+| Costa Rica                          | CR        | USD          | CRC, EUR, USD |
+| Côte d'Ivoire                       | CI        | USD          | XOF, EUR, USD |
+| Croatia                             | HR        | EUR          | HRK, EUR, USD |
+| Curaçao                             | CW        | USD          | ANG, EUR, USD |
+| Cyprus                              | CY        | EUR          | EUR, USD  |
 | Czechia                      | CZ        | EUR          |
 | Denmark                             | DK        | DKK          |
 | Dominican Republic                  | DO        | USD          |
