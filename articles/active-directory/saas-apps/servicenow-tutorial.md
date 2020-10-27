@@ -26,13 +26,13 @@ In this tutorial, you'll learn how to integrate ServiceNow with Azure Active Dir
 
 To get started, you need the following items:
 
-1. An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-1. A ServiceNow single sign-on (SSO) enabled subscription.
-1. For ServiceNow, an instance or tenant of ServiceNow supports Calgary, Kingston, London, Madrid, New York, Orlando and Paris versions or later.
-1. For ServiceNow Express, an instance of ServiceNow Express, Helsinki version or later.
-1. The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled.
-1. For automatic configuration, enable the multi-provider plugin for ServiceNow.
-1. To install the ServiceNow Classic (Mobile) application, go to the appropriate store, and search for the ServiceNow Classic application. Then download it.
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* A ServiceNow single sign-on (SSO) enabled subscription.
+* For ServiceNow, an instance or tenant of ServiceNow supports Calgary, Kingston, London, Madrid, New York, Orlando and Paris versions or later.
+* For ServiceNow Express, an instance of ServiceNow Express, Helsinki version or later.
+* The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled.
+* For automatic configuration, enable the multi-provider plugin for ServiceNow.
+* To install the ServiceNow Classic (Mobile) application, go to the appropriate store, and search for the ServiceNow Classic application. Then download it.
 
 > [!NOTE]
 > This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
