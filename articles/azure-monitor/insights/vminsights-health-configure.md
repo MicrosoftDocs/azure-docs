@@ -30,13 +30,13 @@ When a monitor is disable, any criteria are shown as not available as shown in t
 
 ![Disabled monitor](media/vminsights-health-configure/disabled-monitor.png)
 
-## Enable or disable VM
+## Enable or disable virtual machine
 You can disable monitoring for a VM to temporarily stop all monitors. You may disable monitoring for a VM for example when you're performing maintenance on it.
 
 | Setting | Description |
 |:---|:---|
-| Enabled and alerting | The health state of the computer is displayed. |
-| Disabled and not alerting | The health state of the computer is shown as **disabled**. Alerts are not created. |
+| Enabled  | The health state of the computer is displayed. |
+| Disabled | The health state of the computer is shown as **disabled**. Alerts are not created. |
 
 ## Health state logic
 The health state logic for a unit monitor defines the criteria for setting its health state. You can specify how many health states a monitor has and the threshold for how each health state is calculated.

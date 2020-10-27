@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/26/2020
+ms.date: 10/27/2020
 
 ---
 
@@ -94,14 +94,7 @@ View and modify the configuration of the monitor for the selected VM. See [Confi
 [![Monitor details configuration](media/vminsights-health-overview/monitor-details-configuration.png)](media/vminsights-health-overview/monitor-details-configuration.png#lightbox)
 
 
-## Alerts
-An [alert](../platform/alerts-overview.md) will be created for each virtual machine anytime it changes to a Warning or Critical state. View the alert from **Alerts** in the **Azure Monitor** menu or the virtual machine's menu in the Azure portal.
 
-Alerts are not created for individual monitors but for the virtual machine itself. This means that if a monitor changes to a state that doesn't effect the current state of the virtual machine (because it's less than or equal to the current state), then no alert is created because the virtual machine state didn't change.
-
-If an alert is already open when the VM state changes, then a second alert won't be created, but the severity of the alert will be changed to match the severity of the VM. For example, if the VM changes to a Critical state when a Warning alert was already open, that alert will be changed to a Critical State. If the VM changes to a Warning state when a Critical alert was already open, that alert will be changed to a Warning State. 
-
-If the VM changes to a Healthy state, then the alert will be closed.
 
 ## Next steps
 
