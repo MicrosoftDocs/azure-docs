@@ -94,6 +94,8 @@ cd <path/to/tutorial>
 python ./01-create-workspace.py
 ```
 
+### Multiple accounts
+
 If you use multiple Azure accounts, you may get an error that you do not have access to the subscription.  In this case:
 
 1. Find your tenant ID from the [Azure portal](https://portal.azure.com) under **Azure Active Directory, External Identities**. 
@@ -117,7 +119,9 @@ If you use multiple Azure accounts, you may get an error that you do not have ac
     ws.write_config(path='.azureml')
     ```
 
-After you've successfully run the preceding code snippet, your folder structure will look like:
+### New folder structure
+
+After you've successfully run *01-create-workspace.py*, your folder structure will look like:
 
 ```markdown
 tutorial
