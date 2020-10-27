@@ -45,7 +45,7 @@ az network vnet create \
 ```
 
 ## Disable subnet private endpoint policies 
-Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint [network policies](../private-link/disable-private-endpoint-network-policy.md). Update a subnet configuration named *mySubnet* with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint [network policies](../private-link/disable-private-endpoint-network-policy.md). Update a subnet configuration named *mySubnet* with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -65,7 +65,7 @@ az vm create \
  Note the public IP address of the VM. You will use this address to connect to the VM from the internet in the next step.
 
 ## Create an Azure Database for PostgreSQL - Single server 
-Create a Azure Database for PostgreSQL with the az postgres server create command. Remember that the name of your PostgreSQL Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value: 
+Create a Azure Database for PostgreSQL with the az postgres server create command. Remember that the name of your PostgreSQL Server must be unique across Azure, so replace the placeholder value with your own unique values that you used above: 
 
 ```azurecli-interactive
 # Create a server in the resource group 
@@ -163,7 +163,7 @@ Connect to the VM *myVm* from the internet as follows:
     Address:  10.1.3.4
     ```
 
-3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
+3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
 
 4. In **New connection**, enter or select this information:
 
@@ -192,7 +192,7 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## Next steps
-- Learn more about [What is Azure private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+- Learn more about [What is Azure private endpoint](../private-link/private-endpoint-overview.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

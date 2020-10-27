@@ -28,7 +28,7 @@ Please see [Create an Azure Cosmos DB account with PowerShell](manage-with-power
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager template
 
-Please see [Create Azure Cosmos DB account with Azure Resource Manager templates](manage-sql-with-resource-manager.md)
+Please see [Create Azure Cosmos DB account with Azure Resource Manager templates](./manage-with-templates.md)
 
 ## Add/remove regions from your database account
 

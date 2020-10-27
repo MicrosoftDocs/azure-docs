@@ -85,7 +85,7 @@ Distributed denial of service (DDoS) attacks are known to be easy to execute. Th
 
 A DDoS attack attempts to exhaust an application's resources, making the application unavailable to legitimate users. DDoS attacks can target any endpoint that can be reached through the internet.
 
-To defend against DDoS attacks, purchase a license for Azure DDoS Protection and ensure you're following application design best practices. DDoS Protection provides different service tiers. For more information, see [Azure DDoS Protection overview](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+To defend against DDoS attacks, purchase a license for Azure DDoS Protection and ensure you're following application design best practices. DDoS Protection provides different service tiers. For more information, see [Azure DDoS Protection overview](../virtual-network/ddos-protection-overview.md).
 
 For a list of the Azure DDoS Protection alerts, see the [Reference table of alerts](alerts-reference.md#alerts-azureddos).
 
@@ -96,4 +96,4 @@ To learn more about the security alerts from these threat protection features, s
 * [Reference table for all Azure Security Center alerts](alerts-reference.md)
 * [Security alerts in Azure Security Center](security-center-alerts-overview.md)
 * [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-* [Export security alerts and recommendations (Preview)](continuous-export.md)
+* [Continuously export Security Center data](continuous-export.md)

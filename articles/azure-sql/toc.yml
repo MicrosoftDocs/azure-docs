@@ -55,8 +55,6 @@
         href: ./database/security-controls-policy.md
       - name: Security baseline
         href: database/security-baseline.md
-      - name: Security attributes
-        href: database/security-controls.md
       - name: Azure Defender for SQL
         href: database/azure-defender-for-sql.md
       - name: Advanced Threat Protection
@@ -126,7 +124,7 @@
       - name: Intelligent Insights
         href: database/intelligent-insights-overview.md
       - name: SQL Analytics
-        href: /azure/log-analytics/log-analytics-azure-sql?toc=/azure/azure-sql/toc.json
+        href: ../azure-monitor/insights/azure-sql.md?toc=%252fazure%252fazure-sql%252ftoc.json
       - name: Automatic tuning
         href: database/automatic-tuning-overview.md
       - name: In-memory OLTP
@@ -216,15 +214,15 @@
       - name: Use Spark Connector
         href: database/spark-connector.md
       - name: Use ASP.NET App Service
-        href: /azure/app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/azure-sql/toc.json
+        href: ../app-service/app-service-web-tutorial-dotnet-sqldatabase.md?toc=%252fazure%252fazure-sql%252ftoc.json
       - name: Use Azure Functions
-        href: /azure/azure-functions/functions-scenario-database-table-cleanup?toc=/azure/azure-sql/toc.json
+        href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=%252fazure%252fazure-sql%252ftoc.json
       - name: Use Azure Logic Apps
-        href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/azure-sql/toc.json
+        href: ../connectors/connectors-create-api-sqlazure.md?toc=%252fazure%252fazure-sql%252ftoc.json
       - name: Index with Azure Cognitive Search
-        href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/azure-sql/toc.json
+        href: ../search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md?toc=%252fazure%252fazure-sql%252ftoc.json
       - name: Server-side CLR/.NET integration
-        href: https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/azure-sql/toc.json
+        href: /sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=%252fazure%252fazure-sql%252ftoc.json
       - name: Java
         items:
         - name: Use Java and JDBC
@@ -769,25 +767,25 @@
         - name: Python
           items:
           - name: Run Python scripts
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: /sql/machine-learning/tutorials/quickstart-python-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Data structures and objects
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-data-structures?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: /sql/machine-learning/tutorials/quickstart-python-data-structures?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Python functions
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: /sql/machine-learning/tutorials/quickstart-python-functions?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Train and score a model
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: /sql/machine-learning/tutorials/quickstart-python-train-score-model?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Deploy ONNX models
-            href: /azure/azure-sql-edge/deploy-onnx?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: ../azure-sql-edge/deploy-onnx.md?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
         - name: R
           items:
           - name: Run R scripts
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: /sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Data types and objects
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-data-types-and-objects?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: /sql/machine-learning/tutorials/quickstart-r-data-types-and-objects?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: R functions
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: /sql/machine-learning/tutorials/quickstart-r-functions?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Train and score a model
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: /sql/machine-learning/tutorials/quickstart-r-train-score-model?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
       - name: Tutorials
         items:
         - name: Python
@@ -795,69 +793,69 @@
           - name: Ski rental (linear regression)
             items:
             - name: 1 - Introduction
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/python-ski-rental-linear-regression?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 2 - Prepare data
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/python-ski-rental-linear-regression-prepare-data?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 3 - Train model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/python-ski-rental-linear-regression-train-model?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 4 - Deploy model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/python-ski-rental-linear-regression-deploy-model?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Categorize customers (k-means clustering)
             items:
             - name: 1 - Introduction
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/python-clustering-model?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 2 - Prepare the data
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/python-clustering-model-prepare-data?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 3 - Create the model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/python-clustering-model-build?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 4 - Deploy the model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/python-clustering-model-deploy?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: NYC taxi tips (classification)
             items:
             - name: 1 - Introduction
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/python-taxi-classification-introduction?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 2 - Data exploration
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-explore-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/python-taxi-classification-explore-data?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 3 - Feature engineering
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-create-features?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/python-taxi-classification-create-features?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 4 - Train and deploy
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/python-taxi-classification-train-model?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 5 - Predictions
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/python-taxi-classification-deploy-model?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
         - name: R
           items:
           - name: Ski rental (decision tree)
             items:
             - name: 1 - Introduction
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/r-predictive-model-introduction?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 2 - Prepare data
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/r-predictive-model-prepare-data?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 3 - Train model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-train?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/r-predictive-model-train?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 4 - Deploy model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/r-predictive-model-deploy?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Categorize customers (k-means clustering)
             items:
             - name: 1 - Introduction
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/r-clustering-model-introduction?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 2 - Prepare the data
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/r-clustering-model-prepare-data?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 3 - Create the model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/r-clustering-model-build?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 4 - Deploy the model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/r-clustering-model-deploy?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: NYC taxi tips (classification)
             items:
             - name: 1 - Introduction
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/r-taxi-classification-introduction?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 2 - Data exploration
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-explore-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/r-taxi-classification-explore-data?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 3 - Feature engineering
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-create-features?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/r-taxi-classification-create-features?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 4 - Train and deploy
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/r-taxi-classification-train-model?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: 5 - Predictions
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/tutorials/r-taxi-classification-deploy-model?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
       - name: How to
         items:
         - name: Data exploration and modeling
@@ -865,74 +863,74 @@
           - name: Python
             items:
             - name: Plot Histogram in Python
-              href: https://docs.microsoft.com/sql/machine-learning/data-exploration/python-plot-histogram?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/data-exploration/python-plot-histogram?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: Import data into pandas dataframe
-              href: https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-pandas?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/data-exploration/python-dataframe-pandas?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: Insert dataframe into SQL
-              href: https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/data-exploration/python-dataframe-sql-server?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
         - name: Data type conversions
           items:
           - name: Python to SQL
-            href: https://docs.microsoft.com/sql/machine-learning/python/python-libraries-and-data-types?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: /sql/machine-learning/python/python-libraries-and-data-types?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: R to SQL
-            href: https://docs.microsoft.com/sql/machine-learning/r/r-libraries-and-data-types?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: /sql/machine-learning/r/r-libraries-and-data-types?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
         - name: Deploy
           items:
           - name: Operationalize using stored procedures
-            href: https://docs.microsoft.com/sql/machine-learning/r/operationalizing-your-r-code?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: /sql/machine-learning/r/operationalizing-your-r-code?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Convert R code for SQL Server
-            href: https://docs.microsoft.com/sql/machine-learning/r/converting-r-code-for-use-in-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: /sql/machine-learning/r/converting-r-code-for-use-in-sql-server?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Create a stored procedure using sqlrutils
-            href: https://docs.microsoft.com/sql/machine-learning/r/how-to-create-a-stored-procedure-using-sqlrutils?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: /sql/machine-learning/r/how-to-create-a-stored-procedure-using-sqlrutils?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
         - name: Predictions
           items:
           - name: Native scoring with PREDICT T-SQL
-            href: https://docs.microsoft.com/sql/machine-learning/predictions/native-scoring-predict-transact-sql?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: /sql/machine-learning/predictions/native-scoring-predict-transact-sql?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
         - name: Package management
           items:
           - name: Install new Python packages
             items:
             - name: Get Python package information
-              href: https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/package-management/python-package-information?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: Install with sqlmlutils
-              href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Install new R packages
             items:
             - name: Get R package information
-              href: https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/package-management/r-package-information?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: Install with sqlmlutils
-              href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: Create a miniCRAN repo
-              href: https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: Tips for using R packages
-              href: https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/package-management/tips-for-using-r-packages?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
         - name: Administration
           items:
           - name: Monitor
             items:
             - name: Monitor using SSMS reports
-              href: https://docs.microsoft.com/sql/machine-learning/administration/monitor-sql-server-machine-learning-services-using-custom-reports-management-studio?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/administration/monitor-sql-server-machine-learning-services-using-custom-reports-management-studio?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: Monitor using DMVs
-              href: https://docs.microsoft.com/sql/machine-learning/administration/monitor-sql-server-machine-learning-services-using-dynamic-management-views?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              href: /sql/machine-learning/administration/monitor-sql-server-machine-learning-services-using-dynamic-management-views?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
             - name: Extended events
               items:
               - name: Monitor using extended events
-                href: https://docs.microsoft.com/sql/machine-learning/administration/extended-events?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+                href: /sql/machine-learning/administration/extended-events?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
               - name: Monitor PREDICT T-SQL
-                href: https://docs.microsoft.com/sql/machine-learning/administration/extended-events-predict-tsql?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+                href: /sql/machine-learning/administration/extended-events-predict-tsql?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
         - name: Security
           items:
           - name: Give users permission
-            href: https://docs.microsoft.com/sql/machine-learning/security/user-permission?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            href: /sql/machine-learning/security/user-permission?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context&preserve-view=true&view=azuresqldb-mi-current
 
     - name: Features
       items:
       - name: Linked servers
-        href: https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/azure-sql/toc.json
+        href: /sql/relational-databases/linked-servers/linked-servers-database-engine?toc=%252fazure%252fazure-sql%252ftoc.json
       - name: Service Broker
-        href: https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/azure-sql/toc.json
+        href: /sql/database-engine/configure-windows/sql-server-service-broker?toc=%252fazure%252fazure-sql%252ftoc.json
       - name: Database mail
-        href: https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/azure-sql/toc.json
+        href: /sql/relational-databases/database-mail/database-mail?toc=%252fazure%252fazure-sql%252ftoc.json
     - name: Security
       items: 
       - name: Secure public endpoints
@@ -1165,9 +1163,9 @@
       - name: Azure CLI
         href: /cli/azure/
       - name: T-SQL
-        href: https://docs.microsoft.com/sql/t-sql/language-reference
+        href: /sql/t-sql/language-reference
       - name: SQL Server Drivers
-        href: https://docs.microsoft.com/sql/connect/sql-connection-libraries
+        href: /sql/connect/sql-connection-libraries
       - name: REST
         href: /rest/api/
       - name: Azure Policy built-ins
@@ -1182,11 +1180,11 @@
       - name: Archived classic RM docs 
         href: /previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-create
       - name: SQL Server Data Tools (SSDT)
-        href: /https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
+        href: //sql/ssdt/download-sql-server-data-tools-ssdt
       - name: SQL Server Management Studio (SSMS)
-        href: https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms
+        href: /sql/ssms/download-sql-server-management-studio-ssms
       - name: SQL Server Tools
-        href: https://docs.microsoft.com/sql/tools/overview-sql-tools
+        href: /sql/tools/overview-sql-tools
       - name: Azure Roadmap
         href: https://azure.microsoft.com/roadmap/?category=compute
       - name: MSDN forum
@@ -1215,11 +1213,11 @@
       - name: FAQ
         href: virtual-machines/linux/frequently-asked-questions-faq.md
       - name: SQL Server on Linux Documentation
-        href: https://docs.microsoft.com/sql/linux/sql-server-linux-overview
+        href: /sql/linux/sql-server-linux-overview
       - name: SQL Server Data Tools (SSDT)
-        href: https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
+        href: /sql/ssdt/download-sql-server-data-tools-ssdt
       - name: SQL Server Tools
-        href: https://docs.microsoft.com/sql/tools/overview-sql-tools
+        href: /sql/tools/overview-sql-tools
       - name: Azure Roadmap
         href: https://azure.microsoft.com/roadmap/?category=compute
       - name: Stack Overflow
@@ -1253,7 +1251,7 @@
   - name: SQLCMD
     href: /sql/tools/sqlcmd-utility
   - name: SqlPackage
-    href: https://docs.microsoft.com/sql/tools/sqlpackage?toc=/azure/azure-sql/toc.json
+    href: /sql/tools/sqlpackage?toc=%252fazure%252fazure-sql%252ftoc.json
   - name: SQL Database Management Library package
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
   - name: SQL connection  drivers

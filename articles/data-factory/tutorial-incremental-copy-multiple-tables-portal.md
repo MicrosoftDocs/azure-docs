@@ -259,7 +259,7 @@ END
 ## Create self-hosted integration runtime
 As you are moving data from a data store in a private network (on-premises) to an Azure data store, install a self-hosted integration runtime (IR) in your on-premises environment. The self-hosted IR moves data between your private network and Azure. 
 
-1. On the **Let's get started** page of Azure Data Factory UI, select the [Manage tab](https://docs.microsoft.com/azure/data-factory/author-management-hub) from the leftmost pane.
+1. On the **Let's get started** page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
    ![The home page Manage button](media/doc-common-process/get-started-page-manage-button.png)
 
@@ -697,5 +697,3 @@ Advance to the following tutorial to learn about transforming data by using a Sp
 
 > [!div class="nextstepaction"]
 >[Incrementally load data from Azure SQL Database to Azure Blob storage by using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-portal.md)
-
-
