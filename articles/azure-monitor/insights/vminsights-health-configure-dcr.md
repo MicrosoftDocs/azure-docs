@@ -39,7 +39,7 @@ Overrides are defined in a [Data Collection Rule (DCR)](../platform/data-collect
 
 A single monitor may have multiple overrides. If the overrides define different properties, then the resulting configuration is a combination of all the overrides.
 
-For example, the `memory|available` monitor does not specify a warning threshold or enable monitoring by default. Consider the following overrides applied to this monitor:
+For example, the `memory|available` monitor does not specify a warning threshold or enable alerting by default. Consider the following overrides applied to this monitor:
 
 - Override 1 defines `alertConfiguration.isEnabled` property value as `true`
 - Override 2 defines `monitorConfiguration.warningCondition` with with a threshold condition of `< 250`.
@@ -120,7 +120,7 @@ Contains one or more `healthRuleOverride` elements that each define an override.
 | `scopes` | Yes | List of one or more scopes that specify the virtual machines to which this override is applicable. Even though the DCR is associated with a virtual machine, the virtual machine must fall within a scope for the override to be applied. |
 | `monitors` | Yes | List of one or more strings that define which monitors will receive this override.  |
 | `monitorConfiguration` | No | Configuration for the monitor including health states and how they are calculated. |
-| `alertConfiguration` | No | Array of `healthRuleOverride` elements to be applied to default configuration. |
+| `alertConfiguration` | No | Alerting configuration for the monitor. |
 | `isEnabled` | Yes | Controls whether monitor is enabled or not. Disabled monitor switches to special *Disabled* health state and states disabled unless re-enabled. If omitted, monitor will inherit its status from parent monitor in the hierarchy. |
 
 
@@ -133,7 +133,7 @@ The following table shows examples of different scopes.
 |:---|:---|
 | Single virtual machine | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-name/providers/Microsoft.Compute/virutalMachines/my-vm` |
 | All virtual machines in a resource group | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-name` |
-| All virtual machines in a subscription | `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups` |
+| All virtual machines in a subscription | `/subscriptions/00000000-0000-0000-0000-000000000000/` |
 | All virtual machines the data collection rule is associated with | `*` |
 
 
@@ -150,18 +150,18 @@ List of one or more strings that define which monitors in health hierarchy will 
 
 The following table lists the current available monitor names.
 
-| Name | Description | Example |
+| Type name | Name | Description |
 |:---|:---|:---|
-| root | Top level monitor representing virtual machine health. | |
-| cpu-utilization | CPU utilization monitor. | |
-| logical-disks | Aggregate monitor for health state of all monitored disks on Windows virtual machine. | |
-| logical-disks\|\<disk-name\> | Aggregate monitor tracking health of a given disk. | logical-disks\|C:<br>logical-disks\|D: |
-| logical-disks\|\<disk-name\>\|free-space | Disk free space monitor on Windows VM. | logical-disks\|C:\|free-space |
-| filesystems | Aggregate monitor for health of all filesystems on Linux VM. |
-| filesystems\|\<mount-point\> | Aggregate monitor tracking health of a filesystem of Linux virtual machine. | filesystems|/var/log |
-| filesystem\|\<mount-point\>\|free-space | Disk free space monitor on Linux virtual machine filesystem. | filesystems\|/var/log\|free-space |
-| memory | Aggregate monitor for health of virtual machine memory. | |
-| memory\|available | Monitor tracking available memory on the virtual machine. | |
+| root | root | Top level monitor representing virtual machine health. | |
+| cpu-utilization | cpu-utilization | CPU utilization monitor. | |
+| logical-disks | logical-disks | Aggregate monitor for health state of all monitored disks on Windows virtual machine. | |
+| logical-disks\|* | logical-disks\|C:<br>logical-disks\|D: | Aggregate monitor tracking health of a given disk on Windows virtual machine. | 
+| logical-disks\|*\|free-space | logical-disks\|C:\|free-space<br>logical-disks\|D:\|free-space | Disk free space monitor on Windows virtual machine. |
+| filesystems | filesystems | Aggregate monitor for health of all filesystems on Linux virtual machine. |
+| filesystems\|* | filesystems\|/<br>filesystems\|/mnt | Aggregate monitor tracking health of a filesystem of Linux virtual machine. | filesystems|/var/log |
+| filesystems\|*\|free-space | filesystems\|/\|free-space<br>filesystems\|/mnt\|free-space | Disk free space monitor on Linux virtual machine filesystem. | 
+| memory | memory | Aggregate monitor for health of virtual machine memory. | |
+| memory\|available| memory\|available | Monitor tracking available memory on the virtual machine. | |
 
 
 ## alertConfiguration element
@@ -181,7 +181,7 @@ Specifies whether an alert should be created from the monitor.
 ## monitorConfiguration element
 Applies only to unit monitors. Defines the configuration for the monitor including health states and how they are calculated.
 
-Parameters algorithm to calculate metric value to compare against thresholds. Instead of acting on one sample of data from underlying metric, monitor evaluates several metric samples received within window from evaluation time and `lookbackSec` ago. All samples received within that `timeframe` are considered and if count of samples is greater than `maxSamples`, older samples above `maxSamples` are ignored. 
+Parameters define the algorithm to calculate the metric value to compare against thresholds. Instead of acting on one sample of data from underlying metric, the monitor evaluates several metric samples received within window from evaluation time and `lookbackSec` ago. All samples received within that timeframe are considered and if count of samples is greater than `maxSamples`, older samples above `maxSamples` are ignored. 
 
 In case there are less samples in lookback interval than `minSamples`, monitor will switch in to *Unknown* health state indicating there isn’t enough data to make informed decision about health of underlying metrics. If greater number of samples then `minSamples` is available, an aggregation function specified by evaluationType parameter us run over the set to calculate a single value.
 
@@ -270,7 +270,7 @@ The following sample data collection rule shows an example of an override to con
     "dataCollectionRuleLocation": {
       "type": "string",
       "metadata": {
-        "description": "The location code in which the data colleciton rule should be deployed. Examples: eastus, westeurope, etc"
+        "description": "The location code in which the data collection rule should be deployed. Examples: eastus, westeurope, etc"
       }
     }
   },
@@ -283,6 +283,19 @@ The following sample data collection rule shows an example of an override to con
       "properties": {
         "description": "Data collection rule for VM Insights health.",
         "dataSources": {
+          "performanceCounters": [
+              {
+                  "name": "VMHealthPerfCounters",
+                  "streams": [ "Microsoft-Perf" ],
+                  "scheduledTransferPeriod": "PT1M",
+                  "samplingFrequencyInSeconds": 60,
+                  "counterSpecifiers": [
+                      "\\LogicalDisk(*)\\% Free Space",
+                      "\\Memory\\Available Bytes",
+                      "\\Processor(_Total)\\% Processor Time"
+                  ]
+              }
+          ],
           "extensions": [
             {
               "name": "Microsoft-VMInsights-Health",
@@ -302,7 +315,11 @@ The following sample data collection rule shows an example of an override to con
                     }
                   }
                 ]
-              }
+              },
+              "inputDataSources": [
+                  "VMHealthPerfCounters"
+              ]
+
             }
           ]
         },
@@ -323,7 +340,7 @@ The following sample data collection rule shows an example of an override to con
               "Microsoft-HealthStateChange-Dest"
             ]
           }
-        ]					
+        ]
       }
     }
   ]

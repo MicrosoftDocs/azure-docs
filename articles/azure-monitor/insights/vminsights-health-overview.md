@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/08/2020
+ms.date: 10/26/2020
 
 ---
 
@@ -23,7 +23,7 @@ A **Guest VM Health** column in the **Get Started** page gives you a quick view 
 
 
 ## Monitors
-Click on a virtual machine's health status to view its detailed health. The overall health of a computer is measured by multiple monitors, which each measures the health of some aspect of a managed object. 
+Click on a virtual machine's health status to view the detailed status for each of its monitors. Each monitor measures the health of a particular component. The overall health of the virtual machine is determined by the health of its individual monitors. 
 
 ![Monitors example](media/vminsights-health-overview/monitors.png)
 
@@ -35,13 +35,15 @@ The following table lists the aggregate and unit monitors currently available fo
 | File systems | Aggregate | Aggregate health of all file systems on Linux VM. |
 | File system  | Aggregate | Health of each individual file system on Linux VM. The name of the monitor is the name of the file system. |
 | Free space | Unit | Percentage free space on the file system. |
+| Logical disks | Aggregate | Aggregate health of all logical disks on Windows VM. |
+| Logical disk  | Aggregate | Health of each individual logical disk on Windows VM. The name of the monitor is the name of the disk. |
 | Memory | Aggregate | Aggregate health of the memory on the VM. |
 | Available memory | Unit | Available megabytes on the VM. |
 
 ## Health states
 Each monitor samples values on the agent every minute and compares sampled values to the criteria for each health state. If the criteria for particular state is true, then the monitor is set to that state. If none of the criteria are true, then the monitor is set to a healthy state. Data is sent from the agent to Azure Monitor every three minutes or immediately if there is a state change.
 
-Each monitor has a lookback window and analyzes any samples collected within that time using a minimum or maximum value. For example, a monitor may have a lookback window of 240 seconds looking for the maximum value among at least 2 sampled values but no more than the last 3. While values are sampled at a regular rate, the number sampled in a particular window may vary slightly if there is any disruption in the agent operation.
+Each monitor has a lookback window and analyzes any samples collected within that time. For example, a monitor may have a lookback window of 240 seconds looking for the maximum value among at least 2 sampled values but no more than the last 3. While values are sampled at a regular rate, the number sampled in a particular window may vary slightly if there is any disruption in the agent operation.
 
 Monitors each have the potential health states in the following table and will be in one and only one at any given time. When a monitor is initialized, it starts in a healthy state.
 
