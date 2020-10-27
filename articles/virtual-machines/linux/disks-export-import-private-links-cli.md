@@ -7,7 +7,7 @@ ms.topic: overview
 ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 ---
 
 # Azure CLI - Restrict import/export access for managed disks with Private Links

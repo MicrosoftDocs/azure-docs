@@ -56,8 +56,8 @@ Maximum values allowed for various components of Azure Synapse.
 
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| Polybase Loads |MB per row |1<br/><br/>Polybase loads rows that are smaller than 1 MB. Loading LOB data types into tables with a Clustered Columnstore Index (CCI) is not supported.<br/><br/> |
-||||
+| Polybase Loads |MB per row |1<br/><br/>Polybase loads rows that are smaller than 1 MB. Loading LOB data types into tables with a Clustered Columnstore Index (CCI) is not supported.<br/> |
+|Polybase Loads|Total number of files|1,000,000<br/><br/>Polybase loads can not exceed more than 1M files. You may experience the following error: **Operation failed as split count exceeding upper bound of 1000000**.|
 
 ## Queries
 
