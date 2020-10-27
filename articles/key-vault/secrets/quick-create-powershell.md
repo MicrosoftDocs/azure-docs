@@ -80,6 +80,12 @@ Then, type the PowerShell commands below to create a secret in Key Vault called 
 $secret = Set-AzKeyVaultSecret -VaultName 'Contoso-Vault2' -Name 'ExamplePassword' -SecretValue $secretvalue
 ```
 
+To view the value contained in the secret as plain text:
+
+```azurepowershell-interactive
+(Get-AzKeyVaultSecret -VaultName "Contoso-Vault2" -Name "ExamplePassword").SecretValue | ConvertFrom-SecureString -AsPlainText
+```
+
 Now, you have created a Key Vault, stored a secret, and retrieved it.
 
 ## Clean up resources
