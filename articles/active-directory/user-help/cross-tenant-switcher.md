@@ -42,7 +42,10 @@ If the organization you selected has additional security requirements, you might
 
 ## After switching
 
-After you switch organizations, all portal pages will reflect the organization you selected. Please be aware that:
+After you switch organizations, all portal pages will reflect the organization you selected.
 
-- If you're signed in to an organization that isn't your home organization and then select **Password** on the **My Account** Overview page or other places where it appears, you are immediately switched back to your home organization. This is because the password you use to sign in to your home organization is used to sign you in to other organizations.
-- In the **My Staff** portal, if you switch to another organization, you'll only have access to My Staff if you are enabled for My Staff in that organization.
+> [!Note]
+>The password you use to sign in to your home organization is the one used to sign you in to other organizations. Please be aware that:
+>
+>- If you're signed in to an organization that isn't your home organization and then select **Password** on the **My Account** Overview page or other places where it appears, you are immediately switched back to your home organization.
+>- In the **My Staff** portal, if you switch to another organization, you'll only have access to My Staff if you are enabled for My Staff in that organization.
