@@ -14,16 +14,16 @@ ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Set up phone authentication for user flows (preview)
+# Set up phone sign-up and sign-in for user flows (preview)
 
 > [!NOTE]
-> Phone authentication and recovery email features for user flows are in public preview.
+> Phone sign-up and sign-in and recovery email features for user flows are in public preview.
 
-In addition to email and username, you can enable phone number as a sign-up option tenant-wide by adding phone authentication to your local account identity provider. After you enable phone authentication for local accounts, you can add phone sign-up to your user flows.
+In addition to email and username, you can enable phone number as a sign-up option tenant-wide by adding phone sign-up and sign-in to your local account identity provider. After you enable phone sign-up and sign-in for local accounts, you can add phone sign-up to your user flows.
 
-Setting up phone authentication in a user flow involves the following steps:
+Setting up phone sign-up and sign-in in a user flow involves the following steps:
 
-- [Configure phone authentication tenant-wide](#configure-phone-authentication-tenant-wide) in your local account identity provider to accept a phone number as a user's identity. 
+- [Configure phone sign-up and sign-in tenant-wide](#configure-phone-authentication-tenant-wide) in your local account identity provider to accept a phone number as a user's identity. 
 
 - [Add phone sign-up to your user flow](#add-phone-sign-up-to-a-user-flow) to enable users to sign up for your application using their phone number.
 
@@ -31,7 +31,7 @@ Setting up phone authentication in a user flow involves the following steps:
 
 Multi-factor authentication (MFA) is disabled by default when you configure a user flow with phone sign-up. You can enable MFA in user flows with phone sign-up, but because a phone number is used as the primary identifier, email one-time passcode is the only option available for the second authentication factor.
 
-## Configure phone authentication tenant-wide
+## Configure phone sign-up and sign-in tenant-wide
 
 Email sign-up is enabled by default in your local account identity provider settings. You can change the identity types you'll support in your tenant by selecting or deselecting email sign-up, username, or phone number.
 
@@ -93,7 +93,7 @@ Here's an example showing how to add phone sign-up to a new user flow.
 
 ## Enable the recovery email prompt (preview)
 
-When you enable phone authentication for your user flows, it's also a good idea to enable the recovery email feature. With this feature, a user can provide an email address that can be used to recover their account when they don't have their phone. This email address is used for account recovery only. It can't be used for signing in.
+When you enable phone sign-up and sign-in for your user flows, it's also a good idea to enable the recovery email feature. With this feature, a user can provide an email address that can be used to recover their account when they don't have their phone. This email address is used for account recovery only. It can't be used for signing in.
 
 - When the recovery email prompt is **On**, a user signing up for the first time is asked to verify a backup email. A user who hasn't provided a recovery email before is asked to verify a backup email during next sign in.
 
@@ -112,7 +112,7 @@ You can enable the recovery email prompt in the user flow properties.
 4. In Azure AD B2C, under **Policies**, select **User flows**.
 5. Select the user flow from the list.
 6. Under **Settings**, select **Properties**.
-7. Next to **Enable recovery email prompt for phone number sign up and sign in (preview)**, select:
+7. Next to **Enable recovery email prompt for phone number signup and sign in (preview)**, select:
 
    - **On** to show the recovery email prompt during both sign up and sign in.
    - **Off** to hide the recovery email prompt.
@@ -123,7 +123,7 @@ You can enable the recovery email prompt in the user flow properties.
 
 ### To test the recovery email prompt
 
-After you've enabled phone authentication and the recovery email prompt in your user flow, you can use **Run user flow** to test the user experience.
+After you've enabled phone sign-up and sign-in and the recovery email prompt in your user flow, you can use **Run user flow** to test the user experience.
 
 1. Select **Policies** > **User flows**, and then select the user flow you created. On the user flow overview page, select **Run user flow**.
 
