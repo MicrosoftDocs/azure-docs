@@ -354,10 +354,6 @@ The following assemblies may be referenced by simple-name (for example, `#r "Ass
 
 * `Newtonsoft.Json`
 * `Microsoft.WindowsAzure.Storage`
-* `Microsoft.ServiceBus`
-* `Microsoft.AspNet.WebHooks.Receivers`
-* `Microsoft.AspNet.WebHooks.Common`
-* `Microsoft.Azure.NotificationHubs`
 
 ## Referencing custom assemblies
 
