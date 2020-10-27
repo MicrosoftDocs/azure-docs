@@ -23,7 +23,7 @@ Verify that you have an Azure AD tenant. If you don't have an Azure AD tenant, y
 * Organizational name
 * Initial domain name
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/newtenant.png" alt-text="New Azure AD tenant border="false"":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/newtenant.png" alt-text="New Azure AD tenant" border="false":::
 
 ## <a name="users"></a>2. Create Azure AD tenant users
 
