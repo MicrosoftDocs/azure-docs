@@ -100,5 +100,5 @@ The **Add data sources** section includes other available data sources that can 
 
 In this article, you learned how to integrate partner solutions in Security Center. For related information, see the following articles:
 
-* [Export security alerts and recommendations](continuous-export.md). Learn how to setup an integration with Azure Sentinel, or any other SIEM.
+* [Continuously export Security Center data](continuous-export.md). Learn how to setup an integration with Azure Sentinel, or any other SIEM.
 * [Security health monitoring in Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
