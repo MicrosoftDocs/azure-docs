@@ -227,7 +227,7 @@ Do the following steps in the Azure portal to order a device.
     |Source country/region    |    Select the country/region where your data currently resides.         |
     |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, go to [region availability](data-box-overview.md#region-availability).            |
 
-    [![Starting an Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-04-b.png)](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
+    [![Starting an Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
 
 5. Select **Data Box**. The maximum usable capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
 
@@ -261,7 +261,7 @@ Do the following steps in the Azure portal to order a device.
     |---------|---------|
     |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created previously when creating a Data Box order for managed disk by Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.|
 
-    ![Data Box import Order wizard, Data destination screen, with Managed Disks selected](media/data-box-deploy-ordered/select-data-box-import-07-b.png)
+    ![Data Box import Order wizard, Data destination screen, with Managed Disks selected](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
    > [!NOTE]
@@ -312,7 +312,7 @@ Do the following steps in the Azure portal to order a device.
 
 10. In **Contact details**, select **+ Add Shipping Address**.
 
-    ![From the Contact details screen, add shipping addresses to your Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-08-a.png)
+    ![From the Contact details screen, add shipping addresses to your Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
 11. In **Shipping address**, provide your first and last name, the name and postal address of the company, and a valid phone number. Then select **Validate address**. The service checks for service availability for the address. If service is available for the shipping address, you'll get a notification to that effect.
 
@@ -326,7 +326,7 @@ Do the following steps in the Azure portal to order a device.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
-    ![Email section of Contact details in the Order wizard](media/data-box-deploy-ordered/select-data-box-import-08-c.png)
+    ![Email section of Contact details in the Order wizard](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
 12. Review the information in **Review + Order** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
 
