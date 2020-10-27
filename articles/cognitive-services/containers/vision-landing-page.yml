@@ -39,8 +39,6 @@ landingContent:
             url: container-support.md
           - text: Frequently Asked Questions
             url: faq.md
-          - text: Container reuse recipes
-            url: ./container-reuse-recipe.md
           - text: Container image tags
             url: container-image-tags.md
   - title: Container recipes 
