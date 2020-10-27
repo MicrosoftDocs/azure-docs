@@ -17,35 +17,25 @@ ms.subservice: B2C
 
 You can create [user flows](user-flow-overview.md) of different types in your Azure Active Directory B2C (Azure AD B2C) tenant and use them in your applications as needed. User flows can be reused across applications.
 
-- **Sign-up and sign-in** user flows handle both sign-up and sign-in experiences with a single configuration.
-- **Profile editing user flows** enable users to edit their profile in your application.
-- **Password reset user flows** enable users of your application to reset their password.
-
 > [!IMPORTANT]
 > We've changed the way we reference user flow versions. Previously, we offered V1 (production-ready) versions, and V1.1 and V2 (preview) versions. Now, we've consolidated user flows into **Recommended** (next-generation preview) and **Standard** (generally available) versions. All V1.1 and V2 legacy preview user flows are on a path to deprecation by **August 1, 2021**. For details, see [User flow versions in Azure AD B2C](user-flow-versions.md).
 
-## Prerequisites
+## Before you begin
 
-- [Register the application](tutorial-register-applications.md) you want to test with the new user flow.
-- [Add identity providers](tutorial-add-identity-providers.md) to enable user sign-in with providers like Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft, or Twitter.
-- [Configure the local account identity provider](#to-configure-the-local-account-identity-provider) to specify which types of identity types your local account will support tenant-wide. A consumer account is the local account created in your Azure AD B2C directory when someone signs up for your application using an email (default), username, or phone number (preview). 
-
-### To configure the local account identity provider
-
-Then you can specify one of these supported types when you set up an individual user flow. When a user completes the user flow, your Azure AD B2C Local account identity provider authenticates their information.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Under **Manage**, select **Identity providers**.
-5. In the identity provider list, select **Local account**.
-6. In the **Configure local IDP** page, select the allowable identity types consumers can use to create their local accounts in your Azure AD B2C tenant:
-
-   - **Phone** (Preview): Users will be prompted for a phone number, which will be verified at sign-up and become their user id.
-   - **Email**: Users will be prompted for an email address, which will be verified at sign-up and become their user id.
-   - **Username**: Users may create their own unique user id. An email address will be collected from the user and verified.
-
-7. Select **Save**.
+- [**Register the application**](tutorial-register-applications.md) you want to use to test the new user flow.
+- [**Add external identity providers**](tutorial-add-identity-providers.md) if you want to enable user sign-in with providers like Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft, or Twitter.
+- **Configure the local account identity provider** to specify the identity types (email, username, phone number) you want to support for local accounts in your tenant. Then you can choose from these supported identity types when you create an individual user flow. When a user completes the user flow, a local account is created in your Azure AD B2C directory, and your **Local account** identity provider authenticates the user's information.
+- 
+   1. Sign in to the [Azure portal](https://portal.azure.com/). 
+   2. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
+   3. In the search bar at the top of the Azure portal, search for and select **Azure AD B2C**.
+   4. Under **Manage**, select **Identity providers**.
+   5. In the identity provider list, select **Local account**.
+   6. In the **Configure local IDP** page, select the identity types users are allowed to use when creating their local accounts in your Azure AD B2C tenant:
+      - **Phone** (preview): Users will prompted for a phone number, which will be verified at sign-up and become their user id.
+      - **Email** (default): Users will be prompted for an email address, which will be verified at sign-up and become their user id.
+      - **Username**: Users may create their own unique user id. An email address will be collected from the user and verified.
+   7. Select **Save**.
 
 ## Create a user flow
 

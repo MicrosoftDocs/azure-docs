@@ -123,8 +123,8 @@
     items:
     - name: Create a flow
       items:
-      - name: Sign-up or sign-in
-        href: tutorial-create-user-flows.md
+      - name: Create user flows
+        href: create-user-flow.md
       - name: Resource owner password credentials
         href: configure-ropc.md
       - name: Set up phone authentication
