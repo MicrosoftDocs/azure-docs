@@ -4,7 +4,7 @@ description: Learn how to access graphs, trends, and values of aggregate data th
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/30/2020
+ms.date: 11/06/2020
 author: mingshen-ms
 ms.author: mingshen
 ---
@@ -90,10 +90,10 @@ Note the following:
 - You can move the map to view the exact location.
 - You can zoom into a specific location.
 - The heatmap has a supplementary grid to view the details of customer count, order count, and normalized usage hours for the specific location.
-- You can search and select a country/region in the grid to zoom to the location in the map. Revert to the original view by pressing the **Home** button in the map.
+- You can search and select a country/region in the grid to zoom to the location in the map. Revert to the original view by selecting the **Home** button in the map.
 
 > [!NOTE]
-> You can use the download icon in the upper-right corner of all the widgets to download the data. You can provide feedback on each of the widgets by selecting the “thumbs up” or “thumbs down” icon.
+> You can use the download icon in the upper-right corner of any widget to download the data. You can provide feedback on each of the widgets by selecting the “thumbs up” or “thumbs down” icon.
 
 ## Next steps
 

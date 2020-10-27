@@ -4,7 +4,7 @@ description: Learn how to access analytic reports about your commercial marketpl
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/22/2020
+ms.date: 11/06/2020
 author: mingshen-ms
 ms.author: mingshen
 ---
@@ -16,7 +16,7 @@ This article provides information on the **Orders dashboard** in Partner Center.
 To access the **Orders dashboard** in the Partner Center analytics tools, open the **[Analyze dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under Commercial Marketplace.
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./partner-center-portal/faq-terminology.md).
 
 ## Orders dashboard
 
@@ -42,7 +42,7 @@ The Order Summary section displays a count of all purchased orders (excluding ca
 
 The percentage value next to Total Orders represents the amount of growth the selected date range.
 
-![Partner Center Analyze order summary](./media/order-summary.png)
+![Partner Center Analyze order summary](./partner-center-portal/media/order-summary.png)
 
 - A green triangle pointing upward indicates a positive growth trend.
 - A red triangle pointing downward indicates a negative growth trend relative to the previous month.
@@ -54,7 +54,7 @@ The percentage value next to Total Orders represents the amount of growth the se
 
 The **Orders by geography** heat-map displays a count of your orders on a world map and shows seats mapped based on Customer Country/Region. This heatmap functions the same as the **[Customer by geography heatmap](./customer-dashboard.md#customer-by-geography)**.
 
-![Partner Center Analyze orders by geography](./media/orders-by-geography.png)
+![Partner Center Analyze orders by geography](./partner-center-portal/media/orders-by-geography.png)
 
 ### Orders by offers
 
@@ -111,18 +111,18 @@ You can select multiple filters to render the chart for the criteria you choose 
 - If **All** is selected for one of the dropdown lists, then all metrics in the page selected will be aggregated. For example: "All" in the offer types filter option means that all offer types have been selected. This is the default selection for the dropdown lists. Applied filters displays won't show anything when **All** is selected.
 - **Multiple value selection**: All metrics in the page will be aggregated for all the selections made under the dropdown list. If multiple selections are made, the applied filter will show the count of all selections made. See the image below for reference.
 
-    ![Partner Center Analyze order with multiple values applied to filter](./media/filters-applied.png)
+    ![Partner Center Analyze order with multiple values applied to filter](./partner-center-portal/media/filters-applied.png)
 
 - **Single value selection**: If one value is selected, the applied filter will show the count of the one filter that was selected. See below image for reference.
 
-     ![Partner Center Analyze order with single value applied to filter](./media/filters-applied-single.png)
+     ![Partner Center Analyze order with single value applied to filter](./partner-center-portal/media/filters-applied-single.png)
 
 ## Next steps
 
-- For an overview of analytics reports available in the Partner Center commercial marketplace, see [Analytics for the commercial marketplace in Partner Center](./analytics.md).
+- For an overview of analytics reports available in the Partner Center commercial marketplace, see [Analytics for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md).
 - For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary dashboard in commercial marketplace analytics](./summary-dashboard.md).
 - For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](./usage-dashboard.md).
 - For detailed information about your customers, including growth trends, see [Customer dashboard in commercial marketplace analytics](./customer-dashboard.md).
-- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](./downloads-dashboard.md).
-- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](./ratings-reviews.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
+- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](./partner-center-portal/downloads-dashboard.md).
+- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](./partner-center-portal/ratings-reviews.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](./partner-center-portal/faq-terminology.md).

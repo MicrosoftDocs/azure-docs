@@ -4,7 +4,7 @@ description: Access a summary of marketplace web analytics, which enables you to
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 11/06/2020
 author: mingshen-ms
 ms.author: mingshen
 ---
@@ -31,7 +31,7 @@ You can view graphical representations of the following items:
 The maximum latency between users visiting offers on Azure Marketplace or AppSource and reporting in Partner Center is 48 hours.
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./partner-center-portal/faq-terminology.md).
 
 ### Insights dashboard layout
 
@@ -43,21 +43,21 @@ View commercial marketplace metrics in a variety of ways:
 
 **Online store tabs**: You can view the metrics of your offers separately via the AppSource & Azure Marketplace tabs. Select the offer(s) from the offer dropdown list on the right to see a visualization of the metrics for the selected offer(s). By default, all offers are selected.
 
-![Partner Center Insights dashboard offer dropdown list](./media/insights-offer-dropdown.png)
+![Partner Center Insights dashboard offer dropdown list](./partner-center-portal/media/insights-offer-dropdown.png)
 
 **Insights page filters**: These filters are applied at the offer (product detail page) level. You can select multiple filters for the criteria you would like to view. This filter applies to the entire Marketplace Insights section including charts and details.
 
-![Partner Center Insights dashboard page filters](./media/insights-page-filter.png)
+![Partner Center Insights dashboard page filters](./partner-center-portal/media/insights-page-filter.png)
 
 - Offer Names are listed only for the offers that have page visits in the selected date range.  
 - The default selection is 'All' for each of the filter options
 - Applied filters show the count of selection(s) for the choices made. Applied filters will not be displayed for the default 'All' selection.
 
-![Partner Center Insights filters applied](./media/insights-page-filter-two.png)
+![Partner Center Insights filters applied](./partner-center-portal/media/insights-page-filter-two.png)
 
 **Insights date filters**: This filter applies to the entire Marketplace Insights section. Filters can include pre-determined date ranges or a custom date range.
 
-![Partner Center Insights date filters](./media/insights-date-range.png)
+![Partner Center Insights date filters](./partner-center-portal/media/insights-date-range.png)
 
 ## Marketplace Insights summary
 
@@ -78,13 +78,13 @@ This number represents the distinct visitor count during the selected date range
 
 This number represents the count of **Call to Action** button clicks completed on the offer page (product detail page). **Calls to action** are counted when users select the **Get it now**, **Free trial**, **Contact me**, or **Test drive** buttons.
 
-![Partner Center Insights call to action summary](./media/insights-summary.png)
+![Partner Center Insights call to action summary](./partner-center-portal/media/insights-summary.png)
 
 ## Page visits by geography
 
 The heatmap below displays the count of **Page visits**, **Calls to action**, and **Unique visitors according to customer country**. Higher page visits are represented by darker map colors and lower page visits are represented by lighter map colors.
 
-![Partner Center Insights geographical spread](./media/insights-geography.png)
+![Partner Center Insights geographical spread](./partner-center-portal/media/insights-geography.png)
 
 The heatmap includes the following capabilities:
 
@@ -96,37 +96,37 @@ The heatmap includes the following capabilities:
 
 The columns below represent the count of monthly page visits, which are displayed on the Y-axis (axis on the left side of the chart). The trend line represents the monthly trend of unique visitors, which is displayed on the secondary Y-Axis (axis on the right side of the chart), for your offers published in the online stores: Azure Marketplace and AppSource.
 
-![Partner Center Insights page visits versus unique visitors trend](./media/insights-page-vists-unique-visitors.png)
+![Partner Center Insights page visits versus unique visitors trend](./partner-center-portal/media/insights-page-vists-unique-visitors.png)
 
 ## Call to action versus unique visitors with CTAs
 
 The stacked columns represent monthly calls to action (CTA), which are broken down by CTA types (**Get it now**, **Contact me**, and **Free Trial**) and plotted on the Y-axis (axis on the left side of the page). The trend line represents the monthly trend of unique visitors with CTAs, which is displayed on the secondary Y-Axis (axis on the right side of the chart), for your offers published in Azure Marketplace and AppSource.
 
-![Partner Center Insights call to action versus unique visitors with CTAs](./media/insights-call-to-action-unique-visitors.png)
+![Partner Center Insights call to action versus unique visitors with CTAs](./partner-center-portal/media/insights-call-to-action-unique-visitors.png)
 
 ## Page visits and calls to action by offers
 
 The outer pie chart represents the breakdown of **Page visits** based on offers you have published in the marketplace and selected in the filter. The inner chart represents the **Calls to action** breakdown for the same offers.
 
-![Partner Center Insights page visits and calls to action by offers](./media/insights-page-visits-and-cta-by-offer.png)
+![Partner Center Insights page visits and calls to action by offers](./partner-center-portal/media/insights-page-visits-and-cta-by-offer.png)
 
 ## Call to action percentage trend
 
 The **Call to action percentage trend** presents the CTA percentage for the offers published in the marketplace. CTA % = (CTAs/page visits) * 100.
 
-![Partner Center Insights call to action percentage trend](./media/insights-call-to-action-percentage-trend.png)
+![Partner Center Insights call to action percentage trend](./partner-center-portal/media/insights-call-to-action-percentage-trend.png)
 
 ## Page visits and calls to action by referral domains
 
 The graph below presents the top 50 referral domains. Selecting a specific referral domain shows the monthly trend of page visits and calls to action on the chart to the right.
 
-![Partner Center Insights page visits and calls to action by referral domains and campaigns](./media/insights-page-visits-call-to-actions.png)
+![Partner Center Insights page visits and calls to action by referral domains and campaigns](./partner-center-portal/media/insights-page-visits-call-to-actions.png)
 
 ## Marketplace Insights details table
 
 This table provides a list view of the page visits and the calls to action of your selected offers sorted by date.
 
-![Partner Center Insights details table](./media/insights-details-page.png)
+![Partner Center Insights details table](./partner-center-portal/media/insights-details-page.png)
 
 - The data can be extracted to a CSV file if the count of records is less than 1000.
 - If the count of records is over 1000, exported data will be asynchronously placed in a downloads page for the next 30 days.
@@ -134,11 +134,11 @@ This table provides a list view of the page visits and the calls to action of yo
 
 ## Next steps
 
-- For an overview of analytics reports available in the Partner Center commercial marketplace, see [Analytics for the commercial marketplace in Partner Center](./analytics.md).
+- For an overview of analytics reports available in the Partner Center commercial marketplace, see [Analytics for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md).
 - For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary Dashboard in commercial marketplace analytics](./summary-dashboard.md).
 - For information about your orders in a graphical and downloadable format, see [Orders Dashboard in commercial marketplace analytics](./orders-dashboard.md).
 - For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](./usage-dashboard.md).
 - For detailed information about your customers, including growth trends, see [Customer Dashboard in commercial marketplace analytics](./customer-dashboard.md).
-- For a list of your download requests over the last 30 days, see [Downloads Dashboard in commercial marketplace analytics](./downloads-dashboard.md).
-- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](./ratings-reviews.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
+- For a list of your download requests over the last 30 days, see [Downloads Dashboard in commercial marketplace analytics](./partner-center-portal/downloads-dashboard.md).
+- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](./partner-center-portal/ratings-reviews.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](./partner-center-portal/faq-terminology.md).
