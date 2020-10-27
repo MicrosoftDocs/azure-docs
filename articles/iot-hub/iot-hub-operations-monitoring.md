@@ -262,8 +262,8 @@ class Program
 
 ## Next steps
 
-To further explore the capabilities of IoT Hub, see:
+To further explore using Azure Monitor to monitor IoT Hub, see:
 
-* [IoT Hub developer guide](iot-hub-devguide.md)
+* [Monitor IoT Hub](monitor-iot-hub.md)
 
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)
+* [Migrate from IoT Hub operations monitoring to Azure Monitor](iot-hub-migrate-to-diagnostics-setting.mc)
