@@ -71,7 +71,7 @@ Error description contains "Failed to establish an outbound connection from the 
 
 ### Cause
 
-When using Private Linked HDInsight clusters, outbound access from the cluster must be configured to allow connection to be made to the HDInsight resource provider.
+When using Private Linked HDInsight clusters, outbound access from the cluster must be configured to allow connections to be made to the HDInsight resource provider.
 
 ### Resolution
 
