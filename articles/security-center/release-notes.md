@@ -33,6 +33,7 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 - [Vulnerability assessment for on-premise and multi-cloud machines (preview)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
 - [Azure Firewall recommendation added (preview)](#azure-firewall-recommendation-added-preview)
 - [Authorized IP ranges should be defined on Kubernetes Services recommendation updated with quick fix](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
+- [Regulatory Compliance dashboard now includes option to remove standards](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
 - [Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
 
 ### Vulnerability assessment for on-premise and multi-cloud machines (preview)
@@ -71,6 +72,15 @@ The recommendation **Authorized IP ranges should be defined on Kubernetes Servic
 For more details of this recommendation and all other Security Center recommendations, see [Security recommendations - a reference guide](recommendations-reference.md).
 
 :::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="The authorized IP ranges should be defined on Kubernetes Services recommendation with the quick fix option":::
+
+
+### Regulatory Compliance dashboard now includes option to remove standards
+
+Security Center's regulatory compliance dashboard provides insights into your compliance posture based on how you're meeting specific compliance controls and requirements.
+
+The dashboard includes a default set of regulatory standards. If any of the supplied standards isn't relevant to your organization, it's now a simple process to simply remove them from the UI for a subscription. Standards can be removed only at the *subscription* level; not the management group scope.
+
+Learn more in [Removing a standard from your dashboard](update-regulatory-compliance-packages.md#removing-a-standard-from-your-dashboard).
 
 
 ### Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)
