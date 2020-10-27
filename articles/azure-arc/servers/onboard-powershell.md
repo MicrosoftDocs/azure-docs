@@ -29,9 +29,9 @@ When the installation completes, the following message is returned:
 
 `The installed extension ``Az.ConnectedMachine`` is experimental and not covered by customer support. Please use with discretion.`
 
-## Install and validate the agent on Windows
+## Install and validate the agent
 
-1. Open a PowerShell console as an Administrator.
+1. Open a PowerShell console with elevated privileges.
 
 2. Sign into Azure by running the command `Connect-AzAccount`.
 
