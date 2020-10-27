@@ -574,8 +574,6 @@
         href: platform/itsmc-service-manager-script.md
       - name: Fix ServiceNow ITSM sync problems
         href: platform/itsmc-resync-servicenow.md
-    - name: Alert Management solution
-      href: platform/alert-management-solution.md
     - name: Migrate classic alert rules
       items:
       - name: About classic alerts 
@@ -1136,6 +1134,8 @@
         href: insights/vmware.md
       - name: Wire Data solution
         href: insights/wire-data.md
+      - name: Alert Management solution
+        href: platform/alert-management-solution.md
   - name: Workbooks
     items:
     - name: Overview

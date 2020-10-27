@@ -254,9 +254,7 @@ Tags         :
 You can now use the [Get-AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) cmdlet and the secret `Name` property to view the content of that secret.
 
 ```azurepowershell-interactive
-$secret = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>
-
-Write-Host $secret.SecretValueText
+Write-Host (Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>).SecretValue | ConvertFrom-SecureString -AsPlainText
 ```
 
 The output of this command will show your SAS definition string.

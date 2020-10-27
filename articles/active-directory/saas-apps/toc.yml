@@ -1860,6 +1860,8 @@
         href: workboard-tutorial.md
       - name: Workday
         href: workday-tutorial.md
+      - name: Workday Mobile Application
+        href: workday-mobile-tutorial.md
       - name: Workfront
         href: workfront-tutorial.md
       - name: Workgrid

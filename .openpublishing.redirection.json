@@ -58974,6 +58974,16 @@
         "redirect_document_id": true
     },
     {
+      "source_path": "articles/marketplace/consulting-services.md",
+      "redirect_url": "/azure/marketplace/plan-consulting-service-offer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/create-consulting-service-offer.md",
+      "redirect_url": "/azure/marketplace/create-consulting-service-offer",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/healthcare-apis/fhir-oss-powershell-quickstart.md",
       "redirect_url": "/azure/healthcare-apis/fhir-paas-powershell-quickstart",
       "redirect_document_id": false
