@@ -62,7 +62,7 @@ The SQL IaaS extension has three management modes:
 
 - **NoAgent** mode is dedicated to SQL Server 2008 and SQL Server 2008 R2 installed on Windows Server 2008. There is no impact to memory or CPU when using the NoAgent mode. There is no cost associated with using the NoAgent manageability mode. 
 
-You can view the current mode of your SQL Server IaaS agent by using Az PowerShell: 
+You can view the current mode of your SQL Server IaaS agent by using Azure Powershell: 
 
   ```powershell-interactive
   # Get the SqlVirtualMachine
@@ -102,6 +102,7 @@ To install the extension, register the SQL Server VM with the resource provider:
 
 
 ### Install on a VM with a single named SQL Server instance
+
 The SQL Server IaaS extension will work with a named instance on SQL Server if the default instance is uninstalled and the SQL IaaS extension is reinstalled.
 
 To use a named instance of SQL Server, follow these steps:
@@ -113,11 +114,12 @@ To use a named instance of SQL Server, follow these steps:
 
 
 ## Get status of extension
+
 One way to verify that the extension is installed is to view the agent status in the Azure portal. Select **All settings** in the virtual machine window, and then select **Extensions**. You should see the **SqlIaasExtension** extension listed.
 
 ![Status of the SQL Server IaaS Agent extension in the Azure portal](./media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-portal.png)
 
-You can also use the **Get-AzVMSqlServerExtension** Azure PowerShell cmdlet:
+You can also use the **Get-AzVMSqlServerExtension** Azure Powershell cmdlet:
 
    ```powershell-interactive
    Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
@@ -132,11 +134,12 @@ The previous command confirms that the agent is installed and provides general s
    ```
 
 ## Removal
+
 In the Azure portal, you can uninstall the extension by selecting the ellipsis in the **Extensions** window of your virtual machine properties. Then select **Delete**.
 
 ![Uninstalling the SQL Server IaaS Agent extension in Azure portal](./media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-uninstall.png)
 
-You can also use the **Remove-AzVMSqlServerExtension** PowerShell cmdlet:
+You can also use the **Remove-AzVMSqlServerExtension** Azure Powershell cmdlet:
 
    ```powershell-interactive
     Remove-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
@@ -144,7 +147,6 @@ You can also use the **Remove-AzVMSqlServerExtension** PowerShell cmdlet:
 
 ## Next steps
 
-
-Begin using one of the services that the extension supports. For more information, see the articles referenced in the [Supported services](#supported-services) section of this article.
+To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the articles for [Automatic installation](sql-vm-resource-provider-automatic-registration.md), [Single VMs](sql-vm-resource-provider-register.md), or [VMs in bulk](sql-vm-resource-provider-bulk-register).
 
 For more information about running SQL Server on Azure Virtual Machines, see the [What is SQL Server on Azure Virtual Machines?](sql-server-on-azure-vm-iaas-what-is-overview.md).
