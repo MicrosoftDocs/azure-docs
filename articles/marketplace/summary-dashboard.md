@@ -20,7 +20,7 @@ To access the Summary dashboard, open the **[Analyze dashboard](https://partner.
 
 ## Summary dashboard
 
-The **Summary** dashboard presents an overview of the Azure Marketplace and AppSource offers’ business performance. The dashboard provides a broad overview of the following:
+The **Summary** dashboard presents an overview of the Azure Marketplace and Microsoft AppSource offers’ business performance. The dashboard provides a broad overview of the following:
 
 - Customers' orders
 - Customers
@@ -42,90 +42,65 @@ You can find a month range selection at the top-right corner of each page. Custo
 
 ### Orders widget
 
-The **Orders widget** in the **Summary dashboard** displays the current orders for all of your SaaS offers. The Orders widget displays a count and trend of all purchased orders (excluding canceled orders) for the selected computation period. The percentage value below the Total Orders represents the amount of growth during the selected computation period.
+The **Orders** widget on the **Summary** dashboard displays the current orders for all your SaaS offers. The Orders widget displays a count and trend of all purchased orders (excluding canceled orders) for the selected computation period. The percentage value below the Total Orders represents the amount of growth during the selected computation period.
 
 :::image type="content" source="./media/data-and-analytics/orders-widget.png" alt-text="Illustrates the Orders widget on the summary dashboard.":::
 
-You can also navigate to the Orders report by clicking on the “Orders dashboard” link in the bottom section of the widget.
+You can also go to the Orders report by selecting the **Orders** dashboard link in the lower-left corner of the widget.
 
 ### Customers widget
 
 The **Customer** widget of the **Summary** dashboard displays the total number of customers who have acquired your offers for the selected computation period. The Customers widget displays a count and trend of total number of active (including new and existing) customers (excluding churned customers) for the selected computation period. The percentage value below the Total Customers represents the amount of growth during the selected computation period.
 
-### Summary section
+:::image type="content" source="./media/data-and-analytics/customers-widget.png" alt-text="Illustrates the customers widget on the summary dashboard.":::
 
-The Summary section displays a count of all orders created, customers acquired, and usage reported during the selected date range. Partial current month will be excluded from the computation of these metrics. For example: If you have selected the 6M time frame, the usage hours are computed for the six months prior to the current month. If a custom date range is selected, a partial amount from the current month will be excluded from the computation.
+You can also go to the detailed Customers report by selecting the **Customers dashboard** link in the lower-left corner of the widget.
 
-![Growth trends in Summary dashboard](./media/summary-summary-section.png)
+### Usage widget
 
-#### Reading the summary section
+The **Usage** widget of the **Summary** dashboard represents the total normalized and raw usage hours for all Azure Virtual Machine (VM) offers. The Usage widget displays a count and trend of total usage hours for the selected computation period.
 
-- **Orders**: Count of all orders purchased (excludes canceled orders) for offers you've published so far.
-- **Customers**: Count of all customers who purchased your offers and have at least one non canceled order.
-- **Normalized usage hours**: Defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) as the [number of VM cores] multiplier.
-- **Raw usage hours**: The amount of time VMs have been running in terms of hours. The percentage value next to **total orders**, **total customers**, **normalized usage hours**, **raw usage hours**, **page visits**, and **call to actions** represent the amount of usage growth for the selected date range ([last month usage – first month usage])/ first month usage). As described above, a partial amount of the current month will be excluded from this metric.
-- **Growth trends**: If you hover over the columns of the chart, bar graphs display the value for each month.
-- **Green triangle pointing upward**: Indicates a positive growth trend.
-- **Red triangle pointing downward**: Indicates a negative growth trend relative to the previous month.
+The usage summary table displays the customer usage hours for all offers they have purchased.
 
-### Customers by geography
+- Normalized usage hours are defined as the usage hours normalized to account for the number of VM cores ([number of VM cores] x [hours of raw usage]). VMs designated as "SHAREDCORE" use 1/6 (or 0.1666) as the [number of VM cores] multiplier.
+- Raw usage hours are defined as the number of times VMs have been running in terms of hours.
 
-The **Customers by geography** heatmap displays a customer count on a world map.
+The percentage value below the total usage hours represents the amount of growth in usage hours during the selected computation period.
 
-![Customers by geography in Summary dashboard](./media/summary-customers-by-geography.png)
+:::image type="content" source="./media/data-and-analytics/usage-widget.png" alt-text="Illustrates the usage widget on the summary dashboard.":::
+
+You can also go to the Usage report by selecting the **Usage dashboard** link in the lower-left corner of the widget.
+
+### Page visit count widget
+
+This **Page visit count** widget of the **Summary** dashboard displays a summary of marketplace web analytics that enables publishers to measure customer engagement for their respective product detail pages listed on the commercial marketplace online stores: Microsoft AppSource and Azure Marketplace. The Page visits widget displays a count and trend of total page visits during the selected computation period.
+
+:::image type="content" source="./media/data-and-analytics/page-visit-count-widget.png" alt-text="Illustrates the Page visit count widget on the summary dashboard.":::
+
+You can also go to the Marketplace Insights report by selecting the **Marketplace insights dashboard** link in the lower-left corner of the widget.
+
+### Geographical Spread
+
+For the selected computation period, the heatmap displays the total number of customers, orders, and normalized usage hours against geography dimension.
+
+:::image type="content" source="./media/data-and-analytics/geo-spread.png" alt-text="Illustrates the Countries Spread widget on the summary dashboard.":::
+
+Note the following:
 
 - You can move the map to view the exact location.
 - You can zoom into a specific location.
-- The heatmap has a supplementary grid to view the details of customer count, order count, normalized usage hours in the specific location.
+- The heatmap has a supplementary grid to view the details of customer count, order count, normalized usage hours for the specific location.
 - You can search and select a country/region in the grid to zoom to the location in the map. Revert to the original view by pressing the **Home** button in the map.
-- A **new** customer has purchased one of your offers for the first time during the month within the selected date range.
-
-### Growth trend charts
-
-You can view trends based on the growth of your **orders purchased** (includes canceled orders), **customers acquired** (includes lost customers), and **usage** reported, which are displayed month by month according to the selected date range. You can further analyze these trends by selecting links below the chart, which navigate to the respective **order**, **usage**, **customer**, or **Marketplace Insights** pages.
-
-The Marketplace offer **Page visits and call to action** trend charts are displayed for Azure marketplace and AppSource on two tabs.
-
-![Page visits and call to actions trend charts in Summary dashboard](./media/summary-page-visits-and-cta.png)
-
-The **orders by offers** chart organizes your orders according to the Offer name.
-
-The **orders by sales channel** pie chart organizes your orders (including orders that customers canceled) during the selected date range, by Sales channel. Sales channel is the type of licensing agreement used by customers to purchase Azure, which are Cloud Solution Provider (CSP), Enterprise, Enterprise through Reseller, GTM, and Pay As You Go.
-
-**Usage by offers** and **usage by sales channel** pie charts present the breakdown of the usage by top offers and sales channels, respectively. The inner pie chart represents raw usage and outer pie chart represents normalized usage.
-
-The **orders by marketplace license type** and **usage by marketplace license type** pie charts display a breakdown of orders and usage by their respective license type. License types include:
-
-- **Billed through Azure**: Microsoft bills customers on your behalf when you choose to sell your offer through Microsoft with this license type. Payment types include pay-as-you-go via credit card or Enterprise invoicing.
-- **Bring your own license**: Microsoft does not bill customers for their usage with this type of marketplace offer. This usage is listed as **Get it now (Free)** in the marketplace.
-- **Free**: Microsoft does not bill customers for their usage with this type of marketplace offer. This usage is listed as **Free trial** in the marketplace.
-- **Microsoft as reseller**: Represents offers sold by Microsoft resellers as a part of the **Cloud Solution Provider (CSP) program**.
-
-### Customer leaderboard
-
-The top 50 customers with the highest number of orders are displayed on a *leader board*, sorted by highest order count and order percentage.
-
-- Select a customer to view their profile details, orders organized by offer, or orders organized by Azure license type and pricing channel.
-- The **Offers by orders** donut chart presents the top four offers (by order count) and the remaining offers grouped in as 'Rest All'.
-- The **normalized usage by offer** donut chart presents the top five offers by usage.
 
 > [!NOTE]
-> Customer personal information will be presented only if the customer has provided consent. You can view this information if you have logged in with an **Owner** role permissions-level. Users with the **Contributor** role will not be able to view this information. [Learn more about user roles and permissions](./manage-account.md#define-user-roles-and-permissions).
-
-### Seat Count Trend
-
-The **orders by per seat/ per site** chart presents the breakdown of all orders purchased according to pricing model. The **seat count trend** chart presents seats versus orders purchased for all your per seat Software as a Service (SaaS) offers.
-
-### Free trials SaaS orders trend
-
-The **Free trial SaaS orders trend** chart presents the trend of orders for free trials SaaS offers with a 30-day trial period.
+> You can use the download icon in the upper-right corner of all the widgets to download the data. You can provide feedback on each of the widgets by selecting the “thumbs up” or “thumbs down” icon.
 
 ## Next steps
 
-- For an overview of analytics reports available in the Partner Center commercial marketplace, see [Analytics for the commercial marketplace in Partner Center](./analytics.md).
-- For information about your orders in a graphical and downloadable format, see [Orders Dashboard in commercial marketplace analytics](./orders-dashboard.md).
-- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](./usage-dashboard.md).
-- For detailed information about your customers, including growth trends, see [Customer Dashboard in commercial marketplace analytics](./customer-dashboard.md).
-- For a list of your download requests over the last 30 days, see [Downloads Dashboard in commercial marketplace analytics](./downloads-dashboard.md).
-- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](./ratings-reviews.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
+- For an overview of analytics reports available in the Partner Center commercial marketplace, see [Analytics for the commercial marketplace in Partner Center](./partner-center-portal/analytics.md).
+- For information about your orders in a graphical and downloadable format, see [Orders Dashboard in commercial marketplace analytics](./partner-center-portal/orders-dashboard.md).
+- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](./partner-center-portal/usage-dashboard.md).
+- For detailed information about your customers, including growth trends, see [Customer Dashboard in commercial marketplace analytics](./partner-center-portal/customer-dashboard.md).
+- For a list of your download requests over the last 30 days, see [Downloads Dashboard in commercial marketplace analytics](./partner-center-portal/downloads-dashboard.md).
+- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](./partner-center-portal/ratings-reviews.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](./partner-center-portal/faq-terminology.md).
