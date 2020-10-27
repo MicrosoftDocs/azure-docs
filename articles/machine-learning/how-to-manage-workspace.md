@@ -15,7 +15,6 @@ ms.custom: how-to, fasttrack-edit
 
 # Create and manage Azure Machine Learning workspaces 
 
-
 In this article, you'll create, view, and delete [**Azure Machine Learning workspaces**](concept-workspace.md) for [Azure Machine Learning](overview-what-is-azure-ml.md), using the Azure portal or the [SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
 
 As your needs change or requirements for automation increase you can also create and delete workspaces [using the CLI](reference-azure-machine-learning-cli.md),  or [via the VS Code extension](tutorial-setup-vscode-extension.md).
@@ -29,7 +28,7 @@ As your needs change or requirements for automation increase you can also create
 
 # [Python](#tab/python)
 
-mak* **Default specification.** By default, dependent resources as well as the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
+* **Default specification.** By default, dependent resources as well as the resource group will be created automatically. This code creates a workspace named `myworkspace` and a resource group named `myresourcegroup` in `eastus2`.
     
     ```python
     from azureml.core import Workspace
