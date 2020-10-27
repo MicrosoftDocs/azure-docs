@@ -8,7 +8,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Customize the Remote Monitoring solution accelerator

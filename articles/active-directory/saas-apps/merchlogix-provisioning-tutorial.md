@@ -50,7 +50,7 @@ Before configuring MerchLogix for automatic user provisioning with Azure AD, you
 
 5. In the results panel, select **MerchLogix**, and then click the **Add** button to add MerchLogix to your list of SaaS applications.
 
-	![MerchLogix Provisioning][4]
+	![Screenshot of the Add from the galley section with the Enter a name text box called out.][4]
 
 ## Assigning users to MerchLogix
 
@@ -83,7 +83,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![MerchLogix Provisioning](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
+	![Screenshot of the MerchLogix - Prisioning section with the Provisioning option called out, the Provisioning Mode set to Automatic, and the Test Connection option called out.](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
 
 5. Under the **Admin Credentials** section:
 

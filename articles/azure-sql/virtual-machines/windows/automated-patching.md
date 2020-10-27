@@ -35,6 +35,7 @@ To use Automated Patching, consider the following prerequisites:
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
+* Windows Server 2019
 
 **SQL Server version**:
 
@@ -43,6 +44,7 @@ To use Automated Patching, consider the following prerequisites:
 * SQL Server 2014
 * SQL Server 2016
 * SQL Server 2017
+* SQL Server 2019
 
 **Azure PowerShell**:
 

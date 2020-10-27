@@ -5,7 +5,7 @@ author: mayanknayar
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/09/2020
 ms.author: manayar
 
 ---
@@ -187,7 +187,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 Use the [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) cmdlet to enable automatic VM guest patching when creating or updating a VM.
 
 ```azurepowershell-interactive
-Set-AzVMOperatingSystem -VM $$VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate -PatchMode "AutomaticByPlatform"
+Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate -PatchMode "AutomaticByPlatform"
 ```
 
 ### Azure CLI 2.0
@@ -246,8 +246,10 @@ The patch installation results for your VM can be reviewed under the `lastPatchI
 ## On-demand patch assessment
 If automatic VM guest patching is already enabled for your VM, a periodic patch assessment is performed on the VM during the VM's off-peak hours. This process is automatic and the results of the latest assessment can be reviewed through the VM's instance view as described earlier in this document. You can also trigger an on-demand patch assessment for your VM at any time. Patch assessment can take a few minutes to complete and the status of the latest assessment is updated on the VM's instance view.
 
+Enabling the preview functionality requires a one-time opt-in for the feature *InGuestPatchVMPreview* per subscription. The feature preview for on-demand patch assessment can be enabled following the [preview enablement process](automatic-vm-guest-patching.md#requirements-for-enabling-automatic-vm-guest-patching) described earlier for automatic VM guest patching.
+
 > [!NOTE]
->On-demand patch assessment does not automatically trigger patch installed. Assessed and applicable patches for the VM will only be installed during the VM's off-peak hours, following the availability-first patching process described earlier in this document.
+>On-demand patch assessment does not automatically trigger patch installation. Assessed and applicable patches for the VM will only be installed during the VM's off-peak hours, following the availability-first patching process described earlier in this document.
 
 ### REST API
 ```

@@ -35,7 +35,7 @@ A single indexer can only consume one table or view, but you can create multiple
 You can set up and configure an Azure SQL indexer using:
 
 * Import Data wizard in the [Azure portal](https://portal.azure.com)
-* Azure Cognitive Search [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* Azure Cognitive Search [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer)
 * Azure Cognitive Search [REST API](/rest/api/searchservice/indexer-operations)
 
 In this article, we'll use the REST API to create **indexers** and **data sources**.
@@ -70,7 +70,9 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
     }
    ```
 
-   You can get the connection string from the [Azure portal](https://portal.azure.com); use the `ADO.NET connection string` option.
+   The connection string can follow either of the below formats:
+    1. You can get the connection string from the [Azure portal](https://portal.azure.com); use the `ADO.NET connection string` option.
+    1. A managed identity connection string that does not include an account key with the following format: `Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;`. To use this connection string, follow the instructions for [Setting up an indexer connection to an Azure SQL Database using a managed identity](search-howto-managed-identities-sql.md).
 
 2. Create the target Azure Cognitive Search index if you don’t have one already. You can create an index using the [portal](https://portal.azure.com) or the [Create Index API](/rest/api/searchservice/Create-Index). Ensure that the schema of your target index is compatible with the schema of the source table - see [mapping between SQL and Azure Cognitive search data types](#TypeMapping).
 

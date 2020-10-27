@@ -57,7 +57,7 @@ If you want other applications using our silent sign-on experience, let us know 
 
 **Q: Does Seamless SSO support `Alternate ID` as the username, instead of `userPrincipalName`?**
 
-Yes. Seamless SSO supports `Alternate ID` as the username when configured in Azure AD Connect as shown [here](how-to-connect-install-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation for the support statement.
+Yes. Seamless SSO supports `Alternate ID` as the username when configured in Azure AD Connect as shown [here](how-to-connect-install-custom.md). Not all Microsoft 365 applications support `Alternate ID`. Refer to the specific application's documentation for the support statement.
 
 **Q: What is the difference between the single sign-on experience provided by [Azure AD Join](../devices/overview.md) and Seamless SSO?**
 

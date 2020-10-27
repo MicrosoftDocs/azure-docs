@@ -36,7 +36,7 @@ For details on webhook requests, see [Azure Container Registry webhook schema re
 
 Example webhook form:
 
-![ACR webhook creation UI in the Azure portal](./media/container-registry-webhook/webhook.png)
+![Screenshot that shows the ACR webhook creation U I in the Azure portal.](./media/container-registry-webhook/webhook.png)
 
 ## Create webhook - Azure CLI
 

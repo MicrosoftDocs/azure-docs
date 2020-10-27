@@ -10,7 +10,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019,fasttrack-edit"
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/08/2020
 ---
 
@@ -228,7 +228,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 1. In the migration activity screen, select **Refresh** to update the display.
 
-   ![Migration activity in progress](media/tutorial-sql-server-to-managed-instance/dms-monitor-migration1.png)
+   ![Screenshot that shows the migration activity screen and the Refresh button.](media/tutorial-sql-server-to-managed-instance/dms-monitor-migration1.png)
 
     You can further expand the databases and logins categories to monitor the migration status of the respective server objects.
 

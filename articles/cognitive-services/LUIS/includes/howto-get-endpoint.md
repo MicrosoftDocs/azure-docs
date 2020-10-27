@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.date: 05/06/2020
 ms.subservice: language-understanding
 ms.topic: include
-ms.author: diberry
+
 ---
 
 In the **Manage** section (top-right menu), on the **Azure Resources** page (left menu), copy the **Example Query** URL then paste into a new browser tab.

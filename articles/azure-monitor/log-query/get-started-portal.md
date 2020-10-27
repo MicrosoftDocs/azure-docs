@@ -38,7 +38,7 @@ A *schema* is a collection of tables grouped under logical categories. The Demo 
 
 The schema tables appear on the **Tables** tab of the Log Analytics workspace. The tables contain columns, each with a data type shown by the icon next to the column name. For example, the **Event** table contains text columns like **Computer** and numerical columns like **EventCategory**.
 
-![Schema](media/get-started-portal/schema.png)
+![Screenshot shows the Azure portal Logs page with a new query, highlighting the Tables pane with Computer and EventCategory highlighted.](media/get-started-portal/schema.png)
 
 ## Write and run basic queries
 
@@ -116,7 +116,7 @@ To filter the `Event` query results to **Error** events by filtering the query r
    
 1. Select **Filter**.
    
-   ![Filter](media/get-started-portal/filter.png)
+   ![Screenshot shows a table of results with a contextual menu for filtering  results by EventLevelName.](media/get-started-portal/filter.png)
 
 ## Sort, group, and select columns
 To sort query results by a specific column, such as **TimeGenerated [UTC]**, select the column heading. Select the heading again to toggle between ascending and descending order.
@@ -125,7 +125,7 @@ To sort query results by a specific column, such as **TimeGenerated [UTC]**, sel
 
 Another way to organize results is by groups. To group results by a specific column, drag the column header to the bar above the results table labeled **Drag a column header and drop it here to group by that column**. To create subgroups, drag other columns to the upper bar. You can rearrange the hierarchy and sorting of the groups and subgroups in the bar.
 
-![Groups](media/get-started-portal/groups.png)
+![Screenshot shows query results with subgroups for EventLevelName and Computer.](media/get-started-portal/groups.png)
 
 To hide or show columns in the results, select **Columns** above the table, and then select or deselect the columns you want from the dropdown list.
 

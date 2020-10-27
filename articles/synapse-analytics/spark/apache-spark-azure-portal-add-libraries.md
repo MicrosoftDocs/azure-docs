@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: euang
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ms.subservice: spark
 ---
 # Manage libraries for Apache Spark in Azure Synapse Analytics
@@ -79,7 +79,7 @@ To install a library onto a Spark pool (preview) directly from the Azure portal:
 
  4. Upload the environment configuration file using the file selector.
 
-![Add Python libraries](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Add Python libraries")
+![Screenshot that highlights the Upload environment config file button.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Add Python libraries")
 
 ### Verify installed libraries
 
@@ -119,7 +119,7 @@ Custom built wheel packages can be installed on the Apache Spark pool by uploadi
 The files should be uploaded to the following path in the storage account's default container: 
 
 ```
-abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>sparkpools/<pool_name>libraries/python/
+abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
 >[!IMPORTANT]

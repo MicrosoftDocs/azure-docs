@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Publish a Managed Service offer to Azure Marketplace
 
-In this article, you'll learn how to publish a public or private Managed Service offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Commercial Marketplace](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) program in Partner Center. Customers who purchase the offer will then delegate subscriptions or resource groups, allowing you to manage them through [Azure Lighthouse](../overview.md).
+In this article, you'll learn how to publish a public or private Managed Service offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Commercial Marketplace](../../marketplace/overview.md) program in Partner Center. Customers who purchase the offer will then delegate subscriptions or resource groups, allowing you to manage them through [Azure Lighthouse](../overview.md).
 
 ## Publishing requirements
 
@@ -35,7 +35,7 @@ The following table can help determine whether to onboard customers by publishin
 
 For detailed instructions about how to create your offer, including all of the information and assets you'll need to provide, see [Create a Managed Service offer](../../marketplace/partner-center-portal/create-new-managed-service-offer.md).
 
-To learn about the general publishing process, see [Azure Marketplace and AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md). You should also review the [commercial marketplace certification policies](/legal/marketplace/certification-policies), particularly the [Managed Services](/legal/marketplace/certification-policies#700-managed-services) section.
+To learn about the general publishing process, see [Azure Marketplace and AppSource Publishing Guide](../../marketplace/overview.md). You should also review the [commercial marketplace certification policies](/legal/marketplace/certification-policies), particularly the [Managed Services](/legal/marketplace/certification-policies#700-managed-services) section.
 
 Once a customer adds your offer, they will be able to delegate one or more subscriptions or resource groups, which will then be [onboarded to Azure Lighthouse](#the-customer-onboarding-process).
 
@@ -59,6 +59,6 @@ Once the customer delegates a subscription (or one or more resource groups withi
 
 ## Next steps
 
-- Learn about the [Commercial Marketplace](../../marketplace/partner-center-portal/commercial-marketplace-overview.md).
+- Learn about the [Commercial Marketplace](../../marketplace/overview.md).
 - Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
 - [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.

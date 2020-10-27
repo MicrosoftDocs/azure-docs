@@ -3,7 +3,7 @@ title: Windows Virtual Desktop host pool Azure portal - Azure
 description: How to create a Windows Virtual Desktop host pool by using the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -42,7 +42,7 @@ To start creating your new host pool:
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
    
-   >![NOTE]
+   >[!NOTE]
    > If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
 
 2. Enter **Windows Virtual Desktop** into the search bar, then find and select **Windows Virtual Desktop** under Services.
@@ -183,6 +183,13 @@ To register the desktop app group to a workspace:
      - A download link for an Azure Resource Management template based on your configuration.
 
 After that, you're all done!
+
+## Run the Azure Resource Manager template to provision a new host pool
+
+If you'd rather use an automated process, [download our Azure Resource Manager template](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates) to provision your new host pool instead.
+
+>[!NOTE]
+>If you're using an automated process to build your environment, you'll need the latest version of the configuration JSON file. You can find the JSON file [here](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list).
 
 ## Next steps
 

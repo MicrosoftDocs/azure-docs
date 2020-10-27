@@ -6,7 +6,7 @@ author: justindavies
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Using OpenFaaS on AKS
@@ -130,7 +130,7 @@ Now that OpenFaaS is operational, create a function using the OpenFaas portal.
 
 Click on **Deploy New Function** and search for **Figlet**. Select the Figlet function, and click **Deploy**.
 
-![Figlet](media/container-service-serverless/figlet.png)
+![Screenshot shows the Deploy A New Function dialog box with the text figlet on the search line.](media/container-service-serverless/figlet.png)
 
 Use curl to invoke the function. Replace the IP address in the following example with that of your OpenFaas gateway.
 

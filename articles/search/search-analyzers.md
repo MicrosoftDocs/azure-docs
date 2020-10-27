@@ -143,7 +143,7 @@ Walking through this example:
 * In this case, the custom analyzer is "my_analyzer", which in turn uses a customized standard tokenizer "my_standard_tokenizer" and two token filters: lowercase and customized asciifolding filter "my_asciifolding".
 * It also defines 2 custom char filters "map_dash" and "remove_whitespace". The first one replaces all dashes with underscores while the second one removes all spaces. Spaces need to be UTF-8 encoded in the mapping rules. The char filters are applied before tokenization and will affect the resulting tokens (the standard tokenizer breaks on dash and spaces but not on underscore).
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -202,7 +202,7 @@ Walking through this example:
         }
      ]
   }
-~~~~
+```
 
 <a name="Per-field-analyzer-assignment-example"></a>
 
@@ -212,7 +212,7 @@ The Standard analyzer is the default. Suppose you want to replace the default wi
 
 The "analyzer" element overrides the Standard analyzer on a field-by-field basis. There is no global override. In this example, `text1` uses the pattern analyzer and `text2`, which doesn't specify an analyzer, uses the default.
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -235,7 +235,7 @@ The "analyzer" element overrides the Standard analyzer on a field-by-field basis
         }
      ]
   }
-~~~~
+```
 
 <a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
@@ -244,7 +244,7 @@ The "analyzer" element overrides the Standard analyzer on a field-by-field basis
 The APIs include additional index attributes for specifying different analyzers for indexing and search. The **searchAnalyzer** and **indexAnalyzer** attributes must be specified as a pair, replacing the single **analyzer** attribute.
 
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -263,7 +263,7 @@ The APIs include additional index attributes for specifying different analyzers 
         },
      ],
   }
-~~~~
+```
 
 <a name="Language-analyzer-example"></a>
 
@@ -271,7 +271,7 @@ The APIs include additional index attributes for specifying different analyzers 
 
 Fields containing strings in different languages can use a language analyzer, while other fields retain the default (or use some other predefined or custom analyzer). If you use a language analyzer, it must be used for both indexing and search operations. Fields that use a language analyzer cannot have different analyzers for indexing and search.
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -296,7 +296,7 @@ Fields containing strings in different languages can use a language analyzer, wh
         }
      ],
   }
-~~~~
+```
 
 ## C# examples
 
@@ -313,7 +313,7 @@ Any analyzer that is used as-is, with no configuration, is specified on a field 
 
 This example assigns Microsoft English and French analyzers to description fields. It's a snippet taken from a larger definition of the hotels index, creating using the Hotel class in the hotels.cs file of the [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) sample.
 
-Call [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), specifying the [AnalyzerName](/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) type providing a text analyzer supported in Azure Cognitive Search.
+Call [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer), specifying the [AnalyzerName](/dotnet/api/microsoft.azure.search.models.analyzername) type providing a text analyzer supported in Azure Cognitive Search.
 
 ```csharp
     public partial class Hotel
@@ -339,7 +339,7 @@ Call [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-do
 
 When customization or configuration is required, you will need to add an analyzer construct to an index. Once you define it, you can add it the field definition as demonstrated in the previous example.
 
-Create a [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) object. For more examples, see [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
+Create a [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.customanalyzer) object. For more examples, see [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {

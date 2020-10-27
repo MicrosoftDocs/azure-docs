@@ -13,7 +13,7 @@ ms.date: 10/16/2019
 ---
 # One-vs-All Multiclass
 
-This article describes how to use the One-vs-All Multiclass module in Azure Machine Learning designer (preview). The goal is to create a classification model that can predict multiple classes, by using the *one-versus-all* approach.
+This article describes how to use the One-vs-All Multiclass module in Azure Machine Learning designer. The goal is to create a classification model that can predict multiple classes, by using the *one-versus-all* approach.
 
 This module is useful for creating models that predict three or more possible outcomes, when the outcome depends on continuous or categorical predictor variables. This method also lets you use binary classification methods for issues that require multiple output classes.
 

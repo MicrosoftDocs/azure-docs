@@ -1,6 +1,6 @@
 ---
-title: Manage historical data with retention policy - Azure SQL Edge (Preview)
-description: Learn how to manage historical data with retention policy in Azure SQL Edge (Preview)
+title: Manage historical data with retention policy - Azure SQL Edge
+description: Learn how to manage historical data with retention policy in Azure SQL Edge
 keywords: SQL Edge, data retention
 services: sql-edge
 ms.service: sql-edge
@@ -15,11 +15,10 @@ ms.date: 09/04/2020
 
 Data Retention can enabled on the database and any of the underlying tables individually, allowing users to create flexible aging policies for their tables and databases. Applying data retention is simple: it requires only one parameter to be set during table creation or as part of an alter table operation. 
 
-After data retention policy is defiend for a database and the underlying table, a background time timer task runs to remove any obsolete records from the table enabled for data retention. Identification of matching rows and their removal from the table occur transparently, in the background task that is scheduled and run by the system. Age condition for the table rows is checked based on the column used as the `filter_column` in the table definition. If retention period, for example, is set to one week, table rows eligible for cleanup satisfy the following condition: 
+After data retention policy is defiend for a database and the underlying table, a background time timer task runs to remove any obsolete records from the table enabled for data retention. Identification of matching rows and their removal from the table occur transparently, in the background task that is scheduled and run by the system. Age condition for the table rows is checked based on the column used as the `filter_column` in the table definition. If retention period, for example, is set to one week, table rows eligible for cleanup satisfy either of the following condition: 
 
-```sql
-filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())
-```
+- If the filter column uses DATETIMEOFFSET data type then the condition is `filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())`
+- Else then the condition is `filter_column < DATEADD(WEEK, -1, SYSDATETIME())`
 
 ## Data retention cleanup phases
 
@@ -32,7 +31,7 @@ Data retention cleanup operation comprises of two phases.
 
 ## Manual cleanup
 
-Depending on the data retention settings on a table and the nature of the workload on the database, it's possible that the automatic cleanup thread may not completely remove all obsolete rows during its run. To assist with this and allow users to manually remove obsolete rows, the `sys.sp_cleanup_data_retention` stored procedure has been introduced in Azure SQL Edge (Preview). 
+Depending on the data retention settings on a table and the nature of the workload on the database, it's possible that the automatic cleanup thread may not completely remove all obsolete rows during its run. To assist with this and allow users to manually remove obsolete rows, the `sys.sp_cleanup_data_retention` stored procedure has been introduced in Azure SQL Edge. 
 
 This stored procedure takes three parameters. 
     - Schema Name - Name of the owning schema for the table. This is a required parameter. 
@@ -62,7 +61,7 @@ Excellent data compression and efficient retention cleanup makes clustered colum
 
 ## Monitoring data retention cleanup
 
-Data retention policy cleanup operations can be monitored using extended events (XEvents) in Azure SQL Edge (Preview). For more information on extended events, refer [XEvents Overview](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
+Data retention policy cleanup operations can be monitored using extended events (XEvents) in Azure SQL Edge. For more information on extended events, refer [XEvents Overview](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events). 
 
 The following six extended events help track the state of the cleanup operations. 
 
@@ -73,7 +72,9 @@ The following six extended events help track the state of the cleanup operations
 | data_retention_task_exception	 | Occurs when background task for cleanup of tables with retention policy fails outside of retention cleanup process specific to table. |
 | data_retention_cleanup_started  | Occurs when clean up process of table with data retention policy starts. |
 | data_retention_cleanup_exception	| Occurs cleanup process of table with retention policy fails. |
-| data_retention_cleanup_completed	| Occurs when clean up process of table with data retention policy ends. |
+| data_retention_cleanup_completed	| Occurs when clean up process of table with data retention policy ends. |  
+
+Additionally, a new ring buffer type named `RING_BUFFER_DATA_RETENTION_CLEANUP` has been added to sys.dm_os_ring_buffers dynamic management view. This view can be used to monitor the data retention cleanup operations. 
 
 
 ## Next Steps

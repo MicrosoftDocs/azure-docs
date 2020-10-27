@@ -6,19 +6,19 @@ services: cognitive-services
 author: nitinme
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: immersive-reader
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
 ---
 
-The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension.
+[Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. You can use Immersive Reader in your applications to isolate text to improve focus, display pictures for commonly used words, highlight parts of speech, read selected text out loud, translate words and phrases in real-time, and more.
 
 In this quickstart, you build an iOS app from scratch and integrate the Immersive Reader. A full working sample of this quickstart is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-
 ## Prerequisites
 
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 * An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
 
@@ -26,21 +26,21 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Create a new project in Xcode.
 
-![New Project](../../media/ios/xcode-create-project.png)
+![New Project - Swift](../../media/ios/xcode-create-project.png)
 
 Choose **Single View App**.
 
-![New Single View App](../../media/ios/xcode-single-view-app.png)
+![New Single View App - Swift](../../media/ios/xcode-single-view-app.png)
 
 ## Set up authentication
 
 In the top menu, click on **Product > Scheme > Edit Scheme...**.
 
-![Edit Scheme](../../media/ios/quickstart-ios-edit-scheme.png)
+![Edit Scheme - Swift](../../media/ios/quickstart-ios-edit-scheme.png)
 
 In the **Run** view, click on **Arguments** tab.
 
-![Edit Scheme](../../media/ios/quickstart-ios-env-vars.png)
+![Edit Scheme environment variables - Swift](../../media/ios/quickstart-ios-env-vars.png)
 
 In the **Environment Variables** section, add the following names and values, supplying the values given when you created your Immersive Reader resource.
 
@@ -552,19 +552,19 @@ function sendContentToReader(message) {
 
 Set the archive scheme in Xcode by selecting a simulator or device target.
 
-![Archive scheme](../../media/ios/xcode-archive-scheme.png)
+![Archive scheme - Swift](../../media/ios/xcode-archive-scheme.png)
 
-![Select Target](../../media/ios/xcode-select-target.png)
+![Select Target - Swift](../../media/ios/xcode-select-target.png)
 
 In Xcode, press **Ctrl+R** or click on the play button to run the project. The app should launch on the specified simulator or device.
 
 In your app, you should see:
 
-![Sample app](../../media/ios/sample-app-ipad.png)
+![Sample app - Swift](../../media/ios/sample-app-ipad.png)
 
 When you click on the **Immersive Reader** button, you'll see the Immersive Reader launched with the content on app.
 
-![Immersive Reader](../../media/ios/immersive-reader-ipad.png)
+![Immersive Reader - Swift](../../media/ios/immersive-reader-ipad.png)
 
 ## Next steps
 

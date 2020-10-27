@@ -9,13 +9,17 @@ ms.author: ccompy
 The feature is easy to set up, but that doesn't mean your experience will be problem free. If you encounter problems accessing your desired endpoint, there are some utilities you can use to test connectivity from the app console. There are two consoles that you can use. One is the Kudu console, and the other is the console in the Azure portal. To reach the Kudu console from your app, go to **Tools** > **Kudu**. You can also reach the Kudo console at [sitename].scm.azurewebsites.net. After the website loads, go to the **Debug console** tab. To get to the Azure portal-hosted console from your app, go to **Tools** > **Console**.
 
 #### Tools
-The tools **ping**, **nslookup**, and **tracert** won't work through the console because of security constraints. To fill the void, two separate tools are added. To test DNS functionality, we added a tool named **nameresolver.exe**. The syntax is:
+In native Windows apps, the tools **ping**, **nslookup**, and **tracert** won't work through the console because of security constraints (they work in [custom Windows containers](../articles/app-service/quickstart-custom-container.md)). To fill the void, two separate tools are added. To test DNS functionality, we added a tool named **nameresolver.exe**. The syntax is:
 
 ```console
 nameresolver.exe hostname [optional: DNS Server]
 ```
 
 You can use nameresolver to check the hostnames that your app depends on. This way you can test if you have anything misconfigured with your DNS or perhaps don't have access to your DNS server. You can see the DNS server that your app uses in the console by looking at the environmental variables WEBSITE_DNS_SERVER and WEBSITE_DNS_ALT_SERVER.
+
+> [!NOTE]
+> nameresolver.exe currently doesn't work in custom Windows containers.
+>
 
 You can use the next tool to test for TCP connectivity to a host and port combination. This tool is called **tcpping** and the syntax is:
 

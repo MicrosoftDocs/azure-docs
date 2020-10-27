@@ -21,6 +21,8 @@
     items: 
     - name: Add storage targets
       href: hpc-cache-add-storage.md
+    - name: Add namespace paths
+      href: add-namespace-paths.md
     - name: Move data to storage targets (if needed)
       items:
       - name: Preload new Blob storage

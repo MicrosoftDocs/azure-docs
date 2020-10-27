@@ -21,7 +21,7 @@ Integrating Cezanne HR Software with Azure AD provides you with the following be
 * You can enable your users to be automatically signed-in to Cezanne HR Software (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -126,19 +126,19 @@ To configure Azure AD single sign-on with Cezanne HR Software, perform the follo
 
 2. On the left navigation pane, click **System Setup**. Go to **Security Settings**. Then navigate to **Single Sign-On Configuration**.
 
-	![Configure Single Sign-On On App side](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
+	![Screenshot shows the Cezanne H R Software tenant with Security Settings and Single Sign-On Configuration selected.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
 3. In the **Allow users to log in using the following Single Sign-On (SSO) Service** panel, check the **SAML 2.0** box and select the **Advanced Configuration** option.
 
-	![Configure Single Sign-On On App side](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
+	![Screenshot shows the Allow users pane with SAML 2.0 and Advanced Configuration selected.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
 4. Click **Add New** button.
 
-	![Configure Single Sign-On On App side](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
+	![Screenshot shows the Add New button.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
 5. Perform the following steps on **SAML 2.0 IDENTITY PROVIDERS** section.
 
-	![Configure Single Sign-On On App side](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
+	![Screenshot shows a pane where you can enter the values described in this step.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
 
 	a. Enter the name of your Identity Provider as the **Display Name**.
 
@@ -156,7 +156,7 @@ To configure Azure AD single sign-on with Cezanne HR Software, perform the follo
 
 6. Click **Save** button.
 
-	![Configure Single Sign-On On App side](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
+	![Screenshot shows the Save button for Single Sign-on Configuration.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 ### Create an Azure AD test user
 
@@ -219,11 +219,11 @@ In order to enable Azure AD users to log into Cezanne HR Software, they must be 
 
 2. On the left navigation pane, click **System Setup**. Go to **Manage Users**. Then navigate to **Add New User**.
 
-    ![New User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "New User")
+    ![Screenshot shows the Cezanne H R Software tenant with Manage Users and Add New User selected.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "New User")
 
 3. On **PERSON DETAILS** section, perform below steps:
 
-    ![New User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "New User")
+    ![Screenshot shows the PERSON DETAILS section where you can enter the values described in this step.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "New User")
 
 	a. Set **Internal User** as OFF.
 
@@ -235,7 +235,7 @@ In order to enable Azure AD users to log into Cezanne HR Software, they must be 
 
 4. On **Account Information** section, perform below steps:
 
-    ![New User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "New User")
+    ![Screenshot shows ACCOUNT INFORMATION where you can enter the values described in this step.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "New User")
 
 	a. In the **Username** textbox, type the email of user like Brittasimon@contoso.com.
 
@@ -247,26 +247,26 @@ In order to enable Azure AD users to log into Cezanne HR Software, they must be 
 
 5. Navigate to **Single Sign-On** tab and select **Add New** in the **SAML 2.0 Identifiers** area.
 
-	![User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "User")
+	![Screenshot shows the Single Sign-On tab where you can select Add New.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "User")
 
 6. Choose your Identity Provider for the **Identity Provider** and in the text box of **User Identifier**, enter the email address of Britta Simon account.
 
-	![User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "User")
+	![Screenshot shows the SAML 2.0 Identifiers where you can select your Identity Provider and User Identifier.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "User")
 
 7. Click **Save** button.
 
-	![User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "User")
+	![Screenshot shows the Save button for User Settings.](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "User")
 
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Cezanne HR Software tile in the Access Panel, you should be automatically signed in to the Cezanne HR Software for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Cezanne HR Software tile in the Access Panel, you should be automatically signed in to the Cezanne HR Software for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

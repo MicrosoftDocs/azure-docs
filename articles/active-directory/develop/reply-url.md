@@ -60,6 +60,8 @@ From a development standpoint, this means a few things:
 * If you need to register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI. For example, `http://127.0.0.1/MyWebApp` doesn't match `http://127.0.0.1/MyNativeApp`.
 * Per RFC guidance, you should not use `localhost` in the redirect URI. Instead, use the actual loopback IP address, `127.0.0.1`. This prevents your app from being broken by misconfigured firewalls or renamed network interfaces.
 
+    To use the `http` scheme with the loopback address (127.0.0.1) instead of localhost, you must edit the [application manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#replyurls-attribute). 
+
     The IPv6 loopback address (`[::1]`) is not currently supported.
 
 ## Restrictions on wildcards in redirect URIs

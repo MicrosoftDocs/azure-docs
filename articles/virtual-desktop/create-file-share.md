@@ -80,7 +80,7 @@ To configure share level permissions, assign each user a role with the appropria
 >[!NOTE]
 >The accounts or groups you assign permissions to should have been created in the domain and synchronized with Azure AD. Accounts created in Azure AD won't work.
 
-To assign role-based access control (RBAC) permissions:
+To assign Azure role-based access control (Azure RBAC) permissions:
 
 1. Open the Azure portal.
 
@@ -100,7 +100,7 @@ To assign role-based access control (RBAC) permissions:
 
 ## Assign users permissions on the Azure file share
 
-Once you've assigned RBAC permissions to your users, next you'll need to configure the NTFS permissions.
+Once you've assigned Azure RBAC permissions to your users, next you'll need to configure the NTFS permissions.
 
 You'll need to know two things from the Azure portal to get started:
 
@@ -148,7 +148,7 @@ To configure your NTFS permissions:
 2. Run the following command to mount the Azure file share and assign it a drive letter:
 
      ```cmd
-     net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
+     net use <desired-drive-letter>: <UNC-path> <SA-key> /user:Azure\<SA-name>
      ```
 
 3. Run the following command to review the access permissions to the Azure file share:

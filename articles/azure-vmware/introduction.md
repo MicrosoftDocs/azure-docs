@@ -5,7 +5,7 @@ ms.topic: overview
 ms.date: 05/04/2020
 ---
 
-# What is Azure VMware Solution Preview?
+# What is Azure VMware Solution?
 
 Azure VMware Solution provides you with private clouds in Azure. The private clouds contain vSphere clusters, built from dedicated bare-metal Azure infrastructure. You can scale private cloud clusters from 3 to 16 hosts, with the capability to have multiple clusters in a single private cloud. All private clouds are provisioned with vCenter Server, vSAN, vSphere, and NSX-T. You can migrate workloads from your on-premises environments, create or deploy new virtual machines, and consume Azure services from your private clouds.
 
@@ -23,9 +23,7 @@ New private clouds are deployed through the Azure portal or Azure CLI.
 
 ## Networking
 
-When a private cloud is deployed, private networks for management, provisioning, and vMotion are created. These private networks are used for access to vCenter and NSX-T Manager, and for virtual machine vMotion or deployment. All of the private networks are accessible from a VNet in Azure or from on-premises environments. ExpressRoute Global Reach is used to connect private clouds to on-premises environments, and this connection requires a VNet with an ExpressRoute circuit in your subscription.
-
-Access to the internet and Azure services are provisioned when a private cloud is deployed. The access is provided so that VMs on production workload networks can consume Azure or internet-based services. Internet access is disabled by default for new private clouds, and it can be enabled or disabled at any time.
+[!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 
 For more information on networking and interconnectivity, see the [Networking concepts](concepts-networking.md) article.
 
@@ -41,7 +39,7 @@ Regular upgrades of the Azure VMware Solution private cloud and VMware software 
 
 ## Monitoring your private cloud
 
-You can use [Logs in Azure Monitor](../azure-monitor/overview.md) to collect logs on your virtual machines running in your Azure VMware Solution private cloud. You can [download and install the MMA agent](../azure-monitor/platform/log-analytics-agent.md#installation-options) on Linux and Windows virtual machines running in your Azure VMware Solution private clouds, using the same queries that you run on your on-premises VMs. You can run the same queries you would normally run on your virtual machines just the same. To learn more about creating queries, see [how to write queries](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
+Once Azure VMware Solution is deployed into your subscription, [Azure Monitor logs](../azure-monitor/overview.md) are generated automatically. Additionally, you can collect logs on each of your virtual machines within your private cloud. You can [download and install the MMA agent](../azure-monitor/platform/log-analytics-agent.md#installation-options) on Linux and Windows virtual machines running in your Azure VMware Solution private clouds, as well as enable the [Azure diagnostics extension](../azure-monitor/platform/diagnostics-extension-overview.md). You can even run the same queries you normally run on your virtual machines. To learn more about creating queries, see [how to write queries](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries). Monitoring patterns inside the Azure VMware Solution are similar to Azure Virtual Machines within the IaaS platform. For additional information and how-tos, see [Monitoring Azure virtual machines with Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
 
 ## Next steps
 

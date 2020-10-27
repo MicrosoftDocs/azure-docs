@@ -67,21 +67,24 @@ The deployment process to Azure App Service will use your Azure credentials from
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 ```
 
 ::: zone pivot="platform-windows"
 
 # [Java SE](#tab/javase)
 
-1. When prompted, select **windows** by entering `2`.
-2. Use the default Java version, 1.8, by pressing enter.
-3. Finally, press enter on the last prompt to confirm your selections.
+1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
+1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter.
+1. When prompted with **OS** option, select **windows** by entering `2`.
+1. Use the default Java version, 1.8, by pressing enter.
+1. Finally, press enter on the last prompt to confirm your selections.
 
     Your summary output will look similar to the snippet shown below.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007390755
     ResourceGroup : spring-boot-1599007390755-rg
     Region : westeurope
@@ -102,7 +105,9 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 
 # [Tomcat](#tab/tomcat)
 
-1. When prompted, select **windows** by entering `2`.
+1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
+1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter.
+1. When prompted with **OS** option, select **windows** by entering `2`.
 1. Use the default Java version, 1.8, by pressing enter.
 1. Use the default web container, Tomcat 8.5, by pressing enter.
 1. Finally, press enter on the last prompt to confirm your selections.
@@ -111,6 +116,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003152123
     ResourceGroup : helloworld-1599003152123-rg
     Region : westeurope
@@ -136,12 +142,15 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 
 ### [Java SE](#tab/javase)
 
-1. When prompted, select **linux** by pressing enter.
-2. Use the default Java version, 1.8, by pressing enter.
-3. Finally, press enter on the last prompt to confirm your selections.
+1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
+1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter.
+1. When prompted with **OS** option, select **linux** by pressing enter.
+1. Use the default Java version, 1.8, by pressing enter.
+1. Finally, press enter on the last prompt to confirm your selections.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : spring-boot-1599007116351
     ResourceGroup : spring-boot-1599007116351-rg
     Region : westeurope
@@ -161,13 +170,16 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 
 ### [Tomcat](#tab/tomcat)
 
-1. When prompted, select **linux** by pressing enter.
+1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number print in the line start.
+1. When prompted with **Web App** option, accept the defaut option `<create>` by pressing enter.
+1. When prompted with **OS** option, select **linux** by pressing enter.
 1. Use the default Java version, 1.8, by pressing enter.
 1. Use the default web container, Tomcat 8.5, by pressing enter.
 1. Finally, press enter on the last prompt to confirm your selections.
 
     ```
     Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
     AppName : helloworld-1599003744223
     ResourceGroup : helloworld-1599003744223-rg
     Region : westeurope
@@ -194,6 +206,7 @@ You can modify the configurations for App Service directly in your `pom.xml` if 
 Property | Required | Description | Version
 ---|---|---|---
 `<schemaVersion>` | false | Specify the version of the configuration schema. Supported values are: `v1`, `v2`. | 1.5.2
+`<subscriptionId>` | false | Specify the subscription id. | 0.1.0+
 `<resourceGroup>` | true | Azure Resource Group for your Web App. | 0.1.0+
 `<appName>` | true | The name of your Web App. | 0.1.0+
 `<region>` | true | Specifies the region where your Web App will be hosted; the default value is **westeurope**. All valid regions at [Supported Regions](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) section. | 0.1.0+
@@ -240,26 +253,24 @@ az group delete --name <your resource group name; for example: helloworld-155840
 This command may take a minute to run.
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [Connect to Azure SQL Database with Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
-
-> [!div class="nextstepaction"]
-> [Connect to Azure DB for MySQL with Java](../mysql/connect-java.md)
 
 > [!div class="nextstepaction"]
 > [Connect to Azure DB for PostgreSQL with Java](../postgresql/connect-java.md)
 
 > [!div class="nextstepaction"]
+> [Set up CI/CD](deploy-continuous-deployment.md)
+
+> [!div class="nextstepaction"]
+> [Pricing Information](https://azure.microsoft.com/pricing/details/app-service/linux/)
+
+> [!div class="nextstepaction"]
+> [Aggregate Logs and Metrics](troubleshoot-diagnostic-logs.md)
+
+> [!div class="nextstepaction"]
+> [Scale up](manage-scale-up.md)
+
+> [!div class="nextstepaction"]
 > [Azure for Java Developers Resources](/java/azure/)
 
 > [!div class="nextstepaction"]
-> [Configure Java app](configure-language-java.md)
-
-> [!div class="nextstepaction"]
-> [CI/CD with Jenkins](/azure/developer/jenkins/deploy-to-azure-app-service-using-plugin)
-
-> [!div class="nextstepaction"]
-> [Map custom domain](app-service-web-tutorial-custom-domain.md)
-
-> [!div class="nextstepaction"]
-> [Learn More about Maven plugins for Azure](https://github.com/microsoft/azure-maven-plugins)
+> [Configure your Java app](configure-language-java.md)

@@ -34,10 +34,7 @@ See [Get started with log queries in Azure Monitor](get-started-queries.md) for 
  See [Azure Monitor log query language differences](data-explorer-difference.md) for minor differences in the version of KQL used by Azure Monitor.
 
 ## What data is available to log queries?
-All data collected in Azure Monitor Logs is available to retrieve and analyze in log queries. Different data sources will write their data to different tables, but you can include multiple tables in a single query to analyze data across multiple sources. When you build a query, you start by determining which tables have the data that you're looking for, so you should have at least a basic understanding of how data in Azure Monitor Logs is structured.
-
-See [Sources of Azure Monitor Logs](../platform/data-platform-logs.md#sources-of-azure-monitor-logs), for a list of different data sources that populate Azure Monitor Logs.<br>
-See [Structure of Azure Monitor Logs](logs-structure.md) for an explanation of how the data is structured.
+All data collected in Azure Monitor Logs is available to retrieve and analyze in log queries. Different data sources will write their data to different tables, but you can include multiple tables in a single query to analyze data across multiple sources. When you build a query, you start by determining which tables have the data that you're looking for. See [Structure of Azure Monitor Logs](../platform/data-platform-logs.md) for an explanation of how the data is structured.
 
 ## What does a log query look like?
 A query could be as simple as a single table name for retrieving all records from that table:

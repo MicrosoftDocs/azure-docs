@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 09/17/2020
 ms.author: victorh
 #Customer intent: As an administrator, I want monitor Azure Firewall logs and metrics so that I can track firewall activity.
 ---
@@ -30,14 +30,17 @@ It can take a few minutes for the data to appear in your logs after you complete
 1. In the Azure portal, open your firewall resource group and select the firewall.
 2. Under **Monitoring**, select **Diagnostic settings**.
 
-   For Azure Firewall, two service-specific logs are available:
+   For Azure Firewall, four service-specific logs are available:
 
    * AzureFirewallApplicationRule
    * AzureFirewallNetworkRule
+   * AzureFirewallThreatIntelLog
+   * AzureFirewallDnsProxy
+
 
 3. Select **Add diagnostic setting**. The **Diagnostics settings** page provides the settings for the diagnostic logs.
 5. In this example, Azure Monitor logs stores the logs, so type **Firewall log analytics** for the name.
-6. Under **Log**, select **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule** to collect logs for application and network rules.
+6. Under **Log**, select **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog**, and **AzureFirewallDnsProxy** to collect  the logs.
 7. Select **Send to Log Analytics** to configure your workspace.
 8. Select your subscription.
 9. Select **Save**.

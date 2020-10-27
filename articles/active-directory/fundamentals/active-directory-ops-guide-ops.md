@@ -44,7 +44,7 @@ As you review your list, you may find you need to either assign an owner for tas
 
 #### Owners recommended reading
 
-- [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md)
 - [Governance in Azure](../../governance/index.yml)
 
 ## Hybrid management
@@ -86,7 +86,7 @@ Some identity and access management services require on-premises agents to enabl
 #### On-premises agents logs recommended reading
 
 - [Troubleshoot Application Proxy](../manage-apps/application-proxy-troubleshoot.md)
-- [Self-service password reset troubleshooting- Azure Active Directory](../authentication/active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes)
+- [Self-service password reset troubleshooting- Azure Active Directory](../authentication/troubleshoot-sspr.md)
 - [Understand Azure AD Application Proxy connectors](../manage-apps/application-proxy-connectors.md)
 - [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
 - [Troubleshoot error codes for the Azure MFA NPS extension](../authentication/howto-mfa-nps-extension-errors.md)
@@ -120,9 +120,9 @@ If your organization currently has no program in place to monitor changes in Ide
 
 ### Notifications
 
-Microsoft sends email communications to administrators to notify various changes in the service, configuration updates that are needed, and errors that require admin intervention. It is important that customers set the notification email addresses so that notifications are sent to the proper team members who can acknowledge and act upon all notifications. We recommend you add multiple recipients to the [Office 365 Message Center](/office365/admin/manage/message-center) and request that notifications (including Azure AD Connect Health notifications) be sent to a distribution list or shared mailbox. If you only have one global admin account with an email address, be sure to configure at least two email-capable accounts.
+Microsoft sends email communications to administrators to notify various changes in the service, configuration updates that are needed, and errors that require admin intervention. It is important that customers set the notification email addresses so that notifications are sent to the proper team members who can acknowledge and act upon all notifications. We recommend you add multiple recipients to the [Message Center](/office365/admin/manage/message-center) and request that notifications (including Azure AD Connect Health notifications) be sent to a distribution list or shared mailbox. If you only have one global admin account with an email address, be sure to configure at least two email-capable accounts.
 
-There are two "From" addresses used by Azure AD: <o365mc@email2.microsoft.com>, which sends Office 365 Message Center notifications; and <azure-noreply@microsoft.com>, which sends notifications related to:
+There are two "From" addresses used by Azure AD: <o365mc@email2.microsoft.com>, which sends Message Center notifications; and <azure-noreply@microsoft.com>, which sends notifications related to:
 
 - [Azure AD Access Reviews](../governance/access-reviews-overview.md)
 - [Azure AD Connect Health](../hybrid/how-to-connect-health-operations.md#enable-email-notifications)
@@ -136,14 +136,14 @@ Refer to the following table to learn the type of notifications that are sent an
 | Notification source | What is sent | Where to check |
 |:-|:-|:-|
 | Technical contact | Sync errors | Azure portal - properties blade |
-| Office 365 Message Center | Incident and degradation notices of Identity Services and O365 backend services | Office Portal |
+| Message Center | Incident and degradation notices of Identity Services and Microsoft 365 backend services | Office Portal |
 | Identity Protection Weekly Digest | Identity Protection Digest | Azure AD Identity Protection blade |
 | Azure AD Connect Health | Alert notifications | Azure portal - Azure AD Connect Health blade |
 | Enterprise Applications Notifications | Notifications when certificates are about to expire and provisioning errors | Azure portal - Enterprise Application blade (each app has its own email address setting) |
 
 #### Notifications recommended reading
 
-- [Change your organization's address, technical contact, and more - Office 365](/office365/admin/manage/change-address-contact-and-more)
+- [Change your organization's address, technical contact, and more](/office365/admin/manage/change-address-contact-and-more)
 
 ## Operational surface area
 

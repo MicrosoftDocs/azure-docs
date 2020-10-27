@@ -1,6 +1,6 @@
 ---
 title: Page templates in Azure API Management | Microsoft Docs
-description: Learn how to customize the content of developer portal pages using a set of templates in Azure API Management.
+description: Learn how to customize the content of developer portal page templates in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino

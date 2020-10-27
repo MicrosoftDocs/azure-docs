@@ -40,7 +40,7 @@ Run an assessment as follows:
 1. Review the [best practices](best-practices-assessment.md) for creating assessments.
 2. In the **Servers** tab, in **Azure Migrate: Server Assessment** tile, click **Assess**.
 
-    ![Assess](./media/how-to-create-assessment/assess.png)
+    ![Screenshot shows Azure Migrate Servers with Assess selected under Assessment tools.](./media/how-to-create-assessment/assess.png)
 
 3. In **Assess servers**, select the assessment type as "Azure VM", select the discovery source and specify the assessment name.
 

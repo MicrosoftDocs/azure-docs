@@ -42,7 +42,7 @@ If you receive an error when trying to postpone or dismiss a recommendation, you
 
 ## Next steps
 
-This article gave an overview of how Advisor uses RBAC to control user permissions and how to resolve common issues. To learn more about Advisor, see:
+This article gave an overview of how Advisor uses Azure RBAC to control user permissions and how to resolve common issues. To learn more about Advisor, see:
 
 - [What is Azure Advisor?](./advisor-overview.md)
 - [Get started with Azure Advisor](./advisor-get-started.md)

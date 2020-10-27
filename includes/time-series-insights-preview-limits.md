@@ -21,14 +21,13 @@ Azure Time Series Insights property limits have increased to 1,000 from a maximu
 | Gen1 (S1) | 600 properties (columns) |
 | Gen1 (S2) | 800 properties (columns) |
 
-### Event sources
+### Streaming Ingestion
 
-A maximum of two event sources per instance is supported.
+* There is a maximum of two [event sources](../articles/time-series-insights/concepts-streaming-ingestion-event-sources.md) per environment.
 
-* Learn how to [Add an event hub source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
-* Configure [an IoT hub source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
+* The best practices and general guidance for event sources can be found [here](../articles/time-series-insights/concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices)
 
-By default, [Gen2 environments support ingress rates](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingress-throughput-limits) up to **1 megabyte per second (MB/s) per environment**. Customers may scale their environments up to **16 MB/s** throughput if necessary. There is also a per-partition limit of **0.5 MB/s**.
+* By default, Azure Time Series Insights Gen2 can ingest incoming data at a rate of **up to 1 megabyte per second (MBps) per Azure Time Series Insights Gen2 environment**. There are additional limitations [per hub partition](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md#hub-partitions-and-per-partition-limits). Rates of up to 8 MBps can be provided by submitting a support ticket through the Azure portal. To learn more, read [Streaming Ingestion Throughput Limits](../articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md).
 
 ### API limits
 

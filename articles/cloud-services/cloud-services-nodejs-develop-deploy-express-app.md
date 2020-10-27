@@ -10,7 +10,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Build and deploy a Node.js web application using Express on an Azure Cloud Services
@@ -136,13 +136,8 @@ Once the deployment operation completes, your browser will open and display the 
 ![A web browser displaying the Express page. The URL indicates it is now hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## Next steps
-For more information, see the [Node.js Developer Center](https://docs.microsoft.com/azure/developer/javascript/).
+For more information, see the [Node.js Developer Center](/azure/developer/javascript/).
 
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: https://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
-
-
-
-
-

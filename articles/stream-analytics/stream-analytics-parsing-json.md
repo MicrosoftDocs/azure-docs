@@ -6,7 +6,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Parse JSON and Avro data in Azure Stream Analytics
 

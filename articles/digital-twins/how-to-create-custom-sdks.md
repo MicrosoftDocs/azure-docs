@@ -8,7 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -18,17 +18,17 @@ ms.custom: devx-track-javascript
 
 # Create custom SDKs for Azure Digital Twins using AutoRest
 
-Right now, the only published data plane SDKs for interacting with the Azure Digital Twins APIs are for .NET (C#) and JavaScript. You can read about these SDKs, and the APIs in general, in [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md). If you are working in another language, this article will show you how to generate your own data plane SDK in the language of your choice, using AutoRest.
+Right now, the only published data plane SDKs for interacting with the Azure Digital Twins APIs are for .NET (C#), JavaScript, and Java. You can read about these SDKs, and the APIs in general, in [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md). If you are working in another language, this article will show you how to generate your own data plane SDK in the language of your choice, using AutoRest.
 
 >[!NOTE]
-> You can also use AutoRest to generate a control plane SDK if you would like. To do this, complete the steps in this article using the [control plane Swagger (OpenAPI) file](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) instead of the data plane one.
+> You can also use AutoRest to generate a control plane SDK if you would like. To do this, complete the steps in this article using the latest **control plane Swagger** (OpenAPI) file from the [control plane Swagger folder]](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) instead of the data plane one.
 
 ## Set up your machine
 
 To generate an SDK, you will need:
 * [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (version 3 isn't currently supported)
 * [Node.js](https://nodejs.org) as a pre-requisite to AutoRest
-* The Azure Digital Twins [data plane Swagger (OpenAPI) file](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2020-05-31-preview) entitled *digitaltwins.json*, and its accompanying folder of examples. Download the Swagger file and its folder of examples to your local machine.
+* The latest Azure Digital Twins **data plane Swagger** (OpenAPI) file from the [data plane Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins), and its accompanying folder of examples.  Download the Swagger file *digitaltwins.json* and its folder of examples to your local machine.
 
 Once your machine is equipped with everything from the list above, you're ready to use AutoRest to create the SDK.
 

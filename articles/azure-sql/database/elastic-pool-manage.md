@@ -7,9 +7,9 @@ ms.subservice: elastic-pools
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.custom: seoapril2019 sqldbrb=1
+ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
 ---
 
 # Manage elastic pools in Azure SQL Database

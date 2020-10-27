@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/10/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -26,6 +26,8 @@ Identity Protection provides organizations access to powerful resources to see a
 ## Risk types and detection
 
 There are two types of risk **User** and **Sign-in** and two types of detection or calculation **Real-time** and **Offline**.
+
+Real-time detections may not show up in reporting for five to ten minutes. Offline detections may not show up in reporting for two to twenty-four hours.
 
 ### User risk
 

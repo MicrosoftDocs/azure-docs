@@ -3,7 +3,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod   
 ms.topic: include
-ms.date: 06/08/2020
+ms.date: 09/git14/2020
 ms.author: alkohli
 ---
 
@@ -36,7 +36,7 @@ For export orders, following table shows the supported storage accounts.
 | Page Blob storage Premium | |Y | | |
 
 > [!IMPORTANT]
-> - For General-purpose accounts, Data Box does not support Queue, Table, Disk, and Azure Data Lake Gen 2 storage types.
+> - For General-purpose accounts, Data Box does not support Queue, Table, and Disk storage types for import orders. For export orders, Data Box does not support Queue, Table, Disk, and Azure Data Lake Gen 2 storage types for General-purpose accounts.
 > - Data Box does not support append blobs for Blob Storage and Block Blob Storage accounts.
 > - Data Box does not support Premium File Storage accounts.
 > - Data uploaded to page blobs must be 512 bytes aligned such as VHDs.

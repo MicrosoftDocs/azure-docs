@@ -404,6 +404,11 @@
       "branch": "main"
     },    
     {
+      "path_to_root": "azure-cosmos-spark",
+      "url": "https://github.com/Azure/azure-cosmosdb-spark",
+      "branch": "2.4"
+    },     
+    {
       "path_to_root": "cosmos-dotnet-getting-started",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-getting-started",
       "branch": "master",
@@ -553,6 +558,11 @@
     {
       "path_to_root": "azure-storage-snippets",
       "url": "https://github.com/azure-samples/AzureStorageSnippets",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-net",
+      "url": "https://github.com/Azure/azure-sdk-for-net/",
       "branch": "master"
     }
   ],

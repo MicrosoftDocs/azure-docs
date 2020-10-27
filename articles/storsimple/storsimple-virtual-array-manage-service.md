@@ -104,7 +104,7 @@ Perform the following steps to regenerate a service registration key.
 #### To regenerate the service registration key
 1. In the **StorSimple Device Manager** blade, go to **Management &gt;** **Keys**.
    
-   ![Keys blade](./media/storsimple-virtual-array-manage-service/getregkey2.png)
+   ![Keys blade again](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. In the **Keys** blade, click **Regenerate**.
    
    ![Click regenerate](./media/storsimple-virtual-array-manage-service/getregkey5.png)
@@ -113,7 +113,7 @@ Perform the following steps to regenerate a service registration key.
    ![Confirm regenerate key](./media/storsimple-virtual-array-manage-service/getregkey3.png)
 4. A new service registration key will appear.
    
-    ![Confirm regenerate key](./media/storsimple-virtual-array-manage-service/getregkey4.png)
+    ![Additional confirm regenerate key](./media/storsimple-virtual-array-manage-service/getregkey4.png)
    
    Copy this key and save it for registering any new devices with this service.
 

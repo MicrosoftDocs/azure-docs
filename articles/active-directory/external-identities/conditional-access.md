@@ -1,6 +1,6 @@
 ---
 title: Conditional Access for B2B collaboration users - Azure AD
-description: Azure Active Directory B2B collaboration supports multi-factor authentication (MFA) for selective access to your corporate applications
+description: Learn how to enforce multi-factor authentication policies for Azure Active Directory B2B users.
 
 services: active-directory
 ms.service: active-directory

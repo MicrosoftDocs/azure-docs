@@ -21,7 +21,6 @@ In this tutorial, you'll learn how to integrate ServiceNow with Azure Active Dir
 * Enable your users to be automatically signed-in to ServiceNow with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
-
 ## Prerequisites
 
 To get started, you need the following items:
@@ -452,7 +451,7 @@ The objective of this section is to create a user called B.Simon in ServiceNow. 
 
 ## Test SSO
 
-When you select the ServiceNow tile in the Access Panel, you should be automatically signed in to the ServiceNow for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the ServiceNow tile in the Access Panel, you should be automatically signed in to the ServiceNow for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Test SSO for ServiceNow Classic (Mobile)
 
@@ -481,3 +480,4 @@ When you select the ServiceNow tile in the Access Panel, you should be automatic
 ## Next Steps
 
 Once you configure the ServiceNow you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+

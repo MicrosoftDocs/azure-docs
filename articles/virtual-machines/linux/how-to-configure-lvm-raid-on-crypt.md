@@ -2,7 +2,8 @@
 title: Configure LVM and RAID on encrypted devices - Azure Disk Encryption
 description: This article provides instructions for configuring LVM and RAID on encrypted devices for Linux VMs.
 author: jofrance
-ms.service: security
+ms.service: virtual-machines
+ms.subservice: security
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
@@ -456,4 +457,5 @@ df -h
 ```
 ## Next steps
 
+- [Resize logical volume management devices encrypted with Azure Disk Encryption](how-to-resize-encrypted-lvm.md)
 - [Azure Disk Encryption troubleshooting](disk-encryption-troubleshooting.md)

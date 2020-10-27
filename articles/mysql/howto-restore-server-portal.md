@@ -27,7 +27,7 @@ You make the choice between configuring your server for either locally redundant
 
 While creating a server through the Azure portal, the **Pricing Tier** window is where you select either **Locally Redundant** or **Geographically Redundant** backups for your server. This window is also where you select the **Backup Retention Period** - how long (in number of days) you want the server backups stored for.
 
-   ![Pricing Tier - Choose Backup Redundancy](./media/howto-restore-server-portal/pricing-tier.png)
+   :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="Pricing Tier - Choose Backup Redundancy":::
 
 For more information about setting these values during create, see the [Azure Database for MySQL server quickstart](quickstart-create-mysql-server-database-using-azure-portal.md).
 
@@ -36,7 +36,7 @@ The backup retention period can be changed on a server through the following ste
 2. Select your Azure Database for MySQL server. This action opens the **Overview** page.
 3. Select **Pricing Tier** from the menu, under **SETTINGS**. Using the slider you can change the **Backup Retention Period** to your preference between 7 and 35 days.
 In the screenshot below it has been increased to 34 days.
-![Backup retention period increased](./media/howto-restore-server-portal/3-increase-backup-days.png)
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Backup retention period increased":::
 
 4. Click **OK** to confirm the change.
 
@@ -52,11 +52,11 @@ The following steps restore the sample server to a point-in-time:
 
 2. In the toolbar of the server's **Overview** page, select **Restore**.
 
-   ![Azure Database for MySQL - Overview - Restore button](./media/howto-restore-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Azure Database for MySQL - Overview - Restore button":::
 
 3. Fill out the Restore form with the required information:
 
-   ![Azure Database for MySQL - Restore information](./media/howto-restore-server-portal/3-restore.png)
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for MySQL - Restore information":::
    - **Restore point**: Select the point-in-time you want to restore to.
    - **Target server**: Provide a name for the new server.
    - **Location**: You cannot select the region. By default it is same as the source server.

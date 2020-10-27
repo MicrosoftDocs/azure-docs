@@ -30,7 +30,7 @@ This article shows you how to enable access to the developer portal for users fr
 ## Authorize developer accounts by using Azure AD
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. Select ![arrow](./media/api-management-howto-aad/arrow.png).
+2. Select ![Arrow icon.](./media/api-management-howto-aad/arrow.png).
 3. Type **api** in the search box.
 4. Select **API Management services**.
 5. Select your API Management service instance.
