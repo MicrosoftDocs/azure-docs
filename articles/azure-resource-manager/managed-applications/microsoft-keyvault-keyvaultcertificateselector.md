@@ -2,9 +2,8 @@
 title: KeyVaultCertificateSelector UI element
 description: Describes the Microsoft.KeyVault.KeyVaultCertificateSelector UI element for Azure portal.
 author: tfitzmac
-
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 10/27/2020
 ms.author: tomfitz
 
 ---
@@ -18,7 +17,7 @@ The user is presented with the option to select an available certificate.
 
 :::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-select.png" alt-text="Microsoft.KeyVault.KeyVaultCertificateSelector":::
 
-When the user selects **Select a certificate**, the following form opens. The user can select a key vault and a certificate from the key vault.
+After selecting **Select a certificate**, the user can specify a key vault and certificate from the key vault.
 
 :::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-certificate.png" alt-text="Microsoft.KeyVault.KeyVaultCertificateSelector select certificate":::
 

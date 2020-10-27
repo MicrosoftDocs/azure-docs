@@ -2,9 +2,8 @@
 title: Create UI definition elements
 description: Describes the elements to use when constructing UI definitions for Azure portal.
 author: tfitzmac
-
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 10/27/2020
 ms.author: tomfitz
 
 ---

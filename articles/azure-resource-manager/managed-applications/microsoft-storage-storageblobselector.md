@@ -2,15 +2,14 @@
 title: StorageBlobSelector UI element
 description: Describes the Microsoft.Storage.StorageBlobSelector UI element for Azure portal.
 author: tfitzmac
-
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 10/27/2020
 ms.author: tomfitz
 
 ---
 # Microsoft.Storage.StorageBlobSelector UI element
 
-A control for selecting a blob from Azure storage account.
+A control for selecting a blob from an Azure storage account.
 
 ## UI sample
 
@@ -26,7 +25,7 @@ The user sees the containers in the storage account and can select one.
 
 :::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-containers.png" alt-text="Microsoft.Storage.StorageBlobSelector - select container":::
 
-When the user selects a container, the following form opens. The user can select a file from the container.
+From the container, the user can select a file.
 
 :::image type="content" source="./media/managed-application-elements/microsoft-storage-storageblobselector-file.png" alt-text="Microsoft.Storage.StorageBlobSelector - file":::
 
@@ -47,7 +46,7 @@ The control is updated to display the selected file name.
     "text": "Select Package"
   },
   "constraints": {
-    "allowedFileExtensions": [ "zip", "cspkg"]
+    "allowedFileExtensions": [ "zip", "cspkg" ]
   }
 }
 ```
