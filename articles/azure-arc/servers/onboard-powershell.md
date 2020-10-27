@@ -13,7 +13,7 @@ You can enable Azure Arc enabled servers for one or a small number of Windows or
 - Installs the Connected Machine agent.
 - Registers the machine with Azure Arc
 
-This method requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, you are member of the Local Administrators group.
+This method requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, you are member of the Local Administrators group. You can complete this process interactively or remotely on a Windows server using [PowerShell remoting](/powershell/scripting/learn/ps101/08-powershell-remoting).
 
 Before you get started, be sure to review the [prerequisites](agent-overview.md#prerequisites) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions).
 
@@ -57,12 +57,7 @@ When the installation completes, the following message is returned:
 
 ## Install the agent and connect to Azure using PowerShell remoting
 
-Instead of interactively installing the Conencted Machine agent and registering the Windows server with Azure Arc, you can use [PowerShell remoting](/powershell/scripting/learn/ps101/08-powershell-remoting).
-
-PowerShell remoting must be enabled on the remote computer. Use the `Enable-PSRemoting` cmdlet to enable PowerShell remoting.
-
-> [!NOTE]
-> This method is only supported on Windows.
+Perform the following steps to configure the target Windows server or machine with Azure Arc enabled servers. PowerShell remoting must be enabled on the remote computer. Use the `Enable-PSRemoting` cmdlet to enable PowerShell remoting.
 
 1. Open a PowerShell console as an Administrator.
 
