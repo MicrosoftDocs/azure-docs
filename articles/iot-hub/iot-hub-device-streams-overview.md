@@ -95,7 +95,7 @@ The output is a JSON object of all endpoints that your hub's device and service 
 ```
 
 > [!NOTE]
-> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) page.
+> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](/cli/azure/install-azure-cli) page.
 >
 
 ## Allow outbound connectivity to the device streaming endpoints
@@ -112,7 +112,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) page.
+> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](/cli/azure/install-azure-cli) page.
 >
 
 ## Troubleshoot via Device Streams resource logs
@@ -127,7 +127,7 @@ Follow the steps below to create a diagnostics setting to send device streams lo
 
     :::image type="content" source="media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png" alt-text="Enable device streams logs":::
 
-3. After you create a diagnostic setting to send your device streams logs to a Log Analytics workspace, you can access the logs by selecting **Logs** under **Monitoring** on the left pane of your IoT hub in Azure portal. Device streams logs will appear in the `AzureDiagnostics` table and have `Category=DeviceStreams`.
+3. After you create a diagnostic setting to send your device streams logs to a Log Analytics workspace, you can access the logs by selecting **Logs** under **Monitoring** on the left pane of your IoT hub in Azure portal. Device streams logs will appear in the `AzureDiagnostics` table and have `Category=DeviceStreams`. Be aware that it may take several minutes following an operation for logs to appear in the table.
 
    As shown below, the identity of the target device and the result of the operation is also available in the logs.
 
