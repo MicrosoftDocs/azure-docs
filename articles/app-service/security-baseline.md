@@ -316,8 +316,7 @@ Use these tools with in a process to monitor network resource configurations and
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4449).
 
-**Guidance**: Integrate your App Service Environment (ASE) with Azure Monitor to send App Service Environment logs to Azure Storage, Azure Event Hubs, or Log Analytics. These logs can be forwarded to an SIEM.
-
+**Guidance**: Integrate your App Service Environment (ASE) with Azure Monitor to send App Service Environment logs to Azure Storage, Azure Event Hubs, or Log Analytics. 
 Enable Azure Activity Log diagnostic settings for control plane audit logging. Security alerts from Security Center are published to the Azure Activity Log. Audit Azure Activity Log data, which let’s you determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed at the control plane level for Azure App Service and other Azure resources. Save your queries for future use, pin query results to Azure Dashboards, and create log alerts. Also, use the Data Access REST API in Application Insights to access your telemetry programmatically.
 
 Use Microsoft Azure Sentinel, a scalable, cloud-native, security information event management (SIEM) available to connect to various data sources and connectors, as based on business requirements. Optionally, you may enable and on-board data a third-party SIEM like Barracuda in Azure Marketplace.
@@ -497,15 +496,14 @@ Disable anonymous access, unless you need to support it.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4460).
 
-**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Security Center's Identity and Access Management features to monitor the number of administrative accounts and keep track of them. 
+**Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Security Center's Identity and Access Management features to monitor and track the number of administrative accounts. 
 
 Use recommendations from Security Center or built-in Azure policies, such as:
-
 - There should be more than one owner assigned to your subscription. 
 - Deprecated accounts with owner permissions should be removed from your subscription
 - External accounts with owner permissions should be removed from your subscription
 
-Create a process to monitor network resource configurations and detect changes to administrative accounts.
+Create a process to monitor network resource configurations ,and detect changes to administrative accounts.
 
 - [How to use Azure Security Center to monitor identity and access](../security-center/security-center-identity-access.md)
 
@@ -522,7 +520,7 @@ Create a process to monitor network resource configurations and detect changes t
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4461).
 
-**Guidance**: Authenticate App Service through Azure Active Directory (Azure AD). It provides an OAuth 2.0 service for your identity provider and enables authorized access to mobile and web applications. 
+**Guidance**: Authenticate App Service through Azure AD. It provides an OAuth 2.0 service for your identity provider and enables authorized access to mobile and web applications. 
 
 App Service apps use federated identity, in which a third-party identity provider manages the user identities and authentication flow for you. These identity providers are available by default:
 
@@ -810,8 +808,7 @@ Microsoft manages the underlying platform and treats all customer data as sensit
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4478).
 
-**Guidance**: App Service's web site content, such as files, is stored in Azure Storage which automatically encrypts the content at rest. 
-Choose to store application secrets in Key Vault and retrieve them at runtime.
+**Guidance**: App Service's web site content, such as files, are stored in Azure Storage which automatically encrypts the content at rest. Choose to store application secrets in Key Vault and retrieve them at runtime.
 
 Customer supplied secrets are encrypted at rest. The secrets are encrypted at rest while stored in App Service configuration databases.
 
@@ -947,9 +944,9 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4487).
 
-**Guidance**: Use tagging, management groups, and separate subscriptions where appropriate, to organize and track Azure resources. Reconcile inventory on a regular basis and ensure unauthorized resources are removed from your subscriptions in a timely manner.
+**Guidance**: Use tagging, management groups, and separate subscriptions as appropriate, to organize and track Azure resources. Reconcile inventory on a regular basis and ensure unauthorized resources are removed from your subscriptions as part of this process.
 
-In addition, choose Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
+Choose Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 
 - Not allowed resource types
 - Allowed resource types
@@ -1342,22 +1339,15 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 **Guidance**: The Backup and Restore feature in App Service lets you easily create app backups manually or on a schedule. You can configure the backups to be retained up to an indefinite amount of time. You can restore the app to a snapshot of a previous state by overwriting the existing app or restoring to another app.
 
-App Service can back up the following information to an Azure storage account and container that you have configured your app to use:
-
+App Service can back up the following information to an Azure storage account and container, which you have configured your app to use:
 - App configuration
-
 - File content
-
 - Database connected to your app
 
 The following database solutions are supported with the backup feature:
-
 - SQL Database
-
 - Azure Database for MySQL
-
 - Azure Database for PostgreSQL
-
 - MySQL in-app
 
 - [Understand Azure App Service backup capability](manage-backup.md)
