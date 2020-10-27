@@ -239,6 +239,10 @@ landingContent:
         links:
           - text: Weather Service concept
             url: weather-services-concepts.md
+      - linkListType: how-to-guide
+        links:
+          - text: Request weather data
+            url: how-to-request-weather-data.md
       - linkListType: tutorial
         links:
           - text: Analyze weather data using Azure Notebooks (Python)
