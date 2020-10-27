@@ -4347,6 +4347,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/search/search-get-started-nodejs.md",
+      "redirect_url": "/azure/search/search-get-started-javascript",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-scc-lifecycle-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/scclifecycle-tutorial",
       "redirect_document_id": false
@@ -58982,6 +58987,21 @@
         "source_path": "articles/active-directory/users-groups-roles/users-sharing-accounts.md",
         "redirect_url": "/azure/active-directory/enterprise-users/users-sharing-accounts",
         "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/consulting-services.md",
+      "redirect_url": "/azure/marketplace/plan-consulting-service-offer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/consulting-service-prerequisites.md",
+      "redirect_url": "/azure/marketplace/plan-consulting-service-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/create-consulting-service-offer.md",
+      "redirect_url": "/azure/marketplace/create-consulting-service-offer",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/healthcare-apis/fhir-oss-powershell-quickstart.md",
