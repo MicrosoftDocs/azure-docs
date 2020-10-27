@@ -41,19 +41,19 @@ When the installation completes, the following message is returned:
 
 3. To install the Connected Machine agent, use `Connect-AzConnectedMachine` with the `-Name`, `-ResourceGroupName`, and `-Location` parameters. Use the `-SubscriptionId` parameter to override the default subscription as a result of the Azure context created after sign-in.
 
-    To install the Connected Machine agent on the target machine that can directly communicate to Azure, run the following command:
+    a. To install the Connected Machine agent on the target machine that can directly communicate to Azure, run the following command:
 
     ```azurepowershell
     Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
     ```
     
-    If the target machine communicates through a proxy server, run the following command:
+    b. If the target machine communicates through a proxy server, run the following command:
     
     ```azurepowershell
     Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
     ```
 
-    If the agent fails to start after setup is finished, check the logs for detailed error information. On Windows at *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*, and on Linux at */var/opt/azcmagent/log/himds.log*.
+If the agent fails to start after setup is finished, check the logs for detailed error information. On Windows at *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*, and on Linux at */var/opt/azcmagent/log/himds.log*.
 
 ## Install the agent and connect to Azure using PowerShell remoting
 
