@@ -27,12 +27,12 @@ This article describes troubleshooting steps that you can take when you have iss
 ### Verify that the VM is properly onboarded
 Verify that the Azure Monitor agent extension and Guest VM Health agent are successfully provisioned on the virtual machine. Select **Extensions** from the virtual machine's menu in the Azure portal. If the two agents are listed, then see []().
 
-[![VM extensions](media/vminsights-health-troubleshoot/extensions.png)](media/vminsights-health-troubleshoot/extensions.png)
+![VM extensions](media/vminsights-health-troubleshoot/extensions.png)
 
 ### Verify the system assigned identity is enabled on the virtual machine
 Verify that the system assigned identity is enabled on the virtual machine. Select **Identity** from the virtual machine's menu in the Azure portal. If the two agents are listed, then see []().
 
-[![System assigned identity](media/vminsights-health-troubleshoot/system-identity.png)](media/vminsights-health-troubleshoot/system-identity.png)
+![System assigned identity](media/vminsights-health-troubleshoot/system-identity.png)
 
 ### Verify data collection rule
 Verify that the data collection rule specifying health extension as a data source is associated with the virtual machine.
@@ -40,4 +40,6 @@ Verify that the data collection rule specifying health extension as a data sourc
 ## Error message for bad request due to insufficient permissions
 Microsoft.WorkloadMonitor resource provider wasn’t registered in the subscription.
 
-[![Bad request](media/vminsights-health-troubleshoot/extensions.png)](media/vminsights-health-troubleshoot/bad-request.png)
+![Bad request](media/vminsights-health-troubleshoot/bad-request.png)
+
+
