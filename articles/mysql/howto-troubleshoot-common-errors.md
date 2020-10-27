@@ -57,6 +57,34 @@ DELIMITER ;;
 DELIMITER ;
 ```
 
+#### ERROR 1227 (42000): Access denied; you need (at least one of) the WITH ADMIN, ROLE_ADMIN, SUPER privilege(s) for this operation
+
+The above error may occur in MySQL 8.0 or later when trying to assign a role to a user. The following is the common steps to reproduce this error on MySQL 8.0.
+
+```sql
+#	Create the user 
+CREATE USER 'dev1'@'%' IDENTIFIED BY 'dummypassword'; 
+#	Create a role
+CREATE ROLE 'appReadRole'@'%'; 
+#	Grant privileges to the role
+GRANT USAGE ON *.* TO `appReadRole`@`%`;
+GRANT SELECT ON *.* TO `appReadRole`@`%`;
+# Grant the role to the user
+GRANT `appReadRole`@`%` TO `dev1`@`%`;
+```
+
+The above queries are executed using admin user for Azure Database for MySQL but you receive following error
+ERROR 1227 (42000) : Access denied; you need (at least one of) the WITH ADMIN, ROLE_ADMIN, SUPER privilege(s) for this operation
+
+**Resolution**: To resolve the error, you will need to grant ROLE_ADMIN privilege to the admin user as shown below followed by role assignment to user and it should work.
+
+```sql
+# GRANT ROLE_ADMIN to admin user for Azure DB for MySQL
+GRANT ROLE_ADMIN ON *.* TO admin;
+GRANT `appReadRole`@`%` TO `AV1001`@`%`;
+```
+
+
 ## Next Steps
 If you did not find the answer you were looking for, consider following:
 - Post your question on [Microsoft Q&A question page](/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
