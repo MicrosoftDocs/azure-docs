@@ -1,20 +1,13 @@
 ---
 title: Red Hat Enterprise Linux bring-your-own-subscription Azure images | Microsoft Docs
 description: Learn about bring-your-own-subscription images for Red Hat Enterprise Linux on Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
-editor: ''
-
-ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 02/10/2020
+ms.date: 06/10/2020
 ms.author: alsin
+ms.reviewer: cynthn
+
 
 ---
 
@@ -67,7 +60,7 @@ The rest of this document focuses on the CLI method to provision and accept term
 
 ## Use the Red Hat Gold Images from the Azure CLI
 
-The following instructions walk you through the initial deployment process for a RHEL VM by using the Azure CLI. These instructions assume that you have the [Azure CLI installed](https://docs.microsoft.com/cli/azure/install-azure-cli).
+The following instructions walk you through the initial deployment process for a RHEL VM by using the Azure CLI. These instructions assume that you have the [Azure CLI installed](/cli/azure/install-azure-cli).
 
 >[!IMPORTANT]
 >Make sure you use all lowercase letters in the publisher, offer, plan, and image references for all the following commands.
@@ -94,7 +87,7 @@ The following instructions walk you through the initial deployment process for a
 
     OR
 
-    az vm image terms accept --urn RedHat:rhel-byos:rhel-lvm8:8.0.20190620
+    az vm image terms accept --urn redhat:rhel-byos:rhel-lvm8:8.0.20190620
     ```
 
     >[!NOTE]
@@ -106,13 +99,16 @@ The following instructions walk you through the initial deployment process for a
     az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
 
     # Example:
-    az vm create -n rhel-byos-vm -g rhel-byos-group --image RedHat:rhel-byos:rhel-lvm75:7.5.20190620
+    az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm8:latest --validate
     ```
 
 1. Provision your VM by running the same command as shown in the previous example without the `--validate` argument.
 
     ```azurecli
-    az vm create -n <VM name> -g <resource group name> --image <image urn> --validate
+    az vm create -n <VM name> -g <resource group name> --image <image urn>
+
+    # Example:
+    az vm create -n rhel-byos-vm -g rhel-byos-group --image redhat:rhel-byos:rhel-lvm8:latest
     ```
 
 1. SSH into your VM, and verify that you have an unentitled image. To do this step, run `sudo yum repolist`. For RHEL 8, use `sudo dnf repolist`. The output asks you to use Subscription-Manager to register the VM with Red Hat.
@@ -133,7 +129,7 @@ The following script is an example. Replace the resource group, location, VM nam
     # Define user name and blank password
     $securePassword = ConvertTo-SecureString 'TestPassword1!' -AsPlainText -Force
     $cred = New-Object System.Management.Automation.PSCredential("azureuser",$securePassword)
-    Get-AzureRmMarketplaceTerms -Publisher RedHat -Product rhel-byos -Name rhel-lvm75 | SetAzureRmMarketplaceTerms -Accept
+    Get-AzureRmMarketplaceTerms -Publisher redhat -Product rhel-byos -Name rhel-lvm75 | SetAzureRmMarketplaceTerms -Accept
 
     # Create a resource group
     New-AzureRmResourceGroup -Name $resourceGroup -Location $location
@@ -195,7 +191,7 @@ For steps to apply Azure Disk Encryption, see [Azure Disk Encryption scenarios o
 
     In this case, contact Microsoft or Red Hat to enable your subscription.
 
-- If you modify a snapshot from a RHEL BYOS image and attempt to publish that custom image to the [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries), you must provide plan information that matches the original source of the snapshot. For example, the command might look like this:
+- If you modify a snapshot from a RHEL BYOS image and attempt to publish that custom image to the [Shared Image Gallery](../../linux/shared-image-galleries.md), you must provide plan information that matches the original source of the snapshot. For example, the command might look like this:
 
     ```azurecli
     az vm create –image \

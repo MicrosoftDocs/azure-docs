@@ -1,16 +1,11 @@
 ---
-title: Use Azure Event Grid with events in CloudEvents schema
-description: Describes how to use the CloudEvents schema for events in Azure Event Grid. The service supports events in the JSON implementation of Cloud Events. 
-services: event-grid
-author: femila
-
-ms.service: event-grid
+title: CloudEvents v1.0 schema with Azure Event Grid
+description: Describes how to use the CloudEvents v1.0 schema for events in Azure Event Grid. The service supports events in the JSON implementation of Cloud Events. 
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.author: femila
+ms.date: 07/07/2020
 ---
 
-# CloudEvents v1.0 schema with Event Grid
+# CloudEvents v1.0 schema with Azure Event Grid
 
 In addition to its [default event schema](event-schema.md), Azure Event Grid natively supports events in the [JSON implementation of CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) and [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) is an [open specification](https://github.com/cloudevents/spec/blob/v1.0/spec.md) for describing event data.
 

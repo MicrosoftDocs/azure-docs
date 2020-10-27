@@ -10,17 +10,17 @@ editor: ''
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Automatic upgrade
-This feature was introduced with build [1.1.105.0 (released February 2016)](reference-connect-version-history.md#111050).  This feature was updated in [build 1.1.561](reference-connect-version-history.md#115610) and now supports additional scenarios that were previously not supported.
+This feature was introduced with build [1.1.105.0 (released February 2016)](reference-connect-version-history.md).  This feature was updated in [build 1.1.561](reference-connect-version-history.md) and now supports additional scenarios that were previously not supported.
 
 ## Overview
 Making sure your Azure AD Connect installation is always up to date has never been easier with the **automatic upgrade** feature. This feature is enabled by default for express installations and DirSync upgrades. When a new version is released, your installation is automatically upgraded.
@@ -53,10 +53,14 @@ First, you should not expect the automatic upgrade to be attempted the first day
 
 If you think something is not right, then first run `Get-ADSyncAutoUpgrade` to ensure automatic upgrade is enabled.
 
+If the state is suspended, you can use the `Get-ADSyncAutoUpgrade -Detail` to view the reason.  The suspension reason can contain any string value but will usually contain the string value of the UpgradeResult, that is, `UpgradeNotSupportedNonLocalDbInstall` or `UpgradeAbortedAdSyncExeInUse`.  A compound value may also be returned, such as `UpgradeFailedRollbackSuccess-GetPasswordHashSyncStateFailed`.
+
+It is also possible to get a result that is not an UpgradeResult i.e. 'AADHealthEndpointNotDefined' or 'DirSyncInPlaceUpgradeNonLocalDb'.
+
 Then, make sure you have opened the required URLs in your proxy or firewall. Automatic update is using Azure AD Connect Health as described in the [overview](#overview). If you use a proxy, make sure Health has been configured to use a [proxy server](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Also test the [Health connectivity](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) to Azure AD.
 
-With the connectivity to Azure AD verified, it is time to look into the eventlogs. Start the event viewer and look in the **Application** eventlog. Add an eventlog filter for the source **Azure AD Connect Upgrade** and the event id range **300-399**.  
-![Eventlog filter for automatic upgrade](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
+With the connectivity to Azure AD verified, it is time to look into the eventlogs. Start the event viewer and look in the **Application** eventlog. Add an eventlog filter for the source **Azure AD Connect Upgrade** and the event ID range **300-399**.  
+![Screenshot that shows the "Filter Current Log" window with "Event sources" and the "Include/Exclude" Event IDs box highlighted.](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
 
 You can now see the eventlogs associated with the status for automatic upgrade.  
 ![Eventlog filter for automatic upgrade](./media/how-to-connect-install-automatic-upgrade/eventlogresult.png)  

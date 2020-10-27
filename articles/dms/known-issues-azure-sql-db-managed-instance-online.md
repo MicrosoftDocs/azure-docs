@@ -9,7 +9,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
 ---
 
@@ -57,6 +57,6 @@ Known issues and limitations that are associated with online migrations from SQL
 
 - **Deployments**
 
-    SQL Managed Instance is a PaaS service with automatic patching and version updates. During migration of your SQL Managed Instance, non-critical updates are help up to 36 hours. Afterwards (and for critical updates), if  the migration is disrupted, the process resets to a full restore state.
+    SQL Managed Instance is a PaaS service with automatic patching and version updates. During migration of your SQL Managed Instance, non-critical updates are held for up to 36 hours. Afterwards (and for critical updates), if the migration is disrupted, the process resets to a full restore state.
 
     Migration cutover can only be called after the full backup is restored and catches up with all log backups. If your production migration cutovers are affected, contact the [Azure DMS Feedback alias](mailto:dmsfeedback@microsoft.com).

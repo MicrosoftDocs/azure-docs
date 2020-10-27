@@ -22,7 +22,7 @@ If you have unattached managed disks and no longer need the data on them, the fo
 
     On the **Disks** blade, you are presented with a list of all your disks. Any disk that has "**-**" in the **Owner** column is an unattached disk.
 
-    [![](media/disks-find-unattached-portal/managed-disk-unattached-owner.png "Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk")](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
+    [![Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk.](media/disks-find-unattached-portal/managed-disk-unattached-owner.png)](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
 
 1. Select the unattached disk you'd like to delete, this opens the disk's blade.
 1. On the disk's blade, you can confirm the disk state is unattached, then select **Delete**.
@@ -56,4 +56,4 @@ If you have unmanaged disks that aren't attached to a VM, no longer need the dat
 
 If you'd like an automated way of finding and deleting unattached storage accounts, see our [CLI](linux/find-unattached-disks.md) or [PowerShell](windows/find-unattached-disks.md) articles.
 
-For more information, see [Delete a storage account](../storage/common/storage-account-create.md#delete-a-storage-account) and [Identify Orphaned Disks Using PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
+For more information, see [Delete a storage account](../storage/common/storage-account-create.md#delete-a-storage-account) and [Identify Orphaned Disks Using PowerShell](/archive/blogs/ukplatforms/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell)

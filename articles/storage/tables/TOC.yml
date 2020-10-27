@@ -1,5 +1,5 @@
-- name: Azure Table storage Documentation
-  href: /azure/storage/
+- name: Azure Table storage documentation
+  href: /azure/storage/tables/
 - name: Overview
   expanded: true
   items: 
@@ -47,13 +47,16 @@
     href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
   - name: Security
     items:
-    - name: Security baseline
-      href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Azure Storage encryption at rest
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       items:
-      - name: Customer-managed keys with Azure Key Vault
-        href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+      - name: Encryption with customer-managed keys
+        href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ../common/security-controls-policy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: Security baseline
+      href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
   - name: Data redundancy
     href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
   - name: Disaster recovery and failover
@@ -76,6 +79,8 @@
     href: table-storage-design-modeling.md
   - name: Table design patterns
     href: table-storage-design-patterns.md
+  - name: Monitoring Table storage
+    href: monitor-table-storage.md
 - name: How-to
   items:
   - name: Create a storage account
@@ -101,16 +106,16 @@
       items:
       - name: Create an account that supports customer-managed keys
         href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-      - name: Configure customer-managed keys
-        items:  
-        - name: Portal
-          href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-        - name: PowerShell
-          href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-        - name: Azure CLI
-          href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+      - name: Configure encryption with customer-managed keys
+        items:
+        - name: Store customer-managed keys in a key vault
+          href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Store customer-managed keys in a managed HSM
+          href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       - name: Check the encryption key model for the account
         href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+      - name: Enable infrastructure encryption for the account
+        href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Configure client-side encryption
       items:
       - name: .NET
@@ -125,8 +130,14 @@
         href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       - name: Require secure transfer
         href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-      - name: Enable Transport Layer Security
-        href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+      - name: Manage Transport Layer Security (TLS)
+        items:
+        - name: Enforce minimum TLS version for incoming requests
+          href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json 
+        - name: Configure TLS version for a client application
+          href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: Configure Azure Defender for threat protection
+      href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
   - name: Manage data redundancy
     items:
     - name: Change how data is replicated
@@ -149,8 +160,22 @@
     items:
     - name: Latency issues
       href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+- name: Resources
+  items:
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?product=storage
+  - name: Table storage on Microsoft Q&A
+    href: https://docs.microsoft.com/answers/topics/azure-table-storage.html
+  - name: Table storage on Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-table-storage
+  - name: Pricing for Table storage
+    href: https://azure.microsoft.com/en-us/pricing/details/storage/tables/
+  - name: Azure pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
 - name: Reference
   items:
+  - name: Monitoring Azure Table storage reference
+    href: monitor-table-storage-reference.md
   - name: Scalability and performance targets
     items:
     - name: Table storage

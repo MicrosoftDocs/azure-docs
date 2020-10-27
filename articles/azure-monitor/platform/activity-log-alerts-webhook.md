@@ -11,10 +11,10 @@ As part of the definition of an action group, you can configure webhook endpoint
 
 For more information on activity log alerts, see how to [create Azure activity log alerts](activity-log-alerts.md).
 
-For information on action groups, see how to [create action groups](../../azure-monitor/platform/action-groups.md).
+For information on action groups, see how to [create action groups](./action-groups.md).
 
 > [!NOTE]
-> You can also use the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions.](https://aka.ms/commonAlertSchemaDefinitions)​
+> You can also use the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor, for your webhook integrations. [Learn about the common alert schema definitions.](./alerts-common-schema-definitions.md)​
 
 
 ## Authenticate the webhook
@@ -209,7 +209,7 @@ The JSON payload contained in the POST operation differs based on the payload's 
 }
 ```
 
-For specific schema details on service health notification activity log alerts, see [Service health notifications](../../azure-monitor/platform/service-notifications.md). Additionally, learn how to [configure service health webhook notifications with your existing problem management solutions](../../service-health/service-health-alert-webhook-guide.md).
+For specific schema details on service health notification activity log alerts, see [Service health notifications](../../service-health/service-notifications.md). Additionally, learn how to [configure service health webhook notifications with your existing problem management solutions](../../service-health/service-health-alert-webhook-guide.md).
 
 ### ResourceHealth
 
@@ -279,12 +279,11 @@ For specific schema details on service health notification activity log alerts, 
 | status |String. Status of the operation. Common values include Started, In Progress, Succeeded, Failed, Active, and Resolved. |
 | subStatus |Usually includes the HTTP status code of the corresponding REST call. It might also include other strings that describe a substatus. Common substatus values include OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), and Gateway Timeout (HTTP Status Code: 504). |
 
-For specific schema details on all other activity log alerts, see [Overview of the Azure activity log](../../azure-monitor/platform/platform-logs-overview.md).
+For specific schema details on all other activity log alerts, see [Overview of the Azure activity log](./platform-logs-overview.md).
 
 ## Next steps
-* [Learn more about the activity log](../../azure-monitor/platform/platform-logs-overview.md).
+* [Learn more about the activity log](./platform-logs-overview.md).
 * [Execute Azure automation scripts (Runbooks) on Azure alerts](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Use a logic app to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
 * [Use a logic app to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
 * [Use a logic app to send a message to an Azure queue from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
-

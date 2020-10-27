@@ -9,7 +9,7 @@ manager: mtillman
 
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
@@ -52,7 +52,7 @@ After you configure the dashboard, the next step is to publish the dashboard usi
 
 ![sharing a dashboard](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Selecting **Share** prompts you to choose which subscription and resource group to publish to. You must have write access to the subscription and resource group that you choose. For more information, see [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+Selecting **Share** prompts you to choose which subscription and resource group to publish to. You must have write access to the subscription and resource group that you choose. For more information, see [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ![make changes to sharing and access](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -75,13 +75,13 @@ To publish this dashboard for any virtual machine in the future, parameterize ev
 There are two approaches for APIs that create resources in Azure:
 
 * Imperative APIs create one resource at a time. For more information, see [Resources](/rest/api/resources/resources).
-* A template-based deployment system that creates multiple, dependent resources with a single API call. For more information, see  [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+* A template-based deployment system that creates multiple, dependent resources with a single API call. For more information, see  [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
 Template-based deployment supports parameterization and templating. We use this approach in this article.
 
 ## Programmatically create a dashboard from your template using a template deployment
 
-Azure offers the ability to orchestrate the deployment of multiple resources. You create a deployment template that expresses the set of resources to deploy and the relationships between them.  The JSON format of each resource is the same as if you were creating them one by one. The difference is that the template language adds a few concepts like variables, parameters, basic functions, and more. This extended syntax is only supported in the context of a template deployment. It doesn't work if used with the imperative APIs discussed earlier. For more information, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
+Azure offers the ability to orchestrate the deployment of multiple resources. You create a deployment template that expresses the set of resources to deploy and the relationships between them.  The JSON format of each resource is the same as if you were creating them one by one. The difference is that the template language adds a few concepts like variables, parameters, basic functions, and more. This extended syntax is only supported in the context of a template deployment. It doesn't work if used with the imperative APIs discussed earlier. For more information, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
 
 Parameterization should be done using the template's parameter syntax.  You replace all instances of the resource ID we found earlier as shown here.
 
@@ -122,7 +122,7 @@ Declare required template metadata and the parameters at the top of the JSON tem
 Once you've configured your template, deploy it using any of the following methods:
 
 * [REST APIs](/rest/api/resources/deployments)
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Azure CLI](/cli/azure/group/deployment#az-group-deployment-create)
 * [The Azure portal template deployment page](https://portal.azure.com/#create/Microsoft.Template)
 

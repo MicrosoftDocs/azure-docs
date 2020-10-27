@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 07/20/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # What is a Primary Refresh Token?
 
-A Primary Refresh Token (PRT) is a key artifact of Azure AD authentication on Windows 10, iOS, and Android devices. It is a JSON Web Token (JWT) specially issued to Microsoft first party token brokers to enable single sign-on (SSO) across the applications used on those devices. In this article, we will provide details on how a PRT is issued, used, and protected on Windows 10 devices.
+A Primary Refresh Token (PRT) is a key artifact of Azure AD authentication on Windows 10, Windows Server 2016 and later versions, iOS, and Android devices. It is a JSON Web Token (JWT) specially issued to Microsoft first party token brokers to enable single sign-on (SSO) across the applications used on those devices. In this article, we will provide details on how a PRT is issued, used, and protected on Windows 10 devices.
 
 This article assumes that you already understand the different device states available in Azure AD and how single sign-on works in Windows 10. For more information about devices in Azure AD, see the article [What is device management in Azure Active Directory?](overview.md)
 
@@ -61,7 +61,7 @@ The PRT is issued during user authentication on a Windows 10 device in two scena
 In Azure AD registered device scenarios, the Azure AD WAM plugin is the primary authority for the PRT since Windows logon is not happening with this  Azure AD account.
 
 > [!NOTE]
-> 3rd party identity providers need to support the WS-Trust protocol to enable PRT issuance on Windows 10 devices. Without WS-Trust, PRT cannot be issued to users on Hybrid Azure AD joined or Azure AD joined devices
+> 3rd party identity providers need to support the WS-Trust protocol to enable PRT issuance on Windows 10 devices. Without WS-Trust, PRT cannot be issued to users on Hybrid Azure AD joined or Azure AD joined devices. On ADFS only usernamemixed endpoints are required. Both adfs/services/trust/2005/windowstransport and adfs/services/trust/13/windowstransport should be enabled as intranet facing endpoints only and **must NOT be exposed** as extranet facing endpoints through the Web Application Proxy
 
 ## What is the lifetime of a PRT?
 
@@ -82,6 +82,11 @@ A PRT is renewed in two different methods:
 * **Azure AD WAM plugin during app token requests**: The WAM plugin enables SSO on Windows 10 devices by enabling silent token requests for applications. The WAM plugin can renew the PRT during these token requests in two different ways:
    * An app requests WAM for an access token silently but there’s no refresh token available for that app. In this case, WAM uses the PRT to request a token for the app and gets back a new PRT in the response.
    * An app requests WAM for an access token but the PRT is invalid or Azure AD requires additional authorization (for example, Azure Multi-Factor Authentication). In this scenario, WAM initiates an interactive logon requiring the user to reauthenticate or provide additional verification and a new PRT is issued on successful authentication.
+
+In an ADFS environment, direct line of sight to the domain controller isn't required to renew the PRT. PRT renewal requires only /adfs/services/trust/2005/usernamemixed and
+/adfs/services/trust/13/usernamemixed endpoints enabled on proxy by using WS-Trust protocol.
+
+Windows transport endpoints are required for password authentication only when a password is changed, not for PRT renewal.
 
 ### Key considerations
 
@@ -164,6 +169,9 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 | F | Azure AD validates the Session key signature by comparing it against the Session key embedded in the PRT, validates the nonce and verifies that the device is valid in the tenant and issues a new PRT. As seen before, the PRT is again accompanied with the Session key encrypted by Transport key (tkpub). |
 | G | CloudAP plugin passes the encrypted PRT and Session key to CloudAP. CloudAP requests the TPM to decrypt the Session key using the Transport key (tkpriv) and re-encrypt it using the TPM’s own key. CloudAP stores the encrypted Session key in its cache along with the PRT. |
 
+> [!NOTE]
+> A PRT can be renewed externally without the need of a VPN connection when usernamemixed endpoints are enabled externally.
+
 ### PRT usage during app token requests
 
 ![PRT usage during app token requests](./media/concept-primary-refresh-token/prt-usage-app-token-requests.png)
@@ -188,6 +196,9 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 | D | The CloudAP plugin will create the PRT cookie, sign in with the TPM-bound session key and send it back to the native client host. As the cookie is signed by the session key, it cannot be tampered with. |
 | E | The native client host will return this PRT cookie to the browser, which will include it as part of the request header called x-ms-RefreshTokenCredential and request tokens from Azure AD. |
 | F | Azure AD validates the Session key signature on the PRT cookie, validates the nonce, verifies that the device is valid in the tenant, and issues an ID token for the web page and an encrypted session cookie for the browser. |
+
+> [!NOTE]
+> The Browser SSO flow described in the steps above does not apply for sessions in private modes such as InPrivate in Microsoft Edge, or Incognito in Google Chrome (when using the Microsoft Accounts extension).
 
 ## Next steps
 

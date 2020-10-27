@@ -4,12 +4,12 @@ description: Add a database in Azure SQL Database to an autofailover group using
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 06/19/2019
 ---
 # Tutorial: Add an Azure SQL Database to an autofailover group
@@ -36,7 +36,7 @@ To complete this tutorial, make sure you have:
 To complete the tutorial, make sure you have the following items:
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 
 # [The Azure CLI](#tab/azure-cli)
 
@@ -219,7 +219,7 @@ Test failover using the Azure portal.
 1. Select **Failover** from the task pane to fail over your failover group containing your sample database.
 1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected.
 
-   ![Fail over your failover group containing your database in SQL database](./media/failover-group-add-single-database-tutorial/failover-sql-db.png)
+   ![Fail over your failover group containing your database](./media/failover-group-add-single-database-tutorial/failover-sql-db.png)
 
 1. Review which server is now primary and which server is secondary. If failover succeeded, the two servers should have swapped roles.
 1. Select **Failover** again to fail the servers back to their original roles.
@@ -367,7 +367,7 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 
 | Command | Notes |
 |---|---|
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
+| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
 
 ---
 
@@ -411,7 +411,7 @@ This script uses the following commands. Each command in the table links to comm
 | [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Creates a failover group in Azure SQL Database. |
 | [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Lists the failover groups in a server in Azure SQL Database. |
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Set the primary of the failover group by failing over all databases from the current primary server. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
+| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
 
 # [The portal](#tab/azure-portal)
 

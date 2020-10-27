@@ -1,5 +1,5 @@
 ---
-title: Connect to Synapse SQL using sqlcmd
+title: Connect to Synapse SQL with sqlcmd
 description: Use the sqlcmd command-line utility to connect to and query SQL on-demand (preview) and SQL pool.
 services: synapse analytics
 author: azaricstefan 

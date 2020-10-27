@@ -1,8 +1,8 @@
 ---
 title: Set up the Azure Service Fabric Mesh CLI 
 description: Service Fabric Mesh Command Line Interface (CLI) is required to deploy and manage resources locally and in Azure Service Fabric Mesh. Here's how to set it up.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/28/2018
 ms.topic: conceptual
 #Customer intent: As a developer, I need to prepare install the prerequisites to enable deployment to service fabric mesh.
@@ -40,7 +40,7 @@ For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azu
 
 ## Install the Service Fabric CLI (sfctl) 
 
-Follow instructions on [Set up Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli). The **sfctl** module can be used for deployment of applications based on the resource model against Service Fabric clusters on your local machine. 
+Follow instructions on [Set up Service Fabric CLI](../service-fabric/service-fabric-cli.md). The **sfctl** module can be used for deployment of applications based on the resource model against Service Fabric clusters on your local machine. 
 
 ## Install the Maven CLI 
 

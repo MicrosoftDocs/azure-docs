@@ -1,9 +1,11 @@
 ---
 title: "Quickstart: Publish knowledge base, REST, Java - QnA Maker"
 description: This Java REST-based quickstart publishes your knowledge base and creates an endpoint that can be called in your application or chat bot.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, devx-track-java
 ms.topic: how-to
 
 ---
@@ -41,7 +43,7 @@ Open VSCode and create a new file named `PublishKB.java`.
 
 At the top of `PublishKB.java`, above the class, add the following lines to add necessary dependencies to the project:
 
-[!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=1-13 "Add the required dependencies")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/PublishKB.java" id="dependencies":::
 
 ## Create PublishKB class with main method
 
@@ -60,13 +62,13 @@ public class PublishKB {
 
 In the **main** method, add the required constants to access QnA Maker. Replace the values with your own.
 
-[!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=27-30 "Add the required constants")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/PublishKB.java" id="constants":::
 
 ## Add POST request to publish knowledge base
 
 After the required constants, add the following code, which makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
 
-[!code-java[Add a POST request to publish knowledge base](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=32-44 "Add a POST request to publish knowledge base")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/PublishKB.java" id="post":::
 
 The API call returns a 204 status for a successful publish without any content in the body of the response. The code adds content for 204 responses.
 

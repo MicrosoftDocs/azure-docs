@@ -1,6 +1,8 @@
 ---
 title: "Tutorial: extract structured data with machine-learning entity - LUIS"
 description: Extract structured data from an utterance using the machine-learning entity. To increase the extraction accuracy, add subentities with features.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.
@@ -75,12 +77,12 @@ To extract details about a pizza order, create a top level, machine-learning `Or
 
 1. In the **Choose an entity type** box, select **Add Structure** then select **Next**. Structure is necessary to add subentities such as size and quantity.
 
-    ![Add structure to entity](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
+    ![Screenshot shows the Choose an entity type window with the Add structure option checked.](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. In the **Add subentities (optional)** box, select **+** on the `Order` row, then add `Size` and `Quantity` as subentities, then select **Create**.
 
     > [!div class="mx-imgBorder"]
-    > ![Add structure to entity](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
+    > ![Screenshot shows the Add subentities (optional) window with subentities highlighted.](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
 
 ## Edit subentities to improve extraction
 
@@ -94,7 +96,7 @@ The previous steps create the entity and subentity. To improve extraction, add f
 
 1. Select **Create new phrase list** from the drop-down menu.
 
-1. In the **Create new phrase list** box, enter the name `SizePhraselist` then enter values of: `small`, `medium`, and `large`. When the **Suggestions** box fills in, select `extra large`, and `xl`. Select **Save** to create the new phrase list.
+1. In the **Create new phrase list** box, enter the name `SizePhraselist` then enter values of: `small`, `medium`, and `large`. When the **Suggestions** box fills in, select `extra large`, and `xl`. Select **Create** to create the new phrase list.
 
     This phrase list feature helps the `Size` subentity find words related to size by providing it with example words. This phrase list doesn't need to include every size word but should include words that are expected to indicate size.
 
@@ -104,7 +106,7 @@ Adding a list of known sizes the client application recognizes will also help ex
 
 1. Select **Entities** from the left menu then select **+ Create**.
 
-1. Set the entity name as `SizeListentity` so it is easy to identify when compared to the `SizePhraselist` created in the previous section.
+1. Set the entity name as `SizeListentity` and set the Type as **List** so it is easy to identify when compared to the `SizePhraselist` created in the previous section.
 
 1. Add the sizes the client application expects: `Small`, `Medium`, `Large`, and `XLarge` then add synonyms for each. The synonyms should be the terms that a user enters in the chat bot. The entity is extracted with a list entity when it matched exactly to the normalized value or synonyms.
 
@@ -117,7 +119,7 @@ Adding a list of known sizes the client application recognizes will also help ex
 
 
     > [!div class="mx-imgBorder"]
-    > ![Add structure to entity](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
+    > ![Screenshot shows the SizeList window and List items with XLarge selected.](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
 
 ### Add feature of SizeList entity
 
@@ -127,7 +129,7 @@ Adding a list of known sizes the client application recognizes will also help ex
 
 1. On the **Schema and features** tab, select the **Size** entity, then select **+ Add feature**.
 
-1. Select **@ SizeList** from the drop-down list.
+1. Select **@ SizeListentity** from the drop-down list.
 
 <a name="add-prebuilt-number-entity-to-app"></a>
 
@@ -156,7 +158,7 @@ Adding a prebuilt number entity will also help extraction.
 On the Entity detail page for **Order** entity, select the asterisk, `*`, for both the **@ SizeList** feature and the **@ number** feature. The asterisk appears in the same label as the feature name.
 
 > [!div class="mx-imgBorder"]
-> ![Add structure to entity](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
+> ![Screenshot shows the @SizeList feature with the asterisk and Require warning.](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
 
 <a name="label-text-as-entities-in-example-utterances"></a>
 <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>
@@ -196,7 +198,7 @@ To train the app, select **Train**. Training applies the changes, such as the ne
 1. To change the prediction into a labeled entity, select the check mark on the same row.
 
     > [!div class="mx-imgBorder"]
-    > ![Partial screenshot of new example utterance predicted with entity](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
+    > ![Screenshot shows an example utterance with the check mark highlighted.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
 
     At this point, the machine-learning entity is working because it can find the entity within a new example utterance. As you add example utterances, if the entity is not predicted correctly, label the entity and the subentities. If the entity is predicted correctly, make sure to confirm the predictions.
 

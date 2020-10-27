@@ -1,10 +1,10 @@
 ---
 title: Advanced Threat Protection - Azure portal - Azure Database for MariaDB
-description: Threat Protection detects anomalous database activities indicating potential security threats to the database. 
+description: Threat Protection for Azure Database for MariaDB detects anomalous database activities indicating potential security threats to the database. 
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 # Advanced Threat Protection for Azure Database for MariaDB
@@ -56,5 +56,5 @@ Click **Threat detection alert** to launch the Azure Security Center alerts page
 
 ## Next steps
 
-* Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* For more information on pricing, see the [Azure Database for MariaDB Pricing page](https://azure.microsoft.com/pricing/details/mariadb/)  
+* Learn more about [Azure Security Center](../security-center/security-center-introduction.md)
+* For more information on pricing, see the [Azure Database for MariaDB Pricing page](https://azure.microsoft.com/pricing/details/mariadb/)

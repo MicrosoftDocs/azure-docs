@@ -5,10 +5,10 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 
@@ -26,7 +26,7 @@ In this tutorial, we will go through the steps for connecting Power BI desktop t
 
 ## Prerequisites
 
-Tool to issue queries:
+You need the following tools to issue queries:
 
 - SQL client of your choice:
 
@@ -86,7 +86,7 @@ SECRET = '';
 GO
 ```
 
-## Creating Power BI desktop report
+## Create a Power BI desktop report
 
 Open the Power BI desktop application and select the **Get data** option.
 

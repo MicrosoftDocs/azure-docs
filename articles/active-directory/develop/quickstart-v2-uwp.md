@@ -1,6 +1,7 @@
 ---
-title: Microsoft identity platform Windows UWP quickstart | Azure
-description: Learn how a Universal Windows Platform (XAML) application can get an access token and call an API protected by Microsoft identity platform endpoint.
+title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform app | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, learn how a Universal Windows Platform (UWP) application can get an access token and call an API protected by Microsoft identity platform.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -9,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/12/2019
+ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
 #Customer intent: As an application developer, I want to learn how my Universal Windows Platform (XAML) application can get an access token and call an API that's protected by an Microsoft identity platform endpoint.
@@ -17,9 +18,14 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:U
 
 # Quickstart: Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
 
-This quickstart contains a code sample that demonstrates how a Universal Windows Platform (UWP) application can sign in users with personal accounts or work and school accounts, get an access token, and call the Microsoft Graph API. (See [How the sample works](#how-the-sample-works) for an illustration.)
+This quickstart uses a code sample to demonstrate how a Universal Windows Platform (UWP) application can sign in users with personal accounts or work and school accounts, get an access token, and call the Microsoft Graph API. See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div renderon="docs"]
+> ## Prerequisites
+>
+> * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+>
 > ## Register and download your quickstart app
 > [!div renderon="docs" class="sxs-lookup"]
 > You have two options to start your quickstart application:
@@ -40,16 +46,17 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 > 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 > 1. Navigate to the Microsoft identity platform for developers [App registrations](https://aka.ms/MobileAppReg) page.
 > 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter your application's registration information:
+> 1. In **Register an application**, enter your application's registration information:
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `UWP-App-calling-MsGraph`.
 >      - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
->      - Select **Register** to create the application.
-> 1. In the list of pages for the app, select **Authentication**.
-> 1. In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, check **https://login.microsoftonline.com/common/oauth2/nativeclient**.
-> 1. Select **Save**.
+> 1. Select **Register** to create the application, and then record the **Application (client) ID** for use in a later step.
+> 1. Under **Manage**, select **Authentication**.
+> 1. Select **Add a platform** > **Mobile and desktop applications**.
+> 1. Under **Redirect URIs**, select `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+> 1. Select **Configure**.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> #### Step 1: Configure your application
+> #### Step 1: Configure the application
 > For the code sample for this quickstart to work, you need to add a redirect URI as **https://login.microsoftonline.com/common/oauth2/nativeclient**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
@@ -57,14 +64,14 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-uwp/green-check.png) Your application is configured with these attributes.
 
-#### Step 2: Download your Visual Studio project
+#### Step 2: Download the Visual Studio project
 
 > [!div renderon="docs"]
 > [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Run the project using Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -76,33 +83,39 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 > > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
-> #### Step 3: Configure your Visual Studio project
+> #### Step 3: Configure the Visual Studio project
 >
-> 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
-> 1. Open the project in Visual Studio. You might be prompted to install a UWP SDK. In that case, accept.
-> 1. Edit **MainPage.Xaml.cs** and replace the values of the `ClientId` field:
+> 1. Extract the .zip archive to a local folder close to the root of your drive. For example, into **C:\Azure-Samples**.
+> 1. Open the project in Visual Studio. Install the **Universal Windows Platform development** workload and any individual SDK components if prompted.
+> 1. In *MainPage.Xaml.cs*, change the value of the `ClientId` variable to the **Application (Client) ID** of the application you registered earlier.
 >
 >    ```csharp
 >    private const string ClientId = "Enter_the_Application_Id_here";
 >    ```
-> Where:
-> - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
 >
-> > [!TIP]
-> > To find the value of *Application ID*, go to the **Overview** section in the portal
+>    You can find the **Application (client) ID** on the app's **Overview** pane in the Azure portal (**Azure Active Directory** > **App registrations** > *{Your app registration}*).
+> 1. Create and then select a new self-signed test certificate for the package:
+>     1. In the **Solution Explorer**, double-click the *Package.appxmanifest* file.
+>     1. Select **Packaging** > **Choose Certificate...** > **Create...**.
+>     1. Enter a password and then select **OK**.
+>     1. Select **Select from file...**, and then select the *Native_UWP_V2_TemporaryKey.pfx* file you just created, and select **OK**.
+>     1. Close the *Package.appxmanifest* file (select **OK** if prompted to save the file).
+>     1. In the **Solution Explorer**, right-click the **Native_UWP_V2** project and select **Properties**.
+>     1. Select **Signing**, and then select the .pfx you created in the **Choose a strong name key file** drop-down.
 
-#### Step 4: Run your application
+#### Step 4: Run the application
 
-If you want to try the quickstart on your Windows machine:
+To run the sample application on your local machine:
 
-1. In the Visual Studio toolbar, choose the right platform (probably **x64** or **x86**, not ARM). You will observe that the target device changes from *Device* to *Local Machine*
-1. Select Debug | **Start Without Debugging**
+1. In the Visual Studio toolbar, choose the right platform (probably **x64** or **x86**, not ARM). The target device should change from *Device* to *Local Machine*.
+1. Select **Debug** > **Start Without Debugging**.
+    
+    If you're prompted to do so, you might first need to enable **Developer Mode**, and then **Start Without Debugging** again to launch the app.
 
-## More information
+When the app's window appears, you can select the **Call Microsoft Graph API** button, enter your credentials, and consent to the permissions requested by the application. If successful, the application displays some token information and data obtained from the call to the Microsoft Graph API.
 
-This section provides more information about the quickstart.
+## How the sample works
 
-### How the sample works
 ![Shows how the sample app generated by this quickstart works](media/quickstart-v2-uwp/uwp-intro.svg)
 
 ### MSAL.NET
@@ -130,9 +143,7 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-> |Where: ||
-> |---------|---------|
-> | `ClientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
+The value of `ClientId` is the **Application (client) ID** of the app you registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal.
 
 ### Requesting tokens
 
@@ -152,9 +163,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
-> |Where:||
-> |---------|---------|
-> | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
+The `scopes` parameter contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs.
 
 #### Get a user token silently
 
@@ -167,10 +176,8 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Where: ||
-> |---------|---------|
-> | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs |
-> | `firstAccount` | Specifies the first user account in the cache (MSAL supports multiple users in a single app) |
+* `scopes` contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs.
+* `firstAccount` specifies the first user account in the cache (MSAL supports multiple users in a single app).
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

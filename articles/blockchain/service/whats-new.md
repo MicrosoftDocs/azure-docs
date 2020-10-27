@@ -1,14 +1,14 @@
 ---
 title: What's new? Release notes - Azure Blockchain Service
 description: Learn what is new with Azure Blockchain Service, such as the latest release notes, versions, known issues, and upcoming changes.
-ms.date: 06/03/2020
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ---
 
 # What's new in Azure Blockchain Service?
 
-> Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Blockchain+Service%22&locale=en-us` into your RSS feed reader [![RSS feed reader icon](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Blockchain+Service%22&locale=en-us).
+> Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Blockchain+Service%22&locale=en-us` into your RSS feed reader [![RSS feed reader icon](./media/whats-new/feed-icon-16x16.png)](/api/search/rss?locale=en-us&search=%2522Release%2bnotes%2b-%2bAzure%2bBlockchain%2bService%2522).
 
 Azure Blockchain Service receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
@@ -17,6 +17,25 @@ Azure Blockchain Service receives improvements on an ongoing basis. To stay up t
 - Known issues
 
 ---
+
+## June 2020
+
+### Version upgrades
+
+- Quorum version upgrade to 2.6.0. With version 2.6.0, you can send signed private transactions. For more information on sending private transactions, see the [Quorum API documentation](https://docs.goquorum.com/en/latest/Getting%20Started/api/).
+- Tessera version upgrade to 0.10.5.
+
+### Contract size and transaction size increased to 128 KB
+
+Type: Configuration change
+
+Contract size (MaxCodeSize) was increased to 128 KB so that you can deploy larger size smart contracts. Also, transaction size (txnSizeLimit) was increased to 128 KB. Configuration changes apply to new consortiums created on Azure Blockchain Service after June 19 2020.
+
+### TrieTimeout value reduced
+
+Type: Configuration change
+
+The TrieTimeout value was reduced so that in-memory state is written to disk more frequently. The lower value ensures faster recovery of a node in the rare case of a node crash.
 
 ## May 2020
 
@@ -28,17 +47,24 @@ Azure Blockchain Service receives improvements on an ongoing basis. To stay up t
 
 ### Azure Blockchain Service supports sending rawPrivate transactions
 
-**Type:** Feature
+Type: Feature
 
 Customers can sign private transactions outside of the account on the node.
 
 ### Two-phase member provisioning
 
-**Type:** Enhancement
+Type: Enhancement
 
 Two phases help optimize scenarios where a member is being created in a long existing consortium. The member infrastructure is provisioned in first phase. In the second phase, the member is synchronized with blockchain. Two-phase provisioning helps avoid member creation failure due to timeouts.
 
 ## Known issues
+
+### eth.estimateGas function throws exception in Quorum v2.6.0
+
+In Quorum v2.6.0, calls to *eth.estimateGas* function without providing the additional *value* parameter cause a *method handler crashed* exception. The Quorum team has been notified and a fix is expected end of July 2020. You can use the following workarounds until a fix is available:
+
+- Avoid using *eth.estimateGas* since it can affect performance. For more information about eth.estimateGas performance issues, see [Calling eth.estimateGas function reduces performance](#calling-ethestimategas-function-reduces-performance). Include a gas value for each transaction. Most libraries will call eth.estimateGas if a gas value is not provided which causes Quorum v2.6.0 to crash.
+- If you need to call *eth.estimateGas*, the Quorum team suggests you pass the additional parameter *value* as *0* as a workaround.
 
 ### Mining stops if fewer than four validator nodes
 
@@ -52,7 +78,7 @@ Use the *Standard* tier for production grade deployments. Use the *Basic* tier f
 
 ### Blockchain Data Manager requires Standard tier node
 
-Use the *Standard* tier if you are using Blockchain Data Manager. The *Basic* tier has 4 GB memory only. Hence, it is not able to scale to the usage required by Blockchain Data Manager and other services running on it.
+Use the *Standard* tier if you are using Blockchain Data Manager. The *Basic* tier has 4-GB memory only. Hence, it is not able to scale to the usage required by Blockchain Data Manager and other services running on it.
 
 Use the *Basic* tier for development, testing, and proof of concepts. Changing the pricing tier between basic and standard after member creation is not supported.
 
@@ -84,11 +110,11 @@ Azure Blockchain Service restarts Tessera when there is a crash. Restart takes a
 
 Use the *Standard* tier if you are sending a high volume of private transactions. Use the *Basic* tier for development, testing, and proof of concepts. Changing the pricing tier between basic and standard after member creation is not supported.
 
-### Calling eth.estimate gas function reduces performance
+### Calling eth.estimateGas function reduces performance
 
-Calling *eth.estimate* function multiple times reduces transactions per second drastically. Do not use *eth.estimate* gas function for each transaction submission. The *eth.estimate* function is memory intensive.
+Calling *eth.estimateGas* function multiple times reduces transactions per second drastically. Do not use *eth.estimateGas* function for each transaction submission. The *eth.estimateGas* function is memory intensive.
 
-If possible, use a conservative gas value for submitting transactions and minimize the use of *eth.estimate*.
+If possible, use a conservative gas value for submitting transactions and minimize the use of *eth.estimateGas*.
 
 ### Unbounded loops in smart contracts reduces performance
 

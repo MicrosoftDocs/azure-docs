@@ -6,8 +6,9 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 05/11/2020
+ms.date: 09/22/2020
 ms.author: anfeldma
+ms.custom: devx-track-js
 ---
 # Quickstart: Use Node.js to connect and query data from Azure Cosmos DB SQL API account
 
@@ -15,6 +16,7 @@ ms.author: anfeldma
 > - [.NET V3](create-sql-api-dotnet.md)
 > - [.NET V4](create-sql-api-dotnet-V4.md)
 > - [Java SDK v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > - [Node.js](create-sql-api-nodejs.md)
 > - [Python](create-sql-api-python.md)
 > - [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -53,7 +55,7 @@ You can now use the Data Explorer tool in the Azure portal to create a database 
 
    The **Add Container** area is displayed on the far right, you may need to scroll right to see it.
 
-   ![The Azure portal Data Explorer, Add Container pane](./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png)
+   :::image type="content" source="./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png" alt-text="The Azure portal Data Explorer, Add Container pane":::
 
 2. In the **Add container** page, enter the settings for the new container.
 
@@ -169,7 +171,7 @@ Now go back to the Azure portal to get the connection string details of your Azu
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Keys** from the left navigation, and then select **Read-write Keys**. Use the copy buttons on the right side of the screen to copy the URI and Primary Key into the _app.js_ file in the next step.
 
-   ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
+   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="View and copy an access key in the Azure portal, Keys blade":::
 
 2. In Open the _config.js_ file.
 

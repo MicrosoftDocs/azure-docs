@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/30/2020
+ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -28,7 +28,7 @@ This article describes how to review your own access to a group or an applicatio
 The first step to perform an access review is to find and open the access review.
 
 >[!IMPORTANT]
-> There could be delays in receiving email and it some cases it could take up to 24 hours. Whitelist azure-noreply@microsoft.com to make sure that you are receiving all emails.
+> There could be delays in receiving email and it some cases it could take up to 24 hours. Add azure-noreply@microsoft.com to your safe recipients list to make sure that you are receiving all emails.
 
 1. Look for an email from Microsoft that asks you to review access. Here is an example email to review your access to a group.
 
@@ -60,13 +60,13 @@ Once you have opened the access review, you can see your access.
 
     If the request is to review access for others, the page will look different. For more information, see [Review access to groups or applications](perform-access-review.md).
 
-    ![Open access review asking whether you still need access to a group](./media/review-your-access/perform-access-review.png)
+    ![Screenshot that shows an open access review asking whether you still need access to a group.](./media/review-your-access/perform-access-review.png)
 
 1. Click **Yes** to keep your access or click **No** to remove your access.
 
 1. If you click **Yes**, you might need to specify a justification in the **Reason** box.
 
-    ![Completed access review asking whether you still need access to a group](./media/review-your-access/perform-access-review-submit.png)
+    ![Screenshot that shows a completed access review that asks whether you still need access to a group, with "Yes" selected.](./media/review-your-access/perform-access-review-submit.png)
 
 1. Click **Submit**.
 
@@ -101,7 +101,7 @@ You can try the new experience with the updated user interface in My Access a co
 ### Email
 
 >[!IMPORTANT]
-> There could be delays in receiving email and it some cases it could take up to 24 hours. Whitelist azure-noreply@microsoft.com to make sure that you are receiving all emails.
+> There could be delays in receiving email and it some cases it could take up to 24 hours. Add azure-noreply@microsoft.com to your safe recipients list to make sure that you are receiving all emails.
 
 1. Look for an email from Microsoft asking you to review access. You can see an example email message below:
 

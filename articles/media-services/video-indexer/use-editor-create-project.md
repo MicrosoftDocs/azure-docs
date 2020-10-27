@@ -47,7 +47,7 @@ This article shows how to create a project from scratch and also how to create a
     
     For example, in the image below, we are looking for videos that mention "GitHub".
     
-    ![GitHub](./media/video-indexer-view-edit/github.png)
+    ![Screenshot shows searching for videos that mention GitHub with two results.](./media/video-indexer-view-edit/github.png)
 
     You can further filter your results by selecting **Filter results**. You can filter to show videos that have a certain person in them or to specify that you only want to see video results that are a in a certain language or have a specific owner. <br/> You can also specify the scope of your query. For example, if you want to search "GitHub" in the OCR, select **Visual Text**.
 
@@ -59,7 +59,7 @@ This article shows how to create a project from scratch and also how to create a
 
     You can rearrange the order of the videos by dragging and dropping or by selecting the list menu button and selecting **Move down** or **Move up**. From the list menu, you will also be able to remove the video from this project. 
 
-    ![Rearrange](./media/video-indexer-view-edit/rearrange.png)
+    ![Screenshot shows Video Indexer with a contextual menu for one of the videos to remove, clear selection, or move down.](./media/video-indexer-view-edit/rearrange.png)
     
     You have the option to add more videos to this project at any time by selecting **Add videos**. You can also add multiple occurrences of the same video to your project. You might want to do this if you want to show a clip from one video and then a clip from another and then another clip from the first video. 
 
@@ -77,7 +77,7 @@ If you click on the downward arrow on the right side of each video, you will ope
 
     For example, you may want to see clips where GitHub is mentioned while Donovan Brown is on the screen. For this, you need to add an "include" filter that has "People" as the type of insight. You then need to type in "Donovan Brown" in the search box for the filter.
     
-    ![Include](./media/video-indexer-view-edit/include.png)
+    ![Screenshot shows Video Indexer with People selected for an include filter.](./media/video-indexer-view-edit/include.png)
     
     If you want clips where GitHub is mentioned while Donovan Brown is _not_ on the screen, you would simply change the "include" filter into an "exclude" filter using the dropdown. 
 
@@ -92,7 +92,7 @@ If you click on the downward arrow on the right side of each video, you will ope
 > [!TIP]
 > As you are selecting and ordering your clips, you can preview the video in the player on the right side of the page. 
 
-![Preview](./media/video-indexer-view-edit/preview.png)
+![Screenshot shows Video Indexer with the preview of a video on the right side of the window.](./media/video-indexer-view-edit/preview.png)
 
 Remember to save your project when you make changes by selecting **Save project**. 
 
@@ -103,7 +103,7 @@ Remember to save your project when you make changes by selecting **Save project*
 
 1. Once you are done, make sure that your project has been saved. You can now render this project. Select **Render and Download**. 
 
-    ![Save](./media/video-indexer-view-edit/save.png)
+    ![Screenshot shows Video Indexer with the option to Render and download your project.](./media/video-indexer-view-edit/save.png)
 
     There will be a popup that tells you that Video indexer will render a file and then the download link will be send to your email. Select Proceed. 
     

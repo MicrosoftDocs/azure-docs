@@ -5,11 +5,15 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 4/1/2020
+ms.topic: how-to
+ms.date: 10/1/2020 
+ms.custom: devx-track-azurecli
 ---
-# Customize server configuration parameters by using Azure CLI
+# Configure server parameters in Azure Database for MariaDB using the Azure CLI
 You can list, show, and update configuration parameters for an Azure Database for MariaDB server by using Azure CLI, the Azure command-line utility. A subset of engine configurations is exposed at the server-level and can be modified.
+
+>[!Note]
+> Server parameters can be updated globally at the server-level, use the [Azure CLI](./howto-configure-server-parameters-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md), or [Azure portal](./howto-server-parameters.md).
 
 ## Prerequisites
 To step through this how-to guide, you need:
@@ -48,6 +52,14 @@ az mariadb server configuration set --name slow_query_log --resource-group myres
 ```
 
 This code resets the **slow\_query\_log** configuration to the default value **OFF**. 
+
+## Setting parameters not listed
+If the server parameter you want to update is not listed in the Azure portal, you can optionally set the parameter at the connection level using `init_connect`. This sets the server parameters for each client connecting to the server. 
+
+Update the **init\_connect** server configuration parameter of server **mydemoserver.mariadb.database.azure.com** under resource group **myresourcegroup** to set values such as character set.
+```azurecli-interactive
+az mariadb server configuration set --name init_connect --resource-group myresourcegroup --server mydemoserver --value "SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;"
+```
 
 ## Working with the time zone parameter
 

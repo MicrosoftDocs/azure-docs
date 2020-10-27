@@ -1,18 +1,18 @@
 ---
-title: Create and query a Synapse SQL pool with Azure PowerShell
+title: 'Quickstart: Create a Synapse SQL pool with Azure PowerShell'
 description: Quickly create a Synapse SQL pool with a server-level firewall rule using Azure PowerShell.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse    
+ms.custom: seo-lt-2019, azure-synapse    , devx-track-azurepowershell
 ---
-# Quickstart: Create and query a Synapse SQL pool with Azure PowerShell
+# Quickstart: Create a Synapse SQL pool with Azure PowerShell
 
 Create an Synapse SQL pool (data warehouse) in Azure Synapse Analytics using Azure PowerShell.
 
@@ -145,4 +145,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## Next steps
 
-You've now created a SQL pool, created a firewall rule, connected to your SQL pool, and run a few queries. To learn more, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) article.
+You've now created a SQL pool, created a firewall rule, and connected to your SQL pool. To learn more, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) article.

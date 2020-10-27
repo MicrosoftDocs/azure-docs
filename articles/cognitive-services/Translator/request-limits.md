@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 08/06/2020
 ms.author: swmachan
 ---
 
@@ -18,18 +18,18 @@ This article provides throttling limits for the Translator. Services include tra
 
 ## Character and array limits per request
 
-Each translate request is limited to 5,000 characters, across all the target languages you are translating to. For example, sending a translate request of 1,500 characters to translate to 3 different languages results in a request size of 1,500x3 = 4,500 characters, which satisfies the request limit. You're charged per character, not by the number of requests. It's recommended to send shorter requests.
+Each translate request is limited to 10,000 characters, across all the target languages you are translating to. For example, sending a translate request of 3,000 characters to translate to 3 different languages results in a request size of 3000x3 = 9,000 characters, which satisfies the request limit. You're charged per character, not by the number of requests. It's recommended to send shorter requests.
 
 The following table lists array element and character limits for each operation of the Translator.
 
 | Operation | Maximum Size of Array Element |    Maximum Number of Array Elements |    Maximum Request Size (characters) |
 |:----|:----|:----|:----|
-| Translate | 5,000    | 100    | 5,000 |
-| Transliterate | 5,000    | 10    | 5,000 |
-| Detect | 10,000 |    100 |    50,000 |
-| BreakSentence | 10,000    | 100 |    50,000 |
-| Dictionary Lookup| 100 |    10    | 1,000 |
-| Dictionary Examples | 100 for text and 100 for translation (200 total)| 10|    2,000 |
+| Translate | 10,000	| 100	| 10,000 |
+| Transliterate | 5,000	| 10	| 5,000 |
+| Detect | 50,000 |	100 |	50,000 |
+| BreakSentence | 50,000	| 100 |	50,000 |
+| Dictionary Lookup| 100 |	10	| 1,000 |
+| Dictionary Examples | 100 for text and 100 for translation (200 total)| 10|	2,000 |
 
 ## Character limits per hour
 
@@ -61,14 +61,13 @@ When using the [BreakSentence](https://docs.microsoft.com/azure/cognitive-servic
 
 | Language | Code | Character limit |
 |----------|------|-----------------|
-| Chinese | zh | 132 |
-| German | de | 290 |
-| Italian | it | 280 |
-| Japanese | ja | 150 |
-| Portuguese | pt | 290 |
-| Spanish | es | 280 |
-| Italian | it | 280 |
-| Thai | th | 258 |
+| Chinese | zh | 166 |
+| German | de | 800 |
+| Italian | it | 800 |
+| Japanese | ja | 166 |
+| Portuguese | pt | 800 |
+| Spanish | es | 800 |
+| Thai | th | 180 |
 
 > [!NOTE]
 > This limit doesn't apply to translations.

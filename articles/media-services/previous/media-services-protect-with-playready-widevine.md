@@ -15,12 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Use PlayReady and/or Widevine dynamic common encryption
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
-> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 	> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 	> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 > 	
 
 ## Overview
@@ -37,7 +40,7 @@ You also can use the following Media Services partners to help you deliver Widev
 
 For more information, see integration with [Axinom](media-services-axinom-integration.md) and [castLabs](media-services-castlabs-integration.md).
 
-Media Services supports multiple ways of authorizing users who make key requests. The content key authorization policy can have one or more authorization restrictions, either open or token restrictions. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the [simple web token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) and [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) formats. 
+Media Services supports multiple ways of authorizing users who make key requests. The content key authorization policy can have one or more authorization restrictions, either open or token restrictions. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the [simple web token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2) (SWT) and [JSON Web Token](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3) (JWT) formats. 
 
 For more information, see [Configure the content key's authorization policy](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
@@ -616,6 +619,5 @@ namespace DynamicEncryptionWithDRM
 
 * [Use the CENC with multi-DRM and access control](media-services-cenc-with-multidrm-access-control.md)
 * [Configure Widevine packaging with Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
-* [Get started with the Java client SDK for Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)
+* [Get started with the Java client SDK for Azure Media Services](./media-services-java-how-to-use.md)
 * To download the latest PHP SDK for Media Services, look for version 0.5.7 of the Microsoft/WindowsAzure package in the [Packagist repository](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
-

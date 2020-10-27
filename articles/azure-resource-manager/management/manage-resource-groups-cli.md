@@ -3,8 +3,9 @@ title: Manage resource groups - Azure CLI
 description: Use Azure CLI to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
 author: mumian
 ms.topic: conceptual
-ms.date: 02/11/2019
-ms.author: jgao
+ms.date: 09/01/2020
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 ---
 
 # Manage Azure Resource Manager resource groups by using Azure CLI
@@ -26,14 +27,10 @@ The resource group stores metadata about the resources. When you specify a locat
 
 ## Create resource groups
 
-The following CLI script creates a resource group, and then shows the resource group.
+The following CLI command creates a resource group.
 
 ```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-echo "Enter the location (i.e. centralus):" &&
-read location &&
-az group create --name $resourceGroupName --location $location
+az group create --name demoResourceGroup --location westus
 ```
 
 ## List resource groups
@@ -70,7 +67,7 @@ See [Deploy resources to an existing resource group](manage-resources-cli.md#dep
 
 ## Deploy a resource group and resources
 
-You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-group-and-resources).
+You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-groups).
 
 ## Redeploy when deployment fails
 
@@ -131,19 +128,19 @@ az group export --name $resourceGroupName
 
 The script displays the template on the console.  Copy the JSON, and save as a file.
 
-The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
+The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](https://aka.ms/migrateclassicresourcetoarm).
+To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 For more information, see [Single and multi-resource export to template in Azure portal](../templates/export-template-portal.md).
 
 ## Manage access to resource groups
 
-[Role-based access control (RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## Next steps
 
 - To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
 - To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/template-syntax.md).
-- To learn how to develop templates, see the [step-by-step tutorials](/azure/azure-resource-manager/).
+- To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

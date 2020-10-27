@@ -19,8 +19,10 @@ ms.reviewer: willzhan; johndeu
 
 # Use Azure AD authentication to access the Media Services API with REST
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 When you're using Azure AD authentication with Azure Media Services, you can authenticate in one of two ways:
 
@@ -133,8 +135,10 @@ This section shows how to use **Postman** to execute a REST API that returns a J
 
     Alternatively, click **Bulk Edit** link on the right of the Postman window and paste the following code.
 
-        Content-Type:application/x-www-form-urlencoded
-        Keep-Alive:true
+    ```javascript
+    Content-Type:application/x-www-form-urlencoded
+    Keep-Alive:true
+    ```
 
 6. Press the **Body** tab.
 7. Enter the body information using the "Key/Value" data grid (replace the client ID and secret values). 
@@ -143,10 +147,12 @@ This section shows how to use **Postman** to execute a REST API that returns a J
 
     Alternatively, click **Bulk Edit** on the right of the Postman window and paste the following body (replace the client ID and secret values):
 
-        grant_type:client_credentials
-        client_id:{Your Client ID that you got from your Azure AD Application}
-        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
-        resource:https://rest.media.azure.net
+    ```javascript
+    grant_type:client_credentials
+    client_id:{Your Client ID that you got from your Azure AD Application}
+    client_secret:{Your client secret that you got from your Azure AD Application's Keys}
+    resource:https://rest.media.azure.net
+    ```
 
 8. Press **Send**.
 
@@ -176,11 +182,13 @@ This section shows how to access the **Assets** API using **Postman**.
 5. Click **Bulk Edit** link on the right the Postman window.
 6. Paste the following headers:
 
-        x-ms-version:2.19
-        Accept:application/json
-        Content-Type:application/json
-        DataServiceVersion:3.0
-        MaxDataServiceVersion:3.0
+    ```javascript
+    x-ms-version:2.19
+    Accept:application/json
+    Content-Type:application/json
+    DataServiceVersion:3.0
+    MaxDataServiceVersion:3.0
+    ```
 
 7. Press **Send**.
 

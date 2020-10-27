@@ -7,16 +7,16 @@ ms.author: laobri
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 01/31/2020
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 ---
 
 # Create, run, and delete Azure ML resources using REST
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-There are several ways to manage your Azure ML resources. You can use the [portal](https://portal.azure.com/), [command-line interface](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), or [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Or, you can choose the REST API. The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation. 
+
+There are several ways to manage your Azure ML resources. You can use the [portal](https://portal.azure.com/), [command-line interface](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true), or [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Or, you can choose the REST API. The REST API uses HTTP verbs in a standard way to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure often makes it a good choice in scripting environments and for MLOps automation. 
 
 In this article, you learn how to:
 
@@ -43,7 +43,7 @@ Administrative REST requests are authenticated with an OAuth2 implicit flow. Thi
 - Your client ID (which will be associated with the created token)
 - Your client secret (which you should safeguard)
 
-You should have these values from the response to the creation of your service principal as discussed in [Set up authentication for Azure Machine Learning resources and workflows](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). If you're using your company subscription, you might not have permission to create a service principal. In that case, you should use either a [free or paid personal subscription](https://aka.ms/AMLFree).
+You should have these values from the response to the creation of your service principal. Getting these values is discussed in [Set up authentication for Azure Machine Learning resources and workflows](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). If you're using your company subscription, you might not have permission to create a service principal. In that case, you should use either a [free or paid personal subscription](https://aka.ms/AMLFree).
 
 To retrieve a token:
 
@@ -195,15 +195,15 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Notice that to list experiments the path begins with `history/v1.0` while to list models, the path begins with `modelmanagement/v1.0`. The REST API is divided into several operational groups, each with a distinct path. The API Reference docs at the links below list the operations, parameters, and response codes for the various operations.
+Notice that to list experiments the path begins with `history/v1.0` while to list models, the path begins with `modelmanagement/v1.0`. The REST API is divided into several operational groups, each with a distinct path. 
 
-|Area|Path|Reference|
-|-|-|-|
-|Artifacts|artifact/v2.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/artifacts)|
-|Data stores|datastore/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/datastores)|
-|Hyperparameter tuning|hyperdrive/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Models|modelmanagement/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
-|Run history|execution/v1.0/ and history/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/runs)|
+|Area|Path|
+|-|-|
+|Artifacts|/rest/api/azureml|
+|Data stores|/azure/machine-learning/how-to-access-data|
+|Hyperparameter tuning|hyperdrive/v1.0/|
+|Models|modelmanagement/v1.0/|
+|Run history|execution/v1.0/ and history/v1.0/|
 
 You can explore the REST API using the general pattern of:
 
@@ -418,5 +418,5 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 ## Next steps
 
 - Explore the complete [AzureML REST API reference](https://docs.microsoft.com/rest/api/azureml/).
-- Learn how to use Studio & Designer to [Predict automobile price with the designer (preview)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
+- Learn how to use the designer to [Predict automobile price with the designer](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
 - Explore [Azure Machine Learning with Jupyter notebooks](https://docs.microsoft.com/azure//machine-learning/samples-notebooks).

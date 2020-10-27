@@ -5,7 +5,7 @@ description: Convert a legacy Exchange peering to an Azure resource by using the
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/21/2020
 ms.author: derekol
 ---

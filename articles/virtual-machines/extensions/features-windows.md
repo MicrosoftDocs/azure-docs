@@ -31,8 +31,8 @@ This article provides an overview of VM extensions, prerequisites for using Azur
 Several different Azure VM extensions are available, each with a specific use case. Some examples include:
 
 - Apply PowerShell Desired State configurations to a VM with the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](dsc-overview.md).
-- Configure monitoring of a VM with the Log Analytics Agent VM extension. For more information, see [Connect Azure VMs to Azure Monitor logs](../../log-analytics/log-analytics-azure-vm-extension.md).
-- Configure an Azure VM by using Chef. For more information, see [Automating Azure VM deployment with Chef](../../chef/chef-automation.md).
+- Configure monitoring of a VM with the Log Analytics Agent VM extension. For more information, see [Connect Azure VMs to Azure Monitor logs](../../azure-monitor/learn/quick-collect-azurevm.md).
+- Configure an Azure VM by using Chef. For more information, see [Automating Azure VM deployment with Chef](/azure/developer/chef/windows-vm-configure).
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
@@ -61,18 +61,18 @@ Some extensions are not supported across all OSes and may emit *Error Code 51, '
 
 #### Network access
 
-Extension packages are downloaded from the Azure Storage extension repository, and extension status uploads are posted to Azure Storage. If you use [supported](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) version of the agents, you do not need to allow access to Azure Storage in the VM region, as can use the agent to redirect the communication to the Azure fabric controller for agent communications (HostGAPlugin feature through the privileged channel on private IP [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). If you are on a non-supported version of the agent, you need to allow outbound access to Azure storage in that region from the VM.
+Extension packages are downloaded from the Azure Storage extension repository, and extension status uploads are posted to Azure Storage. If you use [supported](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) version of the agents, you do not need to allow access to Azure Storage in the VM region, as can use the agent to redirect the communication to the Azure fabric controller for agent communications (HostGAPlugin feature through the privileged channel on private IP [168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md)). If you are on a non-supported version of the agent, you need to allow outbound access to Azure storage in that region from the VM.
 
 > [!IMPORTANT]
 > If you have blocked access to *168.63.129.16* using the guest firewall or with a proxy, extensions fail irrespective of the above. Ports 80, 443, and 32526 are required.
 
-Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage or Azure Active Directory, you can allow access using [Azure NSG Service Tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) to Storage or AzureActiveDirectory.
+Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage or Azure Active Directory, you can allow access using [Azure NSG Service Tags](../../virtual-network/network-security-groups-overview.md#service-tags) to Storage or AzureActiveDirectory.
 
 The Windows Guest Agent does not have proxy server support for you to redirect agent traffic requests through, which means that the Windows Guest Agent will rely on your custom proxy (if you have one) to access resources on the internet or on the Host through IP 168.63.129.16.
 
 ## Discover VM extensions
 
-Many different VM extensions are available for use with Azure VMs. To see a complete list, use [Get-AzVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage). The following example lists all available extensions in the *WestUS* location:
+Many different VM extensions are available for use with Azure VMs. To see a complete list, use [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). The following example lists all available extensions in the *WestUS* location:
 
 ```powershell
 Get-AzVmImagePublisher -Location "WestUS" | `
@@ -88,7 +88,7 @@ The following methods can be used to run an extension against an existing VM.
 
 ### PowerShell
 
-Several PowerShell commands exist for running individual extensions. To see a list, use [Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) and filter on *Extension*:
+Several PowerShell commands exist for running individual extensions. To see a list, use [Get-Command](/powershell/module/microsoft.powershell.core/get-command) and filter on *Extension*:
 
 ```powershell
 Get-Command Set-Az*Extension* -Module Az.Compute
@@ -123,7 +123,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-In the following example, the VM Access extension is used to reset the administrative password of a Windows VM to a temporary password. For more information on the VM Access extension, see [Reset Remote Desktop service in a Windows VM](../windows/reset-rdp.md). Once you have run this, you should reset the password at first login:
+In the following example, the VM Access extension is used to reset the administrative password of a Windows VM to a temporary password. For more information on the VM Access extension, see [Reset Remote Desktop service in a Windows VM](../troubleshooting/reset-rdp.md). Once you have run this, you should reset the password at first login:
 
 ```powershell
 $cred=Get-Credential
@@ -133,7 +133,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-The `Set-AzVMExtension` command can be used to start any VM extension. For more information, see the [Set-AzVMExtension reference](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
+The `Set-AzVMExtension` command can be used to start any VM extension. For more information, see the [Set-AzVMExtension reference](/powershell/module/az.compute/set-azvmextension).
 
 
 ### Azure portal
@@ -146,7 +146,7 @@ The following example shows the installation of the Microsoft Antimalware extens
 
 ### Azure Resource Manager templates
 
-VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. When you deploy an extension with a template, you can create fully configured Azure deployments. For example, the following JSON is taken from a Resource Manager template deploys a set of load-balanced VMs and an Azure SQL database, then installs a .NET Core application on each VM. The VM extension takes care of the software installation.
+VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. When you deploy an extension with a template, you can create fully configured Azure deployments. For example, the following JSON is taken from a Resource Manager template deploys a set of load-balanced VMs and an Azure SQL Database, then installs a .NET Core application on each VM. The VM extension takes care of the software installation.
 
 For more information, see the [full Resource Manager template](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
@@ -311,7 +311,7 @@ To get the latest minor release bug fixes, it is highly recommended that you alw
 
 #### Identifying if the extension is set with autoUpgradeMinorVersion on a VM
 
-You can see from the VM model if the extension was provisioned with 'autoUpgradeMinorVersion'. To check, use [Get-AzVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) and provide the resource group and VM name as follows:
+You can see from the VM model if the extension was provisioned with 'autoUpgradeMinorVersion'. To check, use [Get-AzVm](/powershell/module/az.compute/get-azvm) and provide the resource group and VM name as follows:
 
 ```powerShell
  $vm = Get-AzVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
@@ -367,7 +367,7 @@ The following troubleshooting steps apply to all VM extensions.
 
 ### View extension status
 
-After a VM extension has been run against a VM, use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) to return extension status. *Substatuses[0]* shows that the extension provisioning succeeded, meaning that it successful deployed to the VM, but the execution of the extension inside the VM failed, *Substatuses[1]*.
+After a VM extension has been run against a VM, use [Get-AzVM](/powershell/module/az.compute/get-azvm) to return extension status. *Substatuses[0]* shows that the extension provisioning succeeded, meaning that it successful deployed to the VM, but the execution of the extension inside the VM failed, *Substatuses[1]*.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
@@ -403,7 +403,7 @@ Extension execution status can also be found in the Azure portal. To view the st
 
 ### Rerun VM extensions
 
-There may be cases in which a VM extension needs to be rerun. You can rerun an extension by removing it, and then rerunning the extension with an execution method of your choice. To remove an extension, use [Remove-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/Remove-AzVMExtension) as follows:
+There may be cases in which a VM extension needs to be rerun. You can rerun an extension by removing it, and then rerunning the extension with an execution method of your choice. To remove an extension, use [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) as follows:
 
 ```powershell
 Remove-AzVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"

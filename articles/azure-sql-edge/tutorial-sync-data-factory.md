@@ -1,6 +1,6 @@
 ---
-title: Sync data from Azure SQL Edge (Preview) by using Azure Data Factory
-description: Learn about syncing data between Azure SQL Edge (Preview) and Azure Blob storage
+title: Sync data from Azure SQL Edge by using Azure Data Factory
+description: Learn about syncing data between Azure SQL Edge and Azure Blob storage
 keywords: SQL Edge,sync data from SQL Edge, SQL Edge data factory
 services: sql-edge
 ms.service: sql-edge
@@ -20,7 +20,7 @@ In this tutorial, you'll use Azure Data Factory to incrementally sync data to Az
 If you haven't already created a database or table in your Azure SQL Edge deployment, use one of these methods to create one:
 
 * Use [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) or [Azure Data Studio](/sql/azure-data-studio/download/) to connect to SQL Edge. Run a SQL script to create the database and table.
-* Create a SQL database and table by using [SQLCMD](/sql/tools/sqlcmd-utility/) by directly connecting to the SQL Edge module. For more information, see [Connect to the Database Engine by using sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
+* Create a database and table by using [SQLCMD](/sql/tools/sqlcmd-utility/) by directly connecting to the SQL Edge module. For more information, see [Connect to the Database Engine by using sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
 * Use SQLPackage.exe to deploy a DAC package file to the SQL Edge container. You can automate this process by specifying the SqlPackage file URI as part of the module's desired properties configuration. You can also directly use the SqlPackage.exe client tool to deploy a DAC package to SQL Edge.
 
     For information about how to download SqlPackage.exe, see [Download and install sqlpackage](/sql/tools/sqlpackage-download/). Following are some sample commands for SqlPackage.exe. For more information, see the SqlPackage.exe documentation.

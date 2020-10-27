@@ -10,6 +10,7 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
+ms.custom: devx-track-csharp
 ---
 # Quickstart: Search for images using the Bing Image Search REST API and C#
 
@@ -203,8 +204,7 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 ## See also
 
 * [What is the Bing Image Search API?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).
-* [Pricing details for the Bing Search APIs](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
-* [Get a free Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
-* [Azure Cognitive Services documentation](https://docs.microsoft.com/azure/cognitive-services).
-* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+* [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
+* [Pricing details for the Bing Search APIs](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)
+* [Azure Cognitive Services documentation](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

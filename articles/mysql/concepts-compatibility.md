@@ -28,7 +28,7 @@ Azure Database for MySQL uses the world's most popular community edition of MySQ
 | C | MySQL Connector/C (libmysqlclient) | https://dev.mysql.com/doc/refman/5.7/en/c-api-implementations.html | 6.0.2+ | | |
 | C | MySQL Connector/ODBC (myodbc) | https://github.com/mysql/mysql-connector-odbc | 3.51.29+ | | |
 | C++ | MySQL Connector/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9+ | 1.1.3 and below | | 
-| C++ | MySQL++| https://tangentsoft.net/mysql++ | 3.2.3+ | | |
+| C++ | MySQL++| https://github.com/tangentsoft/mysqlpp | 3.2.3+ | | |
 | Ruby | mysql2 | https://github.com/brianmario/mysql2 | 0.4.10+ | | |
 | R | RMySQL | https://github.com/rstats-db/RMySQL | 0.10.16+ | | |
 | Swift | mysql-swift | https://github.com/novi/mysql-swift | 0.7.2+ | | |
@@ -39,14 +39,14 @@ The compatibility advantage extends to database management tools as well. Your e
 
 |                                     | **MySQL Workbench 6.x and up** | **Navicat 12** | **PHPMyAdmin 4.x and up** |
 | :---------------------------------- | :----------------------------- | :------------- | :-------------------------|
-| Create, Update, Read, Write, Delete | X | X | X |
-| SSL Connection | X | X | X |
-| SQL Query Auto Completion | X | X |  |
-| Import and Export Data | X | X | X | 
-| Export to Multiple Formats | X | X | X |
-| Backup and Restore |  | X |  |
-| Display Server Parameters | X | X | X |
-| Display Client Connections | X | X | X |
+| **Create, Update, Read, Write, Delete** | X | X | X |
+| **SSL Connection** | X | X | X |
+| **SQL Query Auto Completion** | X | X |  |
+| **Import and Export Data** | X | X | X |
+| **Export to Multiple Formats** | X | X | X |
+| **Backup and Restore** |  | X |  |
+| **Display Server Parameters** | X | X | X |
+| **Display Client Connections** | X | X | X |
 
 ## Next steps
 

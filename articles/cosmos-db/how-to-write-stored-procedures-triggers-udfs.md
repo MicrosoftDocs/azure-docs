@@ -3,9 +3,10 @@ title: Write stored procedures, triggers, and UDFs in Azure Cosmos DB
 description: Learn how to define stored procedures, triggers, and user-defined functions in Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/07/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: tisande
+ms.custom: devx-track-js
 ---
 
 # How to write stored procedures, triggers, and user-defined functions in Azure Cosmos DB
@@ -17,7 +18,7 @@ To call a stored procedure, trigger, and user-defined function, you need to regi
 > [!NOTE]
 > For partitioned containers, when executing a stored procedure, a partition key value must be provided in the request options. Stored procedures are always scoped to a partition key. Items that have a different partition key value will not be visible to the stored procedure. This also applied to triggers as well.
 > [!Tip]
-> Cosmos supports deploying containers with stored procedures, triggers and user-defined functions. For more information see [Create an Azure Cosmos DB container with server-side functionality.](manage-sql-with-resource-manager.md#create-sproc)
+> Cosmos supports deploying containers with stored procedures, triggers and user-defined functions. For more information see [Create an Azure Cosmos DB container with server-side functionality.](./manage-with-templates.md#create-sproc)
 
 ## <a id="stored-procedures"></a>How to write stored procedures
 
@@ -47,21 +48,42 @@ When you create an item by using stored procedure, the item is inserted into the
 
 The stored procedure also includes a parameter to set the description, it's a boolean value. When the parameter is set to true and the description is missing, the stored procedure will throw an exception. Otherwise, the rest of the stored procedure continues to run.
 
-The following example stored procedure takes a new Azure Cosmos item as input, inserts it into the Azure Cosmos container and returns the ID for the newly created item. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET SQL API](create-sql-api-dotnet.md)
+The following example stored procedure takes an array of new Azure Cosmos items as input, inserts it into the Azure Cosmos container and returns the count of the items inserted. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET SQL API](create-sql-api-dotnet.md)
 
 ```javascript
-function createToDoItem(itemToCreate) {
+function createToDoItems(items) {
+    var collection = getContext().getCollection();
+    var collectionLink = collection.getSelfLink();
+    var count = 0;
 
-    var context = getContext();
-    var container = context.getCollection();
+    if (!items) throw new Error("The array is undefined or null.");
 
-    var accepted = container.createDocument(container.getSelfLink(),
-        itemToCreate,
-        function (err, itemCreated) {
-            if (err) throw new Error('Error' + err.message);
-            context.getResponse().setBody(itemCreated.id)
-        });
-    if (!accepted) return;
+    var numItems = items.length;
+
+    if (numItems == 0) {
+        getContext().getResponse().setBody(0);
+        return;
+    }
+
+    tryCreate(items[count], callback);
+
+    function tryCreate(item, callback) {
+        var options = { disableAutomaticIdGeneration: false };
+
+        var isAccepted = collection.createDocument(collectionLink, item, options, callback);
+
+        if (!isAccepted) getContext().getResponse().setBody(count);
+    }
+
+    function callback(err, item, options) {
+        if (err) throw err;
+        count++;
+        if (count >= numItems) {
+            getContext().getResponse().setBody(count);
+        } else {
+            tryCreate(items[count], callback);
+        }
+    }
 }
 ```
 

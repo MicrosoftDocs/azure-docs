@@ -1,18 +1,13 @@
 ---
 title: Scaling HPC applications - Azure Virtual Machines | Microsoft Docs
 description: Learn how to scale HPC applications on Azure VMs. 
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
+ms.reviewer: cynthn
+
 ---
 
 # Scaling HPC applications
@@ -83,4 +78,4 @@ The following suggestions apply for optimal application scaling efficiency, perf
 
 ## Next steps
 
-Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) on Azure.
+Learn more about [HPC](/azure/architecture/topics/high-performance-computing/) on Azure.

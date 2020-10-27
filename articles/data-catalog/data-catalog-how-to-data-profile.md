@@ -4,7 +4,7 @@ description: How-to article highlighting how to include table- and column-level 
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
 ---
 
@@ -24,7 +24,7 @@ Data profiling examines the data in the data source being registered, and collec
 
 The following data sources support data profiling:
 
-* SQL Server (including Azure SQL DB and Azure SQL Data Warehouse) tables and views
+* SQL Server (including Azure SQL DB and Azure Synapse Analytics) tables and views
 * Oracle tables and views
 * Teradata tables and views
 * Hive tables

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 3/17/2020
+ms.date: 6/10/2020
 ---
 
 # Incrementally copy new files based on time partitioned file name by using the Copy Data tool
@@ -118,13 +118,13 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
     a. Browse and select the **source** container, then select **Choose**.
 
-    ![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
+    ![Screenshot shows the Choose input file or folder dialog box.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
 
     b. Under **File loading behavior**, select **Incremental load: time-partitioned folder/file names**.
 
     c. Write the dynamic folder path as **source/{year}/{month}/{day}/{hour}/**, and change the format as shown in following screenshot. Check **Binary copy** and click **Next**.
 
-    ![Choose the input file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
+    ![Screenshot shows the Choose input file or folder dialog box with a folder selected.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
 
 5. On the **Destination data store** page, select the **AzureBlobStorage**, which is the same storage account as data source store, and then click **Next**.
 
@@ -135,11 +135,11 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
     b. Write the dynamic folder path as **destination/{year}/{month}/{day}/{hour}/**, and change the format as followings:
 
-    ![Choose the output file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/output-file-name.png)
+    ![Screenshot shows the Choose output file or folder dialog box.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/output-file-name.png)
 
     c. Click **Next**.
 
-    ![Choose the output file or folder](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)
+    ![Screenshot shows the Choose output file or folder dialog box with Next selected.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)
 7. On the **Settings** page, select **Next**.
 
 8. On the **Summary** page, review the settings, and then select **Next**.
@@ -151,14 +151,14 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 10. Notice that the **Monitor** tab on the left is automatically selected.  You need wait for the pipeline run when it is triggered automatically (about after one hour). When it runs, click the pipeline name link **DeltaCopyFromBlobPipeline** to view activity run details or rerun the pipeline. Select **Refresh** to refresh the list.
 
-    ![Monitor pipeline runs](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs1.png)
+    ![Screenshot shows the Pipeline runs pane.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
 11. There's only one activity (copy activity) in the pipeline, so you see only one entry. Adjust the column width of the **source** and **destination** columns (if necessary) to display more details, you can see the source file (file1.txt) has been copied from  *source/2020/03/17/03/* to *destination/2020/03/17/03/* with the same file name. 
 
-    ![Monitor pipeline runs](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
+    ![Screenshot shows pipeline run details.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
 
     You can also verify the same by using Azure Storage Explorer (https://storageexplorer.com/) to scan the files.
 
-    ![Monitor pipeline runs](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
+    ![Screenshot shows pipeline run details for the destination.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
 
 12. Create another empty text file with the new name as **file2.txt**. Upload the file2.txt file to the folder path **source/2020/03/17/04** in your storage account. You can use various tools to perform these tasks, such as [Azure Storage Explorer](https://storageexplorer.com/).
 
@@ -167,7 +167,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 13. To go back to the **Pipeline Runs** view, select **All Pipelines runs**, and wait for the same pipeline being triggered again automatically after another one hour.  
 
-    ![Monitor pipeline runs](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
+    ![Screenshot shows the All pipeline runs link to return to that page.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
 
 14. Select the new **DeltaCopyFromBlobPipeline** link for the second pipeline run when it comes, and do the same to review details. You will see the source file (file2.txt) has been copied from  **source/2020/03/17/04/**  to **destination/2020/03/17/04/** with the same file name. You can also verify the same by using Azure Storage Explorer (https://storageexplorer.com/) to scan the files in **destination** container.
 

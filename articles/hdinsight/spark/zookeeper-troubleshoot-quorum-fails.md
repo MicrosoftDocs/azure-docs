@@ -21,7 +21,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 ## Sample log
 
-You may see an error message similar to:
+You may see an error message similar to the following in yarn logs (/var/log/hadoop-yarn/yarn/yarn-yarn*.log on the headnodes):
 
 ```output
 2020-05-05 03:17:18.3916720|Lost contact with Zookeeper. Transitioning to standby in 10000 ms if connection is not reestablished.
@@ -110,6 +110,7 @@ Node count: 133212
 
 ## CancelledKeyException in the zookeeper server log doesn't require snapshot cleanup
 
+* This exception will be seen on the zookeeper servers (/var/log/zookeeper/zookeeper-zookeeper-* or /var/log/hdinsight-zookeeper/zookeeper* files)
 * This exception usually means that the client is no longer active and the server is unable to send a message
 * This exception also indicates that the zookeeper client is ending sessions prematurely
 * Look for the other symptoms outlined in this document
@@ -120,4 +121,4 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 
 - Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
 - Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
-- If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+- If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

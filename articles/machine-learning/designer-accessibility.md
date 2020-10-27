@@ -1,5 +1,5 @@
 ---
-title: Use accessibility features in the designer (preview)
+title: Use accessibility features in the designer
 titleSuffix: Azure Machine Learning
 description: Learn about the keyboard shortcuts and screen reader accessibility features available in the designer.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.date: 01/09/2020
 ms.custom: designer
 ---
 
-# Use a keyboard to use Azure Machine Learning designer (preview)
+# Use a keyboard to use Azure Machine Learning designer
 
 Learn how to use a keyboard and screen reader to use Azure Machine Learning designer. For a list of keyboard shortcuts that work everywhere in the Azure portal, see [Keyboard shortcuts in the Azure portal](../azure-portal/azure-portal-keyboard-shortcuts.md)
 
@@ -74,5 +74,5 @@ Use the following shortcuts with the access key. For more information on access 
 
 ## Next steps
 
-- [Turn on high contrast or change theme](../azure-portal/azure-portal-change-theme-high-contrast.md)
+- [Turn on high contrast or change theme](../azure-portal/set-preferences.md#choose-a-theme-or-enable-high-contrast)
 - [Accessibility related tools at Microsoft](https://www.microsoft.com/accessibility)

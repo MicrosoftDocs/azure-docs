@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -32,7 +32,7 @@ Seamless SSO is a free feature and you don't need any paid editions of Azure AD 
 
 **Q: Is Seamless SSO available in the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?**
 
-Seamless SSO is available for the Azure Government cloud. For details, view [Hybrid Identity Considerations for Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
+Seamless SSO is available for the Azure Government cloud. For details, view [Hybrid Identity Considerations for Azure Government](./reference-connect-government-cloud.md).
 
 **Q: What applications take advantage of `domain_hint` or `login_hint` parameter capability of Seamless SSO?**
 
@@ -57,11 +57,11 @@ If you want other applications using our silent sign-on experience, let us know 
 
 **Q: Does Seamless SSO support `Alternate ID` as the username, instead of `userPrincipalName`?**
 
-Yes. Seamless SSO supports `Alternate ID` as the username when configured in Azure AD Connect as shown [here](how-to-connect-install-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation for the support statement.
+Yes. Seamless SSO supports `Alternate ID` as the username when configured in Azure AD Connect as shown [here](how-to-connect-install-custom.md). Not all Microsoft 365 applications support `Alternate ID`. Refer to the specific application's documentation for the support statement.
 
-**Q: What is the difference between the single sign-on experience provided by [Azure AD Join](../active-directory-azureadjoin-overview.md) and Seamless SSO?**
+**Q: What is the difference between the single sign-on experience provided by [Azure AD Join](../devices/overview.md) and Seamless SSO?**
 
-[Azure AD Join](../active-directory-azureadjoin-overview.md) provides SSO to users if their devices are registered with Azure AD. These devices don't necessarily have to be domain-joined. SSO is provided using *primary refresh tokens* or *PRTs*, and not Kerberos. The user experience is most optimal on Windows 10 devices. SSO happens automatically on the Microsoft Edge browser. It also works on Chrome with the use of a browser extension.
+[Azure AD Join](../devices/overview.md) provides SSO to users if their devices are registered with Azure AD. These devices don't necessarily have to be domain-joined. SSO is provided using *primary refresh tokens* or *PRTs*, and not Kerberos. The user experience is most optimal on Windows 10 devices. SSO happens automatically on the Microsoft Edge browser. It also works on Chrome with the use of a browser extension.
 
 You can use both Azure AD Join and Seamless SSO on your tenant. These two features are complementary. If both features are turned on, then SSO from Azure AD Join takes precedence over Seamless SSO.
 
@@ -80,7 +80,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 
    **Step 1. Get list of AD forests where Seamless SSO has been enabled**
 
-   1. First, download, and install [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. First, download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
    2. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
    3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
    4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
@@ -97,6 +97,10 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
    >The domain administrator account used must not be a member of the Protected Users group. If so, the operation will fail.
 
    2. Call `Update-AzureADSSOForest -OnPremCredentials $creds`. This command updates the Kerberos decryption key for the `AZUREADSSO` computer account in this specific AD forest and updates it in Azure AD.
+   
+   >[!NOTE]
+   >If you are not a domain admin and you were assigned permissions by the domain admin, you should call `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
+   
    3. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
 
    >[!IMPORTANT]
@@ -121,11 +125,13 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 
    Run the following steps on the on-premises server where you are running Azure AD Connect:
 
-   1. First, download, and install [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. First, download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
    2. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
    3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
    4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
    5. Call `Enable-AzureADSSO -Enable $false`.
+   
+   At this point Seamless SSO is disabled but the domains will remain configured in case you would like to enable Seamless SSO back. If you would like to remove the domains from Seamless SSO configuration completely, call the following cmdlet after you completed step 5 above: `Disable-AzureADSSOForest -DomainFqdn <fqdn>`.
 
    >[!IMPORTANT]
    >Disabling Seamless SSO using PowerShell will not change the state in Azure AD Connect. Seamless SSO will show as enabled in the **Change user sign-in** page.
@@ -134,7 +140,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 
    Follow tasks 1 through 4 below if you have disabled Seamless SSO using Azure AD Connect. If you have disabled Seamless SSO using PowerShell instead, jump ahead to task 5 below.
 
-   1. First, download, and install [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. First, download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
    2. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
    3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
    4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.

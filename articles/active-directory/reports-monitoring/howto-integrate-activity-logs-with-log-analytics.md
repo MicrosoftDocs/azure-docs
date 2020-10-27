@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -43,6 +43,7 @@ You can route audit activity logs and sign-in activity logs to Azure Monitor log
 
 * **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
 * **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
+* **Provisioning logs**: With the [provisioning logs](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics), you can monitor which users have been created, updated, and deleted in all your third-party applications. 
 
 > [!NOTE]
 > B2C-related audit and sign-in activity logs are not supported at this time.
@@ -55,7 +56,7 @@ To use this feature, you need:
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 * An Azure AD tenant.
 * A user who's a *global administrator* or *security administrator* for the Azure AD tenant.
-* A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md).
 
 ## Licensing requirements
 

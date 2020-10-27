@@ -11,6 +11,7 @@ ms.subservice: content-moderator
 ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: pafarley
+ms.custom: devx-track-csharp
 
 #As a C# developer of content management software, I want to analyze video content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
@@ -19,7 +20,7 @@ ms.author: pafarley
 
 This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to scan video content for adult or racy content.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
 
 ## Prerequisites
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)

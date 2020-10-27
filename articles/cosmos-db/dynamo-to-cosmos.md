@@ -3,7 +3,7 @@ title: Migrate your application from Amazon DynamoDB to Azure Cosmos DB
 description: Learn how to migrate your .NET application from Amazon's DynamoDB to Azure Cosmos DB  
 author: manishmsfte
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: mansha
 ---
@@ -139,7 +139,7 @@ client_documentDB = new CosmosClient("your connectionstring from the Azure porta
 
 With Azure Cosmos DB, you can use the following options to optimize your connection:
 
-* **ConnectionMode** - Use direct connection mode to connect to the data nodes in the Azure Cosmos DB service. Use gateway mode only to initialize and cache the logical addresses and refresh on updates. See the [connectivity modes](performance-tips.md#networking) article for more details.
+* **ConnectionMode** - Use direct connection mode to connect to the data nodes in the Azure Cosmos DB service. Use gateway mode only to initialize and cache the logical addresses and refresh on updates. See the [connectivity modes](sql-sdk-connection-modes.md) article for more details.
 
 * **ApplicationRegion** - This option is used to set the preferred geo-replicated region that is used to interact with Azure Cosmos DB. To learn more see the [global distribution](distribute-data-globally.md) article.
 

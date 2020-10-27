@@ -8,7 +8,7 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
-ms.date: 04/25/2020
+ms.date: 08/21/2020
 ---
 
 # Tutorial: Query a Cognitive Search index from Power Apps
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## Prerequisites
 
-* [Power Apps account](http://make.powerapps.com)
+* [Power Apps account](https://make.powerapps.com)
 
 * [Hotels-sample index](search-get-started-portal.md)
 
@@ -36,7 +36,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 A connector in Power Apps is a data source connection. In this step, you'll create a custom connector to connect to a search index in the cloud.
 
-1. [Sign in](http://make.powerapps.com) to Power Apps.
+1. [Sign in](https://make.powerapps.com) to Power Apps.
 
 1. On the left, expand **Data** > **Custom Connectors**.
  
@@ -69,7 +69,7 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
 
    * Select the verb `GET`
 
-   * For the URL enter a sample query for your search index (`search=*` returns all documents, `$select=` lets you choose fields). The API version is required. Fully specified, a URL might look like this: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2019-05-06`
+   * For the URL enter a sample query for your search index (`search=*` returns all documents, `$select=` lets you choose fields). The API version is required. Fully specified, a URL might look like this: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2020-06-30`
 
    * For Headers, type `Content-Type`. 
 
@@ -87,9 +87,9 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
 
 1. For *select*: Set `HotelName,Description,Address/City` as the **default value**, set **required** to *False*, and set **visibility** to *none*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Version parameter metadata" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Select parameter metadata" border="true":::
 
-1. For *api-version*: Set `2019-05-06` as the **default value**, set **required** to *True*, and set **visibility** as *internal*.  
+1. For *api-version*: Set `2020-06-30` as the **default value**, set **required** to *True*, and set **visibility** as *internal*.  
 
     :::image type="content" source="./media/search-howto-powerapps/1-10-2-parameter-metadata-version.png" alt-text="Version parameter metadata" border="true":::
 
@@ -101,7 +101,7 @@ A connector in Power Apps is a data source connection. In this step, you'll crea
     parameters:
       - {name: search, in: query, required: false, type: string, default: '*'}
       - {name: $select, in: query, required: false, type: string, default: 'HotelName,Description,Address/City'}
-      - {name: api-version, in: query, required: true, type: string, default: '2019-05-06',
+      - {name: api-version, in: query, required: true, type: string, default: '2020-06-30',
         x-ms-visibility: internal}
       - {name: Content-Type, in: header, required: false, type: string}
     ```
@@ -256,5 +256,4 @@ If you are using a free service, remember that you are limited to three indexes,
 Power Apps enables the rapid application development of custom apps. Now that you know how to connect to a search index, learn more about creating a rich visualize experience in a custom Power App.
 
 > [!div class="nextstepaction"]
-> [Power Apps Learning Catalog](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
-
+> [Power Apps Learning Catalog](/powerapps/learning-catalog/get-started)

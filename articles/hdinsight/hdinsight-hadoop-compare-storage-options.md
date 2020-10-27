@@ -14,9 +14,9 @@ ms.date: 04/21/2020
 
 You can choose between a few different Azure storage services when creating HDInsight clusters:
 
-* [Azure Storage](./overview-azure-storage.md)
-* [Azure Data Lake Storage Gen2](./overview-data-lake-storage-gen2.md)
-* [Azure Data Lake Storage Gen1](./overview-data-lake-storage-gen1.md)
+* [Azure Blob storage with HDInsight](./overview-azure-storage.md)
+* [Azure Data Lake Storage Gen2 with HDInsight](./overview-data-lake-storage-gen2.md)
+* [Azure Data Lake Storage Gen1 with HDInsight](./overview-data-lake-storage-gen1.md)
 
 This article provides an overview of these storage types and their unique features.
 
@@ -53,15 +53,21 @@ You can create clusters using combinations of services for primary and optional 
 | 4.0 | Data Lake Storage Gen1 | Any | No |
 | 4.0 | General Purpose V1, General Purpose V2 | Data Lake Storage Gen1 | No |
 
-*=This could be one or multiple Data Lake Storage Gen2 accounts, as long as they're all setup to use the same managed identity for cluster access.
+*=This could be one or multiple Data Lake Storage Gen2, as long as they're all setup to use the same managed identity for cluster access.
 
 > [!NOTE]
 > Data Lake Storage Gen2 primary storage is not supported for Spark 2.1 or 2.2 clusters.
 
+## Data replication
+
+Azure HDInsight does not store customer data. The primary means of storage for a cluster are its associated storage accounts. You can attach your cluster to an existing storage account, or create a new storage account during the cluster creation process. If a new account is created, it will be created as a locally redundant storage (LRS) account, and will satisfy in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net).
+
+You can validate that HDInsight is properly configured to store data in a single region by ensuring that the storage account associated with your HDInsight is LRS or another storage option mentioned on [Trust Center](https://azuredatacentermap.azurewebsites.net).
+ 
 ## Next steps
 
-* [Azure Storage overview](./overview-azure-storage.md)
-* [Azure Data Lake Storage Gen1 overview](./overview-data-lake-storage-gen1.md)
-* [Azure Data Lake Storage Gen2 overview](./overview-data-lake-storage-gen2.md)
+* [Azure Storage overview in HDInsight](./overview-azure-storage.md)
+* [Azure Data Lake Storage Gen1 overview in HDInsight](./overview-data-lake-storage-gen1.md)
+* [Azure Data Lake Storage Gen2 overview in HDInsight](./overview-data-lake-storage-gen2.md)
 * [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Introduction to Azure Storage](../storage/common/storage-introduction.md)

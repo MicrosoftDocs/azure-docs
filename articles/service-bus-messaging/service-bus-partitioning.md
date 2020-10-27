@@ -1,17 +1,11 @@
 ---
 title: Create partitioned Azure Service Bus queues and topics | Microsoft Docs
 description: Describes how to partition Service Bus queues and topics by using multiple message brokers.
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 02/06/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
+ms.custom: devx-track-csharp
 ---
+
 # Partitioned queues and topics
 
 Azure Service Bus employs multiple message brokers to process messages and multiple messaging stores to store messages. A conventional queue or topic is handled by a single message broker and stored in one messaging store. Service Bus *partitions* enable queues and topics, or *messaging entities*, to be partitioned across multiple message brokers and messaging stores. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions.
@@ -26,6 +20,8 @@ It is not possible to change the partitioning option on any existing queue or to
 Each partitioned queue or topic consists of multiple partitions. Each partition is stored in a different messaging store and handled by a different message broker. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the partitions. The selection is done randomly by Service Bus or by using a partition key that the sender can specify.
 
 When a client wants to receive a message from a partitioned queue, or from a subscription to a partitioned topic, Service Bus queries all partitions for messages, then returns the first message that is obtained from any of the messaging stores to the receiver. Service Bus caches the other messages and returns them when it receives additional receive requests. A receiving client is not aware of the partitioning; the client-facing behavior of a partitioned queue or topic (for example, read, complete, defer, deadletter, prefetching) is identical to the behavior of a regular entity.
+
+The peek operation on a non-partitioned entity always returns the oldest message, but not on a partitioned entity. Instead, it returns the oldest message in one of the partitions whose message broker responded first. There is no guarantee that the returned message is the oldest one across all partitions. 
 
 There is no additional cost when sending a message to, or receiving a message from, a partitioned queue or topic.
 
@@ -149,4 +145,4 @@ Read about the core concepts of the AMQP 1.0 messaging specification in the [AMQ
 [QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
 [TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-amqp-protocol-guide.md

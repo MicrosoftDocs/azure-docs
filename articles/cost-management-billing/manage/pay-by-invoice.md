@@ -1,18 +1,20 @@
 ---
 title: Pay for Azure subscriptions by invoice
-description: Describes how to pay for Azure subscriptions by invoice.
+description: Learn how to pay for Azure subscriptions by invoice. See frequently asked questions and view additional resources.
 author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/13/2020
+ms.subservice: billing
+ms.topic: how-to
+ms.date: 10/26/2020
 ms.author: banders
+ms.custom: contentperfq2
 ---
 
 # Pay for your Azure subscription by invoice
 
-If you switch to pay by invoice, that means you pay your bill within 30 days of the invoice date by check/wire transfer. To become eligible to pay for your Azure subscription by invoice, submit a request to Azure support. Once your request is approved, you can switch to invoice pay (check/wire transfer) in the [Azure portal](https://portal.azure.com).
+If you switch to pay by invoice, that means you pay your bill within 30 days of the invoice date by check/wire transfer. To become eligible to pay for your Azure subscription by invoice, submit a request to Azure support. Once your request is approved, you can switch to invoice pay (check/wire transfer) in the Azure portal.
 
 > [!IMPORTANT]
 > * Invoice pay (check/wire transfer) is only available for customers using Azure on behalf of a company.
@@ -21,7 +23,7 @@ If you switch to pay by invoice, that means you pay your bill within 30 days of 
 
 ## Request to pay by invoice
 
-1. Go to the [Azure portal](https://portal.azure.com) to submit a support request. Search for and select **Help + support**.
+1. Go to the Azure portal to submit a support request. Search for and select **Help + support**.
 
     ![Search for Help and support, Microsoft Azure portal](./media/pay-by-invoice/search-for-help-and-support.png)
 
@@ -37,31 +39,31 @@ If you switch to pay by invoice, that means you pay your bill within 30 days of 
 
 5. Enter the following information in the **Details** box, and then select **Next**.
 
-         New or existing customer:
-         If existing, current payment method:
-         Order ID (requesting for invoice option):
-         Account Admins Live ID (or Org ID) (should be company domain):
-         Commerce Account ID:
-         Company Name (as registered under VAT or Government Website):
-         Company Address (as registered under VAT or Government Website):
-         Company Website:
-         Country:
-         TAX ID/ VAT ID:
-         Company Established on (Year):
-         Any prior business with Microsoft:
-         Contact Name:
-         Contact Phone:
-         Contact Email:
-         Justification on why you prefer Invoice option over credit card:
+     New or existing customer:<br>
+     If existing, current payment method:<br>
+     Order ID (requesting for invoice option):<br>
+     Account Admins Live ID (or Org ID) (should be company domain):<br>
+     Commerce Account ID:<br>
+     Company Name (as registered under VAT or Government Website):<br>
+     Company Address (as registered under VAT or Government Website):<br>
+     Company Website:<br>
+     Country:<br>
+     TAX ID/ VAT ID:<br>
+     Company Established on (Year):<br>
+     Any prior business with Microsoft:<br>
+     Contact Name:<br>
+     Contact Phone:<br>
+     Contact Email:<br>
+     Justification on why you prefer Invoice option over credit card:<br>
 
-         For cores increase, provide the following additional information:
+     For cores increase, provide the following additional information:<br>
 
-         (Old quota) Existing Cores:
-         (New quota) Requested cores:
-         Specific region & series of Subscription:
+     (Old quota) Existing Cores:<br>
+     (New quota) Requested cores:<br>
+     Specific region & series of Subscription:<br>
 
     - The **Company name** and **Company address** should match the information that you provided for the Azure account. To view or update the information, see [Change your Azure account profile information](change-azure-account-profile.md).
-    - Add your billing contact information in the Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department. To update the billing contact information, go to [Azure Account Center](https://account.azure.com/Profile).
+    - Add your billing contact information in the Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department.
 
 6. Verify your contact information and preferred contact method, and then select **Create**.
 
@@ -71,15 +73,15 @@ If we need to run a credit check because of the amount of credit that you need, 
 
 Once you're approved to pay by invoice, you can switch to invoice pay (check/wire transfer) in the Azure portal.
 
-If you have a Microsoft Online Services Program account, you can switch your Azure subscription to check/wire transfer. With a Microsoft Customer Agreement, you can switch your billing profile to check/wire transfer. [Learn how to check your account type](#check-access-to-a-microsoft-customer-agreement).
+If you have a Microsoft Online Services Program account, you can switch your Azure subscription to check/wire transfer. With a Microsoft Customer Agreement, you can switch your billing profile to check/wire transfer.
 
 ### Switch Azure subscription to check/wire transfer
 
 Follow the steps below to switch your Azure subscription to invoice pay (check/wire transfer). *Once you switch to invoice pay (check/wire transfer), you can't switch back to credit card*.
 
-1. Go to the [Azure portal](https://portal.azure.com) to sign in as the Account Administrator. Search for and select **Cost Management + Billing**.
+1. Go to the Azure portal to sign in as the Account Administrator. Search for and select **Cost Management + Billing**.
 
-    ![Search for Cost Management and Billing, Microsoft Azure portal](./media/pay-by-invoice/search.png)
+    ![Screenshot shows search for Cost Management and Billing in the Azure portal.](./media/pay-by-invoice/search.png)
 
 1. Select the subscription you'd like to switch to invoice payment.
 1. Select **Payment methods**.
@@ -91,7 +93,7 @@ Follow the steps below to switch your Azure subscription to invoice pay (check/w
 
 Follow the steps below to switch a billing profile to check/wire transfer. Only the person who signed up for Azure can change the default payment method of a billing profile.
 
-1. Go to the [Azure portal](https://portal.azure.com) view your billing information. Search for and select **Cost Management + Billing**.
+1. Go to the Azure portal view your billing information. Search for and select **Cost Management + Billing**.
 1. In the menu, choose **Billing profiles**.
 
     ![Billing profiles menu item, Cost Management and Billing, Microsoft Azure portal](./media/pay-by-invoice/billing-profile.png)
@@ -108,10 +110,15 @@ Follow the steps below to switch a billing profile to check/wire transfer. Only 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## Need help? Contact us.
+## Frequently asked questions
 
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+*Why have I received a request for a legal document?*
+
+Occasionally Microsoft needs legal documentation if the information you provided is incomplete or not verifiable. Examples might include:
+
+* Name difference between Account name and Company name
+* Change in name
 
 ## Next steps
 
-- If needed, update your billing contact information at the [Azure Account Center](https://account.azure.com/Profile).
+* If needed, update your billing contact information at the [Azure Account Center](https://account.azure.com/Profile).

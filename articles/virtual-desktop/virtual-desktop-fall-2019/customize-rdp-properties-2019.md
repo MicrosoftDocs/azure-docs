@@ -1,19 +1,16 @@
 ---
-title: Customize RDP Properties with PowerShell - Azure
-description: How to customize RDP Properties for Windows Virtual Desktop with PowerShell cmdlets.
-services: virtual-desktop
+title: Customize RDP Properties with PowerShell Windows Virtual Desktop (classic) - Azure
+description: How to customize RDP Properties for  Windows Virtual Desktop (classic) with PowerShell cmdlets.
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Customize Remote Desktop Protocol properties for a host pool
+# Customize Remote Desktop Protocol properties for a  Windows Virtual Desktop (classic) host pool
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../customize-rdp-properties.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../customize-rdp-properties.md).
 
 Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as multi-monitor experience and audio redirection, lets you deliver an optimal experience for your users based on their needs. You can customize RDP properties in Windows Virtual Desktop using the **-CustomRdpProperty** parameter in the **Set-RdsHostPool** cmdlet.
 
@@ -45,7 +42,8 @@ To add or edit a single custom RDP property, run the following PowerShell cmdlet
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty "<property>"
 ```
 
-![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/singlecustomrdpproperty.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted to edit a custom R D P property.](../media/singlecustomrdpproperty.png)
 
 ## Add or edit multiple custom RDP properties
 
@@ -56,7 +54,8 @@ $properties="<property1>;<property2>;<property3>"
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
 
-![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/multiplecustomrdpproperty.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and FriendlyName highlighted to edit a custom R D P property.](../media/multiplecustomrdpproperty.png)
 
 ## Reset all custom RDP properties
 
@@ -66,11 +65,12 @@ You can reset individual custom RDP properties to their default values by follow
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty ""
 ```
 
-![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/resetcustomrdpproperty.png)
+> [!div class="mx-imgBorder"]
+> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/resetcustomrdpproperty.png)
 
 ## Next steps
 
 Now that you've customized the RDP properties for a given host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
 
-- [Connect with the Windows Desktop client](../connect-windows-7-and-10.md)
+- [Connect with the Windows Desktop client](connect-windows-7-10-2019.md)
 - [Connect with the web client](connect-web-2019.md)

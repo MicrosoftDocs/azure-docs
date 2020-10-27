@@ -4,7 +4,7 @@ description: This article shows you how to migrate Azure Application Gateway and
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
 ---
@@ -31,6 +31,8 @@ An Azure PowerShell script is available that does the following:
 
 * The new v2 gateway has new public and private IP addresses. It isn't possible to move the IP addresses associated with the existing v1 gateway seamlessly to v2. However, you can allocate an existing (unallocated) public or private IP address to the new v2 gateway.
 * You must provide an IP address space for another subnet within your virtual network where your v1 gateway is located. The script can't create the v2 gateway in any existing subnets that already have a v1 gateway. However, if the existing subnet already has a v2 gateway, that may still work provided there's enough IP address space.
+* If you have a network security group or user defined routes associated to the v2 gateway subnet, make sure they adhere to the [NSG requirements](../application-gateway/configuration-infrastructure.md#network-security-groups) and [UDR requirements](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) for a successful migration
+* [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
 * To  migrate a TLS/SSL configuration, you must specify all the TLS/SSL certs used in your v1 gateway.
 * If you have FIPS mode enabled for your V1 gateway, it won't be migrated to your new v2 gateway. FIPS mode isn't supported in v2.
 * v2 doesn't support IPv6, so IPv6 enabled v1 gateways aren't migrated. If you run the script, it may not complete.

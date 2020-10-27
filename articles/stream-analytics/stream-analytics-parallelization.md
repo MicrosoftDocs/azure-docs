@@ -35,7 +35,7 @@ When you work with Stream Analytics, you can take advantage of partitioning in t
 -	Event Hubs (need to set the partition key explicitly)
 -	IoT Hub  (need to set the partition key explicitly)
 -	Service Bus
-- SQL and SQL Data Warehouse with optional partitioning: see more information on the [Output to Azure SQL Database page](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
+- SQL and Azure Synapse Analytics with optional partitioning: see more information on the [Output to Azure SQL Database page](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
 Power BI doesn't support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
 
@@ -284,7 +284,7 @@ The [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree/master/
 
 [Cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) output from Stream Analytics has been updated to use native integration under [compatibility level 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Compatibility level 1.2 enables significantly higher throughput and reduces RU consumption compared to 1.1, which is the default compatibility level for new jobs. The solution uses CosmosDB containers partitioned on /deviceId and the rest of solution is identically configured.
 
-All [Streaming at Scale azure samples](https://github.com/Azure-Samples/streaming-at-scale) use an Event Hub fed by load simulating test clients as input. Each input event is a 1KB JSON document, which translates configured ingestion rates to throughput rates (1MB/s, 5MB/s and 10MB/s) easily. Events simulate an IoT device sending the following JSON data (in a shortened form) for up to 1K devices:
+All [Streaming at Scale Azure samples](https://github.com/Azure-Samples/streaming-at-scale) use an Event Hub as input that is fed by load simulating test clients. Each input event is a 1KB JSON document, which translates configured ingestion rates to throughput rates (1MB/s, 5MB/s and 10MB/s) easily. Events simulate an IoT device sending the following JSON data (in a shortened form) for up to 1K devices:
 
 ```
 {

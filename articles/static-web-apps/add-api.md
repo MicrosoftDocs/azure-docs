@@ -7,6 +7,7 @@ ms.service: static-web-apps
 ms.topic:  how-to
 ms.date: 05/29/2020
 ms.author: wachegha
+ms.custom: devx-track-js
 ---
 
 # Add an API to Azure Static Web Apps Preview with Azure Functions
@@ -22,7 +23,7 @@ You can add serverless APIs to Azure Static Web Apps via integration with Azure 
 - [Live Server Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension.
 - [Node.js](https://nodejs.org/download/) to run the API app locally
 
-## Create a git repository
+## Create a Git repository
 
 The following steps demonstrate how to create a new repository and clone the files to your computer.
 
@@ -67,20 +68,20 @@ Visual Studio Code generates an Azure Functions project with an HTTP triggered f
 
 Your app now has a project structure similar to the following example.
 
-    ```files
-    ├── api
-    │   ├── GetMessage
-    │   │   ├── function.json
-    │   │   ├── index.js
-    │   │   └── sample.dat
-    │   ├── host.json
-    │   ├── local.settings.json
-    │   ├── package.json
-    │   └── proxies.json
-    ├── index.html
-    ├── readme.md
-    └── styles.css
-    ```
+```files
+├── api
+│   ├── GetMessage
+│   │   ├── function.json
+│   │   ├── index.js
+│   │   └── sample.dat
+│   ├── host.json
+│   ├── local.settings.json
+│   ├── package.json
+│   └── proxies.json
+├── index.html
+├── readme.md
+└── styles.css
+```
 
 Next, you'll change the `GetMessage` function to return a message to the front-end.
 
@@ -128,7 +129,7 @@ With the above settings, the API endpoint is:
 
 ## Run the API locally
 
-Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local) to let you run this project on your local development computer before you publish to Azure.
+Visual Studio Code integrates with [Azure Functions Core Tools](../azure-functions/functions-run-local.md) to let you run this project on your local development computer before you publish to Azure.
 
 > [!TIP]
 > Make sure you have all the resources listed in the [prerequisites](#prerequisites) section installed before proceeding.
@@ -141,7 +142,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.mic
 
     :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
 
-1. With Core Tools running, navigate to the following URL to verify the API is running correctly: <http://localhost:7071/api/message>.
+1. With Core Tools running, navigate to the following URL to verify the API is running correctly: `http://localhost:7071/api/message`.
 
    The response in the browser should look similar to the following example:
 
@@ -151,7 +152,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.mic
 
 ### Call the API from the application
 
-When deployed to Azure, requests to the API are automatically routed to the Functions app for requests sent to the `api` route. Working locally, you have you configure the application settings to proxy requests to the local API.
+When deployed to Azure, requests to the API are automatically routed to the Functions app for requests sent to the `api` route. Working locally, you have to configure the application settings to proxy requests to the local API.
 
 [!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
 
@@ -173,7 +174,7 @@ When deployed to Azure, requests to the API are automatically routed to the Func
    <body>
      <main>
        <h1>Vanilla JavaScript App</h1>
-       <p>Loading message from the API: <b id="name">...</b></p>
+       <p>Loading content from the API: <b id="name">...</b></p>
      </main>
 
      <script>

@@ -1,6 +1,6 @@
 ---
 title: Getting Started - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: This is a deeper overview highlighting the Threat Modeling Tool in action.
+description: Learn how to get started using the Threat Modeling Tool. Create a diagram, identify threats, mitigate threats, and validate each mitigation.
 services: security
 documentationcenter: na
 author: jegeib
@@ -94,7 +94,7 @@ Ricardo begins by selecting the first item on the list. Here’s what happens:
 
 First, the interaction between the two stencils is enhanced
 
-![Interaction](./media/threat-modeling-tool-getting-started/interaction.png)
+![Screenshot shows two stencils and the curved arrow connecting them in a heavier weight of line.](./media/threat-modeling-tool-getting-started/interaction.png)
 
 Second, additional information about the threat appears in the Threat Properties window
 

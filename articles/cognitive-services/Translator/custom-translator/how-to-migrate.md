@@ -51,7 +51,7 @@ To migrate a project:
 
 3. Click "Migrate" link for appropriate project.
 
-    ![How to migrate from Hub](media/how-to/how-to-migrate-from-hub.png)
+    ![Screenshot that highlights the Migrate button for the selected project.](media/how-to/how-to-migrate-from-hub.png)
 
 4. Upon pressing the migrate link you will be presented with a form allowing you to:
    * Specify the workspace you wish to transfer to on Custom Translator
@@ -72,7 +72,7 @@ To migrate a workspace:
 
 3. On "Settings" page click "Migrate Workspace data to Custom Translator".
 
-    ![How to migrate from Hub](media/how-to/how-to-migrate-workspace-from-hub.png)
+    ![Screenshot that highlights the Migrate Workspace data to Custom Translator option.](media/how-to/how-to-migrate-workspace-from-hub.png)
 
 4. On the next page select either of these two options:
 
@@ -126,9 +126,9 @@ If you want more detailed migration report about your projects, trainings and do
 
 This table compares the features between Microsoft Translator Hub and Custom Translator.
 
-|   | Hub | Custom Translator |
-|:-----|:----:|:----:|
-|Customization feature status    | General Availability    | General Availability |
+| Feature | Hub | Custom Translator |
+| ------- | :-: | :---------------: |
+| Customization feature status    | General Availability    | General Availability |
 | Text API version    | V2     | V3  |
 | SMT customization    | Yes    | No |
 | NMT customization    | No    | Yes |
@@ -137,7 +137,7 @@ This table compares the features between Microsoft Translator Hub and Custom Tra
 
 ## New languages
 
-If you are a community or organization working on creating a new language system for Microsoft Translator, reach out to [custommt@microsoft.com](mailto:custommt@microsoft.com) for more information.
+If you are a community or organization working on creating a new language system for Translator, reach out to [custommt@microsoft.com](mailto:custommt@microsoft.com) for more information.
 
 ## Next steps
 

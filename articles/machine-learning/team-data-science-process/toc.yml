@@ -62,7 +62,7 @@
     href: walkthroughs-azure-data-lake.md
   - name: R, Python and T-SQL with SQL Server
     href: walkthroughs-sql-server.md
-  - name: T-SQL and Python with SQL DW
+  - name: T-SQL and Python with Azure Synapse Analytics
     href: walkthroughs-sql-data-warehouse.md
 - name: Utilities & tools
   items:
@@ -95,7 +95,7 @@
         href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
       - name: Get started using R Server on HDInsight
         href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
-    - name: Azure Machine Learning workspace
+    - name: Machine Learning Studio (classic) workspace
       href: /azure/machine-learning/studio/create-workspace?context=azure/machine-learning/team-data-science-process/context/ml-context
   - name: Analyze business needs
     items:
@@ -192,8 +192,6 @@
     href: deploy-models-in-production.md
 - name: Related
   items:
-  - name: Azure Machine Learning
-    href: ../
   - name: Cognitive Services
     href: https://docs.microsoft.com/azure/cognitive-services/
   - name: Anomaly detection
@@ -211,7 +209,7 @@
   - name: Organizations using TDSP
     items:
     - name: New Signature
-      href: https://newsignature.com/services/professional-services/advanced-analytics/
+      href: https://newsignature.com/services/
     - name: Blue Granite
       href: https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations
   - name: Related Microsoft resources
@@ -222,4 +220,3 @@
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-      

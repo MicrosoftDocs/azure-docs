@@ -3,14 +3,14 @@ title: Collaborate with others - LUIS
 titleSuffix: Azure Cognitive Services
 description: An app owner can add contributors to the authoring resource. These contributors can modify the model, train, and publish the app.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.author: diberry
+
 ---
 
 # Add contributors to your app
@@ -92,6 +92,6 @@ Learn more about Azure active directory users and consent:
 ## Next steps
 
 * Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
-* Understand the concepts including the [authoring resource](luis-concept-keys.md#authoring-key) and [contributors](luis-concept-keys.md#contributions-from-other-authors) on that resource.
+* Understand the concepts including the [authoring resource](luis-how-to-azure-subscription.md#authoring-key) and [contributors](luis-how-to-azure-subscription.md#contributions-from-other-authors) on that resource.
 * Learn [how to create](luis-how-to-azure-subscription.md) authoring and runtime resources
 * Migrate to the new [authoring resource](luis-migration-authoring.md)

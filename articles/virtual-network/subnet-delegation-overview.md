@@ -46,6 +46,7 @@ Each Azure service defines their own deployment model, where they can define wha
 - dictates the minimum number of IP Addresses in the delegated subnet.
 - dictates the IP Address space in the delegated subnet to be from Private IP Address space (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12).
 - dictates that the custom DNS configuration has an Azure DNS entry.
+- requires delegation to be removed before the subnet or virtual network can be deleted.
 
 Injected services can also add their own policies as follows:
 - **Security policies**: Collection of security rules required for a given service to work.

@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Machines high availability for SAP NetWeaver | Microsoft Docs
-description: High-availability guide for SAP NetWeaver on Azure Virtual Machines
+title: Azure Virtual Machines high availability for SAP NetWeaver
+description: In this article, learn about high-availability Azure Virtual Machines for SAP NetWeaver.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -21,7 +21,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Azure Virtual Machines high availability for SAP NetWeaver
+# High-availability Azure Virtual Machines for SAP NetWeaver
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -34,7 +34,7 @@ ms.custom: H1Hack27Feb2017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 [azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
-[dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
+[dbms-guide]:dbms-guide.md
 
 [deployment-guide]:deployment-guide.md
 
@@ -169,7 +169,7 @@ To simplify deployment and configuration, in this article, we use the SAP three-
 ## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> Prerequisites
 Before you start, make sure that you meet the prerequisites that are described in the following sections. Also, be sure to check all resources listed in the [Resources][sap-ha-guide-2] section.
 
-In this article, we use Azure Resource Manager templates for [three-tier SAP NetWeaver using Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). For a helpful overview of templates, see [SAP Azure Resource Manager templates](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
+In this article, we use Azure Resource Manager templates for [three-tier SAP NetWeaver using Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). For a helpful overview of templates, see [SAP Azure Resource Manager templates](/archive/blogs/saponsqlserver/azure-quickstart-templates-for-sap).
 
 ## <a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a> Resources
 These articles cover SAP deployments in Azure:
@@ -318,7 +318,7 @@ You must place all virtual machines that host SAP Application Server instances i
 * All virtual machines are part of the same upgrade domain. An upgrade domain, for example, makes sure that the virtual machines aren't updated at the same time during planned maintenance downtime.
 * All virtual machines are part of the same fault domain. A fault domain, for example, makes sure that virtual machines are deployed so that no single point of failure affects the availability of all virtual machines.
 
-Learn more about how to [manage the availability of virtual machines][virtual-machines-manage-availability].
+Learn more about how to [manage the availability of virtual machines][../manage-availability.md].
 
 Unmanaged disk only: Because the Azure storage account is a potential single point of failure, it's important to have at least two Azure storage accounts, in which at least two virtual machines are distributed. In an ideal setup, the disks of each virtual machine that is running an SAP dialog instance would be deployed in a different storage account.
 
@@ -770,7 +770,7 @@ To add registry entries on both cluster nodes of the SAP ASCS/SCS instance, firs
 | Variable name |`KeepAliveTime` |
 | Variable type |REG_DWORD (Decimal) |
 | Value |120000 |
-| Link to documentation |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
+| Link to documentation |[https://technet.microsoft.com/library/cc957549.aspx](/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)) |
 
 _**Table 3:** Change the first TCP/IP parameter_
 
@@ -781,7 +781,7 @@ Then, add this Windows registry entries on both Windows cluster nodes for SAP AS
 | Variable name |`KeepAliveInterval` |
 | Variable type |REG_DWORD (Decimal) |
 | Value |120000 |
-| Link to documentation |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
+| Link to documentation |[https://technet.microsoft.com/library/cc957548.aspx](/previous-versions/windows/it-pro/windows-2000-server/cc957548(v=technet.10)) |
 
 _**Table 4:** Change the second TCP/IP parameter_
 

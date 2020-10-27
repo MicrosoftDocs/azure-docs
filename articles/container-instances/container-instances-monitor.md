@@ -38,7 +38,7 @@ In a container group that contains multiple containers, use a [dimension][monito
 1. In the **Overview** page, select one of the metric charts, such as **CPU**. 
 1. Select the **Apply splitting** button, and select **Container Name**.
 
-![dimension][dimension]
+![Screen capture shows the metrics for a container instance with Apply splitting selected and Container Name selected.][dimension]
 
 ## Get metrics - Azure CLI
 

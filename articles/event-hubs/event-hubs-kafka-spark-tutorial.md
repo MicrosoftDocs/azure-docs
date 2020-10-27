@@ -1,19 +1,12 @@
 ---
 title: Connect with your Apache Spark app - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to use Apache Spark with Azure Event Hubs for Kafka.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-
+ms.date: 06/23/2020
 ---
 
 # Connect your Apache Spark application with Azure Event Hubs
-This tutorial walks you through connecting your Spark application to Event Hubs for real-time streaming. This integration enables streaming without having to change your protocol clients or run your own Kafka or Zookeeper clusters. This tutorial, requires Apache Spark v2.4+ and Apache Kafka v2.0+.
+This tutorial walks you through connecting your Spark application to Event Hubs for real-time streaming. This integration enables streaming without having to change your protocol clients, or run your own Kafka or Zookeeper clusters. This tutorial requires Apache Spark v2.4+ and Apache Kafka v2.0+.
 
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/spark/)

@@ -7,8 +7,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 07/24/2018
+ms.topic: how-to
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -110,7 +110,7 @@ The following image shows the recommended user flow:
 
 ![Flow chart diagram showing the recommended acceptance user flow](./media/manage-user-access/user-flow.png)
 
-The following is an example of a DateTime based terms of use consent in a claim:
+The following is an example of a date-based terms of use consent in a claim. If the `extension_termsOfUseConsentDateTime` claim is older than `2025-01-15T00:00:00`, force a new acceptance by checking the `termsOfUseConsentRequired` Boolean claim, and displaying a self-asserted screen. 
 
 ```xml
 <ClaimsTransformations>
@@ -124,7 +124,7 @@ The following is an example of a DateTime based terms of use consent in a claim:
       <InputClaim ClaimTypeReferenceId="extension_termsOfUseConsentDateTime" TransformationClaimType="termsOfUseConsentDateTime" />
     </InputClaims>
     <InputParameters>
-      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2098-01-30T23:03:45" />
+      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2025-01-15T00:00:00" />
     </InputParameters>
     <OutputClaims>
       <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="result" />
@@ -133,7 +133,7 @@ The following is an example of a DateTime based terms of use consent in a claim:
 </ClaimsTransformations>
 ```
 
-The following is an example of a Version based terms of use consent in a claim:
+The following is an example of a version-based terms of use consent in a claim. If the `extension_termsOfUseConsentVersion` claim is not equal to `V1`, force a new acceptance by checking the `termsOfUseConsentRequired` Boolean claim, and displaying a self-asserted screen.
 
 ```xml
 <ClaimsTransformations>

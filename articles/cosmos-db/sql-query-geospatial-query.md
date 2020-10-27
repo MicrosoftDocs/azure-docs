@@ -31,7 +31,7 @@ Spatial functions can be used to perform proximity queries against spatial data.
 ```sql
     SELECT f.id
     FROM Families f
-    WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
+    WHERE ST_DISTANCE(f.location, {"type": "Point", "coordinates":[31.9, -4.8]}) < 30000
 ```
 
 **Results**
@@ -54,8 +54,8 @@ Polygon arguments in `ST_WITHIN` can contain only a single ring, that is, the Po
     SELECT *
     FROM Families f
     WHERE ST_WITHIN(f.location, {
-        'type':'Polygon',
-        'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+        "type":"Polygon",
+        "coordinates": [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
     })
 ```
 
@@ -79,7 +79,7 @@ Azure Cosmos DB also supports performing inverse queries, that is, you can index
 ```sql
     SELECT *
     FROM Areas a
-    WHERE ST_WITHIN({'type': 'Point', 'coordinates':[31.9, -4.8]}, a.location)
+    WHERE ST_WITHIN({"type": "Point", "coordinates":[31.9, -4.8]}, a.location)
 ```
 
 **Results**

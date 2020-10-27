@@ -16,8 +16,10 @@ Azure Monitor stores [log](data-platform-logs.md) data in a Log Analytics worksp
 This article explains how to manage access to logs and to administer the workspaces that contain them, including how to grant access to: 
 
 * The workspace using workspace permissions.
-* Users who need access to log data from specific resources using Azure role-based access control (RBAC).
+* Users who need access to log data from specific resources using Azure role-based access control (Azure RBAC) - also known as [resource-context](design-logs-deployment.md#access-mode)
 * Users who need access to log data in a specific table in the workspace using Azure RBAC.
+
+To understand the Logs concepts around RBAC and access strategies, read [designing your Azure Monitor Logs deployment](design-logs-deployment.md)
 
 ## Configure access control mode
 
@@ -96,7 +98,7 @@ To configure the access mode in an Azure Resource Manager template, set the **en
 
 ## Manage access using workspace permissions
 
-Each workspace can have multiple accounts associated with it, and each account can have access to multiple workspaces. Access is managed using [Azure role-based access](../../role-based-access-control/role-assignments-portal.md).
+Each workspace can have multiple accounts associated with it, and each account can have access to multiple workspaces. Access is managed using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
 The following activities also require Azure permissions:
 
@@ -237,7 +239,7 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
 
 **Table level RBAC** allows you to define more granular control to data in a Log Analytics workspace in addition to the other permissions. This control allows you to define specific data types that are accessible only to a specific set of users.
 
-You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant access to specific [tables](../log-query/logs-structure.md) in the workspace. These roles are applied to workspaces with either workspace-context or resource-context [access control modes](design-logs-deployment.md#access-control-mode) regardless of the user's [access mode](design-logs-deployment.md#access-mode).
+You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant access to specific [tables](./data-platform-logs.md) in the workspace. These roles are applied to workspaces with either workspace-context or resource-context [access control modes](design-logs-deployment.md#access-control-mode) regardless of the user's [access mode](design-logs-deployment.md#access-mode).
 
 Create a [custom role](../../role-based-access-control/custom-roles.md) with the following actions to define access to table access control.
 
@@ -262,6 +264,18 @@ To create a role with access to only the _SecurityBaseline_ table, create a cust
     "Microsoft.OperationalInsights/workspaces/read",
     "Microsoft.OperationalInsights/workspaces/query/read",
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+],
+```
+The examples above define a list of tables that are allowed. This example shows blocked list definition when a user can access all tables but the _SecurityAlert_ table:
+
+```
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/*/read"
+],
+"notActions":  [
+    "Microsoft.OperationalInsights/workspaces/query/SecurityAlert/read"
 ],
 ```
 
@@ -292,6 +306,6 @@ Sometimes custom logs come from sources that are not directly associated to a sp
 
 ## Next steps
 
-* See [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md) to gather data from computers in your datacenter or other cloud environment.
+* See [Log Analytics agent overview](./log-analytics-agent.md) to gather data from computers in your datacenter or other cloud environment.
 
-* See [Collect data about Azure virtual machines](../../azure-monitor/learn/quick-collect-azurevm.md) to configure data collection from Azure VMs.
+* See [Collect data about Azure virtual machines](../learn/quick-collect-azurevm.md) to configure data collection from Azure VMs.

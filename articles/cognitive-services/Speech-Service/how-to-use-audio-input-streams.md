@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
+ms.custom: devx-track-csharp
 ---
 
 # About the Speech SDK audio input stream API
@@ -20,7 +21,7 @@ The following steps are required when using audio input streams:
 
 - Identify the format of the audio stream. The format must be supported by the Speech SDK and the Speech service. Currently, only the following configuration is supported:
 
-  Audio samples in PCM format, one channel, 16 bits per sample, 8000 or 16000 samples per second (16000 or 32000 bytes per second), two block align (16 bit including padding for a sample).
+  Audio samples are in PCM format, one channel, 16 bits per sample, 8000 or 16000 samples per second (16000 or 32000 bytes per second), two block align (16 bit including padding for a sample).
 
   The corresponding code in the SDK to create the audio format looks like this:
 
@@ -31,7 +32,7 @@ The following steps are required when using audio input streams:
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
-- Make sure your code can provide the RAW audio data according to these specifications. If your audio source data doesn't match the supported formats, the audio must be transcoded into the required format.
+- Make sure your code provides the RAW audio data according to these specifications. Also assure 16-bit samples arrive in little-endian format. Signed samples are also supported. If your audio source data doesn't match the supported formats, the audio must be transcoded into the required format.
 
 - Create your own audio input stream class derived from `PullAudioInputStreamCallback`. Implement the `Read()` and `Close()` members. The exact function signature is language-dependent, but the code will look similar to this code sample:
 
@@ -70,5 +71,5 @@ The following steps are required when using audio input streams:
 
 ## Next steps
 
-- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
 - [See how to recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

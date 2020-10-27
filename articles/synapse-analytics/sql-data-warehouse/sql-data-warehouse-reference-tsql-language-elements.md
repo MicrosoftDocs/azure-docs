@@ -1,12 +1,12 @@
 ---
 title: T-SQL language elements
-description: Links to the documentation for T-SQL statements supported in Synapse SQL pool.
+description: Links to the documentation for T-SQL language elements supported in Synapse SQL pool.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan

@@ -80,20 +80,28 @@ If you write a filter expression with no parentheses around its sub-expressions,
 
 An operator that is higher in the above table will "bind more tightly" to its operands than other operators. For example, `and` is of higher precedence than `or`, and comparison operators are of higher precedence than either of them, so the following two expressions are equivalent:
 
+```odata-filter-expr
     Rating gt 0 and Rating lt 3 or Rating gt 7 and Rating lt 10
     ((Rating gt 0) and (Rating lt 3)) or ((Rating gt 7) and (Rating lt 10))
+```
 
 The `not` operator has the highest precedence of all -- even higher than the comparison operators. That's why if you try to write a filter like this:
 
+```odata-filter-expr
     not Rating gt 5
+```
 
 You'll get this error message:
 
+```text
     Invalid expression: A unary operator with an incompatible type was detected. Found operand type 'Edm.Int32' for operator kind 'Not'.
+```
 
 This error happens because the operator is associated with just the `Rating` field, which is of type `Edm.Int32`, and not with the entire comparison expression. The fix is to put the operand of `not` in parentheses:
 
+```odata-filter-expr
     not (Rating gt 5)
+```
 
 <a name="bkmk_limits"></a>
 
@@ -108,91 +116,133 @@ There are limits to the size and complexity of filter expressions that you can s
 
 Find all hotels with at least one room with a base rate less than $200 that are rated at or above 4:
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/BaseRate lt 200.0) and Rating ge 4
+```
 
 Find all hotels other than "Sea View Motel" that have been renovated since 2010:
 
+```odata-filter-expr
     $filter=HotelName ne 'Sea View Motel' and LastRenovationDate ge 2010-01-01T00:00:00Z
+```
 
 Find all hotels that were renovated in 2010 or later. The datetime literal includes time zone information for Pacific Standard Time:  
 
+```odata-filter-expr
     $filter=LastRenovationDate ge 2010-01-01T00:00:00-08:00
+```
 
 Find all hotels that have parking included and where all rooms are non-smoking:
 
+```odata-filter-expr
     $filter=ParkingIncluded and Rooms/all(room: not room/SmokingAllowed)
+```
 
  \- OR -  
 
+```odata-filter-expr
     $filter=ParkingIncluded eq true and Rooms/all(room: room/SmokingAllowed eq false)
+```
 
 Find all hotels that are Luxury or include parking and have a rating of 5:  
 
+```odata-filter-expr
     $filter=(Category eq 'Luxury' or ParkingIncluded eq true) and Rating eq 5
+```
 
 Find all hotels with the tag "wifi" in at least one room (where each room has tags stored in a `Collection(Edm.String)` field):  
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/Tags/any(tag: tag eq 'wifi'))
+```
 
 Find all hotels with any rooms:  
 
+```odata-filter-expr
     $filter=Rooms/any()
+```
 
 Find all hotels that don't have rooms:
 
+```odata-filter-expr
     $filter=not Rooms/any()
+```
 
 Find all hotels within 10 kilometers of a given reference point (where `Location` is a field of type `Edm.GeographyPoint`):
 
+```odata-filter-expr
     $filter=geo.distance(Location, geography'POINT(-122.131577 47.678581)') le 10
+```
 
-Find all hotels within a given viewport described as a polygon (where `Location` is a field of type Edm.GeographyPoint). The polygon must be closed, meaning the first and last point sets must be the same. Also, [the points must be listed in counterclockwise order](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+Find all hotels within a given viewport described as a polygon (where `Location` is a field of type Edm.GeographyPoint). The polygon must be closed, meaning the first and last point sets must be the same. Also, [the points must be listed in counterclockwise order](/rest/api/searchservice/supported-data-types#Anchor_1).
 
+```odata-filter-expr
     $filter=geo.intersects(Location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
+```
 
 Find all hotels where the "Description" field is null. The field will be null if it was never set, or if it was explicitly set to null:  
 
+```odata-filter-expr
     $filter=Description eq null
+```
 
 Find all hotels with name equal to either 'Sea View motel' or 'Budget hotel'). These phrases contain spaces, and space is a default delimiter. You can specify an alternative delimiter in single quotes as the third string parameter:  
 
+```odata-filter-expr
     $filter=search.in(HotelName, 'Sea View motel,Budget hotel', ',')
+```
 
 Find all hotels with name equal to either 'Sea View motel' or 'Budget hotel' separated by '|'):  
 
+```odata-filter-expr
     $filter=search.in(HotelName, 'Sea View motel|Budget hotel', '|')
+```
 
 Find all hotels where all rooms have the tag 'wifi' or 'tub':
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'wifi, tub'))
+```
 
 Find a match on phrases within a collection, such as 'heated towel racks' or 'hairdryer included' in tags.
 
+```odata-filter-expr
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
+```
 
-Find documents with the word "waterfront". This filter query is identical to a [search request](https://docs.microsoft.com/rest/api/searchservice/search-documents) with `search=waterfront`.
+Find documents with the word "waterfront". This filter query is identical to a [search request](/rest/api/searchservice/search-documents) with `search=waterfront`.
 
+```odata-filter-expr
     $filter=search.ismatchscoring('waterfront')
+```
 
 Find documents with the word "hostel" and rating greater or equal to 4, or documents with the word "motel" and rating equal to 5. This request couldn't be expressed without the `search.ismatchscoring` function since it combines full-text search with filter operations using `or`.
 
+```odata-filter-expr
     $filter=search.ismatchscoring('hostel') and rating ge 4 or search.ismatchscoring('motel') and rating eq 5
+```
 
 Find documents without the word "luxury".
 
+```odata-filter-expr
     $filter=not search.ismatch('luxury')
+```
 
 Find documents with the phrase "ocean view" or rating equal to 5. The `search.ismatchscoring` query will be executed only against fields `HotelName` and `Description`. Documents that matched only the second clause of the disjunction will be returned too -- hotels with `Rating` equal to 5. Those documents will be returned with score equal to zero to make it clear that they didn't match any of the scored parts of the expression.
 
+```odata-filter-expr
     $filter=search.ismatchscoring('"ocean view"', 'Description,HotelName') or Rating eq 5
+```
 
 Find hotels where the terms "hotel" and "airport" are no more than five words apart in the description, and where all rooms are non-smoking. This query uses the [full Lucene query language](query-lucene-syntax.md).
 
+```odata-filter-expr
     $filter=search.ismatch('"hotel airport"~5', 'Description', 'full', 'any') and not Rooms/any(room: room/SmokingAllowed)
+```
 
 ## Next steps  
 
 - [Filters in Azure Cognitive Search](search-filters.md)
 - [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
 - [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)

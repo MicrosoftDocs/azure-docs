@@ -3,14 +3,14 @@ title: General purpose and business critical service tiers
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: The article discusses the general purpose and business critical service tiers in the vCore-based purchasing model used by Azure SQL Database and Azure SQL Managed Instance. 
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 01/30/2020
 ---
 # Azure SQL Database and Azure SQL Managed Instance service tiers
@@ -31,7 +31,7 @@ This article discusses differences between the service tiers, storage and backup
 
 The following table describes the key differences between service tiers for the latest generation (Gen5). Note that service tier characteristics might be different in SQL Database and SQL Managed Instance.
 
-| | Resource type | General Purpose |  Hyperscale | Business Critical |
+|-| Resource type | General Purpose |  Hyperscale | Business Critical |
 |:---:|:---:|:---:|:---:|:---:|
 | **Best for** | |  Offers budget oriented balanced compute and storage options. | Most business workloads. Auto-scaling storage size up to 100 TB, fluid vertical and horizontal compute scaling, fast database restore. | OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
 |  **Available in resource type:** ||SQL Database / SQL Managed Instance | Single Azure SQL Database | SQL Database / SQL Managed Instance |
@@ -78,7 +78,7 @@ The following factors affect the amount of storage used for data and log files, 
 > [!IMPORTANT]
 > You are charged for the total storage allocated for MDF and LDF files.
 
-To monitor the current total size of your MDF and LDF files, use [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). To monitor the current size of the individual MDF and LDF files, use [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
+To monitor the current total size of your MDF and LDF files, use [sp_spaceused](/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). To monitor the current size of the individual MDF and LDF files, use [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
@@ -96,5 +96,4 @@ For details about the specific compute and storage sizes available in the genera
 
 - [vCore-based resource limits for Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [vCore-based resource limits for pooled databases in Azure SQL Database](resource-limits-vcore-elastic-pools.md).
-- [vCore-based resource limits for Azure SQL Managed Instance](../managed-instance/resource-limits.md). 
-
+- [vCore-based resource limits for Azure SQL Managed Instance](../managed-instance/resource-limits.md).

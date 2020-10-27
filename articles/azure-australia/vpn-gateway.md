@@ -5,7 +5,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: article
 ms.date: 07/22/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # Azure VPN Gateway in Azure Australia
@@ -42,7 +42,7 @@ VPN gateways can control encryption and integrity by configuring a custom IPsec/
 
 ### Resource operations
 
-VPN gateways create a connection between Azure and non-Azure environments over the public internet. The ISM has controls that relate to the explicit authorization of connections. By default, it's possible to use VPN gateways to create unauthorized tunnels into secure environments. It's critical that organizations use Azure role-based access control (RBAC) to control who can create and modify VPN gateways and their connections. Azure has no built-in role to manage VPN gateways, so a custom role is required.
+VPN gateways create a connection between Azure and non-Azure environments over the public internet. The ISM has controls that relate to the explicit authorization of connections. By default, it's possible to use VPN gateways to create unauthorized tunnels into secure environments. It's critical that organizations use Azure role-based access control (Azure RBAC) to control who can create and modify VPN gateways and their connections. Azure has no built-in role to manage VPN gateways, so a custom role is required.
 
 Access to Owner, Contributor, and Network Contributor roles is tightly controlled. We also recommend that you use Azure Active Directory Privileged Identity Management for more granular access control.
 
@@ -110,7 +110,7 @@ When you design and configure an Azure VPN gateway, a number of related services
 
 ## Implementation steps using PowerShell
 
-### Role-based access control
+### Azure role-based access control
 
 1. Create a custom role. An example is virtualNetworkGateway Contributor. Create a role to be assigned to users who will be allowed to create and modify VPN gateways. The custom role should allow the following operations:
 

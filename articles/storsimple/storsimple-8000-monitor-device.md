@@ -3,7 +3,7 @@ title: Monitor your StorSimple 8000 series device
 description: Describes how to use the StorSimple Device Manager service to monitor usage, I/O performance, and capacity utilization.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
 
@@ -72,7 +72,7 @@ If you are running Update 3 or higher, you can break down the primary storage ca
 
 You can further click on each of the volumes in the list and see the corresponding usage.
 
-![Primary capacity utilization for all locally pinned volumes](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
+![Primary capacity utilization for all locally pinned volumes 2](./media/storsimple-8000-monitor-device/device-primary-storage-usage-by-volume.png)
 
 ### Cloud storage usage
 These charts show the amount of cloud storage used. This data is deduplicated and compressed. This amount includes cloud snapshots which might contain data that isn't reflected in any primary volume and is kept for legacy or required retention purposes. You can compare the primary and cloud storage consumption figures to get an idea of the data reduction rate, although the number will not be exact.

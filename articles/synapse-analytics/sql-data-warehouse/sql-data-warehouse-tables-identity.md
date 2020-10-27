@@ -6,8 +6,8 @@ author:  XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
-ms.date: 04/30/2019
+ms.subservice: sql-dw 
+ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
@@ -15,11 +15,14 @@ ms.custom: seo-lt-2019, azure-synapse
 
 # Using IDENTITY to create surrogate keys in Synapse SQL pool
 
-Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Synapse SQL pool.
+In this article, you'll find recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Synapse SQL pool.
 
 ## What is a surrogate key
 
-A surrogate key on a table is a column with a unique identifier for each row. The key is not generated from the table data. Data modelers like to create surrogate keys on their tables when they design data warehouse models. You can use the IDENTITY property to achieve this goal simply and effectively without affecting load performance.  
+A surrogate key on a table is a column with a unique identifier for each row. The key is not generated from the table data. Data modelers like to create surrogate keys on their tables when they design data warehouse models. You can use the IDENTITY property to achieve this goal simply and effectively without affecting load performance.
+> [!NOTE]
+> In Azure Synapse Analytics, the IDENTITY value increases on its own in each distribution and does not overlap with IDENTITY values in other distributions.  The IDENTITY value in Synapse is not guaranteed to be unique if the user explicitly inserts a duplicate value with “SET IDENTITY_INSERT ON” or reseeds IDENTITY. For details, see [CREATE TABLE (Transact-SQL) IDENTITY (Property)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). 
+
 
 ## Creating a table with an IDENTITY column
 
@@ -45,7 +48,7 @@ This remainder of this section highlights the nuances of the implementation to h
 
 ### Allocation of values
 
-The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated, which reflects the behavior of SQL Server and Azure SQL Database. However, in Synapse SQL pool, the absence of a guarantee is more pronounced.
+The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated due to the distributed architecture of the data warehouse. The IDENTITY property is designed to scale out across all the distributions in the Synapse SQL pool without affecting load performance. 
 
 The following example is an illustration:
 

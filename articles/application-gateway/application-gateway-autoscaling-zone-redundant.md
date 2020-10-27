@@ -4,7 +4,7 @@ description: This article introduces the Azure Application Standard_v2 and WAF_v
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
@@ -12,11 +12,11 @@ ms.custom: fasttrack-edit, references_regions
 
 # Autoscaling and Zone-redundant Application Gateway v2 
 
-Application Gateway and Web Application Firewall (WAF) are also available under a Standard_v2 and WAF_v2 SKU. The v2 SKU offers performance enhancements and adds support for critical new features like autoscaling, zone redundancy, and support for static VIPs. Existing features under the Standard and WAF SKU continue to be supported in the new v2 SKU, with a few exceptions listed in [comparison](#differences-from-v1-sku) section.
+Application Gateway is available under a Standard_v2 SKU. Web Application Firewall (WAF) is available under a WAF_v2 SKU. The v2 SKU offers performance enhancements and adds support for critical new features like autoscaling, zone redundancy, and support for static VIPs. Existing features under the Standard and WAF SKU continue to be supported in the new v2 SKU, with a few exceptions listed in [comparison](#differences-from-v1-sku) section.
 
 The new v2 SKU includes the following enhancements:
 
-- **Autoscaling**: Application Gateway or WAF deployments under the autoscaling SKU can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. This SKU offers true elasticity. In the Standard_v2 and WAF_v2 SKU, Application Gateway can operate both in fixed capacity (autoscaling disabled) and in autoscaling enabled mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Autoscaling mode is beneficial in applications that see variance in application traffic.
+- **Autoscaling**: Application Gateway or WAF deployments under the autoscaling SKU can scale out or in based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. This SKU offers true elasticity. In the Standard_v2 and WAF_v2 SKU, Application Gateway can operate both in fixed capacity (autoscaling disabled) and in autoscaling enabled mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Autoscaling mode is beneficial in applications that see variance in application traffic.
 - **Zone redundancy**: An Application Gateway or WAF deployment can span multiple Availability Zones, removing the need to provision separate Application Gateway instances in each zone with a Traffic Manager. You can choose a single zone or multiple zones where Application Gateway instances are deployed, which makes it more resilient to zone failure. The backend pool for applications can be similarly distributed across availability zones.
 
   Zone redundancy is available only where Azure Zones are available. In other regions, all other features are supported. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md)
@@ -42,87 +42,7 @@ With the v2 SKU, the pricing model is driven by consumption and is no longer att
 
 Each capacity unit is composed of at most: 1 compute unit, 2500 persistent connections, and 2.22-Mbps throughput.
 
-Compute unit guidance:
-
-- **Standard_v2** - Each compute unit is capable of approximately 50 connections per second with RSA 2048-bit key TLS certificate.
-- **WAF_v2** - Each compute unit can support approximately 10 concurrent requests per second for 70-30% mix of traffic with 70% requests less than 2 KB GET/POST and remaining higher. WAF performance is not affected by response size currently.
-
-> [!NOTE]
-> Each instance can currently support approximately 10 capacity units.
-> The number of requests a compute unit can handle depends on various criteria like TLS certificate key size, key exchange algorithm, header rewrites, and in case of WAF incoming request size. We recommend you perform application tests to determine request rate per compute unit. Both capacity unit and compute unit will be made available as a metric before billing starts.
-
-The following table shows example prices and are for illustration purposes only.
-
-**Pricing in US East**:
-
-|              SKU Name                             | Fixed price ($/hr)  | Capacity Unit price ($/CU-hr)   |
-| ------------------------------------------------- | ------------------- | ------------------------------- |
-| Standard_v2                                       |    0.20             | 0.0080                          |
-| WAF_v2                                            |    0.36             | 0.0144                          |
-
-For more pricing information, see the [pricing page](https://azure.microsoft.com/pricing/details/application-gateway/). 
-
-**Example 1**
-
-An Application Gateway Standard_v2 is provisioned without autoscaling in manual scaling mode with fixed capacity of five instances.
-
-Fixed price = 744(hours) * $0.20 = $148.8 <br>
-Capacity units = 744 (hours) * 10 capacity unit per instance * 5 instances * $0.008 per capacity unit hour = $297.6
-
-Total price = $148.8 + $297.6 = $446.4
-
-**Example 2**
-
-An Application Gateway standard_v2 is provisioned for a month, with zero minimum instances, and during this time it receives 25 new TLS connections/sec, average of 8.88-Mbps data transfer. Assuming connections are short lived, your price would be:
-
-Fixed price = 744(hours) * $0.20 = $148.8
-
-Capacity unit price = 744(hours) * Max (25/50 compute unit for connections/sec, 8.88/2.22 capacity unit for throughput) * $0.008 = 744 * 4 * 0.008 = $23.81
-
-Total price = $148.8+23.81 = $172.61
-
-As you can see, you are only billed for four Capacity Units, not for the entire instance. 
-
-> [!NOTE]
-> The Max function returns the largest value in a pair of values.
-
-
-**Example 3**
-
-An Application Gateway standard_v2 is provisioned for a month, with a minimum of five instances. Assuming that there is no traffic and connections are short lived, your price would be:
-
-Fixed price = 744(hours) * $0.20 = $148.8
-
-Capacity unit price = 744(hours) * Max (0/50 compute unit for connections/sec, 0/2.22 capacity unit for throughput) * $0.008 = 744 * 50 * 0.008 = $297.60
-
-Total price = $148.80+297.60 = $446.4
-
-In this case, you're billed for the entirety of the five instances even though there is no traffic.
-
-**Example 4**
-
-An Application Gateway standard_v2 is provisioned for a month, with a minimum of five instances, but this time there is an average of 125-mbps data transfer, and 25 TLS connections per second. Assuming that there is no traffic and connections are short lived, your price would be:
-
-Fixed price = 744(hours) * $0.20 = $148.8
-
-Capacity unit price = 744(hours) * Max (25/50 compute unit for connections/sec, 125/2.22 capacity unit for throughput) * $0.008 = 744 * 57 * 0.008 = $339.26
-
-Total price = $148.80+339.26 = $488.06
-
-In this case, you are billed for the full five instances, plus seven Capacity Units (which is 7/10 of an instance).  
-
-**Example 5**
-
-An Application Gateway WAF_v2 is provisioned for a month. During this time, it receives 25 new TLS connections/sec, average of 8.88-Mbps data transfer and does 80 request per second. Assuming connections are short lived, and that compute unit calculation for the application supports 10 RPS per compute unit, your price would be:
-
-Fixed price = 744(hours) * $0.36 = $267.84
-
-Capacity unit price = 744(hours) * Max (compute unit Max(25/50 for connections/sec, 80/10 WAF RPS), 8.88/2.22 capacity unit for throughput) * $0.0144 = 744 * 8 * 0.0144 = $85.71
-
-Total price = $267.84 + $85.71 = $353.55
-
-> [!NOTE]
-> The Max function returns the largest value in a pair of values.
+To learn more, see [Understanding pricing](understanding-pricing.md).
 
 ## Scaling Application Gateway and WAF v2
 
@@ -143,7 +63,7 @@ However, creating a new instance can take some time (around six or seven minutes
 
 The following table compares the features available with each SKU.
 
-|                                                   | v1 SKU   | v2 SKU   |
+| Feature                                           | v1 SKU   | v2 SKU   |
 | ------------------------------------------------- | -------- | -------- |
 | Autoscaling                                       |          | &#x2713; |
 | Zone redundancy                                   |          | &#x2713; |
@@ -175,7 +95,7 @@ This section describes features and limitations of the v2 SKU that differ from t
 |--|--|
 |Authentication certificate|Not supported.<br>For more information, see [Overview of end to end TLS with Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Mixing Standard_v2 and Standard Application Gateway on the same subnet|Not supported|
-|User-Defined Route (UDR) on Application Gateway subnet|Supported (specific scenarios). In preview.<br> For more information about supported scenarios, see [Application Gateway configuration overview](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
+|User-Defined Route (UDR) on Application Gateway subnet|Supported (specific scenarios). In preview.<br> For more information about supported scenarios, see [Application Gateway configuration overview](configuration-infrastructure.md#supported-user-defined-routes).|
 |NSG for Inbound port range| - 65200 to 65535 for Standard_v2 SKU<br>- 65503 to 65534 for Standard SKU.<br>For more information, see the [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Performance logs in Azure diagnostics|Not supported.<br>Azure metrics should be used.|
 |Billing|Billing scheduled to start on July 1, 2019.|

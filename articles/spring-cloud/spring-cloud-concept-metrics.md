@@ -4,9 +4,10 @@ description: Learn how to review metrics in Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 09/08/2020
 ms.author: brendm
-
+ms.custom: devx-track-java
+zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # Understand metrics for Azure Spring Cloud
@@ -86,73 +87,96 @@ The following tables show the available metrics and details.
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
->| Tomcat Global Error (deprecated)<br><br>(to be removed after July 1st, 2020)  | tomcat.global.error | Count | Number of errors that occurred in processed requests |
 >| tomcat.global.error | tomcat.global.error | Count | Number of errors that occurred in processed requests |
 
 ### Performance
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
->| System CPU Usage Percentage (deprecated)<br><br>(to be removed after July 1st, 2020) | system.cpu.usage | Percent | Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed.|
 >| system.cpu.usage | system.cpu.usage | Percent | Recent CPU usage for the whole system. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed.|
->| App CPU Usage Percentage (deprecated)<br><br>(removed after July 1st 2020) | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
 >| process.cpu.usage | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
->| App Memory Assigned (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.memory.committed | Bytes | Represents the amount of memory that is guaranteed to be available for use by the JVM. The JVM may release memory to the system and committed memory could be less than initial memory. Committed memory will always be greater than or equal to memory used. |
 >| jvm.memory.committed | jvm.memory.committed | Bytes | Represents the amount of memory that is guaranteed to be available for use by the JVM. The JVM may release memory to the system and committed could be less than init. committed will always be greater than or equal to used. |
->| App Memory Used (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.memory.used | Bytes | Represents the amount of memory currently used in bytes. |
 >| jvm.memory.used | jvm.memory.used | Bytes | Represents the amount of memory currently used in bytes. |
->| App Memory Max (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.memory.max | Bytes | Represents the maximum amount of memory that can be used for memory management. The amount of used and committed memory will always be less than or equal to max if max is defined. A memory allocation may fail if it attempts to increase the used memory such that used > committed even if used <= max would still be true (for example, when the system is low on virtual memory). |
 >| jvm.memory.max | jvm.memory.max | Bytes | Represents the maximum amount of memory that can be used for memory management. The amount of used and committed memory will always be less than or equal to max if max is defined. A memory allocation may fail if it attempts to increase the used memory such that used > committed even if used <= max would still be true (for example, when the system is low on virtual memory). |
->| Max Available Old Generation Data Size (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.gc.max.data.size | Bytes | The peak memory usage of the old generation memory pool since the Java virtual machine was started. |
 >| jvm.gc.max.data.size | jvm.gc.max.data.size | Bytes | The peak memory usage of the old generation memory pool since the Java virtual machine was started. |
->| Old Generation Data Size (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.gc.live.data.size | Bytes | Size of old generation memory pool after a full GC. |
 >| jvm.gc.live.data.size | jvm.gc.live.data.size | Bytes | Size of old generation memory pool after a full GC. |
->| Old Generation Data Size (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.gc.memory.promoted | Bytes | Count of positive increases in the size of the old generation memory pool before GC to after GC. |
 >| jvm.gc.memory.promoted | jvm.gc.memory.promoted | Bytes | Count of positive increases in the size of the old generation memory pool before GC to after GC. |
->| Promote to Young Generation Data Size (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.gc.memory.allocated | Bytes | Incremented for an increase in the size of the young generation memory pool after one GC to before the next. |
 >| jvm.gc.memory.allocated | jvm.gc.memory.allocated | Bytes | Incremented for an increase in the size of the young generation memory pool after one GC to before the next. |
->| GC Pause Count (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.gc.pause (total-count) | Count | Total GC count after this JMV started, including Young and Old GC. |
 >| jvm.gc.pause.total.count | jvm.gc.pause (total-count) | Count | Total GC count after this JMV started, including Young and Old GC. |
->| GC Pause Total Time (deprecated)<br><br>(to be removed after July 1st, 2020) | jvm.gc.pause (total-time) | Milliseconds | Total GC time consumed after this JMV started, including Young and Old GC. |
 >| jvm.gc.pause.total.time | jvm.gc.pause (total-time) | Milliseconds | Total GC time consumed after this JMV started, including Young and Old GC. |
+
+::: zone pivot="programming-language-csharp"
+### Performance (.NET)
+
+>[!div class="mx-tdCol2BreakAll"]
+>| Name | Spring Actuator Metric Name | Unit | Details |
+>|------|-----------------------------|------|---------|
+>| CPU usage       | cpu-usage      | Milliseconds | Amount of time the process has utilized the CPU. |
+>| Working set     | working-set    | Megabytes    | Amount of working set used by the process. |
+>| GC heap size    | gc-heap-size   | Megabytes    | Total heap size reported by the garbage collector. |
+>| Gen 0 GC count  | gen-0-gc-count | Count        | Number of Generation 0 garbage collections per second. |
+>| Gen 1 GC count  | gen-1-gc-count | Count        | Number of Generation 1 garbage collections per second. |
+>| Gen 2 GC count  | gen-2-gc-count | Count        | Number of Generation 2 garbage collections per second. |
+>| Gen 0 heap size | gen-0-size     | Bytes        | Generation 0 heap size. |
+>| Gen 1 heap size | gen-1-size     | Bytes        | Generation 1 heap size. |
+>| Gen 2 heap size | gen-2-size     | Bytes        | Generation 2 heap size. |
+>| LOH heap size   | loh-size       | Bytes        | Large Object Heap heap size. |
+>| Allocation rate | alloc-rate     | Bytes        | Number of bytes allocated per second. |
+>| Assembly count  | assembly-count | Count        | Number of assemblies loaded. |
+>| Exception count | exception-count | Count       | Number of exceptions per second. |
+>| Thread pool thread count      | threadpool-thread-count              | Count | Number of thread pool threads. |
+>| Monitor lock contention count | monitor-lock-contention-count        | Count | The number of times per second there was contention when trying to take a monitor's lock. |
+>| Thread pool queue length      | threadpool-queue-length              | Count | Thread pool work items queue length. |
+>| Thread pool completed items count | threadpool-completed-items-count | Count | Thread pool completed work items count. |
+>| Active timers count               | active-timer-count               | Count | The number of timers that are currently active. An active timer is one that is registered to tick at some point in the future, and has not yet been canceled. |
+
+For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-counters).
+::: zone-end
 
 ### Request
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
->| Tomcat Total Sent Bytes (deprecated)<br><br>(removed after July 1st 2020) | tomcat.global.sent | Bytes | Amount of data Tomcat web server sent |
 >| tomcat.global.sent | tomcat.global.sent | Bytes | Amount of data Tomcat web server sent |
->| Tomcat Total Received Bytes (deprecated)<br><br>(removed after July 1st 2020) | tomcat.global.received | Bytes | Amount of data Tomcat web server received |
 >| tomcat.global.received | tomcat.global.received | Bytes | Amount of data Tomcat web server received |
->| Tomcat Request Total Time (deprecated)<br><br>(removed after July 1st 2020) | tomcat.global.request (total-time) | Milliseconds | Total time of Tomcat web server to process the requests |
->| Tomcat Request Total Count (deprecated)<br><br>(removed after July 1st 2020) | tomcat.global.request (total-count) | Count | Total count of Tomcat web server processed requests |
 >| tomcat.global.request.total.count | tomcat.global.request (total-count) | Count | Total count of Tomcat web server processed requests |
->| Tomcat Request Max Time (deprecated)<br><br>(removed after July 1st 2020) | tomcat.global.request.max | Milliseconds | Maximum time of Tomcat web server to process a request |
 >| tomcat.global.request.max | tomcat.global.request.max | Milliseconds | Maximum time of Tomcat web server to process a request |
+
+::: zone pivot="programming-language-csharp"
+### Request (.NET)
+
+>[!div class="mx-tdCol2BreakAll"]
+>| Name | Spring Actuator Metric Name | Unit | Details |
+>|------|-----------------------------|------|---------|
+>| Requests per second | requests-per-second | Count | Request rate. |
+>| Total requests | total-requests | Count | Total number of requests. |
+>| Current requests | current-requests | Count | Number of current requests. |
+>| Failed requests | failed-requests | Count | Number of failed requests. |
+
+For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-counters).
+::: zone-end
 
 ### Session
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
->| Tomcat Session Max Active Count (deprecated)<br><br>(removed after July 1st 2020) | tomcat.sessions.active.max | Count | Maximum number of sessions that have been active at the same time |
 >| tomcat.sessions.active.max | tomcat.sessions.active.max | Count | Maximum number of sessions that have been active at the same time |
->| Tomcat Session Max Alive Time (deprecated)<br><br>(removed after July 1st 2020) | tomcat.sessions.alive.max | Milliseconds | Longest time (in seconds) that an expired session was alive |
 >| tomcat.sessions.alive.max | tomcat.sessions.alive.max | Milliseconds | Longest time (in seconds) that an expired session was alive |
->| Tomcat Session Created Count (deprecated)<br><br>(removed after July 1st 2020) | tomcat.sessions.created | Count | Number of sessions that have been created |
 >| tomcat.sessions.created | tomcat.sessions.created | Count | Number of sessions that have been created |
->| Tomcat Session Expired Count (deprecated)<br><br>(removed after July 1st 2020) | tomcat.sessions.expired | Count | Number of sessions that have expired |
 >| tomcat.sessions.expired | tomcat.sessions.expired | Count | Number of sessions that have expired |
->| Tomcat Session Rejected Count (deprecated)<br><br>(removed after July 1st 2020) | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
 >| tomcat.sessions.rejected | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Tomcat Session Active Count |
 
 ## See also
-* [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
 
-* [Analyze logs and metrics with diagnostics settings](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
+* [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
+
+* [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md)
+
+* [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
 
 ## Next steps
-* [Tutorial: Monitor Spring Cloud resources using alerts and action groups](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
 
-* [Quotas and Service Plans for Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)
+* [Tutorial: Monitor Spring Cloud resources using alerts and action groups](./spring-cloud-tutorial-alerts-action-groups.md)
 
+* [Quotas and Service Plans for Azure Spring Cloud](./spring-cloud-quotas.md)

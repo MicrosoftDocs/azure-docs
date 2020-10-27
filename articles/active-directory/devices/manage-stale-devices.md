@@ -5,7 +5,7 @@ description: Learn how to remove stale devices from your database of registered 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 
 ms.author: joflore
@@ -56,7 +56,7 @@ You have two options to retrieve the value of the activity timestamp:
 
     ![Activity timestamp](./media/manage-stale-devices/01.png)
 
-- The [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet
+- The [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice) cmdlet
 
     ![Activity timestamp](./media/manage-stale-devices/02.png)
 
@@ -88,7 +88,7 @@ If your device is under control of Intune or any other MDM solution, retire the 
 
 ### System-managed devices
 
-Don't delete system-managed devices. These are generally devices such as Autopilot. Once deleted, these devices can't be reprovisioned. The new `get-msoldevice` cmdlet excludes system-managed devices by default. 
+Don't delete system-managed devices. These are generally devices such as Autopilot. Once deleted, these devices can't be reprovisioned. The new `Get-AzureADDevice` cmdlet excludes system-managed devices by default. 
 
 ### Hybrid Azure AD joined devices
 
@@ -128,26 +128,25 @@ While you can cleanup stale devices in the Azure portal, it is more efficient, t
 
 A typical routine consists of the following steps:
 
-1. Connect to Azure Active Directory using the [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) cmdlet
+1. Connect to Azure Active Directory using the [Connect-AzureAD](/powershell/module/azuread/connect-azuread) cmdlet
 1. Get the list of devices
-1. Disable the device using the [Disable-MsolDevice](/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) cmdlet. 
+1. Disable the device using the [Set-AzureADDevice](/powershell/module/azuread/Set-AzureADDevice) cmdlet (disable by using -AccountEnabled option). 
 1. Wait for the grace period of however many days you choose before deleting the device.
-1. Remove the device using the [Remove-MsolDevice](/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet.
+1. Remove the device using the [Remove-AzureADDevice](/powershell/module/azuread/Remove-AzureADDevice) cmdlet.
 
 ### Get the list of devices
 
 To get all devices and store the returned data in a CSV file:
 
 ```PowerShell
-Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, Approxi
-mateLastLogonTimestamp | export-csv devicelist-summary.csv
+Get-AzureADDevice -All:$true | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
 If you have a large number of devices in your directory, use the timestamp filter to narrow down the number of returned devices. To get all devices with a timestamp older than specific date and store the returned data in a CSV file: 
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
-Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
 ## What you should know
@@ -162,10 +161,10 @@ When configured, BitLocker keys for Windows 10 devices are stored on the device 
 
 ### Why should I worry about Windows Autopilot devices?
 
-When a Azure AD device was associated with a Windows Autopilot object the following three scenarios can occur if the device will be repurposed in future:
-- With Windows Autopilot user-driven deployments without using white glove, a new Azure AD device will be created, but it won’t be tagged with the ZTDID.
+When you delete an Azure AD device that was associated with a Windows Autopilot object the following three scenarios can occur if the device will be repurposed in future:
+- With Windows Autopilot user-driven deployments without using pre-provisioning, a new Azure AD device will be created, but it won’t be tagged with the ZTDID.
 - With Windows Autopilot self-deploying mode deployments, they will fail because an associate Azure AD device cannot be found.  (This is a security mechanism to make sure that no “imposter” devices try to join Azure AD with no credentials.) The failure will indicate a ZTDID mismatch.
-- With Windows Autopilot white glove deployments, they will fail because an associated Azure AD device cannot be found. (Behind the scenes, white glove deployments use the same self-deploying mode process, so they enforce the same security mechanisms.)
+- With Windows Autopilot pre-provisioning deployments, they will fail because an associated Azure AD device cannot be found. (Behind the scenes, pre-provisioning deployments use the same self-deploying mode process, so they enforce the same security mechanisms.)
 
 ### How do I know all the type of devices joined?
 
@@ -175,9 +174,9 @@ To learn more about the different types, see the [device management overview](ov
 
 Any authentication where a device is being used to authenticate to Azure AD are denied. Common examples are:
 
-- **Hybrid Azure AD joined device** - Users might be able to use the device to sign-in to their on-premises domain. However, they can't access Azure AD resources such as Office 365.
+- **Hybrid Azure AD joined device** - Users might be able to use the device to sign-in to their on-premises domain. However, they can't access Azure AD resources such as Microsoft 365.
 - **Azure AD joined device** - Users can't use the device to sign in. 
-- **Mobile devices** - User can't access Azure AD resources such as Office 365. 
+- **Mobile devices** - User can't access Azure AD resources such as Microsoft 365. 
 
 ## Next steps
 

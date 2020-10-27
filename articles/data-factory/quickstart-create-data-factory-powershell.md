@@ -1,6 +1,6 @@
 ﻿---
 title: Copy data in Blob Storage using Azure Data Factory 
-description: Create an Azure data factory to copy data from one location in Azure Blob storage to another location.
+description: Create an Azure data factory using PowerShell to copy data from one location in Azure Blob storage to another location.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -110,8 +110,8 @@ Note the following points:
 Create linked services in a data factory to link your data stores and compute services to the data factory. In this quickstart, you create an Azure Storage linked service that is used as both the source and sink stores. The linked service has the connection information that the Data Factory service uses at runtime to connect to it.
 
 >[!TIP]
->In this quickstart, you use *Account key* as the authentication type for your data store, but you can choose other supported authentication methods: *SAS URI*,*Service Principal* and *Managed Identity* if needed. Refer to corresponding sections in [this article](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties) for details.
->To store secrets for data stores securely, it's also recommended to use an Azure Key Vault. Refer to [this article](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) for detailed illustrations.
+>In this quickstart, you use *Account key* as the authentication type for your data store, but you can choose other supported authentication methods: *SAS URI*,*Service Principal* and *Managed Identity* if needed. Refer to corresponding sections in [this article](./connector-azure-blob-storage.md#linked-service-properties) for details.
+>To store secrets for data stores securely, it's also recommended to use an Azure Key Vault. Refer to [this article](./store-credentials-in-key-vault.md) for detailed illustrations.
 
 1. Create a JSON file named **AzureStorageLinkedService.json** in **C:\ADFv2QuickStartPSH** folder with the following content: (Create the folder ADFv2QuickStartPSH if it does not already exist.).
 

@@ -5,10 +5,10 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice:
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Create and use views in SQL on-demand (preview) using Azure Synapse Analytics

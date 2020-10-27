@@ -3,7 +3,7 @@ title: Use the Batch Management .NET library to manage account resources
 description: Create, delete, and modify Azure Batch account resources with the Batch Management .NET library.
 ms.topic: how-to
 ms.date: 04/24/2017
-ms.custom: seodec18, has-adal-ref
+ms.custom: "seodec18, has-adal-ref, devx-track-csharp"
 ---
 # Manage Batch accounts and quotas with the Batch Management client library for .NET
 
@@ -159,28 +159,28 @@ To run the sample application successfully, you must first register it with your
 
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "What is Azure Active Directory?"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
+[aad_adal]: ../active-directory/azuread-dev/active-directory-authentication-libraries.md
 [aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Authentication Scenarios for Azure AD"
 [aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Integrating Applications with Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
-[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
-[api_mgmt_net]: https://msdn.microsoft.com/library/azure/mt463120.aspx
+[api_net]: /dotnet/api/microsoft.azure.batch
+[api_mgmt_net]: /dotnet/api/overview/azure/batch
 [azure_portal]: https://portal.azure.com
 [azure_storage]: https://azure.microsoft.com/services/storage/
-[azure_tokencreds]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.tokencloudcredentials.aspx
+[azure_tokencreds]: /previous-versions/azure/reference/mt167728(v=azure.100)
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
-[net_list_keys]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.accountoperationsextensions.listkeysasync.aspx
-[net_create]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.accountoperationsextensions.createasync.aspx
-[net_delete]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.accountoperationsextensions.deleteasync.aspx
-[net_regenerate_keys]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.accountoperationsextensions.regeneratekeyasync.aspx
-[net_sharedkeycred]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.auth.batchsharedkeycredentials.aspx
-[net_mgmt_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.batchmanagementclient.aspx
-[net_mgmt_subscriptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.batchmanagementclient.subscriptions.aspx
-[net_mgmt_listaccounts]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.batch.iaccountoperations.listasync.aspx
-[resman_api]: https://msdn.microsoft.com/library/azure/mt418626.aspx
-[resman_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx
-[resman_subclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.subscriptions.subscriptionclient.aspx
+[net_batch_client]: /dotnet/api/microsoft.azure.batch.batchclient
+[net_list_keys]: /previous-versions/azure/mt463199(v=azure.100)
+[net_create]: /previous-versions/azure/mt463210(v=azure.100)
+[net_delete]: /previous-versions/azure/mt463128(v=azure.100)
+[net_regenerate_keys]: /previous-versions/azure/mt463213(v=azure.100)
+[net_sharedkeycred]: /dotnet/api/microsoft.azure.batch.auth.batchsharedkeycredentials
+[net_mgmt_client]: /dotnet/api/microsoft.azure.management.batch.batchmanagementclient
+[net_mgmt_subscriptions]: /previous-versions/azure/mt592937(v=azure.100)
+[net_mgmt_listaccounts]: /previous-versions/azure/mt463134(v=azure.100)
+[resman_api]: /previous-versions/azure/mt463134(v=azure.100)
+[resman_client]: /dotnet/api/microsoft.azure.management.resourcemanager
+[resman_subclient]: /dotnet/api/microsoft.azure.management.resourcemanager
 [resman_overview]: ../azure-resource-manager/management/overview.md
 
 [1]: ./media/batch-management-dotnet/portal-01.png

@@ -4,7 +4,7 @@ description: Create your first Windows container application on Azure Service Fa
 
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Create your first Service Fabric container application on Windows
@@ -13,7 +13,7 @@ ms.custom: tracking-python
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to an Azure Service Fabric cluster. You will also share your containerized application through [Azure Container Registry](/azure/container-registry/). This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
+Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to an Azure Service Fabric cluster. You will also share your containerized application through [Azure Container Registry](../container-registry/index.yml). This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
 
 > [!NOTE]
 > This article applies to a Windows development environment.  The Service Fabric cluster runtime and the Docker runtime must be running on the same OS.  You cannot run Windows containers on a Linux cluster.
@@ -286,7 +286,7 @@ Starting with the latest refresh release of v6.4, you have the option to specify
 
 The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the Dockerfile used while generating the container image.
 
-![HealthCheckHealthy][3]
+![Screenshot shows details of the Deployed Service Package NodeServicePackage.][3]
 
 ![HealthCheckUnhealthyApp][4]
 
@@ -331,7 +331,7 @@ Open a browser and navigate to `http://containercluster.westus2.cloudapp.azure.c
 
 ## Clean up
 
-You continue to incur charges while the cluster is running, consider [deleting your cluster](service-fabric-cluster-delete.md).
+You continue to incur charges while the cluster is running, consider [deleting your cluster](./service-fabric-tutorial-delete-cluster.md).
 
 After you push the image to the container registry, you can delete the local image from your development computer:
 
@@ -348,7 +348,7 @@ Windows Server containers are not compatible across all versions of a host OS. F
 - Windows Server containers built using Windows Server 2016 work in Hyper-V isolation mode only on a host running Windows Server version 1709. 
 - With Windows Server containers built using Windows Server 2016, it might be necessary to ensure that the revision of the container OS and host OS are the same when running in process isolation mode on a host running Windows Server 2016.
  
-To learn more, see [Windows Container Version Compatibility](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+To learn more, see [Windows Container Version Compatibility](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
 Consider the compatibility of the host OS and your container OS when building and deploying containers to your Service Fabric cluster. For example:
 

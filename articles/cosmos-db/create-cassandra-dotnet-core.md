@@ -8,7 +8,8 @@ author: TheovanKraay
 ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/18/2020
+ms.date: 10/01/2020
+ms.custom: devx-track-dotnet
 ---
 
 # Quickstart: Build a Cassandra app with .NET Core and Azure Cosmos DB
@@ -129,13 +130,13 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](https://portal.azure.com/), select **Connection String**.
 
-    Use the ![Copy button](./media/create-cassandra-dotnet/copy.png) button on the right side of the screen to copy the USERNAME value.
+1. Use the :::image type="icon" source="./media/create-cassandra-dotnet/copy.png"::: button on the right side of the screen to copy the USERNAME value.
 
-    ![View and copy an access key in the Azure portal, Connection String page](./media/create-cassandra-dotnet/keys.png)
+   :::image type="content" source="./media/create-cassandra-dotnet/keys.png" alt-text="View and copy an access key in the Azure portal, Connection String page":::
 
-2. In Visual Studio, open the Program.cs file. 
+1. In Visual Studio, open the Program.cs file. 
 
-3. Paste the USERNAME value from the portal over `<PROVIDE>` on line 13.
+1. Paste the USERNAME value from the portal over `<PROVIDE>` on line 13.
 
     Line 13 of Program.cs should now look similar to 
 
@@ -145,14 +146,19 @@ Now go back to the Azure portal to get your connection string information and co
 
     `private const string CassandraContactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com"; //  DnsName`
 
-3. Go back to portal and copy the PASSWORD value. Paste the PASSWORD value from the portal over `<PROVIDE>` on line 14.
+1. Go back to portal and copy the PASSWORD value. Paste the PASSWORD value from the portal over `<PROVIDE>` on line 14.
 
     Line 14 of Program.cs should now look similar to 
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
 
+1. Go back to portal and copy the CONTACT POINT value. Paste the CONTACT POINT value from the portal over `<PROVIDE>` on line 16.
 
-4. Save the Program.cs file.
+    Line 16 of Program.cs should now look similar to 
+
+    `private const string CASSANDRACONTACTPOINT = "quickstart-cassandra-api.cassandra.cosmos.azure.com";`
+
+1. Save the Program.cs file.
     
 ## Run the .NET Core app
 
@@ -165,13 +171,13 @@ Now go back to the Azure portal to get your connection string information and co
     ```
 3. Press CTRL + F5 to run the application. Your app displays in your console window. 
 
-    ![View and verify the output](./media/create-cassandra-dotnet/output.png)
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="View and verify the output":::
 
     Press CTRL + C to stop execution of the program and close the console window. 
     
 4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data.
 
-    ![View the data in Data Explorer](./media/create-cassandra-dotnet/data-explorer.png)
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="View the data in Data Explorer":::
 
 ## Review SLAs in the Azure portal
 

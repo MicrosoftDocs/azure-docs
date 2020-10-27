@@ -9,13 +9,13 @@ manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2020
+ms.date: 07/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, devx-track-azurecli
 ---
 # View activity logs for Azure RBAC changes
 
@@ -76,6 +76,7 @@ $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              :
                           statusCode     : Created
                           serviceRequestId: 11111111-1111-1111-1111-111111111111
+                          eventCategory  : Administrative
 
 Caller                  : alain@example.com
 EventTimestamp          : 2/27/2020 9:18:05 PM
@@ -84,6 +85,18 @@ Properties              :
                           requestbody    : {"Id":"22222222-2222-2222-2222-222222222222","Properties":{"PrincipalId":"33333333-3333-3333-3333-333333333333","RoleDefinitionId":"/subscriptions/00000000-0000-0000-0000-000000000000/providers
                           /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"}}
 
+```
+
+If you are using a service principal to create role assignments, the Caller property will be an object ID. You can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) to get information about the service principal.
+
+```Example
+Caller                  : 44444444-4444-4444-4444-444444444444
+EventTimestamp          : 6/4/2020 9:43:08 PM
+$_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
+Properties              : 
+                          statusCode     : Created
+                          serviceRequestId: 55555555-5555-5555-5555-555555555555
+                          category       : Administrative
 ```
 
 ## Azure CLI

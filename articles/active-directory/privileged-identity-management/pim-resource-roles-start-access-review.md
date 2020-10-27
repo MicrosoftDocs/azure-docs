@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: pim
 ms.date: 11/08/2019
 ms.author: curtand
@@ -25,7 +25,7 @@ This article describes how to create one or more access reviews for privileged A
 
 ## Prerequisites
 
-[Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator)
 
 ## Open access reviews
 

@@ -5,10 +5,10 @@ services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice:
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Query CSV files
@@ -21,6 +21,72 @@ In this article, you'll learn how to query a single CSV file using SQL on-demand
 - Non-quoted and quoted values, and escaping characters
 
 All of the above variations will be covered below.
+
+## Quickstart example
+
+`OPENROWSET` function enables you to read the content of CSV file by providing the URL to your file.
+
+### Read a csv file
+
+The easiest way to see to the content of your `CSV` file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and 2.0 `PARSER_VERSION`. If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using the query like the one shown in the following example:
+
+```sql
+select top 10 *
+from openrowset(
+    bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    format = 'csv',
+    parser_version = '2.0',
+    firstrow = 2 ) as rows
+```
+
+Option `firstrow` is used to skip the first row in the CSV file that represents header in this case. Make sure that you can access this file. If your file is protected with SAS key or custom identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+
+### Data source usage
+
+Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage:
+
+```sql
+create external data source covid
+with ( location = 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases' );
+```
+
+Once you create a data source, you can use that data source and the relative path to the file in `OPENROWSET` function:
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.csv',
+        data_source = 'covid',
+        format = 'csv',
+        parser_version ='2.0',
+        firstrow = 2
+    ) as rows
+```
+
+If a data source is protected with SAS key or custom identity you can configure [data source with database scoped credential](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
+
+### Explicitly specify schema
+
+`OPENROWSET` enables you to explicitly specify what columns you want to read from the file using `WITH` clause:
+
+```sql
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.csv',
+        data_source = 'covid',
+        format = 'csv',
+        parser_version ='2.0',
+        firstrow = 2
+    ) with (
+        date_rep date 1,
+        cases int 5,
+        geo_id varchar(6) 8
+    ) as rows
+```
+
+The numbers after a data type in the `WITH` clause represent column index in the CSV file.
+
+In the following sections you can see how to query various types of CSV files.
 
 ## Prerequisites
 
@@ -143,7 +209,7 @@ WHERE
 > [!NOTE]
 > This query would return the same results if you omitted the FIELDQUOTE parameter since the default value for FIELDQUOTE is a double-quote.
 
-## Escaping characters
+## Escape characters
 
 The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escape char used for the field delimiter (comma) within values. Note the different location of the file as compared to the other examples.
 
@@ -175,6 +241,37 @@ WHERE
 > [!NOTE]
 > This query would fail if ESCAPECHAR is not specified since the comma in "Slov,enia" would be treated as field delimiter instead of part of the country/region name. "Slov,enia" would be treated as two columns. Therefore, the particular row would have one column more than the other rows, and one column more than you defined in the WITH clause.
 
+### Escape quoting characters
+
+The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escaped double quote char within values. Note the different location of the file as compared to the other examples.
+
+File preview:
+
+![The following query shows how to read a file with a header row, with a Unix-style new line, comma-delimited columns, and an escaped double quote char within values.](./media/query-single-csv-file/population-unix-hdr-escape-quoted.png)
+
+```sql
+SELECT *
+FROM OPENROWSET(
+        BULK 'csv/population-unix-hdr-escape-quoted/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIELDTERMINATOR =',',
+        ROWTERMINATOR = '0x0a',
+        FIRSTROW = 2
+    )
+    WITH (
+        [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+        [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+        [year] smallint,
+        [population] bigint
+    ) AS [r]
+WHERE
+    country_name = 'Slovenia';
+```
+
+> [!NOTE]
+> The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
+
 ## Tab-delimited files
 
 The following query shows how to read a file with a header row, with a Unix-style new line, and tab-delimited columns. Note the different location of the file as compared to the other examples.
@@ -204,7 +301,7 @@ WHERE
     AND year = 2017
 ```
 
-## Returning subset of columns
+## Return a subset of columns
 
 So far, you've specified the CSV file schema using WITH and listing all columns. You can only specify columns you actually need in your query by using an ordinal number for each column needed. You'll also omit columns of no interest.
 

@@ -10,7 +10,7 @@ ms.date: 05/29/2020
 
 # Create an integration service environment (ISE) by using the Logic Apps REST API
 
-This article shows how to create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) through the Logic Apps REST API for scenarios where your logic apps and integration accounts need access to an [Azure virtual network](../virtual-network/virtual-networks-overview.md). An ISE is an isolated environment that uses dedicated storage and other resources that are kept separate from the "global" multi-tenant Logic Apps service. This separation also reduces any impact that other Azure tenants might have on your apps' performance. An ISE also provides you with your own static IP addresses. These IP addresses are separate from the static IP addresses that are shared by the logic apps in the public, multi-tenant service.
+This article shows how to create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) through the Logic Apps REST API for scenarios where your logic apps and integration accounts need access to an [Azure virtual network](../virtual-network/virtual-networks-overview.md). An ISE is a dedicated environment that uses dedicated storage and other resources that are kept separate from the "global" multi-tenant Logic Apps service. This separation also reduces any impact that other Azure tenants might have on your apps' performance. An ISE also provides you with your own static IP addresses. These IP addresses are separate from the static IP addresses that are shared by the logic apps in the public, multi-tenant service.
 
 You can also create an ISE by using the [sample Azure Resource Manager quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) or by using the [Azure portal](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
@@ -60,7 +60,7 @@ In the request header, include these properties:
 
 ## Request body
 
-Here is the request body syntax, which describes the properties to use when you create your ISE. To create an ISE that permits using a self-signed certificate that's installed at the `TrustedRoot` location, include the `certificates` object inside the ISE definition's `properties` section. For an existing ISE, you can send a PATCH request for only the `certificates` object. For more information about using self-signed certificates, see also [HTTP connector - Self-signed certificates](../connectors/connectors-native-http.md#self-signed).
+Here is the request body syntax, which describes the properties to use when you create your ISE. To create an ISE that permits using a self-signed certificate that's installed at the `TrustedRoot` location, include the `certificates` object inside the ISE definition's `properties` section. For an existing ISE, you can send a PATCH request for only the `certificates` object. For more information about using self-signed certificates, see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ```json
 {

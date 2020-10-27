@@ -1,10 +1,10 @@
 ---
 title: Azure Management Overview - Azure Governance
 description: Overview of the areas of management for Azure applications and resources with links to content on Azure management tools.
-ms.date: 05/22/2020
+ms.date: 09/09/2020
 ms.topic: overview
 ---
-# Overview of Management services in Azure
+# What are the Azure Management areas?
 
 Governance in Azure is one aspect of Azure Management. This article covers the different areas of
 management for deploying and maintaining your resources in Azure.
@@ -20,7 +20,9 @@ any application or resource. These different areas can be thought of as a lifecy
 required in continuous succession over the lifespan of a resource. This resource lifecycle starts
 with the initial deployment, through continued operation, and finally when retired.
 
-:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Disciplines of Management in Azure" border="false":::
+:::image type="complex" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Diagram of the disciplines of Management in Azure." border="false":::
+   Diagram that shows the Migrate, Secure, Protect, Monitor, Configure, and Govern elements of the wheel of services that support Management and Governance in Azure. Secure has Security management and Threat protection as sub items. Protect has Backup and Disaster recovery as sub items. Monitor has App, Infra and network monitoring, and Log Analytics and Diagnostics as sub items. Configure has Configuration, Update management, Automation, and Scripting as sub items. And Govern has Policy management and Cost management as sub items.
+:::image-end:::
 
 No single Azure service completely fills the requirements of a particular management area. Instead,
 each is realized by several services working together. Some services, such as Application Insights,
@@ -37,7 +39,7 @@ Monitoring is the act of collecting and analyzing data to audit the performance,
 availability of your resources. An effective monitoring strategy helps you understand the operation
 of components and to increase your uptime with notifications. Read an overview of Monitoring that
 covers the different services used at [Monitoring Azure applications and
-resources](../monitoring/monitoring-overview.md).
+resources](../azure-monitor/overview.md).
 
 ## Configure
 
@@ -62,7 +64,7 @@ to track cloud usage and expenditures for your Azure resources and other cloud p
 Manage the security of your resources and data. A security program involves assessing threats,
 collecting and analyzing data, and compliance of your applications and resources. Security
 monitoring and threat analysis are provided by [Azure Security
-Center](../security-center/security-center-intro.md), which includes unified security management and
+Center](../security-center/security-center-introduction.md), which includes unified security management and
 advanced threat protection across hybrid cloud workloads. See [Introduction to Azure
 Security](../security/fundamentals/overview.md) for comprehensive information and guidance on
 securing Azure resources.
@@ -71,7 +73,7 @@ securing Azure resources.
 
 Protection refers to keeping your applications and data available, even with outages that are beyond
 your control. Protection in Azure is provided by two services. [Azure
-Backup](../backup/backup-introduction-to-azure-backup.md) provides backup and recovery of your data,
+Backup](../backup/backup-overview.md) provides backup and recovery of your data,
 either in the cloud or on-premises. [Azure Site
 Recovery](../site-recovery/site-recovery-overview.md) provides business continuity and immediate
 recovery during a disaster.
@@ -79,9 +81,16 @@ recovery during a disaster.
 ## Migrate
 
 Migration refers to transitioning workloads currently running on-premises to the Azure cloud.
-[Azure Migrate](../migrate/migrate-overview.md) is a service that helps you assess the migration
+[Azure Migrate](../migrate/migrate-services-overview.md) is a service that helps you assess the migration
 suitability of on-premises virtual machines to Azure. Azure Site Recovery migrates virtual machines
 [from on-premises](../site-recovery/migrate-tutorial-on-premises-azure.md) or [from Amazon Web
 Services](../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database
 Migration](../dms/dms-overview.md) assists you in migrating database sources to Azure Data
 platforms.
+
+## Next Steps
+
+To learn more about Azure Governance, see these articles:
+
+- See the [Azure Governance hub](./index.yml).
+- See [Governance in the Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/govern/)

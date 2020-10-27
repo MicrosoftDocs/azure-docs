@@ -5,7 +5,7 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 Learn how to manage access control to workspaces, data, and pipelines in an Azure Synapse Analytics workspace (preview).
 
 > [!NOTE]
-> For GA, RBAC will be more developed through the introduction of Synapse-specific Azure RBAC roles
+> For GA, Azure RBAC will be more developed through the introduction of Synapse-specific Azure roles
 
 ## Access Control for Workspace
 
@@ -45,7 +45,7 @@ When you provisioned your workspace, you had to pick an [Azure Data Lake Storage
 1. Open the [Azure portal](https://portal.azure.com)
 2. Navigate to the Azure Data Lake Storage Gen2 account
 3. Navigate to container (filesystem) you picked for the Azure Synapse workspace
-4. Click **Access Control (IAM)**
+4. Select **Access Control (IAM)**
 5. Assign the following roles:
    1. **Reader** role to:  `Synapse_WORKSPACENAME_Users`
    2. **Storage Blob Data Owner** role to:  `Synapse_WORKSPACENAME_Admins`
@@ -59,17 +59,17 @@ When you provisioned your workspace, you had to pick an [Azure Data Lake Storage
 
 1. Go to the [**Azure Synapse Web UI**](https://web.azuresynapse.net)
 2. Go to **Manage**  > **Security** > **Access control**
-3. Click **Add Admin**, and select `Synapse_WORKSPACENAME_Admins`
+3. Select **Add Admin**, and select `Synapse_WORKSPACENAME_Admins`
 
 ### Step 4: Configure SQL Admin Access for the workspace
 
 1. Go to the [Azure portal](https://portal.azure.com)
 2. Navigate to your workspace
 3. Go to **Settings** > **Active Directory admin**
-4. Click **Set Admin**
+4. Select **Set Admin**
 5. Select `Synapse_WORKSPACENAME_Admins`
-6. click **Select**
-7. click **Save**
+6. Choose **Select**
+7. Select **Save**
 
 > [!NOTE]
 > WORKSPACENAME - you should replace this part with your actual workspace name.
@@ -164,14 +164,7 @@ To grant access to a user to a **single** SQL Database, follow these steps:
 > *db_datareader* and *db_datawriter* can work for read/write permissions if granting *db_owner* permission is undesired.
 > For a Spark user to read and write directly from Spark into/from a SQL pool, *db_owner* permission is required.
 
-After creating the users, validate that SQL on-demand can query the storage account:
-
-- Run the following command targeting the **master** database of SQL on-demand:
-
-    ```sql
-    CREATE CREDENTIAL [https://<storageaccountname>.dfs.core.windows.net]
-    WITH IDENTITY='User Identity';
-    ```
+After creating the users, validate that SQL on-demand can query the storage account.
 
 ## Access control to workspace pipeline runs
 

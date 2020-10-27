@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues with creating policy definitions, the various SDK, and the add-on for Kubernetes.
-ms.date: 05/22/2020
+ms.date: 10/05/2020
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors using Azure Policy
@@ -27,8 +27,8 @@ The location of error details depends on the action that causes the error.
 
 #### Issue
 
-Azure Policy uses [aliases](../concepts/definition-structure.md#aliases) to map to Resource Manager
-properties.
+Azure Policy uses [aliases](../concepts/definition-structure.md#aliases) to map to Azure Resource
+Manager properties.
 
 #### Cause
 
@@ -62,7 +62,7 @@ become available in Azure portal or SDK. To start a new evaluation scan with Azu
 REST API, see
 [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 
-### Scenario: Evaluation not as expected
+### Scenario: Compliance not as expected
 
 #### Issue
 
@@ -76,15 +76,32 @@ operate as intended.
 
 #### Resolution
 
-- For a non-compliant resource that was expected to be compliant, start by
-  [determining reasons for non-compliance](../how-to/determine-non-compliance.md). The comparison of
-  the definition to the evaluated property value indicates why a resource was non-compliant.
-- For a compliant resource that was expected to be non-compliant, read the policy definition
-  condition by condition and evaluate against the resources properties. Validate that logical
-  operators are grouping the right conditions together and that your conditions aren't inverted.
+Follow these steps to troubleshoot your policy definition:
 
-If compliance for a policy assignment shows `0/0` resources, no resources were determined to be
-applicable within the assignment scope. Check both the policy definition and the assignment scope.
+1. First, wait the appropriate amount of time for an evaluation to complete and compliance results
+   to become available in Azure portal or SDK. To start a new evaluation scan with Azure PowerShell
+   or REST API, see
+   [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Check that the assignment parameters and assignment scope are set correctly.
+1. Check the [policy definition mode](../concepts/definition-structure.md#mode):
+   - Mode 'all' for all resource types.
+   - Mode 'indexed' if the policy definition checks for tags or location.
+1. Check that the scope of the resource isn't
+   [excluded](../concepts/assignment-structure.md#excluded-scopes) or
+   [exempt](../concepts/exemption-structure.md).
+1. If compliance for a policy assignment shows `0/0` resources, no resources were determined to be
+   applicable within the assignment scope. Check both the policy definition and the assignment
+   scope.
+1. For a non-compliant resource that was expected to be compliant, check
+   [determining reasons for non-compliance](../how-to/determine-non-compliance.md). The comparison
+   of the definition to the evaluated property value indicates why a resource was non-compliant.
+   - If the **target value** is wrong, revise the policy definition.
+   - If the **current value** is wrong, validate the resource payload through `resources.azure.com`.
+1. Check [Troubleshoot: Enforcement not as expected](#scenario-enforcement-not-as-expected) for
+   other common issues and solutions.
+
+If you still have an issue with your duplicated and customized built-in policy definition or custom
+definition, create a support ticket under **Authoring a policy** to route the issue correctly.
 
 ### Scenario: Enforcement not as expected
 
@@ -97,14 +114,33 @@ A resource that's expected to be acted on by Azure Policy isn't and there's no e
 
 The policy assignment has been configured for
 [enforcementMode](../concepts/assignment-structure.md#enforcement-mode) of _Disabled_. While
-enforcement mode is disabled, the policy effect isn't enforced and there is no entry in the Activity
+enforcement mode is disabled, the policy effect isn't enforced and there's no entry in the Activity
 log.
 
 #### Resolution
 
-Update **enforcementMode** to _Enabled_. This change lets Azure Policy act on the resources in this
-policy assignment and send entries to Activity log. If **enforcementMode** is already enabled, see
-[Evaluation not as expected](#scenario-evaluation-not-as-expected) for courses of action.
+Follow these steps to troubleshoot your policy assignment's enforcement:
+
+1. First, wait the appropriate amount of time for an evaluation to complete and compliance results
+   to become available in Azure portal or SDK. To start a new evaluation scan with Azure PowerShell
+   or REST API, see
+   [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Check that the assignment parameters and assignment scope are set correctly and that
+   **enforcementMode** is _Enabled_. 
+1. Check the [policy definition mode](../concepts/definition-structure.md#mode):
+   - Mode 'all' for all resource types.
+   - Mode 'indexed' if the policy definition checks for tags or location.
+1. Check that the scope of the resource isn't
+   [excluded](../concepts/assignment-structure.md#excluded-scopes) or
+   [exempt](../concepts/exemption-structure.md).
+1. Verify the resource payload matches the policy logic. This can be done by
+   [capturing a HAR trace](../../../azure-portal/capture-browser-trace.md) or reviewing the ARM
+   template properties.
+1. Check [Troubleshoot: Compliance not as expected](#scenario-compliance-not-as-expected) for other
+   common issues and solutions.
+
+If you still have an issue with your duplicated and customized built-in policy definition or custom
+definition, create a support ticket under **Authoring a policy** to route the issue correctly.
 
 ### Scenario: Denied by Azure Policy
 
@@ -122,9 +158,9 @@ are prevented from being created or updated.
 
 The error message from a deny policy assignment includes the policy definition and policy assignment
 IDs. If the error information in the message is missed, it's also available in the
-[Activity log](../../../azure-monitor/platform/activity-log-view.md). Use this information to get
-more details to understand the resource restrictions and adjust the resource properties in your
-request to match allowed values.
+[Activity log](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Use this
+information to get more details to understand the resource restrictions and adjust the resource
+properties in your request to match allowed values.
 
 ## Template errors
 
@@ -132,9 +168,9 @@ request to match allowed values.
 
 #### Issue
 
-Azure Policy supports a number of Resource Manager template functions and functions that are only
-available in a policy definition. Resource Manager processes these functions as part of a deployment
-instead of as part of a policy definition.
+Azure Policy supports a number of Azure Resource Manager template (ARM template) functions and
+functions that are only available in a policy definition. Resource Manager processes these functions
+as part of a deployment instead of as part of a policy definition.
 
 #### Cause
 
@@ -188,13 +224,37 @@ Follow the directions to
 [remove the Azure Policy for Kubernetes add-on](../concepts/policy-for-kubernetes.md#remove-the-add-on),
 then rerun the `helm install azure-policy-addon` command.
 
+### Scenario: Azure virtual machine user-assigned identities are replaced by system-assigned managed identities
+
+#### Issue
+
+After assigning Guest Configuration policy initiatives to audit settings inside machines, user-assigned managed identities
+that were assigned to the machine are no longer assigned. Only a system-assigned managed identity is
+assigned.
+
+#### Cause
+
+The policy definitions previously used in Guest Configuration DeployIfNotExists definitions ensured that a system-assigned
+identity is assigned to the machine but also removed user-assigned identity assignments.
+
+#### Resolution
+
+The definitions that previously caused this issue appear as \[Deprecated\] and are replaced by policy definitions that manage
+prerequisites without removing user-assigned managed identity. A manual step is required. Delete any existing
+policy assignments that are marked \[Deprecated\] and replace them with the updated prerequisite policy initiative
+and policy definitions that have the same name as the original.
+
+For a detailed narrative, see the following blog post:
+
+[Important change released for Guest Configuration audit policies](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
+
 ## Next steps
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following
 channels for more support:
 
 - Get answers from experts through
-  [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-policy.html).
+  [Microsoft Q&A](/answers/topics/azure-policy.html).
 - Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure
   account for improving customer experience by connecting the Azure community to the right
   resources: answers, support, and experts.

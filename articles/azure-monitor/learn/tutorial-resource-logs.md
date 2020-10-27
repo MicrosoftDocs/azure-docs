@@ -79,9 +79,9 @@ Data is retrieved from a Log Analytics workspace using a log query written in Ku
     > [!NOTE]
     > If you opened Logs from the Azure Monitor menu, the scope would be set to the Log Analytics workspace. In this case, any queries will include all records in the workspace.
    
-    ![Logs](media/tutorial-resource-logs/logs.png)
+    ![Screenshot shows Logs for a logic app displaying a new query with the logic app name highlighted.](media/tutorial-resource-logs/logs.png)
 
-4. The service shown in the example writes resource logs to the **AzureDiagnostics** table, but other services may write to other tables. See [Supported services, schemas, and categories for Azure Resource Logs](../platform/diagnostic-logs-schema.md) for tables used by different Azure services.
+4. The service shown in the example writes resource logs to the **AzureDiagnostics** table, but other services may write to other tables. See [Supported services, schemas, and categories for Azure Resource Logs](../platform/resource-logs-schema.md) for tables used by different Azure services.
 
     > [!NOTE]
     > Multiple services write resource logs to the AzureDiagnostics table. If you start Log Analytics from the Azure Monitor menu, then you would need to add a `where` statement with the `ResourceProvider` column to specify your particular service. When you start Log Analytics from a resource's menu, then the scope is set to only records from this resource so this column isn't required. See the service's documentation for sample queries.

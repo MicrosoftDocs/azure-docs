@@ -1,7 +1,7 @@
 ---
 title: "Create a Kubernetes dev space: Visual Studio & .NET Core"
 services: azure-dev-spaces
-ms.custom: vs-azure
+ms.custom: vs-azure, devx-track-azurecli, devx-track-csharp
 ms.workload: azure-vs
 ms.date: 07/09/2018
 ms.topic: tutorial
@@ -10,6 +10,8 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers,
 ---
 # Create a Kubernetes dev space: Visual Studio and .NET Core with Azure Dev Spaces
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+
 In this guide, you will learn how to:
 
 - Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.
@@ -17,7 +19,7 @@ In this guide, you will learn how to:
 - Independently develop two separate services, and used Kubernetes' DNS service discovery to make a call to another service.
 - Productively develop and test your code in a team environment.
 
-> [!Note]
+> [!NOTE]
 > **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section.
 
 ## Install the Azure CLI
@@ -30,7 +32,7 @@ Sign in to Azure. Type the following command in a terminal window:
 az login
 ```
 
-> [!Note]
+> [!NOTE]
 > If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 
 #### If you have multiple Azure subscriptions...
@@ -85,31 +87,31 @@ In this section, you'll create an ASP.NET Core web app and get it running in a c
 
 From within Visual Studio, create a new project. Currently, the project must be an **ASP.NET Core Web Application**. Name the project '**webfrontend**'.
 
-![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
+![The "New Project" dialog box shows creation of a C sharp web application named "webfrontend" in location C:\Source\Repos. The "Solution" drop-down list shows "Create new solution", and the "Create directory for solution" check box is checked.](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
 Select the **Web Application (Model-View-Controller)** template and be sure you're targeting **.NET Core** and **ASP.NET Core 2.0** in the two dropdowns at the top of the dialog. Click **OK** to create the project.
 
-![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
+![In dialog box "NEW A S P dot NET Core Web Application", two drop-down list boxes show "dot NET Core" and "A S P dot NET Core 2 point 0". In an array of project template buttons below the list boxes, the "Web Application (Model-View-Controller)" template is selected. The "Enable Docker Support" check box is not checked.](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
 
 ### Enable Dev Spaces for an AKS cluster
 
 With the project you just created, select **Azure Dev Spaces** from the launch settings dropdown, as shown below.
 
-![](media/get-started-netcore-visualstudio/LaunchSettings.png)
+![The drop-down list box is at the top of a window labeled Microsoft Visual Studio Int Preview. "Azure Dev Spaces" is selected.](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
 In the dialog that is displayed next, make sure you are signed in with the appropriate account, and then either select an existing Kubernetes cluster.
 
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.PNG)
+![The Azure Dev Spaces dialog box has these boxes: "Subscription," "Azure Kubernetes Service Cluster," and "Space".](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.PNG)
 
 Leave the **Space** dropdown defaulted to `default` for now. Later, you'll learn more about this option. Check the **Publicly Accessible** checkbox so the web app will be accessible via a public endpoint. This setting isn't required, but it will be helpful to demonstrate some concepts later in this walkthrough. But don’t worry, in either case you will be able to debug your website using Visual Studio.
 
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
+![The Publicly Accessible check box is checked.](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
 
 Click **OK** to select or create the cluster.
 
 If you choose a cluster that hasn't been enabled to work with Azure Dev Spaces, you'll see a message asking if you want to configure it.
 
-![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
+![The message reads: "Add Azure Dev Spaces Resource? The selected A K S cluster must be configured to use Azure Dev Spaces before it can be used. Would you like to do that?" There are "O K" and "Cancel" buttons.](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
 Choose **OK**.
 
@@ -118,9 +120,9 @@ Choose **OK**.
 
  A background task will be started to accomplish this. It will take a number of minutes to complete. To see if it's still being created, hover your pointer over the **Background tasks** icon in the bottom left corner of the status bar, as shown in the following image.
 
-![](media/get-started-netcore-visualstudio/BackgroundTasks.PNG)
+![The pop-up window that appears on hover shows "Creating 'My A K S' in resource group."](media/get-started-netcore-visualstudio/BackgroundTasks.PNG)
 
-> [!Note]
+> [!NOTE]
 > Until the dev space is successfully created you cannot debug your application.
 
 ### Look at the files added to project
@@ -132,7 +134,7 @@ You will see a file named `Dockerfile` has been added. This file has information
 
 Lastly, you will see a file named `azds.yaml`, which contains development-time configuration that is needed by the dev space.
 
-![](media/get-started-netcore-visualstudio/ProjectFiles.png)
+![The file "a z d s dot yaml" appears in the "webfrontend" solution, in the Solution Explorer window.](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
 ## Debug a container in Kubernetes
 Once the dev space is successfully created, you can debug the application. Set a breakpoint in the code, for example on line 20 in the file `HomeController.cs` where the `Message` variable is set. Click **F5** to start debugging. 
@@ -173,8 +175,10 @@ Refresh the web app in the browser, and go to the About page. You should see you
 
 ## Next steps
 
+Learn more about how Azure Dev Spaces works.
+
 > [!div class="nextstepaction"]
-> [Learn about multi-service development](multi-service-netcore-visualstudio.md)
+> [How Azure Dev Spaces works](how-dev-spaces-works.md)
 
 
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

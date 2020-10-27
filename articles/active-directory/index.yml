@@ -13,7 +13,7 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 05/29/2020
+  ms.date: 10/22/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -40,17 +40,29 @@ highlightedContent:
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
+    - title: Partner application support
+      links:
+        - url: ./saas-apps/tutorial-list.md
+          itemType: tutorial
+          text: Follow these tutorials to integrate your cloud-enabled SaaS apps with Azure AD
+        - url: https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx
+          itemType: get-started
+          text: Submit your app request to get integrated into the Azure AD Gallery
+      footerLink:
+        url: ./manage-apps/index.yml
+        text: See more
+
     - title: Application management
       links:
-        - url: ./manage-apps/what-is-single-sign-on.md
-          itemType: concept
-          text: What is single sign-on (SSO)?
-        - url: ./manage-apps/configure-single-sign-on-non-gallery-applications.md
-          itemType: concept
-          text: Configure SAML-based SSO
-        - url: ./manage-apps/application-proxy.md
-          itemType: concept
-          text: Application Proxy for on-premises apps
+        - url: ./manage-apps/what-is-application-management.md
+          itemType: overview
+          text: What is application management?
+        - url: ./manage-apps/view-applications-portal.md
+          itemType: quickstart
+          text: View the apps that are using your tenant for identity management
+        - url: ./manage-apps/add-application-portal-setup-sso.md
+          itemType: quickstart
+          text: Set up SAML-based SSO
       footerLink:
         url: ./manage-apps/index.yml
         text: See more
@@ -147,17 +159,17 @@ conceptualContent:
 
     - title: Enterprise users
       links:
-        - url: ./users-groups-roles/groups-create-rule.md
+        - url: ./enterprise-users/groups-create-rule.md
           itemType: how-to-guide
           text:  Create a dynamic group
-        - url: ./users-groups-roles/groups-settings-v2-cmdlets.md
+        - url: ./enterprise-users/groups-settings-v2-cmdlets.md
           itemType: how-to-guide
           text:  PowerShell for Azure AD groups
-        - url: ./users-groups-roles/directory-service-limits-restrictions.md
+        - url: ./enterprise-users/directory-service-limits-restrictions.md
           itemType: reference
           text:  Azure AD service limits and restrictions
       footerLink:
-        url: ./users-groups-roles/index.yml
+        url: ./enterprise-users/index.yml
         text: See more
 
     - title: External Identities
@@ -278,6 +290,21 @@ conceptualContent:
           text:  Sign-in error codes reference
       footerLink:
         url: ./reports-monitoring/index.yml
+        text: See more
+
+    - title: Roles
+      links:
+        - url: ./roles/groups-assign-role.md
+          itemType: how-to-guide
+          text:  Assign a role to a cloud group
+        - url: ./roles/custom-create.md
+          itemType: how-to-guide
+          text:  Create a custom role
+        - url: ./roles/groups-view-assignments.md
+          itemType: reference
+          text:  View roles assigned to a group
+      footerLink:
+        url: ./roles/index.yml
         text: See more
 
 additionalContent:

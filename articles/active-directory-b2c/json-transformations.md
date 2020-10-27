@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -30,9 +30,11 @@ Use either claim values or constants to generate a JSON string. The path string 
 | InputParameter | Any string following dot notation | string | The JsonPath of the JSON where the constant string value will be inserted into. |
 | OutputClaim | outputClaim | string | The generated JSON string. |
 
+### Example 1
+
 The following example generates a JSON string based on the claim value of "email" and "otp" as well as constant strings.
 
-```XML
+```xml
 <ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
@@ -49,8 +51,6 @@ The following example generates a JSON string based on the claim value of "email
 </ClaimsTransformation>
 ```
 
-### Example
-
 The following claims transformation outputs a JSON string claim that will be the body of the request sent to SendGrid (a third-party email provider). The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties.
 
 - Input claims :
@@ -63,7 +63,7 @@ The following claims transformation outputs a JSON string claim that will be the
 - Output claim:
   - **requestBody**: JSON value
 
-```JSON
+```json
 {
   "personalizations": [
     {
@@ -86,6 +86,56 @@ The following claims transformation outputs a JSON string claim that will be the
 }
 ```
 
+### Example 2
+
+The following example generates a JSON string based on the claim values as well as constant strings.
+
+```xml
+<ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="customerEntity.email" />
+    <InputClaim ClaimTypeReferenceId="objectId" TransformationClaimType="customerEntity.userObjectId" />
+    <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="customerEntity.firstName" />
+    <InputClaim ClaimTypeReferenceId="surname" TransformationClaimType="customerEntity.lastName" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="customerEntity.role.name" DataType="string" Value="Administrator"/>
+    <InputParameter Id="customerEntity.role.id" DataType="long" Value="1"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="requestBody" TransformationClaimType="outputClaim"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+The following claims transformation outputs a JSON string claim that will be the body of the request sent to a REST API. The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. The values come from the InputClaims' values and the InputParameters' "Value" properties.
+
+- Input claims :
+  - **email**,  transformation claim type  **customerEntity.email**: "john.s@contoso.com"
+  - **objectId**, transformation claim type **customerEntity.userObjectId** "01234567-89ab-cdef-0123-456789abcdef"
+  - **objectId**, transformation claim type **customerEntity.firstName** "John"
+  - **objectId**, transformation claim type **customerEntity.lastName** "Smith"
+- Input parameter:
+  - **customerEntity.role.name**: "Administrator"
+  - **customerEntity.role.id** 1
+- Output claim:
+  - **requestBody**: JSON value
+
+```json
+{
+   "customerEntity":{
+      "email":"john.s@contoso.com",
+      "userObjectId":"01234567-89ab-cdef-0123-456789abcdef",
+      "firstName":"John",
+      "lastName":"Smith",
+      "role":{
+         "name":"Administrator",
+         "id": 1
+      }
+   }
+}
+```
+
 ## GetClaimFromJson
 
 Get a specified element from a JSON data.
@@ -98,7 +148,7 @@ Get a specified element from a JSON data.
 
 In the following example, the claims transformation extracted the `emailAddress` element from the JSON data: `{"emailAddress": "someone@example.com", "displayName": "Someone"}`
 
-```XML
+```xml
 <ClaimsTransformation Id="GetEmailClaimFromJson" TransformationMethod="GetClaimFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="customUserData" TransformationClaimType="inputJson" />
@@ -137,11 +187,11 @@ Get a list of specified elements from Json data.
 
 In the following example, the claims transformation extracts the following claims: email (string), displayName (string), membershipNum (int), active (boolean) and  birthdate (datetime) from the JSON data.
 
-```JSON
+```json
 [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value":true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
 ```
 
-```XML
+```xml
 <ClaimsTransformation Id="GetClaimsFromJson" TransformationMethod="GetClaimsFromJsonArray">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="jsonSourceClaim" TransformationClaimType="jsonSource" />
@@ -188,7 +238,7 @@ Gets a specified numeric (long) element from a JSON data.
 
 In the following example, the claims transformation extracts the `id` element from the JSON data.
 
-```JSON
+```json
 {
     "emailAddress": "someone@example.com",
     "displayName": "Someone",
@@ -196,7 +246,7 @@ In the following example, the claims transformation extracts the `id` element fr
 }
 ```
 
-```XML
+```xml
 <ClaimsTransformation Id="GetIdFromResponse" TransformationMethod="GetNumericClaimFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="exampleInputClaim" TransformationClaimType="inputJson" />
@@ -231,7 +281,7 @@ Gets the first element from a JSON data.
 
 In the following example, the claims transformation extracts the first element (given name) from the JSON data.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetGivenNameFromResponse" TransformationMethod="GetSingleItemFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="json" TransformationClaimType="inputJson" />
@@ -263,7 +313,7 @@ Gets the first element from a JSON data array.
 
 In the following example, the claims transformation extracts the first element (email address) from the JSON array  `["someone@example.com", "Someone", 6353399]`.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetEmailFromJson" TransformationMethod="GetSingleValueFromJsonArray">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userData" TransformationClaimType="inputJsonClaim" />
@@ -290,7 +340,7 @@ Converts XML data to JSON format.
 | InputClaim | xml | string | The ClaimTypes that are used by the claims transformation to convert the data from XML to JSON format. |
 | OutputClaim | json | string | The ClaimType that is produced after this ClaimsTransformation has been invoked, the data in JSON format. |
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertXmlToJson" TransformationMethod="XmlStringToJsonString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="intpuXML" TransformationClaimType="xml" />
@@ -306,7 +356,7 @@ In the following example, the claims transformation converts the following XML d
 #### Example
 Input claim:
 
-```XML
+```xml
 <user>
   <name>Someone</name>
   <email>someone@example.com</email>
@@ -315,7 +365,7 @@ Input claim:
 
 Output claim:
 
-```JSON
+```json
 {
   "user": {
     "name":"Someone",

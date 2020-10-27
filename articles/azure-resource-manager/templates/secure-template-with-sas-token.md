@@ -2,11 +2,14 @@
 title: Securely deploy template with SAS token
 description: Deploy resources to Azure with an Azure Resource Manager template that is protected by a SAS token. Shows Azure PowerShell and Azure CLI.
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 08/25/2020
 ---
 # Deploy private ARM template with SAS token
 
-When your Azure Resource Manager (ARM) template is located in a storage account, you can restrict access to the template to avoid exposing it publicly. You access a secured template by creating a shared access signature (SAS) token for the template, and providing that token during deployment. This article explains how to use Azure PowerShell or Azure CLI to deploy a template with a SAS token.
+When your Azure Resource Manager template (ARM template) is located in a storage account, you can restrict access to the template to avoid exposing it publicly. You access a secured template by creating a shared access signature (SAS) token for the template, and providing that token during deployment. This article explains how to use Azure PowerShell or Azure CLI to deploy a template with a SAS token.
+
+> [!IMPORTANT]
+> Instead of securing your template with a SAS token, consider using [template specs](template-specs.md). With template specs, you can share your templates with other users in your organization and manage access to the templates through Azure RBAC.
 
 ## Create storage account with secured container
 
@@ -104,6 +107,8 @@ New-AzResourceGroupDeployment `
 ```
 
 # [Azure CLI](#tab/azure-cli)
+
+The following example works with the Bash environment in Cloud Shell. Other environments might require different syntax to create the expiration time for the SAS token.
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)

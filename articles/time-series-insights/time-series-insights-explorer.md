@@ -1,50 +1,53 @@
 ---
-title: 'Explore data using the explorer - Azure Time Series Insights | Microsoft Docs'
-description: Learn how to use the Azure Time Series Insights explorer to view your IoT data.
+title: 'Explore data using the Explorer - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to use the Azure Time Series Insights Explorer to view your IoT data.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
 ---
 
-# Azure Time Series Insights explorer
+# Azure Time Series Insights Gen1 Explorer
 
-This article describes the features and options in general availability for the Azure Time Series Insights [explorer web app](https://insights.timeseries.azure.com/). The Time Series Insights explorer demonstrates the powerful data visualization capabilities provided by the service and can be accessed within your own environment.
+> [!CAUTION]
+> This is a Gen1 article.
 
-Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, which lets you quickly validate your IoT solution and avoid costly downtime to mission-critical devices. You can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time. The Time Series Insights explorer is currently in public preview.
+This article describes the features and options for the Azure Time Series Insights Gen1 [Explorer web app](https://insights.timeseries.azure.com/). The Azure Time Series Insights Explorer demonstrates the powerful data visualization capabilities provided by the service and can be accessed within your own environment.
+
+Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, which lets you quickly validate your IoT solution and avoid costly downtime to mission-critical devices. You can discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time.
 
 > [!TIP]
 > For a guided tour through the demonstration environment, read the [Azure Time Series Insights quickstart](time-series-quickstart.md).
 
 ## Video
 
-### Learn about querying data by using the Time Series Insights explorer. </br>
+### Learn about querying data by using the Azure Time Series Insights Explorer. </br>
 
 > [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 >[!NOTE]
->Play the preceding video <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Getting started with Time Series Insights by using an Azure IoT Solution Accelerator."</a>
+>Play the preceding video <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Getting started with Azure Time Series Insights by using an Azure IoT Solution Accelerator."</a>
 
 ## Prerequisites
 
-Before you can use Time Series Insights explorer, you must:
+Before you can use Azure Time Series Insights Explorer, you must:
 
-- Create a Time Series Insights environment. For more information, read [How to get started with Time Series Insights](./time-series-insights-get-started.md).
+- Create an Azure Time Series Insights environment. For more information, read [How to get started with Azure Time Series Insights](./time-series-insights-get-started.md).
 - [Provide access](time-series-insights-data-access.md) to your account in the environment.
 - Add an [IoT hub](time-series-insights-how-to-add-an-event-source-iothub.md) or [event hub](time-series-insights-how-to-add-an-event-source-eventhub.md) event source to it.
 
 ## Explore and query data
 
-Within minutes of connecting your event source to your Time Series Insights environment, you can explore and query your time series data.
+Within minutes of connecting your event source to your Azure Time Series Insights environment, you can explore and query your time series data.
 
-1. To start, open the [Time Series Insights explorer](https://insights.timeseries.azure.com/) in your web browser. On the left side of the window, select an environment. All environments that you have access to are listed in alphabetical order.
+1. To start, open the [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com/) in your web browser. On the left side of the window, select an environment. All environments that you have access to are listed in alphabetical order.
 
 1. After you select an environment, either use the **From** and **To** configurations at the top, or select and drag over the timespan you want. Select the magnifying glass in the upper-right corner, or right-click on the selected timespan and select **Search**.
 
@@ -52,7 +55,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
 1. The Azure cloud icon takes you to your environment in the Azure portal.
 
-   [![Time Series Insights environment selection](media/time-series-insights-explorer/tsi-ga-explorer-environments.png)](media/time-series-insights-explorer/tsi-ga-explorer-environments.png#lightbox)
+   [![Azure Time Series Insights environment selection](media/time-series-insights-explorer/tsi-ga-explorer-environments.png)](media/time-series-insights-explorer/tsi-ga-explorer-environments.png#lightbox)
 
 1. Next, a chart that shows a count of all events during the selected timespan is displayed. Here you have a number of controls:
 
@@ -75,7 +78,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
       - **Example queries**
 
-         [![Example GA queries](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
+         [![Example Gen1 queries](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 
 1. You can use the **Interval Size** slider tool to zoom in and out of intervals over the same timespan. The slider provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, which allow you to display and analyze granular, high-resolution cuts of your data. The slider's default starting point is set as the most optimal view of the data from your selection to balance resolution, query speed, and granularity.
 
@@ -103,23 +106,23 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
 1. Use the **heatmap** to quickly spot unique or anomalous data series in a given query. Only one search term can be visualized as a heatmap.
 
-    [![GA explorer heatmap charting ](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [Time Series Insights explorer heatmap charting](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
-1. When you explore events by selecting or right-clicking, the **EVENTS** panel is made available. Here, you can review all of your raw events and export your events as JSON or CSV files. Time Series Insights stores all raw data.
+1. When you explore events by selecting or right-clicking, the **EVENTS** panel is made available. Here, you can review all of your raw events and export your events as JSON or CSV files. Azure Time Series Insights stores all raw data.
 
     [![Events](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
 
 1. Select the **STATS** tab after you explore events to expose patterns and column stats.
 
-    - **Patterns**: This feature proactively surfaces the most statistically significant patterns in a selected data region. You don't have to look at thousands of events to understand what patterns require the most time and energy. With Time Series Insights, you can jump directly into these statistically significant patterns to continue conducting an analysis. This feature is also helpful for post-mortem investigations into historical data.
+    - **Patterns**: This feature proactively surfaces the most statistically significant patterns in a selected data region. You don't have to look at thousands of events to understand what patterns require the most time and energy. With Azure Time Series Insights, you can jump directly into these statistically significant patterns to continue conducting an analysis. This feature is also helpful for post-mortem investigations into historical data.
     - **Column Stats**: Column stats provide charts and tables that break down data from each column of the selected data series over the selected timespan.
 
       [![STATS column charting and options](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
 
-Now you've learned about the key features, configuration settings, and display options that are available in the Time Series Insights explorer web app.
+Now you've learned about the key features, configuration settings, and display options that are available in the Azure Time Series Insights explorer web app.
 
 ## Next steps
 
-- Learn how to [diagnose and solve problems](time-series-insights-diagnose-and-solve-problems.md) in your Time Series Insights environment.
+- Learn how to [diagnose and solve problems](time-series-insights-diagnose-and-solve-problems.md) in your Azure Time Series Insights environment.
 
 - Take the guided [Azure Time Series Insights quickstart](time-series-quickstart.md) tour.

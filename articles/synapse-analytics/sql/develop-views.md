@@ -5,7 +5,7 @@ services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020 
 ms.author: v-stazar 
 ms.reviewer: jrasnick
@@ -14,7 +14,7 @@ ms.reviewer: jrasnick
 # T-SQL views using Synapse SQL
 In this article, you'll find tips for using T-SQL views and developing solutions with Synapse SQL. 
 
-## Why use views?
+## Why use views
 
 Views can be used in a number of different ways to improve the quality of your solution.  This article highlights a few examples of how to enrich your solution with views and includes the limitations that need to be considered.
 

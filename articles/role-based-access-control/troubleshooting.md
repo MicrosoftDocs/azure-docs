@@ -10,11 +10,11 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/01/2020
+ms.topic: troubleshooting
+ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.custom: seohack1
+ms.custom: seohack1, devx-track-azurecli
 ---
 # Troubleshoot Azure RBAC
 
@@ -46,6 +46,22 @@ $ras.Count
 ## Problems with Azure role assignments
 
 - If you are unable to add a role assignment in the Azure portal on **Access control (IAM)** because the **Add** > **Add role assignment** option is disabled or because you get the permissions error "The client with object id does not have authorization to perform action", check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you are trying to assign the role.
+- If you are using a service principal to assign roles, you might get the error "Insufficient privileges to complete the operation." For example, let's say that you have a service principal that has been assigned the Owner role and you try to create the following role assignment as the service principal using Azure CLI:
+
+    ```azurecli
+    az login --service-principal --username "SPNid" --password "password" --tenant "tenantid"
+    az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
+    ```
+
+    If you get the error "Insufficient privileges to complete the operation", it is likely because Azure CLI is attempting to lookup the assignee identity in Azure AD and the service principal cannot read Azure AD by default.
+
+    There are two ways to potentially resolve this error. The first way is to assign the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role to the service principal so that it can read data in the directory.
+
+    The second way to resolve this error is to create the role assignment by using the `--assignee-object-id` parameter instead of `--assignee`. By using `--assignee-object-id`, Azure CLI will skip the Azure AD lookup. You will need to get the object ID of the user, group, or application that you want to assign the role to. For more information, see [Add or remove Azure role assignments using Azure CLI](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope).
+
+    ```azurecli
+    az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
+    ```
 
 ## Problems with custom roles
 
@@ -60,11 +76,11 @@ $ras.Count
 - You can only define one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview.
 - Custom roles with `DataActions` cannot be assigned at the management group scope.
 - Azure Resource Manager doesn't validate the management group's existence in the role definition's assignable scope.
-- For more information about custom roles and management groups, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
+- For more information about custom roles and management groups, see [Organize your resources with Azure management groups](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
 
 ## Transferring a subscription to a different directory
 
-- If you need steps for how to transfer a subscription to a different Azure AD directory, see [Transfer ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md).
+- If you need steps for how to transfer a subscription to a different Azure AD directory, see [Transfer an Azure subscription to a different Azure AD directory](transfer-subscription.md).
 - If you transfer a subscription to a different Azure AD directory, all role assignments are **permanently** deleted from the source Azure AD directory and are not migrated to the target Azure AD directory. You must re-create your role assignments in the target directory. You also have to manually recreate managed identities for Azure resources. For more information, see [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
 - If you are an Azure AD Global Administrator and you don't have access to a subscription after it was transferred between directories, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to get access to the subscription.
 
@@ -77,11 +93,17 @@ $ras.Count
 - If you get the permissions error "The client with object id does not have authorization to perform action over scope (code: AuthorizationFailed)" when you try to create a resource, check that you are currently signed in with a user that is assigned a role that has write permission to the resource at the selected scope. For example, to manage virtual machines in a resource group, you should have the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role on the resource group (or parent scope). For a list of the permissions for each built-in role, see [Azure built-in roles](built-in-roles.md).
 - If you get the permissions error "You don't have permission to create a support request" when you try to create or update a support ticket, check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Support/supportTickets/write` permission, such as [Support Request Contributor](built-in-roles.md#support-request-contributor).
 
+## Move resources with role assignments
+
+If you move a resource that has an Azure role assigned directly to the resource (or a child resource), the role assignment is not moved and becomes orphaned. After the move, you must re-create the role assignment. Eventually, the orphaned role assignment will be automatically removed, but it is a best practice to remove the role assignment before moving the resource.
+
+For information about how to move resources, see [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
 ## Role assignments with identity not found
 
 In the list of role assignments for the Azure portal, you might notice that the security principal (user, group, service principal, or managed identity) is listed as **Identity not found** with an **Unknown** type.
 
-![Web app resource group](./media/troubleshooting/unknown-security-principal.png)
+![Identity not found listed in Azure role assignments](./media/troubleshooting/unknown-security-principal.png)
 
 The identity might not be found for two reasons:
 
@@ -122,7 +144,7 @@ Similarly, if you list this role assignment using Azure CLI, you might see an em
 }
 ```
 
-It isn't a problem to leave these role assignments where the security principal has been deleted. If you like, you can remove these role assignments using steps that are similar to other role assignments. For information about how to remove role assignments, see [Azure portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment), or [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
+It isn't a problem to leave these role assignments where the security principal has been deleted. If you like, you can remove these role assignments using steps that are similar to other role assignments. For information about how to remove role assignments, see [Azure portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment), or [Azure CLI](role-assignments-cli.md#remove-role-assignment)
 
 In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you will get the error message: "The provided information does not map to a role assignment". The following output shows an example of the error message:
 

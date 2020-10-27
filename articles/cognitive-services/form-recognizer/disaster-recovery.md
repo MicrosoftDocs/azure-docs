@@ -35,12 +35,15 @@ The process for copying a custom model consists of the following steps:
 1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied. You'll get back a URL that you can query to track the progress of the operation.
 1. You'll use your source resource credentials to query the progress URL until the operation is a success. You can also query the new model ID in the target resource to get the status of the new model.
 
+> [!CAUTION]
+> The Copy API currently does not support model IDs for [composed custom models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose). Model compose is a preview feature in v2.1-preview.1 preview. 
+
 ## Generate Copy authorization request
 
 The following HTTP request gets copy authorization from your target resource. You'll need to enter the endpoint and key of your target resource as headers.
 
 ```
-POST https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/copyAuthorization HTTP/1.1
+POST https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/copyAuthorization HTTP/1.1
 Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
@@ -48,8 +51,8 @@ You'll get a `201\Created` response with a `modelId` value in the body. This str
 
 ```
 HTTP/1.1 201 Created
-Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/33f4d42c-cd2f-4e74-b990-a1aeafab5a5d
-{"modelId":"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d","accessToken":"1855fe23-5ffc-427b-aab2-e5196641502f","expirationDateTimeTicks":637233481531659440}
+Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/33f4d42c-cd2f-4e74-b990-a1aeafab5a5d
+{"modelId":"<your model ID>","accessToken":"<your access token>","expirationDateTimeTicks":637233481531659440}
 ```
 
 ## Start Copy operation
@@ -57,7 +60,7 @@ Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0
 The following HTTP request starts the Copy operation on the source resource. You'll need to enter the endpoint and key of your source resource as headers. Notice that the request URL contains the model ID of the source model you want to copy.
 
 ```
-POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copy HTTP/1.1
+POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/<your model ID>/copy HTTP/1.1
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
@@ -67,23 +70,33 @@ The body of your request needs to have the following format. You'll need to ente
 {
    "targetResourceId": "{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_ID}",  
    "targetResourceRegion": "{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_REGION_NAME}",
-   "copyAuthorization": {"modelId":"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d","accessToken":"1855fe23-5ffc-427b-aab2-e5196641502f","expirationDateTimeTicks":637233481531659440}
+   "copyAuthorization": {"modelId":"<your model ID>","accessToken":"<your access token>","expirationDateTimeTicks":637233481531659440}
 }
 ```
+
+> [!NOTE]
+> The Copy API transparently supports the [AEK/CMK](https://msazure.visualstudio.com/Cognitive%20Services/_wiki/wikis/Cognitive%20Services.wiki/52146/Customer-Managed-Keys) feature. This doesn't require any special treatment, but note that if you're copying between an unencrypted resource to an encrypted resource, you need to include the request header `x-ms-forms-copy-degrade: true`. If this header is not included, the copy operation will fail and return a `DataProtectionTransformServiceError`.
 
 You'll get a `202\Accepted` response with an Operation-Location header. This value is the URL that you'll use to track the progress of the operation. Copy it to a temporary location for the next step.
 
 ```
 HTTP/1.1 202 Accepted
-Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1
+Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1
 ```
+
+### Common errors
+
+|Error|Resolution|
+|:--|:--|
+| 400 / Bad Request with `"code:" "1002"` | Indicates validation error or badly formed copy request. Common issues include: a) Invalid or modified `copyAuthorization` payload. b) Expired value for `expirationDateTimeTicks` token (`copyAuhtorization` payload is valid for 24 hours). c) Invalid or unsupported `targetResourceRegion`. d) Invalid or malformed `targetResourceId` string.
+|
 
 ## Track Copy progress
 
 Track your progress by querying the **Get Copy Model Result** API against the source resource endpoint.
 
 ```
-GET https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1 HTTP/1.1
+GET https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1 HTTP/1.1
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
@@ -95,12 +108,22 @@ Content-Type: application/json; charset=utf-8
 {"status":"succeeded","createdDateTime":"2020-04-23T18:18:01.0275043Z","lastUpdatedDateTime":"2020-04-23T18:18:01.0275048Z","copyResult":{}}
 ```
 
+### Common errors
+
+|Error|Resolution|
+|:--|:--|
+|"errors":[{"code":"AuthorizationError",<br>"message":"Authorization failure due to <br>missing or invalid authorization claims."}]   | Occurs when the `copyAuthorization` payload or content is modified from what was returned by the `copyAuthorization` API. Ensure that the payload is the same exact content that was returned from the earlier `copyAuthorization` call.|
+|"errors":[{"code":"AuthorizationError",<br>"message":"Could not retrieve authorization <br>metadata. If this issue persists use a different <br>target model to copy into."}] | Indicates that the `copyAuthorization` payload is being reused with a copy request. A copy request that succeeds will not allow any further requests that use the same `copyAuthorization` payload. If you raise a separate error (like the ones noted below) and you subsequently retry the copy with the same authorization payload, this error gets raised. The resolution is to generate a new `copyAuthorization` payload and then reissue the copy request.|
+|"errors":[{"code":"DataProtectionTransformServiceError",<br>"message":"Data transfer request is not allowed <br>as it downgrades to a less secure data protection scheme. Refer documentation or contact your service administrator <br>for details."}]    | Occurs when copying between an `AEK` enabled resource to a non `AEK` enabled resource. To allow copying encrypted model to the target as unencrypted specify `x-ms-forms-copy-degrade: true` header with the copy request.|
+|"errors":[{"code":"ResourceResolverError",<br>"message":"Could not fetch information for Cognitive resource with Id '...'. Ensure the resource is valid and exists in the specified region 'westus2'.."}] | Indicates that the Azure resource indicated by the `targetResourceId` is not a valid Cognitive resource or does not exist. Verify and reissue the copy request to resolve this issue.|
+
+
 ### [Optional] Track the target model ID 
 
 You can also use the **Get Custom Model** API to track the status of the operation by querying the target model. Call this API using the target model ID that you copied down in the first step.
 
 ```
-GET https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/33f4d42c-cd2f-4e74-b990-a1aeafab5a5d HTTP/1.1
+GET https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/33f4d42c-cd2f-4e74-b990-a1aeafab5a5d HTTP/1.1
 Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
@@ -119,22 +142,22 @@ The following code snippets use cURL to make the API calls outlined in the steps
 ### Generate Copy authorization request
 
 ```bash
-curl -i -X POST "https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/copyAuthorization" -H "Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_API_KEY}" 
+curl -i -X POST "https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/copyAuthorization" -H "Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_API_KEY}" 
 ```
 
 ### Start Copy operation
 
 ```bash
-curl -i -X POST "https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/copyAuthorization" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_API_KEY}" --data-ascii "{ \"targetResourceId\": \"{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_ID}\",   \"targetResourceRegion\": \"{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_REGION_NAME}\", \"copyAuthorization\": "{\"modelId\":\"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d\",\"accessToken\":\"1855fe23-5ffc-427b-aab2-e5196641502f\",\"expirationDateTimeTicks\":637233481531659440}"}"
+curl -i -X POST "https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/copyAuthorization" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_API_KEY}" --data-ascii "{ \"targetResourceId\": \"{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_ID}\",   \"targetResourceRegion\": \"{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_REGION_NAME}\", \"copyAuthorization\": "{\"modelId\":\"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d\",\"accessToken\":\"1855fe23-5ffc-427b-aab2-e5196641502f\",\"expirationDateTimeTicks\":637233481531659440}"}"
 ```
 
 ### Track Copy progress
 
 ```bash
-curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v2.0-preview/custom/models/{SOURCE_MODELID}/copyResults/{RESULT_ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}"
+curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v2.0/custom/models/{SOURCE_MODELID}/copyResults/{RESULT_ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}"
 ```
 
 ## Next steps
 
 In this guide, you learned how to use the Copy API to back up your custom models to a secondary Form Recognizer resource. Next, explore the API reference docs to see what else you can do with Form Recognizer.
-* [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+* [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)

@@ -1,15 +1,15 @@
 ---
 title: Understand Azure AD Application Proxy connectors | Microsoft Docs
-description: Covers the basics about Azure AD Application Proxy connectors.
+description: Learn about the Azure AD Application Proxy connectors.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ---
@@ -156,8 +156,11 @@ If a connector is not connected to the service for several months, its certifica
 
 ```
 Import-module AppProxyPSModule
-Register-AppProxyConnector
+Register-AppProxyConnector -EnvironmentName "AzureCloud"
 ```
+
+For government, use `-EnvironmentName "AzureUSGovernment"`. For more details, see [Install Agent for the Azure Government Cloud](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
+
 To learn more about how to verify the certificate and troubleshoot problems see [Verify Machine and backend components support for Application Proxy trust certificate](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
 
 ## Under the hood

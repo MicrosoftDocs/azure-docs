@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Get image insights using the REST API and C# - Bing Visual Search"
 titleSuffix: Azure Cognitive Services
-description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
+description: Learn how to upload an image using the Bing Visual Search API and C#, and then get insights about the image.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,6 +11,7 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: scottwhi
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and C#

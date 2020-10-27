@@ -3,7 +3,7 @@ title: Get started with PowerShell
 description: A quick introduction to the Azure PowerShell cmdlets you can use to manage Batch resources.
 ms.topic: how-to
 ms.date: 01/15/2019
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 ---
 
 # Manage Batch resources with PowerShell cmdlets
@@ -16,7 +16,7 @@ This article is based on cmdlets in Az Batch module 1.0.0. We recommend that you
 
 ## Prerequisites
 
-* [Install and configure the Azure PowerShell module](/powershell/azure/overview). To install a specific Azure Batch module, such as a pre-release module, see the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
+* [Install and configure the Azure PowerShell module](/powershell/azure/). To install a specific Azure Batch module, such as a pre-release module, see the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
 
 * Run the **Connect-AzAccount** cmdlet to connect to your subscription (the Azure Batch cmdlets ship in the Azure Resource Manager module):
 
