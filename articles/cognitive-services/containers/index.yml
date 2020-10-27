@@ -10,7 +10,7 @@ metadata:
   manager: nitinme
   ms.service: cognitive-services
   ms.topic: landing-page
-  ms.date: 03/23/2020
+  ms.date: 10/27/2020
   ms.author: aahi
 
 landingContent:
@@ -19,9 +19,9 @@ landingContent:
     - linkListType: concept
       links:
         - text: What are Cognitive Services containers?
-          url: container-support.md
+          url: ../container-support.md
         - text: Frequently Asked Questions
-          url: faq.md
+          url: container-faq.md
         - text: Container image tags
           url: container-image-tags.md  
 - title: Container recipes 
