@@ -71,7 +71,7 @@ Learn how to [create a read replica in the Azure portal](howto-read-replicas-por
 
 ## Connect to a replica
 
-At creation, a replica inherits the firewall rules of the source server. Afterwards, these rules are independent from the the source server.
+At creation, a replica inherits the firewall rules of the source server. Afterwards, these rules are independent from the source server.
 
 The replica inherits the admin account from the source server. All user accounts on the source server are replicated to the read replicas. You can only connect to a read replica by using the user accounts that are available on the source server.
 

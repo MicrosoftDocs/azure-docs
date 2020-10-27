@@ -13,7 +13,7 @@ ms.date: 10/26/2020
 > [!IMPORTANT]
 > Read replicas in Azure Database for MySQL - Flexible Server is in preview.
 
-MySQL is one of the popular database engines for running internet-scale web and mobile applications. Many of our customers use it for for their online education services, video streaming services, digital payment solutions, e-commerce platforms, gaming services, news portals, government, and healthcare websites. These services are required to serve and scale as the traffic on the web or mobile application increases.
+MySQL is one of the popular database engines for running internet-scale web and mobile applications. Many of our customers use it for their online education services, video streaming services, digital payment solutions, e-commerce platforms, gaming services, news portals, government, and healthcare websites. These services are required to serve and scale as the traffic on the web or mobile application increases.
 
 On the applications side, the application is typically developed in Java or php and migrated to run on Azure virtual machine scale sets or Azure App Services or are containerized to run on Azure Kubernetes Service (AKS). With virtual machine scale set, App Service or AKS as underlying infrastructure, application scaling is simplified by instantaneously provisioning new VMs and replicating the stateless components of applications to cater to the requests but often, database ends up being a bottleneck as centralized stateful component.
 
@@ -35,7 +35,7 @@ The read replica feature helps to improve the performance and scale of read-inte
 
 Common scenarios are:
 
-* Scaling read-workloads coming from the application by using lighweight connection proxy like [ProxySQL](https://aka.ms/ProxySQLLoadBalanceReplica) or using microservices based pattern to scale out your read queries coming from the application to read replicas
+* Scaling read-workloads coming from the application by using lightweight connection proxy like [ProxySQL](https://aka.ms/ProxySQLLoadBalanceReplica) or using microservices based pattern to scale out your read queries coming from the application to read replicas
 * BI or analytical reporting workloads can use read replicas as data source for reporting
 * For IoT or Manufacturing scenario where telemetry information is ingested into MySQL database engine while multiple read replicas are use for reporting of data
 
