@@ -89,7 +89,7 @@ Note the following:
 
 - You can move the map to view the exact location.
 - You can zoom into a specific location.
-- The heatmap has a supplementary grid to view the details of customer count, order count, normalized usage hours for the specific location.
+- The heatmap has a supplementary grid to view the details of customer count, order count, and normalized usage hours for the specific location.
 - You can search and select a country/region in the grid to zoom to the location in the map. Revert to the original view by pressing the **Home** button in the map.
 
 > [!NOTE]
