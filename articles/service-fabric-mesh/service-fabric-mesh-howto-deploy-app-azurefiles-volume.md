@@ -5,7 +5,7 @@ author: georgewallace
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: gwallace
-ms.custom: mvc, devcenter 
+ms.custom: mvc, devcenter , devx-track-azurecli
 ---
 
 # Mount an Azure Files based volume in a Service Fabric Mesh application 

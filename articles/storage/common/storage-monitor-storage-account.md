@@ -31,7 +31,7 @@ We recommend you review [Azure Monitor for Storage](../../azure-monitor/insights
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the storage account name to open the account dashboard.
 1. Select **Diagnostics** in the **MONITORING** section of the menu blade.
 
-    ![MonitoringOptions](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
+    ![Screenshot that highlights the Diagnostic settings (classic) option under the Monitoring (Classic) section.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 
 1. Select the **type** of metrics data for each **service** you wish to monitor, and the **retention policy** for the data. You can also disable monitoring by setting **Status** to **Off**.
 
