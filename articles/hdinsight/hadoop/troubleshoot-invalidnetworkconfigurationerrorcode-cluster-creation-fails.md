@@ -63,7 +63,7 @@ Azure Storage and SQL don't have fixed IP Addresses, so we need to allow outboun
 
     If there are routes defined, make sure that there are routes for IP addresses for the region where the cluster was deployed, and the **NextHopType** for each route is **Internet**. There should be a route defined for each required IP Address documented in the aforementioned article.
 
-## "Failed to establish an outbound connection from the cluster for the communication with the HDInsight resource provider. Please ensure that outbound connectivity is allowed.”
+## "Failed to establish an outbound connection from the cluster for the communication with the HDInsight resource provider. Please ensure that outbound connectivity is allowed."
 
 ### Issue
 
