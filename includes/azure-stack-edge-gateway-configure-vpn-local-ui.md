@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 01/18/2020
+ms.date: 10/27/2020
 ms.author: alkohli
 ---
 
@@ -10,7 +10,7 @@ Do the following steps in the local web UI of your device. This step takes about
 
 1. Go to **Configuration > VPN**. Select **Configure**.
 
-    ![Configure local UI 1](../articles/databox-online/media/azure-stack-edge-j-series-configure-vpn/configure-vpn-local-ui-1.png)
+    ![Configure local UI 1](../articles/databox-online/media/azure-stack-edge-pro-r-configure-vpn-powershell/configure-vpn-local-ui-1.png)
 
 2. In the **Configure VPN** blade:
 
@@ -25,19 +25,19 @@ Do the following steps in the local web UI of your device. This step takes about
     - For **IKE encryption method**, select **AES256**.
     - Select **Apply**.
 
-        ![Configure local UI 2](../articles/databox-online/media/azure-stack-edge-j-series-configure-vpn/configure-vpn-local-ui-2.png)
+        ![Configure local UI 2](../articles/databox-online/media/azure-stack-edge-pro-r-configure-vpn-powershell/configure-vpn-local-ui-2.png)
 
     For more information about the cryptographic algorithms supported, go to [About cryptographic requirements and Azure VPN gateways](../articles/vpn-gateway/vpn-gateway-about-compliance-crypto.md#ipsecike-policy-faq). 
 
 3. To upload the VPN route configuration file, select **Upload**. 
 
-    ![Configure local UI 3](../articles/databox-online/media/azure-stack-edge-j-series-configure-vpn/configure-vpn-local-ui-3.png)
+    ![Configure local UI 3](../articles/databox-online/media/azure-stack-edge-pro-r-configure-vpn-powershell/configure-vpn-local-ui-3.png)
 
     - Browse to the service tags *json* file that you downloaded on your local system in the previous step.
     - Select the region as the Azure region associated with the device, virtual network, and gateways.
     - Select **Apply**.
 
-        ![Configure local UI 4](../articles/databox-online/media/azure-stack-edge-j-series-configure-vpn/configure-vpn-local-ui-4.png)
+        ![Configure local UI 4](../articles/databox-online/media/azure-stack-edge-pro-r-configure-vpn-powershell/configure-vpn-local-ui-4.png)
     
     The upload takes about 7-8 minutes on the device.
 
@@ -47,5 +47,5 @@ Do the following steps in the local web UI of your device. This step takes about
     - Provide a valid IPv4 range and select **Add**. Repeat the steps to add other ranges.
     - Select **Apply**.
 
-        ![Configure local UI 5](../articles/databox-online/media/azure-stack-edge-j-series-configure-vpn/configure-vpn-local-ui-5.png)
+        ![Configure local UI 5](../articles/databox-online/media/azure-stack-edge-pro-r-configure-vpn-powershell/configure-vpn-local-ui-5.png)
 

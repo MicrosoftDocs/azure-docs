@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 01/18/2020
+ms.date: 10/27/2020
 ms.author: alkohli
 ---
 
@@ -12,7 +12,7 @@ To verify VPN, you can create a storage account that can only be accessed by the
 2. In the Azure portal, go to the storage account. 
 3. Go to **Firewalls and virtual networks**. In the right pane for **Allow access from**, choose **Selected networks**. In the **Secure our storage account with virtual networks**, choose **+ Add existing virtual network.**
 
-    ![Verify VPN 1](../articles/databox-online/media/azure-stack-edge-j-series-configure-vpn/verify-vpn-1.png)
+    ![Verify VPN 1](../articles/databox-online/media/azure-stack-edge-pro-r-configure-vpn-powershell/verify-vpn-1.png)
 
 4. In the **Add networks** blade:
 
@@ -21,15 +21,15 @@ To verify VPN, you can create a storage account that can only be accessed by the
     - In **Subnets**, choose the ***default*** and the *GatewaySubnet*. The service endpoints will be enabled for this virtual network/Subnet combinations. Enabling access takes up to 15 minutes to complete.
     - Select **Enable**.
 
-    ![Verify VPN 2](../articles/databox-online/media/azure-stack-edge-j-series-configure-vpn/verify-vpn-2.png)
+    ![Verify VPN 2](../articles/databox-online/media/azure-stack-edge-pro-r-configure-vpn-powershell/verify-vpn-2.png)
     
 4. Save **Settings**.
 
-    ![Verify VPN 3](../articles/databox-online/media/azure-stack-edge-j-series-configure-vpn/verify-vpn-3.png)
+    ![Verify VPN 3](../articles/databox-online/media/azure-stack-edge-pro-r-configure-vpn-powershell/verify-vpn-3.png)
 
 5. After settings are saved, you can see the subnets for which the virtual network is enabled.
 
-    ![Verify VPN 4](../articles/databox-online/media/azure-stack-edge-j-series-configure-vpn/verify-vpn-4.png)
+    ![Verify VPN 4](../articles/databox-online/media/azure-stack-edge-pro-r-configure-vpn-powershell/verify-vpn-4.png)
 
 5. To verify that data will now go only over VPN, follow these steps: 
     - Try accessing the storage account from an external network (outside of selected network). The storage account shouldn't be accessible. 
